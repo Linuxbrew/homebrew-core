@@ -16,7 +16,7 @@ class AbiComplianceChecker < Formula
 
   def install
     system "perl", "Makefile.pl", "-install", "--prefix=#{prefix}"
-    rm bin/"abi-compliance-checker.cmd"
+    rm bin/"abi-compliance-checker.cmd" if OS.mac?
   end
 
   test do
