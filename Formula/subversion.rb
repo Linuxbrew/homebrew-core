@@ -21,12 +21,7 @@ class Subversion < Formula
   option "with-perl", "Build Perl bindings"
   option "with-ruby", "Build Ruby bindings"
   option "with-gpg-agent", "Build with support for GPG Agent"
-  if OS.linux?
-    # serf does not build. See https://github.com/Linuxbrew/linuxbrew/issues/182
-    option "with-serf", "Build with the serf HTTP library"
-  else
-    option "without-serf", "Build without the serf HTTP library"
-  end
+  option "without-serf", "Build without the serf HTTP library"
 
   resource "serf" do
     url "https://serf.googlecode.com/svn/src_releases/serf-1.3.8.tar.bz2", :using => :curl
@@ -168,7 +163,8 @@ class Subversion < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "install"
+    # Fix ld: cannot find -lsvn_delta-1
+    ENV.deparallelize { system "make", "install" }
     bash_completion.install "tools/client-side/bash_completion" => "subversion"
 
     system "make", "tools"
