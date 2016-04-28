@@ -1,3 +1,4 @@
+# node: Build a bottle for Linuxbrew
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
@@ -48,6 +49,7 @@ class Node < Formula
   end
 
   def install
+    ENV.deparallelize # xxx to reduce memory usage below 4 GB for Circle
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
