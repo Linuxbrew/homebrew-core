@@ -26,6 +26,7 @@ class Apr < Formula
     system "./configure", "--prefix=#{libexec}"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
   end
 
   test do
