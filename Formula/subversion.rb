@@ -45,7 +45,10 @@ class Subversion < Formula
   unless OS.mac?
     depends_on "apr"
     depends_on "apr-util"
+    depends_on "expat"
+    depends_on "libmagic"
     depends_on "zlib"
+    depends_on "homebrew/dupes/krb5" => :recommended
   end
 
   # Other optional dependencies
