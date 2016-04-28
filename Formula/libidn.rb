@@ -1,3 +1,4 @@
+# libidn: Build a bottle for Linuxbrew
 class Libidn < Formula
   desc "International domain name library"
   homepage "https://www.gnu.org/software/libidn/"
