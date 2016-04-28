@@ -1,3 +1,4 @@
+# gdbm: Build a bottle for Linuxbrew
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
