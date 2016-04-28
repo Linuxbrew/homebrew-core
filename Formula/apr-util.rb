@@ -50,6 +50,7 @@ class AprUtil < Formula
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
   end
 
   test do
