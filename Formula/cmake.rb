@@ -20,12 +20,16 @@ class Cmake < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "bzip2" unless OS.mac?
   depends_on "curl" unless OS.mac?
+  depends_on "libidn" unless OS.mac?
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
   # For the GUI application please instead use brew install caskroom/cask/cmake.
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV.deparallelize if ENV["CIRCLECI"]
+
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
