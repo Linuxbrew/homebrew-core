@@ -23,7 +23,7 @@ class Webp < Formula
 
   depends_on "libpng"
   depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :optional
+  depends_on "libtiff" => (OS.mac? ? :optional : :recommended)
   depends_on "giflib" => :optional
 
   def install
