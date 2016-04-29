@@ -5,6 +5,7 @@ class Readline < Formula
   mirror "https://ftp.gnu.org/gnu/readline/readline-6.3.tar.gz"
   version "6.3.8"
   sha256 "56ba6071b9462f980c5a72ab0023893b65ba6debb4eeb475d7a563dc65cafd43"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any
