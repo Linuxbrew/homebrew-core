@@ -22,7 +22,7 @@ class Premake < Formula
       # Linking against stdc++-static causes a library not found error on 10.7
       inreplace "build/gmake.macosx/Premake4.make", "-lstdc++-static ", ""
     end
-    system "make", "-C", "build/gmake.macosx"
+    system "make", "-C", "build/gmake.#{OS.mac? ? "macosx" : "unix"}"
 
     # Premake has no install target, but its just a single file that is needed
     bin.install "bin/release/premake4"
