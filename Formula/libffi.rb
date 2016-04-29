@@ -1,3 +1,4 @@
+# libffi: Build a bottle for Linuxbrew
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
