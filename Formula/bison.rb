@@ -14,7 +14,7 @@ class Bison < Formula
 
   keg_only :provided_by_osx, "Some formulae require a newer version of bison."
 
-  depends_on "homebrew/dupes/m4" => :build unless OS.mac?
+  depends_on "homebrew/dupes/m4" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
