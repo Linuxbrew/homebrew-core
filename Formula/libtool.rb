@@ -42,6 +42,6 @@ class Libtool < Formula
   end
 
   test do
-    system "#{bin}/glibtool", "execute", "/usr/bin/true"
+    system "#{bin}/glibtool", "execute", "true"
   end
 end
