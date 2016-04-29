@@ -357,7 +357,9 @@ class Python3 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
+    if OS.mac? || build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+      system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
+    end
     system bin/"pip3", "list"
   end
 end
