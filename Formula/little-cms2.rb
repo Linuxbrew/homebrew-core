@@ -1,3 +1,4 @@
+# little-cms2: Build a bottle for Linuxbrew
 class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
   homepage "http://www.littlecms.com/"
