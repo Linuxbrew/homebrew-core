@@ -29,6 +29,7 @@ class Lua < Formula
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
   depends_on "readline" unless OS.mac?
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
