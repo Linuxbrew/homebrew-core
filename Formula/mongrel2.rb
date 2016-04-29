@@ -22,6 +22,7 @@ class Mongrel2 < Formula
   end
 
   depends_on "zeromq"
+  depends_on "sqlite" unless OS.mac?
 
   def install
     # Build in serial. See:
@@ -30,7 +31,7 @@ class Mongrel2 < Formula
 
     # Mongrel2 pulls from these ENV vars instead
     ENV["OPTFLAGS"] = "#{ENV.cflags} #{ENV.cppflags}"
-    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup"
+    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup" if OS.mac?
 
     system "make", "all"
     system "make", "install", "PREFIX=#{prefix}"
