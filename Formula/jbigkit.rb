@@ -25,6 +25,10 @@ class Jbigkit < Formula
     # Set for a universal build and patch the Makefile.
     # There's no configure. It creates a static lib.
     ENV.universal_binary if build.universal?
+
+    # Fix fatal error: jbig.h: No such file or directory
+    inreplace "Makefile", "$(MAKE) -e", "$(MAKE)" unless OS.mac?
+
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"
 
     if build.with? "test"
