@@ -1,3 +1,4 @@
+# capnp: Build a bottle for Linuxbrew
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
