@@ -1,3 +1,4 @@
+# jpeg: Build a bottle for Linuxbrew
 class Jpeg < Formula
   desc "JPEG image manipulation library"
   homepage "http://www.ijg.org"
