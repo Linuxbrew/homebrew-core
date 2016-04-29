@@ -1,3 +1,4 @@
+# gsl: Build a bottle for Linuxbrew
 # Please don't update me to the 2.x branch yet until issues discussed in
 # https://github.com/Homebrew/homebrew/issues/45812 are resolved.
 # If you want 2.x now, file a PR in homebrew/versions. Thanks!
