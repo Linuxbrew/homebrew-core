@@ -1,3 +1,4 @@
+# docbook: Build a bottle for Linuxbrew
 class Docbook < Formula
   desc "Standard SGML representation system for technical documents"
   homepage "http://docbook.sourceforge.net/"
