@@ -1,3 +1,4 @@
+# argtable: Build a bottle for Linuxbrew
 class Argtable < Formula
   desc "ANSI C library for parsing GNU-style command-line options"
   homepage "http://argtable.sourceforge.net"
