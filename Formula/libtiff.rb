@@ -27,6 +27,7 @@ class Libtiff < Formula
                           "--prefix=#{prefix}",
                           "--without-x",
                           "--disable-lzma",
+                          "--disable-jbig",
                           "--with-jpeg-include-dir=#{jpeg}/include",
                           "--with-jpeg-lib-dir=#{jpeg}/lib"
     system "make", "install"
