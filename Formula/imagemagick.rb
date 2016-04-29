@@ -30,6 +30,7 @@ class Imagemagick < Formula
   option "without-opencl", "Disable OpenCL"
   option "without-magick-plus-plus", "disable build/install of Magick++"
 
+  depends_on "bzip2" unless OS.mac?
   depends_on "xz"
   depends_on "libtool" => :run
   depends_on "pkg-config" => :build
