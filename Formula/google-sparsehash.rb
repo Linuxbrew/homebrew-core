@@ -1,3 +1,4 @@
+# google-sparsehash: Build a bottle for Linuxbrew
 class GoogleSparsehash < Formula
   desc "Extremely memory-efficient hash_map implementation"
   homepage "https://github.com/sparsehash/sparsehash"
