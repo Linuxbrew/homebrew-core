@@ -1,3 +1,4 @@
+# libsndfile: Build a bottle for Linuxbrew
 class Libsndfile < Formula
   desc "C library for files containing sampled sound"
   homepage "http://www.mega-nerd.com/libsndfile/"
