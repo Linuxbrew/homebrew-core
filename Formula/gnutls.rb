@@ -19,6 +19,7 @@ class Gnutls < Formula
   depends_on "nettle"
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
+  depends_on "autogen" unless OS.mac?
 
   fails_with :llvm do
     build 2326
