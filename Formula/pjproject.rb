@@ -18,7 +18,12 @@ class Pjproject < Formula
     system "make", "dep"
     system "make"
     system "make", "install"
-    bin.install "pjsip-apps/bin/pjsua-#{`uname -m`.chomp}-apple-darwin#{`uname -r`.chomp}" => "pjsua"
+    if OS.mac?
+      suffix = "apple-darwin#{`uname -r`.chomp}"
+    elsif OS.linux?
+      suffix = "unknown-linux-gnu"
+    end
+    bin.install "pjsip-apps/bin/pjsua-#{`uname -m`.chomp}-#{suffix}" => "pjsua"
   end
 
   test do
