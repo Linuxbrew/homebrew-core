@@ -1,3 +1,4 @@
+# libogg: Build a bottle for Linuxbrew
 class Libogg < Formula
   desc "Ogg Bitstream Library"
   homepage "https://www.xiph.org/ogg/"
