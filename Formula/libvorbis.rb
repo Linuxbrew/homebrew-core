@@ -1,3 +1,4 @@
+# libvorbis: Build a bottle for Linuxbrew
 class Libvorbis < Formula
   desc "Vorbis General Audio Compression Codec"
   homepage "http://vorbis.com"
