@@ -1,3 +1,4 @@
+# json-c: Build a bottle for Linuxbrew
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
