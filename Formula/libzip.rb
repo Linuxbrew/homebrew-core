@@ -1,3 +1,4 @@
+# libzip: Build a bottle for Linuxbrew
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "http://www.nih.at/libzip/"
