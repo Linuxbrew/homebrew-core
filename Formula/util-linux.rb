@@ -1,3 +1,4 @@
+# util-linux: Build a bottle for Linuxbrew
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
