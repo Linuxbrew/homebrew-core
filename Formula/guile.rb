@@ -44,6 +44,7 @@ class Guile < Formula
   depends_on "bdw-gc"
   depends_on "gmp"
   depends_on "readline"
+  depends_on "homebrew/dupes/gperf" unless OS.mac?
 
   fails_with :llvm do
     build 2336
