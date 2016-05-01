@@ -1,3 +1,4 @@
+# xvid: Build a bottle for Linuxbrew
 class Xvid < Formula
   desc "High-performance, high-quality MPEG-4 video library"
   homepage "https://www.xvid.org"
