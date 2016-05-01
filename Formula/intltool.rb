@@ -1,3 +1,4 @@
+# intltool: Build a bottle for Linuxbrew
 class Intltool < Formula
   desc "String tool"
   homepage "https://wiki.freedesktop.org/www/Software/intltool"
