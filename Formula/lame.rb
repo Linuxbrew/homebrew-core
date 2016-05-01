@@ -15,6 +15,8 @@ class Lame < Formula
 
   option :universal
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     ENV.universal_binary if build.universal?
 
