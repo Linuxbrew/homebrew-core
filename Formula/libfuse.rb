@@ -1,3 +1,4 @@
+# libfuse: Build a bottle for Linuxbrew
 class Libfuse < Formula
   desc "Reference implementation of the Linux FUSE interface."
   homepage "https://github.com/libfuse/libfuse"
