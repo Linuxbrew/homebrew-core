@@ -1,3 +1,4 @@
+# libcap: Build a bottle for Linuxbrew
 class Libcap < Formula
   desc "User-space interfaces to POSIX 1003.1e capabilities"
   homepage "https://sites.google.com/site/fullycapable/"
