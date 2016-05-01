@@ -103,8 +103,9 @@ class Vim < Formula
   end
 
   test do
+    system bin/"vim", "--version"
     # Simple test to check if Vim was linked to Python version in $PATH
-    if build.with? "python"
+    if OS.mac? && build.with?("python")
       vim_path = bin/"vim"
 
       # Get linked framework using otool
