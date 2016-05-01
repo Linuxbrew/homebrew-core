@@ -5,6 +5,8 @@ class Bsdmainutils < Formula
   sha256 "48868ac99c8dd92a69bb430e6bdf865602522ad3a2f5a0dd9cae77b46fc93b57"
   # tag "linuxbrew"
 
+  depends_on "libbsd"
+
   def install
     system "for i in `<debian/patches/series`; do patch -p1 <debian/patches/$i; done"
     inreplace "Makefile", "/usr/", "#{prefix}/"
