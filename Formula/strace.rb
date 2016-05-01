@@ -1,3 +1,4 @@
+# strace: Build a bottle for Linuxbrew
 class Strace < Formula
   desc "A useful diagnostic, instructional, and debugging tool"
   homepage "http://sourceforge.net/projects/strace/"
