@@ -25,6 +25,7 @@ class Neko < Formula
   depends_on "bdw-gc"
   depends_on "pcre"
   depends_on "openssl"
+  depends_on "sqlite" unless OS.mac?
 
   def install
     if build.head?
@@ -36,7 +37,12 @@ class Neko < Formula
     else
       # Build requires targets to be built in specific order
       ENV.deparallelize
-      system "make", "os=osx", "LIB_PREFIX=#{HOMEBREW_PREFIX}", "INSTALL_FLAGS="
+      args = %w[
+        LIB_PREFIX=#{HOMEBREW_PREFIX}
+        INSTALL_FLAGS=
+      ]
+      args << "os=osx" if OS.mac?
+      system "make", *args
 
       include.install Dir["vm/neko*.h"]
       neko = lib/"neko"
