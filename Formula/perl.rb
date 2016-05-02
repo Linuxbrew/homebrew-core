@@ -19,6 +19,8 @@ class Perl < Formula
 
   deprecated_option "with-tests" => "with-test"
 
+  depends_on "gdbm" => "with-libgdbm-compat" unless OS.mac?
+
   def install
     args = %W[
       -des
