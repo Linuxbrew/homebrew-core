@@ -1,3 +1,4 @@
+# rust: Build a bottle for Linuxbrew
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
@@ -54,6 +55,7 @@ class Rust < Formula
   end
 
   def install
+    ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
     args << "--enable-clang" if ENV.compiler == :clang
