@@ -1,3 +1,4 @@
+# nickle: Build a bottle for Linuxbrew
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "http://www.nickle.org/"
