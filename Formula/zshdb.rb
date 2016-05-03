@@ -1,3 +1,4 @@
+# zshdb: Build a bottle for Linuxbrew
 class Zshdb < Formula
   desc "Debugger for zsh"
   homepage "https://github.com/rocky/zshdb"
