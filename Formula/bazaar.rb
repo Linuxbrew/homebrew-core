@@ -1,3 +1,4 @@
+# bazaar: Build a bottle for Linuxbrew
 class Bazaar < Formula
   desc "Friendly powerful distributed version control system"
   homepage "http://bazaar.canonical.com/"
