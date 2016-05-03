@@ -1,3 +1,4 @@
+# closure-linter: Build a bottle for Linuxbrew
 class ClosureLinter < Formula
   desc "Check JavaScript files for style and documentation"
   homepage "https://developers.google.com/closure/utilities/"
