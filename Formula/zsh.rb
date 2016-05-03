@@ -1,3 +1,4 @@
+# zsh: Build a bottle for Linuxbrew
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "http://www.zsh.org/"
