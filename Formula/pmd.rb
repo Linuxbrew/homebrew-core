@@ -1,3 +1,4 @@
+# pmd: Build a bottle for Linuxbrew
 class Pmd < Formula
   desc "Source code analyzer for Java, JavaScript, and more"
   homepage "https://pmd.github.io"
