@@ -1,3 +1,4 @@
+# gradle: Build a bottle for Linuxbrew
 class Gradle < Formula
   desc "Build system based on the Groovy language"
   homepage "https://www.gradle.org/"
