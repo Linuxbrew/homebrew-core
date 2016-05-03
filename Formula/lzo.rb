@@ -1,3 +1,4 @@
+# lzo: Build a bottle for Linuxbrew
 class Lzo < Formula
   desc "Real-time data compression library"
   homepage "https://www.oberhumer.com/opensource/lzo/"
