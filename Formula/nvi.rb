@@ -15,6 +15,7 @@ class Nvi < Formula
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
   depends_on "berkeley-db"
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   # Patches per MacPorts
   # The first corrects usage of BDB flags.
