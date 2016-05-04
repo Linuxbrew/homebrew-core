@@ -11,6 +11,8 @@ class Bazaar < Formula
     sha256 "51a058a4ff6b070a62ce30d01a673bba74d65d4eab6a13a9d53696f24cceb80d" => :mavericks
   end
 
+  depends_on :python unless OS.mac?
+
   def install
     ENV.j1 # Builds aren't parallel-safe
 
