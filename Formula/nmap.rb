@@ -1,3 +1,4 @@
+# nmap: Build a bottle for Linuxbrew
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
