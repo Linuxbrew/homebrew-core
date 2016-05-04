@@ -1,3 +1,4 @@
+# autoconf: Build a bottle for Linuxbrew
 class Autoconf < Formula
   desc "Automatic configure script builder"
   homepage "https://www.gnu.org/software/autoconf"
