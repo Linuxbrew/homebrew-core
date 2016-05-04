@@ -1,3 +1,4 @@
+# openssl: Build a bottle for Linuxbrew
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
