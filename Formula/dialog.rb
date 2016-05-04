@@ -12,6 +12,8 @@ class Dialog < Formula
     sha256 "74626b6e18ebd0b4b755e04457be5a385bc10745cf08130f1330ab2b108a0550" => :mavericks
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install-full"
