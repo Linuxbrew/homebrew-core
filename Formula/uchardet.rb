@@ -1,3 +1,4 @@
+# uchardet: Build a bottle for Linuxbrew
 class Uchardet < Formula
   desc "Encoding detector library"
   homepage "https://github.com/BYVoid/uchardet"
