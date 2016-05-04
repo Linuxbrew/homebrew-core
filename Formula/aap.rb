@@ -1,3 +1,4 @@
+# aap: Build a bottle for Linuxbrew
 class Aap < Formula
   desc "make-like tool to download, build, and install software"
   homepage "http://www.a-a-p.org"
