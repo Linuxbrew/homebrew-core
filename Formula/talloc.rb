@@ -40,7 +40,7 @@ class Talloc < Formula
         return ret;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-ltalloc", "test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", "-L#{lib}", "test.c", "-o", "test", "-ltalloc"
     system testpath/"test"
   end
 end
