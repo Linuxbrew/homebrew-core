@@ -12,6 +12,8 @@ class Tcsh < Formula
     sha256 "beab7a774551d3b446526359c31900fbbc7300403b545395c1949ba302a65e24" => :mountain_lion
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make", "install"
