@@ -17,6 +17,8 @@ class Unixodbc < Formula
 
   keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
 
+  depends_on "libtool" => :run unless OS.mac?
+
   def install
     ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
