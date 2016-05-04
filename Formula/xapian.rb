@@ -39,6 +39,7 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
 
   depends_on :python => :optional
+  depends_on "util-linux" if OS.linux? # for libuuid
 
   skip_clean :la
 
