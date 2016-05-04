@@ -1,3 +1,4 @@
+# moz-git-tools: Build a bottle for Linuxbrew
 class MozGitTools < Formula
   desc "Tools for working with Git at Mozilla"
   homepage "https://github.com/mozilla/moz-git-tools"
