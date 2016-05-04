@@ -1,3 +1,4 @@
+# automake: Build a bottle for Linuxbrew
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
