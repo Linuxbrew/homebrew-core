@@ -11,6 +11,8 @@ class Tippecanoe < Formula
     sha256 "4422d47675f8e6233d09d330cd0ab7c1aa7e73ed37bc2babac2673e707fce660" => :mavericks
   end
 
+  depends_on "sqlite" unless OS.mac?
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
