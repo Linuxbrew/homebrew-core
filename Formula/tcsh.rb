@@ -9,7 +9,6 @@ class Tcsh < Formula
     sha256 "dd05f0d9c6c12520c5b20fd0505288877a79a2b380091261490f659f6a81aadd" => :el_capitan
     sha256 "2d3fed239e9d5ac71b47c3e5bf96b93c1e9ba77c3799ca482a5b6809621d5f1e" => :yosemite
     sha256 "ff5b980d71cb0f151264f0a7f6c6b34120e2420aac284ecfe8fcf908f4e90c07" => :mavericks
-    sha256 "3af51fd4cc3b5a27b605904f07f86e25532f2420ca89ec4ebccbbfb19982a964" => :x86_64_linux
     sha256 "beab7a774551d3b446526359c31900fbbc7300403b545395c1949ba302a65e24" => :mountain_lion
   end
 
