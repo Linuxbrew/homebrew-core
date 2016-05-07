@@ -14,6 +14,8 @@ class Wdiff < Formula
   end
 
   depends_on "gettext" => :optional
+  depends_on "texinfo" => :build unless OS.mac?
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   conflicts_with "montage", :because => "Both install an mdiff executable"
 
