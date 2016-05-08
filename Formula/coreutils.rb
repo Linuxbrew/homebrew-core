@@ -1,3 +1,4 @@
+# coreutils: Build a bottle for Linuxbrew
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
