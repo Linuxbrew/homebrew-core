@@ -1,9 +1,27 @@
+class GawkRequirement < Requirement
+  fatal true
+  default_formula "gawk"
+
+  satisfy :build_env => false do
+    begin
+      system "gawk", "--version"
+    rescue
+      false
+    end
+  end
+
+  def message
+    "Gawk is required to install this formula."
+  end
+end
+
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/download.html"
   url "http://ftpmirror.gnu.org/glibc/glibc-2.19.tar.bz2"
   sha256 "2e293f714187044633264cd9ce0183c70c3aa960a2f77812a6390a3822694d15"
   # tag "linuxbrew"
+  revision 1 # remove this before merging`
 
   bottle do
     prefix "/home/linuxbrew/.linuxbrew"
@@ -18,6 +36,8 @@ class Glibc < Formula
 
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
+
+  depends_on GawkRequirement => :build
 
   def install
     mkdir "build" do
