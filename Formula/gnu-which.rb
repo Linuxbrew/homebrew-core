@@ -27,6 +27,7 @@ class GnuWhich < Formula
   end
 
   test do
-    system "#{bin}/gwhich", "gcc"
+    which = build.with?("default-names") ? "which" : "gwhich"
+    system bin/which, "make"
   end
 end
