@@ -31,6 +31,9 @@ class Mongodb < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
+
     ENV.cxx11 if MacOS.version < :mavericks
     ENV.libcxx if build.devel?
 
