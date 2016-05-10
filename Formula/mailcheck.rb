@@ -1,3 +1,4 @@
+# mailcheck: Build a bottle for Linuxbrew
 class Mailcheck < Formula
   desc "Check multiple mailboxes/maildirs for mail"
   homepage "http://mailcheck.sourceforge.net/"
