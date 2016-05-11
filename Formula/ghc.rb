@@ -71,7 +71,7 @@ class Ghc < Formula
     # https://ghc.haskell.org/trac/ghc/ticket/11744
     # https://ghc.haskell.org/trac/ghc/ticket/11823
     # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
-    if MacOS.clang_build_version >= 703
+    if OS.mac? && MacOS.clang_build_version >= 703
       nm_classic = buildpath/"brewtools/nm"
 
       nm_classic.write <<-EOS.undent
