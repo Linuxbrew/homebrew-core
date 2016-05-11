@@ -1,3 +1,4 @@
+# libgpg-error: Build a bottle for Linuxbrew
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
