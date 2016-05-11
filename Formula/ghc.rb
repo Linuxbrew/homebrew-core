@@ -17,10 +17,10 @@ class Ghc < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "homebrew/dupes/m4" => :build unless OS.mac?
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
-  # These two dependencies are needed for the bootstrap executables.
+  # This dependency is needed for the bootstrap executables.
   depends_on "gmp" => :build if OS.linux?
-  depends_on "homebrew/dupes/ncurses" => :build if OS.linux?
 
   resource "gmp" do
     url "http://ftpmirror.gnu.org/gmp/gmp-6.1.0.tar.bz2"
