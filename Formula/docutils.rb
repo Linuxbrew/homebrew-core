@@ -16,6 +16,7 @@ class Docutils < Formula
   end
 
   test do
+    ENV.prepend_create_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python2.7/site-packages" unless OS.mac?
     system "#{bin}/rst2man.py", "#{prefix}/HISTORY.txt"
   end
 end
