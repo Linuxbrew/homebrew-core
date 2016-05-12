@@ -15,6 +15,7 @@ class Gringo < Formula
   depends_on "re2c" => :build
   depends_on "scons" => :build
   depends_on "bison" => :build
+  depends_on "python" unless OS.mac? # for libpython2.7.so.1.0
 
   needs :cxx11
 
