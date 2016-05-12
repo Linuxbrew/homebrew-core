@@ -1,3 +1,4 @@
+# github-markdown-toc: Build a bottle for Linuxbrew
 require "language/go"
 
 class GithubMarkdownToc < Formula
