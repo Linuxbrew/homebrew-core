@@ -47,6 +47,7 @@ class Ffmpeg < Formula
   depends_on "x264" => :recommended
   depends_on "lame" => :recommended
   depends_on "xvid" => :recommended
+  depends_on "bzip2" unless OS.mac?
   depends_on "xz" => :recommended unless OS.mac?
 
   depends_on "faac" => :optional
