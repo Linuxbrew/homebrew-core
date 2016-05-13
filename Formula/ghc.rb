@@ -166,5 +166,7 @@ class Ghc < Formula
   test do
     (testpath/"hello.hs").write('main = putStrLn "Hello Homebrew"')
     system "#{bin}/runghc", testpath/"hello.hs"
+    system "#{bin}/ghc", "-o", "hello", "hello.hs"
+    system "./hello"
   end
 end
