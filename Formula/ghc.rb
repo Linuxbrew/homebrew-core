@@ -105,10 +105,10 @@ class Ghc < Formula
     args = ["--with-gmp-includes=#{gmp}/include",
             "--with-gmp-libraries=#{gmp}/lib",
             "--with-ld=ld", # Avoid hardcoding superenv's ld.
-            "--with-gcc=#{ENV.cc}"] # Always.
+            "--with-gcc=#{OS.mac? ? ENV.cc : "gcc"}"] # Always.
 
     if ENV.compiler == :clang
-      args << "--with-clang=#{ENV.cc}"
+      args << "--with-clang=#{OS.mac? ? ENV.cc : "clang"}"
     elsif ENV.compiler == :llvm
       args << "--with-gcc-4.2=#{ENV.cc}"
     end
