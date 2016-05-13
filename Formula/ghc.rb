@@ -62,6 +62,9 @@ class Ghc < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV.deparallelize if ENV["CIRCLECI"]
+
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
     # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
     # segfault occurs with the following error:
