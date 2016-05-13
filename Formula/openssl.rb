@@ -5,6 +5,7 @@ class Openssl < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2h.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2h.tar.gz"
   sha256 "1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
+  revision 1 # remove this before merging
 
   bottle do
     sha256 "28320f60a208f1aba5420957148458d59b00bcac62fcb550ba88e737c07c27b4" => :el_capitan
