@@ -1,3 +1,4 @@
+# smake: Build a bottle for Linuxbrew
 class Smake < Formula
   desc "Portable make program with automake features"
   homepage "http://s-make.sourceforge.net/"
