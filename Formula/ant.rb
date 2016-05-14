@@ -1,3 +1,4 @@
+# ant: Build a bottle for Linuxbrew
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
