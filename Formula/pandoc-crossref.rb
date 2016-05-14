@@ -1,3 +1,4 @@
+# pandoc-crossref: Build a bottle for Linuxbrew
 class PandocCrossref < Formula
   include Language::Haskell::Cabal
 
