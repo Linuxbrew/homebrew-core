@@ -11,6 +11,8 @@ class Fish < Formula
     sha256 "39b820ee1cf8bffac46add0da2bdedd0a73ac5ce06c6f9a7e6d609aebef28dd2" => :mavericks
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   devel do
     url "https://github.com/fish-shell/fish-shell/releases/download/2.3b2/fish-2.3b2.tar.gz"
     sha256 "2b9342e7d5baf163e7384ea8f1270b8cdc06b19c8602e3c01546cc11d4337de9"
