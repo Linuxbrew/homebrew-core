@@ -1,3 +1,4 @@
+# freexl: Build a bottle for Linuxbrew
 class Freexl < Formula
   desc "Library to extract data from Excel .xls files"
   homepage "https://www.gaia-gis.it/fossil/freexl/index"
