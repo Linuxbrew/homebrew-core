@@ -1,3 +1,4 @@
+# tree: Build a bottle for Linuxbrew
 class Tree < Formula
   desc "Display directories as trees (with optional color/HTML output)"
   homepage "http://mama.indstate.edu/users/ice/tree/"
