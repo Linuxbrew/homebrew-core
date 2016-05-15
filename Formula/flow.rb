@@ -13,6 +13,7 @@ class Flow < Formula
   end
 
   depends_on "ocamlbuild" => :build
+  depends_on "elfutils" unless OS.mac?
 
   def install
     system "make"
