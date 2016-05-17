@@ -1,3 +1,4 @@
+# fuzzy-find: Build a bottle for Linuxbrew
 class FuzzyFind < Formula
   desc "Fuzzy filename finder matching across directories as well as files"
   homepage "https://github.com/silentbicycle/ff"
