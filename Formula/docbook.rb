@@ -12,6 +12,8 @@ class Docbook < Formula
     sha256 "65925fda670fdb020fe9d52cd5891f8e3a2a44619e9129b30031127c7c2e998c" => :mavericks
   end
 
+  depends_on "libxml2" unless OS.mac?
+
   resource "xml412" do
     url "http://www.docbook.org/xml/4.1.2/docbkx412.zip"
     sha256 "30f0644064e0ea71751438251940b1431f46acada814a062870f486c772e7772"
