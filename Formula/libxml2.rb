@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.3.tar.gz"
   mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.3.tar.gz"
   sha256 "4de9e31f46b44d34871c22f54bfc54398ef124d6f7cafb1f4a5958fbcd3ba12d"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -22,6 +23,7 @@ class Libxml2 < Formula
   end
 
   depends_on :python => :optional
+  depends_on "zlib" => :recommended unless OS.mac?
 
   keg_only :provided_by_osx
 
