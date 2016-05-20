@@ -1,3 +1,4 @@
+# scrollkeeper: Build a bottle for Linuxbrew
 class Scrollkeeper < Formula
   desc "Transitional package for scrollkeeper"
   homepage "http://scrollkeeper.sourceforge.net/"
