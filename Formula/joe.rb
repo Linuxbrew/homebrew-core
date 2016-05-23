@@ -1,3 +1,4 @@
+# joe: Build a bottle for Linuxbrew
 class Joe < Formula
   desc "Joe's Own Editor (JOE)"
   homepage "http://joe-editor.sourceforge.net/index.html"
