@@ -1,3 +1,4 @@
+# git-flow: Build a bottle for Linuxbrew
 class GitFlow < Formula
   desc "Extensions to follow Vincent Driessen's branching model"
   homepage "https://github.com/nvie/gitflow"
