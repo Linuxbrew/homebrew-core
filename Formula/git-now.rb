@@ -17,6 +17,9 @@ class GitNow < Formula
   depends_on "gnu-getopt"
 
   def install
+    # Fix bashism in git-now-add when executed by git-now
+    inreplace "git-now", "#!/bin/sh", "#!/bin/bash"
+
     system "make", "prefix=#{libexec}", "install"
 
     (bin/"git-now").write <<-EOS.undent
