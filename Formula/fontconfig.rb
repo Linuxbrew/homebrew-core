@@ -16,10 +16,11 @@ class Fontconfig < Formula
   end
 
   pour_bottle? do
-    reason "The bottle needs to be installed into /usr/local."
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs to be installed into #{default_prefix}."
     # c.f. the identical hack in lua
     # https://github.com/Homebrew/homebrew/issues/47173
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
   keg_only :provided_pre_mountain_lion
