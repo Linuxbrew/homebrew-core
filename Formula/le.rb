@@ -11,6 +11,8 @@ class Le < Formula
     sha256 "696ba6e3163b72f35825f7f17b1c11cacf044efda4b6fbf14324f7c5688178d1" => :mountain_lion
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   conflicts_with "logentries", :because => "both install a le binary"
 
   def install
