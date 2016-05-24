@@ -1,3 +1,4 @@
+# flac: Build a bottle for Linuxbrew
 class Flac < Formula
   desc "Free lossless audio codec"
   homepage "https://xiph.org/flac/"
