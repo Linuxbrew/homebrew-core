@@ -31,6 +31,7 @@ class Postgresql < Formula
   depends_on "libxslt" unless OS.mac?
   depends_on "util-linux" if OS.linux? # for libuuid
   depends_on "homebrew/dupes/tcl-tk" if build.with?("tcl") && !OS.mac?
+  depends_on "perl" => :recommended unless OS.mac? # for libperl.so
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
