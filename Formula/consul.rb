@@ -186,7 +186,7 @@ class Consul < Formula
     Language::Go.stage_deps resources, gopath/"src"
 
     cd gopath/"src/github.com/hashicorp/consul" do
-      system "make"
+      system "make", "dev"
       bin.install "bin/consul"
       zsh_completion.install "contrib/zsh-completion/_consul"
     end
