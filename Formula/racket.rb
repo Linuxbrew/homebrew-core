@@ -11,6 +11,8 @@ class Racket < Formula
     sha256 "d7a76bd531b6f02e0beecc96bb3bf6ff48b30d8e19928ab3f78fd3abacd9206a" => :mavericks
   end
 
+  depends_on "libffi" unless OS.mac?
+
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
