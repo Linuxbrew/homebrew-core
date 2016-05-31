@@ -33,6 +33,7 @@ class Qt < Formula
   depends_on "d-bus" => :optional
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
+  depends_on :x11 unless OS.mac?
 
   deprecated_option "qtdbus" => "with-d-bus"
 
