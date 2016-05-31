@@ -1,3 +1,4 @@
+# cscope: Build a bottle for Linuxbrew
 class Cscope < Formula
   desc "Tool for browsing source code"
   homepage "http://cscope.sourceforge.net/"
@@ -10,6 +11,8 @@ class Cscope < Formula
     sha256 "71d86771790165c777341e4457dd193008cfb2fb24628a138cb45fec61e6b42d" => :yosemite
     sha256 "cb2f63522d072307cacf63e8eabf4c284f2e8c1b2ff8c6de3aeb6fb8759a1212" => :mavericks
   end
+
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}",
