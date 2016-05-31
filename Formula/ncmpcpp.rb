@@ -33,7 +33,7 @@ class Ncmpcpp < Formula
   depends_on "readline"
   depends_on "fftw" if build.with? "visualizer"
 
-  if MacOS.version < :mavericks
+  if OS.mac? && MacOS.version < :mavericks
     depends_on "boost" => ["with-icu4c", "c++11"]
     depends_on "taglib" => "c++11"
   else
@@ -45,7 +45,7 @@ class Ncmpcpp < Formula
 
   def install
     ENV.cxx11
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
