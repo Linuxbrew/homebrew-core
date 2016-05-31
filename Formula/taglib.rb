@@ -1,3 +1,4 @@
+# taglib: Build a bottle for Linuxbrew
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.github.io/"
