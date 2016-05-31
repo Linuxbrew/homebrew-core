@@ -30,14 +30,19 @@ class Libiomp < Formula
   end
 
   def install
-    intel_arch = MacOS.prefer_64_bit? ? "mac_32e" : "mac_32"
+    os = OS.mac? ? "mac" : "lin"
+    intel_arch = MacOS.prefer_64_bit? ? "#{os}_32e" : "#{os}_32"
     args = std_cmake_args
     args << (MacOS.prefer_64_bit? ? "-DLIBOMP_ARCH=32e" : "-DLIBOMP_ARCH=32")
     system "cmake", ".", *args
     system "make", "all"
 
     (include/"libiomp").install Dir["exports/common/include/*"]
-    lib.install "exports/#{intel_arch}/lib.thin/libiomp5.dylib"
+    if OS.mac?
+      lib.install "exports/#{intel_arch}/lib.thin/libiomp5.dylib"
+    else
+      lib.install "exports/#{intel_arch}/lib/libiomp5.so"
+    end
   end
 
   test do
@@ -52,7 +57,7 @@ class Libiomp < Formula
       }
     EOS
     (testpath/"test.c").write(testfile)
-    system ENV.cc, "-L#{lib}", "-liomp5", "-I#{include}/libiomp", "test.c", "-o", "test"
+    system ENV.cc, "-L#{lib}", "-I#{include}/libiomp", "test.c", "-liomp5", "-o", "test"
     system "./test"
   end
 end
