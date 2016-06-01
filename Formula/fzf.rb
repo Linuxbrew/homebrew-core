@@ -15,6 +15,7 @@ class Fzf < Formula
   end
 
   depends_on "go" => :build
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   go_resource "github.com/junegunn/go-shellwords" do
     url "https://github.com/junegunn/go-shellwords.git",
