@@ -60,6 +60,9 @@ class Gnupg2 < Formula
       --with-protect-tool-pgm=#{agent}/libexec/gpg-protect-tool
     ]
 
+    # Fix for https://github.com/Linuxbrew/homebrew-core/issues/311
+    args << "--disable-nls" unless OS.mac?
+
     if build.with? "readline"
       args << "--with-readline=#{Formula["readline"].opt_prefix}"
     end
