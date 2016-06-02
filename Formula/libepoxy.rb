@@ -12,32 +12,42 @@ class Libepoxy < Formula
     sha256 "495b9da3d417b836eaf1cdd1aba41782d975d0b3d007e1f9c91fab7e57c2a197" => :mountain_lion
   end
 
-  option :universal
+  option :universal if OS.mac?
+  option "without-test", "Do not run compile-time tests"
 
   depends_on "pkg-config" => :build
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "automake" => :build if OS.mac?
+  depends_on "autoconf" => :build if OS.mac?
+  depends_on "libtool" => :build  if OS.mac?
+  depends_on :python => :build if MacOS.version <= :snow_leopard && OS.mac?
+  depends_on "mesa" unless OS.mac?
+  depends_on "linuxbrew/homebrew-xorg/util-macros" unless OS.mac?
 
   resource "xorg-macros" do
     url "https://xorg.freedesktop.org/releases/individual/util/util-macros-1.19.0.tar.bz2"
     sha256 "2835b11829ee634e19fa56517b4cfc52ef39acea0cd82e15f68096e27cbed0ba"
-  end
+  end if OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
 
-    resource("xorg-macros").stage do
-      system "./configure", "--prefix=#{buildpath}/xorg-macros"
-      system "make", "install"
-    end
+    if OS.mac?
+      resource("xorg-macros").stage do
+        system "./configure", "--prefix=#{buildpath}/xorg-macros"
+        system "make", "install"
+      end
 
-    ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xorg-macros/share/pkgconfig"
-    ENV.append_path "ACLOCAL_PATH", "#{buildpath}/xorg-macros/share/aclocal"
+      ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/xorg-macros/share/pkgconfig"
+      ENV.append_path "ACLOCAL_PATH", "#{buildpath}/xorg-macros/share/aclocal"
 
     system "./autogen.sh", "--disable-dependency-tracking",
                            "--prefix=#{prefix}"
+    else
+      system "./configure",
+        "--prefix=#{prefix}",
+        "--disable-dependency-tracking",
+        "--disable-silent-rules"
+    end
     system "make"
     system "make", "install"
   end
