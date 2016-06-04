@@ -1,3 +1,4 @@
+# sl: Build a bottle for Linuxbrew
 class Sl < Formula
   desc "Prints a steam locomotive if you type sl instead of ls"
   homepage "https://github.com/mtoyoda/sl"
@@ -16,6 +17,8 @@ class Sl < Formula
   fails_with :clang do
     build 318
   end
+
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "make -e"
