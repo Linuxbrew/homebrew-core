@@ -26,7 +26,7 @@ class AbiComplianceChecker < Formula
       <headers>#{Formula["ctags"].include}</headers>
       <libs>#{Formula["ctags"].lib}</libs>
     EOS
-    gcc_suffix = Formula["gcc"].version.to_s.slice(/\d\.\d+/)
+    gcc_suffix = Formula["gcc"].version.to_s.slice(OS.mac? ? /\d\.\d+/ : /\d/)
     system bin/"abi-compliance-checker", "-cross-gcc", "gcc-" + gcc_suffix,
                                          "-lib", "ctags",
                                          "-old", testpath/"test.xml",
