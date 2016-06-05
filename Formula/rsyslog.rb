@@ -13,6 +13,7 @@ class Rsyslog < Formula
   depends_on "pkg-config" => :build
   depends_on "libestr"
   depends_on "json-c"
+  depends_on "zlib" unless OS.mac?
 
   patch :DATA
 
