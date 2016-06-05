@@ -1,3 +1,4 @@
+# libestr: Build a bottle for Linuxbrew
 class Libestr < Formula
   desc "C library for string handling (and a bit more)"
   homepage "http://libestr.adiscon.com"
