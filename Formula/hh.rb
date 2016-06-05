@@ -1,3 +1,4 @@
+# hh: Build a bottle for Linuxbrew
 class Hh < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka/hstr"
