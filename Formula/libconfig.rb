@@ -38,8 +38,8 @@ class Libconfig < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lconfig",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", "-L#{lib}",
+           testpath/"test.c", "-lconfig", "-o", testpath/"test"
     system "./test"
   end
 end
