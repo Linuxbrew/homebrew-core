@@ -1,3 +1,4 @@
+# ilmbase: Build a bottle for Linuxbrew
 class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "http://www.openexr.com/"
