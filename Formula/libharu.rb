@@ -1,3 +1,4 @@
+# libharu: Build a bottle for Linuxbrew
 class Libharu < Formula
   desc "Library for generating PDF files"
   homepage "http://www.libharu.org/"
