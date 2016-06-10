@@ -15,6 +15,8 @@ class Pigz < Formula
   depends_on "zlib" unless OS.mac?
 
   def install
+    inreplace "Makefile", "-lm", "-lz -lm" unless OS.mac?
+
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "pigz", "unpigz"
     man1.install "pigz.1"
