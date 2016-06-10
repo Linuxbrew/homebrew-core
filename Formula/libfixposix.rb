@@ -47,7 +47,7 @@ class Libfixposix < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "mxstemp.c", lib/"libfixposix.dylib", "-I#{include}", "-L#{lib}", "-o", "mxstemp"
+    system ENV.cc, "mxstemp.c", lib/"libfixposix.#{OS.mac? ? "dylib" : "so"}", "-I#{include}", "-L#{lib}", "-o", "mxstemp"
     system "./mxstemp"
   end
 end
