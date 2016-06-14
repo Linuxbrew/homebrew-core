@@ -17,6 +17,8 @@ class Pcre2 < Formula
 
   option :universal
 
+  depends_on "bzip2" unless OS.mac?
+
   def install
     ENV.universal_binary if build.universal?
 
