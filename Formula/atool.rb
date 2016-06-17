@@ -1,4 +1,3 @@
-# atool: Build a bottle for Linuxbrew
 class Atool < Formula
   desc "Archival front-end"
   homepage "https://savannah.nongnu.org/projects/atool/"
