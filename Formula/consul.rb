@@ -203,7 +203,7 @@ class Consul < Formula
 
   test do
     fork do
-      exec "#{bin}/consul", "agent", "-data-dir", "."
+      exec "#{bin}/consul", "agent", "-data-dir", ".", "-bind", "127.0.0.1"
     end
     sleep 3
     system "#{bin}/consul", "leave"
