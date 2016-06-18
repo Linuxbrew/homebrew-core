@@ -50,6 +50,8 @@ class Perl < Formula
 
     args << "-Dusedtrace" if build.with? "dtrace"
     args << "-Dusedevel" if build.head?
+    # Fix for https://github.com/Linuxbrew/homebrew-core/issues/405
+    args << "-Dlocincpth=#{HOMEBREW_PREFIX}/include" if OS.linux?
 
     system "./Configure", *args
     system "make"
