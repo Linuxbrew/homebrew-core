@@ -19,6 +19,7 @@ class Dub < Formula
 
   depends_on "pkg-config" => :build
   depends_on "dmd" => :build
+  depends_on "curl" unless OS.mac?
 
   def install
     system "./build.sh"
