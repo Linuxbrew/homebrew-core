@@ -23,7 +23,8 @@ class Dub < Formula
   depends_on "curl" unless OS.mac?
 
   def install
-    system "./build.sh"
+    # fix https://github.com/Linuxbrew/homebrew-core/issues/439
+    system "export DMD=${HOMEBREW_PREFIX}/bin/dmd && ./build.sh"
     bin.install "bin/dub"
   end
 
