@@ -40,9 +40,15 @@ class Swig < Formula
       puts Test.add(1, 1)
     EOS
     system "#{bin}/swig", "-ruby", "test.i"
-    system ENV.cc, "-c", "test.c"
-    system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
-    system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
+    if OS.mac?
+      system ENV.cc, "-c", "test.c"
+      system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
+      system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
+    else
+      system ENV.cc, "-c", "-fPIC", "test.c"
+      system ENV.cc, "-c", "-fPIC", "test_wrap.c", "-I#{RbConfig::CONFIG['rubyhdrdir']}", "-I#{RbConfig::CONFIG['rubyarchhdrdir']}"
+      system ENV.cc, "-shared", "test.o", "test_wrap.o", "-o", "test.so", "-lruby"
+    end
     assert_equal "2", shell_output("ruby run.rb").strip
   end
 end
