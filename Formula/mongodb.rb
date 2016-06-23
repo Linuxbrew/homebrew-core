@@ -66,7 +66,7 @@ class Mongodb < Formula
     args << "--use-sasl-client" if build.with? "sasl"
     args << "--use-system-boost" if build.with? "boost"
     args << "--use-new-tools"
-    args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
+    args << "--disable-warnings-as-errors" if !OS.mac? || MacOS.version >= :yosemite
 
     if build.with? "openssl"
       args << "--ssl"
