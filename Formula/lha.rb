@@ -1,3 +1,4 @@
+# lha: Build a bottle for Linuxbrew
 class Lha < Formula
   desc "Utility for creating and opening lzh archives"
   homepage "https://lha.osdn.jp"
