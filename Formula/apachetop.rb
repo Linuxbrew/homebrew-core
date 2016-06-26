@@ -14,6 +14,10 @@ class Apachetop < Formula
     sha256 "d2383e14241b9af39c197462339393463ae6f8161dae508f49b0753dff846287" => :mountain_lion
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "readline" unless OS.mac?
+  depends_on "pcre" => :recommended unless OS.mac?
+
   # Freecode is officially static from this point forwards. Do not rely on it for up-to-date package information.
   # Upstream hasn't had activity in years, patch from MacPorts
   patch :p0, :DATA
