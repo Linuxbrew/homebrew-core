@@ -23,13 +23,16 @@ class Aide < Formula
   end
 
   depends_on "libgcrypt"
+  depends_on "curl" unless OS.mac?
+  depends_on "bison" => :build unless OS.mac?
+  depends_on "flex" => :build unless OS.mac?
 
   def install
     system "sh", "./autogen.sh" if build.head?
 
     system "./configure", "--disable-lfs",
                           "--disable-static",
-                          "--with-curl",
+                          "--with-curl#{OS.mac? ? "" : "=" + Formula["curl"].prefix}",
                           "--with-zlib",
                           "--sysconfdir=#{etc}",
                           "--prefix=#{prefix}"
