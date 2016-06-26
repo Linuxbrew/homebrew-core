@@ -1,4 +1,3 @@
-# advancecomp: Build a bottle for Linuxbrew
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
   homepage "http://www.advancemame.it/comp-readme.html"
@@ -12,6 +11,9 @@ class Advancecomp < Formula
     sha256 "4c53c032983006823c7e119fd3f7516a9a9321bdd9d165a7ef0abaabc5b669cb" => :yosemite
     sha256 "119316cdf32ce8129a09e786a31bd6c21d3b153eadd6cd55e098f78b6f1ed884" => :mavericks
   end
+
+  depends_on "bzip2" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
