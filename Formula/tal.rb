@@ -1,3 +1,4 @@
+# tal: Build a bottle for Linuxbrew
 class Tal < Formula
   desc "Align line endings if they match"
   homepage "http://thomasjensen.com/software/tal/"
