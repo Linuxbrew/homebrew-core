@@ -1,3 +1,4 @@
+# aalib: Build a bottle for Linuxbrew
 class Aalib < Formula
   desc "Portable ASCII art graphics library"
   homepage "http://aa-project.sourceforge.net/aalib/"
