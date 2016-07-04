@@ -233,6 +233,12 @@ class Ansible < Formula
     sha256 "12dff9afa9c6cd6e2a39960d3cd4b46b2b98768cdc6646833c66b20799c1c58e"
   end
 
+  # needed by pbr, needed in turn by debtcollector
+  resource "pytz" do
+    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
+    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
+  end
+
   resource "debtcollector" do
     url "https://pypi.python.org/packages/source/d/debtcollector/debtcollector-1.3.0.tar.gz"
     sha256 "9a65cf09239eab75b961ef609b3176ed2487bedcfa0a465331661824e1c8db8f"
@@ -357,11 +363,6 @@ class Ansible < Formula
   resource "python-novaclient" do
     url "https://pypi.python.org/packages/source/p/python-novaclient/python-novaclient-2.27.0.tar.gz"
     sha256 "d1279d5c2857cf8c56cb953639b36225bc1fec7fa30ee632940823506a7638ef"
-  end
-
-  resource "pytz" do
-    url "https://pypi.python.org/packages/source/p/pytz/pytz-2016.3.tar.bz2"
-    sha256 "c193dfa167ac32c8cb96f26cbcd92972591b22bda0bac3effdbdb04de6cc55d6"
   end
 
   resource "rackspace-auth-openstack" do
