@@ -27,7 +27,7 @@ class Subversion < Formula
   depends_on :apr => :build
 
   resource "serf" do
-    url "https://serf.googlecode.com/svn/src_releases/serf-1.3.8.tar.bz2", :using => :curl
+    url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2", :using => :curl
     sha256 "e0500be065dbbce490449837bb2ab624e46d64fc0b090474d9acaa87c82b2590"
   end
 
@@ -87,7 +87,7 @@ class Subversion < Formula
       ENV.universal_binary if build.universal?
 
       # scons ignores our compiler and flags unless explicitly passed
-      args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
+      args = %W[PREFIX=#{serf_prefix} GSSAPI=/home/syarra/.linuxbrew/ CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
                 OPENSSL=#{Formula["openssl"].opt_prefix}]
 
