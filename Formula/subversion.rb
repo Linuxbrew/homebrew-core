@@ -87,7 +87,7 @@ class Subversion < Formula
       ENV.universal_binary if build.universal?
 
       # scons ignores our compiler and flags unless explicitly passed
-      args = %W[PREFIX=#{serf_prefix} GSSAPI=/home/syarra/.linuxbrew/ CC=#{ENV.cc}
+      args = %W[PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].prefix} CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
                 OPENSSL=#{Formula["openssl"].opt_prefix}]
 
