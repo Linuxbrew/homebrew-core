@@ -1,3 +1,4 @@
+# unison: Build a bottle for Linuxbrew
 class Unison < Formula
   desc "Unison file synchronizer"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
