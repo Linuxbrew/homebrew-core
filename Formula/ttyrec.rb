@@ -1,3 +1,4 @@
+# ttyrec: Build a bottle for Linuxbrew
 class Ttyrec < Formula
   desc "Terminal interaction recorder and player"
   homepage "http://0xcc.net/ttyrec/"
