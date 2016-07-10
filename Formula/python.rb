@@ -134,6 +134,11 @@ class Python < Formula
     # paths for the dependencies of the compiled extension modules.
     # See Homebrew/linuxbrew#420, Homebrew/linuxbrew#460, and Homebrew/linuxbrew#875
     if OS.linux?
+      if build.bottle?
+        # Configure Python to use cc and c++ to build extension modules.
+        ENV["CC"] = "cc"
+        ENV["CXX"] = "c++"
+      end
       cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
       ldflags << ENV.ldflags
     end
