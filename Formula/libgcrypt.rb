@@ -15,6 +15,7 @@ class Libgcrypt < Formula
   option :universal
 
   depends_on "libgpg-error"
+  depends_on "libxslt" unless OS.mac?
 
   resource "config.h.ed" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/libgcrypt/config.h.ed"
