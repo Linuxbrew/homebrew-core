@@ -26,7 +26,11 @@ class Gawk < Formula
                           "--prefix=#{prefix}",
                           "--without-libsigsegv-prefix"
     system "make"
-    system "make", "check"
+    if which "cmp"
+      system "make", "check"
+    else
+      opoo "Skipping `make check` due to unavailable `cmp`"
+    end
     system "make", "install"
   end
 
