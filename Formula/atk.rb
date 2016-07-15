@@ -1,3 +1,4 @@
+# atk: Build a bottle for Linuxbrew
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
@@ -49,8 +50,8 @@ class Atk < Formula
       -latk-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    flags << -lintl if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
