@@ -61,6 +61,9 @@ class Gtkx < Formula
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 
+    # temporarily disable cups until linuxbrew/homebrew-core#495 is merged
+    args << "--disable-cups" unless OS.mac?
+
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
       ENV["NOCONFIGURE"] = "yes"
@@ -121,10 +124,10 @@ class Gtkx < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-#{backend}-2.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
