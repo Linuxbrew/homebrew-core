@@ -12,7 +12,8 @@ class Flow < Formula
     sha256 "73db8e20450f1f27000b021fbb60a95826b2aa3405fb6030482051f675ef463e" => :mavericks
   end
 
-  depends_on "ocaml" => :build
+  depends_on "ocamlbuild" => :build
+  depends_on "elfutils" unless OS.mac?
 
   def install
     system "make"
