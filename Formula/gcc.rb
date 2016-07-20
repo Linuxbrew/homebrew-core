@@ -84,6 +84,11 @@ class Gcc < Formula
   patch :DATA if OS.mac?
 
   def install
+    if OS.linux?
+      # libgomp does not respect LDFLAGS, configure fails when
+      # glibc is installed.
+      ENV.append "CFLAGS", "-Wl,--dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so -Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
+    end
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
