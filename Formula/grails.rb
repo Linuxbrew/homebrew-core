@@ -1,8 +1,8 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
   homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v3.1.6/grails-3.1.6.zip"
-  sha256 "0705581ce8efe95bc10d46e168740b7b3704976543d7480b6e43e7999c9e00a7"
+  url "https://github.com/grails/grails-core/releases/download/v3.1.9/grails-3.1.9.zip"
+  sha256 "36589f2d1bf74ffadc5ec4f3956953234163a3b04376209a40d8f5f6d07ffa14"
 
   bottle :unneeded
 
@@ -19,7 +19,6 @@ class Grails < Formula
   end
 
   test do
-    output = shell_output("#{bin}/grails --version")
-    assert_match /Grails Version: #{version}/, output
+    assert_match "Grails Version: #{version}", shell_output("#{bin}/grails -v")
   end
 end

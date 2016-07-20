@@ -1,17 +1,15 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.0.tar.bz2"
-  sha256 "b0e67ea74474939913c4d9d9ef4ef5ec378efbe2bebe36389dee319c79bffa92"
-  revision 1
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.2.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.2.tar.bz2"
+  sha256 "3d35df906d6eab354504c05d749a9b021944cb29ff5f65c8ef9c3dd5f7b6689f"
 
   bottle do
     cellar :any
-    sha256 "0a413db08292c2963dc76ea5ace51084d6496ea238da65c58329b677f5c4a147" => :el_capitan
-    sha256 "64ab4e6aa2e8bef022ee0884c4f2ec19c36a54fc77072d6f3e9baf1fd1d47c92" => :yosemite
-    sha256 "80ae9b194176f762028bc2a952b2ac11ba06bbf287d12b0f98562bf11b81fbfd" => :mavericks
-    sha256 "3c329cc22afd8fb82750fb141db6a2396cbe7cac3b0a05b471159ce8afb25d90" => :x86_64_linux
+    sha256 "89d45b34a2bc54348e74f4b2fb5f7ad099f911551556fffa8ec05766071bedbe" => :el_capitan
+    sha256 "6ed429748eab9be5e2843790c1bf4fa78de5e5973de36dfe75a8be89f3ea40a7" => :yosemite
+    sha256 "96a5b13ed6e8dd5fb4a53f51b08fd1e97c36d257ce2263242439852549a8d65b" => :mavericks
   end
 
   option :universal
@@ -19,7 +17,7 @@ class Libgcrypt < Formula
   depends_on "libgpg-error"
 
   resource "config.h.ed" do
-    url "https://raw.githubusercontent.com/Homebrew/patches/ec8d133/libgcrypt/config.h.ed"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/libgcrypt/config.h.ed"
     version "113198"
     sha256 "d02340651b18090f3df9eed47a4d84bed703103131378e1e493c26d7d0c7aab1"
   end
@@ -40,12 +38,16 @@ class Libgcrypt < Formula
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    system "make", "install"
-    # Make check currently dies on El Capitan
-    # https://github.com/Homebrew/homebrew/issues/41599
+    # Slightly hideous hack to help `make check` work in
+    # normal place on >10.10 where SIP is enabled.
+    # https://github.com/Homebrew/homebrew-core/pull/3004
     # https://bugs.gnupg.org/gnupg/issue2056
-    # This check should be above make install again when fixed.
+    system "install_name_tool", "-change",
+                                lib/"libgcrypt.20.dylib",
+                                buildpath/"src/.libs/libgcrypt.20.dylib",
+                                buildpath/"tests/.libs/random"
     system "make", "check"
+    system "make", "install"
   end
 
   test do

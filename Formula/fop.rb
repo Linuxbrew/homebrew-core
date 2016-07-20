@@ -12,6 +12,8 @@ class Fop < Formula
     sha256 "19ca9fbf7427c743c137de26d2662c0f6438b4ca39d933b17b386fcf8679de62" => :x86_64_linux
   end
 
+  depends_on :java => "1.6+"
+
   resource "hyph" do
     url "https://downloads.sourceforge.net/project/offo/offo-hyphenation-utf8/0.1/offo-hyphenation-fop-stable-utf8.zip"
     sha256 "0b4e074635605b47a7b82892d68e90b6ba90fd2af83142d05878d75762510128"

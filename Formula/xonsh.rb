@@ -1,21 +1,21 @@
 class Xonsh < Formula
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/scopatz/xonsh/archive/0.2.7.tar.gz"
-  sha256 "2b458a7f6ad3caf34107547dcb919e20c5c95b0b6a9938751480f94bf5068586"
+  url "https://github.com/xonsh/xonsh/archive/0.4.3.tar.gz"
+  sha256 "418b9e804217278f7fce659c97c657d984ba1d174c33df48060cccc49bd3a91e"
   head "https://github.com/scopatz/xonsh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08fc79e113e059e902540678cf874dda98659d3ed57663dab240147bb86a3ac9" => :el_capitan
-    sha256 "b0c4f7e69ced4119a24f872b0c09246c5201274b58d09e35b72ff3ac944f4f9e" => :yosemite
-    sha256 "d0836b6671f71947804c027e1771600f24c565f96a80effdfa029ac10e075538" => :mavericks
+    sha256 "9c4503f24264ddc8aedc1044ababbb7526e847ec049e2fda8137601b3024d3a6" => :el_capitan
+    sha256 "5f205adde655a736623da71e824b742126b7172554b499c14176548d7bc27998" => :yosemite
+    sha256 "14e0161f5d8b7e62b0c87dc81c2b2b58f4a1ba37ecf662586a289c677778fb89" => :mavericks
   end
 
   depends_on :python3
 
   resource "ply" do
-    url "https://pypi.python.org/packages/source/p/ply/ply-3.8.tar.gz"
+    url "https://pypi.python.org/packages/96/e0/430fcdb6b3ef1ae534d231397bee7e9304be14a47a267e82ebcb3323d0b5/ply-3.8.tar.gz"
     sha256 "e7d1bdff026beb159c9942f7a17e102c375638d9478a7ecd4cc0c76afd8de0b8"
   end
 

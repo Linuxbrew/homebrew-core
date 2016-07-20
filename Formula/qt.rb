@@ -20,22 +20,22 @@ class Qt < Formula
   # Backport of Qt5 commit to fix the fatal build error with Xcode 7, SDK 10.11.
   # https://code.qt.io/cgit/qt/qtbase.git/commit/?id=b06304e164ba47351fa292662c1e6383c081b5ca
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/480b7142c4e2ae07de6028f672695eb927a34875/qt/el-capitan.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/480b7142c4e2ae07de6028f672695eb927a34875/qt/el-capitan.patch"
     sha256 "c8a0fa819c8012a7cb70e902abb7133fc05235881ce230235d93719c47650c4e"
   end
 
-  option :universal
   option "with-qt3support", "Build with deprecated Qt3Support module support"
   option "with-docs", "Build documentation"
   option "without-webkit", "Build without QtWebKit module"
 
   depends_on "openssl"
-  depends_on "d-bus" => :optional
+  depends_on "dbus" => :optional
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
   depends_on :x11 unless OS.mac?
 
-  deprecated_option "qtdbus" => "with-d-bus"
+  deprecated_option "qtdbus" => "with-dbus"
+  deprecated_option "with-d-bus" => "with-dbus"
 
   resource "test-project" do
     url "https://gist.github.com/tdsmith/f55e7e69ae174b5b5a03.git",
@@ -43,8 +43,6 @@ class Qt < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Fix this error:
     # /bin/ld: warning: libQtCLucene.so.4, needed by libQtHelp.so, not found
     # libQtHelp.so: undefined reference to `QCLuceneIndexWriter::setMergeFactor(int)'
@@ -82,8 +80,8 @@ class Qt < Formula
     args << "-plugin-sql-mysql" if build.with? "mysql"
     args << "-plugin-sql-psql" if build.with? "postgresql"
 
-    if build.with? "d-bus"
-      dbus_opt = Formula["d-bus"].opt_prefix
+    if build.with? "dbus"
+      dbus_opt = Formula["dbus"].opt_prefix
       args << "-I#{dbus_opt}/lib/dbus-1.0/include"
       args << "-I#{dbus_opt}/include/dbus-1.0"
       args << "-L#{dbus_opt}/lib"
@@ -99,11 +97,9 @@ class Qt < Formula
 
     args << "-nomake" << "docs" if build.without? "docs"
 
-    if MacOS.prefer_64_bit? || build.universal?
+    if MacOS.prefer_64_bit?
       args << "-arch" << "x86_64"
-    end
-
-    if !MacOS.prefer_64_bit? || build.universal?
+    else
       args << "-arch" << "x86"
     end
 
@@ -154,6 +150,6 @@ class Qt < Formula
     resource("test-project").stage testpath
     system bin/"qmake"
     system "make"
-    assert_match /GitHub/, pipe_output(testpath/"qtnetwork-test 2>&1", nil, 0)
+    assert_match(/GitHub/, pipe_output(testpath/"qtnetwork-test 2>&1", nil, 0))
   end
 end
