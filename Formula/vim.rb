@@ -2,23 +2,31 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.1817.tar.gz"
-  sha256 "31d0450534f582fc3b9f691a38a8fc0c19fbbd3bb7e9b5abe71078d72fb9c268"
+  url "https://github.com/vim/vim/archive/v7.4.2033.tar.gz"
+  sha256 "76e6521d8062b9fa14ed0344cece5ce53611060727d0f00cee8eea3dd027de54"
   head "https://github.com/vim/vim.git"
 
-  bottle :disable, "To use the user's Python."
+  bottle do
+    sha256 "2874eebdf8b80b169b4c161d4be16d88da781a5ad8287b142749ae48f7433975" => :el_capitan
+    sha256 "bc7b96b30a956d085e0919777b6d103537d17d72d580cb2056d027e4b677ea22" => :yosemite
+    sha256 "5e530531f76d37f9361fa57d898b7077b181e8aa611f016199c3a74b69a7d6e3" => :mavericks
+  end
 
-  # We only have special support for finding depends_on :python, but not yet for
-  # :ruby, :perl etc., so we use the standard environment that leaves the
-  # PATH as the user has set it right now.
-  env :std
+  deprecated_option "disable-nls" => "without-nls"
+  deprecated_option "override-system-vi" => "with-override-system-vi"
 
-  option "override-system-vi", "Override system vi"
-  option "disable-nls", "Build vim without National Language Support (translated messages, keymaps)"
+  option "with-override-system-vi", "Override system vi"
+  option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
-  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl]
-  LANGUAGES_DEFAULT  = %w[perl python ruby]
+  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
+  LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
+
+  if MacOS.version >= :mavericks
+    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
+    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
+    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
+  end
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
@@ -30,6 +38,8 @@ class Vim < Formula
 
   depends_on :python => :recommended
   depends_on :python3 => :optional
+  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
+  depends_on :perl => "5.3"
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
@@ -40,6 +50,8 @@ class Vim < Formula
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
   def install
+    # https://github.com/Homebrew/homebrew-core/pull/1046
+    ENV.delete("SDKROOT")
     ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
 
     # vim doesn't require any Python package, unset PYTHONPATH.
@@ -64,7 +76,7 @@ class Vim < Formula
       opts -= %W[--enable-pythoninterp]
     end
 
-    opts << "--disable-nls" if build.include? "disable-nls"
+    opts << "--disable-nls" if build.without? "nls"
     opts << "--enable-gui=" + (build.with?("gtk+") ? "gtk2" : "no")
 
     if build.with? "client-server"
@@ -78,15 +90,12 @@ class Vim < Formula
       opts << "--enable-luainterp"
     end
 
-    # XXX: Please do not submit a pull request that hardcodes the path
-    # to ruby: vim can be compiled against 1.8.x or 1.9.3-p385 and up.
-    # If you have problems with vim because of ruby, ensure a compatible
-    # version is first in your PATH when building vim.
-
     # We specify HOMEBREW_PREFIX as the prefix to make vim look in the
     # the right place (HOMEBREW_PREFIX/share/vim/{vimrc,vimfiles}) for
     # system vimscript files. We specify the normal installation prefix
     # when calling "make install".
+    # Homebrew will use the first suitable Perl & Ruby in your PATH if you
+    # build from source. Please don't attempt to hardcode either.
     system "./configure", "--prefix=#{HOMEBREW_PREFIX}",
                           "--mandir=#{man}",
                           "--enable-multibyte",
@@ -99,7 +108,7 @@ class Vim < Formula
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
     system "make", "install", "prefix=#{prefix}", "STRIP=true"
-    bin.install_symlink "vim" => "vi" if build.include? "override-system-vi"
+    bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
   end
 
   test do

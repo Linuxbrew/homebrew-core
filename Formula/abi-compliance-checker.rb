@@ -1,15 +1,14 @@
 class AbiComplianceChecker < Formula
   desc "Check binary and source compatibility for C/C++"
   homepage "http://ispras.linuxbase.org/index.php/ABI_compliance_checker"
-  url "https://github.com/lvc/abi-compliance-checker/archive/1.99.9.tar.gz"
-  sha256 "52b0daca89fcda73cde126497c8015ca823417074ba02fcff68b7acf2f45e516"
+  url "https://github.com/lvc/abi-compliance-checker/archive/1.99.21.tar.gz"
+  sha256 "c9ca13a9a7a0285214f9a18195efae57a99465392fbf05fdc4a15fceada4dedf"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef2fbf8ea0c8aa09b2423fc780c640c4355cddbd4d53f51fd91e1adb92d84bbf" => :el_capitan
-    sha256 "a29fe7fcd7447ee760d921558656ce0960f3d7b55a004cd121f21453d0c772f4" => :yosemite
-    sha256 "9c46d9948a2905be8cb65d730c26208f4d09225a005ea0743f425065f6eb88f9" => :mavericks
-    sha256 "d85e39cd41bafb3e7e3ad86268716df9ee38ab90e45ef69e8a490f783d44f388" => :x86_64_linux
+    sha256 "1b6be53767663eaf2ee6b938e485ff6fcbd03069abf4a64a7fe2e67076faa479" => :el_capitan
+    sha256 "74d3ef1fff52a93936a8ae81d3dc9a6a2497cbcd5babf735d803b734d1d749fc" => :yosemite
+    sha256 "418e0920e1e2e90efe573a3e617a4a6b4aa90c27e7e6843ae178a262b9f858de" => :mavericks
   end
 
   depends_on "ctags"
@@ -26,7 +25,7 @@ class AbiComplianceChecker < Formula
       <headers>#{Formula["ctags"].include}</headers>
       <libs>#{Formula["ctags"].lib}</libs>
     EOS
-    gcc_suffix = Formula["gcc"].version.to_s.slice(OS.mac? ? /\d\.\d+/ : /\d/)
+    gcc_suffix = Formula["gcc"].version.to_s.slice(/\d/)
     system bin/"abi-compliance-checker", "-cross-gcc", "gcc-" + gcc_suffix,
                                          "-lib", "ctags",
                                          "-old", testpath/"test.xml",

@@ -1,17 +1,15 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.3.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.3.tar.gz"
-  sha256 "4de9e31f46b44d34871c22f54bfc54398ef124d6f7cafb1f4a5958fbcd3ba12d"
-  revision 1 unless OS.mac?
+  url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
+  sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
 
   bottle do
     cellar :any
-    sha256 "543d5ad733130bca7640900cd04cce0d499d6eb858ec2d17a0cd49b428b4c8d1" => :el_capitan
-    sha256 "3df0a8327d236e67e77075f108702e444169321716c430380ef99f93f6d7bc32" => :yosemite
-    sha256 "87ec20eb4dc74d17f6fa1b9ef2f14bbf08449457e08fd061411c7504b609c2f0" => :mavericks
-    sha256 "8e415d56bc5da40e18d908ab9c3f6929a89367c326d8cd4be8d8a6abe6868f40" => :x86_64_linux
+    sha256 "106885b0ac96d1f59c5a1f7588ffc938d90361fb9e68cbdd74db2177ea3fa694" => :el_capitan
+    sha256 "abc9899e778ff2d5abcdac5c1b8b976b9811029b739d557c1ac61dbe1ef2cc19" => :yosemite
+    sha256 "03f73fbc3f99f098f44ff5805aadd1b5cd6c4741e9ca9f6e66d9cc4a9b2f1a5a" => :mavericks
   end
 
   head do
@@ -22,12 +20,12 @@ class Libxml2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :python => :optional
-  depends_on "zlib" => :recommended unless OS.mac?
-
   keg_only :provided_by_osx
 
   option :universal
+
+  depends_on :python => :optional
+  depends_on "zlib" unless OS.mac?
 
   fails_with :llvm do
     build 2326
@@ -72,7 +70,8 @@ class Libxml2 < Formula
         return 0;
       }
     EOS
-    args = %w[test.c -o test] + `#{bin}/xml2-config --cflags --libs`.split
+    args = %w[test.c -o test]
+    args += shell_output("#{bin}/xml2-config --cflags --libs").split
     system ENV.cc, *args
     system "./test"
   end

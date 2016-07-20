@@ -1,24 +1,22 @@
 class Chromedriver < Formula
   desc "Tool for automated testing of webapps across many browsers"
   homepage "https://sites.google.com/a/chromium.org/chromedriver/"
-  baseurl = "https://chromedriver.storage.googleapis.com/2.21/chromedriver_"
   if OS.mac?
-    url "#{baseurl}mac32.zip"
-    sha256 "41f21005b498adc5896e4c3e264d718e4ade09609a7544ea8753d4e8ef1e787f"
-  elsif MacOS.prefer_64_bit?
-    url "#{baseurl}linux64.zip"
-    sha256 "8f0b879391e776e6741c8dc5016e7010c528c2007333c5220ad54dcc25de1cba"
-  else
-    url "#{baseurl}linux32.zip"
-    sha256 "1fbc3e4a7ff35d03d67be4a8a8dbd9b1b035fcc6a9b06fb18d466b710af89242"
+    url "https://chromedriver.storage.googleapis.com/2.22/chromedriver_mac32.zip"
+    sha256 "086943786ce736c72f790d85bc810cd541d97abdf81d51e30da62a6d3e2152e3"
+  elsif OS.linux?
+    url "https://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip"
+    sha256 "42f504ef03cd998bb9624d7edfce6d0b02aa7c2a87c7f292a306b4b044bca242"
   end
-  version "2.21"
+  version "2.22"
 
   bottle :unneeded
 
   def install
     bin.install "chromedriver"
   end
+
+  plist_options :manual => "chromedriver"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

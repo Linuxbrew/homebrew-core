@@ -1,14 +1,14 @@
 class ZshNavigationTools < Formula
   desc "Zsh curses-based tools, e.g. multi-word history searcher"
   homepage "https://github.com/psprint/zsh-navigation-tools"
-  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.1.4.tar.gz"
-  sha256 "3071d12e0982dcf7dbaaf7c3cd546de60c53eabe8f3ea09a0ece0b26db80515b"
+  url "https://github.com/psprint/zsh-navigation-tools/archive/v2.2.1.tar.gz"
+  sha256 "3937aa4cb4a77f8c7dd161e1703db63e6d6dc18a1c4b4562ed77bb6b8b0cd144"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fc6590d03f7196934c95187170b204c598556bdc2a12d13584729b9a850f4f74" => :el_capitan
-    sha256 "c341a37ffd94e1a254976ea7d8fe09844462d7a9bbb733dda566318e2c999c57" => :yosemite
-    sha256 "4b3fccc1912c20948ca9ccd5828b6b622d163478c93f450af91fa35b87e5f06b" => :mavericks
+    sha256 "4ec7607ad8b05c86891d2ef92bfbf50661e6aa156bd01916b26be1ad27ffaae0" => :el_capitan
+    sha256 "5b1977fd6a3c5adaf663b6292a7bbb8edcbcd53a0377acc3422fc4d97255626b" => :yosemite
+    sha256 "db2b464f57e7125fd916ba750c3d1c9ecf4cc27febb7e3c75499696c585b3601" => :mavericks
   end
 
   def install
@@ -17,7 +17,6 @@ class ZshNavigationTools < Formula
 
   def caveats; <<-EOS.undent
     To run zsh-navigation-tools, add the following at the end of your .zshrc:
-      fpath+=( #{HOMEBREW_PREFIX}/share/zsh-navigation-tools )
       source #{HOMEBREW_PREFIX}/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
     You will also need to force reload of your .zshrc:

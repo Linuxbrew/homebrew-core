@@ -4,17 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.1.2",
-    :revision => "78b3f826a6124dc20bb94f1c2d9b0c0bac26fef7"
-  revision 1
-
+    :tag => "v1.3.3",
+    :revision => "6220bd5f0cdb5008ba9488fabcd556959e80dce5"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "41058a0ab27e231811c577f12077658e1e78a0c3785b2b7c05314c19a083025d" => :el_capitan
-    sha256 "33cbe973170b5186c76478d37bae80d738d3b2a20ce6c4fca57258f2201de408" => :yosemite
-    sha256 "94949fb457729824358dde3448895efe478f764c47a31b8e0cf756bf082d6e27" => :mavericks
+    sha256 "b45ac3284c46efa6e31a29be144c9515427fd058ff3406c0b219cb12d7f74000" => :el_capitan
+    sha256 "5de0a8797c284796b5a7fe2d28c58aa36c0802d59d4d8dbdb418f331c199b89f" => :yosemite
+    sha256 "d18d86b23af0d6a49091fa7b32337f54f3f05ae56db8f0bea8e4287c5e076ad0" => :mavericks
   end
 
   depends_on "go" => :build
@@ -26,10 +24,11 @@ class GitlabCiMultiRunner < Formula
       :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
   end
 
-  resource "prebuilt.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.1.2/docker/prebuilt.tar.gz",
+  resource "prebuilt-x86_64.tar.gz" do
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.3.3/docker/prebuilt-x86_64.tar.gz",
       :using => :nounzip
-    sha256 "ad692bf548f3f55967c86b71b3aeaa9cc82cd156554a546753b0829a36219b98"
+    version "1.3.3"
+    sha256 "5ae536cb7598607f1a0d4c0cb7f31d83d6c19e386106ea50192933a726f33ca9"
   end
 
   def install
@@ -45,8 +44,8 @@ class GitlabCiMultiRunner < Formula
       system "go", "install"
     end
 
-    resource("prebuilt.tar.gz").stage do
-      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy", "-nometadata", "-o", buildpath/"executors/docker/bindata.go", "prebuilt.tar.gz"
+    resource("prebuilt-x86_64.tar.gz").stage do
+      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy", "-nometadata", "-o", buildpath/"executors/docker/bindata.go", "prebuilt-x86_64.tar.gz"
     end
 
     cd "src/gitlab.com/gitlab-org/gitlab-ci-multi-runner" do
@@ -63,7 +62,7 @@ class GitlabCiMultiRunner < Formula
   end
 
   test do
-    assert_match "gitlab-ci-multi-runner version #{version}", shell_output("#{bin}/gitlab-ci-multi-runner --version")
-    assert_match "gitlab-runner version #{version}", shell_output("#{bin}/gitlab-runner --version")
+    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-ci-multi-runner --version")
+    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-runner --version")
   end
 end
