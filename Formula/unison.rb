@@ -1,8 +1,8 @@
 class Unison < Formula
-  desc "Unison file synchronizer"
+  desc "File-synchronization tool"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.3.tar.gz"
-  sha256 "f40d3cfbe82078d79328b51acab3e5179f844135260c2f4710525b9b45b15483"
+  url "http://www.seas.upenn.edu/~bcpierce/unison/download/releases/unison-2.48.4/unison-2.48.4.tar.gz"
+  sha256 "30aa53cd671d673580104f04be3cf81ac1e20a2e8baaf7274498739d59e99de8"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,12 @@ class Unison < Formula
     ENV.j1
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
-    system "make ./mkProjectInfo"
-    system "make UISTYLE=text"
+    system "make", "./mkProjectInfo"
+    system "make", "UISTYLE=text"
     bin.install "unison"
+  end
+
+  test do
+    system bin/"unison", "-version"
   end
 end
