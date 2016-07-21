@@ -41,7 +41,7 @@ class Wget < Formula
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
     # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     args = %W[
       --prefix=#{prefix}
