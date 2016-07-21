@@ -20,6 +20,9 @@ class Libconfig < Formula
 
   option :universal
 
+  depends_on "flex" => :build unless OS.mac?
+  depends_on "texinfo" => :build unless OS.mac?
+
   def install
     ENV.universal_binary if build.universal?
 
