@@ -53,7 +53,7 @@ class Gdb < Formula
     if build.with? "python"
       args << "--with-python=#{HOMEBREW_PREFIX}"
     else
-      args << "--with-python=/usr"
+      args << "--with-python=/usr" if OS.mac?
     end
 
     if build.with? "version-suffix"
