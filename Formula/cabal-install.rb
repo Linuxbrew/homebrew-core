@@ -1,3 +1,4 @@
+# cabal-install: Build a bottle for Linuxbrew
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
