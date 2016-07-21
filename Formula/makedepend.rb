@@ -1,3 +1,4 @@
+# makedepend: Build a bottle for Linuxbrew
 class Makedepend < Formula
   desc "Creates dependencies in makefiles"
   homepage "https://x.org/"
