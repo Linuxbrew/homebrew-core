@@ -1,3 +1,4 @@
+# libmagic: Build a bottle for Linuxbrew
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
