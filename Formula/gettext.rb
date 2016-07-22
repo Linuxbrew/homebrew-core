@@ -1,3 +1,4 @@
+# gettext: Build a bottle for Linuxbrew
 class Gettext < Formula
   desc "GNU internationalization (i18n) and localization (l10n) library"
   homepage "https://www.gnu.org/software/gettext/"
