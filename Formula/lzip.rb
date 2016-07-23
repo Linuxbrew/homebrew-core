@@ -1,3 +1,4 @@
+# lzip: Build a bottle for Linuxbrew
 class Lzip < Formula
   desc "LZMA-based compression program similar to gzip or bzip2"
   homepage "http://www.nongnu.org/lzip/lzip.html"
