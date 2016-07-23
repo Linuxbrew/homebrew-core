@@ -1,3 +1,4 @@
+# aha: Build a bottle for Linuxbrew
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
