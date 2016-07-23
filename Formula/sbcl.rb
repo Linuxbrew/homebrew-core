@@ -24,6 +24,8 @@ class Sbcl < Formula
   option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
   option "without-threads", "Build SBCL without support for native threads"
 
+  depends_on "zlib" unless OS.mac?
+
   # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
   resource "bootstrap64" do
     if OS.mac?
