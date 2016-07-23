@@ -1,3 +1,4 @@
+# gnu-tar: Build a bottle for Linuxbrew
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
