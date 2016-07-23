@@ -1,3 +1,4 @@
+# chicken: Build a bottle for Linuxbrew
 class Chicken < Formula
   desc "Compiler for the Scheme programming language"
   homepage "https://www.call-cc.org/"
