@@ -45,7 +45,7 @@ class Libgcrypt < Formula
     system "install_name_tool", "-change",
                                 lib/"libgcrypt.20.dylib",
                                 buildpath/"src/.libs/libgcrypt.20.dylib",
-                                buildpath/"tests/.libs/random"
+                                buildpath/"tests/.libs/random" if OS.mac?
     system "make", "check"
     system "make", "install"
   end
