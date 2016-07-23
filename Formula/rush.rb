@@ -1,3 +1,4 @@
+# rush: Build a bottle for Linuxbrew
 class Rush < Formula
   desc "GNU's Restricted User SHell"
   homepage "https://www.gnu.org/software/rush/"
