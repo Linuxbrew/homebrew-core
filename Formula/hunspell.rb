@@ -1,3 +1,4 @@
+# hunspell: Build a bottle for Linuxbrew
 class Hunspell < Formula
   desc "Spell checker and morphological analyzer"
   homepage "https://hunspell.github.io"
