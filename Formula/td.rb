@@ -1,3 +1,4 @@
+# td: Build a bottle for Linuxbrew
 require "language/go"
 
 class Td < Formula
