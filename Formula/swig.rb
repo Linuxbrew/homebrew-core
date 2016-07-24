@@ -1,3 +1,4 @@
+# swig: Build a bottle for Linuxbrew
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
