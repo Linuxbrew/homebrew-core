@@ -89,7 +89,11 @@ class Openssl < Formula
       system "perl", "./Configure", *(configure_args + arch_args[arch])
       system "make", "depend"
       system "make"
-      system "make", "test" if build.with?("test")
+      if which "cmp"
+        system "make", "test" if build.with?("test")
+      else
+        opoo "Skipping `make check` due to unavailable `cmp`"
+      end
 
       if build.universal?
         cp "include/openssl/opensslconf.h", dir
