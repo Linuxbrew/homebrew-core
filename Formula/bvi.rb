@@ -11,6 +11,8 @@ class Bvi < Formula
     sha256 "75d2461715e5afacd35efcb188d580191db6ebe02607bc66ea52a813be21e29c" => :mountain_lion
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
