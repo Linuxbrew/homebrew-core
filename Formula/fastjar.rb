@@ -1,3 +1,4 @@
+# fastjar: Build a bottle for Linuxbrew
 class Fastjar < Formula
   desc "Implementation of Sun's jar tool"
   homepage "https://sourceforge.net/projects/fastjar/"
