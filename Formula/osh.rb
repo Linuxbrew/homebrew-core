@@ -21,6 +21,10 @@ class Osh < Formula
   end
 
   def install
+    # Fix error: file not recognized: file truncated
+    # See https://stackoverflow.com/questions/5713894/file-not-recognized-file-truncated-gcc-error#17789868
+    ENV.deparallelize unless OS.mac?
+
     system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
 
     if build.with? "examples"
