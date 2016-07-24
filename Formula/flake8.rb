@@ -1,3 +1,4 @@
+# flake8: Build a bottle for Linuxbrew
 class Flake8 < Formula
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
