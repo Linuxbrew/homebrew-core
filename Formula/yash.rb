@@ -11,6 +11,7 @@ class Yash < Formula
   end
 
   depends_on "gettext"
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     system "sh", "./configure",
