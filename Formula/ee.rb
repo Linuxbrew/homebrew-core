@@ -1,3 +1,4 @@
+# ee: Build a bottle for Linuxbrew
 class Ee < Formula
   desc "Terminal (curses-based) text editor with pop-up menus"
   homepage "http://www.users.qwest.net/~hmahon/"
