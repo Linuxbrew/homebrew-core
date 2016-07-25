@@ -1,3 +1,4 @@
+# yasm: Build a bottle for Linuxbrew
 class Yasm < Formula
   desc "Modular BSD reimplementation of NASM"
   homepage "http://yasm.tortall.net/"
