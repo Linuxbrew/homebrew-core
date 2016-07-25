@@ -1,3 +1,4 @@
+# vte: Build a bottle for Linuxbrew
 class Vte < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
