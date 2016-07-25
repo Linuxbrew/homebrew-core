@@ -1,3 +1,4 @@
+# texi2html: Build a bottle for Linuxbrew
 class Texi2html < Formula
   desc "Convert TeXinfo files to HTML"
   homepage "http://www.nongnu.org/texi2html/"
