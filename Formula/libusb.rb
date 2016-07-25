@@ -45,8 +45,8 @@ class Libusb < Formula
   test do
     cp_r (pkgshare/"examples"), testpath
     cd "examples" do
-      system ENV.cc, "-lusb-1.0", "-L#{lib}", "-I#{include}/libusb-1.0",
-             "listdevs.c", "-o", "test"
+      system ENV.cc, "-L#{lib}", "-I#{include}/libusb-1.0",
+             "listdevs.c", "-o", "test", "-lusb-1.0"
       system "./test"
     end
   end
