@@ -1,3 +1,4 @@
+# eigen: Build a bottle for Linuxbrew
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
@@ -23,6 +24,8 @@ class Eigen < Formula
     end
     (share/"cmake/Modules").install "cmake/FindEigen3.cmake"
   end
+
+  env :super
 
   test do
     (testpath/"test.cpp").write <<-EOS.undent
