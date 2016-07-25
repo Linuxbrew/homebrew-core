@@ -23,7 +23,7 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-  depends_on "cairo" => "with-x11" unless OS.mac?
+  depends_on "cairo" unless OS.mac?
 
   # Replace a keyword not supported by Snow Leopard's Objective-C compiler.
   # https://bugzilla.gnome.org/show_bug.cgi?id=756770
