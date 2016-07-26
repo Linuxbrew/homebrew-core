@@ -3,6 +3,7 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
   sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
+  revision 1 if OS.linux?
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
 
   bottle do
@@ -19,7 +20,11 @@ class Python < Formula
   option :universal
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
-  option "with-poll", "Enable select.poll, which is not fully implemented on OS X (https://bugs.python.org/issue5154)"
+  if OS.mac?
+    option "with-poll", "Enable select.poll, which is not fully implemented on OS X (https://bugs.python.org/issue5154)"
+  else
+    option "without-poll", "Disable select.poll"
+  end
 
   # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
   # brew, which would lead to circular dependency.
@@ -97,7 +102,7 @@ class Python < Formula
   end
 
   def install
-    if build.with? "poll"
+    if OS.mac? && build.with?("poll")
       opoo "The given option --with-poll enables a somewhat broken poll() on OS X (https://bugs.python.org/issue5154)."
     end
 
