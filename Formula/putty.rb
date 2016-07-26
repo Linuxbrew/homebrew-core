@@ -1,3 +1,4 @@
+# putty: Build a bottle for Linuxbrew
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "http://www.chiark.greenend.org.uk/~sgtatham/putty/"
