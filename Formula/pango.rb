@@ -27,6 +27,7 @@ class Pango < Formula
   depends_on "harfbuzz"
   depends_on "fontconfig"
   depends_on "gobject-introspection"
+  depends_on :x11 unless OS.mac?
 
   fails_with :llvm do
     build 2326
