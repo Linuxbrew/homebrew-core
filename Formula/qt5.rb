@@ -71,6 +71,20 @@ class Qt5 < Formula
     sha256 "218b8682d7e8a3f74618d0bd87e4797e13fc2cbfe49c21a2845e64da3fe8868a"
   end
 
+  unless OS.mac?
+    depends_on :x11
+    depends_on "fontconfig"
+    depends_on "glib"
+    depends_on "icu4c"
+    depends_on "libproxy"
+    depends_on "pulseaudio"
+    depends_on "sqlite"
+    depends_on "systemd"
+    depends_on "homebrew/x11/libxkbcommon"
+    depends_on "linuxbrew/xorg/xcb-util-image"
+    depends_on "linuxbrew/xorg/xcb-util-wm"
+  end
+
   def install
     args = %W[
       -verbose
