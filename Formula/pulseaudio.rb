@@ -22,6 +22,7 @@ class Pulseaudio < Formula
   option :universal
 
   depends_on "pkg-config" => :build
+  depends_on "homebrew/dupes/m4" => :build unless OS.mac?
 
   if build.with? "nls"
     depends_on "intltool" => :build
@@ -33,6 +34,7 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "openssl"
+  depends_on "libcap" unless OS.mac?
 
   depends_on :x11 => :optional
   depends_on "glib" => :optional
@@ -57,7 +59,6 @@ class Pulseaudio < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --enable-coreaudio-output
       --disable-neon-opt
       --with-mac-sysroot=/
     ]
@@ -65,6 +66,7 @@ class Pulseaudio < Formula
     args << "--with-mac-sysroot=#{MacOS.sdk_path}"
     args << "--with-mac-version-min=#{MacOS.version}"
     args << "--disable-nls" if build.without? "nls"
+    args << "--enable-coreaudio-output" if OS.mac?
 
     if build.universal?
       args << "--enable-mac-universal"
