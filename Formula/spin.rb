@@ -16,6 +16,8 @@ class Spin < Formula
     build 2334
   end
 
+  depends_on "bison" => :build unless OS.mac?
+
   def install
     ENV.deparallelize
 
