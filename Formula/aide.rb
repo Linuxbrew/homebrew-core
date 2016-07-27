@@ -11,13 +11,6 @@ class Aide < Formula
     sha256 "96addc96a4768e2343e2760022e115404c80b54b64f160925d24447bb393f39d" => :mavericks
   end
 
-  devel do
-    url "https://downloads.sourceforge.net/project/aide/devel/0.16b1/aide-0.16b1.tar.gz"
-    sha256 "35d99899d8b7cd723ac744b8cbd8d5f911ec22a4b568134dd0b6f7116d21b566"
-
-    depends_on "pcre"
-  end
-
   head do
     url "http://git.code.sf.net/p/aide/code.git"
     depends_on "automake" => :build
