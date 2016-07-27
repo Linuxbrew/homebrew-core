@@ -8,11 +8,11 @@ class Jdk < Formula
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
   # tag "linuxbrew"
 
-  version "1.8.0-60"
+  version "1.8.0-102"
   if OS.linux?
-    url "http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz",
+    url "http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.tar.gz",
       :using => JdkDownloadStrategy
-    sha256 "ebe51554d2f6c617a4ae8fc9a8742276e65af01bd273e96848b262b3c05424e5"
+    sha256 "7cfbe0bc0391a4abe60b3e9eb2a541d2315b99b9cb3a24980e618a89229e04b7"
   elsif OS.mac?
     url "http://java.com/"
   end
