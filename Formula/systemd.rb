@@ -21,7 +21,7 @@ class Systemd < Formula
 
   def install
     system "cpan", "-i", "XML::Parser" if ENV["TRAVIS"]
-    
+
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
