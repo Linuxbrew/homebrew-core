@@ -20,7 +20,11 @@ class Systemd < Formula
   depends_on "XML::Parser" => :perl
 
   def install
-    system "cpan", "-i", "XML::Parser" if ENV["TRAVIS"]
+    if ENV["TRAVIS"]
+      ENV["PERL_MM_USE_DEFAULT"] = 1
+      ENV["PERL_EXTUTILS_AUTOINSTALL"] = "--defaultdeps"
+      system "cpan", "-i", "XML::Parser"
+    end
 
     system "./configure",
       "--disable-debug",
