@@ -20,6 +20,8 @@ class Systemd < Formula
   depends_on "XML::Parser" => :perl
 
   def install
+    system "cpan", "-i", "XML::Parser" if ENV["TRAVIS"]
+    
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
