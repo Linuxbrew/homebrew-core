@@ -1,3 +1,4 @@
+# poppler: Build a bottle for Linuxbrew
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
@@ -31,6 +32,9 @@ class Poppler < Formula
   depends_on "qt" => :optional
   depends_on "qt5" => :optional
   depends_on "little-cms2" => :optional
+
+  # workaround for incorrect X11 dependency propogation by cairo
+  depends_on :x11 unless OS.mac?
 
   conflicts_with "pdftohtml", :because => "both install `pdftohtml` binaries"
 
