@@ -28,7 +28,7 @@ class Systemd < Formula
   def install
     if ENV["TRAVIS"]
       resource("xml::parser").stage do
-        system "perl", "Makefile.PL"
+        system "perl", "Makefile.PL", "PREFIX=/home/linuxbrew/perl5"
         system "make"
         system "make", "install"
       end
