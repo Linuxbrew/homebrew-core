@@ -11,7 +11,6 @@ class Libusb < Formula
     sha256 "e1a0f90bb8906e3d833b033a4bed058f6aa1700d376971db700c8741527dafa9" => :el_capitan
     sha256 "6a4fb2012bf9106fcf1c71b215b711188d7c88d0d12b2cf744ba966363b2144d" => :yosemite
     sha256 "5a475e2ca93886e51b994d1ea323e915c91d8463e5b23b45203acb69edf69981" => :mavericks
-    sha256 "61de2c4a81871b5d0e7cb4fae460e93e2d407defbb41507bb9316cdfb9d3b6dd" => :x86_64_linux
   end
 
   head do
