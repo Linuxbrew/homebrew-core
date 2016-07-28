@@ -18,6 +18,7 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "coreutils" => :build
   depends_on "XML::Parser" => :perl
+  depends_on "expat" => :build unless OS.mac?
 
   resource "xml::parser" do
     url "http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/XML-Parser-2.36.tar.gz"
