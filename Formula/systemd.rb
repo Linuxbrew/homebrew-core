@@ -19,11 +19,18 @@ class Systemd < Formula
   depends_on "coreutils" => :build
   depends_on "XML::Parser" => :perl
 
+  resource "xml::parser" do
+    url "http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/XML-Parser-2.36.tar.gz"
+    sha256 "9fd529867402456bd826fe0e5588d35b3a2e27e586a2fd838d1352b71c2ed73f"
+  end
+
   def install
     if ENV["TRAVIS"]
-      ENV["PERL_MM_USE_DEFAULT"] = 1
-      ENV["PERL_EXTUTILS_AUTOINSTALL"] = "--defaultdeps"
-      system "cpan", "-i", "XML::Parser"
+      resource("xml::parser").stage do
+        system "perl", "Makefile.PL"
+        system "make"
+        system "make", "install"
+      end
     end
 
     system "./configure",
