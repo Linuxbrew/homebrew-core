@@ -14,6 +14,9 @@ class Libproxy < Formula
 
   depends_on "cmake" => :build
 
+  # tries to install to system perl location
+  depends_on "perl" unless OS.mac?
+
   def install
     mkdir "build" do
       # build tries to install to non-standard locations for Python bindings
