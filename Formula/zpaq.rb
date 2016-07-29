@@ -61,7 +61,7 @@ class Zpaq < Formula
 
       # OS X `install` command doesn't have `-t`
       s.gsub! /(install -m.* )-t (.*) (.*)(\r)/, "\\1 \\3 \\2\\4"
-    end
+    end if OS.mac?
 
     system "make"
     system "make", "check"
