@@ -36,7 +36,7 @@ class Libsecret < Formula
     system "./configure", *args
 
     # https://bugzilla.gnome.org/show_bug.cgi?id=734630
-    inreplace "Makefile", "sed", "gsed"
+    inreplace "Makefile", "sed", "gsed" unless OS.linux?
 
     system "make", "install"
   end
