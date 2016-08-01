@@ -1,3 +1,4 @@
+# desktop-file-utils: Build a bottle for Linuxbrew
 class DesktopFileUtils < Formula
   desc "Command-line utilities for working with desktop entries"
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
