@@ -29,7 +29,7 @@ class Libusb < Formula
   deprecated_option "no-runtime-logging" => "without-runtime-logging"
 
   depends_on "systemd" if OS.linux? # for libudev
-  depends_on "zlib" if OS.linux?
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
