@@ -12,6 +12,8 @@ class Ispell < Formula
     sha256 "dbbaabbc715f6f16dfb9f2cd05755a88e471b92c63d7f87f79a940a5df8dadfb" => :mountain_lion
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     ENV.deparallelize
     ENV.no_optimization
