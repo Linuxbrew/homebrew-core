@@ -16,7 +16,7 @@ class Depqbf < Formula
   def install
     system "make"
     bin.install "depqbf"
-    lib.install "libqdpll.1.0.dylib"
+    lib.install "libqdpll.#{OS.mac? ? "1.0.dylib" : "so.1.0"}"
   end
 
   test do
