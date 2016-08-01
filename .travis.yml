@@ -15,7 +15,7 @@ before_install:
     fi
   - HOME=/home/linuxbrew
   - sudo mkdir $HOME
-  - sudo chown "$USER" $HOME
+  - sudo chown "$USER:" $HOME
   - LINUXBREW=$HOME/.linuxbrew
   - mkdir $LINUXBREW
   - curl -L https://github.com/Linuxbrew/brew/tarball/master | tar xz -m --strip 1 -C $LINUXBREW
