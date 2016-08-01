@@ -1,3 +1,4 @@
+# libsecret: Build a bottle for Linuxbrew
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
