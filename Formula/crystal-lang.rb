@@ -43,9 +43,16 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-darwin-x86_64.tar.gz"
+    if OS.mac?
+      url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-darwin-x86_64.tar.gz"
+      sha256 "ce4e282edbf35542cee2cc95a1feb070612716200f142f712707c17cf4175c48"
+    elsif OS.linux?
+      url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-linux-x86_64.tar.gz"
+      sha256 "72ad5f5623d8cde0ad51d151de6720fac759cde14e3eb37bc0d0b8b2925633af"
+    else
+      odie "Your operating system is not supported by this formula"
+    end
     version "0.18.6"
-    sha256 "ce4e282edbf35542cee2cc95a1feb070612716200f142f712707c17cf4175c48"
   end
 
   resource "shards" do
