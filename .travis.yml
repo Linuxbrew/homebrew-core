@@ -7,7 +7,7 @@ before_install:
   - sudo apt-get install -y libxml-parser-perl
   - sudo apt-get remove -y libncurses5-dev libtinfo-dev
   # Fix error: Incorrect file permissions (664)
-  - chmod 644 Formula/*.rb
+  - chmod 0644 Formula/*.rb
   - umask 022
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
   - if [ -f ".git/shallow" ]; then
@@ -15,16 +15,17 @@ before_install:
     fi
   - HOME=/home/linuxbrew
   - sudo mkdir $HOME
-  - sudo chown "$USER:" $HOME
+  - sudo chown "$USER" $HOME
   - mkdir $HOME/.linuxbrew
   - curl -L https://github.com/Linuxbrew/brew/tarball/master | tar xz -m --strip 1 -C $HOME/.linuxbrew
-  - PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-  - rm -rf "$(brew --repo $TRAVIS_REPO_SLUG)"
-  - mkdir -p "$(brew --repo $TRAVIS_REPO_SLUG)"
-  - rsync -az "$TRAVIS_BUILD_DIR/" "$(brew --repo $TRAVIS_REPO_SLUG)"
-  - export TRAVIS_BUILD_DIR="$(brew --repo $TRAVIS_REPO_SLUG)"
+  - export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+  - TRS="$(brew --repo $TRAVIS_REPO_SLUG)"
+  - rm -rf "$TRS"
+  - mkdir -p "$TRS"
+  - rsync -az "$TRAVIS_BUILD_DIR/" "$TRS"
+  - export TRAVIS_BUILD_DIR="$TRS"
   - cd "$(brew --repo)"
-  - export HOMEBREW_DEVELOPER="1"
+  - export HOMEBREW_DEVELOPER=1
   - export HOMEBREW_NO_AUTO_UPDATE=1
   - ulimit -n 1024
   - brew tap homebrew/dupes
