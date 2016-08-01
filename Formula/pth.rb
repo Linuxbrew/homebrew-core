@@ -1,3 +1,4 @@
+# pth: Build a bottle for Linuxbrew
 class Pth < Formula
   desc "GNU Portable THreads"
   homepage "https://www.gnu.org/software/pth/"
