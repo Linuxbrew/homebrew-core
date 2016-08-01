@@ -16,9 +16,10 @@ before_install:
   - HOME=/home/linuxbrew
   - sudo mkdir $HOME
   - sudo chown "$USER" $HOME
-  - mkdir $HOME/.linuxbrew
-  - curl -L https://github.com/Linuxbrew/brew/tarball/master | tar xz -m --strip 1 -C $HOME/.linuxbrew
-  - export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+  - LINUXBREW=$HOME/.linuxbrew
+  - mkdir $LINUXBREW
+  - curl -L https://github.com/Linuxbrew/brew/tarball/master | tar xz -m --strip 1 -C $LINUXBREW
+  - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
   - TRS="$(brew --repo $TRAVIS_REPO_SLUG)"
   - rm -rf "$TRS"
   - mkdir -p "$TRS"
