@@ -1,3 +1,4 @@
+# jq: Build a bottle for Linuxbrew
 class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
   homepage "https://stedolan.github.io/jq/"
