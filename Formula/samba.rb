@@ -43,7 +43,7 @@ class Samba < Formula
       # https://bugzilla.samba.org/show_bug.cgi?id=11113
       inreplace "Makefile" do |s|
         s.gsub! /(lib\w+).dylib(.[\.\d]+)/, "\\1\\2.dylib"
-      end
+      end if OS.mac?
 
       (prefix/"private").mkpath
       (prefix/"var/locks").mkpath
