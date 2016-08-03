@@ -1,3 +1,4 @@
+# libcroco: Build a bottle for Linuxbrew
 class Libcroco < Formula
   desc "CSS parsing and manipulation toolkit for GNOME"
   homepage "http://www.linuxfromscratch.org/blfs/view/svn/general/libcroco.html"
