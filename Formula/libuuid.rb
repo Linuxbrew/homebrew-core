@@ -1,3 +1,4 @@
+# libuuid: Build a bottle for Linuxbrew
 class Libuuid < Formula
   homepage "https://sourceforge.net/projects/libuuid/"
   # tag "linuxbrew"
