@@ -3,7 +3,7 @@ require "formula"
 class Glibc25 < Formula
   homepage "http://www.gnu.org/software/libc/download.html"
   url "http://ftpmirror.gnu.org/glibc/glibc-2.5.1.tar.bz2"
-  sha1 "2b7da136df025bb8c787be3351cba58374226d9c"
+  sha256 "a29e0d149816364820512f71b9c9ebd0f8a148fbeaac42b79e2c342532e5bf8e"
 
   conflicts_with "glibc", :because => "both install libc.so.6"
 
