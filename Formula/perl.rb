@@ -61,7 +61,7 @@ class Perl < Formula
     # passed to child processes, which causes the make test step to fail.
     # https://rt.perl.org/Ticket/Display.html?id=126706
     # https://github.com/Homebrew/legacy-homebrew/issues/41716
-    if MacOS.version < :el_capitan
+    if MacOS.version < :el_capitan && OS.mac?
       system "make", "test" if build.with? "test"
     end
 
