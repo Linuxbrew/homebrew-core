@@ -1,3 +1,4 @@
+# es: Build a bottle for Linuxbrew
 class Es < Formula
   desc "Extensible shell with first class functions, lexical scoping, and more"
   homepage "https://wryun.github.io/es-shell/"
