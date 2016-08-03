@@ -71,6 +71,14 @@ class Qt5 < Formula
 
   depends_on OracleHomeVarRequirement if build.with? "oci"
 
+  unless OS.mac?
+    depends_on :x11
+    depends_on "glib"
+    depends_on "pulseaudio"
+    depends_on "sqlite"
+    depends_on "systemd"
+  end
+
   def install
     args = %W[
       -verbose
