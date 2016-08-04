@@ -44,6 +44,9 @@ class Ncmpcpp < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
+
     ENV.cxx11
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
