@@ -42,7 +42,7 @@ class Boost < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
+    ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
 
     # https://svn.boost.org/trac/boost/ticket/8841
     if build.with?("mpi") && build.with?("single")
