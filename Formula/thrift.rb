@@ -84,4 +84,7 @@ class Thrift < Formula
       brew install homebrew/php/php55-thrift
   EOS
   end
+
+  test do
+  end
 end
