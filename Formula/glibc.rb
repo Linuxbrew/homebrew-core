@@ -64,6 +64,11 @@ class Glibc < Formula
     sys_localtime = Pathname.new "/etc/localtime"
     brew_localtime = Pathname.new prefix/"etc/localtime"
     (prefix/"etc").install_symlink sys_localtime if sys_localtime.exist? && !brew_localtime.exist?
+
+    # Set zoneinfo correctly using the system installed zoneinfo
+    sys_zoneinfo = Pathname.new "/usr/share/zoneinfo"
+    brew_zoneinfo = Pathname.new prefix/"share/zoneinfo"
+    (prefix/"share").install_symlink sys_zoneinfo if sys_zoneinfo.exist? && !brew_zoneinfo.exist?
   end
 
   test do
