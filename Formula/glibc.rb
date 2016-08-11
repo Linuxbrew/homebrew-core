@@ -67,8 +67,8 @@ class Glibc < Formula
 
     # Set zoneinfo correctly using the system installed zoneinfo
     sys_zoneinfo = Pathname.new "/usr/share/zoneinfo"
-    brew_zoneinfo = Pathname.new prefix/"share/zoneinfo"
-    (prefix/"share").install_symlink sys_zoneinfo if sys_zoneinfo.exist? && !brew_zoneinfo.exist?
+    brew_zoneinfo = Pathname.new share/"zoneinfo"
+    share.install_symlink sys_zoneinfo if sys_zoneinfo.exist? && !brew_zoneinfo.exist?
   end
 
   test do
