@@ -1,3 +1,4 @@
+# algol68g: Build a bottle for Linuxbrew
 class Algol68g < Formula
   desc "Algol 68 compiler-interpreter"
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
