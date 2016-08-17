@@ -1,3 +1,4 @@
+# minimal-racket: Build a bottle for Linuxbrew
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
