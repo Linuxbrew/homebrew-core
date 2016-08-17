@@ -28,6 +28,7 @@ class Phantomjs < Formula
   depends_on MinimumMacOSRequirement => :lion
   depends_on :xcode => :build
   depends_on "openssl"
+  depends_on "icu4c" unless OS.mac?
 
   def install
     ENV["OPENSSL"] = Formula["openssl"].opt_prefix
