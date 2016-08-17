@@ -30,6 +30,7 @@ class Phantomjs < Formula
   depends_on "openssl"
   depends_on "icu4c" unless OS.mac?
   depends_on "homebrew/dupes/gperf" => :build unless OS.mac?
+  depends_on "flex" => :build unless OS.mac?
 
   def install
     ENV["OPENSSL"] = Formula["openssl"].opt_prefix
