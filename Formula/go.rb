@@ -1,3 +1,4 @@
+# go: Build a bottle for Linuxbrew
 class Go < Formula
   desc "Go programming environment"
   homepage "https://golang.org"
