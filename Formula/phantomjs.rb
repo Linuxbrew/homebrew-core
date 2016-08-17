@@ -34,6 +34,7 @@ class Phantomjs < Formula
 
   def install
     ENV["OPENSSL"] = Formula["openssl"].opt_prefix
+    inreplace "src/qt/qtbase/mkspecs/features/default_post.prf", "use_gold_linker: QMAKE_LFLAGS += $$QMAKE_LFLAGS_USE_GOLD", "" if OS.linux?
     system "./build.py", "--confirm", "--jobs", ENV.make_jobs
     bin.install "bin/phantomjs"
     pkgshare.install "examples"
