@@ -25,10 +25,14 @@ class Valkyrie < Formula
 
     system "qmake", "PREFIX=#{prefix}"
     system "make", "install"
-    prefix.install bin/"valkyrie.app"
+    prefix.install bin/"valkyrie.app" if OS.mac?
   end
 
   test do
-    assert_match version.to_s, shell_output("#{prefix}/valkyrie.app/Contents/MacOS/valkyrie -v 2>/dev/null")
+    if OS.mac?
+      assert_match version.to_s, shell_output("#{prefix}/valkyrie.app/Contents/MacOS/valkyrie -v 2>/dev/null")
+    else
+      assert_match version.to_s, shell_output("#{bin}/valkyrie -v 2>/dev/null")
+    end
   end
 end
