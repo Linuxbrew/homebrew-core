@@ -4,7 +4,7 @@ class Perl < Formula
   url "http://www.cpan.org/src/5.0/perl-5.24.0.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.24.0.orig.tar.xz"
   sha256 "a9a37c0860380ecd7b23aa06d61c20fc5bc6d95198029f3684c44a9d7e2952f2"
-  revision 1
+  revision OS.linux? ? 2 : 1
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
@@ -67,6 +67,13 @@ class Perl < Formula
     end
 
     system "make", "install"
+
+    # expose libperl.so to ensure we aren't using a brewed executable
+    # but a system library
+    if OS.linux?
+      perl_core = Pathname.new(`#{bin/"perl"} -MConfig -e 'print $Config{archlib}'`)+"CORE"
+      lib.install_symlink perl_core/"libperl.so"
+    end
   end
 
   def caveats; <<-EOS.undent
