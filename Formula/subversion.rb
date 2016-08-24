@@ -58,6 +58,7 @@ class Subversion < Formula
     depends_on "libmagic"
     depends_on "zlib"
     depends_on "homebrew/dupes/krb5" => :recommended
+    depends_on "util-linux" if OS.linux? && build.with?("serf") # for libuuid
   end
 
   # Other optional dependencies
@@ -208,7 +209,7 @@ class Subversion < Formula
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) #{arches} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) #{arches if OS.mac?} -g -pipe -fno-common #{"-DPERL_DARWIN" if OS.mac?} -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl"
