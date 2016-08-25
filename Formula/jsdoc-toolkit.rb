@@ -10,7 +10,8 @@ class JsdocToolkit < Formula
 
   def install
     system "/bin/echo '#!/bin/ksh\nJSDOCDIR=\"#{libexec}/jsdoc-toolkit\"' > jsdoc"
-    system "/usr/bin/grep -v \"^echo \\$CMD$\" jsdoc-toolkit/jsrun.sh >> jsdoc"
+    grep = File.executable?("/usr/bin/grep") ? "/usr/bin/grep" : "/bin/grep"
+    system "#{grep} -v \"^echo \\$CMD$\" jsdoc-toolkit/jsrun.sh >> jsdoc"
 
     bin.install "jsdoc"
     libexec.install "jsdoc-toolkit"
