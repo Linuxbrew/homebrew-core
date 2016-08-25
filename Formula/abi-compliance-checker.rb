@@ -1,3 +1,4 @@
+# abi-compliance-checker: Build a bottle for Linuxbrew
 class AbiComplianceChecker < Formula
   desc "Check binary and source compatibility for C/C++"
   homepage "http://ispras.linuxbase.org/index.php/ABI_compliance_checker"
