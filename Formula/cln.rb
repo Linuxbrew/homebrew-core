@@ -1,3 +1,4 @@
+# cln: Build a bottle for Linuxbrew
 class Cln < Formula
   desc "Class Library for Numbers"
   homepage "http://www.ginac.de/CLN/"
