@@ -1,3 +1,4 @@
+# gringo: Build a bottle for Linuxbrew
 class Gringo < Formula
   desc "Grounder to translate user-provided logic programs"
   homepage "http://potassco.sourceforge.net/"
