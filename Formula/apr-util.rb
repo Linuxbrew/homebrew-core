@@ -23,6 +23,10 @@ class AprUtil < Formula
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
   depends_on "homebrew/dupes/openldap" => :optional
+  depends_on "util-linux" if OS.linux? # for libuuid
+
+  # prevent building bundled expat
+  depends_on "expat" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
