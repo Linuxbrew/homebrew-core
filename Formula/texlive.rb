@@ -3,7 +3,7 @@ class Texlive < Formula
   homepage "http://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
   version "20160405"
-  sha256 "65e94212bf3fa63639ea929e6368ee248bf8904ea53d04566431e33ce4f173f6"
+  sha256 "216829f4e5346694654b27d4607fcd7591831ff642d94753916e87ecb18a2885"
   # tag "linuxbrew"
 
   option "with-full", "install everything"
