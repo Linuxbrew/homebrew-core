@@ -1,3 +1,4 @@
+# docker-machine: Build a bottle for Linuxbrew
 class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
