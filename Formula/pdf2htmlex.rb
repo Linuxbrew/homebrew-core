@@ -1,3 +1,4 @@
+# pdf2htmlex: Build a bottle for Linuxbrew
 class Pdf2htmlex < Formula
   desc "PDF to HTML converter"
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
