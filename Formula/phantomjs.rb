@@ -33,6 +33,7 @@ class Phantomjs < Formula
   depends_on "flex" => :build unless OS.mac?
 
   def install
+    ENV["HOMEBREW_MAKE_JOBS"] = "4" if ENV["CIRCLECI"]
     ENV["OPENSSL"] = Formula["openssl"].opt_prefix
     inreplace "src/qt/qtbase/mkspecs/features/default_post.prf", "use_gold_linker: QMAKE_LFLAGS += $$QMAKE_LFLAGS_USE_GOLD", "" if OS.linux?
     system "./build.py", "--confirm", "--jobs", ENV.make_jobs
