@@ -37,7 +37,7 @@ class Irssi < Formula
       --enable-ipv6
       --enable-true-color
       --with-socks=#{build.with?("dante") ? "yes" : "no"}
-      --with-ncurses=#{MacOS.sdk_path}/usr
+      --with-ncurses=#{Formula["ncurses"].prefix}
     ]
 
     if build.with? "perl"
