@@ -1,3 +1,4 @@
+# ftjam: Build a bottle for Linuxbrew
 class Ftjam < Formula
   desc "Build tool that can be used as a replacement for Make"
   homepage "https://www.freetype.org/jam/"
