@@ -1,3 +1,4 @@
+# libmxml: Build a bottle for Linuxbrew
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "http://www.minixml.org/"
