@@ -8,7 +8,7 @@ class Libtool < Formula
   mirror "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
 
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
@@ -25,6 +25,13 @@ class Libtool < Formula
   def install
     ENV.universal_binary if build.universal?
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
+
+    if OS.linux? && build.bottle?
+      # prevent libtool from hardcoding GCC 4.8
+      ENV["CC"] = "cc"
+      ENV["CXX"] = "c++"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           ("--program-prefix=g" if build.without? "default-names"),
