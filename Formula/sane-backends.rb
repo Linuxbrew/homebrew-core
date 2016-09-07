@@ -13,7 +13,7 @@ class SaneBackends < Formula
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
       sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
-    end
+    end if OS.mac?
   end
 
   bottle do
