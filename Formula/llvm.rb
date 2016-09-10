@@ -142,6 +142,7 @@ class Llvm < Formula
   option "without-libffi", "Do not use libffi to call external functions"
   option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
 
+  depends_on "gcc" # latest gcc (5.x.x and above) is ABI incompatible with the old one
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
   depends_on "ocaml" => :optional
