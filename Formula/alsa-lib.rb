@@ -1,3 +1,4 @@
+# alsa-lib: Build a bottle for Linuxbrew
 class AlsaLib < Formula
   desc "Provides audio and MIDI functionality to the Linux operating system."
   homepage "http://www.alsa-project.org/"
