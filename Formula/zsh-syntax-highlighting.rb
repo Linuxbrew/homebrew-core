@@ -1,3 +1,4 @@
+# zsh-syntax-highlighting: Build a bottle for Linuxbrew
 class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
