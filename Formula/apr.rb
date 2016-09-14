@@ -32,6 +32,7 @@ class Apr < Formula
     system "./configure", "--prefix=#{libexec}"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
 
     # No need for this to point to the versioned path.
     inreplace libexec/"bin/apr-1-config", libexec, opt_libexec
