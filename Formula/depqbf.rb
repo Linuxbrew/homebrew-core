@@ -18,7 +18,7 @@ class Depqbf < Formula
     inreplace "makefile" do |s|
       s.gsub! "-Wl,-soname,libqdpll.so.$(MAJOR)", ""
       s.gsub! ".so.$(VERSION)", ".$(VERSION).dylib"
-    end
+    end if OS.mac?
 
     system "make"
     bin.install "depqbf"
