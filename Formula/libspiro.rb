@@ -1,3 +1,4 @@
+# libspiro: Build a bottle for Linuxbrew
 class Libspiro < Formula
   desc "Library to simplify the drawing of curves"
   homepage "https://github.com/fontforge/libspiro"
