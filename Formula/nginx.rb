@@ -61,6 +61,7 @@ class Nginx < Formula
       --with-http_ssl_module
       --with-pcre
       --with-ipv6
+      --with-stream
       --sbin-path=#{bin}/nginx
       --with-cc-opt=#{cc_opt}
       --with-ld-opt=#{ld_opt}
