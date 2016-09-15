@@ -12,7 +12,7 @@ class Valgrind < Formula
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/86ecccf/valgrind/10.11_assertion.diff"
       sha256 "7e12fdb0f44cc0bfa8e721afce8218487405088c198d31b800f4741f32178e5c"
-    end
+    end if OS.mac?
   end
 
   bottle do
