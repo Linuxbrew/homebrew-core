@@ -4,8 +4,9 @@ class Curl < Formula
   url "https://curl.haxx.se/download/curl-7.50.2.tar.bz2"
   sha256 "0c72105df4e9575d68bcf43aea1751056c1d29b1040df6194a49c5ac08f8e233"
 
+  # FIXME: put the "if OS.mac?" back in before merging
   bottle do
-    cellar :any if OS.mac? # not relocatable --with-openssl
+    cellar :any
     sha256 "a6ac43b2784751829846a90d1aff5f81f97e610d98459d6c06538c79b4fb63d3" => :sierra
     sha256 "7f50eb29e123d907712ddad0c5687eeb0c6e4764ee425aa685a4d5d23034cf4a" => :el_capitan
     sha256 "22aa76cad125659ac9e039cab8635aac6748deb41fed7a0197cb5395de0d8991" => :yosemite
