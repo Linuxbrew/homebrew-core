@@ -1,3 +1,4 @@
+# gtk+: Build a bottle for Linuxbrew
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "http://gtk.org/"
