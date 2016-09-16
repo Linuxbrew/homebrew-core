@@ -19,7 +19,7 @@ class Quilt < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-sed=#{HOMEBREW_PREFIX}/bin/gsed",
+                          ("--with-sed=#{HOMEBREW_PREFIX}/bin/gsed" if OS.mac?),
                           "--without-getopt"
     system "make"
     system "make", "install", "emacsdir=#{elisp}"
