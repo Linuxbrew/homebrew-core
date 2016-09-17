@@ -70,18 +70,18 @@ class Libglade < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lgdk-#{OS.mac? ? "quartz" : "x11"}-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglade-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lintl
+      -lgtk-#{OS.mac? ? "quartz" : "x11"}-2.0
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
