@@ -16,7 +16,6 @@ class Rpg < Formula
   end
 
   def install
-    # fix error: undefined reference to `versucc'
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
