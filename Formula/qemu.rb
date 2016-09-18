@@ -1,3 +1,4 @@
+# qemu: Build a bottle for Linuxbrew
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
