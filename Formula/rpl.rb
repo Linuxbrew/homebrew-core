@@ -1,3 +1,4 @@
+# rpl: Build a bottle for Linuxbrew
 class Rpl < Formula
   desc "Text replacement utility"
   homepage "http://www.laffeycomputer.com/rpl.html"
