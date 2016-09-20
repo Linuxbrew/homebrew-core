@@ -16,6 +16,7 @@ class Monit < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
+                          "--without-pam",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
                           "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
