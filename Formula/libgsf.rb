@@ -1,3 +1,4 @@
+# libgsf: Build a bottle for Linuxbrew
 class Libgsf < Formula
   desc "I/O abstraction library for dealing with structured file formats"
   homepage "https://developer.gnome.org/gsf/"
