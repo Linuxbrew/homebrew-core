@@ -1,3 +1,4 @@
+# pcre++: Build a bottle for Linuxbrew
 class Pcrexx < Formula
   desc "C++ wrapper for the Perl Compatible Regular Expressions"
   homepage "http://www.daemon.de/PCRE"
