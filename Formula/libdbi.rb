@@ -1,3 +1,4 @@
+# libdbi: Build a bottle for Linuxbrew
 class Libdbi < Formula
   desc "Database-independent abstraction layer in C, similar to DBI/DBD in Perl"
   homepage "http://libdbi.sourceforge.net"
