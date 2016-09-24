@@ -23,6 +23,7 @@ class Infer < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "opam" => :build
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     if build.without?("clang") && build.without?("java")
