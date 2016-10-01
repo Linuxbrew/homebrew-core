@@ -1,3 +1,4 @@
+# dash: Build a bottle for Linuxbrew
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
