@@ -61,7 +61,7 @@ class Glib < Formula
   # Reverts upstream commits 36e093a31a9eb12021e7780b9e322c29763ffa58
   # and 89058e8a9b769ab223bc75739f5455dab18f7a3d, with equivalent changes
   # also applied to configure and gio/Makefile.in
-  if MacOS.version < :mavericks
+  if OS.mac? && MacOS.version < :mavericks
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/gnotification-mountain.patch"
       sha256 "723def732304552ca55ae9f5b568ff3e8a59a14d512af72b6c1f0421f8228a68"
