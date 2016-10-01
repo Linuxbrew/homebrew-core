@@ -1,3 +1,4 @@
+# gawk: Build a bottle for Linuxbrew
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
