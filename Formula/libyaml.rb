@@ -1,3 +1,4 @@
+# libyaml: Build a bottle for Linuxbrew
 class Libyaml < Formula
   desc "YAML Parser"
   homepage "http://pyyaml.org/wiki/LibYAML"
