@@ -1,3 +1,4 @@
+# sbcl: Build a bottle for Linuxbrew
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
