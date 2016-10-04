@@ -1,3 +1,4 @@
+# autoconf-archive: Build a bottle for Linuxbrew
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
