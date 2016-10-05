@@ -1,3 +1,4 @@
+# epstool: Build a bottle for Linuxbrew
 class Epstool < Formula
   desc "Edit preview images and fix bounding boxes in EPS files"
   homepage "http://pages.cs.wisc.edu/~ghost/gsview/epstool.htm"
