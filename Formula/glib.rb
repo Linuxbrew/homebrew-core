@@ -19,6 +19,7 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
+  depends_on "util-linux" unless OS.mac? # for libmount.so
 
   fails_with :llvm do
     build 2334
