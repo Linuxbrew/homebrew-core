@@ -4,6 +4,7 @@ class Apachetop < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/apachetop/apachetop_0.12.6.orig.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/a/apachetop/apachetop_0.12.6.orig.tar.gz"
   sha256 "850062414517055eab2440b788b503d45ebe9b290d4b2e027a5f887ad70f3f29"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
