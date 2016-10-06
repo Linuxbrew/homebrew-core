@@ -21,6 +21,7 @@ class Bibtexconv < Formula
   end
 
   depends_on "openssl"
+  depends_on "curl" unless OS.mac?
 
   def install
     if build.head?
