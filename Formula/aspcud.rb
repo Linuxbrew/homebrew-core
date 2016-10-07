@@ -1,3 +1,4 @@
+# aspcud: Build a bottle for Linuxbrew
 class Aspcud < Formula
   desc "Package dependency solver"
   homepage "http://potassco.sourceforge.net/"
