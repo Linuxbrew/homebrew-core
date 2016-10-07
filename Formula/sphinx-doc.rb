@@ -85,6 +85,11 @@ class SphinxDoc < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  def post_install
+    return if OS.mac? || (HOMEBREW_PREFIX/"bin/python").executable?
+    inreplace Dir[libexec/"bin/*"], HOMEBREW_PREFIX/"bin/python", "/usr/bin/env python", false
+  end
+
   test do
     system bin/"sphinx-quickstart", "-pPorject", "-aAuthor", "-v1.0", "-q"
     system bin/"sphinx-build", testpath, testpath/"build"
