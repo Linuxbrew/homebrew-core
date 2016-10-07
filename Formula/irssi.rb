@@ -26,6 +26,7 @@ class Irssi < Formula
   depends_on "glib"
   depends_on "openssl" => :recommended
   depends_on "dante" => :optional
+  depends_on "perl" unless OS.mac? || build.without?("perl") # for libperl.so
 
   def install
     args = %W[
