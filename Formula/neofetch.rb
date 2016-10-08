@@ -13,7 +13,7 @@ class Neofetch < Formula
     sha256 "15f36b6e099dba428645a9c125f9e5f70537949a66a10c280f48a693df0516c8" => :mavericks
   end
 
-  depends_on "screenresolution" => :recommended
+  depends_on "screenresolution" => :recommended if OS.mac?
   depends_on "imagemagick" => :recommended
 
   def install
