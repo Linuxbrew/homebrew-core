@@ -17,6 +17,7 @@ class Portmidi < Formula
   depends_on "cmake" => :build
   depends_on "cython" => :build
   depends_on :java => :optional
+  depends_on "alsa-lib" if OS.linux?
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
@@ -35,8 +36,18 @@ class Portmidi < Formula
               "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE",
               "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
 
-    system "make", "-f", "pm_mac/Makefile.osx"
-    system "make", "-f", "pm_mac/Makefile.osx", "install"
+    if OS.mac?
+      system "make", "-f", "pm_mac/Makefile.osx"
+      system "make", "-f", "pm_mac/Makefile.osx", "install"
+    else
+      args = %W[
+        -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=#{buildpath}/Release
+        -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=#{buildpath}/Release
+        -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=#{buildpath}/Release
+      ]
+      system "cmake", ".", *std_cmake_args, *args
+      system "make", "install"
+    end
 
     cd "pm_python" do
       # There is no longer a CHANGES.txt or TODO.txt.
