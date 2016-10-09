@@ -1,3 +1,4 @@
+# wxmac: Build a bottle for Linuxbrew
 class Wxmac < Formula
   desc "wxWidgets, a cross-platform C++ GUI toolkit (for OS X)"
   homepage "https://www.wxwidgets.org"
