@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
   sha256 "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b"
-  revision 4
+  revision OS.mac? ? 4 : 5
 
   bottle do
     cellar :any
@@ -18,7 +18,7 @@ class Lua < Formula
     reason "The bottle needs to be installed into /usr/local."
     # DomT4: I'm pretty sure this can be fixed, so don't leave this in place forever.
     # https://github.com/Homebrew/homebrew/issues/44619
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    satisfy { HOMEBREW_PREFIX.to_s == (OS.linux? ? "/home/linuxbrew/.linuxbrew" : "/usr/local") }
   end
 
   fails_with :llvm do
