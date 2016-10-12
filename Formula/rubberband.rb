@@ -14,7 +14,7 @@ class Rubberband < Formula
     patch :p1 do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fd51a983/rubberband/rubberband-1.8.1-yosemite.diff"
       sha256 "7686dd9d05fddbcbdf4015071676ac37ecad5c7594cc06470440a18da17c71cd"
-    end
+    end if OS.mac?
   end
 
   bottle do
@@ -29,8 +29,22 @@ class Rubberband < Formula
   depends_on "pkg-config" => :build
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  unless OS.mac?
+    depends_on "fftw"
+    depends_on "vamp-plugin-sdk"
+  end
 
   def install
+    unless OS.mac?
+      system "./configure",
+        "--disable-debug",
+        "--disable-dependency-tracking",
+        "--disable-silent-rules",
+        "--prefix=#{prefix}"
+      system "make", "install"
+      return
+    end
+
     system "make", "-f", "Makefile.osx"
     bin.install "bin/rubberband"
     lib.install "lib/librubberband.dylib"
