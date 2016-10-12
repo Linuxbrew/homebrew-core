@@ -68,6 +68,10 @@ class V8 < Formula
         :revision => "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
   end
 
+  fails_with :gcc do
+    cause "unrecognized command line option ‘-Wshorten-64-to-32’"
+  end
+
   def install
     # Bully GYP into correctly linking with c++11
     ENV.cxx11
@@ -105,8 +109,12 @@ class V8 < Formula
     include.install Dir["include/*"]
 
     cd "out/native" do
-      rm ["libgmock.a", "libgtest.a"]
-      lib.install Dir["lib*"]
+      if OS.mac?
+        rm ["libgmock.a", "libgtest.a"]
+        lib.install Dir["lib*"]
+      else
+        lib.install "lib.target/libv8.so"
+      end
       bin.install "d8", "mksnapshot", "process", "shell" => "v8"
     end
   end
