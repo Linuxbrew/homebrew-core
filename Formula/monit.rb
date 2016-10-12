@@ -12,14 +12,23 @@ class Monit < Formula
     sha256 "924ec6e8d44fa5168442431f5ba61724243196929e7a18d1a936f4b9a99035c1" => :yosemite
     sha256 "25be7ac4a24e829b081d562c0249e2c4a48d77a49e9f5c3f49a609023d702fc5" => :mavericks
   end
+  
+  option "without-pam", "Compile without support for PAM module"
 
   depends_on "openssl"
+  
+  args = %W[
+      --prefix=#{prefix}
+      --localstatedir=#{var}/monit
+      --sysconfdir=#{etc}/monit
+      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
+    ]
+  
+  args << "--without-pam" if build.with? "without-pam"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--localstatedir=#{var}/monit",
-                          "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
+    system "./configure", *args
+    
     system "make", "install"
     pkgshare.install "monitrc"
   end
