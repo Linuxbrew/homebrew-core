@@ -20,6 +20,7 @@ class Glibc < Formula
   depends_on "linux-headers" => [:build, :recommended]
 
   def install
+    ENV.O2 # -Os confuses valgrind (issue #1005)
     mkdir "build" do
       args = [
         "--disable-debug",
@@ -27,7 +28,8 @@ class Glibc < Formula
         "--disable-silent-rules",
         "--prefix=#{prefix}",
         "--enable-obsolete-rpc",
-        "--without-selinux"] # Fix error: selinux/selinux.h: No such file or directory
+        "--without-selinux" # Fix error: selinux/selinux.h: No such file or directory
+      ]
       kernel_version = `uname -r`.chomp.split("-")[0]
       args << "--enable-kernel=#{kernel_version}" if build.with? "current-kernel"
       args << "--with-binutils=#{Formula["binutils"].bin}" if build.with? "binutils"
