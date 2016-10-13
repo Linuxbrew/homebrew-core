@@ -68,14 +68,11 @@ class V8 < Formula
         :revision => "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
   end
 
-  fails_with :gcc do
-    cause "unrecognized command line option ‘-Wshorten-64-to-32’"
-  end
-
   def install
     # Bully GYP into correctly linking with c++11
     ENV.cxx11
-    ENV["GYP_DEFINES"] = "clang=1 mac_deployment_target=#{MacOS.version}"
+    ENV["GYP_DEFINES"] = "clang=#{ENV.compiler == :clang || OS.mac? ? 1 : 0} mac_deployment_target=#{MacOS.version}"
+
     # https://code.google.com/p/v8/issues/detail?id=4511#c3
     ENV.append "GYP_DEFINES", "v8_use_external_startup_data=0"
 
