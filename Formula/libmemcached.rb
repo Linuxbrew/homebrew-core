@@ -26,7 +26,7 @@ class Libmemcached < Formula
   patch :DATA
 
   def install
-    ENV.append_to_cflags "-undefined dynamic_lookup" if MacOS.version <= :leopard
+    ENV.append_to_cflags "-undefined dynamic_lookup" if OS.mac? && MacOS.version <= :leopard
 
     args = ["--prefix=#{prefix}"]
 
