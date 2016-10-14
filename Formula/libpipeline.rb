@@ -1,3 +1,4 @@
+# libpipeline: Build a bottle for Linuxbrew
 class Libpipeline < Formula
   desc "Library for manipulating pipelines of subprocesses"
   homepage "http://libpipeline.nongnu.org/"
