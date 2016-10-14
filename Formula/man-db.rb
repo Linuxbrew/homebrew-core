@@ -1,3 +1,4 @@
+# man-db: Build a bottle for Linuxbrew
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "http://man-db.nongnu.org/"
