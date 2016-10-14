@@ -20,6 +20,8 @@ class Miller < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "flex" => :build unless OS.mac?
+
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
