@@ -89,8 +89,14 @@ class Qt5 < Formula
       -qt-freetype
       -qt-pcre
       -nomake tests
-      -no-rpath
     ]
+
+    if OS.mac?
+      args << "-no-rpath"
+    elsif OS.linux?
+      args << "-qt-xcb"
+      args << "-R#{lib}"
+    end
 
     args << "-nomake" << "examples" if build.without? "examples"
 
