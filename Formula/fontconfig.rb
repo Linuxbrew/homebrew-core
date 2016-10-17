@@ -30,6 +30,8 @@ class Fontconfig < Formula
     sha256 "ac91e177e6a9a8c077d403b1dd453de6d4c9d695b88a5d39ba0af0157c51a98c" => :x86_64_linux
   end
 
+  option "without-docs", "Skip building the fontconfig docs"
+
   pour_bottle? do
     default_prefix = BottleSpecification::DEFAULT_PREFIX
     reason "The bottle needs to be installed into #{default_prefix}."
@@ -64,7 +66,8 @@ class Fontconfig < Formula
                           "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}"
+                          "--sysconfdir=#{etc}",
+                          ("--disable-docs" if build.without? "docs")
     system "make", "install", "RUN_FC_CACHE_TEST=false"
   end
 
