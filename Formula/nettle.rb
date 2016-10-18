@@ -1,3 +1,4 @@
+# nettle: Build a bottle for Linuxbrew
 class Nettle < Formula
   desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
