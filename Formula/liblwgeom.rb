@@ -38,6 +38,7 @@ class Liblwgeom < Formula
   depends_on "proj"
   depends_on "geos"
   depends_on "json-c"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     # See postgis.rb for comments about these settings
