@@ -81,8 +81,6 @@ class Qt5 < Formula
     depends_on "sqlite"
     depends_on "systemd"
     depends_on "homebrew/x11/libxkbcommon"
-    depends_on "linuxbrew/xorg/xcb-util-image"
-    depends_on "linuxbrew/xorg/xcb-util-wm"
   end
 
   def install
@@ -97,8 +95,14 @@ class Qt5 < Formula
       -qt-freetype
       -qt-pcre
       -nomake tests
-      -no-rpath
     ]
+    
+    if OS.mac?
+      args << "-no-rpath"
+    elsif OS.linux?
+      args << "-qt-xcb"
+      args << "-R#{lib}"
+    end
 
     args << "-nomake" << "examples" if build.without? "examples"
 
