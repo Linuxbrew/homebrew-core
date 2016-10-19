@@ -1,3 +1,4 @@
+# zpaq: Build a bottle for Linuxbrew
 class Zpaq < Formula
   desc "Incremental, journaling command-line archiver"
   homepage "http://mattmahoney.net/dc/zpaq.html"
