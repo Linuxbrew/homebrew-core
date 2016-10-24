@@ -1,3 +1,4 @@
+# icarus-verilog: Build a bottle for Linuxbrew
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
@@ -15,6 +16,13 @@ class IcarusVerilog < Formula
     url "https://github.com/steveicarus/iverilog.git"
     depends_on "autoconf" => :build
   end
+
+  depends_on "flex" => :build unless OS.mac?
+  depends_on "bison" => :build unless OS.mac?
+  depends_on "gperf" => :build unless OS.mac?
+  depends_on "readline" unless OS.mac?
+  depends_on "bzip2" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "autoconf" if build.head?
