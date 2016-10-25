@@ -15,6 +15,11 @@ class Cmake < Formula
     sha256 "e998b6155a6752085c60f7c39bf656a1125c2b583e1be741e1712fca8d4ee001" => :x86_64_linux
   end
 
+  devel do
+    url "https://cmake.org/files/v3.7/cmake-3.7.0-rc2.tar.gz"
+    sha256 "798e7a48f42a383da767c482810afe9ed6e3f91c99cb27719fd0407b3bf1e96d"
+  end
+
   option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
@@ -50,7 +55,7 @@ class Cmake < Formula
     end
 
     if build.with? "docs"
-      # There is an existing issue around OS X & Python locale setting
+      # There is an existing issue around macOS & Python locale setting
       # See https://bugs.python.org/issue18378#msg215215 for explanation
       ENV["LC_ALL"] = "en_US.UTF-8"
       args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"

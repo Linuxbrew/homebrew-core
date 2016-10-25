@@ -34,7 +34,7 @@ class Cdrdao < Formula
     sha256 "ca89b7c56a376d5a9574c5757f0d372236a895334f81867ff5e1703806565bbc"
   end if OS.linux?
 
-  # second patch fixes device autodetection on OS X
+  # second patch fixes device autodetection on macOS
   # see https://trac.macports.org/ticket/27819
   # upstream bug report:
   # https://sourceforge.net/p/cdrdao/bugs/175/

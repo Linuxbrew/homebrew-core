@@ -12,6 +12,13 @@ class Libressl < Formula
     sha256 "093e950780c7d7946d283732becb7adb4f067a0accf54c562be3117017e03139" => :yosemite
   end
 
+  devel do
+    url "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz"
+    mirror "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz"
+    version "2.5.0-beta1"
+    sha256 "8652bf6b55ab51fb37b686a3f604a2643e0e8fde2c56e6a936027d12afda6eae"
+  end
+
   head do
     url "https://github.com/libressl-portable/portable.git"
 
@@ -57,14 +64,15 @@ class Libressl < Formula
       $?.success?
     end
 
-    # LibreSSL install a default pem - We prefer to use OS X for consistency.
+    # LibreSSL install a default pem - We prefer to use macOS for consistency.
     rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end if OS.mac?
 
   def caveats; <<-EOS.undent
     A CA file has been bootstrapped using certificates from the SystemRoots
-    keychain. To add additional certificates, place .pem files in
+    keychain. To add additional certificates (e.g. the certificates added in
+    the System keychain), place .pem files in
       #{etc}/libressl/certs
 
     and run

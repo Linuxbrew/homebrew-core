@@ -42,8 +42,10 @@ class Poppler < Formula
     sha256 "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
   end
 
+  needs :cxx11 if build.with?("qt5") || MacOS.version < :mavericks
+
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
+    ENV.cxx11 if build.with?("qt5") || MacOS.version < :mavericks
     ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.1"
 
     args = %W[
@@ -57,13 +59,6 @@ class Poppler < Formula
     ]
 
     if build.with? "qt5"
-      qt5 = Formula["qt5"]
-
-      ENV["POPPLER_QT5_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtXml -I#{qt5.opt_include}/QtWidgets -I#{qt5.opt_include}/QtGui -I#{qt5.opt_include}/QtCore"
-      ENV["POPPLER_QT5_LIBS"] = "-F#{qt5.opt_lib} -framework QtXml -framework QtWidgets -framework QtGui -framework QtCore"
-      ENV["POPPLER_QT5_TEST_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtTest -I#{qt5.opt_include}/QtCore"
-      ENV["POPPLER_QT5_TEST_LIBS"] = "-F#{qt5.opt_lib} -framework QtTest -framework QtCore"
-
       args << "--enable-poppler-qt5"
     else
       args << "--disable-poppler-qt5"

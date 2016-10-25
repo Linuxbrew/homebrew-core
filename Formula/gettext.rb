@@ -13,7 +13,7 @@ class Gettext < Formula
     sha256 "dae894eedee985c8c15b9f1525686130c1c9dcdcfca71632cfbf37dd01747c21" => :x86_64_linux
   end
 
-  keg_only :shadowed_by_osx, "OS X provides the BSD gettext library and some software gets confused if both are in the library path."
+  keg_only :shadowed_by_osx, "macOS provides the BSD gettext library and some software gets confused if both are in the library path."
 
   option :universal
 

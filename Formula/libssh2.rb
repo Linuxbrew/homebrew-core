@@ -1,15 +1,14 @@
 class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
   homepage "https://libssh2.org/"
-  url "https://libssh2.org/download/libssh2-1.7.0.tar.gz"
-  sha256 "e4561fd43a50539a8c2ceb37841691baf03ecb7daf043766da1b112e4280d584"
+  url "https://libssh2.org/download/libssh2-1.8.0.tar.gz"
+  sha256 "39f34e2f6835f4b992cafe8625073a88e5a28ba78f83e8099610a7b3af4676d4"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3b9cef10df7eb69305daaf5a2f3bc13bd16b42e318f742de31541592a3da1f36" => :el_capitan
-    sha256 "5bcdd6ec9369bebadeef640262e7034a92024b353122ab40a1a26d1d5dcc7761" => :yosemite
-    sha256 "75a02f552af40d6ed0802a610daf4b86f14dec925b671fe86deb24c8eaacfb22" => :mavericks
-    sha256 "bbd1b9fa29f747c165769e0b3718edb81b17da796f515616100ff5e7dc14adae" => :x86_64_linux
+    cellar :any
+    sha256 "74a0fd6f2fdc35ba837f637acaaa593c09d285e4eca0d143d9cd3f7f9b69cf21" => :sierra
+    sha256 "0cb444543e7d56aa72ada9b929bee4b263a3f4780ebc00b7dd12b159db7bb8da" => :el_capitan
+    sha256 "d4572b94cd88cca756d8a852445e39868e6fee015c6463a8973c79136abc8aed" => :yosemite
   end
 
   head do

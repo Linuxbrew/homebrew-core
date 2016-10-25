@@ -106,7 +106,7 @@ class Git < Formula
 
     system "make", "install", *args
 
-    # Install the OS X keychain credential helper
+    # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
@@ -164,7 +164,7 @@ class Git < Formula
       rm_r Pathname.new(pod).dirname.dirname
     end
 
-    # Set the OS X keychain credential helper by default
+    # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
     (buildpath/"gitconfig").write <<-EOS.undent
       [credential]

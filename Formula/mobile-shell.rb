@@ -19,13 +19,14 @@ class MobileShell < Formula
     depends_on "automake" => :build
   end
 
-  option "without-test", "Run build-time tests"
+  option "with-test", "Run build-time tests"
 
   deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "protobuf"
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
+  depends_on "tmux" => :build if build.with?("test") || build.bottle?
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install

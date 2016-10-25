@@ -1,14 +1,13 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.4.2.tar.xz"
-  sha256 "df2c3773c0e7a75d88e75906cc425f9ed7f07ce36a99854162e14202ccd42904"
-  revision 1
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.5.0.tar.xz"
+  sha256 "dde9969c43ad04d03ded73934e52388d978d5947fc5d5528d1eb4dc722dc86c0"
 
   bottle do
-    sha256 "541a110e6bb6a005819307f9678e20ba7c4803dd612f28d99e5531e44e4da20d" => :sierra
-    sha256 "3ad0b1d779120c281727c471345bd8137b3ab810bb0275bae4aa37aaa2a5c038" => :el_capitan
-    sha256 "a91c632125f19fd4889569a065df78952322c963313eec0b2135c24ea6424166" => :yosemite
+    sha256 "f172a706e1c22c1005c360e4f1745723660355295e92f8b53597a84316d8d12c" => :sierra
+    sha256 "ea3fdddfcf8eea4666fc4ab07c301b1a4c9d696c99067024119a55d1bb222e22" => :el_capitan
+    sha256 "0dc919ad1911a698deec4273ab4b79f40f6c5b06dbc47ada060b75c886498a22" => :yosemite
   end
 
   head do
@@ -64,10 +63,6 @@ class Mkvtoolnix < Formula
     if build.with?("qt5")
       qt5 = Formula["qt5"]
 
-      ENV["QT_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtNetwork -I#{qt5.opt_include}/QtWidgets -I#{qt5.opt_include}/QtGui -I#{qt5.opt_include}/QtCore"
-      ENV["QT_LIBS"] = "-F#{qt5.opt_lib} -framework QtNetwork -framework QtWidgets -framework QtGui -framework QtCore"
-
-      args << "--without-qt-pkg-config"
       args << "--with-moc=#{qt5.opt_bin}/moc"
       args << "--with-uic=#{qt5.opt_bin}/uic"
       args << "--with-rcc=#{qt5.opt_bin}/rcc"

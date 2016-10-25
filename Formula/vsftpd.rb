@@ -16,7 +16,7 @@ class Vsftpd < Formula
 
   depends_on "openssl" => :optional
 
-  # Patch to remove UTMPX dependency, locate OS X's PAM library, and
+  # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
   patch :DATA
 

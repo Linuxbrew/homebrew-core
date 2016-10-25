@@ -15,7 +15,7 @@ class Expat < Formula
     sha256 "82f60ea416f333d73405b526950182e7545603c6002dbbb511522b23e049c505" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx, "OS X includes Expat 1.5."
+  keg_only :provided_by_osx, "macOS includes Expat 1.5."
 
   option :universal
 

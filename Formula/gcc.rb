@@ -35,6 +35,8 @@ class Gcc < Formula
     sha256 "2c6ae8e098830e19f87d8426b49d353b6cbc0b89d9259bae242d57b6694c9039" => :x86_64_linux
   end
 
+  # GCC's Go compiler is not currently supported on macOS.
+  # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
   option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
@@ -76,7 +78,11 @@ class Gcc < Formula
   end
 
   def version_suffix
-    version.to_s.slice(/\d/)
+    if build.head?
+      (stable.version.to_s.slice(/\d/).to_i + 1).to_s
+    else
+      version.to_s.slice(/\d/)
+    end
   end
 
   # Fix for libgccjit.so linkage on Darwin

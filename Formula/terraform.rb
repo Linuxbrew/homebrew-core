@@ -3,22 +3,24 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.7.5.tar.gz"
-  sha256 "996411c27c2754005583db2283762d66aa453e6d7b9f49a39db62660307a3a99"
+  url "https://github.com/hashicorp/terraform/archive/0.7.7.tar.gz"
+  sha256 "2e63e0855bc3b7296335b54a2140d4c2425ccd9424157cf69e708f6f5a2d30a2"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c819a4d2fd49c78f43af90282b72a45ba109f90908cab6f3c7eede4f22d9048c" => :sierra
-    sha256 "3b9e4fcfcb33472ba5e0cfae3bd9e4f21943d95ad863286294e15701a7a4c021" => :el_capitan
-    sha256 "6c8325ed278dbe2ffd10a5aa02f303117d3f1a1e443d6d6f4d9090af041793fa" => :yosemite
+    sha256 "30becae3593d68bf5cbde65adfad4305c811cde307d6c8e994b95be6a540452e" => :sierra
+    sha256 "53e8d44fc572ea831909d97b5c6e1591ad9b2934673c5a161f8e523a8c2559a6" => :el_capitan
+    sha256 "2e4da1c7bccfc819a0211b34ea045bfdb342af2e117a8c0bb2daae1bd4ca2e46" => :yosemite
   end
 
   depends_on "go" => :build
 
   terraform_deps = %w[
-    github.com/mitchellh/gox 770c39f64e66797aa46b70ea953ff57d41658e40
+    github.com/mitchellh/gox c9740af9c6574448fd48eb30a71f964014c7a837
     github.com/mitchellh/iochan 87b45ffd0e9581375c491fef3d32130bb15c5bd7
+    github.com/kisielk/errcheck 9c1292e1c962175f76516859f4a88aabd86dc495
+    github.com/kisielk/gotool 5e136deb9b893bbe6c8f23236ff4378b7a8a0dbb
   ]
 
   terraform_deps.each_slice(2) do |x, y|
@@ -29,7 +31,7 @@ class Terraform < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
+        :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
   end
 
   def install
@@ -52,21 +54,27 @@ class Terraform < Formula
       buildpath.install "stringer"
     end
 
+    cd "src/github.com/kisielk/errcheck" do
+      system "go", "build"
+      buildpath.install "errcheck"
+    end
+
     cd terrapath do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      terraform_files = `go list ./...`.lines.map { |f| f.strip unless f.include? "/vendor/" }.compact
-      system "go", "test", *terraform_files
+      # Runs format check and test suite via makefile
+      ENV.deparallelize { system "make", "test", "vet" }
 
-      mkdir "bin"
+      # Generate release binary
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      system "gox",
-        "-arch", arch,
-        "-os", OS::NAME,
-        "-output", "bin/terraform-{{.Dir}}", *terraform_files
-      bin.install "bin/terraform-terraform" => "terraform"
+      ENV["XC_OS"] = "linux"
+      ENV["XC_ARCH"] = arch
+      system "make", "bin"
+
+      # Install release binary
+      bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
     end
   end
