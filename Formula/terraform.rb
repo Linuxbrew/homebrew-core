@@ -74,7 +74,7 @@ class Terraform < Formula
       system "make", "bin"
 
       # Install release binary
-      bin.install "pkg/darwin_#{arch}/terraform"
+      bin.install "pkg/#{OS::NAME}_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
     end
   end
