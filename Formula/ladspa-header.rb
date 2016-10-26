@@ -7,7 +7,7 @@ class LadspaHeader < Formula
 
   def install
     mkdir_p include.to_s
-    mv "ladspa.h", "#{include}/ladspa.h"
+    include.install "ladspa.h"
   end
 
   test do
