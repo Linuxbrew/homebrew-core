@@ -1,3 +1,4 @@
+# wine: Build a bottle for Linuxbrew
 # NOTE: When updating Wine, please check Wine-Gecko and Wine-Mono for updates
 # too:
 #  - https://wiki.winehq.org/Gecko
