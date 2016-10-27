@@ -1,3 +1,4 @@
+# zile: Build a bottle for Linuxbrew
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
