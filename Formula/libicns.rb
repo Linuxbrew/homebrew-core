@@ -1,3 +1,4 @@
+# libicns: Build a bottle for Linuxbrew
 class Libicns < Formula
   desc "Library for manipulation of the macOS .icns resource format"
   homepage "http://icns.sourceforge.net/"
