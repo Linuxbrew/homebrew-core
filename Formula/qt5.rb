@@ -1,3 +1,4 @@
+# qt5: Build a bottle for Linuxbrew
 class OracleHomeVarRequirement < Requirement
   fatal true
   satisfy(:build_env => false) { ENV["ORACLE_HOME"] }
