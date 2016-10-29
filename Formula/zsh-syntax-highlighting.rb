@@ -14,6 +14,8 @@ class ZshSyntaxHighlighting < Formula
     sha256 "d83cf047c3da6c7901f625e9993557523740c84b8988cda986e255330bd03c93" => :yosemite
   end
 
+  depends_on "zsh" unless OS.mac?
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
