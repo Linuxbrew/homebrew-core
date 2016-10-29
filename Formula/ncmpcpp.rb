@@ -40,6 +40,7 @@ class Ncmpcpp < Formula
     depends_on "boost"
     depends_on "taglib"
   end
+  depends_on "curl" unless OS.mac?
 
   needs :cxx11
 
