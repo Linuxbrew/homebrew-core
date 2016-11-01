@@ -11,6 +11,8 @@ class UtilLinux < Formula
     sha256 "16565956c474e00e86352566788e02ee2d2f4716117e45d209aedb39d20b42bb" => :x86_64_linux
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     system "./configure",
       "--disable-dependency-tracking",
