@@ -33,6 +33,7 @@ class Imagemagick < Formula
   deprecated_option "with-jp2" => "with-openjpeg"
 
   depends_on "pkg-config" => :build
+  depends_on "freetype" => :build
   depends_on "libtool" => :run
   depends_on "bzip2" unless OS.mac?
   depends_on "xz"
