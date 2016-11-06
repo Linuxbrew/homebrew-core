@@ -3,23 +3,23 @@ class Swift < Formula
   homepage "https://github.com/apple/swift"
 
   stable do
-    url "https://github.com/apple/swift/archive/swift-2.2.1-RELEASE.tar.gz"
-    sha256 "e971e2287055da72564356f369bad97e95821afb1ef36157e954a04a7e90753a"
+    url "https://github.com/apple/swift/archive/swift-3.0.1-RELEASE.tar.gz"
+    sha256 "5770cc45fe352d8a96d35ee35222cba0a47883b057e012a5464d411898afa074"
 
     swift_tag = "swift-#{version}-RELEASE"
     resource "cmark" do
       url "https://github.com/apple/swift-cmark/archive/#{swift_tag}.tar.gz"
-      sha256 "254d3c02bf2b03ad456fa3ad27b4da854e36318fcaf6b6f199fdb3e978a90803"
+      sha256 "07c8d491735cc0bef3a7f8796f9eff5e52011b85e025084721fbc896a469cddb"
     end
 
     resource "clang" do
       url "https://github.com/apple/swift-clang/archive/#{swift_tag}.tar.gz"
-      sha256 "40bdfa7eec0497ec69005d6a5d018b12c85aa2c0959d3408ecaaa9e34ff0415f"
+      sha256 "470e3c735a675aa37f58e4fe206a2d4141478a318dcb78c3fc8121e087e782b4"
     end
 
     resource "llvm" do
       url "https://github.com/apple/swift-llvm/archive/#{swift_tag}.tar.gz"
-      sha256 "f7977e5bb275494b5dac4490afc5d634f894ba5f209f3b2dbd5b7e520fa5fce2"
+      sha256 "5cfaa08743b29e6c8a948654b71fef608a48953b3eb928c3049c07ca279275c9"
     end
   end
 
@@ -50,6 +50,10 @@ class Swift < Formula
   depends_on "ninja" => :build
   depends_on :xcode => ["7.0", :build]
   depends_on "icu4c" unless OS.mac?
+  depends_on "libxml2" unless OS.mac?
+  depends_on "libuuid" unless OS.mac?
+  depends_on "libedit" unless OS.mac?
+  depends_on "llvm" unless OS.mac?
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -78,12 +82,11 @@ class Swift < Formula
         "--lldb-use-system-debugserver",
         "--install-prefix=#{prefix}",
         ("--darwin-deployment-version-osx=#{MacOS.version}" if OS.mac?),
-        "--build-jobs=#{ENV.make_jobs}"
+        "--jobs=#{ENV.make_jobs}"
     end
     os = OS.mac? ? "macosx" : OS::NAME
     bin.install "#{build}/swift-#{os}-x86_64/bin/swift",
                 "#{build}/swift-#{os}-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-#{os}-x86_64/bin/swift-compress",
                 "#{build}/swift-#{os}-x86_64/bin/swift-demangle",
                 "#{build}/swift-#{os}-x86_64/bin/swift-ide-test",
                 "#{build}/swift-#{os}-x86_64/bin/swift-llvm-opt",
