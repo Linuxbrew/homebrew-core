@@ -12,8 +12,10 @@ class Multitail < Formula
     sha256 "5d2219191236e2209bb4642ecb865716390e9984b27ce145f391fb2280e9f906" => :mavericks
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
-    system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
+    system "make", "-f", OS.mac? ? "makefile.macosx" : "Makefile", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
 
     bin.install "multitail"
     man1.install gzip("multitail.1")
