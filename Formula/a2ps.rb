@@ -5,8 +5,6 @@ class A2ps < Formula
   mirror "https://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz"
   sha256 "f3ae8d3d4564a41b6e2a21f237d2f2b104f48108591e8b83497500182a3ab3a4"
 
-  depends_on "homebrew/dupes/gperf" unless OS.mac?
-
   bottle do
     cellar :any_skip_relocation
     rebuild 2
@@ -16,6 +14,8 @@ class A2ps < Formula
     sha256 "d10db3452567e6d4a6be65f15728c40b4a62bcc374e04ff7f5d3608c294c74f4" => :mavericks
     sha256 "ba921815bbde15e3fab76a070950160fa836f4f72514bcbf9731265cadd1ae09" => :x86_64_linux
   end
+
+  depends_on "homebrew/dupes/gperf" unless OS.mac?
 
   # Software was last updated in 2007.
   # https://svn.macports.org/ticket/20867
