@@ -16,6 +16,7 @@ class W3m < Formula
   depends_on "bdw-gc"
   depends_on "openssl"
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "libbsd" unless OS.mac?
 
   fails_with :llvm do
     build 2334
