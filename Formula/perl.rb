@@ -31,8 +31,13 @@ class Perl < Formula
     end
   end
 
-  depends_on "gdbm" => "with-libgdbm-compat" unless OS.mac?
-  depends_on "berkeley-db" unless OS.mac?
+  unless OS.mac?
+    depends_on "gdbm" => "with-libgdbm-compat"
+    depends_on "berkeley-db"
+
+    # required for XML::Parser
+    depends_on "expat"
+  end
 
   def install
     args = %W[
@@ -84,6 +89,17 @@ class Perl < Formula
       PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
       echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{shell_profile}
     EOS
+  end
+
+  def post_install
+    # CPAN modules installed via the system package manager will not be visible to
+    # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
+    # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
+    unless OS.mac?
+      ENV["PERL_MM_USE_DEFAULT"] = "1"
+      system bin/"cpan", "-i", "XML::Parser"
+      system bin/"cpan", "-i", "XML::SAX"
+    end
   end
 
   test do
