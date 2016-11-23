@@ -13,6 +13,7 @@ class Unbound < Formula
 
   depends_on "openssl"
   depends_on "libevent"
+  depends_on "expat" => :build unless OS.mac?
 
   depends_on :python => :optional
   depends_on "swig" if build.with?("python")
@@ -33,7 +34,11 @@ class Unbound < Formula
       args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
     end
 
-    args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    if OS.mac?
+      args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    else
+      args << "--with-libexpat=#{Formula["expat"].prefix}"
+    end
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
