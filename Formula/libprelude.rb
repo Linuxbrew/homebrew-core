@@ -25,11 +25,11 @@ class Libprelude < Formula
 
   def install
     ENV["CXX"] = "gcc" # CXX has to be set to "gcc"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--without-lua"
+    system "./configure"
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--without-lua"
+
     system "make"
     system "make", "check"
     system "make", "install"
