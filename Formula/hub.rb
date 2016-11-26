@@ -30,6 +30,11 @@ class Hub < Formula
 
   test do
     system "git", "init"
+
+    # Test environment has no git configuration, which prevents commiting
+    system "git", "config", "user.email", "you@example.com"
+    system "git", "config", "user.name", "Your Name"
+
     %w[haunted house].each { |f| touch testpath/f }
     system "git", "add", "haunted", "house"
     system "git", "commit", "-a", "-m", "Initial Commit"
