@@ -36,18 +36,6 @@ class Patchelf < Formula
     system "make", "install"
   end
 
-  def post_install
-    # Fix up binutils after glibc and patchelf are installed.
-    # Fix ld: liblto_plugin.so: error loading plugin: /lib64/libc.so.6: version `GLIBC_2.7' not found
-    binutils = Formula["binutils"]
-    if binutils.installed? && Formula["glibc"].installed?
-      ohai "Fixing up #{binutils.full_name}..."
-      keg = Keg.new binutils.prefix
-      keg.relocate_install_names Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX,
-        Keg::CELLAR_PLACEHOLDER, HOMEBREW_CELLAR
-    end
-  end
-
   test do
     system "#{bin}/patchelf", "--version"
   end
