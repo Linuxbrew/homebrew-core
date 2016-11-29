@@ -15,6 +15,7 @@ class Libprelude < Formula
   depends_on :python3 => [:build, :recommended]
   depends_on "valgrind" => [:build, :recommended]
   depends_on "lua" => [:build, :optional]
+  depends_on :ruby => "1.8"
 
   skip_clean "etc", "lib64", "var", :la
 
