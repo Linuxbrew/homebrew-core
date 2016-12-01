@@ -1,3 +1,4 @@
+# docker-machine-driver-xhyve: Build a bottle for Linuxbrew
 class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
