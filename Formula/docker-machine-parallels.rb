@@ -1,3 +1,4 @@
+# docker-machine-parallels: Build a bottle for Linuxbrew
 class DockerMachineParallels < Formula
   desc "Docker Machine Parallels Driver"
   homepage "https://github.com/Parallels/docker-machine-parallels"
