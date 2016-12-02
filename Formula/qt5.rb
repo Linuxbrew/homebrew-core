@@ -121,6 +121,18 @@ class Qt5 < Formula
     depends_on "homebrew/x11/libxkbcommon"
   end
 
+  unless OS.mac?
+    depends_on :x11
+    depends_on "fontconfig"
+    depends_on "glib"
+    depends_on "icu4c"
+    depends_on "libproxy"
+    depends_on "pulseaudio"
+    depends_on "sqlite"
+    depends_on "systemd"
+    depends_on "homebrew/x11/libxkbcommon"
+  end
+
   def install
     args = %W[
       -verbose
@@ -134,6 +146,13 @@ class Qt5 < Formula
       -qt-pcre
       -nomake tests
     ]
+    
+    if OS.mac?
+      args << "-no-rpath"
+    elsif OS.linux?
+      args << "-qt-xcb"
+      args << "-R#{lib}"
+    end
 
     if OS.mac?
       args << "-no-rpath"
