@@ -22,6 +22,7 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "homebrew/dupes/m4" => :build unless OS.mac?
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "gcc" unless OS.mac?
 
   # This dependency is needed for the bootstrap executables.
   depends_on "gmp" => :build if OS.linux?
@@ -46,10 +47,16 @@ class Ghc < Formula
 
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
-  resource "binary" do
-
-    url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
-    sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
+  if OS.mac?
+    resource "binary" do
+      url "https://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz"
+      sha256 "06ec33056b927da5e68055147f165f873088f6812fe0c642c4c78c9a449fbc42"
+    end
+  elsif OS.linux?
+    resource "binary" do
+      url "http://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-centos67-linux.tar.xz"
+      sha256 "63b4a361dfc124c5d60945718e866475a96cbe6787da620d4778a6c4f9065a3f"
+    end
   end
 
   resource "testsuite" do
