@@ -1,3 +1,4 @@
+# libxml++3: Build a bottle for Linuxbrew
 class Libxmlxx3 < Formula
   desc "C++ wrapper for libxml"
   homepage "http://libxmlplusplus.sourceforge.net"
