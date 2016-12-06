@@ -1,3 +1,4 @@
+# swift: Build a bottle for Linuxbrew
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://github.com/apple/swift"
