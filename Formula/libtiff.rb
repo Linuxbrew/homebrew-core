@@ -19,6 +19,7 @@ class Libtiff < Formula
 
   depends_on "jpeg"
   depends_on "xz" => :optional
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
