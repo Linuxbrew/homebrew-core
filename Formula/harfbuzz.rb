@@ -1,3 +1,4 @@
+# harfbuzz: Build a bottle for Linuxbrew
 # coding: utf-8
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
