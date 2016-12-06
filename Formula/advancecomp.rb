@@ -1,3 +1,4 @@
+# advancecomp: Build a bottle for Linuxbrew
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
   homepage "http://www.advancemame.it/comp-readme.html"
