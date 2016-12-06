@@ -1,3 +1,4 @@
+# git: Build a bottle for Linuxbrew
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
