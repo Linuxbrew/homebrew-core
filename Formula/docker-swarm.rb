@@ -1,3 +1,4 @@
+# docker-swarm: Build a bottle for Linuxbrew
 class DockerSwarm < Formula
   desc "Turn a pool of Docker hosts into a single, virtual host"
   homepage "https://github.com/docker/swarm"
