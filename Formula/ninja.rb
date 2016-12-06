@@ -1,3 +1,4 @@
+# ninja: Build a bottle for Linuxbrew
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
