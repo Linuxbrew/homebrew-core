@@ -1,3 +1,4 @@
+# quilt: Build a bottle for Linuxbrew
 class Quilt < Formula
   desc "Work with series of patches"
   homepage "https://savannah.nongnu.org/projects/quilt"
