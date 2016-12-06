@@ -1,3 +1,4 @@
+# activemq-cpp: Build a bottle for Linuxbrew
 class ActivemqCpp < Formula
   desc "C++ API for message brokers such as Apache ActiveMQ"
   homepage "https://activemq.apache.org/cms/index.html"
