@@ -1,3 +1,4 @@
+# libgphoto2: Build a bottle for Linuxbrew
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
