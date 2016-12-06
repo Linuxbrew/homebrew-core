@@ -1,3 +1,4 @@
+# libsamplerate: Build a bottle for Linuxbrew
 class Libsamplerate < Formula
   desc "Library for sample rate conversion of audio data"
   homepage "http://www.mega-nerd.com/SRC"
