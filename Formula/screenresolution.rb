@@ -1,3 +1,4 @@
+# screenresolution: Build a bottle for Linuxbrew
 class Screenresolution < Formula
   desc "Get, set, and list display resolution"
   homepage "https://github.com/jhford/screenresolution"
