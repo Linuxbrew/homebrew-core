@@ -1,3 +1,4 @@
+# bashdb: Build a bottle for Linuxbrew
 class Bashdb < Formula
   desc "Bash shell debugger"
   homepage "http://bashdb.sourceforge.net"
