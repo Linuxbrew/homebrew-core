@@ -1,3 +1,4 @@
+# jemalloc: Build a bottle for Linuxbrew
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
   homepage "http://www.canonware.com/jemalloc/"
