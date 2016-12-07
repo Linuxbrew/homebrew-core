@@ -27,7 +27,11 @@ class Gdb < Formula
 
   deprecated_option "with-brewed-python" => "with-python"
 
-  option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+  if OS.mac?
+    option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+  else
+    option "without-python", "Use the system version of Python; by default Homebrew Python is used"
+  end
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
