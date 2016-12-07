@@ -34,7 +34,7 @@ class Consul < Formula
     ENV.prepend_create_path "PATH", gopath/"bin"
 
     cd gopath/"src/github.com/hashicorp/consul" do
-      system "make"
+      system "make", "dev"
       bin.install "bin/consul"
       zsh_completion.install "contrib/zsh-completion/_consul"
     end
