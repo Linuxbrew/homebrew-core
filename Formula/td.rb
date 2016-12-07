@@ -1,3 +1,4 @@
+# td: Build a bottle for Linuxbrew
 class Td < Formula
   desc "Your todo list in your terminal"
   homepage "https://github.com/Swatto/td"
