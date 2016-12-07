@@ -19,7 +19,7 @@ checkout:
 dependencies:
   override:
     - sudo apt-get update
-    - sudo apt-get install curl g++ git libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev
+    - sudo apt-get install curl g++ git libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev wbritish
     - sudo apt-get remove libblas-dev libicu-dev libjbig-dev libncurses5-dev libtinfo-dev libxml2-dev llvm-3.4
     - sudo ln -sf ruby2.0 /usr/bin/ruby
     - sudo ln -sf gem2.0 /usr/bin/gem
