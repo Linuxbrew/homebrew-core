@@ -54,7 +54,7 @@ class Swig < Formula
       system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
     else
       system ENV.cc, "-c", "-fPIC", "test.c"
-      system ENV.cc, "-c", "-fPIC", "test_wrap.c", "-I#{RbConfig::CONFIG['rubyhdrdir']}", "-I#{RbConfig::CONFIG['rubyarchhdrdir']}"
+      system ENV.cc, "-c", "-fPIC", "test_wrap.c", "-I#{RbConfig::CONFIG["rubyhdrdir"]}", "-I#{RbConfig::CONFIG["rubyarchhdrdir"]}"
       system ENV.cc, "-shared", "test.o", "test_wrap.o", "-o", "test.so", "-lruby"
     end
     assert_equal "2", shell_output("ruby run.rb").strip
