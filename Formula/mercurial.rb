@@ -21,6 +21,8 @@ class Mercurial < Formula
     depends_on "python"
   end
 
+  depends_on :python unless OS.mac?
+
   def install
     ENV.minimal_optimization if MacOS.version <= :snow_leopard
 
