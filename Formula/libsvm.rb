@@ -13,12 +13,17 @@ class Libsvm < Formula
   end
 
   def install
-    system "make", "CFLAGS=#{ENV.cflags}"
+    system "make", "CFLAGS=#{ENV.cflags} -fPIC"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
-    lib.install "libsvm.so.2" => "libsvm.2.dylib"
-    lib.install_symlink "libsvm.2.dylib" => "libsvm.dylib"
-    system "install_name_tool", "-id", "#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib"
+    if OS.mac?
+      lib.install "libsvm.so.2" => "libsvm.2.dylib"
+      lib.install_symlink "libsvm.2.dylib" => "libsvm.dylib"
+      system "install_name_tool", "-id", "#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib"
+    else
+      lib.install "libsvm.so.2"
+      lib.install_symlink "libsvm.so.2" => "libsvm.so"
+    end
     include.install "svm.h"
   end
 
