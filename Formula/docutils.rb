@@ -1,3 +1,4 @@
+# docutils: Build a bottle for Linuxbrew
 class Docutils < Formula
   desc "Text processing system for reStructuredText"
   homepage "http://docutils.sourceforge.net"
