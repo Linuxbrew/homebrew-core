@@ -1,3 +1,4 @@
+# bash-completion: Build a bottle for Linuxbrew
 # NOTE: version 2.0 is out, but it requires Bash 4, and macOS ships
 # with 3.2.48. See homebrew-versions for a 2.0 formula.
 class BashCompletion < Formula
