@@ -38,7 +38,8 @@ class Pulseaudio < Formula
   depends_on "openssl"
   depends_on "libcap" unless OS.mac?
 
-  depends_on :x11 => :optional
+  # X11 support broken upstream: https://bugs.freedesktop.org/show_bug.cgi?id=54658
+  # add when upstream fixed: depends_on :x11 => :optional
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
   depends_on "dbus" => :optional
@@ -69,6 +70,7 @@ class Pulseaudio < Formula
     args << "--with-mac-version-min=#{MacOS.version}"
     args << "--disable-nls" if build.without? "nls"
     args << "--enable-coreaudio-output" if OS.mac?
+    args << "--disable-x11" # if build.without? "x11" # add when upstream fixed
 
     if build.universal?
       args << "--enable-mac-universal"
