@@ -36,7 +36,7 @@ class Pigz < Formula
     assert (testpath/"example.gz").file?
     system bin/"unpigz", testpath/"example.gz"
     assert_equal test_data, (testpath/"example").read
-    system "/bin/dd", "if=/dev/random", "of=foo.bin", "bs=1m", "count=10"
+    system "/bin/dd", "if=/dev/random", "of=foo.bin", "bs=1M", "count=10"
     system bin/"pigz", "foo.bin"
   end
 end
