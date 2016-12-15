@@ -12,6 +12,13 @@ class OpensslAT11 < Formula
     sha256 "34d106f1b300d4b192757941febde26cba194d903c5683d09df8b7328ce04215" => :yosemite
   end
 
+  resource "cacert" do
+    # Update post_install when you update this resource.
+    # homepage "http://curl.haxx.se/docs/caextract.html"
+    url "https://curl.haxx.se/ca/cacert-2016-11-02.pem"
+    sha256 "cc7c9e2d259e20b72634371b146faec98df150d18dd9da9ad6ef0b2deac2a9d3"
+  end
+
   keg_only :provided_by_osx,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
@@ -28,6 +35,7 @@ class OpensslAT11 < Formula
   end
 
   def arch_args
+    return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
       :i386 => %w[darwin-i386-cc],
@@ -44,6 +52,7 @@ class OpensslAT11 < Formula
     no-ssl3
     no-ssl3-method
     no-zlib
+    #{[ENV.cppflags, ENV.cflags, ENV.ldflags].join(" ").strip unless OS.mac?}
   ]
   end
 
@@ -81,7 +90,11 @@ class OpensslAT11 < Formula
       system "perl", "./Configure", *(configure_args + arch_args[arch])
       system "make", "clean" if build.universal?
       system "make"
-      system "make", "test" if build.with?("test")
+      if which "cmp"
+        system "make", "test" if build.with?("test")
+      else
+        opoo "Skipping `make check` due to unavailable `cmp`"
+      end
 
       next unless build.universal?
       cp "include/openssl/opensslconf.h", dir
@@ -128,6 +141,12 @@ class OpensslAT11 < Formula
   end
 
   def post_install
+    unless OS.mac?
+      # Download and install cacert.pem from curl.haxx.se
+      openssldir.install resource("cacert").files("cacert-2016-11-02.pem" => "cert.pem")
+      return
+    end
+
     keychains = %w[
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
