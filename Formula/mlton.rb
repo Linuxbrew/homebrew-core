@@ -17,8 +17,13 @@ class Mlton < Formula
 
   # The corresponding upstream binary release used to bootstrap.
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-3.amd64-darwin.gmp-static.tgz"
-    sha256 "7e865cd3d1e48ade3de9b7532a31e94af050ee45f38a2bc87b7b2c45ab91e8e1"
+    if OS.mac?
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-3.amd64-darwin.gmp-static.tgz"
+      sha256 "7e865cd3d1e48ade3de9b7532a31e94af050ee45f38a2bc87b7b2c45ab91e8e1"
+    elsif OS.linux?
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-2.amd64-linux.tgz"
+      sha256 "f9687c2dcab7b64ea8610911d4df91f6cdc3ad778e39f76d3d452ae890f3f330"
+    end
   end
 
   # Configure GMP location via Makefile (https://github.com/MLton/mlton/pull/136)
