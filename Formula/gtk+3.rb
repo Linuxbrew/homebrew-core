@@ -23,7 +23,13 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-  depends_on "cairo" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "at-spi2-atk"
+    depends_on "cairo"
+    depends_on "fontconfig"
+    depends_on "harfbuzz"
+  end
 
   def install
     ENV.universal_binary if build.universal?
@@ -111,10 +117,10 @@ class Gtkx3 < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
