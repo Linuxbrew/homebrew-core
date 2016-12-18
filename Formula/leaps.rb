@@ -1,3 +1,4 @@
+# leaps: Build a bottle for Linuxbrew
 require "language/go"
 
 class Leaps < Formula
