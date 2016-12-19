@@ -74,10 +74,11 @@ class Llvm < Formula
   end
 
   bottle do
-    cellar :any
+    cellar :any if OS.mac?
     sha256 "e70d567ab704a11a19e29f28fd87448994f019e9f0f218b2eb2b6a9b7e71a408" => :sierra
     sha256 "16d46ac28cf0226f9e28c6bd5312db519ce378239b79c8070d90faf4f391e294" => :el_capitan
     sha256 "0064a210d512ec580c66a8b8cf97abb14529208203ebfc76305659066b7e6044" => :yosemite
+    sha256 "6915da3de2ae5bf5d8b2dff670c97dafcc771286ddf216be993018e98434a692" => :x86_64_linux
   end
 
   head do
@@ -145,6 +146,15 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
   end
 
+  unless OS.mac?
+    depends_on "gcc" # <atomic> is provided by gcc
+    depends_on "glibc" => GlibcRequirement.system_version.to_f >= 2.19 ? :optional : :recommended
+    depends_on "binutils" if build.with? "glibc"
+    depends_on "homebrew/dupes/libedit" # llvm requires <histedit.h>
+    depends_on "libxml2"
+    needs :cxx11
+  end
+
   if MacOS.version <= :snow_leopard
     depends_on :python
   else
@@ -156,9 +166,6 @@ class Llvm < Formula
     depends_on "swig" if MacOS.version >= :lion
     depends_on CodesignRequirement if OS.mac?
   end
-  # llvm requires <histedit.h>
-  depends_on "homebrew/dupes/libedit" unless OS.mac?
-  depends_on "libxml2" unless OS.mac?
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -172,13 +179,19 @@ class Llvm < Formula
   end
 
   def install
-    # Reduce parallelization to avoid build failures.
+    # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
     (buildpath/"tools/clang").install resource("clang")
+    unless OS.mac?
+      # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
+      inreplace buildpath/"tools/clang/lib/Driver/ToolChains.cpp",
+        "// Add the multilib suffixed paths where they are available.",
+        "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
+    end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
@@ -257,6 +270,16 @@ class Llvm < Formula
     if build.universal?
       ENV.permit_arch_flags
       args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
+    end
+
+    # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
+    unless OS.mac?
+      gccpref = Formula["gcc"].opt_prefix.to_s
+      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
+      args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
+      args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
+      args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
     mktemp do
