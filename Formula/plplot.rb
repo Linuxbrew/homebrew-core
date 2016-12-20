@@ -1,3 +1,4 @@
+# plplot: Build a bottle for Linuxbrew
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
   homepage "http://plplot.sourceforge.net"
