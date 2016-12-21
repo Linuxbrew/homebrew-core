@@ -54,6 +54,11 @@ class Ghc < Formula
   # This dependency is needed for the bootstrap executables.
   depends_on "gmp" => :build if OS.linux?
 
+  # binutils on Travis-CI is old and buggy
+  if ENV["TRAVIS"]
+    depends_on "binutils" => :build if OS.linux?
+  end
+
   resource "gmp" do
     url "https://ftpmirror.gnu.org/gmp/gmp-6.1.1.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.1.tar.xz"
