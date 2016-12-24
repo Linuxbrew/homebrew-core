@@ -19,6 +19,8 @@ class DejaGnu < Formula
     depends_on "autoconf" => :build
   end
 
+  depends_on "homebrew/dupes/expect" unless OS.mac?
+
   def install
     ENV.j1 # Or fails on Mac Pro
     system "autoreconf", "-iv" if build.head?
