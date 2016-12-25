@@ -1,3 +1,4 @@
+# peg-markdown: Build a bottle for Linuxbrew
 class PegMarkdown < Formula
   desc "Markdown implementation based on a PEG grammar"
   homepage "https://github.com/jgm/peg-markdown"
