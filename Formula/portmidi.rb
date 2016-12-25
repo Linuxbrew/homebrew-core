@@ -23,6 +23,11 @@ class Portmidi < Formula
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
   patch :DATA if build.without? "java"
 
+  patch do
+    url "https://gist.githubusercontent.com/rwhogg/17f00bd8e547a8c58c00fc7e20056466/raw/9a5fd273dceab0d0fffaa12887475bf04ad5eab4/patch.diff"
+    sha256 "10236bfaa88942a4b4a775d02d97a87a0ebcaaee54b5aab5cca0a5db122b9e81"
+  end unless OS.mac?
+
   def install
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 
