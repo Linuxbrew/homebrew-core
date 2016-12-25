@@ -1,3 +1,4 @@
+# markdown: Build a bottle for Linuxbrew
 class Markdown < Formula
   desc "Text-to-HTML conversion tool"
   homepage "https://daringfireball.net/projects/markdown/"
