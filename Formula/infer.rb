@@ -6,7 +6,7 @@ class Infer < Formula
     sha256 "a738a3492a4e0229df8abd745cd88bca8fb547bc3bcca15ec194d6780b07cbda"
   elsif OS.linux?
     url "https://github.com/facebook/infer/releases/download/v0.9.4.1/infer-linux64-v0.9.4.1.tar.xz"
-    sha256 "5"
+    sha256 "dcab2161603ef17a119715c24d6a41c689089352c5a23f1996f5695de7b8d584"
   end
 
   bottle do
