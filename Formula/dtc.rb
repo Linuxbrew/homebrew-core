@@ -18,7 +18,8 @@ class Dtc < Formula
   def install
     system "make"
     system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
-    mv lib/"libfdt.dylib.1", lib/"libfdt.1.dylib"
+    suffix = OS.mac? ? "dylib" : "so"
+    mv lib/"libfdt.#{suffix}.1", lib/"libfdt.1.#{suffix}"
   end
 
   test do
