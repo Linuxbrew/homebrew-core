@@ -22,13 +22,7 @@ class Pcre < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
   option :universal
-
-  fails_with :llvm do
-    build 2326
-    cause "Bus error in ld on SL 10.6.4"
-  end
 
   depends_on "bzip2" unless OS.mac?
   depends_on "zlib" unless OS.mac?
@@ -49,7 +43,7 @@ class Pcre < Formula
                           "--enable-jit"
     system "make"
     ENV.deparallelize
-    system "make", "test" if build.with? "check"
+    system "make", "test"
     system "make", "install"
   end
 

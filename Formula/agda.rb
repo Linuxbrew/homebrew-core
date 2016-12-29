@@ -7,19 +7,19 @@ class Agda < Formula
   homepage "http://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.1.2/Agda-2.5.1.2.tar.gz"
-    sha256 "fb272bd6f7d532320c669b96faa85088b37bae02d906e9a9f764bc8e8639fb5e"
+    url "https://hackage.haskell.org/package/Agda-2.5.2/Agda-2.5.2.tar.gz"
+    sha256 "d812cec3bf7f03c4b27248572475c7e060154102771a8434cc11ba89f5691439"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/v0.12.tar.gz"
-      sha256 "2fddbc6d08e74c6205075704f40c550fc40137dee44e6b22b2e08ddee1410e87"
+      url "https://github.com/agda/agda-stdlib/archive/v0.13.tar.gz"
+      sha256 "e7cffc2b8b168c3584b6d1e760d2b49850835444e4777caa69eb29b3677ef8bb"
     end
   end
 
   bottle do
-    sha256 "5691b10122b6b0c77965dd7ff66be62e7dc297f85431a768d5e9d21250815dfa" => :sierra
-    sha256 "201487d5d08f370884b741e182ac50fbbc2194a8eb7cb925e2a40094a2ed0cf1" => :el_capitan
-    sha256 "6c1a67467b50d108dcd7cd45579fdab225169671318b882b957f8e65818127f9" => :yosemite
+    sha256 "4de53fe05b8d9fc11d9e5955165a957c3c6bfcbf45dc28afba1c8fff80f5cece" => :sierra
+    sha256 "33acce2fc1b974f8d2438844402676b96de01034d120036cb8a3a429ee9fa095" => :el_capitan
+    sha256 "5061c16954c5af7f38e51fe07e9e2eb9923be90c62ba6e699102936da81a329a" => :yosemite
   end
 
   head do
@@ -153,9 +153,6 @@ class Agda < Formula
       main = run (putStr "Hello, world!")
     EOS
 
-    # run Agda's built-in test suite
-    system bin/"agda", "--test"
-
     # typecheck a simple module
     system bin/"agda", simpletest
 
@@ -170,7 +167,7 @@ class Agda < Formula
     # test the GHC backend
     if build.with? "ghc"
       cabal_sandbox do
-        cabal_install "text"
+        cabal_install "text", "ieee754"
         dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
         dbopt = "--ghc-flag=-package-db=#{dbpath}"
 

@@ -55,7 +55,7 @@ class Nvi < Formula
                             "--program-prefix=n",
                             "--disable-dependency-tracking"
       system "make"
-      ENV.j1
+      ENV.deparallelize
       system "make", "install"
     end
   end

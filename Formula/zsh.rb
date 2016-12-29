@@ -3,9 +3,9 @@ class Zsh < Formula
   homepage "https://www.zsh.org/"
 
   stable do
-    url "https://www.zsh.org/pub/zsh-5.3.tar.gz"
-    mirror "https://downloads.sourceforge.net/project/zsh/zsh/5.3/zsh-5.3.tar.gz"
-    sha256 "1da273fa96041b395ee9f628d14f2aff08f9a62e98423a990218e2ea037b9a6d"
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.gz"
+    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.gz"
+    sha256 "3d94a590ff3c562ecf387da78ac356d6bea79b050a9ef81e3ecb9f8ee513040e"
 
     # We cannot build HTML doc on HEAD, because yodl which is required for
     # building zsh.texi is not available.
@@ -14,10 +14,9 @@ class Zsh < Formula
   end
 
   bottle do
-    sha256 "51270c500dbf6bfc81e1fa1b19ce8b147adbc717ef0c0fe2ed6f41031b056236" => :sierra
-    sha256 "bb54d4104228326c7661ef9a6014b1f2ee00e9f5ae651551dfd56fed700e679d" => :el_capitan
-    sha256 "d5fa17cb9ebf4c9115f66b6b8fb7ef3c535bcf2eb372668936e54591f732fc86" => :yosemite
-    sha256 "dd4bb9a89bce6b82ecf134e893eeb70f2e547574979cd14d97b9ff3c1127028d" => :x86_64_linux
+    sha256 "054988ed570c911f1758f08b71777707154101b180570577d1d4a4380043a041" => :sierra
+    sha256 "8fb846fbfb27744a50b4e5cff2767f6fca49016f356bd6273dedfc8e2abdd919" => :el_capitan
+    sha256 "4ca1f10d588cedb061826c6a6aa0bbde233627cf86188deed0bd07321f91d739" => :yosemite
   end
 
   head do

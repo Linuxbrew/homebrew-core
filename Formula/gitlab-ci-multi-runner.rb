@@ -4,14 +4,14 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.8.1",
-      :revision => "a2efdd470c19e69223f9cb3af2c0c95e5f9ce002"
+      :tag => "v1.9.0",
+      :revision => "82714ae882225d77636f8780197309e59cd20ecf"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2367674856b4e4ff1f1e44b32cd8d2cb14726d270404643cac8bca8e045b12d6" => :sierra
-    sha256 "ce4d69bc607c77ed3ec26d661caf7d27d11f2a017fcddab51fa1a839fef2fd99" => :yosemite
+    sha256 "5dac6bfed7fe17c2027a392ddb753eda56cc317f518be843a9e9d7feb949d7e5" => :sierra
+    sha256 "0386d48b61741ff561ff85ef0dacea11e60672fb002e3a708bbe7fd5ff6e7772" => :el_capitan
+    sha256 "48abead38052bc83e05d1d427337964b63ff081788dd685391cb4a9789e37fb5" => :yosemite
   end
 
   depends_on "go" => :build
@@ -23,10 +23,10 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.8.1/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.9.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "1.8.1"
-    sha256 "c350e7d385894aae8b247ffcf3fd2034ac7ac1adc9b64d3d761243966b8920a5"
+    version "1.9.0"
+    sha256 "ba08b5e0095b09b80bc833661735e9783d4bb5764f840f3100e21909d8be0c8a"
   end
 
   def install

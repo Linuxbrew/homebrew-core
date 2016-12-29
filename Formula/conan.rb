@@ -3,15 +3,15 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://github.com/conan-io/conan/archive/0.17.1.tar.gz"
-  sha256 "d4801c65df8c55d2c6d28dd14c26bb12153e5bbdaad3dd8232b322aa8d81249e"
+  url "https://github.com/conan-io/conan/archive/0.17.2.tar.gz"
+  sha256 "f5ba2d93936f725608b1628358d5c424e2f9386e7ca355ea1b1994112734bead"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
     cellar :any
-    sha256 "e6bf7eb70bed79db2a7b0542921f88e33bb5b19fb55fac73775e63324d001d91" => :sierra
-    sha256 "17c7286bfe0c7b1c330126ee93a5f0b2cecaba1fbd8450cb219798b8bb5f8864" => :el_capitan
-    sha256 "f26133e5597b3e684ee6d5f64e6732687f2d45a46696b3775b61e6cea7f844ee" => :yosemite
+    sha256 "611190ece49b7184b8d475d737b00297b6b9c780f7883671ad02ced865d1d82e" => :sierra
+    sha256 "38cd6832ce5023b73d8ec2d145486e6d28b93a3d857c719ea8dca2bb57682549" => :el_capitan
+    sha256 "9f7c4c962de6ed07565c56f524f045951bff6fea086eb06688dd5c109b2c0d51" => :yosemite
   end
 
   depends_on "pkg-config" => :build

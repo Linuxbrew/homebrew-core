@@ -5,15 +5,24 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
-  sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
+  revision 1
   head "git://git-annex.branchable.com/"
+
+  stable do
+    url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
+    sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
+
+    # Remove for git-annex > 6.20161210
+    # Upstream commit from 20 Dec 2016 "Fix build with directory-1.3."
+    # https://github.com/joeyh/git-annex/commit/e312ec37506f4b07beb0e082fedbdd06aed24c42
+    patch :DATA
+  end
 
   bottle do
     cellar :any
-    sha256 "1a62ef6d66e5426d83c64744acf1ba04fcc1357579f5899733d239620adb1282" => :sierra
-    sha256 "2b4f48e20bda3a47cc6a2c23cdd87c588a410800b9d63afa05610b2caa22cd8e" => :el_capitan
-    sha256 "d3dd9f9b3b04f3fa566608abf593779b119c74a4b32c5c1050e31e1b9efff615" => :yosemite
+    sha256 "3d51a7ef95e0ab4885d820ae2afbefc4c1b54c7200bc47df5e79a7715a13d06c" => :sierra
+    sha256 "53e80adf5a72a12dadbbb7541ce7bab4354e74372a5a6848da3fa317c7289f8c" => :el_capitan
+    sha256 "5b6026b3cecfefe1494e41c851ab3b22599ea510d8a11ec51b2d58503271ef90" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -56,6 +65,11 @@ class GitAnnex < Formula
   def install
     cabal_sandbox do
       (buildpath/"aws").install resource("aws")
+
+      # Remove for aws > 0.14.1
+      # Reported 21 Dec 2016 https://github.com/aristidb/aws/issues/215
+      inreplace "aws/aws.cabal", /(directory +>= 1.0 +&& <) 1.3,/, "\\1 1.4,"
+
       (buildpath/"esqueleto-2.4.3").install resource("esqueleto-2.4.3")
       resource("esqueleto-newer-persistent-patch").stage do
         system "patch", "-p1", "-i", Pathname.pwd/"patches/newer-persistent",
@@ -98,3 +112,15 @@ class GitAnnex < Formula
     system "git", "annex", "uninit"
   end
 end
+
+__END__
+diff --git a/Utility/SystemDirectory.hs b/Utility/SystemDirectory.hs
+index 3dd44d1..b9040fe 100644
+--- a/Utility/SystemDirectory.hs
++++ b/Utility/SystemDirectory.hs
+@@ -13,4 +13,4 @@ module Utility.SystemDirectory (
+	module System.Directory
+ ) where
+
+-import System.Directory hiding (isSymbolicLink)
++import System.Directory hiding (isSymbolicLink, getFileSize)

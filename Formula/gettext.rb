@@ -22,7 +22,6 @@ class Gettext < Formula
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
-    ENV.libxml2
     ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-dependency-tracking",

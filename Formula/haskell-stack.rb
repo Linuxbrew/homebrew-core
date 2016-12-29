@@ -5,15 +5,15 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.3.0/stack-1.3.0-sdist-0.tar.gz"
-  version "1.3.0"
-  sha256 "487263501d09d4977040670eaf5e6798efac33a26b48dc57c031fc181405950e"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.3.2/stack-1.3.2-sdist-0.tar.gz"
+  version "1.3.2"
+  sha256 "369dfaa389b373e6d233b5920d071f717b10252279e6004be2c6c4e3cd9488d4"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b91aa807605cd89e57363ba257c9793db15a903df6e02976e79bc0f4453fbdc" => :el_capitan_or_later
-    sha256 "9094b74b88d4bd33fb9a3a5fc311cedec9a594acb2dbc494e25abc452f86e756" => :yosemite
+    sha256 "4c13c44920816c770a1005c28b5ac2f203527ed5a81dc1825f3000120b2f029d" => :el_capitan_or_later
+    sha256 "fffa645a858c5c53107f225582b727651fc78c6f392217443ec5beba952d35e1" => :yosemite
   end
 
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
@@ -35,8 +35,17 @@ class HaskellStack < Formula
       EOS
     end
 
-    if build.with? "bootstrap"
-      cabal_sandbox do
+    cabal_sandbox do
+      inreplace "stack.cabal", "directory >=1.2.1.0 && <1.3,",
+                               "directory >=1.2.1.0 && <1.4,"
+      system "cabal", "get", "Glob", "hpc"
+      inreplace "Glob-0.7.13/Glob.cabal", ", directory    <  1.3",
+                                          ", directory    <  1.4"
+      inreplace "hpc-0.6.0.3/hpc.cabal", "directory  >= 1.1   && < 1.3,",
+                                         "directory  >= 1.1   && < 1.4,"
+      cabal_sandbox_add_source "Glob-0.7.13", "hpc-0.6.0.3"
+
+      if build.with? "bootstrap"
         cabal_install
         # Let `stack` handle its own parallelization
         # Prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
@@ -45,9 +54,9 @@ class HaskellStack < Formula
           system "stack", "-j#{jobs}", "setup"
           system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
         end
+      else
+        install_cabal_package
       end
-    else
-      install_cabal_package
     end
 
     # Remove the unneeded rpaths so that the binary works on Sierra

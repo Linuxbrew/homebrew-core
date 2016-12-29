@@ -1,16 +1,14 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.22.0.tar.gz"
-  sha256 "c0f9ac8f0e37a391d19007b333ef8787c2f45d75a0d4401c0098cde52c5082f6"
-  revision 1
-
+  url "https://github.com/mpv-player/mpv/archive/v0.23.0.tar.gz"
+  sha256 "8aeefe5970587dfc454d2b89726b603f156bd7a9ae427654eef0d60c68d94998"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "dcc8a25efd4c74d5cb619af8651399239cc93f4039c5c88965c208be9473b1a5" => :sierra
-    sha256 "8610d4db3500053a10c41a954a902b4001ffe5821a15c4dbf45975b1b200e838" => :el_capitan
-    sha256 "9d0516238bf40e6760afbbeed87f4069c2ca9a49a30c4f14cc9472c8ecc0609f" => :yosemite
+    sha256 "b530a5d4ddc42c4da7748c4d3e084b2696c046bc76da56cd68941f7c9499ffef" => :sierra
+    sha256 "552ab34ac9899491fbf69ee84fa704bf8980444c4252ebe820a547a250d20ca1" => :el_capitan
+    sha256 "24eba5a71a4c3c5e8fd90825e5ab530fe442225759ea7f78ad2dc1d1e9ef1246" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -52,6 +50,7 @@ class Mpv < Formula
       --prefix=#{prefix}
       --enable-zsh-comp
       --enable-libmpv-shared
+      --enable-html-build
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}

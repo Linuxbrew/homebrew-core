@@ -4,14 +4,14 @@ class Vim < Formula
   # *** Vim should be updated no more than once every 7 days ***
   url "https://github.com/vim/vim/archive/v8.0.0134.tar.gz"
   sha256 "1b3e3e7d187eed55cbdb0a1dae6b8f3b885005fbae84222420877d7afa3b2310"
+  revision 2
 
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "d332ed04e4f4361af5840cd9564c50c56a587efcbeb4468bde633c2a5099fca3" => :sierra
-    sha256 "069f6261fbb0c13a8bfd5f1cd20de99516da59dde0617e0a01e9f5b924701926" => :el_capitan
-    sha256 "3e449b49197bd5c604d88c4abbd3decff68be6b9581ce898e4146a21a930205d" => :yosemite
-    sha256 "ab7176fe5f846c6f39fb98896afef36c3e27c1961ed04f8e497cfedd50c0d5d9" => :x86_64_linux
+    sha256 "9c5643317f422d838c48557552501216327b01bfca129e1bea42f26de986bd63" => :sierra
+    sha256 "ca5bbfb3fcff3fd5574857a2695202a2a4d5c05f661490c07222dd137f94ba2d" => :el_capitan
+    sha256 "375006abc4a6be7ce749ed62a90295a7f0dead812ea6ada97f96954ea873b25b" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -119,18 +119,13 @@ class Vim < Formula
   end
 
   test do
-    # Simple test to check if Vim was linked to Python version in $PATH
-    if OS.mac? && build.with?("python")
-      vim_path = bin/"vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      system_framework_path = `python-config --exec-prefix`.chomp
-
-      assert_equal system_framework_path, vim_framework_path
+    if build.with? "python"
+      (testpath/"commands.vim").write <<-EOS.undent
+        :python import vim; vim.current.buffer[0] = 'hello world'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal (testpath/"test.txt").read, "hello world\n"
     end
   end
 end

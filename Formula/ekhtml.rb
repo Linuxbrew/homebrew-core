@@ -14,7 +14,7 @@ class Ekhtml < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

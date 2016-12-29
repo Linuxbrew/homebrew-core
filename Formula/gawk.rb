@@ -13,11 +13,6 @@ class Gawk < Formula
     sha256 "7cf7b93150e327dbd323e92b9ee8600e8df40ae2bf92d6e001836270931694ab" => :x86_64_linux
   end
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   depends_on "mpfr"
   depends_on "readline"
 

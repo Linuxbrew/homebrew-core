@@ -23,11 +23,6 @@ class Gperftools < Formula
   # Fix error: No frame pointers and no libunwind. The compilation will fail
   depends_on "libunwind" unless OS.mac?
 
-  fails_with :llvm do
-    build 2326
-    cause "Segfault during linking"
-  end
-
   # Prevents build failure on Xcode >= 7.3:
   # Undefined symbols for architecture x86_64:
   #   "operator delete(void*, unsigned long)", referenced from:

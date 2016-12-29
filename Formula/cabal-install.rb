@@ -3,14 +3,14 @@ class CabalInstall < Formula
   homepage "https://www.haskell.org/cabal/"
   url "https://hackage.haskell.org/package/cabal-install-1.24.0.2/cabal-install-1.24.0.2.tar.gz"
   sha256 "2ac8819238a0e57fff9c3c857e97b8705b1b5fef2e46cd2829e85d96e2a00fe0"
+  revision 2
   head "https://github.com/haskell/cabal.git", :branch => "1.24"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e1b1fec0cd2a4f9bcb9a55c46bd85ca861b88870f39cfaa293c474426b3948af" => :sierra
-    sha256 "1321d967350535e1b8547ab1b482eb92b253c00f4befc62adff41c77a6428b70" => :el_capitan
-    sha256 "b0855053e292dd0cf0377011c433491acf05a13a97e4cbf6fd5c6a19303232d4" => :yosemite
-    sha256 "27c9c791158dff68cf58c7eaf95bdf06ef6a31e0f0461338591f2195c2bb156a" => :x86_64_linux
+    sha256 "e0a493d7aa99719d1822b6309ab506bb5336ef6c58d80adda9b90c98dc15d1ea" => :sierra
+    sha256 "89ecc04647648c84f48e27d816d591c6757bc3bd533b51d2d5dac0a70ccfa5b9" => :el_capitan
+    sha256 "080dab3f99758f8959572197aacc33b6da45f2eeeb29eecbfc182ef5ee5f86de" => :yosemite
   end
 
   depends_on "ghc"
