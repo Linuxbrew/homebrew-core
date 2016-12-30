@@ -14,10 +14,6 @@ class Spin < Formula
     sha256 "f0dd9b5b6e340f3ccaf22f3825eadadb1de7296c518cc38e4d7ae2e9e0feb09c" => :x86_64_linux
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   depends_on "bison" => :build unless OS.mac?
 
   def install

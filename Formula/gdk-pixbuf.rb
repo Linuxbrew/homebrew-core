@@ -1,14 +1,13 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "http://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.1.tar.xz"
-  sha256 "9d5ba72070460c1b5b74115d395a3e33daeb7b7b67fb256cdccc9d7187c42a38"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.2.tar.xz"
+  sha256 "3a082ad67d68b55970aed0b2034a06618167be98a42d5c70de736756b45d325d"
 
   bottle do
-    sha256 "9f1032b81b6b372d0a102248ecde6a4bc4cc724926986177087bac591057e360" => :sierra
-    sha256 "c08ed90b567abfcb69add70ad7273980d611e6155ebf0bd99eedb3ac2951fc5c" => :el_capitan
-    sha256 "7979618692c17d5470b2c4730679054a07575a4fe93d3261a1d29f2bafcab94a" => :yosemite
-    sha256 "d0c0de30dc1b301be4c69fa1bd72a83097965fdccc4b1ff3f646f9ac62c7f64c" => :x86_64_linux
+    sha256 "c6786bd781df2b3421351f3b3c5ab468644d9ec5940744a97149f83b9d91dd4a" => :sierra
+    sha256 "d007f9b2b0296b6302902d1011428572513aaa8e7be2cdbba62a39c4456bbe16" => :el_capitan
+    sha256 "1aa5969773dbaff17cc38c6c21cf0e17e5bae650d88e9aa867ee06eb53984155" => :yosemite
   end
 
   option :universal

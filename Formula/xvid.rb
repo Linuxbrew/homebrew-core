@@ -19,7 +19,7 @@ class Xvid < Formula
   def install
     cd "build/generic" do
       system "./configure", "--disable-assembly", "--prefix=#{prefix}"
-      ENV.j1 # Or make fails
+      ENV.deparallelize # Or make fails
       system "make"
       system "make", "install"
     end

@@ -1,20 +1,20 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://dist.torproject.org/tor-0.2.8.11.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.2.8.11.tar.gz"
-  sha256 "7adea0bfa17edafd4e09453f4f58a0dca737660e5358f9dafd52d55d55dc6ab3"
+  url "https://www.torproject.org/dist/tor-0.2.9.8.tar.gz"
+  mirror "https://tor.eff.org/dist/tor-0.2.9.8.tar.gz"
+  sha256 "fbdd33d3384574297b88744622382008d1e0f9ddd300d330746c464b7a7d746a"
 
   bottle do
-    sha256 "0704cc9e3efbbe5e22cf3bf1591b9d568d36eec1e552478cea0ebf617f225de2" => :sierra
-    sha256 "5c5db143efeaddf99ab7e07377ae0098990844750299e1f109b2f624b3949aed" => :el_capitan
-    sha256 "923c26a3d5935f061b17adca6091ae95c36b057233a064a0112d0a08db3d9c27" => :yosemite
+    sha256 "f2be7a1530fc41446f493494c605a11389387f6d78e12add1ba80129f930331c" => :sierra
+    sha256 "d8ea3d5a71881be83aa7813dec88066ebbeaacc0f59cd502592946f0337d775b" => :el_capitan
+    sha256 "efe122e86900876ea283fc0109dc701c74bb2c58335f4f10afdfeb1be9fc9620" => :yosemite
   end
 
   devel do
-    url "https://www.torproject.org/dist/tor-0.2.9.6-rc.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.9.6-rc.tar.gz"
-    sha256 "871ba289c87ffec99ada458083f388ba5b81c6174ba0c6f821eb9a08ed4990bb"
+    url "https://www.torproject.org/dist/tor-0.3.0.1-alpha.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.3.0.1-alpha.tar.gz"
+    sha256 "7013353f0cbd2af8c0144f6167339f6eb252eb35ca9a2db2971310171108b064"
   end
 
   depends_on "pkg-config" => :build

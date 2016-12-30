@@ -13,7 +13,6 @@ class Postgresql < Formula
     sha256 "556098fd3ddf1c28ff2fa2f5a942b24ab61d5bec180e23ba14dd267237695ab3" => :x86_64_linux
   end
 
-  option "32-bit"
   option "without-perl", "Build without Perl support"
   if OS.linux?
     option "with-tcl", "Build with Tcl support"
@@ -49,7 +48,6 @@ class Postgresql < Formula
   end
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
@@ -98,10 +96,6 @@ class Postgresql < Formula
 
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
-
-    if build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
 
     system "./configure", *args
     system "make"

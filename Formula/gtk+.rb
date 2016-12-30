@@ -36,11 +36,6 @@ class Gtkx < Formula
   depends_on "hicolor-icon-theme"
   depends_on "cairo" unless OS.mac?
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   # Patch to allow Freeciv's gtk2 client to run.
   # See:
   # - https://bugzilla.gnome.org/show_bug.cgi?id=557780

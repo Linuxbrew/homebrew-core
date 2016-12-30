@@ -1,14 +1,15 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2016.11.28.00.tar.gz"
-  sha256 "5a50f75dcf421bf723fbe8d69dc9e3d1bb9935d3b4d5982fc52f29c029ed8c04"
+  url "https://github.com/facebook/folly/archive/v2016.12.19.00.tar.gz"
+  sha256 "471050ccd2a32f551eb11f43170d3f9cdd39d363ec026ca922b872d1c03831c1"
+  revision 2
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "676698ecb56e087b04f8f9e8d6f2ba243f99d5fa04b4b409595bed3f26167f26" => :sierra
-    sha256 "04d2aaaca40c0f1743647d6a5ef7c527419a903f26d4f9c9f969ab59dcfafcf6" => :el_capitan
+    sha256 "fe04002d10ee7326c94cdfff4f49a3b9d1f4945c13918fe619bd6c41d5ed8270" => :sierra
+    sha256 "238b58d04aeede0583275fe4d0df72cfc252aae2d6edfd52da2f31fd29be6222" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +24,6 @@ class Folly < Formula
   depends_on "xz"
   depends_on "snappy"
   depends_on "lz4"
-  depends_on "jemalloc"
   depends_on "openssl"
 
   # https://github.com/facebook/folly/issues/451
@@ -55,10 +55,9 @@ class Folly < Formula
         inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
       end
 
-      # Build system relies on pkg-config but gflags removed
-      # the .pc files so now folly cannot find without flags.
-      ENV["GFLAGS_CFLAGS"] = Formula["gflags"].opt_include
-      ENV["GFLAGS_LIBS"] = Formula["gflags"].opt_lib
+      # Fixes the .pc file, which references the gflags .pc under the wrong name.
+      # Applied upstream: https://github.com/facebook/folly/pull/531
+      inreplace "configure.ac", "[libgflags]", "[gflags]"
 
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",

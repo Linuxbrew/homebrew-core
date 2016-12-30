@@ -22,7 +22,7 @@ class DejaGnu < Formula
   depends_on "homebrew/dupes/expect" unless OS.mac?
 
   def install
-    ENV.j1 # Or fails on Mac Pro
+    ENV.deparallelize # Or fails on Mac Pro
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

@@ -39,10 +39,6 @@ class Graphicsmagick < Formula
     depends_on "zlib"
   end
 
-  fails_with :llvm do
-    build 2335
-  end
-
   skip_clean :la
 
   def ghostscript_fonts?

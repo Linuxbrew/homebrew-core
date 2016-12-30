@@ -21,7 +21,6 @@ class Libcroco < Formula
   depends_on "libxml2" unless OS.mac?
 
   def install
-    ENV.libxml2
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-Bsymbolic"

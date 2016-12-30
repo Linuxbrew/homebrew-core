@@ -14,10 +14,6 @@ class Pbzip2 < Formula
     sha256 "6bd560fd6d8bec206ec4821171368db75e72eb93b4918e45409eace36d0ed140" => :x86_64_linux
   end
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     system "make", "PREFIX=#{prefix}",
                    "CC=#{ENV.cxx}",

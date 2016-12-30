@@ -3,13 +3,12 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-9.0.tar.xz"
   sha256 "c3d3d66b827f18fbe903fe3df647013f09fc1e2191c035be1ee2d82a9e404686"
+  revision 2
 
   bottle do
-    sha256 "462b639e10a35707632216543223664921f5f0db2344bbea62f8c7d3ea6a2763" => :sierra
-    sha256 "e49ab0d39e1786e903402602fcac4ea47f01f0b85d44ae56967a4bc6e664e83b" => :el_capitan
-    sha256 "3eabb2e862b797aed678dda68880a9b6f74eaaaf27c58eaeec900ca44e5143ed" => :yosemite
-    sha256 "9025f45fcaa300794ef2331af865c45d41aef3d96cc4ea064cec4bd740d33d19" => :mavericks
-    sha256 "561bcd6c03079d6f7dccc8372f7b9942d4e95794d1b3c3b680894794451de042" => :x86_64_linux
+    sha256 "f1db3d1981966e6b33fcb2f0f069192ed9a2d125a71e0083278ee01549a7fbb2" => :sierra
+    sha256 "0830df60c69b9f9ca0010ae45d6cd969e39531c039835e74a046c2e5f44a0ea9" => :el_capitan
+    sha256 "bb8e83c029a058f9d84ae14ffa0fdc372979d1e33fc7352e4ab035788c608a3b" => :yosemite
   end
 
   head do
@@ -38,10 +37,11 @@ class Pulseaudio < Formula
   depends_on "openssl"
   depends_on "libcap" unless OS.mac?
 
-  depends_on :x11 => :optional
+  depends_on "dbus" => :recommended
+  depends_on "speex" => :recommended
+  
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
-  depends_on "dbus" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
 
@@ -68,6 +68,7 @@ class Pulseaudio < Formula
     args << "--with-mac-sysroot=#{MacOS.sdk_path}"
     args << "--with-mac-version-min=#{MacOS.version}"
     args << "--disable-nls" if build.without? "nls"
+    args << "--disable-x11"
     args << "--enable-coreaudio-output" if OS.mac?
 
     if build.universal?

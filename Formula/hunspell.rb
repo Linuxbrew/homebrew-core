@@ -1,26 +1,32 @@
 class Hunspell < Formula
   desc "Spell checker and morphological analyzer"
   homepage "https://hunspell.github.io"
-  url "https://github.com/hunspell/hunspell/archive/v1.5.4.tar.gz"
-  sha256 "852c01a2e3b87eb1f2adb5261466608ba79f1f950202e18a2a1735de5098fc59"
+  url "https://github.com/hunspell/hunspell/archive/v1.6.0.tar.gz"
+  sha256 "512e7d2ee69dad0b35ca011076405e56e0f10963a02d4859dbcc4faf53ca68e2"
 
   bottle do
-    sha256 "048a1986ce8f9b45674bcd2e47fe63fb1906f16935631082c7a77ce2fabbf0dd" => :sierra
-    sha256 "abd598a5cdebc6f98d19f2e93df444cbc3defe8816ba9261f2fa1058efa591c3" => :el_capitan
-    sha256 "c056793bd40e4718fdafa022d005cecb73a498234dd98043f5441d345d54748c" => :yosemite
-    sha256 "362611281bc2044f9019a47598e683cf1dff77b49a6284b23067c31d660e0417" => :x86_64_linux
+    cellar :any
+    sha256 "78d7165c49fe18af2702228176b66aacd86b938df24fd7af17c911e3ec6ed801" => :sierra
+    sha256 "ca24830c14fab329a09e57be6568eb7fee6fdacaef7821efb4bc503f3a299469" => :el_capitan
+    sha256 "913f5a6bd8dc3e1e4c1c711a95929534430df79aa79a72248abfb5291952b30e" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "libtool" => :build
   depends_on "readline"
 
   conflicts_with "freeling", :because => "both install 'analyze' binary"
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-ui",
                           "--with-readline"
     system "make"
+    system "make", "check"
     system "make", "install"
 
     pkgshare.install "tests"

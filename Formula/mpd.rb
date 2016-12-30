@@ -3,11 +3,12 @@ class Mpd < Formula
   homepage "https://www.musicpd.org/"
   url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.21.tar.xz"
   sha256 "8305b8bc026f4b6bde28b8dd09bfdddbe5590acf36358eed4d083a396e301730"
+  revision 1
 
   bottle do
-    sha256 "429071e06bd07c4f23a719958539f0fe305d82417b14373d597e2c964411b3e4" => :sierra
-    sha256 "b83f2993e8ae7a1043e48c9faa1bc188487a7056a4bfa2114aecdac0f9dca5e1" => :el_capitan
-    sha256 "7857f370e19e1bc2b1418e6f55f4d13ae046972fa4ff7cb95777f2234397a932" => :yosemite
+    sha256 "bc5efa2ce6f02b64efa43ebe47280ce43f55326a61f9013b2c9c4d898cb34d8f" => :sierra
+    sha256 "80750bcdfff0b303d5e7c0c6de8dfcbed7e9a925b0f26c05e1648ce9b402eb60" => :el_capitan
+    sha256 "9ec22c1805b44f6f05528f514e795bef7893f1c97678d6c4a3b7a302395e3edc" => :yosemite
   end
 
   head do
@@ -92,7 +93,7 @@ class Mpd < Formula
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Directories are created in parallel, so let's not do that
+    ENV.deparallelize # Directories are created in parallel, so let's not do that
     system "make", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
