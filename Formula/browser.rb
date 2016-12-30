@@ -10,6 +10,7 @@ class Browser < Formula
   bottle :unneeded
 
   def install
+    inreplace "browser", 'exec "open', 'exec "xdg-open' unless OS.mac?
     bin.install "browser"
   end
 
