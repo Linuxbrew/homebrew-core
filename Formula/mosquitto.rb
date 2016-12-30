@@ -13,6 +13,7 @@ class Mosquitto < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "libuuid" => :build
   depends_on "c-ares"
   depends_on "openssl"
   depends_on "libwebsockets" => :recommended
