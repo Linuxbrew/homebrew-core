@@ -40,6 +40,7 @@ class ClangFormat < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "subversion" => :build
+  depends_on "bison" => :build unless OS.mac?
 
   def install
     (buildpath/"projects/libcxx").install resource("libcxx")
