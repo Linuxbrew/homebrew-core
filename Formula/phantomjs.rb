@@ -23,7 +23,6 @@ class Phantomjs < Formula
     sha256 "370e6f729ac20091c408dc5a1be14361b861bef78f1a52efb201e27e7440cfa4" => :el_capitan
     sha256 "ec65660b5c4097886d52fe0b4928aaefd6d09fb0e6ab707b1fa4d762acf873e1" => :yosemite
     sha256 "d837e04d137ae8ddc8eb807b7ca5a08a0fccdfd513f4fdd4f1d610ce8abc0874" => :mavericks
-    sha256 "758faee3521381b98b19c0aeed2caae859317bf90a7583e1672d4a8b5c7a963a" => :x86_64_linux
   end
 
   depends_on MinimumMacOSRequirement => :lion
