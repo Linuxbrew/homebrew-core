@@ -1,3 +1,4 @@
+# asciinema: Build a bottle for Linuxbrew
 class Asciinema < Formula
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
