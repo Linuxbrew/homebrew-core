@@ -15,6 +15,7 @@ class Tldr < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libzip"
+  depends_on "curl" unless OS.mac?
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
