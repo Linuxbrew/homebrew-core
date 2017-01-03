@@ -4,6 +4,7 @@ class Binutils < Formula
   url "https://ftpmirror.gnu.org/binutils/binutils-2.27.tar.gz"
   mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.gz"
   sha256 "26253bf0f360ceeba1d9ab6965c57c6a48a01a8343382130d1ed47c468a3094f"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any if OS.linux?
@@ -31,9 +32,12 @@ class Binutils < Formula
                           "--enable-interwork",
                           "--enable-multilib",
                           "--enable-64-bit-bfd",
+                          ("--enable-gold" if OS.linux?),
+                          ("--enable-plugins" if OS.linux?),
                           "--enable-targets=all"
     system "make"
     system "make", "install"
+    bin.install_symlink "ld.gold" => "gold" if OS.linux?
   end
 
   test do
