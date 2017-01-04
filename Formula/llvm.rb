@@ -47,6 +47,11 @@ class Llvm < Formula
       sha256 "25e615e428f60e651ed09ffd79e563864e3f4bc69a9e93ee41505c419d1a7461"
     end
 
+    resource "libcxxabi" do
+      url "http://llvm.org/releases/3.9.1/libcxxabi-3.9.1.src.tar.xz"
+      sha256 "920d8be32e6f5574a3fb293f93a31225eeba15086820fcb942155bf50dc029e2"
+    end
+
     resource "libunwind" do
       url "http://llvm.org/releases/3.9.1/libunwind-3.9.1.src.tar.xz"
       sha256 "0b0bc73264d7ab77d384f8a7498729e3c4da8ffee00e1c85ad02a2f85e91f0e6"
@@ -98,6 +103,10 @@ class Llvm < Formula
 
     resource "libcxx" do
       url "http://llvm.org/git/libcxx.git"
+    end
+
+    resource "libcxxabi" do
+      url "http://llvm.org/git/libcxxabi.git"
     end
 
     resource "libunwind" do
@@ -195,6 +204,7 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
+    (buildpath/"projects/libcxxabi").install resource("libcxxabi") if build_libcxx? && !OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -255,6 +265,7 @@ class Llvm < Formula
     end
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
+    args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build_libcxx? && !OS.mac?
 
     if build.with?("lldb") && build.with?("python")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -297,7 +308,7 @@ class Llvm < Formula
       end
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain"
+      system "make", "install-xcode-toolchain" if build.with? "toolchain" && OS.mac?
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
