@@ -21,7 +21,8 @@ class Intltool < Formula
                           "--disable-silent-rules"
     system "make", "install"
     Dir[bin/"intltool-*"].each do |f|
-      inreplace f, %r{^#!\/.*\/perl -w}, "#!/usr/bin/env perl -w"
+      inreplace f, %r{^#!\/.*\/perl -w}, "#!/usr/bin/env perl"
+      inreplace f, %r{^(use strict;)}, "\\1\nuse warnings;"
     end unless OS.mac?
   end
 
