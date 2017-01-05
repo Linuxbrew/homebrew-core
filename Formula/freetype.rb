@@ -1,3 +1,4 @@
+# freetype: Build a bottle for Linuxbrew
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
