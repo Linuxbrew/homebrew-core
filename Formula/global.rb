@@ -31,7 +31,10 @@ class Global < Formula
   deprecated_option "with-exuberant-ctags" => "with-ctags"
 
   depends_on "ctags" => :optional
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "libtool" => :run
+    depends_on "homebrew/dupes/ncurses"
+  end
 
   skip_clean "lib/gtags"
 
