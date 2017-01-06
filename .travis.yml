@@ -5,7 +5,7 @@ sudo: required
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
-  - sudo apt-get remove -y libncurses5-dev libtinfo-dev
+  - sudo apt-get remove -y libncurses5-dev libpcre3-dev libtinfo-dev
   # Fix error: Incorrect file permissions (664)
   - chmod 0644 Formula/*.rb
   - umask 022
