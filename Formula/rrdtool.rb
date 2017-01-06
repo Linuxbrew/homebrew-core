@@ -1,3 +1,4 @@
+# rrdtool: Build a bottle for Linuxbrew
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
