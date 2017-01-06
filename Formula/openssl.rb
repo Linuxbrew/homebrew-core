@@ -31,9 +31,13 @@ class Openssl < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on "makedepend" => :build
   depends_on "zlib" unless OS.mac?
   depends_on :perl => ["5.0", :build] unless OS.mac?
+
+  patch do
+    url "https://github.com/openssl/openssl/pull/1524.patch"
+    sha256 "853a15755d3bc2b561d64c4f5d58a7ff4885e5cdbacbf429ce93b477e0d3d68e"
+  end
 
   def arch_args
     return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
