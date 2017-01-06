@@ -1,14 +1,14 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/axkibe/lsyncd"
-  url "https://github.com/axkibe/lsyncd/archive/release-2.2.0.tar.gz"
-  sha256 "fb4b49c314846c251b624f9ee3129483c4b3d4d53c5263bb36086feb17f2e800"
+  url "https://github.com/axkibe/lsyncd/archive/release-2.2.1.tar.gz"
+  sha256 "f41969454a17f9441a9b1809bb251235631768393bf5d29ad8e8142670ae4735"
 
   bottle do
     cellar :any
-    sha256 "aeeb1e6332c61f1c32cab3f46c7b5bce31f555076bc4ddfc9c49aa27e8e820f2" => :sierra
-    sha256 "ad0dca53287001d0b010502ca2ce5c53741830bfa3d9e16151b1014f5060ac46" => :el_capitan
-    sha256 "84a7a779a10cc210efb0887cf6713690c639ad07e6cb6dbb722f12ad56fb5dbb" => :yosemite
+    sha256 "ba35d15ef7c291defcfbdb34341b0bd7477f572d0eb6e77a7b0ae3904d8931a7" => :sierra
+    sha256 "561cc0e04219dfe6d613b70c538d34efa8e6c2eb3ed7fd7ff47f41c3e3c33813" => :el_capitan
+    sha256 "09edc65a36698434af78264c852d07c19e12752f94cf362c94c59d5026bd6bce" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -60,19 +60,10 @@ class Lsyncd < Formula
   end
 
   def install
-    # XNU Headers
+    inreplace "CMakeLists.txt", "DESTINATION man", "DESTINATION share/man/man1"
     resource("xnu").stage buildpath/"xnu"
-
-    args = std_cmake_args
-    args << "-DWITH_INOTIFY=OFF"
-    args << "-DWITH_FSEVENTS=ON"
-    args << "-DXNU_DIR=#{buildpath/"xnu"}"
-
-    # DESTINATION man
-    inreplace "CMakeLists.txt", "DESTINATION man",
-                                "DESTINATION #{man}"
-
-    system "cmake", ".", *args
+    system "cmake", ".", "-DWITH_INOTIFY=OFF", "-DWITH_FSEVENTS=ON",
+                         "-DXNU_DIR=#{buildpath}/xnu", *std_cmake_args
     system "make", "install"
   end
 
