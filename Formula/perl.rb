@@ -1,7 +1,7 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  revision OS.linux? ? 2 : 1
+  revision OS.linux? ? 3 : 1
   head "git://perl5.git.perl.org/perl.git", :branch => "blead"
 
   stable do
