@@ -58,7 +58,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DBUILD_SHARED_LIBS=#{is_shared}
+          -DBUILD_SHARED_LIBS=#{build.with?("shared-libs")? "ON" : "OFF"}
           -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
         system "cmake", "..", *args
