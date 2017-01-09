@@ -20,6 +20,7 @@ class Gnutls < Formula
   depends_on "p11-kit" => :recommended
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
+  depends_on "autogen" unless OS.mac?
 
   def install
     # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
