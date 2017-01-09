@@ -55,7 +55,6 @@ class Ldc < Formula
 
     ENV.cxx11
     (buildpath/"ldc-lts").install resource("ldc-lts")
-    is_shared = (build.with? "shared-libs") ? "ON" : "OFF"
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
@@ -68,7 +67,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DBUILD_SHARED_LIBS=#{is_shared}
+        -DBUILD_SHARED_LIBS=#{build.with?("shared-libs")? "ON" : "OFF"}
         -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
