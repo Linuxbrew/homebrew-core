@@ -1,3 +1,4 @@
+# libsvm: Build a bottle for Linuxbrew
 class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
