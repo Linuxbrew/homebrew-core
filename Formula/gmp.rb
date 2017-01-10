@@ -7,11 +7,10 @@ class Gmp < Formula
 
   bottle do
     cellar :any
-    sha256 "7ff60fa13a22a22503566229b3e6b36244900a0ec6f5f897c18a7ef48f44b274" => :sierra
-    sha256 "3d404810952ae59470709709f0b64e4122520afcbb65633d449bcca546f3ca41" => :el_capitan
-    sha256 "8858a1e22d62875d5424b354302c818b194c8d21a669287d0e0b190816be32e9" => :yosemite
-    sha256 "b604a20e2501a10773abc384d9750fa27112cf9ad9c532367ebd7caf241c8d4b" => :mavericks
-    sha256 "4677ee116d69d5959b46668f3e4eacc4af8dbae1ff411fd278d41a1ccdad0046" => :x86_64_linux
+    rebuild 1
+    sha256 "cd4a916966007092af477a76655cc1f66546d00bf5e581a5dfef334f8436aeb0" => :sierra
+    sha256 "01b24de832db7aa24ee14159feb5a16e0e3e18932e6f38d221331bb45feb6a1a" => :el_capitan
+    sha256 "3752709f0bab1999fa9d5407bcd3135a873b48fc34d5e6ea123fd68c4cf3644d" => :yosemite
   end
 
   option "32-bit"
@@ -19,19 +18,12 @@ class Gmp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    args = ["--prefix=#{prefix}", "--enable-cxx"]
-
-    if build.build_32_bit?
-      ENV.m32
-      args << "ABI=32"
-    end
-
-    # https://github.com/Homebrew/homebrew/issues/20693
-    args << "--disable-assembly" if build.build_32_bit? || build.bottle?
-
+    args = %W[--prefix=#{prefix} --enable-cxx]
+    # --build=core2-linux-gnu fails with GCC 4.6.
+    args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle? && OS.mac?
     system "./configure", *args
     system "make"
-    system "make", "check" unless OS.linux? # Fails without LD_LIBRARY_PATH
+    system "make", "check"
     system "make", "install"
   end
 
