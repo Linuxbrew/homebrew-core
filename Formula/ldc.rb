@@ -55,7 +55,7 @@ class Ldc < Formula
     (buildpath/"ldc-lts").install resource("ldc-lts")
     cd "ldc-lts" do
       mkdir "build" do
-        args = std_cmake_args + %W[          
+        args = std_cmake_args + %W[
           -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
         # Shared libraries are not yet supported on Mac.
