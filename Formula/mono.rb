@@ -1,3 +1,4 @@
+# mono: Build a bottle for Linuxbrew
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
