@@ -40,8 +40,6 @@ class Ldc < Formula
     end
   end
 
-  option "with-shared-libs", "build shared libs"
-
   needs :cxx11
 
   depends_on "cmake" => :build
@@ -57,21 +55,23 @@ class Ldc < Formula
     (buildpath/"ldc-lts").install resource("ldc-lts")
     cd "ldc-lts" do
       mkdir "build" do
-        args = std_cmake_args + %W[
-          -DBUILD_SHARED_LIBS=#{build.with?("shared-libs")? "ON" : "OFF"}
+        args = std_cmake_args + %W[          
           -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
+        # Shared libraries are not yet supported on Mac.
+        args << "-DBUILD_SHARED_LIBS=ON" unless OS.mac?
         system "cmake", "..", *args
         system "make"
       end
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DBUILD_SHARED_LIBS=#{build.with?("shared-libs")? "ON" : "OFF"}
         -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
       ]
+      # Shared libraries are not yet supported on Mac.
+      args << "-DBUILD_SHARED_LIBS=ON" unless OS.mac?
 
       system "cmake", "..", *args
       system "make"
