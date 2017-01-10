@@ -163,7 +163,7 @@ class Llvm < Formula
   depends_on "cmake" => :build
 
   if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
+    depends_on "swig" if MacOS.version >= :lion || !OS.mac?
     depends_on CodesignRequirement if OS.mac?
   end
 
