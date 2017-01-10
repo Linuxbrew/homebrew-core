@@ -58,8 +58,6 @@ class Ldc < Formula
         args = std_cmake_args + %W[
           -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
-        # Shared libraries are not yet supported on Mac.
-        args << "-DBUILD_SHARED_LIBS=ON" unless OS.mac?
         system "cmake", "..", *args
         system "make"
       end
