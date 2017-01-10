@@ -302,7 +302,11 @@ class Python3 < Formula
   end
 
   def xy
-    version.to_s.slice(/(3\.\d)/) || "3.6"
+    if OS.mac? && prefix.exist?
+      (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+    else
+      version.to_s.slice(/(3\.\d)/) || "3.6"
+    end
   end
 
   def sitecustomize
