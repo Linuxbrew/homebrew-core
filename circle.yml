@@ -19,7 +19,7 @@ dependencies:
   override:
     - sudo apt-get update
     - sudo apt-get install curl g++ git libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev subversion wbritish
-    - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge libblas-dev libicu-dev libjasper-dev libjbig-dev libncurses5-dev libpcre3-dev libtinfo-dev libwebp-dev libxml2-dev llvm-3.4 mysql-common
+    - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge libblas-dev libicu-dev libjasper-dev libjbig-dev libncurses5-dev libpcre3-dev libtinfo-dev libwebp-dev libwmf-dev libxml2-dev llvm-3.4 mysql-common
     - sudo ln -sf ruby2.0 /usr/bin/ruby
     - sudo ln -sf gem2.0 /usr/bin/gem
     - sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
