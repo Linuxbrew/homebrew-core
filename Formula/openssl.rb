@@ -31,12 +31,16 @@ class Openssl < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on "makedepend" => :build
   depends_on "zlib" unless OS.mac?
   depends_on :perl => ["5.0", :build] unless OS.mac?
 
+  patch do
+    url "https://github.com/openssl/openssl/pull/1524.patch"
+    sha256 "853a15755d3bc2b561d64c4f5d58a7ff4885e5cdbacbf429ce93b477e0d3d68e"
+  end
+
   def arch_args
-    return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
+    return { :i386 => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
       :i386 => %w[darwin-i386-cc],
@@ -66,6 +70,9 @@ class Openssl < Formula
     inreplace "crypto/comp/c_zlib.c",
               'zlib_dso = DSO_load(NULL, "z", NULL, 0);',
               'zlib_dso = DSO_load(NULL, "/usr/lib/libz.dylib", NULL, DSO_FLAG_NO_NAME_TRANSLATION);' if OS.mac?
+
+    # openssl does not in fact require an executable stack.
+    ENV.append_to_cflags "-Wa,--noexecstack" if OS.linux?
 
     if build.universal?
       ENV.permit_arch_flags
