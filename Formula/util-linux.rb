@@ -23,6 +23,8 @@ class UtilLinux < Formula
       "--disable-kill",
       # Conflicts with bsdmainutils
       "--disable-cal",
+      # Disable systemd. Linuxbrew is non-root
+      "--without-systemd",
       "--disable-ul"
     system "make", "install"
 
