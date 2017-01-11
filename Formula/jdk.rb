@@ -17,8 +17,6 @@ class Jdk < Formula
     url "http://java.com/"
   end
 
-  bottle :unneeded
-
   def install
     odie "Use 'brew cask install java' on Mac OS" if OS.mac?
     prefix.install Dir["*"]
