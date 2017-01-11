@@ -17,10 +17,12 @@ class Cmake < Formula
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on "bzip2" unless OS.mac?
-  depends_on "curl" unless OS.mac?
-  depends_on "libidn" unless OS.mac?
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "curl"
+    depends_on "libidn" => :optional
+    depends_on "homebrew/dupes/ncurses"
+  end
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
