@@ -8,12 +8,12 @@ class Openssl < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2j.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2j.tar.gz"
   sha256 "e7aff292be21c259c6af26469c7a9b3ba26e9abaaffd325e3dccc9785256c431"
+  revision 1 if OS.linux?
 
   bottle do
     sha256 "109fe24d2ee82d89e1ee60587d91c953cdd3384db5374e8e83635c456fa15ed0" => :sierra
     sha256 "7b331c548a5a82f7a111c6218be3e255a2a1a6c19888c2b7ceaf02f2021c1628" => :el_capitan
     sha256 "a3083052e81d711dd6da2d5bda7418d321eba26570a63818e52f5f68247c63f2" => :yosemite
-    sha256 "292c3d5628a58908fdbc2e1587e27b1301890de043069fc08919d20f14871c07" => :x86_64_linux
   end
 
   resource "cacert" do
