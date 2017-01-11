@@ -12,6 +12,8 @@ class Tidyp < Formula
     sha256 "7501f78d5f8e549fec7f689cd24aafa716e2097744ec78359d8092183469e4c8" => :mavericks
   end
 
+  depends_on "libxslt" => :build unless OS.mac?
+
   resource "manual" do
     url "https://raw.githubusercontent.com/petdance/tidyp/6a6c85bc9cb089e343337377f76127d01dd39a1c/htmldoc/tidyp1.xsl"
     sha256 "68ea4bb74e0ed203fb2459d46e789b2f94e58dc9a5a6bc6c7eb62b774ac43c98"
@@ -26,7 +28,8 @@ class Tidyp < Formula
     resource("manual").stage do
       system "#{bin}/tidyp -xml-help > tidyp1.xml"
       system "#{bin}/tidyp -xml-config > tidyp-config.xml"
-      system "/usr/bin/xsltproc tidyp1.xsl tidyp1.xml > tidyp.1"
+      xsltproc_dir = OS.mac? ? "/usr/bin/" : Formula["libxslt"].bin
+      system "#{xsltproc_dir}/xsltproc tidyp1.xsl tidyp1.xml > tidyp.1"
       man1.install gzip("tidyp.1")
     end
   end
