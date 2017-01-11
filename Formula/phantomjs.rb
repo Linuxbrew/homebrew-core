@@ -28,9 +28,13 @@ class Phantomjs < Formula
   depends_on MinimumMacOSRequirement => :lion
   depends_on :xcode => :build
   depends_on "openssl"
-  depends_on "icu4c" unless OS.mac?
-  depends_on "homebrew/dupes/gperf" => :build unless OS.mac?
-  depends_on "flex" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "flex" => :build
+    depends_on "homebrew/dupes/gperf" => :build
+    depends_on "icu4c"
+    depends_on "libxml2"
+    depends_on "zlib"
+  end
 
   def install
     ENV["HOMEBREW_MAKE_JOBS"] = "4" if ENV["CIRCLECI"]
