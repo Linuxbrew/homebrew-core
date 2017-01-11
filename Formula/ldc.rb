@@ -5,9 +5,8 @@ class Ldc < Formula
   stable do
     # for the sake of LLVM 3.9 compatibility
     url "https://github.com/ldc-developers/ldc.git",
-        :branch => "release-1.0.1",
-        :revision => "3461e00f3531f855f9fc6e92515d7affb8201827"
-    version "1.0.1-alpha1"
+        :branch => "release-1.1.0"
+    version "1.1.0"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
