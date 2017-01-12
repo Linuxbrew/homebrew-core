@@ -20,6 +20,7 @@ class Gmp < Formula
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
     args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle? && OS.mac?
+    args << "ABI=32" if Hardware::CPU.is_32_bit? && !OS.mac?
     system "./configure", *args
     system "make"
     system "make", "check"
