@@ -63,8 +63,6 @@ class Ldc < Formula
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
       ]
-      # Shared libraries are not yet supported on Mac, pending https://github.com/ldc-developers/ldc/pull/1705
-      args << "-DBUILD_SHARED_LIBS=ON" unless OS.mac?
 
       system "cmake", "..", *args
       system "make"
