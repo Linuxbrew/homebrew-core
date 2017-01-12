@@ -20,6 +20,7 @@ class Mongodb < Formula
   depends_on :macos => :mountain_lion
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
+  depends_on "homebrew/dupes/libpcap" unless OS.mac?
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
