@@ -30,8 +30,8 @@ class MongoCDriver < Formula
       --prefix=#{prefix}
       --enable-man-pages
       --with-libbson=bundled
-      --enable-ssl=darwin
     ]
+    args << "--enable-ssl=darwin" if OS.mac?
 
     system "./configure", *args
     system "make", "install"
