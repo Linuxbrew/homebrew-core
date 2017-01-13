@@ -28,6 +28,7 @@ class MobileShell < Formula
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "openssl" unless OS.mac?
 
   def install
     # teach mosh to locate mosh-client without referring
