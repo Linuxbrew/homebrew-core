@@ -21,6 +21,12 @@ class Mongodb < Formula
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
 
+  if OS.linux?
+    depends_on "gcc" # Fails with GCC < 5.3
+    depends_on "homebrew/dupes/libpcap" => :build
+    depends_on "pkg-config" => :build
+  end
+
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
         :tag => "r3.4.4",
@@ -31,6 +37,9 @@ class Mongodb < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
+
     ENV.cxx11 if MacOS.version < :mavericks
     ENV.libcxx if build.devel?
 
@@ -49,7 +58,13 @@ class Mongodb < Formula
 
       args << "sasl" if build.with? "sasl"
 
-      system "./build.sh", *args
+      if OS.mac?
+        system "./build.sh", *args
+      else
+        ENV["CGO_CPPFLAGS"] = "-I " + Formula["libpcap"].opt_include
+        ENV["CGO_LDFLAGS"] = "-L " + Formula["libpcap"].opt_lib
+        system "bash", "./build.sh", *args
+      end
     end
 
     mkdir "src/mongo-tools"
