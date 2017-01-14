@@ -1,8 +1,9 @@
 class Bsdmainutils < Formula
   desc "Collection of utilities from FreeBSD"
   homepage "https://packages.debian.org/sid/bsdmainutils"
-  url "http://ftp.debian.org/debian/pool/main/b/bsdmainutils/bsdmainutils_9.0.10.tar.gz"
-  sha256 "765531369797bb3850a7db57e0d14c8a8d2387e0adfabb6a4cd752304afd2eff"
+  url "http://ftp.debian.org/debian/pool/main/b/bsdmainutils/bsdmainutils_9.0.12.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/debian/pool/main/b/bsdmainutils/bsdmainutils_9.0.12.tar.gz"
+  sha256 "9b6989932eabb43fa0137f4e5589e9b1ec70ea0249276a31dd311b3664bfc97f"
   # tag "linuxbrew"
 
   bottle do
