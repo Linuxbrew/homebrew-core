@@ -32,7 +32,8 @@ before_install:
   - brew tap linuxbrew/xorg
 
 script:
-  - brew test-bot
+  # NOTE: if 20mn (default) isn't enough consider using `travis_wait 30` cf https://docs.travis-ci.com/user/common-build-problems/
+  - travis_wait brew test-bot
 
 notifications:
   slack:
