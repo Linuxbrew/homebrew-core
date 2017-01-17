@@ -53,6 +53,11 @@ class Ghc < Formula
   # This dependency is needed for the bootstrap executables.
   depends_on "gmp" => :build if OS.linux?
 
+  # binutils on Travis-CI is old and buggy
+  if ENV["TRAVIS"]
+    depends_on "binutils" => :build if OS.linux?
+  end
+
   resource "gmp" do
     url "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
@@ -77,8 +82,8 @@ class Ghc < Formula
     if OS.linux?
       # Using 8.0.1 gives the error message:
       # strip: Not enough room for program headers, try linking with -N
-      url "http://downloads.haskell.org/~ghc/7.8.4/ghc-7.8.4-x86_64-unknown-linux-deb7.tar.xz"
-      sha256 "f62e00e93a5ac16ebfe97cd7cb8cde6c6f3156073d4918620542be3e0ad55f8d"
+      url "http://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-deb7-linux.tar.xz"
+      sha256 "86a8109dfa4ec000e0048ed9d072c0d232affeb1069ca96b3995cb5cef2230a7"
     elsif MacOS.version >= :sierra
       url "https://downloads.haskell.org/~ghc/8.0.2-rc2/ghc-8.0.1.20161213-x86_64-apple-darwin.tar.xz"
       sha256 "f5cacbf6ae9394cfd191244e6a7ab385184c6dc5168cb2c576ab2d74543c1391"
