@@ -79,7 +79,11 @@ class Ldc < Formula
       }
     EOS
 
-    system bin/"ldc2", "test.d"
+    if build.stable?
+      system bin/"ldc2", "test.d"
+    else
+      system bin/"ldc2", "-flto=full", "test.d"
+    end
     assert_match "Hello, world!", shell_output("./test")
     system bin/"ldmd2", "test.d"
     assert_match "Hello, world!", shell_output("./test")

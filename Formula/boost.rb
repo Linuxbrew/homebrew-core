@@ -15,7 +15,6 @@ class Boost < Formula
 
   env :userpaths
 
-  option :universal
   option "with-icu4c", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
@@ -38,7 +37,6 @@ class Boost < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
-    ENV.universal_binary if build.universal?
 
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
@@ -66,7 +64,7 @@ class Boost < Formula
     # The context library is implemented as x86_64 ASM, so it
     # won't build on PPC or 32-bit builds
     # see https://github.com/Homebrew/homebrew/issues/17646
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit? || build.universal?
+    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
       without_libraries << "context"
       # The coroutine library depends on the context library.
       without_libraries << "coroutine"
@@ -100,8 +98,6 @@ class Boost < Formula
       args << "link=shared"
     end
 
-    args << "address-model=32_64" << "architecture=x86" << "pch=off" if build.universal?
-
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
     if build.cxx11?
@@ -131,7 +127,7 @@ class Boost < Formula
       EOS
     end
 
-    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit? || build.universal?
+    if Hardware::CPU.ppc? || Hardware::CPU.is_32_bit?
       s += <<-EOS.undent
 
       Building of Boost.Context and Boost.Coroutine is disabled as they are
