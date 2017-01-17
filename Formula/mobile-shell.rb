@@ -24,14 +24,7 @@ class MobileShell < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
-
-  if OS.mac?
-    depends_on "protobuf"
-  else
-    # c++11 because of http://stackoverflow.com/questions/30124264/undefined-reference-to-googleprotobufinternalempty-string-abicxx11
-    depends_on "protobuf" => "c++11"
-  end
-
+  depends_on "protobuf"
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
