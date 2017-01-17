@@ -13,6 +13,7 @@ class TtyClock < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
     ENV.append "LDFLAGS", "-lncurses"
