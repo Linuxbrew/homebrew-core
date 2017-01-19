@@ -1,3 +1,4 @@
+# clasp: Build a bottle for Linuxbrew
 class Clasp < Formula
   desc "Answer set solver for (extended) normal logic programs"
   homepage "http://potassco.sourceforge.net/"
