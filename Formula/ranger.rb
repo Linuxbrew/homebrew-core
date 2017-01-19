@@ -1,3 +1,4 @@
+# ranger: Build a bottle for Linuxbrew
 class Ranger < Formula
   desc "File browser"
   homepage "http://ranger.nongnu.org/"
