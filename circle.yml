@@ -1,6 +1,7 @@
 machine:
   environment:
     HOMEBREW_DEVELOPER: 1
+    HOMEBREW_VERBOSE: 1
     HOMEBREW_VERBOSE_USING_DOTS: 1
 checkout:
   post:
@@ -31,4 +32,4 @@ test:
       brew install patchelf
         && brew tap homebrew/dupes
         && brew tap linuxbrew/xorg
-        && brew test-bot --tap=homebrew/core --keep-old --verbose
+        && brew test-bot --tap=homebrew/core --keep-old
