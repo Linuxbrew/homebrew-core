@@ -50,6 +50,10 @@ class Swift < Formula
   depends_on "ninja" => :build
   depends_on :xcode => ["7.0", :build]
   depends_on "icu4c" unless OS.mac?
+  depends_on "libxml2" unless OS.mac?
+  depends_on "libuuid" unless OS.mac?
+  depends_on "libedit" unless OS.mac?
+  depends_on "llvm" unless OS.mac?
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -83,7 +87,6 @@ class Swift < Formula
     os = OS.mac? ? "macosx" : OS::NAME
     bin.install "#{build}/swift-#{os}-x86_64/bin/swift",
                 "#{build}/swift-#{os}-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-#{os}-x86_64/bin/swift-compress",
                 "#{build}/swift-#{os}-x86_64/bin/swift-demangle",
                 "#{build}/swift-#{os}-x86_64/bin/swift-ide-test",
                 "#{build}/swift-#{os}-x86_64/bin/swift-llvm-opt",
