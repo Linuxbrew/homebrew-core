@@ -1,9 +1,9 @@
 class Strace < Formula
-  desc "A useful diagnostic, instructional, and debugging tool"
-  homepage "http://sourceforge.net/projects/strace/"
-  url "https://downloads.sourceforge.net/project/strace/strace/4.10/strace-4.10.tar.xz"
-  sha256 "e6180d866ef9e76586b96e2ece2bfeeb3aa23f5cc88153f76e9caedd65e40ee2"
-  head "git://strace.git.sourceforge.net/gitroot/strace/strace"
+  desc "Diagnostic, instructional, and debugging tool for the Linux kernel"
+  homepage "https://strace.io/"
+  url "https://github.com/strace/strace/archive/v4.15.tar.gz"
+  sha256 "e5fc45bdf72a36e621868ff4c67d645a5087d3d2f31571ad6bca21c64b5ac870"
+  head "https://github.com/strace/strace.git"
   # tag "linuxbrew"
 
   bottle do
@@ -12,8 +12,11 @@ class Strace < Formula
   end
 
   depends_on "linux-headers"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
+    system "./bootstrap"
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
