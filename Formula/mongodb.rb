@@ -20,6 +20,7 @@ class Mongodb < Formula
   depends_on :macos => :mountain_lion
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
+  depends_on "homebrew/dupes/libpcap" unless OS.mac?
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
@@ -31,6 +32,9 @@ class Mongodb < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
+
     ENV.cxx11 if MacOS.version < :mavericks
     ENV.libcxx if build.devel?
 
