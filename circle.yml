@@ -35,4 +35,5 @@ test:
         && brew tap homebrew/dupes
         && brew tap linuxbrew/xorg
         && brew test-bot --tap=homebrew/core --keep-old
-    - mv *.json *.tar.gz $CIRCLE_ARTIFACTS/
+    - [[ $(find . -maxdepth 1 -type f -iname "*.json" | wc -l) > 0 ]] &&  mv *.json $CIRCLE_ARTIFACTS/
+    - [[ $(find . -maxdepth 1 -type f -iname "*.tar.gz" | wc -l) > 0 ]] &&  mv *.tar.gz $CIRCLE_ARTIFACTS/
