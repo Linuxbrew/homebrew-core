@@ -136,9 +136,11 @@ class Llvm < Formula
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
   option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
+  option "with-homebrew-gcc", "Build with homebrew's gcc" if OS.linux?
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
+  depends_on "gcc" => :build if build.with? "homebrew-gcc"
 
   depends_on "ocaml" => :optional
   if build.with? "ocaml"
@@ -246,6 +248,7 @@ class Llvm < Formula
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
+    args << "-DGCC_INSTALL_PREFIX=#{Formula["gcc"].opt_prefix}" if build.with? "homebrew-gcc"
 
     if build.with? "shared-libs"
       args << "-DBUILD_SHARED_LIBS=ON"
