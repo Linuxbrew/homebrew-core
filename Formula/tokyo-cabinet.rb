@@ -1,3 +1,4 @@
+# tokyo-cabinet: Build a bottle for Linuxbrew
 class TokyoCabinet < Formula
   desc "Lightweight database library"
   homepage "http://fallabs.com/tokyocabinet/"
