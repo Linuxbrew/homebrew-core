@@ -1,8 +1,13 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "http://astyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%202.06/astyle_2.06_macos.tar.gz"
-  sha256 "ad26b437365add1ec718b0f5f7c03ef0297616528619c2d1de19e940cd18d88a"
+  if OS.mac?
+    url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%202.06/astyle_2.06_macos.tar.gz"
+    sha256 "ad26b437365add1ec718b0f5f7c03ef0297616528619c2d1de19e940cd18d88a"
+  elsif OS.linux?
+    url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%202.06/astyle_2.06_linux.tar.gz"
+    sha256 "3b7212210dc139e8f648e004b758c0be1b3ceb1694b22a879202d2b833db7c7e"
+  end
   head "svn://svn.code.sf.net/p/astyle/code/trunk/AStyle"
 
   bottle do
@@ -14,7 +19,8 @@ class Astyle < Formula
 
   def install
     cd "src" do
-      system "make", "CXX=#{ENV.cxx}", "-f", "../build/mac/Makefile"
+      dir = OS.mac? ? "mac" : "gcc"
+      system "make", "CXX=#{ENV.cxx}", "-f", "../build/#{dir}/Makefile"
       bin.install "bin/astyle"
     end
   end
