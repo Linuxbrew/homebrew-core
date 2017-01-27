@@ -1,3 +1,4 @@
+# v8: Build a bottle for Linuxbrew
 # Track Chrome stable.
 # https://omahaproxy.appspot.com/
 class V8 < Formula
