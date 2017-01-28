@@ -1,3 +1,4 @@
+# snappy: Build a bottle for Linuxbrew
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
