@@ -25,7 +25,6 @@ class Pulseaudio < Formula
   deprecated_option "without-speex" => "without-speexdsp"
 
   depends_on "pkg-config" => :build
-  depends_on "homebrew/dupes/m4" => :build unless OS.mac?
 
   if build.with? "nls"
     depends_on "intltool" => :build
@@ -42,6 +41,12 @@ class Pulseaudio < Formula
   depends_on "gconf" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
+
+  unless OS.mac?
+    depends_on "homebrew/dupes/m4" => :build
+    depends_on "libcap"
+    depends_on "XML::Parser" => :perl
+  end
 
   fails_with :clang do
     build 421
