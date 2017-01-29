@@ -24,7 +24,7 @@ class Scriptcs < Formula
 
   def install
     script_file = "scriptcs.sh"
-    system "sh", "./build_brew.sh"
+    system "bash", "./build_brew.sh"
     libexec.install Dir["src/ScriptCs/bin/Release/*"]
     (libexec/script_file).write <<-EOS.undent
       #!/bin/bash
