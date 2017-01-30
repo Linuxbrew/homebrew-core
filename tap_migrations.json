@@ -247,6 +247,7 @@
   "sqsh": "homebrew/boneyard",
   "sshfs": "homebrew/fuse",
   "stormfs": "homebrew/fuse",
+  "strace": "linuxbrew/extra",
   "sundials": "homebrew/science",
   "swatchbooker": "homebrew/boneyard",
   "swish-e": "homebrew/boneyard",
