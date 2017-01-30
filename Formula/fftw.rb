@@ -1,3 +1,4 @@
+# fftw: Build a bottle for Linuxbrew
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
