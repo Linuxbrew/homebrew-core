@@ -1,3 +1,4 @@
+# autogen: Build a bottle for Linuxbrew
 class Autogen < Formula
   desc "Automated text file generator"
   homepage "http://autogen.sourceforge.net"
