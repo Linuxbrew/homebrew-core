@@ -1,3 +1,4 @@
+# mobile-shell: Build a bottle for Linuxbrew
 class MobileShell < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
