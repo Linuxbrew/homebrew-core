@@ -1,7 +1,7 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  revision OS.linux? ? 3 : 1
+  revision OS.linux? ? 4 : 1
   head "git://perl5.git.perl.org/perl.git", :branch => "blead"
 
   stable do
@@ -25,7 +25,6 @@ class Perl < Formula
     sha256 "2d17be7f00decaec2d9d9d25335962e78319b5ee121112ae6e6325227c50313a" => :sierra
     sha256 "bbc3eb4e2a1e7d9585918862adf718e5be80e4dae793e547bf71da8a07b372d8" => :el_capitan
     sha256 "7f4410ad668128cb66085a8e7fa995258cb60ba8b2551ab170ae612d3101d021" => :yosemite
-    sha256 "636f1ea924c9f3ceadc4cd1843be95ae7b62ca6ed96097ac678aea20945406db" => :x86_64_linux
   end
 
   option "with-dtrace", "Build with DTrace probes"
@@ -112,6 +111,9 @@ class Perl < Formula
     # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
     unless OS.mac?
       ENV["PERL_MM_USE_DEFAULT"] = "1"
+      system bin/"cpan", "-i", "YAML"
+      system bin/"cpan", "-i", "CPAN::Meta::Check"
+      system bin/"cpan", "-i", "Capture::Tiny"
       system bin/"cpan", "-i", "XML::Parser"
       system bin/"cpan", "-i", "XML::SAX"
     end
