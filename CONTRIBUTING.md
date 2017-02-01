@@ -35,5 +35,6 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * `brew uninstall --force foo`, `brew install --build-from-source foo`, `brew test foo`, and `brew audit --strict foo`
 * `git commit` with message formatted `foo: fix <insert details>`
 * [open a pull request](http://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request.html) and fix any failing tests
+* If the fix is relevant to macOS, please submit the PR to Homebrew. If it is only relevant to Linux, please submit it to Linuxbrew
 
 Thanks!
