@@ -1,3 +1,4 @@
+# ldc: Build a bottle for Linuxbrew
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
