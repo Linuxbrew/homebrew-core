@@ -1,3 +1,4 @@
+# mercurial: Build a bottle for Linuxbrew
 # No head build supported; if you need head builds of Mercurial, do so outside
 # of Homebrew.
 class Mercurial < Formula
