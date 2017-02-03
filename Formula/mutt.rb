@@ -39,6 +39,12 @@ class Mutt < Formula
   depends_on "gpgme" => :optional
   depends_on "libidn" => :optional
   depends_on "s-lang" => :optional
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+    depends_on "homebrew/dupes/krb5"
+    depends_on "homebrew/dupes/ncurses"
+  end
 
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
