@@ -51,9 +51,14 @@ class Rust < Formula
   end
 
   resource "cargobootstrap" do
-    version "2016-11-02"
-    url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2016-11-02/cargo-nightly-x86_64-apple-darwin.tar.gz"
-    sha256 "3bfb2e3e7292a629b86b9fad1d7d6ea9531bb990964c02005305c5cea3a579d9"
+    if OS.mac?
+      version "2016-11-02"
+      url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2016-11-02/cargo-nightly-x86_64-apple-darwin.tar.gz"
+      sha256 "3bfb2e3e7292a629b86b9fad1d7d6ea9531bb990964c02005305c5cea3a579d9"
+    else
+      url "https://static.rust-lang.org/dist/2017-01-31/cargo-0.16.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "0655713cacab054e8e5a33e742081eebec8531a8c77d28a4294e6496123e8ab1"
+    end
   end
 
   def install
