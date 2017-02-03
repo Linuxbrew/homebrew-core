@@ -5,7 +5,7 @@ sudo: required
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
-  - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge libblas-dev libicu-dev libjasper-dev libjbig-dev libkrb5-dev libncurses5-dev libpcre3-dev libtinfo-dev libwebp-dev libwmf-dev libxml2-dev llvm-3.4 mysql-common
+  - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge libblas-dev libicu-dev libidn11-dev libjasper-dev libjbig-dev libkrb5-dev libncurses5-dev libpcre3-dev libtinfo-dev libwebp-dev libwmf-dev libxml2-dev llvm-3.4 mysql-common
   # Fix error: Incorrect file permissions (664)
   - chmod 0644 Formula/*.rb
   - umask 022
