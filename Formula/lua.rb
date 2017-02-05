@@ -30,6 +30,12 @@ class Lua < Formula
   # See: https://github.com/Homebrew/homebrew/pull/5043
   patch :DATA if OS.mac?
 
+  # Add shared library for linux
+  patch do
+    url "https://gist.githubusercontent.com/wangpeiwen/c897bbe731dfcaa3cafb97af1ba58342/raw/cf7aea1ea6cb904975758aa66e0488ce2b7679da/lua.patch"
+    sha256 "82a7781c37afc6f8363a8c62c691a4fc64072201366a2fc8c9879092ac4e40fb"
+  end if OS.linux?
+
   # completion provided by advanced readline power patch
   # See http://lua-users.org/wiki/LuaPowerPatches
   if build.with? "completion"
