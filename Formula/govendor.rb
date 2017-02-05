@@ -17,7 +17,7 @@ class Govendor < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOOS"] = "darwin" if OS.mac?
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386" if OS.mac?
+    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
 
     (buildpath/"src/github.com/kardianos/").mkpath
     ln_sf buildpath, buildpath/"src/github.com/kardianos/govendor"
