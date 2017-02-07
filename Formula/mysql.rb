@@ -3,6 +3,7 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.17.tar.gz"
   sha256 "b75bba87199ef6a6ccc5dfbcaf70949009dc12089eafad8c5254afc9002aa903"
+  revision 1 if OS.linux?
 
   bottle do
     rebuild 1
