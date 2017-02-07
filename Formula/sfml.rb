@@ -1,3 +1,4 @@
+# sfml: Build a bottle for Linuxbrew
 class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
