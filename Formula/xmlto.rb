@@ -1,3 +1,4 @@
+# xmlto: Build a bottle for Linuxbrew
 class Xmlto < Formula
   desc "Convert XML to another format (based on XSL or other tools)"
   homepage "https://fedorahosted.org/xmlto/"
