@@ -38,6 +38,8 @@ class Rust < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :run
   depends_on "llvm" => :optional
+  # Fix https://github.com/Linuxbrew/homebrew-core/issues/1733: couldn't find required command: ar
+  depends_on "binutils" => :build unless OS.mac?
   depends_on "openssl"
   depends_on "libssh2"
 
