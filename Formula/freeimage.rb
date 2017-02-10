@@ -1,7 +1,7 @@
 class FreeimageHttpDownloadStrategy < CurlDownloadStrategy
   def stage
     # need to convert newlines or patch chokes
-    quiet_safe_system "/usr/bin/unzip", { :quiet_flag => "-qq" }, "-aa", cached_location
+    quiet_safe_system "#{Formula["unzip"].bin}/unzip", { :quiet_flag => "-qq" }, "-aa", cached_location
     chdir
   end
 end
@@ -24,6 +24,8 @@ class Freeimage < Formula
   end
 
   option :universal
+
+  depends_on "unzip" => :build if OS.linux?
 
   patch :DATA if OS.mac?
 
