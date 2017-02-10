@@ -16,9 +16,9 @@ class Ripgrep < Formula
   # depends_on "rust" => :build
 
   def install
+    # NOTE: requires `export RUSTUP_HOME=$HOME/.multirust` before calling `brew install ripgrep`
     # without this, error: no default toolchain configured because $HOME=/tmp/ripgrep-.../ripgrep-0.4.0/.brew_home
-    # TODO: how to get $HOME without hardcoding or passing an env var $RUSTUP_HOME to brew?
-    system 'export RUSTUP_HOME=/home/timothee/.multirust && cargo build --release'
+    system "cargo", "build", "--release"
 
     bin.install "target/release/rg"
     man1.install "doc/rg.1"
