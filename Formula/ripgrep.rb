@@ -11,7 +11,9 @@ class Ripgrep < Formula
     sha256 "ab72bd1f61995d0c2000db95c84bd08d4d6959639cf8c0693be51ef76d62aab0" => :yosemite
   end
 
-  depends_on "rust" => :build
+  # rust broken on linux: https://github.com/Linuxbrew/homebrew-core/issues/1733
+  # install using command line in https://www.rust-lang.org/en-US/install.html
+  # depends_on "rust" => :build
 
   def install
     system "cargo", "build", "--release"
