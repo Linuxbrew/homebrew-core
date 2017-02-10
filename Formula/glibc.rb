@@ -1,8 +1,9 @@
 class Glibc < Formula
   desc "The GNU C Library"
-  homepage "https://www.gnu.org/software/libc/download.html"
+  homepage "https://www.gnu.org/software/libc/"
   url "https://ftpmirror.gnu.org/glibc/glibc-2.19.tar.bz2"
   sha256 "2e293f714187044633264cd9ce0183c70c3aa960a2f77812a6390a3822694d15"
+  revision 1
   # tag "linuxbrew"
 
   bottle do
@@ -18,6 +19,12 @@ class Glibc < Formula
 
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
+
+  # for read ld.so.preload from $(brew --prefix glibc)/etc/ld.so.preload
+  patch do
+      url "https://gist.githubusercontent.com/wangpeiwen/60afbacc3e17683865c3b8b8f6448bdb/raw/f383ee29aabe43ae8cc4dfa54e41fd10d02d29c6/glibc_ld.so.preload.patch"
+      sha256 "c5ffe2ff5237a32621336958eab02ebb1be620939910f83fe8231f39d53e8e6e"
+  end if OS.linux?
 
   def install
     # -Os confuses valgrind.
