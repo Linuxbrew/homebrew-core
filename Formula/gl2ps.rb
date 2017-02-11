@@ -22,7 +22,9 @@ class Gl2ps < Formula
     # http://www.geuz.org/pipermail/gl2ps/2016/000433.html
     # Reported to cmake's bug tracker, as well (1st April 2016)
     # https://public.kitware.com/Bug/view.php?id=16045
-    system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework", *std_cmake_args
+    args = std_cmake_args
+    args << "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework" if OS.mac?
+    system "cmake", ".", *args
     system "make", "install"
   end
 
@@ -57,7 +59,11 @@ class Gl2ps < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-o", "test", "-lgl2ps"
+    end
     system "./test"
     assert File.exist?("test.eps") && File.size("test.eps") > 0
   end
