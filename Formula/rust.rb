@@ -58,7 +58,7 @@ class Rust < Formula
       version "2016-12-15"
       sha256 "ad6c31b41fef1d68e4523eb7d090fe8103848f30eb5ac8cba5128b7c11ed23fc"
     elsif OS.linux?
-      # From: https://github.com/rust-lang/rust/blob/1.15.0/src/stage0.txt
+      # From: https://github.com/rust-lang/rust/blob/1.15.1/src/stage0.txt
       url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/fbeea902d2c9a5be6d99cc35681565d8f7832592/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz"
       # From: 
       # name=cargo-nightly-x86_64-unknown-linux-gnu && tar -zxvf $name.tar.gz $name/version && cat $name/version
