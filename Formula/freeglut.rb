@@ -13,6 +13,7 @@ class Freeglut < Formula
 
   depends_on :x11
   depends_on "cmake" => :build
+  depends_on "linuxbrew/xorg/glu" unless OS.mac?
 
   patch :DATA
 
