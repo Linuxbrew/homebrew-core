@@ -32,6 +32,7 @@ class Phantomjs < Formula
   unless OS.mac?
     depends_on "flex" => :build
     depends_on "homebrew/dupes/gperf" => :build
+    depends_on "freetype"
     depends_on "icu4c"
     depends_on "libxml2"
     depends_on "zlib"
