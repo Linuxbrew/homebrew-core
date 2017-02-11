@@ -7,6 +7,7 @@ before_install:
   - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
   - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
       libblas-dev
+      libfreetype6-dev
       libicu-dev
       libidn11-dev
       libjasper-dev
