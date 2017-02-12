@@ -17,7 +17,11 @@ class Plotutils < Formula
   end
 
   depends_on "libpng"
-  depends_on :x11 => :optional
+  if OS.mac?
+    depends_on :x11 => :optional
+  else
+    depends_on :x11
+  end
 
   def install
     # Fix usage of libpng to be 1.5 compatible
