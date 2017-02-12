@@ -1,8 +1,8 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "http://man-db.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.6.7.1.tar.xz"
-  sha256 "8d65559838fccca774e3ef7c15c073180c786e728785c735e136297facca41fc"
+  url "http://download.savannah.gnu.org/releases/man-db/man-db-2.7.6.1.tar.xz"
+  sha256 "08edbc52f24aca3eebac429b5444efd48b9b90b9b84ca0ed5507e5c13ed10f3f"
   # tag "linuxbrew"
 
   head do
