@@ -12,6 +12,10 @@ class Fltk < Formula
 
   depends_on "libpng"
   depends_on "jpeg"
+  unless OS.mac?
+    depends_on :x11
+    depends_on "linuxbrew/xorg/mesa" => :recommended
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
