@@ -35,6 +35,7 @@ class Valgrind < Formula
   # https://bugs.kde.org/show_bug.cgi?id=365327#c2
   # https://github.com/Homebrew/homebrew-core/pull/6231#issuecomment-255779374
   depends_on MaximumMacOSRequirement => :el_capitan
+  depends_on "binutils" => :build if Formula["gcc"].installed? && !OS.mac?
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
