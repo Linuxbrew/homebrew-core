@@ -26,6 +26,7 @@ dependencies:
         libblas-dev
         libbz2-dev
         libfreetype6-dev
+        libgdbm-dev
         libicu-dev
         libidn11-dev
         libjasper-dev
