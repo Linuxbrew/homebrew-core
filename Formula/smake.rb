@@ -1,6 +1,6 @@
 class Smake < Formula
   desc "Portable make program with automake features"
-  homepage "http://s-make.sourceforge.net/"
+  homepage "https://s-make.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/s-make/smake-1.2.5.tar.bz2"
   sha256 "27566aa731a400c791cd95361cc755288b44ff659fa879933d4ea35d052259d4"
 
@@ -12,11 +12,6 @@ class Smake < Formula
     sha256 "07e29bed6bf75f8c192744ec1fa65816fc72ac04ec76657dc763baf7db2d2898" => :x86_64_linux
     sha256 "ce1edbcc0ec3f7db2208e39a09183d7dcfa21d50250393f5ad5c83204ab7b3ed" => :mountain_lion
   end
-
-  # A sed operation silently fails on Lion or older, due
-  # to some locale settings in smake's build files. The sed
-  # wrapper on 10.8+ overrides them.
-  env :std if MacOS.version <= :lion
 
   def install
     ENV.deparallelize # the bootstrap smake does not like -j
