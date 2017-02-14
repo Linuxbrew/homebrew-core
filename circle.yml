@@ -14,7 +14,7 @@ checkout:
     - git config user.email testbot@linuxbrew.sh
     - sudo mkdir /home/linuxbrew
     - sudo chown "$USER:" /home/linuxbrew
-    - git clone --depth=1 https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
+    - git clone --depth=1 https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew
     - mkdir -p /home/linuxbrew/.linuxbrew/Library/Taps/homebrew
     - rsync -az $HOME/$CIRCLE_PROJECT_REPONAME /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/
 dependencies:

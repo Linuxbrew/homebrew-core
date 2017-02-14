@@ -37,7 +37,7 @@ before_install:
   - sudo mkdir $HOME
   - sudo chown "$USER:" $HOME
   - LINUXBREW=$HOME/.linuxbrew
-  - git clone https://github.com/Linuxbrew/brew.git $LINUXBREW
+  - git clone https://github.com/Linuxbrew/brew $LINUXBREW
   - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
   - TRS="$(brew --repo $TRAVIS_REPO_SLUG)"
   - rm -rf "$TRS"
