@@ -11,9 +11,10 @@ class UtilLinux < Formula
   end
 
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "linuxbrew/extra/linux-pam" => :optional
 
   def install
-    system "./configure",
+    args = [
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
@@ -25,7 +26,10 @@ class UtilLinux < Formula
       "--disable-cal",
       "--disable-ul",
       # Do not install systemd files
-      "--without-systemd"
+      "--without-systemd",
+    ]
+    args += %w[--disable-chfn-chsh --disable-login --disable-su --disable-runuser] unless build.with? "linux-pam"
+    system "./configure", *args
     system "make", "install"
 
     # Conflicts with bsdmainutils and cannot be manually disabled
