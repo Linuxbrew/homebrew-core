@@ -28,7 +28,7 @@ class UtilLinux < Formula
       # Do not install systemd files
       "--without-systemd",
     ]
-    args += %w[--disable-chfn-chsh --disable-login --disable-su --disable-runuser] unless build.with? "linux-pam"
+    args += %w[--disable-chfn-chsh --disable-login --disable-su --disable-runuser] if build.without? "linux-pam"
     system "./configure", *args
     system "make", "install"
 
