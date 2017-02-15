@@ -19,6 +19,7 @@ class Nss < Formula
   EOS
 
   depends_on "nspr"
+  depends_on "sqlite"
 
   def install
     ENV.deparallelize
