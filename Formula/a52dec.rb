@@ -1,3 +1,4 @@
+# a52dec: Build a bottle for Linuxbrew
 class A52dec < Formula
   desc "Library for decoding ATSC A/52 streams (AKA 'AC-3')"
   homepage "https://liba52.sourceforge.io/"
