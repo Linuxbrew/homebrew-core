@@ -13,6 +13,7 @@ class Ftgl < Formula
   end
 
   depends_on "freetype"
+  depends_on "linuxbrew/xorg/glu" unless OS.mac?
 
   def install
     # If doxygen is installed, the docs may still fail to build.
@@ -24,7 +25,8 @@ class Ftgl < Formula
                           "--disable-freetypetest",
                           # Skip building the example program by failing to find GLUT (MacPorts)
                           "--with-glut-inc=/dev/null",
-                          "--with-glut-lib=/dev/null"
+                          "--with-glut-lib=/dev/null",
+                          OS.mac? ? "" : "--with-gl-inc=#{Formula["linuxbrew/xorg/glu"].opt_include}"
 
     system "make", "install"
   end
