@@ -21,6 +21,7 @@ class Libxkbcommon < Formula
   depends_on :x11
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
+  depends_on "linuxbrew/xorg/xkeyboardconfig" unless OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
