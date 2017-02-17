@@ -21,16 +21,20 @@ class Libxkbcommon < Formula
   depends_on :x11
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
+  depends_on "linuxbrew/xorg/xkeyboardconfig" unless OS.mac?
+  depends_on "linuxbrew/xorg/libxcb" unless OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
-    inreplace "configure" do |s|
-      s.gsub! "-version-script $output_objdir/$libname.ver", ""
-      s.gsub! "$wl-version-script", ""
-    end
-    inreplace %w[Makefile.in Makefile.am] do |s|
-      s.gsub! "-Wl,--version-script=${srcdir}/xkbcommon.map", ""
-      s.gsub! "-Wl,--version-script=${srcdir}/xkbcommon-x11.map", ""
+    if OS.mac?
+      inreplace "configure" do |s|
+        s.gsub! "-version-script $output_objdir/$libname.ver", ""
+        s.gsub! "$wl-version-script", ""
+      end
+      inreplace %w[Makefile.in Makefile.am] do |s|
+        s.gsub! "-Wl,--version-script=${srcdir}/xkbcommon.map", ""
+        s.gsub! "-Wl,--version-script=${srcdir}/xkbcommon-x11.map", ""
+      end
     end
 
     system "./configure", "--disable-dependency-tracking",
