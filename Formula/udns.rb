@@ -14,17 +14,22 @@ class Udns < Formula
 
   # Build target for dylib. See:
   # http://www.corpit.ru/pipermail/udns/2011q3/000154.html
-  patch :DATA
+  patch :DATA if OS.mac?
 
   def install
     system "./configure"
     system "make"
-    system "make", "dylib"
+    system "make", OS.mac? ? "dylib" : "sharedlib"
 
     bin.install "dnsget", "rblcheck"
     doc.install "NOTES", "TODO", "ex-rdns.c"
     include.install "udns.h"
-    lib.install "libudns.a", "libudns.0.dylib", "libudns.dylib"
+    if OS.mac?
+      lib.install "libudns.a", "libudns.0.dylib", "libudns.dylib"
+    else
+      lib.install "libudns.a", "libudns.so.0"
+      lib.install_symlink "libudns.so.0" => "libudns.so"
+    end
     man1.install "dnsget.1", "rblcheck.1"
     man3.install "udns.3"
   end
