@@ -27,11 +27,19 @@ class GmpAT4 < Formula
   # Applied upstream in http://gmplib.org:8000/gmp/raw-rev/6cd3658f5621
   patch :DATA
 
+  # Fix make check error: FAIL: t-scan
+  patch do
+    url "https://gmplib.org/repo/gmp/raw-rev/966737bd91ed"
+    sha256 "4f4155d5e252ce457c1ad1b14aed1c8b56efe7402989efa254fae9040aa69917"
+  end
+
   def install
     args = ["--prefix=#{prefix}", "--enable-cxx"]
 
     # Build 32-bit where appropriate, and help configure find 64-bit CPUs
-    if MacOS.prefer_64_bit?
+    if !OS.mac?
+      args << "ABI=32" if Hardware::CPU.is_32_bit?
+    elsif MacOS.prefer_64_bit?
       ENV.m64
       args << "--build=x86_64-apple-darwin"
     else
