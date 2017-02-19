@@ -18,8 +18,10 @@ class Libxkbcommon < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :x11
-  depends_on "bison" => :build
+  if OS.mac?
+    depends_on :x11
+    depends_on "bison" => :build
+  end
   depends_on "pkg-config" => :build
   depends_on "linuxbrew/xorg/xkeyboardconfig" unless OS.mac?
   depends_on "linuxbrew/xorg/libxcb" unless OS.mac?
