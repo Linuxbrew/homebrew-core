@@ -1,3 +1,4 @@
+# govendor: Build a bottle for Linuxbrew
 class Govendor < Formula
   desc "Go vendor tool that works with the standard vendor file."
   homepage "https://github.com/kardianos/govendor"
