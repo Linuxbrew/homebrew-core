@@ -1,3 +1,4 @@
+# chruby: Build a bottle for Linuxbrew
 class Chruby < Formula
   desc "Ruby environment tool"
   homepage "https://github.com/postmodern/chruby#readme"
