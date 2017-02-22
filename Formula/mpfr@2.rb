@@ -37,10 +37,10 @@ class MpfrAT2 < Formula
     # Note: This logic should match what the GMP formula does.
     if MacOS.prefer_64_bit?
       ENV.m64
-      args << "--build=x86_64-apple-darwin"
+      args << "--build=x86_64-apple-darwin" if OS.mac?
     else
       ENV.m32
-      args << "--build=none-apple-darwin"
+      args << "--build=none-apple-darwin" if OS.mac?
     end
 
     system "./configure", *args
