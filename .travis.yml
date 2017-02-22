@@ -5,6 +5,7 @@ sudo: required
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
+  - printf "yes\nlocal::lib\nyes\nyes\no conf prerequisites_policy follow\no conf build_requires_install_policy yes\no conf commit\n" | cpan
   - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
       libblas-dev
       libbz2-dev
@@ -49,6 +50,7 @@ before_install:
   - export HOMEBREW_NO_AUTO_UPDATE=1
   - export HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
   - ulimit -n 1024
+  - eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
   - brew tap homebrew/dupes
   - brew tap linuxbrew/xorg
 
