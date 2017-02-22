@@ -29,6 +29,9 @@ class Scipy < Formula
   # There are ongoing problems with gcc+accelerate.
   fails_with :gcc
 
+  # Avoid the error: undefined reference to `main'
+  env :super if OS.linux?
+
   def install
     config = <<-EOS.undent
       [DEFAULT]
