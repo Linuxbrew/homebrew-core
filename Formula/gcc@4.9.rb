@@ -38,7 +38,7 @@ class GccAT49 < Formula
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   # enabling multilib on a host that can't run 64-bit results in build failures
-  option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  option "without-multilib", "Build without multilib support" if OS.mac? && MacOS.prefer_64_bit?
 
   deprecated_option "enable-java" => "with-java"
   deprecated_option "enable-all-languages" => "with-all-languages"
@@ -46,6 +46,10 @@ class GccAT49 < Formula
   deprecated_option "enable-profiled-build" => "with-profiled-build"
   deprecated_option "disable-multilib" => "without-multilib"
 
+  unless OS.mac?
+    depends_on "binutils"
+    depends_on "zlib"
+  end
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
   depends_on "mpfr@2"
@@ -81,10 +85,13 @@ class GccAT49 < Formula
 
     version_suffix = version.to_s.slice(/\d\.\d/)
 
+    args = []
+    if OS.mac?
+      args << "--build=#{arch}-apple-darwin#{osmajor}"
+      args << "--libdir=#{lib}/gcc/#{version_suffix}"
+    end
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -124,12 +131,14 @@ class GccAT49 < Formula
       args << "--enable-multilib"
     end
 
+    ENV["CPPFLAGS"] = "-I#{Formula["zlib"].include}" unless OS.mac?
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
+      if OS.mac? && !MacOS::CLT.installed?
         # For Xcode-only systems, we need to tell the sysroot path.
         # "native-system-headers" will be appended
         args << "--with-native-system-header-dir=/usr/include"
