@@ -71,7 +71,7 @@ class Qt5 < Formula
     depends_on "pulseaudio"
     depends_on "sqlite"
     depends_on "systemd"
-    depends_on "homebrew/x11/libxkbcommon"
+    depends_on "libxkbcommon"
   end
 
   def install
