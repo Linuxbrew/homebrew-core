@@ -1,3 +1,4 @@
+# libmpc@0.8: Build a bottle for Linuxbrew
 class LibmpcAT08 < Formula
   desc "C library for high precision complex numbers"
   homepage "http://multiprecision.org"
