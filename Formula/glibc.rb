@@ -19,15 +19,12 @@ class Glibc < Formula
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
 
-  # Use brewed ld.so.preload rather than the hotst's /etc/ld.so.preload
-  patch do
-    url "https://gist.githubusercontent.com/wangpeiwen/60afbacc3e17683865c3b8b8f6448bdb/raw/f383ee29aabe43ae8cc4dfa54e41fd10d02d29c6/glibc_ld.so.preload.patch"
-    sha256 "c5ffe2ff5237a32621336958eab02ebb1be620939910f83fe8231f39d53e8e6e"
-  end
-
   def install
     # -Os confuses valgrind.
     ENV.O2
+
+    # Use brewed ld.so.preload rather than the hotst's /etc/ld.so.preload
+    inreplace "elf/rtld.c", '= "/etc/ld.so.preload";', '= SYSCONFDIR "/ld.so.preload";'
 
     mkdir "build" do
       args = [
