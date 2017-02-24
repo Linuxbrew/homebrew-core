@@ -1,3 +1,4 @@
+# gsasl: Build a bottle for Linuxbrew
 class Gsasl < Formula
   desc "SASL library command-line interface"
   homepage "https://www.gnu.org/software/gsasl/"
