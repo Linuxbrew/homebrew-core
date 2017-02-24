@@ -165,6 +165,12 @@ class GccAT49 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
+
+    if OS.linux?
+      # Strip the executables to reduce their size from 600 MB to 100 MB.
+      libexecgcc = libexec/"gcc/x86_64-unknown-linux-gnu"/version
+      system "strip", *(Dir[libexecgcc/"*"] - Dir[libexecgcc/"*.la"]).select { |f| File.file? f }
+    end
   end
 
   def add_suffix(file, suffix)
