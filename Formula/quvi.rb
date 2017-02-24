@@ -1,3 +1,4 @@
+# quvi: Build a bottle for Linuxbrew
 class Quvi < Formula
   desc "Parse video download URLs"
   homepage "https://quvi.sourceforge.io/"
