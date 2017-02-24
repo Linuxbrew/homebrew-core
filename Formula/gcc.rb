@@ -226,6 +226,14 @@ class Gcc < Formula
       rmdir lib64
       prefix.install_symlink "lib" => "lib64"
     end
+
+    # Strip the binaries to reduce their size.
+    unless OS.mac?
+      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   def add_suffix(file, suffix)
