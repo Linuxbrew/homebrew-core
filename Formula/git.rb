@@ -1,15 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.11.1.tar.xz"
-  sha256 "c0a779cae325d48a1d5ba08b6ee1febcc31d0657a6da01fd1dec1c6e10976415"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.12.0.tar.xz"
+  sha256 "1821766479062d052cc1897d0ded95212e81e5c7f1039786bc4aec2225a32027"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "bc67b0ecb083fa0c62daecba3be31296975b0e2f036a45f3d63449b6582c277d" => :sierra
-    sha256 "05bfdee83bb833cabec2edf522ccd510b17d99852a90c43dbce535927ad8ee65" => :el_capitan
-    sha256 "1e7b55a4a5f3ff6265a783355899c85582447959c414299be82d7b5f5bd98af2" => :yosemite
-    sha256 "c2f5ff869b12c204d84b4e31f68558d9c9e00ed6838b7bbe6ada1d687ab97c92" => :x86_64_linux
+    sha256 "db6876e519c871fdfb0f4b2412810eae081a84f6489015791540ed2fd1f77ef7" => :sierra
+    sha256 "b9e1276047be119df704f196affd69b69a31348e052f960b9f59b16e22d085fc" => :el_capitan
+    sha256 "ac19aaa880323214874a9be2eb98b25d07eafcdecf9e04e0c97df5ddfca9b892" => :yosemite
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -40,13 +39,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.11.1.tar.xz"
-    sha256 "1a5f1e4a5eadad89b0783efa08bb1f7e3802d4a4d0a135bf5f61fd672ea3846e"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.12.0.tar.xz"
+    sha256 "bd548faa2c9e63403e528ce4f4e87561e78949a0349a9e2a27e0d6e581d3a8bd"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.11.1.tar.xz"
-    sha256 "69486ed339ee0591001ae83d43c888aa26351b9680b6ceb59e06b593051bca31"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.12.0.tar.xz"
+    sha256 "8b8356f8d50eff6499c5d05e87c106a7b1b48bd16de1742fa022631909804773"
   end
 
   def install
@@ -57,14 +56,6 @@ class Git < Formula
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which "python"
     ENV["PERL_PATH"] = which "perl"
-
-    # Support Tcl versions before "lime" color name was introduced
-    # https://github.com/Homebrew/homebrew-core/issues/115
-    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
-    #
-    # This has been resolved in Git (6e8fda5fd), which is currently present
-    # in HEAD but not in the stable.  This should be removed later.
-    inreplace "gitk-git/gitk", "lime", '"#99FF00"' if build.stable?
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 
