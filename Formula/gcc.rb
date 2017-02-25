@@ -221,7 +221,7 @@ class Gcc < Formula
     # Move lib64/* to lib/ on Linuxbrew
     lib64 = Pathname.new "#{lib}64"
     if lib64.directory?
-      system "mv #{lib64}/* #{lib}/" # Do not use FileUtils.mv with Ruby 1.9.3
+      mv Dir[lib64/"*"], lib
       rmdir lib64
       prefix.install_symlink "lib" => "lib64"
     end
