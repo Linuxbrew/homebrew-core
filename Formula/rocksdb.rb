@@ -58,7 +58,8 @@ class Rocksdb < Formula
     EOS
 
     system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
-                                "-std=c++11", "-stdlib=libc++", "-lstdc++",
+                                "-std=c++11",
+                                *(["-stdlib=libc++", "-lstdc++"] if OS.mac?),
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb_lite",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
