@@ -15,6 +15,10 @@ class Rocksdb < Formula
   depends_on "snappy"
   depends_on "lz4"
   depends_on "gflags"
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     ENV.cxx11
