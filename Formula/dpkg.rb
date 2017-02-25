@@ -17,11 +17,15 @@ class Dpkg < Formula
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
   depends_on "xz" # For LZMA
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
-    ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
+    ENV["TAR"] = Formula["gnu-tar"].opt_bin/(OS.mac? ? "gtar" : "tar")
 
     # Theoretically, we could reinsert a patch here submitted upstream previously
     # but the check for PERL_LIB remains in place and incompatible with Homebrew.
