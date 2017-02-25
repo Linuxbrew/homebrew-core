@@ -47,6 +47,11 @@ class Rocksdb < Formula
     system "make", "static_lib"
     system "make", "shared_lib"
     system "make", "install", "INSTALL_PATH=#{prefix}"
+
+    if OS.linux?
+      # Strip the binaries to reduce their size.
+      system "strip", *(Dir[bin/"*"] + Dir[lib/"*"]).select { |f| Pathname.new(f).elf? }
+    end
   end
 
   test do
