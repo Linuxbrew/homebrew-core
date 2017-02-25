@@ -2,18 +2,18 @@ class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
   if OS.mac?
-    url "https://github.com/facebook/infer/releases/download/v0.9.5/infer-osx-v0.9.5.tar.xz"
-    sha256 "43d6c68d4e41057be8188877872544bf7c0e6a53a122be64efe06f3f3b772f47"
+    url "https://github.com/facebook/infer/releases/download/v0.10.0/infer-osx-v0.10.0.tar.xz"
+    sha256 "6fdcfe52cee28f57a86e8cd80bf4cac7b2dda83a3cc511f86834636ada14a808"
   elsif OS.linux?
-    url "https://github.com/facebook/infer/releases/download/v0.9.5/infer-linux64-v0.9.5.tar.xz"
-    sha256 "199f5cc6466db63375774d20bbea8f50e0394380b7e8b258b73a44c2578b5159"
+    url "https://github.com/facebook/infer/releases/download/v0.10.0/infer-linux64-v0.10.0.tar.xz"
+    sha256 "62287344459e2e467def603f97dac9cfb335a8f2852a51217696db948164780c"
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f253e9237dd1f06b67a7b8dff589f4da456b54cb6f5969edb8d2f6a45ea69230" => :sierra
-    sha256 "ad2f9f51200ba72b028e4afa6951677a0fe6145b88546816762ad7510e9bf982" => :el_capitan
-    sha256 "3d892ed670cb48536043ed270d7c0b5284cdd8907d40e5f0310b0b92e33760ab" => :yosemite
+    cellar :any
+    sha256 "5f0cd57446884830fd60f768f841b9d76bfd6059f62522036a99ccd872363774" => :sierra
+    sha256 "a9d4423aa9a253af020a5af6ae225c313017f69bc71218f280dd03f04d7e0463" => :el_capitan
+    sha256 "74e25f0347679b0e076243239be2ec12f4fa878df74f489e79e15745cc364eeb" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -24,6 +24,8 @@ class Infer < Formula
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libffi"
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
@@ -41,7 +43,7 @@ class Infer < Formula
     # builds in its own parallelization logic to mitigate that.
     ENV.deparallelize
 
-    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-annot --disable-ocaml-binannot"
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-binannot"
 
     target_platform = if build.without?("clang")
       "java"
@@ -84,8 +86,8 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-bug -- clang FailingTest.c", 2)
-    shell_output("#{bin}/infer --fail-on-bug -- clang PassingTest.c", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c FailingTest.c", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c PassingTest.c", 0)
 
     (testpath/"FailingTest.java").write <<-EOS.undent
       class FailingTest {
@@ -121,7 +123,7 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-bug -- javac FailingTest.java", 2)
-    shell_output("#{bin}/infer --fail-on-bug -- javac PassingTest.java", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java", 0)
   end
 end
