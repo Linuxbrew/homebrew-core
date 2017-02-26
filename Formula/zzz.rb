@@ -8,6 +8,8 @@ class Zzz < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   # No test is possible: this has no --help or --version, it just
   # sleeps the Mac instantly.
   def install
