@@ -20,6 +20,8 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "XML::Parser" => :perl
 
+  env :super
+
   def install
     system "./configure",
       "--disable-debug",
