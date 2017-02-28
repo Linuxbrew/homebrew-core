@@ -51,9 +51,9 @@ class Mutt < Formula
 
   def install
     begin
-        user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
+      user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
     rescue
-        user_admin = false
+      user_admin = false
     end
 
     args = %W[
