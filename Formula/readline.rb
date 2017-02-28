@@ -1,3 +1,4 @@
+# readline: Build a bottle for Linuxbrew
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
