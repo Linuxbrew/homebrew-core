@@ -25,6 +25,10 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "XML::Parser" => :perl
 
+  # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
+  fails_with :gcc => "4.8"
+  fails_with :c_compiler if OS.linux? # Do not use /usr/bin/cc
+
   env :super
 
   stable do
