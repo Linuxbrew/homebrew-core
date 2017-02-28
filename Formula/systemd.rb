@@ -24,6 +24,9 @@ class Systemd < Formula
   depends_on "libcap"
   depends_on "util-linux" # for libmount
 
+  # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
+  fails_with :gcc => "4.8"
+
   stable do
     # Fix error: conflicting types for 'lookup_arphrd'
     patch do
