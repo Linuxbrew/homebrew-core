@@ -1,3 +1,4 @@
+# xerces-c: Build a bottle for Linuxbrew
 class XercesC < Formula
   desc "Validating XML parser"
   homepage "https://xerces.apache.org/xerces-c/"
