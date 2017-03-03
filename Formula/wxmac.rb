@@ -70,7 +70,11 @@ class Wxmac < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "gtk+" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "gtk+"
+    depends_on "linuxbrew/xorg/glu"
+  end
 
   def install
     args = [
