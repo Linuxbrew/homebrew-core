@@ -1,3 +1,4 @@
+# depqbf: Build a bottle for Linuxbrew
 class Depqbf < Formula
   desc "Solver for quantified boolean formulae (QBF)"
   homepage "https://lonsing.github.io/depqbf/"
