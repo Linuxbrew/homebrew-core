@@ -1,3 +1,4 @@
+# wxpython: Build a bottle for Linuxbrew
 class FrameworkPythonRequirement < Requirement
   fatal true
 
