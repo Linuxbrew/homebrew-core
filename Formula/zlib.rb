@@ -1,27 +1,18 @@
 class Zlib < Formula
   desc "General-purpose lossless data-compression library"
   homepage "http://www.zlib.net/"
-  url "http://zlib.net/zlib-1.2.8.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib-1.2.8.tar.gz"
-  sha256 "36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d"
+  url "http://zlib.net/zlib-1.2.11.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz"
+  sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "2971abbd45572722af5043a74ecf8a5bfd06adc9834ec90e4126a34c6ce982a1" => :yosemite
-    sha256 "adc394a9e296003bc2bc88451c649aec019496cb6ed3d6673005fcd818ae44a5" => :mavericks
-    sha256 "6ece1cb4b656f0f7ef1feab95ef6eb183e2f9ee2448c1e034de1a97d7f9da249" => :mountain_lion
-    sha256 "611dcf0550e2abf9b632ad4ed756e09d47d2f14ded1838f70bd16c44cb6bd8ea" => :x86_64_linux
+    sha256 "6765c51c09a7aa0ad7c06379a9c7a6b7b3b1bfaaf6a37d111cee44153eaab6e2" => :sierra
+    sha256 "c37af2435a876fed3d8ced49698159ac7ab05efeed265de3c40a8e6c3868e332" => :el_capitan
+    sha256 "1c3d8a42f15b8f8f5427e5038c76538178b2b57759c57101fb07cbbe92d0ba21" => :yosemite
   end
 
   keg_only :provided_by_osx
-
-  option :universal
-
-  # configure script fails to detect the right compiler when "cc" is
-  # clang, not gcc. zlib mantainers have been notified of the issue.
-  # See: https://github.com/Homebrew/homebrew-dupes/pull/228
-  patch :DATA if OS.mac?
 
   # http://zlib.net/zlib_how.html
   resource "test_artifact" do
@@ -31,7 +22,6 @@ class Zlib < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -41,22 +31,8 @@ class Zlib < Formula
     system ENV.cc, "zpipe.c", "-I#{include}", "-L#{lib}", "-lz", "-o", "zpipe"
 
     touch "foo.txt"
-    output = ("./zpipe < foo.txt > foo.txt.z")
+    output = "./zpipe < foo.txt > foo.txt.z"
     system output
     assert File.exist?("foo.txt.z")
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index b77a8a8..54f33f7 100755
---- a/configure
-+++ b/configure
-@@ -159,6 +159,7 @@ case "$cc" in
- esac
- case `$cc -v 2>&1` in
-   *gcc*) gcc=1 ;;
-+  *clang*) gcc=1 ;;
- esac
- 
- show $cc -c $test.c
