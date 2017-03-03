@@ -18,7 +18,6 @@ class OpensslAT11 < Formula
   option "without-test", "Skip build-time tests (not recommended)"
 
   resource "cacert" do
-    # Update post_install when you update this resource.
     # homepage "http://curl.haxx.se/docs/caextract.html"
     url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
     sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
@@ -82,7 +81,10 @@ class OpensslAT11 < Formula
   def post_install
     unless OS.mac?
       # Download and install cacert.pem from curl.haxx.se
-      openssldir.install resource("cacert").files("cacert-2017-01-18.pem" => "cert.pem")
+      cacert = resource("cacert")
+      rm_f openssldir/"cert.pem"
+      filename = Pathname.new(cacert.url).basename
+      openssldir.install cacert.files(filename => "cert.pem")
       return
     end
 

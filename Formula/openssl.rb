@@ -17,10 +17,9 @@ class Openssl < Formula
   end
 
   resource "cacert" do
-    # Update post_install when you update this resource.
     # homepage "http://curl.haxx.se/docs/caextract.html"
-    url "https://curl.haxx.se/ca/cacert-2016-04-20.pem"
-    sha256 "2c6d4960579b0d4fd46c6cbf135545116e76f2dbb7490e24cf330f2565770362"
+    url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
+    sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
   end
 
   keg_only :provided_by_osx,
@@ -158,7 +157,10 @@ class Openssl < Formula
   def post_install
     unless OS.mac?
       # Download and install cacert.pem from curl.haxx.se
-      (etc/"openssl").install resource("cacert").files("cacert-2016-04-20.pem" => "cert.pem")
+      cacert = resource("cacert")
+      rm_f openssldir/"cert.pem"
+      filename = Pathname.new(cacert.url).basename
+      openssldir.install cacert.files(filename => "cert.pem")
       return
     end
 
