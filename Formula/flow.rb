@@ -4,6 +4,7 @@ class Flow < Formula
   url "https://github.com/facebook/flow/archive/v0.40.0.tar.gz"
   sha256 "f09b9191734f7245f906884be57266d24993a5533a68b3ad8ec9992c77ea1230"
   head "https://github.com/facebook/flow.git"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any_skip_relocation
