@@ -34,6 +34,39 @@ class GccAT49 < Formula
     sha256 "20c1ac4642f259a66ec9724ed135dc334d26ff0198e27a89498b2f15aa1f77c5" => :yosemite
   end
 
+  if OS.linux?
+      resource "gmp" do
+          url "https://ftpmirror.gnu.org/gmp/gmp-4.3.2.tar.bz2"
+          mirror "https://ftp.gnu.org/gnu/gmp/gmp-4.3.2.tar.bz2"
+          mirror "ftp://ftp.gmplib.org/pub/gmp-4.3.2/gmp-4.3.2.tar.bz2"
+          mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/gmp-4.3.2.tar.bz2"
+          sha256 "936162c0312886c21581002b79932829aa048cfaf9937c6265aeaa14f1cd1775"
+      end
+
+      resource "mpfr" do
+          url "http://www.mpfr.org/mpfr-2.4.2/mpfr-2.4.2.tar.bz2"
+          mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2"
+          sha256 "c7e75a08a8d49d2082e4caee1591a05d11b9d5627514e678f02d66a124bcf2ba"
+      end
+
+      resource "mpc" do
+          url "http://multiprecision.org/mpc/download/mpc-0.8.1.tar.gz"
+          mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/mpc-0.8.1.tar.gz"
+          sha256 "e664603757251fd8a352848276497a4c79b7f8b21fd8aedd5cc0598a38fee3e4"
+      end
+
+      resource "cloog" do
+          url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
+          sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
+      end
+
+      resource "isl" do
+          url "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
+          mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
+          sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
+      end
+  end
+
   if MacOS.version >= :yosemite
     # Fixes build with Xcode 7.
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66523
@@ -56,6 +89,7 @@ class GccAT49 < Formula
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   # enabling multilib on a host that can't run 64-bit results in build failures
   option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  option "without-sanitizer", "Build without libsanitizer" if OS.linux? #libsanitizer may need some newer kernel header
 
   deprecated_option "enable-java" => "with-java"
   deprecated_option "enable-all-languages" => "with-all-languages"
@@ -63,11 +97,17 @@ class GccAT49 < Formula
   deprecated_option "enable-profiled-build" => "with-profiled-build"
   deprecated_option "disable-multilib" => "without-multilib"
 
-  depends_on "gmp@4"
-  depends_on "libmpc@0.8"
-  depends_on "mpfr@2"
-  depends_on "cloog"
-  depends_on "isl@0.12"
+  depends_on "gmp@4" if !OS.linux?
+  depends_on "libmpc@0.8" if !OS.linux?
+  depends_on "mpfr@2" if !OS.linux?
+  depends_on "cloog" if !OS.linux?
+  depends_on "isl@0.12" if !OS.linux?
+  depends_on "binutils" if OS.linux? # may need a modern ld
+  conflicts_with "isl", :because => "gcc will mistake isl version" if OS.linux?
+  conflicts_with "libmpc", :because => "gcc will mistake mpc version" if OS.linux?
+  conflicts_with "mpfr", :because => "gcc will mistake mpfr version" if OS.linux?
+  conflicts_with "gmp", :because => "gcc will mistake gmp version" if OS.linux?
+  conflicts_with "cloog", :because => "gcc will mistake cloog version" if OS.linux?
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -99,17 +139,11 @@ class GccAT49 < Formula
     version_suffix = version.to_s.slice(/\d\.\d/)
 
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
-      "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
@@ -127,6 +161,12 @@ class GccAT49 < Formula
       # install-info is run.
       "MAKEINFO=missing",
     ]
+    args << "--build=#{arch}-apple-darwin#{osmajor}" if OS.mac?
+    args << "--with-gmp=#{Formula["gmp@4"].opt_prefix}" if !OS.linux?
+    args << "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}" if !OS.linux?
+    args << "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}" if !OS.linux?
+    args << "--with-cloog=#{Formula["cloog"].opt_prefix}" if !OS.linux?
+    args << "--with-isl=#{Formula["isl@0.12"].opt_prefix}" if !OS.linux?
 
     # "Building GCC with plugin support requires a host that supports
     # -fPIC, -shared, -ldl and -rdynamic."
@@ -148,6 +188,14 @@ class GccAT49 < Formula
       args << "--enable-multilib"
     end
 
+    args << "--disable-libsanitizer" if build.without? "sanitizer"
+
+    (buildpath/"mpc").install resource("mpc")
+    (buildpath/"gmp").install resource("gmp")
+    (buildpath/"cloog").install resource("cloog")
+    (buildpath/"isl").install resource("isl")
+    (buildpath/"mpfr").install resource("mpfr")
+    ENV["LD"] = Formula["binutils"].bin/"ld" if OS.linux?
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
