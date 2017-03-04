@@ -41,6 +41,7 @@ class Guile < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
+    depends_on "flex" => :build unless OS.mac?
 
     # Avoid undeclared identifier errors for SOCK_CLOEXEC and SOCK_NONBLOCK
     # Reported 19 Feb 2017 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25790
@@ -53,6 +54,7 @@ class Guile < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
+    depends_on "flex" => :build unless OS.mac?
   end
 
   depends_on "pkg-config" => :run # guile-config is a wrapper around pkg-config.
