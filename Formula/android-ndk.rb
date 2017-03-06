@@ -2,12 +2,13 @@ class AndroidNdk < Formula
   desc "Android native-code language toolset"
   homepage "https://developer.android.com/ndk/index.html"
   if OS.mac?
-    url "https://dl.google.com/android/repository/android-ndk-r13b-darwin-x86_64.zip"
-    sha256 "eba299f1cdd9059e635d159dbe71678cea9f00efb3ef9b56083c7a09dff665bf"
+    url "https://dl.google.com/android/repository/android-ndk-r14-darwin-x86_64.zip"
+    sha256 "553b361453c2ad89a288f4aeb73902b1130d2d81f2e8702b9add7fbde5b83ce5"
   elsif OS.linux?
-    url "https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip"
-    sha256 "3524d7f8fca6dc0d8e7073a7ab7f76888780a22841a6641927123146c3ffd29c"
+    url "https://dl.google.com/android/repository/android-ndk-r14-linux-x86_64.zip"
+    sha256 "3e622c2c9943964ea44cd56317d0769ed4c811bb4b40dc45b1f6965e4db9aa44"
   end
+  version "r14"
   version_scheme 1
 
   bottle :unneeded

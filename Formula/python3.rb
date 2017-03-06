@@ -4,12 +4,12 @@ class Python3 < Formula
   url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz"
   sha256 "b0c5f904f685e32d9232f7bdcbece9819a892929063b6e385414ad2dd6a23622"
   head "https://github.com/python/cpython", :using => :git
+  revision 1
 
   bottle do
-    sha256 "b9b1de457689c84376fb8c35c67b0de4745ccb573ddc5f8ce0257b3b73358917" => :sierra
-    sha256 "8588e0f338a9c2187569cfd63180a7f6e4124929f0402f2e2a9e3337d23f9d94" => :el_capitan
-    sha256 "6db855fa31e33ceed7703f249f6c0e098e74db05294d7191cf175f0a4bffb1e2" => :yosemite
-    sha256 "a4aa31a9485f8ce29f054e9787ce0847ba5e9d3f3fe94bc64e49dbb55d1a1605" => :x86_64_linux
+    sha256 "e8b177926ce5e110d7cf9f03f9d11c60b08ad74ccee07bc72fe38ac981bf0cef" => :sierra
+    sha256 "0ddeba54962af4c14b115e279f5cefb72df55fc9bc98a1a60a5b4a2d5cf2fc77" => :el_capitan
+    sha256 "10b8bf96e157e88188492923ba0130f5f8b5e1d56a5bf4dc9f6dbc2b028bb24b" => :yosemite
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
@@ -99,6 +99,7 @@ class Python3 < Formula
       --datadir=#{share}
       #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --without-ensurepip
+      --with-dtrace
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang

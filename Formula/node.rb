@@ -3,13 +3,13 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v7.7.1/node-v7.7.1.tar.xz"
   sha256 "965fc82aa767223be574e41d7f78ec4bd2ab3da619cef1256e46c30d053b7611"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "99458fb39a994527a59b9dae4cc1d6e71c298dba0f0a2002c77813b4ca4a332a" => :sierra
-    sha256 "9a99bab55d2318331e92138e6ecef498ef0d01e2cac1e3c86d923bec2dea27bb" => :el_capitan
-    sha256 "0260ed4345dd7c8e3e2681e36877509011c0962159881624b6a0b5f5dea2bf7a" => :yosemite
-    sha256 "15bfcea04f2f327a4a009e5f0bae220a897ae9cff05f5f22b1e550670714bedd" => :x86_64_linux
+    sha256 "fbcea6db606c8b7a67130f4479dda9e79fac9c46e7407b4c8513046365193629" => :sierra
+    sha256 "2909b9a77b31e0089d9aeac8c2a78aa47fb4d3ff4dbd589ac3e2bab3e5b53335" => :el_capitan
+    sha256 "f0f98356d5bd9e21529251acd8bf18a48fccafc6fecc34f3a3b5b0b475c8bca1" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -24,6 +24,9 @@ class Node < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
+
+  conflicts_with "node@0.12", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
