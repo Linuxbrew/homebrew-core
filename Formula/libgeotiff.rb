@@ -1,3 +1,4 @@
+# libgeotiff: Build a bottle for Linuxbrew
 class Libgeotiff < Formula
   desc "Library and tools for dealing with GeoTIFF"
   homepage "https://geotiff.osgeo.org/"
