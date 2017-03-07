@@ -1,3 +1,11 @@
+class MacOSRequirement < Requirement
+  fatal true
+  satisfy(build_env: false) { OS.mac? }
+  def message
+    "macOS is required."
+  end
+end
+
 class Cctools < Formula
   desc "Binary and cross-compilation tools for Apple"
   homepage "https://opensource.apple.com/"
@@ -23,6 +31,7 @@ class Cctools < Formula
   keg_only :provided_by_osx,
     "This package duplicates tools shipped by Xcode."
 
+  depends_on MacOSRequirement
   depends_on :ld64
 
   cxxstdlib_check :skip
