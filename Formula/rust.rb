@@ -73,6 +73,7 @@ class Rust < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]
+
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
     args << "--enable-clang" if ENV.compiler == :clang
@@ -82,8 +83,12 @@ class Rust < Formula
     else
       args << "--release-channel=stable"
     end
+
+    # rustbuild ignores MAKEFLAGS.
+    args << "--disable-rustbuild" if ENV["CIRCLECI"]
+
     system "./configure", *args
-    system "make"
+    system "make", *ENV["MAKEFLAGS"]
     system "make", "install"
 
     resource("cargobootstrap").stage do
