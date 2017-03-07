@@ -41,18 +41,18 @@ class Leptonica < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
-    #include <iostream>
+    (testpath/"test.c").write <<-EOS
+    #include <stdio.h>
     #include <leptonica/allheaders.h>
 
-    int main(int argc, char **argv) {
-        std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
+    int main() {
+        printf("%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
         return 0;
     }
     EOS
 
     flags = ["-I#{include}/leptonica"] + ENV.cflags.to_s.split
-    system ENV.cxx, "test.cpp", *flags
+    system ENV.cc, "test.c", *flags
     assert_equal version.to_s, `./a.out`
   end
 end
