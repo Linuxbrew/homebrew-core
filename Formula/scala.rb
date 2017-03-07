@@ -1,3 +1,4 @@
+# scala: Build a bottle for Linuxbrew
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
