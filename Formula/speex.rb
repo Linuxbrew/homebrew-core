@@ -1,3 +1,4 @@
+# speex: Build a bottle for Linuxbrew
 class Speex < Formula
   desc "Audio codec designed for speech"
   homepage "http://speex.org"
