@@ -1,3 +1,4 @@
+# aria2: Build a bottle for Linuxbrew
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
