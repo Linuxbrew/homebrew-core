@@ -1,3 +1,4 @@
+# uncrustify: Build a bottle for Linuxbrew
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "https://uncrustify.sourceforge.io/"
