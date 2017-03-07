@@ -1,3 +1,4 @@
+# asciidoc: Build a bottle for Linuxbrew
 class Asciidoc < Formula
   desc "Formatter/translator for text files to numerous formats. Includes a2x."
   homepage "http://asciidoc.org/"
