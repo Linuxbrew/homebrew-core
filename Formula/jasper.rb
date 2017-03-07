@@ -1,3 +1,4 @@
+# jasper: Build a bottle for Linuxbrew
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
