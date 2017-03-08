@@ -115,7 +115,7 @@ class AndroidSdk < Formula
         macho.delete_command(c) if c.name.to_s == "/tmp/android-build-build-temp-74102/install-darwin-x86_64/lib/libz.1.dylib"
       end
       macho.write!
-    end
+    end if OS.mac?
   end
 
   def caveats; <<-EOS.undent
