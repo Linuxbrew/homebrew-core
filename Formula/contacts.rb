@@ -8,6 +8,8 @@ class Contacts < Formula
   version "1.1a-3"
   sha256 "e3dd7e592af0016b28e9215d8ac0fe1a94c360eca5bfbdafc2b0e5d76c60b871"
 
+  depends_on :macos
+
   bottle do
     cellar :any_skip_relocation
     sha256 "21bf2ec23b9f096ed09acd44dbd7c2cc59891c01a821a6695e58d69c54647c0e" => :sierra
