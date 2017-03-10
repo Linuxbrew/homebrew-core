@@ -15,8 +15,10 @@ class Flex < Formula
 
   depends_on "help2man" => :build
   depends_on "gettext"
-  depends_on "homebrew/dupes/m4" unless OS.mac?
-  depends_on "bison" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "homebrew/dupes/m4"
+    depends_on "bison" => :build
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -24,6 +26,7 @@ class Flex < Formula
                           "--enable-shared",
                           "--prefix=#{prefix}"
     system "make", "install"
+    bin.install_symlink "flex" => "lex" unless OS.mac?
   end
 
   test do
