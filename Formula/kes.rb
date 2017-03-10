@@ -16,6 +16,9 @@ class Kes < Formula
 
   depends_on "readline"
 
+  # see https://github.com/epilnivek/kes#known-issues
+  depends_on :macos
+
   conflicts_with "es", :because => "both install 'es' binary"
 
   def install
