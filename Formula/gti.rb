@@ -1,3 +1,4 @@
+# gti: Build a bottle for Linuxbrew
 class Gti < Formula
   desc "ASCII-art displaying typo-corrector for commands"
   homepage "http://r-wos.org/hacks/gti"
