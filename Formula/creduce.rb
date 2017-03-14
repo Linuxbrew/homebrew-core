@@ -1,27 +1,15 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  url "https://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
-  sha256 "2dcd784e1d27df60f4ea1d92c4c556c02da4152db353d544dce8b7813fa443e4"
-  revision 4
-
+  url "https://embed.cs.utah.edu/creduce/creduce-2.6.0.tar.gz"
+  sha256 "cdacc1046ca3ae2b0777b8f235428e7976b0fb97c2f69979c8accd8d2cc0c55d"
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "136ec198e5d772b98e7b6ea4083d81f92bc9febcbb69bbd5387e40d36d947e10" => :sierra
-    sha256 "50b01810de9ae4b5ee56e3ddbe228ba08e62ea51764d0a7a811c8a24f700ac88" => :el_capitan
-    sha256 "b4239ef06b45717a901f3abc699e53ee390f690215bec0725c0174fdad5fca48" => :yosemite
-  end
-
-  # changes from upstream to fix compilation with LLVM 3.9
-  patch do
-    url "https://github.com/csmith-project/creduce/commit/377e4f93790690edcd0cde057bb96300aca22858.diff"
-    sha256 "1bf6201132dd41953f4c7d454a8f383f432e5a3f2fac416d681bc5e8e8065e18"
-  end
-  patch do
-    url "https://github.com/csmith-project/creduce/commit/d09b8f69419d6c65c7b32675962c9aee813713b5.diff"
-    sha256 "995fcb3c5c7aef60ce34ece07a5d225f0bf7886539479988d8b8a6cc0c52de90"
+    sha256 "c60af77e1a39c40e359e8d8d964d2ec7723d1d8807f55c5e0bea13e66a4decc0" => :sierra
+    sha256 "0311da462c874105dd87fb04f6fb35c1e1188eff1c3e4a6fc6f8d1eea7e028e5" => :el_capitan
+    sha256 "ae694e3bd21e6328be82e00d8b8c8d55a14243b00997a74171ec3fff38f73ed9" => :yosemite
   end
 
   depends_on "astyle"
@@ -55,9 +43,9 @@ class Creduce < Formula
   end
 
   resource "Regexp::Common" do
-    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060101.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060101.tar.gz"
-    sha256 "8d052550e1ddc222f498104f4ce3d56d953e7640b55805c59493060ae6f06815"
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
+    sha256 "fc2fc178facf0292974d6511bad677dd038fe60d7ac118e3b83a1ca9e98a8403"
   end
 
   resource "Sys::CPU" do
