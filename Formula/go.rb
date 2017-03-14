@@ -1,6 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
+  revision 1 if OS.linux?
 
   stable do
     url "https://storage.googleapis.com/golang/go1.8.src.tar.gz"
@@ -29,11 +30,9 @@ class Go < Formula
     end
   end
 
-  if OS.mac?
-    option "without-cgo", "Build without cgo (also disables race detector)"
-    option "without-race", "Build without race detector"
-  end
+  option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-godoc", "godoc will not be installed for you"
+  option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
 
@@ -49,21 +48,15 @@ class Go < Formula
     version "1.7"
   end
 
-  def os
-    OS.mac? ? "darwin" : "linux"
-  end
-
   def install
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = os
+      ENV["GOOS"]         = OS::NAME
 
-      # Fix error: unknown relocation type 42; compiled without -fpic?
-      # See https://github.com/Linuxbrew/linuxbrew/issues/1057
-      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo") || OS.linux?
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
