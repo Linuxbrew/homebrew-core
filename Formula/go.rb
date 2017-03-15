@@ -1,6 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
+  revision 1 if OS.linux?
 
   stable do
     url "https://storage.googleapis.com/golang/go1.8.src.tar.gz"
@@ -19,7 +20,6 @@ class Go < Formula
     sha256 "70f447e2d0a5214e533699ffa7ebadccd587919b288ee609ddb4e6ac84fc64e5" => :sierra
     sha256 "e593929c05df7894bebde4575c7e82238ca66b7a0ebf3286e2e74be39435f303" => :el_capitan
     sha256 "9bb46c195e6b2cd66d54cd0cac9823a69ec14eb0f02efa2fd8bfffcb6d19e0b4" => :yosemite
-    sha256 "d63296701ec1983f34cba5eedd83e367186b5aee44ffba7625d12d29752248c8" => :x86_64_linux
   end
 
   head do
@@ -30,11 +30,9 @@ class Go < Formula
     end
   end
 
-  if OS.mac?
-    option "without-cgo", "Build without cgo (also disables race detector)"
-    option "without-race", "Build without race detector"
-  end
+  option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-godoc", "godoc will not be installed for you"
+  option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
 
@@ -50,21 +48,15 @@ class Go < Formula
     version "1.7"
   end
 
-  def os
-    OS.mac? ? "darwin" : "linux"
-  end
-
   def install
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = os
+      ENV["GOOS"]         = OS::NAME
 
-      # Fix error: unknown relocation type 42; compiled without -fpic?
-      # See https://github.com/Linuxbrew/linuxbrew/issues/1057
-      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo") || OS.linux?
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
