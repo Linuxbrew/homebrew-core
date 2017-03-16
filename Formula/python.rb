@@ -17,7 +17,6 @@ class Python < Formula
   # on Windows and OSX, but wide seems to be the default for linux
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option "with-unicode-ucs4", "Build unicode support with UCS4"
-  option :universal
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   if OS.mac?
@@ -161,11 +160,6 @@ class Python < Formula
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
       s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
       s.gsub! "/usr/include/db4", Formula["berkeley-db@4"].opt_include
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
     end
 
     if build.with? "sqlite"

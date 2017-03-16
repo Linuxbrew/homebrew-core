@@ -14,7 +14,6 @@ class Libtiff < Formula
     sha256 "e2e4155627ab7ab6ba0291d8d027ba68b2f78f7baba7dd16910bc55ae0be51bc" => :x86_64_linux
   end
 
-  option :universal
   option :cxx11
   option "with-xz", "Include support for LZMA compression"
 
@@ -48,7 +47,6 @@ class Libtiff < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
     args = %W[

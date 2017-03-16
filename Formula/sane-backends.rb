@@ -26,8 +26,6 @@ class SaneBackends < Formula
     sha256 "1e962cc381ecf55c37e11ec719c5a2ccc07cafa87b7e910fafc6f7db23209376" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "libusb-compat"
@@ -36,7 +34,6 @@ class SaneBackends < Formula
   depends_on "libpng" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.deparallelize # Makefile does not seem to be parallel-safe
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

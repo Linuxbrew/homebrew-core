@@ -5,7 +5,7 @@ class Sbcl < Formula
   sha256 "bf963d58533d839eb76a8028abd17071708d964d5dce07787839cfb6d0d6dcca"
   revision 1
 
-  head "git://sbcl.git.sourceforge.net/gitroot/sbcl/sbcl.git"
+  head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
   bottle do
     sha256 "0319bfca503c34a5c6644dfb3a67079d83045101dda37500f6f741d969b02a4d" => :sierra
@@ -22,7 +22,7 @@ class Sbcl < Formula
 
   depends_on "zlib" unless OS.mac?
 
-  # Current binary versions are listed at http://sbcl.sourceforge.net/platform-table.html
+  # Current binary versions are listed at https://sbcl.sourceforge.io/platform-table.html
   resource "bootstrap64" do
     if OS.mac?
       url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"

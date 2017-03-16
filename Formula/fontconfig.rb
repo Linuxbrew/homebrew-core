@@ -50,15 +50,12 @@ class Fontconfig < Formula
 
   keg_only :provided_pre_mountain_lion
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "bzip2" => :recommended unless OS.mac?
   depends_on "expat" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

@@ -8,7 +8,7 @@ class Astyle < Formula
     url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%202.06/astyle_2.06_linux.tar.gz"
     sha256 "3b7212210dc139e8f648e004b758c0be1b3ceb1694b22a879202d2b833db7c7e"
   end
-  head "svn://svn.code.sf.net/p/astyle/code/trunk/AStyle"
+  head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
 
   bottle do
     cellar :any_skip_relocation

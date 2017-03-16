@@ -13,14 +13,10 @@ class LittleCms2 < Formula
     sha256 "a92d6a987f63729a605d0ede42b6275309b3384424f99f1089181b1b570521b8" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
     args << "--without-tiff" if build.without? "libtiff"
     args << "--without-jpeg" if build.without? "jpeg"

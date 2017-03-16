@@ -19,13 +19,9 @@ class Giflib < Formula
     sha256 "4f98cbed89e8979cb78319881b9ea750d594313877d9d5489d9f61093e1590a3" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on :x11 => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking

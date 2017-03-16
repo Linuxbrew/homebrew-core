@@ -10,6 +10,7 @@ class Autojump < Formula
     sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :sierra
     sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :el_capitan
     sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :yosemite
+    sha256 "69d2a91aab0d0885a9e1c4521cc36bfa4c59c58c371c45a4833544c9b826bc1f" => :x86_64_linux
   end
 
   def install
@@ -36,12 +37,7 @@ class Autojump < Formula
   test do
     path = testpath/"foo/bar"
     path.mkpath
-    output = %x(
-      source #{etc}/profile.d/autojump.sh
-      j -a "#{path.relative_path_from(testpath)}"
-      j foo >/dev/null
-      pwd
-    ).strip
+    output = shell_output("bash -c '. #{etc}/profile.d/autojump.sh; j -a #{path.relative_path_from(testpath)}; j foo >/dev/null; pwd'").strip
     assert_equal path.realpath.to_s, output
   end
 end

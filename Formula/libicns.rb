@@ -14,8 +14,6 @@ class Libicns < Formula
     sha256 "008a350b6b14e99a99563f98cb851354601bdb5a676c059c5210c1e54e74f5bb" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "jasper"
   depends_on "libpng"
 
@@ -24,8 +22,6 @@ class Libicns < Formula
     inreplace "icnsutils/png2icns.c",
       "png_set_gray_1_2_4_to_8",
       "png_set_expand_gray_1_2_4_to_8"
-
-    ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

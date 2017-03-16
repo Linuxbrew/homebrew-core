@@ -29,8 +29,6 @@ class Gd < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "fontconfig" => :recommended
   depends_on "freetype" => :recommended
   depends_on "jpeg" => :recommended
@@ -39,8 +37,6 @@ class Gd < Formula
   depends_on "webp" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}

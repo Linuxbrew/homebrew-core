@@ -15,10 +15,7 @@ class Xz < Formula
     sha256 "37a1a57ded2c44e33ad51a99dd40cab67a8beee1c52b6c67c0ca13308c51e6d8" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

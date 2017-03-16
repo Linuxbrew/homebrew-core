@@ -16,10 +16,7 @@ class Jpeg < Formula
     sha256 "8e6268c3b76d4d3a98873aece2beb0c092c186959afc412dc5e92eba5c98b70d" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

@@ -21,11 +21,9 @@ class Libtool < Formula
 
   keg_only :provided_until_xcode43
 
-  option :universal
   option "with-default-names", "Do not prepend 'g' to the binary"
 
   def install
-    ENV.universal_binary if build.universal?
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
     if OS.linux? && build.bottle?
