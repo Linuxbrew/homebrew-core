@@ -323,6 +323,11 @@ class Llvm < Formula
     # libgomp.so conflicts with gcc.
     # libunwind.so conflcits with libunwind.
     rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
+
+    if OS.linux?
+      # Strip the binaries to reduce their size.
+      system "strip", *(Dir[bin/"*"] + Dir[lib/"*"]).select { |f| Pathname.new(f).elf? }
+    end
   end
 
   def caveats
