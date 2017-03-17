@@ -1,3 +1,4 @@
+# tre: Build a bottle for Linuxbrew
 class Tre < Formula
   desc "Lightweight, POSIX-compliant regular expression (regex) library"
   homepage "http://laurikari.net/tre/"
