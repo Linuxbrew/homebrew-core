@@ -1,3 +1,4 @@
+# sdl_net: Build a bottle for Linuxbrew
 class SdlNet < Formula
   desc "Sample cross-platform networking library"
   homepage "https://www.libsdl.org/projects/SDL_net/release-1.2.html"
