@@ -1,3 +1,4 @@
+# ghostscript: Build a bottle for Linuxbrew
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
