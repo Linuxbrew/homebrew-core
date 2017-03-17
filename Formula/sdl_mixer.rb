@@ -1,3 +1,4 @@
+# sdl_mixer: Build a bottle for Linuxbrew
 class SdlMixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
