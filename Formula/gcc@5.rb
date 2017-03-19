@@ -41,15 +41,19 @@ class GccAT5 < Formula
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
   # enabling multilib on a host that can"t run 64-bit results in build failures
-  option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  option "without-multilib", "Build without multilib support" if OS.mac? && MacOS.prefer_64_bit?
 
+  unless OS.mac?
+    depends_on "binutils"
+    depends_on "zlib"
+  end
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "isl@0.14"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
-  if MacOS.version < :leopard
+  if OS.mac? && MacOS.version < :leopard
     # The as that comes with Tiger isn't capable of dealing with the
     # PPC asm that comes in libitm
     depends_on "cctools" => :build
@@ -72,7 +76,7 @@ class GccAT5 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    if MacOS.version < :leopard
+    if OS.mac? && MacOS.version < :leopard
       ENV["AS"] = ENV["AS_FOR_TARGET"] = "#{Formula["cctools"].bin}/as"
     end
 
@@ -97,10 +101,13 @@ class GccAT5 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
+    args = []
+    if OS.mac?
+      args << "--build=#{arch}-apple-darwin#{osmajor}"
+      args << "--libdir=#{lib}/gcc/#{version_suffix}"
+    end
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -122,11 +129,11 @@ class GccAT5 < Formula
 
     # "Building GCC with plugin support requires a host that supports
     # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
+    args << "--enable-plugin" if !OS.mac? || MacOS.version > :tiger
 
     # Otherwise make fails during comparison at stage 3
     # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if MacOS.version < :leopard
+    args << "--with-dwarf2" if OS.mac? && MacOS.version < :leopard
 
     args << "--disable-nls" if build.without? "nls"
 
@@ -147,7 +154,7 @@ class GccAT5 < Formula
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
+      if OS.mac? && !MacOS::CLT.installed?
         # For Xcode-only systems, we need to tell the sysroot path.
         # "native-system-headers" will be appended
         args << "--with-native-system-header-dir=/usr/include"
@@ -174,6 +181,12 @@ class GccAT5 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
+
+    if OS.linux?
+      # Strip the executables to reduce their size.
+      libexecgcc = libexec/"gcc/x86_64-unknown-linux-gnu"/version
+      system "strip", *(Dir[libexecgcc/"*"] - Dir[libexecgcc/"*.la"]).select { |f| File.file? f }
+    end
   end
 
   def add_suffix(file, suffix)
