@@ -1,3 +1,4 @@
+# newt: Build a bottle for Linuxbrew
 class Newt < Formula
   desc "Library for color text mode, widget based user interfaces"
   homepage "https://pagure.io/newt"
