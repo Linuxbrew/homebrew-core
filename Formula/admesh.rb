@@ -1,3 +1,4 @@
+# admesh: Build a bottle for Linuxbrew
 class Admesh < Formula
   desc "Processes triangulated solid meshes"
   homepage "https://github.com/admesh/admesh"
