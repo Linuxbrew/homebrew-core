@@ -24,6 +24,7 @@ class Xapian < Formula
   depends_on :python => :optional
   depends_on "sphinx-doc" => :build if build.with?("python")
   depends_on "util-linux" if OS.linux? # for libuuid
+  depends_on "zlib" unless OS.mac?
 
   skip_clean :la
 
