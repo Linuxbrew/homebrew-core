@@ -1,3 +1,4 @@
+# rclone: Build a bottle for Linuxbrew
 require "language/go"
 
 class Rclone < Formula
