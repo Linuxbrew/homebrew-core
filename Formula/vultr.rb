@@ -1,3 +1,4 @@
+# vultr: Build a bottle for Linuxbrew
 require "language/go"
 
 class Vultr < Formula
