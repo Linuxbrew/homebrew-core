@@ -14,13 +14,19 @@ class John < Formula
 
   conflicts_with "john-jumbo", :because => "both install the same binaries"
 
-  patch :DATA # Taken from MacPorts, tells john where to find runtime files
+  if OS.mac?
+    patch :DATA # Taken from MacPorts, tells john where to find runtime files
+  end
 
   def install
     ENV.deparallelize
     arch = MacOS.prefer_64_bit? ? "64" : "sse2"
-    target = "macosx-x86-#{arch}"
-
+    if OS.mac?
+      target = "macosx-x86-#{arch}"
+    elsif OS.linux?
+      target = "generic"
+    end
+    
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", target
 
     # Remove the README symlink and install the real file
