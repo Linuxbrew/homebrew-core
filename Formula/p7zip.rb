@@ -1,3 +1,4 @@
+# p7zip: Build a bottle for Linuxbrew
 class P7zip < Formula
   desc "7-Zip (high compression file archiver) implementation"
   homepage "https://p7zip.sourceforge.io/"
