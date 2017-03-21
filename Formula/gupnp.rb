@@ -67,15 +67,17 @@ class Gupnp < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/gupnp-1.0", "-L#{lib}", "-lgupnp-1.0",
+    system ENV.cc, "-I#{include}/gupnp-1.0",
            "-I#{Formula["gssdp"].opt_include}/gssdp-1.0",
-           "-I#{Formula["gssdp"].opt_lib}", "-lgssdp-1.0",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
-           "-lglib-2.0", "-lgobject-2.0",
            "-I#{Formula["libsoup"].opt_include}/libsoup-2.4",
-           "-I/usr/include/libxml2",
-           testpath/"test.c", "-o", testpath/"test"
+           "-I" + (OS.mac? ? "/usr/include/libxml2" : Formula["libxml2"].include/"libxml2"),
+           testpath/"test.c",
+           "-L#{lib}", "-lgupnp-1.0",
+           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.0",
+           "-lglib-2.0", "-lgobject-2.0",
+           "-o", testpath/"test"
     system "./test"
   end
 end
