@@ -24,6 +24,10 @@ class Fonttools < Formula
   end
 
   test do
+    unless OS.mac?
+      assert_match "usage", shell_output("#{bin}/ttx -h")
+      return
+    end
     cp "/Library/Fonts/Arial.ttf", testpath
     system bin/"ttx", "Arial.ttf"
   end
