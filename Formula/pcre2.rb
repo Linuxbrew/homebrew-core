@@ -1,3 +1,4 @@
+# pcre2: Build a bottle for Linuxbrew
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "http://www.pcre.org/"
@@ -14,6 +15,7 @@ class Pcre2 < Formula
   end
 
   depends_on "bzip2" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
