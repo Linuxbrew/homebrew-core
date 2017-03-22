@@ -59,7 +59,8 @@ class Ejdb < Formula
           uint32_t count;
           TCLIST *res = ejdbqryexecute(coll, q1, &count, 0, NULL);
 
-          for (int i = 0; i < TCLISTNUM(res); ++i) {
+          int i;
+          for (i = 0; i < TCLISTNUM(res); ++i) {
               void *bsdata = TCLISTVALPTR(res, i);
               bson_print_raw(bsdata, 0);
           }
@@ -73,8 +74,8 @@ class Ejdb < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lejdb",
-           "test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lejdb",
+      "-o", testpath/"test"
     system "./test"
   end
 end
