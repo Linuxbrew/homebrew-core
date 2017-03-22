@@ -1,3 +1,4 @@
+# pcre2: Build a bottle for Linuxbrew
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "http://www.pcre.org/"
