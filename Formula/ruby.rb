@@ -3,6 +3,7 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.bz2"
   sha256 "440bbbdc49d08d3650f340dccb35986d9399177ad69a204def56e5d3954600cf"
+  revision 1 if OS.linux?
 
   bottle do
     sha256 "17915322edb90adc7f3bb31dd203fde924d735a32681dbe220b45e099162b35b" => :sierra
@@ -25,8 +26,16 @@ class Ruby < Formula
   depends_on "libffi" => :optional
   depends_on "libyaml"
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   def install
+    if OS.linux? && build.bottle?
+      # The compiler used to build Ruby is stored in the bottle.
+      # See ruby <<<'print RbConfig::CONFIG["CC"]'
+      ENV["CC"] = "cc"
+      ENV["CXX"] = "c++"
+    end
+
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
