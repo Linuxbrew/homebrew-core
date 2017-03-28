@@ -18,6 +18,9 @@ class AwsSdkCpp < Formula
   depends_on "cmake" => :build
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+
     args = std_cmake_args
     args << "-DSTATIC_LINKING=1" if build.with? "static"
     args << "-DNO_HTTP_CLIENT=1" if build.without? "http-client"
