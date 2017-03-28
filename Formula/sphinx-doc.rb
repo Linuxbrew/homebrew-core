@@ -90,8 +90,10 @@ class SphinxDoc < Formula
   end
 
   def post_install
-    return if OS.mac? || (HOMEBREW_PREFIX/"bin/python").executable?
-    inreplace Dir[libexec/"bin/*"], HOMEBREW_PREFIX/"bin/python", "/usr/bin/env python", false
+    return if OS.mac?
+    python = HOMEBREW_PREFIX/"bin/python"
+    python = "/usr/bin/env python" unless python.executable?
+    inreplace Dir[libexec/"bin/*"], %r{^#!.*bin/python$}, "#!#{python}"
   end
 
   test do
