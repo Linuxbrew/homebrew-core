@@ -1,3 +1,4 @@
+# gnupg2: Build a bottle for Linuxbrew
 # This formula tracks GnuPG stable. You can find GnuPG Modern via:
 # brew install homebrew/versions/gnupg21
 # At the moment GnuPG Modern causes too many incompatibilities to be in core.
