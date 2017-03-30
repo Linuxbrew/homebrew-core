@@ -1,3 +1,4 @@
+# pyqt5: Build a bottle for Linuxbrew
 class Pyqt5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
