@@ -13,6 +13,8 @@ class Libtecla < Formula
     sha256 "a7caf2863506fcb0c8ded748375116957c0a12e45212dea9cce16b47adf00883" => :mountain_lion
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
