@@ -15,8 +15,10 @@ class Epstool < Formula
   end
 
   depends_on "ghostscript"
+  fails_with :gcc => "4.8"
 
   def install
+    ENV.deparallelize
     system "make", "install",
                    "EPSTOOL_ROOT=#{prefix}",
                    "EPSTOOL_MANDIR=#{man}",
