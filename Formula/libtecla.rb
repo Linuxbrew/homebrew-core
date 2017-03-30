@@ -14,8 +14,40 @@ class Libtecla < Formula
   end
 
   def install
-    ENV.deparallelize
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
-    system "make", "install"
+    ENV.deparallelize do
+      system ENV.cc, "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "make", "install"
+    end
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
+      #include <locale.h>
+      #include <libtecla.h>
+      #include <string.h>
+
+      int main(int argc, char *argv[])
+      {
+        char *line;
+        GetLine *gl;
+
+        setlocale(LC_CTYPE, "");
+
+        gl = new_GetLine(1024, 2048);
+        if(!gl)
+          return 1;
+
+        while((line=gl_get_line(gl, "$ ", NULL, -1)) != NULL &&
+               strcmp(line, "exit") != 0)
+          printf("You typed: %s", line);
+
+        gl = del_GetLine(gl);
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-L#{lib}", "-ltecla", "-o", "test"
+    system "./test"
   end
 end
