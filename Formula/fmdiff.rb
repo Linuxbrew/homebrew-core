@@ -18,6 +18,8 @@ class Fmdiff < Formula
   # "make" has logic for checking both possibilities.
   depends_on :xcode if MacOS.version >= :lion
 
+  depends_on :macos
+
   def install
     system "make"
     system "make", "DESTDIR=#{bin}", "install"
