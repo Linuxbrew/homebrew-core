@@ -12,6 +12,12 @@ class Aamath < Formula
     sha256 "0212e0b5844ea1a491bc7d4fcab2b590921042b28bc50e79c36cd9e15d08e2aa" => :mavericks
   end
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "readline"
+  end
+
   # Fix build on clang; patch by Homebrew team
   # https://github.com/Homebrew/homebrew/issues/23872
   patch :DATA
