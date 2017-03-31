@@ -7,6 +7,8 @@ class Tccutil < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     bin.install "tccutil.py" => "tccutil"
   end
