@@ -8,6 +8,10 @@ class Pow < Formula
 
   depends_on "node"
 
+  # Linux is not supported and the DNS handling rules only work on macOS
+  # see https://github.com/basecamp/pow/wiki/FAQ#is-linux-supported
+  depends_on :macos
+
   def install
     libexec.install Dir["*"]
     (bin/"pow").write <<-EOS.undent
