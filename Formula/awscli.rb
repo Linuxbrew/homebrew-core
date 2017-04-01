@@ -3,15 +3,15 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/1.11.68.tar.gz"
-  sha256 "ecc1706ff33f626678aa36d95dc6aa2e17fb75b4a74f63ab21aaa3defc96a630"
+  url "https://github.com/aws/aws-cli/archive/1.11.70.tar.gz"
+  sha256 "3ab21edc65c1471a0c408c379909ab20b0d23ba2594e67c67f89a91c66c94095"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e637ca1534c33122788fe4e50e2c0163554158977ddb0e44dcb9e08a3553343f" => :sierra
-    sha256 "d061550e8fbf817ecd8ffd7fb11260da0a9e7957dbdccb84ff1c40b0fcf540b2" => :el_capitan
-    sha256 "e25276b22ce90a57d2b3348e63c14c0046404759812fc4b4e379e719586d2c12" => :yosemite
+    sha256 "4c5742aeb62d22244e9f0c88361f2937eed360fa98deb039d16f72b13c6d2bc6" => :sierra
+    sha256 "65ff45d16d1f2ef7ce9bbc9ade6fe19e98efaa2f75f491cb7c03a869ee5f3b25" => :el_capitan
+    sha256 "9b0724367d05550e3f6700134692d71986c3b258ed4423c1f8a1c89dcff933fb" => :yosemite
     sha256 "22a0ddd264444780e550a53a8c9d24946d239034f3cfe09f4b601be154bcdb1e" => :x86_64_linux
   end
 
