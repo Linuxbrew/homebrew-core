@@ -1,3 +1,4 @@
+# xdot: Build a bottle for Linuxbrew
 class Xdot < Formula
   desc "Interactive viewer for graphs written in Graphviz's dot language."
   homepage "https://github.com/jrfonseca/xdot.py"
