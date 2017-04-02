@@ -21,6 +21,7 @@ class HaskellStack < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "zlib" unless OS.mac?
 
   # Remove when stack-8.0.yaml is the default
   resource "source_archive" do
@@ -47,7 +48,9 @@ class HaskellStack < Formula
           end
         else
           system "stack", "-j#{jobs}", "setup"
-          system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
+          args = []
+          args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}" unless OS.mac?
+          system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", *args, "install"
         end
       else
         install_cabal_package
