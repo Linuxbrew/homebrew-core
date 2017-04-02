@@ -14,6 +14,8 @@ class Rmtrash < Formula
     sha256 "102f54f713574d7009e3b4fd33738b6b631608a0c38f6ad0945ca1af5a8d6ef5" => :mavericks
   end
 
+  depends_on :macos
+
   def install
     # don't install as root
     inreplace "Makefile", "-o root -g wheel", ""
