@@ -11,6 +11,8 @@ class Locateme < Formula
     sha256 "a7876905a4c06452431e506523c5fdf142e2de364427600122fbb9b4928bc6d1" => :yosemite
   end
 
+  depends_on :macos
+
   def install
     system ENV.cc, "-framework", "Foundation", "-framework", "CoreLocation", "LocateMe.m", "-o", "LocateMe"
     bin.install "LocateMe"
