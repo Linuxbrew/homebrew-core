@@ -13,6 +13,7 @@ class CabalInstall < Formula
     sha256 "f58112b5b74e0056013daf2ac47b0f20393904557ff4f994ef5361e0ce3db343" => :yosemite
   end
 
+  depends_on "zlib" unless OS.mac?
   depends_on "ghc"
 
   fails_with :clang if MacOS.version <= :lion # Same as ghc.rb
