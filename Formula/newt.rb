@@ -14,6 +14,7 @@ class Newt < Formula
   depends_on "gettext"
   depends_on "popt"
   depends_on "s-lang"
+  depends_on :python unless OS.mac?
 
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
@@ -30,6 +31,8 @@ class Newt < Formula
       s.gsub! "`$$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
       s.gsub! "`$$pyconfig --libs`", '""'
     end if OS.mac?
+
+    inreplace "configure", "/usr/include/python", "#{HOMEBREW_PREFIX}/include/python" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"
