@@ -26,7 +26,10 @@ class Infer < Formula
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
   depends_on "libffi"
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "zlib"
+    depends_on "homebrew/dupes/ncurses"
+  end
 
   def install
     if build.without?("clang") && build.without?("java")
