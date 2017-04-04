@@ -4,12 +4,12 @@ class Tcsh < Formula
   url "ftp://ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz"
   mirror "http://ftp.funet.fi/pub/mirrors/ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz"
   sha256 "b89de7064ab54dac454a266cfe5d8bf66940cb5ed048d0c30674ea62e7ecef9d"
+  revision 1 if OS.linux?
 
   bottle do
     sha256 "3a59ccfdab60133b8854d528465882a3a8aaaa874f70ef1e4a0deee2f06802c6" => :sierra
     sha256 "d43bbcefe883ba5bd0dc998e5c4e6e9afcd35bacc780864fdcfe5a560002d7d1" => :el_capitan
     sha256 "ecbd811718e22c579434568185a8ea87d78d420c251913f84da8093f61d1b408" => :yosemite
-    sha256 "684ef51fe5d799063d791dfc797957160317346dc6a09e053dc96d92154932c8" => :x86_64_linux
   end
 
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
@@ -17,6 +17,7 @@ class Tcsh < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make", "install"
+    bin.install_symlink "tcsh" => "csh" unless OS.mac?
   end
 
   test do
@@ -28,13 +29,5 @@ class Tcsh < Formula
       end
     EOS
     assert_equal "test", shell_output("#{bin}/tcsh ./test.csh")
-  end
-
-  def post_install
-    unless OS.mac?
-      # Create csh symlink, unless it already exists.
-      homebrew_bin = Pathname.new "#{HOMEBREW_PREFIX}/bin"
-      homebrew_bin.install_symlink "tcsh" => "csh" unless (homebrew_bin/"csh").exist?
-    end
   end
 end
