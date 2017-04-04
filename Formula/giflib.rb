@@ -1,3 +1,4 @@
+# giflib: Build a bottle for Linuxbrew
 # Please check & build every `brew uses giflib` locally prior to
 # submitting 5.x.x. Many formulae requiring giflib haven't
 # updated to use 5.x.x yet.
