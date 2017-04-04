@@ -1,3 +1,4 @@
+# sl: Build a bottle for Linuxbrew
 class Sl < Formula
   desc "Prints a steam locomotive if you type sl instead of ls"
   homepage "https://github.com/mtoyoda/sl"
