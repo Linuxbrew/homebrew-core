@@ -20,10 +20,18 @@ class Libdap < Formula
 
   option "without-test", "Skip build-time tests (Not recommended)"
 
+  # error: 'max_align_t' has a previous declaration when using gcc 4.8
+  fails_with :gcc => "4.8" unless OS.mac?
+
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
   depends_on "libxml2"
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "flex" => :build
+    depends_on "util-linux" # for libuuid
+  end
 
   needs :cxx11 if MacOS.version < :mavericks
 
@@ -44,7 +52,7 @@ class Libdap < Formula
     # and Snow Leopard, the libcurl.pc file that ships with the system
     # is seriously broken---too many arch flags. This will be carried
     # over to `dap-config` and from there the contamination will spread.
-    args << "--with-curl=/usr" if MacOS.version <= :snow_leopard
+    args << "--with-curl=/usr" if OS.mac? && MacOS.version <= :snow_leopard
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
