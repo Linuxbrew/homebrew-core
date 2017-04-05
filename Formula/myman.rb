@@ -1,3 +1,4 @@
+# myman: Build a bottle for Linuxbrew
 class Myman < Formula
   desc "Text-mode videogame inspired by Namco's Pac-Man"
   homepage "https://myman.sourceforge.io/"
