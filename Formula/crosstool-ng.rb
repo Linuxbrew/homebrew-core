@@ -25,6 +25,12 @@ class CrosstoolNg < Formula
   depends_on "libelf"
   depends_on "grep" => :optional
   depends_on "homebrew/dupes/make" => :optional
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "gperf" => :build
+    depends_on "texinfo" => :build
+  end
 
   def install
     args = %W[
