@@ -11,7 +11,7 @@ class Coreutils < Formula
     # Fix "Undefined symbols _renameat"
     # Reported upstream 10 Mar 2017 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=26044
     # The patches are from MacPorts. This has been fixed in HEAD.
-    if MacOS.version < :yosemite
+    if OS.mac? && MacOS.version < :yosemite
       depends_on "autoconf" => :build
       depends_on "automake" => :build
       depends_on "gettext" => :build
@@ -80,7 +80,7 @@ class Coreutils < Formula
 
     if build.head?
       system "./bootstrap"
-    elsif MacOS.version < :yosemite
+    elsif OS.mac? && MacOS.version < :yosemite
       (buildpath/"lib").install resource("renameat_c")
       (buildpath/"m4").install resource("renameat_m4")
       system "autoreconf", "-fiv"
