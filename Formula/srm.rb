@@ -1,3 +1,4 @@
+# srm: Build a bottle for Linuxbrew
 class Srm < Formula
   desc "command-line program to delete files securely"
   homepage "https://srm.sourceforge.io/"
