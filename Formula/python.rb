@@ -42,8 +42,11 @@ class Python < Formula
   depends_on "tcl-tk" => :optional
   depends_on "berkeley-db@4" => :optional
   unless OS.mac?
-    depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("tcl-tk").with?("x11")
-    depends_on "bzip2" unless OS.mac?
+    depends_on :x11 if build.with? "tcl-tk"
+    depends_on "bzip2"
+    depends_on "ncurses"
+    depends_on "xz"
+    depends_on "zlib"
   end
 
   skip_clean "bin/pip", "bin/pip-2.7"
