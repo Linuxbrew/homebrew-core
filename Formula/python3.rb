@@ -30,6 +30,9 @@ class Python3 < Formula
   unless OS.mac?
     depends_on "bzip2"
     depends_on "libffi"
+    depends_on "ncurses"
+    depends_on "xz"
+    depends_on "zlib"
   end
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
@@ -131,14 +134,14 @@ class Python3 < Formula
     # Python's setup.py parses CPPFLAGS and LDFLAGS to learn search
     # paths for the dependencies of the compiled extension modules.
     # See Linuxbrew/linuxbrew#420, Linuxbrew/linuxbrew#460, and Linuxbrew/linuxbrew#875
-    if OS.linux?
+    unless OS.mac?
       if build.bottle?
         # Configure Python to use cc and c++ to build extension modules.
         ENV["CC"] = "cc"
         ENV["CXX"] = "c++"
       end
       cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
-      ldflags << ENV.ldflags
+      ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
     end
 
     # We want our readline and openssl! This is just to outsmart the detection code,
