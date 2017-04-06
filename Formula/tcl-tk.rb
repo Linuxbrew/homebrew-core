@@ -23,8 +23,8 @@ class TclTk < Formula
   option "without-tk", "Don't build the Tk (window toolkit)"
 
   unless OS.mac?
-    depends_on :x11 => :optional
-    depends_on "pkg-config" => :build if build.with? "x11"
+    depends_on :x11 if build.with? "tk"
+    depends_on "pkg-config" => :build
   end
 
   resource "tk" do
@@ -63,11 +63,7 @@ class TclTk < Formula
         args = ["--prefix=#{prefix}", "--mandir=#{man}", "--with-tcl=#{lib}"]
         args << "--enable-threads" if build.with? "threads"
         args << "--enable-64bit" if MacOS.prefer_64_bit?
-        if build.with? "x11"
-          args << "--with-x"
-        else
-          args << "--enable-aqua=yes" << "--without-x"
-        end
+        args << "--enable-aqua=yes" << "--without-x" if OS.mac?
 
         cd "unix" do
           system "./configure", *args
