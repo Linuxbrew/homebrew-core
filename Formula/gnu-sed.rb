@@ -4,13 +4,13 @@ class GnuSed < Formula
   url "https://ftpmirror.gnu.org/sed/sed-4.4.tar.xz"
   mirror "https://ftp.gnu.org/gnu/sed/sed-4.4.tar.xz"
   sha256 "cbd6ebc5aaf080ed60d0162d7f6aeae58211a1ee9ba9bb25623daa6cd942683b"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "dbb273a424c68a41670b1bdc7630960ed3d81b08d16b4e2de89da3b08d8042f8" => :sierra
     sha256 "9b221159fc84c8774053bf6611f9da3652636f1531a68819f8ca59fc3c7321c1" => :el_capitan
     sha256 "8abddf2922e6151ee21c84f2b997f9cfe55eeadbbe13ca28ea4097afa0c91f9d" => :yosemite
-    sha256 "0d814f6fcdb1a41038f3a217379bb2c666852eb26f3fbe2ff7216c58159bcdb6" => :x86_64_linux
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
@@ -30,6 +30,8 @@ class GnuSed < Formula
     if build.without? "default-names"
       (libexec/"gnubin").install_symlink bin/"gsed" =>"sed"
       (libexec/"gnuman/man1").install_symlink man1/"gsed.1" => "sed.1"
+    else
+      bin.install_symlink "sed" => "gsed"
     end
   end
 
