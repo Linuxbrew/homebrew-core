@@ -15,6 +15,7 @@ class Binutils < Formula
 
   # No --default-names option as it interferes with Homebrew builds.
   option "with-default-names", "Do not prepend 'g' to the binary" if OS.linux?
+  option "without-gold", "Do not build gold" if OS.linux?
 
   depends_on "zlib" => :recommended unless OS.mac?
 
@@ -30,7 +31,7 @@ class Binutils < Formula
                           "--enable-interwork",
                           "--enable-multilib",
                           "--enable-64-bit-bfd",
-                          ("--enable-gold" if OS.linux?),
+                          ("--enable-gold" if OS.linux? && build.with?("gold")),
                           ("--enable-plugins" if OS.linux?),
                           "--enable-targets=all"
     system "make"
