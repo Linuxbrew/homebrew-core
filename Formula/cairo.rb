@@ -33,6 +33,7 @@ class Cairo < Formula
   depends_on "libpng"
   depends_on "pixman"
   depends_on "glib"
+  depends_on "linuxbrew/xorg/libxcb" unless OS.mac?
 
   def install
     args = %W[
