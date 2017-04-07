@@ -1,3 +1,4 @@
+# gwenhywfar: Build a bottle for Linuxbrew
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "http://www.aqbanking.de/"
