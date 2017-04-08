@@ -40,10 +40,14 @@ class Python < Formula
   depends_on "gdbm" => :recommended
   depends_on "openssl"
   depends_on "tcl-tk" => :optional
-  depends_on "berkeley-db@4" => :optional
-  unless OS.mac?
-    depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("tcl-tk").with?("x11")
-    depends_on "bzip2" unless OS.mac?
+  if OS.mac?
+    depends_on "berkeley-db@4" => :optional
+  else
+    depends_on :x11 if build.with? "tcl-tk"
+    depends_on "berkeley-db@4" => :recommended
+    depends_on "bzip2"
+    depends_on "ncurses"
+    depends_on "zlib"
   end
 
   skip_clean "bin/pip", "bin/pip-2.7"
@@ -141,14 +145,14 @@ class Python < Formula
     # Python's setup.py parses CPPFLAGS and LDFLAGS to learn search
     # paths for the dependencies of the compiled extension modules.
     # See Homebrew/linuxbrew#420, Homebrew/linuxbrew#460, and Homebrew/linuxbrew#875
-    if OS.linux?
+    unless OS.mac?
       if build.bottle?
         # Configure Python to use cc and c++ to build extension modules.
         ENV["CC"] = "cc"
         ENV["CXX"] = "c++"
       end
       cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
-      ldflags << ENV.ldflags
+      ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
