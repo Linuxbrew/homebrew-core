@@ -15,6 +15,8 @@ class CctoolsHeaders < Formula
 
   keg_only :provided_by_osx
 
+  depends_on :macos
+
   resource "headers" do
     url "https://opensource.apple.com/tarballs/xnu/xnu-2422.90.20.tar.gz"
     sha256 "7bf3c6bc2f10b99e57b996631a7747b79d1e1684df719196db1e5c98a5585c23"
