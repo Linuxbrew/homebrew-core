@@ -16,10 +16,12 @@ class PkgConfig < Formula
     pc_path = %W[
       #{HOMEBREW_PREFIX}/lib/pkgconfig
       #{HOMEBREW_PREFIX}/share/pkgconfig
-      /usr/local/lib/pkgconfig
-      /usr/lib/pkgconfig
-      #{HOMEBREW_LIBRARY}/Homebrew/os/#{OS.mac? ? "mac" : OS::NAME}/pkgconfig#{OS.mac? ? "/" + MacOS.version : nil}
-    ].uniq.join(File::PATH_SEPARATOR)
+    ].join(File::PATH_SEPARATOR)
+    if OS.mac?
+      pc_path += %W[/usr/local/lib/pkgconfig /usr/lib/pkgconfig #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"]
+    else
+      pc_path << "#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"
+    end
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
