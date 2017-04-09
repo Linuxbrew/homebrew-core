@@ -1,3 +1,4 @@
+# cunit: Build a bottle for Linuxbrew
 class Cunit < Formula
   desc "Lightweight unit testing framework for C"
   homepage "https://cunit.sourceforge.io/"
