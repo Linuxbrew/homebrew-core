@@ -11,6 +11,7 @@ class AppleGcc42 < Formula
   option "with-gfortran-symlink", "Provide gfortran symlinks"
 
   depends_on MaximumMacOSRequirement => :mavericks
+  depends_on :macos
 
   def install
     system "/bin/pax", "--insecure", "-rz", "-f", "usr.pkg/Payload", "-s", ",./usr,#{prefix},"
