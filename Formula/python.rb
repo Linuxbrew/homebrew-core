@@ -153,6 +153,10 @@ class Python < Formula
       end
       cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
       ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
+      if build.with? "berkeley-db@4"
+        cppflags << " -I#{Formula["berkeley-db@4"].include}/include"
+        ldflags << " -L#{Formula["berkeley-db@4"].lib}/lib"
+      end
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
