@@ -14,6 +14,9 @@ class Launch < Formula
 
   depends_on :xcode => :build
 
+  # hard dependency on macOS API's
+  depends_on :macos
+
   def install
     rm_rf "launch" # We'll build it ourself, thanks.
     xcodebuild "-configuration", "Deployment", "SYMROOT=build", "clean"
