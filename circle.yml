@@ -53,7 +53,7 @@ test:
       PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
       eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)";
       brew install patchelf
-        && brew tap homebrew/dupes
+        && brew tap homebrew/science
         && brew tap linuxbrew/xorg
         && brew test-bot --tap=homebrew/core --keep-old
     - mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
