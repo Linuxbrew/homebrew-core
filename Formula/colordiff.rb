@@ -1,3 +1,4 @@
+# colordiff: Build a bottle for Linuxbrew
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
   homepage "https://www.colordiff.org/"
