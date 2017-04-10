@@ -12,6 +12,8 @@ class Brightness < Formula
     sha256 "222e314519f00aa2ad858c718f0dbed624f486f307828ed93a85d1df4e08a8f8" => :mavericks
   end
 
+  depends_on :macos
+
   def install
     system "make"
     system "make", "prefix=#{prefix}", "install"
