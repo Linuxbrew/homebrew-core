@@ -1,3 +1,4 @@
+# bc: Build a bottle for Linuxbrew
 class Bc < Formula
   desc "arbitrary precision numeric processing language"
   homepage "https://www.gnu.org/software/bc/"
