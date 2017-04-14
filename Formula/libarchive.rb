@@ -17,6 +17,11 @@ class Libarchive < Formula
   depends_on "xz" => :recommended
   depends_on "lz4" => :optional
   depends_on "lzop" => :optional
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "expat"
+    depends_on "zlib"
+  end
 
   def install
     system "./configure",
@@ -29,11 +34,13 @@ class Libarchive < Formula
 
     system "make", "install"
 
-    # Just as apple does it.
-    ln_s bin/"bsdtar", bin/"tar"
-    ln_s bin/"bsdcpio", bin/"cpio"
-    ln_s man1/"bsdtar.1", man1/"tar.1"
-    ln_s man1/"bsdcpio.1", man1/"cpio.1"
+    if OS.mac?
+      # Just as apple does it.
+      ln_s bin/"bsdtar", bin/"tar"
+      ln_s bin/"bsdcpio", bin/"cpio"
+      ln_s man1/"bsdtar.1", man1/"tar.1"
+      ln_s man1/"bsdcpio.1", man1/"cpio.1"
+    end
   end
 
   test do
