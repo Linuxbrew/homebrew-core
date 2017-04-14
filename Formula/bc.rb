@@ -1,4 +1,3 @@
-# bc: Build a bottle for Linuxbrew
 class Bc < Formula
   desc "arbitrary precision numeric processing language"
   homepage "https://www.gnu.org/software/bc/"
@@ -17,7 +16,7 @@ class Bc < Formula
 
   unless OS.mac?
     depends_on "bison" => :build
-    depends_on "flex" => :build
+    depends_on "flex"
     depends_on "texinfo" => :build
   end
 
