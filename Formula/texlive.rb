@@ -16,7 +16,7 @@ class Texlive < Formula
   option "with-small", "install basic + xetex, metapost, a few languages [default]"
   option "with-basic", "install plain and latex"
   option "with-minimal", "install plain only"
-  
+
   depends_on "linuxbrew/xorg/libx11"
   depends_on "linuxbrew/xorg/libice"
   depends_on "linuxbrew/xorg/libsm"
