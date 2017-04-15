@@ -9,8 +9,8 @@ checkout:
     - git remote set-url origin $CIRCLE_REPOSITORY_URL
     - if [ -e .git/shallow ]; then echo git fetch --unshallow; fi
     - git fetch origin
-    - git config user.name LinuxbrewTestBot
-    - git config user.email testbot@linuxbrew.sh
+    - git config --global user.name LinuxbrewTestBot
+    - git config --global user.email testbot@linuxbrew.sh
     - sudo mkdir /home/linuxbrew
     - sudo chown "$USER:" /home/linuxbrew
     - git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew
