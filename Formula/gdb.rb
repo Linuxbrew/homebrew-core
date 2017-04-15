@@ -37,10 +37,14 @@ class Gdb < Formula
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :optional
+  depends_on "python" => OS.mac? ? :optional : :recommended
   depends_on "guile" => :optional
-  depends_on "texinfo" => :build unless OS.mac?
-  depends_on "ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "texinfo" => :build
+    depends_on "ncurses"
+    depends_on "expat"
+    depends_on "xz"
+  end
 
   if MacOS.version >= :sierra
     patch do
