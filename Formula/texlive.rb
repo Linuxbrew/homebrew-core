@@ -17,14 +17,6 @@ class Texlive < Formula
   option "with-basic", "install plain and latex"
   option "with-minimal", "install plain only"
 
-  depends_on "linuxbrew/xorg/libx11"
-  depends_on "linuxbrew/xorg/libice"
-  depends_on "linuxbrew/xorg/libsm"
-  depends_on "linuxbrew/xorg/libxaw"
-  depends_on "linuxbrew/xorg/libxext"
-  depends_on "linuxbrew/xorg/libxmu"
-  depends_on "linuxbrew/xorg/libxpm"
-  depends_on "linuxbrew/xorg/libxt"
   depends_on "fontconfig"
 
   def install
