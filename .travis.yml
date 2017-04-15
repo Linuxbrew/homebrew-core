@@ -29,6 +29,8 @@ before_install:
   # Fix error: Incorrect file permissions (664)
   - chmod 0644 Formula/*.rb
   - umask 022
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "travis-ci@linuxbrew.sh"
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
   - if [ -f ".git/shallow" ]; then
       travis_retry git fetch --unshallow;
