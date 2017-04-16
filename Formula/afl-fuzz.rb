@@ -10,6 +10,8 @@ class AflFuzz < Formula
     sha256 "c74d3911ee38596f0dce92f09359a497457aec038933dfaf677c87262e427e84" => :yosemite
   end
 
+  depends_on "llvm" unless OS.mac?
+
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
