@@ -1,4 +1,3 @@
-# roswell: Build a bottle for Linuxbrew
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
@@ -14,6 +13,7 @@ class Roswell < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "curl" unless OS.mac?
 
   def install
     system "./bootstrap"
