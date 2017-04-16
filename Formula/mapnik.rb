@@ -24,6 +24,10 @@ class Mapnik < Formula
   depends_on "gdal" => :optional
   depends_on "postgresql" => :optional
   depends_on "cairo" => :optional
+  unless OS.mac?
+    depends_on "sqlite"
+    depends_on "zlib"
+  end
 
   if MacOS.version < :mavericks
     depends_on "boost" => "c++11"
