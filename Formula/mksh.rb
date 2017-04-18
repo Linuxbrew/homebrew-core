@@ -1,3 +1,4 @@
+# mksh: Build a bottle for Linuxbrew
 class Mksh < Formula
   desc "MirBSD Korn Shell"
   homepage "https://www.mirbsd.org/mksh.htm"
