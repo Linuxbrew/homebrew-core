@@ -1,3 +1,4 @@
+# gsettings-desktop-schemas: Build a bottle for Linuxbrew
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
