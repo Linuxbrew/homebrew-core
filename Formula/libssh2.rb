@@ -1,3 +1,4 @@
+# libssh2: Build a bottle for Linuxbrew
 class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
   homepage "https://libssh2.org/"
