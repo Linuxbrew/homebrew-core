@@ -1,3 +1,4 @@
+# libmetalink: Build a bottle for Linuxbrew
 class Libmetalink < Formula
   desc "C library to parse Metalink XML files"
   homepage "https://launchpad.net/libmetalink/"
