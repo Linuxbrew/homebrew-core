@@ -1,3 +1,4 @@
+# log4cplus: Build a bottle for Linuxbrew
 class Log4cplus < Formula
   desc "Logging Framework for C++"
   homepage "https://sourceforge.net/p/log4cplus/wiki/Home/"
