@@ -1,3 +1,4 @@
+# cvsutils: Build a bottle for Linuxbrew
 class Cvsutils < Formula
   desc "CVS utilities for use in working directories"
   homepage "http://www.red-bean.com/cvsutils/"
