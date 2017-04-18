@@ -1,3 +1,4 @@
+# star: Build a bottle for Linuxbrew
 class Star < Formula
   desc "Standard tap archiver"
   homepage "http://cdrecord.org/private/star.html"
