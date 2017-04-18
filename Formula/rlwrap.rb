@@ -1,3 +1,4 @@
+# rlwrap: Build a bottle for Linuxbrew
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "https://github.com/hanslub42/rlwrap"
