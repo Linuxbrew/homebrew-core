@@ -1,3 +1,4 @@
+# deheader: Build a bottle for Linuxbrew
 class Deheader < Formula
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader"
