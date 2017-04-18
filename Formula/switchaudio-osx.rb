@@ -15,6 +15,7 @@ class SwitchaudioOsx < Formula
   end
 
   depends_on :macos => :lion
+  depends_on :macos
   depends_on :xcode => :build
 
   def install
