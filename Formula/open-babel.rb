@@ -1,3 +1,4 @@
+# open-babel: Build a bottle for Linuxbrew
 class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://openbabel.org"
