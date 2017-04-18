@@ -1,3 +1,4 @@
+# ruby-install: Build a bottle for Linuxbrew
 class RubyInstall < Formula
   desc "Install Ruby, JRuby, Rubinius, MagLev, or mruby"
   homepage "https://github.com/postmodern/ruby-install#readme"
