@@ -1,3 +1,4 @@
+# xmlcatmgr: Build a bottle for Linuxbrew
 class Xmlcatmgr < Formula
   desc "Manipulate SGML and XML catalogs"
   homepage "https://xmlcatmgr.sourceforge.io"
