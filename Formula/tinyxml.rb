@@ -1,3 +1,4 @@
+# tinyxml: Build a bottle for Linuxbrew
 class Tinyxml < Formula
   desc "XML parser"
   homepage "http://www.grinninglizard.com/tinyxml/"
