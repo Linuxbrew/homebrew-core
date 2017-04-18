@@ -1,3 +1,4 @@
+# iniparser: Build a bottle for Linuxbrew
 class Iniparser < Formula
   desc "Library for parsing ini files"
   homepage "http://ndevilla.free.fr/iniparser/"
