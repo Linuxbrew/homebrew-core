@@ -1,3 +1,4 @@
+# subversion: Build a bottle for Linuxbrew
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
