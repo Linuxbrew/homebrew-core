@@ -1,3 +1,4 @@
+# jed: Build a bottle for Linuxbrew
 class Jed < Formula
   desc "Powerful editor for programmers"
   homepage "http://www.jedsoft.org/jed/"
