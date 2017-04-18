@@ -1,3 +1,4 @@
+# with-readline: Build a bottle for Linuxbrew
 class WithReadline < Formula
   desc "Allow GNU Readline to be used with arbitrary programs"
   homepage "http://www.greenend.org.uk/rjk/sw/withreadline.html"
