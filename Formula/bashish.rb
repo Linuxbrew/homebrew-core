@@ -1,3 +1,4 @@
+# bashish: Build a bottle for Linuxbrew
 class Bashish < Formula
   desc "Theme environment for text terminals"
   homepage "https://bashish.sourceforge.io/"
