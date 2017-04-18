@@ -1,3 +1,4 @@
+# git-sh: Build a bottle for Linuxbrew
 class GitSh < Formula
   desc "Customized Bash environment for git work"
   homepage "https://github.com/rtomayko/git-sh"
