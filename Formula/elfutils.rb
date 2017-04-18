@@ -1,3 +1,4 @@
+# elfutils: Build a bottle for Linuxbrew
 class Elfutils < Formula
   desc "Libraries and utilities for handling ELF objects."
   homepage "https://fedorahosted.org/elfutils/"
