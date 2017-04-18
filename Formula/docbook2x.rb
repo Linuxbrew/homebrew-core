@@ -1,3 +1,4 @@
+# docbook2x: Build a bottle for Linuxbrew
 class Docbook2x < Formula
   desc "Convert DocBook to UNIX manpages and GNU TeXinfo"
   homepage "https://docbook2x.sourceforge.io/"
