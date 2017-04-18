@@ -1,3 +1,4 @@
+# libatomic_ops: Build a bottle for Linuxbrew
 class LibatomicOps < Formula
   desc "Implementations for atomic memory update operations"
   homepage "https://github.com/ivmai/libatomic_ops/"
