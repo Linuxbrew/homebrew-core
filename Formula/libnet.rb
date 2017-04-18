@@ -1,3 +1,4 @@
+# libnet: Build a bottle for Linuxbrew
 class Libnet < Formula
   desc "C library for creating IP packets"
   homepage "https://github.com/sam-github/libnet"
