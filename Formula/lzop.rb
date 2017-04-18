@@ -1,3 +1,4 @@
+# lzop: Build a bottle for Linuxbrew
 class Lzop < Formula
   desc "File compressor"
   homepage "https://www.lzop.org/"
