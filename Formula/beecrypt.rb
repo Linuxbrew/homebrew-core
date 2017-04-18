@@ -20,7 +20,7 @@ class Beecrypt < Formula
 
   def install
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
-    system "./configure", "--disable-debug",
+    system "./configure", ("--disable-debug" if OS.mac?),
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-openmp",
