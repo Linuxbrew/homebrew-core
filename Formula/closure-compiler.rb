@@ -1,3 +1,4 @@
+# closure-compiler: Build a bottle for Linuxbrew
 class ClosureCompiler < Formula
   desc "JavaScript optimizing compiler"
   homepage "https://github.com/google/closure-compiler"
