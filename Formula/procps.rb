@@ -1,3 +1,4 @@
+# procps: Build a bottle for Linuxbrew
 class Procps < Formula
   desc "Utilities for browsing procfs"
   homepage "https://gitlab.com/procps-ng/procps"
