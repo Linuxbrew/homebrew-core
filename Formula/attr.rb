@@ -1,3 +1,4 @@
+# attr: Build a bottle for Linuxbrew
 class Attr < Formula
   desc "Manipulate filesystem extended attributes"
   homepage "https://savannah.nongnu.org/projects/attr"
