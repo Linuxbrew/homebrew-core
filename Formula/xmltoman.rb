@@ -1,3 +1,4 @@
+# xmltoman: Build a bottle for Linuxbrew
 class Xmltoman < Formula
   desc "XML to manpage converter"
   homepage "https://sourceforge.net/projects/xmltoman/"
