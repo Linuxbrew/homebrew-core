@@ -19,6 +19,8 @@ class Unixodbc < Formula
 
   depends_on "libtool" => :run unless OS.mac?
 
+  depends_on "libtool" => :run unless OS.mac?
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
