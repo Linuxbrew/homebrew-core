@@ -3,6 +3,7 @@ class Libprelude < Formula
   homepage "https://www.prelude-siem.org/"
   url "https://www.prelude-siem.org/attachments/download/721/libprelude-3.1.0.tar.gz"
   sha256 "b8fbaaa1f2536bd54a7f69fe905ac84d936435962c8fc9de67b2f2b375c7ac96"
+  # tag "linuxbrew"
 
   option "without-ruby", "Build without Ruby bindings"
 
