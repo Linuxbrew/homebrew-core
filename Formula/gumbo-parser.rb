@@ -1,3 +1,4 @@
+# gumbo-parser: Build a bottle for Linuxbrew
 class GumboParser < Formula
   desc "C99 library for parsing HTML5"
   homepage "https://github.com/google/gumbo-parser"
