@@ -1,3 +1,4 @@
+# findutils: Build a bottle for Linuxbrew
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
