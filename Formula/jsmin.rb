@@ -1,3 +1,4 @@
+# jsmin: Build a bottle for Linuxbrew
 class Jsmin < Formula
   desc "Minify JavaScript code"
   homepage "http://www.crockford.com/javascript/jsmin.html"
