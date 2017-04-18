@@ -1,3 +1,4 @@
+# now what...
 class TidyHtml5 < Formula
   desc "Granddaddy of HTML tools, with support for modern standards"
   homepage "http://www.html-tidy.org/"
