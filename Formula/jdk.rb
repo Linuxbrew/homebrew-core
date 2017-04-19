@@ -1,3 +1,4 @@
+# jdk: Build a bottle for Linuxbrew
 class JdkDownloadStrategy < CurlDownloadStrategy
   def _curl_opts
     super << "--cookie" << "oraclelicense=accept-securebackup-cookie"
