@@ -1,3 +1,4 @@
+# dirmngr: Build a bottle for Linuxbrew
 class Dirmngr < Formula
   desc "Server for managing certificate revocation lists"
   homepage "https://www.gnupg.org/"
