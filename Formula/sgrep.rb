@@ -1,3 +1,4 @@
+# sgrep: Build a bottle for Linuxbrew
 class Sgrep < Formula
   desc "Search SGML, XML, and HTML"
   homepage "https://www.cs.helsinki.fi/u/jjaakkol/sgrep.html"
