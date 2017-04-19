@@ -1,3 +1,4 @@
+# libressl: Build a bottle for Linuxbrew
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
