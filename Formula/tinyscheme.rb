@@ -1,3 +1,4 @@
+# tinyscheme: Build a bottle for Linuxbrew
 class Tinyscheme < Formula
   desc "Very small Scheme implementation"
   homepage "http://tinyscheme.sourceforge.net"
