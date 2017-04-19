@@ -1,3 +1,4 @@
+# libtar: Build a bottle for Linuxbrew
 class Libtar < Formula
   desc "C library for manipulating POSIX tar files"
   homepage "http://repo.or.cz/w/libtar.git"
