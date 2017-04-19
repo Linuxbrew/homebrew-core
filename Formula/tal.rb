@@ -1,3 +1,4 @@
+# tal: Build a bottle for Linuxbrew
 class Tal < Formula
   desc "Align line endings if they match"
   # The canonical url currently returns HTTP/1.1 500 Internal Server Error.
