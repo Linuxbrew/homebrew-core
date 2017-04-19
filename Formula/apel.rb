@@ -1,3 +1,4 @@
+# apel: Build a bottle for Linuxbrew
 class Apel < Formula
   desc "Emacs Lisp library to help write portable Emacs programs"
   homepage "http://git.chise.org/elisp/apel/"
