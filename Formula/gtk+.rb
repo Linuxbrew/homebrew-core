@@ -1,3 +1,4 @@
+# gtk+: Build a bottle for Linxubrew
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
