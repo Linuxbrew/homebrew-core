@@ -1,3 +1,4 @@
+# ekhtml: Build a bottle for Linuxbrew
 class Ekhtml < Formula
   desc "Forgiving SAX-style HTML parser"
   homepage "https://ekhtml.sourceforge.io/"
