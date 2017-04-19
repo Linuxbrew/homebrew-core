@@ -1,3 +1,4 @@
+# libelf: Build a bottle for Linuxbrew
 class Libelf < Formula
   desc "ELF object file access library"
   homepage "http://www.mr511.de/software/"
