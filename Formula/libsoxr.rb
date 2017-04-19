@@ -1,3 +1,4 @@
+# libsoxr: Build a bottle for Linuxbrew
 class Libsoxr < Formula
   desc "High quality, one-dimensional sample-rate conversion library"
   homepage "https://sourceforge.net/projects/soxr/"
