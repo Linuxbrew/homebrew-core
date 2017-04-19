@@ -58,6 +58,10 @@ class Wine < Formula
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
+  unless OS.mac?
+    # libusb depends on libudev
+    depends_on "systemd"
+  end
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi", :using => :nounzip
@@ -180,6 +184,7 @@ class Wine < Formula
   end
 
   def openssl_arch_args
+    return { :i386 => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
       :i386 => %w[darwin-i386-cc],
@@ -243,6 +248,7 @@ class Wine < Formula
         end
 
         system "make", "install"
+        next unless OS.mac?
 
         %w[libcrypto libssl].each do |libname|
           rm_f libexec/"lib/#{libname}.1.0.0.dylib"
@@ -428,9 +434,11 @@ class Wine < Formula
 
       resource("sane-backends").stage do
         save_env do
-          # Cannot have "patch do" here
-          Pathname.pwd.install resource("sane-backends-patch")
-          system "patch", "-p1", "-i", "1.0.25-missing-types.patch"
+          if OS.mac?
+            # Cannot have "patch do" here
+            Pathname.pwd.install resource("sane-backends-patch")
+            system "patch", "-p1", "-i", "1.0.25-missing-types.patch"
+          end
 
           ENV.deparallelize
           system "./configure", "--disable-dependency-tracking",
@@ -459,7 +467,8 @@ class Wine < Formula
 
     # Help wine find our libraries at runtime
     %w[freetype jpeg png sane tiff].each do |dep|
-      ENV["ac_cv_lib_soname_#{dep}"] = (libexec/"lib/lib#{dep}.dylib").realpath
+      dylib = OS.mac? ? "dylib" : "so"
+      ENV["ac_cv_lib_soname_#{dep}"] = (libexec/"lib/lib#{dep}.#{dylib}").realpath
     end
 
     if build.with? "win64"
