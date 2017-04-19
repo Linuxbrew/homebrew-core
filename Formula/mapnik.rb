@@ -29,7 +29,7 @@ class Mapnik < Formula
     depends_on "zlib"
   end
 
-  if MacOS.version < :mavericks
+  if OS.mac? && MacOS.version < :mavericks
     depends_on "boost" => "c++11"
   else
     depends_on "boost"
