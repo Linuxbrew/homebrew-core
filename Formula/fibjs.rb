@@ -1,3 +1,4 @@
+# fibjs: Build a bottle for Linuxbrew
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/en/index.html"
