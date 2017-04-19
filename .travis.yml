@@ -26,6 +26,7 @@ before_install:
       llvm-3.4
       mysql-common
       zlib1g-dev
+      libpq-dev
   # Fix error: Incorrect file permissions (664)
   - chmod 0644 Formula/*.rb
   - umask 022
