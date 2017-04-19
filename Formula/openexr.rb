@@ -1,3 +1,4 @@
+# openexr: Build a bottle for Linuxbrew
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "http://www.openexr.com/"
