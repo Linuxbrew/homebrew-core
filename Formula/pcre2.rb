@@ -19,6 +19,8 @@ class Pcre2 < Formula
     depends_on "zlib"
   end
 
+  depends_on "bzip2" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
