@@ -1,3 +1,4 @@
+# jam: Build a bottle for Linuxbrew
 class Jam < Formula
   desc "Make-like build tool"
   homepage "https://www.perforce.com/resources/documentation/jam"
