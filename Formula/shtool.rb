@@ -1,3 +1,4 @@
+# shtool: Build a bottle for Linuxbrew
 class Shtool < Formula
   desc "GNU's portable shell tool"
   homepage "https://www.gnu.org/software/shtool/"
