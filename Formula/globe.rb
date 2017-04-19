@@ -1,3 +1,4 @@
+# globe: Build a bottle for Linuxbrew
 class Globe < Formula
   desc "Prints ASCII graphic of currently-lit side of the Earth"
   homepage "https://www.acme.com/software/globe/"
