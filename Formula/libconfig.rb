@@ -25,6 +25,9 @@ class Libconfig < Formula
     depends_on "texinfo" => :build
   end
 
+  depends_on "flex" => :build unless OS.mac?
+  depends_on "texinfo" => :build unless OS.mac?
+
   def install
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
