@@ -1,3 +1,4 @@
+# ginac: Build a bottle for Linuxbrew
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "https://www.ginac.de/"
