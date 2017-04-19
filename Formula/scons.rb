@@ -1,3 +1,4 @@
+# scons: Build a bottle for Linuxbrew
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "http://www.scons.org"
