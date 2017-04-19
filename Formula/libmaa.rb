@@ -1,3 +1,4 @@
+# libmaa: Build a bottle for Linuxbrew
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
   homepage "http://www.dict.org/"
