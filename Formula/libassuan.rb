@@ -1,3 +1,4 @@
+# libassuan: Build a bottle for Linuxbrew
 class Libassuan < Formula
   desc "Assuan IPC Library"
   homepage "https://www.gnupg.org/related_software/libassuan/"
