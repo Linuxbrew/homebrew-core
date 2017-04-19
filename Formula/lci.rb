@@ -1,3 +1,4 @@
+# lci: Build a bottle for Linuxbrew
 class Lci < Formula
   desc "Interpreter for the lambda calculus"
   homepage "https://lci.sourceforge.io/"
