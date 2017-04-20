@@ -1,3 +1,4 @@
+# ocamlbuild: Build a bottle for Linuxbrew
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
