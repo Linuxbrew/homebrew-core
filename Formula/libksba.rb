@@ -1,3 +1,4 @@
+# libksba: Build a bottle for Linuxbrew
 class Libksba < Formula
   desc "X.509 and CMS library"
   homepage "https://www.gnupg.org/related_software/libksba/"
