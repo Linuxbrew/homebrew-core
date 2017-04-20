@@ -1,3 +1,4 @@
+# mpfr: Build a bottle for Linuxbrew
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "http://www.mpfr.org/"
