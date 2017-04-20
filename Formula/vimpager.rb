@@ -1,3 +1,4 @@
+# vimpager: Build a bottle for Linuxbrew
 class Vimpager < Formula
   desc "Use ViM as PAGER"
   homepage "https://github.com/rkitover/vimpager"
