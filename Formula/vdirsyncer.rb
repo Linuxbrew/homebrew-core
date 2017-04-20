@@ -1,3 +1,4 @@
+# vdirsyncer: Build a bottle for Linuxbrew
 class Vdirsyncer < Formula
   include Language::Python::Virtualenv
 
