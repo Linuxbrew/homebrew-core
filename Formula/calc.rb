@@ -1,3 +1,4 @@
+# calc: Build a bottle for Linuxbrew
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
