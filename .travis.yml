@@ -1,5 +1,6 @@
 language: ruby
 rvm: 2.0.0
+dist: precise
 sudo: required
 
 before_install:
