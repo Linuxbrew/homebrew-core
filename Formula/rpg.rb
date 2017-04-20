@@ -1,3 +1,4 @@
+# rpg: Build a bottle for Linuxbrew
 class Rpg < Formula
   desc "Ruby package management for UNIX"
   homepage "https://github.com/rtomayko/rpg"
