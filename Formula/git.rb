@@ -176,6 +176,8 @@ class Git < Formula
   end
 
   test do
+    ohai "#{system "whoami"}"
+
     system bin/"git", "init"
     %w[haunted house].each { |f| touch testpath/f }
 
