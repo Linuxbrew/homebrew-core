@@ -1,3 +1,4 @@
+# sane-backends: Build a bottle for Linuxbrew
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
