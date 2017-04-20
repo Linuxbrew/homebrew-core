@@ -1,3 +1,4 @@
+# infer: Build a bottle for Linuxbrew
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
