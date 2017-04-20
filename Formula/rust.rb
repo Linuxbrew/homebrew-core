@@ -70,7 +70,7 @@ class Rust < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j13" if ENV["CIRCLECI"]
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
     args << "--enable-clang" if ENV.compiler == :clang
