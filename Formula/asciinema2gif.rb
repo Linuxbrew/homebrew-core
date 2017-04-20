@@ -1,3 +1,4 @@
+# asciinema2gif: Build a bottle for Linuxbrew
 class Asciinema2gif < Formula
   desc "Generate animated GIFs from asciinema terminal recordings"
   homepage "https://github.com/tav/asciinema2gif"
