@@ -14,6 +14,7 @@ class Xhyve < Formula
   end
 
   depends_on :macos => :yosemite
+  depends_on :macos
 
   def install
     args = []
