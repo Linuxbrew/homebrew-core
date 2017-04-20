@@ -1,3 +1,4 @@
+# mm-common: Build a bottle for Linuxbrew
 class MmCommon < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
