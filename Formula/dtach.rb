@@ -1,3 +1,4 @@
+# dtach: Build a bottle for Linuxbrew
 class Dtach < Formula
   desc "Emulates the detach feature of screen"
   homepage "https://dtach.sourceforge.io/"
