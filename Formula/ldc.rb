@@ -63,6 +63,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
+        -DBUILD_SHARED_LIBS=ON
         -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
