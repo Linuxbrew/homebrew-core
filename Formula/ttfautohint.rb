@@ -1,3 +1,4 @@
+# ttfautohint: Build a bottle for Linuxbrew
 class Ttfautohint < Formula
   desc "Auto-hinter for TrueType fonts"
   homepage "https://www.freetype.org/ttfautohint"
