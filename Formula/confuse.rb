@@ -1,3 +1,4 @@
+# confuse: Build a bottle for Linuxbrew
 class Confuse < Formula
   desc "Configuration file parser library written in C"
   homepage "https://github.com/martinh/libconfuse"
