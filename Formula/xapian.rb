@@ -1,3 +1,4 @@
+# xapian: Build a bottle for Linuxbrew
 class Xapian < Formula
   desc "C++ search engine library with many bindings"
   homepage "https://xapian.org/"
