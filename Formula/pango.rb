@@ -32,9 +32,6 @@ class Pango < Formula
     depends_on :x11
   end
 
-  # Work around the error: Checking for 'cairo' >= 1.10.0: not found
-  env :std if OS.linux?
-
   def install
     args = %W[
       --disable-dependency-tracking
