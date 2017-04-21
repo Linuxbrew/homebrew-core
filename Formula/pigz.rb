@@ -1,3 +1,4 @@
+# pigz: Build a bottle for Linuxbrew
 class Pigz < Formula
   desc "Parallel gzip"
   homepage "http://www.zlib.net/pigz/"
