@@ -1,3 +1,4 @@
+# libcue: Build a bottle for Linuxbrew
 class Libcue < Formula
   desc "Cue sheet parser library for C"
   homepage "https://github.com/lipnitsk/libcue"
