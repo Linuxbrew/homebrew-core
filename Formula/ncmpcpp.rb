@@ -1,3 +1,4 @@
+# ncmpcpp: Build a bottle for Linuxbrew
 class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "https://rybczak.net/ncmpcpp/"
