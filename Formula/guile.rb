@@ -50,7 +50,15 @@ class Guile < Formula
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]
   end
 
+  def caveats
+    <<-EOS.undent
+    When using a bottle, set the environment variable GUILE_LOAD_PATH to:
+    #{share}/guile/2.0
+    EOS
+  end unless OS.mac?
+
   test do
+    ENV["GUILE_LOAD_PATH"] = "#{share}/guile/2.0" unless OS.mac?
     hello = testpath/"hello.scm"
     hello.write <<-EOS.undent
     (display "Hello World")
