@@ -1,3 +1,4 @@
+# libsass: Build a bottle for Linuxbrew
 class Libsass < Formula
   desc "C implementation of a Sass compiler"
   homepage "https://github.com/sass/libsass"
