@@ -1,3 +1,4 @@
+# yajl: Build a bottle for Linuxbrew
 class Yajl < Formula
   desc "Yet Another JSON Library"
   homepage "https://lloyd.github.io/yajl/"
