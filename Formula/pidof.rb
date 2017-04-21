@@ -15,6 +15,9 @@ class Pidof < Formula
     sha256 "ce5f3ea346e86cd98880ece0e457a5febfd48165ba947152bea9a3c459f41b3f" => :lion
   end
 
+  # Hard dependency on sys/proc.h, which isn't available on Linux
+  depends_on :macos
+
   def install
     system "make", "all", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     man1.install gzip("pidof.1")
