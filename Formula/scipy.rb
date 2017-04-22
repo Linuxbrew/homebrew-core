@@ -14,13 +14,17 @@ class Scipy < Formula
 
   option "without-python", "Build without python2 support"
 
-  depends_on "swig" => :build
+  depends_on :fortran
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
-  depends_on :fortran
+  depends_on "swig" => :build
+
+  option "with-openblas", "Use OpenBLAS instead of Apple's Accelerate framework"
+  depends_on "homebrew/science/openblas" => (OS.mac? ? :optional : :recommended)
 
   numpy_options = []
   numpy_options << "with-python3" if build.with? "python3"
+  numpy_options << "with-openblas" if build.with? "openblas"
   depends_on "numpy" => numpy_options
   depends_on "homebrew/science/openblas" => :recommended unless OS.mac?
 
@@ -28,17 +32,43 @@ class Scipy < Formula
 
   # https://github.com/Homebrew/homebrew-python/issues/110
   # There are ongoing problems with gcc+accelerate.
-  fails_with :gcc
+  fails_with :gcc if OS.mac? && build.without?("openblas")
 
   # Avoid the error: undefined reference to `main'
   env :super if OS.linux?
 
   def install
+    # https://github.com/numpy/numpy/issues/4203
+    # https://github.com/Homebrew/homebrew-python/issues/209
+    # https://github.com/Homebrew/homebrew-python/issues/233
+    if OS.linux?
+      ENV.append "FFLAGS", "-fPIC"
+      ENV.append "LDFLAGS", "-shared"
+    end
+
     config = <<-EOS.undent
       [DEFAULT]
       library_dirs = #{HOMEBREW_PREFIX}/lib
       include_dirs = #{HOMEBREW_PREFIX}/include
     EOS
+    if build.with? "openblas"
+      # For maintainers:
+      # Check which BLAS/LAPACK numpy actually uses via:
+      # xcrun otool -L $(brew --prefix)/Cellar/scipy/<version>/lib/python2.7/site-packages/scipy/linalg/_flinalg.so
+      # or the other .so files.
+      openblas_dir = Formula["openblas"].opt_prefix
+      # Setting ATLAS to None is important to prevent numpy from always
+      # linking against Accelerate.framework.
+      ENV["ATLAS"] = "None"
+      ENV["BLAS"] = ENV["LAPACK"] = "#{openblas_dir}/lib/libopenblas.dylib"
+
+      config << <<-EOS.undent
+        [openblas]
+        libraries = openblas
+        library_dirs = #{openblas_dir}/lib
+        include_dirs = #{openblas_dir}/include
+      EOS
+    end
 
     Pathname("site.cfg").write config
 

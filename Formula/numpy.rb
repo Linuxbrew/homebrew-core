@@ -22,10 +22,12 @@ class Numpy < Formula
   end
 
   option "without-python", "Build without python2 support"
+  option "with-openblas", "Use OpenBLAS instead of Apple's Accelerate Framework"
 
   depends_on :fortran => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
+  depends_on "homebrew/science/openblas" => (OS.mac? ? :optional : :recommended)
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -33,6 +35,29 @@ class Numpy < Formula
   end
 
   def install
+    # https://github.com/numpy/numpy/issues/4203
+    # https://github.com/Homebrew/homebrew-python/issues/209
+    if OS.linux?
+      ENV.append "LDFLAGS", "-shared"
+      ENV.append "FFLAGS", "-fPIC"
+    end
+
+    if build.with? "openblas"
+      openblas_dir = Formula["openblas"].opt_prefix
+      # Setting ATLAS to None is important to prevent numpy from always
+      # linking against Accelerate.framework.
+      ENV["ATLAS"] = "None"
+      ENV["BLAS"] = ENV["LAPACK"] = "#{openblas_dir}/lib/libopenblas.dylib"
+
+      config = <<-EOS.undent
+        [openblas]
+        libraries = openblas
+        library_dirs = #{openblas_dir}/lib
+        include_dirs = #{openblas_dir}/include
+      EOS
+      (buildpath/"site.cfg").write config
+    end
+
     Language::Python.each_python(build) do |python, version|
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
