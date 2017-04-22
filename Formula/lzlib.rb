@@ -1,3 +1,4 @@
+# lzlib: Build a bottle for Linuxbrew
 class Lzlib < Formula
   desc "Data compression library"
   homepage "http://www.nongnu.org/lzip/lzlib.html"
