@@ -1,3 +1,4 @@
+# leiningen: Build a bottle for Linuxbrew
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
