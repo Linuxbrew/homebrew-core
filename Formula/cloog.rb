@@ -1,3 +1,4 @@
+# cloog: Build a bottle for Linuxbrew
 class Cloog < Formula
   desc "Generate code for scanning Z-polyhedra"
   homepage "https://www.bastoul.net/cloog/"
