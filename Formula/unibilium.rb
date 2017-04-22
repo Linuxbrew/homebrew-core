@@ -1,3 +1,4 @@
+# unibilium: Build a bottle for Linuxbrew
 class Unibilium < Formula
   desc "Very basic terminfo library."
   homepage "https://github.com/mauke/unibilium"
