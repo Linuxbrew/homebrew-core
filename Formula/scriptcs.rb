@@ -1,3 +1,4 @@
+# scriptcs: Build a bottle for Linuxbrew
 class Scriptcs < Formula
   desc "Tools to write and execute C#"
   homepage "https://github.com/scriptcs/scriptcs"
