@@ -1,3 +1,4 @@
+# gd: Build a bottle for Linuxbrew
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
