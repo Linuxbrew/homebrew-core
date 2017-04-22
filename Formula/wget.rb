@@ -1,3 +1,4 @@
+# wget: Build a bottle for Linuxbrew
 # NOTE: Configure will fail if using awk 20110810 from dupes.
 # Upstream issue: https://savannah.gnu.org/bugs/index.php?37063
 class Wget < Formula
