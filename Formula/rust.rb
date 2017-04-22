@@ -86,6 +86,11 @@ class Rust < Formula
 
     resource("cargobootstrap").stage do
       system "./install.sh", "--prefix=#{buildpath}/cargobootstrap"
+      if OS.linux? and Formula["glibc"].installed?
+        keg = Keg.new(prefix)
+        file = Pathname.new('#{buildpath}/cargobootstrap')
+        keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s)
+      end
     end
     ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
 
