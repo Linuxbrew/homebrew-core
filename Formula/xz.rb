@@ -1,3 +1,4 @@
+# xz: Build a bottle for Linuxbrew
 # Upstream project has requested we use a mirror as the main URL
 # https://github.com/Homebrew/homebrew/pull/21419
 class Xz < Formula
