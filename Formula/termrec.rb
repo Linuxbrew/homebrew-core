@@ -1,3 +1,4 @@
+# termrec: Build a bottle for Linuxbrew
 class Termrec < Formula
   desc "Record \"videos\" of terminal output"
   homepage "https://angband.pl/termrec.html"
