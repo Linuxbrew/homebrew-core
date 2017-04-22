@@ -55,6 +55,7 @@ before_install:
   - brew tap linuxbrew/xorg
 
 script:
+  - brew install gcc
   - brew test-bot
 
 notifications:
