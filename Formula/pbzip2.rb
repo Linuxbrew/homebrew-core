@@ -1,3 +1,4 @@
+# pbzip2: Build a bottle for Linuxbrew
 class Pbzip2 < Formula
   desc "Parallel bzip2"
   homepage "http://compression.ca/pbzip2/"
