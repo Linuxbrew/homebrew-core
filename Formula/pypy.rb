@@ -1,3 +1,4 @@
+# pypy: Build a bottle for Linuxbrew
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
