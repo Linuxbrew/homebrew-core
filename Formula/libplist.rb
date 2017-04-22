@@ -1,3 +1,4 @@
+# libplist: Build a bottle for Linuxbrew
 class Libplist < Formula
   desc "Library for Apple Binary- and XML-Property Lists"
   homepage "http://www.libimobiledevice.org/"
