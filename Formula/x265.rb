@@ -1,3 +1,4 @@
+# x265: Build a bottle for Linuxbrew
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "http://x265.org"
