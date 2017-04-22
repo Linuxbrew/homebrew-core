@@ -1,3 +1,4 @@
+# check: Build a bottle for Linuxbrew
 class Check < Formula
   desc "C unit testing framework"
   homepage "https://libcheck.github.io/check/"
