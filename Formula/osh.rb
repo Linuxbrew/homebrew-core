@@ -1,3 +1,4 @@
+# osh: Build a bottle for Linuxbrew
 class Osh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "https://v6shell.org/"
