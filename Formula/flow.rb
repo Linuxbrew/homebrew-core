@@ -4,6 +4,7 @@ class Flow < Formula
   url "https://github.com/facebook/flow/archive/v0.44.1.tar.gz"
   sha256 "2dbe1c863ea8c594dfde8e2924b32033336f31f039d61ab07e276467195c2028"
   head "https://github.com/facebook/flow.git"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,9 @@ class Flow < Formula
 
   depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
-  depends_on "elfutils" unless OS.mac?
+  depends_on "libelf" unless OS.mac?
+
+  env :super if OS.linux?
 
   def install
     system "make"
