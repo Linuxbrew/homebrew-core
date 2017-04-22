@@ -1,3 +1,4 @@
+# eigen@3.2: Build a bottle for Linuxbrew
 class EigenAT32 < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
