@@ -1,3 +1,4 @@
+# libsigsegv: Build a bottle for Linuxbrew
 class Libsigsegv < Formula
   desc "Library for handling page faults in user mode"
   homepage "https://www.gnu.org/software/libsigsegv/"
