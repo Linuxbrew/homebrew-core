@@ -1,3 +1,4 @@
+# colortail: Build a bottle for Linuxbrew
 class Colortail < Formula
   desc "Like tail(1), but with various colors for specified output"
   homepage "https://github.com/joakim666/colortail"
