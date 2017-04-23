@@ -1,3 +1,4 @@
+# bind: Build a bottle for Linuxbrew
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
