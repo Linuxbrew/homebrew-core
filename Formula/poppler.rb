@@ -1,3 +1,4 @@
+# poppler: Build a bottle for Linuxbrew
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
