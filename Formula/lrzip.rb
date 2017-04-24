@@ -1,3 +1,4 @@
+# lrzip: Build a bottle for Linuxbrew
 class Lrzip < Formula
   desc "Compression program with a very high compression ratio"
   homepage "http://lrzip.kolivas.org"
