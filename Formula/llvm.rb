@@ -80,10 +80,11 @@ class Llvm < Formula
   end
 
   bottle do
-    cellar :any
+    cellar :any if OS.mac?
     sha256 "c9b767b585dea0a0941dc3f65fd06f85af51c16528f3d2cda62e123a4c30dfa7" => :sierra
     sha256 "fe20c0b3987743371644a701b23e19f7b2c5626549a821f206f1222c17e91f2c" => :el_capitan
     sha256 "52ecbfa6487ac0615bea0a9865461183c070ea275594bdcc0c17254718df8d80" => :yosemite
+    sha256 "87fcce227ce03bb4d4219a474ea11d87e5ce8524a387c706c0f3594cfe32131c" => :x86_64_linux
   end
 
   head do
