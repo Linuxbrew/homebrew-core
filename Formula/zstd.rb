@@ -14,6 +14,7 @@ class Zstd < Formula
   option "without-pzstd", "Build without parallel (de-)compression tool"
 
   depends_on "cmake" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
