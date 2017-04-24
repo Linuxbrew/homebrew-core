@@ -35,7 +35,7 @@ class Mkvtoolnix < Formula
 
   # On Mavericks, the bottle (without c++11) can be used
   # because mkvtoolnix is linked against libc++ by default
-  if MacOS.version >= "10.9"
+  if MacOS.version >= "10.9" || !OS.mac?
     depends_on "boost"
     depends_on "libmatroska"
     depends_on "libebml"
@@ -44,6 +44,8 @@ class Mkvtoolnix < Formula
     depends_on "libmatroska" => "c++11"
     depends_on "libebml" => "c++11"
   end
+
+  depends_on "libxslt" unless OS.mac? # for xsltproc
 
   needs :cxx11
 
