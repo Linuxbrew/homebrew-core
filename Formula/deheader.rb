@@ -14,6 +14,7 @@ class Deheader < Formula
   end
 
   depends_on "xmlto" => :build
+  depends_on "libarchive" => :build unless OS.mac?
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -21,9 +22,10 @@ class Deheader < Formula
     # Remove for > 1.6
     # Fix "deheader-1.6/deheader.1: Can't create 'deheader-1.6/deheader.1'"
     # See https://gitlab.com/esr/deheader/commit/ea5d8d4
-    system "/usr/bin/tar", "-xvqf", "deheader-1.6.tar.gz",
+    tar = OS.mac? ? "/usr/bin/tar" : Formula["libarchive"].bin/"bsdtar"
+    system tar, "-xvqf", "deheader-1.6.tar.gz",
                            "deheader-1.6/deheader.1"
-    system "/usr/bin/tar", "-xvf", "deheader-1.6.tar.gz", "--exclude",
+    system tar, "-xvf", "deheader-1.6.tar.gz", "--exclude",
                            "deheader-1.6/deheader.1"
     cd "deheader-1.6" do
       system "make"
