@@ -10,6 +10,7 @@ class Procps < Formula
     sha256 "96622dce78d108700b6a7b55c745eba71f923da26ed8d7466eb6109b02234c62" => :x86_64_linux
   end
 
+  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
