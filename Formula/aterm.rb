@@ -1,3 +1,4 @@
+# aterm: Build a bottle for Linuxbrew
 class Aterm < Formula
   desc "AfterStep terminal emulator"
   homepage "http://strategoxt.org/Tools/ATermFormat"
