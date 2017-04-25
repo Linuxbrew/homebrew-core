@@ -1,3 +1,4 @@
+# apollo: Build a bottle for Linuxbrew
 class Apollo < Formula
   desc "Multi-protocol messaging broker based on ActiveMQ"
   homepage "https://activemq.apache.org/apollo"
