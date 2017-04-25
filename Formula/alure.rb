@@ -1,3 +1,4 @@
+# alure: Build a bottle for Linuxbrew
 class Alure < Formula
   desc "Manage common tasks with OpenAL applications"
   homepage "http://kcat.strangesoft.net/alure.html"
