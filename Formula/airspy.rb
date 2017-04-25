@@ -1,3 +1,4 @@
+# airspy: Build a bottle for Linuxbrew
 class Airspy < Formula
   desc "The usemode driver and associated tools for airspy"
   homepage "http://www.airspy.com"
