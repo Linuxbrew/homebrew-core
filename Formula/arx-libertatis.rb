@@ -1,3 +1,4 @@
+# arx-libertatis: Build a bottle for Linuxbrew
 class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
