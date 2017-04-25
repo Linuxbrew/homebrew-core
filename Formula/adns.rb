@@ -1,3 +1,4 @@
+# adns: Build a bottle for Linuxbrew
 class Adns < Formula
   desc "C/C++ resolver library and DNS resolver utilities"
   homepage "http://www.chiark.greenend.org.uk/~ian/adns/"
