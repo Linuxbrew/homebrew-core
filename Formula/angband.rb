@@ -1,3 +1,4 @@
+# angband: Build a bottle for Linuxbrew
 class Angband < Formula
   desc "Dungeon exploration game"
   homepage "http://rephial.org/"
