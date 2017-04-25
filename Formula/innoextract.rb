@@ -1,3 +1,4 @@
+# innoextract: Build a bottle for Linuxbrew
 class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
