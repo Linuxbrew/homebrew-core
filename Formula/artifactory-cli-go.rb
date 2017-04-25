@@ -1,3 +1,4 @@
+# artifactory-cli-go: Build a bottle for Linuxbrew
 class ArtifactoryCliGo < Formula
   desc "Provides a command-line interface for Artifactory."
   homepage "https://github.com/JFrogDev/artifactory-cli-go"
