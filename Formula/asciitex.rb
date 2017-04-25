@@ -1,3 +1,4 @@
+# asciitex: Build a bottle for Linuxbrew
 class Asciitex < Formula
   desc "Generate ASCII-art representations of mathematical equations"
   homepage "https://asciitex.sourceforge.io"
