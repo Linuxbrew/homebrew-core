@@ -1,3 +1,4 @@
+# acpica: Build a bottle for Linuxbrew
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
   homepage "https://www.acpica.org/"
