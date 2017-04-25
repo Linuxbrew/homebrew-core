@@ -1,3 +1,4 @@
+# apcupsd: Build a bottle for Linuxbrew
 class Apcupsd < Formula
   desc "Daemon for controlling APC UPSes"
   homepage "http://www.apcupsd.org"
