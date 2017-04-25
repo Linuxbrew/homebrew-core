@@ -1,3 +1,4 @@
+# physfs: Build a bottle for Linuxbrew
 class Physfs < Formula
   desc "Library to provide abstract access to various archives"
   homepage "https://icculus.org/physfs/"
