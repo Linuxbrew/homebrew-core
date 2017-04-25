@@ -1,3 +1,4 @@
+# argon2: Build a bottle for Linuxbrew
 class Argon2 < Formula
   desc "Password hashing library and CLI utility"
   homepage "https://github.com/P-H-C/phc-winner-argon2"
