@@ -1,3 +1,4 @@
+# aws-apigateway-importer: Build a bottle for Linuxbrew
 class AwsApigatewayImporter < Formula
   desc "AWS API Gateway Importer"
   homepage "https://github.com/awslabs/aws-apigateway-importer"
