@@ -1,3 +1,4 @@
+# afio: Build a bottle for Linuxbrew
 class Afio < Formula
   desc "Creates cpio-format archives"
   homepage "http://members.chello.nl/~k.holtman/afio.html"
