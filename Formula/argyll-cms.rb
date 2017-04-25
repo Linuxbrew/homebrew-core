@@ -1,3 +1,4 @@
+# argyll-cms: Build a bottle for Linuxbrew
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
