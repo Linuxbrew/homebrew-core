@@ -1,3 +1,4 @@
+# aften: Build a bottle for Linuxbrew
 class Aften < Formula
   desc "Audio encoder which generates ATSC A/52 compressed audio streams"
   homepage "https://aften.sourceforge.io/"
