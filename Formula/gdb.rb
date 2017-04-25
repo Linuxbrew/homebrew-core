@@ -27,6 +27,7 @@ class Gdb < Formula
   end
 
   deprecated_option "with-brewed-python" => "with-python"
+  deprecated_option "with-guile" => "with-guile@2.0"
 
   if OS.mac?
     option "with-python", "Use the Homebrew version of Python; by default system Python is used"
@@ -38,7 +39,7 @@ class Gdb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python" => OS.mac? ? :optional : :recommended
-  depends_on "guile" => :optional
+  depends_on "guile@2.0" => :optional
   unless OS.mac?
     depends_on "texinfo" => :build
     depends_on "ncurses"
@@ -66,7 +67,7 @@ class Gdb < Formula
       "--disable-dependency-tracking",
     ]
 
-    args << "--with-guile" if build.with? "guile"
+    args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
 
     if build.with? "python"
