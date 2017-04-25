@@ -1,3 +1,4 @@
+# argus: Build a bottle for Linuxbrew
 class Argus < Formula
   desc "Audit Record Generation and Utilization System server"
   homepage "https://qosient.com/argus/"
