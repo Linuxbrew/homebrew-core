@@ -1,3 +1,4 @@
+# aiccu: Build a bottle for Linuxbrew
 class Aiccu < Formula
   desc "Automatic IPv6 Connectivity Client Utility"
   homepage "https://www.sixxs.net/tools/aiccu/"
