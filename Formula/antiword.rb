@@ -1,3 +1,4 @@
+# antiword: Build a bottle for Linuxbrew
 class Antiword < Formula
   desc "Utility to read Word (.doc) files"
   homepage "http://www.winfield.demon.nl/"
