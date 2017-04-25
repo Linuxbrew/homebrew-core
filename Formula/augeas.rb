@@ -1,3 +1,4 @@
+# augeas: Build a bottle for Linuxbrew
 class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "http://augeas.net"
