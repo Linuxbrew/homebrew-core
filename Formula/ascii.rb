@@ -1,3 +1,4 @@
+# ascii: Build a bottle for Linuxbrew
 class Ascii < Formula
   desc "List ASCII idiomatic names and octal/decimal code-point forms"
   homepage "http://www.catb.org/~esr/ascii/"
