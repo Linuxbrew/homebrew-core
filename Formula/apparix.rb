@@ -1,3 +1,4 @@
+# apparix: Build a bottle for Linuxbrew
 class Apparix < Formula
   desc "File system navigation via bookmarking directories"
   homepage "https://micans.org/apparix/"
