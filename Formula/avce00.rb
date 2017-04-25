@@ -1,3 +1,4 @@
+# avce00: Build a bottle for Linuxbrew
 class Avce00 < Formula
   desc "Make Arc/Info (binary) Vector Coverages appear as E00"
   homepage "http://avce00.maptools.org/avce00/index.html"
