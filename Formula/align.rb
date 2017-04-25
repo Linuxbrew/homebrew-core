@@ -1,3 +1,4 @@
+# align: Build a bottle for Linuxbrew
 class Align < Formula
   desc "Text column alignment filter"
   homepage "https://www.cs.indiana.edu/~kinzler/align/"
