@@ -1,3 +1,4 @@
+# arangodb: Build a bottle for Linuxbrew
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database."
   homepage "https://www.arangodb.com/"
