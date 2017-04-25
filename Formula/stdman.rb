@@ -1,3 +1,4 @@
+# stdman: Build a bottle for Linuxbrew
 class Stdman < Formula
   desc "Formatted C++11/14/17 stdlib man pages from cppreference.com"
   homepage "https://github.com/jeaye/stdman"
