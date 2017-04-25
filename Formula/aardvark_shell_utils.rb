@@ -1,3 +1,4 @@
+# aardvark_shell_utils: Build a bottle for Linuxbrew
 class AardvarkShellUtils < Formula
   desc "Utilities to aid shell scripts or command-line users"
   homepage "http://www.laffeycomputer.com/shellutils.html"
