@@ -1,3 +1,4 @@
+# algernon: Build a bottle for Linuxbrew
 class Algernon < Formula
   desc "HTTP/2 web server with built-in support for Lua and templates"
   homepage "http://algernon.roboticoverlords.org/"
