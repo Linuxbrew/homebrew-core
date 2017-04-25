@@ -1,3 +1,4 @@
+# abduco: Build a bottle for Linuxbrew
 class Abduco < Formula
   desc "Provides session management: i.e. separate programs from terminals"
   homepage "http://www.brain-dump.org/projects/abduco"
