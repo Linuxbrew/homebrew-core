@@ -1,3 +1,4 @@
+# arx: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Arx < Formula
