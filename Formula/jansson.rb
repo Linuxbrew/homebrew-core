@@ -1,3 +1,4 @@
+# jansson: Build a bottle for Linuxbrew
 class Jansson < Formula
   desc "C library for encoding, decoding, and manipulating JSON"
   homepage "http://www.digip.org/jansson/"
