@@ -1,3 +1,4 @@
+# cdrtools: Build a bottle for Linuxbrew
 class Cdrtools < Formula
   desc "CD/DVD/Blu-ray premastering and recording software"
   homepage "http://cdrecord.org/"
