@@ -1,3 +1,4 @@
+# archi-steam-farm: Build a bottle for Linuxbrew
 class ArchiSteamFarm < Formula
   desc "ASF is a C# application that allows you to farm steam cards"
   homepage "https://github.com/JustArchi/ArchiSteamFarm"
