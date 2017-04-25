@@ -29,6 +29,8 @@ dependencies:
         libgdbm-dev
         libicu-dev
         libidn11-dev
+        libjack-jackd2-0
+        libjack0
         libjasper-dev
         libjbig-dev
         libkrb5-dev
