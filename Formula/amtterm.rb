@@ -1,3 +1,4 @@
+# amtterm: Build a bottle for Linuxbrew
 class Amtterm < Formula
   desc "Serial-over-LAN (sol) client for Intel AMT"
   homepage "https://www.kraxel.org/blog/linux/amtterm/"
