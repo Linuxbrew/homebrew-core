@@ -1,3 +1,4 @@
+# apt-dater: Build a bottle for Linuxbrew
 class AptDater < Formula
   desc "Manage package updates on remote hosts using SSH"
   homepage "https://github.com/DE-IBH/apt-dater"
