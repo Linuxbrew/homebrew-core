@@ -1,3 +1,4 @@
+# cd-discid: Build a bottle for Linuxbrew
 class CdDiscid < Formula
   desc "Read CD and get CDDB discid information"
   homepage "http://linukz.org/cd-discid.shtml"
