@@ -1,3 +1,4 @@
+# audiofile: Build a bottle for Linuxbrew
 class Audiofile < Formula
   desc "Reads and writes many common audio file formats"
   homepage "https://audiofile.68k.org/"
