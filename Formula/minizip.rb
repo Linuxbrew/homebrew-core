@@ -15,6 +15,7 @@ class Minizip < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
