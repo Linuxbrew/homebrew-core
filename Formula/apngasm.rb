@@ -1,3 +1,4 @@
+# apngasm: Build a bottle for Linuxbrew
 class Apngasm < Formula
   desc "Next generation of apngasm, the APNG assembler"
   homepage "https://github.com/apngasm/apngasm"
