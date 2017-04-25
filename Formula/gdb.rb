@@ -1,3 +1,4 @@
+# gdb: Build a bottle for Linuxbrew
 class UniversalBrewedPython < Requirement
   satisfy { !OS.mac? || archs_for_command("python").universal? }
 
