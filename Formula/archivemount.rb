@@ -1,3 +1,4 @@
+# archivemount: Build a bottle for Linuxbrew
 class Archivemount < Formula
   desc "File system for accessing archives using libarchive"
   homepage "http://www.cybernoia.de/software/archivemount.html"
