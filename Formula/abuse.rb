@@ -1,3 +1,4 @@
+# abuse: Build a bottle for Linuxbrew
 class Abuse < Formula
   desc "dark 2D side-scrolling platform game"
   homepage "http://abuse.zoy.org/"
