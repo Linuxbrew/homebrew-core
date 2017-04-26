@@ -1,3 +1,4 @@
+# httrack: Build a bottle for Linuxbrew
 class Httrack < Formula
   desc "Website copier/offline browser"
   homepage "https://www.httrack.com/"
