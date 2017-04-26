@@ -35,6 +35,6 @@ class Physfs < Formula
       addarchive test.zip 1
       cat test.txt
       EOS
-    assert_match /Successful\.\nhomebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
+    assert_match /Successful\.\n#{"> cat test.txt\n" unless OS.mac?}homebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
   end
 end
