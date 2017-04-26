@@ -1,3 +1,4 @@
+# archivemail: Build a bottle for Linuxbrew
 class Archivemail < Formula
   desc "Tool for archiving and compressing old email in mailboxes"
   homepage "https://archivemail.sourceforge.io/"
