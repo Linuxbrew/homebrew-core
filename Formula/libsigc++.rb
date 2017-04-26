@@ -14,6 +14,8 @@ class Libsigcxx < Formula
 
   needs :cxx11
 
+  depends_on "m4" => :build unless OS.mac?
+
   def install
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
