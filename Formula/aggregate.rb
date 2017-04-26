@@ -1,3 +1,4 @@
+# aggregate: Build a bottle for Linuxbrew
 class Aggregate < Formula
   desc "Optimizes lists of prefixes to reduce list lengths"
   # Note - Freecode is no longer being updated.
