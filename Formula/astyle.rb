@@ -1,3 +1,4 @@
+# astyle: Build a bottle for Linuxbrew
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.io/"
