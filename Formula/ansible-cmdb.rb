@@ -1,3 +1,4 @@
+# ansible-cmdb: Build a bottle for Linuxbrew
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
