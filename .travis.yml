@@ -4,15 +4,6 @@ rvm: 2.0.0
 sudo: required
 dist: trusty
 
-addons:
-  apt_packages:
-    - csh
-    - cython
-    - python-astropy
-    - python-nose
-    - python-pip
-    - python-sphinx
-
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
@@ -64,11 +55,7 @@ before_install:
   - brew tap homebrew/science
   - brew tap linuxbrew/xorg
 
-install:
-  - pip install pysam
-
 script:
-  - brew tap linuxbrew/xorg
   - brew test-bot
 
 notifications:
