@@ -1,3 +1,4 @@
+# apache-forrest: Build a bottle for Linuxbrew
 class ApacheForrest < Formula
   desc "Publishing framework providing multiple output formats"
   homepage "https://forrest.apache.org/"
