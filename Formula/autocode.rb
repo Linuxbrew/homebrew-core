@@ -1,3 +1,4 @@
+# autocode: Build a bottle for Linuxbrew
 require "language/node"
 
 class Autocode < Formula
