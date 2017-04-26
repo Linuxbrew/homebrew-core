@@ -1,3 +1,4 @@
+# agedu: Build a bottle for Linuxbrew
 class Agedu < Formula
   desc "Unix utility for tracking down wasted disk space"
   homepage "http://www.chiark.greenend.org.uk/~sgtatham/agedu/"
