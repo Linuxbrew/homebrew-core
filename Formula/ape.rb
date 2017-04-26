@@ -1,3 +1,4 @@
+# ape: Build a bottle for Linuxbrew
 class Ape < Formula
   desc "Ajax Push Engine"
   homepage "http://www.ape-project.org/"
