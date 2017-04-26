@@ -18,6 +18,7 @@ class Awslogs < Formula
   unless OS.mac?
     depends_on "zlib"
     depends_on "openssl"
+    depends_on :python
   end
 
   resource "boto3" do
