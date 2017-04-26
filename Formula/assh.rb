@@ -1,3 +1,4 @@
+# assh: Build a bottle for Linuxbrew
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://github.com/moul/advanced-ssh-config"
