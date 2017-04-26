@@ -43,6 +43,7 @@ dependencies:
         llvm-3.4
         mysql-common
         zlib1g-dev
+        libpq-dev
     - sudo ln -sf ruby2.0 /usr/bin/ruby
     - sudo ln -sf gem2.0 /usr/bin/gem
     - sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so

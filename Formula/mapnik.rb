@@ -24,8 +24,12 @@ class Mapnik < Formula
   depends_on "gdal" => :optional
   depends_on "postgresql" => :optional
   depends_on "cairo" => :optional
+  unless OS.mac?
+    depends_on "sqlite"
+    depends_on "zlib"
+  end
 
-  if MacOS.version < :mavericks
+  if OS.mac? && MacOS.version < :mavericks
     depends_on "boost" => "c++11"
   else
     depends_on "boost"
@@ -34,7 +38,12 @@ class Mapnik < Formula
   needs :cxx11
 
   def install
-    ENV.cxx11
+    # Fails with GCC 5. See https://github.com/Linuxbrew/homebrew-core/issues/1195
+    ENV.cxx11 if OS.mac?
+
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["HOMEBREW_MAKE_JOBS"] = "2" if ENV["CIRCLECI"]
+
     icu = Formula["icu4c"].opt_prefix
     boost = Formula["boost"].opt_prefix
     proj = Formula["proj"].opt_prefix
