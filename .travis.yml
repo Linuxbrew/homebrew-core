@@ -1,6 +1,17 @@
 language: ruby
+os: linux
 rvm: 2.0.0
 sudo: required
+dist: trusty
+
+addons:
+  apt_packages:
+    - csh
+    - cython
+    - python-astropy
+    - python-nose
+    - python-pip
+    - python-sphinx
 
 before_install:
   - sudo apt-get -qq update
@@ -26,9 +37,6 @@ before_install:
       llvm-3.4
       mysql-common
       zlib1g-dev
-  # Fix error: Incorrect file permissions (664)
-  - chmod 0644 Formula/*.rb
-  - umask 022
   - git config --global user.name "Travis CI"
   - git config --global user.email "travis-ci@linuxbrew.sh"
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
@@ -39,22 +47,28 @@ before_install:
   - sudo mkdir $HOME
   - sudo chown "$USER:" $HOME
   - LINUXBREW=$HOME/.linuxbrew
-  - git clone https://github.com/Linuxbrew/brew $LINUXBREW
+  - git clone --depth=1 https://github.com/Linuxbrew/brew.git "$LINUXBREW"
   - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
-  - TRS="$(brew --repo $TRAVIS_REPO_SLUG)"
-  - rm -rf "$TRS"
-  - mkdir -p "$TRS"
-  - rsync -az "$TRAVIS_BUILD_DIR/" "$TRS"
-  - export TRAVIS_BUILD_DIR="$TRS"
-  - cd "$(brew --repo)"
+  - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
+  - rm -rf "$HOMEBREW_TAP_DIR"
+  - mkdir -p "$(dirname "$HOMEBREW_TAP_DIR")"
+  - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+  # Fix error: Incorrect file permissions (664)
+  - chmod 0644 Formula/*.rb
+  - umask 022
   - export HOMEBREW_DEVELOPER=1
   - export HOMEBREW_NO_AUTO_UPDATE=1
   - export HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
+  - env | grep TRAVIS | tee /tmp/travis.env
   - ulimit -n 1024
   - brew tap homebrew/science
   - brew tap linuxbrew/xorg
 
+install:
+  - pip install pysam
+
 script:
+  - brew tap linuxbrew/xorg
   - brew test-bot
 
 notifications:
