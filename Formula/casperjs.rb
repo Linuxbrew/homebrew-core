@@ -1,3 +1,4 @@
+# casperjs: Build a bottle for Linuxbrew
 class Casperjs < Formula
   desc "Navigation scripting and testing tool for PhantomJS"
   homepage "http://www.casperjs.org/"
