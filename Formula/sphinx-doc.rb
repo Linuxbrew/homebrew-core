@@ -17,7 +17,7 @@ class SphinxDoc < Formula
     Users are advised to use `pip` to install sphinx-doc.
   EOS
 
-  depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
+  depends_on :python
 
   resource "alabaster" do
     url "https://files.pythonhosted.org/packages/d0/a5/e3a9ad3ee86aceeff71908ae562580643b955ea1b1d4f08ed6f7e8396bd7/alabaster-0.7.10.tar.gz"
