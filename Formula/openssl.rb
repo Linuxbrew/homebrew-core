@@ -30,9 +30,8 @@ class Openssl < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  if OS.mac?
-    depends_on "makedepend" => :build
-  else
+  depends_on "makedepend" => :build
+  unless OS.mac?
     depends_on "zlib"
     depends_on :perl => ["5.0", :build]
   end
