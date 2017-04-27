@@ -1,3 +1,4 @@
+# openssl@1.1: Build a bottle for Linuxbrew
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
