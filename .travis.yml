@@ -10,6 +10,7 @@ before_install:
   - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
       libblas-dev
       libbz2-dev
+      libexpat1-dev
       libfreetype6-dev
       libgdbm-dev
       libicu-dev
