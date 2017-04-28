@@ -23,7 +23,7 @@ class Mongodb < Formula
 
   if OS.linux?
     depends_on "gcc" # Fails with GCC < 5.3
-    depends_on "homebrew/dupes/libpcap" => :build
+    depends_on "libpcap" => :build
     depends_on "pkg-config" => :build
   end
 
