@@ -17,6 +17,7 @@ class Assimp < Formula
 
   depends_on "cmake" => :build
   depends_on "boost" => [:recommended, :build]
+  depends_on "zlib" unless OS.mac?
 
   def install
     args = std_cmake_args
