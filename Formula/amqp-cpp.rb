@@ -37,7 +37,7 @@ class AmqpCpp < Formula
       }
       EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
-                    "test", "-lc++", "-lamqp-cpp"
+                    "test", *("-lc++" if OS.mac?), "-lamqp-cpp"
     system "./test"
   end
 end
