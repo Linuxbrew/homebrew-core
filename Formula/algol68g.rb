@@ -11,6 +11,7 @@ class Algol68g < Formula
   end
 
   depends_on "gsl" => :optional
+  depends_on "postgresql" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
