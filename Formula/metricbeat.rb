@@ -1,16 +1,16 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services."
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.3.1.tar.gz"
-  sha256 "392c647fd3a4fd40b70d911950f38c0fd65a3ad4bb8548fcd0afd77c01d31d9e"
+  url "https://github.com/elastic/beats/archive/v5.3.2.tar.gz"
+  sha256 "e8c765531276e4731c5148bd99fad1efc799f3ec68e1d32a2fe116995f2b9e2f"
 
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c17d765b8ae9523f19a82a722a63f3f2753a2d80e355e89721ba4463c7d21d3" => :sierra
-    sha256 "fd9d98d67aa69becd06b8bbddc7d97f53c1a7cf00d195f96e7df7d51d2e7fe91" => :el_capitan
-    sha256 "aab5550bfdb9713464346ebdd63659aedf0edf86bec246c1b85584a77b280062" => :yosemite
+    sha256 "0226cb9a84ea8b26d617773116c9e5188a0d61f22def9e851a309bf523befd67" => :sierra
+    sha256 "42687da880ec269f3dc46faa739c5b9364659026c122872d32a1d08025f85cb1" => :el_capitan
+    sha256 "859afe67192209fcaad278a28c8e31f592b50b7b06925eaded6dd6daaee2b567" => :yosemite
   end
 
   depends_on "go" => :build
