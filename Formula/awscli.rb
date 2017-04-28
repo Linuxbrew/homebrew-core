@@ -18,6 +18,8 @@ class Awscli < Formula
   # https://github.com/Homebrew/homebrew/pull/37240
   depends_on :python if MacOS.version <= :lion
 
+  depends_on "libyaml" unless OS.mac?
+
   def install
     venv = virtualenv_create(libexec)
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
