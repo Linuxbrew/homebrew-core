@@ -35,6 +35,7 @@ dependencies:
         liblzma-dev
         libncurses5-dev
         libpcre3-dev
+        libpq-dev
         libtinfo-dev
         libwebp-dev
         libwmf-dev
