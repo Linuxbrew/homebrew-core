@@ -12,6 +12,7 @@ class Advancemame < Formula
 
   depends_on "sdl"
   depends_on "freetype"
+  depends_on "expat" unless OS.mac?
 
   conflicts_with "advancemenu", :because => "both install `advmenu` binaries"
 
