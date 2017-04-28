@@ -54,7 +54,7 @@ class Boost < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["HOMEBREW_MAKE_JOBS"] = "5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
 
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
