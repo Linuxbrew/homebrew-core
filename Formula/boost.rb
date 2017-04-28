@@ -37,7 +37,11 @@ class Boost < Formula
   else
     depends_on "icu4c" => :optional
   end
-  depends_on "bzip2" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   needs :cxx11 if build.cxx11?
 
