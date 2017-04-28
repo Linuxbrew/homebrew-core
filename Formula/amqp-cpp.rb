@@ -36,7 +36,7 @@ class AmqpCpp < Formula
         return 0;
       }
       EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
+    system ENV.cxx, "test.cpp", "-std=c++11", *("-pthread" if ENV.compiler == :gcc), "-L#{lib}", "-o",
                     "test", *("-lc++" if OS.mac?), "-lamqp-cpp"
     system "./test"
   end
