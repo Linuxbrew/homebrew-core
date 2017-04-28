@@ -53,7 +53,11 @@ class Moc < Formula
   depends_on "wavpack" => :optional
   depends_on "faad2" => :optional
   depends_on "timidity" => :optional
-  depends_on "libmagic" => :optional
+  if OS.mac?
+    depends_on "libmagic" => :optional
+  else
+    depends_on "libmagic"
+  end
   depends_on "ncurses" => :optional
 
   def install
