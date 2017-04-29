@@ -1,3 +1,4 @@
+# muparser: Build a bottle for Linuxbrew
 class Muparser < Formula
   desc "C++ math expression parser library"
   homepage "http://muparser.beltoforion.de/"
