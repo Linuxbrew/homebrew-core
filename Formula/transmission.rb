@@ -24,7 +24,7 @@ class Transmission < Formula
 
   def install
     ENV.append "LDFLAGS", "-framework Foundation -prebind" if OS.mac?
-    ENV.append "LDFLAGS", "-liconv" if OS.mac?
+    ENV.append "LDFLAGS", "-liconv"
 
     args = %W[--disable-dependency-tracking
               --prefix=#{prefix}

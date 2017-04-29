@@ -54,7 +54,7 @@ class Unzip < Formula
       "D_USE_BZ2=-DUSE_BZIP2",
       "L_BZ2=-lbz2",
       "macosx",
-      *("LFLAGS1=-liconv" if OS.mac?)
+      "LFLAGS1=-liconv"
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 

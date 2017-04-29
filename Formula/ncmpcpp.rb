@@ -48,7 +48,7 @@ class Ncmpcpp < Formula
     ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
 
     ENV.cxx11
-    ENV.append "LDFLAGS", "-liconv" if OS.mac?
+    ENV.append "LDFLAGS", "-liconv"
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 

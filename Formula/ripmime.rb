@@ -14,7 +14,7 @@ class Ripmime < Formula
   end
 
   def install
-    system "make", "CFLAGS=#{ENV.cflags}", *("LIBS=-liconv" if OS.mac?)
+    system "make", "LIBS=-liconv", "CFLAGS=#{ENV.cflags}"
     bin.install "ripmime"
     man1.install "ripmime.1"
   end
