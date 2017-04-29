@@ -60,9 +60,9 @@ class Atkmm < Formula
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
-      -lintl
       -lsigc-2.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end
