@@ -13,6 +13,8 @@ class Glew < Formula
     sha256 "2b72bd7d59343ae64eaa87fd69f806759ac356a77300bb6b6a6ab40247384dc2" => :mavericks
   end
 
+  depends_on "linuxbrew/xorg/freeglut" unless OS.mac?
+
   def install
     inreplace "glew.pc.in", "Requires: @requireslib@", ""
     system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "all"
@@ -36,8 +38,13 @@ class Glew < Formula
         return 0;
       }
     EOS
-    system ENV.cc, testpath/"test.c", "-o", "test", "-L#{lib}", "-lGLEW",
-           "-framework", "GLUT"
+    flags = %W[
+      -L#{lib}
+      -lGLEW
+    ]
+    flags << "-framework" << "GLUT" if OS.mac?
+    system ENV.cc, testpath/"test.c", "-o", "test", *flags
     system "./test"
   end
 end
+
