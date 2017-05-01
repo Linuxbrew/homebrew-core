@@ -1,14 +1,14 @@
 class Pmd < Formula
   desc "Source code analyzer for Java, JavaScript, and more"
   homepage "https://pmd.github.io"
-  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.6.0/pmd-src-5.6.0.zip"
-  sha256 "d93abae063ed99889dc4cc38adfe86bb216160e1e4281bcf0b278e13c527f2ad"
+  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.6.1/pmd-src-5.6.1.zip"
+  sha256 "7c1e17ad78abb0d97c621965c44b7ef6a8e1330165bf16700df11b1cd64e0349"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "be3491ec172310311d4940dd216de2436786301b00ecc4d4d70167e55b88ce7d" => :sierra
-    sha256 "0b2bb731f44685af613ba31171b0a43cefa81a6601f93823f0f1c3a5ad37ccaa" => :el_capitan
-    sha256 "cb028df1863b68d5860c1002e868bd37f8af86eade17bde9e98ca02b8d02b3cd" => :yosemite
+    sha256 "9ea81dd4bf673c041de893a5d3ac15ab88d610639ca229152403805028e35cf4" => :sierra
+    sha256 "8d90b22c380e298fadb2e1b0a39330be3f3894050a9f60c69b6bf83a0e9f0445" => :el_capitan
+    sha256 "c6fbb50ff531f46d7f1d0679662501088329fea217f75e56f52ec22936991114" => :yosemite
   end
 
   depends_on :java => "1.8+"

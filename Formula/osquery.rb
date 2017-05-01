@@ -3,14 +3,13 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.4.0",
-      :revision => "76fe5d748cbcf41a4c3f40193bde05739cf7d83f"
-  revision 1
+      :tag => "2.4.2",
+      :revision => "62dda71321e4fe492595298c3300c270c4888f8f"
 
   bottle do
     cellar :any
-    sha256 "f9a702fbb57530871eb3d601a0d88666d2f094ff56babd39da3cd38f444deeed" => :sierra
-    sha256 "18fd06609dd094cc99c4ceedab9d3c12429f34034cd107e74b73913b5973aa63" => :el_capitan
+    sha256 "e9c05d8d7127b0c9ec7b2ff8d385f80c0788495481887e37f620cfb5dc2579dd" => :sierra
+    sha256 "c75fc1f7200687c4d3452922e593d3517a3870dee6bd80bab946524bf6538564" => :el_capitan
   end
 
   fails_with :gcc => "6"
@@ -26,6 +25,7 @@ class Osquery < Formula
   depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
+  depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lldpd"
   depends_on "lz4"
@@ -51,8 +51,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/0.14.4.tar.gz"
-    sha256 "2e935275c6f7eb25e7d850b354344c92cacb7c193b708ec64ffce10ec6afa7f4"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.0.107.tar.gz"
+    sha256 "0560918ef2a4b660e49981378af42d999b91482a31e720be2d9c427f21ac8ad0"
   end
 
   resource "cpp-netlib" do
@@ -82,9 +82,6 @@ class Osquery < Formula
     vendor = buildpath/"brew_vendor"
 
     resource("aws-sdk-cpp").stage do
-      inreplace "CMakeLists.txt", "${CMAKE_CXX_FLAGS_RELEASE} -s",
-                                  "${CMAKE_CXX_FLAGS_RELEASE}"
-
       args = std_cmake_args + %W[
         -DSTATIC_LINKING=1
         -DNO_HTTP_CLIENT=1

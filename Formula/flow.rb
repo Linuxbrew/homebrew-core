@@ -1,23 +1,45 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.44.1.tar.gz"
-  sha256 "2dbe1c863ea8c594dfde8e2924b32033336f31f039d61ab07e276467195c2028"
   head "https://github.com/facebook/flow.git"
+
+  stable do
+    url "https://github.com/facebook/flow/archive/v0.45.0.tar.gz"
+    sha256 "9a76cb1669d5d1f07a55b3163edb0329c46565033eaf7ed9320058b6e3a9cbbf"
+
+    # Remove for > 0.45.0
+    # Upstream commit from 28 Apr 2017 "Add `make all-homebrew`"
+    patch do
+      url "https://github.com/facebook/flow/commit/8a811a4b443ec545d89aa201d5ebcc254ae220e4.patch"
+      sha256 "f92aca59e2014b91974c02672e0d55b3b278d3a267150cfb534d266befda4ad4"
+    end
+
+    # Remove for > 0.45.0
+    # Upstream commit from 28 Apr 2017 "mktemp's interface changed in OSX 10.11"
+    patch do
+      url "https://github.com/facebook/flow/commit/7cc0f0b3f34e6932e7a713de2a651a1848eef395.patch"
+      sha256 "d7eac833d7ee1dd7ee6ec47dfdc4f68e9b31555d3d39670d675ec81ec8a5127d"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "438f3f4f9ba716cf284de96c6b281b539aacd06079afb1309f569845a448488f" => :sierra
-    sha256 "2de79b53b4b4ced45cb20bb6571f226f141ade3bee47e290cd2c41a6b7872f7e" => :el_capitan
-    sha256 "dc3219feca7362d2a4cd594da510c7e026b0196863fbac82029501b6203e5d35" => :yosemite
+    sha256 "d18214fdc02524e872422e38391f67eca3923a5ae8c92ca7b19e053aaa853128" => :sierra
+    sha256 "ed10e631f87e8316d3473719fd15761da02e79993cd04617545226acbdd6a899" => :el_capitan
+    sha256 "9add8e39f9ee1c20e904043a64ca9b2dc62e0b907be3bb8a3055f3321b3b810f" => :yosemite
   end
 
   depends_on "ocaml" => :build
-  depends_on "ocamlbuild" => :build
-  depends_on "elfutils" unless OS.mac?
+  depends_on "opam" => :build
+  unless OS.mac?
+    depends_on "elfutils"
+    depends_on "unzip" => :build
+    depends_on "m4" => :build
+  end
 
   def install
-    system "make"
+    system "make", "all-homebrew"
+
     bin.install "bin/flow"
 
     bash_completion.install "resources/shell/bash-completion" => "flow-completion.bash"
