@@ -55,7 +55,7 @@ test:
   override:
     - umask 022;
       PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
-      eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)";
+      eval "$(perl -I/home/ubuntu/perl5/lib/perl5 -Mlocal::lib)";
       brew install patchelf
         && brew tap homebrew/science
         && brew tap linuxbrew/xorg
