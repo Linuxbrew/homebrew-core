@@ -1,8 +1,8 @@
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftpmirror.gnu.org/glibc/glibc-2.19.tar.bz2"
-  sha256 "2e293f714187044633264cd9ce0183c70c3aa960a2f77812a6390a3822694d15"
+  url "https://ftpmirror.gnu.org/glibc/glibc-2.22.tar.gz"
+  sha256 "a62610c4084a0fd8cec58eee12ef9e61fdf809c31e7cecbbc28feb8719f08be5"
   # tag "linuxbrew"
 
   bottle do
