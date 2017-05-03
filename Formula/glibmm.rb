@@ -3,13 +3,13 @@ class Glibmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/glibmm/2.50/glibmm-2.50.1.tar.xz"
   sha256 "1fd85051da9cb402cc8348cec72dfe4d79f9345df4a1dbf68703a4ded45846a4"
+  revision 1 if OS.linux? # gcc-5
 
   bottle do
     cellar :any
     sha256 "a3ad8f3938362c22b866b7b08ffa3a213c5e71dfae9ec4d840519b703cb8b0fd" => :sierra
     sha256 "51f215bc6dd484eb6bd04459e3701f5fd191fb4eac19a0081b5296ff725abb3c" => :el_capitan
     sha256 "c98ebb8b5650ab6df1b1eaed2a0303b6ddbc67ad6cfc59950c85adde2dc67c13" => :yosemite
-    sha256 "95becfea049d833634fcc0e26a61a3d9232b9cfbb76b36e5eabd0800f234c22a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
