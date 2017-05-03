@@ -27,11 +27,12 @@ dependencies:
         libbz2-dev
         libexpat1-dev
         libfreetype6-dev
+        libgl1-mesa-dev
         libgdbm-dev
         libicu-dev
         libidn11-dev
-        libjack-jackd2-0
-        libjack0
+        libjack-dev
+        libjack-jackd2-dev
         libjasper-dev
         libjbig-dev
         libkrb5-dev
