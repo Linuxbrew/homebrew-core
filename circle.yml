@@ -33,6 +33,7 @@ dependencies:
         libidn11-dev
         libjack-dev
         libjack-jackd2-dev
+        libjack0
         libjasper-dev
         libjbig-dev
         libkrb5-dev
