@@ -55,8 +55,8 @@ class Muparser < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lmuparser",
-           testpath/"test.cpp", "-o", testpath/"test"
+    system ENV.cxx, "-I#{include}", "-L#{lib}",
+           testpath/"test.cpp", "-lmuparser", "-o", testpath/"test"
     system "./test"
   end
 end
