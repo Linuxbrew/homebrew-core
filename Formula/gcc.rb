@@ -82,6 +82,8 @@ class Gcc < Formula
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   patch :DATA if OS.mac?
 
+  env :std if OS.linux?
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
