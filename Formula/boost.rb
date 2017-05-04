@@ -1,3 +1,4 @@
+# boost: Build a bottle for Linuxbrew
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
