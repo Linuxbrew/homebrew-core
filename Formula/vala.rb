@@ -13,7 +13,10 @@ class Vala < Formula
   depends_on "pkg-config" => :run
   depends_on "gettext"
   depends_on "glib"
-  depends_on "flex" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
