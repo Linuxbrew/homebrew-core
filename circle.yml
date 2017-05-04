@@ -32,6 +32,7 @@ dependencies:
         libicu-dev
         libidn11-dev
         libjack-dev
+        libjack-jackd2-0
         libjack-jackd2-dev
         libjack0
         libjasper-dev
