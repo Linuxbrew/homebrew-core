@@ -16,11 +16,20 @@ class Avian < Formula
 
   depends_on :macos => :lion
   depends_on :java => "1.7+"
+  depends_on "zlib" unless OS.mac?
 
   def install
-    system "make", "use-clang=true"
-    bin.install Dir["build/macosx-*/avian*"]
-    lib.install Dir["build/macosx-*/*.dylib", "build/macosx-*/*.a"]
+    if OS.mac?
+      system "make", "use-clang=true"
+      bin.install Dir["build/macosx-*/avian*"]
+      lib.install Dir["build/macosx-*/*.dylib", "build/macosx-*/*.a"]
+    else
+      inreplace "makefile", "warnings = -Wall -Wextra -Werror",
+                            "warnings = -Wall -Wextra"
+      system "make"
+      bin.install Dir["build/linux-*/avian*"]
+      lib.install Dir["build/linux-*/*.so", "build/linux-*/*.a"]
+    end
   end
 
   test do
