@@ -17,7 +17,6 @@ class Glew < Formula
   unless OS.mac?
     depends_on "linuxbrew/xorg/mesa" # required to build
     depends_on "freeglut" # required for test
-#    depends_on "linuxbrew/xorg/glu" # required for test
   end
 
   patch do
@@ -41,8 +40,8 @@ class Glew < Formula
 
   test do
     if ENV["DISPLAY"].nil?
-     ohai "Can not test without a display."
-     return true
+      ohai "Can not test without a display."
+      return true
     end
     (testpath/"test.c").write <<-EOS.undent
       #include <GL/glew.h>
@@ -58,13 +57,13 @@ class Glew < Formula
         return 0;
       }
     EOS
-    flags = %W[ -L#{lib} -lGLEW ]
+    flags = %W[-L#{lib} -lGLEW]
     if OS.mac?
       flags << "-framework" << "GLUT"
     else
       flags << "-lglut"
     end
     system ENV.cc, testpath/"test.c", "-o", "test", *flags
-    system './test'
+    system "./test"
   end
 end
