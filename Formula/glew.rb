@@ -14,6 +14,7 @@ class Glew < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "linuxbrew/xorg/mesa" unless OS.mac?
 
   patch do
     url "https://github.com/nigels-com/glew/commit/925722f.patch"
