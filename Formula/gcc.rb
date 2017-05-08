@@ -265,6 +265,10 @@ class Gcc < Formula
         + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
 
       EOS
+
+      # Symlink ligcc_s.so.1 where glibc can find it.
+      # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+      ln_sf opt_lib/"libgcc_s.so.1", glibc.lib if glibc.installed?
     end
   end
 
