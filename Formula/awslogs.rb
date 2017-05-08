@@ -1,3 +1,4 @@
+# awslogs: Build a bottle for Linuxbrew
 class Awslogs < Formula
   include Language::Python::Virtualenv
 
@@ -13,6 +14,12 @@ class Awslogs < Formula
     sha256 "38847e1ea8b7524eb9a0a6f51b8c83c05340d6224f769fa205aa061ed564ee05" => :el_capitan
     sha256 "e9c8d6dbdba2ae32df6aaf54c194446bb6d0547810a26cfbffab1a83cbaf4ef2" => :yosemite
     sha256 "089222fc11e7bd8dd8265b292342e66e0a15a9457380664ab986acfddf647bb6" => :x86_64_linux
+  end
+
+  unless OS.mac?
+    depends_on "zlib"
+    depends_on "openssl"
+    depends_on :python
   end
 
   unless OS.mac?
