@@ -89,6 +89,8 @@ class Gdal < Formula
   depends_on :python3 => :optional
   depends_on :fortran => :build if build.with?("python") || build.with?("python3")
 
+  depends_on "curl" unless OS.mac?
+
   # Extra linking libraries in configure test of armadillo may throw warning
   # see: https://trac.osgeo.org/gdal/ticket/5455
   # including prefix lib dir added by Homebrew:
@@ -134,7 +136,6 @@ class Gdal < Formula
       "--with-libz=/usr",
       "--with-png=#{Formula["libpng"].opt_prefix}",
       "--with-expat=/usr",
-      "--with-curl=/usr/bin/curl-config",
 
       # Default Homebrew backends.
       "--with-jpeg=#{HOMEBREW_PREFIX}",
@@ -155,6 +156,12 @@ class Gdal < Formula
       "--without-grass",
       "--without-libgrass",
     ]
+
+    if OS.mac?
+      args << "--with-curl=/usr/bin/curl-config"
+    else
+      args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
+    end
 
     # Optional Homebrew packages supporting additional formats.
     supported_backends = %w[
