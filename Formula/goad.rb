@@ -1,3 +1,4 @@
+# goad: Build a bottle for Linuxbrew
 require "language/go"
 
 class Goad < Formula
