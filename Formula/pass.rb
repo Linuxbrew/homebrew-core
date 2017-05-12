@@ -44,7 +44,9 @@ class Pass < Formula
       system bin/"pass", "generate", "Email/testing@foo.bar", "15"
       assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      unless OS.linux? && ENV["TRAVIS"] # Fails on TravisCI
+        system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      end
     end
   end
 end
