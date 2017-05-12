@@ -1,3 +1,4 @@
+# gnu-prolog: Build a bottle for Linuxbrew
 class GnuProlog < Formula
   desc "Prolog compiler with constraint solving"
   homepage "http://www.gprolog.org/"
