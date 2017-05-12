@@ -9,7 +9,6 @@ class Libhttpseverywhere < Formula
     sha256 "d36070029a09b477e88ad3a23c29d4492f4b6b00edd6b977e4ef73462ce58f91" => :sierra
     sha256 "dfb0196cd1729c95c5f3d49d0ecee4cff7937ccfe2573103499e7fcb6d754389" => :el_capitan
     sha256 "d160d5ba6990daf3a0ac4042e93e940d3ace83d518b56b47adfb1aa939e2a28b" => :yosemite
-    sha256 "b8d395e9ecba6554a95d6c4a3f3788e89a2539646f0d56f5a6bf143fb034b8e0" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -28,6 +27,14 @@ class Libhttpseverywhere < Formula
       system "ninja"
       system "ninja", "test"
       system "ninja", "install"
+    end
+
+    dir = [Pathname.new("#{lib}64"), lib/"x86_64-linux-gnu"].find(&:directory?)
+    unless dir.nil?
+      mkdir_p lib
+      system "mv", *Dir[dir/"*"], lib
+      rmdir dir
+      inreplace Dir[lib/"pkgconfig/*.pc"], %r{lib64|lib/x86_64-linux-gnu}, "lib"
     end
   end
 
@@ -73,11 +80,11 @@ class Libhttpseverywhere < Formula
       -lglib-2.0
       -lgobject-2.0
       -lhttpseverywhere-0.4
-      -lintl
       -ljson-glib-1.0
       -lsoup-2.4
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
