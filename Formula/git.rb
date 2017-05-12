@@ -29,11 +29,15 @@ class Git < Formula
 
   depends_on "pcre" => :optional
   depends_on "gettext" => :optional
-  depends_on "openssl" => :optional
-  depends_on "curl" => :optional
   depends_on "go" => :build if build.with? "persistent-https"
-  unless OS.mac?
+
+  if OS.mac?
+    depends_on "openssl" => :optional
+    depends_on "curl" => :optional
+  else
+    depends_on "curl"
     depends_on "expat"
+    depends_on "openssl"
     depends_on "tcl-tk" => :optional
     depends_on "zlib"
   end
