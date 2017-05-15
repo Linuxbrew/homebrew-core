@@ -1,3 +1,4 @@
+# osc: Build a bottle for Linuxbrew
 class Osc < Formula
   include Language::Python::Virtualenv
 
