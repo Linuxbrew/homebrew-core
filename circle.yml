@@ -21,7 +21,7 @@ checkout:
 dependencies:
   override:
     - sudo apt-get update
-    - sudo apt-get install curl g++ git libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev subversion wbritish
+    - sudo apt-get install curl g++-multilib git libperl-dev libxml-parser-perl libxml-sax-perl make python-dev ruby2.0 ruby2.0-dev subversion wbritish
     - printf "yes\nlocal::lib\nyes\nyes\no conf prerequisites_policy follow\no conf build_requires_install_policy yes\no conf commit\n" | cpan # https://github.com/Linuxbrew/homebrew-core/pull/1621#issue-202644521
     - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
         libblas-dev
