@@ -23,6 +23,7 @@ class GdkPixbuf < Formula
   depends_on "libpng"
   depends_on "gobject-introspection"
   depends_on "shared-mime-info"
+  depends_on "perl" => :build
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
