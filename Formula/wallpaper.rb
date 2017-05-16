@@ -12,6 +12,8 @@ class Wallpaper < Formula
     sha256 "7a715b58b8f4e654b409347fd8cff2bce6a3dfc83b0d345c3b83fc223eaf952a" => :yosemite
   end
 
+  depends_on :macos
+
   def install
     system "./build"
     bin.install "wallpaper"
