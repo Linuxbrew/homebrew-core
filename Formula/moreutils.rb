@@ -18,6 +18,10 @@ class Moreutils < Formula
   option "without-ts", "Build without the 'ts' tool, for compatibility with 'task-spooler'."
 
   depends_on "docbook-xsl" => :build
+  unless OS.mac?
+    depends_on "libxml2" => :build # for xmllint
+    depends_on "libxslt" => :build # for xsltproc
+  end
 
   conflicts_with "parallel", :because => "Both install a `parallel` executable." if build.with? "parallel"
   conflicts_with "pwntools", :because => "Both install an `errno` executable." if build.with? "errno"
