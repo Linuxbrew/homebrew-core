@@ -2,6 +2,7 @@ class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
+  revision 1 if OS.linux?
 
   stable do
     url "https://www.cpan.org/src/5.0/perl-5.24.1.tar.xz"
@@ -22,7 +23,6 @@ class Perl < Formula
     sha256 "af578c645e5ff6162b29c693c6145345fef4dfc848f9d999a6e1f36330318c63" => :sierra
     sha256 "c66b2d1daf5e4d77b8f4943b9718610c6d24d20537e6a1b6a87ccf74fd54ec02" => :el_capitan
     sha256 "3474d4c2ddf177e331d70af4dbe1f51199139e525add8424b43b6339358950ab" => :yosemite
-    sha256 "dc772c3c214b7d9c53872ab795994e4523f2a18c454b9e1717da548adb0d2ceb" => :x86_64_linux
   end
 
   option "with-dtrace", "Build with DTrace probes"
@@ -31,7 +31,7 @@ class Perl < Formula
   deprecated_option "with-tests" => "with-test"
 
   unless OS.mac?
-    depends_on "gdbm" => "with-libgdbm-compat"
+    depends_on "gdbm"
     depends_on "berkeley-db"
 
     # required for XML::Parser
