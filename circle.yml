@@ -11,12 +11,13 @@ checkout:
     - git fetch origin
     - git config --global user.name LinuxbrewTestBot
     - git config --global user.email testbot@linuxbrew.sh
-    - sudo mkdir /home/linuxbrew
-    - sudo chown "$USER:" /home/linuxbrew
-    - git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew
+    - sudo mkdir -p /home/linuxbrew/.linuxbrew/bin
+    - sudo chown -R "$USER:" /home/linuxbrew
+    - git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew/Homebrew
+    - ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
     - chmod 0644 Formula/*.rb
-    - mkdir -p /home/linuxbrew/.linuxbrew/Library/Taps/homebrew
-    - rsync -az $HOME/$CIRCLE_PROJECT_REPONAME /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/
+    - mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
+    - rsync -az $HOME/$CIRCLE_PROJECT_REPONAME /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/
 dependencies:
   override:
     - sudo apt-get update
