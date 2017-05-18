@@ -4,16 +4,20 @@ class Gdbm < Formula
   url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.13.tar.gz"
   mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.13.tar.gz"
   sha256 "9d252cbd7d793f7b12bcceaddda98d257c14f4d1890d851c386c37207000a253"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any
     sha256 "9647a01c12d0aeddfe0a73daeed3994ccc655bb61114f3be6b54bdf982d72790" => :sierra
     sha256 "f2f5f359af6a2ecb3da54e242c43e914f4a60343dc42f13380948ebc977284dc" => :el_capitan
     sha256 "1fa21ba6e4c5dc5b5d6bf9faae3f8c8e1304a95a8bd201712d40bd4271767948" => :yosemite
-    sha256 "adc2289487de3c31ff66639a27a5773242895b9f94f5fe66a3d511ba40178e73" => :x86_64_linux
   end
 
-  option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
+  if OS.mac?
+    option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
+  else
+    option "without-libgdbm-compat", "Do not build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
+  end
 
   # Use --without-readline because readline detection is broken in 1.13
   # https://github.com/Homebrew/homebrew-core/pull/10903
