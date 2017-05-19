@@ -1,3 +1,4 @@
+# xrootd: Build a bottle for Linuxbrew
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "http://xrootd.org"
