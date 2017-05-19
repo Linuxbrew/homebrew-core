@@ -19,6 +19,8 @@ class Scipy < Formula
   depends_on :python3 => :optional
   depends_on :fortran
 
+  depends_on "homebrew/science/openblas" unless OS.mac?
+
   numpy_options = []
   numpy_options << "with-python3" if build.with? "python3"
   depends_on "numpy" => numpy_options
@@ -28,12 +30,20 @@ class Scipy < Formula
 
   # https://github.com/Homebrew/homebrew-python/issues/110
   # There are ongoing problems with gcc+accelerate.
-  fails_with :gcc
+  fails_with :gcc if OS.mac?
 
   # Avoid the error: undefined reference to `main'
   env :super if OS.linux?
 
   def install
+    # https://github.com/numpy/numpy/issues/4203
+    # https://github.com/Homebrew/homebrew-python/issues/209
+    # https://github.com/Homebrew/homebrew-python/issues/233
+    if OS.linux?
+      ENV.append "FFLAGS", "-fPIC"
+      ENV.append "LDFLAGS", "-shared"
+    end
+
     config = <<-EOS.undent
       [DEFAULT]
       library_dirs = #{HOMEBREW_PREFIX}/lib
