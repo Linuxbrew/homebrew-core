@@ -1,3 +1,4 @@
+# asn1c: Build a bottle for Linuxbrew
 class Asn1c < Formula
   desc "Compile ASN.1 specifications into C source code"
   homepage "https://lionet.info/asn1c/blog/"
