@@ -1,3 +1,4 @@
+# libproxy: Build a bottle for Linuxbrew
 class Libproxy < Formula
   desc "Library that provides automatic proxy configuration management"
   homepage "https://libproxy.github.io/libproxy/"
