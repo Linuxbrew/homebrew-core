@@ -24,6 +24,7 @@ class Nginx < Formula
   option "with-debug", "Compile with support for debug log"
   option "with-http2", "Compile with support for the HTTP/2 module"
   option "with-gunzip", "Compile with support for gunzip module"
+  option "with-stream", "Compile with support for stream module"
 
   deprecated_option "with-spdy" => "with-http2"
 
@@ -58,7 +59,6 @@ class Nginx < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --with-http_ssl_module
       --with-pcre
       --sbin-path=#{bin}/nginx
       --with-cc-opt=#{cc_opt}
@@ -74,6 +74,7 @@ class Nginx < Formula
       --http-log-path=#{var}/log/nginx/access.log
       --error-log-path=#{var}/log/nginx/error.log
       --with-http_gzip_static_module
+      --with-http_ssl_module
     ]
 
     if build.with? "passenger"
@@ -86,6 +87,7 @@ class Nginx < Formula
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"
     args << "--with-http_v2_module" if build.with? "http2"
+    args << "--with-stream" if build.with? "stream"
 
     if build.head?
       system "./auto/configure", *args
