@@ -1,3 +1,4 @@
+# qscintilla2: Build a bottle for Linuxbrew
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
