@@ -1,3 +1,4 @@
+# android-sdk: Build a bottle for Linuxbrew
 require "base64"
 
 class AndroidSdk < Formula
