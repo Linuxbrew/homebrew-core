@@ -1,3 +1,4 @@
+# rtags: Build a bottle for Linuxbrew
 class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
