@@ -43,7 +43,7 @@ class Openssh < Formula
 
     # Ensure sandbox profile prefix is correct.
     # We introduce this issue with patching, it's not an upstream bug.
-    inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
+    inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh" if OS.mac?
 
     system "./configure", "--with-libedit",
                           "--with-kerberos5",
