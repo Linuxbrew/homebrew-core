@@ -1,3 +1,4 @@
+# aacgain: Build a bottle for Linuxbrew
 class Aacgain < Formula
   desc "AAC-supporting version of mp3gain"
   homepage "http://aacgain.altosdesign.com/"
