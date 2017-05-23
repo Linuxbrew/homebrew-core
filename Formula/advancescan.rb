@@ -1,3 +1,4 @@
+# advancescan: Build a bottle for Linuxbrew
 class Advancescan < Formula
   desc "Rom manager for AdvanceMAME/MESS"
   homepage "http://www.advancemame.it/scan-readme.html"
