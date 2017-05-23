@@ -43,6 +43,7 @@ dependencies:
         libncurses5-dev
         libpcre3-dev
         libpq-dev
+        libsasl2-dev
         libtinfo-dev
         libwebp-dev
         libwmf-dev
