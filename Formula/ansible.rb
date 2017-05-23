@@ -10,9 +10,10 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    sha256 "989093992bd5858263630ff274d88193dc55c2d8f5c30b84047f601fa92aa458" => :sierra
-    sha256 "2ce2531db25fe5ff9a15d478241b0f699e84edf60d7d1e48c986fc3baf45dac4" => :el_capitan
-    sha256 "26455472ce074cf4eeb3e7a40cc43ce513c1e306b7cea465bcfa780e9795a464" => :yosemite
+    rebuild 1
+    sha256 "12cabc7231da437fb095ea10c068915f33fc344eb1a345e33db695436a256c4b" => :sierra
+    sha256 "62ee536a397f0849f0f76e87dcaa8fd07c1b2d0f33b34d44babe12d20e40544f" => :el_capitan
+    sha256 "a553edcb211c571bda1d6be4959fa1a7e2154381b278bffb1c77f43bdbd5d136" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -26,7 +27,6 @@ class Ansible < Formula
   # Collect requirements from:
   #   ansible
   #   docker-py
-  #   pyrax (Rackspace)
   #   shade (OpenStack)
   #   pywinrm (Windows)
   #   kerberos (Windows)
@@ -39,6 +39,7 @@ class Ansible < Formula
   #   passlib (htpasswd core module)
   #   zabbix-api (Zabbix extras module)
   #   junos-eznc (Juniper device support)
+  #   dnspython (DNS Lookup - dig)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -160,6 +161,11 @@ class Ansible < Formula
   resource "deprecation" do
     url "https://files.pythonhosted.org/packages/ab/fe/edad444ecab087e57dd32a10e38ef0d7448b3ab8ff8bfa65b022d3a43a1c/deprecation-1.0.tar.gz"
     sha256 "36d2a2356ca89fb73f72bfb866a2f28e183535a7f131a3b34036bc48590165b6"
+  end
+
+  resource "dnspython" do
+    url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
+    sha256 "40f563e1f7a7b80dc5a4e76ad75c23da53d62f1e15e6e517293b04e1f84ead7c"
   end
 
   resource "docker-py" do

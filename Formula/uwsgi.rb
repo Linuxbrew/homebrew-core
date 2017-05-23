@@ -123,10 +123,13 @@ class Uwsgi < Formula
       system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
     end
 
-    python_versions = ["python", "python2"]
-    python_versions << "python3" if build.with? "python3"
-    python_versions.each do |v|
-      system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", v
+    python_versions = {
+      "python"=>"python",
+      "python2"=>"python",
+    }
+    python_versions["python3"] = "python3" if build.with? "python3"
+    python_versions.each do |k, v|
+      system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end
 
     bin.install "uwsgi"
