@@ -1,3 +1,4 @@
+# swagger-codegen: Build a bottle for Linuxbrew
 class SwaggerCodegen < Formula
   desc "Generation of client and server from Swagger definition"
   homepage "https://swagger.io/swagger-codegen/"
