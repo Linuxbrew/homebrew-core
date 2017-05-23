@@ -1,3 +1,4 @@
+# abcl: Build a bottle for Linuxbrew
 class Abcl < Formula
   desc "Armed Bear Common Lisp: a full implementation of Common Lisp"
   homepage "http://abcl.org"
