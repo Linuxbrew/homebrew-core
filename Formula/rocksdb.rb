@@ -1,3 +1,4 @@
+# rocksdb: Build a bottle for Linuxbrew
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
