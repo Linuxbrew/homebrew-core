@@ -1,6 +1,7 @@
 language: ruby
 os: linux
 rvm: 2.0.0
+dist: precise
 sudo: required
 dist: trusty
 
