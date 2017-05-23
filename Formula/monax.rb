@@ -1,3 +1,4 @@
+# monax: Build a bottle for Linuxbrew
 class Monax < Formula
   desc "Blockchain application platform CLI"
   homepage "https://erisindustries.com"
