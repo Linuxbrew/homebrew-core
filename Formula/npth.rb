@@ -1,3 +1,4 @@
+# npth: Build a bottle for Linuxbrew
 class Npth < Formula
   desc "New GNU portable threads library"
   homepage "https://gnupg.org/"
