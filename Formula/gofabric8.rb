@@ -1,3 +1,4 @@
+# gofabric8: Build a bottle for Linuxbrew
 class Gofabric8 < Formula
   desc "CLI for fabric8 running on Kubernetes or OpenShift"
   homepage "https://github.com/fabric8io/gofabric8/"
