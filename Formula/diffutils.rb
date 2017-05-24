@@ -1,3 +1,4 @@
+# diffutils: Build a bottle for Linuxbrew
 class Diffutils < Formula
   desc "File comparison utilities"
   homepage "https://www.gnu.org/s/diffutils/"
