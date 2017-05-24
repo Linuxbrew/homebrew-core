@@ -1,3 +1,4 @@
+# libusb-compat: Build a bottle for Linuxbrew
 class LibusbCompat < Formula
   desc "Library for USB device access"
   homepage "http://libusb.info"
