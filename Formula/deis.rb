@@ -1,14 +1,14 @@
 class Deis < Formula
   desc "The CLI for Deis Workflow"
   homepage "https://deis.io/"
-  url "https://github.com/deis/workflow-cli/archive/v2.14.0.tar.gz"
-  sha256 "974fa31606e17f9ca626f1a9777f6aaca3fa9b3563a7cfcb00fad6b075b7a489"
+  url "https://github.com/deis/workflow-cli/archive/v2.14.1.tar.gz"
+  sha256 "6f875d70663b85c3f832d7f00481a19876c58a44e1e7fd25876e114d065c70de"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b42710ac5a33e312bf4d61d0754b794757a7eaa153e29cfaa12c5627024e6ce" => :sierra
-    sha256 "fd04bc19928fcdf68b9401c53275d50c57c006fbb54dc45dfa4fc27de4892c77" => :el_capitan
-    sha256 "e3c0aff48dbaa0baf502e6741624268b535cea2125618ec3230a41e7b706b183" => :yosemite
+    sha256 "4a51e1715ef658de9ddc2ed147dea6ed46bea26afaa7cb69d3b725013fc3e58a" => :sierra
+    sha256 "5e1afa5e30f640521dd1be3f15e6863c11b51605e2576e627561a0a14c8aec9d" => :el_capitan
+    sha256 "2a03389c9e47da6bebe21cb0c1a2492972cd03e25b60c3273cb5986fad057080" => :yosemite
   end
 
   depends_on "glide" => :build

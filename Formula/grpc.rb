@@ -1,14 +1,14 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "http://www.grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.3.2.tar.gz"
-  sha256 "6228fb43e6b11b1dec5aa21e66482bb45013b45cb70c1ca062f4848469d1ab99"
+  url "https://github.com/grpc/grpc/archive/v1.3.4.tar.gz"
+  sha256 "c12ca2693a3b3d80cadb15f1618d9ca6c83fe8c64a32b058a95ff8dce39b3e82"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "f49858b2fae9b13494084181b34939ed9920e99f3e1739446b95dc3516c1168c" => :sierra
-    sha256 "5b4f548418f3cbd7c1eabe95d33041f7e8c0ecc07ea62b87a8e6c71e3eb935f8" => :el_capitan
-    sha256 "9ede8a74e121aae5516fb35a84b980c402a71d9fe1338707782a40326f49cd3b" => :yosemite
+    sha256 "9fe63a1c7e439e8f34441ca008c826d4e94a8898f1b18f0d296de73fa7fab7a3" => :sierra
+    sha256 "8621bf534885be3ab9eb883f45a4f6d69d40d11c43ea28436f58d700a66dc2aa" => :el_capitan
+    sha256 "3928a79098204c36e146b1f521a46bf90d77ead9213ebf9eb6558ee45b0bf7d4" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -17,11 +17,21 @@ class Grpc < Formula
   depends_on "c-ares"
   depends_on "openssl"
   depends_on "protobuf"
+  depends_on "gflags"
+
+  resource "gtest" do
+    url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
+    sha256 "58a6f4277ca2bc8565222b3bbd58a177609e9c488e8a72649359ba51450db7d8"
+  end
 
   def install
     system "make", "install", "prefix=#{prefix}"
 
     system "make", "install-plugins", "prefix=#{prefix}"
+
+    (buildpath/"third_party/googletest").install resource("gtest")
+    system "make", "grpc_cli", "prefix=#{prefix}"
+    bin.install "bins/opt/grpc_cli"
   end
 
   test do

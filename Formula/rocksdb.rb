@@ -1,14 +1,14 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.3.4.tar.gz"
-  sha256 "c4de682317362b9e863d65b7cc59dd3fd5e689f54f9119e5084b69880da9db08"
+  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.3.6.tar.gz"
+  sha256 "9d7bba096b950a08469acae77ea5cb75c61d80693e15c83bce376191f8c1d844"
 
   bottle do
     cellar :any
-    sha256 "49631ccec7321e2170a5cb323e378ad91a94f2128ea5af1cedf52f4899b5931b" => :sierra
-    sha256 "24a3acd51db54d04ccb20be361f51b0fa6d8a8f66a98aa13672c9e4a38a6f8df" => :el_capitan
-    sha256 "83ca7123c7810004c62e078bd24bc08672309e520a30b567db77088631d63ba9" => :yosemite
+    sha256 "af8f0111c42108ae5d7110174b2902ce8753f696ad41079e5ed492d3b0a13587" => :sierra
+    sha256 "c63710913d0b7c0d34dcddb0e057a00749ae999db4938ce20a68b8687ecaee0c" => :el_capitan
+    sha256 "c496300371c4195f7cbf9e83f9fe2ac9f2f504d02a3c0876e9f904b5b91a6dc2" => :yosemite
   end
 
   needs :cxx11

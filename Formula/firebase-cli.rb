@@ -3,15 +3,15 @@ require "language/node"
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-3.8.0.tgz"
-  sha256 "e84ad7b6af68464e42bdbd3c2430e551f57e31fda6b48618284c3e0ebae2ffc1"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-3.9.0.tgz"
+  sha256 "24b1e538897c82a8da97b3df0e0322d447194ee030eeffdf0d5718391c8cd0fb"
   head "https://github.com/firebase/firebase-tools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eb13655a0174499ecbda4abe66676f5f00cca5e7e662240953aaeadfe198198c" => :sierra
-    sha256 "c0c6d20d9b0520c6ca4997538842331ef4f0cd782ac10e5c27d1b92ba1a272cc" => :el_capitan
-    sha256 "f42b538b57167d123a46902f786b6d3954dd318cb796e0270c33ef6f6ed68d49" => :yosemite
+    sha256 "d3630bf4898c4a07d6e605de7585be727f64a4631c652f9065c3a26071c02000" => :sierra
+    sha256 "267b398c670469b0f9bebb80ced0e2fdf2350e4a4d37cde4913365d886ec8498" => :el_capitan
+    sha256 "e4e282ab359c1682826f73358cf992fe71775e9eac52f1ae4ceb847fba1ccd0d" => :yosemite
   end
 
   depends_on "node"

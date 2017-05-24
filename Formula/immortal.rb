@@ -3,21 +3,20 @@ require "language/go"
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
-  url "https://github.com/immortal/immortal/archive/0.13.2.tar.gz"
-  sha256 "f34674720828c984ef34df33b75b614fabe81e4fd50eb152746a33a273daa4f9"
-  revision 1
+  url "https://github.com/immortal/immortal/archive/0.13.3.tar.gz"
+  sha256 "0d5646ae4d57d867b6178f2fb105ee4e8a1567580baea6683752cdc27cbb910f"
   head "https://github.com/immortal/immortal.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bdbc5524e4dbd498b6ca166d6cecc3f1a9a81a350b6928ce792d862a675ddc78" => :sierra
-    sha256 "2aaee2097647a7557c579ccc39201e730b3faa6ffaca3f8da1fd43735007c1fd" => :el_capitan
-    sha256 "12138067c20ac19d062d5fe1ecef989ed6c691bb0c873b5454ce674c21a0f468" => :yosemite
+    sha256 "7c17b3a8226613f09742e58d7daea1056c970ae6fa4fad592754902a7536cbd0" => :sierra
+    sha256 "580bfe4ac95d243eab193534db466b22a20dd7c49893a2352d270710838eb110" => :el_capitan
+    sha256 "14c19249ce050a37e30a9b4aac9128bba7248161e625e0b6b26e16285a9649db" => :yosemite
   end
 
   depends_on "go" => :build
 
-  go_resource "gopkg.in/yaml.v2" do
+  go_resource "github.com/go-yaml/yaml" do
     url "https://github.com/go-yaml/yaml.git",
         :revision => "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
   end

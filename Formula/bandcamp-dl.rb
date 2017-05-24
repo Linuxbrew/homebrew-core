@@ -3,16 +3,16 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-02.tar.gz"
-  version "0.0.8-02"
-  sha256 "c039104965cb67d5500931cf5beb65466931b58b576622d499d039db7a049320"
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-04.tar.gz"
+  version "0.0.8-04"
+  sha256 "acb8d54614b3e89c54fd6be8621759110b04e3462c087eb4eb827b8c4a31fd21"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c62c906a7bc74ff5034b465c589534aa03f4009e90c51697eff12ac18c78d10" => :sierra
-    sha256 "8a031a40409cb94da1c9d54c57a4d3b381826c0ba41b03ca78ca8eff332d7280" => :el_capitan
-    sha256 "ca1ba49480478f7e8223440496006a78815d68d25b16126a4369b2bca857f3e9" => :yosemite
+    sha256 "773833ac27e8f48ec18ef725b24cc3e765d8f45e0dc2031eae6ee094c86011de" => :sierra
+    sha256 "202154dec6f2e605e2d317a6588dec984c1c3a324db4dd3be70ed9a590dba839" => :el_capitan
+    sha256 "574c6c3c48a77ce11b2fd3e6fa9fecf83a3db09d729a1057074f7f7087064abe" => :yosemite
   end
 
   depends_on :python3
@@ -28,8 +28,8 @@ class BandcampDl < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/91/05/28f23094cdf1410fb03533f0d71e6b4aad3c504100e83b8cea6fc899552c/chardet-3.0.2.tar.gz"
-    sha256 "4f7832e7c583348a9eddd927ee8514b3bf717c061f57b21dbe7697211454d9bb"
+    url "https://files.pythonhosted.org/packages/fc/f9/3963ae8e196ceb4a09e0d7906f511fdf62a631f05d9288dc4905a93a1f52/chardet-3.0.3.tar.gz"
+    sha256 "77df6d712a6037ed6f247ad1dd67faca506f64bc1295d43533e9212a101f28cb"
   end
 
   resource "demjson" do
@@ -53,8 +53,8 @@ class BandcampDl < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/1e/f0/9963f6ff9fb3861384be272c07522a9e85441ea5524f7fe15d07cadcae2a/pbr-3.0.0.tar.gz"
-    sha256 "568f988af109114fbfa0525dcb6836b069838360d11732736ecc82e4c15d5c12"
+    url "https://files.pythonhosted.org/packages/18/2e/28a7d361a568b1a6c86946674e8ac35a609573c3a3d12bb20f6aaf1c39bf/pbr-3.0.1.tar.gz"
+    sha256 "d7e8917458094002b9a2e0030ba60ba4c834c456071f2d0c1ccb5265992ada91"
   end
 
   resource "requests" do
