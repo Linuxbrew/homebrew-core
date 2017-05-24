@@ -25,7 +25,10 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
   depends_on "jasper" => :optional
-  depends_on "cairo" unless OS.mac?
+  unless OS.mac?
+    depends_on "at-spi2-atk"
+    depends_on "cairo"
+  end
 
   def install
     args = %W[
