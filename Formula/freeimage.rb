@@ -1,3 +1,4 @@
+# freeimage: Build a bottle for Linuxbrew
 class FreeimageHttpDownloadStrategy < CurlDownloadStrategy
   def stage
     # need to convert newlines or patch chokes
