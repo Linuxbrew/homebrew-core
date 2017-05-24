@@ -14,6 +14,8 @@ class Check < Formula
 
   depends_on "gawk" unless OS.mac?
 
+  depends_on "gawk" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
