@@ -1,3 +1,4 @@
+# jbig2dec: Build a bottle for Linuxbrew
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://ghostscript.com/jbig2dec.html"
