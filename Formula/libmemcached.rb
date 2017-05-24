@@ -1,3 +1,4 @@
+# libmemcached: Build a bottle for Linuxbrew
 class Libmemcached < Formula
   desc "C and C++ client library to the memcached server"
   homepage "http://libmemcached.org/"
