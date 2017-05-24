@@ -124,8 +124,8 @@ class GdkPixbuf < Formula
       -lgdk_pixbuf-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
