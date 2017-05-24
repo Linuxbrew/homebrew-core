@@ -19,6 +19,7 @@ class Saltstack < Formula
   depends_on "zeromq"
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
+  depends_on "gmp" unless OS.mac?
 
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/90/61/f820ff0076a2599dd39406dcb858ecb239438c02ce706c8e91131ab9c7f1/Jinja2-2.9.6.tar.gz"
