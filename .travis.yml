@@ -25,6 +25,7 @@ before_install:
       libkrb5-dev
       liblzma-dev
       libncurses5-dev
+      libossp-uuid-dev
       libpcre3-dev
       libpq-dev
       libsasl2-dev
@@ -35,6 +36,7 @@ before_install:
       libxml2-dev
       llvm-3.4
       mysql-common
+      unixodbc-dev
       zlib1g-dev
   - git config --global user.name "Travis CI"
   - git config --global user.email "travis-ci@linuxbrew.sh"
