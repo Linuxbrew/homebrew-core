@@ -1,3 +1,4 @@
+# openshift-cli: Build a bottle for Linuxbrew
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
