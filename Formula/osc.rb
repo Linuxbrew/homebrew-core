@@ -18,6 +18,7 @@ class Osc < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
   depends_on "openssl" # For M2Crypto
+  depends_on "curl" unless OS.mac?
 
   resource "pycurl" do
     url "https://files.pythonhosted.org/packages/12/3f/557356b60d8e59a1cce62ffc07ecc03e4f8a202c86adae34d895826281fb/pycurl-7.43.0.tar.gz"
