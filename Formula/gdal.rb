@@ -90,7 +90,11 @@ class Gdal < Formula
   depends_on :python3 => :optional
   depends_on :fortran => :build if build.with?("python") || build.with?("python3")
 
-  depends_on "curl" unless OS.mac?
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "expat"
+    depends_on "zlib"
+  end
 
   # Extra linking libraries in configure test of armadillo may throw warning
   # see: https://trac.osgeo.org/gdal/ticket/5455
@@ -133,10 +137,10 @@ class Gdal < Formula
       "--with-pam",
 
       # Backends supported by macOS.
-      "--with-libiconv-prefix=/usr",
-      "--with-libz=/usr",
+      *("--with-libiconv-prefix=/usr" if OS.mac?),
+      "--with-libz=#{OS.mac? ? "/usr" : Formula["zlib"].opt_prefix}",
       "--with-png=#{Formula["libpng"].opt_prefix}",
-      "--with-expat=/usr",
+      "--with-expat=#{OS.mac? ? "/usr" : Formula["expat"].opt_prefix}",
 
       # Default Homebrew backends.
       "--with-jpeg=#{HOMEBREW_PREFIX}",
