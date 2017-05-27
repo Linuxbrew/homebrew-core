@@ -1,3 +1,4 @@
+# docker-cloud: Build a bottle for Linuxbrew
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
