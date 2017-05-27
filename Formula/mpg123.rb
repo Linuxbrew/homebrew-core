@@ -20,7 +20,7 @@ class Mpg123 < Formula
       --with-module-suffix=.so
     ]
     args << "--with-default-audio=coreaudio" if OS.mac?
-    
+
     if MacOS.prefer_64_bit?
       args << "--with-cpu=x86-64"
     else
