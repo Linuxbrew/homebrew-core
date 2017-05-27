@@ -20,6 +20,7 @@ class CharmTools < Formula
   depends_on :hg
   depends_on "charm"
   depends_on "openssl@1.1"
+  depends_on "libffi" unless OS.mac?
 
   # Additionally include ndg-httpsclient for requests[security]
   resource "Cheetah" do
