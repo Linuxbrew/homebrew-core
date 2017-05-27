@@ -147,6 +147,7 @@ class Llvm < Formula
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
+  depends_on "python" if build.with?("python") || build.with?("lldb")
 
   depends_on "ocaml" => :optional
   if build.with? "ocaml"
