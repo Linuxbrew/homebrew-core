@@ -17,10 +17,10 @@ class Mpg123 < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-default-audio=coreaudio
       --with-module-suffix=.so
     ]
-
+    args << "--with-default-audio=coreaudio" if OS.mac?
+    
     if MacOS.prefer_64_bit?
       args << "--with-cpu=x86-64"
     else
