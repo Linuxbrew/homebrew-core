@@ -27,9 +27,11 @@ dependencies:
         libblas-dev
         libbz2-dev
         libexpat1-dev
+        libffi-dev
         libfreetype6-dev
         libgl1-mesa-dev
         libgdbm-dev
+        libgmp-dev
         libicu-dev
         libidn11-dev
         libjack-dev
