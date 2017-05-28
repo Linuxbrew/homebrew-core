@@ -5,7 +5,7 @@ class Mpg123 < Formula
   url "https://master.dl.sourceforge.net/project/mpg123/mpg123/1.24.0/mpg123-1.24.0.tar.bz2"
   mirror "https://netix.dl.sourceforge.net/project/mpg123/mpg123/1.24.0/mpg123-1.24.0.tar.bz2"
   sha256 "55fb169a7711938f5df0497d1ffe28419fbef50011dc01d00b216379e6a2256c"
-  
+
   bottle do
     cellar :any
     sha256 "f2781679463e9da849fe9fd73f57383b5d53380c1b71b600a9595b99ad28f3f1" => :sierra
