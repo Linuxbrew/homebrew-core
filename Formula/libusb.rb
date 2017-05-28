@@ -27,6 +27,7 @@ class Libusb < Formula
   deprecated_option "no-runtime-logging" => "without-runtime-logging"
 
   depends_on "systemd" if OS.linux? # for libudev
+  depends_on "zlib" unless OS.mac?
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]

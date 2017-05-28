@@ -1,7 +1,7 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "http://www.freedesktop.org/software/systemd/systemd-221.tar.xz"
+  url "https://www.freedesktop.org/software/systemd/systemd-221.tar.xz"
   sha256 "085e088650afbfc688ccb13459aedb1fbc7c8810358605b076301f472d51cc4f"
   # tag "linuxbrew"
 
@@ -18,6 +18,7 @@ class Systemd < Formula
   depends_on "util-linux" # for libmount
   depends_on "coreutils" => :build
   depends_on "XML::Parser" => :perl
+  depends_on "expat" => :build unless OS.mac?
 
   def install
     system "./configure",
