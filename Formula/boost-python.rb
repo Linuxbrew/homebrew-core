@@ -17,6 +17,7 @@ class BoostPython < Formula
 
   depends_on :python3 => :optional
   depends_on "boost"
+  depends_on :python => :recommended unless OS.mac?
 
   def install
     # "layout" should be synchronized with boost
