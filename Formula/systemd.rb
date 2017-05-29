@@ -1,8 +1,8 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd/archive/v232.tar.gz"
-  sha256 "1172c7c7d5d72fbded53186e7599d5272231f04cc8b72f9a0fb2c5c20dfc4880"
+  url "https://github.com/systemd/systemd/archive/v233.tar.gz"
+  sha256 "8b3e99da3d4164b66581830a7f2436c0c8fe697b5fbdc3927bdb960646be0083"
   head "https://github.com/systemd/systemd.git"
   # tag "linuxbrew"
 
@@ -26,14 +26,6 @@ class Systemd < Formula
 
   # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
   fails_with :gcc => "4.8"
-
-  stable do
-    # Fix error: conflicting types for 'lookup_arphrd'
-    patch do
-      url "https://github.com/systemd/systemd-stable/commit/79a5d862a7abe903f456a75d6d1ca3c11adfa379.patch"
-      sha256 "a7e63d010f440ea4c0700b5cdca898f40a937fa60fbca3df016e31b7b7b4dfc1"
-    end
-  end
 
   def install
     # Fix error: unsupported reloc 42
