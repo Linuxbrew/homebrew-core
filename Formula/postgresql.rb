@@ -25,20 +25,20 @@ class Postgresql < Formula
   deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
 
+  option "with-python", "Enable PL/Python2"
+  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
+
   depends_on "openssl"
   depends_on "readline"
 
-  option "with-python", "Enable PL/Python2"
   depends_on :python => :optional
+  depends_on :python3 => :optional
   unless OS.mac?
     depends_on "libxslt"
     depends_on "perl" => :recommended # for libperl.so
     depends_on "tcl-tk" if build.with? "tcl"
     depends_on "util-linux" # for libuuid
   end
-
-  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
-  depends_on :python3 => :optional
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."

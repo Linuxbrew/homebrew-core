@@ -1,8 +1,8 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "http://delta.affinix.com/qca/"
-  head "https://anongit.kde.org/qca.git"
   revision 1
+  head "https://anongit.kde.org/qca.git"
 
   stable do
     url "https://github.com/KDE/qca/archive/v2.1.3.tar.gz"
@@ -54,7 +54,7 @@ class Qca < Formula
 
   if build.with? "api-docs"
     depends_on "graphviz" => :build
-    depends_on "doxygen" => [:build, "with-graphviz"]
+    depends_on "doxygen" => :build
   end
 
   def install
