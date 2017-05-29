@@ -1,3 +1,4 @@
+# patchutils: Build a bottle for Linuxbrew
 class Patchutils < Formula
   desc "Small collection of programs that operate on patch files"
   homepage "http://cyberelk.net/tim/software/patchutils/"
