@@ -1,3 +1,4 @@
+# tnef: Build a bottle for Linuxbrew
 class Tnef < Formula
   desc "Microsoft MS-TNEF attachment unpacker"
   homepage "https://github.com/verdammelt/tnef"
