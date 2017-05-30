@@ -43,6 +43,7 @@ class Libxml2 < Formula
   if OS.mac?
     depends_on :python if MacOS.version <= :snow_leopard
   else
+    depends_on :python
     depends_on "zlib"
   end
 
