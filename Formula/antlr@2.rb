@@ -1,3 +1,4 @@
+# antlr@2: Build a bottle for Linuxbrew
 class AntlrAT2 < Formula
   desc "ANother Tool for Language Recognition"
   homepage "http://www.antlr2.org"
