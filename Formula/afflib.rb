@@ -18,6 +18,10 @@ class Afflib < Formula
   depends_on "openssl"
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on :osxfuse => :optional
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "expat"
+  end
 
   def install
     args = ["--enable-s3", "--enable-python"]
