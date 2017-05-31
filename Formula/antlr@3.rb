@@ -1,3 +1,4 @@
+# antlr@3: Build a bottle for Linuxbrew
 class AntlrAT3 < Formula
   desc "Antlr3 has a C API which has been dropped in Antlr4."
   homepage "http://www.antlr.org/"
