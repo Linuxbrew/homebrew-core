@@ -1,3 +1,4 @@
+# spdylay: Build a bottle for Linuxbrew
 class Spdylay < Formula
   desc "Experimental implementation of SPDY protocol versions 2, 3, and 3.1"
   homepage "https://github.com/tatsuhiro-t/spdylay"
