@@ -1,3 +1,4 @@
+# autorest: Build a bottle for Linuxbrew
 class Autorest < Formula
   desc "Swagger (OpenAPI) Specification code generator"
   homepage "https://github.com/Azure/autorest"
