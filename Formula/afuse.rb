@@ -1,3 +1,4 @@
+# afuse: Build a bottle for Linuxbrew
 class Afuse < Formula
   desc "Automounting file system implemented in userspace with FUSE"
   homepage "https://github.com/pcarrier/afuse/"
