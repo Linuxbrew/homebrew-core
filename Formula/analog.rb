@@ -1,3 +1,4 @@
+# analog: Build a bottle for Linuxbrew
 class Analog < Formula
   desc "Logfile analyzer"
   homepage "https://tracker.debian.org/pkg/analog"
