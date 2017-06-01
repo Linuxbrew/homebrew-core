@@ -1,3 +1,4 @@
+# amap: Build a bottle for Linuxbrew
 class Amap < Formula
   desc "Perform application protocol detection"
   homepage "https://www.thc.org/thc-amap/"
