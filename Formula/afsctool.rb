@@ -1,3 +1,4 @@
+# afsctool: Build a bottle for Linuxbrew
 class Afsctool < Formula
   desc "Utility for manipulating HFS+ compressed files"
   homepage "https://brkirch.wordpress.com/afsctool/"
