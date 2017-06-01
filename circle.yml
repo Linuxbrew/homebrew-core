@@ -28,6 +28,7 @@ dependencies:
         libbz2-dev
         libexpat1-dev
         libffi-dev
+        libfontconfig1-dev
         libfreetype6-dev
         libgl1-mesa-dev
         libgdbm-dev
