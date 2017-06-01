@@ -14,10 +14,19 @@ class Bear < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "cmake" => :build
+  depends_on "patchelf" => :build if OS.linux?
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+  end
+
+  def post_install
+    if OS.linux?
+      # linuxbrew will add rpath to binary remove it
+      system "#{Formula["patchelf"].bin}/patchelf", "--remove-rpath",
+          "#{prefix}/#{Hardware::CPU.is_64_bit? ? "lib64":"lib"}/libear.so"
+    end
   end
 
   test do
