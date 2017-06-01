@@ -16,10 +16,19 @@ class Gmp < Formula
 
   option :cxx11
 
+  env :super if OS.linux?
+
   def install
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
-    args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle? && OS.mac?
+    host = if OS.mac?
+      "--build=core2-apple-darwin#{`uname -r`.to_i}"
+    elsif OS.linux?
+      "--build=core2-linux-gnu"
+    else
+      ""
+    end
+    args << host if build.bottle?
     args << "ABI=32" if Hardware::CPU.is_32_bit? && !OS.mac?
     system "./configure", *args
     system "make"
