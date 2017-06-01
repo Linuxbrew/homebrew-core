@@ -35,7 +35,7 @@ class AescryptPacketizer < Formula
     else
       cd "src" do
         # https://www.aescrypt.com/mac_aes_crypt.html
-        inreplace "Makefile", "#LIBS=-liconv", "LIBS=-liconv"
+        inreplace "Makefile", "#LIBS=-liconv", "LIBS=-liconv" if OS.mac?
         system "make"
 
         bin.install "aescrypt"
