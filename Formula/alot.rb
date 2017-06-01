@@ -1,3 +1,4 @@
+# alot: Build a bottle for Linuxbrew
 class Alot < Formula
   include Language::Python::Virtualenv
 
