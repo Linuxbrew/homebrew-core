@@ -1,3 +1,4 @@
+# arping: Build a bottle for Linuxbrew
 class Arping < Formula
   desc "Utility to check whether MAC addresses are already taken on a LAN"
   homepage "https://github.com/ThomasHabets/arping"
