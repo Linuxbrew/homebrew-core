@@ -1,3 +1,4 @@
+# alpine: Build a bottle for Linuxbrew
 class Alpine < Formula
   desc "News and email agent"
   homepage "http://patches.freeiz.com/alpine/"
