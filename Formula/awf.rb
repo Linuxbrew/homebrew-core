@@ -1,3 +1,4 @@
+# awf: Build a bottle for Linuxbrew
 class Awf < Formula
   desc "'A Widget Factory' is a theme preview application for gtk2 and gtk3"
   homepage "https://github.com/valr/awf"
