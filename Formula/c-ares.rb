@@ -1,3 +1,4 @@
+# c-ares: Build a bottle for Linuxbrew
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.haxx.se/"
