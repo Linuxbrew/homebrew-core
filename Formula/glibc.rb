@@ -38,6 +38,10 @@ class Glibc < Formula
         # Fix error: selinux/selinux.h: No such file or directory
         "--without-selinux",
       ]
+      if Hardware::CPU.is_64_bit?
+        args << "--libdir=#{prefix}/lib64"
+        args << "libc_cv_slibdir=#{prefix}/lib64"
+      end
       kernel_version = `uname -r`.chomp.split("-")[0]
       args << "--enable-kernel=#{kernel_version}" if build.with? "current-kernel"
       args << "--with-binutils=#{Formula["binutils"].bin}" if build.with? "binutils"
@@ -46,7 +50,11 @@ class Glibc < Formula
 
       system "make" # Fix No rule to make target libdl.so.2 needed by sprof
       system "make", "install"
-      prefix.install_symlink "lib" => "lib64"
+
+      if Hardware::CPU.is_64_bit?
+        mv prefix/"lib64", prefix/"lib"
+        prefix.install_symlink "lib" => "lib64"
+      end 
     end
   end
 
