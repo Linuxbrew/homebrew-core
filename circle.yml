@@ -65,13 +65,15 @@ dependencies:
     - sudo rm -rf /opt/circleci /usr/local/*
 test:
   override:
-    - umask 022;
-      PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
-      eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)";
-      brew install patchelf
+    - ? >-
+        umask 022;
+        PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
+        eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)";
+        brew install patchelf
         && brew tap homebrew/science
         && brew tap linuxbrew/xorg
         && brew test-bot --tap=homebrew/core --keep-old
+      : timeout: 7200
     - mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
 notify:
   webhooks:
