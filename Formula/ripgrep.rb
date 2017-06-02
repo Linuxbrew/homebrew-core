@@ -11,9 +11,13 @@ class Ripgrep < Formula
     sha256 "0a80a55397476474d0e33daad3966407c0f84cd504bc8aad4c944c7144a03bef" => :yosemite
   end
 
-  depends_on "rust" => :build
+  # rust broken on linux: https://github.com/Linuxbrew/homebrew-core/issues/1733
+  # install using command line in https://www.rust-lang.org/en-US/install.html
+  # depends_on "rust" => :build
 
   def install
+    # NOTE: requires `export RUSTUP_HOME=$HOME/.multirust` before calling `brew install ripgrep`
+    # without this, error: no default toolchain configured because $HOME=/tmp/ripgrep-.../ripgrep-0.4.0/.brew_home
     system "cargo", "build", "--release"
 
     bin.install "target/release/rg"
