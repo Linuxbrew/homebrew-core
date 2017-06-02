@@ -54,6 +54,7 @@ dependencies:
         libwmf-dev
         libx11-dev
         libxml2-dev
+        libyaml-dev
         llvm-3.4
         mysql-common
         unixodbc-dev
