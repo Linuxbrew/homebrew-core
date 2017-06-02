@@ -1,3 +1,4 @@
+# gnome-doc-utils: Build a bottle for Linuxbrew
 class GnomeDocUtils < Formula
   desc "Documentation utilities for the GNOME project"
   homepage "https://wiki.gnome.org/Projects/GnomeDocUtils"
