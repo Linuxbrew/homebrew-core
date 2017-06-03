@@ -14,6 +14,9 @@ class Bazel < Formula
   depends_on :java => "1.8+"
   depends_on :macos => :yosemite
 
+  # Fix: The build tool has reset ENV; --env=std required.
+  env :std unless OS.mac?
+
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
