@@ -49,6 +49,7 @@ class Gcc < Formula
   else
     option "with-multilib", "Build with multilib support"
   end
+  option "without-sanitizer", "Build without libsanitizer" if OS.linux?
 
   depends_on "zlib" unless OS.mac?
   depends_on "binutils" if build.with? "glibc"
@@ -162,6 +163,7 @@ class Gcc < Formula
 
     args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
+    args << "--disable-libsanitizer" if build.without? "sanitizer"
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"

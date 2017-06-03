@@ -39,6 +39,7 @@ class GccAT49 < Formula
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   # enabling multilib on a host that can't run 64-bit results in build failures
   option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  option "without-sanitizer", "Build without libsanitizer" if OS.linux?
 
   deprecated_option "enable-java" => "with-java"
   deprecated_option "enable-all-languages" => "with-all-languages"
@@ -123,6 +124,7 @@ class GccAT49 < Formula
     else
       args << "--enable-multilib"
     end
+    args << "--disable-libsanitizer" if build.without? "sanitizer"
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
