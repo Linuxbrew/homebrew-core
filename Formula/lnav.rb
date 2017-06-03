@@ -19,6 +19,8 @@ class Lnav < Formula
     depends_on "re2c" => :build
   end
 
+  needs :cxx14
+
   depends_on "readline"
   depends_on "pcre"
   depends_on "sqlite" if MacOS.version < :sierra
