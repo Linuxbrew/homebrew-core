@@ -38,7 +38,11 @@ class GccAT49 < Formula
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   # enabling multilib on a host that can't run 64-bit results in build failures
-  option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  if OS.mac?
+    option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  else
+    option "with-multilib", "Build with multilib support"
+  end
 
   deprecated_option "enable-java" => "with-java"
   deprecated_option "enable-all-languages" => "with-all-languages"
@@ -82,7 +86,6 @@ class GccAT49 < Formula
     version_suffix = version.to_s.slice(/\d\.\d/)
 
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
@@ -111,6 +114,7 @@ class GccAT49 < Formula
       # install-info is run.
       "MAKEINFO=missing",
     ]
+    args << "--build=#{arch}-apple-darwin#{osmajor}" if OS.mac?
 
     args << "--disable-nls" if build.without? "nls"
 

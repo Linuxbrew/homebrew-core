@@ -42,10 +42,10 @@ class GmpAT4 < Formula
       args << "ABI=32" if Hardware::CPU.is_32_bit?
     elsif MacOS.prefer_64_bit?
       ENV.m64
-      args << "--build=x86_64-apple-darwin"
+      args << "--build=x86_64-apple-darwin" if OS.mac?
     else
       ENV.m32
-      args << "--host=none-apple-darwin"
+      args << "--host=none-apple-darwin" if OS.mac?
     end
 
     system "./configure", *args
