@@ -21,7 +21,7 @@ class Bazel < Formula
 
     system "./compile.sh"
     system "./output/bazel", "--output_user_root", buildpath/"output_user_root",
-           "build", "scripts:bash_completion"
+           "build", "--local_resources", "2048,.5,1.0", "scripts:bash_completion"
 
     bin.install "scripts/packages/bazel.sh" => "bazel"
     bin.install "output/bazel" => "bazel-real"
