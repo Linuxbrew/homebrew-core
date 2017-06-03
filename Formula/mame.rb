@@ -24,6 +24,7 @@ class Mame < Formula
   depends_on "portmidi"
   depends_on "portaudio"
   depends_on "utf8proc"
+  depends_on "alsa-lib" unless OS.mac?
 
   # Needs compiler and library support C++14.
   needs :cxx14
