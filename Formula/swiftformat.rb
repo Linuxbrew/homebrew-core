@@ -12,6 +12,7 @@ class Swiftformat < Formula
     sha256 "8cca54c9aedd251aec4078e7cdd6f051f7d09d9e4ea4d4d371645549c486b6a6" => :el_capitan
   end
 
+  depends_on :macos
   depends_on :xcode => ["8.0", :build]
 
   def install
