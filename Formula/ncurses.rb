@@ -48,7 +48,8 @@ class Ncurses < Formula
                           "--mandir=#{man}",
                           "--with-manpage-format=normal",
                           "--with-shared",
-                          "--with-gpm=no"
+                          "--with-gpm=no",
+                          "--without-ada"
     system "make"
     ENV.deparallelize
     system "make", "install"
