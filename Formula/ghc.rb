@@ -148,11 +148,15 @@ class Ghc < Formula
     resource("binary").stage do
       # Change the dynamic linker and RPATH of the binary executables.
       if OS.linux? && Formula["glibc"].installed?
+        patchelf = "#{Formula["patchelf"].bin}/patchelf"
         keg = Keg.new(prefix)
         Dir["ghc/stage2/build/tmp/ghc-stage2", "libraries/*/dist-install/build/*.so",
             "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"].each do |s|
           file = Pathname.new(s)
-          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.mach_o_executable? || file.dylib?
+          next unless file.mach_o_executable? || file.dylib?
+          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s)
+          # Fix ghc-pkg: error while loading shared libraries: libtinfo.so.5
+          safe_system patchelf, "--replace-needed", "libtinfo.so.5", "libtinfo.so", file.to_s
         end
       end
 
