@@ -1,3 +1,4 @@
+# armor: Build a bottle for Linuxbrew
 class Armor < Formula
   desc "Uncomplicated HTTP server, supports HTTP/2 and auto TLS"
   homepage "https://github.com/labstack/armor"
