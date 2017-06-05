@@ -174,6 +174,40 @@ class GccAT49 < Formula
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
+  def post_install
+    return if OS.mac?
+
+    # Create the GCC specs file
+    # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
+    version_suffix = version.to_s[/\d\.\d/]
+    gcc = bin/"gcc-#{version_suffix}"
+    libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name").chomp).dirname
+    raise "command failed: #{gcc} -print-libgcc-file-name" unless $?.success?
+    specs = libgcc/"specs"
+    ohai "Creating the GCC specs file: #{specs}"
+    specs_orig = Pathname.new("#{specs}.orig")
+    rm_f [specs_orig, specs]
+
+    # Save a backup of the default specs file
+    specs_string = Utils.popen_read(gcc, "-dumpspecs")
+    raise "command failed: #{gcc} -dumpspecs" unless $?.success?
+    specs_orig.write specs_string
+
+    # Set the dynamic linker and library search path
+    glibc = Formula["glibc"]
+    specs.write specs_string + <<-EOS.undent
+      *cpp_unique_options:
+      + -isystem #{HOMEBREW_PREFIX}/include
+
+      *link_libgcc:
+      #{glibc.installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+
+      *link:
+      + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
+
+    EOS
+  end
+
   test do
     (testpath/"hello-c.c").write <<-EOS.undent
       #include <stdio.h>
