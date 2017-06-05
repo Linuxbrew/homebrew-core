@@ -18,6 +18,7 @@ class Bazel < Formula
   env :std unless OS.mac?
 
   def install
+    ENV["BAZEL_EXTRA_ARGS"] = "--jobs=#{ENV["HOMEBREW_MAKE_JOBS"]} --worker_max_instances=#{ENV["HOMEBREW_MAKE_JOBS"]}"
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
