@@ -36,6 +36,7 @@ class Imagemagick < Formula
   depends_on "libtool" => :run
   depends_on "bzip2" unless OS.mac?
   depends_on "xz"
+  depends_on "freetype" unless OS.mac?
 
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
