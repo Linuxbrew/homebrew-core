@@ -21,6 +21,7 @@ class Libhttpseverywhere < Formula
   depends_on "libsoup"
   depends_on "libgee"
   depends_on "libarchive"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     mkdir "build" do
@@ -56,6 +57,7 @@ class Libhttpseverywhere < Formula
     libgee = Formula["libgee"]
     libsoup = Formula["libsoup"]
     pcre = Formula["pcre"]
+    libxml2 = Formula["libxml2"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{gettext.opt_include}
@@ -67,6 +69,12 @@ class Libhttpseverywhere < Formula
       -I#{libgee.opt_include}/gee-0.8
       -I#{libsoup.opt_include}/libsoup-2.4
       -I#{pcre.opt_include}
+    ]
+    unless OS.mac?
+      flags << "-I#{libxml2.opt_include}/libxml2"
+      flags << "-L#{Formula["libhttpseverywhere"].lib}/x86_64-linux-gnu"
+    end
+    flags += %W[
       -D_REENTRANT
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
