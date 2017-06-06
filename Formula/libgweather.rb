@@ -95,10 +95,10 @@ class Libgweather < Formula
       -lgobject-2.0
       -lgtk-3
       -lgweather-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE=1", "test.c", "-o", "test", *flags
     system "./test"
   end
