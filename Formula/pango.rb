@@ -30,6 +30,10 @@ class Pango < Formula
     depends_on :x11 => :optional
   else
     depends_on :x11
+    depends_on "linuxbrew/xorg/xproto"
+    depends_on "linuxbrew/xorg/kbproto"
+    depends_on "linuxbrew/xorg/xextproto"
+    depends_on "linuxbrew/xorg/renderproto"
   end
 
   def install
