@@ -1,3 +1,4 @@
+# libart: Build a bottle for Linuxbrew
 class Libart < Formula
   desc "Library for high-performance 2D graphics"
   homepage "http://freshmeat.net/projects/libart/"
