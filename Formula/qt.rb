@@ -59,6 +59,7 @@ class Qt < Formula
     depends_on "sqlite"
     depends_on "systemd"
     depends_on "libxkbcommon"
+    depends_on "linuxbrew/xorg/mesa"
   end
 
   def install
