@@ -1,3 +1,4 @@
+# sdl_ttf: Build a bottle for Linuxbrew
 class SdlTtf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://www.libsdl.org/projects/SDL_ttf/"
