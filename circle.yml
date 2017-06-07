@@ -30,8 +30,9 @@ dependencies:
         libffi-dev
         libfontconfig1-dev
         libfreetype6-dev
-        libgl1-mesa-dev
+        libgcrypt11-dev
         libgdbm-dev
+        libgl1-mesa-dev
         libgmp-dev
         libicu-dev
         libidn11-dev
@@ -42,6 +43,7 @@ dependencies:
         libjasper-dev
         libjbig-dev
         libkrb5-dev
+        libldap2-dev
         libltdl-dev
         liblzma-dev
         libncurses5-dev
