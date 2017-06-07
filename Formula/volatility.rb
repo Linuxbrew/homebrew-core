@@ -19,6 +19,7 @@ class Volatility < Formula
   depends_on "yara"
   depends_on "jpeg"
   depends_on "freetype"
+  depends_on "gmp" unless OS.mac? # for pycrypto
 
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/28/f9/8ff25a8f3edb581b5bc0efbed6382dcca22e5e7eff39464346c629105739/distorm3-3.3.4.zip"
