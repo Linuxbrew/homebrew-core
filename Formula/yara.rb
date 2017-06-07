@@ -1,3 +1,4 @@
+# yara: Build a bottle for Linuxbrew
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
