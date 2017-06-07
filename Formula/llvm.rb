@@ -294,6 +294,12 @@ class Llvm < Formula
       args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
+    args << "-DLIBUNWIND_ENABLE_ASSERTIONS=OFF"
+    args << "-DLIBCXXABI_ENABLE_ASSERTIONS=OFF"
+    args << "-DLIBCXX_ENABLE_ASSERTIONS=OFF"
+    args << "-DCMAKE_C_FLAGS_RELEASE=-DNDEBUG -Ofast"
+    args << "-DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG -Ofast"
+
     mktemp do
       if build.with? "ocaml"
         args << "-DLLVM_OCAML_INSTALL_PATH=#{lib}/ocaml"
