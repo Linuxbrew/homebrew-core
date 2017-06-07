@@ -35,6 +35,7 @@ class Freetds < Formula
   depends_on "unixodbc" => :optional
   depends_on "libiodbc" => :optional
   depends_on "openssl" => :recommended
+  depends_on "readline" unless OS.mac?
 
   def install
     if build.with?("unixodbc") && build.with?("libiodbc")
