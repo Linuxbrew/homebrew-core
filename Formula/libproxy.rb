@@ -20,6 +20,9 @@ class Libproxy < Formula
   # tries to install to system perl location
   depends_on "perl" unless OS.mac?
 
+  # tries to install to system perl location
+  depends_on "perl" unless OS.mac?
+
   def install
     args = std_cmake_args + %W[
       ..
