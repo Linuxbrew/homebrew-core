@@ -1,3 +1,4 @@
+# physfs: Build a bottle for Linuxbrew
 class Physfs < Formula
   desc "Library to provide abstract access to various archives"
   homepage "https://icculus.org/physfs/"
@@ -15,6 +16,7 @@ class Physfs < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     mkdir "macbuild" do
@@ -33,6 +35,6 @@ class Physfs < Formula
       addarchive test.zip 1
       cat test.txt
       EOS
-    assert_match /Successful\.\nhomebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
+    assert_match /Successful\.\n#{"> cat test.txt\n" unless OS.mac?}homebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
   end
 end
