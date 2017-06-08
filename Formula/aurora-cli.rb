@@ -12,6 +12,7 @@ class AuroraCli < Formula
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "krb5" unless OS.mac?
 
   def install
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora"
