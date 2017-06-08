@@ -1,3 +1,4 @@
+# phantomjs: Build a bottle for Linuxbrew
 class Phantomjs < Formula
   desc "Headless WebKit scriptable with a JavaScript API"
   homepage "http://phantomjs.org/"
