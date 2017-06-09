@@ -1,3 +1,4 @@
+# arx: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Arx < Formula
@@ -18,6 +19,7 @@ class Arx < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "sphinx-doc" => :build unless OS.mac?
 
   def install
     cabal_sandbox do
