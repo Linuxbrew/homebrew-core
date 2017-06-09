@@ -3,13 +3,13 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v8.1.0/node-v8.1.0.tar.xz"
   sha256 "f2ff20b69b782dee85e887ad06e830590b2250856f6df325ed15a368bb6777fc"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "9d92b9b550eaf2b9fd70de20fe789fc186f147a3c980bf67195c50070310e483" => :sierra
-    sha256 "619ad92f5aea0804d059b16a82e8781b6e12975d81ed81ff69fdeddcc016cfb3" => :el_capitan
-    sha256 "5403b633d1521042f5cc1b151b98b75256661cd0061645e750d08a2c3bcda434" => :yosemite
-    sha256 "b4970b6db609e73af7009ff737c665f26652c5e76f2b13c4a9ae07de3eff10d7" => :x86_64_linux
+    sha256 "5b2fd76e879a329a482792dc097086bb5c0fb149de233689f869d772fc3c0064" => :sierra
+    sha256 "98dc7d8a1475b35933037601b1a6354fa8d8ed889d2a03fb8c279a8946a3f4ea" => :el_capitan
+    sha256 "d315eb09eb140b05da3406a7234ae1e8133e2a410e19af7a92902127ad033a18" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -41,6 +41,15 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
     sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
+  end
+
+  # Remove for > 8.1.0
+  # Fix "All versions of `npm init` hang on Node 8.1.0"
+  # Upstream PR from 8 Jun 2017 "Revert 'readline: clean up event
+  # listener in onNewListener'"
+  patch do
+    url "https://github.com/nodejs/node/pull/13560.patch"
+    sha256 "036e86cee567059415847850a84bed6f80405b02f98b8ce9a5d921a7c480127e"
   end
 
   def install
