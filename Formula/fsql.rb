@@ -1,3 +1,4 @@
+# fsql: Build a bottle for Linuxbrew
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries."
   homepage "https://github.com/kshvmdn/fsql"
