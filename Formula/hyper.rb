@@ -1,3 +1,4 @@
+# hyper: Build a bottle for Linuxbrew
 class Hyper < Formula
   desc "Client for HyperHQ's cloud service"
   homepage "https://hyper.sh"
