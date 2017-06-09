@@ -1,3 +1,4 @@
+# scipy: Build a bottle for Linuxbrew
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
