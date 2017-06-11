@@ -16,6 +16,9 @@ class DockerMachineParallels < Formula
   depends_on "go" => :build
   depends_on "docker-machine"
 
+  # Parallels Desktop is inherently Mac-only
+  depends_on :macos
+
   def install
     ENV["GOPATH"] = buildpath
 
