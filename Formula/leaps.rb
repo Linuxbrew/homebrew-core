@@ -1,3 +1,4 @@
+# leaps: Build a bottle for Linuxbrew
 class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
