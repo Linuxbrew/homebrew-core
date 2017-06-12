@@ -44,8 +44,8 @@ class Libgtop < Formula
       -L#{lib}
       -lglib-2.0
       -lgtop-2.0
-      -lintl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
