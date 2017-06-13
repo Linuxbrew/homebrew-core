@@ -26,6 +26,10 @@ class MariadbAT101 < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "ncurses"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
