@@ -14,6 +14,7 @@ class Intltool < Formula
     sha256 "2b0bc62fa22240902e2bc04b91d6f25b0989e224953ed99ad66d06ad9b37b34d" => :x86_64_linux
   end
 
+  depends_on :perl => "5.8" unless OS.mac?
   depends_on "XML::Parser" => :perl unless OS.mac?
 
   def install
