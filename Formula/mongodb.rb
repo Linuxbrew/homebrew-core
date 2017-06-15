@@ -93,6 +93,9 @@ class Mongodb < Formula
 
     (var+"mongodb").mkpath
     (var+"log/mongodb").mkpath
+
+    # Reduce the size of the bottle.
+    system "strip", *Dir[bin/"*"] unless OS.mac?
   end
 
   def mongodb_conf; <<-EOS.undent
