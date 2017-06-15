@@ -64,6 +64,9 @@ class Protobuf < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
     # https://github.com/google/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
