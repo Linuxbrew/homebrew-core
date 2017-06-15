@@ -1,3 +1,4 @@
+# convox: Build a bottle for Linuxbrew
 class Convox < Formula
   desc "The convox AWS PaaS CLI tool"
   homepage "https://convox.com/"
