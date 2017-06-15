@@ -1,3 +1,4 @@
+# raptor: Build a bottle for Linuxbrew
 class Raptor < Formula
   desc "RDF parser toolkit"
   homepage "http://librdf.org/raptor/"
