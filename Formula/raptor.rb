@@ -14,6 +14,8 @@ class Raptor < Formula
     sha256 "940e3bdae54c820097a92bf9fded4761c9d0b070c2caae1bfbd051d33494e0f3" => :mountain_lion
   end
 
+  depends_on "libxml2" unless OS.mac?
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
