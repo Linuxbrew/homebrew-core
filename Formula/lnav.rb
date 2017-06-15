@@ -27,6 +27,9 @@ class Lnav < Formula
   depends_on "curl" => ["with-libssh2", :optional]
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
     ENV.delete("SDKROOT")
 
