@@ -17,6 +17,9 @@ class Fibjs < Formula
   depends_on "cmake" => :build
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["HOMEBREW_MAKE_JOBS"] = "16" if ENV["CIRCLECI"]
+
     # the build script breaks when CI is set by Homebrew
     begin
       env_ci = ENV.delete "CI"
