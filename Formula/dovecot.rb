@@ -18,6 +18,10 @@ class Dovecot < Formula
 
   depends_on "openssl"
   depends_on "clucene" => :optional
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "sqlite"
+  end
 
   resource "pigeonhole" do
     url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.19.tar.gz"
