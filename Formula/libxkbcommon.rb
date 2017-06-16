@@ -3,6 +3,7 @@ class Libxkbcommon < Formula
   homepage "https://xkbcommon.org/"
   url "https://xkbcommon.org/download/libxkbcommon-0.7.1.tar.xz"
   sha256 "ba59305d2e19e47c27ea065c2e0df96ebac6a3c6e97e28ae5620073b6084e68b"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "f315b5f0587687bfe2a859fc2440980820031a8d984c0b707f468f886953ab0c" => :sierra
@@ -24,8 +25,11 @@ class Libxkbcommon < Formula
     depends_on "bison" => :build
   end
   depends_on "pkg-config" => :build
-  depends_on "linuxbrew/xorg/xkeyboardconfig" unless OS.mac?
-  depends_on "linuxbrew/xorg/libxcb" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/xkeyboardconfig"
+    depends_on "linuxbrew/xorg/libxcb"
+  end
 
   def install
     system "./autogen.sh" if build.head?
