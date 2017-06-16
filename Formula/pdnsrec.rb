@@ -1,3 +1,4 @@
+# pdnsrec: Build a bottle for Linuxbrew
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
