@@ -1,3 +1,4 @@
+# dcos-cli: Build a bottle for Linuxbrew
 class DcosCli < Formula
   include Language::Python::Virtualenv
 
