@@ -14,6 +14,8 @@ class Docutils < Formula
     sha256 "f889bbf58533bd947c0b5db906e7e1a8f3ec8439f13f6532b33f8d325a83a380" => :yosemite
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     virtualenv_install_with_resources
   end
