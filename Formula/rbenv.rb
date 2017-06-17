@@ -1,3 +1,4 @@
+# rbenv: Build a bottle for Linuxbrew
 class Rbenv < Formula
   desc "Ruby version manager"
   homepage "https://github.com/rbenv/rbenv#readme"
