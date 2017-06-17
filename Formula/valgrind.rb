@@ -1,3 +1,4 @@
+# Test valgrind
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
