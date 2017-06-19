@@ -1,4 +1,5 @@
 # meson: Build a bottle for Linuxbrew
+# meson: Build a bottle for Linuxbrew
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "http://mesonbuild.com/"
