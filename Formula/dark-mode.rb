@@ -13,6 +13,7 @@ class DarkMode < Formula
 
   depends_on :macos => :el_capitan
   depends_on :xcode => :build
+  depends_on :macos
 
   def install
     system "./build"
