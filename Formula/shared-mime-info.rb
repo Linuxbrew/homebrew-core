@@ -24,6 +24,7 @@ class SharedMimeInfo < Formula
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
+  depends_on :perl => ["5.8", :build] unless OS.mac?
 
   def install
     # Disable the post-install update-mimedb due to crash
