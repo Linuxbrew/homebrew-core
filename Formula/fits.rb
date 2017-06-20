@@ -13,6 +13,7 @@ class Fits < Formula
 
   depends_on "ant" => :build
   depends_on :java => "1.7+"
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.java_cache
