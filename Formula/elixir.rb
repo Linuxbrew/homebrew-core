@@ -1,3 +1,4 @@
+# elixir: Build a bottle for Linuxbrew
 class Erlang18Requirement < Requirement
   fatal true
   default_formula "erlang"
