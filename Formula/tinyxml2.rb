@@ -1,3 +1,4 @@
+# tinyxml2: Build a bottle for Linuxbrew
 class Tinyxml2 < Formula
   desc "Improved tinyxml (in memory efficiency and size)"
   homepage "http://grinninglizard.com/tinyxml2"
