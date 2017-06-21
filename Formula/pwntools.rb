@@ -1,3 +1,4 @@
+# pwntools: Build a bottle for Linuxbrew
 class Pwntools < Formula
   include Language::Python::Virtualenv
 
