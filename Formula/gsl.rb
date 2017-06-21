@@ -1,3 +1,4 @@
+# gsl: Build a bottle for Linuxbrew
 class Gsl < Formula
   desc "Numerical library for C and C++"
   homepage "https://www.gnu.org/software/gsl/"
