@@ -1,3 +1,4 @@
+# opus: Build a bottle for Linuxbrew
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org/"
