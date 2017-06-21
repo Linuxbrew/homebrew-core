@@ -1,3 +1,4 @@
+# dieharder: Build a bottle for Linuxbrew
 class Dieharder < Formula
   desc "Random number test suite"
   homepage "https://www.phy.duke.edu/~rgb/General/dieharder.php"
