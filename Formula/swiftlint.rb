@@ -12,6 +12,9 @@ class Swiftlint < Formula
     sha256 "d54e7f8631dc1f4e59a9d432e0a2164b63cb6df2a48a5030706761d3b4064630" => :el_capitan
   end
 
+  # Fixes the error: make: xcodebuild: Command not found
+  depends_on :macos
+
   depends_on :xcode => ["7.0", :run]
   depends_on :xcode => ["8.0", :build]
 
