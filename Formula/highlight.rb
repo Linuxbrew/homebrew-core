@@ -16,6 +16,9 @@ class Highlight < Formula
   depends_on "lua"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     conf_dir = etc/"highlight/" # highlight needs a final / for conf_dir
     system "make", "PREFIX=#{prefix}", "conf_dir=#{conf_dir}"
     system "make", "PREFIX=#{prefix}", "conf_dir=#{conf_dir}", "install"
