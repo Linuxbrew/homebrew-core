@@ -13,6 +13,7 @@ class Jasper < Formula
 
   depends_on "cmake" => :build
   depends_on "jpeg"
+  depends_on "texlive" => ["with-full", :build] if OS.linux?
 
   def install
     mkdir "build" do
