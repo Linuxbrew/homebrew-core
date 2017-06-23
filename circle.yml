@@ -46,6 +46,7 @@ dependencies:
         libldap2-dev
         libltdl-dev
         liblzma-dev
+        libmagic-dev
         libncurses5-dev
         libossp-uuid-dev
         libpcre3-dev
