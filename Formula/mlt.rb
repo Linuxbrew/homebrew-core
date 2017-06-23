@@ -1,3 +1,4 @@
+# mlt: Build a bottle for Linuxbrew
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
