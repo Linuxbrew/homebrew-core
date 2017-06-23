@@ -1,3 +1,4 @@
+# mad: Build a bottle for Linuxbrew
 class Mad < Formula
   desc "MPEG audio decoder"
   homepage "http://www.underbit.com/products/mad/"
