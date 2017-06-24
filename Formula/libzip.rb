@@ -13,6 +13,8 @@ class Libzip < Formula
 
   conflicts_with "libtcod", :because => "both install `zip.h` header"
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
