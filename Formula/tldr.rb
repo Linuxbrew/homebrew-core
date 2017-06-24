@@ -1,3 +1,4 @@
+# tldr: Build a bottle for Linuxbrew
 class Tldr < Formula
   desc "Simplified and community-driven man pages"
   homepage "https://tldr-pages.github.io"
