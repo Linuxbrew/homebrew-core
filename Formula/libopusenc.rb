@@ -1,3 +1,4 @@
+# libopusenc: Build a bottle for Linuxbrew
 class Libopusenc < Formula
   desc "Convenience libraray for creating .opus files"
   homepage "https://opus-codec.org/"
