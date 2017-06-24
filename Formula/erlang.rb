@@ -1,3 +1,4 @@
+# erlang: Build a bottle for Linuxbrew
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "http://www.erlang.org/"
