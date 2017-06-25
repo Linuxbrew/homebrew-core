@@ -4,13 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
   sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "7cf67dcdef0730425392ccf69f50142815cf6cdc335d39c027540002a830b327" => :sierra
-    sha256 "342cef6d443725e2cfacc1416d2e907ab1e1433c984866f4da4e561016f470a2" => :el_capitan
-    sha256 "100e17e03f2ad01c32db60f2ca12e6593523aad0be4d1c9fc297138164662f86" => :yosemite
-    sha256 "543e4638be1b7383630b055bcbba4668474c38b09a06a4dc4fd95d17ca28352c" => :x86_64_linux
+    sha256 "42e3082d6c0afb51e4009e790296b7d651c3f8df389450524607ceaa807b5985" => :sierra
+    sha256 "8a772eefe1665751e1b09b97c68f08f2c58d25ed34874c8119a2375755c3a6c4" => :el_capitan
+    sha256 "b55deafb9fb766c7251c3008b3b3964849ed99f0679c0278ec3e1294a0b8dedf" => :yosemite
   end
 
   deprecated_option "java" => "with-java"
