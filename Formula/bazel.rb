@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
@@ -13,6 +18,7 @@ class Bazel < Formula
 
   depends_on :java => "1.8+"
   depends_on :macos => :yosemite
+  depends_on CIRequirement
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
