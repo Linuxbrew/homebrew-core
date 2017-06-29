@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
@@ -45,6 +50,7 @@ class Rust < Formula
     depends_on "binutils" => :build
     depends_on :python
   end
+  depends_on CIRequirement
 
   conflicts_with "cargo-completion", :because => "both install shell completion for cargo"
 
