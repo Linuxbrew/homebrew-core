@@ -55,6 +55,7 @@ class Fontconfig < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gperf" => :build
+    depends_on "libtool" => :build
   end
 
   def install
@@ -70,7 +71,7 @@ class Fontconfig < Formula
       font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font4"
     end
 
-    system "autoreconf", "-iv" if build.head?
+    system "autoreconf", "-iv" if build.head? || !OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
