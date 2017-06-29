@@ -1,3 +1,4 @@
+# jsoncpp: Build a bottle for Linuxbrew
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
