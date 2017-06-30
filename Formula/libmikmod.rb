@@ -1,14 +1,14 @@
 class Libmikmod < Formula
   desc "Portable sound library"
   homepage "http://mikmod.shlomifish.org"
-  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.11/libmikmod-3.3.11.tar.gz"
-  sha256 "d1ba23ce8191ac917f9080bbc1e5e879887c01acd7bd311b1315932c4312abea"
+  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.11.1/libmikmod-3.3.11.1.tar.gz"
+  sha256 "ad9d64dfc8f83684876419ea7cd4ff4a41d8bcd8c23ef37ecb3a200a16b46d19"
 
   bottle do
     cellar :any
-    sha256 "582942e61825e40addb1cdfbd46e8bfbcb5efb061422bc521eae206927ff0786" => :sierra
-    sha256 "524fbb83a324427ca140a58370ff28658b33251a58aab6c54c126ec227bb77d8" => :el_capitan
-    sha256 "e9ca13cb39d2d615e0efd03bb68ec9bfb3e70af4d7e4ad3d971ccccd80520ccf" => :yosemite
+    sha256 "f7785b9a4f95ff28d55ffd022780ed1cd9bde139b3482cc4f52b862cd9abf247" => :sierra
+    sha256 "202b59906b8113d694f9c1e81df7a5f00f8afbc9e66a2b1188674058a64ae206" => :el_capitan
+    sha256 "8276808d976d108dd2768cacb5b54bf570ef6662b8855e7d3537e0ffaaeb1a19" => :yosemite
   end
 
   option "with-debug", "Enable debugging symbols"

@@ -4,14 +4,14 @@ class Ppsspp < Formula
   url "https://github.com/hrydgard/ppsspp.git",
       :tag => "v1.4.2",
       :revision => "3ae4c122e5131a818ca88c54b1e62a66710d8799"
-  revision 1
+  revision 2
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
     cellar :any
-    sha256 "e5d5ddc825bb3af1413ac5d2aee4c31e722901c88c63a64ad237c87aea77c71e" => :sierra
-    sha256 "60012173d35870619aa094f78c11143342aab477f595e7be6070daa632a2c227" => :el_capitan
-    sha256 "f6f18abb7dd340fa9770bb21f49d137a7033c009d44b5d634a95f2d8d70ed9a8" => :yosemite
+    sha256 "701b8ad9ff662cc58f98e1c6c7922835066a60dee82356bcf23f38bdcfc41817" => :sierra
+    sha256 "9f2a6481157ada2529a9edc9979cf698435d35b022cc989741580cbb6b29e9ff" => :el_capitan
+    sha256 "c4c8a52e30a248503364381981371fabd3da9e77187dcda54a8e3984a7b329f1" => :yosemite
   end
 
   depends_on "cmake" => :build

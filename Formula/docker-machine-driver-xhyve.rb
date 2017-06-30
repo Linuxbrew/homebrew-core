@@ -2,16 +2,16 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.3.2",
-    :revision => "c290fd6efa3891782b023001e96cf8c8827d31e0"
+    :tag => "v0.3.3",
+    :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92c1201ecaa20aecaa254895ffc3b317e284207a3857a8aa8aef633b8d42684d" => :sierra
-    sha256 "71ba7150d265ae5070b565b7ff569246b70e7d5cd522671672dc2f2b1e518991" => :el_capitan
-    sha256 "50350637e1382b54042c9a97499f238f06249eebeebb064385b71a23a4cdd3b6" => :yosemite
+    sha256 "d743c74ee83d3a74bf95a5b2a1f0841344a3cb7ee876c9b257875d2f241c11d8" => :sierra
+    sha256 "2e6d1e4862d3ae9f90752a31e03445e9104e9c0662e3b256f30e864e3c8cab9a" => :el_capitan
+    sha256 "5d56650190f313b24d6a6198fce9adc31725bae9ba97ef79030570229ceef3bb" => :yosemite
   end
 
   option "without-qcow2", "Do not support qcow2 disk image format"
@@ -45,7 +45,7 @@ class DockerMachineDriverXhyve < Formula
         ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
         ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
         ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
-        system "opam", "install", "-y", "uri", "qcow-format", "conf-libev"
+        system "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1", "conf-libev"
       end
 
       go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
