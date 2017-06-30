@@ -1,3 +1,4 @@
+# filebeat: Build a bottle for Linuxbrew
 class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
