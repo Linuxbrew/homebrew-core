@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
@@ -19,6 +24,7 @@ class Rocksdb < Formula
     depends_on "bzip2"
     depends_on "zlib"
   end
+  depends_on CIRequirement
 
   def install
     ENV.cxx11
