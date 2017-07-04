@@ -1,3 +1,4 @@
+# apache-arrow: Build a bottle for Linuxbrew
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
