@@ -12,6 +12,8 @@ class Ipbt < Formula
     sha256 "f80314b01e1bad0114b24d2d0fb7d2e5f2a927b065065c6c7f02affec5e322c6" => :yosemite
   end
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
