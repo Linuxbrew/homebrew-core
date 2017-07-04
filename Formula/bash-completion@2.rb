@@ -1,15 +1,15 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.1+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.5/bash-completion-2.5.tar.xz"
-  sha256 "b0b9540c65532825eca030f1241731383f89b2b65e80f3492c5dd2f0438c95cf"
+  url "https://github.com/scop/bash-completion/releases/download/2.6/bash-completion-2.6.tar.xz"
+  sha256 "61fb652da0b1674443c34827263fe2335f9ddb12670bff208fc383a8955ca5ef"
   head "https://github.com/scop/bash-completion.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb3aa25f0e5d40a7e92d2e79e521a01558a95c4c4e31999697ba5fdc7c7c28f8" => :sierra
-    sha256 "fb3aa25f0e5d40a7e92d2e79e521a01558a95c4c4e31999697ba5fdc7c7c28f8" => :el_capitan
-    sha256 "fb3aa25f0e5d40a7e92d2e79e521a01558a95c4c4e31999697ba5fdc7c7c28f8" => :yosemite
+    sha256 "f2ba1f8b4443fc837ac00e798bb8683dd3d41c6e42de880540fe7a3dc0ffd560" => :sierra
+    sha256 "387408084796e8f52e5b3197126008a0ba773c07cef22e53438e494282ecd53d" => :el_capitan
+    sha256 "387408084796e8f52e5b3197126008a0ba773c07cef22e53438e494282ecd53d" => :yosemite
   end
 
   depends_on "bash"
