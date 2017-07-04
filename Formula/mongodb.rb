@@ -5,22 +5,21 @@ class Mongodb < Formula
   homepage "https://www.mongodb.org/"
 
   stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.4.tar.gz"
-    sha256 "09e962bf3428474b9790bbd464cb6176817f9da6121c30e096240dbb4d51c9f6"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.5.tar.gz"
+    sha256 "84806e5496a1a0a8fe9a59d6eab0acfab0e68476437e94e2772f898677bb21f0"
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.4.4",
-          :revision => "17fbdf31abca50cdfe27482b05b1476f42ecab0a",
+          :tag => "r3.4.5",
+          :revision => "4d4d96583c40a25a4ee7e2d038d75181a300ec3c",
           :shallow => false
     end
   end
 
   bottle do
-    sha256 "6bce1a94cb3cda934bc9c12bd8ca1da3411fa6959f7e71fa6ba822a399fd5a82" => :sierra
-    sha256 "23169e737a9c73dde8aa497ea754d370a102c634a2d12fb96224556e4b8063c6" => :el_capitan
-    sha256 "5124e03c37ef9d6dd673ddebeb9bd403456170c2168c6f558b9b4c1379df8459" => :yosemite
-    sha256 "5e5d051ff978a4d36a2e71c8d141122a6fed160e041706884ecf1fc36d1cd710" => :x86_64_linux
+    sha256 "ccc7f6ca2c7c22f4432c901de76c12ff8e6e8029c802bde847cbb5f314150fbe" => :sierra
+    sha256 "0907d719c9a20b3aaac5e6af8d0e90fc608ce7c5a5a0aa71e2b36a85fee07d80" => :el_capitan
+    sha256 "f263ea38657836428457afcef63228afb584c4b27abe54b30729122f7fa417f6" => :yosemite
   end
 
   devel do

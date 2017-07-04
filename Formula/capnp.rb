@@ -1,15 +1,14 @@
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
-  url "https://capnproto.org/capnproto-c++-0.6.0.tar.gz"
-  sha256 "e50911191afc44d6ab03b8e0452cf8c00fd0edfcd34b39f169cea6a53b0bf73e"
+  url "https://capnproto.org/capnproto-c++-0.6.1.tar.gz"
+  sha256 "8082040cd8c3b93c0e4fc72f2799990c72fdcf21c2b5ecdae6611482a14f1a04"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe035ee20666f60bea72a033625e30981da7cf49bca28e3ded78daeb9a0cc9f3" => :sierra
-    sha256 "5ef99277556769e117350e4c4c625c4498aab44aec043c24a3e8596ee98a311a" => :el_capitan
-    sha256 "7068ca3b3c0db13d8669d1c6e70c5a4a5f31872b70741c8cd54485b5f66052db" => :yosemite
-    sha256 "e0aae8a0e7f1d59259bfa81c4b848c21ee6b4b8267185c87f0232b8bf2e52c06" => :x86_64_linux
+    sha256 "02d729a3d9c6267ff0bea777ade442da70410f04f4f478e789d6f02ca4ad8069" => :sierra
+    sha256 "2393cf083cccf35613b7bd293d87a52f201a4f0cd48bce8d0cd60300808ee203" => :el_capitan
+    sha256 "726278b97a0fab5be359b604b08dc8ea9b5cd7a8a1e350e6724aaa40b7bbd5a2" => :yosemite
   end
 
   needs :cxx11
