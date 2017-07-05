@@ -4,6 +4,7 @@ class Cairo < Formula
   url "https://cairographics.org/releases/cairo-1.14.10.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/cairo-1.14.10.tar.xz"
   sha256 "7e87878658f2c9951a14fc64114d4958c0e65ac47530b8ac3078b2ce41b66a09"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "0cf7f50b38512fd676b6b14f5b22961ababa3958c448f6485055bdad3a04b439" => :sierra
@@ -25,13 +26,14 @@ class Cairo < Formula
   if OS.mac?
     depends_on :x11 => :optional
   else
-    depends_on :x11
+    depends_on :x11 => :recommended
   end
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libpng"
   depends_on "pixman"
   depends_on "glib"
+  depends_on "zlib" unless OS.mac?
 
   def install
     args = %W[
