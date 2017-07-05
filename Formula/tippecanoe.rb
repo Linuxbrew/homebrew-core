@@ -11,7 +11,10 @@ class Tippecanoe < Formula
     sha256 "3f02752b0cd9c6dea166bc815e53493cc494641035f3615d7b94ad5e0687a638" => :yosemite
   end
 
-  depends_on "sqlite" unless OS.mac?
+  unless OS.mac?
+    depends_on "sqlite"
+    depends_on "zlib"
+  end
 
   def install
     system "make"
