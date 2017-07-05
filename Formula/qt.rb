@@ -3,16 +3,15 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
-  sha256 "f70b5c66161191489fc13c7b7eb69bf9df3881596b183e7f6d94305a39837517"
-  revision 1
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.8", :shallow => false
+  url "https://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
+  sha256 "7b41a37d4fe5e120cdb7114862c0153f86c07abbec8db71500443d2ce0c89795"
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
 
   bottle do
-    sha256 "cb42649d2ad1bdfe2238874bb5e0add39aa6d15320694cdccceab3f762a762a7" => :sierra
-    sha256 "2e51e854f68a1ca2c9041c0d98065d72249d7ad0be80f6e41a2b814d52d4b6a0" => :el_capitan
-    sha256 "98d22c7f5803e98f903663ae93ed187a9da4e6767f2792a17f86d9accf6f966d" => :yosemite
+    sha256 "1039cfe8be8e0c9d0610a41fd0795cd7433f49d1d6bc2c675f4919bb0e8eb501" => :sierra
+    sha256 "be6aa6b237f1a179bebd1dfde9f857c75c7b5775ac841270ec3a2224b2888d1e" => :el_capitan
+    sha256 "2bc3289b6c1d961363a655f311955315f651661b92354342014a2f08d9e2e209" => :yosemite
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -33,8 +32,8 @@ class Qt < Formula
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
   resource "qt-webkit" do
-    url "https://download.qt.io/community_releases/5.9/5.9.0-final/qtwebkit-opensource-src-5.9.0.tar.xz"
-    sha256 "8dad193b740055a998312e04a040f2e32a923c0823b2d239b24eab08276a4e04"
+    url "https://download.qt.io/official_releases/qt/5.9/5.9.1/submodules/qtwebkit-opensource-src-5.9.1.tar.xz"
+    sha256 "28a560becd800a4229bfac317c2e5407cd3cc95308bc4c3ca90dba2577b052cf"
   end
 
   # Restore `.pc` files for framework-based build of Qt 5 on OS X. This

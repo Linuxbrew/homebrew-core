@@ -4,14 +4,15 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.4.2",
-      :revision => "5aaf7ebf6cd3398b2ba6076d4e4e7e070e19a5a3"
+      :tag => "v5.4.3",
+      :revision => "0c83527f76c8338a1ab83a30b42e2a46cadf74da"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "a75da0f16938158115a33fdbf174455a3222e678f777fb4f0816a0d228240c5f" => :sierra
-    sha256 "0647928b4dbc647dfa3d77d8595772c5a38c4fa90354075d5361964e95bed251" => :el_capitan
-    sha256 "554603e55678449e7fc3bfb170deed2b04d5b5f5ec383b7920373697f28ba0ee" => :yosemite
+    rebuild 1
+    sha256 "017226c01ec0651569b2cf93752aad5b8ef7280faf110eb2fa585de5c5e02de2" => :sierra
+    sha256 "e087f012d96d64e7da503819109eb590f420052d27a9594f1c74fba76f1be2fc" => :el_capitan
+    sha256 "207876f07655ddc2d164f428f3a923e9191d74a6bfe786da4281354201c0f314" => :yosemite
   end
 
   resource "node" do
@@ -42,8 +43,7 @@ class Kibana < Formula
 
     # set npm env and fix cache edge case (https://github.com/Homebrew/brew/pull/37#issuecomment-208840366)
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
-    Pathname.new("#{ENV["HOME"]}/.npmrc").write Language::Node.npm_cache_config
-    system "npm", "install", "--verbose"
+    system "npm", "install", "-ddd", "--build-from-source", "--#{Language::Node.npm_cache_config}"
     system "npm", "run", "build", "--", "--release", "--skip-os-packages", "--skip-archives"
 
     prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]

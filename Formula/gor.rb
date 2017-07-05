@@ -2,15 +2,15 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
   url "https://github.com/buger/goreplay.git",
-      :tag => "v0.16.0.2",
-      :revision => "74225ebb2236a46fd18a8fa4fa7de441497c13c4"
+      :tag => "v0.16.1",
+      :revision => "652e589e2b71d5dfa4d2a70431d21b108a5e471e"
   head "https://github.com/buger/goreplay.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "be3d38e72512a06ba10818963b72edd43a906a38c1cca1b6224bdbd0b8d2a971" => :sierra
-    sha256 "52f1f8609a0d319c352bd758fa7c73a857ff9fe9f07a2fe25df3801d425fa607" => :el_capitan
-    sha256 "160b2205ee416e6ac7a79fea27588eee268c3657f5d42eccc6e20410d963c01b" => :yosemite
+    sha256 "78689bec0668532515a42e5274733ad296998e0e623bdbd3bbd66d2d0fb8f1e7" => :sierra
+    sha256 "dd3721a8686fb9e08074a6787d2bbefc5d3f3a585b99e52f40734a4516564754" => :el_capitan
+    sha256 "5263cd24fee9bae85eb69aafe887865642e039236e810339f84aa546e6d444d7" => :yosemite
   end
 
   depends_on "go" => :build

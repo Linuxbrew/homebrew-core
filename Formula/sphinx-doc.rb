@@ -1,15 +1,14 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/72/68/ad424cd0caf5ea9d3b53b0ed5653eb09c4abde99b0c0ec84141935281775/Sphinx-1.6.2.tar.gz"
-  sha256 "67527d767dff9a2e2159c501265cff47b6d96d39e036e8b971d6c143ff303197"
+  url "https://files.pythonhosted.org/packages/10/91/ceb2e0d763e0c626f7afd7e3272a5bb76dd06eed1f0b908270ea31984062/Sphinx-1.6.3.tar.gz"
+  sha256 "af8bdb8c714552b77d01d4536e3d6d2879d6cb9d25423d29163d5788e27046e6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "432716b3b80fd03ab41f2c86bca09e336c4698173d5fc40ffccd37c372f5cd86" => :sierra
-    sha256 "42f777b487e76183c59a3ff0e8f48142c797507f4b677ebd2674e3337a17ccbb" => :el_capitan
-    sha256 "4d552e2ecf2bf3355a9d2e3355cc5fdfc123718711ec974575b1d18ba1668eed" => :yosemite
-    sha256 "a4c47513a89f1c60b0a70a9d39b66720fc0c6537ccbd408ac3a12abfd33304eb" => :x86_64_linux
+    sha256 "ee5d3c136c48f2a7be935f6ff8f753946ed05063bee87410ae49173c15757ad0" => :sierra
+    sha256 "3079f387e36bb7e31e74ae6bd303274f9bd59cbde4c772b867b9aec45c918a48" => :el_capitan
+    sha256 "53c0d5a3d5664c8630a05316ab613ef4b726ccf0c3adc6398a29a462da9204a9" => :yosemite
   end
 
   keg_only <<-EOS.undent
@@ -80,8 +79,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/27/c7/a45641c83c6e28f4922ba6af3d4ae4d79b41932c2f3d77fed9e0bf878149/requests-2.17.3.tar.gz"
-    sha256 "8d29f97ed1541709b57caddb77bb20592411d7ca10ec4f03275f49ee8456e225"
+    url "https://files.pythonhosted.org/packages/2c/b5/2b6e8ef8dd18203b6399e9f28c7d54f6de7b7549853fe36d575bd31e29a7/requests-2.18.1.tar.gz"
+    sha256 "c6f3bdf4a4323ac7b45d01e04a6f6c20e32a052cd04de81e05103abc049ad9b9"
   end
 
   resource "six" do
