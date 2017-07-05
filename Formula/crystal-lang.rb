@@ -1,14 +1,14 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.22.0.tar.gz"
-  sha256 "5b9f11d9710ca9bd971a5afb94d369fd8dfaee103d7edf1c9fbebb2f21898547"
+  url "https://github.com/crystal-lang/crystal/archive/0.23.0.tar.gz"
+  sha256 "9b65904bb55100994a3b8022b9c553e5aa78979f459c8b10aa64053a65e5d517"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "821267bb11dc45a9916d239bdf7d09c8b7cc977a9023b5ac6e846b41a25b87de" => :sierra
-    sha256 "46503a959e232b517a995c6b3985469a9f664e447bb3d95af4dc475cbc835d0b" => :el_capitan
-    sha256 "9d63e683dee59b63b1ee7be361fc9ee629fa73f354744dc912cfa51bf79e51bf" => :yosemite
+    sha256 "661389f8a13cc5f9bd9f4aef55ca07b677646093352fd3ef6744ca15b150e25b" => :sierra
+    sha256 "7fb53f0681de767cdbb4a3ea418c15eff5367bb750acce6ad58a5135ad6b5fd1" => :el_capitan
+    sha256 "0d92d4fc54fbb81f919046ff0acd063f7b50e60b01a4cd6638b3ad155c324883" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -24,12 +24,13 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    version "0.21.1"
-    url "https://github.com/crystal-lang/crystal/releases/download/#{version}/crystal-#{version}-1-#{OS.mac? ? "darwin" : "linux"}-x86_64.tar.gz"
+    version "0.22.0"
     if OS.mac?
-      sha256 "e92abb33a9a592febb4e629ad68375b2577acd791a71220b8dc407904be469ee"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.22.0/crystal-0.22.0-1-darwin-x86_64.tar.gz"
+      sha256 "aaaf6dde4050e50bbe9e07c230fcc74c41cb60d308d1c026c5a4cf05c1eaceae"
     elsif OS.linux?
-      sha256 "e8a7489aba888cc0deec61e9bda5dd27ab600edb102afc17fa11582b90960875"
+      url "https://github.com/crystal-lang/crystal/releases/download/#{version}/crystal-#{version}-1-#{OS::NAME}-x86_64.tar.gz"
+      sha256 "789d7b844886133428248605113ede9174c6ea4ba47d96a13f0efd1565b5810d"
     end
   end
 

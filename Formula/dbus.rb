@@ -2,21 +2,24 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.18.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.18.orig.tar.gz"
-  sha256 "6049ddd5f3f3e2618f615f1faeda0a115104423a7996b7aa73e2f36e38cc514a"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.20.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.20.orig.tar.gz"
+  sha256 "e574b9780b5425fde4d973bb596e7ea0f09e00fe2edd662da9016e976c460b48"
 
   bottle do
-    sha256 "c672d4e42d6a46ad7e390290ff30b74a4806276fed73d56a1d0d4742295b283d" => :sierra
-    sha256 "da642beef8f40cefddb3eaf119558494af7d8032b9a23660154954ee6033fe21" => :el_capitan
-    sha256 "a7c6e506cd93f4b530137ce17842d711927ea161e16b998419c648fd102fe48a" => :yosemite
-    sha256 "acaece00335ae04515533d493ea6f5dce0bb0b09e267070129d0070eeef702f6" => :x86_64_linux
+    sha256 "aefbf1cc0f4187045e59c0ca806bba7485c956eb91f6c6cd536e181cd28b796c" => :sierra
+    sha256 "076f9fdd5b89a600d7ac26a0e241a63fa9a39c5609b5a5a478cb64ab473194a2" => :el_capitan
+    sha256 "8d8814ab6605c0188f49ebfb4a29734820c3cc74a8bb1501bf0f6e769d0f6b46" => :yosemite
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.12.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.12.orig.tar.gz"
-    sha256 "ac12df14a0fd0a9ecb56d02e2988cd313b91116d048aaaf53786ad6ccea9906d"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.14.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.14.orig.tar.gz"
+    sha256 "55cfc7fdd2cccb2fce1f75d2132ad4801b5ed6699fc2ce79ed993574adf90c80"
+
+    depends_on "coreutils" => :build
+    depends_on "pkg-config" => :build
+    depends_on "expat"
   end
 
   head do
@@ -25,7 +28,10 @@ class Dbus < Formula
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
+    depends_on "coreutils" => :build
     depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+    depends_on "expat"
   end
 
   depends_on "xmlto" => :build
@@ -40,6 +46,10 @@ class Dbus < Formula
   depends_on "expat" unless OS.mac?
 
   def install
+    unless build.stable?
+      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
+    end
+
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 

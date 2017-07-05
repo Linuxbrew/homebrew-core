@@ -1,15 +1,14 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries."
   homepage "https://github.com/kshvmdn/fsql"
-  url "https://github.com/kshvmdn/fsql/archive/v0.3.0.tar.gz"
-  sha256 "8dafa4680e6f72e1f0a52de7b0cd683de533db4635569de2a35a7122091325f7"
+  url "https://github.com/kshvmdn/fsql/archive/v0.3.1.tar.gz"
+  sha256 "b88110426a60aa2c48f7b4e52e117a899d43d1bba2614346b729234cd4bd9184"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a794c99869d7819cc8eb34eb6121812926adbec40400372680a915f22cf2b932" => :sierra
-    sha256 "83325a2daca987ef1f0d9b7edfa78df7a685efe038f62a095d3fb1930e313d89" => :el_capitan
-    sha256 "500c729d69ba2e0680e4d9bacd642e427e87bdaa73f56c07ddd8ba2dbffe5636" => :yosemite
-    sha256 "cd4942949bf7adeb36d6182749c07da6075683613ff2b1e7b43ff015ff78e96a" => :x86_64_linux
+    sha256 "ef29b4aeaeb30416b1969391049f557c3c7edc5b818d41c1693f2f73639b42af" => :sierra
+    sha256 "7cd4ee8016d85649bd0bbdc4ea24ab571d022d5e62b5f8e0d90d7ee6bbd4dd52" => :el_capitan
+    sha256 "627a98cf5a27228b7f471b90925dbdc9734c9697c147f37767ae9572838dd984" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,12 +23,8 @@ class Fsql < Formula
   test do
     (testpath/"bar.txt").write("hello")
     (testpath/"foo/baz.txt").write("world")
-    expected = <<-EOS.undent
-      foo
-      foo/baz.txt
-    EOS
     cmd = "#{bin}/fsql SELECT FULLPATH\\(name\\) FROM foo"
-    assert_equal expected, shell_output(cmd)
+    assert_match %r{^foo\s+foo/baz.txt$}, shell_output(cmd)
     cmd = "#{bin}/fsql SELECT name FROM . WHERE name = bar.txt"
     assert_equal "bar.txt", shell_output(cmd).chomp
     cmd = "#{bin}/fsql SELECT name FROM . WHERE FORMAT\\(size\, GB\\) \\> 500"

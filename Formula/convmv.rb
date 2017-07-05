@@ -1,16 +1,14 @@
 class Convmv < Formula
   desc "Filename encoding conversion tool"
   homepage "https://www.j3e.de/linux/convmv/"
-  url "https://www.j3e.de/linux/convmv/convmv-2.0.tar.gz"
-  sha256 "170cf675be1fca77868ff472e9340ca828b1463865a63d4f4b7b3bf4053db93f"
+  url "https://www.j3e.de/linux/convmv/convmv-2.01.tar.gz"
+  sha256 "782ac06982aeaf8ff3ab8fc42cb49cb8bc562dbd1e97ef7e17bedcf3ecf2483a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8e666ff7d48df2400bc48d670bbaced3d51b177142bff09e42ff1270a2a81c1" => :sierra
-    sha256 "ba37232c28cd67ad8b553b79b9e4caccaf9571eb05658bf4ac287be2e490094e" => :el_capitan
-    sha256 "0293e2f79297e7be509804444fe9ec437ae12f38a2aafab226b27fc2c41da1fe" => :yosemite
-    sha256 "14eb563118272c69d38b71a972976a0736757c529741c154ba311c1d9082313a" => :mavericks
-    sha256 "355114a774c9a036a10e77e8e8570f783fe57e50847c3c7f7bd449f016862900" => :mountain_lion
+    sha256 "e982afa59680fe00e13da653d2a73ab537f194d0ad0a5ec7953fab95e8e73963" => :sierra
+    sha256 "f4451144243611e621226eb41d1838c2f7c18f97c5d2a973caeb151abcc0b808" => :el_capitan
+    sha256 "53cc7e28953c5b2a7a935b430bc79a7eef32ad16c47a0a5e93e13f36b4d3f0fa" => :yosemite
   end
 
   def install
