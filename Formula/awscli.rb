@@ -3,16 +3,15 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/1.11.113.tar.gz"
-  sha256 "506569d034a744c0becf789f18cb4c94c78df740ca9ff9c84a02c4921dd22cc4"
+  url "https://github.com/aws/aws-cli/archive/1.11.114.tar.gz"
+  sha256 "16a20c09f8e57435d08349c49f5317382fee6d1211b1e2a9caac8a2a29129041"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bba7cb6506e36e3da839545fa373336eae7953693a6326ac237f162e72299db1" => :sierra
-    sha256 "636a540066c7594eeef71b9988ea438bcc675cae7eefcb041cdfab85b23fca8a" => :el_capitan
-    sha256 "b7c975aaa3587f3000ad8c1497176bea1c0c20846b60854d0052965f5dc4d15a" => :yosemite
-    sha256 "16fbd08488a4a04ad028f2d90b6e1e7c37e1d2f6ddfad298c7e58f4d4ab0dfed" => :x86_64_linux
+    sha256 "08ebf55db4ebdb6e9f4ec59dd9ce8c2426ff4024ab76c8f71f7826066fd1e887" => :sierra
+    sha256 "ba2fd6ce78ae8dc96409a427943e71498dea2edbc9e770be08d4bbcdd01a9d05" => :el_capitan
+    sha256 "6533f974f8cb12da38db091abc7e73a6293b5ce009a2d9fa8e673658b4ab0f32" => :yosemite
   end
 
   # Use :python on Lion to avoid urllib3 warning

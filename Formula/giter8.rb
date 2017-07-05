@@ -1,14 +1,14 @@
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
   homepage "https://github.com/foundweekends/giter8"
-  url "https://github.com/foundweekends/giter8/archive/v0.8.0.tar.gz"
-  sha256 "f3a49b559b5438d5f28d30bf5c40c607823e6d968aaeeff231eedd17f38f2b4e"
+  url "https://github.com/foundweekends/giter8/archive/v0.9.0.tar.gz"
+  sha256 "7252cde2c0249119b13bc17108713e309daf1dee46d52f160a39b61c4e1f6ab4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcc901d03b43c6ed8604623900261f8a88c288506d70d4ce3cf37bc49f0eae58" => :sierra
-    sha256 "e7a62369645174ff5593ae3b17a42858d6aa3bf45637d6bff6c3d4ffc25e3b76" => :el_capitan
-    sha256 "954c03fe0f4bdaa0164919533385c0a6a8177fc0b7edfb07291d760b0a596770" => :yosemite
+    sha256 "9621b859cafeda7d9d6d52228b6d5c251147256b473db85fcfba9ac84c8d5317" => :sierra
+    sha256 "97ef6c779e1b99ebcdc474ff1ad07a3d2d4c510629d4c3b30e6abed9104e1d9b" => :el_capitan
+    sha256 "85b7e2737383ffdd21a6eba386b492bb2aa06d6084cf133b243755610533a06a" => :yosemite
   end
 
   depends_on :java => "1.6+"
