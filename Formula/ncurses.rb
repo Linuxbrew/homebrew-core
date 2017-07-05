@@ -16,7 +16,7 @@ class Ncurses < Formula
   keg_only :provided_by_osx
 
   depends_on "pkg-config" => :build
-  depends_on "gpatch" => :build
+  depends_on "gpatch" => :build unless OS.mac?
 
   # stable rollup patch created by upstream see
   # http://invisible-mirror.net/archives/ncurses/6.0/README
