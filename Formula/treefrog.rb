@@ -1,13 +1,13 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "http://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.17.0.tar.gz"
-  sha256 "8e9ca157610848ba5290a37377d1787a16fada8e32babb7400464485b6873e19"
-  head "https://github.com/treefrogframework/treefrog-framework.git", :branch => "master"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.18.0.tar.gz"
+  sha256 "9d9c60c9b36a4a76ac89adcdf1bf3c9a7135f89774332087b34f27e8fc89e0ca"
+  head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
-    sha256 "b7d5f5213a6f49bc1eea50eba4a1b0fae2ac5397414b5df090b4fd29cff7119c" => :sierra
-    sha256 "b99147d19cb7b77bf2711353da0942bc8bea4996886dc4b382d3ef200b82c767" => :el_capitan
+    sha256 "521573c0bb1696d212152971f66ea300befd4772843edb56191d669317a750a6" => :sierra
+    sha256 "502cb26815eece3a32a7bc652b3cde1bbe10aa26da320f388e18f0d30ea3abbf" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"

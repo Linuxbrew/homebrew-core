@@ -3,14 +3,14 @@ require "language/node"
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://insect.sh/"
-  url "https://registry.npmjs.org/insect/-/insect-4.7.0.tgz"
-  sha256 "a5f5fbd4f4a50362e611a7be7585fb24b973219857f8a56290ae4b95b7f1f00f"
+  url "https://registry.npmjs.org/insect/-/insect-4.8.0.tgz"
+  sha256 "9bc0b55401875920dfe725cddace1a26fc62d82f919f5f3ed215ea234a2ab3da"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abed9facd44c3447ed54a84d9bc8b0068ceb9ae1ac216ded9671f38d5e8ec281" => :sierra
-    sha256 "cc59874d2b14a17563440afef00f9e0388f24470d1d7e4c6f89ecf462b052021" => :el_capitan
-    sha256 "3761085e0b40a969472de44c64618d2e76d4d3605b17db5d047361da0f0a9b2a" => :yosemite
+    sha256 "dc3d95026270fa0cea8cca524f92405a3d25f181e665c8852f373f43415073dd" => :sierra
+    sha256 "4f6c779f753ab5d31845bc1b22ea7baad3d98667d99a4feaf900017f41e3b423" => :el_capitan
+    sha256 "e905fb7cf8dce1ff269631c63ed46cf7d6c781f60e2cc4662ad2ea81f49cbf10" => :yosemite
   end
 
   depends_on "node"
