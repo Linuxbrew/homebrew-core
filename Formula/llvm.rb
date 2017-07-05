@@ -19,33 +19,32 @@ end
 
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
-  homepage "http://llvm.org/"
-  revision 1
+  homepage "https://llvm.org/"
 
   stable do
-    url "http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz"
-    sha256 "8d10511df96e73b8ff9e7abbfb4d4d432edbdbe965f1f4f07afaf370b8a533be"
+    url "http://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz"
+    sha256 "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51"
 
     resource "clang" do
-      url "http://releases.llvm.org/4.0.0/cfe-4.0.0.src.tar.xz"
-      sha256 "cea5f88ebddb30e296ca89130c83b9d46c2d833685e2912303c828054c4dc98a"
+      url "http://releases.llvm.org/4.0.1/cfe-4.0.1.src.tar.xz"
+      sha256 "61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b"
     end
 
     resource "clang-extra-tools" do
-      url "http://releases.llvm.org/4.0.0/clang-tools-extra-4.0.0.src.tar.xz"
-      sha256 "41b7d37eb128fd362ab3431be5244cf50325bb3bb153895735c5bacede647c99"
+      url "http://releases.llvm.org/4.0.1/clang-tools-extra-4.0.1.src.tar.xz"
+      sha256 "35d1e64efc108076acbe7392566a52c35df9ec19778eb9eb12245fc7d8b915b6"
     end
 
     resource "compiler-rt" do
-      url "http://releases.llvm.org/4.0.0/compiler-rt-4.0.0.src.tar.xz"
-      sha256 "d3f25b23bef24c305137e6b44f7e81c51bbec764c119e01512a9bd2330be3115"
+      url "http://releases.llvm.org/4.0.1/compiler-rt-4.0.1.src.tar.xz"
+      sha256 "a3c87794334887b93b7a766c507244a7cdcce1d48b2e9249fc9a94f2c3beb440"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "http://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
-      sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
+      url "http://releases.llvm.org/4.0.1/libcxx-4.0.1.src.tar.xz"
+      sha256 "520a1171f272c9ff82f324d5d89accadcec9bc9f3c78de11f5575cdb99accc4c"
     end
 
     resource "libcxxabi" do
@@ -54,56 +53,55 @@ class Llvm < Formula
     end
 
     resource "libunwind" do
-      url "http://releases.llvm.org/4.0.0/libunwind-4.0.0.src.tar.xz"
-      sha256 "0755efa9f969373d4d543123bbed4b3f9a835f6302875c1379c5745857725973"
+      url "http://releases.llvm.org/4.0.1/libunwind-4.0.1.src.tar.xz"
+      sha256 "3b072e33b764b4f9b5172698e080886d1f4d606531ab227772a7fc08d6a92555"
     end
 
     resource "lld" do
-      url "http://releases.llvm.org/4.0.0/lld-4.0.0.src.tar.xz"
-      sha256 "33e06457b9ce0563c89b11ccc7ccabf9cff71b83571985a5bf8684c9150e7502"
+      url "http://releases.llvm.org/4.0.1/lld-4.0.1.src.tar.xz"
+      sha256 "63ce10e533276ca353941ce5ab5cc8e8dcd99dbdd9c4fa49f344a212f29d36ed"
     end
 
     resource "lldb" do
-      url "http://releases.llvm.org/4.0.0/lldb-4.0.0.src.tar.xz"
-      sha256 "2dbd8f05c662c1c9f11270fc9d0c63b419ddc988095e0ad107ed911cf882033d"
+      url "http://releases.llvm.org/4.0.1/lldb-4.0.1.src.tar.xz"
+      sha256 "8432d2dfd86044a0fc21713e0b5c1d98e1d8aad863cf67562879f47f841ac47b"
     end
 
     resource "openmp" do
-      url "http://releases.llvm.org/4.0.0/openmp-4.0.0.src.tar.xz"
-      sha256 "db55d85a7bb289804dc42fc5c8e35ca24dfc3885782261b675a194fd7e206e26"
+      url "http://releases.llvm.org/4.0.1/openmp-4.0.1.src.tar.xz"
+      sha256 "ec693b170e0600daa7b372240a06e66341ace790d89eaf4a843e8d56d5f4ada4"
     end
 
     resource "polly" do
-      url "http://releases.llvm.org/4.0.0/polly-4.0.0.src.tar.xz"
-      sha256 "27a5dbf95e8aa9e0bbe3d6c5d1e83c92414d734357aa0d6c16020a65dc4dcd97"
+      url "http://releases.llvm.org/4.0.1/polly-4.0.1.src.tar.xz"
+      sha256 "b443bb9617d776a7d05970e5818aa49aa2adfb2670047be8e9f242f58e84f01a"
     end
   end
 
   bottle do
     cellar :any if OS.mac?
-    sha256 "c9b767b585dea0a0941dc3f65fd06f85af51c16528f3d2cda62e123a4c30dfa7" => :sierra
-    sha256 "fe20c0b3987743371644a701b23e19f7b2c5626549a821f206f1222c17e91f2c" => :el_capitan
-    sha256 "52ecbfa6487ac0615bea0a9865461183c070ea275594bdcc0c17254718df8d80" => :yosemite
-    sha256 "87fcce227ce03bb4d4219a474ea11d87e5ce8524a387c706c0f3594cfe32131c" => :x86_64_linux
+    sha256 "eb15bdba8ca720b89fa5548ad56a51834bbc48e1eb9fda6773027a138fc29f19" => :sierra
+    sha256 "1b4145b60413913b34cc533fa2cf22f0226469529771bfa8ad3e8a4d77ba65b6" => :el_capitan
+    sha256 "34c163e3e65dce3c6d82905cbf9220e92854ff50825d13402047534ef62beb66" => :yosemite
   end
 
   head do
-    url "http://llvm.org/git/llvm.git"
+    url "https://llvm.org/git/llvm.git"
 
     resource "clang" do
-      url "http://llvm.org/git/clang.git"
+      url "https://llvm.org/git/clang.git"
     end
 
     resource "clang-extra-tools" do
-      url "http://llvm.org/git/clang-tools-extra.git"
+      url "https://llvm.org/git/clang-tools-extra.git"
     end
 
     resource "compiler-rt" do
-      url "http://llvm.org/git/compiler-rt.git"
+      url "https://llvm.org/git/compiler-rt.git"
     end
 
     resource "libcxx" do
-      url "http://llvm.org/git/libcxx.git"
+      url "https://llvm.org/git/libcxx.git"
     end
 
     resource "libcxxabi" do
@@ -111,23 +109,23 @@ class Llvm < Formula
     end
 
     resource "libunwind" do
-      url "http://llvm.org/git/libunwind.git"
+      url "https://llvm.org/git/libunwind.git"
     end
 
     resource "lld" do
-      url "http://llvm.org/git/lld.git"
+      url "https://llvm.org/git/lld.git"
     end
 
     resource "lldb" do
-      url "http://llvm.org/git/lldb.git"
+      url "https://llvm.org/git/lldb.git"
     end
 
     resource "openmp" do
-      url "http://llvm.org/git/openmp.git"
+      url "https://llvm.org/git/openmp.git"
     end
 
     resource "polly" do
-      url "http://llvm.org/git/polly.git"
+      url "https://llvm.org/git/polly.git"
     end
   end
 
@@ -145,8 +143,11 @@ class Llvm < Formula
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
 
-  depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
-  depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
+  # https://llvm.org/docs/GettingStarted.html#requirement
+  depends_on "libffi" => :recommended
+
+  # for the 'dot' tool (lldb)
+  depends_on "graphviz" => :optional
 
   depends_on "ocaml" => :optional
   if build.with? "ocaml"
