@@ -29,7 +29,7 @@ class Kibana < Formula
     # do not build packages for other platforms
     platforms = Set.new(["darwin-x64", "linux-x64", "windows-x64"])
     if MacOS.prefer_64_bit?
-      platform = "darwin-x64"
+      platform = "#{OS::NAME}-x64"
     else
       raise "Installing Kibana via Homebrew is only supported on macOS x86_64"
     end
