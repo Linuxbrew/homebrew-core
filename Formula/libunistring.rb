@@ -13,6 +13,15 @@ class Libunistring < Formula
     sha256 "a3ad6e551a43744994bde0ae30bb9ff1a17ba9d7c3433696d556adc5501a2cc2" => :x86_64_linux
   end
 
+  # Fix crash from usage of %n in dynamic format strings on High Sierra
+  # Repurposed patch, credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/edf0ee1e2cf/devel/m4/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
