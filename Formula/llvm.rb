@@ -157,8 +157,8 @@ class Llvm < Formula
 
   unless OS.mac?
     depends_on "gcc" # <atomic> is provided by gcc
-    depends_on "glibc" => GlibcRequirement.system_version.to_f >= 2.19 ? :optional : :recommended
-    depends_on "binutils" if OS.linux? # needed for gold plugin and stripping executables/libraries/object files
+    depends_on "glibc" => (GlibcRequirement.system_version.to_f >= 2.19) ? :optional : :recommended
+    depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
