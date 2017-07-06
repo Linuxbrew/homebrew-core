@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 require "language/node"
 
 class KibanaAT44 < Formula
@@ -13,6 +18,10 @@ class KibanaAT44 < Formula
   end
 
   keg_only :versioned_formula
+
+  # The build fails with the error message:
+  # tar: kibana-4.4.2-darwin-x64/node: File removed before we read it
+  depends_on CIRequirement
 
   resource "node" do
     url "https://nodejs.org/dist/v4.3.2/node-v4.3.2.tar.gz"
