@@ -158,7 +158,7 @@ class Llvm < Formula
   unless OS.mac?
     depends_on "gcc" # <atomic> is provided by gcc
     depends_on "glibc" => GlibcRequirement.system_version.to_f >= 2.19 ? :optional : :recommended
-    depends_on "binutils" if OS.linux? # needed for gold plugin
+    depends_on "binutils" if OS.linux? # needed for gold plugin and stripping executables/libraries/object files
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
@@ -326,6 +326,9 @@ class Llvm < Formula
     # libgomp.so conflicts with gcc.
     # libunwind.so conflcits with libunwind.
     rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
+
+    # Strip executables/libraries/object files to reduce their size
+    system "strip", *(Dir[bin/"*", lib/"*"]).select { |f| Pathname.new(f).file? && Pathname.new(f).elf? } unless OS.mac?
   end
 
   def caveats
