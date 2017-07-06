@@ -41,7 +41,7 @@ class Confuse < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lconfuse", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lconfuse", "-o", "test"
     assert_match /world/, shell_output("./test")
   end
 end

@@ -62,9 +62,9 @@ class Gl2ps < Formula
       }
     EOS
     if OS.mac?
-      system ENV.cc, "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
+      system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
     else
-      system ENV.cc, "test.c", "-o", "test", "-L", lib, "-lgl2ps", "-lglut", "-lGL"
+      system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lgl2ps", "-lglut", "-lGL"
       # Travis has no X11 display: freeglut (./test): failed to open display ''
       return if ENV["TRAVIS"]
     end
