@@ -1,16 +1,15 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.0.tar.xz"
-  sha256 "e2c81db5056e3e8c5995f0bb5d0d0e1cad1f6f45c3b2fc77b6e81435aed48ab5"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.1.tar.xz"
+  sha256 "db625c7ab3bb3ee757b3926a5cfa8d9e1c3991ad24707a83dde8a5ef2bf7a07e"
 
   bottle do
     cellar :any
-    sha256 "d55c4d626559f62538f07f9a7fd5c29ab951e65f3f2f83159cbc141d8f1c9649" => :sierra
-    sha256 "b2af64e183559b020fe2f744979af82ad073611f47998e2073aac855d92aaf1a" => :el_capitan
-    sha256 "d6e3213787d5da9acd33277ab8b2de5c1268082c39be0c7668ab601f55b47037" => :yosemite
-    sha256 "70d2c06f4e0fa5205e3665559617745ba20df5d17f99f0e6c5b48b296d0b0f83" => :x86_64_linux
+    sha256 "75fd5efc0986b1771c3082e08b9dc2d8495546f81ad1a38a9a05f506c8046687" => :sierra
+    sha256 "867dffadb33d24d4a743df13c95ec08ff526f3be96b4965ae5e97ec08d46192d" => :el_capitan
+    sha256 "72ea449768eb5745712b40464b8eb1e7b9dc908ce26c8353e453681ee824ec89" => :yosemite
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
