@@ -1,45 +1,26 @@
-require "language/go"
-
 class GithubMarkdownToc < Formula
   desc "Easy TOC creation for GitHub README.md (in go)"
   homepage "https://github.com/ekalinin/github-markdown-toc.go"
-  url "https://github.com/ekalinin/github-markdown-toc.go/archive/0.6.0.tar.gz"
-  sha256 "fe6995e9f06febca0f3a68d0df5f124726737bcfbcc027dce4aa9d5dfa1ee5ae"
+  url "https://github.com/ekalinin/github-markdown-toc.go/archive/0.7.1.tar.gz"
+  sha256 "458032ba4e74a0c5284ae476e874986e0c6c96876faf414dac181e5b9d0217bb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "947ccfaccb7328b9ebd8b3cab77e2ab0ca73f84d7f0025c3521fcea445c355fb" => :sierra
-    sha256 "69fa10cb92f8674bd610b29fad0708ae30248c7ec1635bbd419cdd6f80f3273b" => :el_capitan
-    sha256 "b68351ec94b8aa3ef4ab146acc4397a10737d684a4776642a3c0e8cf07c00deb" => :yosemite
-    sha256 "7439b7dd49932ada1b2fc943ff6093a856760c7420048f1f780740fedaca88e2" => :mavericks
-    sha256 "a104f53c052b50fdef8491bc268c8251e635eb106caa500defe778fe2d3e2a69" => :x86_64_linux
+    sha256 "31bcbaa4a40b5a3a95809160797c8ea5e2f91ac292e401b04edebaec5772d128" => :sierra
+    sha256 "cf2b7410f56f1cccf40e435c2200bb06e5e0d39ed593fa64d9ce18787db5da94" => :el_capitan
+    sha256 "a0b6d40d755f2f7293fb86ba0b5d27aa1b1073e845ce6829a73c1bcd7c7c0ba2" => :yosemite
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/alecthomas/template" do
-    url "https://github.com/alecthomas/template.git",
-        :revision => "14fd436dd20c3cc65242a9f396b61bfc8a3926fc"
-  end
-
-  go_resource "github.com/alecthomas/units" do
-    url "https://github.com/alecthomas/units.git",
-        :revision => "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
-  end
-
-  go_resource "gopkg.in/alecthomas/kingpin.v2" do
-    url "https://github.com/alecthomas/kingpin.git",
-        :revision => "v2.1.11"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/ekalinin/"
-    ln_sf buildpath, buildpath/"src/github.com/ekalinin/github-markdown-toc.go"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", "gh-md-toc", "main.go"
-    bin.install "gh-md-toc"
+    dir = buildpath/"src/github.com/ekalinin/github-markdown-toc.go"
+    dir.install buildpath.children
+    cd dir do
+      system "go", "build", "-o", bin/"gh-md-toc", "main.go"
+      prefix.install_metafiles
+    end
   end
 
   test do
