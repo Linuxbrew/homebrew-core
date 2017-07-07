@@ -1,3 +1,4 @@
+# mruby: Build a bottle for Linuxbrew
 class Mruby < Formula
   desc "Lightweight implementation of the Ruby language"
   homepage "https://mruby.org/"
