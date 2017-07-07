@@ -328,10 +328,12 @@ class Llvm < Formula
     rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
 
     # Strip executables/libraries/object files to reduce their size
-    system "strip", *(Dir[bin/"*", lib/"*"]).select do |f|
-      f = Pathname.new(f)
-      f.file? && (f.elf? || f.extname == ".a")
-    end unless OS.mac?
+    unless OS.mac?
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   def caveats
