@@ -1,3 +1,4 @@
+# elvish: Build a bottle for Linuxbrew
 class Elvish < Formula
   desc "Novel UNIX shell written in Go"
   homepage "https://github.com/elves/elvish"
