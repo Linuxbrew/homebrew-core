@@ -1,3 +1,4 @@
+# github-markdown-toc: Build a bottle for Linuxbrew
 class GithubMarkdownToc < Formula
   desc "Easy TOC creation for GitHub README.md (in go)"
   homepage "https://github.com/ekalinin/github-markdown-toc.go"
