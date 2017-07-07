@@ -18,6 +18,9 @@ class Grafana < Formula
   depends_on "yarn" => :build
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV["GOPATH"] = buildpath
     grafana_path = buildpath/"src/github.com/grafana/grafana"
     grafana_path.install buildpath.children
