@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
@@ -31,6 +36,7 @@ class Pdns < Formula
   depends_on "openssl"
   depends_on "sqlite"
   depends_on :postgresql => :optional
+  depends_on CIRequirement
 
   def install
     args = %W[
