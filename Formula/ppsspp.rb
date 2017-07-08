@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
@@ -26,9 +21,11 @@ class Ppsspp < Formula
   depends_on "libzip"
   depends_on "snappy"
   depends_on "ffmpeg"
-  depends_on CIRequirement
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j31" if ENV["CIRCLECI"]
+
     args = std_cmake_args
     # Use brewed FFmpeg rather than precompiled binaries in the repo
     args << "-DUSE_SYSTEM_FFMPEG=ON"
