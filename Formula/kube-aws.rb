@@ -1,15 +1,15 @@
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.6.tar.gz"
-  sha256 "cde5ce0d1a72361ba0011092fdce7966eda2ce0337b801dbbdb150fde971afb8"
+  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.7.tar.gz"
+  sha256 "f9fa80bfc71f08590bf3e268fedd5df46015d429ca70fab8d7221284efd849db"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd7c728101b81407aa2cc09a27d7e85d42fdd0726dfccd041fb7f7b34271ef02" => :sierra
-    sha256 "8f9269c178f2ec2eea325bc3b5be960964f99006b06935e9552bcecd7c05a537" => :el_capitan
-    sha256 "7a59866cef92fbb090ad5311e4bb0f1b05b04efbfc052da4792ff8e6eefd5cfe" => :yosemite
+    sha256 "c529a7df8b72a22bd5117d37bd845e8fb36353371399e1e6a28e6b0385b011be" => :sierra
+    sha256 "0b7b0d37d1dbf64dc40ebf7b97061449c56d78c20f8bc319a9f078344027901e" => :el_capitan
+    sha256 "7ae16b11b46fd63a328fccfc81093e3d6dc7ded8a8676f88b443e3848cc07662" => :yosemite
   end
 
   depends_on "go" => :build
@@ -53,8 +53,9 @@ class KubeAws < Formula
       "region" => "west",
       "availabilityZone" => "zone",
       "kmsKeyArn" => "arn",
-      "worker" => { "nodePools" => [{ "name"=>"nodepool1" }] },
-      "addons" => { "rescheduler" => { "enabled"=>false } },
+      "worker" => { "nodePools" => [{ "name" => "nodepool1" }] },
+      "addons" => { "clusterAutoscaler" => { "enabled" => false },
+                    "rescheduler" => { "enabled" => false } },
     }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
