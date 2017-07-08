@@ -27,7 +27,7 @@ class Gperftools < Formula
 
     # Workaround for undefined symbol error for ___lsan_ignore_object
     # Reported 5 Jul 2017 https://github.com/gperftools/gperftools/issues/901
-    ENV.append_to_cflags "-Wl,-U,___lsan_ignore_object"
+    ENV.append_to_cflags "-Wl,-U,___lsan_ignore_object" if OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
