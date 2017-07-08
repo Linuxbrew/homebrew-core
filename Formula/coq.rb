@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Camlp5TransitionalModeRequirement < Requirement
   fatal true
 
@@ -27,6 +32,7 @@ class Coq < Formula
   depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
   depends_on "ocaml"
+  depends_on CIRequirement
 
   def install
     ENV["OPAMYES"] = "1"
