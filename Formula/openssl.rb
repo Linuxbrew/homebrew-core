@@ -44,7 +44,12 @@ class Openssl < Formula
   end unless OS.mac?
 
   def arch_args
-    return { :i386 => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
+    return {
+      :i386 => %w[linux-generic32],
+      :x86_64 => %w[linux-x86_64],
+      :arm => %w[linux-armv4],
+    } if OS.linux?
+
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
       :i386 => %w[darwin-i386-cc],
