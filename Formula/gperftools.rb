@@ -1,52 +1,35 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  revision 1
-  head "https://github.com/gperftools/gperftools.git"
-
-  stable do
-    url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.5/gperftools-2.5.tar.gz"
-    sha256 "6fa2748f1acdf44d750253e160cf6e2e72571329b42e563b455bde09e9e85173"
-
-    # Fix finding default zone on macOS Sierra (https://github.com/gperftools/gperftools/issues/827)
-    patch do
-      url "https://github.com/gperftools/gperftools/commit/acac6af26b0ef052b39f61a59507b23e9703bdfa.patch?full_index=1"
-      sha256 "164b99183c9194706670bec032bb96d220ce27fc5257b322d994096516133376"
-    end
-  end
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6/gperftools-2.6.tar.gz"
+  sha256 "87d556694bb1d2c16de34acb9a9db36f7b82b491762ee19e795ef2bef9394daf"
 
   bottle do
     cellar :any
-    sha256 "f007d19e148f697e681ba71f9c3721ec1f9640b7a48bd0a55c129085ba1a3a89" => :sierra
-    sha256 "f29fe0e250ee9cc6cba00dc839bf0097db992ba4ec11aff4ab9dbd69e7dd10e8" => :el_capitan
-    sha256 "e6af4a9899529cf2aa1ab0c7c6a667cf1a1df9a207a51c0dbb64128d1e1f1d05" => :yosemite
-    sha256 "81379d202516ca4b2a0a968101fc1671d2eb8322b5455560bcc9267735ddc8b1" => :x86_64_linux
+    sha256 "88b926680de61012eb3fa138ed594a78e58952788f5c308d4fc9275b52311774" => :sierra
+    sha256 "a2edc2ec0e885b4bdb31ccc32f82f3ed6dcf87fb771860c2e4255b21717f9c2e" => :el_capitan
+    sha256 "b80ed7e1c907d37f2d8f226158234c5a148269ce0478651a7e1f14e2865f9234" => :yosemite
   end
-
-  # Needed for stable due to the patch; otherwise, just head
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
 
   # Fix error: No frame pointers and no libunwind. The compilation will fail
   depends_on "libunwind" unless OS.mac?
 
-  # Prevents build failure on Xcode >= 7.3:
-  # Undefined symbols for architecture x86_64:
-  #   "operator delete(void*, unsigned long)", referenced from:
-  #     ProcMapsIterator::~ProcMapsIterator() in libsysinfo.a(sysinfo.o)
-  # Reported 17 April 2016: gperftools/gperftools#794
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/edb49c752c0c02eb9e47bd2ab9788d504fd5b495/gperftools/revert-sized-delete-aliases.patch"
-    sha256 "49eb4f2ac52ad38723d3bf371e7d682644ef09ee7c1e2e2098e69b6c085153b6"
+  head do
+    url "https://github.com/gperftools/gperftools.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   def install
     ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
 
-    # Needed for stable due to the patch; otherwise, just head
-    system "autoreconf", "-fiv"
+    # Workaround for undefined symbol error for ___lsan_ignore_object
+    # Reported 5 Jul 2017 https://github.com/gperftools/gperftools/issues/901
+    ENV.append_to_cflags "-Wl,-U,___lsan_ignore_object"
 
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
