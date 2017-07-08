@@ -1,3 +1,4 @@
+# pdnsrec: Build a bottle for Linuxbrew
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
@@ -24,6 +25,9 @@ class Pdnsrec < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     args = %W[
