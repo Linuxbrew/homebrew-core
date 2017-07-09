@@ -1,3 +1,4 @@
+# terminal-notifier: Build a bottle for Linuxbrew
 class TerminalNotifier < Formula
   desc "Send macOS User Notifications from the command-line"
   homepage "https://github.com/julienXX/terminal-notifier"
