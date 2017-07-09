@@ -1,3 +1,4 @@
+# mikutter: Build a bottle for Linuxbrew
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
@@ -12,7 +13,7 @@ class Mikutter < Formula
   end
 
   depends_on "gtk+"
-  depends_on "terminal-notifier" => :recommended
+  depends_on "terminal-notifier" => :recommended if OS.mac?
   depends_on :ruby => "2.1"
 
   resource "addressable" do
