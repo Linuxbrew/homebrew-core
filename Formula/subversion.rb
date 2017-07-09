@@ -85,7 +85,7 @@ class Subversion < Formula
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].opt_prefix} CC=#{ENV.cc}
-        CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags} 
+        CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
         OPENSSL=#{Formula["openssl"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
