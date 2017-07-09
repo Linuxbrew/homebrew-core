@@ -1,3 +1,4 @@
+# ntl: Build a bottle for Linuxbrew
 class Ntl < Formula
   desc "C++ number theory library"
   homepage "http://www.shoup.net/ntl"
@@ -42,8 +43,8 @@ class Ntl < Formula
       -I#{include}
       -L#{gmp.opt_lib}
       -L#{lib}
-      -lgmp
       -lntl
+      -lgmp
     ]
     system ENV.cxx, "square.cc", "-o", "square", *flags
     assert_equal "4611686018427387904", pipe_output("./square", "2147483648")
