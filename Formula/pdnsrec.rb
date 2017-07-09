@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
@@ -20,7 +15,6 @@ class Pdnsrec < Formula
   depends_on "openssl"
   depends_on "lua"
   depends_on "gcc" if OS.mac? && DevelopmentTools.clang_build_version <= 600
-  depends_on CIRequirement
 
   needs :cxx11
 
@@ -30,6 +24,9 @@ class Pdnsrec < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     args = %W[
