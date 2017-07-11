@@ -1,3 +1,4 @@
+# re2: Build a bottle for Linuxbrew
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
@@ -35,8 +36,8 @@ class Re2 < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lre2",
-           "test.cpp", "-o", "test"
+    system ENV.cxx, "-std=c++11",
+           "test.cpp", "-I#{include}", "-L#{lib}", "-pthread", "-lre2", "-o", "test"
     system "./test"
   end
 end
