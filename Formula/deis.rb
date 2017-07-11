@@ -1,3 +1,4 @@
+# deis: Build a bottle for Linuxbrew
 class Deis < Formula
   desc "The CLI for Deis Workflow"
   homepage "https://deis.io/"
