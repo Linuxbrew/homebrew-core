@@ -1,3 +1,4 @@
+# myman: Build a bottle for Linuxbrew
 class Myman < Formula
   desc "Text-mode videogame inspired by Namco's Pac-Man"
   homepage "https://myman.sourceforge.io/"
@@ -15,6 +16,7 @@ class Myman < Formula
   depends_on "coreutils" => :build
   depends_on "gnu-sed" => :build
   depends_on "groff" => :build
+  depends_on "ncurses" unless OS.mac?
 
   def install
     ENV["RMDIR"] = "grmdir"
