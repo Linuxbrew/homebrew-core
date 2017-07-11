@@ -25,6 +25,10 @@ class Mariadb < Formula
   depends_on "cmake" => :build
   depends_on "pidof" if OS.mac? && MacOS.version < :mountain_lion
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "ncurses"
+    depends_on "bzip2"
+  end
 
   conflicts_with "mysql", "mysql-cluster", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries."
@@ -35,6 +39,9 @@ class Mariadb < Formula
     :because => "both install plugins"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
