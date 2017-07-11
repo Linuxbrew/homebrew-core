@@ -15,6 +15,7 @@ class Duti < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on :macos
 
   # Add hardcoded SDK path for El Capitan or later.
   # See https://github.com/moretension/duti/pull/20.
