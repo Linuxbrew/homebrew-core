@@ -14,6 +14,7 @@ class Arping < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libnet"
+  depends_on "libpcap" unless OS.mac?
 
   def install
     system "./bootstrap.sh"
