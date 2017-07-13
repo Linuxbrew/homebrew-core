@@ -1,17 +1,14 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.8.3/node-v4.8.3.tar.xz"
-  sha256 "d84e7544c2e31a2d0825b4f8b093d169bf8bdb1881ee8cf75ff937918e59e9cb"
-  revision 2
-
+  url "https://nodejs.org/dist/v4.8.4/node-v4.8.4.tar.xz"
+  sha256 "35fe633a48cbe93c79327161d9dc964ac9810f4ceb2ed8628487e6e14a15905b"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "7f1f2f5064c18679b6c2494c361fd4ce2f3d7baaa415ec096487a0b631a172e6" => :sierra
-    sha256 "d0c4365f19168f7444d29f63081ec43ae676db826241bdf093d0ebeb59515f56" => :el_capitan
-    sha256 "57cc91d2e546dd493654c97cea1a6684ef19c17b31b23bce3840c9d7d8bc47a7" => :yosemite
-    sha256 "1d72387ba01f08be5a531772b10463ca15aef27762071af2945665540a8dc9ff" => :x86_64_linux
+    sha256 "2b4cef121443ec8c835035676fc7ccebcbfd16139f9da2816a9e6b2a4b63a035" => :sierra
+    sha256 "5126bf15b688e3d3725b132ed5fb249be7867270b8da3c613ae16ed8e3c129d6" => :el_capitan
+    sha256 "1033c78acfb7134b6991d73d2e844242909f0939ea6a7e4ef1ebfec0bcc94513" => :yosemite
   end
 
   keg_only :versioned_formula
