@@ -3,14 +3,14 @@ require "language/go"
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.4-1.4/source/tarball/percona-server-mongodb-3.4.4-1.4.tar.gz"
-  version "3.4.4-1.4"
-  sha256 "4111f54644a3e3d80de189c69967a1f2e520adce8b6ef97e9dff68b09a66da0a"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.5-1.5/source/tarball/percona-server-mongodb-3.4.5-1.5.tar.gz"
+  version "3.4.5-1.5"
+  sha256 "aa3909678ad0b5a828cd57fa3d10b0f6560700ae8b574469ceb3175ad87d243f"
 
   bottle do
-    sha256 "51845ac02f101856e604b8e6e43bd0f3633c7e7cb9209bb7907ab69ad63c82be" => :sierra
-    sha256 "bcbf59ed52d7feaad23525d176aeeff168748a8c15c72e6c56c81b764f987316" => :el_capitan
-    sha256 "fcfdf9061c7a44a94d2f97dc2f1184c3181419d4f659d5d19d6b8e1225408d50" => :yosemite
+    sha256 "1284d029ab99e696b06559b9850d442704b68ccd32c818199137cf7262a67524" => :sierra
+    sha256 "ec09e516e889306a7a50ba9583fa4526782cf59500312d445138017a74d4cb21" => :el_capitan
+    sha256 "25a8ce37ece25d341cbfb112621c9acd30846e9f19983ee2f415b3bd8c50bc1f" => :yosemite
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
@@ -27,8 +27,8 @@ class PerconaServerMongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.4.4",
-        :revision => "17fbdf31abca50cdfe27482b05b1476f42ecab0a",
+        :tag => "r3.4.5",
+        :revision => "4d4d96583c40a25a4ee7e2d038d75181a300ec3c",
         :shallow => false
   end
 
