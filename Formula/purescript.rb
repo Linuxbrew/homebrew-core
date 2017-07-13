@@ -1,3 +1,4 @@
+# purescript: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Purescript < Formula
@@ -17,6 +18,8 @@ class Purescript < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ncurses" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
 
   def install
     inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
