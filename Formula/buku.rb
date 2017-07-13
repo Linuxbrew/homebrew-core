@@ -1,3 +1,4 @@
+# buku: Build a bottle for Linuxbrew
 class Buku < Formula
   include Language::Python::Virtualenv
 
@@ -15,6 +16,7 @@ class Buku < Formula
 
   depends_on :python3
   depends_on "openssl@1.1"
+  depends_on "libffi" unless OS.mac?
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
@@ -88,6 +90,7 @@ class Buku < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
+    ENV.append "CFLAGS", "-I#{Formula["libffi"].opt_include}" unless OS.mac?
 
     # Firefox exported bookmarks file
     (testpath/"bookmarks.html").write <<-EOS.undent
