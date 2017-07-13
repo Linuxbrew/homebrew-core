@@ -1,3 +1,4 @@
+# libnice: Build a bottle for Linuxbrew
 class Libnice < Formula
   desc "GLib ICE implementation"
   homepage "https://wiki.freedesktop.org/nice/"
@@ -15,6 +16,7 @@ class Libnice < Formula
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gstreamer"
+  depends_on "intltool" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
