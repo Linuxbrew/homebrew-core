@@ -40,7 +40,7 @@ class NodeAT4 < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
