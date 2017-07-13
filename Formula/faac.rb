@@ -1,3 +1,4 @@
+# faac: Build a bottle for Linuxbrew
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "http://www.audiocoding.com/faac.html"
