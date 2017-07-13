@@ -1,3 +1,4 @@
+# offlineimap: Build a bottle for Linuxbrew
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "http://offlineimap.org/"
@@ -17,6 +18,7 @@ class Offlineimap < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
