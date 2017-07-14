@@ -15,6 +15,14 @@ class Buku < Formula
 
   depends_on :python3
   depends_on "openssl@1.1"
+  unless OS.mac?
+    # libffi is needed for cffi
+    # pkg-config helps "setup.py" find libffi
+    # expect is needed for tests
+    depends_on "pkg-config" => :build
+    depends_on "libffi"
+    depends_on "expect"
+  end
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
@@ -88,6 +96,11 @@ class Buku < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
+    unless OS.mac?
+      ENV["PYTHONIOENCODING"] = "utf-8"
+      ENV.append "CFLAGS", "-I#{Formula["libffi"].opt_include}"
+    end
+    expect = OS.mac? ? "/usr/bin/expect" : "#{Formula["expect"].opt_bin}/expect"
 
     # Firefox exported bookmarks file
     (testpath/"bookmarks.html").write <<-EOS.undent
@@ -115,7 +128,7 @@ class Buku < Formula
       }
       spawn sleep 5
     EOS
-    system "/usr/bin/expect", "-f", "import"
+    system expect, "-f", "import"
 
     # Test online components -- fetch titles
     system bin/"buku", "--update"
@@ -142,7 +155,7 @@ class Buku < Formula
           "File decrypted"
       }
     EOS
-    system "/usr/bin/expect", "-f", "crypto-test"
+    system expect, "-f", "crypto-test"
 
     # Test database content and search
     result = shell_output("#{bin}/buku --np --sany Homebrew")
