@@ -1,12 +1,10 @@
 # Contributing to Linuxbrew
 
-[Linuxbrew](https://github.com/Linuxbrew/homebrew-core) is a fork of [Homebrew](https://github.com/Homebrew/homebrew-core). Homebrew is merged into Linuxbrew roughly once per week. To contribute a new formula or a new version of an existing formula, please submit your pull request to Homebrew rather than to Linuxbrew. Patches to fix issues that you have reproduced on both Linuxbrew and Homebrew should be sent to Homebrew. Please send your pull request to Linuxbrew if you are in doubt.
+[Linuxbrew](https://github.com/Linuxbrew/homebrew-core) is a fork of [Homebrew](https://github.com/Homebrew/homebrew-core). Homebrew/homebrew-core is merged into Linuxbrew/homebrew-core roughly once per week. If you have access to a macOS system and are able to test your changes there: to contribute a new formula or a new version of an existing formula, please submit your pull request to Homebrew rather than to Linuxbrew. If not, please submit your pull requests to Linuxbrew. Patches to fix issues that you have reproduced on both Linuxbrew and Homebrew on macOS should be sent to Homebrew. Please send your pull request to Linuxbrew if you are in doubt.
 
-Patches to fix issues particular to Linux should not affect the behaviour of the formula on Mac. Use `if OS.mac?` and `if OS.linux?` as necessary to preserve the existing behaviour on Mac.
+Patches to fix issues particular to Linux should not affect the behaviour of the formula on macOS. Use `if OS.mac?` and `if OS.linux?` as necessary to preserve the existing behaviour on macOS.
 
-# Contributing to Homebrew
-
-First time contributing to Homebrew? Read our [Code of Conduct](https://github.com/Homebrew/brew/blob/master/CODEOFCONDUCT.md#code-of-conduct).
+First time contributing to Linuxbrew? Read our [Code of Conduct](https://github.com/Linuxbrew/brew/blob/master/CODEOFCONDUCT.md#code-of-conduct).
 
 ### Report a bug
 
@@ -17,7 +15,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 
 ### Submit a version upgrade for the `foo` formula
 
-* check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
+* check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Linuxbrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
 * `brew bump-formula-pr --strict foo` with `--url=...` and `--sha256=...` or `--tag=...` and `--revision=...` arguments.
 
 ### Add a new formula for `foo` version `2.3.4` from `$URL`
@@ -26,7 +24,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * `brew install --build-from-source foo`
 * `brew audit --new-formula foo`
 * `git commit` with message formatted `foo 2.3.4 (new formula)`
-* [open a pull request](http://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request.html) and fix any failing tests
+* open a pull request and fix any failing tests
 
 ### Contribute a fix to the `foo` formula
 
@@ -34,7 +32,6 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * leave the [`bottle`](http://www.rubydoc.info/github/Homebrew/brew/master/Formula#bottle-class_method) as-is
 * `brew uninstall --force foo`, `brew install --build-from-source foo`, `brew test foo`, and `brew audit --strict foo`
 * `git commit` with message formatted `foo: fix <insert details>`
-* [open a pull request](http://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request.html) and fix any failing tests
-* If the fix is relevant to macOS, please submit the PR to Homebrew. If it is only relevant to Linux, please submit it to Linuxbrew
+* open a pull request and fix any failing tests
 
 Thanks!
