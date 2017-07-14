@@ -1,6 +1,6 @@
 # Please always follow these steps:
 - [ ] Confirmed this is a problem with `brew install`ing one, specific formula and not every time you run `brew`? If it's a general `brew` problem please file this issue at https://github.com/Linuxbrew/brew/issues/new.
-- [ ] Attempt to replicate the problem on macOS with Homebrew if possible. If you can replicate the problem on macOS with Homebrew, please report the issue to [Homebrew/core](https://github.com/Homebrew/homebrew-core). If you are unsure, please report the issue to Linuxbrew.
+- [ ] If you have a macOS system and can replicate the problem on macOS with Homebrew, please report the issue to [Homebrew/core](https://github.com/Homebrew/homebrew-core) and follow their issue template from your macOS system. If you are unsure, please report the issue to Linuxbrew.
 - [ ] Ran `brew update` and retried your prior step?
 - [ ] Ran `brew doctor`, fixed all issues and retried your prior step?
 - [ ] Ran `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed) and included the output link?
@@ -15,6 +15,6 @@ To help us debug your issue please explain:
 - Step-by-step reproduction instructions (by running `brew install` commands)
 
 # New Formulae
-To get a new formula into Homebrew please file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md).
+To get a new formula into Linuxbrew please file a [Pull Request](https://github.com/Linuxbrew/homebrew-core/blob/master/CONTRIBUTING.md).
 To get a new formula that is a dependency of a formula in Linuxbrew/homebrew-core submit a Pull Request to https://github.com/Linuxbrew/homebrew-core/compare
 To get a new formula that is not a dependency of a formula in Linuxbrew/homebrew-core submit a Pull Request to https://github.com/Linuxbrew/homebrew-extra/compare
