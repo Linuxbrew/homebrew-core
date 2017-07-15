@@ -7,10 +7,10 @@ class LeanCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "beb2dc50cfc7e0be59bf4ba159aa987e7bff3f498e505c067a8eef2001ef3a43" => :sierra
-    sha256 "aebadf8b2f61d63e242daf9f3ad7c4ac489fa999480116c2d25a0429dad32c1a" => :el_capitan
-    sha256 "e9371ffc2bdf2b22318a58351cc71493cf19773761d90547bc72fc3dcb317aea" => :yosemite
-    sha256 "1e9de7462d5e0d224104a45b162ef4625b36fe8518dc549dc4d934b6fbe471e9" => :x86_64_linux
+    rebuild 1
+    sha256 "802edb29ec8b42def90ebbf568d388f1160c68214afefb1edabec94ca4f41813" => :sierra
+    sha256 "125bae40b85b740d1c5a4c824c2461df18e6b41c6675c4c4079b7aec84f22d65" => :el_capitan
+    sha256 "0ef19b19f1ba3bd235393a643fb17f0c3bd5dd87710c509e5fb17d8c7c5ecacf" => :yosemite
   end
 
   depends_on "go" => :build
@@ -23,6 +23,8 @@ class LeanCli < Formula
     system "go", "build", "-o", bin/"lean",
                  "-ldflags", "-X main.pkgType=#{build_from}",
                  "github.com/leancloud/lean-cli/lean"
+    bash_completion.install "misc/lean-bash-completion" => "lean"
+    zsh_completion.install "misc/lean-zsh-completion" => "_lean"
   end
 
   test do

@@ -1,21 +1,20 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.12.0.tar.gz"
-  sha256 "b4222e26fdb620a8d3c3a3a8b955e08b713672e1bc5198d1e4f462308a795b30"
-  revision 1
+  url "https://nginx.org/download/nginx-1.12.1.tar.gz"
+  sha256 "8793bf426485a30f91021b6b945a9fd8a84d87d17b566562c3797aba8fac76fb"
 
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "b57e068963566e2c945f9fccf0c643b2ad650136e434b9d6dac08b7e4fca47ec" => :sierra
-    sha256 "da5b826fd1dfa5647cacdf02fa49fc0d95168912fedba13ec6214091a0216327" => :el_capitan
-    sha256 "220078c438d928056c9f3983d74a21ae1608d6c9d8a42ba68ad7dcb396da5599" => :yosemite
+    sha256 "93bcf8e3aec465c219b6c0b4f4d5437c61bf00f2a930ef5702e0521edc51f20e" => :sierra
+    sha256 "8a7c3580534aa0854927f750d4f044a2a85f90d4c1936338a4a09fef7db0824e" => :el_capitan
+    sha256 "0caae754f402abbe1eca413a7f0291fe2499d5779bb1e537d7f80a4d7d3156d3" => :yosemite
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.13.2.tar.gz"
-    sha256 "d77f234d14989d273a363f570e1d892395c006fef2ec04789be90f41a1919b70"
+    url "https://nginx.org/download/nginx-1.13.3.tar.gz"
+    sha256 "5b73f98004c302fb8e4a172abf046d9ce77739a82487e4873b39f9b0dcbb0d72"
   end
 
   # Before submitting more options to this formula please check they aren't

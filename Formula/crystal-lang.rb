@@ -6,14 +6,14 @@ end
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.23.0.tar.gz"
-  sha256 "9b65904bb55100994a3b8022b9c553e5aa78979f459c8b10aa64053a65e5d517"
+  url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
+  sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "661389f8a13cc5f9bd9f4aef55ca07b677646093352fd3ef6744ca15b150e25b" => :sierra
-    sha256 "7fb53f0681de767cdbb4a3ea418c15eff5367bb750acce6ad58a5135ad6b5fd1" => :el_capitan
-    sha256 "0d92d4fc54fbb81f919046ff0acd063f7b50e60b01a4cd6638b3ad155c324883" => :yosemite
+    sha256 "4c420da294aeb60d99852c98643f9b788c2ca6e454c3b2e1068f8f1b4665bf27" => :sierra
+    sha256 "2398fa8024789551a2cb43df17727c0696a4e612d7f83d77fd92fbdbc3fc655a" => :el_capitan
+    sha256 "d6b5468a9c05c698b1472884454aed52c4b4ae40400742f34f6bd08196770ee5" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -30,13 +30,13 @@ class CrystalLang < Formula
   depends_on CIRequirement
 
   resource "boot" do
-    version "0.22.0"
+    version "0.23.0"
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.22.0/crystal-0.22.0-1-darwin-x86_64.tar.gz"
-      sha256 "aaaf6dde4050e50bbe9e07c230fcc74c41cb60d308d1c026c5a4cf05c1eaceae"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.23.0/crystal-0.23.0-1-darwin-x86_64.tar.gz"
+      sha256 "5ffa252d2264ab55504a6325b7c42d0eb16065152d0adfee6be723fd02333fdf"
     elsif OS.linux?
       url "https://github.com/crystal-lang/crystal/releases/download/#{version}/crystal-#{version}-1-#{OS::NAME}-x86_64.tar.gz"
-      sha256 "789d7b844886133428248605113ede9174c6ea4ba47d96a13f0efd1565b5810d"
+      sha256 "1d0348e1df3c56f9c29a3a76254c074846389fe5bed659c2cc1051bab83e1a5a"
     end
   end
 

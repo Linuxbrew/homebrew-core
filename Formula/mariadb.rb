@@ -1,15 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.6/source/mariadb-10.2.6.tar.gz"
-  sha256 "c385c76e40d6e5f0577eba021805da5f494a30c9ef51884baefe206d5658a2e5"
-  revision 1
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.7/source/mariadb-10.2.7.tar.gz"
+  sha256 "225ba1bbc48325ad38a9f433ff99da4641028f42404a29591cc370e4a676c0bc"
 
   bottle do
-    sha256 "3230604da6568de8f1fb7e0bb7ef75691d397ae89841ec7d06014f7fcaa7362d" => :sierra
-    sha256 "661706740dd87b7c858441279d8ff9cb2fff99d4efb74127bd2657921f1b30e0" => :el_capitan
-    sha256 "68e97f150b313afd5efc1c73d28e4fc73b378a2e98ea7515f1982253394438f7" => :yosemite
-    sha256 "3b29211f6ca4ba0c0f4363f99482ed59a885c41b036330f0dba35a1cdcc38297" => :x86_64_linux
+    sha256 "8d3b602d388dbfea5603d1c3fc5ac82c64d42a5f7bff4cf73fd9a4a3b0a55a9f" => :sierra
+    sha256 "7fb16bfd8031ca43ba86b790ce9c7e9229bbb32fefa34139ecc5e0bcec81f632" => :el_capitan
+    sha256 "78527e9e5ea43e6ca186f5efd6752d2d4aba7474198de2736915169b6cd640c3" => :yosemite
   end
 
   option "with-test", "Keep test when installing"
@@ -24,7 +22,6 @@ class Mariadb < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" if OS.mac? && MacOS.version < :mountain_lion
   depends_on "openssl"
   unless OS.mac?
     depends_on "ncurses"
@@ -39,23 +36,9 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  # Remove for >= 10.2.7
-  # Upstream commit from 7 Jul 2017 "Fix for MDEV-13270: Wrong output for
-  # mariadb_config on OSX"
-  # See https://jira.mariadb.org/browse/MDEV-13270
-  resource "mariadb-config-patch" do
-    url "https://github.com/MariaDB/mariadb-connector-c/commit/3f356c0.patch?full_index=1"
-    sha256 "3f01377b6b806c5e6850c380df271c5835feb80434553a63e91528b40d3ac566"
-  end
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
-    resource("mariadb-config-patch").stage do
-      system "patch", "-p1", "-i", Pathname.pwd/"3f356c0.patch", "-d",
-                      buildpath/"libmariadb"
-    end
 
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still

@@ -1,14 +1,14 @@
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
-  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.1.1.tar.gz"
-  sha256 "cf8557c00774bdc0fa7e9ba67d6531c52386747e8bd59b5c8e3677ddb7bf25a9"
+  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.1.2.tar.gz"
+  sha256 "17915b68e094dd028d8ab4753d57cedf5ebd9ba9d98a9e87b7b0f27904e21e40"
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
   bottle do
-    sha256 "22e269490eb2522d5c150562c94a96946312a8a291f0d7a5c3ade057fa34d154" => :sierra
-    sha256 "d2cc8ac3df89347f48bd1e0c718d137c88418cd7bf0d5fbe7dba1fc332b02660" => :el_capitan
-    sha256 "351ebd4f1332785e8232382c10b13595bb40d1953501009ec59a3e81abb84d5d" => :yosemite
+    sha256 "fd1ce6c023cbcf6859cb41f845ed45a42a1465de95339a6ad6effaa163754afa" => :sierra
+    sha256 "1c7be629080d9a85b25d76602617365d9a78f9442006b3e755aa1917a56411c2" => :el_capitan
+    sha256 "73d48c0bf767e929063400988525d21d551cd85c04a6e64cb96be91042bb8cf4" => :yosemite
   end
 
   needs :cxx11

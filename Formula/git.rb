@@ -1,15 +1,15 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.13.2.tar.xz"
-  sha256 "0d10ac3751466f81652b62cbda83cc8d8ffd014911462138e039f176e413dde5"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.13.3.tar.xz"
+  sha256 "91aa23be428f67eb19616f43fa0229d567e9acf4f08fba33eb0b627e4d323e62"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "ce642beca5daf1ffde90c2c1f48a596a25b7ef02542d6e57763979d0befd6c54" => :sierra
-    sha256 "11d22ea316a00f8174a10d4a88a0589b3cb8621318b6de27c3d532bff4c55e31" => :el_capitan
-    sha256 "2c41914294f72ec30f3d80705cafee64e6e6e9045d4be3323c8b8e4fb2b9a8c6" => :yosemite
-    sha256 "47c8c59a3565243a539e0467d8badd2652e5514fe3881dd5bb79e029bdaaa155" => :x86_64_linux
+    rebuild 1
+    sha256 "fe3e251ec29501eb51d723147adb26bba6a46b9d689eafea97495f7b5e8ccdc4" => :sierra
+    sha256 "75ca35b47f9e6604b93a787ef6c41ba8f0ac2f8035b2f478608ebfa063d0d8fe" => :el_capitan
+    sha256 "d61f4e8c81136c4164b203c47a8d83f31c24c9145fa5d3c4f27674975912bffc" => :yosemite
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -52,13 +52,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.13.2.tar.xz"
-    sha256 "54f0d36d375e7f71441994e60c18b6e2cc43581d5827e806e0bddb6904e17dfc"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.13.3.tar.xz"
+    sha256 "c5f8ad546724b8712286dd7814ea46abf829b14f2de8f6e565b8775469880c66"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.13.2.tar.xz"
-    sha256 "30e1e1313000eb81f0e348e5083758a33703941a60ab111057b46c3dad968b6e"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.13.3.tar.xz"
+    sha256 "1128db0302a41b55132bfd507863a7921b995d9ad308396ff2c4ca91177481c2"
   end
 
   def install
@@ -129,6 +129,11 @@ class Git < Formula
       bin.install "git-credential-osxkeychain"
       system "make", "clean"
     end if OS.mac?
+
+    # Generate diff-highlight perl script executable
+    cd "contrib/diff-highlight" do
+      system "make"
+    end
 
     # Install the netrc credential helper
     cd "contrib/credential/netrc" do
