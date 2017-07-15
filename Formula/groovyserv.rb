@@ -1,3 +1,4 @@
+# groovyserv: Build a bottle for Linuxbrew
 class Groovyserv < Formula
   desc "Speed up Groovy startup time"
   homepage "https://kobo.github.io/groovyserv/"
