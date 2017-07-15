@@ -22,24 +22,24 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "http://cloud.radare.org/get/1.5.0/radare2-1.5.0.tar.gz"
-    sha256 "cf79fa776a37bc835481c235df740900c1e7b5fbd1fb9029383cc4268c3c85aa"
+    url "https://radare.mikelloc.com/get/1.6.0/radare2-1.6.0.tar.gz"
+    sha256 "959dcac19020932983cff79a069c4467410217c941e24dd9f6d0fc0fc8d4ef99"
 
     resource "bindings" do
-      url "http://cloud.radare.org/get/1.5.0/radare2-bindings-1.5.0.tar.gz"
-      sha256 "466ec7c80f849b0a0460943bdf0a4ae0f1195f7e0cd6173a350c0e25b370a262"
+      url "https://radare.mikelloc.com/get/1.6.0/radare2-bindings-1.6.0.tar.gz"
+      sha256 "abc320c4f5353f15d96a40329349253f140f0921074f0d0dbee6b3cb9f0067b8"
     end
 
     resource "extras" do
-      url "http://cloud.radare.org/get/1.5.0/radare2-extras-1.5.0.tar.gz"
-      sha256 "fe7ba0b85101b65fc9c7dea2206729094b1bfc4c88a45478c7869f9f590bd815"
+      url "https://radare.mikelloc.com/get/1.6.0/radare2-extras-1.6.0.tar.gz"
+      sha256 "305b55d8ab85dcf5a2abe3d624e38169cd6e82c07896e85aa153ca4413a63cd2"
     end
   end
 
   bottle do
-    sha256 "1142a0e06c2821dfcb22b82597d5c816ef651e919aaa4b6c9fd97ad565dd4161" => :sierra
-    sha256 "b53dcc14175d61c058805bd89b5c3d6d961471241b1b9db3adfc87cf80ad9fdb" => :el_capitan
-    sha256 "0331eca2d40eb729c3d05a6865a14a6dcd9d9287d9d63b9d15dcbda93c65d957" => :yosemite
+    sha256 "54786dea33f49eeb35ee88cdaa136a67300533379d1ac54dbec57d9047722b7e" => :sierra
+    sha256 "20876f7105f46d3657eeda20ab961f9e39eb6692c5af0d1c8b4bd4e4cd0f8c37" => :el_capitan
+    sha256 "66dbf9f73295bbd3418cdbba415b59567c8a402a96e44291a99a372b79b0868e" => :yosemite
   end
 
   head do
@@ -107,6 +107,10 @@ class Radare2 < Formula
       # Ensure that plugins and bindings are installed in the correct Cellar
       # paths.
       inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
+      # fix build, https://github.com/radare/radare2-bindings/pull/168
+      inreplace "libr/lang/p/Makefile",
+      "CFLAGS+=$(shell pkg-config --cflags r_core)",
+      "CFLAGS+=$(shell pkg-config --cflags r_core) -DPREFIX=\\\"${PREFIX}\\\""
       inreplace "Makefile", "LUAPKG=", "#LUAPKG="
       inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
       make_install_args = %W[

@@ -3,21 +3,19 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-1.2.0.tgz"
-  sha256 "e03e7f023a1c7eeebd45058e3b698708fe36ce703d706489222083af8681edde"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-1.2.1.tgz"
+  sha256 "90efa5c4b0a40651454f55ec58b8fb99a238ee27ab4c208b2e2042bc21587558"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0534cedbf5d99c5e4a3035ecbdf250802089472c3f0c4d45a70db6494577915c" => :sierra
-    sha256 "393029f06dab553b0820661e841c187169c51ff64fe6b52e84f23986c24adf05" => :el_capitan
-    sha256 "ba1ca30e540d6d3064aff47f976295226568ff5bf8cf9240de127377310c9bb8" => :yosemite
-    sha256 "55732f598b2c86036e3fb11ed3f5a39d781e882d29d339fbfc5b70d17eca723c" => :x86_64_linux
+    sha256 "0f902807ae26b31e605d24078cfd8866e44d74e0da68183a58a00ba2bdcf90b4" => :sierra
+    sha256 "fbc23dbe47d7ae155d53e11be4e0571ddb7b24efb2a69013e49d95871a4d0fee" => :el_capitan
+    sha256 "69f3c507c315b85147f261a087e67ce1202f47be08669d9cc0ab4019b9fdd1be" => :yosemite
   end
 
   devel do
-    url "https://registry.npmjs.org/@angular/cli/-/cli-1.3.0-beta.0.tgz"
-    version "1.3.0-beta.0"
-    sha256 "8d82cba6783c24bfc37cdeb95371a725f251aa2db3c426ba8a147eb62f308650"
+    url "https://registry.npmjs.org/@angular/cli/-/cli-1.3.0-beta.1.tgz"
+    version "1.3.0-beta.1"
+    sha256 "baf6de023f387256467ab2a64834fb31634ecb16f398ebd2a192826d1c1abcd5"
   end
 
   depends_on "node"

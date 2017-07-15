@@ -3,14 +3,13 @@ class Sparkey < Formula
   homepage "https://github.com/spotify/sparkey/"
   url "https://github.com/spotify/sparkey/archive/sparkey-0.2.0.tar.gz"
   sha256 "a06caf23c64e7ebae5b8b67272b21ab4c57f21a66d190bfe0a95f5af1dc69154"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "39ca663abe1ce32ff1be2ad2df16d577ecd10227ed572d2cd8dc7b58dc819083" => :sierra
-    sha256 "df7252d18e95186e4f698b201d821b08e18aa4aba990607f91dec4dac14471bb" => :el_capitan
-    sha256 "271167448d50736d1a2ee012156614cb76950699b0aa243df8656b3c80465109" => :yosemite
-    sha256 "7b4bdde6f3ebb1ce5f6e79593139f5d9af5ba7487bc990cde6476bd15acb020a" => :x86_64_linux
+    sha256 "1e5641b08ac4e0d3e749a3b9c7d0b82a339eee1ea3db4fbeb00d41fe5fc9664e" => :sierra
+    sha256 "df37f1f8f53f2292469e1af4d8246352cfb84544d2f496372d01d51df2d7113b" => :el_capitan
+    sha256 "4e76ff0a0570384efeb61d43398f2118fa2b28e5b3270bf7803ca2ad0a515074" => :yosemite
   end
 
   depends_on "autoconf" => :build

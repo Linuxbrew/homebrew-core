@@ -3,14 +3,13 @@ class Leveldb < Formula
   homepage "https://github.com/google/leveldb/"
   url "https://github.com/google/leveldb/archive/v1.20.tar.gz"
   sha256 "f5abe8b5b209c2f36560b75f32ce61412f39a2922f7045ae764a2c23335b6664"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "ef37df5779b602f28adf5937fe890a5969236132e2a47929846d3e16503dc878" => :sierra
-    sha256 "abbc5a2eb45c96d2c41a2e18bc3830cbf73056e543e954cf9b133e81efb89363" => :el_capitan
-    sha256 "c807f88850c2a9d476252bc197f6310ff9a0f60436ac78a5fc037d6ee83db71a" => :yosemite
-    sha256 "04e0c4dc75862c89292042b409512d4a371026a439ea452b808beeebe99e6010" => :x86_64_linux
+    sha256 "8528df5b2af7fab91b1ab1a6382f1b6ccd6d62da462c6a309cb76660a7225b4b" => :sierra
+    sha256 "360b7c40470a5e3a4d4d7759983d310257be68d3e79518dbf71896a13093c6d0" => :el_capitan
+    sha256 "5743bd58aa63406f6405d690fad63fff92169de51331ef6918310dcb70ad6383" => :yosemite
   end
 
   option "with-test", "Verify the build with make check"

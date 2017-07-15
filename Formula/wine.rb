@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 3
+  revision 4
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -29,9 +29,9 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "3d3adabd3b438c8b36c3ab9665a29274eecc4d29997d9f93988e0c54ede94066" => :sierra
-    sha256 "b73051da82b2caf14d9fbadb43bfd6673d86429660d7d7072242642c1f15da54" => :el_capitan
-    sha256 "9a07e30a16149ce98bb8d5fd601278707eee85b0787e1426321868241429acbe" => :yosemite
+    sha256 "3d352b57ec508beac6de7fb9d362c12fade898dcdef1cf31e2b6a69252f8773f" => :sierra
+    sha256 "37c040172c61480ebcf6aa36b27da469907d8b9c5ef9d437c85ace302f715dc2" => :el_capitan
+    sha256 "350dbb181d6af88854af840a903a117d8175f965914190414a92d56420a2ba63" => :yosemite
   end
 
   devel do
@@ -109,9 +109,9 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.29.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.29/libpng-1.6.29.tar.xz"
-    sha256 "4245b684e8fe829ebb76186327bb37ce5a639938b219882b53d64bd3cfc5f239"
+    url "https://download.sourceforge.net/libpng/libpng-1.6.30.tar.xz"
+    mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.30.tar.xz"
+    sha256 "267c332ffff70cc599d3929207869f698798f1df143aa5f9597b007c14353666"
   end
 
   resource "freetype" do
@@ -137,9 +137,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.3.tar.bz2"
-    sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.4.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.4.tar.bz2"
+    sha256 "668293fcc4b3c59765cdee5cee05941091c0879edcc24dfec5455ef83912e45c"
   end
 
   resource "gd" do
@@ -167,9 +167,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.0/mpg123-1.25.0.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.25.0.tar.bz2"
-    sha256 "552e3e1db045e00f474252917007795ac295863fc8b13891859b3382d2f24e48"
+    url "https://www.mpg123.de/download/mpg123-1.25.2.tar.bz2"
+    mirror "https://mpg123.orgis.org/download/mpg123-1.25.2.tar.bz2"
+    sha256 "5314b0fb8ad291bfc79ff4c5c321b971916819a65233ec065434358fcf8aee38"
   end
 
   fails_with :clang do

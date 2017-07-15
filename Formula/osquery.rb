@@ -5,11 +5,11 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.5.0",
       :revision => "445fc126482a1fa2bfb206defe45dac84bce48b0"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "7c964609d84bc690542d9f390fd06a1bbece451444b03c7205e3435a3acdfd0b" => :sierra
+    sha256 "746e1d413a9a133a8d064c17234c3c69d29177cd3c1aa60d326281cbd6fd9341" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -32,6 +32,7 @@ class Osquery < Formula
   depends_on "openssl"
   depends_on "rocksdb"
   depends_on "sleuthkit"
+  depends_on "snappy"
   depends_on "yara"
   depends_on "xz"
 

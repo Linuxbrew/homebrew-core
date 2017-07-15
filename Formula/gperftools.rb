@@ -48,7 +48,7 @@ class Gperftools < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-ltcmalloc", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ltcmalloc", "-o", "test"
     system "./test"
   end
 end
