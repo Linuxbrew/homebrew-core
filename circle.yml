@@ -76,7 +76,7 @@ test:
         brew install patchelf
         && brew tap homebrew/science
         && brew tap linuxbrew/xorg
-        && brew test-bot --tap=homebrew/core --keep-old
+        && brew test-bot --tap=homebrew/core
       : timeout: 7200
     - mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
 notify:

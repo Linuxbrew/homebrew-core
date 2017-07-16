@@ -5,14 +5,15 @@ class JdkDownloadStrategy < CurlDownloadStrategy
 end
 
 class Jdk < Formula
+  desc "Java™ Platform, Standard Edition Development Kit (JDK™)."
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
   # tag "linuxbrew"
 
-  version "1.8.0-112"
+  version "1.8.0-131"
   if OS.linux?
-    url "http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz",
+    url "http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz",
       :using => JdkDownloadStrategy
-    sha256 "777bd7d5268408a5a94f5e366c2e43e720c6ce4fe8c59d9a71e2961e50d774a5"
+    sha256 "62b215bdfb48bace523723cdbb2157c665e6a25429c73828a32f00e587301236"
   elsif OS.mac?
     url "http://java.com/"
   end
