@@ -96,10 +96,7 @@ class Buku < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
-    unless OS.mac?
-      ENV["PYTHONIOENCODING"] = "utf-8"
-      ENV.append "CFLAGS", "-I#{Formula["libffi"].opt_include}"
-    end
+    ENV["PYTHONIOENCODING"] = "utf-8" unless OS.mac?
     expect = OS.mac? ? "/usr/bin/expect" : "#{Formula["expect"].opt_bin}/expect"
 
     # Firefox exported bookmarks file
@@ -126,6 +123,10 @@ class Buku < Formula
           -re ".*ERROR.*" { exit 1 }
           "1. Title unknown"
       }
+      spawn #{bin}/buku --nc --import bookmarks.html
+      expect "Add imported folders names as tags? (y/n): "
+      send "y\r"
+      expect "\\[ERROR\\] URL \\[https://github.com/Homebrew/brew\\] already exists at index 1"
       spawn sleep 5
     EOS
     system expect, "-f", "import"
