@@ -15,7 +15,7 @@ class Unrar < Formula
     # upstream doesn't particularly care about their unix targets,
     # so we do the dirty work of renaming their shared objects to
     # dylibs for them.
-    inreplace "makefile", "libunrar.so", "libunrar.dylib"
+    inreplace "makefile", "libunrar.so", "libunrar.dylib" if OS.mac?
 
     system "make"
     # Explicitly clean up for the library build to avoid an issue with an
@@ -24,7 +24,7 @@ class Unrar < Formula
     system "make", "lib"
 
     bin.install "unrar"
-    lib.install "libunrar.dylib"
+    lib.install "libunrar.#{OS.mac? ? "dylib" : "so"}"
   end
 
   test do
