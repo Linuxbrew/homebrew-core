@@ -18,6 +18,11 @@ class Geoipupdate < Formula
     depends_on "libtool" => :build
   end
 
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "zlib"
+  end
+
   def install
     # Configure for free GeoLite2 and GeoLite Legacy Databases
     # See https://dev.maxmind.com/geoip/geoipupdate/
