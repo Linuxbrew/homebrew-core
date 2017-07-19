@@ -53,6 +53,8 @@ dependencies:
         libpcre3-dev
         libpq-dev
         libsasl2-dev
+        libsqlite0-dev
+        libsqlite3-dev
         libtinfo-dev
         libwebp-dev
         libwmf-dev
