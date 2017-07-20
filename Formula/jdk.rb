@@ -36,7 +36,17 @@ class Jdk < Formula
   end
 
   test do
-    system "#{bin}/java", "-version"
-    system "#{bin}/javac", "-version"
+    (testpath/"Hello.java").write <<-EOS.undent
+      class Hello
+      {
+        public static void main(String[] args)
+        {
+          System.out.println("Hello Homebrew");
+        }
+      }
+    EOS
+    system bin/"javac", "Hello.java"
+    assert_predicate testpath/"Hello.class", :exist?, "Failed to compile Java program!"
+    assert_equal "Hello Homebrew\n", shell_output("#{bin}/java Hello")
   end
 end
