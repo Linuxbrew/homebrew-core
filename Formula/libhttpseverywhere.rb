@@ -1,3 +1,4 @@
+# libhttpseverywhere: Build a bottle for Linuxbrew
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
