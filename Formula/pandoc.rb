@@ -18,6 +18,7 @@ class Pandoc < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     cabal_sandbox do
