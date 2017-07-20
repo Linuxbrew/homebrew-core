@@ -16,6 +16,8 @@ class Hdf5 < Formula
 
   option :cxx11
 
+  depends_on "zlib" unless OS.mac?
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -40,6 +42,7 @@ class Hdf5 < Formula
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
     ]
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
     if build.with?("cxx") && build.without?("mpi")
       args << "--enable-cxx"
