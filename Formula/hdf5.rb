@@ -12,7 +12,6 @@ class Hdf5 < Formula
 
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-parallel" => "with-mpi"
-  deprecated_option "enable-cxx" => "with-cxx"
 
   option :cxx11
 
@@ -44,7 +43,7 @@ class Hdf5 < Formula
     ]
     args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
-    if build.with?("cxx") && build.without?("mpi")
+    if build.without?("mpi")
       args << "--enable-cxx"
     else
       args << "--disable-cxx"
