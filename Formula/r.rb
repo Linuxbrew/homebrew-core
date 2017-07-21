@@ -22,8 +22,7 @@ class R < Formula
   depends_on "readline"
   depends_on "xz"
   depends_on :fortran
-
-  depends_on "homebrew/science/openblas" => :optional
+  depends_on "openblas" => :optional
 
   unless OS.mac?
     depends_on "cairo" => build.with?("x11") ? ["with-x11"] : []
