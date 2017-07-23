@@ -1,3 +1,4 @@
+# zbar: Build a bottle for Linuxbrew
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://zbar.sourceforge.io"
