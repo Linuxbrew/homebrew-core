@@ -13,6 +13,7 @@ class Xml2 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libxml2" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
