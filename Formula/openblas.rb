@@ -34,9 +34,9 @@ class Openblas < Formula
     # Must call in two steps
     system "make", "CC=#{ENV.cc}", "FC=#{ENV.fc}", "libs", "netlib", "shared"
     system "make", "PREFIX=#{prefix}", "install"
-
-    lib.install_symlink "libopenblas.dylib" => "libblas.dylib"
-    lib.install_symlink "libopenblas.dylib" => "liblapack.dylib"
+    so = OS.mac? ? "dylib" : "so"
+    lib.install_symlink "libopenblas.#{so}" => "libblas.#{so}"
+    lib.install_symlink "libopenblas.#{so}" => "liblapack.#{so}"
   end
 
   test do
