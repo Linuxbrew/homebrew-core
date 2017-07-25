@@ -25,13 +25,10 @@ class R < Formula
   depends_on "openblas" => :optional
 
   unless OS.mac?
-    depends_on "cairo" => build.with?("x11") ? ["with-x11"] : []
+    depends_on "cairo"
     depends_on "curl"
     depends_on "tcl-tk" => :optional
     depends_on :x11 => :recommended
-
-    # FIXME: this might not be necessary
-    depends_on "texinfo" => :build
   end
 
   def install
@@ -66,7 +63,6 @@ class R < Formula
       args << "--with-aqua"
       args << "--without-x"
     end
-
 
     if build.with? "openblas"
       args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
