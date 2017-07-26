@@ -31,7 +31,8 @@ class Compcert < Formula
     end
 
     args = ["-prefix", prefix]
-    args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
+    os = OS.mac? ? "macosx" : "linux"
+    args << (build.with?("config-x86_64") ? "x86_64-#{os}" : "ia32-#{os}")
     system "./configure", *args
     system "make", "all"
     system "make", "install"
