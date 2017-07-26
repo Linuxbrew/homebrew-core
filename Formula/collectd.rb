@@ -32,6 +32,7 @@ class Collectd < Formula
   depends_on :java => :optional
   depends_on :python => :optional
   depends_on "net-snmp"
+  depends_on :perl => "5.18" unless OS.mac?
 
   fails_with :clang do
     build 318
