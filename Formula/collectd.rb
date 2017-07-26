@@ -5,10 +5,10 @@ class Collectd < Formula
   sha256 "9d20a0221569a8d6b80bbc52b86e5e84965f5bafdbf5dfc3790e0fed0763e592"
 
   bottle do
-    sha256 "2e997eacb1907d2e4e565c3eaa04ea49a987f5b791caeb09ae936f0c15698b02" => :sierra
-    sha256 "a1409bee446cc876e7c0fb9732c1b83317c8b104c17a179dd11711bb4b84da2f" => :el_capitan
-    sha256 "64a759a6b2bb56345f4f8ad7db06ce4ef9e0dbe95469ebd1305f9ced0d54aecd" => :yosemite
-    sha256 "d88391d2f006330c6b17cbbd04a654f09949d39edd330ea8901091c576e40809" => :x86_64_linux
+    rebuild 1
+    sha256 "4d84af67aa0759b1b6d17addfe1fc818fc80a8290f396ddafbd0c299631cc9c0" => :sierra
+    sha256 "d89fee7fc65332048b4a7ea872c73818e75e38861af8913b94c2e636dd3ab775" => :el_capitan
+    sha256 "668edf52a197a19b8df6141b7077ff67b279dff65b803c82aaf2ff9d17619ef7" => :yosemite
   end
 
   head do
@@ -89,9 +89,19 @@ class Collectd < Formula
   end
 
   test do
+    log = testpath/"collectd.log"
+    (testpath/"collectd.conf").write <<-EOS.undent
+      LoadPlugin logfile
+      <Plugin logfile>
+        File "#{log}"
+      </Plugin>
+      LoadPlugin memory
+    EOS
     begin
-      pid = fork { exec sbin/"collectd", "-f" }
-      assert shell_output("nc -u -w 2 127.0.0.1 25826", 0)
+      pid = fork { exec sbin/"collectd", "-f", "-C", "collectd.conf" }
+      sleep 1
+      assert_predicate log, :exist?, "Failed to create log file"
+      assert_match "plugin \"memory\" successfully loaded.", log.read
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
