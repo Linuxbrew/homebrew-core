@@ -118,7 +118,8 @@ class R < Formula
   end
 
   test do
+    dylib_ext = OS.mac? ? ".dylib" : ".so"
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
-    assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+    assert_equal dylib_ext, shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
   end
 end
