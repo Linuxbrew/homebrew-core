@@ -3,16 +3,12 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz"
   sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
-
-  # Do not remove executable permission from these scripts.
-  # See https://github.com/Linuxbrew/linuxbrew/issues/614
-  skip_clean "lib/R/bin" unless OS.mac?
+  revision 1
 
   bottle do
-    sha256 "ead3a96538eb9bade8990d67cf97bda800107887e0ebd8c0017410fdfa1a244c" => :sierra
-    sha256 "93e5072a56a26fc212a9e617d36a786fe807c70e2487551f616484cede800623" => :el_capitan
-    sha256 "d7a2ccb1236b46d32ee2ed5a3c43a39b3b4d1c955e58f229ac3f75bfed5d4359" => :yosemite
-    sha256 "4b5f810a5bd9a407c9bd40be89c58f8e4104e089e6b73308522d4df37da4dd13" => :x86_64_linux
+    sha256 "9b96002d2a130dba0ead8984d4a76c1b057d8ef7427d6f5895f7e0c2698d86ef" => :sierra
+    sha256 "3d75841c3a8861ba040cb5c943133e4c3b6ceab8b6b8b9f311a5e6af6dce2bba" => :el_capitan
+    sha256 "bce75ad0e8e8cbacd1e2da18b9007695d7fd3e32c0eb1e77df122aca8927e16a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -24,6 +20,7 @@ class R < Formula
   depends_on "xz"
   depends_on :fortran
   depends_on "openblas" => :optional
+  depends_on :java => :optional
 
   unless OS.mac?
     depends_on "cairo"
@@ -31,6 +28,9 @@ class R < Formula
     depends_on "tcl-tk" => :optional
     depends_on :x11 => :recommended
   end
+
+  # needed to preserve executable permissions on files without shebangs
+  skip_clean "lib/R/bin"
 
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
@@ -43,6 +43,7 @@ class R < Formula
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
       "--with-lapack",
+      "--enable-R-shlib",
     ]
 
     # don't remember Homebrew's sed shim
@@ -50,7 +51,6 @@ class R < Formula
 
     if OS.linux?
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
-      args << "--enable-R-shlib"
       args << "--with-cairo"
       args << "--with-x" if build.with?("x11")
 
@@ -69,6 +69,12 @@ class R < Formula
     elsif OS.mac?
       args << "--with-blas=-framework Accelerate"
       ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang
+    end
+
+    if build.with? "java"
+      args << "--enable-java"
+    else
+      args << "--disable-java"
     end
 
     # Help CRAN packages find gettext and readline
@@ -90,12 +96,17 @@ class R < Formula
       end
     end
 
+    r_home = lib/"R"
+
     # make Homebrew packages discoverable for R CMD INSTALL
-    inreplace lib/"R/etc/Makeconf" do |s|
+    inreplace r_home/"etc/Makeconf" do |s|
       s.gsub!(/^CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include")
       s.gsub!(/^LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib")
       s.gsub!(/.LDFLAGS =.*/, "\\0 $(LDFLAGS)")
     end
+
+    include.install_symlink Dir[r_home/"include/*"]
+    lib.install_symlink Dir[r_home/"lib/*"]
   end
 
   def post_install
@@ -108,5 +119,6 @@ class R < Formula
 
   test do
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
+    assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
   end
 end
