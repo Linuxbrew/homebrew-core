@@ -13,6 +13,7 @@ class Sloccount < Formula
   end
 
   depends_on "md5sha1sum"
+  depends_on "flex" => :build unless OS.mac?
 
   patch :DATA
 
