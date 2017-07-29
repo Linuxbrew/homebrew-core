@@ -14,6 +14,8 @@ class IcalBuddy < Formula
     sha256 "44b1bb23023bf91a055f77232b0f2cdb2ad64dc389224a480e2236b308abf9a7" => :mavericks
   end
 
+  depends_on :macos
+
   def install
     args = %W[icalBuddy icalBuddy.1 icalBuddyLocalization.1
               icalBuddyConfig.1 COMPILER=#{ENV.cc}]
