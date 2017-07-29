@@ -80,11 +80,11 @@ class ErlangAT18 < Formula
       --enable-smp-support
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
+    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit? && OS.mac?
     args << "--enable-native-libs" if build.with? "native-libs"
     args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
     args << "--enable-wx" if build.with? "wxmac"
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed? && OS.mac?
 
     if build.without? "hipe"
       # HIPE doesn't strike me as that reliable on macOS
