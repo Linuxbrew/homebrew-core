@@ -13,7 +13,7 @@ class Gwyddion < Formula
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "gtk+"
-  depends_on "gtk-mac-integration"
+  depends_on "gtk-mac-integration" if OS.mac?
   depends_on "gtkglext"
   depends_on "libxml2"
   depends_on "minizip"
