@@ -12,6 +12,7 @@ class Mas < Formula
   end
 
   depends_on :xcode => ["8.0", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-project", "mas-cli.xcodeproj",
