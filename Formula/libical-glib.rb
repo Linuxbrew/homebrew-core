@@ -51,8 +51,8 @@ class LibicalGlib < Formula
       -lical-glib-1.0
       -licalss
       -licalvcal
-      -lintl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
