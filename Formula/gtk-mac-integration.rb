@@ -16,6 +16,7 @@ class GtkMacIntegration < Formula
   depends_on "gtk+3" => :recommended
   depends_on "gobject-introspection"
   depends_on "pygtk"
+  depends_on :macos
 
   def install
     args = %W[
