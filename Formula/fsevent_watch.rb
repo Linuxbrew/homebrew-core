@@ -15,6 +15,9 @@ class FseventWatch < Formula
     sha256 "fb7163be62f68a7eeea7b67da63d5313dc56c88c28f785f4276308ee14d2bdd1" => :mountain_lion
   end
 
+  # The FSEvents API is macOS-exclusive
+  depends_on :macos
+
   def install
     bin.mkpath
     system "make", "install", "PREFIX=#{prefix}", "CFLAGS=-DCLI_VERSION=\\\"#{version}\\\""
