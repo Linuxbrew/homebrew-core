@@ -34,7 +34,7 @@ class Ocamlsdl < Formula
     EOS
     system "#{Formula["ocaml"].opt_bin}/ocamlopt", "-I", "+sdl", "sdl.cmxa",
            "-cclib", "-lSDLmain", "-cclib", "-lSDL", "-cclib",
-           "-Wl,-framework,Cocoa", "-o", "test", "test.ml"
+           *("-Wl,-framework,Cocoa" if OS.mac?), "-o", "test", "test.ml"
     system "./test"
   end
 end
