@@ -16,13 +16,17 @@ class Arpack < Formula
   depends_on "libtool" => :build
 
   depends_on :fortran
-  depends_on "veclibfort"
+  if OS.mac?
+    depends_on "veclibfort"
+  else
+    depends_on "openblas"
+  end
   depends_on :mpi => [:optional, :f77]
 
   def install
     args = %W[ --disable-dependency-tracking
-               --prefix=#{libexec}
-               --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort ]
+               --prefix=#{libexec} ]
+    args << "--with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort" if OS.mac?
 
     if build.with? "mpi"
       args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi"
@@ -46,7 +50,7 @@ class Arpack < Formula
   test do
     ENV.fortran
     system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
-                   "-L#{lib}", "-larpack", "-lvecLibFort"
+                   "-L#{lib}", "-larpack", *("-lvecLibFort" if OS.mac?)
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 
