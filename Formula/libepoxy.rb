@@ -21,7 +21,7 @@ class Libepoxy < Formula
     # see https://github.com/anholt/libepoxy/pull/128
     inreplace "src/meson.build", "version=1", "version 1"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", "--prefix=#{prefix}", *("--libdir=#{lib}" unless OS.mac?), ".."
       system "ninja"
       system "ninja", "test"
       system "ninja", "install"
