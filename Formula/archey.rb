@@ -7,6 +7,8 @@ class Archey < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     bin.install "bin/archey"
   end
