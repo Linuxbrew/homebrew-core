@@ -1,3 +1,4 @@
+# qhull: Build a bottle for Linuxbrew
 class Qhull < Formula
   desc "Computes convex hulls in n dimensions"
   homepage "http://www.qhull.org/"
