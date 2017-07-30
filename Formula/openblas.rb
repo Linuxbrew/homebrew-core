@@ -1,3 +1,4 @@
+# openblas: Build a bottle for Linuxbrew
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "http://www.openblas.net/"
