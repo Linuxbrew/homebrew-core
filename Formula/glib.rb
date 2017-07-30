@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.52/glib-2.52.3.tar.xz"
   sha256 "25ee7635a7c0fcd4ec91cbc3ae07c7f8f5ce621d8183511f414ded09e7e4e128"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "6676ac794f50963131d761521b174c4efee254ed81c87bb232dc0d257c18b9a3" => :sierra
