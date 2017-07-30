@@ -12,7 +12,11 @@ class Qrupdate < Formula
   end
 
   depends_on :fortran
-  depends_on "veclibfort"
+  if OS.mac?
+    depends_on "veclibfort"
+  else
+    depends_on "openblas"
+  end
 
   def install
     # Parallel compilation not supported. Reported on 2017-07-21 at
@@ -20,7 +24,7 @@ class Qrupdate < Formula
     ENV.deparallelize
 
     system "make", "lib", "solib", "FC=#{ENV.fc}",
-                   "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+                   *("BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" if OS.mac?)
 
     # Confuses "make install" on case-insensitive filesystems
     rm "INSTALL"
@@ -37,7 +41,7 @@ class Qrupdate < Formula
   test do
     ENV.fortran
     system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
-                   "-L#{lib}", "-lqrupdate", "-lvecLibFort"
+                   "-L#{lib}", "-lqrupdate", *("-lvecLibFort" if OS.mac?)
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end
