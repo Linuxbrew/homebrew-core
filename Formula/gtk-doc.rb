@@ -23,7 +23,10 @@ class GtkDoc < Formula
   depends_on "docbook-xsl"
   depends_on "libxml2"
   depends_on :perl => "5.18" if MacOS.version <= :mavericks
-  depends_on :python unless OS.mac?
+  unless OS.mac?
+    depends_on :python
+    depends_on "libxslt"
+  end
 
   def install
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
