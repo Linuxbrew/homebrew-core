@@ -1,3 +1,4 @@
+# gitlab-ci-multi-runner: Build a bottle for Linuxbrew
 require "language/go"
 
 class GitlabCiMultiRunner < Formula
