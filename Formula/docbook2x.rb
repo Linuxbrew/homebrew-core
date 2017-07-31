@@ -3,6 +3,7 @@ class Docbook2x < Formula
   homepage "https://docbook2x.sourceforge.io/"
   url "https://downloads.sourceforge.net/docbook2x/docbook2X-0.8.8.tar.gz"
   sha256 "4077757d367a9d1b1427e8d5dfc3c49d993e90deabc6df23d05cfe9cd2fcdc45"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +15,7 @@ class Docbook2x < Formula
   end
 
   depends_on "docbook"
+  depends_on "libxslt" unless OS.mac?
 
   def install
     inreplace "perl/db2x_xsltproc.pl", "http://docbook2x.sf.net/latest/xslt", "#{share}/docbook2X/xslt"
