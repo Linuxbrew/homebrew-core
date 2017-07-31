@@ -1,3 +1,4 @@
+# mpg123: Build a bottle for Linuxbrew
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
