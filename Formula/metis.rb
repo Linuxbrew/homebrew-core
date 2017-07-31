@@ -1,3 +1,4 @@
+# metis: Build a bottle for Linuxbrew
 class Metis < Formula
   desc "Programs that partition graphs and order matrices"
   homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
