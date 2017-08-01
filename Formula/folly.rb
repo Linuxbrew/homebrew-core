@@ -27,7 +27,7 @@ class Folly < Formula
   depends_on "openssl"
 
   # https://github.com/facebook/folly/issues/451
-  depends_on :macos => :el_capitan
+  depends_on :macos => :el_capitan unless OS.mac?
 
   needs :cxx11
 
@@ -36,12 +36,16 @@ class Folly < Formula
   fails_with :gcc => "6"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     cd "folly" do
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
-                            "--disable-dependency-tracking"
+                            "--disable-dependency-tracking",
+                            "--with-boost-libdir=#{Formula["boost"].opt_lib}"
       system "make"
       system "make", "install"
     end
