@@ -1,3 +1,4 @@
+# double-conversion: Build a bottle for Linuxbrew
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
   homepage "https://github.com/floitsch/double-conversion"
