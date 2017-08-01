@@ -12,15 +12,24 @@ class Qrupdate < Formula
   end
 
   depends_on :fortran
-  depends_on "veclibfort"
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
 
   def install
     # Parallel compilation not supported. Reported on 2017-07-21 at
     # https://sourceforge.net/p/qrupdate/discussion/905477/thread/d8f9c7e5/
     ENV.deparallelize
 
-    system "make", "lib", "solib", "FC=#{ENV.fc}",
-                   "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+    args = %W[FC=#{ENV.fc}]
+    if build.with? "openblas"
+      args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    elsif build.with? "veclibfort"
+      args << "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+    else
+      args << "BLAS=-lblas -llapack"
+    end
+
+    system "make", "lib", "solib", *args
 
     # Confuses "make install" on case-insensitive filesystems
     rm "INSTALL"
@@ -36,8 +45,15 @@ class Qrupdate < Formula
 
   test do
     ENV.fortran
-    system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
-                   "-L#{lib}", "-lqrupdate", "-lvecLibFort"
+    opts = %W[-L#{opt_lib} -lqrupdate]
+    if Tab.for_name("qrupdate").with? "openblas"
+      opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
+    elsif OS.mac?
+      opts << "-L#{Formula["veclibfort"].opt_lib}" << "-lvecLibFort"
+    else
+      opts << "-lblas" << "-llapack"
+    end
+    system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f", *opts
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end
