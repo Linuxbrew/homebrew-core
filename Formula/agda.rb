@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.5.2/Agda-2.5.2.tar.gz"
@@ -17,10 +18,9 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 "4de53fe05b8d9fc11d9e5955165a957c3c6bfcbf45dc28afba1c8fff80f5cece" => :sierra
-    sha256 "33acce2fc1b974f8d2438844402676b96de01034d120036cb8a3a429ee9fa095" => :el_capitan
-    sha256 "5061c16954c5af7f38e51fe07e9e2eb9923be90c62ba6e699102936da81a329a" => :yosemite
-    sha256 "25fb6e2777caf5377b18e49ac4d32813f5d9344a50102bca25da8d4c8209fcb2" => :x86_64_linux
+    sha256 "195d08c2ee4b0b415443df8d9cbcbb383e9ed39e5a62cba4c4cdd537bc4cb93e" => :sierra
+    sha256 "9af94e36d57ff4d07430ff375d56f594fde7289085f708ab349181a02df82571" => :el_capitan
+    sha256 "9711ee243f0ccfb7e2a3226b9e3f2cb91f678ea619ada7dd36e6f1158ba54772" => :yosemite
   end
 
   head do
@@ -31,16 +31,17 @@ class Agda < Formula
     end
   end
 
-  deprecated_option "without-malonzo" => "without-ghc"
+  deprecated_option "without-malonzo" => "without-ghc@8.0"
+  deprecated_option "without-ghc" => "without-ghc@8.0"
 
   option "without-stdlib", "Don't install the Agda standard library"
-  option "without-ghc", "Disable the GHC backend"
+  option "without-ghc@8.0", "Disable the GHC backend"
 
-  depends_on "ghc" => :recommended
-  if build.with? "ghc"
+  depends_on "ghc@8.0" => :recommended
+  if build.with? "ghc@8.0"
     depends_on "cabal-install"
   else
-    depends_on "ghc" => :build
+    depends_on "ghc@8.0" => :build
     depends_on "cabal-install" => :build
   end
 
@@ -166,7 +167,8 @@ class Agda < Formula
     system bin/"agda", "--js", simpletest
 
     # test the GHC backend
-    if build.with? "ghc"
+    if build.with? "ghc@8.0"
+      ENV.prepend_path "PATH", Formula["ghc@8.0"].opt_bin
       cabal_sandbox do
         cabal_install "text", "ieee754"
         dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first

@@ -16,7 +16,7 @@ class Pandoc < Formula
     sha256 "96dc84eda781a1fd167b1abc5d8e06be7062dd2a53f3a2238d805e8b7d74d44c" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
   def install
