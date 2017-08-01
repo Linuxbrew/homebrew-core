@@ -1,22 +1,22 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.4.1/apache-arrow-0.4.1.tar.gz"
-  sha256 "499401661f9c768ba7e8a27f02a2079efc207628d7fd856cf03aa301f5dc9986"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.5.0/apache-arrow-0.5.0.tar.gz"
+  sha256 "007a84294091324567bcfd826460e49fd98641c681828e77b79d62261d842bd7"
 
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "4baf8d8e346d82f8babed57ec2097843297d62222dc61d8c9c7359b58906f6cc" => :sierra
-    sha256 "cc4fcc810cf56d16285bf7084a704b0ccf51906149c416423b92c24889c460d4" => :el_capitan
-    sha256 "85ae6ec3bec5d9c9796a8d1dd87c7af8e6301d282c8327a58385519eda0c4214" => :yosemite
-    sha256 "e71ed15a5dbc858a1c71bbb4d585a49aeb6da61af4c69922814ea64d86136515" => :x86_64_linux
+    sha256 "12cf3b8b04c5c84b81a20017ff3df29577dcb470d4998a542ec13b6b0d9eda8a" => :sierra
+    sha256 "181f54ef1b1c21fa23492b3b0ac7d24960ab1c508611c07e9c63429201faf0bb" => :el_capitan
+    sha256 "c4177126e46fea32614aae23e9d21f03334d75f8afd1940511931c3e70a3c67e" => :yosemite
   end
 
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "jemalloc"
   depends_on "ccache" => :recommended
 
   needs :cxx11

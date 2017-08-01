@@ -5,11 +5,11 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.5.0",
       :revision => "445fc126482a1fa2bfb206defe45dac84bce48b0"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "746e1d413a9a133a8d064c17234c3c69d29177cd3c1aa60d326281cbd6fd9341" => :sierra
+    sha256 "7268b318a10baa4d0bb0b91785b6a391f9d27995d260667c7ca10e1342b084e4" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -58,7 +58,6 @@ class Osquery < Formula
 
   resource "cpp-netlib" do
     url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-final.tar.gz"
-    version "0.12.0"
     sha256 "d66e264240bf607d51b8d0e743a1fa9d592d96183d27e2abdaf68b0a87e64560"
   end
 
