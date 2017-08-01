@@ -20,7 +20,7 @@ class Gedit < Formula
   depends_on "glib"
   depends_on "pango"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
+  depends_on "gtk-mac-integration" if OS.mac?
   depends_on "gobject-introspection"
   depends_on "gspell"
   depends_on "iso-codes"
