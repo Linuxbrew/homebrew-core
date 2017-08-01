@@ -1,14 +1,14 @@
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v1.2.tar.gz"
-  sha256 "d8b1f04ef99324a16504d14999833fe97da7840e058e37538fb350cd39e38022"
+  url "https://github.com/jarun/nnn/archive/v1.3.tar.gz"
+  sha256 "eb3a3248dd70f20a3a82b8e1bdfd35c0b2089aedeb71b14bf830c2f12a7b3b6a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "027311a7f496c9415dcd5c2eee2413eaf638dd3203275117e0be850833bb41b0" => :sierra
-    sha256 "8a0ff9a193849895fac3583e75be1047de5fc70a75504028643128e61a20d0af" => :el_capitan
-    sha256 "2c9245d1c6ee16363e3d200d140064a1955a5300cf1af7c3cb0df143082c0e58" => :yosemite
+    sha256 "940fa83f4e2322e226447d5481a5bf809c8d06feabdaf75ffd9f89a689279cb1" => :sierra
+    sha256 "152d3ba36196ea02ab8fc7d05c4f5bcd7d44408d20069463ae664f5d33992b3b" => :el_capitan
+    sha256 "44672ea1e59007ab09493f591c1da9ae3b949fbb3648738f1da4f494266402ff" => :yosemite
   end
 
   depends_on "ncurses" unless OS.mac?
