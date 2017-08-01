@@ -21,7 +21,7 @@ class Glade < Formula
   depends_on "gnome-icon-theme"
   depends_on "hicolor-icon-theme"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
+  depends_on "gtk-mac-integration" if OS.mac?
 
   def install
     # Find our docbook catalog
