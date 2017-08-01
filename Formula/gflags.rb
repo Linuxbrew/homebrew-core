@@ -1,3 +1,4 @@
+# gflags: Build a bottle for Linuxbrew
 class Gflags < Formula
   desc "Library for processing command-line flags"
   homepage "https://gflags.github.io/gflags/"
