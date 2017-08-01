@@ -16,17 +16,22 @@ class Arpack < Formula
   depends_on "libtool" => :build
 
   depends_on :fortran
-  depends_on "veclibfort"
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
   depends_on :mpi => [:optional, :f77]
 
   def install
     args = %W[ --disable-dependency-tracking
-               --prefix=#{libexec}
-               --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort ]
-
-    if build.with? "mpi"
-      args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi"
+               --prefix=#{libexec} ]
+    if build.with? "openblas"
+      args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    elsif build.with? "veclibfort"
+      args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+    else
+      args << "--with-blas=-lblas -llapack"
     end
+
+    args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi" if build.with? "mpi"
 
     system "./bootstrap"
     system "./configure", *args
@@ -45,8 +50,15 @@ class Arpack < Formula
 
   test do
     ENV.fortran
-    system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
-                   "-L#{lib}", "-larpack", "-lvecLibFort"
+    opts = %W[-L#{opt_lib} -larpack]
+    if Tab.for_name("arpack").with? "openblas"
+      opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
+    elsif OS.mac?
+      opts << "-L#{Formula["veclibfort"].opt_lib}" << "-lvecLibFort"
+    else
+      opts << "-lblas" << "-llapack"
+    end
+    system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f", *opts
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 
