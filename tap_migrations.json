@@ -29,6 +29,7 @@
   "hexchat": "caskroom/cask",
   "horndis": "caskroom/cask",
   "inkscape": "caskroom/cask",
+  "iotop": "linuxbrew/extra",
   "ipopt": "homebrew/science",
   "itsol": "homebrew/science",
   "jsl": "caskroom/cask",
