@@ -1,3 +1,4 @@
+# apache-arrow: Build a bottle for Linuxbrew
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
@@ -22,6 +23,9 @@ class ApacheArrow < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     cd "cpp" do
