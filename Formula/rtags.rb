@@ -17,6 +17,9 @@ class Rtags < Formula
   depends_on "openssl"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j10" if ENV["CIRCLECI"]
+
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
     ENV.append("LDFLAGS", "-lc++abi") if OS.mac?
 
