@@ -1,3 +1,4 @@
+# scalapack: Build a bottle for Linuxbrew
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
   homepage "http://www.netlib.org/scalapack/"
@@ -14,15 +15,10 @@ class Scalapack < Formula
   depends_on "cmake" => :build
   depends_on :fortran
   depends_on :mpi => [:cc, :f90]
-  depends_on "openblas" => :optional
-  depends_on "veclibfort" if build.without?("openblas")
+  depends_on "openblas"
 
   def install
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    else
-      blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
-    end
+    blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON",
