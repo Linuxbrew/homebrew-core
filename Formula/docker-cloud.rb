@@ -3,6 +3,7 @@ class DockerCloud < Formula
   homepage "https://cloud.docker.com/"
   url "https://files.pythonhosted.org/packages/28/32/19981b368bd9c64f45217e007dbd42990b1cf108ade46cd68e3687c07d41/docker-cloud-1.0.8.tar.gz"
   sha256 "f999de30510fee95f89f6c6096e42219f1cf604e2febf32bfa55bea188dc7d62"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
