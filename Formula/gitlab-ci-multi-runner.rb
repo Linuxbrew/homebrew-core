@@ -4,16 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v9.4.0",
-      :revision => "ef0b1a696948498be6744d764f683607ff8be1d9"
+      :tag => "v9.4.1",
+      :revision => "d24b11c490710da524bef609b003389ebcba9f29"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1c7d3d47f5284bd33f9f2264d89c7e2a80cc9b6b8f364f51f7e02f3c595a1de" => :sierra
-    sha256 "9b65b6069a5b1b80e697fa1bcce4a43a3b742cd8758ac2bdb58358b1360cb002" => :el_capitan
-    sha256 "b21a9ee944ef463e1820acae9cfedfdb86cd0b9dbc8f2357cd4051f386653315" => :yosemite
-    sha256 "2cf339aad5e63d2552e20a35187e1d0c1d2165c69a429fb091186850c09cf9c4" => :x86_64_linux
+    sha256 "65260a30376b743740901bf21f6cc54ac14d25a6e64cf4f58077e3e60c1ed72c" => :sierra
+    sha256 "8dd1f2d2b95c25abd051348fb3defc84db3977c62e87eeaa97ce6cb39f70368f" => :el_capitan
+    sha256 "3c90adff877685bb17cd8f9feba26fba7e62db3e455b828f149e410713d97a8e" => :yosemite
   end
 
   depends_on "go" => :build
@@ -25,17 +24,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.4.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.4.1/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "9.4.0"
-    sha256 "f337272e4cb665a14e6f430088bb407dceb753042193a16c7c56cb7a35f22e81"
+    version "9.4.1"
+    sha256 "01596f0ff33ae6e4106bf8fb15c18641e0d896b979a721234de6102d431feb94"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.4.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.4.1/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "9.4.0"
-    sha256 "738053824ccffff65b6043f0bc1e74b41a5ab2a139e0421f32789d2a9b7e1011"
+    version "9.4.1"
+    sha256 "12d2f730aa53cbdce80b87aaa9540b03be05502561cfdc8e4d1db2a1cd0537e0"
   end
 
   def install
