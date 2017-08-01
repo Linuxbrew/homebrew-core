@@ -30,11 +30,17 @@ class Hidapi < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
+  unless OS.mac?
+    depends_on "systemd" # for libudev
+    depends_on "libusb"
+  end
+
   def install
     system "./bootstrap"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-    bin.install "hidtest/.libs/hidtest"
+    # hidtest/.libs/hidtest does not exist for Linux, do not install it
+    bin.install "hidtest/.libs/hidtest" if OS.mac?
   end
 
   test do
@@ -46,7 +52,7 @@ class Hidapi < Formula
       }
     EOS
 
-    flags = ["-I#{include}/hidapi", "-L#{lib}", "-lhidapi"] + ENV.cflags.to_s.split
+    flags = ["-I#{include}/hidapi", "-L#{lib}", OS.mac? ? "-lhidapi" : "-lhidapi-hidraw"] + ENV.cflags.to_s.split
     system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end
