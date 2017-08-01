@@ -24,8 +24,12 @@ class MysqlCluster < Formula
 
   depends_on :java => "1.7+"
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
+  if OS.mac?
+    depends_on "pidof" unless MacOS.version >= :mountain_lion
+  else
+    depends_on "ncurses"
+  end
 
   conflicts_with "memcached", :because => "both install `bin/memcached`"
   conflicts_with "mysql", "mariadb", "percona-server",
@@ -42,6 +46,9 @@ class MysqlCluster < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     # Make sure the var/mysql-cluster directory exists
     (var/"mysql-cluster").mkpath
 
@@ -97,6 +104,14 @@ class MysqlCluster < Formula
     system "cmake", *args
     system "make"
     system "make", "install"
+
+    # Strip the binaries to reduce their size.
+    unless OS.mac?
+      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
 
     # We don't want to keep a 240MB+ folder around most users won't need.
     (prefix/"mysql-test").cd do
