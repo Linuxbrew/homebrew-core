@@ -5,6 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-4.2.2.tar.gz"
   sha256 "b20132dec5ae6d27ee43a133144069895befe09f7e454bfa9e39950a185f0afe"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "f43570c72161e66166fa4d97286aed6cfb4e587e8e3406d58ed9886dfbc8b7a3" => :sierra
