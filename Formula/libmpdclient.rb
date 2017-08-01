@@ -1,3 +1,4 @@
+# libmpdclient: Build a bottle for Linuxbrew
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
