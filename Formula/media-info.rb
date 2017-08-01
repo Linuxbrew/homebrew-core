@@ -13,6 +13,7 @@ class MediaInfo < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "curl" unless OS.mac?
 
   def install
     cd "ZenLib/Project/GNU/Library" do
