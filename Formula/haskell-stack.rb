@@ -22,6 +22,7 @@ class HaskellStack < Formula
   depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "zlib" unless OS.mac?
+  depends_on "gmp" unless OS.mac?
 
   def install
     cabal_sandbox do
@@ -35,7 +36,7 @@ class HaskellStack < Formula
 
         system "stack", "-j#{jobs}", "setup"
         args = []
-        args << "--extra-include-dirs=#{Formula["zlib"].include}" << "--extra-lib-dirs=#{Formula["zlib"].lib}" unless OS.mac?
+        args << "--extra-include-dirs=#{Formula["zlib"].opt_include} --extra-include-dirs=#{Formula["gmp"].opt_include}" << "--extra-lib-dirs=#{Formula["zlib"].opt_lib} --extra-lib-dirs=#{Formula["gmp"].opt_lib}" unless OS.mac?
         system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", *args, "install"
       else
         install_cabal_package
