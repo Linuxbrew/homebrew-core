@@ -1,3 +1,4 @@
+# imagemagick: Build a bottle for Linuxbrew
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
