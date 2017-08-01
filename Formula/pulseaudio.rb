@@ -44,7 +44,12 @@ class Pulseaudio < Formula
   unless OS.mac?
     depends_on "m4" => :build
     depends_on "libcap"
-    depends_on "XML::Parser" => :perl
+    depends_on "expat"
+
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
   end
 
   fails_with :clang do
@@ -53,6 +58,16 @@ class Pulseaudio < Formula
   end
 
   def install
+    unless OS.mac?
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
