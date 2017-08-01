@@ -1,13 +1,13 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.49.zip"
-  sha256 "520909edb975ec7fc63aa1b404993a79c1b8f6a0d80bca588c03cfa5fec12410"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.50.zip"
+  sha256 "d1225f297963d1336ffaa7557990a2a0c8c7700774baa107ecb5467bfc0a265a"
 
   bottle do
-    sha256 "4f0b1e8855dec786df39dcc0e77be468bbad43e8fbb45a98f4648484a220822f" => :sierra
-    sha256 "63e2a78b0ac6cac297b8b772821d49d065b2f09ed33ccb298b2e145b5ce78960" => :el_capitan
-    sha256 "57a205654765889cad4082669b187296ae7ff28b6c71876f870d984aebb1dbad" => :yosemite
+    sha256 "d0f9d954e6c4fde8f44685d593306b08b87dd8d8d531c7c80271fa674fcff1b5" => :sierra
+    sha256 "af2691eec1a1a85141a96f5682885f3da8d2de50b8d804a4b2f0f94aa89fc891" => :el_capitan
+    sha256 "e6e7ef7e75142bac715c70e85d0190237722efc3b95aafc9b4761ae8562f3c5f" => :yosemite
   end
 
   depends_on "openssl"
