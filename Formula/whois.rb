@@ -1,17 +1,16 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/whois/whois_5.2.16.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/whois/whois_5.2.16.tar.xz"
-  sha256 "e9d208b61ccea96b611e522d30fb753dbefed0d44cfabe346e1928690453fc3a"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/whois/whois_5.2.17.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/whois/whois_5.2.17.tar.xz"
+  sha256 "257585678f571e18964667b41dc6543fe9da6123ac95743660c9c3ae1eba9664"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b5d063e1c7831f4ddf7c392a37db28528c43acb003d7cf9e9cb741270861045" => :sierra
-    sha256 "c1694fe0f3b5ff0f2ccd3f9d57776c30c7a54e0e05a2c00cd17cbff64e775cab" => :el_capitan
-    sha256 "e6cb80d8cdc877295efb6f94febb702e46541fc5874bec8449740e061facc844" => :yosemite
-    sha256 "0189d8117ca09de5aec4ad9c8fedc11cc7b07005bc223414bb36cb4bb7319e93" => :x86_64_linux
+    sha256 "cf92d3f158f0a8d859f30180c9110da9a36d855eb77f3eb054202f9c211b9085" => :sierra
+    sha256 "4747c2120aea12ac76e9538752680d307f24f37240dc25f972c0b41c91b74239" => :el_capitan
+    sha256 "a09c672b49196965dc1fa33f2726dfd41c1852b07731b846d9cc743090b85eff" => :yosemite
   end
 
   def install

@@ -1,14 +1,14 @@
 class GnupgAT14 < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.21.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.21.tar.bz2"
-  sha256 "6b47a3100c857dcab3c60e6152e56a997f2c7862c1b8b2b25adf3884a1ae2276"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.22.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.22.tar.bz2"
+  sha256 "9594a24bec63a21568424242e3f198b9d9828dea5ff0c335e47b06f835f930b4"
 
   bottle do
-    sha256 "75e3d0b64aa7c8b0a1909401881542b82890380e36ca61711cf68e584387702c" => :sierra
-    sha256 "53c0d078cb7858cc138b976d7248368678171475a1d42afd0115be067c2c9ae5" => :el_capitan
-    sha256 "e3c430f6e012f9033c3cd704ce599b30e5e557fe459b92afc222753640b43fdc" => :yosemite
+    sha256 "b34d26fe050fbb87ee0e5e002b1b1d1e5738dd695dc0a02c1b57bb3503ce092b" => :sierra
+    sha256 "4ee6d442e1cb7636c0669cd4a9e83af555c1c5a9cb502405c54a575195884979" => :el_capitan
+    sha256 "68e1c879a85d9e9ce68dc0b1bfa338a04cec76f8293911d335e1c1ae059bdd65" => :yosemite
   end
 
   depends_on "curl" if MacOS.version <= :mavericks

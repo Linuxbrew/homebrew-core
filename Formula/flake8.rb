@@ -3,17 +3,16 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.3.0"
-  sha256 "2e60c7b6e93a5cd7d053e5a7ad91942d90931f7341e50a53a9f33943e5f60ea9"
+  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.4.1"
+  sha256 "8b87cc3b8ad6b11b1738ac2f40c648ff88f3a810d0a323389bb635c1f8f55b3f"
 
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e98b0fea0977142ae2bacb84de845865b623cb77eb3e820018d49ea7864044f5" => :sierra
-    sha256 "5dc5fed1566eaaefe298b8a5e17148ccaf90d9a1f0b64a87a1c697e71cfab0ac" => :el_capitan
-    sha256 "58e4bd24292d4ca2247e8088b457357b0b296d8831d09e0199a26a6e79f348a2" => :yosemite
-    sha256 "450deaf4f5c686f5d094bfd1d2bea144bf2c1f43dd28654ddeb7da26a9d83403" => :x86_64_linux
+    sha256 "52247f453420402adf92473646822df170eba8988869408536758a9dca3cf02a" => :sierra
+    sha256 "7cedbefbd6364386eaed992f81cfeb1dfca08997bda82e59d726a247d6fd6dea" => :el_capitan
+    sha256 "867901db2671873cfdbaec243d6a7e13f8fcc9e61b3b7f6353b7d9142c52c874" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

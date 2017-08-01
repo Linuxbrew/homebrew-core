@@ -2,21 +2,20 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.20.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.20.orig.tar.gz"
-  sha256 "e574b9780b5425fde4d973bb596e7ea0f09e00fe2edd662da9016e976c460b48"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.22.orig.tar.gz"
+  sha256 "e2b1401e3eedc7b5c9a2034d31254c886e1fcbc7858006e0a1c59158fe4b7b97"
 
   bottle do
-    sha256 "aefbf1cc0f4187045e59c0ca806bba7485c956eb91f6c6cd536e181cd28b796c" => :sierra
-    sha256 "076f9fdd5b89a600d7ac26a0e241a63fa9a39c5609b5a5a478cb64ab473194a2" => :el_capitan
-    sha256 "8d8814ab6605c0188f49ebfb4a29734820c3cc74a8bb1501bf0f6e769d0f6b46" => :yosemite
-    sha256 "2f982395f1bfff1baf0ccdd21a23bd8c13d782fbde174a0dc9450e20e6a69eaa" => :x86_64_linux
+    sha256 "76211a054223413bacc77e81d5fbc15b89b4a07005f4a44294652574d13bdc15" => :sierra
+    sha256 "5c604cca3146dc9623451daae2b31dee143affef224320790bce23f9c4c5c629" => :el_capitan
+    sha256 "dc0f6593ca33b118f25477ae7d6016ed00317fa312f951729d32501147bfec17" => :yosemite
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.14.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.14.orig.tar.gz"
-    sha256 "55cfc7fdd2cccb2fce1f75d2132ad4801b5ed6699fc2ce79ed993574adf90c80"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.16.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.16.orig.tar.gz"
+    sha256 "7cf993e97df62c73b939b77dcd920e8883d8e866f9ced1a9b5c715eb28e4b031"
 
     depends_on "coreutils" => :build
     depends_on "pkg-config" => :build
