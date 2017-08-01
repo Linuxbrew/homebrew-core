@@ -43,6 +43,9 @@ class MingwW64 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     target_archs.each do |arch|
       arch_dir = "#{prefix}/toolchain-#{arch}"
       target = "#{arch}-w64-mingw32"
