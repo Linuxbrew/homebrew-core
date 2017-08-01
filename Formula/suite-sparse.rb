@@ -12,15 +12,22 @@ class SuiteSparse < Formula
   end
 
   depends_on "metis"
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
   def install
     args = [
       "INSTALL=#{prefix}",
-      "BLAS=-framework Accelerate",
-      "LAPACK=$(BLAS)",
       "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
       "MY_METIS_INC=#{Formula["metis"].opt_include}",
     ]
+    if build.with? "openblas"
+      args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    elsif OS.mac?
+      args << "BLAS=-framework Accelerate"
+    else
+      args << "BLAS=-lblas -llapack"
+    end
+    args << "LAPACK=$(BLAS)"
     system "make", "library", *args
     system "make", "install", *args
     pkgshare.install "KLU/Demo/klu_simple.c"
