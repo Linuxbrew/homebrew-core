@@ -1,3 +1,4 @@
+# etsh: Build a bottle for Linuxbrew
 class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "https://v6shell.org/"
