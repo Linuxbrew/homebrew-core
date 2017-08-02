@@ -1,3 +1,4 @@
+# ghc@8.0: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class GhcAT80 < Formula
