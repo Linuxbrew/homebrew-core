@@ -1,15 +1,15 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "http://kcat.strangesoft.net/openal.html"
-  url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.18.0.tar.bz2"
-  sha256 "4433b1391c61a7ca36d82c946c8f0ffe410569d6437e4ce72b3547aaf966ecde"
+  url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.18.1.tar.bz2"
+  sha256 "2d51a6529526ef22484f51567e31a5c346a599767991a3dc9d4dcd9d9cec71dd"
   head "http://repo.or.cz/openal-soft.git"
 
   bottle do
     cellar :any
-    sha256 "b9738e2a954a3556e8b757793960a8319a9d7ace8542e0f4dea34f8a74b4600f" => :sierra
-    sha256 "8738d5184ab0af02e2f63b363572365f9174876fadd93196f6bca0a0625b2b08" => :el_capitan
-    sha256 "5eaff28134246e2286996d2bd0f9f25951a157aa2332486df3adf9e092ccb39c" => :yosemite
+    sha256 "208b8944493bd630c5ab05099691a5a12247bbd17ed1489a76cfaee8f7058dc7" => :sierra
+    sha256 "e9fc6328557f849078ba9af8b5ac02d5a83c190c1d506979d3146d43ac08e17c" => :el_capitan
+    sha256 "26e691bb1ff0e714e7b25187cc2bb76eaa75124e71cb56abb11ff1f808ec7392" => :yosemite
   end
 
   keg_only :provided_by_osx, "macOS provides OpenAL.framework"
