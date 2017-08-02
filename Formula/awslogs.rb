@@ -1,3 +1,4 @@
+# awslogs: Build a bottle for Linuxbrew
 class Awslogs < Formula
   include Language::Python::Virtualenv
 
