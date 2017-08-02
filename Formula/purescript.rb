@@ -17,7 +17,7 @@ class Purescript < Formula
     sha256 "5049b8756d62f8e76d6c1813878301ed6a76f1c9dd0ae430cff5421e9e456fef" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   unless OS.mac?
     depends_on "ncurses"

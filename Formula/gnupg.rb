@@ -1,15 +1,14 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.21.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.21.tar.bz2"
-  sha256 "7aead8a8ba75b69866f583b6c747d91414d523bfdfbe9a8e0fe026b16ba427dd"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.22.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.22.tar.bz2"
+  sha256 "46716faf9e1b92cfca86609f3bfffbf5bb4b6804df90dc853ff7061cfcfb4ad7"
 
   bottle do
-    rebuild 1
-    sha256 "488c65c521bd51cf95e7903aeb769d69e021f50d54eb37f938dfa26d81581b62" => :sierra
-    sha256 "c525b344a191af01221103647109ee5e54d6e5fc8adb9f4c1c80bf0bcbf62a5c" => :el_capitan
-    sha256 "b25d0f5922556f1db6192443f2c94f55107bcf40a16fe9091f078ab663bd9b59" => :yosemite
+    sha256 "f0d36cbb12e9039664b4c33f4202a4ff44fb53745cb4d988c7dbca9c9c051acf" => :sierra
+    sha256 "7221bab6b284056b2841f5f3e4f0bcbfd01e16da5b72298d03511b2bfc799cac" => :el_capitan
+    sha256 "fd272a5d43bd134231fff86ca175cbb2a78e23105d475513261cb6cf661a4834" => :yosemite
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
@@ -33,13 +32,6 @@ class Gnupg < Formula
   depends_on "libusb" => :recommended
   depends_on "readline" => :optional
   depends_on "encfs" => :optional
-
-  # Upstream commit 16 May 2017 "Suppress error for card availability check."
-  # See https://dev.gnupg.org/rGa8dd96826f8484c0ae93c954035b95c2a75c80f2
-  patch do
-    url "https://dev.gnupg.org/rGa8dd96826f8484c0ae93c954035b95c2a75c80f2?diff=1"
-    sha256 "3adb7fd095f8bc29fd550bf499f5f198dd20e3d5c97d5bcb79e91d95fd53a781"
-  end
 
   def install
     args = %W[

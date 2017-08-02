@@ -16,7 +16,7 @@ class PandocCiteproc < Formula
     sha256 "d9c79313c222212d6b96c5c2fdfd7d14fb2ac59af098c157dd74954e292b5f06" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "pandoc"
 
