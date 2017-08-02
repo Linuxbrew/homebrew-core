@@ -3,16 +3,15 @@ class Awslogs < Formula
 
   desc "Simple command-line tool to read AWS CloudWatch logs"
   homepage "https://github.com/jorgebastida/awslogs"
-  url "https://github.com/jorgebastida/awslogs/archive/0.8.tar.gz"
-  sha256 "74163ff3dad377de71014d11fd5ffeeb84bf1d8f6a4acbb45f9fae762551b037"
+  url "https://github.com/jorgebastida/awslogs/archive/0.10.tar.gz"
+  sha256 "6b05e930ab83d2f7fce4f4aa0320bb855efcd951deb70644a043db539bc56bcf"
   head "https://github.com/jorgebastida/awslogs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7207ed6071d184468f94d03824b1f3d3b00ae69bf6c4b8f03279c1f22b616593" => :sierra
-    sha256 "38847e1ea8b7524eb9a0a6f51b8c83c05340d6224f769fa205aa061ed564ee05" => :el_capitan
-    sha256 "e9c8d6dbdba2ae32df6aaf54c194446bb6d0547810a26cfbffab1a83cbaf4ef2" => :yosemite
-    sha256 "089222fc11e7bd8dd8265b292342e66e0a15a9457380664ab986acfddf647bb6" => :x86_64_linux
+    sha256 "663f1607891140fd516ebc34ffc51fe14c0501a66c4cacb6c400acb6b8933b28" => :sierra
+    sha256 "0c3af48bc56a1c0451db0bde75f585c9463c2d26a9dd410806e3624190a95594" => :el_capitan
+    sha256 "c9240034aeb03e9d4e42857b0f37c11ba93486e48e4badf5b31a1d2280238f97" => :yosemite
   end
 
   unless OS.mac?

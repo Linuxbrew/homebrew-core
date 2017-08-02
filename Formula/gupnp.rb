@@ -11,16 +11,6 @@ class Gupnp < Formula
     sha256 "ebea80b057f8817739ab9a927925235727c0ca182cbac02a73566f140dbdddb3" => :x86_64_linux
   end
 
-  head do
-    url "https://github.com/GNOME/gupnp.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "gnome-common" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
-  end
-
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
@@ -29,18 +19,10 @@ class Gupnp < Formula
   depends_on "gssdp"
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-    ]
-    if build.head?
-      ENV.append "CFLAGS", "-I/usr/include/uuid"
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

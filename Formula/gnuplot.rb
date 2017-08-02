@@ -28,9 +28,8 @@ class Gnuplot < Formula
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt@5.7"
-  deprecated_option "with-qt" => "with-qt@5.7"
-  deprecated_option "with-qt5" => "with-qt@5.7"
+  deprecated_option "qt" => "with-qt"
+  deprecated_option "with-qt5" => "with-qt"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
 
@@ -40,11 +39,11 @@ class Gnuplot < Formula
   depends_on "lua" => :recommended
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt@5.7" => :optional
+  depends_on "qt" => :optional
   depends_on "wxmac" => :optional
   depends_on :x11 => :optional
 
-  needs :cxx11 if build.with? "qt@5.7"
+  needs :cxx11 if build.with? "qt"
 
   resource "libcerf" do
     url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.5.tgz"
@@ -54,7 +53,7 @@ class Gnuplot < Formula
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt@5.7"
+    ENV.cxx11 if build.with? "qt"
 
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
@@ -88,7 +87,7 @@ class Gnuplot < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt@5.7"
+    if build.with? "qt"
       args << "--with-qt"
     else
       args << "--with-qt=no"

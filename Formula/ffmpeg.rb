@@ -3,17 +3,15 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.3.2.tar.bz2"
-    sha256 "216900d5c0af9017bb8f76b0ad23f0ac53cf7fc618cf04b40d989bd99b088e6a"
+    url "https://ffmpeg.org/releases/ffmpeg-3.3.3.tar.bz2"
+    sha256 "1069ac8fc7f52e566bea28b41b9c437246aeb5096f82fb26fa96dc7d5a10a473"
 
     depends_on "yasm" => :build
   end
 
   bottle do
-    sha256 "5a376b449da71f11aec2426ceab28c5797f429e8d1e29934541a7d57d4fed34f" => :sierra
-    sha256 "0d2fe136c30cc3a89746a1bfe67e4579766edda52f5f8f80b44aeafe0257e216" => :el_capitan
-    sha256 "57879c39bc53a7868ea5da360e4567c004062c581321a3707352151f12686768" => :yosemite
-    sha256 "3655a4a1fa69cc99233df3bc3754f936808393016e8606d16273945bb6fe3dab" => :x86_64_linux
+    sha256 "1b419e42dd75c6d1faf17bd9bc0598bc6e2f6720f9fec1247ece6b3e2c820f31" => :sierra
+    sha256 "dffc8990189b26ea1848b0c798c7abb0bc2348b3e60d01fdb40e51d079345347" => :el_capitan
   end
 
   head do
