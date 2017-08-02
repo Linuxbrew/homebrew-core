@@ -6,27 +6,19 @@ end
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.5.2/bazel-0.5.2-dist.zip"
-  sha256 "2418c619bdd44257a170b85b9d2ecb75def29e751b725e27186468ada2e009ea"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.5.3/bazel-0.5.3-dist.zip"
+  sha256 "d6d27e87bb3ccc6f70f885d51b70c4a9924f0b198dec8ccb82baceb912075212"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c102f7c97f48397e2cd128b111f4d1d84698299554c20e5228b0f5526f9d095f" => :sierra
-    sha256 "c9d8c15c0105d78b35ce4d405ca7649562aef7bc108ae62d03282ada358ec655" => :el_capitan
-    sha256 "a22b2da3456830f057b94ad043f28a511c2d66fd215010745b4fb55d9644b68b" => :yosemite
+    sha256 "7437094497afb5b9d842690cf9f01c254265c344603fff43f7560f064914ebbc" => :sierra
+    sha256 "6155a251b0b571fc2e3a9d5293fc5696eaa0cd2df4ef751a334f04c4ce378d0f" => :el_capitan
+    sha256 "ccdfccb0373c11b81dd67c04fe85e0b1b78c828f36108b83565df26c059b5aed" => :yosemite
   end
 
   depends_on :java => "1.8+"
   depends_on :macos => :yosemite
   depends_on CIRequirement
-
-  # Upstream PR from 27 Jun 2017 "Fix build failure with old OS X mktemp"
-  # See https://github.com/bazelbuild/bazel/issues/3279
-  patch do
-    url "https://github.com/bazelbuild/bazel/pull/3281.patch?full_index=1"
-    sha256 "704dff309fa2f6ee5304f72fcbe6d2576326e1bb8e1e41385dc02d773ee35665"
-  end
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
