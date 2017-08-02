@@ -69,6 +69,9 @@ class GhcAT80 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j29" if ENV["CIRCLECI"]
+
     # Setting -march=native, which is what --build-from-source does, fails
     # on Skylake (and possibly other architectures as well) with the error
     # "Segmentation fault: 11" for at least the following files:
