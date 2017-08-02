@@ -1,16 +1,15 @@
 class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "https://v6shell.org/"
-  url "https://v6shell.org/src/etsh-4.5.1.tar.gz"
-  sha256 "b9d65695789470f6cc5a4e341d85d39c1e48227909c429e96286b3cbc1eafe39"
+  url "https://v6shell.org/src/etsh-4.6.0.tar.gz"
+  sha256 "2884a862a89c4ecaf66ff2bab8d0a3156f3e32477290e117d03ac94981d92659"
   version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
   bottle do
-    sha256 "80f892b8e239b8ae41795df0649db01185f9d6523f2f18e71802319f30e80baa" => :sierra
-    sha256 "48bf611a9f34ece3b73f2a86672248f0667677e5c3ee225c6b50a472b97d629b" => :el_capitan
-    sha256 "198fcf52a9c7d3e977744ff77c7eb0b01d9ede5b0539f2deca2a70c1ec2f84d0" => :yosemite
-    sha256 "d1faa3e33a42e9fe18e5289904f4548405b2f685a6d564be59c13ecd1aeed983" => :x86_64_linux
+    sha256 "960a2eef8ab3991a6a5291c79692a03c100c29a9af591a5ca90f0f20cb0dabc3" => :sierra
+    sha256 "c995654d271f7063d033ea96218605f43dcf1bedf3fc2523e25dfaeffa5e7bf2" => :el_capitan
+    sha256 "56c0ddbcc7e5ebc1e7709231623d02fb49b960e6a361082cfca2d10bc2bbb4bf" => :yosemite
   end
 
   option "with-examples", "Build with shell examples"

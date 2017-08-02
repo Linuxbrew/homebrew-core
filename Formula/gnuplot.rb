@@ -3,13 +3,12 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
   sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "3192949de4abd0e6c7f9213fbf85bfff07dc3e123403abb5c4712ae07563ff67" => :sierra
-    sha256 "79c3fa943d9b13263d8fe2312062c927bc13caf6acc2b3b2f487f364133aeabe" => :el_capitan
-    sha256 "bf5f2a2d1e7b0c83a76cb9fd863a670ab8db5baf546a89f7c60cf7b3f2f39c3e" => :yosemite
-    sha256 "32993f864da81c043d92a6ee029e4160ca7497058d05e018c994a937708021af" => :x86_64_linux
+    sha256 "5dc1758dc88d2cb339784c977c31fd15b18322dcc9e643e5691838a2f09054a8" => :sierra
+    sha256 "611a585b09f9d36590ebeb9551d7626e19827b99a0402fd63c8b120fdced1fc3" => :el_capitan
+    sha256 "7ce71a5bcf96a7b496c7423bd9916b7558b8ab04ef02dc2bb6fd6ab781995133" => :yosemite
   end
 
   head do
@@ -68,7 +67,7 @@ class Gnuplot < Formula
       system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
       system "make", "install"
     end
-    ENV.prepend "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
