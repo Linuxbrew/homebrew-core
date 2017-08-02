@@ -1,3 +1,4 @@
+# whois: Build a bottle for Linuxbrew
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
