@@ -1,13 +1,13 @@
 class Bartycrouch < Formula
   desc "Incrementally update your Strings files."
   homepage "https://github.com/Flinesoft/BartyCrouch"
-  url "https://github.com/Flinesoft/BartyCrouch/archive/3.8.0.tar.gz"
-  sha256 "8180b7f016ad9dd34f9fd022c94bf476e8648aa608b4d5b928519bdf0e940a76"
+  url "https://github.com/Flinesoft/BartyCrouch/archive/3.8.1.tar.gz"
+  sha256 "4ff72004ad7f992da1175dbabe1e37cf30f60a31a67899c71f88018d40e83aaa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b11ab8ba03c1b3fbc0d1a4f00a239e913114bbdd9a2a4f3d60a152718807c426" => :sierra
-    sha256 "5767a6f7eb837fdf6922fd94f11994c390f6d293919a761b575cef457a683022" => :el_capitan
+    sha256 "69ce157192d8a7464094978f151bffe5df81e27c9f813c74a0cebed9b5dd924c" => :sierra
+    sha256 "d18ce7fd273cbf95e231983c613b1c4c4bc12b41353b5ad866b8e803e5653bf6" => :el_capitan
   end
 
   depends_on :xcode => ["8.0", :build]

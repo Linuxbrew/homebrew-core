@@ -3,12 +3,12 @@ class Dnsmasq < Formula
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
   url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
   sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "93b314d46b19d8a67455eb2330e3ed3afd7a59f85008c2f65c2270a15b7d4b8e" => :el_capitan_or_later
-    sha256 "0391398c1c7b047159d9264cb2e8f7df57b3f445821fcc122b03ed23fa1bac09" => :yosemite
+    sha256 "1651004656f0f8d654167421188eca24f8828253bd8b5948ba657c834c6bcb87" => :sierra
+    sha256 "9a2ef1302f2654af6c6598a1c1926e4733a800bf38d2af783b60daac352861bf" => :el_capitan
+    sha256 "7562571ad0156478738bd1d48e4c70e6877930f5649045adb907f4b3b33f4e19" => :yosemite
   end
 
   option "with-libidn", "Compile with IDN support"
@@ -23,6 +23,15 @@ class Dnsmasq < Formula
 
   def install
     ENV.deparallelize
+
+    # Re-evaluate whether this is needed for dnsmasq > 2.77
+    # Fix __memcpy_chk crash in strcpy(cache->name.sname, canon);
+    # Reported 12 Jul 2017 to simon AT thekelleys DOT org DOT uk
+    # See https://github.com/Homebrew/homebrew-core/issues/14463
+    if MacOS.version >= :sierra
+      inreplace "src/config.h", "#define SMALLDNAME 50 ",
+                                "#define SMALLDNAME 255 "
+    end
 
     # Fix etc location
     inreplace %w[dnsmasq.conf.example src/config.h man/dnsmasq.8
