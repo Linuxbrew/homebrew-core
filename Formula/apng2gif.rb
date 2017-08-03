@@ -1,3 +1,4 @@
+# apng2gif: Build a bottle for Linuxbrew
 class Apng2gif < Formula
   desc "Convert APNG animations into animated GIF format."
   homepage "https://apng2gif.sourceforge.io/"
