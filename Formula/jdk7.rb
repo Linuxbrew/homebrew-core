@@ -1,18 +1,12 @@
-class JdkDownloadStrategy < CurlDownloadStrategy
-  def _curl_opts
-    super << "--cookie" << "oraclelicense=accept-securebackup-cookie"
-  end
-end
-
 class Jdk7 < Formula
+  desc "Java Platform, Standard Edition Development Kit (JDK)."
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"
   # tag "linuxbrew"
 
-  version "1.7.0.75"
+  version "1.7.0-80"
   if OS.linux?
-    url "http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-linux-x64.tar.gz",
-      :using => JdkDownloadStrategy
-    sha256 "460959219b534dc23e34d77abc306e180b364069b9fc2b2265d964fa2c281610"
+    url "http://ftp.osuosl.org/pub/funtoo/distfiles/oracle-java/jdk-7u80-linux-x64.tar.gz"
+    sha256 "bad9a731639655118740bee119139c1ed019737ec802a630dd7ad7aab4309623"
   elsif OS.mac?
     url "http://java.com/"
   end
