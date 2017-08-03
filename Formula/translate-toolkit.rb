@@ -1,3 +1,4 @@
+# translate-toolkit: Build a bottle for Linuxbrew
 class TranslateToolkit < Formula
   include Language::Python::Virtualenv
 
