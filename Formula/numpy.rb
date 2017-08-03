@@ -3,22 +3,21 @@ class Numpy < Formula
   homepage "http://www.numpy.org"
   url "https://files.pythonhosted.org/packages/c0/3a/40967d9f5675fbb097ffec170f59c2ba19fc96373e73ad47c2cae9a30aed/numpy-1.13.1.zip"
   sha256 "c9b0283776085cb2804efff73e9955ca279ba4edafd58d3ead70b61d209c4fbb"
-  revision 1 unless OS.mac?
+  revision 1 if OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "963ecb45478f316c9d49f55c8ab992d507d30d269e3e07e34bee173635cdb719" => :sierra
-    sha256 "c2199387028b12a362b932d56034f85622390b157fb38d15a6f55630154dca5b" => :el_capitan
-    sha256 "ec1ab3efd6464564d52997653cc9274e4baf14d56f066b40720fbf5fdfce13cb" => :yosemite
-    sha256 "3475af2716dfab0fed8b0d0927e7e5cfc608ba88a14f5d42d047df3876f38f90" => :x86_64_linux
+    sha256 "936fecb5154bd0e12d7f136468718e799bd4085b69d2e99bb3358be7e6cd658b" => :sierra
+    sha256 "93f36c7114c91d205dca6f473745ac9d53b15c70cebde6e7fec3f796a9f8d98f" => :el_capitan
+    sha256 "bd5c8a0ba531d9b194c48e16317f8b4f9c4f7f298c5824cd1f7876611acabb3c" => :yosemite
   end
 
   head do
     url "https://github.com/numpy/numpy.git"
 
     resource "Cython" do
-      url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-      sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+      url "https://files.pythonhosted.org/packages/10/d5/753d2cb5073a9f4329d1ffed1de30b0458821780af8fdd8ba1ad5adb6f62/Cython-0.26.tar.gz"
+      sha256 "4c24e2c22ddaed624d35229dc5db25049e9e225c6f64f3364326836cad8f2c66"
     end
   end
 
@@ -26,7 +25,7 @@ class Numpy < Formula
 
   depends_on :fortran => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on :python3 => :recommended
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -73,11 +72,13 @@ class Numpy < Formula
   end
 
   test do
-    system "python", "-c", <<-EOS.undent
-      import numpy as np
-      t = np.ones((3,3), int)
-      assert t.sum() == 9
-      assert np.dot(t, t).sum() == 27
-    EOS
+    Language::Python.each_python(build) do |python, _version|
+      system python, "-c", <<-EOS.undent
+        import numpy as np
+        t = np.ones((3,3), int)
+        assert t.sum() == 9
+        assert np.dot(t, t).sum() == 27
+      EOS
+    end
   end
 end
