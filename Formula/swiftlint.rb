@@ -1,3 +1,4 @@
+# swiftlint: Build a bottle for Linuxbrew
 class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
