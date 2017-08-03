@@ -13,9 +13,6 @@ class Graphicsmagick < Formula
     sha256 "9103e8c567f5cf6d622e5d6247b6fb4019e8173c8f3816e4caf69a0f39862b22" => :x86_64_linux
   end
 
-  option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
-  option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit (default)"
-  option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
@@ -45,12 +42,6 @@ class Graphicsmagick < Formula
   end
 
   def install
-    quantum_depth = [8, 16, 32].select { |n| build.with? "quantum-depth-#{n}" }
-    if quantum_depth.length > 1
-      odie "graphicsmagick: --with-quantum-depth-N options are mutually exclusive"
-    end
-    quantum_depth = quantum_depth.first || 16 # user choice or default
-
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
@@ -59,7 +50,7 @@ class Graphicsmagick < Formula
       --with-modules
       --without-lzma
       --disable-openmp
-      --with-quantum-depth=#{quantum_depth}
+      --with-quantum-depth=16
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"

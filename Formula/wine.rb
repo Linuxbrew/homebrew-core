@@ -6,7 +6,7 @@ class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
   head "https://source.winehq.org/git/wine.git"
-  revision 1
+  revision 2
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
@@ -29,10 +29,9 @@ class Wine < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "c8f7a785a762394114399abfe968fbc23cf705503400ae29d8e406b62bb82ad8" => :sierra
-    sha256 "48fd898e23b5ef4f17a908c85ebb6b3a3e6ac0b816ce7b0dd73ac9b4b5ae151a" => :el_capitan
-    sha256 "a0723225bda412cb69dcdfe417a197931e25151010073b19be87b4d4e3067f21" => :yosemite
+    sha256 "b09ef0fe3bbcca1315b6c63b0b6a99a8fed68ff7289471d74bbfa6dce0f29446" => :sierra
+    sha256 "79db8a7071198ffbefd3e2e71a145aaa06a50e4592afe7d4c6742d5317edee2a" => :el_capitan
+    sha256 "165887c3359490f7bb82af0631007731abe2b9228e2256b86b0892f110a31db4" => :yosemite
   end
 
   devel do
@@ -125,11 +124,6 @@ class Wine < Formula
     url "https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2"
     mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.21.orig.tar.bz2"
     sha256 "7dce9cce9a81194b7065ee912bcd55eeffebab694ea403ffb91b67db66b1824b"
-  end
-
-  resource "libusb-compat" do
-    url "https://downloads.sourceforge.net/project/libusb/libusb-compat-0.1/libusb-compat-0.1.5/libusb-compat-0.1.5.tar.bz2"
-    sha256 "404ef4b6b324be79ac1bfb3d839eac860fbc929e6acb1ef88793a6ea328bc55a"
   end
 
   resource "webp" do
@@ -346,14 +340,6 @@ class Wine < Formula
         system "make", "install"
       end
 
-      resource("libusb-compat").stage do
-        system "./configure", "--disable-dependency-tracking",
-                              "--prefix=#{libexec}",
-                              "--disable-static",
-                              *depflags
-        system "make", "install"
-      end
-
       resource("webp").stage do
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
@@ -435,8 +421,7 @@ class Wine < Formula
                                 "--localstatedir=#{var}",
                                 "--without-gphoto2",
                                 "--enable-local-backends",
-                                "--enable-libusb",
-                                "--disable-latex",
+                                "--with-usb=yes",
                                 *depflags
           system "make", "install"
         end

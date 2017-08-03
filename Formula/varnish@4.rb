@@ -1,13 +1,13 @@
 class VarnishAT4 < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://repo.varnish-cache.org/source/varnish-4.1.7.tar.gz"
-  sha256 "c52ee2f5d052a496f3700d8ac8eb4da45144779c863f09f7be70daec3cfed105"
+  url "https://repo.varnish-cache.org/source/varnish-4.1.8.tar.gz"
+  sha256 "908e7fbfa0325498717686b2050181134aa0a69d1495c02b2625cd34d35a4ff1"
 
   bottle do
-    sha256 "e34cb934931f91ae0691e69455dbf0710ad4b455ed3d4713470b5cbae1a78efb" => :sierra
-    sha256 "cf20c9bb932bfacf42c92e07fa6f822f5db5bc89e4057bb08c2c60801953baa4" => :el_capitan
-    sha256 "da5777b7b53efa6bcad9bb4054ed84565d56f977fde127441734ee6f3dfc7cb4" => :yosemite
+    sha256 "feee2d796d10d27aab921d531d74be2e0a7ec789d5e5387d55d1628f0eb1d25a" => :sierra
+    sha256 "8e8e30c902fbce8dc6ed1533bf604a9d4a197645240ca770fe51928a29ec3aaf" => :el_capitan
+    sha256 "7ff168bb774232159547fdc251f4548e4e68cdcc7d01261b612872ef90c6030f" => :yosemite
   end
 
   keg_only :versioned_formula
