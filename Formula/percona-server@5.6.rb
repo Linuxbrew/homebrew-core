@@ -19,8 +19,11 @@ class PerconaServerAT56 < Formula
   option "with-local-infile", "Build with local infile loading support"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
+  if OS.mac?
+    depends_on "pidof" unless MacOS.version >= :mountain_lion
+  end
   depends_on "openssl"
+  depends_on "readline" unless OS.mac?
 
   # Where the database files should be located. Existing installs have them
   # under var/percona, but going forward they will be under var/mysql to be
@@ -53,10 +56,10 @@ class PerconaServerAT56 < Formula
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
       -DCOMPILATION_COMMENT=Homebrew
-      -DWITH_EDITLINE=system
       -DCMAKE_FIND_FRAMEWORK=LAST
       -DCMAKE_VERBOSE_MAKEFILE=ON
     ]
+    args << "-DWITH_EDITLINE=system" if OS.mac?
 
     # PAM plugin is Linux-only at the moment
     args.concat %w[
