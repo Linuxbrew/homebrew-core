@@ -1,3 +1,4 @@
+# watchman: Build a bottle for Linuxbrew
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
