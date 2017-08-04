@@ -3,6 +3,7 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.29/util-linux-2.29.tar.xz"
   sha256 "2c59ea67cc7b564104f60532f6e0a95fe17a91acb870ba8fd7e986f273abf9e7"
+  revision 1
   head "https://github.com/karelzak/util-linux.git"
   # tag "linuxbrew"
 
@@ -42,6 +43,9 @@ class UtilLinux < Formula
     conflicts.each do |conflict|
       rm_f Dir.glob("{#{bin},#{man1}}/#{conflict}")
     end
+
+    # conflicts with bash-completion
+    ["mount", "rtcwake"].each { |conflict| rm bash_completion/conflict }
   end
 
   def caveats; <<-EOS.undent
