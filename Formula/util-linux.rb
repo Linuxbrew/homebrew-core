@@ -27,6 +27,7 @@ class UtilLinux < Formula
       "--disable-ul",
       # Do not install systemd files
       "--without-systemd",
+      "--with-bashcompletiondir=#{bash_completion}"
     ]
     args += %w[--disable-chfn-chsh --disable-login --disable-su --disable-runuser] if build.without? "linux-pam"
     system "./configure", *args
