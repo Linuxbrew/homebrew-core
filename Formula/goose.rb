@@ -1,3 +1,4 @@
+# goose: Build a bottle for Linuxbrew
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
