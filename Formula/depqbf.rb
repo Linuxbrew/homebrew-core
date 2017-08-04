@@ -1,3 +1,4 @@
+# depqbf: Build a bottle for Linuxbrew
 class Depqbf < Formula
   desc "Solver for quantified boolean formulae (QBF)"
   homepage "https://lonsing.github.io/depqbf/"
@@ -23,12 +24,6 @@ class Depqbf < Formula
   end
 
   def install
-    inreplace "makefile" do |s|
-      s.gsub! "$(CC) $(CFLAGS) -static qdpll_main.o",
-              "$(CC) $(CFLAGS) qdpll_main.o"
-      s.gsub! "-Wl,$(SONAME),libqdpll.so.$(MAJOR)",
-              "-Wl,$(SONAME),libqdpll.$(VERSION).dylib" if OS.mac?
-    end
     (buildpath/"nenofex").install resource("nenofex")
     (buildpath/"picosat-960").install resource("picosat")
     system "./compile.sh"
