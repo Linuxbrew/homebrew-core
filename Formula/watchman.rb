@@ -56,7 +56,7 @@ class Watchman < Formula
     # upgrade concern.
     home = ENV["HOME"]
     system "launchctl", "unload",
-           "-F", "#{home}/Library/LaunchAgents/com.github.facebook.watchman.plist"
+           "-F", "#{home}/Library/LaunchAgents/com.github.facebook.watchman.plist" if OS.mac?
   end
 
   test do
