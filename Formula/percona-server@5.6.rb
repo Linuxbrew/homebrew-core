@@ -1,15 +1,14 @@
 class PerconaServerAT56 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.35-81.0/source/tarball/percona-server-5.6.35-81.0.tar.gz"
-  version "5.6.35-81.0"
-  sha256 "c71c3f80662982ade22a0a538c5fd595b1761472c98efc2509124ecc4004d1e7"
+  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.36-82.1/source/tarball/percona-server-5.6.36-82.1.tar.gz"
+  version "5.6.36-82.1"
+  sha256 "bebab31321e17682bc23f0f1e95211f002ba2a24c21d9a7ce9821cbe2a1ba4ba"
 
   bottle do
-    rebuild 2
-    sha256 "cc19cbb74b1decb3299739b83d9ed362b91ff0d1416104bb4bfef247ad3b17cd" => :sierra
-    sha256 "c08a8da7d0744e63bf0a4723e7a18718ca5fb3409e2e8a0b498c65c10ab9e5e0" => :el_capitan
-    sha256 "8466687c1b3048a4b4163f09010052dabb60be2c2dd7c15fa79341a1f0a457c6" => :yosemite
+    sha256 "fbf6414d980e37cd0ebf0e96a33821c37873dddca93635a653add3f7d2c4864b" => :sierra
+    sha256 "312286b391c1dfe47711b2fa0070c7527bcf0d0c90eb6015d9a393499d7ecc17" => :el_capitan
+    sha256 "b6c9f3bffa304fa5e5f7e775f6dee52249ba6c6b58b9c4c7d9df656387935d70" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -98,11 +97,8 @@ class PerconaServerAT56 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
