@@ -1,3 +1,4 @@
+# libwpd: Build a bottle for Linuxbrew
 class Libwpd < Formula
   desc "General purpose library for reading WordPerfect files"
   homepage "https://libwpd.sourceforge.io/"
