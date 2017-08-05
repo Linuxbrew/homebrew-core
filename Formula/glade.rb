@@ -21,7 +21,11 @@ class Glade < Formula
   depends_on "gnome-icon-theme"
   depends_on "hicolor-icon-theme"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration" if OS.mac?
+  if OS.mac?
+    depends_on "gtk-mac-integration"
+  else
+    depends_on "libxslt" => :build
+  end
 
   def install
     # Find our docbook catalog
@@ -105,11 +109,11 @@ class Glade < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
