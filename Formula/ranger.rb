@@ -3,6 +3,7 @@ class Ranger < Formula
   homepage "http://ranger.nongnu.org/"
   url "http://ranger.nongnu.org/ranger-1.8.1.tar.gz"
   sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
+  revision 1 unless OS.mac?
 
   head "git://git.savannah.nongnu.org/ranger.git"
 
@@ -13,6 +14,8 @@ class Ranger < Formula
     sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
     sha256 "25fba783b79592c74f155faad67c4eedc245b6dda4c5f9f72863619e625d4b55" => :x86_64_linux
   end
+
+  depends_on :python unless OS.mac?
 
   def install
     man1.install "doc/ranger.1"
