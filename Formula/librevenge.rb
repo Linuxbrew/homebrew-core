@@ -1,3 +1,4 @@
+# librevenge: Build a bottle for Linuxbrew
 class Librevenge < Formula
   desc "Base library for writing document import filters"
   homepage "https://sourceforge.net/p/libwpd/wiki/librevenge/"
