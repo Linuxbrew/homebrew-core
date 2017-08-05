@@ -32,6 +32,7 @@ class Libexif < Formula
           data = exif_loader_get_data(loader);
           printf(data ? "Exif data loaded" : "No Exif data");
         }
+        return 0;
       }
     EOS
     flags = %W[
