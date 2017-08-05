@@ -1,3 +1,4 @@
+# e2fsprogs: Build a bottle for Linuxbrew
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
