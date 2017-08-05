@@ -16,6 +16,7 @@ class Geos < Formula
   option "with-ruby", "Build the ruby extension"
 
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
+  depends_on :python unless OS.mac?
 
   def install
     ENV.cxx11 if build.cxx11?
