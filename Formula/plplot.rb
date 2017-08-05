@@ -3,34 +3,30 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
   sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
+  revision 1
 
   bottle do
-    sha256 "983bfc816485426b63a65d2afb52f6945acb4ccfdbe7044909055d4c2f9aeb94" => :sierra
-    sha256 "698020e2b9644c20655bf7a50d0acb3dc39b8a56a65000577c6cf8bf8e4f42fa" => :el_capitan
-    sha256 "7afcb2ebd5d24c7107c45a7c77e53f13ceaa575bf4e5f75ccec75262bfcb85fe" => :yosemite
-    sha256 "6645628bcb04261da86f585b9b92632bb6e79b9a8421de799b82e07e12151fce" => :x86_64_linux
+    sha256 "aff26bde3a4da328de52e722694be91f598b63bae82b488e822aab7cdc0bce6a" => :sierra
+    sha256 "2c8642a2496067a0c1a21fd58a6ce390096dc31d7aeb8930bbd0a97e4719e87e" => :el_capitan
+    sha256 "6201a37bda814ab07ef18466b1cff2f4624254e6209534e7c2fff57649aee4a0" => :yosemite
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "pango"
   depends_on "freetype"
   depends_on "libtool" => :run
-  depends_on :x11 => :optional
-  depends_on :fortran => :optional
+  depends_on "pango"
+  depends_on :fortran
   depends_on :java => :optional
+  depends_on :x11 => :optional
 
   # Patch reported upstream. Fixes 5.12 cmake issue in cmake/modules/pkg-config.cmake that gets
   # triggered when passing `--with-fortran`
   patch :DATA
 
   def install
-    args = std_cmake_args
-    args << "-DENABLE_java=OFF" if build.without? "java"
-    args << "-DPLD_xwin=OFF" if build.without? "x11"
-    args << "-DENABLE_f95=OFF" if build.without? "fortran"
-    args += %w[
+    args = std_cmake_args + %w[
       -DENABLE_ada=OFF
       -DENABLE_d=OFF
       -DENABLE_qt=OFF
@@ -42,6 +38,8 @@ class Plplot < Formula
       -DPLD_wxwidgets=OFF
       -DENABLE_wxwidgets=OFF
     ]
+    args << "-DENABLE_java=OFF" if build.without? "java"
+    args << "-DPLD_xwin=OFF" if build.without? "x11"
 
     mkdir "plplot-build" do
       system "cmake", "..", *args
@@ -53,24 +51,15 @@ class Plplot < Formula
   test do
     (testpath/"test.c").write <<-EOS.undent
       #include <plplot.h>
-
       int main(int argc, char *argv[]) {
-        plparseopts( &argc, argv, PL_PARSE_FULL );
-        plsdev( "extcairo" );
+        plparseopts(&argc, argv, PL_PARSE_FULL);
+        plsdev("extcairo");
         plinit();
         return 0;
       }
     EOS
-    flags = %W[
-      -I#{include}/plplot
-      -L#{lib}
-      -lcsirocsa
-      -lltdl
-      -lm
-      -lplplot
-      -lqsastime
-    ]
-    system ENV.cc, "test.c", "-o", "test", *flags
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}/plplot", "-L#{lib}",
+                   "-lcsirocsa", "-lltdl", "-lm", "-lplplot", "-lqsastime"
     system "./test"
   end
 end
