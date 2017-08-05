@@ -18,8 +18,11 @@ class PerconaServer < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
+  if OS.mac?
+    depends_on "pidof" unless MacOS.version >= :mountain_lion
+  end
   depends_on "openssl"
+  depends_on "readline" unless OS.mac?
 
   conflicts_with "mysql-connector-c",
     :because => "both install `mysql_config`"
@@ -67,8 +70,8 @@ class PerconaServer < Formula
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
       -DCOMPILATION_COMMENT=Homebrew
-      -DWITH_EDITLINE=system
     ]
+    args << "-DWITH_EDITLINE=system" if OS.mac?
 
     # PAM plugin is Linux-only at the moment
     args.concat %w[
