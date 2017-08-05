@@ -61,6 +61,9 @@ class Tor < Formula
   end
 
   test do
+    # The executable /usr/bin/script is specific to macOS.
+    return unless OS.mac?
+
     pipe_output("script -q /dev/null #{bin}/tor-gencert --create-identity-key", "passwd\npasswd\n")
     assert (testpath/"authority_certificate").exist?
     assert (testpath/"authority_signing_key").exist?
