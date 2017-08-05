@@ -18,6 +18,7 @@ class PandocCrossref < Formula
   depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "pandoc" => :run
+  depends_on "zlib" unless OS.mac?
 
   def install
     (buildpath/"cabal.config").write("allow-newer: pandoc,pandoc-types\n")
