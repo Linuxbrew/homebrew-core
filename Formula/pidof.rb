@@ -1,3 +1,4 @@
+# pidof: Build a bottle for Linuxbrew
 class Pidof < Formula
   desc "Display the PID number for a given process name"
   homepage "http://www.nightproductions.net/cli.htm"
