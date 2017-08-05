@@ -23,7 +23,7 @@ class PerconaServerAT55 < Formula
 
   depends_on "cmake" => :build
   depends_on "readline"
-  depends_on "pidof"
+  depends_on "pidof" if OS.mac?
   depends_on "openssl"
 
   # Where the database files should be located. Existing installs have them
@@ -51,8 +51,9 @@ class PerconaServerAT55 < Formula
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
       -DCOMPILATION_COMMENT=Homebrew
-      -DWITH_EDITLINE=system
     ]
+    args << "-DWITH_EDITLINE=system" if OS.mac?
+    args << "-DENABLE_DTRACE=OFF" unless OS.mac?
 
     # PAM plugin is Linux-only at the moment
     args.concat %w[
