@@ -1,3 +1,4 @@
+# veclibfort: Build a bottle for Linuxbrew
 class Veclibfort < Formula
   desc "GNU Fortran compatibility for Apple's vecLib"
   homepage "https://github.com/mcg1969/vecLibFort"
