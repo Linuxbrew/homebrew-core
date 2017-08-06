@@ -1,3 +1,4 @@
+# xmake: Build a bottle for Linuxbrew
 class Xmake < Formula
   desc "Make-like build utility based on Lua"
   homepage "http://xmake.io"
