@@ -3,16 +3,14 @@ class Hdf5 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.bz2"
   sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "23036072b3ae09d944d5dd202d424a1664f789373314ef6e2e150a7a48f31b85" => :sierra
-    sha256 "4d162fc09c0816911e8d79b875c991498c320146b48c126b6de68689efe9c107" => :el_capitan
-    sha256 "837619f72eefccde1fb4a0fd91031d0a14ec3eadcf60fadc888dfcedd1fce774" => :yosemite
-    sha256 "d6c6805c753e401259a5f8eeda593d82d33d17af655abd1de0cd239cfa9bf901" => :x86_64_linux
+    sha256 "12da4985daed0cbce5a368519e3a04d0e82447636fba3595ec0c8dad9cf13cff" => :sierra
+    sha256 "62f02b4183d1c6841ed9322d5bc02156fd7e1871d398fbfb9c9bb272fb13fe0c" => :el_capitan
+    sha256 "860eed2e9851d234d197b31161e0bfe66414825024503a43e79704de98fea9c9" => :yosemite
   end
 
-  deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-parallel" => "with-mpi"
 
   option :cxx11
@@ -23,7 +21,7 @@ class Hdf5 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "szip"
-  depends_on :fortran => :optional
+  depends_on :fortran
   depends_on :mpi => [:optional, :cc, :cxx, :f90]
 
   def install
@@ -42,6 +40,7 @@ class Hdf5 < Formula
       --prefix=#{prefix}
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
+      --enable-fortran
     ]
     args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
@@ -49,12 +48,6 @@ class Hdf5 < Formula
       args << "--enable-cxx"
     else
       args << "--disable-cxx"
-    end
-
-    if build.with? "fortran"
-      args << "--enable-fortran"
-    else
-      args << "--disable-fortran"
     end
 
     if build.with? "mpi"
@@ -80,6 +73,36 @@ class Hdf5 < Formula
       }
     EOS
     system "#{bin}/h5cc", "test.c"
+    assert_equal version.to_s, shell_output("./a.out").chomp
+
+    (testpath/"test.f90").write <<-EOS.undent
+      use hdf5
+      integer(hid_t) :: f, dspace, dset
+      integer(hsize_t), dimension(2) :: dims = [2, 2]
+      integer :: error = 0, major, minor, rel
+
+      call h5open_f (error)
+      if (error /= 0) call abort
+      call h5fcreate_f ("test.h5", H5F_ACC_TRUNC_F, f, error)
+      if (error /= 0) call abort
+      call h5screate_simple_f (2, dims, dspace, error)
+      if (error /= 0) call abort
+      call h5dcreate_f (f, "data", H5T_NATIVE_INTEGER, dspace, dset, error)
+      if (error /= 0) call abort
+      call h5dclose_f (dset, error)
+      if (error /= 0) call abort
+      call h5sclose_f (dspace, error)
+      if (error /= 0) call abort
+      call h5fclose_f (f, error)
+      if (error /= 0) call abort
+      call h5close_f (error)
+      if (error /= 0) call abort
+      CALL h5get_libversion_f (major, minor, rel, error)
+      if (error /= 0) call abort
+      write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
+      end
+      EOS
+    system "#{bin}/h5fc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
   end
 end
