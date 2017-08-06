@@ -1,3 +1,4 @@
+# netcdf: Build a bottle for Linuxbrew
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
@@ -15,6 +16,7 @@ class Netcdf < Formula
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on :fortran
+  depends_on "curl" unless OS.mac?
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
@@ -83,12 +85,14 @@ class Netcdf < Formula
       system "make", "install"
     end
 
-    # SIP causes system Python not to play nicely with @rpath
-    %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
-      macho = MachO.open("#{lib}/#{f}")
-      macho.change_dylib("@rpath/libnetcdf.11.dylib",
-                         "#{lib}/libnetcdf.11.dylib")
-      macho.write!
+    if OS.mac?
+      # SIP causes system Python not to play nicely with @rpath
+      %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
+        macho = MachO.open("#{lib}/#{f}")
+        macho.change_dylib("@rpath/libnetcdf.11.dylib",
+                           "#{lib}/libnetcdf.11.dylib")
+        macho.write!
+      end
     end
   end
 
