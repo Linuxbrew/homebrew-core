@@ -3,12 +3,13 @@ class Libgxps < Formula
   homepage "https://live.gnome.org/libgxps"
   url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
   sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f16e3728361ac7d08e2c434c81f89758f32c8a05165108a125d7175c4975eed0" => :sierra
-    sha256 "e1ebe0fee65e2126aa257df7c17c1f8d9804a4edf0c1c8f4405eabfa5756673b" => :el_capitan
-    sha256 "438fe9b0eaa5079def5bb1a727af092ed1e6419785e03c9f42e499d6b14fa219" => :yosemite
+    sha256 "0c2627c6f4b23d9a465847d5b57d6efe9013ed3185a9feb9b3e52254608bbbb0" => :sierra
+    sha256 "17e68f1317e6d872d556fb11c56f8f52ffe0832fabfe55977d1865af85e386d2" => :el_capitan
+    sha256 "f1e8c08e477b25b81205fed3bb7064ffd1916e989571c9242e4b9bb24ac1928a" => :yosemite
   end
 
   head do
@@ -40,7 +41,7 @@ class Libgxps < Formula
       "--prefix=#{prefix}",
     ]
 
-    args << "--without-libjpeg" if build.without? "libjpeg"
+    args << "--without-libjpeg" if build.without? "jpeg"
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-liblcms2" if build.without? "lcms2"
 
