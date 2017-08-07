@@ -1,3 +1,4 @@
+# dcraw: Build a bottle for Linuxbrew
 class Dcraw < Formula
   desc "Digital camera RAW photo decoding software"
   homepage "https://www.cybercom.net/~dcoffin/dcraw/"
