@@ -2,6 +2,7 @@ class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/glibmm/2.52/glibmm-2.52.0.tar.xz"
+  revision 1 unless OS.mac?
   sha256 "81b8abf21c645868c06779abc5f34efc1a51d5e61589dab2a2ed67faa8d4811e"
 
   bottle do
@@ -19,14 +20,19 @@ class Glibmm < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     # see https://bugzilla.gnome.org/show_bug.cgi?id=781947
+    # Note that desktopappinfo.h is not installed on Linux
+    # if these changes are made.
     inreplace "gio/giomm/Makefile.in" do |s|
       s.gsub! "OS_COCOA_TRUE", "OS_COCOA_TEMP"
       s.gsub! "OS_COCOA_FALSE", "OS_COCOA_TRUE"
       s.gsub! "OS_COCOA_TEMP", "OS_COCOA_FALSE"
-    end
+    end if OS.mac?
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
