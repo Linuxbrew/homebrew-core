@@ -1,3 +1,4 @@
+# sdl2_image: Build a bottle for Linuxbrew
 class Sdl2Image < Formula
   desc "Library for loading images as SDL surfaces and textures"
   homepage "https://www.libsdl.org/projects/SDL_image/"
