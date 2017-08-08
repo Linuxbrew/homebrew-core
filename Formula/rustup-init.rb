@@ -12,6 +12,7 @@ class RustupInit < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl" => :build unless OS.mac?
 
   def install
     cargo_home = buildpath/"cargo_home"
