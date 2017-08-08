@@ -1,27 +1,15 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
+  url "https://github.com/syncthing/syncthing.git",
+    :tag => "v0.14.34", :revision => "1f09488a0f1fdca07076b007b9789f23a6df1060"
   head "https://github.com/syncthing/syncthing.git"
-
-  stable do
-    url "https://github.com/syncthing/syncthing.git",
-        :tag => "v0.14.33",
-        :revision => "d475ad7ce1c994358888c2fed250427ed0ef0243"
-
-    # Upstream fix for a sandbox violation triggered by the noupgrade option
-    # Reported 25 Jul 2017 https://github.com/syncthing/syncthing/issues/4272
-    patch do
-      url "https://github.com/syncthing/syncthing/commit/414c58174.patch?full_index=1"
-      sha256 "07419dc8b75766b2e4788d8eee1c80ed4238e262d1474813a6b6586494bf1aef"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f26072e2f8cfc96fbcc0a94eddc87207698706843a032212a573bb885b3b6646" => :sierra
-    sha256 "5449ede37f226b348e7689f065997cc89237d9c65574a931a365165670312b5c" => :el_capitan
-    sha256 "db321b9ccdb5e7e0d023bbf32aeb8c6124706d6ac4e2ca2eeff450833a51be8f" => :yosemite
-    sha256 "34219f4d1bb5345139ada2fab8017ad12ea2c89aafc392cea5690ebb19256e93" => :x86_64_linux
+    sha256 "17319e6cf0e551989dd102fcc4a4f823a6f2f1df4aa63865521b8c75566a11fe" => :sierra
+    sha256 "8dda871cc1aa420d444e35b329ae11d51e14a0453a7d284b94aaf581b763b2e3" => :el_capitan
+    sha256 "d4671257c098314a6587f0aacda084849d1fae5061c82f5e0231f02866c8a22c" => :yosemite
   end
 
   depends_on "go" => :build
