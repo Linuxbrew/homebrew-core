@@ -1,3 +1,4 @@
+# sdl_image: Build a bottle for Linuxbrew
 class SdlImage < Formula
   desc "Image file loading library"
   homepage "https://www.libsdl.org/projects/SDL_image"
