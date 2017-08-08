@@ -1,3 +1,4 @@
+# libvo-aacenc: Build a bottle for Linuxbrew
 class LibvoAacenc < Formula
   desc "VisualOn AAC encoder library"
   homepage "https://opencore-amr.sourceforge.io/"
