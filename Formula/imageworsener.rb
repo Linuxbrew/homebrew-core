@@ -1,3 +1,4 @@
+# imageworsener: Build a bottle for Linuxbrew
 class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "http://entropymine.com/imageworsener/"
