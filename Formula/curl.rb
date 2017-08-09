@@ -6,11 +6,17 @@ class Curl < Formula
   sha256 "af1d69ec6f15fe70a2cabaa98309732bf035ef2a735e4e1a3e08754d2780e5b1"
 
   bottle do
-    cellar :any if OS.mac?
+    cellar :any
     sha256 "887ad5bda7780ecc689ffd0355e429b168ab67ddfb8f02f7a4935f95475eb2fa" => :sierra
     sha256 "e6485cc06fc3c2466fbac240a3318dfed2fa93eb612dfb6b03f4f1e64fe926d0" => :el_capitan
     sha256 "91a4d948a6c2e1901d031676ab073e3b4eb2a35d09a5458117e9eb3bdbf45f42" => :yosemite
     sha256 "fcc7b73d150dfe09f364c9842131b10ef3c317a199c5c9a179c990a6c4b9e7d5" => :x86_64_linux
+  end
+
+  pour_bottle? do
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs to be installed into #{default_prefix} when built with OpenSSL."
+    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
   keg_only :provided_by_osx
