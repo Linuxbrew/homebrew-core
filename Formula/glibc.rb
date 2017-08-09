@@ -1,3 +1,24 @@
+class LinuxKernelRequirement < Requirement
+  fatal true
+
+  MINIMUM_LINUX_KERNEL_VERSION = "2.6.16".freeze
+
+  def linux_kernel_version
+    @linux_kernel_version ||= Version.new Utils.popen_read("uname -r")
+  end
+
+  satisfy do
+    linux_kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
+  end
+
+  def message
+    <<-EOS.undent
+      Linux kernel version #{MINIMUM_LINUX_KERNEL_VERSION} or greater is required by glibc.
+      Your system has Linux kernel version #{linux_kernel_version}.
+    EOS
+  end
+end
+
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
@@ -12,6 +33,8 @@ class Glibc < Formula
   end
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
+
+  depends_on LinuxKernelRequirement
 
   # binutils 2.20 or later is required
   depends_on "binutils" => [:build, :recommended]
