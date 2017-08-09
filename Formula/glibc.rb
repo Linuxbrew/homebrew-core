@@ -22,7 +22,7 @@ end
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftpmirror.gnu.org/glibc/glibc-2.19.tar.bz2"
+  url "https://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.bz2"
   sha256 "2e293f714187044633264cd9ce0183c70c3aa960a2f77812a6390a3822694d15"
   # tag "linuxbrew"
 
