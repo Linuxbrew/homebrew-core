@@ -63,10 +63,8 @@ class Ghc < Formula
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
     if OS.linux?
-      # Using 8.0.1 gives the error message:
-      # strip: Not enough room for program headers, try linking with -N
-      url "https://downloads.haskell.org/~ghc/7.8.4/ghc-7.8.4-x86_64-unknown-linux-deb7.tar.xz"
-      sha256 "f62e00e93a5ac16ebfe97cd7cb8cde6c6f3156073d4918620542be3e0ad55f8d"
+      url "https://downloads.haskell.org/~ghc/8.2.1/ghc-8.2.1-x86_64-deb8-linux.tar.xz"
+      sha256 "543b81bf610240bd0398111d6c6607a9094dc2d159b564057d46c8a3d1aaa130"
     else
       url "https://downloads.haskell.org/~ghc/8.2.1/ghc-8.2.1-x86_64-apple-darwin.tar.xz"
       sha256 "900c802025fb630060dbd30f9738e5d107a4ca5a50d5c1262cd3e69fe4467188"
