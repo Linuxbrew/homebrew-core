@@ -55,8 +55,8 @@ class Agda < Formula
       # generate the standard library's bytecode
       cd lib/"agda" do
         cabal_sandbox :home => buildpath, :keep_lib => true do
-          cabal_install "--only-dependencies"
-          cabal_install
+          cabal_install "--ghc-options='-j4'" "--only-dependencies"
+          cabal_install "--ghc-options='-j4'"
           system "GenerateEverything"
         end
       end
