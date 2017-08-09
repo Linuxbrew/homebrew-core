@@ -1,3 +1,4 @@
+# pngquant: Build a bottle for Linuxbrew
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
