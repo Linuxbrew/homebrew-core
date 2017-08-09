@@ -1,3 +1,4 @@
+# graphicsmagick: Build a bottle for Linuxbrew
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
