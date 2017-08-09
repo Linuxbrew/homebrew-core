@@ -1,9 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.29/util-linux-2.29.tar.xz"
-  sha256 "2c59ea67cc7b564104f60532f6e0a95fe17a91acb870ba8fd7e986f273abf9e7"
-  revision 1
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.30/util-linux-2.30.1.tar.xz"
+  sha256 "1be4363a91ac428c9e43fc04dc6d2c66a19ec1e36f1105bd4b481540be13b841"
   head "https://github.com/karelzak/util-linux.git"
   # tag "linuxbrew"
 
