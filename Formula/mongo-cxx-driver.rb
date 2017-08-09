@@ -40,7 +40,7 @@ class MongoCxxDriver < Formula
       "-I#{include}/bsoncxx/v_noabi",
       "-I#{mongo_c_include}/libmongoc-1.0",
       "-I#{mongo_c_include}/libbson-1.0",
-      "-L#{lib}", "-lmongocxx", "-lbsoncxx", "-std=c++11", "-lstdc++"
+      "-L#{lib}", "-lmongocxx", "-lmongoc", "-lbsoncxx", "-std=c++11", "-lstdc++"
     assert_match "No suitable servers",
       shell_output("./test mongodb://0.0.0.0 2>&1", 1)
   end
