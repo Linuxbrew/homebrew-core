@@ -5,27 +5,26 @@ class Mongodb < Formula
   homepage "https://www.mongodb.org/"
 
   stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.6.tar.gz"
-    sha256 "8170360f6dfede9c19c131f3d76831e952b3f1494925aa7e2a3a2f95b58ad901"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.7.tar.gz"
+    sha256 "9272e7663c7915e09ad2609e28c58437d760d54a9552c711ea735cd8e1784ec0"
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.4.6",
-          :revision => "29b8883c560319b016f8bd4927807fa36f1a682f",
+          :tag => "r3.4.7",
+          :revision => "4f093ae71cdb4c6a6e9de7cd1dc67ea4405f0013",
           :shallow => false
     end
   end
 
   bottle do
-    sha256 "2153f0d69412834f53b727c725863a52f2cd9634f9b23c50e2172ca79738e108" => :sierra
-    sha256 "62255dfb4db80e370fce5325fe41709aeecfb21b389331ca2838f8a30050ebd1" => :el_capitan
-    sha256 "d2073684542cb072b91de282034a226b8687442c6c8c608e55e892a7b4d2d65f" => :yosemite
-    sha256 "2e391793ef1dcffcf6748ea34896e2a1bc7d63227efe631406c643e676504149" => :x86_64_linux
+    sha256 "ab9d732dd0d7f0b7dec686f3d3f82c827235ede59268431142f29adc555f0aa3" => :sierra
+    sha256 "e3fed9507f5f2b30f19da123dd33482c257d4cc72bc6a6cbebd9011e1cc3157c" => :el_capitan
+    sha256 "2b1097d45c207ff69d079b5f75bde1116859c2a5746f886783256749aa58881c" => :yosemite
   end
 
   devel do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.9.tar.gz"
-    sha256 "3b1805a5b84248207da976d8ff40781cb19d2d9004dadae074b4a2406a756e47"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.11.tar.gz"
+    sha256 "a118dc32e048c20c2cbc593ac41f1787963f5f9edde8cccca5b9f5d7a31a4e8a"
 
     depends_on :xcode => ["8.3.2", :build]
 
@@ -35,13 +34,13 @@ class Mongodb < Formula
     end
 
     resource "typing" do
-      url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
-      sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
+      url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
+      sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
     end
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.5.9",
+        :tag => "r3.5.11",
         :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
     end
   end

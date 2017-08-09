@@ -1,42 +1,13 @@
 class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
-
-  stable do
-    url "https://github.com/icecc/icecream/archive/1.0.1.tar.gz"
-    sha256 "10f85e172c5c435d81e7c05595c5ae9a9ffa83490dded7eefa95f9ad401fb31b"
-
-    # fixes --without-man
-    patch do
-      url "https://github.com/icecc/icecream/commit/641b039ecaa126fbb3bdfa716ce3060f624bb68e.diff?full_index=1"
-      sha256 "2f846e2442b3422511a6d77938d70b74e00f6b90d572cc56f9ab9bfa99c99379"
-    end
-
-    # these fix docbook2X detection
-    patch do
-      url "https://github.com/icecc/icecream/commit/df212c10336b6369ab244d9c888263774c9087dc.diff?full_index=1"
-      sha256 "6128f8f9f168efee74976e81ba7f071e522cb9242b62a7ddda22b711359ec080"
-    end
-
-    patch do
-      url "https://github.com/icecc/icecream/commit/a40bae096bd51f328d6ff299077c5530729b0580.diff?full_index=1"
-      sha256 "0f45048093b093ed09bb55f86de8d07d157104b796329c751f98ff240c123071"
-    end
-  end
+  url "https://github.com/icecc/icecream/archive/1.1.tar.gz"
+  sha256 "92532791221d7ec041b7c5cf9998d9c3ee8f57cbd2da1819c203a4c6799ffc18"
 
   bottle do
-    sha256 "85ad1eca8866acbc1666a8054f9e30ccf8acb42c08cd05e6304a34186788dcd4" => :sierra
-    sha256 "b7735e14d19d4b8fb4e861fe2b40b19f524ab904c53b954062be9d9a26a2f99c" => :el_capitan
-    sha256 "9767c0d31cce91446873f3f4baa8068f73909e575f6a8f81f1ccfa33d17ec2b4" => :yosemite
-    sha256 "7dbedeb6418bd830e33818c95bb6339e193f37e664452a1ffc5af514b2778921" => :mavericks
-    sha256 "67891ddbf7f15b7e2f66f5e9ef5f12dc719317c2d0503d52aaad23527770affb" => :mountain_lion
-  end
-
-  devel do
-    url "https://github.com/icecc/icecream/archive/1.1rc1.tar.gz"
-    sha256 "95bdb66228cc8f5d97a829f1ee4e3f2d32caf064e9614919e8af0f708a13c654"
-
-    depends_on "lzo"
+    sha256 "ff931dd74efc02cad494df41e2df0919fd1a65b2908ade15566b5a6f0974e3ee" => :sierra
+    sha256 "744922ad03cb2468d1b3251238f7130fb1e4295388370bf47d6edeb43a8c36b2" => :el_capitan
+    sha256 "0adc60662ea9ede33caf1fffb35a129593479a99c34bb36525c1c718b0a77639" => :yosemite
   end
 
   option "with-docbook2X", "Build with man page"
@@ -46,11 +17,10 @@ class Icecream < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "lzo"
   depends_on "docbook2X" => [:optional, :build]
 
   def install
-    ENV.libstdcxx if ENV.compiler == :clang && build.stable?
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
