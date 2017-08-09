@@ -1,3 +1,4 @@
+# sdl_gfx: Build a bottle for Linuxbrew
 class SdlGfx < Formula
   desc "Graphics drawing primitives and other support functions"
   homepage "http://www.ferzkopp.net/joomla/content/view/19/14/"
