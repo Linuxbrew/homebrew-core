@@ -16,6 +16,7 @@ class MongoCDriver < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "openssl" unless OS.mac?
 
   def install
     system "autoreconf", "-fiv"
