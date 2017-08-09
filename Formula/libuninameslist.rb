@@ -1,3 +1,4 @@
+# libuninameslist: Build a bottle for Linuxbrew
 class Libuninameslist < Formula
   desc "Library of Unicode names and annotation data"
   homepage "https://github.com/fontforge/libuninameslist"
