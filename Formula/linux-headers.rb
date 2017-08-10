@@ -1,6 +1,6 @@
 class LinuxHeaders < Formula
   desc "Header files of the Linux kernel"
-  homepage "http://kernel.org/"
+  homepage "https://kernel.org/"
   url "https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.27.tar.gz"
   sha256 "35618751139c2ad76298dd5e2e4b80121c1a14f490375bc93a35b9f0b882d29c"
   # tag "linuxbrew"
@@ -16,6 +16,6 @@ class LinuxHeaders < Formula
   end
 
   test do
-    system "ls", include
+    assert_match "KERNEL_VERSION", File.read(include/"linux/version.h")
   end
 end
