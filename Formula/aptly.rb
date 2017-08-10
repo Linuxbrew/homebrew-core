@@ -1,3 +1,4 @@
+# aptly: Build a bottle for Linuxbrew
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
