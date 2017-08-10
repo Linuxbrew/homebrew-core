@@ -1,3 +1,4 @@
+# hwloc: Build a bottle for Linuxbrew
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
