@@ -1,3 +1,20 @@
+class GawkRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) do
+    which "gawk"
+  end
+
+  def message
+    <<-EOS.undent
+      gawk is required to build glibc.
+      Install gawk with your host package manager if you have sudo access.
+        sudo apt-get install gawk
+        sudo yum install gawk
+    EOS
+  end
+end
+
 class LinuxKernelRequirement < Requirement
   fatal true
 
@@ -34,6 +51,7 @@ class Glibc < Formula
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
+  depends_on GawkRequirement
   depends_on LinuxKernelRequirement
 
   # binutils 2.20 or later is required
