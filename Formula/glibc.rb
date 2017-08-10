@@ -7,7 +7,7 @@ class LinuxKernelRequirement < Requirement
     @linux_kernel_version ||= Version.new Utils.popen_read("uname -r")
   end
 
-  satisfy do
+  satisfy(:build_env => false) do
     linux_kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
   end
 
