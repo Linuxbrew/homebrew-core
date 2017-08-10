@@ -1,3 +1,4 @@
+# vtk: Build a bottle for Linuxbrew
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
@@ -28,9 +29,17 @@ class Vtk < Formula
   depends_on "qt" => :optional
   depends_on "pyqt" if build.with? "qt"
 
+  unless OS.mac?
+    depends_on "tcl-tk"
+    depends_on "libxml2"
+    depends_on "linuxbrew/xorg/mesa"
+  end
+
   needs :cxx11
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
+
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -40,7 +49,6 @@ class Vtk < Formula
       -DModule_vtkInfovisBoostGraphAlgorithms=ON
       -DModule_vtkRenderingFreeTypeFontConfig=ON
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
-      -DVTK_USE_COCOA=ON
       -DVTK_USE_SYSTEM_EXPAT=ON
       -DVTK_USE_SYSTEM_HDF5=ON
       -DVTK_USE_SYSTEM_JPEG=ON
@@ -51,6 +59,7 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_TCL=ON
     ]
+    args << "-DVTK_USE_COCOA=" + (OS.mac? ? "ON" : "OFF")
 
     unless MacOS::CLT.installed?
       # We are facing an Xcode-only installation, and we have to keep
@@ -80,10 +89,12 @@ class Vtk < Formula
           args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
         elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
+        elsif File.exist? "#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.#{dylib}"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.so'"
         else
-          odie "No libpythonX.Y.{dylib|a} file found!"
+          odie "No libpythonX.Y.{dylib|so|a} file found!"
         end
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
