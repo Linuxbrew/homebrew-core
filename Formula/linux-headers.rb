@@ -1,8 +1,8 @@
 class LinuxHeaders < Formula
   desc "Header files of the Linux kernel"
   homepage "https://kernel.org/"
-  url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.1.43.tar.gz"
-  sha256 "11a9234ec51fd98d7148b971cff5864c82d283e484ad9a4516d26f38a8263a82"
+  url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.80.tar.gz"
+  sha256 "291d844619b5e7c43bd5aa0b2c286274fc5ffe31494ba475f167a21157e88186"
   # tag "linuxbrew"
 
   bottle do
