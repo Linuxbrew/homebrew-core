@@ -61,6 +61,19 @@ class Glibc < Formula
   env :std
 
   def install
+    # Setting RPATH breaks glibc.
+    %w[CPATH LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH].each { |x| ENV.delete x }
+    gcc = Formula["gcc"]
+    if gcc.installed? && ENV.compiler == "gcc-" + gcc.version.to_s.split(".")[0]
+      # Use the original GCC specs file.
+      specs = gcc.lib/"gcc/x86_64-unknown-linux-gnu/#{gcc.version}/specs.orig"
+      raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
+      ENV["LDFLAGS"] = "-specs=#{specs}"
+
+      # Fix error ld: cannot find -lc when upgrading glibc and compiling with a brewed gcc.
+      ENV["BUILD_LDFLAGS"] = "-L#{opt_lib}" if opt_lib.directory?
+    end
+
     # -Os confuses valgrind.
     ENV.O2
 
@@ -95,6 +108,10 @@ class Glibc < Formula
 
     # Install ld.so symlink.
     ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
+
+    # Symlink ligcc_s.so.1 where glibc can find it.
+    # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+    ln_sf Formula["gcc"].opt_lib/"libgcc_s.so.1", lib if Formula["gcc"].installed?
 
     # Compile locale definition files
     mkdir_p lib/"locale"
