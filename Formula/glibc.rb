@@ -1,3 +1,20 @@
+class GawkRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) do
+    which "gawk"
+  end
+
+  def message
+    <<-EOS.undent
+      gawk is required to build glibc.
+      Install gawk with your host package manager if you have sudo access.
+        sudo apt-get install gawk
+        sudo yum install gawk
+    EOS
+  end
+end
+
 class LinuxKernelRequirement < Requirement
   fatal true
 
@@ -7,7 +24,7 @@ class LinuxKernelRequirement < Requirement
     @linux_kernel_version ||= Version.new Utils.popen_read("uname -r")
   end
 
-  satisfy do
+  satisfy(:build_env => false) do
     linux_kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
   end
 
@@ -27,13 +44,12 @@ class Glibc < Formula
   # tag "linuxbrew"
 
   bottle do
-    prefix "/home/linuxbrew/.linuxbrew"
-    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "c680445237c7df6c84cb1218d0bf2b76b1d43b92dc165ec6aa537b4c1c064336" => :x86_64_linux
   end
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
+  depends_on GawkRequirement
   depends_on LinuxKernelRequirement
 
   # binutils 2.20 or later is required
@@ -42,9 +58,23 @@ class Glibc < Formula
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
 
-  env :std
-
   def install
+    # Setting RPATH breaks glibc.
+    %w[
+      LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH
+      HOMEBREW_DYNAMIC_LINKER HOMEBREW_LIBRARY_PATHS HOMEBREW_RPATH_PATHS
+    ].each { |x| ENV.delete x }
+    gcc = Formula["gcc"]
+    if gcc.installed? && ENV.compiler == "gcc-" + gcc.version.to_s.split(".")[0]
+      # Use the original GCC specs file.
+      specs = gcc.lib/"gcc/x86_64-unknown-linux-gnu/#{gcc.version}/specs.orig"
+      raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
+      ENV["LDFLAGS"] = "-specs=#{specs}"
+
+      # Fix error ld: cannot find -lc when upgrading glibc and compiling with a brewed gcc.
+      ENV["BUILD_LDFLAGS"] = "-L#{opt_lib}" if opt_lib.directory?
+    end
+
     # -Os confuses valgrind.
     ENV.O2
 
@@ -79,6 +109,10 @@ class Glibc < Formula
 
     # Install ld.so symlink.
     ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
+
+    # Symlink ligcc_s.so.1 where glibc can find it.
+    # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+    ln_sf Formula["gcc"].opt_lib/"libgcc_s.so.1", lib if Formula["gcc"].installed?
 
     # Compile locale definition files
     mkdir_p lib/"locale"
