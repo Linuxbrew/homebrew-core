@@ -1,3 +1,4 @@
+# openjpeg: Build a bottle for Linuxbrew
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "http://www.openjpeg.org/"
@@ -44,8 +45,8 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/openjpeg-2.2", "-L#{lib}", "-lopenjp2",
-           testpath/"test.c", "-o", "test"
+    system ENV.cc, "-I#{include}/openjpeg-2.2",
+           testpath/"test.c", "-L#{lib}", "-lopenjp2", "-o", "test"
     system "./test"
   end
 end
