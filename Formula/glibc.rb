@@ -58,11 +58,12 @@ class Glibc < Formula
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
 
-  env :std
-
   def install
     # Setting RPATH breaks glibc.
-    %w[CPATH LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH].each { |x| ENV.delete x }
+    %w[
+      LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH
+      HOMEBREW_DYNAMIC_LINKER HOMEBREW_LIBRARY_PATHS HOMEBREW_RPATH_PATHS
+    ].each { |x| ENV.delete x }
     gcc = Formula["gcc"]
     if gcc.installed? && ENV.compiler == "gcc-" + gcc.version.to_s.split(".")[0]
       # Use the original GCC specs file.
