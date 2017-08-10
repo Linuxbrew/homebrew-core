@@ -78,7 +78,7 @@ class Ghc < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
 
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
