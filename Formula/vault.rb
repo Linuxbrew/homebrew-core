@@ -1,3 +1,4 @@
+# vault: Build a bottle for Linuxbrew
 require "language/go"
 
 # Please don't update this formula until the release is official via
