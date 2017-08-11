@@ -1,3 +1,8 @@
+class CIRequirement < Requirement
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 require "language/haskell"
 
 class Ghc < Formula
@@ -37,6 +42,7 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "m4" => :build unless OS.mac?
   depends_on "ncurses" unless OS.mac?
+  depends_on CIRequirement
 
   # This dependency is needed for the bootstrap executables.
   depends_on "gmp" => :build unless OS.mac?
