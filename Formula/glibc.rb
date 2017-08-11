@@ -56,6 +56,7 @@ class Glibc < Formula
   homepage "https://www.gnu.org/software/libc/"
   url "https://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.gz"
   sha256 "18ad6db70724699d264add80b1f813630d0141cf3a3558b4e1a7c15f6beac796"
+  revision 1
   # tag "linuxbrew"
 
   bottle do
