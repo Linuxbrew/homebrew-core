@@ -39,6 +39,8 @@ class Pike < Formula
   depends_on "pdflib-lite"   if build.with?("pdf")     || build.with?("all")
   depends_on "mesalib-glw"   if build.with?("gl")      || build.with?("all")
 
+  depends_on "jpeg" unless OS.mac?
+
   def install
     args = ["--prefix=#{prefix}", "--without-bundles"]
 
