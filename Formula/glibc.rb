@@ -65,8 +65,8 @@ class Glibc < Formula
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
   depends_on BrewedGlibcNotOlderRequirement
-  depends_on GawkRequirement
   depends_on LinuxKernelRequirement
+  depends_on GawkRequirement => :build
 
   # binutils 2.20 or later is required
   depends_on "binutils" => [:build, :recommended]
