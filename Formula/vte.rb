@@ -91,11 +91,11 @@ class Vte < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-#{backend}-2.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lvte
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
