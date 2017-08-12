@@ -46,12 +46,28 @@ class Octave < Formula
   depends_on "qrupdate"
   depends_on "readline"
   depends_on "suite-sparse"
-  depends_on "veclibfort"
+  depends_on "transfig"
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
+  # If GraphicsMagick was built from source, it is possible that it was
+  # done to change quantum depth. If so, our Octave bottles are no good.
+  # https://github.com/Homebrew/homebrew-science/issues/2737
+  def pour_bottle?
+    Tab.for_name("graphicsmagick").without?("quantum-depth-32") &&
+      Tab.for_name("graphicsmagick").without?("quantum-depth-8")
+  end
+
+  # Work around the C++11 ABI issue.
+  fails_with :gcc => "5" if OS.linux?
+
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     if build.stable?
       # Remove for > 4.2.1
       # Remove inline keyword on file_stat destructor which breaks macOS
@@ -66,6 +82,15 @@ class Octave < Formula
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
+    blas_args = []
+    if build.with? "openblas"
+      blas_args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    elsif build.with? "veclibfort"
+      blas_args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+    else
+      blas_args << "--with-blas=-lblas -llapack"
+    end
+
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
@@ -79,9 +104,9 @@ class Octave < Formula
                           "--without-OSMesa",
                           "--without-qt",
                           "--with-x=no",
-                          "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
                           "--with-portaudio",
-                          "--with-sndfile"
+                          "--with-sndfile",
+                          *blas_args
     system "make", "all"
     system "make", "install"
   end
