@@ -1,3 +1,4 @@
+# ficy: Build a bottle for Linuxbrew
 class Ficy < Formula
   desc "Icecast/Shoutcast stream grabber suite"
   homepage "https://www.thregr.org/~wavexx/software/fIcy/"
