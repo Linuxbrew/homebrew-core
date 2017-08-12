@@ -32,6 +32,9 @@ class Notmuch < Formula
   # https://notmuchmail.org/pipermail/notmuch/2016/022631.html
   patch :DATA
 
+  # Work around the C++11 ABI issue.
+  fails_with :gcc => "5" if OS.linux?
+
   def install
     args = %W[--prefix=#{prefix}]
 
