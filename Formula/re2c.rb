@@ -1,16 +1,14 @@
 class Re2c < Formula
   desc "Generate C-based recognizers from regular expressions"
   homepage "http://re2c.org"
-  url "https://github.com/skvadrik/re2c/releases/download/0.16/re2c-0.16.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/re2c/0.16/re2c-0.16.tar.gz"
-  sha256 "48c12564297641cceb5ff05aead57f28118db6277f31e2262437feba89069e84"
+  url "https://github.com/skvadrik/re2c/releases/download/1.0.1/re2c-1.0.1.tar.gz"
+  sha256 "605058d18a00e01bfc32aebf83af35ed5b13180b4e9f279c90843afab2c66c7c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c11f57cdde394a072ddb8952ebaaea37aafd3c8b6ac304d7bcb956a46f7818e3" => :sierra
-    sha256 "5ca925ec9bedadb50237ce862d7aeac99a55af1cb5468c47af711dcdea7a1256" => :el_capitan
-    sha256 "9050cac314fe497b42b42b23e52043973b0f800c1ab39a2791482ab6cdd254d6" => :yosemite
-    sha256 "8520f18f99b235eb1dd4d5d4fa4c302039543aa7a58bcb831b98c2bd8829d952" => :x86_64_linux
+    sha256 "ee051a3865e43becdbb348397572608bd1d35598e1bc981d8735fb1c60034528" => :sierra
+    sha256 "8c5417b16cb78d0b8060132799727850ac0201095e7917d4e627f2ae67098d0d" => :el_capitan
+    sha256 "4e2773bf57db0dd1c0442bcbb0899cfc85db5c22096feddb76341650f1042e40" => :yosemite
   end
 
   def install
