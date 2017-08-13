@@ -16,7 +16,7 @@ class PkgConfig < Formula
     pc_path = %W[
       #{HOMEBREW_PREFIX}/lib/pkgconfig
       #{HOMEBREW_PREFIX}/share/pkgconfig
-    ].join(File::PATH_SEPARATOR)
+    ]
     if OS.mac?
       pc_path += %W[/usr/local/lib/pkgconfig /usr/lib/pkgconfig #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"]
     else
@@ -27,7 +27,7 @@ class PkgConfig < Formula
                           "--prefix=#{prefix}",
                           "--disable-host-tool",
                           "--with-internal-glib",
-                          "--with-pc-path=#{pc_path}"
+                          "--with-pc-path=#{pc_path.join(File::PATH_SEPARATOR)}"
     system "make"
     system "make", "check"
     system "make", "install"
