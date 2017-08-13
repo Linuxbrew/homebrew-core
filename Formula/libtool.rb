@@ -21,6 +21,8 @@ class Libtool < Formula
 
   keg_only :provided_until_xcode43
 
+  depends_on "m4" => :build unless OS.mac?
+
   option "with-default-names", "Do not prepend 'g' to the binary"
 
   def install
