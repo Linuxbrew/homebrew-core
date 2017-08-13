@@ -29,6 +29,8 @@ class Goffice < Formula
   depends_on "librsvg"
   depends_on "pango"
   depends_on "pcre"
+  depends_on "libxslt" unless OS.mac?
+  depends_on "libxml2" => :run unless OS.mac?
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
@@ -52,11 +54,12 @@ class Goffice < Formula
           return 0;
       }
     EOS
+    libxml2 = OS.mac? ? "/usr/include/libxml2" : "#{Formula["libxml2"].opt_include}/libxml2"
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
-           "-I/usr/include/libxml2",
+           "-I#{libxml2}",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "-I#{Formula["cairo"].opt_include}/cairo",
