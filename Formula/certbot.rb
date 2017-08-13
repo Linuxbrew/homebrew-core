@@ -17,6 +17,7 @@ class Certbot < Formula
 
   depends_on "augeas"
   depends_on "dialog"
+  depends_on "libffi" unless OS.mac?
   depends_on "openssl@1.1"
   depends_on :python
 
