@@ -149,7 +149,6 @@ class Subversion < Formula
     if build.with? "python"
       system "make", "swig-py"
       system "make", "install-swig-py"
-      odie
       (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
     end
 
