@@ -1,3 +1,18 @@
+class BrewedGlibcNotOlderRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) do
+    GlibcRequirement.system_version <= Glibc.version
+  end
+
+  def message
+    <<-EOS.undent
+      Your system's glibc version is #{GlibcRequirement.system_version}, and Linuxbrew's gcc version is #{Glibc.version}.
+      Installing a version of glibc that is older than your system's can break formulae installed from source.
+    EOS
+  end
+end
+
 class GawkRequirement < Requirement
   fatal true
 
@@ -36,25 +51,6 @@ class LinuxKernelRequirement < Requirement
   end
 end
 
-class NotOlderGlibcRequirement < Requirement
-  fatal true
-
-  def system_version
-    @system_glibc_version ||= GlibcRequirement.system_version
-  end
-
-  satisfy(:build_env => false) do
-    system_version <= Glibc.version
-  end
-
-  def message
-    <<-EOS.undent
-      Installing an older version of glibc than your system version can break formulae installed from source.
-      Your system has glibc version #{system_version}.
-    EOS
-  end
-end
-
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
@@ -68,9 +64,9 @@ class Glibc < Formula
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
+  depends_on BrewedGlibcNotOlderRequirement
   depends_on GawkRequirement
   depends_on LinuxKernelRequirement
-  depends_on NotOlderGlibcRequirement
 
   # binutils 2.20 or later is required
   depends_on "binutils" => [:build, :recommended]
