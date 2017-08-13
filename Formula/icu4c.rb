@@ -1,3 +1,4 @@
+# icu4c: Build a bottle for Linuxbrew
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "http://site.icu-project.org/"
@@ -18,6 +19,9 @@ class Icu4c < Formula
   keg_only :provided_by_osx, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
     args = %W[--prefix=#{prefix} --disable-samples --disable-tests --enable-static]
     args << "--with-library-bits=64" if MacOS.prefer_64_bit?
 
