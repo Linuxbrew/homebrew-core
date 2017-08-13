@@ -19,6 +19,10 @@ class Certbot < Formula
   depends_on "dialog"
   depends_on "openssl@1.1"
   depends_on :python
+  unless OS.mac?
+    depends_on "libffi"
+    depends_on "pkg-config" => :build
+  end
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
