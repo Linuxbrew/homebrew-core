@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: linuxbrew/linuxbrew
+    environment:
+      CIRCLE_REPOSITORY_URL: https://github.com/linuxbrew/homebrew-core
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_VERBOSE: 1
+      HOMEBREW_VERBOSE_USING_DOTS: 1
+    steps:
+      - run: sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
+      - checkout
+      - run: git remote set-url origin $CIRCLE_REPOSITORY_URL
+      - run: if [ -e .git/shallow ]; then echo git fetch --unshallow; fi
+      - run: git fetch origin
+      - run: git config --global user.name LinuxbrewTestBot
+      - run: git config --global user.email testbot@linuxbrew.sh
+      - run: chmod 0644 Formula/*.rb
+      - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
+      - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/$CIRCLE_PROJECT_REPONAME
+      - run: mkdir /home/linuxbrew/bottles
+      - run: >-
+          cd /home/linuxbrew/bottles;
+          umask 022;
+          PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
+          brew install patchelf
+          && brew tap homebrew/science
+          && brew tap linuxbrew/xorg
+          && brew test-bot --tap=homebrew/core --keep-old
+      - store_artifacts:
+          path: /home/linuxbrew/bottles
+notify:
+  webhooks:
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/LinuxbrewTestBot?keep-old=1
