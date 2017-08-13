@@ -37,13 +37,13 @@ class Bigloo < Formula
       --mandir=#{man1}
       --infodir=#{info}
       --customgc=yes
-      --os-macosx
       --native=yes
       --disable-alsa
       --disable-mpg123
       --disable-flac
     ]
 
+    args << "--os-macosx" if OS.mac?
     args << "--jvm=yes" if build.with? "jvm"
     args << "--no-gmp" if build.without? "gmp"
 
