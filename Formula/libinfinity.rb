@@ -69,9 +69,9 @@ class Libinfinity < Formula
       -lgsasl
       -lgthread-2.0
       -linfinity-0.6
-      -lintl
       -lxml2
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
