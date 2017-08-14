@@ -19,6 +19,11 @@ class Txr < Formula
     depends_on "flex" => :build
   end
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
