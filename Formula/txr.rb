@@ -13,6 +13,11 @@ class Txr < Formula
     sha256 "da1a691c1939f768b066d2bd8d71a06f1ecb6d968e6eeb2231e01d16af646e66" => :mavericks
   end
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
