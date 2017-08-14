@@ -34,6 +34,7 @@ class PkgConfig < Formula
   end
 
   test do
-    system "#{bin}/pkg-config", "--libs", "libpcre"
+    assert_match "#{HOMEBREW_PREFIX}/lib/pkgconfig:", shell_output("#{bin}/pkg-config pkg-config --variable pc_path")
+    system "#{bin}/pkg-config", "--libs", "libpcre" if OS.mac?
   end
 end
