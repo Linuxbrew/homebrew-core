@@ -21,6 +21,11 @@ class Cminpack < Formula
     man3.install Dir["doc/*.3"]
     doc.install Dir["doc/*"]
     pkgshare.install "examples"
+
+    unless OS.mac?
+      lib64 = Pathname.new "#{lib}64"
+      mv lib64, lib if lib64.directory?
+    end
   end
 
   test do
