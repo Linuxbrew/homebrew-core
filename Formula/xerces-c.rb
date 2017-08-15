@@ -3,6 +3,7 @@ class XercesC < Formula
   homepage "https://xerces.apache.org/xerces-c/"
   url "https://www.apache.org/dyn/closer.cgi?path=xerces/c/3/sources/xerces-c-3.1.4.tar.gz"
   sha256 "c98eedac4cf8a73b09366ad349cb3ef30640e7a3089d360d40a3dde93f66ecf6"
+  revision 1 if OS.linux?
 
   bottle do
     cellar :any
@@ -13,10 +14,7 @@ class XercesC < Formula
     sha256 "42f55b960bfc6bc6546d5e9b54a136f556a108220ced57769f1c75a6c2419ae9" => :x86_64_linux
   end
 
-  unless OS.mac?
-    depends_on "curl"
-    depends_on "icu4c"
-  end
+  depends_on "curl" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
