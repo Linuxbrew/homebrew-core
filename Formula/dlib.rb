@@ -1,3 +1,4 @@
+# dlib: Build a bottle for Linuxbrew
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
