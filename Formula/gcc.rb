@@ -18,9 +18,9 @@ class Gcc < Formula
 
   stable do
     unless OS.mac?
-      url "http://ftpmirror.gnu.org/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
-      mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
-      sha256 "b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db"
+      url "http://ftpmirror.gnu.org/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2"
+      mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2"
+      sha256 "608df76dec2d34de6558249d8af4cbee21eceddbcb580d666f7a5a583ca3303a"
     else
       url "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
       mirror "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
@@ -33,7 +33,6 @@ class Gcc < Formula
     sha256 "9a05a75102206bfb3e37ff60b822421dd73c4a14b67f7acb258054317fd0f5ca" => :sierra
     sha256 "c76a4b7294e41e410d37cd45d9c2f820c55001a7cfa82b71ac81d6a0051de5f4" => :el_capitan
     sha256 "807d107ada2e8774a5bf1461d3f8dc636d1135bdfde5a64f03ccabc063a11328" => :yosemite
-    sha256 "2c6ae8e098830e19f87d8426b49d353b6cbc0b89d9259bae242d57b6694c9039" => :x86_64_linux
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -76,6 +75,8 @@ class Gcc < Formula
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   patch :DATA if OS.mac?
+
+  env :std if OS.linux?
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -208,9 +209,15 @@ class Gcc < Formula
     # Move lib64/* to lib/ on Linuxbrew
     lib64 = Pathname.new "#{lib}64"
     if lib64.directory?
-      system "mv #{lib64}/* #{lib}/" # Do not use FileUtils.mv with Ruby 1.9.3
+      mv Dir[lib64/"*"], lib
       rmdir lib64
       prefix.install_symlink "lib" => "lib64"
+    end
+
+    if OS.linux?
+      # Strip the executables to reduce their size.
+      libexecgcc = libexec/"gcc/x86_64-unknown-linux-gnu"/version
+      system "strip", *(Dir[libexecgcc/"*"] - Dir[libexecgcc/"*.la"]).select { |f| File.file? f }
     end
   end
 
