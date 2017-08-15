@@ -23,6 +23,9 @@ class Hub < Formula
   option "without-docs", "Don't install man pages"
 
   depends_on "go" => :build
+  if !OS.mac? && build.with?("docs") && !build.stable?
+    depends_on :ruby => ["1.9+", :build]
+  end
 
   def install
     if build.stable?
