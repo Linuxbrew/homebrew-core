@@ -18,8 +18,12 @@ class Libosmium < Formula
   depends_on "gdal" => :optional
   depends_on "proj" => :optional
   depends_on "doxygen" => :optional
+  depends_on "expat" unless OS.mac?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     mkdir "build" do
       system "cmake", *std_cmake_args, "-DINSTALL_GDALCPP=ON", "-DINSTALL_PROTOZERO=ON", "-DINSTALL_UTFCPP=ON", ".."
       system "make", "install"
@@ -57,7 +61,7 @@ class Libosmium < Formula
     }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-stdlib=libc++", "-lexpat", "-o", "libosmium_read", "test.cpp"
+    system ENV.cxx, "-std=c++11", *("-stdlib=libc++" if OS.mac?), "-o", "libosmium_read", "test.cpp", "-lexpat"
     system "./libosmium_read", "test.osm"
   end
 end
