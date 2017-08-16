@@ -21,6 +21,8 @@ jobs:
       - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
       - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/$CIRCLE_PROJECT_REPONAME
       - run: mkdir /home/linuxbrew/bottles
+      - run: printf "yes\nlocal::lib\nyes\nyes\no conf prerequisites_policy follow\no conf build_requires_install_policy yes\no conf commit\n" | cpan # https://github.com/Linuxbrew/homebrew-core/pull/1621#issue-202644521
+      - run: sudo apt-get install libxml-parser-perl
       - run: >-
           cd /home/linuxbrew/bottles;
           umask 022;
