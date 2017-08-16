@@ -1,3 +1,4 @@
+# dub: Build a bottle for Linuxbrew
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
