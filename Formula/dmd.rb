@@ -44,6 +44,8 @@ class Dmd < Formula
     end
   end
 
+  depends_on "unzip" => :build unless OS.mac?
+
   def install
     make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
 
