@@ -27,7 +27,28 @@ class Systemd < Formula
   # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
   fails_with :gcc => "4.8"
 
+  unless OS.mac?
+    depends_on "expat"
+
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   def install
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    unless OS.mac?
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     # Fix error: unsupported reloc 42
     inreplace "configure.ac", "-Wl,-fuse-ld=gold", ""
 
