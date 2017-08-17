@@ -17,7 +17,7 @@ class SphinxDoc < Formula
     Users are advised to use `pip` to install sphinx-doc
   EOS
 
-  depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
+  depends_on :python if OS.mac? && MacOS.version <= :snow_leopard || !OS.mac?
 
   # generated from sphinx, setuptools, and numpydoc
   resource "setuptools" do
