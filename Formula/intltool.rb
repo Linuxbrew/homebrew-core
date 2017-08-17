@@ -4,6 +4,15 @@ class Intltool < Formula
   url "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz"
   sha256 "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
 
+  unless OS.mac?
+    depends_on "expat"
+
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e587e46b6ebdebb7864eb4f9cb17c221024d9167ae0148899adedb6127b2bdfb" => :sierra
@@ -14,9 +23,19 @@ class Intltool < Formula
     sha256 "2b0bc62fa22240902e2bc04b91d6f25b0989e224953ed99ad66d06ad9b37b34d" => :x86_64_linux
   end
 
-  depends_on "XML::Parser" => :perl unless OS.mac?
-
   def install
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    unless OS.mac?
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make", "install"
