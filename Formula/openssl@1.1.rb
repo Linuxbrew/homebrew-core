@@ -6,12 +6,12 @@ class OpensslAT11 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0f.tar.gz"
   sha256 "12f746f3f2493b2f39da7ecf63d7ee19c6ac9ec6a4fcd8c229da8a522cb12765"
   version_scheme 1
+  revision 1 if OS.linux?
 
   bottle do
     sha256 "131d4094a2714686a12b74cc653a80a0d9dc1dccf881675bd936ab31bdb6e06b" => :sierra
     sha256 "88937e60df7629f63786d10f8afa1742611eb70eb1365b287b548eab51322864" => :el_capitan
     sha256 "da7a695cb6b0ab30cb8cc3cf3d95186e7d9964713d66b920717e54d2dad0feea" => :yosemite
-    sha256 "2d3b051e4d00d11fde7d4dbacd25540623a7897b8f9ba819bbcfe3b424e210bf" => :x86_64_linux
   end
 
   keg_only :versioned_formula
