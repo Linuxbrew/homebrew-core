@@ -1,8 +1,8 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd/archive/v233.tar.gz"
-  sha256 "8b3e99da3d4164b66581830a7f2436c0c8fe697b5fbdc3927bdb960646be0083"
+  url "https://github.com/systemd/systemd/archive/v234.tar.gz"
+  sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
   head "https://github.com/systemd/systemd.git"
   # tag "linuxbrew"
 
