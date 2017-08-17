@@ -23,6 +23,8 @@ class Libosinfo < Formula
   depends_on "gobject-introspection" => :recommended
   depends_on "vala" => :optional
 
+  depends_on "libxslt" unless OS.mac?
+
   def install
     # avoid wget dependency
     inreplace "Makefile.in", "wget -q -O", "curl -o"
