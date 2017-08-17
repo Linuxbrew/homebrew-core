@@ -12,10 +12,14 @@ class Superlu < Formula
     sha256 "c138cf46fd369e931fb858639c1b02109ad3c76e97e7f7873ddd324b3d5106e7" => :yosemite
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
-
-  depends_on "openblas" => :optional
-  depends_on "veclibfort" if build.without? "openblas"
+  if OS.mac?
+    option "with-openmp", "Enable OpenMP multithreading"
+    depends_on "openblas" => :optional
+    depends_on "veclibfort" if build.without? "openblas"
+  else
+    option "without-openmp", "Disable OpenMP multithreading"
+    depends_on "openblas" => :recommended
+  end
 
   needs :openmp if build.with? "openmp"
 
@@ -47,9 +51,13 @@ class Superlu < Formula
   end
 
   test do
+    if build.with? "openblas"
+      args = ["-L#{Formula["openblas"].opt_lib}", "-lopenblas"]
+    else
+      args = ["-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"]
+    end
     system ENV.cc, pkgshare/"dlinsol.c", "-o", "test",
-                   "-I#{include}/superlu", "-L#{lib}", "-lsuperlu",
-                   "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
+                   "-I#{include}/superlu", "-L#{lib}", "-lsuperlu", *args
     assert_match "No of nonzeros in L+U = 11886",
                  shell_output("./test < #{pkgshare}/g20.rua")
   end
