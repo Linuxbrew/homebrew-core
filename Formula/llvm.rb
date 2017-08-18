@@ -93,6 +93,12 @@ class Llvm < Formula
     satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
+  pour_bottle? do
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs to be installed into #{default_prefix}."
+    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
+  end
+
   head do
     url "https://llvm.org/git/llvm.git"
 
