@@ -19,6 +19,8 @@ class Kibana < Formula
     sha256 "6f6655b85919aa54cb045a6d69a226849802fcc26491d0db4ce59873e41cc2b8"
   end
 
+  depends_on :python => :build unless OS.mac?
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
