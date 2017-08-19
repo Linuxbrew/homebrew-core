@@ -18,6 +18,11 @@ class Termius < Formula
   depends_on "openssl"
   depends_on "bash-completion" => :recommended
   depends_on "zsh-completions" => :recommended
+  unless OS.mac?
+    # pkg-config helps "setup.py" find libffi
+    depends_on "libffi"
+    depends_on "pkg-config" => :build
+  end
 
   def install
     venv = virtualenv_create(libexec)
