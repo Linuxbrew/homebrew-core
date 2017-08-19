@@ -4,6 +4,7 @@ class Curl < Formula
   url "https://curl.haxx.se/download/curl-7.55.1.tar.bz2"
   mirror "http://curl.askapache.com/download/curl-7.55.1.tar.bz2"
   sha256 "e5b1a92ed3b0c11f149886458fa063419500819f1610c020d62f25b8e4b16cfb"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -32,13 +33,17 @@ class Curl < Formula
   deprecated_option "with-ssh" => "with-libssh2"
   deprecated_option "with-ares" => "with-c-ares"
 
-  # HTTP/2 support requires OpenSSL 1.0.2+ or LibreSSL 2.1.3+ for ALPN Support
-  # which is currently not supported by Secure Transport (DarwinSSL).
-  if MacOS.version < :mountain_lion || build.with?("nghttp2")
-    depends_on "openssl"
+  if OS.mac?
+    # HTTP/2 support requires OpenSSL 1.0.2+ or LibreSSL 2.1.3+ for ALPN Support
+    # which is currently not supported by Secure Transport (DarwinSSL).
+    if MacOS.version < :mountain_lion || build.with?("nghttp2") 
+      depends_on "openssl"
+    else
+      option "with-openssl", "Build with OpenSSL instead of Secure Transport"
+      depends_on "openssl" => :optional
+    end
   else
-    option "with-openssl", "Build with OpenSSL instead of Secure Transport"
-    depends_on "openssl" => :optional
+    depends_on "openssl@1.1"
   end
 
   depends_on "pkg-config" => :build
