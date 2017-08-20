@@ -23,6 +23,8 @@ class Gtkmm < Formula
   needs :cxx11
 
   def install
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
