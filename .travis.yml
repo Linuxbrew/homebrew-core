@@ -8,16 +8,24 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libc6-dbg libxml-parser-perl libxml-sax-perl
   - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
+      bison
+      comerr-dev
+      erlang-dev
+      flex
       libblas-dev
       libbz2-dev
+      libdrm-dev
       libexpat1-dev
       libffi-dev
+      libfl-dev
       libfontconfig1-dev
       libfreetype6-dev
       libgcrypt11-dev
       libgdbm-dev
+      libgeos-dev
       libgl1-mesa-dev
       libgmp-dev
+      libice-dev
       libicu-dev
       libidn11-dev
       libjack-dev
@@ -33,22 +41,32 @@ before_install:
       liblzma-dev
       liblzo2-dev
       libmagic-dev
+      libmemcached-dev
       libncurses5-dev
       libossp-uuid-dev
       libpcre3-dev
       libpq-dev
+      libqt4-dev
+      libqtwebkit-dev
       libsasl2-dev
+      libsm-dev
       libsqlite0-dev
       libsqlite3-dev
       libtinfo-dev
       libwebp-dev
       libwmf-dev
       libx11-dev
+      libxau-dev
+      libxcb1-dev
       libxml2-dev
       libyaml-dev
       llvm-3.4
       mysql-common
       unixodbc-dev
+      x11proto-core-dev
+      x11proto-input-dev
+      x11proto-kb-dev
+      x11proto-xext-dev
       zlib1g-dev
   - git config --global user.name "Travis CI"
   - git config --global user.email "travis-ci@linuxbrew.sh"
