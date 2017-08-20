@@ -21,6 +21,7 @@ class Root < Formula
   depends_on :fortran
   depends_on :python => :recommended
   depends_on :python3 => :optional
+  depends_on :x11 unless OS.mac?
 
   needs :cxx11
 
