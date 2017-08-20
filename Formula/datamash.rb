@@ -1,3 +1,4 @@
+# datamash: Build a bottle for Linuxbrew
 class Datamash < Formula
   desc "Tool to perform numerical, textual & statistical operations"
   homepage "https://www.gnu.org/software/datamash"
