@@ -1,3 +1,4 @@
+# voro++: Build a bottle for Linuxbrew
 class Voroxx < Formula
   desc "3D Voronoi cell software library"
   homepage "http://math.lbl.gov/voro++"
