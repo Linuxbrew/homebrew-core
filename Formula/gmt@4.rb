@@ -1,3 +1,4 @@
+# gmt@4: Build a bottle for Linuxbrew
 class GmtAT4 < Formula
   desc "Manipulation of geographic and Cartesian data sets"
   homepage "https://gmt.soest.hawaii.edu/"
@@ -38,7 +39,8 @@ class GmtAT4 < Formula
   end
 
   test do
-    system "#{bin}/gmt pscoast -R-90/-70/0/20 -JM6i -P -Ba5 -Gchocolate > test.ps"
+    gmt = OS.mac? ? "gmt" : "GMT"
+    system "#{bin}/#{gmt} pscoast -R-90/-70/0/20 -JM6i -P -Ba5 -Gchocolate > test.ps"
     assert File.exist?("test.ps")
   end
 end
