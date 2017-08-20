@@ -16,7 +16,7 @@ class Sundials < Formula
 
   depends_on "cmake" => :build
   depends_on "suite-sparse"
-  depends_on "veclibfort"
+  depends_on "veclibfort" if OS.mac?
   depends_on :fortran
   depends_on :mpi => [:cc, :f77, :recommended]
 
@@ -44,8 +44,16 @@ class Sundials < Formula
 
   test do
     cp Dir[prefix/"examples/nvector/serial/*"], testpath
-    system ENV.cc, "-I#{include}", "test_nvector.c", "sundials_nvector.c",
-                   "test_nvector_serial.c", "-L#{lib}", "-lsundials_nvecserial"
+    args = %w[
+      -I#{include}
+      test_nvector.c
+      sundials_nvector.c
+      test_nvector_serial.c
+      -L#{lib}
+      -lsundials_nvecserial
+    ]
+    args << "-lm" if OS.linux?
+    system ENV.cc, *args
     assert_match "SUCCESS: NVector module passed all tests",
                  shell_output("./a.out 42 0")
   end
