@@ -116,7 +116,7 @@ class R < Formula
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
     inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
-                                    Formula["gcc"].opt_prefix
+                                    Formula["gcc"].opt_prefix unless OS.mac?
   end
 
   def post_install
