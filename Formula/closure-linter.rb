@@ -3,6 +3,7 @@ class ClosureLinter < Formula
   homepage "https://developers.google.com/closure/utilities/"
   url "https://github.com/google/closure-linter/archive/v2.3.19.tar.gz"
   sha256 "cd472f560be5af80afccbe94c9d9b534f7c30085510961ad408f8a314ea5c4c2"
+  revision 1 unless OS.mac?
 
   head "https://github.com/google/closure-linter.git"
 
