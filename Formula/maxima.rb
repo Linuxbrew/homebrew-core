@@ -1,3 +1,4 @@
+# maxima: Build a bottle for Linuxbrew
 class Maxima < Formula
   desc "Computer algebra system"
   homepage "https://maxima.sourceforge.io/"
