@@ -115,8 +115,10 @@ class R < Formula
     lib.install_symlink Dir[r_home/"lib/*"]
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
-    inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
-                                    Formula["gcc"].opt_prefix
+    inreplace lib/"R/etc/Makeconf",
+      Formula["gcc"].prefix.realpath,
+      Formula["gcc"].opt_prefix,
+      OS.mac?
   end
 
   def post_install
