@@ -21,9 +21,10 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python => :recommended if !OS.mac? || OS.mac? && MacOS.version <= :snow_leopard
   depends_on :python3 => :recommended
   depends_on "numpy" if build.with?("python") || build.with?("python3")
+  depends_on "openblas" unless OS.mac?
 
   needs :cxx11
 
@@ -33,7 +34,11 @@ class Opencv < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV.cxx11
+    dylib = OS.mac? ? "dylib" : "so"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
@@ -74,7 +79,7 @@ class Opencv < Formula
       py_prefix = `python-config --prefix`.chomp
       py_lib = "#{py_prefix}/lib"
       args << "-DPYTHON2_EXECUTABLE=#{which "python"}"
-      args << "-DPYTHON2_LIBRARY=#{py_lib}/libpython2.7.dylib"
+      args << "-DPYTHON2_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON2_INCLUDE_DIR=#{py_prefix}/include/python2.7"
     end
 
@@ -83,7 +88,7 @@ class Opencv < Formula
       py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
       py3_version = Language::Python.major_minor_version "python3"
       args << "-DPYTHON3_EXECUTABLE=#{which "python3"}"
-      args << "-DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib"
+      args << "-DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.#{dylib}"
       args << "-DPYTHON3_INCLUDE_DIR=#{py3_include}"
     end
 
