@@ -95,6 +95,7 @@ before_install:
   - env | grep TRAVIS | tee /tmp/travis.env
   - ulimit -n 1024
   - brew tap homebrew/science
+  - brew tap linuxbrew/extra
   - brew tap linuxbrew/xorg
 
 script:

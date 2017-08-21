@@ -27,6 +27,7 @@ jobs:
           PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
           brew install patchelf
           && brew tap homebrew/science
+          && brew tap linuxbrew/extra
           && brew tap linuxbrew/xorg
           && brew test-bot --tap=homebrew/core --keep-old
       - store_artifacts:
