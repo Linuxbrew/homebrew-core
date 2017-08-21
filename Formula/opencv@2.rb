@@ -21,10 +21,11 @@ class OpencvAT2 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python => :recommended unless OS.mac? && MacOS.version <= :snow_leopard
   depends_on "numpy" if build.with? "python"
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[
@@ -47,7 +48,7 @@ class OpencvAT2 < Formula
       -DWITH_OPENGL=ON
       -DWITH_TBB=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
-      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
+      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
     ]
 
     args << "-DBUILD_opencv_python=" + (build.with?("python") ? "ON" : "OFF")
@@ -55,12 +56,12 @@ class OpencvAT2 < Formula
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
       py_lib = "#{py_prefix}/lib"
-      args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
+      args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
 
       # Make sure find_program locates system Python
       # https://github.com/Homebrew/homebrew-science/issues/2302
-      args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
+      args << "-DCMAKE_PREFIX_PATH=#{py_prefix}" if OS.mac?
     end
 
     if ENV.compiler == :clang && !build.bottle?
