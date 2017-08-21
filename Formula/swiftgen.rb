@@ -13,6 +13,9 @@ class Swiftgen < Formula
 
   depends_on :xcode => ["8.3", :build]
 
+  # Depends on xcode
+  depends_on :macos
+
   def install
     # Disable swiftlint Build Phase to avoid build errors if versions mismatch
     ENV["NO_CODE_LINT"]="1"
