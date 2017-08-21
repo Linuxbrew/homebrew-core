@@ -11,6 +11,8 @@ class Libxlsxwriter < Formula
     sha256 "378013e1ca6dabf13e069c61ed997a5ca07264f31ef5ad65dae9e267ff98737e" => :yosemite
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     system "make", "install", "INSTALL_DIR=#{prefix}", "V=1"
   end
