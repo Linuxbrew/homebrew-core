@@ -11,6 +11,7 @@ class Dshb < Formula
   end
 
   depends_on :xcode => ["7.0", :build]
+  depends_on :macos
 
   def install
     system "make", "release"
