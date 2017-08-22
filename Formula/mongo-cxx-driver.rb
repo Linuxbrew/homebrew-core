@@ -1,3 +1,4 @@
+# mongo-cxx-driver: Build a bottle for Linuxbrew
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
