@@ -1,3 +1,4 @@
+# instead: Build a bottle for Linuxbrew
 class Instead < Formula
   desc "Interpreter of simple text adventures"
   homepage "https://instead.syscall.ru/"
