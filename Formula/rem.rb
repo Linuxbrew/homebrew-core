@@ -14,6 +14,7 @@ class Rem < Formula
   end
 
   depends_on :xcode => :build
+  depends_on :macos
 
   conflicts_with "remind", :because => "both install `rem` binaries"
 
