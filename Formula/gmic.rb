@@ -1,3 +1,4 @@
+# gmic: Build a bottle for Linuxbrew
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
