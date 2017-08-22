@@ -7,6 +7,8 @@ class MCli < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     prefix.install Dir["*"]
     inreplace prefix/"m" do |s|
