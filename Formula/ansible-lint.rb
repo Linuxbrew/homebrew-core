@@ -19,6 +19,10 @@ class AnsibleLint < Formula
   depends_on :python
   depends_on "libyaml"
   depends_on "openssl@1.1"
+  unless OS.mac?
+    depends_on "libffi" # for cffi
+    depends_on "gmp" # for pycrypto
+  end
 
   ### setup_requires dependencies
   resource "ansible" do
