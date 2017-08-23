@@ -1,3 +1,4 @@
+# cppad: Build a bottle for Linuxbrew
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
@@ -7,8 +8,6 @@ class Cppad < Formula
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    prefix "/home/linuxbrew/.linuxbrew"
     cellar :any_skip_relocation
     sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :sierra
     sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :el_capitan
