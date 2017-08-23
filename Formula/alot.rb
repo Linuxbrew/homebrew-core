@@ -110,6 +110,9 @@ class Alot < Formula
     (testpath/"Mail").mkpath
     system Formula["notmuch"].bin/"notmuch", "new"
 
+    # The following test requires /usr/bin/script.
+    return unless OS.mac?
+
     begin
       pid = fork do
         $stdout.reopen("/dev/null")
