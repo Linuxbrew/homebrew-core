@@ -17,7 +17,7 @@ class SourceToImage < Formula
 
   def install
     system "hack/build-go.sh"
-    bin.install "_output/local/bin/darwin/amd64/s2i"
+    bin.install "_output/local/bin/#{OS::NAME}/amd64/s2i"
   end
 
   test do
