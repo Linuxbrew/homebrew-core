@@ -38,6 +38,12 @@ class Awscli < Formula
   end
 
   test do
-    assert_match "topics", shell_output("#{bin}/aws help")
+    if OS.mac?
+      assert_match "topics", shell_output("#{bin}/aws help")
+    else
+      # aws-cli needs groff as dependency, which we do not want to install
+      # just to display the help.
+      system "#{bin}/aws", "--version"
+    end
   end
 end
