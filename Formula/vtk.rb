@@ -29,8 +29,12 @@ class Vtk < Formula
   depends_on "pyqt" if build.with? "qt"
 
   unless OS.mac?
-    depends_on "tcl-tk"
+    depends_on "expat"
     depends_on "libxml2"
+    depends_on "szip"
+    depends_on "zlib"
+    depends_on "tcl-tk"
+    depends_on :x11
     depends_on "linuxbrew/xorg/mesa"
   end
 
