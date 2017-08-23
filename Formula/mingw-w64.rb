@@ -143,6 +143,14 @@ class MingwW64 < Formula
       mkdir_p bin
       Dir["#{arch_dir}/bin/*"].each { |f| ln_s f, bin }
     end
+
+    # Strip ELF files to reduce their size.
+    unless OS.mac?
+      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   test do
