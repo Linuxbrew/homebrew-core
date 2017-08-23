@@ -13,6 +13,7 @@ class Telnet < Formula
 
   keg_only :provided_pre_high_sierra
 
+  depends_on :macos
   depends_on :xcode => :build
 
   resource "libtelnet" do
