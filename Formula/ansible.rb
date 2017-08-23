@@ -18,9 +18,10 @@ class Ansible < Formula
   depends_on :python
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "libffi" unless OS.mac?
-  depends_on "krb5" unless OS.mac?
-  depends_on "libxslt" unless OS.mac?
+  unless OS.mac?
+    depends_on "libffi" # for cffi
+    depends_on "libxslt" # for lxml
+  end
 
   # Collect requirements from:
   #   ansible
@@ -264,7 +265,7 @@ class Ansible < Formula
   resource "kerberos" do
     url "https://files.pythonhosted.org/packages/46/73/1e7520780a50c9470aeba2b3c020981201c8662b618fb2889a3e3dc2aeed/kerberos-1.2.5.tar.gz"
     sha256 "b32ae66b1da2938a2ae68f83d67ce41b5c5e3b6c731407104cd209ba426dadfe"
-  end
+  end if OS.mac?
 
   resource "keystoneauth1" do
     url "https://files.pythonhosted.org/packages/60/84/563732a068310ee9a8c3626a037efea22b3a926431d91f1ec991db89a70e/keystoneauth1-3.1.0.tar.gz"
