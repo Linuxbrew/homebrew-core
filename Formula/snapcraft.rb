@@ -20,6 +20,9 @@ class Snapcraft < Formula
   depends_on "lxc"
   depends_on "squashfs"
   depends_on :python3
+  unless OS.mac?
+    depends_on "libffi" # for cffi
+  end
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
