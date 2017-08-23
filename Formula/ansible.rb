@@ -569,7 +569,11 @@ class Ansible < Formula
         - name: ping
           ping:
     EOF
-    (testpath/"hosts.ini").write "localhost ansible_connection=local\n"
+    (testpath/"hosts.ini").write [
+      "localhost ansible_connection=local",
+      *(" ansible_python_interpreter=" + which("python2") unless OS.mac?),
+      "\n",
+    ].join("")
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
 
     # Ensure requests[security] is activated
