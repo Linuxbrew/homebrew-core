@@ -20,7 +20,7 @@ class CharmTools < Formula
   depends_on "charm"
   depends_on "openssl@1.1"
   unless OS.mac?
-    depends_on "libffi"
+    depends_on "libffi" # for cffi
     depends_on "gmp" # for pycrypto
   end
 
@@ -276,7 +276,7 @@ class CharmTools < Formula
   end
 
   def install
-    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if OS.mac?
 
     virtualenv_install_with_resources
   end
