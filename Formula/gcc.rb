@@ -17,14 +17,14 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
-    unless OS.mac?
-      url "http://ftpmirror.gnu.org/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
-      mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
-      sha256 "b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db"
-    else
+    if OS.mac?
       url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
       mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
       sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
+    else
+      url "http://ftpmirror.gnu.org/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
+      mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
+      sha256 "b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db"
     end
   end
 
@@ -46,7 +46,7 @@ class Gcc < Formula
 
   depends_on "zlib" unless OS.mac?
   depends_on "binutils" if build.with? "glibc"
-  depends_on "glibc" => Formula["glibc"].installed? || (OS.linux? && !GlibcRequirement.new.satisfied?) ? :recommended : :optional
+  depends_on "glibc" => (Formula["glibc"].installed? || OS.linux? && !GlibcRequirement.new.satisfied?) ? :recommended : :optional
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
@@ -235,13 +235,13 @@ class Gcc < Formula
       gcc = "gcc-#{version_suffix}"
       specs = Pathname.new(`#{bin}/#{gcc} -print-libgcc-file-name`).dirname/"specs"
       ohai "Creating the GCC specs file: #{specs}"
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $?.exitstatus.nonzero?
+      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
       specs_orig = Pathname.new("#{specs}.orig")
       rm_f [specs_orig, specs]
 
       # Save a backup of the default specs file
       specs_string = `#{bin}/#{gcc} -dumpspecs`
-      raise "command failed: #{gcc} -dumpspecs" if $?.exitstatus.nonzero?
+      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
       specs_orig.write specs_string
 
       # Set the library search path
