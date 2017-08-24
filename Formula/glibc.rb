@@ -33,7 +33,7 @@ end
 class LinuxKernelRequirement < Requirement
   fatal true
 
-  MINIMUM_LINUX_KERNEL_VERSION = "2.6.16".freeze
+  MINIMUM_LINUX_KERNEL_VERSION = "2.6.32".freeze
 
   def linux_kernel_version
     @linux_kernel_version ||= Version.new Utils.popen_read("uname -r")
@@ -54,9 +54,8 @@ end
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.gz"
-  sha256 "18ad6db70724699d264add80b1f813630d0141cf3a3558b4e1a7c15f6beac796"
-  revision 1
+  url "https://ftp.gnu.org/gnu/glibc/glibc-2.20.tar.gz"
+  sha256 "37e1de410d572a19b707b99786db9822bb4775e9d70517d88937ab12e6d6debc"
   # tag "linuxbrew"
 
   bottle do
