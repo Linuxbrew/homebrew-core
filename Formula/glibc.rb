@@ -75,6 +75,10 @@ class Glibc < Formula
   depends_on "linux-headers" => [:build, :recommended]
 
   def install
+    # Fix Error: `loc1@GLIBC_2.2.5' can't be versioned to common symbol 'loc1'
+    # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869717
+    inreplace "misc/regexp.c", /^(char \*loc[12s]);$/, "\\1 __attribute__ ((nocommon));"
+
     # Setting RPATH breaks glibc.
     %w[
       LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH
