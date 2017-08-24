@@ -54,8 +54,8 @@ end
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftp.gnu.org/gnu/glibc/glibc-2.21.tar.gz"
-  sha256 "8d8f78058f2e9c7237700f76fe4e0ae500db31470290cd0b8a9739c0c8ce9738"
+  url "https://ftp.gnu.org/gnu/glibc/glibc-2.22.tar.gz"
+  sha256 "a62610c4084a0fd8cec58eee12ef9e61fdf809c31e7cecbbc28feb8719f08be5"
   # tag "linuxbrew"
 
   bottle do
