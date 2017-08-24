@@ -11,7 +11,6 @@ class ApacheArrow < Formula
     sha256 "5fc8f63806fd7937e6d0e7c0f0a729aeca7670ddb2f575df5acda8892f0bb129" => :sierra
     sha256 "7c50efe964a487acbd95156319f7bca07c5c3dfeb7817526d3943695e680d083" => :el_capitan
     sha256 "5302db745369a3b16d8dfe3661270b1b15d710d13eca5ecffe9b1742b5c01e97" => :yosemite
-    sha256 "7021be8431669732613c3643ffe50e3d6ea495df374800aedcd473469ee172f7" => :x86_64_linux
   end
 
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
