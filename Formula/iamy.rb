@@ -1,3 +1,4 @@
+# iamy: Build a bottle for Linuxbrew
 class Iamy < Formula
   desc "AWS IAM import and export tool"
   homepage "https://github.com/99designs/iamy"
