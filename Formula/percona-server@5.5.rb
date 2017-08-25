@@ -1,3 +1,4 @@
+# percona-server@5.5: Build a bottle for Linuxbrew
 class PerconaServerAT55 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com/"
