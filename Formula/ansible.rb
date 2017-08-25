@@ -1,3 +1,4 @@
+# ansible: Build a bottle for Linuxbrew
 class Ansible < Formula
   include Language::Python::Virtualenv
 
