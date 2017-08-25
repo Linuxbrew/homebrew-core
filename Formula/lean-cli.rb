@@ -1,3 +1,4 @@
+# lean-cli: Build a bottle for Linuxbrew
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps."
   homepage "https://github.com/leancloud/lean-cli"
