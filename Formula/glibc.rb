@@ -33,7 +33,7 @@ end
 class LinuxKernelRequirement < Requirement
   fatal true
 
-  MINIMUM_LINUX_KERNEL_VERSION = "2.6.16".freeze
+  MINIMUM_LINUX_KERNEL_VERSION = "2.6.32".freeze
 
   def linux_kernel_version
     @linux_kernel_version ||= Version.new Utils.popen_read("uname -r")
@@ -54,9 +54,8 @@ end
 class Glibc < Formula
   desc "The GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.gz"
-  sha256 "18ad6db70724699d264add80b1f813630d0141cf3a3558b4e1a7c15f6beac796"
-  revision 1
+  url "https://ftp.gnu.org/gnu/glibc/glibc-2.23.tar.gz"
+  sha256 "2bd08abb24811cda62e17e61e9972f091f02a697df550e2e44ddcfb2255269d2"
   # tag "linuxbrew"
 
   bottle do
@@ -76,6 +75,10 @@ class Glibc < Formula
   depends_on "linux-headers" => [:build, :recommended]
 
   def install
+    # Fix Error: `loc1@GLIBC_2.2.5' can't be versioned to common symbol 'loc1'
+    # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869717
+    inreplace "misc/regexp.c", /^(char \*loc[12s]);$/, "\\1 __attribute__ ((nocommon));"
+
     # Setting RPATH breaks glibc.
     %w[
       LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH
