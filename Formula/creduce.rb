@@ -1,4 +1,3 @@
-# creduce: Build a bottle for Linuxbrew
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
@@ -18,6 +17,14 @@ class Creduce < Formula
   depends_on "llvm"
 
   depends_on :macos => :mavericks
+
+  unless OS.mac?
+    resource "URI::Escape" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.72.tar.gz"
+      mirror "http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/URI-1.72.tar.gz"
+      sha256 "35f14431d4b300de4be1163b0b5332de2d7fbda4f05ff1ed198a8e9330d40a32"
+    end
+  end
 
   resource "Benchmark::Timer" do
     url "https://cpan.metacpan.org/authors/id/D/DC/DCOPPIT/Benchmark-Timer-0.7107.tar.gz"
