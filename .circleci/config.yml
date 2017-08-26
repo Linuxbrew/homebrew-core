@@ -32,6 +32,8 @@ jobs:
           && brew test-bot --tap=homebrew/core --keep-old
       - store_artifacts:
           path: /home/linuxbrew/bottles
+      - store_test_results:
+          path: /home/linuxbrew/bottles
 notify:
   webhooks:
     - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/LinuxbrewTestBot?keep-old=1
