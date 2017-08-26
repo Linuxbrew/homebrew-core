@@ -21,15 +21,6 @@ class Go < Formula
     sha256 "a0fe101b2adb1a3c4aa92b61267490e2183ad66e16b30f71cf2e0b8f702ac758" => :yosemite
   end
 
-  devel do
-    url "https://storage.googleapis.com/golang/go1.9rc2.src.tar.gz"
-    sha256 "12b09ea6cb3189ea5e4c057f7047b5709ae8edd14706421b188f7e4ae8d8d3e4"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
-  end
-
   head do
     url "https://go.googlesource.com/go.git"
 
@@ -56,6 +47,12 @@ class Go < Formula
   end
 
   def install
+    # Fixes: Error: Failure while executing: ../bin/ldd ../line-clang.elf: Permission denied
+    unless OS.mac?
+      chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
+      chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
+    end
+
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
