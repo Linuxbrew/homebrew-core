@@ -21,6 +21,7 @@ class Yaz < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
+  depends_on "libxml2" unless OS.mac?
 
   def install
     system "./buildconf.sh" if build.head?
