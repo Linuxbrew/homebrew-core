@@ -28,9 +28,12 @@ class W3m < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "openssl@1.1"
-  depends_on "ncurses" unless OS.mac?
-  depends_on "libbsd" unless OS.mac?
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "ncurses"
+    depends_on "libbsd"
+    depends_on "zlib"
+    depends_on "gettext"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
