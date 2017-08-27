@@ -14,7 +14,16 @@ class Mednafen < Formula
   depends_on :macos => :sierra # needs clock_gettime
   depends_on "gettext"
 
+  unless OS.mac?
+    depends_on "zlib"
+    depends_on "linuxbrew/xorg/glu"
+    depends_on "linuxbrew/xorg/mesa"
+  end
+
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     # Fix run-time crash "Assertion failed: (x == TestLLVM15470_Counter), function
     # TestLLVM15470_Sub2, file tests.cpp, line 643."
     # LLVM miscompiles some loop code with optimization
@@ -26,6 +35,8 @@ class Mednafen < Formula
   end
 
   test do
+    # Test fails on headless CI: Could not initialize SDL: No available video device
+    return if ENV["CIRCLECI"] || ENV["TRAVIS"]
     cmd = "#{bin}/mednafen -dump_modules_def M >/dev/null || head -n 1 M"
     assert_equal version.to_s, shell_output(cmd).chomp
   end
