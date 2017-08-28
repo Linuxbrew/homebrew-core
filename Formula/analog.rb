@@ -19,13 +19,16 @@ class Analog < Formula
   depends_on "gd"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "zlib" unless OS.mac?
 
   def install
+    libs = "-lz"
+    libs += " -lm" unless OS.mac?
     system "make", "CC=#{ENV.cc}",
                    "CFLAGS=#{ENV.cflags}",
                    "DEFS='-DLANGDIR=\"#{pkgshare}/lang/\"' -DHAVE_ZLIB",
-                   "LIBS=-lz",
-                   "OS=OSX"
+                   "LIBS=#{libs}",
+                   "OS=#{OS.mac? ? "OSX" : "UNIX"}"
 
     bin.install "analog"
     pkgshare.install "examples", "how-to", "images", "lang"
