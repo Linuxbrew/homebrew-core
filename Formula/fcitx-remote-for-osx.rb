@@ -14,6 +14,8 @@ class FcitxRemoteForOsx < Formula
 
   option "with-input-method=", "Select input method: general(default), baidu-pinyin, baidu-wubi, sogou-pinyin, qq-wubi, squirrel-rime, osx-pinyin"
 
+  depends_on :macos
+
   def install
     input_method = ARGV.value("with-input-method") || "general"
     system "./build.py", "build", input_method
