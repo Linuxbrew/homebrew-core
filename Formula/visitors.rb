@@ -1,3 +1,4 @@
+# visitors: Build a bottle for Linuxbrew
 class Visitors < Formula
   desc "eb server log analyzer"
   homepage "http://www.hping.org/visitors/"
