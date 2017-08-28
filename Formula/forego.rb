@@ -10,7 +10,7 @@ class Forego < Formula
     sha256 "5b7d4ce276f2e072caec1a5ca33b75d73623893ee1ded78f5853eee3c6ebccb4" => :sierra
     sha256 "122b23bc8bba14c4376f14e7094d9c1e0c8cbe1da2bfcfd9ca93abb8cc038666" => :el_capitan
     sha256 "0eb5516da23538f663c29fc3c0c487d85efc19a556c5d81eff4038723dc1019f" => :yosemite
-    sha256 "bf0bc7c59117db733d0181eaebe7fabd3d804ec002f0c29a2b6bd4818f36a5ea" => :x86_64_linux
+    sha256 "bf0bc7c59117db733d0181eaebe7fabd3d804ec002f0c29a2b6bd4818f36a5ea" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

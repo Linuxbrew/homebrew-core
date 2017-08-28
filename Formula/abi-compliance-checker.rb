@@ -9,7 +9,7 @@ class AbiComplianceChecker < Formula
     sha256 "2dc2a2081b6429c9ea6414b2f0d44ac678e4d4163f98b5503f32f8a9776c8f6d" => :sierra
     sha256 "2dc2a2081b6429c9ea6414b2f0d44ac678e4d4163f98b5503f32f8a9776c8f6d" => :el_capitan
     sha256 "2dc2a2081b6429c9ea6414b2f0d44ac678e4d4163f98b5503f32f8a9776c8f6d" => :yosemite
-    sha256 "52d91d9bc9292ca70ca3517ac1add9fe624c63c80e933e44c3183831503e755f" => :x86_64_linux
+    sha256 "52d91d9bc9292ca70ca3517ac1add9fe624c63c80e933e44c3183831503e755f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ctags"

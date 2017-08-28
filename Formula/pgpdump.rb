@@ -10,7 +10,7 @@ class Pgpdump < Formula
     sha256 "b36fd444b14191c517b3b8ef7450eba86f1497c6cb03647e7455464937c33f5f" => :sierra
     sha256 "fe7d869397fd41613acdf52f34902b191e71794a721dde327e8552b4acafaef1" => :el_capitan
     sha256 "9a67194a5fb26a28a7124330bf765ff3c4c54f05ab6e7750d3551403e567e9f7" => :yosemite
-    sha256 "b2d5ac4267e3c7fad85a3c7fba602cf29d71cfa8b8652f7c50cd81044f2db968" => :x86_64_linux
+    sha256 "b2d5ac4267e3c7fad85a3c7fba602cf29d71cfa8b8652f7c50cd81044f2db968" => :x86_64_linux # glibc 2.19
   end
 
   def install

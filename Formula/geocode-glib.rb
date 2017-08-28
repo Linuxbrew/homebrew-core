@@ -8,7 +8,7 @@ class GeocodeGlib < Formula
     sha256 "3af6bf5e3659bfc8dac46ebaecb0417725be9fc7bd134dd3e8353c2df2717eec" => :sierra
     sha256 "260248e1447facf30f3f37a3104967d4798a4093ed93b1cff618e8ae62c26c53" => :el_capitan
     sha256 "5f50e0e5db2c81fb487586ed701490a2253836cb1804fe051137007bb4af34bd" => :yosemite
-    sha256 "5a7d0322b1f099312309a5ba03ad04c42a752756f664be1e37c8575825271d2f" => :x86_64_linux
+    sha256 "5a7d0322b1f099312309a5ba03ad04c42a752756f664be1e37c8575825271d2f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

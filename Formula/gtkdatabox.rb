@@ -9,7 +9,7 @@ class Gtkdatabox < Formula
     sha256 "f58cf9bd17de4573596172b6ea10c4b2892f75c8dd597f5c98d74e30f21aacc6" => :sierra
     sha256 "eed0f8e816ec34ae1995e14f6596aeee02cb51f2b8f12a90715431de8847ca8f" => :el_capitan
     sha256 "f18139540018b72756a5ed3c89cd67e4235d75aa61bd15a7b86825441f4d33cd" => :yosemite
-    sha256 "9bfa35994f61fa2b0209e8442fed0fb06d40338084d962d25fac66a7c7df9e7d" => :x86_64_linux
+    sha256 "9bfa35994f61fa2b0209e8442fed0fb06d40338084d962d25fac66a7c7df9e7d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

@@ -5,7 +5,7 @@ class Libsoup < Formula
   sha256 "442300ca1b1bf8a3bbf2f788203287ff862542d4fc048f19a92a068a27d17b72"
 
   bottle do
-    sha256 "afc6f9f66c0081dc1e0ba789d5bff34c07869fad70ab6d2ba2ce3ea453861b82" => :x86_64_linux
+    sha256 "afc6f9f66c0081dc1e0ba789d5bff34c07869fad70ab6d2ba2ce3ea453861b82" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

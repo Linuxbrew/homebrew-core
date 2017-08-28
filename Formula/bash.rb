@@ -44,7 +44,7 @@ class Bash < Formula
     sha256 "ac12c447d66bb79762b8f1494655f7631dc8967392c23efd0abf5ba7a1d44a7e" => :sierra
     sha256 "f35e631d1b87513743daacfb9cb798682ffb34f205290267c75b37169b1f3682" => :el_capitan
     sha256 "25ebb6b3ec589b0248b4e249adbbac409bdd3f7cd38346d070f6edf404729a31" => :yosemite
-    sha256 "9884adafa4868782340e098c2f606e5d903f8c8547626b72ca46a227740ec01c" => :x86_64_linux
+    sha256 "9884adafa4868782340e098c2f606e5d903f8c8547626b72ca46a227740ec01c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "readline"

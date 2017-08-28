@@ -11,7 +11,7 @@ class Whois < Formula
     sha256 "532e5b0a21d134aa714abbf1f80835e1256e037901540026579c395e0c515c72" => :sierra
     sha256 "cf7bca8cc4c6275a3753794c42b5fe916535d25e9a4465c81616984636a3cb37" => :el_capitan
     sha256 "73b75963251f3c420d2d24972447d015028dc3d1f872a2b335f5aea8f4b0977c" => :yosemite
-    sha256 "a4d867a8d09fcd79e99214b463ff6018be06cc6bfc3dba4c880efc64d6599219" => :x86_64_linux
+    sha256 "a4d867a8d09fcd79e99214b463ff6018be06cc6bfc3dba4c880efc64d6599219" => :x86_64_linux # glibc 2.19
   end
 
   def install

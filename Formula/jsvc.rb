@@ -10,7 +10,7 @@ class Jsvc < Formula
     sha256 "f42f7315d5015da70971e6771fd3fe1b8aebeb6852c48d8a921d37ad5753ed05" => :el_capitan
     sha256 "ee2cdf6d939f8cbde26edbde512d6afa3c57a144c83f3a11699fe998b3d71815" => :yosemite
     sha256 "b97d2c0458b7280e197c420af87edd7f798b8ca6d3e0520a458750eaab5fbf68" => :mavericks
-    sha256 "bc48d9195b638367ba88efd256a3fcc948659b0b3576f46e566c22fcfaa4377a" => :x86_64_linux
+    sha256 "bc48d9195b638367ba88efd256a3fcc948659b0b3576f46e566c22fcfaa4377a" => :x86_64_linux # glibc 2.19
   end
 
   # Enable Java 7 JVMs: https://issues.apache.org/jira/browse/DAEMON-281

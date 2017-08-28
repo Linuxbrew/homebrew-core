@@ -8,7 +8,7 @@ class OpenMpi < Formula
     sha256 "15d3d18ad8e4096b670fd9fee3f196cee0bbea4db663cab4eb58a24927daa1cf" => :sierra
     sha256 "82b89bc9302d9ca10cf0dfa0a53a8298aa4cbb9a84b92139e5ca2a7583499947" => :el_capitan
     sha256 "4b0437cdcf8e32cf205fb4fc3755eb8a8bb7e35b93d52070e9d3390d2e57d5fa" => :yosemite
-    sha256 "974ca1eaf14fedfd8a761305ebb9a35b9889b571e7bbb029dafafa5046450e77" => :x86_64_linux
+    sha256 "974ca1eaf14fedfd8a761305ebb9a35b9889b571e7bbb029dafafa5046450e77" => :x86_64_linux # glibc 2.19
   end
 
   head do

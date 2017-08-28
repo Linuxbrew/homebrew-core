@@ -9,7 +9,7 @@ class GlibNetworking < Formula
     sha256 "84ec040e4e75a461d0a2ba38fb8718fa080b1d002d5da6c18aa58ba748d792e9" => :sierra
     sha256 "27c3c26afbe7557a4be8644794bd4d9db68b5c13544d9524ba1eebe7cecd7cd2" => :el_capitan
     sha256 "14f091c53a11a6c6c1972fd3f2f6f5f73a8732ccb27fb9ad68e604a3d2330250" => :yosemite
-    sha256 "8c9bb79057688e3ee791a53516d1717697032f4b2432dc5a3f7653e92327d66c" => :x86_64_linux
+    sha256 "8c9bb79057688e3ee791a53516d1717697032f4b2432dc5a3f7653e92327d66c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

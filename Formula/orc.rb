@@ -9,7 +9,7 @@ class Orc < Formula
     sha256 "6e9283bf3a50c68724965b8abbf7ee1084d3e086bb50d96af7ee5fca420a078c" => :sierra
     sha256 "6ce6a66ae7ff4321144f66e02f6d71be139336ea5256fd28d0d78be2188eee29" => :el_capitan
     sha256 "39aec42200bf5957c7b8d6c1c4357c9397eddd82f0df7b7acb36f146734c3b3f" => :yosemite
-    sha256 "b60d090854fb51dd979b5b4fd9d49daba5da3b43635f3c0d9c42de5a1a620c23" => :x86_64_linux
+    sha256 "b60d090854fb51dd979b5b4fd9d49daba5da3b43635f3c0d9c42de5a1a620c23" => :x86_64_linux # glibc 2.19
   end
 
   def install

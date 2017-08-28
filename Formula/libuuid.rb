@@ -7,7 +7,7 @@ class Libuuid < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "741229726c8670871dde15ceaf099998c1b616e48e64ba035e1f78e72eb37137" => :x86_64_linux
+    sha256 "741229726c8670871dde15ceaf099998c1b616e48e64ba035e1f78e72eb37137" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "util-linux", :because => "both install lib/libuuid.a"

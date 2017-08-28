@@ -11,7 +11,7 @@ class Mypy < Formula
     sha256 "7952339760f6b000890303e5b406550ff0ceeb939dcaf2729aa80cad4263880a" => :sierra
     sha256 "453f964e8baec4161eeaec56d23cc926b561deedd07c8a32d5fba88e018e770b" => :el_capitan
     sha256 "0dd45349792469d6544f4ac2ef41c6d1a6d2fc984dbb8ef0ed2782e8a6caa269" => :yosemite
-    sha256 "a5c7d5aac0f83832131041e9db49644885067c7c67700cd6d63a02f2518d6563" => :x86_64_linux
+    sha256 "a5c7d5aac0f83832131041e9db49644885067c7c67700cd6d63a02f2518d6563" => :x86_64_linux # glibc 2.19
   end
 
   option "without-sphinx-doc", "Don't build documentation"

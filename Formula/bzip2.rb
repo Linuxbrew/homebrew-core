@@ -10,7 +10,7 @@ class Bzip2 < Formula
     sha256 "8911d7904862dc4930d024d0459390c510566241015bc06ec97f9e3fbb869101" => :sierra
     sha256 "a22f768ce625a56cc2f4b3c7f08f4b1ba30f79865b786dc4c57a97f672badff4" => :el_capitan
     sha256 "1468f967e8a35954509a8beb40bd29b60b730db158054aeddadc7586890737e8" => :yosemite
-    sha256 "48a4b520531c3d2e175bfa31731245c36cdca81c3fb739736fdcc05456d56bf5" => :x86_64_linux
+    sha256 "48a4b520531c3d2e175bfa31731245c36cdca81c3fb739736fdcc05456d56bf5" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx

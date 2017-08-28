@@ -11,7 +11,7 @@ class Dos2unix < Formula
     sha256 "2adbb06b9540a4f51320966d0b33c1a283cf062e0815783d224c16acc8baf12c" => :sierra
     sha256 "8564e8a0c5fdf5ca3e8f6c19143c3b5641d066dd27873f0b901f878a566b4ec7" => :el_capitan
     sha256 "a75761f15f052f836e743d68e9125deecb49dacc839f831e90c99e2fcca5f45c" => :yosemite
-    sha256 "9da7b2da5850c3442f1d5a43c1330fdb82515e6cf48e119c35cab9c2196d1ef1" => :x86_64_linux
+    sha256 "9da7b2da5850c3442f1d5a43c1330fdb82515e6cf48e119c35cab9c2196d1ef1" => :x86_64_linux # glibc 2.19
   end
 
   option "with-gettext", "Build with Native Language Support"

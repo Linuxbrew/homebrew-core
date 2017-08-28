@@ -10,7 +10,7 @@ class TranslateShell < Formula
     sha256 "1a717f10cb42e97e8cdb7b9725fb376d2bec1f57dcc2c14ddfb52b07d93eebb2" => :sierra
     sha256 "88a2ed1d6e5a8728c332c5da83da61692058c5664dcc88f7f28806d23c43b6ee" => :el_capitan
     sha256 "88a2ed1d6e5a8728c332c5da83da61692058c5664dcc88f7f28806d23c43b6ee" => :yosemite
-    sha256 "945ff234975f040c251825ee8cbfdd8bf53599b5bc2bbcf15e64b212436e9468" => :x86_64_linux
+    sha256 "945ff234975f040c251825ee8cbfdd8bf53599b5bc2bbcf15e64b212436e9468" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "fribidi"

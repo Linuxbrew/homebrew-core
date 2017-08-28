@@ -8,7 +8,7 @@ class JsonGlib < Formula
     sha256 "3faa6b4be8e06f768fc550e7373edccd09ec308e00a65fd48a01eb46f0d77bac" => :sierra
     sha256 "d26028a584955b8ebe2002261ccd34cd8ef8b5f287b6da211276fb981bd405dd" => :el_capitan
     sha256 "6bd1f2ed688b6f637a942400d55fc6f4e51db40887421a80b1ffcce185d3e084" => :yosemite
-    sha256 "1672d00f9a001e85770d13623522edd43fc1db4729675d85f045d9000287388f" => :x86_64_linux
+    sha256 "1672d00f9a001e85770d13623522edd43fc1db4729675d85f045d9000287388f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

@@ -8,7 +8,7 @@ class Joe < Formula
     sha256 "80a5a41770abb8b9fd14e8ff6a3bf50a90522e11c7c8e230e54f6a1a62f2b4d4" => :sierra
     sha256 "7afafcd43650acf1797601c54f0b8f2b025364872d97d8457921b071a5735909" => :el_capitan
     sha256 "f2e8e9ac5278305083019c4a9b814f6c4432129272f8983b5e082b209428921b" => :yosemite
-    sha256 "300ea0bbc286a79fd3aef174c0f2e8078d9cbbcbd25aa7e7b73f2e4459003ea1" => :x86_64_linux
+    sha256 "300ea0bbc286a79fd3aef174c0f2e8078d9cbbcbd25aa7e7b73f2e4459003ea1" => :x86_64_linux # glibc 2.19
   end
 
   def install

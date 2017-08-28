@@ -9,7 +9,7 @@ class GtkDoc < Formula
     sha256 "ed1c55f2f8d9e8793e53652f305996c99274750e80d5d3cbaf1cfc6373df64b5" => :sierra
     sha256 "ed1c55f2f8d9e8793e53652f305996c99274750e80d5d3cbaf1cfc6373df64b5" => :el_capitan
     sha256 "ed1c55f2f8d9e8793e53652f305996c99274750e80d5d3cbaf1cfc6373df64b5" => :yosemite
-    sha256 "a181d694422176b4f2d098ee72df618af1dd9e2b73537f699fee2e87116c9d4c" => :x86_64_linux
+    sha256 "a181d694422176b4f2d098ee72df618af1dd9e2b73537f699fee2e87116c9d4c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

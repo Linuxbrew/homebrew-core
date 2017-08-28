@@ -7,7 +7,7 @@ class OneMl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "56b07d769075b148d0a9b77a8e9b76ecda668f27cf1a618b7afae8ac6fb3e386" => :x86_64_linux
+    sha256 "56b07d769075b148d0a9b77a8e9b76ecda668f27cf1a618b7afae8ac6fb3e386" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml" => :build

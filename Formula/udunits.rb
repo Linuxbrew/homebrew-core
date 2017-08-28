@@ -8,7 +8,7 @@ class Udunits < Formula
     sha256 "ebdc80d2869a347552cec43281545db11a2ef3dcd7e6a262047f28cb4fd2317b" => :sierra
     sha256 "db4058466d7cd3f29d53593dfeba45dbfec8c99a9378ac42f2f40af23ea63f6a" => :el_capitan
     sha256 "bcccbbb489918cedb52a0d33dfc760e63bec80ca4f6bfe92c50464285cd1f417" => :yosemite
-    sha256 "bda36be98b172c915ac11fdb8802b71aec24bc3629a5987a644cae627031d096" => :x86_64_linux
+    sha256 "bda36be98b172c915ac11fdb8802b71aec24bc3629a5987a644cae627031d096" => :x86_64_linux # glibc 2.19
   end
 
   option "with-html-docs", "Installs html documentation"

@@ -10,7 +10,7 @@ class Lz4 < Formula
     sha256 "88b2529f3abbe23e0f8421811a9621435bc7f817819385e947d4519964b38585" => :sierra
     sha256 "0980c7ab151e31e7b16f2bfb8a9d54ebbdcb99327d9906190d624eca4dbe47ab" => :el_capitan
     sha256 "de3dfd98edc6c0613c4842b1121551535a3672ab4737128ea2e7a6f73e188b9e" => :yosemite
-    sha256 "8837f1e747b7d314f1bb9102ebe09a61277f5313ad9a3e3ea3cee511a267a303" => :x86_64_linux
+    sha256 "8837f1e747b7d314f1bb9102ebe09a61277f5313ad9a3e3ea3cee511a267a303" => :x86_64_linux # glibc 2.19
   end
 
   def install

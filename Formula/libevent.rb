@@ -9,7 +9,7 @@ class Libevent < Formula
     sha256 "cdd11d67b5f49b94cf3fbfd24753f84082957e3d55680e2b5979eec19091e694" => :sierra
     sha256 "136a93a91c3724d0403b0d43d0b9a4bf6b857278c4ebb7c7585ef70a19b0964c" => :el_capitan
     sha256 "ef703db1b4cbdab35b89aabe80c225dd9b7a2c3ea14b1eae681478c5b9df15fe" => :yosemite
-    sha256 "37b65b4adb9bbf2c55ec95d4507a935bb7a7a8186f69d39cf12db57dd13eb862" => :x86_64_linux
+    sha256 "37b65b4adb9bbf2c55ec95d4507a935bb7a7a8186f69d39cf12db57dd13eb862" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

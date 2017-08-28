@@ -10,7 +10,7 @@ class Libsvm < Formula
     sha256 "39f3552e425be4bcb6e42d917b508bf94904520526c49ec52712c017680583fd" => :sierra
     sha256 "67867d2ddde33efd85da4c1a03757af0e3dcf591186552140876ddd11916d5df" => :el_capitan
     sha256 "3ee2001f87f2a58e698aeb0bfc413baa820184dba1caa2b3ec0a5a593a80d651" => :yosemite
-    sha256 "eded6e97d016e238753b4f7658c381437e46af9e56e5a948b6e500f940d794f8" => :x86_64_linux
+    sha256 "eded6e97d016e238753b4f7658c381437e46af9e56e5a948b6e500f940d794f8" => :x86_64_linux # glibc 2.19
   end
 
   def install

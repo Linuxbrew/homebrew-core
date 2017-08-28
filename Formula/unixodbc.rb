@@ -10,7 +10,7 @@ class Unixodbc < Formula
     sha256 "b3117348129272e966e9fd3e37f29ccdffbf9a0dde9d8e2691a3185feaae92ff" => :sierra
     sha256 "78bb1bb4468cb34d0acf6566ecaad6535a9b77ff7a740bafd2ed91e1d7812c70" => :el_capitan
     sha256 "82f217f67f78a6dab125b77558e99f9ee18227f991ab8d842e881e83d0c7d917" => :yosemite
-    sha256 "dea049cd3c534422741d3c84e9c59e83c3d74768d8dc30a0f134bd1fd4256247" => :x86_64_linux
+    sha256 "dea049cd3c534422741d3c84e9c59e83c3d74768d8dc30a0f134bd1fd4256247" => :x86_64_linux # glibc 2.19
   end
 
   keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks

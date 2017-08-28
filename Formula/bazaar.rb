@@ -10,7 +10,7 @@ class Bazaar < Formula
     sha256 "75e4a4aa57887371b783839667da3a142805c60f13197d599f6c8ef95c104707" => :el_capitan
     sha256 "7919335ffdd76bd54a3b58da3e7d9499f8bc6dd895b1d117390bb19ceaf08818" => :yosemite
     sha256 "51a058a4ff6b070a62ce30d01a673bba74d65d4eab6a13a9d53696f24cceb80d" => :mavericks
-    sha256 "cd9f35b015942a2f700abe99e1ddd6a8cfcf68ce2f749d0dca54f2163fe777b2" => :x86_64_linux
+    sha256 "cd9f35b015942a2f700abe99e1ddd6a8cfcf68ce2f749d0dca54f2163fe777b2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python unless OS.mac?

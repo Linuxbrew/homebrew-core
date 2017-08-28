@@ -31,7 +31,7 @@ class GccAT49 < Formula
     sha256 "ad74e12473b9d5e20275a47028b63f94aedde641d035b8d101a1860e2bf19b76" => :sierra
     sha256 "3283035aaaf32998cccdec8ada8ae5d32ef49fdab14461d0473d6862800ae16e" => :el_capitan
     sha256 "dfd72720aef0ef7a2f924b9aa79a0ab5f6b1cd55e81ff592a79b52a59282c8eb" => :yosemite
-    sha256 "d9acda4b7a1b62adea7ea01f87a3fd912b6e9de162c9e0830c3eba99d5ceb01e" => :x86_64_linux
+    sha256 "d9acda4b7a1b62adea7ea01f87a3fd912b6e9de162c9e0830c3eba99d5ceb01e" => :x86_64_linux # glibc 2.19
   end
 
   option "without-fortran", "Build without the gfortran compiler"

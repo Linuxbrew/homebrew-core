@@ -7,7 +7,7 @@ class Libgpm < Formula
 
   bottle do
     cellar :any
-    sha256 "7aec47e93bf034b08d3376ce35e75c87e0dd4995917f5f0727b0297189e02af8" => :x86_64_linux
+    sha256 "7aec47e93bf034b08d3376ce35e75c87e0dd4995917f5f0727b0297189e02af8" => :x86_64_linux # glibc 2.19
   end
 
   head "https://github.com/telmich/gpm.git"

@@ -11,7 +11,7 @@ class Ape < Formula
     sha256 "3859216e566e6faaccc7183d737527dd4785260a698c8344520e7951baebca76" => :yosemite
     sha256 "83c7ef23309dec2e7bd4bec3ae75b6f0e04fcfecbda489c90810b6948eb3bb28" => :mavericks
     sha256 "136d65f58cb956b95a6ccb9517a5affe69c3491d283478708ca88091abb3103f" => :mountain_lion
-    sha256 "917659b43365eba970711505af1414fe3ce276e20d40c2a405b181c1a8393e78" => :x86_64_linux
+    sha256 "917659b43365eba970711505af1414fe3ce276e20d40c2a405b181c1a8393e78" => :x86_64_linux # glibc 2.19
   end
 
   fails_with :clang do

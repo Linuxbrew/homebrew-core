@@ -8,7 +8,7 @@ class Advancemenu < Formula
     sha256 "875396a5eb77a17ee1cda679fc782d5fa15072a206331d15cb186e52bf4d5369" => :sierra
     sha256 "5e4a2e320562c0d92c3d61049f097d0a7ee054b76bacc8dbf81095c2758bed6a" => :el_capitan
     sha256 "543c8592f5f72c1407fac7e29a9bc298b2d5b15529d669b54338d60209409028" => :yosemite
-    sha256 "f41310ecbbfcba8c1569e6b704b1ea68d39932f7584032bcdbcaa45df1f62a0f" => :x86_64_linux
+    sha256 "f41310ecbbfcba8c1569e6b704b1ea68d39932f7584032bcdbcaa45df1f62a0f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "sdl"

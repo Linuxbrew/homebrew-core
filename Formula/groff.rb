@@ -9,7 +9,7 @@ class Groff < Formula
     sha256 "bc116f66735a0b9113319e2fa8fc52172ce7e34dbfb7683f79664093ee119432" => :sierra
     sha256 "7a83070643f180e6e2644a4631a24ee908f80158e43166d7d9fabd1f60d039ca" => :el_capitan
     sha256 "55da66201119dd58fa96bbdb94a421d40fc6daba86bbc10ab6abc33763be17df" => :yosemite
-    sha256 "a2bb9bc5137beb9265a3b41f206473a4215e19891c70c41298e8c79a0d2c068f" => :x86_64_linux
+    sha256 "a2bb9bc5137beb9265a3b41f206473a4215e19891c70c41298e8c79a0d2c068f" => :x86_64_linux # glibc 2.19
   end
 
   option "with-gropdf", "Enable PDF output support"

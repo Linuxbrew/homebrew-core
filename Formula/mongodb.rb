@@ -21,7 +21,7 @@ class Mongodb < Formula
     sha256 "cc25b7b7318e8cb46b3c12b336437b1fdef23a82cb2c56603221bff22ba0e7f9" => :sierra
     sha256 "dab827ceaa5c0fa21a1059781873898e3b36c15d4fdf954c72b70eb7dee3a954" => :el_capitan
     sha256 "f0c9c807f836f7b07ebf40898da4a70a6d6434b21b0c78732c97ca0ce268e081" => :yosemite
-    sha256 "eeaad07346d4c4b5349d64736faef4165fd1d9340fad4d055ca6b9675be15252" => :x86_64_linux
+    sha256 "eeaad07346d4c4b5349d64736faef4165fd1d9340fad4d055ca6b9675be15252" => :x86_64_linux # glibc 2.19
   end
 
   devel do

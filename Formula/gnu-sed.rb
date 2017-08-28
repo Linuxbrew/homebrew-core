@@ -11,7 +11,7 @@ class GnuSed < Formula
     sha256 "dbb273a424c68a41670b1bdc7630960ed3d81b08d16b4e2de89da3b08d8042f8" => :sierra
     sha256 "9b221159fc84c8774053bf6611f9da3652636f1531a68819f8ca59fc3c7321c1" => :el_capitan
     sha256 "8abddf2922e6151ee21c84f2b997f9cfe55eeadbbe13ca28ea4097afa0c91f9d" => :yosemite
-    sha256 "7b82eaa92a363c240eab01979632cbf65e1cac96a16d1b5d4139863f3e0539bc" => :x86_64_linux
+    sha256 "7b82eaa92a363c240eab01979632cbf65e1cac96a16d1b5d4139863f3e0539bc" => :x86_64_linux # glibc 2.19
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"

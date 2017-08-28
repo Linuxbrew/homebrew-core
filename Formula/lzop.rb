@@ -10,7 +10,7 @@ class Lzop < Formula
     sha256 "73c2ce334be9317ca79509aec3acef2fa1eff0ffb69fdc10b3850b7f51101f72" => :sierra
     sha256 "26e49bf0d06fb60d7cd5c431634966f28993edc250c4d06b0db26b28aae3cd0d" => :el_capitan
     sha256 "d9e12c4bb51c43dd306d5283fde5c3350e3e1f7f1d48c05c831a57b058db1354" => :yosemite
-    sha256 "1f26b675b0867eb9f6095d1b3bc61155e06dd05835848a6718def97168b6d4d7" => :x86_64_linux
+    sha256 "1f26b675b0867eb9f6095d1b3bc61155e06dd05835848a6718def97168b6d4d7" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "lzo"

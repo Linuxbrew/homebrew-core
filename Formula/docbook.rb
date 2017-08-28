@@ -11,7 +11,7 @@ class Docbook < Formula
     sha256 "3fb7e4070eaa9250fa947d38e3d7803d37c159d9765e3f71397702d5ad6bb578" => :el_capitan
     sha256 "dfdb315404c98dca2682f63260f2996de101cb6b41de69ac268dcded110e2a3f" => :yosemite
     sha256 "65925fda670fdb020fe9d52cd5891f8e3a2a44619e9129b30031127c7c2e998c" => :mavericks
-    sha256 "c230fb9fb33e66889d585c41960c74d8605d406d726ea48699f703b0e27d4d48" => :x86_64_linux
+    sha256 "c230fb9fb33e66889d585c41960c74d8605d406d726ea48699f703b0e27d4d48" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libxml2" unless OS.mac?

@@ -7,7 +7,7 @@ class LinuxHeaders < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9d7edb2760ec070372d6dd37f2dff85c34221cf77d124d4732092447ac2cf9f" => :x86_64_linux
+    sha256 "b9d7edb2760ec070372d6dd37f2dff85c34221cf77d124d4732092447ac2cf9f" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -11,7 +11,7 @@ class Libmpc < Formula
     sha256 "16ddbf6cf6c187a58f932cc907cf9c545b5a7f056282d5c01df849db7490e53e" => :sierra
     sha256 "5527bea12285c11434ba29cd94de47d693ac5f9400d9e1ab161907604dcecfb4" => :el_capitan
     sha256 "fa1789c2694894febb26850ef356689e7bfc19251f6f84f77b65c2ba677fb2a1" => :yosemite
-    sha256 "eda921e4634e55e43a58c2030a3d49f9749251c4a257ef886744792587798bc5" => :x86_64_linux
+    sha256 "eda921e4634e55e43a58c2030a3d49f9749251c4a257ef886744792587798bc5" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gmp"

@@ -10,7 +10,7 @@ class Libressl < Formula
     sha256 "3ff166de8666c5275cabd2d8b6de8e44ae2b71ee8a694a4a8b20866943b9e117" => :sierra
     sha256 "94342eafb2d50f798dd5be8c1d35347e3dd414f2e64753f6691f2ce4b7f9f391" => :el_capitan
     sha256 "5f52e3e477f2381d153458795dc54251439c61899d1504435214895dda9d5b41" => :yosemite
-    sha256 "7e124af99a471f04a84165067ad5ddbe0e68058b28d3f0e2445746bb9ee2739c" => :x86_64_linux
+    sha256 "7e124af99a471f04a84165067ad5ddbe0e68058b28d3f0e2445746bb9ee2739c" => :x86_64_linux # glibc 2.19
   end
 
   devel do

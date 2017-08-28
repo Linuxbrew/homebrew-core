@@ -8,7 +8,7 @@ class Gmime < Formula
     sha256 "8bce8a92be361ea532e19ac04699dff58e422d571e835ecbf1c3e9dfc54c3fd0" => :sierra
     sha256 "d43d3106c3d1bfeb5ab6a7a04cbd7fce51435fe48d5c575aab34fd3916db4492" => :el_capitan
     sha256 "0b5b13d467bbc99ab66611a2f08e02a819a276750a262532d9aa6699198d8cbb" => :yosemite
-    sha256 "969cff9b8679d9fa66ddb7344092a6fa29b992c2e14ecc381cfa1b94f77de9c7" => :x86_64_linux
+    sha256 "969cff9b8679d9fa66ddb7344092a6fa29b992c2e14ecc381cfa1b94f77de9c7" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

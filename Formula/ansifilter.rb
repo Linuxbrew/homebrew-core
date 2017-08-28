@@ -9,7 +9,7 @@ class Ansifilter < Formula
     sha256 "a05109993c3f9385e7fe021317ef2c9300a2e9f827f346162a0425e3ec478516" => :sierra
     sha256 "cde309f398ea0e0e3e0c0f3457f7c399716b025e7e8f3c3ff32304f925295282" => :el_capitan
     sha256 "6218b58e6e15bf1eda8a5e2d2141721b7f899e2478f9a51d5a19c6a79b25176d" => :yosemite
-    sha256 "8c38540ede49dbdc7c605d5ac844b0babc9fcfb98ba8eb17a4b88c4d53463dc5" => :x86_64_linux
+    sha256 "8c38540ede49dbdc7c605d5ac844b0babc9fcfb98ba8eb17a4b88c4d53463dc5" => :x86_64_linux # glibc 2.19
   end
 
   def install

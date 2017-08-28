@@ -12,7 +12,7 @@ class Epstool < Formula
     sha256 "bb2aefa17b699127f2f6ed65004c9acbf7e5e5122f6f4b920d1e03fb9bd87b2e" => :yosemite
     sha256 "ae3c4b14dd19d3ac43947eff025a0fa3eabbe832333922359f9f74e0fe5e1d3d" => :mavericks
     sha256 "408c2744b730a01eed68f19d4f643b060f026bbbc2616cf4b6afcb08ef608b90" => :mountain_lion
-    sha256 "d73265ee08abb832ea596ab7d6a441c7aa5c45630387c77e99d6571f3493c88a" => :x86_64_linux
+    sha256 "d73265ee08abb832ea596ab7d6a441c7aa5c45630387c77e99d6571f3493c88a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ghostscript"

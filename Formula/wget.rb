@@ -12,7 +12,7 @@ class Wget < Formula
     sha256 "fe0679b932dd43a87fd415b609a7fbac7a069d117642ae8ebaac46ae1fb9f0b3" => :sierra
     sha256 "a4d259460edf940de5c780e8461c23e3bced288e2ef2532bd1707a086f9842b9" => :el_capitan
     sha256 "61b3eab1439b8dfaed1f18dbd6e8d0ad87d15b9864677e62f3618cc02600064a" => :yosemite
-    sha256 "52dbf0cf83dba81c3ee5e513e9cc1a0bbb4ae625e43e3cd11e10f41ca4f83bc2" => :x86_64_linux
+    sha256 "52dbf0cf83dba81c3ee5e513e9cc1a0bbb4ae625e43e3cd11e10f41ca4f83bc2" => :x86_64_linux # glibc 2.19
   end
 
   head do

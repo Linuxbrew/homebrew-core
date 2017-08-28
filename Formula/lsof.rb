@@ -19,7 +19,7 @@ class Lsof < Formula
     sha256 "2312dceb501fa6d9301fa506370784456937404ac43381354457ce63d99ccd56" => :sierra
     sha256 "fb14a3aef899327098b92d6d2c283e8978fc34d55b42019b8a54338abe8d4853" => :el_capitan
     sha256 "8a63b65f74b992e4a70ac3e18a7e4b810a73e183b13086b40f30286256e646e0" => :yosemite
-    sha256 "b4e361c7ee2769bbafcb38cea2fc27f14f33667208eb1d143c71fd5ba2ae857e" => :x86_64_linux
+    sha256 "b4e361c7ee2769bbafcb38cea2fc27f14f33667208eb1d143c71fd5ba2ae857e" => :x86_64_linux # glibc 2.19
   end
 
   patch do

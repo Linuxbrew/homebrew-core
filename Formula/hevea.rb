@@ -6,7 +6,7 @@ class Hevea < Formula
   revision 1
 
   bottle do
-    sha256 "dff61341d8d060b754d0baf61a204d9d353db59f22c8916c11f6e519338653ba" => :x86_64_linux
+    sha256 "dff61341d8d060b754d0baf61a204d9d353db59f22c8916c11f6e519338653ba" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml"

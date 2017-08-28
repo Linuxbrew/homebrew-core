@@ -9,7 +9,7 @@ class Xmount < Formula
     sha256 "a7c90944e8790ce74164a68f484c07ce5231902a9ce0c81b7dea9ddbbbf47dc8" => :sierra
     sha256 "4aef49b3ed42bec95ff2c2922940a28b9c1be0b1bb04f28f37be1e01e1808120" => :el_capitan
     sha256 "2fd1e5caf50d64243c5151b016754acbe115d42150eb9a5ad26176e604fbb2e2" => :yosemite
-    sha256 "f1cabe69379990077635e2edfc3c06e2373993d278df0b412c10f5b1e83b3cfa" => :x86_64_linux
+    sha256 "f1cabe69379990077635e2edfc3c06e2373993d278df0b412c10f5b1e83b3cfa" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

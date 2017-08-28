@@ -11,7 +11,7 @@ class Abduco < Formula
     sha256 "62b4673f4fba1d3c5b201b972e220a2736ec053e0c83b1369bb4e5641a71f8e4" => :el_capitan
     sha256 "17338a1f1f2cace2bfb40c79d746ad60c6604555e8fb34476ec4ef9a2f68234e" => :yosemite
     sha256 "1f48e0d684ba7b41768b5aa770df9c8ee716a3132d3c8043b4f7ff970c925ac5" => :mavericks
-    sha256 "9cf73a80e67aeacf95a705b634a5c53aaba2177e8307e7bbb0925698b3c63d20" => :x86_64_linux
+    sha256 "9cf73a80e67aeacf95a705b634a5c53aaba2177e8307e7bbb0925698b3c63d20" => :x86_64_linux # glibc 2.19
   end
 
   def install

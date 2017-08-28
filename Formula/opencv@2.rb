@@ -9,7 +9,7 @@ class OpencvAT2 < Formula
     sha256 "53cfcc3c43d671f32a7723e369c3501d65218f4084d9d2fa633671cf14c8381b" => :sierra
     sha256 "2e52fa5d66acd5ab9c676d9444d9939659fdd9e2e15d7d196a842f2b6102e9c6" => :el_capitan
     sha256 "c51746b88173a1ca76d231e5679675bf40f26b5fe89ec1d15ce9d302c460b26f" => :yosemite
-    sha256 "b89cb51089b08ef84c00c5e6ccd77f16e6df20f55802ffec673f24b2c0482507" => :x86_64_linux
+    sha256 "b89cb51089b08ef84c00c5e6ccd77f16e6df20f55802ffec673f24b2c0482507" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

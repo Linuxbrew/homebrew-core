@@ -10,7 +10,7 @@ class Automake < Formula
     sha256 "d2b27ce7782a966eb7c8570f7855c8c659bbefc97491a1fb54b66e7b58d26c63" => :sierra
     sha256 "0b25b38f9df72b7869783514811b7ccd17284a240a7ee5950da501811b9942ff" => :el_capitan
     sha256 "0b25b38f9df72b7869783514811b7ccd17284a240a7ee5950da501811b9942ff" => :yosemite
-    sha256 "e464786fd517db5a7855f50bb8751b21d460c3d0c509345635f37a844acd014b" => :x86_64_linux
+    sha256 "e464786fd517db5a7855f50bb8751b21d460c3d0c509345635f37a844acd014b" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_until_xcode43

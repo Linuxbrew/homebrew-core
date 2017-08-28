@@ -9,7 +9,7 @@ class Postgresql < Formula
     sha256 "65d94009b81569728ae82c039f0b70f3cb1d7cdf1a00650009664b4708834913" => :sierra
     sha256 "5c66cacc2e7b66d23b60b3479391fe9b015f6d5386cc4493b12096f148e2cb3f" => :el_capitan
     sha256 "2ad945c3b6d51d1eac93202fd024f5b9d721bcf3aaa08a949b5adf607b41fdeb" => :yosemite
-    sha256 "4ce85e40395529335b3486d5ed26228d74c620721a356d0e5b7300a1a232c345" => :x86_64_linux
+    sha256 "4ce85e40395529335b3486d5ed26228d74c620721a356d0e5b7300a1a232c345" => :x86_64_linux # glibc 2.19
   end
 
   option "without-perl", "Build without Perl support"

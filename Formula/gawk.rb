@@ -10,7 +10,7 @@ class Gawk < Formula
     sha256 "370e7a490801595a484c347da99d8b6dce58d63f8581962cd6d16552e5a4992f" => :sierra
     sha256 "71d2f6ec3359647298cc0867b88653078ba933b09b139dcd00d76fe763ccb1bb" => :el_capitan
     sha256 "bc8bd37d3761403f22bf3937097c67d8e76e914c90abfa577fd7e17af337057a" => :yosemite
-    sha256 "7cf7b93150e327dbd323e92b9ee8600e8df40ae2bf92d6e001836270931694ab" => :x86_64_linux
+    sha256 "7cf7b93150e327dbd323e92b9ee8600e8df40ae2bf92d6e001836270931694ab" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "mpfr"

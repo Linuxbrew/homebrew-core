@@ -13,7 +13,7 @@ class Autocode < Formula
     sha256 "c321c73e1662332392c5949467c544e18db30849019555086ad14eeb097656d2" => :el_capitan
     sha256 "a0b7c969db9e2870e818587c7d832bbe0bb187cbc01346b85bb81a6097a9e015" => :yosemite
     sha256 "04effb5aecdd48e2a3c38435079424fd83f08dff206096f9807ff7c4ccd68b93" => :mavericks
-    sha256 "4376dc40af997dae743476e80fb878e02b05d62e22d4af3f4e38f8ea23df3c8e" => :x86_64_linux
+    sha256 "4376dc40af997dae743476e80fb878e02b05d62e22d4af3f4e38f8ea23df3c8e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "node"

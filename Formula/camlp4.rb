@@ -8,7 +8,7 @@ class Camlp4 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bfe531b5780390b25f98b1488d9ed681c5a015e5b566ff0741ced27e031878d4" => :x86_64_linux
+    sha256 "bfe531b5780390b25f98b1488d9ed681c5a015e5b566ff0741ced27e031878d4" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml"

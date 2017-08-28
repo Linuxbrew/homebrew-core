@@ -9,7 +9,7 @@ class Libplist < Formula
     sha256 "da5d4dedb8a981298f8c67bf116b92dd178ed834208f6fb7a0a55987ff8cfc95" => :sierra
     sha256 "34e757ae78d7a84a8fdee4fe158409f9ebd690c477400eb836fc2ed88c1353e9" => :el_capitan
     sha256 "8279838cdf74669ce421a35ccd416f5fb6c2a33dc24515ef160086b15a88b883" => :yosemite
-    sha256 "c0d462d0e8b12b0afcca2d9e23377a84ed0b7f92ccc900b07182f00128f3d3c6" => :x86_64_linux
+    sha256 "c0d462d0e8b12b0afcca2d9e23377a84ed0b7f92ccc900b07182f00128f3d3c6" => :x86_64_linux # glibc 2.19
   end
 
   head do

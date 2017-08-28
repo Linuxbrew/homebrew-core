@@ -12,7 +12,7 @@ class Mad < Formula
     sha256 "863c71f31ecda8f97effc4dd148564e03219f8ddd162c89e054a7e57623c18c6" => :yosemite
     sha256 "7bd46d4da0f695b3a5bcc899b7139f14d11741f2e47d34f21a984f9bab953c81" => :mavericks
     sha256 "11391349b4ee378f31ae681ff5c96f7c8d1b5f2a6ad5ba6b28d12bc102cc9d6b" => :mountain_lion
-    sha256 "6c3acd9f051c2862eedf2f4fee17de5f3245c5e65aadd6bbf5f9e47a98789c6a" => :x86_64_linux
+    sha256 "6c3acd9f051c2862eedf2f4fee17de5f3245c5e65aadd6bbf5f9e47a98789c6a" => :x86_64_linux # glibc 2.19
   end
 
   def install

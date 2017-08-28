@@ -8,7 +8,7 @@ class Pulseaudio < Formula
     sha256 "5f1dbafa53bd5cc117e08d8c1c6207fcbb42865e3e8d202742cb9dc03971c6cb" => :sierra
     sha256 "4a84b0cfa38aa689c2e542e235a64d15cd8d5dd447eb4f7b03a6a11985e0d3dc" => :el_capitan
     sha256 "fc358d4cfc3b4d3a0e7822d09909cbe133842aced9e8eb10c64133f52d7f9770" => :yosemite
-    sha256 "cba68b3b8fcf0bf3c4d311fb0dfd7ec247990ffbca2f7ecdb39eda3a4838ed78" => :x86_64_linux
+    sha256 "cba68b3b8fcf0bf3c4d311fb0dfd7ec247990ffbca2f7ecdb39eda3a4838ed78" => :x86_64_linux # glibc 2.19
   end
 
   head do

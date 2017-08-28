@@ -9,7 +9,7 @@ class Sshfs < Formula
     sha256 "534fc64f25ee6757e4fd802988deee9d2df8f1c38604d36c525a12a67b1d23fa" => :sierra
     sha256 "27c5e0d7f9bed4219c12267bd459fbd25a143abf0a9e3f5fa12fd0b587f10007" => :el_capitan
     sha256 "61c578fbd666a6c2b5b452a7429e3fd5a64da153652d428386c41b4ebb6e30fa" => :yosemite
-    sha256 "ff62295bd43e46808a23b482a356b060c21ff1e31ddbc0e01c3ae6d2d364e370" => :x86_64_linux
+    sha256 "ff62295bd43e46808a23b482a356b060c21ff1e31ddbc0e01c3ae6d2d364e370" => :x86_64_linux # glibc 2.19
   end
 
   option "without-sshnodelay", "Don't compile NODELAY workaround for ssh"

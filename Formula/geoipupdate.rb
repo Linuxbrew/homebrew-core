@@ -9,7 +9,7 @@ class Geoipupdate < Formula
     sha256 "ecc561b023e6ae9c57c4dcbe248407bfbf8b6f73e28da9e9a0395759b1fdb931" => :sierra
     sha256 "5a56005484abf3771b79707fc79a669803e683f1573c12a854c23f4b92d78ee0" => :el_capitan
     sha256 "e984990bc05d7f13585e6b19f309dbd56c181f15f09faa08333ba8020fb1876a" => :yosemite
-    sha256 "bc98bacb90930ddc68f3408ac7dd7f066573225bd4583544b8c8e43c59d89ed7" => :x86_64_linux
+    sha256 "bc98bacb90930ddc68f3408ac7dd7f066573225bd4583544b8c8e43c59d89ed7" => :x86_64_linux # glibc 2.19
   end
 
   head do

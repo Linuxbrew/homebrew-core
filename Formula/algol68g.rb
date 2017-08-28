@@ -8,7 +8,7 @@ class Algol68g < Formula
     sha256 "888a4d7dfa4d9379d09657fe3ff4d673238c9827dfbe443f8cacbd40a32c042e" => :sierra
     sha256 "78c7f1fea5c16a6c7e8d774bbd91174bb541a9548766a70c2da3660f73c8a01c" => :el_capitan
     sha256 "8b635fbd56159120fef7b0dca5364de8baa2b7d9a2f87956b86d31e4dd51a111" => :yosemite
-    sha256 "a28634c00d51c3050ca7a4aa13f4f36377a7651e7b45e886c86d23cbfdf49440" => :x86_64_linux
+    sha256 "a28634c00d51c3050ca7a4aa13f4f36377a7651e7b45e886c86d23cbfdf49440" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gsl" => :optional

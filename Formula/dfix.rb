@@ -10,7 +10,7 @@ class Dfix < Formula
     sha256 "bc69197be2687f97b4ce65c1589f4e09c082c5bdb41ee8b51248ffd34ccd0890" => :sierra
     sha256 "ee8da255bb3663a160cc9e2040f594b0e71490feda65c56f213a5912ff99ca36" => :el_capitan
     sha256 "70715e792ec79f8b867bba5547b8f193d1d42fe1c36cb78a553051c7d37e407b" => :yosemite
-    sha256 "b3de89bf6767138cd73f7a91bad7ff682b25eccd22d0a3d803c8d3ad76ad354a" => :x86_64_linux
+    sha256 "b3de89bf6767138cd73f7a91bad7ff682b25eccd22d0a3d803c8d3ad76ad354a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "dmd" => :build

@@ -10,7 +10,7 @@ class Libusb < Formula
     sha256 "e42e21cc9b7cd4223eb8050680ada895bdfcaf9c7e33534002cd21af2f84baf8" => :sierra
     sha256 "e4902b528d0ea0df0d433e349709d3708a9e08191fd2f3c6d5f5ab2989766b9f" => :el_capitan
     sha256 "8831059f7585ed973d983dd82995e1732c240a78f4f7a82e5d5c7dfe27d49941" => :yosemite
-    sha256 "c90cafb47be0d4a369f25677ba7620ff6a82c617528b7ead4fd3835eb15424f5" => :x86_64_linux
+    sha256 "c90cafb47be0d4a369f25677ba7620ff6a82c617528b7ead4fd3835eb15424f5" => :x86_64_linux # glibc 2.19
   end
 
   head do

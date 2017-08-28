@@ -9,7 +9,7 @@ class Bdsup2sub < Formula
     sha256 "aecc7041ecd1c62b9c0137307900322626d14df9ed68a08c751c683852c84d22" => :sierra
     sha256 "f968df4ee2bc466db807253162b7355fc24ef58b2980c8f7a97f9adb88d8919a" => :el_capitan
     sha256 "3a18dd1e06ad18f5116e36677cf0644908295a637b9af8fc26e16ac28b2004a7" => :yosemite
-    sha256 "6b577cefb1b7187b12f54d3c0ba58de08ed0ead84c5c2abe004aabcd18f065a6" => :x86_64_linux
+    sha256 "6b577cefb1b7187b12f54d3c0ba58de08ed0ead84c5c2abe004aabcd18f065a6" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "maven" => :build

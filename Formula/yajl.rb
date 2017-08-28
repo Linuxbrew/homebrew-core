@@ -12,7 +12,7 @@ class Yajl < Formula
     sha256 "600fec6352ac23a66795cce22cb0a555df43eb464c87693299cb4fc2a1307833" => :yosemite
     sha256 "d44363e381f2f353387374167520ed166f3c0c756887dab6e015961bd9ba5ff3" => :mavericks
     sha256 "d35963d9d40c22e83a878a98a470f88405abf13efa61c7a3a999d7d79724b525" => :mountain_lion
-    sha256 "f0c23a3d9a441a2d01237278c5c0a2b027397534ffc397403db8160b775ad695" => :x86_64_linux
+    sha256 "f0c23a3d9a441a2d01237278c5c0a2b027397534ffc397403db8160b775ad695" => :x86_64_linux # glibc 2.19
   end
 
   # Configure uses cmake internally

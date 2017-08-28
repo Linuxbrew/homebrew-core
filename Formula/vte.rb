@@ -9,7 +9,7 @@ class Vte < Formula
     sha256 "2d4c27bd624e106946dc839ecab9eea7b0ffd51cf9df82b2bb50673e25f3cb35" => :el_capitan
     sha256 "bcde7d6b80b907ab67d76429618c1402e194c45dd6082d45f20a12af5c13bb0f" => :yosemite
     sha256 "773d6ee5399c52d6c2d69061ec2bd7dd74c0138e4eaa307ddae863810efa1640" => :mavericks
-    sha256 "a9ccbd3fe2d35915e66779c98c3e6c3a89a48c46a3a3d5fd016689d2da5716a7" => :x86_64_linux
+    sha256 "a9ccbd3fe2d35915e66779c98c3e6c3a89a48c46a3a3d5fd016689d2da5716a7" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

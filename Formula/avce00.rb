@@ -11,7 +11,7 @@ class Avce00 < Formula
     sha256 "56e15b29411b2947d9a842d91ae713e16566aa59e297e06f7d4de4b301847e66" => :yosemite
     sha256 "55990b93f7fe4639c6fdf29c4cc6c5791c6178c8661e22ef9e0dd64606532f56" => :mavericks
     sha256 "4f114d3d8872cbf9e2df2c2ed2d4962b65b39efc568faf78eb5b2f47552a39da" => :mountain_lion
-    sha256 "00d468662055c9c9ab55d2860e8b812505e0e5aafac1a94aec57b6e9e8f8287e" => :x86_64_linux
+    sha256 "00d468662055c9c9ab55d2860e8b812505e0e5aafac1a94aec57b6e9e8f8287e" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "gdal", :because => "both install a cpl_conv.h header"

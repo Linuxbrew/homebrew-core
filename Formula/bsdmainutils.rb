@@ -8,7 +8,7 @@ class Bsdmainutils < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "f8682d65558e06d54bb1a1853e8000aa9506c6845d8caa1754179dbac0486386" => :x86_64_linux
+    sha256 "f8682d65558e06d54bb1a1853e8000aa9506c6845d8caa1754179dbac0486386" => :x86_64_linux # glibc 2.19
   end
 
   unless OS.mac?

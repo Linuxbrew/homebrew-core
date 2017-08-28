@@ -13,7 +13,7 @@ class Py2cairo < Formula
     sha256 "4969f9b495c0f37c1c38fe2f2e95f32a5b3eb55eed7dc7de3331ea7bcf2d6c84" => :yosemite
     sha256 "724bde1d66a5c916c95746fc0f23ea4dcbfaddd7123694553557c4a6d51f9729" => :mavericks
     sha256 "784e49b2f15f30af7f4e255eb2263c6e99ae4e0d0ec961412ff033d0954fd298" => :mountain_lion
-    sha256 "69b5d06cc955844b457ee3c20264551ec450f31833695b20e4078d32250d51c9" => :x86_64_linux
+    sha256 "69b5d06cc955844b457ee3c20264551ec450f31833695b20e4078d32250d51c9" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

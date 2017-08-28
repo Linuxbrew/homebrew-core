@@ -9,7 +9,7 @@ class GnuplotAT4 < Formula
     sha256 "6cd2fac81f5d126176e64b4930419fb5c08d871c23241d357bcb960f0f7fc66c" => :sierra
     sha256 "05c8929edada3b90266c4cb44ef4d69861fa6883cf7b8121f66089f148506875" => :el_capitan
     sha256 "2c56072a9b684840d6255ac2652a3b9fd87b2f5b115e471e5981ff33a3e4e54c" => :yosemite
-    sha256 "0d323eed3fb62c67c948098a2435f688c0b719b9ab723a6373dd6f4d28410084" => :x86_64_linux
+    sha256 "0d323eed3fb62c67c948098a2435f688c0b719b9ab723a6373dd6f4d28410084" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

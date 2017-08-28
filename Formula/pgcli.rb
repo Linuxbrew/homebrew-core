@@ -10,7 +10,7 @@ class Pgcli < Formula
     sha256 "91656947500c8f0a5d3aeb39312c6d2a3bd650a3e5641d36c276c39239fed63f" => :sierra
     sha256 "a62aa538354e2a750093c46c88c7ad1e8815ace1df8371f1ffc5efe08cd215f9" => :el_capitan
     sha256 "c08450475d1b959c5f298ad525466a7c2c66714961daf1acad821a52c85eaca4" => :yosemite
-    sha256 "ca1fd24c6839df84349a111e5976403494992a4af9f17ff3b882a966f89cfa79" => :x86_64_linux
+    sha256 "ca1fd24c6839df84349a111e5976403494992a4af9f17ff3b882a966f89cfa79" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

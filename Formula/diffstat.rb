@@ -11,7 +11,7 @@ class Diffstat < Formula
     sha256 "30255ba9338a70f51fb80f44cc3993b98e44bd7946f5b598252f9a7d1c6800e9" => :sierra
     sha256 "4b383a964ff74029f6555162d7548e11c1fe8a9f2295671484419c8e32016ede" => :el_capitan
     sha256 "fb1b7c5b2802e7f13afcf58bd694eec31577c76ec9e32bbdef8254d08ca9866f" => :yosemite
-    sha256 "62573b429f599f5bfda8e2baca6e2ec5291adcc3a632d5a94390a83155f9fee7" => :x86_64_linux
+    sha256 "62573b429f599f5bfda8e2baca6e2ec5291adcc3a632d5a94390a83155f9fee7" => :x86_64_linux # glibc 2.19
   end
 
   def install

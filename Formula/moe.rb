@@ -9,7 +9,7 @@ class Moe < Formula
     sha256 "ff9de589a2c3d65b95ab1d137b8ee56e54f3a0f64a43d8d0dc8ebede9369cba7" => :sierra
     sha256 "9d2c0647210a48775c9d829d50c91966bf7a4ca2c6485ad7b906a2b9582db778" => :el_capitan
     sha256 "94983572209b4fcebc765e1a74738eab64f239a97f02d919867ce49105622fdb" => :yosemite
-    sha256 "569993f7c8799a4432fd08fbc96b2a6811d03c07837e5e420766dfe93e298be5" => :x86_64_linux
+    sha256 "569993f7c8799a4432fd08fbc96b2a6811d03c07837e5e420766dfe93e298be5" => :x86_64_linux # glibc 2.19
   end
 
   def install

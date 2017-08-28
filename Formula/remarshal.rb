@@ -12,7 +12,7 @@ class Remarshal < Formula
     sha256 "65c68073ccdbc44ab9c6c2228cc5b1c762ffd5d603bff557408682003fd88a92" => :sierra
     sha256 "99c3c25f5d38962b7a922e4aacef296b23589856db37747f2624a62fd0d46447" => :el_capitan
     sha256 "d018b3c983e5256542d1864e6908057bc942b52db07c295cd89f6c8494855405" => :yosemite
-    sha256 "0065ce17116ac0c5f0e49be542550baf94efd52b3c288ef2f9a801b150e93fe9" => :x86_64_linux
+    sha256 "0065ce17116ac0c5f0e49be542550baf94efd52b3c288ef2f9a801b150e93fe9" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

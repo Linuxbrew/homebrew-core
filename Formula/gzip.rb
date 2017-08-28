@@ -10,7 +10,7 @@ class Gzip < Formula
     sha256 "e51384ad9df99dbda85adc5ed68523661357cb038504f27a34e1851470b5416f" => :sierra
     sha256 "1fcddc90fa996157665322ea1520863e9367a97693334f4c9b60b2abcf958328" => :el_capitan
     sha256 "e240320b82c71f8367a696558a4863469b52fcb0ca8245ba0f0c83483f126507" => :yosemite
-    sha256 "ea33270b466bc9c9e62c2bc69bfb53b63cc888975204aade57023d8d9e680bc0" => :x86_64_linux
+    sha256 "ea33270b466bc9c9e62c2bc69bfb53b63cc888975204aade57023d8d9e680bc0" => :x86_64_linux # glibc 2.19
   end
 
   # Fix crash from usage of %n in dynamic format strings on High Sierra

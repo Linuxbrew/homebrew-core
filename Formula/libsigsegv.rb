@@ -10,7 +10,7 @@ class Libsigsegv < Formula
     sha256 "ab8908ac5dd0796d8f3f4452d057ac18cc335f909f13ad866f8c721f043d3ce3" => :sierra
     sha256 "ded2b14d1110f67dcc52f79525e3b37ba85943cc487b14e4e330f28963c8ebf2" => :el_capitan
     sha256 "71448886166937e22df81d47a2836470fed0ddc4349cac1dec7f668c9048e398" => :yosemite
-    sha256 "5b81c008909af8f45cff3a8377e37dcb2de6ce801f6ef21a10b1766a5fad9c96" => :x86_64_linux
+    sha256 "5b81c008909af8f45cff3a8377e37dcb2de6ce801f6ef21a10b1766a5fad9c96" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -9,7 +9,7 @@ class Antiword < Formula
     sha256 "ffc3b61781ffb2ae04537e34b28a19a4fe33683c534dd2d1504d2ec8d5ef4bef" => :el_capitan
     sha256 "1397c95409d671da764658460eba612b2564d4a0403bfffa667510e05f2fb08a" => :yosemite
     sha256 "4f4938378ed4cad59dc61d652ec8d33b0410f85dd99ac825f1f86eeeedb07402" => :mavericks
-    sha256 "654c7d9f75bd93466f1e7ec505b59d03d14b71f9c5ba1b73db797685bf856965" => :x86_64_linux
+    sha256 "654c7d9f75bd93466f1e7ec505b59d03d14b71f9c5ba1b73db797685bf856965" => :x86_64_linux # glibc 2.19
   end
 
   resource "sample.doc" do

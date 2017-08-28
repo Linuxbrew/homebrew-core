@@ -9,7 +9,7 @@ class Libnice < Formula
     sha256 "3782f1868a247063e772f0ac5b9f59524ed6c0ad5a72e1d96af7078e5a36f526" => :sierra
     sha256 "f9247e1697faac654fa25fc461f080486731d8fbcffc7855c46ab9c716fa62fc" => :el_capitan
     sha256 "2cbf1077ed2e87caf285188031d47710bedc3bfb801f1f0a87ca0fbb081c8e30" => :yosemite
-    sha256 "1ad64bc5204c131c3d685e2c650e535c3f5e7605c6ef859e12c51b49e27983c5" => :x86_64_linux
+    sha256 "1ad64bc5204c131c3d685e2c650e535c3f5e7605c6ef859e12c51b49e27983c5" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

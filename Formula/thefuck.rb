@@ -12,7 +12,7 @@ class Thefuck < Formula
     sha256 "a0706ef1eb547217f42f8471b457bc0d19e97d893975cd92af461771b2ddc2c5" => :sierra
     sha256 "3e5ea611af8e36459c982d2fae5ea3a7e93ecbaf2ef438974db5fb5763008a32" => :el_capitan
     sha256 "e89883492cd9a5061ef9d3cb90a9623bf9098510b9f4294ec80c46c8b37bdf28" => :yosemite
-    sha256 "482db6ff15d61e50c14251989b6eab2968015ebb8bd7781922edb2b94b914dd9" => :x86_64_linux
+    sha256 "482db6ff15d61e50c14251989b6eab2968015ebb8bd7781922edb2b94b914dd9" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

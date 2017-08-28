@@ -10,7 +10,7 @@ class Libart < Formula
     sha256 "18fb7a842650151fef102efadefa52aa12dc3f597ace95b8e25efe6518a65d2e" => :el_capitan
     sha256 "006a9bf5e40ea99cdb4a10b7a2a2ac6a249f511254be1954a937dac0e50a6f0d" => :yosemite
     sha256 "276eafd432499ab988a21d9e87104d744e82cf1adf4cc55d47639b1f72ab410a" => :mavericks
-    sha256 "9cb8b40710f91708ee63c5efe4465b126eaa44bd6b12208d0889a13e9d08d639" => :x86_64_linux
+    sha256 "9cb8b40710f91708ee63c5efe4465b126eaa44bd6b12208d0889a13e9d08d639" => :x86_64_linux # glibc 2.19
   end
 
   def install

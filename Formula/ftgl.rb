@@ -10,7 +10,7 @@ class Ftgl < Formula
     sha256 "6462eb0b97ab120639f1a191f6e3a39419bbb813abd71f5c741303dbf0aed7fb" => :el_capitan
     sha256 "26db05485600adfb7ead23d04fae9b1ee1d1a4b7ac304e1453ad83b4b2c39f64" => :yosemite
     sha256 "50a41f3c95a363b52bc367abf4b5b9dc272d71c8b35fe8e63f058c7cf7162225" => :mavericks
-    sha256 "6eea160488d9acf34d539e8efd45276df9171351c9b5a380eafa43919d3ed578" => :x86_64_linux
+    sha256 "6eea160488d9acf34d539e8efd45276df9171351c9b5a380eafa43919d3ed578" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "freetype"

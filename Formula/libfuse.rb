@@ -7,7 +7,7 @@ class Libfuse < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "1c29503e1008d72d58bc2d6efc4ac38500116b3f5794f4aaf16b81afb25827d9" => :x86_64_linux
+    sha256 "1c29503e1008d72d58bc2d6efc4ac38500116b3f5794f4aaf16b81afb25827d9" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

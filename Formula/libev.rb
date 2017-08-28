@@ -10,7 +10,7 @@ class Libev < Formula
     sha256 "f9eace710427fcb1d9c3e821da0ecab3d5ff60e3a00750a7bfd4b17fd3d3d872" => :sierra
     sha256 "3ff3f21def203c8a3d6175b659aa20cb6ed4bcdb8f6922087b4ec9c568e67c75" => :el_capitan
     sha256 "6a41433542500be7a4fc7c350494839add102a73e2c66ef7578c91c73036985b" => :yosemite
-    sha256 "6dcbcb05eecb049d61e29788353c22536f6ea50ecefc84c15cc24aa16cd382ab" => :x86_64_linux
+    sha256 "6dcbcb05eecb049d61e29788353c22536f6ea50ecefc84c15cc24aa16cd382ab" => :x86_64_linux # glibc 2.19
   end
 
   def install

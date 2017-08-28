@@ -9,7 +9,7 @@ class Mimic < Formula
     sha256 "cb00a072b0730aa23c82d8f3b6208f5e20fdec69e557d2fe669ecbacc98dc3c3" => :sierra
     sha256 "129d1b1e63b7d5ee583fb955286272297b4f159e74c746e319ffaf94aead0951" => :el_capitan
     sha256 "ae14c6662d7241dc75258eac52090b09bd0a69f7bfc6465f47b040930f184afd" => :yosemite
-    sha256 "a2d7744638879914f45e3dac1f138b8ab54c79a8963c67208031ea267336780c" => :x86_64_linux
+    sha256 "a2d7744638879914f45e3dac1f138b8ab54c79a8963c67208031ea267336780c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

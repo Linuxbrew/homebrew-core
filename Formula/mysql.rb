@@ -8,7 +8,7 @@ class Mysql < Formula
     sha256 "8afdb9586feb3bf76728c5bfbe9e782f3b2978d2721ad8f208d925b634bf35c5" => :sierra
     sha256 "5cd412ab981a48952929a25d92c3e90e3c7bb009e2a5bd4287962c6d48b8f904" => :el_capitan
     sha256 "49722c12a639f81856944f2899bf474bc5d068859fed8e60ead170bf474805d9" => :yosemite
-    sha256 "3871337d8597efdf032a19d9000f6c7d87a49874dc110affeb241043e8265d86" => :x86_64_linux
+    sha256 "3871337d8597efdf032a19d9000f6c7d87a49874dc110affeb241043e8265d86" => :x86_64_linux # glibc 2.19
   end
 
   option "with-test", "Build with unit tests"

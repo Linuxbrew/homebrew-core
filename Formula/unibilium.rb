@@ -11,7 +11,7 @@ class Unibilium < Formula
     sha256 "27f3df4ac52b18aeaae73ce3d84edb2002b3e886b4926be409d09cdbbec233f8" => :yosemite
     sha256 "fafb08a5bf8841d938cfff3aff94ad9ec9c144ec61d495f2eb7e09953715706e" => :mavericks
     sha256 "9cee747128f50066fd632b988065966a7ff1c5ab922e54c16aa05f9d9f50e8be" => :mountain_lion
-    sha256 "c9c1e6e4d18e4401f69b96727d087c10a04526f755d7753729f4895e516a6460" => :x86_64_linux
+    sha256 "c9c1e6e4d18e4401f69b96727d087c10a04526f755d7753729f4895e516a6460" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libtool" => :build

@@ -10,7 +10,7 @@ class LeanCli < Formula
     sha256 "37dd066fc1afc2415415df98cd801783f416d757fde4422f22c8bc07137e9d0e" => :sierra
     sha256 "da12b108ad31f60fb6a0170ede6268e794cab60810eae1359ecc374896bf1c56" => :el_capitan
     sha256 "a61ffa2ab7e74d6fe7aca219d52f9b599d646d4f8fbf251b02a5990baba629e6" => :yosemite
-    sha256 "ffc5640daf1911d14a076985ee5ec9c3786d92f0c535875eca783de168370967" => :x86_64_linux
+    sha256 "ffc5640daf1911d14a076985ee5ec9c3786d92f0c535875eca783de168370967" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

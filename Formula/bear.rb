@@ -10,7 +10,7 @@ class Bear < Formula
     sha256 "8ee60ce86edb4a522572155bed169297ecef7e439cf8324a1ad81389827b52be" => :sierra
     sha256 "5e664e7f47defc3b65cdd3d7f76be4b533d09e1bb83af886b2c7c2a9fa5b201f" => :el_capitan
     sha256 "6bc90a7ff577dcc3a15a6efd9b9fcfa0ae8093cd00afe82c5c51fe2b7e6eb53e" => :yosemite
-    sha256 "d96e420ac8f83a9c4195c996cf7cdf5938eb0460dfe92bd348f42ea506bfd989" => :x86_64_linux
+    sha256 "d96e420ac8f83a9c4195c996cf7cdf5938eb0460dfe92bd348f42ea506bfd989" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

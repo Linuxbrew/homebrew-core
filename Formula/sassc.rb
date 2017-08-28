@@ -9,7 +9,7 @@ class Sassc < Formula
     sha256 "3e29026d54b0f6df1d1db291ddf8cd13bb434edc8c7c501d01d6215aa2a24e7b" => :sierra
     sha256 "ef2bb0fed81ef08388a9756f7fefa06a7b08603a28dd909ec2b7dd41ced04bb7" => :el_capitan
     sha256 "f6b86ab2272e40fa98d71fc7d95daa9f504fb779af6544ad8017ad8091113161" => :yosemite
-    sha256 "eae390c0e7ca4ec7625a16bf6d72fc3558c792bf6c3b7b028e06f2bcdb6c558b" => :x86_64_linux
+    sha256 "eae390c0e7ca4ec7625a16bf6d72fc3558c792bf6c3b7b028e06f2bcdb6c558b" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

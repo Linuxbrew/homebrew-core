@@ -11,7 +11,7 @@ class Fleetctl < Formula
     sha256 "217f22406b9a249f6101b40605b020766547b00bb24e8c005cbdecc099251a80" => :sierra
     sha256 "a51e7c700bb0074445e0a0ccea938592841a49f9c858051f6ec97170e30eccd0" => :el_capitan
     sha256 "09492b0c1dc6af381bb22bec46b51c585db9068cda51f290dc5d2c46d91d6c48" => :yosemite
-    sha256 "bd2846fe30e681c787b0a01870f1f9aea290af07c137afc9ce0e53fd2c49b012" => :x86_64_linux
+    sha256 "bd2846fe30e681c787b0a01870f1f9aea290af07c137afc9ce0e53fd2c49b012" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

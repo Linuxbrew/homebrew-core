@@ -9,7 +9,7 @@ class Numpy < Formula
     sha256 "936fecb5154bd0e12d7f136468718e799bd4085b69d2e99bb3358be7e6cd658b" => :sierra
     sha256 "93f36c7114c91d205dca6f473745ac9d53b15c70cebde6e7fec3f796a9f8d98f" => :el_capitan
     sha256 "bd5c8a0ba531d9b194c48e16317f8b4f9c4f7f298c5824cd1f7876611acabb3c" => :yosemite
-    sha256 "779316c7f7f926f26c29dac38034d5d420df61ac79792e3f35f898f707087e93" => :x86_64_linux
+    sha256 "779316c7f7f926f26c29dac38034d5d420df61ac79792e3f35f898f707087e93" => :x86_64_linux # glibc 2.19
   end
 
   head do

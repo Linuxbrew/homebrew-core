@@ -10,7 +10,7 @@ class Openblas < Formula
     sha256 "1bb0db6885551ec021c2267c8e7ea662ef4877ac8c2a9b590d920866f018aea3" => :sierra
     sha256 "15b53cdfdc5028719e559612ea41f432cfbd2d4448cc29202273636ff3980bf5" => :el_capitan
     sha256 "95bb17c1ffeb1f652d24d0d064241a822804818ab8a317a39918a4cfe740b905" => :yosemite
-    sha256 "b13ed8516216f6aba7aa49c1caacd19d730536df60cc1601c0ea195bd86be863" => :x86_64_linux
+    sha256 "b13ed8516216f6aba7aa49c1caacd19d730536df60cc1601c0ea195bd86be863" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx,

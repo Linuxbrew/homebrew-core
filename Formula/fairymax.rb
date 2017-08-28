@@ -9,7 +9,7 @@ class Fairymax < Formula
     sha256 "95706f3f4968922cffae144d91e64d26a4c88026f228d555f144a4ad27c37007" => :sierra
     sha256 "9a829afcded25d1e895e09e91e39ca44b4aa9a6fa97f5315e348228224765d7d" => :el_capitan
     sha256 "b236b3da5f94128741b7ef25407f5a8a30158e108e9010736fee51df3f557195" => :yosemite
-    sha256 "d5133289f74e11a1f562676fc6c4f06dc5b330e310f209b684d42ae9daab83b4" => :x86_64_linux
+    sha256 "d5133289f74e11a1f562676fc6c4f06dc5b330e310f209b684d42ae9daab83b4" => :x86_64_linux # glibc 2.19
   end
 
   def install

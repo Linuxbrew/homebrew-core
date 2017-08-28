@@ -9,7 +9,7 @@ class Hdf5 < Formula
     sha256 "12da4985daed0cbce5a368519e3a04d0e82447636fba3595ec0c8dad9cf13cff" => :sierra
     sha256 "62f02b4183d1c6841ed9322d5bc02156fd7e1871d398fbfb9c9bb272fb13fe0c" => :el_capitan
     sha256 "860eed2e9851d234d197b31161e0bfe66414825024503a43e79704de98fea9c9" => :yosemite
-    sha256 "19680f5a367c61237e7a6a8be1bd676e4dda24e7a0a7e97b6131a87777203663" => :x86_64_linux
+    sha256 "19680f5a367c61237e7a6a8be1bd676e4dda24e7a0a7e97b6131a87777203663" => :x86_64_linux # glibc 2.19
   end
 
   deprecated_option "enable-parallel" => "with-mpi"

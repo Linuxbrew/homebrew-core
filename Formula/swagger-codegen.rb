@@ -10,7 +10,7 @@ class SwaggerCodegen < Formula
     sha256 "704953dac764a141b07ba5cf72c4bc07d7a7ffe7fbb0dbfb25b785563266a232" => :sierra
     sha256 "179c1b14bacfb4b80649475072d0db5e7bed928835fcd3f15465d2cba3bbb90e" => :el_capitan
     sha256 "1fc02905cba6c5e8a02c6936db0dfbcc430b9ff10b1a3961a0cabe7e17ce4814" => :yosemite
-    sha256 "91dde3ad06c8d5b90f57a38b1409913bce03e6ada14738444e6c7bb1a30bdc9b" => :x86_64_linux
+    sha256 "91dde3ad06c8d5b90f57a38b1409913bce03e6ada14738444e6c7bb1a30bdc9b" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :java => "1.7+"

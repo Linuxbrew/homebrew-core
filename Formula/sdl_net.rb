@@ -10,7 +10,7 @@ class SdlNet < Formula
     sha256 "036938975b4060fdc944c2258a8d1d5d73f536860a9c807116e6c4fb2aa65dc8" => :el_capitan
     sha256 "fe6b8eda1d640db450ed12f79feb731d49a62263c4b83601d69659498d697538" => :yosemite
     sha256 "99f9035f95e548ea81eb11ac9c06ae5eab8d2797ea9ca03ac074fe30bb357748" => :mavericks
-    sha256 "87fc30d267a0a872837825861424f72b6a8b47db016e99554a81452f4cc9ebb2" => :x86_64_linux
+    sha256 "87fc30d267a0a872837825861424f72b6a8b47db016e99554a81452f4cc9ebb2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

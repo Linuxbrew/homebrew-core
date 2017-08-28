@@ -9,7 +9,7 @@ class Cython < Formula
     sha256 "e829747a85647ba52254d87b4af228da072d8629a0f32d3687e6cf8ebf31be54" => :sierra
     sha256 "027291cdf4756b3ef5d74cce90a044ccfcf7213f18f7821274958af41de09ed4" => :el_capitan
     sha256 "48cc08535a7b0dd2d3436885c2b9f8bb175aa519824045ee3372e62731d33084" => :yosemite
-    sha256 "db431b2f74e0b6039328a93c7a7b9047f2047f2541927e1e58e3b3d1fb406915" => :x86_64_linux
+    sha256 "db431b2f74e0b6039328a93c7a7b9047f2047f2541927e1e58e3b3d1fb406915" => :x86_64_linux # glibc 2.19
   end
 
   keg_only <<-EOS.undent

@@ -11,7 +11,7 @@ class Blockhash < Formula
     sha256 "a55403e6c23a73a46c8b320fc4a14386be03293f0935fddf05bc8a910d0257aa" => :sierra
     sha256 "ada61986c03a4ea6b50aad241906bf4946c5ff0eac69def8e66c3bdb4f1a23bd" => :el_capitan
     sha256 "f7209a7c71a24b0d78b64f85bb47e775f0ae181c59ed6567afe2dfdbcd77f4c0" => :yosemite
-    sha256 "162acd6a8d16334bea038c77fee9367515b78f289d36b949ab53f7170dd283a6" => :x86_64_linux
+    sha256 "162acd6a8d16334bea038c77fee9367515b78f289d36b949ab53f7170dd283a6" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

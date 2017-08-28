@@ -10,7 +10,7 @@ class John < Formula
     sha256 "729c644b587941668f0412de6a1d7aafc078b375f96421b278daecba51469ed8" => :el_capitan
     sha256 "1576ba09d791c923265c5668aa0a0d5e7d806848d45e06210c0e3a5449bf1403" => :yosemite
     sha256 "394909ad355846b561077f89a216fc87902d116dfcb970b92ff7f563a3d5ce3e" => :mavericks
-    sha256 "344379b86a9a26ccd7bc9a57f1576d2e81bda694a43fb5175da07fbb3c419d96" => :x86_64_linux
+    sha256 "344379b86a9a26ccd7bc9a57f1576d2e81bda694a43fb5175da07fbb3c419d96" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "john-jumbo", :because => "both install the same binaries"

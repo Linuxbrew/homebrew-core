@@ -10,7 +10,7 @@ class MediaInfo < Formula
     sha256 "39f1004281cd63be5c93d71e00846d46f1996c10adad8ea3714e26b2cb37483d" => :sierra
     sha256 "caaa25dd252801f0aa1a14926625fb20bea751ccaced9d6a0b700bfb427faf52" => :el_capitan
     sha256 "afbc58c6d01aa35cca42ce7d103836c495cfa621ef093cb2c048125a789a6167" => :yosemite
-    sha256 "0fe5190a9718c64d7638ea7ed376328b7e65df60d6123107a9e65e861b664469" => :x86_64_linux
+    sha256 "0fe5190a9718c64d7638ea7ed376328b7e65df60d6123107a9e65e861b664469" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

@@ -9,7 +9,7 @@ class Frei0r < Formula
     sha256 "c5c4efcf43d6c2cd495c82bfcf3839574b1d7f507b963151284ed186f53974a5" => :sierra
     sha256 "4f4e3e6ed474ba0e667f161e7e05c8cd8a3b67ad67201818ebc0cdac8e737220" => :el_capitan
     sha256 "a8ee4a509fa1d10137a3be9f2791d088606dcd1727079fa681a237ebc65e8fe7" => :yosemite
-    sha256 "e2cdf7d5a273aa7597ed539b09934c46dff997fc49ef8375136a49f6c843d1e2" => :x86_64_linux
+    sha256 "e2cdf7d5a273aa7597ed539b09934c46dff997fc49ef8375136a49f6c843d1e2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

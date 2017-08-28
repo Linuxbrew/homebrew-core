@@ -9,7 +9,7 @@ class Valgrind < Formula
     sha256 "1ae24d4988d010b407bb344c953dd8a7696876a3c2793f2548648be4cfc61db2" => :sierra
     sha256 "8dcc652676c3ec2f1fd3dfc710298b4da0985b1a056f86c429e68b5b8bcf74a6" => :el_capitan
     sha256 "02f118896232618cb6319e22f21cea21d29f8985be4807547bb49bc397307730" => :yosemite
-    sha256 "8bef5bbd2ad724cc6c25b477b4f4baa486cf03d28ad2fd77c8ce1a3bb85b742e" => :x86_64_linux
+    sha256 "8bef5bbd2ad724cc6c25b477b4f4baa486cf03d28ad2fd77c8ce1a3bb85b742e" => :x86_64_linux # glibc 2.19
   end
 
   head do

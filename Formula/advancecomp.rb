@@ -9,7 +9,7 @@ class Advancecomp < Formula
     sha256 "91ccc9deafc27709e679cde5ce72a1d5086d765710495958bbdfc695a074511f" => :sierra
     sha256 "0b376386378fd8bea0864f6b5bb06abe38a7e4f1dfb6e22632a69c299c8238b1" => :el_capitan
     sha256 "1ee325f6dc47b3c17963372e31591442d6f977b8e20776a09f71cf7503e3bc5d" => :yosemite
-    sha256 "dca030bd02fa441abe3f00ca3fdef8f71fc98bfd22418808b2b41141cff5d455" => :x86_64_linux
+    sha256 "dca030bd02fa441abe3f00ca3fdef8f71fc98bfd22418808b2b41141cff5d455" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

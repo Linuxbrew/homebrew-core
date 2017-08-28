@@ -10,7 +10,7 @@ class Udns < Formula
     sha256 "59939957b47912ebb286426391a4e2c904ecc416e9de18dc8c0a74052ac82ffe" => :el_capitan
     sha256 "342aff7270a4251655eb7cfc538b39db1805cfe965ada5cad1a2819b727d9107" => :yosemite
     sha256 "d6be7acb570845e63c6ac69b8169c4ce1d5a31f5f76f60bad10168a5b13126ff" => :mavericks
-    sha256 "eb334a17a24b5246087dfd86ce1740d66def683e9e3516c96b100fd37d7b1933" => :x86_64_linux
+    sha256 "eb334a17a24b5246087dfd86ce1740d66def683e9e3516c96b100fd37d7b1933" => :x86_64_linux # glibc 2.19
   end
 
   # Build target for dylib. See:

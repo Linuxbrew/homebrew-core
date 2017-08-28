@@ -10,7 +10,7 @@ class Luajit < Formula
     sha256 "bdebedd2ab2bea98e10591308a5246c81aa7628ee7d17a0f20aeebeebf8bec22" => :sierra
     sha256 "1d7aaa71d670da1e52b92e6db270ba935b9047e08e5cda52c70b14623d1b5bdf" => :el_capitan
     sha256 "a96de1c4d07aac2ee35f8df2498e305da7466fed04ae291d42bd63c24e8dc658" => :yosemite
-    sha256 "e5e49592ecac58c10c267a1d1cb2ebb5dad6b66c64e9ce4b5e2766e0212d6339" => :x86_64_linux
+    sha256 "e5e49592ecac58c10c267a1d1cb2ebb5dad6b66c64e9ce4b5e2766e0212d6339" => :x86_64_linux # glibc 2.19
   end
 
   devel do

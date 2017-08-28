@@ -11,7 +11,7 @@ class Apparix < Formula
     sha256 "89d7d52f9f2e76f1dd6b91075f407fa71000be0b09bd4548c11a6fd820b87ab3" => :el_capitan
     sha256 "9ff5a4568499ba2ca67b7c1bae689ab25576409da76798642b3c4caee489c878" => :yosemite
     sha256 "537fac6c0755ea6ef4ac4a6da2840de49c2c125015afaee6cf691ac33937c380" => :mavericks
-    sha256 "d714e8ec5986f8476413b576746e61cac00bdd600b092c526aada0effdbc161b" => :x86_64_linux
+    sha256 "d714e8ec5986f8476413b576746e61cac00bdd600b092c526aada0effdbc161b" => :x86_64_linux # glibc 2.19
   end
 
   def install

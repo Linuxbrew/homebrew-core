@@ -9,7 +9,7 @@ class Libzip < Formula
     sha256 "50ffb3ac27076787296917112d8367d9e37d1e3cb095a8a5f8aaf0c10e66e8ad" => :sierra
     sha256 "fea689c31e3100dea9767f0879b6ac9f263b52a0faeaf457b509d0b696d7fca2" => :el_capitan
     sha256 "c950e33e4db6785c5b23f1c749c61f4fe67f721dae54a46082029f157c85eee5" => :yosemite
-    sha256 "afd80bc6688211b91acbbc55c736d9b93dae8fa42d4d8c2e0392497cd6982e2b" => :x86_64_linux
+    sha256 "afd80bc6688211b91acbbc55c736d9b93dae8fa42d4d8c2e0392497cd6982e2b" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "libtcod", :because => "both install `zip.h` header"

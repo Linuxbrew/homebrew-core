@@ -6,7 +6,7 @@ class AlsaLib < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "1adadace25e90c1dd8ae1253477868e85ba6f11668ed1c4624dcbc91f18ac499" => :x86_64_linux
+    sha256 "1adadace25e90c1dd8ae1253477868e85ba6f11668ed1c4624dcbc91f18ac499" => :x86_64_linux # glibc 2.19
   end
 
   def install

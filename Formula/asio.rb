@@ -11,7 +11,7 @@ class Asio < Formula
     sha256 "d4cb235f7e5f96448fc62695b97bd122ecdb736ba8690acd1dea58d6e839fe96" => :sierra
     sha256 "0bf76623d1395bb82adead05534efce7dbfb57ebc369ce50d5c8c54cb5ced22a" => :el_capitan
     sha256 "03448870924ff06ec9ae67c1db2bc656bc73fac49d25ea24be925d945e602378" => :yosemite
-    sha256 "553fe8e75b8f1aa6e36d57b9e0f33764bc9b5d10792624804501919de11e2a57" => :x86_64_linux
+    sha256 "553fe8e75b8f1aa6e36d57b9e0f33764bc9b5d10792624804501919de11e2a57" => :x86_64_linux # glibc 2.19
   end
 
   devel do

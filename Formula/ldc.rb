@@ -18,7 +18,7 @@ class Ldc < Formula
     sha256 "67455f9aa1fda1e83eab9ca8e0a859b0529d3dd38fa388024ab065e7fb87dbbb" => :sierra
     sha256 "013e1eb1dd837f938f9a70d859dc3ed583d87eb40b8817b06dae2852237149ef" => :el_capitan
     sha256 "f9c8ef995bfcff7a3a26ab889d069c5ffbd0e6b38014b5666ecdaddc5d44b72f" => :yosemite
-    sha256 "2b9d6eafa9001a4e8508fcf3dec9521c1e4660e28914a6af730c549b49690b94" => :x86_64_linux
+    sha256 "2b9d6eafa9001a4e8508fcf3dec9521c1e4660e28914a6af730c549b49690b94" => :x86_64_linux # glibc 2.19
   end
 
   head do

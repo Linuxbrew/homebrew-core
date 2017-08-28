@@ -10,7 +10,7 @@ class P7zip < Formula
     sha256 "7c43699b4c1c186d1dfccb2246ed8c8a9175c5c57ba211b0774395335edce2c8" => :el_capitan
     sha256 "1b3a075e34531a09c8714e92499726d4df8c082c29b43e2b11b35d6d20934627" => :yosemite
     sha256 "78981de13a763ab595e073360e2848ca0ad65d9a13b7f7728e0c255945cdd00e" => :mavericks
-    sha256 "d0d1ef0411759a17272f8f02662cb8e4a8e6ee8c7e165608f22ffceb6613035e" => :x86_64_linux
+    sha256 "d0d1ef0411759a17272f8f02662cb8e4a8e6ee8c7e165608f22ffceb6613035e" => :x86_64_linux # glibc 2.19
   end
 
   def install

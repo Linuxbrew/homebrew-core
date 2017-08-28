@@ -9,7 +9,7 @@ class Diffoscope < Formula
     sha256 "38062a4e7ae8ba154da2957d912ff836fea4d6098e76b24063bfe10ece8b77b9" => :sierra
     sha256 "38062a4e7ae8ba154da2957d912ff836fea4d6098e76b24063bfe10ece8b77b9" => :el_capitan
     sha256 "38062a4e7ae8ba154da2957d912ff836fea4d6098e76b24063bfe10ece8b77b9" => :yosemite
-    sha256 "fee49a4c9c18bc66d9fbc5902f638ae328e7bb60f5c49460ca1eb4fb75af6db9" => :x86_64_linux
+    sha256 "fee49a4c9c18bc66d9fbc5902f638ae328e7bb60f5c49460ca1eb4fb75af6db9" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libmagic"

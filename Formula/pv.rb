@@ -9,7 +9,7 @@ class Pv < Formula
     sha256 "231a659ee3aca5a6f474bc058ed02a0a5f2c366d04c8c56043d310644c46e393" => :sierra
     sha256 "d461d873a47091a52b6114ac0976f16b0ade9e13d02fa0609f574369b8cfc8f0" => :el_capitan
     sha256 "0c4d4a90c188370ed312490b7ff76fdb8a31399170cdc0ad5dfc1542af4c4fc0" => :yosemite
-    sha256 "7bb996047b05101f4895e5178f1a5fe01318f06747bcbdbb6cb0d45d6fe2e9b7" => :x86_64_linux
+    sha256 "7bb996047b05101f4895e5178f1a5fe01318f06747bcbdbb6cb0d45d6fe2e9b7" => :x86_64_linux # glibc 2.19
   end
 
   option "with-gettext", "Build with Native Language Support"

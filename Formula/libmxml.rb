@@ -11,7 +11,7 @@ class Libmxml < Formula
     sha256 "4287dd3c4346f82d9a410bf4bdce69329ef1f931e7639e6c27fa8f79e1e31cb4" => :sierra
     sha256 "01d01bf5766e398837a416949f74eb405e57903dbc27a55fc589e0559e60c518" => :el_capitan
     sha256 "bb2a6d25c76e7e65eb5a14728763a03f41cb7c5f68bb43cd73da4f92df0226cc" => :yosemite
-    sha256 "ee2f45ac3011d82b0e81e9bcc5c3bad9d7db54ef6db46d6055323d1a5c8d8549" => :x86_64_linux
+    sha256 "ee2f45ac3011d82b0e81e9bcc5c3bad9d7db54ef6db46d6055323d1a5c8d8549" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :xcode => :build # for docsetutil

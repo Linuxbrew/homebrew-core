@@ -8,7 +8,7 @@ class Dwarf < Formula
     sha256 "84c3d641587619c55073a819edf62b23a6437aeed72075e257272df685e226aa" => :sierra
     sha256 "053fba2171b46fe1d9fd22f52ca5eee61e462682e2b9340c671505e5351fd5d6" => :el_capitan
     sha256 "1a798403cb54f055465e16fe67e7db63dd693ee993d0a871c32c6f143621d7f3" => :yosemite
-    sha256 "decb1d66fdc671dde17177764a16baa82aff3d919a28347ed2a3d6d2c8929d48" => :x86_64_linux
+    sha256 "decb1d66fdc671dde17177764a16baa82aff3d919a28347ed2a3d6d2c8929d48" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "flex"

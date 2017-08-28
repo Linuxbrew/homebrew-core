@@ -10,7 +10,7 @@ class AutoconfArchive < Formula
     sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :sierra
     sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :el_capitan
     sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :yosemite
-    sha256 "f83eedb963514ed7949dc16ab948dbfc61e0f235b1ea51d50ef32e8219c42577" => :x86_64_linux
+    sha256 "f83eedb963514ed7949dc16ab948dbfc61e0f235b1ea51d50ef32e8219c42577" => :x86_64_linux # glibc 2.19
   end
 
   # autoconf-archive is useless without autoconf

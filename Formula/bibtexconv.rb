@@ -9,7 +9,7 @@ class Bibtexconv < Formula
     sha256 "c38c8d20a76071e57f4b678a586b8f7e213a2028d64de595a4911454c97c469f" => :sierra
     sha256 "c8e2fb247bec2234227366eb9c7adac11b0a04c8f2c6ed0bf251947414dadde9" => :el_capitan
     sha256 "a1cba2452e21e2ea07d4d186462e09b79acf9b72ecfe2831e3dca3daefa2ca91" => :yosemite
-    sha256 "f79fa6c6cd3152d67c73d5fb352220cba5461593584da24ae6f0c8508e724200" => :x86_64_linux
+    sha256 "f79fa6c6cd3152d67c73d5fb352220cba5461593584da24ae6f0c8508e724200" => :x86_64_linux # glibc 2.19
   end
 
   head do

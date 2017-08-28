@@ -11,7 +11,7 @@ class Platformio < Formula
     sha256 "2aceca1739957375b8fc6017f951df38f04c72e5e0feeffbecef9a946e6bedb4" => :sierra
     sha256 "e0a96bf2c7391878d7511be54bf409c032b5711cc6e5a41c89ca6f0013c0a6f3" => :el_capitan
     sha256 "b672933b2902afb442af4ff565a07add41a14b54ba8b4581552a51690007be88" => :yosemite
-    sha256 "2f3238c247322742d02b7c40529c76ff6f482fb04ccd86b60ba89a1e1f6a498a" => :x86_64_linux
+    sha256 "2f3238c247322742d02b7c40529c76ff6f482fb04ccd86b60ba89a1e1f6a498a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

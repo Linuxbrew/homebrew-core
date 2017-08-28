@@ -10,7 +10,7 @@ class Crm114 < Formula
     sha256 "d48449acfcd105d07e11c0ac7c47fdb21b88d3346c0b51377b9e44b8c8726073" => :el_capitan
     sha256 "151316bd14f7cfce5cea3b765cf4e7801e31c63b72dd786fb38989d8b9380eb3" => :yosemite
     sha256 "30c0c390671485747b7fd2e19bd8735ccfe3bfaae8864dc361bf2abe917ba342" => :mavericks
-    sha256 "43888e087fce5f4ab5cc950624eb59a645abdc54619c175c8fcf93dd02a27fcf" => :x86_64_linux
+    sha256 "43888e087fce5f4ab5cc950624eb59a645abdc54619c175c8fcf93dd02a27fcf" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "tre"

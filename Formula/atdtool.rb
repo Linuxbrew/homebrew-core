@@ -10,7 +10,7 @@ class Atdtool < Formula
     sha256 "3c03f9deaae3f420231b6fa5331e3d213dc0d48c8817a7142403d35d54159283" => :el_capitan
     sha256 "8120a3e4b9e2cbc74c533baa2fee5427cae2ebfbf634a39d75c3e2481159b03b" => :yosemite
     sha256 "efda2ae7e414ac866210899a3f037e565631d07957c7ed44ffefc306d1944901" => :mavericks
-    sha256 "66014efe91f1e2b2259c2bb5e232f1d305a4381e1a949dfe192cae9017001fda" => :x86_64_linux
+    sha256 "66014efe91f1e2b2259c2bb5e232f1d305a4381e1a949dfe192cae9017001fda" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "txt2tags" => :build

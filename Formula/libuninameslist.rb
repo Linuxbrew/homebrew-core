@@ -9,7 +9,7 @@ class Libuninameslist < Formula
     sha256 "7acb853a3dfee07369af31362838b5197f3209ecbf8615bde22bbd101be23bc8" => :sierra
     sha256 "4e6851ee1829cfddda282d2b818af28995555955db064f5cc5a90dabdde50ba7" => :el_capitan
     sha256 "d23db374f7e2b07ac1996f461fcf900b48bfdfc79abd70e60f77f60a9ac0df49" => :yosemite
-    sha256 "ac43d898cc97d51280c2530603a90855f0608f49cdf00ab0c75f12fab4efedc8" => :x86_64_linux
+    sha256 "ac43d898cc97d51280c2530603a90855f0608f49cdf00ab0c75f12fab4efedc8" => :x86_64_linux # glibc 2.19
   end
 
   head do

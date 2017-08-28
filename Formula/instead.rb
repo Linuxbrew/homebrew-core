@@ -9,7 +9,7 @@ class Instead < Formula
     sha256 "3bb245499347467119715fc9c8def74ef8f6f23775845ae5a37b266bf25f8951" => :sierra
     sha256 "2ca1a0a758d0e7a404fb62082e8058e915dbd6922c3c0db62937899f3e99fdd8" => :el_capitan
     sha256 "da97fc64cb2c10bc4aa7271d99cefedb3b6fdad308fcfaa3b16628ba1c9a9283" => :yosemite
-    sha256 "1561d0e35f092f641ca261a36aafb29c5295a10daf2fc29a856e51fe8c69afdf" => :x86_64_linux
+    sha256 "1561d0e35f092f641ca261a36aafb29c5295a10daf2fc29a856e51fe8c69afdf" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

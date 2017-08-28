@@ -16,7 +16,7 @@ class AwsApigatewayImporter < Formula
     sha256 "65d77c58ac90e7767f93896c9ec95a478dc1388316bcdafb4c06ed10db089caf" => :sierra
     sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :el_capitan
     sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :yosemite
-    sha256 "c1b5793a470c5027f4be302cb0d3143a41cf0de2edce8ce8bb7b399be125072a" => :x86_64_linux
+    sha256 "c1b5793a470c5027f4be302cb0d3143a41cf0de2edce8ce8bb7b399be125072a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :java => "1.7+"

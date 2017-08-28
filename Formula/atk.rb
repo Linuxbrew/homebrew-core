@@ -8,7 +8,7 @@ class Atk < Formula
     sha256 "89d59856b8bbd0a51961c0569237da2f6119fddd40f67b50d96651483fe9be10" => :sierra
     sha256 "87028a5febfcdce413c64f7786468db61b1c62412799405e6b3ac179c0a8ae05" => :el_capitan
     sha256 "e628db1461560fbe5fa9da800987ed2eab6e6c969709797de07a6052521a022e" => :yosemite
-    sha256 "a8598eeb8fea5a9bdcbcb522921fccd8af375ef60f56e12f8c510aabdf02f6bb" => :x86_64_linux
+    sha256 "a8598eeb8fea5a9bdcbcb522921fccd8af375ef60f56e12f8c510aabdf02f6bb" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

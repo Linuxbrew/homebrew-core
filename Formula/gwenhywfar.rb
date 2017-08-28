@@ -8,7 +8,7 @@ class Gwenhywfar < Formula
     sha256 "b62a95d85fec26ddf586269a556c16be033562c4791d6e058cff05b886a32e46" => :sierra
     sha256 "deba73e094476999d92126d473b79ddc657444ce1c712e4e8370a34b2d46ea2b" => :el_capitan
     sha256 "4da7a21f6fb4f9ed1b408975f2f825f35b5e1d9d134e8e48019d08d15570d5a6" => :yosemite
-    sha256 "bad785708a638bf45a03e6f52d8bc27c17c84c1c20f75e8937a8ec7bc1742137" => :x86_64_linux
+    sha256 "bad785708a638bf45a03e6f52d8bc27c17c84c1c20f75e8937a8ec7bc1742137" => :x86_64_linux # glibc 2.19
   end
 
   head do

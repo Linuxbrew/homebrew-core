@@ -9,7 +9,7 @@ class Freeglut < Formula
     sha256 "ac029acfd40b4c4381dc241e1e0ad94f950cd05ed7c76348e5550a3f848d0152" => :sierra
     sha256 "e3f9e0796917b54055f737677324560db1ffd849c415a1a40019598383671139" => :el_capitan
     sha256 "c2816abf98614e8bf4fc1e6fb65a10d637bf1b85659cf7e9e524bee4d46b3ebe" => :yosemite
-    sha256 "41eb0bbde5e695361a301b257da4686b3483d27901676e0f0e0a3cb1996f701b" => :x86_64_linux
+    sha256 "41eb0bbde5e695361a301b257da4686b3483d27901676e0f0e0a3cb1996f701b" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :x11

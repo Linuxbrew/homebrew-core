@@ -9,7 +9,7 @@ class BerkeleyDbAT4 < Formula
     sha256 "d1352d9ea6085984a1ecd512babf3158416fe5b56b98aee3cd209c98ffb1f520" => :sierra
     sha256 "ae348346b2c4bd39db740b0992cdad4f30d681a005cce8e20fbfa5d0059e4548" => :el_capitan
     sha256 "b220bd9ce6ad809639dbbdd31abdce4a136ccf3f11b5ca6d3cc8c1c9d0fe8dfe" => :yosemite
-    sha256 "4ba15ef8ed24ee445f6e5edf944c0a67ae9f10b8854527ed723d56503bf4d2b9" => :x86_64_linux
+    sha256 "4ba15ef8ed24ee445f6e5edf944c0a67ae9f10b8854527ed723d56503bf4d2b9" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

@@ -9,7 +9,7 @@ class JujuAT125 < Formula
     sha256 "49a435ad1108af78c1345a3dd745889b2e89a7069880d2cca63c8feafce6df70" => :sierra
     sha256 "64b846038d5e0991454553b387edfb3424347e082597e39b8a0374d5b255f728" => :el_capitan
     sha256 "95713c59b55548e2093849d566c3405edab780b00934b6a2bf056a9c4515cbba" => :yosemite
-    sha256 "db7fb3f9472f740d0cfd373fb3ad6c51fdbd87ac7545d284fe85741017ebd262" => :x86_64_linux
+    sha256 "db7fb3f9472f740d0cfd373fb3ad6c51fdbd87ac7545d284fe85741017ebd262" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

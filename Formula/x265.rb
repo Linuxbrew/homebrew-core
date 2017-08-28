@@ -11,7 +11,7 @@ class X265 < Formula
     sha256 "e5533fb7b1c32a7bfcd95495eb17388b68e848cd87884bc22dfa6e0f5dfd1dca" => :sierra
     sha256 "eb45d06b00b7da14f508291f20add9892db9cbcc08a8ebfb29c2bf80a46be394" => :el_capitan
     sha256 "a715de311bbcfbcc65353681a5665d395230b2f70e27621c088456f5490f4328" => :yosemite
-    sha256 "db99694c142f0d18bd5bff4fecc3ae24ee38e8a64828c2ee0d47d1cf946b8c85" => :x86_64_linux
+    sha256 "db99694c142f0d18bd5bff4fecc3ae24ee38e8a64828c2ee0d47d1cf946b8c85" => :x86_64_linux # glibc 2.19
   end
 
   option "with-16-bit", "Build a 16-bit x265 (default: 8-bit)"

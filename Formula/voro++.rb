@@ -10,7 +10,7 @@ class Voroxx < Formula
     sha256 "9d522e672d8f551439c18b536e0ca2d0dc94a6036722eba12bbaba37d2aa3428" => :sierra
     sha256 "b10e4cccc62a7fff1a34c6f80174e2f62cb12dfcaf2782b2c81cc567f0928943" => :el_capitan
     sha256 "d7ce06fd7ebd51a8a592c2409f80eae0bbc6a5fc0d906ffa324534c805249af1" => :yosemite
-    sha256 "5d85269b238071c06300df8766e1f8b3f58b8c87cc1bf05e50bcf2cb2657060d" => :x86_64_linux
+    sha256 "5d85269b238071c06300df8766e1f8b3f58b8c87cc1bf05e50bcf2cb2657060d" => :x86_64_linux # glibc 2.19
   end
 
   def install

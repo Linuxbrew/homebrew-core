@@ -11,7 +11,7 @@ class Aurora < Formula
     sha256 "d2af9495df0060035181a1991a9e29a8723336b312ac794e4b9a716cc38ce58e" => :sierra
     sha256 "f0361aa58cf382e6daafb4cfd13dad45d398e4d6edff5cccd813efc165df199b" => :el_capitan
     sha256 "150614c06c473e101d34f65f0e4114581df8d9808a3ec36df9425c9fd5246c4d" => :yosemite
-    sha256 "bf706d68165ed7c7df0008a0bf6cbbae878c5056b397b7578820a6f49d4b6cbe" => :x86_64_linux
+    sha256 "bf706d68165ed7c7df0008a0bf6cbbae878c5056b397b7578820a6f49d4b6cbe" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

@@ -9,7 +9,7 @@ class Deis < Formula
     sha256 "fc3b3150ba370b75c7d7312fb30bcf65349e8d081c03f4a0ce322a09d229e838" => :sierra
     sha256 "b1ee5164f6dfe2ff0b83e1dccd26294b552c5564e5a56e26f8626f291a0d395f" => :el_capitan
     sha256 "a6d9216f31cdd813af722eabfb4a2eb064689f8b4fd2d882e4581baac38bf9ff" => :yosemite
-    sha256 "10244cab79d286a2d35bd06076dea2d06aa8624970565ef339b80cef50e823cb" => :x86_64_linux
+    sha256 "10244cab79d286a2d35bd06076dea2d06aa8624970565ef339b80cef50e823cb" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "glide" => :build

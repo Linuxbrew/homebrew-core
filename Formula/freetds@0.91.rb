@@ -8,7 +8,7 @@ class FreetdsAT091 < Formula
     sha256 "ab0419c2290e4204524a74de3e652e8fae23b9d29dce793554c38c79a28be947" => :sierra
     sha256 "3e9bfe7bf16e71cc6a68e1296c4af381f40ccb68363edaf94f276393e05d8ac6" => :el_capitan
     sha256 "55b8960ca59ecc738e5973451195da1b4133eb0e31559454e87c5b1f103337bb" => :yosemite
-    sha256 "e0c9c3958d42045cbc913afd2a213aba5fef4c8378135ef3070bf695d3a0e8d6" => :x86_64_linux
+    sha256 "e0c9c3958d42045cbc913afd2a213aba5fef4c8378135ef3070bf695d3a0e8d6" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

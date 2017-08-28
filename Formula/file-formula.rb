@@ -12,7 +12,7 @@ class FileFormula < Formula
     sha256 "94defeca333534a5c8029c96f82a8a51f6b6d8d2e38d7a14b55146ecb84bc7f1" => :sierra
     sha256 "461106ebaea7f18af0bf9aafdac131f901038f8b04d595e32bc050eafaa43731" => :el_capitan
     sha256 "a9600f214a411f73615c432268c4aa76ab318e39835f8c3e20288cd746307888" => :yosemite
-    sha256 "c59ea13174a95a4bd5554ac15ffff05234678a2974abbce39630a25af598c29a" => :x86_64_linux
+    sha256 "c59ea13174a95a4bd5554ac15ffff05234678a2974abbce39630a25af598c29a" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx

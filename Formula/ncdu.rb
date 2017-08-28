@@ -10,7 +10,7 @@ class Ncdu < Formula
     sha256 "b58d0b3a611a9e6538ef45f53220a29c0d6db0c3713982d7fdfdfdb9a11b3cc6" => :el_capitan
     sha256 "33b01aed14d4258567f14b68b7aa902827c9e8ef80255a740d77f2418935a220" => :yosemite
     sha256 "b4e39a75592588e134de07e8037bf01e0d6fc93dbe79af1f6f9e197ca8b288cb" => :mavericks
-    sha256 "41979c3d5987097c45ebc4b47bcd2aea79507682ab685229db98262d99d39c54" => :x86_64_linux
+    sha256 "41979c3d5987097c45ebc4b47bcd2aea79507682ab685229db98262d99d39c54" => :x86_64_linux # glibc 2.19
   end
 
   head do

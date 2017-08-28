@@ -8,7 +8,7 @@ class Gxml < Formula
     sha256 "0822d594967ff897b5da4f78312bcb4acaa0ffa7e2ac046e4c1e07569d6726f7" => :sierra
     sha256 "ab52ecbdd84a6213ac2d96ed167d4e367b3f980360e1aa5b0cfd3e118717dd38" => :el_capitan
     sha256 "c515994080f2dab325b5777142a785bb6ba8c42a0c0a5bf89f5a6d25e1fd8bd1" => :yosemite
-    sha256 "5a7d88f3bb375ee0c76c00e9b28dfffc809a3716f582f0f75e65e3a6bc39c86e" => :x86_64_linux
+    sha256 "5a7d88f3bb375ee0c76c00e9b28dfffc809a3716f582f0f75e65e3a6bc39c86e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

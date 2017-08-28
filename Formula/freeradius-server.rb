@@ -9,7 +9,7 @@ class FreeradiusServer < Formula
     sha256 "ff932637e3ec318b58513eae08c1f5e8dbfe6ae1ec7754f1e7eee0c009c51d2f" => :sierra
     sha256 "759a444aec877b3ab6d06938fbb7b01a4ab7e7302e8ad5843837187dacc30973" => :el_capitan
     sha256 "65f998ce03daee3c05bb02cc83ac8de864c47193fdc4637305edb2dfea6c2260" => :yosemite
-    sha256 "70328b2e2a6acac9665d7c86c23fc7b4bcb933c0efc22b08d4c9e6e0dc1bcc2a" => :x86_64_linux
+    sha256 "70328b2e2a6acac9665d7c86c23fc7b4bcb933c0efc22b08d4c9e6e0dc1bcc2a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "openssl"

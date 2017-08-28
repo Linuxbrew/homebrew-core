@@ -20,7 +20,7 @@ class Jdk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "070e1f7f815a13e304d1a1e4c0ced85e2eee8c2a0c006bd3a06c6c4e58a7e6ee" => :x86_64_linux
+    sha256 "070e1f7f815a13e304d1a1e4c0ced85e2eee8c2a0c006bd3a06c6c4e58a7e6ee" => :x86_64_linux # glibc 2.19
   end
 
   def install

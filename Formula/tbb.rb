@@ -10,7 +10,7 @@ class Tbb < Formula
     sha256 "72c2ba137d129c98f456513deb3ce3a5aea7750fc8ef1d376ef8a8816c423b45" => :sierra
     sha256 "d96aa9da25acbf1158ec6bfc1db9c490520b50ea143b88054065388e152d3686" => :el_capitan
     sha256 "70c6ad9af59958638e59349e8b2913a9cc1f7f9a918ad7c1f54eda49b1ad757b" => :yosemite
-    sha256 "521d543454f3aefcee331a8ebc126ec68a920f65ccc0c70acaf528d6bda98921" => :x86_64_linux
+    sha256 "521d543454f3aefcee331a8ebc126ec68a920f65ccc0c70acaf528d6bda98921" => :x86_64_linux # glibc 2.19
   end
 
   option :cxx11

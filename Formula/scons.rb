@@ -9,7 +9,7 @@ class Scons < Formula
     sha256 "c74c517cbd71ac009888a308226f60a89b55cfa911c667d3e1f773cb5cac2bd1" => :sierra
     sha256 "c74c517cbd71ac009888a308226f60a89b55cfa911c667d3e1f773cb5cac2bd1" => :el_capitan
     sha256 "c74c517cbd71ac009888a308226f60a89b55cfa911c667d3e1f773cb5cac2bd1" => :yosemite
-    sha256 "6beda9c5d70f3f592c7bf2458ab43057b8c331cea34d90d5e1100d89b8186e25" => :x86_64_linux
+    sha256 "6beda9c5d70f3f592c7bf2458ab43057b8c331cea34d90d5e1100d89b8186e25" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python unless OS.mac?

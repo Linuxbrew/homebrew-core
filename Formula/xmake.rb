@@ -10,7 +10,7 @@ class Xmake < Formula
     sha256 "eb544a2e89f167ccde77eb456fe0a6af0d11364a0e6f5543a366fab3f92335b6" => :sierra
     sha256 "6afca5097e3718b9c8efa55c54dec7241a0be7b45405ca668db432959038a248" => :el_capitan
     sha256 "e980cd27838bec8085559305af416cf9f55f059c8e3e74d452d4a89d41523d08" => :yosemite
-    sha256 "7061ff5b492fca2f9cdcee59174381a78852a25f54333148c866bbf644d574fd" => :x86_64_linux
+    sha256 "7061ff5b492fca2f9cdcee59174381a78852a25f54333148c866bbf644d574fd" => :x86_64_linux # glibc 2.19
   end
 
   def install

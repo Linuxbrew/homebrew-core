@@ -12,7 +12,7 @@ class Autossh < Formula
     sha256 "9eb45f4246ed8db8cf639772bb252cedca944b480e7b8bedeeff4e96635a7a97" => :el_capitan
     sha256 "5926ad9cc35738f1fc5eebc8dd68770a0cc62f8a1c5344cc01547c246821e7c1" => :yosemite
     sha256 "4c86bc07f832f9ffeffc6542ecd102925fdebb363cfc354903cba2e9faa7900c" => :mavericks
-    sha256 "737a36e39451d4145a5ad42424517ec7927620ef1111ceb9f531ec13a9c9f64d" => :x86_64_linux
+    sha256 "737a36e39451d4145a5ad42424517ec7927620ef1111ceb9f531ec13a9c9f64d" => :x86_64_linux # glibc 2.19
   end
 
   patch :DATA

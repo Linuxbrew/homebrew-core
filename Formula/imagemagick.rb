@@ -13,7 +13,7 @@ class Imagemagick < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar "/home/linuxbrew/.linuxbrew/Cellar"
-    sha256 "4c9e2496b8855dfc8db16ec001769a44c01f7a6afb25b8f7e5f9623b176990a4" => :x86_64_linux
+    sha256 "4c9e2496b8855dfc8db16ec001769a44c01f7a6afb25b8f7e5f9623b176990a4" => :x86_64_linux # glibc 2.19
   end
 
   option "with-fftw", "Compile with FFTW support"

@@ -11,7 +11,7 @@ class Help2man < Formula
     sha256 "1ce372ea4da79821e251a867c380232a036569d5e05ab8734ca52bd25b9ff3bb" => :el_capitan
     sha256 "b52243aae3f9552873d6a0befa2158c116993560719b7aada59dbafb2cdf281d" => :yosemite
     sha256 "d63079ec5272bb4d5be4c244ffa36af7ddbcb0fd738e2acfb657b8268b932c05" => :mavericks
-    sha256 "231a2b466c10e81b21a94617dc343f7e817d20e8fbf776ad84bea7bd8ba2a806" => :x86_64_linux
+    sha256 "231a2b466c10e81b21a94617dc343f7e817d20e8fbf776ad84bea7bd8ba2a806" => :x86_64_linux # glibc 2.19
   end
 
   def install

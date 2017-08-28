@@ -9,7 +9,7 @@ class Nlopt < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar "/home/linuxbrew/.linuxbrew/Cellar"
-    sha256 "d53f53fb773c137bb9c5d12c2d97fc7ab865dcbbb49f806eb5e96e32adf54fb5" => :x86_64_linux
+    sha256 "d53f53fb773c137bb9c5d12c2d97fc7ab865dcbbb49f806eb5e96e32adf54fb5" => :x86_64_linux # glibc 2.19
   end
 
   head do

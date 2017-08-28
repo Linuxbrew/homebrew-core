@@ -11,7 +11,7 @@ class Abcmidi < Formula
     sha256 "f94a95a09103ae6db8b8b58abbed55dfbd6b2c66ca63aa3128915dacf16cf2a4" => :el_capitan
     sha256 "8c6720778cf90577c598fe35eb76a9afa05f522335c39600435bbc26d59ff7df" => :yosemite
     sha256 "adb9d06a2dea9d285dc73ccbc7146e9badb026a5900f325fdc760cacd02f7857" => :mavericks
-    sha256 "3f3d65d7d24680ab2387c655121eec3d2b7be8225f3d71f31d7d5fb947927e13" => :x86_64_linux
+    sha256 "3f3d65d7d24680ab2387c655121eec3d2b7be8225f3d71f31d7d5fb947927e13" => :x86_64_linux # glibc 2.19
   end
 
   def install

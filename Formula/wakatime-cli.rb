@@ -9,7 +9,7 @@ class WakatimeCli < Formula
     sha256 "4968086ecffa2200407d844fc568e7675b20983fe6cf3a4ae683cb86ddcfde06" => :sierra
     sha256 "ee933f36da072757c1c186494b2d5f2efd93b76f76784defb4b8a5a05a1ffd70" => :el_capitan
     sha256 "ee933f36da072757c1c186494b2d5f2efd93b76f76784defb4b8a5a05a1ffd70" => :yosemite
-    sha256 "98bdad3c1eb8683f66838c74871c8e76c3b191717fcf22afbf5783414846d48a" => :x86_64_linux
+    sha256 "98bdad3c1eb8683f66838c74871c8e76c3b191717fcf22afbf5783414846d48a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

@@ -10,7 +10,7 @@ class Fzf < Formula
     sha256 "b6be52e173c586f1abbac42f5195c2bb4a5cdeb6fc8463d49c9782e6410d594d" => :sierra
     sha256 "61d511d1a04844a01e428847be842058a0967ce3f3762c5ff104de7bf6a91574" => :el_capitan
     sha256 "90783c405a559cdee8f97c9a628cce8a523fd823e3e86f94e676acb6193d1678" => :yosemite
-    sha256 "eeebd96236b0d92b2d8ee40231b967921d3c2be1882c98ad7a9312fbce087347" => :x86_64_linux
+    sha256 "eeebd96236b0d92b2d8ee40231b967921d3c2be1882c98ad7a9312fbce087347" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "glide" => :build

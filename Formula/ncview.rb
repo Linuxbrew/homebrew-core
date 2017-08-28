@@ -9,7 +9,7 @@ class Ncview < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar "/home/linuxbrew/.linuxbrew/Cellar"
-    sha256 "5bc6b65d054992f18a9b641b19b2e0fc13c10454f0c45c056e0eb6208ec2bfc3" => :x86_64_linux
+    sha256 "5bc6b65d054992f18a9b641b19b2e0fc13c10454f0c45c056e0eb6208ec2bfc3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "netcdf"

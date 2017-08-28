@@ -9,7 +9,7 @@ class Fig2dev < Formula
     sha256 "faf054ca4097373006a95bde74efc792a663bc19f34f2f9cb59eac67c9f96740" => :sierra
     sha256 "703e5bba6e0a413f865e6f34fb8ecc92ff64dd9469ae761947a1b0b707c4a4a9" => :el_capitan
     sha256 "6994cc58bcf98e205b0d3d6ebbefbe2d7bcc02db84c10440a0e1c421fc08a79f" => :yosemite
-    sha256 "70e404e644e67746880dfab07a40f850bb7d86262d974aa48af8484922babaf4" => :x86_64_linux
+    sha256 "70e404e644e67746880dfab07a40f850bb7d86262d974aa48af8484922babaf4" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ghostscript"

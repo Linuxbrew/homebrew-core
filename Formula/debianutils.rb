@@ -10,7 +10,7 @@ class Debianutils < Formula
     sha256 "9994c23af4d0d7d72f6a9bc77e68d68111aee06599f0593a83d65a23317698d8" => :sierra
     sha256 "a4bc232d9992f7141db6e4d2805ba4cc6558fdb09a81303c7b66b4d7578889ae" => :el_capitan
     sha256 "52169644003ecf267e64b567d7dbc8d82ea7d90859b30494e5caf56a497b8e31" => :yosemite
-    sha256 "758ab729de29c2a3ab1ecbebc7191c1ae40375f8d9d002e0d22185e1b3237b36" => :x86_64_linux
+    sha256 "758ab729de29c2a3ab1ecbebc7191c1ae40375f8d9d002e0d22185e1b3237b36" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -9,7 +9,7 @@ class Htmlcleaner < Formula
     sha256 "87838ab8f3acda2911416178fd1bdf11d37ac7d3b6e21007f6218d1ad7e7139b" => :sierra
     sha256 "cc0afb1dd3c56cd78700138590142baa370480ff979ff757a4b5f7a18f66219c" => :el_capitan
     sha256 "2082bbebc107e771ed502971cec401c9b23b5c977c2fcc9324cd54c28f78f5a8" => :yosemite
-    sha256 "89e99224dc1c82bf58576181e285c7ac2bc057e52bf9cccb86a4e35e19a54849" => :x86_64_linux
+    sha256 "89e99224dc1c82bf58576181e285c7ac2bc057e52bf9cccb86a4e35e19a54849" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "maven" => :build

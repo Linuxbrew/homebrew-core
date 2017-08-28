@@ -11,7 +11,7 @@ class Mmark < Formula
     sha256 "f77cf57d876dcefefb4e7405b43423e03b59f014cbfaecce1cd6d4c640fcaf1c" => :sierra
     sha256 "7e24b299282e0649411e3e664035edcffc33ff1b111eb921a04726653ecf9419" => :el_capitan
     sha256 "e06f3c226006f9241659fb33d24da96d35e2c4fcb746c53a871acb16c5daab18" => :yosemite
-    sha256 "ec2398cb9a2f07b1043f42f92dec7ac75c7290e67c9d8cb18867ae0d8da6803f" => :x86_64_linux
+    sha256 "ec2398cb9a2f07b1043f42f92dec7ac75c7290e67c9d8cb18867ae0d8da6803f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

@@ -10,7 +10,7 @@ class Archivemail < Formula
     sha256 "f95de4796d99f6c4a2174e973bac2efe5edd42237f0916cccfc1ebcdfbce92ba" => :el_capitan
     sha256 "92456f5fd90d8151d2dbe666f6b945ed9f47b90e96dc60080f69d41cdd9775d5" => :yosemite
     sha256 "691e95f5a952a01cf632ebb4d1e3e1bf6b773184e554705ee1893219ac0b0a55" => :mavericks
-    sha256 "9ddae4305a6ad3ebaf0c5410e3dda1d12fb33241eaa86e7f49a8eac2a9cd6214" => :x86_64_linux
+    sha256 "9ddae4305a6ad3ebaf0c5410e3dda1d12fb33241eaa86e7f49a8eac2a9cd6214" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

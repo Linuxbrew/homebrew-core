@@ -11,7 +11,7 @@ class Podofo < Formula
     sha256 "1bee565ed640de58ab42229e0b8d87b723e7148006fe18d609e27e78614407c6" => :sierra
     sha256 "03db2d2fbfdd25788c6b8d44eb51d436bc9a15319ef540e59a72693eb80c2a92" => :el_capitan
     sha256 "8564686fa0043a7dd94bc00f09f1a2b4bb3ba063cff6ff7e59eee6912a213913" => :yosemite
-    sha256 "e9a1b3f2076bfb869491e0ec91a93654655de5c7f6a3668ec6926e34ad67b7bb" => :x86_64_linux
+    sha256 "e9a1b3f2076bfb869491e0ec91a93654655de5c7f6a3668ec6926e34ad67b7bb" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

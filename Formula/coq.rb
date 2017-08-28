@@ -19,7 +19,7 @@ class Coq < Formula
   head "git://scm.gforge.inria.fr/coq/coq.git"
 
   bottle do
-    sha256 "968dd6001448e4f0306d8d3b35fddda5e884bad63036c8dc611d5ba28a355d49" => :x86_64_linux
+    sha256 "968dd6001448e4f0306d8d3b35fddda5e884bad63036c8dc611d5ba28a355d49" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "opam" => :build

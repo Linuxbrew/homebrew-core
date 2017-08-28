@@ -12,7 +12,7 @@ class SaneBackends < Formula
     sha256 "2fce948374f59735fc55c2ef4803f44fba0ac9979943dadc30d11f9a262c6fd2" => :sierra
     sha256 "2faeb4b16e4e2ea851c1cfc100d8deedea3bb042ba3b21b66ba2865812500479" => :el_capitan
     sha256 "68242fa7feb502d1b5001df7db05837268085f6f97e58768323566e671ac59f9" => :yosemite
-    sha256 "1f9470d78df18484c47e916844cb7646602daeea16a1295977f26a366ce5ae80" => :x86_64_linux
+    sha256 "1f9470d78df18484c47e916844cb7646602daeea16a1295977f26a366ce5ae80" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "jpeg"

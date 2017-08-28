@@ -9,7 +9,7 @@ class Libwebsockets < Formula
     sha256 "3a58aebfcd276a81557f21cf3cdcd1663868d9e3af2097fce16bee1b92eac9e4" => :sierra
     sha256 "1353fdacc6c88c5597bf158d6aba15287b7520354e79d46bc11b2994bac8369a" => :el_capitan
     sha256 "efba92b65603d249b4ebc7cbea8c705ae951e26fac7dcd9841af40bfbb3741f5" => :yosemite
-    sha256 "4f646564eb1e74cb75d1070e03e4c9dc0ac0168ac585fab3cef20d5063df4c1f" => :x86_64_linux
+    sha256 "4f646564eb1e74cb75d1070e03e4c9dc0ac0168ac585fab3cef20d5063df4c1f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

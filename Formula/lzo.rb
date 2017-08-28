@@ -9,7 +9,7 @@ class Lzo < Formula
     sha256 "26969f416ec79374e074f8434d6b7eece891fcbc8bee386e9bbd6d418149bc52" => :sierra
     sha256 "77abd933fd899707c99b88731a743d5289cc6826bd4ff854a30e088fbbc61222" => :el_capitan
     sha256 "0c3824de467014932ebdb3a2915a114de95036d7661c4d09df0c0191c9149e22" => :yosemite
-    sha256 "a41fb0e7fc06aaf7614e93a880b7011ebacfe91a2aa5cb9287d37d86affbd030" => :x86_64_linux
+    sha256 "a41fb0e7fc06aaf7614e93a880b7011ebacfe91a2aa5cb9287d37d86affbd030" => :x86_64_linux # glibc 2.19
   end
 
   def install

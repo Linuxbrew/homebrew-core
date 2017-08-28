@@ -21,7 +21,7 @@ class Mlton < Formula
     sha256 "97656e7b1533886252d034c4a6ac0391d386369598f36a72a0033df8bc54a339" => :el_capitan
     sha256 "96fb444b34e8a605445567482a480fb59be749f5f57f46bc704f44b4763f26ae" => :yosemite
     sha256 "fb9c2fbc7e1e0e975ef79a061d17d56b8300da5a60c4b347e6726966c30f8fc3" => :mavericks
-    sha256 "5fa82401e526a044cb1605d4b1da785f0931a6ea83c63b63acea80c023654088" => :x86_64_linux
+    sha256 "5fa82401e526a044cb1605d4b1da785f0931a6ea83c63b63acea80c023654088" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gmp"

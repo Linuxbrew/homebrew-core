@@ -8,7 +8,7 @@ class Advancemame < Formula
     sha256 "2a64703b056e341dd6ee4773038f5d4fa289ae120e64b852d103c41cffec3fee" => :sierra
     sha256 "1f67883e185c7d2afe1bfef2ab7eac425c15c4540d648cabb40b2cde8aba0e7f" => :el_capitan
     sha256 "1865a05529d60f846bb97b29c936aaf49f975d788d3687a7b7e87fcd0681bf3d" => :yosemite
-    sha256 "0a072a3930f59fcb28f77cff990e47c8d147f6c039ca6d9ea7af8b810f9cd7ec" => :x86_64_linux
+    sha256 "0a072a3930f59fcb28f77cff990e47c8d147f6c039ca6d9ea7af8b810f9cd7ec" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "sdl"

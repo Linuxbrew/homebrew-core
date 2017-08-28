@@ -12,7 +12,7 @@ class Aggregate < Formula
     sha256 "87507a739f2bd5ba57ccd23b34f2b7c41d68a897c128231dbbc32ba23b869ed5" => :el_capitan
     sha256 "813ccd28b00f94e1574079f7f6816858e32c5d8f9a964b783307d25c7e449d2b" => :yosemite
     sha256 "169598a0d41382215ba51ed0c377c98857804e82fb1658414dd04ee94ddbb993" => :mavericks
-    sha256 "5192eb54fd05b00b6ad4c7f342eadedc166c88117e5dd22c8ffb6128e513bf62" => :x86_64_linux
+    sha256 "5192eb54fd05b00b6ad4c7f342eadedc166c88117e5dd22c8ffb6128e513bf62" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "crush-tools", :because => "both install an `aggregate` binary"

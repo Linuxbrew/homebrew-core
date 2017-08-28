@@ -9,7 +9,7 @@ class Pstoedit < Formula
     sha256 "085860d9480d7d9558697d403f6628466a8fdfe52f568f21793568d1c71747f2" => :sierra
     sha256 "ee6634e964c7687c5614c9e4358737154ab6f29d53a104416bdc1509b33e6930" => :el_capitan
     sha256 "6330be58259fcfa74062eb1ebfa5eced31aea86ae5f1ce6b2bf49e2f544b3d73" => :yosemite
-    sha256 "a247fceb8c84d502ffcbaa2c84d58df0e88f9caa9732213e36669f9c696f0b84" => :x86_64_linux
+    sha256 "a247fceb8c84d502ffcbaa2c84d58df0e88f9caa9732213e36669f9c696f0b84" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

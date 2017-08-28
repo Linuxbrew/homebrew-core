@@ -10,7 +10,7 @@ class Libvterm < Formula
     sha256 "fdab6481377220ea48474d7af256df3b82ee202d28ba010d644aa5ff200c2fbd" => :el_capitan
     sha256 "e74dceb0e58c42be4c8e1ab96867ad71931b9412b7c692cfc40dc5bc924d0daa" => :yosemite
     sha256 "a3b42686b7e365b71c766cfb44bb564e5d0e157ac85cf9b9ffba6b6d570f3ef8" => :mavericks
-    sha256 "286613fabae20c98f01b4ac4719bed1aef18cb70c80e8b9d36f4c6a967f310f3" => :x86_64_linux
+    sha256 "286613fabae20c98f01b4ac4719bed1aef18cb70c80e8b9d36f4c6a967f310f3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libtool" => :build

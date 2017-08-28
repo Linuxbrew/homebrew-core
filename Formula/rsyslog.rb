@@ -9,7 +9,7 @@ class Rsyslog < Formula
     sha256 "fe4b4b7732000b54f6bcc09495920fa27d2f09f31b575d424b9f71b73e32ae6e" => :el_capitan
     sha256 "a3434bafdb1c54eb0ea50fcbabbbf87f241dac07dd68be55c4de344db3daa114" => :yosemite
     sha256 "2f41f4e354de6cb6cd95630ed396a2099753adef10a63e0304fba550097f6237" => :mavericks
-    sha256 "4e9602ba28cac83fcf0768ca3aa73263fb5f768fa0d57cd4d32554cd66f0e041" => :x86_64_linux
+    sha256 "4e9602ba28cac83fcf0768ca3aa73263fb5f768fa0d57cd4d32554cd66f0e041" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

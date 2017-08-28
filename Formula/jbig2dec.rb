@@ -10,7 +10,7 @@ class Jbig2dec < Formula
     sha256 "e19f9e1b02a373ffa8ef57815e117466564cce65c2c9375734f2814235b692c4" => :sierra
     sha256 "3baac1e2249e2e5f3598da7c2e23eae663efac0391d73b8057de4abc49b91683" => :el_capitan
     sha256 "a1d8a3379bcccbe0243581037a4c98ad86f43c331e59c400eb1e273ce29f26e8" => :yosemite
-    sha256 "4cc2ab48e7910d9f0579d40213071ddc859f7586c533b4216e35208a1432f8c2" => :x86_64_linux
+    sha256 "4cc2ab48e7910d9f0579d40213071ddc859f7586c533b4216e35208a1432f8c2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libpng" => :optional

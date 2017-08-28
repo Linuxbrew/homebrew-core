@@ -9,7 +9,7 @@ class Libcroco < Formula
     sha256 "26530657c9133fb47b9749889603507bc493cb85e4a61818014a1939e3cbd692" => :sierra
     sha256 "2e8e7dfb8acc4e79089f3409a4a4772ec0b243e1e773070d4e8323acb939e668" => :el_capitan
     sha256 "46e3c7e47448859863644d50ac6d940a19a1bfd7f5a99d4d753e4e3885654767" => :yosemite
-    sha256 "a2e52d0162df33905cf6043703e2500439cd77f487d4e5b733a4c0406f00d7e1" => :x86_64_linux
+    sha256 "a2e52d0162df33905cf6043703e2500439cd77f487d4e5b733a4c0406f00d7e1" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

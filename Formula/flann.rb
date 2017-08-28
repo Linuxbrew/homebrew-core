@@ -7,7 +7,7 @@ class Flann < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d8aab39b18401195d3bb31129f8500bd108d3560123e251b61677b86283f9a8" => :x86_64_linux
+    sha256 "8d8aab39b18401195d3bb31129f8500bd108d3560123e251b61677b86283f9a8" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

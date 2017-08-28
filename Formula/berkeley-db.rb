@@ -9,7 +9,7 @@ class BerkeleyDb < Formula
     sha256 "eb54f8ab1d0149e073f641ad066e6ffb179afdee83cd3211e90eeaaaa4a7bc9a" => :sierra
     sha256 "c084857cfdd9bbc5eec028cc551d2323c050489e8a963ec40076270db8d14fb3" => :el_capitan
     sha256 "1ed9a471cd8a38b58053a86e37b4ec83c09944781158fa20e2ba300f3b374f4f" => :yosemite
-    sha256 "7196de20ffd4fd1a38268d246bf07f9ffe91adf1a41983b4c6e0941edfaf235d" => :x86_64_linux
+    sha256 "7196de20ffd4fd1a38268d246bf07f9ffe91adf1a41983b4c6e0941edfaf235d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :java => [:optional, :build]

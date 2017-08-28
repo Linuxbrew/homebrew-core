@@ -12,7 +12,7 @@ class Libdmtx < Formula
     sha256 "ecb61e93fa9c7698011856693ac7b5335008cbda9807cc5852f0b47dcf1188d8" => :yosemite
     sha256 "c6c2c336211aca2d6fc9c1a71ed4028d99ce2e0f3f50b34e6b916068557c7c18" => :mavericks
     sha256 "86300de879b8d17dbf3f075a5fa1f1d3762c1eebb77e0fdd05ed38f76b75769e" => :mountain_lion
-    sha256 "e3a9f0cd616d07b8d4dccf49a21f22715941a9de29cea130a0604aa7a3f7fe67" => :x86_64_linux
+    sha256 "e3a9f0cd616d07b8d4dccf49a21f22715941a9de29cea130a0604aa7a3f7fe67" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

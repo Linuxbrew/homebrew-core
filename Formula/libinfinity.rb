@@ -10,7 +10,7 @@ class Libinfinity < Formula
     sha256 "43aed53c6130683c7a2cbc75f72f640ac4a8890f0a4d0d5324802722fb9e595a" => :el_capitan
     sha256 "f8814b4172c821d45b26edd01fd19ead1e1e3c54b53ebb199b851761dbd9c429" => :yosemite
     sha256 "a657d5cb68e8dec8efee285e1dc1bb69e9d7753593c49876aaffe2825a136b91" => :mavericks
-    sha256 "efe963d7965b8aeb884c7064d9ea32cf3ceef475b1c75237053aeab2165c6d0f" => :x86_64_linux
+    sha256 "efe963d7965b8aeb884c7064d9ea32cf3ceef475b1c75237053aeab2165c6d0f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

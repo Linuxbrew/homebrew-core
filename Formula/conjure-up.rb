@@ -12,7 +12,7 @@ class ConjureUp < Formula
     sha256 "4f53d7c2a9fbe2c0967ac8b7389f92c95bf56ac8ef559c94a1d2d95573bd4ab9" => :sierra
     sha256 "168e8cd9cb37ca173408b394431a663dc8b6132b01c080ad05f708153e28f52c" => :el_capitan
     sha256 "2d78b60af004c824c3a1b30ce81f9e924ca40c36099995ca12ec7fbdc095dfcf" => :yosemite
-    sha256 "bcea0b92926f70640277d976c0fadf8e56b2d304d1d0dea8efb218caccd13ec8" => :x86_64_linux
+    sha256 "bcea0b92926f70640277d976c0fadf8e56b2d304d1d0dea8efb218caccd13ec8" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python3

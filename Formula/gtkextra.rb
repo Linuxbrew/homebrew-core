@@ -9,7 +9,7 @@ class Gtkextra < Formula
     sha256 "e1c1be18254cb2598000bec74511879089a7431ae338fdd4e5ddb05769355fcb" => :sierra
     sha256 "7b32a82119aa9de2c9f8998db3db68a1700a73bfda917b6047ccc09c5c95e1a5" => :el_capitan
     sha256 "7ee8be67c7fb4c9c1cb16248055aeecdc6a6f936e80fe767bfdbe4b98975baf3" => :yosemite
-    sha256 "d0f48a97953b633471ed57cb043f93906455818950475f2d9a4521fa06cc36a2" => :x86_64_linux
+    sha256 "d0f48a97953b633471ed57cb043f93906455818950475f2d9a4521fa06cc36a2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

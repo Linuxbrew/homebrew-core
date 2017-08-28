@@ -11,7 +11,7 @@ class Qrencode < Formula
     sha256 "2866e5c3b66b55d8bfb98c674e8467f4ca60de3994d82216277d9a8c88633672" => :yosemite
     sha256 "1365ca76177b060b8f83d69f28711cd92d21fc9c9596ce32f4b4fae5a195854a" => :mavericks
     sha256 "559fb8304c7da49cc214de238c57c6322ae8b389f102acb20f8b537e7f587814" => :mountain_lion
-    sha256 "a7dbf21546361d2a9da799290d7cd9c6130629b0677dace1a386b3dbf67f1707" => :x86_64_linux
+    sha256 "a7dbf21546361d2a9da799290d7cd9c6130629b0677dace1a386b3dbf67f1707" => :x86_64_linux # glibc 2.19
   end
 
   head do

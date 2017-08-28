@@ -10,7 +10,7 @@ class ApacheForrest < Formula
     sha256 "615ab5a39fcc19a110ebab166c05a614149374e65c5f9a7a4522fa400b8d4118" => :el_capitan
     sha256 "cd0e4ceeb9e01118fe69bee3f80ccff63a951e01bf76c87146185ae6fe474c09" => :yosemite
     sha256 "a0e06c41204932f1427e38d47b3c4442dea7f7c3312f959faf1b725d35d85a52" => :mavericks
-    sha256 "b972b46d2ee37dd0b99b80b71a8e30ea1432df8e8cac5570f987eff84eec0db3" => :x86_64_linux
+    sha256 "b972b46d2ee37dd0b99b80b71a8e30ea1432df8e8cac5570f987eff84eec0db3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :java

@@ -11,7 +11,7 @@ class Txr < Formula
     sha256 "d0ff86a1141a4906b79d1deb09f29d67f62e592ec93ac8878d394d18bbd8c731" => :el_capitan
     sha256 "9872c20d71cb9112b7aea4d68db9ae996408ca27048a687286c39ad6c68b0781" => :yosemite
     sha256 "da1a691c1939f768b066d2bd8d71a06f1ecb6d968e6eeb2231e01d16af646e66" => :mavericks
-    sha256 "5ac34e2b19214f35ba2ebcdb415f7b9c9b2f6edb6792d6c8ddeea3153252a4bc" => :x86_64_linux
+    sha256 "5ac34e2b19214f35ba2ebcdb415f7b9c9b2f6edb6792d6c8ddeea3153252a4bc" => :x86_64_linux # glibc 2.19
   end
 
   unless OS.mac?

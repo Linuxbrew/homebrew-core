@@ -21,7 +21,7 @@ class Watch < Formula
     sha256 "926d0be8053cf015dc06cf8fb4e6107902c2015acc8b69f1a77100034e078cfd" => :el_capitan
     sha256 "31b517c67875cbb8ca8bd8126af66561a8df0f61bee955ffdeac3eeb6021ec12" => :yosemite
     sha256 "fdedabfbc86a57b936be2ca1377c8749a6bce801baf74ef4444e7c75b9b6e0f0" => :mavericks
-    sha256 "11e2156084395012df4b7043c0a92aa3db187478dd51e8ad057a64f7a2387562" => :x86_64_linux
+    sha256 "11e2156084395012df4b7043c0a92aa3db187478dd51e8ad057a64f7a2387562" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

@@ -12,7 +12,7 @@ class Afio < Formula
     sha256 "c729e81f3952e8475ec4fe1ed4dc5a870e550af781b877a610a09686e9fe8a71" => :mavericks
     sha256 "74a74e153dda86a7d08ab9cf293c1ac8796f64d1f94f0f31590ee96de88b2c3d" => :mountain_lion
     sha256 "7ff316d9e43e5a55b95d381f13f0429a87ff36d39425fb62ec2af2cb00fc22af" => :lion
-    sha256 "5b8c646c90cd1e46681bb2540d5f309bc7220d6bcbed402f8d95843f71a21377" => :x86_64_linux
+    sha256 "5b8c646c90cd1e46681bb2540d5f309bc7220d6bcbed402f8d95843f71a21377" => :x86_64_linux # glibc 2.19
   end
 
   # Note - The Freecode website is no longer being updated and alternative

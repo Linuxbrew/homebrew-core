@@ -9,7 +9,7 @@ class Libvidstab < Formula
     sha256 "5ff2357b04a9bb854b9a09d3b6974f7c665e032948a95981357bf62b857a4099" => :sierra
     sha256 "e3ed904feb361f98bc78ee3211ab6a13a4913f56e09213fecfb73f305c95dc45" => :el_capitan
     sha256 "f12257af2bbd99c395152638cb8a76e654a838072c55cb7a1cc25bacef632cc8" => :yosemite
-    sha256 "9903fe167d9ed96dc3d7a6fee63d1d651b68e3172de6b2b7327f7723a1b51d58" => :x86_64_linux
+    sha256 "9903fe167d9ed96dc3d7a6fee63d1d651b68e3172de6b2b7327f7723a1b51d58" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

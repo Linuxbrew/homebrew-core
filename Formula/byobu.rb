@@ -9,7 +9,7 @@ class Byobu < Formula
     sha256 "2a557d087004fad0d9aece2161f7c3137e0e21e4ac8f2791efd1b644e66dd008" => :sierra
     sha256 "2a557d087004fad0d9aece2161f7c3137e0e21e4ac8f2791efd1b644e66dd008" => :el_capitan
     sha256 "2a557d087004fad0d9aece2161f7c3137e0e21e4ac8f2791efd1b644e66dd008" => :yosemite
-    sha256 "2e97418b24ecc0dccd8dbc930af380a6acaa0b7332ddb5ec2f4e2d09faccb240" => :x86_64_linux
+    sha256 "2e97418b24ecc0dccd8dbc930af380a6acaa0b7332ddb5ec2f4e2d09faccb240" => :x86_64_linux # glibc 2.19
   end
 
   head do

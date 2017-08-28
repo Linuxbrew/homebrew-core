@@ -12,7 +12,7 @@ class Pygtk < Formula
     sha256 "bfea679c1a46b35c7788a692869ddb576c2869900d25b72f6cf91e25edc409a9" => :el_capitan
     sha256 "7b008b213a675e96a83edb7b1be8401bbc9bbeb5db9a926104897f99a8d7d61e" => :yosemite
     sha256 "603694d87d2c6193caa164029bc441d93d45cdcd75419c8f8ed11b0902577457" => :mavericks
-    sha256 "493f7a3a4eb8cb9eaeef1bcada556f6887511d6f3fe052710eefd7af117d2861" => :x86_64_linux
+    sha256 "493f7a3a4eb8cb9eaeef1bcada556f6887511d6f3fe052710eefd7af117d2861" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

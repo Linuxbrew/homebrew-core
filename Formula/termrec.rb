@@ -11,7 +11,7 @@ class Termrec < Formula
     sha256 "787ed19e10d093b52b4aab2e6962480ea26b02ebda78bffb54258ce585c31ce1" => :el_capitan
     sha256 "53f6c1350027212566b1bcd5bb632a5cc5a9fbd56954b619a9bc0a96dd587bb4" => :yosemite
     sha256 "ffcb4996ef7e88fe41fef79289a65aa9d797e8ad10b7cc382fabc479d504bc31" => :mavericks
-    sha256 "cfeeacc2580ce2af6d0bfe6ed9d7384e4c34980ae5ba28c8b2ed3581e1b9b056" => :x86_64_linux
+    sha256 "cfeeacc2580ce2af6d0bfe6ed9d7384e4c34980ae5ba28c8b2ed3581e1b9b056" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

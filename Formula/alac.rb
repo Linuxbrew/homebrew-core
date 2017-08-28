@@ -10,7 +10,7 @@ class Alac < Formula
     sha256 "4cb85c125553c6c2a49576790c5be5e0b89096569131df3b8576f3499e65ef5a" => :el_capitan
     sha256 "a3a54a254a147f3a1173870bdd2e9399043b3e506d8c04383f99cf3ce67a4fca" => :yosemite
     sha256 "20cca431ce69d7eb2e5d894ebbfffdbc633eef2b3447be6d0afdb7c25cac8c0e" => :mavericks
-    sha256 "13cb21bc650758a34bd9b9dc2ecfcce95fe20461b4c34b304acd2e9046c46683" => :x86_64_linux
+    sha256 "13cb21bc650758a34bd9b9dc2ecfcce95fe20461b4c34b304acd2e9046c46683" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -10,7 +10,7 @@ class Foremost < Formula
     sha256 "153967284382e4a8206a627ac415c7bf39732279c3e1dc1bf377edcf0f2939b2" => :el_capitan
     sha256 "7b793ac9f697b1aa9da79a04b7394ce93909149dae5f2817c49998798e50f939" => :yosemite
     sha256 "9ba1e4692226a7d1941c18b4317758393d806c95a4ec8b8500010f920ff13247" => :mavericks
-    sha256 "d57df7678d14b749c69d720eb4978e755bdd5dd49c1ee45f5ef971b4d2d08ecd" => :x86_64_linux
+    sha256 "d57df7678d14b749c69d720eb4978e755bdd5dd49c1ee45f5ef971b4d2d08ecd" => :x86_64_linux # glibc 2.19
   end
 
   def install

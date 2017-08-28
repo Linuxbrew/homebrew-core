@@ -9,7 +9,7 @@ class Glib < Formula
     sha256 "6676ac794f50963131d761521b174c4efee254ed81c87bb232dc0d257c18b9a3" => :sierra
     sha256 "0c01d6caf33f29db737fa98e7e8139bd2f2bb907b73ffc537dd7aed421519e6d" => :el_capitan
     sha256 "c84e0a51965e4664f0d3998427dfa2af4f1f4378717af27a26f9fbb2fb48083e" => :yosemite
-    sha256 "07b18fd718a8fe366bdd0ec3dbec0b60a40d28994c0eca0725afdabccc97296c" => :x86_64_linux
+    sha256 "07b18fd718a8fe366bdd0ec3dbec0b60a40d28994c0eca0725afdabccc97296c" => :x86_64_linux # glibc 2.19
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"

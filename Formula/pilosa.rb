@@ -11,7 +11,7 @@ class Pilosa < Formula
     sha256 "856bcbf157d4374c259e20fd5b0afa7cc0faa0d340b2a8fc77a61cf4a7d820ad" => :sierra
     sha256 "ddca7e8a0ace058776208d9f52332f760521fb5426362f57382e24a2e07cc3ab" => :el_capitan
     sha256 "66c4f85b6f05e5873787a48a3665c0dcfe361dd2ab60ce3fdec44d9634bcac6d" => :yosemite
-    sha256 "04a3c7ff7fd6de7f0e57f4c693912661743a97da703e5768f7989b53b69675c3" => :x86_64_linux
+    sha256 "04a3c7ff7fd6de7f0e57f4c693912661743a97da703e5768f7989b53b69675c3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

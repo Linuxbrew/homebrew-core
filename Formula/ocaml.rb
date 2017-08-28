@@ -28,7 +28,7 @@ class Ocaml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff80b1cdf978f332ba63a6d7503c4eb68866809750298fb5854caf56f43771ff" => :x86_64_linux
+    sha256 "ff80b1cdf978f332ba63a6d7503c4eb68866809750298fb5854caf56f43771ff" => :x86_64_linux # glibc 2.19
   end
 
   option "with-x11", "Install with the Graphics module"

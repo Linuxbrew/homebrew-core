@@ -9,7 +9,7 @@ class Python3 < Formula
     sha256 "a0cde735f5c8e959d09ef9077dc18be2f84db8ec0bdccf99828d991c0f24688f" => :sierra
     sha256 "59f5676f3263d26f0d2b73988a60ce30d188d66b8fe7fe141f08b315c3939efd" => :el_capitan
     sha256 "3bf948638b7b0de06d7ce0d03ef035cd558929b330e8513e6ecee70390b06cc1" => :yosemite
-    sha256 "fe0c3671c74611bcc76581539ad1458242b0249e33cf9fc2160d0c8aec97c7b5" => :x86_64_linux
+    sha256 "fe0c3671c74611bcc76581539ad1458242b0249e33cf9fc2160d0c8aec97c7b5" => :x86_64_linux # glibc 2.19
   end
 
   devel do

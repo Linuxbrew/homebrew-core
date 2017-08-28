@@ -9,7 +9,7 @@ class Librem < Formula
     sha256 "d3ae13b97276ec22412989e517b2ce10f8649088444b485016108952591b30b3" => :sierra
     sha256 "ef42e569ec7be8cbf83d49f858e9657b493f76380afc00ce49ad9bc5ed5c912d" => :el_capitan
     sha256 "4ceca1440d4432e89c9f1150b8e68ee7343546eda4d6cd2aa6b06abffe8afddf" => :yosemite
-    sha256 "e249477857145c5cb55158732ae1c4851466bb37f6906a6b3ae38d82053d9f8d" => :x86_64_linux
+    sha256 "e249477857145c5cb55158732ae1c4851466bb37f6906a6b3ae38d82053d9f8d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libre"

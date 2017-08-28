@@ -9,7 +9,7 @@ class Byacc < Formula
     sha256 "327f52ed3680be5fac0ec1a1ed0f9974e3c9ff9e9b789b9488b8f5484d28d373" => :sierra
     sha256 "b1f0b4aeae53bac5aa8decd17304144abdce70000524f98aec054fa9ceab4f80" => :el_capitan
     sha256 "18390d8b25137a7a9fd34eb0e1510ba23864e94d00ead35d9dbf9a0fa47fb55c" => :yosemite
-    sha256 "2bb0dcc8ba17034d343a3ce715374a0b505b68473f53b5ccc0ca956c30112c2e" => :x86_64_linux
+    sha256 "2bb0dcc8ba17034d343a3ce715374a0b505b68473f53b5ccc0ca956c30112c2e" => :x86_64_linux # glibc 2.19
   end
 
   def install

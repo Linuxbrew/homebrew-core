@@ -12,7 +12,7 @@ class Libquvi < Formula
     sha256 "99375bca427fb5cc368da9b09bec8890f87896b0d2329780420e1a4d2c131e16" => :yosemite
     sha256 "b83f94653852b748d4e23a6ade9d5668a7052bf4747cb23c751d70b0698f9689" => :mavericks
     sha256 "a252b3f6e2487839f1a3c352522ba5729f5adf200f418c8f5c7cfed7283b5171" => :mountain_lion
-    sha256 "748f298afa780b575bb90c5cc29b5b887214b1b6da60d43cb39d6ae1c93e79cd" => :x86_64_linux
+    sha256 "748f298afa780b575bb90c5cc29b5b887214b1b6da60d43cb39d6ae1c93e79cd" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

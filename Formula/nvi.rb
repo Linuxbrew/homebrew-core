@@ -11,7 +11,7 @@ class Nvi < Formula
     sha256 "a789fc3d07b258beb99140f2488a8b0ae8f16f0470a5e1f8a195314dc5b3458d" => :sierra
     sha256 "858fe0fc9589a4f2bf3ab3644677805440910e107ea31a3fe7d3a579c8031113" => :el_capitan
     sha256 "07aacc59e81b122e4b34444d1e47d5e102cfc7e281bbae1d75bde4b5ac3af1fc" => :yosemite
-    sha256 "d7a8d84e8c08f03d27edc106a45cb130a9e564d675cdc24d044b4787a9519f31" => :x86_64_linux
+    sha256 "d7a8d84e8c08f03d27edc106a45cb130a9e564d675cdc24d044b4787a9519f31" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.

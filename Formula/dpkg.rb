@@ -12,7 +12,7 @@ class Dpkg < Formula
     sha256 "9e8db9fe18ba33977e4fd45375248da847c481d2f1b58b82b18c90671bace287" => :sierra
     sha256 "d830b2d5460fce38ab859d8d3d3a4ce618e32b3ad08ea3d7020a0ecc214aeb18" => :el_capitan
     sha256 "9bf757d4e0e3902bbbc97a28a2532ac1a3c8220ad487c5a18a38925483e43062" => :yosemite
-    sha256 "87551eb8d2163ddba59b3ba913c22a7dbbda372f94bf33cb616ba99a8d39c3db" => :x86_64_linux
+    sha256 "87551eb8d2163ddba59b3ba913c22a7dbbda372f94bf33cb616ba99a8d39c3db" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

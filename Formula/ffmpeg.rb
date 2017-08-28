@@ -20,7 +20,7 @@ class Ffmpeg < Formula
     rebuild 1
     sha256 "6e3ad60d2c3ad7430cc5edf147b1c0e50a7e695e8c74451ab0a3f9d9723ecf46" => :sierra
     sha256 "d49156d6f3d5717add11f697361b13c5bf321161ff3d84d7062e111f0dfdb513" => :el_capitan
-    sha256 "9d81334322517acb010b08f307eebfdedac4ed492ce1a3e0b2fe7e67c5182eea" => :x86_64_linux
+    sha256 "9d81334322517acb010b08f307eebfdedac4ed492ce1a3e0b2fe7e67c5182eea" => :x86_64_linux # glibc 2.19
   end
 
   head do

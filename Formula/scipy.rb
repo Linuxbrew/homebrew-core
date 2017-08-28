@@ -10,7 +10,7 @@ class Scipy < Formula
     sha256 "52dfdefbaeaaeb843ae2f36a7e743ccdb69d3eecd266d7a27ab2693c8e15be06" => :sierra
     sha256 "6a7138aa35a3a58e6f4ba77946e3dec4a6ca6f4456cbc31b8e23a7e5ae8ad3b4" => :el_capitan
     sha256 "5b793bffbedc74ba881866847a02cefa02dc1372ff22ce86920fe68fc44c25b2" => :yosemite
-    sha256 "0ee89841db192b63fcc68af006e54244ea0ace89a388178bbcc436dc0cc104a2" => :x86_64_linux
+    sha256 "0ee89841db192b63fcc68af006e54244ea0ace89a388178bbcc436dc0cc104a2" => :x86_64_linux # glibc 2.19
   end
 
   option "without-python", "Build without python2 support"

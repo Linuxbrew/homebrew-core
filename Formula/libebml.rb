@@ -10,7 +10,7 @@ class Libebml < Formula
     sha256 "72ea79b1b694d3ba054af56ed8aef46957e9ca2cb71642a0c9576121d1333e48" => :sierra
     sha256 "07ee02f2d332d60c9377117e47471f44ef7843de0f162acd067fe732f4d23c1d" => :el_capitan
     sha256 "c2d4a00cc8e80a2969fa14cb71a84f0e3e26342402c77fdbc641b2e48fec851e" => :yosemite
-    sha256 "55e45547c2ac322fd3af38ea5ef34cc8477d683bd3fc2d287ba6b72befaa064f" => :x86_64_linux
+    sha256 "55e45547c2ac322fd3af38ea5ef34cc8477d683bd3fc2d287ba6b72befaa064f" => :x86_64_linux # glibc 2.19
   end
 
   head do

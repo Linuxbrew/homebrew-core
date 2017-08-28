@@ -9,7 +9,7 @@ class Gcab < Formula
     sha256 "7403bfd6a817af92bf1c89c90826e748c909e2ec559f18d708ac48306c5b7431" => :el_capitan
     sha256 "3200cfd9434dc548094116bf426979978c51cbad8316fd299620ce86baa5acb3" => :yosemite
     sha256 "1c063054e17f3194d214d5d1a8d01a12932ec8214cca7143956760039db22f2f" => :mavericks
-    sha256 "256a6e6371f6f6dd5cf4122df566d615b6dc2a979f365f7890cbf6e68bf041dd" => :x86_64_linux
+    sha256 "256a6e6371f6f6dd5cf4122df566d615b6dc2a979f365f7890cbf6e68bf041dd" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "intltool" => :build

@@ -9,7 +9,7 @@ class Jansson < Formula
     sha256 "701c9253fb60487c94b4840a57621d5faf6ad1a8d0659ae6a419e57b5bd94ced" => :sierra
     sha256 "a51789b3b30f9e70232f9e872b08b5367caa5d027f7a8a72ed92c2ef68c432b7" => :el_capitan
     sha256 "4fabfb2143c27b4460560af12a459180221f097ad69ed95e86cf082b436d4950" => :yosemite
-    sha256 "819fbbea3053935e2cbdd17df676c2c06a3ecbe1f7904cccb407fb025d3a2308" => :x86_64_linux
+    sha256 "819fbbea3053935e2cbdd17df676c2c06a3ecbe1f7904cccb407fb025d3a2308" => :x86_64_linux # glibc 2.19
   end
 
   def install

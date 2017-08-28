@@ -10,7 +10,7 @@ class Wartremover < Formula
     sha256 "38422af4a85e008b1405bac3aba599e5465b1ce5990ebd482132d460eb31ba49" => :sierra
     sha256 "2a91c4fb3c3f070a2828875eacc72c73d36928bea0b9169769435ed66538d9ff" => :el_capitan
     sha256 "a39d5db621275982f364f37a5e6d2c0ccd3a507c1c9afa8a6693123b75d4413c" => :yosemite
-    sha256 "8f2c7df114f3c5e50569f284f9421ccaa8fd4e3e663756714ce30c39d0fae3ef" => :x86_64_linux
+    sha256 "8f2c7df114f3c5e50569f284f9421ccaa8fd4e3e663756714ce30c39d0fae3ef" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "sbt" => :build

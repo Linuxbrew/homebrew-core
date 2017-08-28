@@ -10,7 +10,7 @@ class ArtifactoryCliGo < Formula
     sha256 "de6ce27454f9a6568bd850a17c3522dafbb61023a926baa8e7dc5dc7524ebb7a" => :el_capitan
     sha256 "fdf4ca022e79f5c185a5e446ae0b3eadd010b269164ab62e3be253745d2bd696" => :yosemite
     sha256 "c2c517183bf08206441c3a76acdf64b061b61ee5b131597fca5aaa62cd60e634" => :mavericks
-    sha256 "2d654d4b4d2483ea291222ccc403a5d6cf9d6a845db130a0e9f92f31c750079b" => :x86_64_linux
+    sha256 "2d654d4b4d2483ea291222ccc403a5d6cf9d6a845db130a0e9f92f31c750079b" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

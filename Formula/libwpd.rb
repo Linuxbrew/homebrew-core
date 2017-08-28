@@ -9,7 +9,7 @@ class Libwpd < Formula
     sha256 "7a644799cdb284d66951f6244fa224a209a853996a06b79cab6eb3628ac86718" => :sierra
     sha256 "1867e211c3161ea4060c3c0cf65b2017e85d3079b41512948b4c7273870e5712" => :el_capitan
     sha256 "f997aadedf26546b3e11ccab753145bb645e61b49c35e8fbe0bc41bbe5646e57" => :yosemite
-    sha256 "4d3ed48dad4e7ea6d86a90d84c1c9e333b5d2e989ae2f9a0356b6dd0d39cdd05" => :x86_64_linux
+    sha256 "4d3ed48dad4e7ea6d86a90d84c1c9e333b5d2e989ae2f9a0356b6dd0d39cdd05" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

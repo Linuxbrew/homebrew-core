@@ -8,7 +8,7 @@ class Plplot < Formula
     sha256 "bfc8004765fbb0ea7378951e1cbf21e1512eba73528f219bbb85acc5fef9a85d" => :sierra
     sha256 "44fffbf81d69eb34c0746a646b2bab7d13c8c8aacab816d800e9d44ccb96762d" => :el_capitan
     sha256 "ac125db322d3a35450b1ff0e8f4c8ceb6221e0ab8a339887d2d3177dff3b3dbe" => :yosemite
-    sha256 "cff5dc4e85b9a519e9c5ca84fc93996917a2f8942b4ad3def7717f5001a3730e" => :x86_64_linux
+    sha256 "cff5dc4e85b9a519e9c5ca84fc93996917a2f8942b4ad3def7717f5001a3730e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

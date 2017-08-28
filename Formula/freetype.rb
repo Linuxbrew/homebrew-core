@@ -10,7 +10,7 @@ class Freetype < Formula
     sha256 "f22537dd3f8b5638a712c7a6231f0b57359c4adef0557b6e90b92e11d930640f" => :sierra
     sha256 "0a83ce9cb40656fd438a5475a09331c4bcc9a0e771af0d6049f002d14f02f576" => :el_capitan
     sha256 "37d29dac299114d75abfcc1a75c6e10e1ce602072da732298a2a64438a3cedc3" => :yosemite
-    sha256 "df00eb99be012feedc36d63289927b56a96d705dbf4da4d6f25cb89b7ced191d" => :x86_64_linux
+    sha256 "df00eb99be012feedc36d63289927b56a96d705dbf4da4d6f25cb89b7ced191d" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_pre_mountain_lion

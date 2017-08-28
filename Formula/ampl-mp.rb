@@ -10,7 +10,7 @@ class AmplMp < Formula
     sha256 "46d1cf71028cfaa76c3dc7fbc869dfdac4704f97c2963142df41afabe3bbc6f0" => :sierra
     sha256 "87744fa4f67c6f1d35ed70f17f04d96e19b6ed3312bcea224677d89a6d1c89f4" => :el_capitan
     sha256 "f9fd64bafa20eebd39425bf8331e0ca1962d47b1deeed589c347b75ced5e193d" => :yosemite
-    sha256 "19453af546c637a38be6c95d1ffdde0d638b8a1c743babadf42c6cc3ffb75049" => :x86_64_linux
+    sha256 "19453af546c637a38be6c95d1ffdde0d638b8a1c743babadf42c6cc3ffb75049" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

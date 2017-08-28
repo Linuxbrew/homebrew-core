@@ -9,7 +9,7 @@ class Unrar < Formula
     sha256 "fb54a22a18eb4e992fa5bec6a669f97a764919a5b78dce65407b6943d2bf0ebe" => :sierra
     sha256 "82adba13791514beb06b9a7d659eb00a8c4f8057c5c9edd3df7ea8b085586372" => :el_capitan
     sha256 "5e50649d2b6c717b36447f08d3dc1ce2d72da02603c6274327a24900030b6f5f" => :yosemite
-    sha256 "179ec7ac0f15338652e0e60377e578d206b96e2da58ecc65222f34f052f10df4" => :x86_64_linux
+    sha256 "179ec7ac0f15338652e0e60377e578d206b96e2da58ecc65222f34f052f10df4" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -13,7 +13,7 @@ class Cryptol < Formula
     sha256 "c0a77f0e95bc712c95c7faa5ef646eb845bba322e7417e354b0f5a2549991ecd" => :sierra
     sha256 "dc77b0bceac759f51ea15df8ac8f21157f1b5370ad590d74073190e74d2032d0" => :el_capitan
     sha256 "1771ed234b8889a79618847eee03c2e748496c37d56f4e2336a5be8a8cb89692" => :yosemite
-    sha256 "a3f8c090f0aa224454717c7fbbaf9936045143781b42fdabc6457faf72e2578d" => :x86_64_linux
+    sha256 "a3f8c090f0aa224454717c7fbbaf9936045143781b42fdabc6457faf72e2578d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ghc" => :build

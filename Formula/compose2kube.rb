@@ -11,7 +11,7 @@ class Compose2kube < Formula
     sha256 "1d2cb6b785c7cc7b06a5bcaf0a39fda3ad66548b2ff09fbd23bdf293f1c1ebf0" => :sierra
     sha256 "90b2466bb93be95570354475aa1cadf5b35af8944f84abfa612cea4d210d6b67" => :el_capitan
     sha256 "210e6242a05505b20208e03d278c272c1d90e54b747908119400ed018636d2a6" => :yosemite
-    sha256 "160761c839574530f9248dc722cef07132a1535ea94b50f83a2c0aded1771c67" => :x86_64_linux
+    sha256 "160761c839574530f9248dc722cef07132a1535ea94b50f83a2c0aded1771c67" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

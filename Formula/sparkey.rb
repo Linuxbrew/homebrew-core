@@ -10,7 +10,7 @@ class Sparkey < Formula
     sha256 "1e5641b08ac4e0d3e749a3b9c7d0b82a339eee1ea3db4fbeb00d41fe5fc9664e" => :sierra
     sha256 "df37f1f8f53f2292469e1af4d8246352cfb84544d2f496372d01d51df2d7113b" => :el_capitan
     sha256 "4e76ff0a0570384efeb61d43398f2118fa2b28e5b3270bf7803ca2ad0a515074" => :yosemite
-    sha256 "a03b7500a7002f5d3e4a254eefdd97f62125a867b29caf16dbac9611ce25e256" => :x86_64_linux
+    sha256 "a03b7500a7002f5d3e4a254eefdd97f62125a867b29caf16dbac9611ce25e256" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

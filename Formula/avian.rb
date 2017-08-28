@@ -12,7 +12,7 @@ class Avian < Formula
     sha256 "d2719509725f4c1fad3a53c32de18aff5d45685fb35ae352f1d51fc61e566f4a" => :el_capitan
     sha256 "d002876c03742fc7ec4157fff598e7c11ed1e62f97ce1b217f8b089db87e43ed" => :yosemite
     sha256 "20dd7125d138e05021b473d026190d8f4652e807afcfe057614e5c2e66ce0ed1" => :mavericks
-    sha256 "4eebce66edee44582178986d2f36e98392b97cf36cf683aaf3b353627cb8cf3a" => :x86_64_linux
+    sha256 "4eebce66edee44582178986d2f36e98392b97cf36cf683aaf3b353627cb8cf3a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :macos => :lion

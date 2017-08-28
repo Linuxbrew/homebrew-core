@@ -11,7 +11,7 @@ class Casperjs < Formula
     sha256 "885f4f9d0b7e6ceabcde8c5542d14766212e7d189ae426c4bbe6ecd99eb25148" => :sierra
     sha256 "8f0ae4b24ce77c1fa4b93f480dcaa24b64dd0b0b8ac10ea695b91c18d1908568" => :el_capitan
     sha256 "8f0ae4b24ce77c1fa4b93f480dcaa24b64dd0b0b8ac10ea695b91c18d1908568" => :yosemite
-    sha256 "8a70e2a64e5375215a66052c8912efa0492001f3f0afacd6d245c9ac1b271ea6" => :x86_64_linux
+    sha256 "8a70e2a64e5375215a66052c8912efa0492001f3f0afacd6d245c9ac1b271ea6" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "phantomjs"

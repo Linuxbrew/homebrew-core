@@ -10,7 +10,7 @@ class Bigloo < Formula
     sha256 "4559f69e1f67193ac40d67540f1d05ca982a1866b0089d30c7c64ee5b263bd48" => :el_capitan
     sha256 "892d8ee4a85c7468114aec41155a582c32ca670eab27a51f767fcb4b41b45e24" => :yosemite
     sha256 "c885e9132385667245d8fa74032e01f7ba66e5f2cf626dc91822846087d1a3c6" => :mavericks
-    sha256 "05772986d8b71a7ce114edd64dbb9ef5f02ab78b8ee834d2a4d772d167bc7294" => :x86_64_linux
+    sha256 "05772986d8b71a7ce114edd64dbb9ef5f02ab78b8ee834d2a4d772d167bc7294" => :x86_64_linux # glibc 2.19
   end
 
   option "with-jvm", "Enable JVM support"

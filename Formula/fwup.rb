@@ -10,7 +10,7 @@ class Fwup < Formula
     sha256 "082a2a2355ccf742ee41444aa0acc53e35aa895194ba31cd9d60df2c3eff338e" => :sierra
     sha256 "a972b47210a86cd761cfd95d00f59b29838420d387bb491410f72fad85c190cd" => :el_capitan
     sha256 "9a2ed135cf9292c118169c698db7a0a50df45d06551a081c55553228c69c0524" => :yosemite
-    sha256 "aea10a2477f0232d70405f4ae2d2f3317ec7d80b9db3025b6e34aca6bcd19251" => :x86_64_linux
+    sha256 "aea10a2477f0232d70405f4ae2d2f3317ec7d80b9db3025b6e34aca6bcd19251" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

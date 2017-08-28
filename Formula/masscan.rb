@@ -10,7 +10,7 @@ class Masscan < Formula
     sha256 "d2770cd3ff575b998818f5586f182fe626bc336a48542d1c01656fd9617df1ed" => :sierra
     sha256 "8dbe578c48b421e03a264c82912e10009b1b6163f704f3388a017799accaf0a9" => :el_capitan
     sha256 "969e348d0a3738b1fcc5082a6c0feef0f18d1f462b3d9bec0cd1751781b263e3" => :yosemite
-    sha256 "ffc32c1949aaee761b4ec4d9e9520767108318fd984b4cf6ceb249bec6f7df5f" => :x86_64_linux
+    sha256 "ffc32c1949aaee761b4ec4d9e9520767108318fd984b4cf6ceb249bec6f7df5f" => :x86_64_linux # glibc 2.19
   end
 
   def install

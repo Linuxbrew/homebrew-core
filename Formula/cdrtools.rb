@@ -20,7 +20,7 @@ class Cdrtools < Formula
     sha256 "4724b3dfe367cf28dbd98dad6ddd47179e5b5d1b599a8fff8f0fa8cc4621acb2" => :el_capitan
     sha256 "5370586e423d9b842b7ebd0cdb3dd2c763c433be9896bcab636cc56ecd5e0634" => :yosemite
     sha256 "1b3f3ab5baf44ad31f8d09e36de6df59901ce036cc681c54187fe5f41dc8bb94" => :mavericks
-    sha256 "87a5a55d8abcb8c25ed3de7945d0e972fcb1146e24f72c6c506610ab56cec6de" => :x86_64_linux
+    sha256 "87a5a55d8abcb8c25ed3de7945d0e972fcb1146e24f72c6c506610ab56cec6de" => :x86_64_linux # glibc 2.19
   end
 
   devel do

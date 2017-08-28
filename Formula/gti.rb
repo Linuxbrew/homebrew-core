@@ -11,7 +11,7 @@ class Gti < Formula
     sha256 "9918086fee473669a1ec8ea62eb3b30c0969334790a9c6ba549c7d95e79b6a66" => :sierra
     sha256 "a3b6c788ea2f773a73b7ff2e04e6a8c44aabe6e090c52b668dfb0c7116b9cae5" => :el_capitan
     sha256 "0f1865eb7cac49f0ac857718196b70c896e70a636d4443b523e0eca7fe1f7ab9" => :yosemite
-    sha256 "809c430828af31ef2de09632236c539f6830265357ce2ab72c1972be8ff567f8" => :x86_64_linux
+    sha256 "809c430828af31ef2de09632236c539f6830265357ce2ab72c1972be8ff567f8" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -12,7 +12,7 @@ class Vultr < Formula
     sha256 "05a2602609fd20151e9ab712cd823239e125a5915e5e72f14afa9641a61dc673" => :sierra
     sha256 "0f8ed829f501fad2a7f05e26cfbe7d8b32e3a5df4647021dbe8a9eed16bde438" => :el_capitan
     sha256 "b2bf0d14a74da9e561510fd75694063c8d50ca253b6411940be4ce82a3d2e4ee" => :yosemite
-    sha256 "d17de4130a8d64aa820ee5dbeb305f583c68d1afd4292712e64798653754d07e" => :x86_64_linux
+    sha256 "d17de4130a8d64aa820ee5dbeb305f583c68d1afd4292712e64798653754d07e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

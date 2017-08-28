@@ -6,7 +6,7 @@ class Attr < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "adf64e505f9639762be936223ff0b625598191a197ac69818f658c27ddc32558" => :x86_64_linux
+    sha256 "adf64e505f9639762be936223ff0b625598191a197ac69818f658c27ddc32558" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gettext" => :build

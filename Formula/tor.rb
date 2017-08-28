@@ -9,7 +9,7 @@ class Tor < Formula
     sha256 "4d10a4c8e97c210f5d19bb4dabdfcabdd5ed3eb6d50e47be6737d78f2def8fb9" => :sierra
     sha256 "0afcea73cd4d4edf0b1ca77bddf19c2df6887f15456ff69e57364d1fe7d1dd1b" => :el_capitan
     sha256 "3c33a099716d9d925302805002563e6436eceb5a64d216abaddfd724a061b087" => :yosemite
-    sha256 "3ad83e903dc24feaf9fae36751f9a2240fb53f3f51af67b045e8527bbde36f9b" => :x86_64_linux
+    sha256 "3ad83e903dc24feaf9fae36751f9a2240fb53f3f51af67b045e8527bbde36f9b" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

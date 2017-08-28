@@ -9,7 +9,7 @@ class Zeromq < Formula
     sha256 "e10289e3a44f78b2234347b04b9369f45455afa8b0fd61d538bc92a6de69b517" => :sierra
     sha256 "72ca74ca177ff8ffd765d2e010b5027e3640b1e68964b1e5c7f7f3acc0a6acdd" => :el_capitan
     sha256 "e98d0623b86749fe766a518d256493bd5cb78a73002a10dfb748a8c65763b45a" => :yosemite
-    sha256 "4192c7dd9c434e0787cc0c72bca15dac24f2fbf7c1ded506574c9c9efa256e68" => :x86_64_linux
+    sha256 "4192c7dd9c434e0787cc0c72bca15dac24f2fbf7c1ded506574c9c9efa256e68" => :x86_64_linux # glibc 2.19
   end
 
   head do

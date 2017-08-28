@@ -11,7 +11,7 @@ class GitCinnabar < Formula
     sha256 "03f64128f2ec4fb5f0597157c90db69e273cfa1ed521aa928c700b9de1f176d4" => :sierra
     sha256 "5942ec7cbd204c8e6e691b48c38333f0e7cea11cd2a80714fe3952a1f14507e9" => :el_capitan
     sha256 "3f5f4a461ab56361b323f2a934704652011c8a4ada7da719c957005ced268f67" => :yosemite
-    sha256 "65b037a5a17d86c8780eb830a32aa89739426bee6e5f1f90bd4a50c90fd15329" => :x86_64_linux
+    sha256 "65b037a5a17d86c8780eb830a32aa89739426bee6e5f1f90bd4a50c90fd15329" => :x86_64_linux # glibc 2.19
   end
 
   devel do

@@ -10,7 +10,7 @@ class Cmake < Formula
     sha256 "ac857f0a0cc2d3ce40119186a965af2b2cc2f2e7fd1a00194cc6ecfc0764af45" => :sierra
     sha256 "5af0fd784252838410cfe304b4a1616a129cb072143d1d18927ca60001a89660" => :el_capitan
     sha256 "c3d20d6a7f31c5305a215418871072f736fe99330617e69bb15cb54b96234133" => :yosemite
-    sha256 "e4c8c788bfef60d62d943d228bd9f9a7178f438dcc398e62055fba673b3252c8" => :x86_64_linux
+    sha256 "e4c8c788bfef60d62d943d228bd9f9a7178f438dcc398e62055fba673b3252c8" => :x86_64_linux # glibc 2.19
   end
 
   option "without-docs", "Don't build man pages"

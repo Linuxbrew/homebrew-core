@@ -9,7 +9,7 @@ class Ascii < Formula
     sha256 "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65" => :sierra
     sha256 "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f" => :el_capitan
     sha256 "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff" => :yosemite
-    sha256 "88fa5c873c23b41bab19a85e5feb572ae1a5369885b53a158ba1e0cce52980ef" => :x86_64_linux
+    sha256 "88fa5c873c23b41bab19a85e5feb572ae1a5369885b53a158ba1e0cce52980ef" => :x86_64_linux # glibc 2.19
   end
 
   head do

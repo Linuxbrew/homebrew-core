@@ -10,7 +10,7 @@ class Jemalloc < Formula
     sha256 "0ae7f33eda0547fd2eacad3f84c3c7cc6ebfb76ea02e8a4bac542ba60ba6ef07" => :sierra
     sha256 "1e49d486784c64dccee6e43d61ecb201adf6ac8b5cc02465ac9ea5b492a56d01" => :el_capitan
     sha256 "49a8f071338b3ec42cd89280681c338ad2e1d242a389e65f63f64e60257c5733" => :yosemite
-    sha256 "9026d07786ad063d3b8956d18cca34e5ba09fa252fe80016b2498f9fcd09628b" => :x86_64_linux
+    sha256 "9026d07786ad063d3b8956d18cca34e5ba09fa252fe80016b2498f9fcd09628b" => :x86_64_linux # glibc 2.19
   end
 
   def install

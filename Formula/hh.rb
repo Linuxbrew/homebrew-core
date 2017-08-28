@@ -10,7 +10,7 @@ class Hh < Formula
     sha256 "53f1394c25ec70f3b36cfab592cae961d4f88fcff2a95726c716e84b6fbc47f1" => :sierra
     sha256 "7c6f3bfbf05d62f769b343f8d2172dc9f1d713af9ca1766183d81e34ab494f84" => :el_capitan
     sha256 "b51559f5d0d5791e356b85a1a98a8d287180d7931a21595375620ad70222d742" => :yosemite
-    sha256 "9dab24dbfdc33cc7bc6dbb3f224daed035687200597c675c026fd7f7fc5fe4fc" => :x86_64_linux
+    sha256 "9dab24dbfdc33cc7bc6dbb3f224daed035687200597c675c026fd7f7fc5fe4fc" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

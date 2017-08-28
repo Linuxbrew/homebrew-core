@@ -10,7 +10,7 @@ class Superlu < Formula
     sha256 "d447474f77bbd417d76c0fb4dfbbc9d824d344639c8ca467d9ee9c9abd3acd09" => :sierra
     sha256 "0944f8fb532af54aa50d962807568394f1cc0339710c981546a5c827faa5304f" => :el_capitan
     sha256 "c138cf46fd369e931fb858639c1b02109ad3c76e97e7f7873ddd324b3d5106e7" => :yosemite
-    sha256 "131ef63225f3af5b08139a1a070f276d83682ccc46711a2c6944febe753d9115" => :x86_64_linux
+    sha256 "131ef63225f3af5b08139a1a070f276d83682ccc46711a2c6944febe753d9115" => :x86_64_linux # glibc 2.19
   end
 
   if OS.mac?

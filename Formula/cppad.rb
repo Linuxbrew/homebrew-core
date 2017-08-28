@@ -11,7 +11,7 @@ class Cppad < Formula
     sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :sierra
     sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :el_capitan
     sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :yosemite
-    sha256 "9286af985564694455909c671eb160bf1452fc1e67706da08f8f29f53052c3f5" => :x86_64_linux
+    sha256 "9286af985564694455909c671eb160bf1452fc1e67706da08f8f29f53052c3f5" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

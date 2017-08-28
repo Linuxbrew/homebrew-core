@@ -11,7 +11,7 @@ class Ficy < Formula
     sha256 "c8e04a4eb2cf74a46ed02c14c18bb13b06dcdc8703f5913744e904492efe64d8" => :sierra
     sha256 "b3230fe854623e9ef87868b028a7c3cdfa7b08cdd749def59312cbc47c510bec" => :el_capitan
     sha256 "ba35c8e07903b74a37daf9131f26a578320f79252aa95e9ca7a5921065cd2a51" => :yosemite
-    sha256 "818316812d71c46fe4e720204382cc1bdd8e5b5ee02f5e1f9589e6487eeecf71" => :x86_64_linux
+    sha256 "818316812d71c46fe4e720204382cc1bdd8e5b5ee02f5e1f9589e6487eeecf71" => :x86_64_linux # glibc 2.19
   end
 
   def install

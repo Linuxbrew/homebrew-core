@@ -12,7 +12,7 @@ class A2ps < Formula
     sha256 "95e6cd96cc753d9d632ac8aa1b9d5099d5507c5fb8fc085544803fd85a4bd7c8" => :el_capitan
     sha256 "c89521bb6b3df6a8277564f264006bde650b7d214b288f4805da856a76ec3b69" => :yosemite
     sha256 "d10db3452567e6d4a6be65f15728c40b4a62bcc374e04ff7f5d3608c294c74f4" => :mavericks
-    sha256 "ba921815bbde15e3fab76a070950160fa836f4f72514bcbf9731265cadd1ae09" => :x86_64_linux
+    sha256 "ba921815bbde15e3fab76a070950160fa836f4f72514bcbf9731265cadd1ae09" => :x86_64_linux # glibc 2.19
   end
 
   desired_prefix = OS.mac? ? "/usr/local" : "/home/linuxbrew/.linuxbrew"

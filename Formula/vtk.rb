@@ -11,7 +11,7 @@ class Vtk < Formula
     sha256 "3edc86912bd3a0946d48b8ee9e3fd6fed124bd4fa770e2f62e82dde9ac995a86" => :sierra
     sha256 "bfebec35833698c8bebf17f5db258ce3ef4a2c1842384eaaceeb5bc310e81471" => :el_capitan
     sha256 "0d27575aee63d23f4301eb70f88c7b0d8a1e68a31c187a8f4996eab02a56d319" => :yosemite
-    sha256 "63bfea84de1006bdf8d775b1cb4ac42df7f2d53061fc4b0bd41632fddaf4d834" => :x86_64_linux
+    sha256 "63bfea84de1006bdf8d775b1cb4ac42df7f2d53061fc4b0bd41632fddaf4d834" => :x86_64_linux # glibc 2.19
   end
 
   option "without-python", "Build without python2 support"

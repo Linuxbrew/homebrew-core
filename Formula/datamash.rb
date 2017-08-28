@@ -10,7 +10,7 @@ class Datamash < Formula
     sha256 "b0eaec94032f69086bbbdcc7d38a59d7f03ba9511a8ce47a965fcf9e18229cb6" => :sierra
     sha256 "d310a35d4ad9760fb4b936429f453b30baf6c5d474983c3928344f8dca145283" => :el_capitan
     sha256 "cf022df27f4f7cf13b171e84d05816e8eddbae6c0190b0e339b269178d935ada" => :yosemite
-    sha256 "9cb4b09f0d55d510287be98e3b1a03cc9e8d510416c649b1c7a2be53fac18dae" => :x86_64_linux
+    sha256 "9cb4b09f0d55d510287be98e3b1a03cc9e8d510416c649b1c7a2be53fac18dae" => :x86_64_linux # glibc 2.19
   end
 
   head do

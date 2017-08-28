@@ -9,7 +9,7 @@ class PhoronixTestSuite < Formula
     sha256 "a0342ec359f6be0bbfec1918f6e58684d66ef7fb05ed35e0f25bad527475fd30" => :sierra
     sha256 "152a7ddddb515433d728f7d969c895da9b4c464518550d0ea6ba20755ea8f8c3" => :el_capitan
     sha256 "152a7ddddb515433d728f7d969c895da9b4c464518550d0ea6ba20755ea8f8c3" => :yosemite
-    sha256 "794231e5653640114673e48bdcd115e75486e4acc34cdf87174798e10d4294ef" => :x86_64_linux
+    sha256 "794231e5653640114673e48bdcd115e75486e4acc34cdf87174798e10d4294ef" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -9,7 +9,7 @@ class Gmsh < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar :any_skip_relocation
-    sha256 "102f1e45e24bda3c0f628299df1aa1b4b5dacd0e25a4709b85128aea3c016f67" => :x86_64_linux
+    sha256 "102f1e45e24bda3c0f628299df1aa1b4b5dacd0e25a4709b85128aea3c016f67" => :x86_64_linux # glibc 2.19
   end
 
   option "with-oce", "Build with oce support (conflicts with opencascade)"

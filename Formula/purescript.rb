@@ -14,7 +14,7 @@ class Purescript < Formula
     sha256 "bbf10500d5f5854eb88270adb100df01a42e906a8f01cde8a4b0da9231d6a679" => :sierra
     sha256 "e56ea05f1c2756191a652ff41ea48723dac38aa96a929f5225d126f54da593d3" => :el_capitan
     sha256 "c642ca03b506c0d38db02b713d5f50b2157e215dafc6e8beb24659e9b7f027ec" => :yosemite
-    sha256 "5049b8756d62f8e76d6c1813878301ed6a76f1c9dd0ae430cff5421e9e456fef" => :x86_64_linux
+    sha256 "5049b8756d62f8e76d6c1813878301ed6a76f1c9dd0ae430cff5421e9e456fef" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ghc@8.0" => :build

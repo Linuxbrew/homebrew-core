@@ -10,7 +10,7 @@ class Dtach < Formula
     sha256 "bf26c7f68f65ae257c878e2008683d496a8c7542b3048e057bc3d588d779e16a" => :el_capitan
     sha256 "fe8735b33ebb6f2fd2ea1e7c3542981833e8cad8c16fb6d9fbb5ac0f2ce493b8" => :yosemite
     sha256 "bd984d95c0e21eda63bbb210acd381fb44e019a335ebff85a66fca89db5f11ae" => :mavericks
-    sha256 "cc943a3594ca35cd8cd8ac982fafc0a64b8f5da972b40b2d0fb1d49f4572209d" => :x86_64_linux
+    sha256 "cc943a3594ca35cd8cd8ac982fafc0a64b8f5da972b40b2d0fb1d49f4572209d" => :x86_64_linux # glibc 2.19
   end
 
   def install

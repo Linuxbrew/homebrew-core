@@ -8,7 +8,7 @@ class GdkPixbuf < Formula
     sha256 "27ad3f986414d82a46c709ef9013a74ed2a1902fb6c2a2509cc70dbfdb5b0097" => :sierra
     sha256 "c5b3cce0419befa0ec6cd30119bb7184e93b437d0dd83d47c72f2ccaeb3b2f42" => :el_capitan
     sha256 "28294b78fbd86f9ea921da2b3ee8530161c1d14f0115599e434863af61aa7207" => :yosemite
-    sha256 "f2f5838df2ffd595a6adb085226a0908e07ddbcf4e38b55424a1f186bf1d1b89" => :x86_64_linux
+    sha256 "f2f5838df2ffd595a6adb085226a0908e07ddbcf4e38b55424a1f186bf1d1b89" => :x86_64_linux # glibc 2.19
   end
 
   option "with-relocations", "Build with relocation support for bundles"

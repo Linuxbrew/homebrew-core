@@ -10,7 +10,7 @@ class Aptly < Formula
     sha256 "7b2b48ae572475397cf32490422b5ac16b806063bf0280adeadf7e9fd135e0f0" => :sierra
     sha256 "9586b3a09cb4267f928b045cb13f2e210a30b971b5e9b0e04575128e616789b8" => :el_capitan
     sha256 "764451d229c92b48a3df79e074b761df632da13e661955ab1a767669ca631662" => :yosemite
-    sha256 "eaec6a6d7b9798889d06a480fa97759ed4979fbdd34d273611a8a8dd19cdc022" => :x86_64_linux
+    sha256 "eaec6a6d7b9798889d06a480fa97759ed4979fbdd34d273611a8a8dd19cdc022" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

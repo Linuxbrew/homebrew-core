@@ -8,7 +8,7 @@ class Swig < Formula
     sha256 "68cb1b6bc898f2a1bd39ae24dd0235f68ffa56d04ba8cd4424835335202977d1" => :sierra
     sha256 "37bf242aad0c18317cdaef66218483c04fa57e091b7c7f9d72089f5002881338" => :el_capitan
     sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
-    sha256 "d23af3191eaa25dbfe8bc26d2c71d5116b47c523900f6a20ab534656811671c1" => :x86_64_linux
+    sha256 "d23af3191eaa25dbfe8bc26d2c71d5116b47c523900f6a20ab534656811671c1" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pcre"

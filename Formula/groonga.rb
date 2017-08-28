@@ -8,7 +8,7 @@ class Groonga < Formula
     sha256 "cd15b333fa5af08bffcee8abf7cfc99cad32e93a9e5505e67e2ad7ea7ff96564" => :sierra
     sha256 "66f709ee25fdb87119d548f5ae16b3c83d69cfd47cf8c7c74e61b33796e59933" => :el_capitan
     sha256 "6c5d5dc52ead249e3d186d6dcbe7a8d7f6c5bfca2f7bf85cdcc15982b24863d1" => :yosemite
-    sha256 "e263dd44e01ca69ff66322d361513e8fcd8e625332892b96f69c88574ba30ea2" => :x86_64_linux
+    sha256 "e263dd44e01ca69ff66322d361513e8fcd8e625332892b96f69c88574ba30ea2" => :x86_64_linux # glibc 2.19
   end
 
   head do

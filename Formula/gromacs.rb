@@ -8,7 +8,7 @@ class Gromacs < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar "/home/linuxbrew/.linuxbrew/Cellar"
-    sha256 "1cceab50734d5240051aafaa44cd40726a996de3e92ef523c5e347e15d304ad8" => :x86_64_linux
+    sha256 "1cceab50734d5240051aafaa44cd40726a996de3e92ef523c5e347e15d304ad8" => :x86_64_linux # glibc 2.19
   end
 
   option "with-double", "Enables double precision"

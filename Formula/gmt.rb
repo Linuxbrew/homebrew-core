@@ -11,7 +11,7 @@ class Gmt < Formula
     sha256 "bf7317df2e9300d6da479e78f31e9dd62d8d873fdbe54ed2970dd669d29ffa24" => :sierra
     sha256 "3511d1334f4906c4f9c3d976fe47bddf709c4b5196283d01753d89e831876e75" => :el_capitan
     sha256 "2b9d336656d6d996e67ec5c45e063f3307ff20b1037fbc461a8da12ae7e2e6fc" => :yosemite
-    sha256 "f270a7a272e02caac04f8444bdb4a1fab0b8c382802237df9b9fdfa9fd138a09" => :x86_64_linux
+    sha256 "f270a7a272e02caac04f8444bdb4a1fab0b8c382802237df9b9fdfa9fd138a09" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

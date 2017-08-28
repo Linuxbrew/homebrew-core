@@ -9,7 +9,7 @@ class Wiredtiger < Formula
     sha256 "32a967857da0c3ba8124fcd0ab959da98cc0aa33ac4d7c506b29d5b6409fc0d7" => :sierra
     sha256 "ea725e44e979e227d7e0a911354be71e0b0c404d1b2d360bf28d164dd1db1d36" => :el_capitan
     sha256 "4f13ca58bb58e338611b247a6a143f29eb1b720b0c3da144dcff57ebb31a3274" => :yosemite
-    sha256 "b533da10ec864f56cd35e66ce8a7711d36b15eebf62d91902576c37f7c0ebf95" => :x86_64_linux
+    sha256 "b533da10ec864f56cd35e66ce8a7711d36b15eebf62d91902576c37f7c0ebf95" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "snappy"

@@ -12,7 +12,7 @@ class Pass < Formula
     sha256 "cde7a0225dbcd62b9cc9d8e5e8d9ed8e0534bbe590cb3cc974cc31a8177defdd" => :sierra
     sha256 "692b37f152b5bad4d841323c7938b8d1f94c858026d7ad941b7a270ee9503705" => :el_capitan
     sha256 "692b37f152b5bad4d841323c7938b8d1f94c858026d7ad941b7a270ee9503705" => :yosemite
-    sha256 "dfc8cbbb919645b31e2b68eebeda973bdfb0430fc0bc52e1393590a24833eb39" => :x86_64_linux
+    sha256 "dfc8cbbb919645b31e2b68eebeda973bdfb0430fc0bc52e1393590a24833eb39" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "qrencode"

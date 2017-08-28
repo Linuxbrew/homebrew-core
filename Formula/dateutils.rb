@@ -9,7 +9,7 @@ class Dateutils < Formula
     sha256 "2dcf7fe928ca66452ee3ecdf6c65fa9d0fb9ea52c8d3c05f96efc335f63a968f" => :sierra
     sha256 "76e159e564a5f00a6421b43306223fc84c40c77c5e3b4938372c6c1835d38b05" => :el_capitan
     sha256 "e4d2ff409bc632cd21d3dd1693a58cd4c1008583783856ef73baef074c3441a8" => :yosemite
-    sha256 "448a51e2d3ad997d76e4a0cc202a9858d456b21908796085cbbd73473480640a" => :x86_64_linux
+    sha256 "448a51e2d3ad997d76e4a0cc202a9858d456b21908796085cbbd73473480640a" => :x86_64_linux # glibc 2.19
   end
 
   head do

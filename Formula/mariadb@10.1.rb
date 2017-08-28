@@ -5,7 +5,7 @@ class MariadbAT101 < Formula
   sha256 "ba88b1cb9967dea2909938a34ba89373b162b0d83e5c98a0f1c94540156bf73d"
 
   bottle do
-    sha256 "03540d59ec4926e923b2efc6a5892228ecbaaa432c718aaa0e9cd97058b53f18" => :x86_64_linux
+    sha256 "03540d59ec4926e923b2efc6a5892228ecbaaa432c718aaa0e9cd97058b53f18" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

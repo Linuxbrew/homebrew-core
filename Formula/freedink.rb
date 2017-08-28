@@ -9,7 +9,7 @@ class Freedink < Formula
     sha256 "c3d0467dd6eb6e2070e488d468cf3953257260401722dd28037a2b37326d604a" => :sierra
     sha256 "97ba862a21ab764b5cf1c3c5d40604c8b006c81a88839c20199966a494725c16" => :el_capitan
     sha256 "e4fa882a22081243a88ca1303f4aa7fe3843e4cc523fe973a5158b117e7d868e" => :yosemite
-    sha256 "6fdb3c87a5b4710e4354f8de4d5fe9dd4c7e4eef2e1e07cbdde50256a9fd7fe1" => :x86_64_linux
+    sha256 "6fdb3c87a5b4710e4354f8de4d5fe9dd4c7e4eef2e1e07cbdde50256a9fd7fe1" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "check"

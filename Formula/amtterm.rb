@@ -11,7 +11,7 @@ class Amtterm < Formula
     sha256 "256736b4dd1d0b427bdb7ca2f9931cc1c403ffe1e43695920160f4f3ffabfe88" => :sierra
     sha256 "4035d9bcb4f6785255a5ea3df1dcc309dbf69441b69dde15b1936e8522fc8e95" => :el_capitan
     sha256 "387897642ba8bcb6daff01adae021264eaf9deea1f264e210e9592b6bc5cc44a" => :yosemite
-    sha256 "e7c0d404abef30d115b8f4a2b75531883aa01c646d1a3292c1eb45fc0e00ce8a" => :x86_64_linux
+    sha256 "e7c0d404abef30d115b8f4a2b75531883aa01c646d1a3292c1eb45fc0e00ce8a" => :x86_64_linux # glibc 2.19
   end
 
   resource "SOAP::Lite" do

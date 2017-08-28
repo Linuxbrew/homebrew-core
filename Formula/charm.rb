@@ -11,7 +11,7 @@ class Charm < Formula
     sha256 "ea04bd37b2df2ea2824d8d87a506929bbcb443a99f9c2c1a04a2888c1baca577" => :sierra
     sha256 "20a11dc53ae3388fd819b7c8074eafab242eadeb79d4c3057eb5cb748205c8b7" => :el_capitan
     sha256 "abf62af86d0061fab31f92aabc3d5a9d1ff2d9f18a524d16a49313a94774bb81" => :yosemite
-    sha256 "c84675974b35eb98207cb6265fc10e3c67b2c036a84b191d119cbbd35e0c57a7" => :x86_64_linux
+    sha256 "c84675974b35eb98207cb6265fc10e3c67b2c036a84b191d119cbbd35e0c57a7" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

@@ -11,7 +11,7 @@ class HttpLoad < Formula
     sha256 "d0ee5757f7b530a23d0c27f603e7bf237599f4d279ea9c9261f1417e7ed3cf97" => :sierra
     sha256 "70f69abf54c027ae1397ccd17b61e66108a5dbd03e8edd8db1ff6af0f8f135d9" => :el_capitan
     sha256 "f4702e82a17b0c972164f2bc8ba985edccf0f3dc840627d37d5307d9b914ba25" => :yosemite
-    sha256 "6a93ee2b2d031c2e001698317c10b2f99dfce6d31fe61043044844de3d3d7ced" => :x86_64_linux
+    sha256 "6a93ee2b2d031c2e001698317c10b2f99dfce6d31fe61043044844de3d3d7ced" => :x86_64_linux # glibc 2.19
   end
 
   option "without-openssl", "Build without OpenSSL / HTTPS support"

@@ -11,7 +11,7 @@ class TokyoCabinet < Formula
     sha256 "a209fa62fdb84a86784de5eb9699a9a6811c962afab2ebf418b2a712f51852d8" => :el_capitan
     sha256 "3267823914e250aff7c8d3a5a686a010f0fc96242a417dbf47bb1502aa020ad6" => :yosemite
     sha256 "8d8e93ed60945cfb729395882e69d3924d899c8f792eab73a6094aa78b47c75c" => :mavericks
-    sha256 "afa59c59ae2f2ffe0450d2dc4c34211ce645115ab6295e88daefbb2ce1991a95" => :x86_64_linux
+    sha256 "afa59c59ae2f2ffe0450d2dc4c34211ce645115ab6295e88daefbb2ce1991a95" => :x86_64_linux # glibc 2.19
   end
 
   def install

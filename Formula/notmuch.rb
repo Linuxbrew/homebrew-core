@@ -11,7 +11,7 @@ class Notmuch < Formula
     sha256 "e1e33e5b0eb0014ab8818c000f130a6a607cb0a7afe238b89e8d1856e783b29e" => :sierra
     sha256 "9fcf28d4231dc5d8677a92e1d606276bb1432a8772494f2aea7763794e09b6a0" => :el_capitan
     sha256 "273a87181ae3ed06ffc8d3f90462913d3b23f509b53a4a9cf5c8e0ac01be8d92" => :yosemite
-    sha256 "e13bddfc268cec598354dde344443df26e90e4d4ad06c7af5fcc10998086800e" => :x86_64_linux
+    sha256 "e13bddfc268cec598354dde344443df26e90e4d4ad06c7af5fcc10998086800e" => :x86_64_linux # glibc 2.19
   end
 
   option "without-python", "Build without python support"

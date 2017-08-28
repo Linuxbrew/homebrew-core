@@ -12,7 +12,7 @@ class IslAT014 < Formula
     sha256 "24a03da7808be89c8b3872bf44f4cf084c6f55602de47a7fa24b11cdcd70dc59" => :sierra
     sha256 "9607fffe97f967e33867fa9b9aa27818cd535774ce5b4dc9702d372a6e037b69" => :el_capitan
     sha256 "bce9482d827461585725d445416b26f89b523cb9dfa6acb3580999e0f7d5c1ee" => :yosemite
-    sha256 "0a4c72a6cfa8702fb952e2b668591da8fc449c7444d916e5fbbd642f61dc0edf" => :x86_64_linux
+    sha256 "0a4c72a6cfa8702fb952e2b668591da8fc449c7444d916e5fbbd642f61dc0edf" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

@@ -8,7 +8,7 @@ class Mariadb < Formula
     sha256 "9e48833ade80bfbc889268560c62d13a2cef9fdeabee05be802b9887a71ae39c" => :sierra
     sha256 "d1cbe9c6126883199776854c197ed7ed1f50dc164416c5dc7a0c0d3177c765ed" => :el_capitan
     sha256 "e55ad3f2d6efef790c6053463fb2e56878db251512da3c1286aae11a5d430663" => :yosemite
-    sha256 "4996b04e03724f178a3d152bdff5b50fedad606a40e62a10e1b781f0b6c488d5" => :x86_64_linux
+    sha256 "4996b04e03724f178a3d152bdff5b50fedad606a40e62a10e1b781f0b6c488d5" => :x86_64_linux # glibc 2.19
   end
 
   option "with-test", "Keep test when installing"

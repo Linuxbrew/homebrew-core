@@ -13,7 +13,7 @@ class Libiomp < Formula
     sha256 "f2490f1e40a320426bcc1756cdfc875bfa04643edb0ee988537b6431c0ab4a57" => :yosemite
     sha256 "cea20104475e6e430146d55a9d1d926402435a10a69ebd0ef994c36e4e33e233" => :mavericks
     sha256 "6a45040d4af6ea384bee226ca99ab97857d60b717f19b8273b935c3ca43e3a19" => :mountain_lion
-    sha256 "7435794024fb1e652a768f9b31897ac937756c21478ca434c7b57bbf55bed2ed" => :x86_64_linux
+    sha256 "7435794024fb1e652a768f9b31897ac937756c21478ca434c7b57bbf55bed2ed" => :x86_64_linux # glibc 2.19
   end
 
   fails_with :gcc  do

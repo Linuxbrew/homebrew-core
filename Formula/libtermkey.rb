@@ -9,7 +9,7 @@ class Libtermkey < Formula
     sha256 "d6ed7a2c17bce7c8d6e96530ebe7cfabbf814e701c301d824b11ea22cd46d7d0" => :sierra
     sha256 "782f20517ff7f10a76a5969eb698c9fd9fc279459c56cfb90dda81c30ec5b5ce" => :el_capitan
     sha256 "07bfd3dd2f19032d05d2415642569df0ec8a74f48f545b3e5e1a8548849e9b42" => :yosemite
-    sha256 "8aa860a155529e4e659572b06b442fd90551580773a283f93070af18e0efed39" => :x86_64_linux
+    sha256 "8aa860a155529e4e659572b06b442fd90551580773a283f93070af18e0efed39" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

@@ -10,7 +10,7 @@ class DmtxUtils < Formula
     sha256 "2498ad103e21a03109e6ee791a6bc51745ea20be172efc52d1e8438bd0bc0b9a" => :sierra
     sha256 "e301dd74ecdd88bffa19b8f08c59effca084e4d2836aa8c6f016fb935e88aec0" => :el_capitan
     sha256 "3982fb89199bfacc448795a1462df6a6dd9cedc1cfd82bce92390d69f3f5ca75" => :yosemite
-    sha256 "cbea1503959301bb37efb024fa1ddecdfecf53391bf9a372e0275dcd24102495" => :x86_64_linux
+    sha256 "cbea1503959301bb37efb024fa1ddecdfecf53391bf9a372e0275dcd24102495" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

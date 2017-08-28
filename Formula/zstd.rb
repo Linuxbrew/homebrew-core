@@ -8,7 +8,7 @@ class Zstd < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar :any
-    sha256 "8028e9b692dd03b96a4b059dabe819fde4ee749ed36081bfb2338d8c0472a088" => :x86_64_linux
+    sha256 "8028e9b692dd03b96a4b059dabe819fde4ee749ed36081bfb2338d8c0472a088" => :x86_64_linux # glibc 2.19
   end
 
   option "without-pzstd", "Build without parallel (de-)compression tool"

@@ -8,7 +8,7 @@ class Gdl < Formula
     sha256 "4bdf77d9f10c16879ec6b1dc67040c526a05bb6ab262e4cb00d363509599af33" => :sierra
     sha256 "e3869391f2fc13d9354f4f8744d140c9d5415fad9121a5effeeb2c8609518b30" => :el_capitan
     sha256 "6f4885ff8ef490c46e49eee7415133c494c7e1a77585ce2c0a818f9aaa0982e5" => :yosemite
-    sha256 "0b85fced81eb281bbc36b7ff7455f010790d30d0bdd85ecc6deeb9afb544c156" => :x86_64_linux
+    sha256 "0b85fced81eb281bbc36b7ff7455f010790d30d0bdd85ecc6deeb9afb544c156" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

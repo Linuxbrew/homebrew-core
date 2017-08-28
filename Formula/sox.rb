@@ -10,7 +10,7 @@ class Sox < Formula
     sha256 "7c843e5b55d1375f61177452469d8667d135bdbb0331a17e049f67341ad54d48" => :el_capitan
     sha256 "a561041089c0f0ac9eb49df48127ae3bd9769907d92c51443d49edf4da372f26" => :yosemite
     sha256 "c618f6714b9a14fc52cbb6a474a5a11e1e8feb0b45c0238fdb86b51ed7b1c227" => :mavericks
-    sha256 "b7b2179cd94a6a35fcae48048a00accfdd7ef2be0999a13e48d30f16ff0bee03" => :x86_64_linux
+    sha256 "b7b2179cd94a6a35fcae48048a00accfdd7ef2be0999a13e48d30f16ff0bee03" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

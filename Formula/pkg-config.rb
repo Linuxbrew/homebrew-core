@@ -10,7 +10,7 @@ class PkgConfig < Formula
     sha256 "8eb723bfc03cd468d779d54d015d47d2e8ab1dd4d35e595ab4abaca8833b3277" => :sierra
     sha256 "93f044f166bcbd84db14133ee4f56104031c65409cfd2801c7ac0d182936dc78" => :el_capitan
     sha256 "d9ccc19f1a55919408a1b27260b0404aa36dc6782a4a5964e6fd8409abf3b830" => :yosemite
-    sha256 "2f706d962b15e3af2adb10cd8625830939ad0df8fcf433eb28e98e17f68143a0" => :x86_64_linux
+    sha256 "2f706d962b15e3af2adb10cd8625830939ad0df8fcf433eb28e98e17f68143a0" => :x86_64_linux # glibc 2.19
   end
 
   def install

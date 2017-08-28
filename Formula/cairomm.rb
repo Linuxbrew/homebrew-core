@@ -9,7 +9,7 @@ class Cairomm < Formula
     sha256 "da41ea7c4cd90ab7183f4eba82f6921fd70b8a3ad0301054f2152214efe33373" => :sierra
     sha256 "4fec10a5e15cceceee0b93e11bf000d9f6365cfc1c97dbc255b4a4d7d7d6c8dd" => :el_capitan
     sha256 "ce58504dbe14cd1a27aeecd7eed1d95c6fa7819b8ff6ab451e02462cdc699e83" => :yosemite
-    sha256 "c2083f0fb89462891ba7ee9846554b32a1b5e5428955715caf17201bd0b1278a" => :x86_64_linux
+    sha256 "c2083f0fb89462891ba7ee9846554b32a1b5e5428955715caf17201bd0b1278a" => :x86_64_linux # glibc 2.19
   end
 
   needs :cxx11

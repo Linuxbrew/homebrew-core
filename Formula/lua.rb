@@ -11,7 +11,7 @@ class Lua < Formula
     sha256 "cc0e904400207422498efe4b352bfa185927ba75115920275cfe1f051ecbe768" => :sierra
     sha256 "71e15d3f9db85ec870950d9d7d4aa2b0295914a60d5062c4b5db3bda50972a79" => :el_capitan
     sha256 "fbef1569ff95f0a63ca17208891b4ce6f9d4e1e484bf3a9a6052271e00e35637" => :yosemite
-    sha256 "e023e663439b6376ea50bc9ae33291aebaeb8290cf23a12b70e865a4ad445627" => :x86_64_linux
+    sha256 "e023e663439b6376ea50bc9ae33291aebaeb8290cf23a12b70e865a4ad445627" => :x86_64_linux # glibc 2.19
   end
 
   pour_bottle? do

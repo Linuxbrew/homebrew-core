@@ -10,7 +10,7 @@ class Shc < Formula
     sha256 "f7c53fd5fa9c86057260ad66961406b4579738b30091d7ca6899eb5349013b0c" => :sierra
     sha256 "c54ddaec872f8c3613c53f7b1653250f3a11ad6db789418f8921be96fff6e8a3" => :el_capitan
     sha256 "0b40ee06c9a5db74e302be41adea362975bf86c9c5e6290da13a623341e4468d" => :yosemite
-    sha256 "6cdfa9e5a6d85c5363ccf1f938e733b4298369fd7d65c86afb91aa0254c4ada8" => :x86_64_linux
+    sha256 "6cdfa9e5a6d85c5363ccf1f938e733b4298369fd7d65c86afb91aa0254c4ada8" => :x86_64_linux # glibc 2.19
   end
 
   def install

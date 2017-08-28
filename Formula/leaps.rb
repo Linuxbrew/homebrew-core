@@ -10,7 +10,7 @@ class Leaps < Formula
     sha256 "b1e55d4d73f30e55412ce05d3159b913e69e8e3ff47a9bb1cc6c97e6344cbed8" => :sierra
     sha256 "2c3b8c7583ffe70cfc9ce051c365accf8d9796ea248411258cb72ecce1d3dda4" => :el_capitan
     sha256 "67bb53709d2de532f4b6701261e9e5f65b6ea33ad302684c6ca8db0eed8c55b9" => :yosemite
-    sha256 "04fb6bb36492c72b0447ef1706264a8edd7a44c899c18268cd9547dd4a35b2bc" => :x86_64_linux
+    sha256 "04fb6bb36492c72b0447ef1706264a8edd7a44c899c18268cd9547dd4a35b2bc" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

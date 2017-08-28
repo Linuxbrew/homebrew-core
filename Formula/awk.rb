@@ -10,7 +10,7 @@ class Awk < Formula
     sha256 "40dbcdf8549b662e7775074fe8c172f364862705b0c0ba00495c2da6e1440a70" => :sierra
     sha256 "593cdb489ae25ec556af3a02e26b957efc3a67731f8edf48335a994fa58d533e" => :el_capitan
     sha256 "d74b6dc04cd9dac3791216744a56813b8396c419f325244526c79c433ca95b3d" => :yosemite
-    sha256 "919d5fbd56187f5a76db8af8a08e6cc0f7e56adb1fb341ddea0aa1ec3806ad01" => :x86_64_linux
+    sha256 "919d5fbd56187f5a76db8af8a08e6cc0f7e56adb1fb341ddea0aa1ec3806ad01" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "gawk",

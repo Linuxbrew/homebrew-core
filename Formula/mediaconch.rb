@@ -7,7 +7,7 @@ class Mediaconch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b695a97d50782d9a5d0d9c6aa45aeb36f59eef7defb1577f58cbdd79f4854d6" => :x86_64_linux
+    sha256 "4b695a97d50782d9a5d0d9c6aa45aeb36f59eef7defb1577f58cbdd79f4854d6" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

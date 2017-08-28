@@ -9,7 +9,7 @@ class AntAT19 < Formula
     sha256 "c61398b93dc90ac3b56df0eca3fb3d7059fa81ce3bd2e4c18bb2701b5455d839" => :sierra
     sha256 "de8ab34d71e40db90fe53ea2c311351f73598063eebd82cdcd467f6d93143626" => :el_capitan
     sha256 "de8ab34d71e40db90fe53ea2c311351f73598063eebd82cdcd467f6d93143626" => :yosemite
-    sha256 "a515be5b2a82999571396c8630a6cbbda8501a34aefb130537e9d32ca7221df7" => :x86_64_linux
+    sha256 "a515be5b2a82999571396c8630a6cbbda8501a34aefb130537e9d32ca7221df7" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

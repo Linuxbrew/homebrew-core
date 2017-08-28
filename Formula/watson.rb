@@ -12,7 +12,7 @@ class Watson < Formula
     sha256 "b73f589ea7a6c88f8e75b44b0c5dfe39d43a6e2bf7e8f04ac865706fb2b605c1" => :sierra
     sha256 "a88d5581565c2bcc025fff52006286146d2bd1326c6dc382a7cfb160ca30b947" => :el_capitan
     sha256 "6b2461f85332a77ec5bd22abccd83fe1a8e13d3c9ac0a0ee8e1dd1a0d7e1382c" => :yosemite
-    sha256 "6328afc434d9745dc76caa02e51994de1abe19a5ac25a139efe35d0b3578f6e2" => :x86_64_linux
+    sha256 "6328afc434d9745dc76caa02e51994de1abe19a5ac25a139efe35d0b3578f6e2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python

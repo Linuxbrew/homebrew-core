@@ -7,7 +7,7 @@ class Ocamlbuild < Formula
   head "https://github.com/ocaml/ocamlbuild.git"
 
   bottle do
-    sha256 "c16786266b4f831518f7877002672c14c57e5cad992ae4c1d43367a40dcd7844" => :x86_64_linux
+    sha256 "c16786266b4f831518f7877002672c14c57e5cad992ae4c1d43367a40dcd7844" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml"

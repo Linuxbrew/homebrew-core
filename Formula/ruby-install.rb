@@ -11,7 +11,7 @@ class RubyInstall < Formula
     sha256 "a9e4545b46128f0d35e25c7e558330a93a8ceaf025410610c795b9904bf241a1" => :sierra
     sha256 "3b0b594e01f951b7161b36b33ae59fd0063ac05212708e6eb107bf70fd508258" => :el_capitan
     sha256 "3b0b594e01f951b7161b36b33ae59fd0063ac05212708e6eb107bf70fd508258" => :yosemite
-    sha256 "8eb13757ea3945f414193ec65ffe5c6451e9e2a4352d34c83cb7beb0cb54009f" => :x86_64_linux
+    sha256 "8eb13757ea3945f414193ec65ffe5c6451e9e2a4352d34c83cb7beb0cb54009f" => :x86_64_linux # glibc 2.19
   end
 
   def install

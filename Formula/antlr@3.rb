@@ -9,7 +9,7 @@ class AntlrAT3 < Formula
     sha256 "450bb2d748965c0f25a280a2eb4fd9b371e6f403107053b610dedb030229009e" => :sierra
     sha256 "450bb2d748965c0f25a280a2eb4fd9b371e6f403107053b610dedb030229009e" => :el_capitan
     sha256 "450bb2d748965c0f25a280a2eb4fd9b371e6f403107053b610dedb030229009e" => :yosemite
-    sha256 "6e3d9c8ed7ef1c8dead963ae91417611e8081c9d58e686d5a5c7f4d8d44ee41e" => :x86_64_linux
+    sha256 "6e3d9c8ed7ef1c8dead963ae91417611e8081c9d58e686d5a5c7f4d8d44ee41e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :java

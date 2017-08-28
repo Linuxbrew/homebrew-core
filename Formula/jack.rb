@@ -16,7 +16,7 @@ class Jack < Formula
     sha256 "0a993d32dd74ce014e0c0aa5a04e632a7e4bca7bc6ced4afa9a7d717cc893f06" => :sierra
     sha256 "abb9fc993cda86b4daf45f0d2a8c775716fec08fc016facd8151787ac06e60e4" => :el_capitan
     sha256 "de96b9c43cb77f57d42ba02c1373b31a421ec485eafe401c11cc27c8c8c1838f" => :yosemite
-    sha256 "5ab5409b416b61fd92c1f5186b568a449ea86f3471c008d44995938dba3d4c87" => :x86_64_linux
+    sha256 "5ab5409b416b61fd92c1f5186b568a449ea86f3471c008d44995938dba3d4c87" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

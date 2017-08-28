@@ -14,7 +14,7 @@ class Apachetop < Formula
     sha256 "1cfb399a8548e1ac48d7cb61374e23273aa1eb289e49ba452aa2c55641fe5bae" => :yosemite
     sha256 "78aa56c9141cfc658120edfb27e795cf178067d54f66c79fc752536d8e0335ea" => :mavericks
     sha256 "d2383e14241b9af39c197462339393463ae6f8161dae508f49b0753dff846287" => :mountain_lion
-    sha256 "fcb52fe6f5c4cbe8a3936b6ac2be6ac311e331304d2f639d35d4ae1792491a35" => :x86_64_linux
+    sha256 "fcb52fe6f5c4cbe8a3936b6ac2be6ac311e331304d2f639d35d4ae1792491a35" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ncurses" unless OS.mac?

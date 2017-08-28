@@ -10,7 +10,7 @@ class Bind < Formula
     sha256 "30b8e84bd85742a0d15487a7f0dc6099ef28377f5ab24a368a5e9b62ac4d85e0" => :sierra
     sha256 "06549eb4510412564f01bca75d4b11cf79d4cab7b43b4e7eb9b7ad817ad6853a" => :el_capitan
     sha256 "24d17777e0547adfc569752001e1700dfae168b3d4df43c94bf79c4a3c192c89" => :yosemite
-    sha256 "b585e299ef9497540df2649b730796d84d4660a5e84de8ef3f906e2f254549ce" => :x86_64_linux
+    sha256 "b585e299ef9497540df2649b730796d84d4660a5e84de8ef3f906e2f254549ce" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "openssl"

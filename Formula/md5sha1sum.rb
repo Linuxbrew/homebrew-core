@@ -13,7 +13,7 @@ class Md5sha1sum < Formula
     sha256 "5ff64041e3ce1028522dabfa6e6260d1502033e207434e9d41598259f426af56" => :yosemite
     sha256 "ea565d1739e48e43d36d46a86772e6159fef7c98260aa5d82404f3d2ffea81ef" => :mavericks
     sha256 "f3925bbf60e1b8eaf47fe26cf19d49e61dd9623f891ec62a5500b07dbc186410" => :mountain_lion
-    sha256 "3dc0061924eaa9e064d236d53e049168b4d5b2acc2ad92c469cf31b59c2c5344" => :x86_64_linux
+    sha256 "3dc0061924eaa9e064d236d53e049168b4d5b2acc2ad92c469cf31b59c2c5344" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "openssl"

@@ -10,7 +10,7 @@ class Aescrypt < Formula
     sha256 "0cd940c7c9e59104746a8f83f92a06e703e7f98195a202d20516c03b588fd63f" => :el_capitan
     sha256 "660c8a9266d7f85e699fb5bfabb82c508a66d303b2a2057c9c70a3c70fed43f6" => :yosemite
     sha256 "a0bf8895165037991bf5b33be5c995e9b68a1d05898003a0ef45adb7aa3d3da9" => :mavericks
-    sha256 "7d1dce1bea846032fec3231e860e9b99f66683074a48e72885b5eb34d3bb81ef" => :x86_64_linux
+    sha256 "7d1dce1bea846032fec3231e860e9b99f66683074a48e72885b5eb34d3bb81ef" => :x86_64_linux # glibc 2.19
   end
 
   def install

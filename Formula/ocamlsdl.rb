@@ -10,7 +10,7 @@ class Ocamlsdl < Formula
     sha256 "80146d6d5cd4314eb8837d34981416f3e8165564b4c3cf9c3a714b01e341d260" => :sierra
     sha256 "a3a58336be78c5b1184d90c41b131a56dac49c8b31ede956a5301f9fa8a1f476" => :el_capitan
     sha256 "ab870f40ad5fd7fc3c627d246560998ee856c14da016381ef43ead6431c24f4e" => :yosemite
-    sha256 "06ac2ee7f88c6ffed20e70b95f887a2fde63dc205dd9660ba2f0811b749f6108" => :x86_64_linux
+    sha256 "06ac2ee7f88c6ffed20e70b95f887a2fde63dc205dd9660ba2f0811b749f6108" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "sdl"

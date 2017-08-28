@@ -21,7 +21,7 @@ class Freeimage < Formula
     sha256 "c3489ce29935ad196057e6ff95485dfc4442e7e26c4031523623e28bb587fad3" => :sierra
     sha256 "910ae7448a650a9415ad61e86635daed39177537f891a16bd036f444c96bdbfb" => :el_capitan
     sha256 "aec3219d5a015a5df4fbc81da4d74ac3c2a6f2d528bfbca770c217775f065e19" => :yosemite
-    sha256 "2de1e4492ad7b690d2f4a6b51b536e79491b8a521466439634dc8ed5567e7b52" => :x86_64_linux
+    sha256 "2de1e4492ad7b690d2f4a6b51b536e79491b8a521466439634dc8ed5567e7b52" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "unzip" => :build unless OS.mac?

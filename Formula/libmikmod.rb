@@ -9,7 +9,7 @@ class Libmikmod < Formula
     sha256 "f7785b9a4f95ff28d55ffd022780ed1cd9bde139b3482cc4f52b862cd9abf247" => :sierra
     sha256 "202b59906b8113d694f9c1e81df7a5f00f8afbc9e66a2b1188674058a64ae206" => :el_capitan
     sha256 "8276808d976d108dd2768cacb5b54bf570ef6662b8855e7d3537e0ffaaeb1a19" => :yosemite
-    sha256 "be7aefb9f7630a6626b95611782862c529bac8df955e8a4d16ef9bf25b2c2928" => :x86_64_linux
+    sha256 "be7aefb9f7630a6626b95611782862c529bac8df955e8a4d16ef9bf25b2c2928" => :x86_64_linux # glibc 2.19
   end
 
   option "with-debug", "Enable debugging symbols"

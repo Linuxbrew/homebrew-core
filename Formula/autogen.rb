@@ -10,7 +10,7 @@ class Autogen < Formula
     sha256 "9d4b6c3aba83225c84cc669aa8b4f9cd975e427ea8b669fb6a36f9bb94ffd019" => :sierra
     sha256 "f725f6b398ce1976aabbede2a9abfd44b4aecd49278b2f98d7c8d9d4e3631a25" => :el_capitan
     sha256 "24e1800bb32f5249e5ed111c27cba2f8093c5bcb7f62dfc53570efbe8caa5bb6" => :yosemite
-    sha256 "867595dfebedfa59443840029bf5786c62b431e8c00e59e66d6d5fe81ad4e870" => :x86_64_linux
+    sha256 "867595dfebedfa59443840029bf5786c62b431e8c00e59e66d6d5fe81ad4e870" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

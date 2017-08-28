@@ -9,7 +9,7 @@ class Pike < Formula
     sha256 "0251c2e968307aec3ce415c257e897e76b2968055334764407711dcf191c78ff" => :sierra
     sha256 "d631d66fbaa6053e9cf6fe9ecab1af00db0dc504c3cd4b86962e54ab7269f9d9" => :el_capitan
     sha256 "44fc539a915050d3521b91f87f387937f3727179a89f4a51bec9973ac98f1bf5" => :yosemite
-    sha256 "01a68b821845168bb9c3ae53bdbfe2e8480d73355b933cba8242c06af7dd2fb9" => :x86_64_linux
+    sha256 "01a68b821845168bb9c3ae53bdbfe2e8480d73355b933cba8242c06af7dd2fb9" => :x86_64_linux # glibc 2.19
   end
 
   option "with-gettext", "Include Gettext support"

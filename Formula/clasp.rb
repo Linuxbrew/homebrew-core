@@ -9,7 +9,7 @@ class Clasp < Formula
     sha256 "02cafaad412b7b4bc1c78bbd81f153345eb1eaf22050d55c2daba069a73ffa90" => :sierra
     sha256 "09acf6c42509c7cc80311c181685ebb39c319a80668ab3e7a452586a72961f7b" => :el_capitan
     sha256 "fb6c23036a3735c43cabbe38c324cd16cf07ed4c7463396d3c559bec6c4038be" => :yosemite
-    sha256 "60ffdb9f97e1318efd58b5cbb6c6ea401c94c79e2229c3e4980da61eca81a838" => :x86_64_linux
+    sha256 "60ffdb9f97e1318efd58b5cbb6c6ea401c94c79e2229c3e4980da61eca81a838" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

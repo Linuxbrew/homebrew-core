@@ -12,7 +12,7 @@ class SSearch < Formula
     sha256 "3e83c81203408155ccd9a9c26e4569996afe83d2ddfdb9d3e82cfa9e98662755" => :sierra
     sha256 "d386a3c79b5e9124db394daf5597a20704d6d3d63322504d4a62bbd051fc91ed" => :el_capitan
     sha256 "ef7633627980f70a86d0620e478c91e5f7f8b20f635a91a16b39065d0bba64d0" => :yosemite
-    sha256 "7876b13573774d561b7dd476894fdb39bf547438ca7619b691aa6e56b939d8f3" => :x86_64_linux
+    sha256 "7876b13573774d561b7dd476894fdb39bf547438ca7619b691aa6e56b939d8f3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

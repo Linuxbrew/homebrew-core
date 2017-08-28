@@ -13,7 +13,7 @@ class Openssl < Formula
     sha256 "b9a6d41e2889890de8db396c2c2809711baff4272494eb4011c6473f099ba4f1" => :sierra
     sha256 "8650d9af7937c232b54b3229ac86f0fc141799040564d57488f70caeed1b4ee4" => :el_capitan
     sha256 "d1bc6fd09adc76f099f810f3bfe2b96baf87219432ca0a104fafac48ffaa88b6" => :yosemite
-    sha256 "7db1b4195b2b53a0018e54ba606d5b26418358f9a925309e48686720753276ab" => :x86_64_linux
+    sha256 "7db1b4195b2b53a0018e54ba606d5b26418358f9a925309e48686720753276ab" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx,

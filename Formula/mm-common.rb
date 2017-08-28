@@ -9,7 +9,7 @@ class MmCommon < Formula
     sha256 "c86ca9a93c9833d42971c03204b8a655b04e2444ffbc3f90126e7ba0c7411bd1" => :sierra
     sha256 "c86ca9a93c9833d42971c03204b8a655b04e2444ffbc3f90126e7ba0c7411bd1" => :el_capitan
     sha256 "c86ca9a93c9833d42971c03204b8a655b04e2444ffbc3f90126e7ba0c7411bd1" => :yosemite
-    sha256 "b8b0685d27e1692856a649c48969806ebf443915ff96f9babf123b1e25998f33" => :x86_64_linux
+    sha256 "b8b0685d27e1692856a649c48969806ebf443915ff96f9babf123b1e25998f33" => :x86_64_linux # glibc 2.19
   end
 
   def install

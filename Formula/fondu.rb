@@ -11,7 +11,7 @@ class Fondu < Formula
     sha256 "c4fadd6744370dc946b7dde1ec8329335146257ad60b829f9f4024912859d7db" => :el_capitan
     sha256 "dfeddb29a48dcf4db6aaf8170b54137fb329e216a4f83f47ddf262a984ab469e" => :yosemite
     sha256 "cc8bb3c5213b0b792929fa1658077da60717993f0dbdaa56c0fe6004930309f4" => :mavericks
-    sha256 "85493aec06ad2eefcb7ea6bd71425034258e345db7a05329876bf4bbc2793347" => :x86_64_linux
+    sha256 "85493aec06ad2eefcb7ea6bd71425034258e345db7a05329876bf4bbc2793347" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "cspice", :because => "both install `tobin` binaries"

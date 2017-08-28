@@ -8,7 +8,7 @@ class Opam < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22b4f9836d6b3170e9d6bd5ce20e9abcf54d9f96dd9f00f2b5419ee6aa048a7c" => :x86_64_linux
+    sha256 "22b4f9836d6b3170e9d6bd5ce20e9abcf54d9f96dd9f00f2b5419ee6aa048a7c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml" => :recommended

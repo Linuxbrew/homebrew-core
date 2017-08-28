@@ -11,7 +11,7 @@ class Abook < Formula
     sha256 "e32cff277928e0b5cd24f201b1b5f94faf5469f263856b48c78f85b539018c86" => :sierra
     sha256 "fc5e09a73519a20dbe90258d6779bfddb1a02b2fc277fd54b4cd8c80c378539d" => :el_capitan
     sha256 "2f3a8d37fd17ecdda801f8de53e4048f19d824748e11a34c6f9abca0aae06c3b" => :yosemite
-    sha256 "9184c87dd04a0b78929cb76782bcb0d5fb14424f4bcaf3acaf1d1f111d00ff6a" => :x86_64_linux
+    sha256 "9184c87dd04a0b78929cb76782bcb0d5fb14424f4bcaf3acaf1d1f111d00ff6a" => :x86_64_linux # glibc 2.19
   end
 
   devel do

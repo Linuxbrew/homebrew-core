@@ -9,7 +9,7 @@ class Gom < Formula
     sha256 "c0d7ef477da47db79a99241bf4e514a74a43f2390c5c90b3a8eb11851f6a4b44" => :el_capitan
     sha256 "060cf100046bd8bedf1ba4df90527754102fea42c7b20ff6147f813bd3c5fb8b" => :yosemite
     sha256 "1c67b623bf29a0dabedf0cf2c686d1b22f3b28ff0a227fe96624754a14feb88f" => :mavericks
-    sha256 "1edcb446b00beafe7cfe6fe1d6cf88929756b2ee50180c9a7992243bb0e275f3" => :x86_64_linux
+    sha256 "1edcb446b00beafe7cfe6fe1d6cf88929756b2ee50180c9a7992243bb0e275f3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

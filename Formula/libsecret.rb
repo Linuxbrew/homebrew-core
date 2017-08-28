@@ -9,7 +9,7 @@ class Libsecret < Formula
     sha256 "70dc8c53fe5e90878623f3d78dc31e23894429e5ffac816efaa17ac683d6e80d" => :sierra
     sha256 "bc8741bca918709da77c0144e985918b720afcd27b6228963f117348994d680c" => :el_capitan
     sha256 "9abd02a3cc9049c185321f691df43da2b150a2f55ca0463e346632b93a7a7900" => :yosemite
-    sha256 "2577ee320e275d60f0f4a67b129c18ccec273d88bb07f5c3c9af9ffe91ba42d7" => :x86_64_linux
+    sha256 "2577ee320e275d60f0f4a67b129c18ccec273d88bb07f5c3c9af9ffe91ba42d7" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

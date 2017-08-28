@@ -26,7 +26,7 @@ class Dmd < Formula
     sha256 "fd47cfa377ebfd60efa81f3055cea91739ba6f5d919071a388c3099c7e147db4" => :sierra
     sha256 "ca36760d6dade06bb0a3f338982ce84df1245ff287c2d3cbade7224bdd60d61a" => :el_capitan
     sha256 "48df5506973862c14a85a7fb1da6f12b335da3abe977851a98047974ad4a278e" => :yosemite
-    sha256 "b9219c8935107d2af95e83f4ac8c5ad326b57b75012d189306a4919ef11c85f4" => :x86_64_linux
+    sha256 "b9219c8935107d2af95e83f4ac8c5ad326b57b75012d189306a4919ef11c85f4" => :x86_64_linux # glibc 2.19
   end
 
   devel do

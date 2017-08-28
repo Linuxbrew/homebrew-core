@@ -10,7 +10,7 @@ class Zbackup < Formula
     sha256 "5604f7d12355aa94dde2feae94dd7e361a76d637d0dd297e4d54f9bb149b9b51" => :sierra
     sha256 "c12be8aa04a509b3877a8dd24a49dc59e2e8688760be562e61883e931c0eee70" => :el_capitan
     sha256 "7f833746286b96a12225a6149a585745e9c5cd1903d97ad40cc38f67cf0e7a1e" => :yosemite
-    sha256 "f1482dd9d5e0cbd1b79dcb4fde57c9eceaece635d432133d1b1c384ffaf02255" => :x86_64_linux
+    sha256 "f1482dd9d5e0cbd1b79dcb4fde57c9eceaece635d432133d1b1c384ffaf02255" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

@@ -8,7 +8,7 @@ class Gssdp < Formula
     sha256 "d29d7e15bd8ceae958e69a08b058ae9a9ccac273dee2182545d4371048efbb6e" => :sierra
     sha256 "32cb5ef5c518bc5d1812a34ebade6a82cc43f036f4a40fc77719dfcafe6dad02" => :el_capitan
     sha256 "540ceba3f55e06e642ab67d53dc84f94a4a55b4e0381f4d015f15991e102b255" => :yosemite
-    sha256 "19373fc9c82fdda24cd1fb6c02162e62088fa5da14c49b401c97be09602e73fa" => :x86_64_linux
+    sha256 "19373fc9c82fdda24cd1fb6c02162e62088fa5da14c49b401c97be09602e73fa" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

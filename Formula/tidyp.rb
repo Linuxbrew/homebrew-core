@@ -10,7 +10,7 @@ class Tidyp < Formula
     sha256 "5274bb4cd33d9c15d8c73dbe4cfb54e686da29cd29093adba549024fe520b82c" => :el_capitan
     sha256 "710962782d909bf11987f8b147d7e141ccba48643ab2db02c7f267d6cf871dd9" => :yosemite
     sha256 "7501f78d5f8e549fec7f689cd24aafa716e2097744ec78359d8092183469e4c8" => :mavericks
-    sha256 "a67e93cc14f51fd0ed5668b04f7c7de13c679d3713ea1fa236f35fc7f9f10674" => :x86_64_linux
+    sha256 "a67e93cc14f51fd0ed5668b04f7c7de13c679d3713ea1fa236f35fc7f9f10674" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libxslt" => :build unless OS.mac?

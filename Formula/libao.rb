@@ -9,7 +9,7 @@ class Libao < Formula
     sha256 "91469bf8242cf3115d65f6bf39caa77226fc21840309ee5f3fad009379a6fbec" => :sierra
     sha256 "d1e17337705d098d76e4bfd4b71f2bb01278a85a87d58ad0711636a2050c9049" => :el_capitan
     sha256 "a44490fce22700be3b09bc6c75de39d90f7860e2486723bb1fa655e22c0a2771" => :yosemite
-    sha256 "43ffb0841ba2f17b094ab03b6f933462aec7376caee3a6acb06bcc2510eb7baa" => :x86_64_linux
+    sha256 "43ffb0841ba2f17b094ab03b6f933462aec7376caee3a6acb06bcc2510eb7baa" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "automake" => :build

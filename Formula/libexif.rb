@@ -12,7 +12,7 @@ class Libexif < Formula
     sha256 "cebb385c6f48fafa10b8731daec8ce38d8ee34ff7d3afc131edd553a2249662f" => :yosemite
     sha256 "791e4c2073051f5e93fee0f30d1888f39b2873eacbfadbc4b3dd6328b80dfb51" => :mavericks
     sha256 "c84d39e0e1b14770c53190e46aa80ed4155dc22106a104d11fe4c85e533bf1ba" => :mountain_lion
-    sha256 "a399c93b4ad22de52cb4bc731011924ec4b00fbf509c3ca4893fc8c8cfae6d02" => :x86_64_linux
+    sha256 "a399c93b4ad22de52cb4bc731011924ec4b00fbf509c3ca4893fc8c8cfae6d02" => :x86_64_linux # glibc 2.19
   end
 
   def install

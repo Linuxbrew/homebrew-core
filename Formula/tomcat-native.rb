@@ -10,7 +10,7 @@ class TomcatNative < Formula
     sha256 "f70f31c3406a7b9e420869d4d6003fb967b85c2ea1a976a9738be35143ed4038" => :sierra
     sha256 "e1ebaa1c597c315e1426f4e540445eb1404681e130fab1fd2195173753278fa7" => :el_capitan
     sha256 "308e4924da12adefa37dfcd599330111c3571d6f3203bcfe77c3139a7a6d7458" => :yosemite
-    sha256 "0aafb4d3d5f109283b5b236c9af1e1d022d9a141e2a943cb497bd7ad3b3ac368" => :x86_64_linux
+    sha256 "0aafb4d3d5f109283b5b236c9af1e1d022d9a141e2a943cb497bd7ad3b3ac368" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libtool" => :build

@@ -12,7 +12,7 @@ class Colortail < Formula
     sha256 "1be1c0067a5621f5edcabf64ec06a775d334924e4ea01bccd1c42830f6c9d0c6" => :yosemite
     sha256 "8570fbda1625d70eac83d0e53a1d32d0cd7b32f9fb0b8dea38d32a3228dc6688" => :mavericks
     sha256 "cba08e3d00b530eca42cd2d95dc0c3ed9419f199e7f26edc068b5b1074c3fe51" => :mountain_lion
-    sha256 "d3cd61e660155bded960b5fb5334e8dcc587efb36575a832c85b7a9a2e28bd0b" => :x86_64_linux
+    sha256 "d3cd61e660155bded960b5fb5334e8dcc587efb36575a832c85b7a9a2e28bd0b" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "automake" => :build

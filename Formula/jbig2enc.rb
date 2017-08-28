@@ -18,7 +18,7 @@ class Jbig2enc < Formula
     sha256 "0d092aaa3d99143057610d44328dda7ca35549f9a80683b637a5265d26e0cffd" => :sierra
     sha256 "6164ddfa8f877e4d8cacbe4437d8dd5ec10465910446cb43e2d52f4f19023101" => :el_capitan
     sha256 "0a34215dfcd908571ca6b65d3ca4d79c2758e3a4edbf4d3c8da944a8567fc02f" => :yosemite
-    sha256 "733b95dc0f5e2bb646909663a13edc1f01cbb3c4a057e9fe8410539e22415af3" => :x86_64_linux
+    sha256 "733b95dc0f5e2bb646909663a13edc1f01cbb3c4a057e9fe8410539e22415af3" => :x86_64_linux # glibc 2.19
   end
 
   head do

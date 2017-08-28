@@ -10,7 +10,7 @@ class Quvi < Formula
     sha256 "c5a8c9b53432e15b4ec31a9c1374bde130d56f73f8ee43e392917a52f34ab945" => :el_capitan
     sha256 "944922426376a9962bb90f032e02ef2404d3155ed3bba81a0b4d349ba1f1aec8" => :yosemite
     sha256 "631889c5bfbfa3741a33efb350b020abaffd163016d375bfa41aedf5cf93262e" => :mavericks
-    sha256 "701a97d35a6a548bc5bd466dc6664359a77594a9af049f60fa5dd3d93c2566f6" => :x86_64_linux
+    sha256 "701a97d35a6a548bc5bd466dc6664359a77594a9af049f60fa5dd3d93c2566f6" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

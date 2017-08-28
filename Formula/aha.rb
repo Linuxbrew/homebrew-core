@@ -10,7 +10,7 @@ class Aha < Formula
     sha256 "9bae4d54f930969df6a87f101d40c061523ee72c6d47b649cb47388c3f3abd5b" => :sierra
     sha256 "9b80c3841426b29cba608e2ee68ed8949920f6af191cd4a0dd6e7a3d356ad310" => :el_capitan
     sha256 "5adf1e9f8d20ffe6f646748f63dca21dcc150d3df2bdff60b97bfb1c4c68bdb4" => :yosemite
-    sha256 "14371fcc5bc383bcf7e489abe15feb5609371bce3e9d75bba11a74973c53e595" => :x86_64_linux
+    sha256 "14371fcc5bc383bcf7e489abe15feb5609371bce3e9d75bba11a74973c53e595" => :x86_64_linux # glibc 2.19
   end
 
   def install

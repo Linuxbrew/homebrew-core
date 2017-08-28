@@ -11,7 +11,7 @@ class Deheader < Formula
     sha256 "2b70a9eb18042a3e93ab8fc1bf018c417d8b41f9b8efe6d818d45aed6922cf52" => :sierra
     sha256 "2b70a9eb18042a3e93ab8fc1bf018c417d8b41f9b8efe6d818d45aed6922cf52" => :el_capitan
     sha256 "2b70a9eb18042a3e93ab8fc1bf018c417d8b41f9b8efe6d818d45aed6922cf52" => :yosemite
-    sha256 "a8e0f9dbb9facba1035da6d491a2b4cb150a5fd78da8b8e34939f04a01bfac19" => :x86_64_linux
+    sha256 "a8e0f9dbb9facba1035da6d491a2b4cb150a5fd78da8b8e34939f04a01bfac19" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "xmlto" => :build

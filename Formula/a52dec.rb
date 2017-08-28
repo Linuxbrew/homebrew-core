@@ -11,7 +11,7 @@ class A52dec < Formula
     sha256 "cfe0ddcf275b03d9ad0c626174962601ae18d3f77fa35266228425b818ce4a7f" => :yosemite
     sha256 "cb40eed81300fa32069bac07244cf7f56363cc04af853ddb75bada292e8d9912" => :mavericks
     sha256 "8311a6c00e6213f754062a6cf243bc807ca2c9b6db73f78de3b8149679d7ccc9" => :mountain_lion
-    sha256 "1ee3d6cdaaa77669cd10c41de60d933187d83fd792e605eee6e8942201cdc6c2" => :x86_64_linux
+    sha256 "1ee3d6cdaaa77669cd10c41de60d933187d83fd792e605eee6e8942201cdc6c2" => :x86_64_linux # glibc 2.19
   end
 
   def install

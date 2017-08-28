@@ -12,7 +12,7 @@ class Flawfinder < Formula
     sha256 "bd4528ceb62ee1e1579de9f4d3465e2423052fb6e9aa2fdd8ebeb775de538601" => :sierra
     sha256 "bd4528ceb62ee1e1579de9f4d3465e2423052fb6e9aa2fdd8ebeb775de538601" => :el_capitan
     sha256 "bd4528ceb62ee1e1579de9f4d3465e2423052fb6e9aa2fdd8ebeb775de538601" => :yosemite
-    sha256 "2674cd138187faea97ac75e28535dabd268c995ca58ddabb36d22a3bb2aa956f" => :x86_64_linux
+    sha256 "2674cd138187faea97ac75e28535dabd268c995ca58ddabb36d22a3bb2aa956f" => :x86_64_linux # glibc 2.19
   end
 
   resource "flaws" do

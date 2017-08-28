@@ -9,7 +9,7 @@ class Newt < Formula
     sha256 "eb0b10566d3852909e6f11ad02dd09382cb494d05f1ea4a2371c15abda8cda1c" => :sierra
     sha256 "1a3b16bafddded8ae06bcb5b261c50142b7b7752d4e4cf08d65709a2506edf82" => :el_capitan
     sha256 "78f895d8ee19c343c5846a29699fd8be1f552f8d5c335081df353f8069cd9fa0" => :yosemite
-    sha256 "1441497449d799a69bc8a4d641b1725ffa6258bf7392c3e51c0a860157bc2eeb" => :x86_64_linux
+    sha256 "1441497449d799a69bc8a4d641b1725ffa6258bf7392c3e51c0a860157bc2eeb" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gettext"

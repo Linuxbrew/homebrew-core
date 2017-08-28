@@ -8,7 +8,7 @@ class Tmux < Formula
     sha256 "232d1d04e4b6fb4c860d0d72a6e98dc000d33028b2d6cea87f476d2502fc7bac" => :sierra
     sha256 "3bcc934afd1b4067dcd57400d5296c38d37f9e671b716578eae3ad150a64b3b3" => :el_capitan
     sha256 "d137eb4f725cd7784162c01b1e6053c88059079aed639b685f3a3eba82efe31f" => :yosemite
-    sha256 "5ffa45b3316572ec0e022b97ee4afd878dc7e97dbadb51786deb68ced4dec2f5" => :x86_64_linux
+    sha256 "5ffa45b3316572ec0e022b97ee4afd878dc7e97dbadb51786deb68ced4dec2f5" => :x86_64_linux # glibc 2.19
   end
 
   head do

@@ -10,7 +10,7 @@ class CAres < Formula
     sha256 "e543ffa2ee246cd28e1dc0bb2ba1e2952266500419be8ed3a54d910c274f24be" => :sierra
     sha256 "5efb5340249ab0b5cd160632391e6e632fbaf8857742d66dbba9938df8ac9215" => :el_capitan
     sha256 "28977de886a3ca0cf08fae79d2b1abfb2d1c198b7a28c345dd37566ccbf8d670" => :yosemite
-    sha256 "5070c0d5a561e598cd5f663f790884980a2b99c312c6b809b0652c15f5c30f56" => :x86_64_linux
+    sha256 "5070c0d5a561e598cd5f663f790884980a2b99c312c6b809b0652c15f5c30f56" => :x86_64_linux # glibc 2.19
   end
 
   head do

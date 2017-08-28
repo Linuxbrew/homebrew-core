@@ -14,7 +14,7 @@ class Volatility < Formula
     sha256 "c6a71814aa288cb111544a727f333b7f3f82c77a07c980f16038275f375835b6" => :sierra
     sha256 "a0613ac4dd0a9b06ac6a9dabbc86c77faabe585af2e884d44d264cdaddac2308" => :el_capitan
     sha256 "e14faea2003aada9ede7d52c09497ea8eb90b5153853ecfe86c3416a043dc70a" => :yosemite
-    sha256 "4d2eea05735cb6fd1554aa54816f8f5c54acb0b33fa0f06b8201a0d8c2a7ab09" => :x86_64_linux
+    sha256 "4d2eea05735cb6fd1554aa54816f8f5c54acb0b33fa0f06b8201a0d8c2a7ab09" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

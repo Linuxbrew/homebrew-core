@@ -8,7 +8,7 @@ class Flex < Formula
     sha256 "89fb9ae2ac9be0f60706f40379cdfa51ced78f1638ac8729bc0074e4fcde70cf" => :sierra
     sha256 "95c2da56e5487b53ee4afe3ed52a7f59ffe86df4508768b3e48ef042d66e6cc1" => :el_capitan
     sha256 "c8aaca29a77a6b3e2383f7d80b12eccbbf131162e5157a4a320117d4c564a4bf" => :yosemite
-    sha256 "428698b422383860d697f3ef5e5b91ffc4d0b390b29d5b0c5ab7faee67f299d2" => :x86_64_linux
+    sha256 "428698b422383860d697f3ef5e5b91ffc4d0b390b29d5b0c5ab7faee67f299d2" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx, "some formulae require a newer version of flex"

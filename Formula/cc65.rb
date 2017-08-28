@@ -10,7 +10,7 @@ class Cc65 < Formula
     sha256 "c3e1ba0c47aa7cff0841b4aba4688d8598fbc39733cc4da9cfebbb626330e222" => :sierra
     sha256 "f0c5fee3dab48fc030953717cdea847a1bd7fc040d50f34407330f190de54420" => :el_capitan
     sha256 "c7b91bec2fa66f33f2c1f87a12db927ca613652e9a0e2b52848f6cc06d00acbc" => :yosemite
-    sha256 "df4a2ce0d6c4c339af29e88dca392146a0984ea2c0390da8243f08a4d3c31f2c" => :x86_64_linux
+    sha256 "df4a2ce0d6c4c339af29e88dca392146a0984ea2c0390da8243f08a4d3c31f2c" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "grc", :because => "both install `grc` binaries"

@@ -10,7 +10,7 @@ class Cloc < Formula
     sha256 "20ad35f8364a77e84cc412f1bb1a86d9b96876eed88afbdc71017bec227290ea" => :sierra
     sha256 "a8c39fc4daf93dc56e24a55a76414f0b64e51e2c443de10c24e4b1c5b9b5a2b1" => :el_capitan
     sha256 "d6eef98c928c222e5cc7c675b23774ec87a62076c5642c92555c36e749d97996" => :yosemite
-    sha256 "6f8bb4ca60a654784b2f35bdffd9f68b8cadf8da8a97df8de3f9308e944da072" => :x86_64_linux
+    sha256 "6f8bb4ca60a654784b2f35bdffd9f68b8cadf8da8a97df8de3f9308e944da072" => :x86_64_linux # glibc 2.19
   end
 
   resource "Regexp::Common" do

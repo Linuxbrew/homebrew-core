@@ -11,7 +11,7 @@ class LibvoAacenc < Formula
     sha256 "cf63ddcb79e40b79264507393ed4fa1b223feecf4638f0e58fef464db722b554" => :yosemite
     sha256 "645f4294e8512add5c5f263cd8273c93e22eab565307ada5f8804ef7b9d41d8d" => :mavericks
     sha256 "1a2fc17d25d424a4385d2c792b4e09ff0409b5c264cc03aec2182e40dc21295a" => :mountain_lion
-    sha256 "83ce60b4e4f066d2bb98b4952d2fe92199cc41588bdc280c69f688e4fd4d7809" => :x86_64_linux
+    sha256 "83ce60b4e4f066d2bb98b4952d2fe92199cc41588bdc280c69f688e4fd4d7809" => :x86_64_linux # glibc 2.19
   end
 
   def install

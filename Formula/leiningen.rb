@@ -10,7 +10,7 @@ class Leiningen < Formula
     sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :sierra
     sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :el_capitan
     sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :yosemite
-    sha256 "e280c3861125b3e48bd1c2b969bb570fdc61f38f999cbb959111863f983ba046" => :x86_64_linux
+    sha256 "e280c3861125b3e48bd1c2b969bb570fdc61f38f999cbb959111863f983ba046" => :x86_64_linux # glibc 2.19
   end
 
   resource "jar" do

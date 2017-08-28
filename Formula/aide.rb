@@ -10,7 +10,7 @@ class Aide < Formula
     sha256 "ac9b57a6912ac73ccd6bdb013842168f0d77a597ead54bff0640db6e2d0e49d8" => :el_capitan
     sha256 "0def5269c4525296c167ceb591be1f69f4d65151da7bd9ef9a25160e5ca6e0a6" => :yosemite
     sha256 "96addc96a4768e2343e2760022e115404c80b54b64f160925d24447bb393f39d" => :mavericks
-    sha256 "3eec73fc219274c93da0f3860ef90420f9cd1e8ba9013c75cb23468f36d4e647" => :x86_64_linux
+    sha256 "3eec73fc219274c93da0f3860ef90420f9cd1e8ba9013c75cb23468f36d4e647" => :x86_64_linux # glibc 2.19
   end
 
   head do

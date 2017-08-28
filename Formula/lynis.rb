@@ -9,7 +9,7 @@ class Lynis < Formula
     sha256 "5a94804cace3f7df007bc3ba8399db2512590b29bffaea97d75aa487215a6cde" => :sierra
     sha256 "5a94804cace3f7df007bc3ba8399db2512590b29bffaea97d75aa487215a6cde" => :el_capitan
     sha256 "5a94804cace3f7df007bc3ba8399db2512590b29bffaea97d75aa487215a6cde" => :yosemite
-    sha256 "c927e7ee4f01137083d210fd90e89b6e5e4b21676cf5d6506ffe3f1110325628" => :x86_64_linux
+    sha256 "c927e7ee4f01137083d210fd90e89b6e5e4b21676cf5d6506ffe3f1110325628" => :x86_64_linux # glibc 2.19
   end
 
   def install

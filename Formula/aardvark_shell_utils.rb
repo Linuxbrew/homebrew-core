@@ -10,7 +10,7 @@ class AardvarkShellUtils < Formula
     sha256 "4fc19fca9729b408c5a77f362fff72a8c74c324d4a81cc0cf3e4c91b41bf2d6f" => :el_capitan
     sha256 "ca1cb774102a7e5128f964c2c9d48b45877f1fd3347288edb2adef5981fdd0f4" => :yosemite
     sha256 "e8e8b6fd4ee85d8a6ae267fbd20160c1aeddeb6c8e302793b12a807131ef4b27" => :mavericks
-    sha256 "5af12d5436a5da770ebdde479342ccce2794d20519122f8f2a61e2f096b94c4e" => :x86_64_linux
+    sha256 "5af12d5436a5da770ebdde479342ccce2794d20519122f8f2a61e2f096b94c4e" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "coreutils", :because => "both install `realpath` binaries"

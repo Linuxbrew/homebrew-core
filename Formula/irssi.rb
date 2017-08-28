@@ -9,7 +9,7 @@ class Irssi < Formula
     sha256 "aab6ebcbe1bbbee5aa0958caa9adbc018462651437f77d214c33f06dbdb5494f" => :sierra
     sha256 "cacc37fef6a832d7ee0be25f6e82c034e170756e870169c376748e0dab8fc805" => :el_capitan
     sha256 "d53637d6473c7f344ba3c51ee556f85e402de0a8ccf211efb30437ed79fc62e2" => :yosemite
-    sha256 "5000410462ce004e2e9067438e4aa656cc23319484331aeb39b4d657efce1639" => :x86_64_linux
+    sha256 "5000410462ce004e2e9067438e4aa656cc23319484331aeb39b4d657efce1639" => :x86_64_linux # glibc 2.19
   end
 
   head do

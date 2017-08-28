@@ -10,7 +10,7 @@ class Minizip < Formula
     sha256 "8d4d3d12774a660c68be156caf804a9982d5d79204c66b0c3e56f3e92d0fe09b" => :sierra
     sha256 "a0f89a172ba19d62c331c083c94e91f575a66bb56438c1a9eb55b59fbc570598" => :el_capitan
     sha256 "c506cadbf592627a4a6c45de9d5a96fc5da8fe6115ea9a93ca95ec7d96bc115d" => :yosemite
-    sha256 "07e97ea251d2e46192724b1ef68335cfb2baceaeee34fd26190af8f4412c67cc" => :x86_64_linux
+    sha256 "07e97ea251d2e46192724b1ef68335cfb2baceaeee34fd26190af8f4412c67cc" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

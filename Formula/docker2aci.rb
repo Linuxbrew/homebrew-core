@@ -9,7 +9,7 @@ class Docker2aci < Formula
     sha256 "07aa14d46698ae7cd5aaef1048dbc1e802361846bdae134c2ed08796d01e6f75" => :sierra
     sha256 "5487ddd0cb050bca91e6663ee430ddf08ec7995b4c4c31d9a39b91fb99f3217c" => :el_capitan
     sha256 "aef97426abd25cb8b8c0e20ba2285b8c63c31fb98a34a1af55c36bd9749185ad" => :yosemite
-    sha256 "a1dec7f9bec6ba4b00de4de0b7ee751baad82e71b2db0e586e2f520349491501" => :x86_64_linux
+    sha256 "a1dec7f9bec6ba4b00de4de0b7ee751baad82e71b2db0e586e2f520349491501" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

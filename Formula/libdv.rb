@@ -12,7 +12,7 @@ class Libdv < Formula
     sha256 "49262f766082fa4c9a509236bdaf5eec8746a8c4b9724fc83521bfc5725660c7" => :yosemite
     sha256 "830002340f10dae43ba81d370bfbcd92a40f8b9330ed03fcb627b70983069a7b" => :mavericks
     sha256 "9f10897bacdbeee6f6480c2409764f418e8d0d9230d521e3ee1dd9c8a8926072" => :mountain_lion
-    sha256 "71124d54e0811b7ce6ba63e694ccca0750bcce387f2a4749bf1efd599a8ac7df" => :x86_64_linux
+    sha256 "71124d54e0811b7ce6ba63e694ccca0750bcce387f2a4749bf1efd599a8ac7df" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "popt"

@@ -10,7 +10,7 @@ class Apollo < Formula
     sha256 "1d4d6ac835aa8f72d8fb3084780e215986737c6609dff27a552730f2df9f5fc7" => :sierra
     sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :el_capitan
     sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :yosemite
-    sha256 "ec8bd2fc4541adb625796c0dd925620c7abf4ede0ce735c2ab3873bde21d379d" => :x86_64_linux
+    sha256 "ec8bd2fc4541adb625796c0dd925620c7abf4ede0ce735c2ab3873bde21d379d" => :x86_64_linux # glibc 2.19
   end
 
   deprecated_option "no-bdb" => "without-bdb"

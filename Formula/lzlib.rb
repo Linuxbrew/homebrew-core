@@ -10,7 +10,7 @@ class Lzlib < Formula
     sha256 "4c90f6b740eb6fea8fef693744a071c268ab1655a1b077ae6ddc582e8fe2fc6f" => :el_capitan
     sha256 "5964828d701a9f8f16d3d72f2725b08bfbf34816885f8dcede60a02f3bbc188c" => :yosemite
     sha256 "27ff9c5ce28a58317f5a77cff0b23ceef648774d984b89cf0b1f96066149036b" => :mavericks
-    sha256 "527cfbd8fb1b2eb0486654a258f52c102b2312e3a3d8cf8d08146e73c1ff5d92" => :x86_64_linux
+    sha256 "527cfbd8fb1b2eb0486654a258f52c102b2312e3a3d8cf8d08146e73c1ff5d92" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -8,7 +8,7 @@ class GstEditingServices < Formula
     sha256 "ac7fe0c4cc3a9da5164365c344a62b75db1170b06f1cfe1ce6a1c286215b7ec0" => :sierra
     sha256 "74d9860acab9197a1f5ac0263228fb23641b6448f3b402c3f59d203fa2ccc077" => :el_capitan
     sha256 "4ac67a9daffa3fa549696d9914f938f4d8ea656f5a2edf79bf243e56e07d463b" => :yosemite
-    sha256 "fc2ca7f617b105b932a2cc4f664676cbe9eb9a47c79b43a7f4100bd0470b790c" => :x86_64_linux
+    sha256 "fc2ca7f617b105b932a2cc4f664676cbe9eb9a47c79b43a7f4100bd0470b790c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gstreamer"

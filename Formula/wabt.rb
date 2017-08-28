@@ -9,7 +9,7 @@ class Wabt < Formula
     sha256 "794a67ee327a8ccddc14ac2094d7d2aec1f995a3ec292620034b058522616f0a" => :sierra
     sha256 "d3a5b208d837de98a5c20e32ea8d07000eca435f205770f76647291db8724dee" => :el_capitan
     sha256 "9145751e84d336452310473de1cb757c8776e4e919a0dbc9cd63664c52dc7db4" => :yosemite
-    sha256 "be28c1114c2ee4ec3d60845c2c3471b7619311e215b1dfa719ce4b503f29b7cb" => :x86_64_linux
+    sha256 "be28c1114c2ee4ec3d60845c2c3471b7619311e215b1dfa719ce4b503f29b7cb" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

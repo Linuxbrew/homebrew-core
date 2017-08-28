@@ -10,7 +10,7 @@ class Markdown < Formula
     sha256 "a5b025bc09c8b274507cfc5c86da6350560477f24ce109dd5a79f2dafa97d805" => :el_capitan
     sha256 "5e1b8b5388f1b4ceefe3fae528ae83e2fa3f9ed9f27668e8faded36b9ec3274e" => :yosemite
     sha256 "66fffda1a29fd9e2dcddcb52fb9606f21d897bf4680583626b612a95d27b1e04" => :mavericks
-    sha256 "582191e93f3661c33baf4f0a5daf4a1673aa38bb31fadb19c7631e8e1394c95e" => :x86_64_linux
+    sha256 "582191e93f3661c33baf4f0a5daf4a1673aa38bb31fadb19c7631e8e1394c95e" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "discount", :because => "both install `markdown` binaries"

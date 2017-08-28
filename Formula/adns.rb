@@ -10,7 +10,7 @@ class Adns < Formula
     sha256 "3bbd0cc0bc05c228746629760bcd027bbe90aa54e3b79fc2d4553e7fd5900d44" => :sierra
     sha256 "90fd1e0e102f446de1e647f2c3ec9f0dd6c5df190dcbdd9f1136bb90e344d730" => :el_capitan
     sha256 "9c5974b93f921e8d6c735ca6722d83d94d5a501d301d337177741f4a2a8f9128" => :yosemite
-    sha256 "59f84feb55a76b2be6ef974f10a1b41459a62fd8f715f5000e16a5fdc969610f" => :x86_64_linux
+    sha256 "59f84feb55a76b2be6ef974f10a1b41459a62fd8f715f5000e16a5fdc969610f" => :x86_64_linux # glibc 2.19
   end
 
   def install

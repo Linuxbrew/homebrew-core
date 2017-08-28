@@ -9,7 +9,7 @@ class Lrzip < Formula
     sha256 "b0c60e0773da9cf70d3164f362b3b527a7a87acd10b632291055d58ca2da7cfc" => :sierra
     sha256 "c0ea3854495bd5d98f040f1a6b5a08e01857436aac25ead3f7a3fb44841f738a" => :el_capitan
     sha256 "345d0f65ddc44faab696c5e5bfabf6a6d408435858f49cfd630ee74e61f0c97c" => :yosemite
-    sha256 "70f50fcc6eb0247f38537bceb281b2786bdc4c1081733fe541a83d1e496f269d" => :x86_64_linux
+    sha256 "70f50fcc6eb0247f38537bceb281b2786bdc4c1081733fe541a83d1e496f269d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

@@ -8,7 +8,7 @@ class AflFuzz < Formula
     sha256 "b635f8b038bd859055a24b6213179566ced058bf60ea8964276ebf72ae8d5c54" => :sierra
     sha256 "d06047ac972f8e0e5e1a7f25a03e7ea7c43bcb4d86132bfe6f49139ae27138e4" => :el_capitan
     sha256 "7733783dd36acf0e3f004486a8c1e0432691bf529dacbf9245573895fcbbed01" => :yosemite
-    sha256 "070f86b688b0f57ddd657e6089e2b4ac25109ab405e85198cdba0aa14f40696d" => :x86_64_linux
+    sha256 "070f86b688b0f57ddd657e6089e2b4ac25109ab405e85198cdba0aa14f40696d" => :x86_64_linux # glibc 2.19
   end
 
   def install

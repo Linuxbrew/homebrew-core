@@ -9,7 +9,7 @@ class Fio < Formula
     sha256 "e91decdaad19c6816f4a7bca87cdf6c2e44dd53e22378f917390e3a43d60ff7d" => :sierra
     sha256 "dea747683bfbb0f99a03f6bd8c30e4f9c02b7811e01ce2c96d4e41e2983aeb37" => :el_capitan
     sha256 "96da6492cf6f0f5e391ac6d1928df6cecf5757dbc3d7cc080f6f19eb7b66c241" => :yosemite
-    sha256 "c7b55cd2d52b03839003933413c643d610b979fd1e22bc41acaea72e3a8f580a" => :x86_64_linux
+    sha256 "c7b55cd2d52b03839003933413c643d610b979fd1e22bc41acaea72e3a8f580a" => :x86_64_linux # glibc 2.19
   end
 
   def install

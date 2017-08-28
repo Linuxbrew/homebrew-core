@@ -9,7 +9,7 @@ class Speexdsp < Formula
     sha256 "367e34d4ba6e7087762193a18910da38905496ec41c0f329604d310a09e4f5ed" => :sierra
     sha256 "4891bd2a89fc9369d9c573afd80a1e7593e9414a0d6a956921af1b65f61ab264" => :el_capitan
     sha256 "34a342effdc414829a7063d4b8dc7f2bbfa2d37231904f4fa6784c38d90bdb3d" => :yosemite
-    sha256 "199c80c0a136d8ef32b8e59c147cd895e7455593bbf706ea0518f39a0d60d914" => :x86_64_linux
+    sha256 "199c80c0a136d8ef32b8e59c147cd895e7455593bbf706ea0518f39a0d60d914" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

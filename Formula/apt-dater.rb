@@ -10,7 +10,7 @@ class AptDater < Formula
     sha256 "026b29a9428c2c1d77e70001c8651f8e8ac20b20dee1ba62a89e0d69e2da570e" => :sierra
     sha256 "a2f37094132e6f5cd8ad9b287bf299eea8acbc99b1d468002dfe875a8a14985d" => :el_capitan
     sha256 "2ac3ba56f32d018a9af477484d8ad561871f855aca78726dbe8f43f5552f6acc" => :yosemite
-    sha256 "b7859a28dbbbacbee1f5f8b4de50a32d7e3ff722a43f35b3e61a154989380786" => :x86_64_linux
+    sha256 "b7859a28dbbbacbee1f5f8b4de50a32d7e3ff722a43f35b3e61a154989380786" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

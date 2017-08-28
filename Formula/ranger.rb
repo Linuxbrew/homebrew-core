@@ -12,7 +12,7 @@ class Ranger < Formula
     sha256 "53183d431e6bcf9cf49a462130fb5e0929a4bf557a2d109c354e3194bfd36cc0" => :sierra
     sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :el_capitan
     sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
-    sha256 "487beb167e7f44cdcf86ce6fb8bcc12f5406bf070f8a662d55a554d03bb9139e" => :x86_64_linux
+    sha256 "487beb167e7f44cdcf86ce6fb8bcc12f5406bf070f8a662d55a554d03bb9139e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :python unless OS.mac?

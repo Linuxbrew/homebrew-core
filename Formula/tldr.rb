@@ -11,7 +11,7 @@ class Tldr < Formula
     sha256 "5ff44173bde5f458335b89ba3e4f4c9a1d917dc3f0f4059477d82d91e079f691" => :sierra
     sha256 "f8b2e7e60cc4ff8c212914f5bcf4b7d413ae7a69e095c6ce29ce79010d6354b5" => :el_capitan
     sha256 "376962a72d11da559d25aabb3d22f7b2105e21809c58d09597ab312b3685719a" => :yosemite
-    sha256 "5ae13d00538b944c8ba9fe23b28eb5e907590237844cf77106ada9b8b107a0fc" => :x86_64_linux
+    sha256 "5ae13d00538b944c8ba9fe23b28eb5e907590237844cf77106ada9b8b107a0fc" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

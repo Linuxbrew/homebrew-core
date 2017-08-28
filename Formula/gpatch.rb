@@ -10,7 +10,7 @@ class Gpatch < Formula
     sha256 "d7723d37ca9526120c2ab2aa57ce5d98f74f515211eb602c251d251dd59deca3" => :sierra
     sha256 "a74c4a9a33b6f33d435daaceaf86dfc829e1054d9b1df46dd6e78fa5b8a239d7" => :el_capitan
     sha256 "05701655fdfa305f92fce05758c50f51c3ff3a6a7b15a45765c3d7b9b97f38b1" => :yosemite
-    sha256 "6a60406ea4d99985ea25ab6dcf777c28689362040a6a26855ac4ee504dbe6c24" => :x86_64_linux
+    sha256 "6a60406ea4d99985ea25ab6dcf777c28689362040a6a26855ac4ee504dbe6c24" => :x86_64_linux # glibc 2.19
   end
 
   def install

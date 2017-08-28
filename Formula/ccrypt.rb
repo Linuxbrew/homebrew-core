@@ -10,7 +10,7 @@ class Ccrypt < Formula
     sha256 "41561da9ecb852e0e704b6c9d6693f1eac65a02d0ff1419eb55b4221550d6aa7" => :sierra
     sha256 "006c8e5eb58e88305dec70559d6d64fd0203881dcaca36db50cbb44d3aaae61b" => :el_capitan
     sha256 "44efc492cc7cf2d4f1061f14fd5aa213517406434c41c96e297d9b4f06d7e1a7" => :yosemite
-    sha256 "aab0a4f240a28a5d596f7c553332386446c1c2b2e8cf90719035c05a6361194f" => :x86_64_linux
+    sha256 "aab0a4f240a28a5d596f7c553332386446c1c2b2e8cf90719035c05a6361194f" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "ccat", :because => "both install `ccat` binaries"

@@ -7,7 +7,7 @@ class Sysstat < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "f57d5096ecf589c47d166f5bafa000462c0f478c2c2bb775c564d27cba9b0296" => :x86_64_linux
+    sha256 "f57d5096ecf589c47d166f5bafa000462c0f478c2c2bb775c564d27cba9b0296" => :x86_64_linux # glibc 2.19
   end
 
   def install

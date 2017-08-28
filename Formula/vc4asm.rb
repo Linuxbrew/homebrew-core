@@ -9,7 +9,7 @@ class Vc4asm < Formula
     sha256 "2547c982e3fde40316d01d802bd01bf49af208e6737ecafeaeb8ad988ea3255d" => :sierra
     sha256 "72d54a4237c4e0f952fd1a3d913725d84814ed5b657affa1d6dcafa19e1cdc44" => :el_capitan
     sha256 "871b3b109ac49b09056f83e4488105196060d2388dc5052c679776b43fab5927" => :yosemite
-    sha256 "adc9f29aec1987af9be4278ed1838bdc6903dc71e5985f9dc7aecca4b1803b8e" => :x86_64_linux
+    sha256 "adc9f29aec1987af9be4278ed1838bdc6903dc71e5985f9dc7aecca4b1803b8e" => :x86_64_linux # glibc 2.19
   end
 
   needs :cxx11

@@ -12,7 +12,7 @@ class Libmpeg2 < Formula
     sha256 "3d07c45554ff34036b9eae5a31dc5417c15109ba134d414035b1bf6f9dda7c79" => :yosemite
     sha256 "f6a868beb10fbf84d3eb1af556478ecbfb238d28608a53b99e607c02910e5e49" => :mavericks
     sha256 "eb8eb837e902d0fbdd6c89c72a2d7f534e0edf9a0895807f7f05a2505b900e5f" => :mountain_lion
-    sha256 "e2fb3af22794475ec0c78e176d54a2e60dcb525b132a87989cf9baba59ff6e37" => :x86_64_linux
+    sha256 "e2fb3af22794475ec0c78e176d54a2e60dcb525b132a87989cf9baba59ff6e37" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "sdl"

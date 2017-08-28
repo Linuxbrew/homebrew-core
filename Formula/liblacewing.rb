@@ -13,7 +13,7 @@ class Liblacewing < Formula
     sha256 "8521b6bdb48855fb5e87d3354d65db5d476c56b416807145c9e9f05500ae91d5" => :el_capitan
     sha256 "8df9b4bab55b90fe7892187dd711aa40898ff83c6b66a02a18bdbef87ad2fa6c" => :yosemite
     sha256 "af978e720eafc9106c8dcb9391b341ec984339fd87db419f54229c5ae3a03d8c" => :mavericks
-    sha256 "da3e271eb04bd4d59d7e1b5465403a00259b20e7be903b4e0032dcea6fac9c76" => :x86_64_linux
+    sha256 "da3e271eb04bd4d59d7e1b5465403a00259b20e7be903b4e0032dcea6fac9c76" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "openssl"

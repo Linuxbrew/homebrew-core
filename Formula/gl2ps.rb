@@ -11,7 +11,7 @@ class Gl2ps < Formula
     sha256 "f98527a92984dcb172b803c0a5503a06a3fec0c7ff980f1921adc0d77fda19c3" => :el_capitan
     sha256 "884f489b6106f81cfe2821230065333e36894e9316fa90b9af4ef84a1d7af749" => :yosemite
     sha256 "22504f9aa0239aa8395bb6a9c48b374885b7fb20603da15e28d730cf97a2990d" => :mavericks
-    sha256 "4f93e5cb62935b4eb14eabe42130b125d1539ad3209bfc34d68fad37cd4b6b17" => :x86_64_linux
+    sha256 "4f93e5cb62935b4eb14eabe42130b125d1539ad3209bfc34d68fad37cd4b6b17" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

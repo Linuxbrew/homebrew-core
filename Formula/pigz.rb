@@ -10,7 +10,7 @@ class Pigz < Formula
     sha256 "2ad2349af7453fc09c0cd5980d78c10ca20749cf35f9ffc8ea48a2a0d3db90f0" => :sierra
     sha256 "c494bc1ad2f378cf4f2d1f3d9fba9b78a0258d179cda10d6cc12c5e5e3a51acf" => :el_capitan
     sha256 "dfc83c38b9be8396eeb854fe8b045b9657e693665aad508164b65569fc78f491" => :yosemite
-    sha256 "608215552539fcf5925884667b0f25adaea4af5bae9cc00e77f61c7cdb262eb2" => :x86_64_linux
+    sha256 "608215552539fcf5925884667b0f25adaea4af5bae9cc00e77f61c7cdb262eb2" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "zlib" unless OS.mac?

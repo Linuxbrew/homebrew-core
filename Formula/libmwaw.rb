@@ -9,7 +9,7 @@ class Libmwaw < Formula
     sha256 "cf87f81fa04748497c0881a90df5acb22d19f2374f63f06bbff4e4c4b79eca96" => :sierra
     sha256 "706ff282c0d7b2a51f6fac26b05da3d146112e5b0ec9db4f33abca5f07570d4d" => :el_capitan
     sha256 "40105be908f02a901ca8c517bccf9509ac6439bdafe9afa10eedb667d3071c36" => :yosemite
-    sha256 "1218b88862edf7d03b15e1acbd5cff88ed57b2d46f0ffab5ba0e3f2cef0fc69d" => :x86_64_linux
+    sha256 "1218b88862edf7d03b15e1acbd5cff88ed57b2d46f0ffab5ba0e3f2cef0fc69d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

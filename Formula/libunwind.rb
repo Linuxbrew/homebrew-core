@@ -9,7 +9,7 @@ class Libunwind < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
-    sha256 "1914b746f6788024b000c723b0102f30bf4b3402a5b509d7d62f1d1375ef8d2d" => :x86_64_linux
+    sha256 "1914b746f6788024b000c723b0102f30bf4b3402a5b509d7d62f1d1375ef8d2d" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "xz"

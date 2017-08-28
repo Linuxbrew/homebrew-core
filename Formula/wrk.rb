@@ -11,7 +11,7 @@ class Wrk < Formula
     sha256 "9dffba88a5ca3dfb25ea4be55bd45c9c4e3964543d4ea4485cb21fdba7f3c18c" => :el_capitan
     sha256 "0d8d195984217da0cc6e734e2f2c876cacbad02b18fe2b3b22a77d3e356104f0" => :yosemite
     sha256 "be9f47bac642704c6575810875dfd86bcdacdceb799c11a13bdab4d4f14965ab" => :mavericks
-    sha256 "5351610b4ef5c3a33b227a11c954631de10cb2c7092f269d578f824f0686b254" => :x86_64_linux
+    sha256 "5351610b4ef5c3a33b227a11c954631de10cb2c7092f269d578f824f0686b254" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "openssl"

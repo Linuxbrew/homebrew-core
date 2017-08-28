@@ -10,7 +10,7 @@ class GslAT1 < Formula
     sha256 "e637950a3f49a8fa79627a26fd3f12a97e2652dc64fd3ec0a83b8fcb08ae405f" => :sierra
     sha256 "5e342feaaadaabca0b79312a69d8a3ce9686c60d1840b40affecaa011e4b634c" => :el_capitan
     sha256 "642a923d212bc967a8d235eb37177f1b21a6d165b6adf14041ae5e42d37c25c2" => :yosemite
-    sha256 "99f3df74c8a9c1ef5bbcd6f852381628f2321d135867c91309e59d0a073c479e" => :x86_64_linux
+    sha256 "99f3df74c8a9c1ef5bbcd6f852381628f2321d135867c91309e59d0a073c479e" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

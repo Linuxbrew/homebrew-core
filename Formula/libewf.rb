@@ -13,7 +13,7 @@ class Libewf < Formula
     sha256 "5abcb4aaa80ac85b86b3b5d3bc4dce613fe4692d29edff5e48a8e871d2e89225" => :sierra
     sha256 "4d0d3cb0aa198dc0ca569b04d748b3d4f92cdb9e0580c70b9ab6a25dc44ca2f9" => :el_capitan
     sha256 "71af7ed8bbc39e690ef8b22adf5a8e0399fec4d6661323dfdda4581f55ca7dbd" => :yosemite
-    sha256 "aefff18d44af41112ec78e3d77f7dc868d66c16114e1e466194afa1ee213faec" => :x86_64_linux
+    sha256 "aefff18d44af41112ec78e3d77f7dc868d66c16114e1e466194afa1ee213faec" => :x86_64_linux # glibc 2.19
   end
 
   devel do

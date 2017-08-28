@@ -8,7 +8,7 @@ class Libgweather < Formula
     sha256 "2844a557e659e911a0295f21541601f051283d4a3e8d6271d0e05acbf62adf72" => :sierra
     sha256 "19cb86132efb301dc7f94f3cc6951a7b7b658349ef7baf9d5d5aaf2ab1c17b14" => :el_capitan
     sha256 "cb5c41f0deabcbf8676cbf316f81883bf9c7efe0fb45439d3134cfb483507489" => :yosemite
-    sha256 "2809d74e956aeaebc331f315605d59621f26fa100e24fa60303e783995bc207f" => :x86_64_linux
+    sha256 "2809d74e956aeaebc331f315605d59621f26fa100e24fa60303e783995bc207f" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

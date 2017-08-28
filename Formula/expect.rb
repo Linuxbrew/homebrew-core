@@ -8,7 +8,7 @@ class Expect < Formula
     sha256 "25b09bc0dbb7c9550df75b6d6d84c7c5444bbb9ea508fb19f043f01b1c2b0f90" => :sierra
     sha256 "53c9bc7b8884ac782dcd374d66192e9e60e33e478568593df029bf6e65667b31" => :el_capitan
     sha256 "ffe25ca3a637bee0ff0bb49ce17283d2f64d6c1e1636db3c4c4de08badbd6bb0" => :yosemite
-    sha256 "6c28c119272e534ae481aa612561c31a700827d8f1bf570e2b4882d2d0575fcc" => :x86_64_linux
+    sha256 "6c28c119272e534ae481aa612561c31a700827d8f1bf570e2b4882d2d0575fcc" => :x86_64_linux # glibc 2.19
   end
 
   option "with-threads", "Build with multithreading support"

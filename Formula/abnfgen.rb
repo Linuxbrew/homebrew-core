@@ -10,7 +10,7 @@ class Abnfgen < Formula
     sha256 "25aa694b994374b0194f65a01afdf1911ddd366d3195a6ac6451e81f87234768" => :el_capitan
     sha256 "6020fe82950619f9ddf60265c80c2e8f2f68808618e87150d1634f5ec2c0eff8" => :yosemite
     sha256 "004aa4f75ee0e51327a69a558cb3920b6859303b1d032e32e3caabe623dc35d4" => :mavericks
-    sha256 "eaaa7404c0e84a6ccd41fadbe682de76c35c995d411d8d5355ee949239f5b888" => :x86_64_linux
+    sha256 "eaaa7404c0e84a6ccd41fadbe682de76c35c995d411d8d5355ee949239f5b888" => :x86_64_linux # glibc 2.19
   end
 
   def install

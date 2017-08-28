@@ -9,7 +9,7 @@ class Rkhunter < Formula
     sha256 "d0f86dcf70bb5a827317f2c487d4238b61b03edc87cd7a0d1d0dcba1ea87d774" => :sierra
     sha256 "dddb86855d2ab0bb0a82c5861eea40b5efddaa8feff85744bebcd213aeea2bdd" => :el_capitan
     sha256 "5019567a795b47aa07bb27c897dd1971795d220747c38968e6834ff5edf430cc" => :yosemite
-    sha256 "86996672af04d72da600f81708646b805095896883e1563338a58e44aa8abbd3" => :x86_64_linux
+    sha256 "86996672af04d72da600f81708646b805095896883e1563338a58e44aa8abbd3" => :x86_64_linux # glibc 2.19
   end
 
   def install

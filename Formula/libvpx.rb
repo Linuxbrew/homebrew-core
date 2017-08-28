@@ -9,7 +9,7 @@ class Libvpx < Formula
     sha256 "fe46c1d9fc5e1ea1176791f9e4a85d896eb311d094be77c7c44c2b24facc4300" => :sierra
     sha256 "100634d26cac4b4e69f1a5eea21b98ae577e3a1364169fe483bc4cc9c29f6047" => :el_capitan
     sha256 "68b90c8901f765d0a50ea89a030b40f53e0fc7c2e4bb554859f6ae9fc2a2c4f2" => :yosemite
-    sha256 "cdeefbcce4bcae64f29118b199d522e9e8a053fe09d1e6889050f25e302683c8" => :x86_64_linux
+    sha256 "cdeefbcce4bcae64f29118b199d522e9e8a053fe09d1e6889050f25e302683c8" => :x86_64_linux # glibc 2.19
   end
 
   option "with-gcov", "Enable code coverage"

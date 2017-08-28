@@ -8,7 +8,7 @@ class Augeas < Formula
     sha256 "75364cc05fc1339420009ec4cd3e790a22859cdb0333e796c45069bf79ae26b6" => :sierra
     sha256 "3cd952d2bfb3fe7a320e5529df05d21c1e359aa83e7d0ed8dac6b78a724ed986" => :el_capitan
     sha256 "dc930d22881a18afe246b0bf18fc449bfd900de9f562b21f6b35b217470d0862" => :yosemite
-    sha256 "190e5a046eda4d48705033af3a4032c4cdf8d528b765364cb94eff463f17757e" => :x86_64_linux
+    sha256 "190e5a046eda4d48705033af3a4032c4cdf8d528b765364cb94eff463f17757e" => :x86_64_linux # glibc 2.19
   end
 
   head do

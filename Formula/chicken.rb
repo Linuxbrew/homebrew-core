@@ -9,7 +9,7 @@ class Chicken < Formula
     sha256 "a60a97a73b76bfdc0e37643e497719a21ac96039898a451035651adfcfc2abc6" => :sierra
     sha256 "a0ab41706f71d20b4f4340405c57bc30b84dccaa59058cbc155c2cb7e6cb8d09" => :el_capitan
     sha256 "5d2edcc2728ef961e98b44db1ae098269fb3cf6010595719ab6f01677e49b473" => :yosemite
-    sha256 "0342f67f5441f4a0ec431b535637ab899bcb9d5b017c2eab36cd612099222845" => :x86_64_linux
+    sha256 "0342f67f5441f4a0ec431b535637ab899bcb9d5b017c2eab36cd612099222845" => :x86_64_linux # glibc 2.19
   end
 
   def install

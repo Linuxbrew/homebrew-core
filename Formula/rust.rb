@@ -27,7 +27,7 @@ class Rust < Formula
     sha256 "820256549befa3d777916e00e23b4d95d326c5aae9456562165f8036f99584ea" => :sierra
     sha256 "a7e0c6f3ecff71b59d74007fcedf2f9423627ca99699a7c96eeeffaa795dc9ae" => :el_capitan
     sha256 "1dbc83dbcdd3a3bdbcd53014a1055414d10beb92c11a872acfca0a15db4f98c6" => :yosemite
-    sha256 "c3b9cc938ebc30b5043f9b4c84dca396ea0366ad39a9ba0f080ce16e0f13aa60" => :x86_64_linux
+    sha256 "c3b9cc938ebc30b5043f9b4c84dca396ea0366ad39a9ba0f080ce16e0f13aa60" => :x86_64_linux # glibc 2.19
   end
 
   head do

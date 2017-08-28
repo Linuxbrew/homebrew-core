@@ -10,7 +10,7 @@ class Libgnomecanvas < Formula
     sha256 "df0745b46ef2872c5460a2a0893309d149d9365299d980fc66c395d410fc0b81" => :sierra
     sha256 "53b98bae1958e60b6f47653aee1a75976a9b169b44bc670a34b54159ab333fe9" => :el_capitan
     sha256 "0526ea2163ce27104da600bb45c847584f5843e6bfffe5ddc8ef24ebd9a2acd1" => :yosemite
-    sha256 "ef2aaec5a9cb66177da42895cf4535958c8f4a73df11ebcf529b467e31e5c101" => :x86_64_linux
+    sha256 "ef2aaec5a9cb66177da42895cf4535958c8f4a73df11ebcf529b467e31e5c101" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

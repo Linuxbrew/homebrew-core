@@ -9,7 +9,7 @@ class Pngcrush < Formula
     sha256 "69ba01bc2bdd7de877e6463c8d4b6c877e618ba27dc2eb91524b61a15631fd28" => :sierra
     sha256 "cc4ff10c5988d6e39f2a6c7131f772bd919959216a71c612f44792372f1ad127" => :el_capitan
     sha256 "67a4b77fa27efbf2625b2923d955fcf8a16211a311cb6806f034ff07d1522d5c" => :yosemite
-    sha256 "3ac1c295da69560c3315f1b578d052ec86c4f4cd0d823e905eb9e440f5134fb9" => :x86_64_linux
+    sha256 "3ac1c295da69560c3315f1b578d052ec86c4f4cd0d823e905eb9e440f5134fb9" => :x86_64_linux # glibc 2.19
   end
 
   def install

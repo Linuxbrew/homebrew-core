@@ -8,7 +8,7 @@ class Abcm2ps < Formula
     sha256 "f1994961111bcf45c3d6f96097d0186abea0d9aba4ba8e0b9e7ec0c1199f5079" => :sierra
     sha256 "d8c2dbe219e0c8d78d65f4fab90d4b90fe2cee67c439f8a53349eed82236bf76" => :el_capitan
     sha256 "da68976d1ffc890273cb085052575c6f37e4b5723653a73bbd05813580ad60c9" => :yosemite
-    sha256 "8c804821ccaecb4adeed958f77f0aef019c43c3e7f005c002bb875456960b433" => :x86_64_linux
+    sha256 "8c804821ccaecb4adeed958f77f0aef019c43c3e7f005c002bb875456960b433" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

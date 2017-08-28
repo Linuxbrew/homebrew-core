@@ -10,7 +10,7 @@ class LibusbCompat < Formula
     sha256 "e24ad80ee860f6f6c7e6c8dbb100aaa2de3294e2ecf7f591f2f51c52e11f09ea" => :sierra
     sha256 "7b62449f8a9c02834b74adeb0827ca2ae32b47cb82923de0a8e88f16c36ca8b8" => :el_capitan
     sha256 "0e4f131b8fd8210db3ff353a92c35ed12643a717b8780618680e3b4a16d7f347" => :yosemite
-    sha256 "7a27e889da8e809d5c93ce724be81367f69d623849df97c5b894a4b971dd04f1" => :x86_64_linux
+    sha256 "7a27e889da8e809d5c93ce724be81367f69d623849df97c5b894a4b971dd04f1" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

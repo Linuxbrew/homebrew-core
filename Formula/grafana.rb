@@ -10,7 +10,7 @@ class Grafana < Formula
     sha256 "98117e04b4c7b22f1606c75d4ef35018d81a2b98f87cffa5946628ce04cffc7b" => :sierra
     sha256 "fccb43a290de958d9df1894e8666af933e09ea5c009ff684662bd52a451b073b" => :el_capitan
     sha256 "3b1d122b2e6e5cca898df877066645dd4e45bf18e07a2443c82bd412036c78b9" => :yosemite
-    sha256 "cc05a5ef2eadc7d484d0290d42aaa13bc563a676426b3e3de392ddbaa62a3205" => :x86_64_linux
+    sha256 "cc05a5ef2eadc7d484d0290d42aaa13bc563a676426b3e3de392ddbaa62a3205" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

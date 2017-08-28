@@ -8,7 +8,7 @@ class Libpeas < Formula
     sha256 "9bad6478fc3a334a1446286375bc467b16d34bcf3e8c9c05f12208edf370e496" => :sierra
     sha256 "b8fafb1141cbce2ffbb09fdc56bb79b48a3106119046f366fb3e56181c43f04f" => :el_capitan
     sha256 "cbaaef5811b5f5417d491d360749901e98afdddc5f3b6db8f6d6a4a1b62fb7a1" => :yosemite
-    sha256 "4bbf7a2395b5f0c1bc27f6ac55f0ecf02007017d2aba287141878eba19ed4659" => :x86_64_linux
+    sha256 "4bbf7a2395b5f0c1bc27f6ac55f0ecf02007017d2aba287141878eba19ed4659" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "gettext" => :build

@@ -9,7 +9,7 @@ class Chezscheme < Formula
     sha256 "96ced10b5fdddf2c8489cf9eaf1f20a85ebee73561340c34fcdf8ede5c859ec9" => :sierra
     sha256 "0bd0cb29369b4b029351095fad544573241c791d700424cc937f33cabd034d32" => :el_capitan
     sha256 "3a4f0f3c1a15208a03e6518b6a3e483f9340801a8121fcb637c458992d422d9b" => :yosemite
-    sha256 "7af101788f37c9719cc2b8eb09695cb146f068a669c471717841494329e223ff" => :x86_64_linux
+    sha256 "7af101788f37c9719cc2b8eb09695cb146f068a669c471717841494329e223ff" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :x11 => :build

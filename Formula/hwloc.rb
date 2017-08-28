@@ -9,7 +9,7 @@ class Hwloc < Formula
     sha256 "3d87ff082922581fecb14af62b50e65b69c314935dd24e7a4750b8108a86e014" => :sierra
     sha256 "091d23471f53c3e6b5bbbb5f880734fb78a725e1dbb6d12541a0c6630141f68d" => :el_capitan
     sha256 "45891878bbe669bf29e2248cf73ed8487d35950d382278aba42b10d5a4bf9370" => :yosemite
-    sha256 "af5bbf709f1985b001c6c58ec750abada3c71642028f01b1538b16c2d30ace44" => :x86_64_linux
+    sha256 "af5bbf709f1985b001c6c58ec750abada3c71642028f01b1538b16c2d30ace44" => :x86_64_linux # glibc 2.19
   end
 
   head do

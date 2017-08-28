@@ -16,7 +16,7 @@ class Libtool < Formula
     sha256 "b7651d0a082e2f103f03ca3a5ed831e2ff5655ccc1044ac0452e4d1825475a35" => :el_capitan
     sha256 "0eb206c0f51e8ce2e3e9340b5ce3c8ecef961ae6696f676073327a7ac04e5c0b" => :yosemite
     sha256 "2e51ef82ef2bd1ad9d921a9016b9e5d7fa82d131849e2c32a3c90daa119e2eda" => :mavericks
-    sha256 "1efb2596f487af0e666e0a3d236ee8ac83db17d9e8e94066802e000f75b4b045" => :x86_64_linux
+    sha256 "1efb2596f487af0e666e0a3d236ee8ac83db17d9e8e94066802e000f75b4b045" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_until_xcode43

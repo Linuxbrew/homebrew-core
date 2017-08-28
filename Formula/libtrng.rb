@@ -9,7 +9,7 @@ class Libtrng < Formula
     sha256 "ae717cd2fe16f077d13b6ea286d6ff5a4eaddc03829c88b2536e679a046302c3" => :sierra
     sha256 "f74d4d146c484604d4f33e43068ba8629bbea8757b63456cc8405ded55993e85" => :el_capitan
     sha256 "b34fb6439f66eec2f315d678208baf4444a1a89d82db2e485770ff3bea364895" => :yosemite
-    sha256 "5beb113cefd8430999c6f7b5a70aa898ce4165561b9114e3b2418fc1fd6780e3" => :x86_64_linux
+    sha256 "5beb113cefd8430999c6f7b5a70aa898ce4165561b9114e3b2418fc1fd6780e3" => :x86_64_linux # glibc 2.19
   end
 
   def install

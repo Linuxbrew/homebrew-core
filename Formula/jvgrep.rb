@@ -12,7 +12,7 @@ class Jvgrep < Formula
     sha256 "66b5289da092c27610df5c71e5aeb10de7582b079c543f4f807699ee5b9d1ac4" => :sierra
     sha256 "6383e6fd89bf87caaf1916d8389da43eead6cbb272f7e195de5bf6dd84db30db" => :el_capitan
     sha256 "3f12372641d47c4bf8239b69dd73bb9137101a68603551b2290a709ce86014a0" => :yosemite
-    sha256 "57f45217ec60412f166d0d570226152d02039f3ee7e92fbe6649293454310a22" => :x86_64_linux
+    sha256 "57f45217ec60412f166d0d570226152d02039f3ee7e92fbe6649293454310a22" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

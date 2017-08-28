@@ -14,7 +14,7 @@ class GmpAT4 < Formula
     sha256 "ffe0f83f33aa04955e44436faa88c7a0779469dd08017e4e29359992f0d38639" => :sierra
     sha256 "dd54633274e190e6c9ab087a0288496ba004c567b4e9042460e22cf89f9da47a" => :el_capitan
     sha256 "43cfbad47c614698d833e285546e18d05ebd71ebc8ce1227f580b189be2ed05b" => :yosemite
-    sha256 "f16c49ba4e1c61a3b8227825aed0bfdd6d2422d523189773f5e6af18cb71eb26" => :x86_64_linux
+    sha256 "f16c49ba4e1c61a3b8227825aed0bfdd6d2422d523189773f5e6af18cb71eb26" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

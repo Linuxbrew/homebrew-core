@@ -9,7 +9,7 @@ class Libass < Formula
     sha256 "cc7d1e9db4ecabd76d0fbae0e4fdec4b8d30b5ff65064c3308e00265fe26b060" => :sierra
     sha256 "a6875e1e74496f2498204fa7e3c86fcbc8695b5f3ba91e3eaabe23986e4edb10" => :el_capitan
     sha256 "829f16aa3e2e7004b024b5ddf0a246efcd56aad297d1bb453a712a91cc4ddf1c" => :yosemite
-    sha256 "83eb7453c36a3a4654bffde893e26dcd681ede8633e35a6d8e0afd6297bd9b3d" => :x86_64_linux
+    sha256 "83eb7453c36a3a4654bffde893e26dcd681ede8633e35a6d8e0afd6297bd9b3d" => :x86_64_linux # glibc 2.19
   end
 
   head do

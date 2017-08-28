@@ -9,7 +9,7 @@ class Rush < Formula
     sha256 "6147781c7c30c744d3e3aa69b55e72bb27a320aec6bf6e8d4a8360d5982aad20" => :sierra
     sha256 "a33fca1d7ccc86d125771c7f4e983244abe182d3a3731faa86fa12f21f7ab18d" => :el_capitan
     sha256 "5fcd6654497adb320a87fcf9b2b67361f157449f029a918148d90f60089920a1" => :yosemite
-    sha256 "16b99540dfba49ee239fde210e059810adc49fd37bd0c1fb0f3fbcf6d3cbd03f" => :x86_64_linux
+    sha256 "16b99540dfba49ee239fde210e059810adc49fd37bd0c1fb0f3fbcf6d3cbd03f" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -8,7 +8,7 @@ class Msitools < Formula
     sha256 "9998081784b1b9db641d50425306010fc8614b1f3da28014148d409f636e4779" => :sierra
     sha256 "0afe60bc5926135b385307720c771e687dd0d246ba9d7dc4e8acf5eec51a13a5" => :el_capitan
     sha256 "87c8aebb5180826e9a45e2fd8c03f2b33a2df7f250761ef52a82d0b1a0055d3c" => :yosemite
-    sha256 "98f09e59cd599951c10513b42154c8746df7a13f50041b1e21964652944ea9b0" => :x86_64_linux
+    sha256 "98f09e59cd599951c10513b42154c8746df7a13f50041b1e21964652944ea9b0" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "intltool" => :build

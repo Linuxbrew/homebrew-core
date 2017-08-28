@@ -9,7 +9,7 @@ class Packmol < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar :any_skip_relocation
-    sha256 "6668bde18b3bb98332f2d6fa3ad5cbab1128983aabbbbd0caa6168bc6f1dd5a3" => :x86_64_linux
+    sha256 "6668bde18b3bb98332f2d6fa3ad5cbab1128983aabbbbd0caa6168bc6f1dd5a3" => :x86_64_linux # glibc 2.19
   end
 
   depends_on :fortran

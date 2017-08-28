@@ -9,7 +9,7 @@ class EigenAT32 < Formula
     sha256 "1fa99674fedbf0196533ecd21b010a2f3cb20b16098657247497c113031d4ddd" => :sierra
     sha256 "a578cb372df5b7a4b33f4c39abfbb4a1ed2862248b08cfb69e58d77a069ec109" => :el_capitan
     sha256 "1fa99674fedbf0196533ecd21b010a2f3cb20b16098657247497c113031d4ddd" => :yosemite
-    sha256 "0f7249401234dccc8034c281f70c3fb36e4ec9931d4b1d7c478c684a0f41b346" => :x86_64_linux
+    sha256 "0f7249401234dccc8034c281f70c3fb36e4ec9931d4b1d7c478c684a0f41b346" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

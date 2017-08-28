@@ -10,7 +10,7 @@ class Libmicrohttpd < Formula
     sha256 "fa246ec8a891bb8e2d30d370481bdafa50a655e40a7464abc108bd439c4b628b" => :sierra
     sha256 "fba444e775c81f2a790f1644f3243aa79d0bf9a6944fb56907968233d2106c2b" => :el_capitan
     sha256 "67bd7b02c040618e6d041d4e6969b7abbb7f193b2cee2514701f86239ce1e8f2" => :yosemite
-    sha256 "1a73df19e3119b04b5f56e3f1e69235a98015ef1b0009a90d701a54da54c0ec6" => :x86_64_linux
+    sha256 "1a73df19e3119b04b5f56e3f1e69235a98015ef1b0009a90d701a54da54c0ec6" => :x86_64_linux # glibc 2.19
   end
 
   option "with-ssl", "Enable SSL support"

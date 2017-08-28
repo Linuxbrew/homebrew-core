@@ -7,7 +7,7 @@ class Cpio < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "2e8018465c5abc4e3a825653530ae4dd8f1c06219bf6aceac4e8a74fd4e69cbe" => :x86_64_linux
+    sha256 "2e8018465c5abc4e3a825653530ae4dd8f1c06219bf6aceac4e8a74fd4e69cbe" => :x86_64_linux # glibc 2.19
   end
 
   def install

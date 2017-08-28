@@ -21,7 +21,7 @@ class Io < Formula
     sha256 "3df8da0d059ae39472d998978935cb6b9d5fca2373d3b528f875775d84011246" => :sierra
     sha256 "7f90228d769aec358a03ac59a7d11e1d263da9d71bb80cd6da8df402cb03717a" => :el_capitan
     sha256 "ee95e6e5833a2ab0744cdb0285d87cf01d98e6badf165519d57cb255c0097af2" => :yosemite
-    sha256 "8681dbedb1c5067c6e80c8419c3822ad555914951be48b9f56cfbd8fdb96bf7e" => :x86_64_linux
+    sha256 "8681dbedb1c5067c6e80c8419c3822ad555914951be48b9f56cfbd8fdb96bf7e" => :x86_64_linux # glibc 2.19
   end
 
   option "without-addons", "Build without addons"

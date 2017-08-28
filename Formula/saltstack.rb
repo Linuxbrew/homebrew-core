@@ -12,7 +12,7 @@ class Saltstack < Formula
     sha256 "be51df17b5c0ac1859ab5e13dd65cd86e5c08d430f2ddfb6fe3447dc967e52d5" => :sierra
     sha256 "b4940d7044421f7989c015cfb2ee4a57265c1c2f1d85518d50a9f04c6cfe975c" => :el_capitan
     sha256 "f15b95b357fb6395eaf97f5415667727e5e815fe9b9e0479e1bac4cc2e7d0a27" => :yosemite
-    sha256 "da638057feee8801d41f12b919b0fd0ba8275e0bbf7df96efb717e02183bd141" => :x86_64_linux
+    sha256 "da638057feee8801d41f12b919b0fd0ba8275e0bbf7df96efb717e02183bd141" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "swig" => :build

@@ -9,7 +9,7 @@ class Tnef < Formula
     sha256 "f856c31c92e0d6383e7e1197c41bab0df91be739346c17c406090ac2c28c9a71" => :sierra
     sha256 "5e8b797b08b1fbee3a34c0206fbe38cc3114ba9fbaae846fd30bb8872f5fae23" => :el_capitan
     sha256 "26bc1ff1001a620386db559011522ee4edc8b74cb66cc3455eabd4e57c6a0ae9" => :yosemite
-    sha256 "1d155727ed650cd5a9e1fdc0f12268496c61bc3e340d97d1e59c6632771af7af" => :x86_64_linux
+    sha256 "1d155727ed650cd5a9e1fdc0f12268496c61bc3e340d97d1e59c6632771af7af" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "autoconf" => :build

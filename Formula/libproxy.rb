@@ -9,7 +9,7 @@ class Libproxy < Formula
     sha256 "2da6c1c16c4d821a03f3af0095e8c083650d8236b2a9a08cb5af1b2b235658a7" => :sierra
     sha256 "2afb8712e1a562617d7ab8fcd1436290e83f65dd636e1927761d2e9e914879cc" => :el_capitan
     sha256 "af63072e26e2dd635ff04988d1dbb68e4f83d966aad935a6071072fe22508f15" => :yosemite
-    sha256 "a44083432b4f382fb5d394e41b2d7ca8e7fff595b96a1c0d7a56194e1f99c864" => :x86_64_linux
+    sha256 "a44083432b4f382fb5d394e41b2d7ca8e7fff595b96a1c0d7a56194e1f99c864" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "cmake" => :build

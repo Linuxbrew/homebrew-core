@@ -10,7 +10,7 @@ class Snzip < Formula
     sha256 "953a79f0aa028d4b5f13cc606ead6e225c290972db683947dabed58bb6748257" => :sierra
     sha256 "fdc031ce925717ee49048f3ffab3015f1039a06299f5093f7949e9a41cab975e" => :el_capitan
     sha256 "68247e4d0d0520d9a2615acd906d079951b84e4138b27a69c2aa7ce6a286dd9e" => :yosemite
-    sha256 "1959b9c53e258d72f61e2c8c31deec3168fb19b96ae961a1c9cd56e265a14f08" => :x86_64_linux
+    sha256 "1959b9c53e258d72f61e2c8c31deec3168fb19b96ae961a1c9cd56e265a14f08" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "snappy"

@@ -19,7 +19,7 @@ class P11Kit < Formula
     sha256 "7ec97bd7114e80433e5a1d273606d7478ae8e7e158bb984f49c513df56eae446" => :sierra
     sha256 "da47a03cf395714dd86181a64d6188d048c81f330815bf171d8cff95de6f7a41" => :el_capitan
     sha256 "bcbffb5dcddd7cfec4f4fb26ab1dd3c4baa259f450e25b13975f88c94699ab7b" => :yosemite
-    sha256 "f45a4b84509f6d573ac3409a1243c14655a5a6c41736a45801e9fbf0d80e7b4a" => :x86_64_linux
+    sha256 "f45a4b84509f6d573ac3409a1243c14655a5a6c41736a45801e9fbf0d80e7b4a" => :x86_64_linux # glibc 2.19
   end
 
   head do

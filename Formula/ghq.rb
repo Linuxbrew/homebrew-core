@@ -11,7 +11,7 @@ class Ghq < Formula
     sha256 "ad05a023f52f11867a400d0109c98258ddce536728d4218e3694c836033a0c7b" => :sierra
     sha256 "fab4b2d64cd2b40e3b6045b145525e2a23fdfbad5b22ba37a28a85c909ee625d" => :el_capitan
     sha256 "d8281b077e388d55fdb8a2012c884b5195fe42be4bb67c14e0ea2a1c481f288f" => :yosemite
-    sha256 "4361ed54b75e3e8fd59d81391ac04cd0716d8e1d74df45914be2ee81944e637f" => :x86_64_linux
+    sha256 "4361ed54b75e3e8fd59d81391ac04cd0716d8e1d74df45914be2ee81944e637f" => :x86_64_linux # glibc 2.19
   end
 
   option "without-completions", "Disable zsh completions"

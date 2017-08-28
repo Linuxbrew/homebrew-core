@@ -13,7 +13,7 @@ class Gsasl < Formula
     sha256 "afc44c1161ffa2ae09bee4a82c25e626562d950ae092356fba204789e4b4752e" => :yosemite
     sha256 "df498ac7247b3f54bdc9720249fa4a1cee72bf8c5011d06889d8ecdebaff1aaa" => :mavericks
     sha256 "5585b8bddf849b2b4b3f67da253c97556bfa526b8345006595cdefddf3385dd5" => :mountain_lion
-    sha256 "efb441d35f31009dec66cfece15834e5fd1be441b62d914e3632f33c7631c5e1" => :x86_64_linux
+    sha256 "efb441d35f31009dec66cfece15834e5fd1be441b62d914e3632f33c7631c5e1" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libntlm" => :optional

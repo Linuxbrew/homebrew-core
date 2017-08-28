@@ -10,7 +10,7 @@ class MidnightCommander < Formula
     sha256 "f1e01d6ae2d51af1958e327cbd6a0ab18a8e501737359c8e7ff47857de44427a" => :sierra
     sha256 "b3f82008e40f490866be7a57c754cd66f8130c97885c8a919af0e6606d4ec370" => :el_capitan
     sha256 "1486ddf0792621dbbf7b914e02c60b0248098e43046f8a106014e34d3c1f7181" => :yosemite
-    sha256 "6c8611aa4289b08a6af832a7e77f4e3e11d0924286cbc776e6d2939c58b1d35a" => :x86_64_linux
+    sha256 "6c8611aa4289b08a6af832a7e77f4e3e11d0924286cbc776e6d2939c58b1d35a" => :x86_64_linux # glibc 2.19
   end
 
   option "without-nls", "Build without Native Language Support"

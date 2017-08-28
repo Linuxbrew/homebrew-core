@@ -9,7 +9,7 @@ class Utf8proc < Formula
     sha256 "db3e01e947e412f480fd418562e78f07e9d92faa14b2bca453d445fc60156132" => :sierra
     sha256 "f43d571eae1da6c1b2945cb6059234f4ed3879c911aa810543aae767f1e897ca" => :el_capitan
     sha256 "9229016dc8952dd531ca8053fe5e5295c241cbb1cb93b02c7a2e0e550857c454" => :yosemite
-    sha256 "ca60e3edfeec2cbefc5f9a4a4550c1b7afa8673480b0c0751cbccb976e6c4804" => :x86_64_linux
+    sha256 "ca60e3edfeec2cbefc5f9a4a4550c1b7afa8673480b0c0751cbccb976e6c4804" => :x86_64_linux # glibc 2.19
   end
 
   def install

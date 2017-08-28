@@ -9,7 +9,7 @@ class Re2c < Formula
     sha256 "37ed44e39dc5fc334383fa1288713ba050f7201b88f46f2e06214d705ebc6aa7" => :sierra
     sha256 "874c58f6fffdbc854ccdf28d9dfaeaab861850731a2a1cdea9c5f0c11f11888e" => :el_capitan
     sha256 "a64bf6f56f3bed9c64318f1c590892e53b103f4372eee3e41af7916ecbfde05c" => :yosemite
-    sha256 "f2c953961a321741555e236ddc4233ab2847b39e695233f3fa744b48788878d1" => :x86_64_linux
+    sha256 "f2c953961a321741555e236ddc4233ab2847b39e695233f3fa744b48788878d1" => :x86_64_linux # glibc 2.19
   end
 
   def install

@@ -10,7 +10,7 @@ class Ant < Formula
     sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :sierra
     sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :el_capitan
     sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :yosemite
-    sha256 "2cb9acc8acd965aea4e4fbc49095f874aad5e9564c3ac04eb40abbbcfbe97438" => :x86_64_linux
+    sha256 "2cb9acc8acd965aea4e4fbc49095f874aad5e9564c3ac04eb40abbbcfbe97438" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx if MacOS.version < :mavericks

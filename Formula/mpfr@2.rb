@@ -12,7 +12,7 @@ class MpfrAT2 < Formula
     sha256 "338b557f978df323497c4b56ce90fb623817e51d312c474220029a9ddd42ccc9" => :sierra
     sha256 "999668c3a0a71ed8c4f4a7b50a5c2b242ba488b565702e5fcea42a113a553210" => :el_capitan
     sha256 "f923e8b5a61e736aac64b98c54881e6d336c286b456c78932681c3238c5b3751" => :yosemite
-    sha256 "5d2ccc0a1b6d9776b4562054e1c65d7b2387186eaef1e2d6b88786db4713ce5e" => :x86_64_linux
+    sha256 "5d2ccc0a1b6d9776b4562054e1c65d7b2387186eaef1e2d6b88786db4713ce5e" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula

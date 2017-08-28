@@ -10,7 +10,7 @@ class CabalInstall < Formula
     sha256 "bd4ead434980525b7a21cebb7f73da9a8c68e6a226bfd85b01abea55f814af96" => :sierra
     sha256 "a093efe37db90411dc87eccaaca4e8245dbd9c46197f44f4d4dd484b1055ec03" => :el_capitan
     sha256 "ce0e79606ebc753b213e8e2a46506bd27e82dacef493452dc31cb445ee4e4e1d" => :yosemite
-    sha256 "20ebcda99acf4db4076866933bc750d0da702c40125cf5593f7b7c148b0327ac" => :x86_64_linux
+    sha256 "20ebcda99acf4db4076866933bc750d0da702c40125cf5593f7b7c148b0327ac" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ghc"

@@ -12,7 +12,7 @@ class OpenshiftCli < Formula
     sha256 "2e499d511419ef45620c068ee30b5f5eec3223e063a76ce164a952492c4143ff" => :sierra
     sha256 "194662f118199fec2199fbe9b9373fc9e9a34ab4cac71cbe81b36959bfca0640" => :el_capitan
     sha256 "8cfbfcbf88a60beaa006736868e96d80f46b864db03a4d6fe90909109a021d9c" => :yosemite
-    sha256 "7a8e7859d85739758f2fec34be25087832d97854eb467170413360bf7e8f6975" => :x86_64_linux
+    sha256 "7a8e7859d85739758f2fec34be25087832d97854eb467170413360bf7e8f6975" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

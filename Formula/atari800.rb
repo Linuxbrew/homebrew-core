@@ -9,7 +9,7 @@ class Atari800 < Formula
     sha256 "79ea3412dc5437df7b24db916be00ee402c2028620d128d8247f6be2a275c08d" => :sierra
     sha256 "c1b4b17e03ee1685d8b7562f410f75a7c0fa679b00e0505b251741de59eaecb7" => :el_capitan
     sha256 "5474b61b32e2ac3aa5e594c5e617e326aeedc62f8e740b2888ba654db273296a" => :yosemite
-    sha256 "5e5e2279d48b83553a77fd28879b889a7d21b9b2991737fec2467e3ab4d672fd" => :x86_64_linux
+    sha256 "5e5e2279d48b83553a77fd28879b889a7d21b9b2991737fec2467e3ab4d672fd" => :x86_64_linux # glibc 2.19
   end
 
   head do

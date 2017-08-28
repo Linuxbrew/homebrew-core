@@ -9,7 +9,7 @@ class LibgpgError < Formula
     sha256 "7ffa1c12c9a452f2292cb6a171b4e88136c631cee4da67d71143529bf3352a93" => :sierra
     sha256 "a81e55fecb35b921df543e8cf83729a8695d745fa778f716d4c96f989aceb6b4" => :el_capitan
     sha256 "06669414f7aba892558875994c411dc2a0723aa19f5d854b435987b3c8b9f19a" => :yosemite
-    sha256 "1ff27f797df31e4b1b4f20adc6502e124a6a4cde68a14887697ce127eeaf3ed2" => :x86_64_linux
+    sha256 "1ff27f797df31e4b1b4f20adc6502e124a6a4cde68a14887697ce127eeaf3ed2" => :x86_64_linux # glibc 2.19
   end
 
   def install

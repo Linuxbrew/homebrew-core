@@ -10,7 +10,7 @@ class Libmetalink < Formula
     sha256 "4ca3f82ac2e2520c677def661168c6ba14ee2b8f0139fbe33cf5be66745244d3" => :el_capitan
     sha256 "e627cde406e135a735fd2586622d2fa05cf6ef9fda8a0ea08d09ddfce20dca75" => :yosemite
     sha256 "9ff31fac7dcd9f9231c067eff04d9b59e1de9f8416142d519799746dbfa34c24" => :mavericks
-    sha256 "7f8f2b1fbedd2c845252928f3f379cc3d411fca1cd6d546f26e7d4d084017fa7" => :x86_64_linux
+    sha256 "7f8f2b1fbedd2c845252928f3f379cc3d411fca1cd6d546f26e7d4d084017fa7" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

@@ -12,7 +12,7 @@ class Patchutils < Formula
     sha256 "08689727cdf1f89cc075ec2e6e71ac456c5429067899ccb5dac12848a6c2abcd" => :el_capitan
     sha256 "df5a0b90219fe01b6934696d27782920c3e9c45152980e72a1c542006c625ae9" => :yosemite
     sha256 "84cae8e92f1e9b3f377fd6584c0811a3c3989fb898bb7596ba0d1192ae10a834" => :mavericks
-    sha256 "abd6d041439ab9782109e9aa60cecbefa03346e2cd011264165e4ba18894eaf4" => :x86_64_linux
+    sha256 "abd6d041439ab9782109e9aa60cecbefa03346e2cd011264165e4ba18894eaf4" => :x86_64_linux # glibc 2.19
   end
 
   head do

@@ -10,7 +10,7 @@ class Avra < Formula
     sha256 "2fd31c2a27b2ef237a6c9e33d7b378682dcba6b79131717f6c97264999b85658" => :sierra
     sha256 "a53990c229653465948d9d66fc972e695591cddf6529c25ad834fed7fbd7267d" => :el_capitan
     sha256 "1fd6d746309dbdf2811ba8d461188ec63e93363a34546a3af7ad9b4f47c75ffc" => :yosemite
-    sha256 "003cb0324d01616cdc62c13c0384587bd4a8f82e7eedff2f26b5c17841eae75f" => :x86_64_linux
+    sha256 "003cb0324d01616cdc62c13c0384587bd4a8f82e7eedff2f26b5c17841eae75f" => :x86_64_linux # glibc 2.19
   end
 
   # Crashes with 'abort trap 6' unless this fix is applied.

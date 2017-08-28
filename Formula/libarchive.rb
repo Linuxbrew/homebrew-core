@@ -9,7 +9,7 @@ class Libarchive < Formula
     sha256 "3afbbb3c4c12dcac7f55d7a038249e4553c4b13bb5c6a5251db1099277446490" => :sierra
     sha256 "0805b457512f14129a12148c7ad4fc5880c7594515781bc2a11e3a5431c220ec" => :el_capitan
     sha256 "8ef52679c4f98f7aa7ce0ecdb854d3fea70b46192011e447fabdde8aec5cd940" => :yosemite
-    sha256 "0fc50ba48259f8af6b0c52e2391ff4ee5bae0d6f0458a2ca74debdc1fa958288" => :x86_64_linux
+    sha256 "0fc50ba48259f8af6b0c52e2391ff4ee5bae0d6f0458a2ca74debdc1fa958288" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :provided_by_osx

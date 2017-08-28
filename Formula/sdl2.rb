@@ -10,7 +10,7 @@ class Sdl2 < Formula
     sha256 "69c56053fd1246671263129fa4df611c6137bc59f75b95b81695ff4223b11d6f" => :sierra
     sha256 "9dfa30c355fc8b7eafda55004a0bd201c06c18dd64a33ac1cb6308534f6dd3bc" => :el_capitan
     sha256 "adc5a228885785a39e437bc51177df9b35aeade907af642a9d6885fca0b20443" => :yosemite
-    sha256 "cb5d3962e9f89cddc8eeeb4dbad1d7ce97193a37a601844cd5fe0de1273e5ffc" => :x86_64_linux
+    sha256 "cb5d3962e9f89cddc8eeeb4dbad1d7ce97193a37a601844cd5fe0de1273e5ffc" => :x86_64_linux # glibc 2.19
   end
 
   head do

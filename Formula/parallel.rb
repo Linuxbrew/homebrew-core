@@ -11,7 +11,7 @@ class Parallel < Formula
     sha256 "e6baf61b18591c4b8fea6f15784759563ea9a20f5915fce1f59845d853bccbbb" => :sierra
     sha256 "e6baf61b18591c4b8fea6f15784759563ea9a20f5915fce1f59845d853bccbbb" => :el_capitan
     sha256 "e6baf61b18591c4b8fea6f15784759563ea9a20f5915fce1f59845d853bccbbb" => :yosemite
-    sha256 "e60d8fc36ef91b64f70ac82c9e1b93a920d6258f685c975e52a40b3043272eac" => :x86_64_linux
+    sha256 "e60d8fc36ef91b64f70ac82c9e1b93a920d6258f685c975e52a40b3043272eac" => :x86_64_linux # glibc 2.19
   end
 
   conflicts_with "moreutils", :because => "both install a 'parallel' executable."

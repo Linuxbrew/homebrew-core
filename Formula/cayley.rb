@@ -10,7 +10,7 @@ class Cayley < Formula
     sha256 "742760d4a2fb4275a0d719df7a700e7ad4b826165a29dfb201ff09a8bfeba0fb" => :sierra
     sha256 "4fd6749b962972990f870fc88556c48a21eb27dcc176149c0c8e0f2cf796c61e" => :el_capitan
     sha256 "0094bc69ee5b69af082b1c73269df76956535b45fcd4984cc1bf0c90c69a3420" => :yosemite
-    sha256 "f68d5c21b8a575c495ad7982771713b75b2a2a0258ea5792c4226ee6712f2292" => :x86_64_linux
+    sha256 "f68d5c21b8a575c495ad7982771713b75b2a2a0258ea5792c4226ee6712f2292" => :x86_64_linux # glibc 2.19
   end
 
   option "without-samples", "Don't install sample data"

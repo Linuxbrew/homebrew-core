@@ -10,7 +10,7 @@ class Npth < Formula
     sha256 "b75192b1cfa25b8d0c61525e1a3333a1574f68b8ecbbb6006d0dcf5af38a4770" => :sierra
     sha256 "97a9bd2af91b311445605e77fdb9452a2c432e53c7e14028391b4d8e770f2514" => :el_capitan
     sha256 "ad02061ff36a845c25a271924b562973ec3c6bb21845c0b0baa5bf5fe703416a" => :yosemite
-    sha256 "86ba52afa727426fe749f1387a621dd7faa4a8a9321285a05f70e8b5c0adb9d5" => :x86_64_linux
+    sha256 "86ba52afa727426fe749f1387a621dd7faa4a8a9321285a05f70e8b5c0adb9d5" => :x86_64_linux # glibc 2.19
   end
 
   def install

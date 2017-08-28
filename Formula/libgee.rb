@@ -9,7 +9,7 @@ class Libgee < Formula
     sha256 "def51b848030a5079529f08b9886177e93fa88133b39a7db5fc94f681cbca19d" => :sierra
     sha256 "cd590c7857ad9bc2485d057cf7d4ec1e55555af4875479bfa7a416ddc02618ec" => :el_capitan
     sha256 "c05334f4f4a72e3185ea1130a10ab939dce5ba3cf7d40a9056fc1973957c5dd3" => :yosemite
-    sha256 "450c5fcd03bafdadff2707ee064d4586ee1726558581a38ba60bb87a8a8cce2e" => :x86_64_linux
+    sha256 "450c5fcd03bafdadff2707ee064d4586ee1726558581a38ba60bb87a8a8cce2e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build

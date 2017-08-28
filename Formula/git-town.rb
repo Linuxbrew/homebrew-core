@@ -8,7 +8,7 @@ class GitTown < Formula
     cellar :any_skip_relocation
     sha256 "2b7f7e0c56371762d7dda2599f9c0d42dbc3cb00a3a8dfbf986ca568b8d4396c" => :sierra
     sha256 "cece6487b0a58126b108af4827328c6af9f79b9bf6867ae0ce92460071de6a2f" => :el_capitan
-    sha256 "fdb4cd3367d885a72efeb6feafbdd3cd1dd8668dc37f0c33002690fa71a75a96" => :x86_64_linux
+    sha256 "fdb4cd3367d885a72efeb6feafbdd3cd1dd8668dc37f0c33002690fa71a75a96" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "go" => :build

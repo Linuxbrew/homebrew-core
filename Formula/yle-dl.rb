@@ -11,7 +11,7 @@ class YleDl < Formula
     sha256 "184130ec7140496499d91f9e83838abac93111f4b7d36bdb0fe6e321988b9e80" => :sierra
     sha256 "239df7c4f665c9deabe2f23c9948f324094e27fc75fedbd8960731c80984b109" => :el_capitan
     sha256 "5eb6f682a636c4bc902753b9de850eafeefdb80145b571ece21921d281852eea" => :yosemite
-    sha256 "b47bc7c1ada066b4a8b5369c6d10a49059505a5b862dc19a336b2edf6602bf38" => :x86_64_linux
+    sha256 "b47bc7c1ada066b4a8b5369c6d10a49059505a5b862dc19a336b2edf6602bf38" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "rtmpdump"

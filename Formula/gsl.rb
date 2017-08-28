@@ -10,7 +10,7 @@ class Gsl < Formula
     sha256 "ea19659efea6c85dfda0b42468fd2d4bc980ec2689a07fa3506ea2a5fc9a9c89" => :sierra
     sha256 "0e58f3748624d439a7152557518e389827a8a38dfa7ea486625d38e86291f9b2" => :el_capitan
     sha256 "e8f5a126564d238ed734d3f069b183304ec1a707473cbce7fdde512122ccf3fb" => :yosemite
-    sha256 "cc9c752252817f13c74b9d9178e2f5f9f5db4358abd9b8e932624502429f480d" => :x86_64_linux
+    sha256 "cc9c752252817f13c74b9d9178e2f5f9f5db4358abd9b8e932624502429f480d" => :x86_64_linux # glibc 2.19
   end
 
   def install
