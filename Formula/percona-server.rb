@@ -53,6 +53,9 @@ class PerconaServer < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
