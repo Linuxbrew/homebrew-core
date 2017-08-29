@@ -18,6 +18,7 @@ class Libsvg < Formula
   depends_on "libpng"
   depends_on "pkg-config" => :build
   depends_on "jpeg"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
