@@ -19,6 +19,9 @@ class Assimp < Formula
   depends_on "zlib" unless OS.mac?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"
     system "cmake", *args
