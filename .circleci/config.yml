@@ -10,7 +10,10 @@ jobs:
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
     steps:
-      - run: sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
+      - run: |
+          cd /home/linuxbrew/.linuxbrew/Homebrew
+          git fetch origin --unshallow --tags
+          git reset --hard origin/master
       - checkout
       - run: git remote set-url origin $CIRCLE_REPOSITORY_URL
       - run: if [ -e .git/shallow ]; then echo git fetch --unshallow; fi
