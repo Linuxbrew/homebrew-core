@@ -13,6 +13,8 @@ class Xmake < Formula
     sha256 "7061ff5b492fca2f9cdcee59174381a78852a25f54333148c866bbf644d574fd" => :x86_64_linux # glibc 2.19
   end
 
+  depends_on "readline" unless OS.mac?
+
   def install
     system "./install", "output"
     pkgshare.install Dir["xmake/*"]
