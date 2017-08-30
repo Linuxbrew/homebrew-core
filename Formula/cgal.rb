@@ -3,13 +3,13 @@ class Cgal < Formula
   homepage "https://www.cgal.org/"
   url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.9.1/CGAL-4.9.1.tar.xz"
   sha256 "56557da971b5310c2678ffc5def4109266666ff3adc7babbe446797ee2b90cca"
+  revision 1 unless OS.mac? # g++-5
 
   bottle do
     cellar :any
     sha256 "074e917036065d1fcb67dce5dd03e97015c12657460c391b3c20cb689e2b09a1" => :sierra
     sha256 "9f103a1be97cbf9cc5b3086d72c735897fccb632b79df98b0f62310f41ff17ef" => :el_capitan
     sha256 "861fcbdd2cea9fd8365e53e8ec7218f11c33b6b2fc1d0d732eeaa39c1b0343fd" => :yosemite
-    sha256 "7bc3af79bd2dec1926cdd98fa0b124535dac0e325de3ea11a736484285bbccdd" => :x86_64_linux # glibc 2.19
   end
 
   option :cxx11
@@ -86,8 +86,8 @@ class Cgal < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lCGAL",
-                    "surprise.cpp", "-o", "test"
+    system ENV.cxx, "-I#{include}", "-L#{lib}",
+                    "surprise.cpp", "-o", "test", "-lCGAL"
     assert_equal "15\n15", shell_output("./test").chomp
   end
 end
