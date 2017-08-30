@@ -11,6 +11,10 @@ class Gsoap < Formula
   end
 
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "bison"
+    depends_on "flex"
+  end
 
   def install
     # Contacted upstream by email and been told this should be fixed by 2.8.37,
