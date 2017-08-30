@@ -1,3 +1,4 @@
+# opencv: Build a bottle for Linuxbrew
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "http://opencv.org/"
@@ -33,7 +34,7 @@ class Opencv < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     ENV.cxx11
     dylib = OS.mac? ? "dylib" : "so"
