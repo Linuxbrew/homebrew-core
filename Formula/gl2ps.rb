@@ -65,8 +65,8 @@ class Gl2ps < Formula
       system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
     else
       system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lgl2ps", "-lglut", "-lGL"
-      # Travis has no X11 display: freeglut (./test): failed to open display ''
-      return if ENV["TRAVIS"]
+      # Fails without an X11 display: freeglut (./test): failed to open display ''
+      return if ENV["CIRCLECI"] || ENV["TRAVIS"]
     end
     system "./test"
     assert File.exist?("test.eps") && File.size("test.eps") > 0
