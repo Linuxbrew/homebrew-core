@@ -26,7 +26,11 @@ class AflFuzz < Formula
       }
     EOS
 
-    system bin/"afl-clang++", "-g", cpp_file, "-o", "test"
+    if which "clang++"
+      system bin/"afl-clang++", "-g", cpp_file, "-o", "test"
+    else
+      system bin/"afl-g++", "-g", cpp_file, "-o", "test"
+    end
     assert_equal "Hello, world!", shell_output("./test")
   end
 end
