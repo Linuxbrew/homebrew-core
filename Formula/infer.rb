@@ -26,7 +26,13 @@ class Infer < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "m4" => :build
+    depends_on "ncurses"
+    depends_on "zlib"
+    depends_on :java
+    depends_on :python
+  end
 
   def install
     if build.without?("clang") && build.without?("java")
@@ -59,6 +65,10 @@ class Infer < Formula
       '["./configure"', '["./configure" "-no-graph"'
     system "./build-infer.sh", target_platform, "--yes"
     system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
+
+    return if OS.mac?
+    # Fix Unwanted system libraries: libtinfo.so.5
+    ln_sf Formula["ncurses"].lib/"libtinfo.so", lib/"infer/facebook-clang-plugins/clang/install/lib/libtinfo.so.5"
   end
 
   test do
