@@ -50,9 +50,14 @@ class Octave < Formula
   depends_on "qrupdate"
   depends_on "readline"
   depends_on "suite-sparse"
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
-  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
   depends_on :java => ["1.6+", :optional]
+  if OS.mac?
+    depends_on "openblas" => :optional
+    depends_on "veclibfort" if build.without?("openblas")
+  else
+    depends_on "curl"
+    depends_on "openblas" => :recommended
+  end
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -64,9 +69,6 @@ class Octave < Formula
     Tab.for_name("graphicsmagick").without?("quantum-depth-32") &&
       Tab.for_name("graphicsmagick").without?("quantum-depth-8")
   end
-
-  # Work around the C++11 ABI issue.
-  fails_with :gcc => "5" if OS.linux?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
