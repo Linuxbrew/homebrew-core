@@ -16,7 +16,7 @@ class Argon2 < Formula
     system "make"
     system "make", "test"
     bin.install "argon2"
-    lib.install "libargon2.dylib", "libargon2.a"
+    lib.install "libargon2.#{OS.mac? ? "dylib" : "so"}", "libargon2.a"
     include.install "include/argon2.h"
     man1.install "man/argon2.1"
     doc.install "argon2-specs.pdf"
