@@ -3,7 +3,7 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.26/GraphicsMagick-1.3.26.tar.xz"
   sha256 "fba015f3d5e5d5f17e57db663f1aa9d338e7b62f1d415b85d13ee366927e5f88"
-  revision 1
+  revision OS.mac? ? 1 : 2 # g++-5
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
@@ -11,7 +11,6 @@ class Graphicsmagick < Formula
     sha256 "305487a0487ffb2ca372dd3d2253726c76dec215c9641ea7d7b7c86667d254e8" => :sierra
     sha256 "fc7b895a02b341de4d851601ffb03fb5e9ef72ee8ec7e701165008d0eb5fef93" => :el_capitan
     sha256 "32b76cdef89bd1d027886dcd52866ce8714dc84443b1a360416fcab5f46f8ed3" => :yosemite
-    sha256 "3d52adffd27ab4f8aef620c8b441bdbdde673cc907710cbbb483e81236d90b8b" => :x86_64_linux # glibc 2.19
   end
 
   option "without-magick-plus-plus", "disable build/install of Magick++"
