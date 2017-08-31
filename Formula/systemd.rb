@@ -43,7 +43,7 @@ class Systemd < Formula
       resources.each do |res|
         res.stage do
           system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
           system "make", "install"
         end
       end
