@@ -1,3 +1,4 @@
+# portaudio: Build a bottle for Linuxbrew
 class Portaudio < Formula
   desc "Cross-platform library for audio I/O"
   homepage "http://www.portaudio.com"
