@@ -1,3 +1,10 @@
+class CIRequirement < Requirement
+  # freeswitch installs more thant 500 Mb of sound files
+  # which makes the formula too big to be uploaded to bintray
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
@@ -34,6 +41,13 @@ class Freeswitch < Formula
   depends_on "libsndfile"
   depends_on "speex"
   depends_on "speexdsp"
+
+  unless OS.mac?
+    depends_on "libedit"
+    depends_on "util-linux" # for libuuid
+    depends_on "zlib"
+    depends_on CIRequirement
+  end
 
   # https://github.com/Homebrew/homebrew/issues/42865
   fails_with :gcc
