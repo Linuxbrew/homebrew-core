@@ -12,6 +12,8 @@ class Xcenv < Formula
     sha256 "000e0d3d363de9398ba5655f5536cb817a6f1019f2679b4469556d86bf012a4b" => :yosemite
   end
 
+  depends_on :macos
+
   def install
     prefix.install ["bin", "libexec"]
   end
