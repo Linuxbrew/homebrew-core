@@ -13,6 +13,7 @@ class Xctool < Formula
   end
 
   depends_on :xcode => "7.0"
+  depends_on :macos
 
   def install
     system "./scripts/build.sh", "XT_INSTALL_ROOT=#{libexec}", "-IDECustomDerivedDataLocation=#{buildpath}"
