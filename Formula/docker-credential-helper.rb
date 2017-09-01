@@ -13,6 +13,7 @@ class DockerCredentialHelper < Formula
   end
 
   depends_on "go" => :build
+  depends_on :macos
 
   def install
     ENV["GOPATH"] = buildpath
