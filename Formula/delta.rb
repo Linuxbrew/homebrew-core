@@ -1,3 +1,4 @@
+# delta: Build a bottle for Linuxbrew
 class Delta < Formula
   desc "Programatically minimize files to isolate features of interest"
   homepage "http://delta.tigris.org/"
