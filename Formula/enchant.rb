@@ -1,3 +1,4 @@
+# enchant: Build a bottle for Linuxbrew
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://www.abisource.com/projects/enchant/"
