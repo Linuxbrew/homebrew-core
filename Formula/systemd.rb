@@ -62,10 +62,10 @@ class Systemd < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}",
       "--localstatedir=#{var}",
-      "--sysconfdir=#{etc}",
+      "--sysconfdir=#{prefix}/etc",
       "--with-rootprefix=#{prefix}",
-      "--with-sysvinit-path=#{etc}/init.d",
-      "--with-sysvrcnd-path=#{etc}/rc.d"
+      "--with-sysvinit-path=#{prefix}/etc/init.d",
+      "--with-sysvrcnd-path=#{prefix}/etc/rc.d"
     system "make", "install"
   end
 
