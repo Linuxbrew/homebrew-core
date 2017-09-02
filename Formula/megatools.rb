@@ -17,6 +17,8 @@ class Megatools < Formula
   depends_on "glib-networking"
   depends_on "openssl"
 
+  depends_on "curl" unless OS.mac?
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
