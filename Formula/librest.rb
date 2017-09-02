@@ -1,3 +1,4 @@
+# librest: Build a bottle for Linuxbrew
 class Librest < Formula
   desc "Library to access RESTful web services"
   homepage "https://wiki.gnome.org/Projects/Librest"
