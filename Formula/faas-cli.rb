@@ -2,15 +2,14 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/alexellis/faas-cli.git",
-      :tag => "0.4.10",
-      :revision => "26cfe469caa297394ffab9cc55c6ffe5d1f135b2"
+      :tag => "0.4.12",
+      :revision => "118e3e904aa930cafdb64f0efd4538c76fb27088"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e7efc047cbab33fc374e75ae72597ace1c5fded7b0eee4fc3274e69d3d7f0b79" => :sierra
-    sha256 "27f326631e45a89d9413cb4feba7485abff6c8f49ad29f75e320bdcde365cce3" => :el_capitan
-    sha256 "4adced481015c837d9ce0a62aebcab0ee419b20add575b7d314562c6f42a58bf" => :yosemite
-    sha256 "88bdf93709b766e0bbdc8bbd9c39dfe11286bc7aa1a332fd7cfb75f556a4562c" => :x86_64_linux
+    sha256 "3ce155330a55c0f430f6ce4a205ffe53d68021d33fc0066e95c4b2a17d7ca0a7" => :sierra
+    sha256 "0f030ea51b76c3f7fa9603b9a685c2a811e4b54ecb5c2a2211e8b300464a2915" => :el_capitan
+    sha256 "4db2b9a7947602d3fd902b576f454276b0d3b824bccf0937729c0c55af9b6812" => :yosemite
   end
 
   depends_on "go" => :build
@@ -22,7 +21,7 @@ class FaasCli < Formula
     (buildpath/"src/github.com/alexellis/faas-cli").install buildpath.children
     cd "src/github.com/alexellis/faas-cli" do
       commit = Utils.popen_read("git rev-list -1 HEAD").chomp
-      system "go", "build", "-ldflags", "-X main.GitCommit=#{commit}", "-a",
+      system "go", "build", "-ldflags", "-s -w -X github.com/alexellis/faas-cli/commands.GitCommit=#{commit}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       prefix.install_metafiles
     end
@@ -68,8 +67,12 @@ class FaasCli < Formula
     EOS
 
     begin
-      output = shell_output("#{bin}/faas-cli -action deploy -yaml test.yml")
+      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
       assert_equal expected, output.chomp
+
+      commit = Utils.popen_read("git rev-list -1 HEAD").chomp
+      output = shell_output("#{bin}/faas-cli version")
+      assert_match commit, output.chomp
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

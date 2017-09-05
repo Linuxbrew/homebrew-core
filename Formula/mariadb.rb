@@ -11,6 +11,11 @@ class Mariadb < Formula
     sha256 "4996b04e03724f178a3d152bdff5b50fedad606a40e62a10e1b781f0b6c488d5" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://downloads.mariadb.org/f/mariadb-10.3.1/source/mariadb-10.3.1.tar.gz"
+    sha256 "3f6d45c7067033f161e505b6d8db6c559fa9c4c16459903f393d555e76e1d507"
+  end
+
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
