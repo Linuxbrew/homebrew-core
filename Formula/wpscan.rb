@@ -4,6 +4,7 @@ class Wpscan < Formula
   url "https://github.com/wpscanteam/wpscan/archive/2.9.3.tar.gz"
   sha256 "1bacc03857cca5a2fdcda060886bf51dbf73b129abbb7251b8eb95bc874e5376"
   head "https://github.com/wpscanteam/wpscan.git"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "20db28bc388fed0b55b3c832a6554a2daaca7f9fc28ee133bbd317d822f51099" => :sierra
@@ -13,6 +14,7 @@ class Wpscan < Formula
   end
 
   depends_on :ruby => "2.1.9"
+  depends_on "curl" unless OS.mac?
 
   def install
     inreplace "lib/common/common_helper.rb" do |s|
