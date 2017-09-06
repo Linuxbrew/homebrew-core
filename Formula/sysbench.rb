@@ -17,6 +17,7 @@ class Sysbench < Formula
   depends_on "openssl"
   depends_on :postgresql => :optional
   depends_on :mysql => :recommended
+  depends_on "vim" unless OS.mac? # needed for xxd
 
   def install
     system "./autogen.sh"
