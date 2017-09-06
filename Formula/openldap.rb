@@ -4,6 +4,7 @@ class Openldap < Formula
   url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.45.tgz"
   mirror "ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.45.tgz"
   sha256 "cdd6cffdebcd95161a73305ec13fc7a78e9707b46ca9f84fb897cd5626df3824"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "809a58277010241b76cb9474b303d55540ae71c59ef401ece495f6b5ab57949c" => :sierra
@@ -47,6 +48,7 @@ class Openldap < Formula
       --enable-valsort
     ]
 
+    args << "--enable-pic" unless OS.mac?
     args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db@4"
     args << "--enable-sssvlv=yes" if build.with? "sssvlv"
 
