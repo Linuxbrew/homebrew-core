@@ -21,11 +21,13 @@ class Gmp < Formula
   def install
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
+
     if OS.mac?
       args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-    else
-      args << "ABI=32" if Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
+    elsif Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
+      args << "ABI=32"
     end
+
     system "./configure", *args
     system "make"
     system "make", "check"
