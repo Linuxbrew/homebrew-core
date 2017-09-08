@@ -14,6 +14,8 @@ class Gmp < Formula
     sha256 "a9b92c1ac7cc79df39c5bf7f3c2b0abeb26b9bc417c13d55e3628058aaaa301c" => :x86_64_linux # glibc 2.19
   end
 
+  depends_on "m4" unless OS.mac?
+
   option :cxx11
 
   def install
