@@ -206,7 +206,7 @@ class Llvm < Formula
     (buildpath/"tools/clang").install resource("clang")
     unless OS.mac?
       # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
-      inreplace buildpath/"tools/clang/lib/Driver/ToolChains.cpp",
+      inreplace buildpath/"tools/clang/lib/Driver/ToolChains/Linux.cpp",
         "// Add the multilib suffixed paths where they are available.",
         "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
     end
