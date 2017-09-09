@@ -1,3 +1,4 @@
+# points2grid: Build a bottle for Linuxbrew
 class Points2grid < Formula
   desc "Generate digital elevation models using local griding"
   homepage "https://github.com/CRREL/points2grid"
