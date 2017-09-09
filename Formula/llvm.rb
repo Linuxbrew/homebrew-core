@@ -80,11 +80,9 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "109ea0b2b78a44b2256ebb9b2d5966185e7b6a8045cc6dbcea85fab1051ea2a4" => :sierra
-    sha256 "f3be215d6e8f41504add8b09ac97d695b988d333266ff163fc2c53405a468a38" => :el_capitan
-    sha256 "8ec98b7eaf1de2dca1e2a10caa3edd2cace088185257e7bb39fe068713bf5121" => :yosemite
-    sha256 "88aafc74a822773ef3bde85e45d1c4b68ef48aac7be41403a2d2f11971bef37f" => :x86_64_linux # glibc 2.19
+    sha256 "c79e1df313a81c46710e7f048bf3c8fe69a01e0c29b29ac3552fcb2c2a7194eb" => :sierra
+    sha256 "dcd62a3684bb18c74a21363e437b39f2b52f0bb69a66a95f597b6bfbd2a013ec" => :el_capitan
+    sha256 "581c8415ee3ed5a52dd8f8d31ec901be837a4867b1abb148677ec08b0b931607" => :yosemite
   end
 
   pour_bottle? do
