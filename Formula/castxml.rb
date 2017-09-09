@@ -1,3 +1,4 @@
+# castxml: Build a bottle for Linuxbrew
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
