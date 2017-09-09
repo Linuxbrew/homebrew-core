@@ -1,3 +1,4 @@
+# osmium-tool: Build a bottle for Linuxbrew
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "http://osmcode.org/osmium-tool/"
