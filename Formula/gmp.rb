@@ -1,9 +1,9 @@
 class Gmp < Formula
   desc "GNU multiple precision arithmetic library"
   homepage "https://gmplib.org/"
-  url "https://gmplib.org/download/gmp/gmp-6.1.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.xz"
-  sha256 "d36e9c05df488ad630fff17edb50051d6432357f9ce04e34a09b3d818825e831"
+  url "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
+  sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
 
   bottle do
     cellar :any
@@ -14,16 +14,20 @@ class Gmp < Formula
     sha256 "a9b92c1ac7cc79df39c5bf7f3c2b0abeb26b9bc417c13d55e3628058aaaa301c" => :x86_64_linux # glibc 2.19
   end
 
+  depends_on "m4" unless OS.mac?
+
   option :cxx11
 
   def install
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
+
     if OS.mac?
       args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-    else
-      args << "ABI=32" if Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
+    elsif Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
+      args << "ABI=32"
     end
+
     system "./configure", *args
     system "make"
     system "make", "check"
