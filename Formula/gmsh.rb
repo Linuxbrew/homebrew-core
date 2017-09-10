@@ -28,6 +28,9 @@ class Gmsh < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     args = std_cmake_args + %W[
       -DENABLE_OS_SPECIFIC_INSTALL=0
       -DGMSH_BIN=#{bin}
