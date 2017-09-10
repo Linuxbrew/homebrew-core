@@ -1,3 +1,4 @@
+# caddy: Build a bottle for Linuxbrew
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
