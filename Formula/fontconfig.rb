@@ -1,17 +1,14 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.4.tar.bz2"
-  sha256 "668293fcc4b3c59765cdee5cee05941091c0879edcc24dfec5455ef83912e45c"
-  revision 1 unless OS.mac?
+  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.5.tar.bz2"
+  sha256 "e10ccf1e26b0968f61d81037af1147fea28e86bfd159ffd8cfd5a486da126ce4"
 
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
   bottle do
-    sha256 "05f90844fa324f510fdda497177a12ae30532368ecd7f4ead5ecd63fcd0eb66b" => :sierra
-    sha256 "2cea2573e122283e3dddac508b5eba66e70e5bdb3def7628a2c68c40a0abbd7d" => :el_capitan
-    sha256 "ef4e224f92de39b5694fde64dd1087dc28684f43611ad4a8d729f3891ed2187d" => :yosemite
-    sha256 "35f64132f9937efea0d7dcd2ebf740ba1fa467e7a76ecb83c0d7c30698524441" => :x86_64_linux # glibc 2.19
+    sha256 "a80b7f56acfff0602433d4bad7306d8ab8bc88fd28331682154abed4b8dcc910" => :sierra
+    sha256 "fa6975258d80fcb0bd4227c01d3b0d6b6c9aa3b494c58e9f8120f91c9714e2dd" => :el_capitan
   end
 
   pour_bottle? do
