@@ -1,4 +1,4 @@
-**Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.**
+# Please fill out the issue checklist below, and provide all of the requested information.
 
 # Please always follow these steps:
 - [ ] Confirmed this is a problem with `brew install`ing one, specific formula and not every time you run `brew`? If it's a general `brew` problem please file this issue at https://github.com/Linuxbrew/brew/issues/new.
