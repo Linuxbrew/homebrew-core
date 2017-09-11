@@ -19,7 +19,27 @@ class GsettingsDesktopSchemas < Formula
   depends_on "libffi"
   depends_on "python" if MacOS.version <= :mavericks
 
+  unless OS.mac?
+    depends_on "expat"
+
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   def install
+    unless OS.mac?
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+          system "make", "install"
+        end
+      end
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
