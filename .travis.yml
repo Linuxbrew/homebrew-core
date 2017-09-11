@@ -1,6 +1,4 @@
 language: ruby
-os: linux
-rvm: 2.0.0
 sudo: required
 dist: trusty
 
@@ -97,6 +95,12 @@ before_install:
   - brew tap homebrew/science
   - brew tap linuxbrew/extra
   - brew tap linuxbrew/xorg
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - os: linux
+    - rvm: 2.0.0
 
 script:
   - brew test-bot
