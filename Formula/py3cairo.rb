@@ -18,6 +18,19 @@ class Py3cairo < Formula
   depends_on :python3
 
   def install
+    unless OS.mac?
+      # Help py3cairo find the python-config.py file
+      python_executable = `which python3`.strip
+      python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+      python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+      puts "#{python_prefix}/lib/#{python_version}/config-3.6m-x86_64-linux-gnu/python-config.py"
+      if File.exist? "#{python_prefix}/lib/#{python_version}/config-3.6m-x86_64-linux-gnu/python-config.py"
+        ENV["PYTHON_CONFIG"] = "#{python_prefix}/lib/#{python_version}/config-3.6m-x86_64-linux-gnu/python-config.py"
+      else
+        odie "No python-config.py file found!"
+      end
+    end
+
     ENV["PYTHON"] = "python3"
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
