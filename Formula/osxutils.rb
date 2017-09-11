@@ -15,7 +15,8 @@ class Osxutils < Formula
 
   depends_on :macos
 
-  conflicts_with "trash", :because => "both install a trash binary"
+  conflicts_with "trash", :because => "both install a `trash` binary"
+  conflicts_with "trash-cli", :because => "both install a `trash` binary"
   conflicts_with "leptonica",
     :because => "both leptonica and osxutils ship a `fileinfo` executable."
   conflicts_with "wiki", :because => "both install `wiki` binaries"
