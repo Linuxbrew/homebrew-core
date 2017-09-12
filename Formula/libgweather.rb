@@ -17,8 +17,12 @@ class Libgweather < Formula
   depends_on "libsoup"
   depends_on "gobject-introspection"
   depends_on "vala" => :optional
+  depends_on "glibc" unless OS.mac? # for zoneinfo
 
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     # ensures that the vala files remain within the keg
     inreplace "libgweather/Makefile.in",
               "VAPIGEN_VAPIDIR = @VAPIGEN_VAPIDIR@",
@@ -27,7 +31,8 @@ class Libgweather < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
+                          "--disable-schemas-compile",
+                          "--with-zoneinfo-dir=#{Formula["glibc"]}" unless OS.mac?
     system "make", "install"
   end
 
