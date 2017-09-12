@@ -16,8 +16,25 @@ class Libgweather < Formula
   depends_on "libsoup"
   depends_on "gobject-introspection"
   depends_on "vala" => :optional
+  depends_on "glibc" unless OS.mac? # for zoneinfo
+
+  resource "XML::Parser" do
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+    sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+  end unless OS.mac?
 
   def install
+    unless OS.mac?
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     # ensures that the vala files remain within the keg
     inreplace "libgweather/Makefile.in",
               "VAPIGEN_VAPIDIR = @VAPIGEN_VAPIDIR@",
