@@ -1,3 +1,4 @@
+# lbdb: Build a bottle for Linuxbrew
 class Lbdb < Formula
   desc "Little brother's database for the mutt mail reader"
   homepage "https://www.spinnaker.de/lbdb/"
