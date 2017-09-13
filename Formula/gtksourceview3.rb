@@ -79,10 +79,10 @@ class Gtksourceview3 < Formula
       -lgobject-2.0
       -lgtk-3
       -lgtksourceview-3.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
