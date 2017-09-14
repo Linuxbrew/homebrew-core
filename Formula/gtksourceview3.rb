@@ -1,3 +1,4 @@
+# gtksourceview3: Build a bottle for Linuxbrew
 class Gtksourceview3 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
