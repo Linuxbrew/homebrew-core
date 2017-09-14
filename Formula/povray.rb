@@ -30,6 +30,9 @@ class Povray < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     args = %W[
