@@ -2,7 +2,7 @@ class BrewedGlibcNotOlderRequirement < Requirement
   fatal true
 
   satisfy(:build_env => false) do
-    GlibcRequirement.system_version <= Glibc.version
+    Glibc.version >= GlibcRequirement.system_version
   end
 
   def message
