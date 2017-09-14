@@ -25,7 +25,6 @@ class ShairportSync < Formula
     args = %W[
       --with-os=darwin
       --with-ssl=openssl
-      --with-dns_sd
       --with-ao
       --with-stdout
       --with-pipe
@@ -35,6 +34,7 @@ class ShairportSync < Formula
       --sysconfdir=#{etc}/shairport-sync
       --prefix=#{prefix}
     ]
+    args << "--with-dns_sd" if OS.mac? # Disable bonjour in Linux
     system "./configure", *args
     system "make", "install"
   end
