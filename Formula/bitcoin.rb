@@ -28,7 +28,7 @@ class Bitcoin < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8 -l2.5" if ENV["CIRCLECI"]
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
