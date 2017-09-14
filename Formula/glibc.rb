@@ -74,6 +74,12 @@ class Glibc < Formula
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
 
+  # GCC 4.7 or later is required.
+  fails_with :gcc => "4.3"
+  fails_with :gcc => "4.4"
+  fails_with :gcc => "4.5"
+  fails_with :gcc => "4.6"
+
   def install
     # Fix Error: `loc1@GLIBC_2.2.5' can't be versioned to common symbol 'loc1'
     # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869717
