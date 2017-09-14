@@ -172,7 +172,8 @@ class Gcc < Formula
         args << "--with-sysroot=#{MacOS.sdk_path}"
       end
 
-      if MacOS.prefer_64_bit?
+      # Fix Linux error: gnu/stubs-32.h: No such file or directory
+      if OS.mac? && MacOS.prefer_64_bit?
         args << "--enable-multilib"
       else
         args << "--disable-multilib"
