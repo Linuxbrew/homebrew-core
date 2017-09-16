@@ -1,3 +1,4 @@
+# ocamlbuild: Build a bottle for Linuxbrew
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
@@ -11,6 +12,7 @@ class Ocamlbuild < Formula
     sha256 "e8438ae3c391e979cb38682cc8db1d5cb4cbd228b8332255e39c7b866e7a01da" => :sierra
     sha256 "c8dc260e66ddfdc78d6844320be9a7c2f8e191eb8fc7421ad5bf6e5482e7570b" => :el_capitan
     sha256 "498e4af06474baa080371eabf1b83b4608aa376e834f38b3291093c6d29ccca6" => :yosemite
+    sha256 "c16786266b4f831518f7877002672c14c57e5cad992ae4c1d43367a40dcd7844" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml"
