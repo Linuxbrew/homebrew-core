@@ -1,3 +1,4 @@
+# mikutter: Build a bottle for Linuxbrew
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
