@@ -7,7 +7,7 @@ class Gdal < Formula
 
   bottle do
     rebuild 1
-    sha256 "69dcd735eb3543c602e65d2b35be1f09dd62724d8673571397f2802a38d5e3de" => :sierra
+    sha256 "69dcd735eb3543c602e65d2b35be1f09dd62724d8673571397f2802a38d5e3de" => :sierra_or_later
     sha256 "4d960f47450a62f7b59fa3d83691c8379111f6d00ad7231774d21bdcc45ebcc2" => :el_capitan
     sha256 "4107e0b06a0466f37f5ffe8dfddae8ccc8eafce8c187ccf4382a3986851115bb" => :yosemite
     sha256 "c16b1587cc21e8fba271cd47436d5c24de13a88107db9bddab51a53a4c5cf659" => :x86_64_linux # glibc 2.19
