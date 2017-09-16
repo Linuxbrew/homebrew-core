@@ -1,3 +1,4 @@
+# lightning: Build a bottle for Linuxbrew
 class Lightning < Formula
   desc "Generates assembly language code at run-time"
   homepage "https://www.gnu.org/software/lightning/"
