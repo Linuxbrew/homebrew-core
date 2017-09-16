@@ -1,3 +1,4 @@
+# azure-cli@1: Build a bottle for Linuxbrew
 require "language/node"
 
 class AzureCliAT1 < Formula
