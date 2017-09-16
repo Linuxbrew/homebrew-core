@@ -12,6 +12,7 @@ class Opam < Formula
     sha256 "d4cce013976caf4cdb9b3bc47dca19fd19ad3017e699ae6a5f9b536ff8a6338e" => :sierra
     sha256 "965ed06d08827e12c4b9536fda6239c11633cc006cd917f04a1f406ec2edbc14" => :el_capitan
     sha256 "63cc783df3e0b5bdd68e12bda518a3cf4cd4510780c855bbd634152801d58d1c" => :yosemite
+    sha256 "22b4f9836d6b3170e9d6bd5ce20e9abcf54d9f96dd9f00f2b5419ee6aa048a7c" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml" => :recommended
