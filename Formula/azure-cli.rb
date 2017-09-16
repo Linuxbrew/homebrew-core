@@ -16,6 +16,12 @@ class AzureCli < Formula
   depends_on "openssl"
   depends_on :python3
 
+  unless OS.mac?
+    # pkg-config helps setuptools find libffi
+    depends_on "libffi"
+    depends_on "pkg-config" => :build
+  end
+
   resource "adal" do
     url "https://files.pythonhosted.org/packages/00/50/0c6e9c4b52b9fd17800a3396abb14e5710ca5812d11ec9ab725026d31f78/adal-0.4.7.tar.gz"
     sha256 "114046ac85d0054791c21b00922f26286822bc6f2ba3716db42e7e57f762ef20"
