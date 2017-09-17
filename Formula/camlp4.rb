@@ -1,3 +1,4 @@
+# camlp4: Build a bottle for Linuxbrew
 class Camlp4 < Formula
   desc "Tool to write extensible parsers in OCaml"
   homepage "https://github.com/ocaml/camlp4"
@@ -12,6 +13,7 @@ class Camlp4 < Formula
     sha256 "bbe6c4a7b2ac419a4515e0bf5a838f0549452e17ea541eee382c94d33dcebc9d" => :sierra
     sha256 "45af0daabe4c3c62c7ff7b49f5ba4dbdc187e772ddd7185fed373aa4aa26abb6" => :el_capitan
     sha256 "2010534e0154f430ac09385a5b33a365392d89fd51c451d3cb31074279410bce" => :yosemite
+    sha256 "bfe531b5780390b25f98b1488d9ed681c5a015e5b566ff0741ced27e031878d4" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "ocaml"
