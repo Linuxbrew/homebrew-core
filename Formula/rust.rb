@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
@@ -46,11 +41,13 @@ class Rust < Formula
   depends_on "llvm" => :optional
   depends_on "openssl"
   depends_on "libssh2"
+
   unless OS.mac?
     depends_on "binutils"
+    depends_on "curl"
     depends_on :python
+    depends_on "zlib"
   end
-  depends_on CIRequirement => :build
 
   conflicts_with "cargo-completion", :because => "both install shell completion for cargo"
 
@@ -75,7 +72,7 @@ class Rust < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j12 -l2.5" if ENV["CIRCLECI"]
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
     args << "--enable-clang" if ENV.compiler == :clang
