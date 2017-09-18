@@ -1,3 +1,4 @@
+# buku: Build a bottle for Linuxbrew
 class Buku < Formula
   include Language::Python::Virtualenv
 
