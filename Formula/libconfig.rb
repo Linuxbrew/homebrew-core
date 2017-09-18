@@ -1,3 +1,4 @@
+# libconfig: Build a bottle for Linuxbrew
 class Libconfig < Formula
   desc "Configuration file processing library"
   homepage "https://www.hyperrealm.com/libconfig/"
