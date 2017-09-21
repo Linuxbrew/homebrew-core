@@ -146,7 +146,7 @@ class Gcc < Formula
     ]
 
     # Fix cc1: error while loading shared libraries: libisl.so.15
-    args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" if OS.linux?
+    args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" unless OS.mac?
 
     # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
     # format to avoid failure during the stage 3 comparison of object files.
@@ -188,7 +188,7 @@ class Gcc < Formula
         bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
       end
 
-      if OS.linux?
+      unless OS.mac?
         # Create cpp, gcc and g++ symlinks
         bin.install_symlink "cpp-#{version_suffix}" => "cpp"
         bin.install_symlink "gcc-#{version_suffix}" => "gcc"
@@ -235,7 +235,7 @@ class Gcc < Formula
   end
 
   def post_install
-    if OS.linux?
+    unless OS.mac?
       # Create cc and c++ symlinks, unless they already exist
       homebrew_bin = Pathname.new "#{HOMEBREW_PREFIX}/bin"
       homebrew_bin.install_symlink "gcc" => "cc" unless (homebrew_bin/"cc").exist?
