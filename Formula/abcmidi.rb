@@ -1,3 +1,4 @@
+# abcmidi: Build a bottle for Linuxbrew
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "http://www.ifdo.ca/~seymour/runabc/top.html"
