@@ -10,6 +10,7 @@ class Syncthing < Formula
     cellar :any_skip_relocation
     sha256 "de583ce477da137ac9642aba355b2171925c213e7766505658687451063baaef" => :sierra
     sha256 "e4243ee9bb3b69dac48a5d1b630e08a6b1792d1c4e9093d834ca73bca7cc6033" => :el_capitan
+    sha256 "703a4fb6b0d3508b208bb27f6c0ac27cbf8beece77aef47bb044ef0854763a06" => :x86_64_linux
   end
 
   depends_on "go" => :build
