@@ -20,7 +20,13 @@ class Saltstack < Formula
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
-  depends_on "gmp" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "gmp"
+    # pkg-config helps "setup.py" find libffi
+    depends_on "pkg-config" => :build
+    depends_on "libffi"
+  end
 
   # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
   # pygit2 must be the same version as libgit2 - mismatched versions are incompatible
