@@ -15,7 +15,7 @@ class Gmp < Formula
     sha256 "ff7e7d5c74ac58c6f15369eb2d351603e1e5a49daec135b216a0355c6de3c680" => :x86_64_linux
   end
 
-  depends_on "m4" unless OS.mac?
+  depends_on "m4" => :build unless OS.mac?
 
   option :cxx11
 
