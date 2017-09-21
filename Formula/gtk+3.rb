@@ -42,6 +42,8 @@ class Gtkx3 < Formula
       args << "--enable-quartz-backend" << "--disable-x11-backend"
     else
       args << "--disable-quartz-backend" << "--enable-x11-backend"
+      # We do not have a cups formula
+      args << "--disable-cups"
     end
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
