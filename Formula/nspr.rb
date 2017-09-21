@@ -8,6 +8,7 @@ class Nspr < Formula
     cellar :any
     sha256 "e28f7bf25551e93a29b2310b80b7e492323f42677ecbefc43b64d6e09e76b354" => :sierra
     sha256 "f083506086d7a0a72d90689f108d116a991e3da26c91416f6c980ff9fe59a9e7" => :el_capitan
+    sha256 "594dc3ccdb6c9924eab0f663693dfcf83fe98725ae28831d0da4ba226aca69c7" => :x86_64_linux # glibc 2.19
   end
 
   def install
