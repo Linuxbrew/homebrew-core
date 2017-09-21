@@ -29,7 +29,7 @@ class Gcc < Formula
   end
 
   bottle do
-    cellar :any if OS.linux?
+    cellar :any
     sha256 "3b7606d2b98cf9ca5c25d2620d2c9d6c146a910f6063c071ac4bf5abdeb73faa" => :high_sierra
     sha256 "bc96bddd0e9f7c074eab7c4036973bc60d5d5ef4489e65db64018363d63d248d" => :sierra
     sha256 "755ed27d3aa9b60523aead68f36d17f6396b9f4b622a0972c05eae3302922d5c" => :el_capitan
@@ -64,8 +64,9 @@ class Gcc < Formula
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs the Xcode CLT to be installed and to be installed into #{default_prefix}."
+    satisfy { !OS.mac? || (MacOS::CLT.installed? && HOMEBREW_PREFIX.to_s == default_prefix) }
   end
 
   def version_suffix
