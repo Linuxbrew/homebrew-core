@@ -1,3 +1,4 @@
+# conjure-up: Build a bottle for Linuxbrew
 class ConjureUp < Formula
   include Language::Python::Virtualenv
 
