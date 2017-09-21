@@ -1,3 +1,4 @@
+# cmake: Build a bottle for Linuxbrew
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
