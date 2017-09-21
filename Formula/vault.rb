@@ -15,6 +15,7 @@ class Vault < Formula
     cellar :any_skip_relocation
     sha256 "47792e638228a4263b1538aaa666713883dc284c707d01f4837f93170d9e8d78" => :sierra
     sha256 "30f74f6e235c80aa30da4b4f746c187ef7ba73feae0b2ef3b8a40b8ba8bce6a4" => :el_capitan
+    sha256 "5e9f57c96dd06afc31cf772fad23bae615e35c3d5d1734bad4be146ed9abae3e" => :x86_64_linux
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
