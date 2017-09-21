@@ -134,7 +134,7 @@ class Gcc < Formula
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--with-system-zlib",
+      ("--with-system-zlib" if OS.mac?),
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
