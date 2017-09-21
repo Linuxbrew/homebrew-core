@@ -1,3 +1,4 @@
+# zookeeper: Build a bottle for Linuxbrew
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
