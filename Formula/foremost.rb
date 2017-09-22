@@ -1,3 +1,4 @@
+# foremost: Build a bottle for Linuxbrew
 class Foremost < Formula
   desc "Console program to recover files based on their headers and footers"
   homepage "https://foremost.sourceforge.io/"
