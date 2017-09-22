@@ -1,3 +1,4 @@
+# get-flash-videos: Build a bottle for Linuxbrew
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
