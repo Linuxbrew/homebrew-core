@@ -19,6 +19,8 @@ class Gmp < Formula
 
   option :cxx11
 
+  env :super if OS.linux?
+
   def install
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
