@@ -1,3 +1,4 @@
+# qrencode: Build a bottle for Linuxbrew
 class Qrencode < Formula
   desc "QR Code generation"
   homepage "https://fukuchi.org/works/qrencode/index.html.en"
