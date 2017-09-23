@@ -1,3 +1,4 @@
+# certstrap: Build a bottle for Linuxbrew
 class Certstrap < Formula
   desc "Tools to bootstrap CAs, certificate requests, and signed certificates"
   homepage "https://github.com/square/certstrap"
