@@ -1,3 +1,4 @@
+# fontconfig: Build a bottle for Linuxbrew
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
