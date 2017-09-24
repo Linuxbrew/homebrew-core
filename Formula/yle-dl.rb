@@ -20,6 +20,7 @@ class YleDl < Formula
   depends_on "homebrew/php/php54-mcrypt" => :optional
   depends_on "homebrew/php/php53-mcrypt" => :optional
   depends_on "gmp" # for pycrypto
+  depends_on "libxslt" unless OS.mac? # To be able to build the lxml resource
 
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
