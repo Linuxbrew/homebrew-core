@@ -1,3 +1,4 @@
+# multitail: Build a bottle for Linuxbrew
 class Multitail < Formula
   desc "Tail multiple files in one terminal simultaneously"
   homepage "https://vanheusden.com/multitail/"
