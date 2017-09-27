@@ -13,7 +13,7 @@ class Intltool < Formula
     sha256 "da6c24f1cc40fdf6ae286ec003ecd779d0f866fe850e36f5e5953786fa45a561" => :yosemite
     sha256 "5deeef3625d52f71d633e7510396d0028ec7b7ccf40c78b5d254bdf4214e6363" => :mavericks
     sha256 "739e17a9f4e75913118a8ef0fd2a7ad7d645769cc61aeb1d6bcf760fe4bd48a7" => :mountain_lion
-    sha256 "38f24ac638538a88c539d3aaa510720442a3f69c10edd0ca71f339f7be30c64f" => :x86_64_linux
+    sha256 "250734ea7e79dec10ea7914695614b9a5b5604dde1ccc2488663258bab5c10eb" => :x86_64_linux
   end
 
   unless OS.mac?
