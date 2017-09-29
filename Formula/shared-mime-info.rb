@@ -24,6 +24,9 @@ class SharedMimeInfo < Formula
   depends_on "glib"
 
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     # Disable the post-install update-mimedb due to crash
     args = %W[
       --disable-dependency-tracking
