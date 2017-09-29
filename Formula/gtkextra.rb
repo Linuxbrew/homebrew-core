@@ -1,3 +1,4 @@
+# gtkextra: Build a bottle for Linuxbrew
 class Gtkextra < Formula
   desc "Widgets for creating GUIs for GTK+"
   homepage "https://gtkextra.sourceforge.io/"
