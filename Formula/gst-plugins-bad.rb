@@ -1,3 +1,4 @@
+# gst-plugins-bad: Build a bottle for Linuxbrew
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
