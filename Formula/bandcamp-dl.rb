@@ -1,3 +1,4 @@
+# bandcamp-dl: Build a bottle for Linuxbrew
 class BandcampDl < Formula
   include Language::Python::Virtualenv
 
