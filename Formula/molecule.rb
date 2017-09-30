@@ -16,6 +16,12 @@ class Molecule < Formula
 
   depends_on :python
   depends_on "openssl@1.1"
+  unless OS.mac?
+    # pkg-config helps "setup.py" find libffi
+    depends_on "pkg-config" => :build
+    depends_on "libffi"
+    depends_on "gmp"
+  end
 
   # Collect requirements from:
   #  molecule
