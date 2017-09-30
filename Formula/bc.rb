@@ -17,8 +17,9 @@ class Bc < Formula
 
   unless OS.mac?
     depends_on "bison" => :build
-    depends_on "flex"
+    depends_on "ed" => :build
     depends_on "texinfo" => :build
+    depends_on "flex"
   end
 
   def install
