@@ -1,3 +1,4 @@
+# ttyd: Build a bottle for Linuxbrew
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://github.com/tsl0922/ttyd"
@@ -18,6 +19,7 @@ class Ttyd < Formula
   depends_on "openssl"
   depends_on "json-c"
   depends_on "libwebsockets"
+  depends_on "vim" unless OS.mac? # needed for xxd
 
   def install
     cmake_args = std_cmake_args + ["-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"]
