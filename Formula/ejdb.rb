@@ -1,3 +1,4 @@
+# ejdb: Build a bottle for Linuxbrew
 class Ejdb < Formula
   desc "C library based on modified version of Tokyo Cabinet"
   homepage "http://ejdb.org"
