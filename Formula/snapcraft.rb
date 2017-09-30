@@ -21,6 +21,13 @@ class Snapcraft < Formula
   depends_on "lxc"
   depends_on "squashfs"
   depends_on :python3
+  unless OS.mac?
+    depends_on "apt"
+    # libffi is needed for cffi
+    depends_on "libffi"
+    # pkg-config helps "setup.py" find libffi
+    depends_on "pkg-config" => :build
+  end
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
@@ -145,6 +152,16 @@ class Snapcraft < Formula
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/db/40/6ffc855c365769c454591ac30a25e9ea0b3e8c952a1259141f5b9878bd3d/tabulate-0.7.5.tar.gz"
     sha256 "9071aacbd97a9a915096c1aaf0dc684ac2672904cd876db5904085d6dac9810e"
+  end
+
+  resource "distutils-extra" do
+    url "https://launchpad.net/python-distutils-extra/trunk/2.38/+download/python-distutils-extra-2.38.tar.gz"
+    sha256 "3d100d5d3492f40b3e7a6a4500f71290bfa91e2c50dc31ba8e3ff9b5d82ca153"
+  end
+
+  resource "python-apt" do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/python-apt/python-apt_0.9.3.12.tar.xz"
+    sha256 "0a889130fd643be9cc3b4d972819bcb2ba9cc70b923077d4210c297aba07843b"
   end
 
   def install
