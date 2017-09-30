@@ -18,6 +18,9 @@ class Wxmaxima < Formula
   depends_on "wxmac"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
@@ -42,6 +45,7 @@ class Wxmaxima < Formula
   end
 
   test do
-    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1", 255)
+    # Test is disbaled on Linux as circle has no X (Error: Unable to initialize GTK+, is DISPLAY set properly)
+    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1", 255) if OS.mac?
   end
 end
