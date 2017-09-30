@@ -16,6 +16,8 @@ class Ninja < Formula
 
   deprecated_option "without-tests" => "without-test"
 
+  depends_on :python unless OS.mac?
+
   resource "gtest" do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
     sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
