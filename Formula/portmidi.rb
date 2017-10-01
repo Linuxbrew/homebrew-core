@@ -18,10 +18,16 @@ class Portmidi < Formula
   depends_on "cmake" => :build
   depends_on "cython" => :build
   depends_on :java => :optional
+  depends_on "alsa-lib" if OS.linux?
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
   patch :DATA if build.without? "java"
+
+  patch do
+    url "https://gist.githubusercontent.com/rwhogg/17f00bd8e547a8c58c00fc7e20056466/raw/9a5fd273dceab0d0fffaa12887475bf04ad5eab4/patch.diff"
+    sha256 "10236bfaa88942a4b4a775d02d97a87a0ebcaaee54b5aab5cca0a5db122b9e81"
+  end unless OS.mac?
 
   def install
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
@@ -36,8 +42,18 @@ class Portmidi < Formula
               "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE",
               "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
 
-    system "make", "-f", "pm_mac/Makefile.osx"
-    system "make", "-f", "pm_mac/Makefile.osx", "install"
+    if OS.mac?
+      system "make", "-f", "pm_mac/Makefile.osx"
+      system "make", "-f", "pm_mac/Makefile.osx", "install"
+    else
+      args = %W[
+        -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=#{buildpath}/Release
+        -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=#{buildpath}/Release
+        -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=#{buildpath}/Release
+      ]
+      system "cmake", ".", *std_cmake_args, *args
+      system "make", "install"
+    end
 
     cd "pm_python" do
       # There is no longer a CHANGES.txt or TODO.txt.
