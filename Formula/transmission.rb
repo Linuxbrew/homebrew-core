@@ -16,6 +16,7 @@ class Transmission < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "curl" unless OS.mac?
 
   if build.with? "nls"
     depends_on "intltool" => :build
