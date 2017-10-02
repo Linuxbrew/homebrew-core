@@ -1,3 +1,4 @@
+# perl: Build a bottle for Linuxbrew
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
@@ -63,7 +64,9 @@ class Perl < Formula
     # passed to child processes, which causes the make test step to fail.
     # https://rt.perl.org/Ticket/Display.html?id=126706
     # https://github.com/Homebrew/legacy-homebrew/issues/41716
-    if MacOS.version < :el_capitan
+    # On Linux (in travis / docker container), the op/getppid.t fails too, disable the tests:
+    # https://rt.perl.org/Public/Bug/Display.html?id=130143
+    if OS.mac? && MacOS.version < :el_capitan
       system "make", "test" if build.with? "test"
     end
 
