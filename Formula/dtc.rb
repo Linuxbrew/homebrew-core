@@ -12,6 +12,11 @@ class Dtc < Formula
     sha256 "5affa8e37eff06e88eb1f571fbfb0dcef60cf7b1efebdc72b511c435c1509b8f" => :el_capitan
   end
 
+  unless OS.mac?
+    depends_on "bison"
+    depends_on "flex"
+  end
+
   def install
     system "make", "NO_PYTHON=1"
     system "make", "NO_PYTHON=1", "DESTDIR=#{prefix}", "PREFIX=", "install"
