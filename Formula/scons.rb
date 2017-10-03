@@ -20,7 +20,7 @@ class Scons < Formula
       if OS.linux?
 
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
-    system "/usr/bin/python", "setup.py", "install",
+    system (OS.mac? ? "/usr/bin/python" : "python"), "setup.py", "install",
              "--prefix=#{prefix}",
              "--standalone-lib",
              # SCons gets handsy with sys.path---`scons-local` is one place it
