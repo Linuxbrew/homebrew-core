@@ -1,3 +1,4 @@
+# submarine: Build a bottle for Linuxbrew
 class Submarine < Formula
   desc "Search and download subtitles"
   homepage "https://github.com/rastersoft/submarine"
