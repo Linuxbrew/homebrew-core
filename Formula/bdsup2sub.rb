@@ -1,3 +1,4 @@
+# bdsup2sub: Build a bottle for Linuxbrew
 class Bdsup2sub < Formula
   desc "Convert and tweak bitmap based subtitle streams"
   homepage "https://github.com/mjuhasz/BDSup2Sub"
