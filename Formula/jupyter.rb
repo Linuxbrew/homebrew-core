@@ -308,7 +308,7 @@ class Jupyter < Formula
         expect "In "
         send "exit\r"
       EOS
-      assert_match "Jupyter console", shell_output("expect -f console.exp")
+      assert_match "Jupyter console", shell_output("expect -f console.exp") if which("expect")
     end
 
     if build.with? "notebook"
@@ -316,7 +316,7 @@ class Jupyter < Formula
         spawn #{bin}/jupyter-notebook --no-browser
         expect "NotebookApp"
       EOS
-      assert_match "NotebookApp", shell_output("expect -f notebook.exp")
+      assert_match "NotebookApp", shell_output("expect -f notebook.exp") if which("expect")
     end
 
     if build.with? "nbconvert"
@@ -333,7 +333,7 @@ class Jupyter < Formula
       (testpath/"qtconsole.exp").write <<-EOS.undent
         spawn #{bin}/jupyter-qtconsole
       EOS
-      system "expect", "-f", "qtconsole.exp"
+      system "expect", "-f", "qtconsole.exp" if which("expect")
     end
   end
 end
