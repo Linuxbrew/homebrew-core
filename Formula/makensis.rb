@@ -24,6 +24,7 @@ class Makensis < Formula
 
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
+  depends_on "zlib" unless OS.mac?
 
   resource "nsis" do
     url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02.1/nsis-3.02.1.zip"
