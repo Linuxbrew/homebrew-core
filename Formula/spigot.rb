@@ -3,14 +3,16 @@ class Spigot < Formula
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
   url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20170903.df57f3c.tar.gz"
   sha256 "1a6d6fae064e5c084bf55ff611273e5c2d1167f62b69023986d190da672f1ac2"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "8c9fab08b85b4d484e17cedbacef09f9578ffb5ac3030251ee1cdef580e86a24" => :high_sierra
     sha256 "5783e2d9d24998ffd09e0a8fd895aea8e47df2e18302c2e5e136cffe9585791d" => :sierra
     sha256 "93ef74d8a466062fa3b38197a79e18b0f9714824d83e8313a9df0013b4dba9be" => :el_capitan
-    sha256 "a1eb58b6981f448895aaaa40f2128395d01662dcb9a431823d656a1bbe51c459" => :x86_64_linux
   end
+
+  depends_on "gmp" unless OS.mac?
 
   def install
     system "./configure", "--disable-debug",
