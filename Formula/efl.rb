@@ -39,9 +39,17 @@ class Efl < Formula
   depends_on "webp" => :optional
   depends_on "glib" => :optional
 
+  unless OS.mac?
+    depends_on "systemd"
+    depends_on "linuxbrew/xorg/mesa"
+  end
+
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     args = %W[
