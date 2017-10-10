@@ -23,20 +23,21 @@ jobs:
       - run: chmod 0644 Formula/*.rb
       - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
       - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/$CIRCLE_PROJECT_REPONAME
-      - run: mkdir /home/linuxbrew/bottles
-      - run: >-
-          cd /home/linuxbrew/bottles;
-          umask 022;
-          PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
+      - run: |
+          mkdir /tmp/bottles
+          cd /tmp/bottles
+          umask 022
+          PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
           brew install patchelf
-          && brew tap homebrew/science
-          && brew tap linuxbrew/extra
-          && brew tap linuxbrew/xorg
-          && brew test-bot --tap=homebrew/core --keep-old
+          brew tap homebrew/science
+          brew tap linuxbrew/extra
+          brew tap linuxbrew/xorg
+          brew test-bot --tap=homebrew/core --keep-old
       - store_artifacts:
-          path: /home/linuxbrew/bottles
+          path: /tmp/bottles
+          destination: bottles
       - store_test_results:
-          path: /home/linuxbrew/bottles
+          path: /tmp/bottles
 notify:
   webhooks:
     - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload?keep-old=1
