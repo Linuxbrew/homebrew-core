@@ -1,3 +1,4 @@
+# gom: Build a bottle for Linuxbrew
 class Gom < Formula
   desc "GObject wrapper around SQLite"
   homepage "https://wiki.gnome.org/Projects/Gom"
