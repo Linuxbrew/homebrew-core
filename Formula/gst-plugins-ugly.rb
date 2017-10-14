@@ -1,3 +1,4 @@
+# gst-plugins-ugly: Build a bottle for Linuxbrew
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
