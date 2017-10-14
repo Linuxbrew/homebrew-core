@@ -1,3 +1,4 @@
+# gst-editing-services: Build a bottle for Linuxbrew
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
