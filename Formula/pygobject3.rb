@@ -1,3 +1,4 @@
+# pygobject3: Build a bottle for Linuxbrew
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://live.gnome.org/PyGObject"
