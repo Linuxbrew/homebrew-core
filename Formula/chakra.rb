@@ -13,9 +13,13 @@ class Chakra < Formula
 
   depends_on "cmake" => :build
   depends_on "icu4c"
+  depends_on "llvm" unless OS.mac?
 
   def install
-    system "./build.sh", "--lto-thin", "--static", "--icu=#{Formula["icu4c"].opt_include}", "-j=#{ENV.make_jobs}", "-y"
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
+    system "./build.sh", *("--lto-thin" if OS.mac?), "--static", "--icu=#{Formula["icu4c"].opt_include}", "-j=#{ENV.make_jobs}", "-y"
     bin.install "out/Release/ch" => "chakra"
   end
 
