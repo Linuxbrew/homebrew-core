@@ -1,3 +1,4 @@
+# gst-libav: Build a bottle for Linuxbrew
 class GstLibav < Formula
   desc "GStreamer plugins for Libav (a fork of FFmpeg)"
   homepage "https://gstreamer.freedesktop.org/"
