@@ -1,3 +1,4 @@
+# gst-python: Build a bottle for Linuxbrew
 class GstPython < Formula
   desc "Python overrides for gobject-introspection-based pygst bindings"
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
