@@ -1,3 +1,4 @@
+# gst-plugins-base: Build a bottle for Linuxbrew
 class GstPluginsBase < Formula
   desc "GStreamer plugins (well-supported, basic set)"
   homepage "https://gstreamer.freedesktop.org/"
