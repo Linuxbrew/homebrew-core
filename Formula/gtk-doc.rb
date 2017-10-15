@@ -3,14 +3,13 @@ class GtkDoc < Formula
   homepage "https://www.gtk.org/gtk-doc/"
   url "https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz"
   sha256 "bff3f44467b1d39775e94fad545f050faa7e8d68dc6a31aef5024ba3c2d7f2b7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70c65f3f055e6655bc882a7a7904f9f8ab7d1f6b7306e50efe4b49d73ef111f9" => :high_sierra
-    sha256 "ed1c55f2f8d9e8793e53652f305996c99274750e80d5d3cbaf1cfc6373df64b5" => :sierra
-    sha256 "ed1c55f2f8d9e8793e53652f305996c99274750e80d5d3cbaf1cfc6373df64b5" => :el_capitan
-    sha256 "ed1c55f2f8d9e8793e53652f305996c99274750e80d5d3cbaf1cfc6373df64b5" => :yosemite
-    sha256 "a181d694422176b4f2d098ee72df618af1dd9e2b73537f699fee2e87116c9d4c" => :x86_64_linux # glibc 2.19
+    sha256 "f479ba17889e905cceea6e0a0c5cda20ddab85e506089a6eb1fb1a0827537055" => :high_sierra
+    sha256 "f479ba17889e905cceea6e0a0c5cda20ddab85e506089a6eb1fb1a0827537055" => :sierra
+    sha256 "f479ba17889e905cceea6e0a0c5cda20ddab85e506089a6eb1fb1a0827537055" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -19,6 +18,7 @@ class GtkDoc < Formula
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "libxml2"
+  depends_on "source-highlight"
 
   unless OS.mac?
     depends_on :python
@@ -41,6 +41,7 @@ class GtkDoc < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-highlight=source-highlight",
                           "--with-xml-catalog=#{etc}/xml/catalog"
     system "make"
     system "make", "install"
