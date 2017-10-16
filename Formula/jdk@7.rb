@@ -1,4 +1,4 @@
-class Jdk7 < Formula
+class JdkAT7 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)."
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"
   # tag "linuxbrew"
@@ -13,11 +13,13 @@ class Jdk7 < Formula
 
   bottle :unneeded
 
-  conflicts_with "jdk", :because => "both install bin/java"
+  keg_only :versioned_formula
 
   def install
     odie "Use 'brew cask install Caskroom/versions/java7' on Mac OS" if OS.mac?
     prefix.install Dir["*"]
+    share.mkdir
+    share.install prefix/"man"
   end
 
   def caveats; <<-EOS.undent

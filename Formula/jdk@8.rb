@@ -4,16 +4,16 @@ class JdkDownloadStrategy < CurlDownloadStrategy
   end
 end
 
-class Jdk < Formula
+class JdkAT8 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)."
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
   # tag "linuxbrew"
 
-  version "9+181"
+  version "1.8.0-144"
   if OS.linux?
-    url "http://download.oracle.com/otn-pub/java/jdk/9+181/jdk-9_linux-x64_bin.tar.gz",
+    url "http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz",
       :using => JdkDownloadStrategy
-    sha256 "1c6d783a54fcc0673ed1f8c5e8650b1d8977ca3e856a03fba0090198e0f16f6d"
+    sha256 "e8a341ce566f32c3d06f6d0f0eeea9a0f434f538d22af949ae58bc86f2eeaae4"
   elsif OS.mac?
     url "http://java.com/"
   end
@@ -23,9 +23,13 @@ class Jdk < Formula
     sha256 "070e1f7f815a13e304d1a1e4c0ced85e2eee8c2a0c006bd3a06c6c4e58a7e6ee" => :x86_64_linux # glibc 2.19
   end
 
+  keg_only :versioned_formula
+
   def install
     odie "Use 'brew cask install java' on Mac OS" if OS.mac?
     prefix.install Dir["*"]
+    share.mkdir
+    share.install prefix/"man"
   end
 
   def caveats; <<-EOS.undent
