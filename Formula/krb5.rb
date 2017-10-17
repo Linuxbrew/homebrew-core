@@ -1,3 +1,4 @@
+# krb5: Build a bottle for Linuxbrew
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
