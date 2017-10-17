@@ -1,3 +1,4 @@
+# libpng: Build a bottle for Linuxbrew
 class Libpng < Formula
   desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
