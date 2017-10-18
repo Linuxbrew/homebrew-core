@@ -30,7 +30,7 @@ class Exiftool < Formula
     libexec.install "lib"
     bin.install "exiftool"
     doc.install Dir["html/*"]
-    man1.install "blib/man1/exiftool.1"
+    man1.install "blib/man1/exiftool.1#{OS.mac? ? "" : "p"}"
     man3.install Dir["blib/man3/*"]
   end
 
