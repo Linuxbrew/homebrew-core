@@ -9,11 +9,11 @@ class JdkAT8 < Formula
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
   # tag "linuxbrew"
 
-  version "1.8.0-144"
+  version "1.8.0-151"
   if OS.linux?
-    url "http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz",
+    url "http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz",
       :using => JdkDownloadStrategy
-    sha256 "e8a341ce566f32c3d06f6d0f0eeea9a0f434f538d22af949ae58bc86f2eeaae4"
+    sha256 "c78200ce409367b296ec39be4427f020e2c585470c4eed01021feada576f027f"
   elsif OS.mac?
     url "http://java.com/"
   end
