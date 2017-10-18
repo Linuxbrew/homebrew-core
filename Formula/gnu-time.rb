@@ -34,10 +34,16 @@ class GnuTime < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    bin.install_symlink "time" => "gtime" if build.with?("default-names") && !OS.mac?
   end
 
   test do
-    system bin/"gtime", "ruby", "--version"
+    if OS.mac?
+      system bin/"gtime", "ruby", "--version"
+    else
+      system bin/"gtime", bin/"gtime", "--version"
+    end
   end
 end
 
