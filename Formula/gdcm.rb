@@ -20,6 +20,8 @@ class Gdcm < Formula
   depends_on "openssl"
   depends_on "vtk"
 
+  depends_on :python => :recommended unless OS.mac?
+
   needs :cxx11
 
   def install
@@ -40,7 +42,7 @@ class Gdcm < Formula
         system "cmake", "..", *common_args
         system "make", "install"
       else
-        ENV.append "LDFLAGS", "-undefined dynamic_lookup"
+        ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
 
         Language::Python.each_python(build) do |python, py_version|
           python_include = Utils.popen_read("#{python} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
