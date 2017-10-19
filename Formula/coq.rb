@@ -28,6 +28,11 @@ class Coq < Formula
   depends_on "camlp5"
   depends_on "ocaml"
 
+  unless OS.mac?
+    depends_on "unzip" => :build
+    depends_on "m4"
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
