@@ -94,8 +94,13 @@ class Sip < Formula
       t = Test()
       t.test()
     EOS
-    system ENV.cxx, "-shared", "-Wl,-install_name,#{testpath}/libtest.dylib",
+    if OS.mac?
+      system ENV.cxx, "-shared", "-Wl,-install_name,#{testpath}/libtest.dylib",
                     "-o", "libtest.dylib", "test.cpp"
+    else
+      system ENV.cxx, "-fPIC", "-shared", "-Wl,-soname,#{testpath}/libtest.so",
+                    "-o", "libtest.so", "test.cpp"
+    end
     system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
     Language::Python.each_python(build) do |python, version|
       ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
