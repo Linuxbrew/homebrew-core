@@ -23,6 +23,9 @@ class Pyqt < Formula
   depends_on :python3 => :recommended
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     if build.without?("python3") && build.without?("python")
       odie "pyqt: --with-python3 must be specified when using --without-python"
     end
@@ -55,17 +58,18 @@ class Pyqt < Formula
     system "#{bin}/pylupdate5", "-version"
     Language::Python.each_python(build) do |python, _version|
       system python, "-c", "import PyQt5"
-      %w[
+      m = %w[
         Gui
         Location
         Multimedia
         Network
         Quick
         Svg
-        WebEngineWidgets
         Widgets
         Xml
-      ].each { |mod| system python, "-c", "import PyQt5.Qt#{mod}" }
+      ]
+      m << "WebEngineWidgets" if OS.mac?
+      m.each { |mod| system python, "-c", "import PyQt5.Qt#{mod}" }
     end
   end
 end
