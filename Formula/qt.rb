@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 # Patches for Qt must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt < Formula
@@ -48,7 +43,6 @@ class Qt < Formula
   end
 
   unless OS.mac?
-    depends_on CIRequirement
     depends_on :x11
     depends_on "fontconfig"
     depends_on "glib"
@@ -71,6 +65,9 @@ class Qt < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16 -l2.5" if ENV["CIRCLECI"]
+
     args = %W[
       -verbose
       -prefix #{prefix}
