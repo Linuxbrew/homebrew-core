@@ -17,15 +17,23 @@ class Compcert < Formula
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  unless OS.mac?
+    depends_on "m4" => :build
+    depends_on "unzip" => :build
+    depends_on "glibc" # for crt1.o, crti.o (for the tests)
+  end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     ENV.permit_arch_flags
 
     # Compcert's configure script hard-codes gcc. On Lion and under, this
     # creates problems since Xcode's gcc does not support CFI,
     # but superenv will trick it into using clang which does. This
     # causes problems with the compcert compiler at runtime.
-    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
+    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}" if OS.mac?
 
     ENV["OPAMYES"] = "1"
     ENV["OPAMROOT"] = buildpath/"opamroot"
@@ -34,7 +42,8 @@ class Compcert < Formula
     system "opam", "config", "exec", "--", "opam", "install", "coq=8.6.1"
 
     args = ["-prefix", prefix]
-    args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
+    os = OS.mac? ? "macosx" : "linux"
+    args << (build.with?("config-x86_64") ? "x86_64-#{os}" : "ia32-#{os}")
     system "opam", "config", "exec", "--", "./configure", *args
     system "opam", "config", "exec", "--", "make", "all"
     system "opam", "config", "exec", "--", "make", "install"
