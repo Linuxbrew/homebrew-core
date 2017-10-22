@@ -358,7 +358,7 @@ class Python3 < Formula
   end
 
   def caveats
-    if prefix.exist?
+    if OS.mac? && prefix.exist?
       xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
     else
       xy = version.to_s.slice(/(3\.\d)/) || "3.6"
@@ -371,7 +371,7 @@ class Python3 < Formula
         pip3 install <package>
 
       They will install into the site-package directory
-        #{site_packages}
+        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python.html
     EOS
