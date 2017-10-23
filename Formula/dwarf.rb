@@ -12,6 +12,7 @@ class Dwarf < Formula
 
   depends_on "flex"
   depends_on "readline"
+  depends_on "bison" unless OS.mac?
 
   def install
     %w[src/libdwarf.c doc/dwarf.man doc/xdwarf.man.html].each do |f|
@@ -31,7 +32,12 @@ class Dwarf < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test"
-    output = shell_output("#{bin}/dwarf -c 'pp $mac' test")
-    assert_equal "magic: 0xfeedfacf (-17958193)", output.lines[0].chomp
+    if OS.mac?
+      output = shell_output("#{bin}/dwarf -c 'pp $mac' test")
+      assert_equal "magic: 0xfeedfacf (-17958193)", output.lines[0].chomp
+    else
+      # pp may not be installed on Linux, test something else
+      assert_match /main header: elf/, shell_output("#{bin}/dwarf -p test")
+    end
   end
 end
