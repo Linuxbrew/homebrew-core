@@ -1,3 +1,4 @@
+# premake: Build a bottle for Linuxbrew
 class Premake < Formula
   desc "Write once, build anywhere Lua-based build system"
   homepage "https://premake.github.io/"
