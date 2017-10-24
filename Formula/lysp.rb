@@ -23,6 +23,9 @@ class Lysp < Formula
   patch :DATA
 
   def install
+    # Fixes: /usr/bin/ld: /tmp/ccAwQdvv.o: undefined reference to symbol 'dlsym@@GLIBC_2.2.5'
+    ENV.prepend "LDFLAGS", "-ldl" unless OS.mac?
+    
     # this option is supported only for ELF object files
     inreplace "Makefile", "-rdynamic", ""
 
