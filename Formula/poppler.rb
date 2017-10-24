@@ -33,8 +33,11 @@ class Poppler < Formula
   depends_on "qt" => :optional
   depends_on "little-cms2" => :optional
 
-  # workaround for incorrect X11 dependency propogation by cairo
-  depends_on :x11 unless OS.mac?
+  unless OS.mac?
+    depends_on "curl"
+    # workaround for incorrect X11 dependency propogation by cairo
+    depends_on :x11
+  end
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
@@ -75,11 +78,13 @@ class Poppler < Formula
       system "make", "install", "prefix=#{prefix}"
     end
 
-    libpoppler = (lib/"libpoppler.dylib").readlink
-    ["libpoppler-cpp.dylib", "libpoppler-glib.dylib"].each do |dylib|
-      macho = MachO.open("#{lib}/#{dylib}")
-      macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
-      macho.write!
+    if OS.mac?
+      libpoppler = (lib/"libpoppler.dylib").readlink
+      ["libpoppler-cpp.dylib", "libpoppler-glib.dylib"].each do |dylib|
+        macho = MachO.open("#{lib}/#{dylib}")
+        macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
+        macho.write!
+      end
     end
   end
 
