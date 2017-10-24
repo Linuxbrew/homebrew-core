@@ -15,6 +15,7 @@ class Lysp < Formula
 
   depends_on "bdw-gc"
   depends_on "gcc"
+  depends_on "glibc" unless OS.mac?
 
   fails_with :clang do
     cause "use of unknown builtin '__builtin_return'"
@@ -24,6 +25,9 @@ class Lysp < Formula
   patch :DATA
 
   def install
+    # Fixes: /usr/bin/ld: /tmp/ccAwQdvv.o: undefined reference to symbol 'dlsym@@GLIBC_2.2.5'
+    ENV.prepend "LDFLAGS", "-ldl" unless OS.mac?
+    
     # this option is supported only for ELF object files
     inreplace "Makefile", "-rdynamic", ""
 
