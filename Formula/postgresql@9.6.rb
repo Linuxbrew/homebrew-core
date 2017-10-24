@@ -28,6 +28,13 @@ class PostgresqlAT96 < Formula
   depends_on :python => :optional
   depends_on :python3 => :optional
 
+  unless OS.mac?
+    depends_on "libxslt"
+    depends_on "perl" => :recommended # for libperl.so
+    depends_on "tcl-tk" if build.with? "tcl"
+    depends_on "util-linux" # for libuuid
+  end
+
   fails_with :clang do
     build 211
     cause "Miscompilation resulting in segfault on queries"
@@ -48,14 +55,16 @@ class PostgresqlAT96 < Formula
       --sysconfdir=#{prefix}/etc
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
-      --with-gssapi
-      --with-ldap
       --with-openssl
-      --with-pam
       --with-libxml
       --with-libxslt
     ]
+    args += %w[
+      --with-bonjour
+      --with-gssapi
+      --with-ldap
+      --with-pam
+    ] if OS.mac?
 
     args << "--with-perl" if build.with? "perl"
 
