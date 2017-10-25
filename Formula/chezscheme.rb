@@ -1,3 +1,4 @@
+# chezscheme: Build a bottle for Linuxbrew
 class Chezscheme < Formula
   desc "Chez Scheme"
   homepage "https://cisco.github.io/ChezScheme/"
