@@ -20,6 +20,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/5.0.0/llvm-5.0.0.src.tar.xz"
@@ -48,8 +49,8 @@ class Llvm < Formula
     end
 
     resource "libcxxabi" do
-      url "https://llvm.org/releases/4.0.1/libcxxabi-4.0.1.src.tar.xz"
-      sha256 "8f08178989a06c66cd19e771ff9d8ca526dd4a23d1382d63e416c04ea9fa1b33"
+      url "https://llvm.org/releases/5.0.0/libcxxabi-5.0.0.src.tar.xz"
+      sha256 "176918c7eb22245c3a5c56ef055e4d69f5345b4a98833e0e8cb1a19cab6b8911"
     end
 
     resource "libunwind" do
@@ -92,7 +93,6 @@ class Llvm < Formula
     sha256 "c79e1df313a81c46710e7f048bf3c8fe69a01e0c29b29ac3552fcb2c2a7194eb" => :sierra
     sha256 "dcd62a3684bb18c74a21363e437b39f2b52f0bb69a66a95f597b6bfbd2a013ec" => :el_capitan
     sha256 "581c8415ee3ed5a52dd8f8d31ec901be837a4867b1abb148677ec08b0b931607" => :yosemite
-    sha256 "7ecad3487ca566153511f63c0bc33074c749349b1a2581596dc979608c08ee65" => :x86_64_linux
   end
 
   pour_bottle? do
@@ -208,7 +208,7 @@ class Llvm < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
