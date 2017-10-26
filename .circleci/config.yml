@@ -32,7 +32,7 @@ jobs:
           brew tap homebrew/science
           brew tap linuxbrew/extra
           brew tap linuxbrew/xorg
-          brew test-bot --tap=homebrew/core --keep-old
+          brew test-bot --tap=homebrew/core
       - store_artifacts:
           path: /tmp/bottles
           destination: bottles
@@ -40,4 +40,4 @@ jobs:
           path: /tmp/bottles
 notify:
   webhooks:
-    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload?keep-old=1
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload

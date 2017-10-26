@@ -4,6 +4,7 @@ class Systemd < Formula
   url "https://github.com/systemd/systemd/archive/v234.tar.gz"
   sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
   head "https://github.com/systemd/systemd.git"
+  revision 1
   # tag "linuxbrew"
 
   bottle do
@@ -42,6 +43,7 @@ class Systemd < Formula
 
     system "./autogen.sh"
     system "./configure",
+      "--disable-acl",
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
