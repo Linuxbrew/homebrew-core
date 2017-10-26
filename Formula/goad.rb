@@ -15,6 +15,7 @@ class Goad < Formula
   end
 
   depends_on "go" => :build
+  depends_on "zip" => :build unless OS.mac?
 
   go_resource "github.com/jteeuwen/go-bindata" do
     url "https://github.com/jteeuwen/go-bindata.git",
