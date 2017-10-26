@@ -383,7 +383,7 @@ class Python3 < Formula
       For more information see: https://www.python.org/download/mac/tcltk/
     EOS
 
-    text += tk_caveats unless MacOS.version >= :lion && OS.mac?
+    text += tk_caveats if OS.mac? && !MacOS.version >= :lion
     text
   end
 
