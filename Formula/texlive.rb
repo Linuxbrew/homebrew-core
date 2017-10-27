@@ -2,8 +2,8 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20170414"
-  sha256 "6aea7f8336d11cbdb3e90f4342e3611c5160fe9b22c77698a52c9f74b070f607"
+  version "20171026"
+  sha256 "929965f57591bad3544bd0fc9f4e8ad2a69ad33a444d9c1ca4030dfa4bb118c9"
   # tag "linuxbrew"
 
   bottle do
@@ -16,8 +16,17 @@ class Texlive < Formula
   option "with-basic", "install plain and latex"
   option "with-minimal", "install plain only"
 
-  depends_on :perl => ["5.14", :build] unless OS.mac?
+  depends_on :perl => ["5.14", :build]
   depends_on "fontconfig"
+  depends_on "wget" => :build
+  depends_on "linuxbrew/xorg/libice"
+  depends_on "linuxbrew/xorg/libsm"
+  depends_on "linuxbrew/xorg/libx11"
+  depends_on "linuxbrew/xorg/libxaw"
+  depends_on "linuxbrew/xorg/libxext"
+  depends_on "linuxbrew/xorg/libxmu"
+  depends_on "linuxbrew/xorg/libxpm"
+  depends_on "linuxbrew/xorg/libxt"
 
   def install
     scheme = %w[full medium small basic minimal].find do |x|
@@ -31,7 +40,7 @@ class Texlive < Formula
     binarch = bin/"x86_64-linux"
     man1.install Dir[binarch/"man/man1/*"]
     man5.install Dir[binarch/"man/man5/*"]
-    bin.install_symlink Dir[binarch/"*"]
+    bin.install Dir[binarch/"*"]
   end
 
   test do
