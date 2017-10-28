@@ -51,6 +51,7 @@ class Zip < Formula
 
     system "#{bin}/zip", "test.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test.zip", :exist?
-    assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip")
+    # zip -T needs unzip, disabled under Linux
+    assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip") if OS.mac?
   end
 end
