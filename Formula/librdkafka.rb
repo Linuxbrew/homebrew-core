@@ -16,6 +16,7 @@ class Librdkafka < Formula
   depends_on "lzlib"
   depends_on "openssl"
   depends_on "lz4" => :recommended
+  depends_on :python unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
