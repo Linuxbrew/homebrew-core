@@ -50,7 +50,7 @@ class Mongodb < Formula
 
   depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on :macos => :mountain_lion
+  depends_on :macos => :mountain_lion if OS.mac?
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
 
@@ -97,7 +97,13 @@ class Mongodb < Formula
 
       args << "sasl" if build.with? "sasl"
 
-      system "bash", "./build.sh", *args
+      if OS.mac?
+        system "./build.sh", *args
+      else
+        ENV["CGO_CPPFLAGS"] = "-I " + Formula["libpcap"].opt_include
+        ENV["CGO_LDFLAGS"] = "-L " + Formula["libpcap"].opt_lib
+        system "bash", "./build.sh", *args
+      end
     end
 
     mkdir "src/mongo-tools"
