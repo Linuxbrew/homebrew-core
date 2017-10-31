@@ -14,6 +14,12 @@ class Htslib < Formula
 
   depends_on "xz"
 
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+    depends_on "curl"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
