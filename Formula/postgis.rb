@@ -1,3 +1,4 @@
+# postgis: Build a bottle for Linuxbrew
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
