@@ -21,11 +21,14 @@ class BoostPython < Formula
   depends_on :python => :recommended unless OS.mac?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    jobs = OS.mac? ? ENV.make_jobs : 4
+
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",
             "-d2",
-            "-j#{ENV.make_jobs}",
+            "-j#{jobs}",
             "--layout=tagged",
             "--user-config=user-config.jam",
             "threading=multi,single",
