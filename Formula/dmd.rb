@@ -4,30 +4,29 @@ class Dmd < Formula
   revision 1 unless OS.mac?
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.076.1.tar.gz"
-    sha256 "242e0dccf0b5aabd3a886c1aca32e6b197dfef015005f45bd36050f8a4fded5c"
+    url "https://github.com/dlang/dmd/archive/v2.077.0.tar.gz"
+    sha256 "15cf389248c41744fdc382154a95dfd92056f2af7c2c3153ce5f4e52f041f43c"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.076.1.tar.gz"
-      sha256 "28950dce412e3bba27030464eb91e99621f4f2c0cd0ba680a6361911776f89b0"
+      url "https://github.com/dlang/druntime/archive/v2.077.0.tar.gz"
+      sha256 "d0d4c8f8b5c2084718091bb3f599888063a40e29cb3a9cca6f294386f45a6cc0"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.076.1.tar.gz"
-      sha256 "d253e6f23d91b8d544dea0b3c8ca4a13abfc2b13642f31f76b6ad2c1dd49615b"
+      url "https://github.com/dlang/phobos/archive/v2.077.0.tar.gz"
+      sha256 "41c1de92adb95facaddea0013d25391fc966494592b6c3255dc3118df6175b38"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.076.1.tar.gz"
-      sha256 "cf42d4e5f9ceb5acfb5bd3000dd9c1ed7120b136f252b33b07fb026f36970e77"
+      url "https://github.com/dlang/tools/archive/v2.077.0.tar.gz"
+      sha256 "422985a812301e3c25e663d9816be27c5985ff6d300b952e2a4805c8792a7dfa"
     end
   end
 
   bottle do
-    sha256 "3b52b4fd9f660e97e654b9040b9467c998c77aa57fc17997fb75773587196cf1" => :high_sierra
-    sha256 "ce763c7da5b88d2f6e63d990e26cc286a6d96534e975fa1d04c45729885e0f21" => :sierra
-    sha256 "fd4a9e180181c408001afc14fdaf6c5118b180c2bf814ff09c5ea4814b3f9285" => :el_capitan
-    sha256 "7dcbca14ad947c89642715da0e0ec68d66ac47107eeb1a03af4014826e35ca94" => :x86_64_linux
+    sha256 "6ccd402fc38b4913a18ae743b213e1932217fd2aad6e7f640fd68679be0e97fe" => :high_sierra
+    sha256 "90f298ed85cb2bce3bad4e1cc90ceb04b43f451f350086dac660d05d7daa621c" => :sierra
+    sha256 "69171480cfbc66a8567aec052ab7db8d3d7ad236063084d290688d69da0e5d29" => :el_capitan
   end
 
   devel do

@@ -8,8 +8,8 @@ class Rust < Formula
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.21.1",
-          :revision => "6084a2ba03aaa73794e6b86199e463ea6df290fe"
+          :tag => "0.22.0",
+          :revision => "3423351a5d75ac7377bb15987842aadcfd068ad2"
     end
 
     resource "racer" do
@@ -19,10 +19,10 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "ebe6dd9f87f6f81f9ec8c9d51763886896e521ab01266b7fe2ffd709b8306a13" => :high_sierra
-    sha256 "2077ee3e5c0b0793a9056ee961ab13fb8074163501607059b79d3c47626e3abf" => :sierra
-    sha256 "1aa86662988d782cba00e69b4543e14e6359c8c5db5bf5ebd07c381bc14f724c" => :el_capitan
-    sha256 "6dc4d8b3de2f59cda6e9196304dd497ed09a87a00c3d5c683ff3c6dffd035cfd" => :x86_64_linux
+    rebuild 1
+    sha256 "7bbcdc9254aee72448fd4663b0f386702575b1382fca9c1e8202a1b592d73701" => :high_sierra
+    sha256 "2abe9b9bb9e233946b72934aa19c291f1a020d5d26393559a44cb35103f158c6" => :sierra
+    sha256 "4ca443f1f7ac1fbdc4efe62dcb066b300f35714cc2d6861e0486b81ae109ef31" => :el_capitan
   end
 
   head do
