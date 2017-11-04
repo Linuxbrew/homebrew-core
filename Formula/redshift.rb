@@ -26,14 +26,17 @@ class Redshift < Formula
   depends_on "glib"
 
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     args = %W[
       --prefix=#{prefix}
-      --enable-corelocation
+      --#{OS.mac? ? "enable" : "disable"}-corelocation
       --disable-silent-rules
       --disable-dependency-tracking
       --disable-geoclue
       --disable-geoclue2
-      --enable-quartz
+      --#{OS.mac? ? "enable" : "disable"}-quartz
       --with-systemduserunitdir=no
       --disable-gui
     ]
