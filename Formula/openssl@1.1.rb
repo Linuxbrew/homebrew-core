@@ -6,7 +6,6 @@ class OpensslAT11 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0g.tar.gz"
   sha256 "de4d501267da39310905cb6dc8c6121f7a2cad45a7707f76df828fe1b85073af"
   version_scheme 1
-  revision 1 if OS.linux?
 
   bottle do
     sha256 "5e42b3d59d4c7be3164a8f820cbc78c9611e0766d4326a9d0ab7961d31019f7c" => :high_sierra
