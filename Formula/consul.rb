@@ -16,8 +16,12 @@ class Consul < Formula
   end
 
   depends_on "go" => :build
+  depends_on "zip" => :build unless OS.mac?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    inreplace "scripts/build.sh", "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
+
     contents = Dir["{*,.git,.gitignore}"]
     gopath = buildpath/"gopath"
     (gopath/"src/github.com/hashicorp/consul").install contents
