@@ -62,7 +62,12 @@ class Fabio < Formula
       end
       sleep 10
       assert_equal true, port_open?(LOCALHOST_IP, FABIO_DEFAULT_PORT)
-      system "killall", "fabio" # fabio forks off from the fork...
+      if OS.mac?
+        system "killall", "fabio" # fabio forks off from the fork...
+      else
+        # killall may not be installed on Linux
+        system "kill -9 $(pgrep fabio)"
+      end
       system "consul", "leave"
     else
       puts "Fabio already running or Consul not available or starting fabio failed."
