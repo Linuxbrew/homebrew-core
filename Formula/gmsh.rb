@@ -1,3 +1,4 @@
+# gmsh: Build a bottle for Linuxbrew
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
