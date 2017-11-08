@@ -47,6 +47,8 @@ class Gdb < Formula
       args << "--with-python=#{HOMEBREW_PREFIX}"
     elsif OS.mac?
       args << "--with-python=/usr"
+    else
+      args << "--without-python"
     end
 
     if build.with? "version-suffix"
