@@ -25,6 +25,9 @@ class Sfcgal < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV.cxx11 if build.cxx11?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
