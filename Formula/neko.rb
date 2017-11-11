@@ -31,12 +31,32 @@ class Neko < Formula
   depends_on "bdw-gc"
   depends_on "pcre"
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "apr"
+    depends_on "apr-util"
+    depends_on "httpd"
+    # On mac, neko uses carbon. On Linux it uses gtk2
+    depends_on "gtk+"
+    depends_on "pango"
+    depends_on "sqlite"
+  end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
+    args = std_cmake_args
+    unless OS.mac?
+      args << "-DAPR_LIBRARY=#{Formula["apr"].libexec}/lib"
+      args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].libexec}/include/apr-1"
+      args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].libexec}/lib"
+      args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].libexec}/include/apr-1"
+    end
+
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-connector-c.
-    system "cmake", ".", "-DSTATIC_DEPS=MariaDBConnector", "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
+    system "cmake", ".", "-DSTATIC_DEPS=MariaDBConnector", "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *args
     system "make", "install"
   end
 
