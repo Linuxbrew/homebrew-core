@@ -1,3 +1,4 @@
+# google-java-format: Build a bottle for Linuxbrew
 class GoogleJavaFormat < Formula
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
