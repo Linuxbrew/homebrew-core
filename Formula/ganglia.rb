@@ -1,3 +1,4 @@
+# ganglia: Build a bottle for Linuxbrew
 class Ganglia < Formula
   desc "Scalable distributed monitoring system"
   homepage "https://ganglia.sourceforge.io/"
