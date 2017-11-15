@@ -1,3 +1,4 @@
+# bchunk: Build a bottle for Linuxbrew
 class Bchunk < Formula
   desc "Convert CD images from .bin/.cue to .iso/.cdr"
   homepage "http://he.fi/bchunk/"
