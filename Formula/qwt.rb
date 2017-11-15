@@ -1,3 +1,4 @@
+# qwt: Build a bottle for Linuxbrew
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications"
   homepage "https://qwt.sourceforge.io/"
