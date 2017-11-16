@@ -11,13 +11,6 @@ class Scons < Formula
     sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :el_capitan
   end
 
-  # Remove for > 3.0.0
-  # Upstream commit from 20 Sep 2017 "Support python 2 print statements in SConscripts"
-  patch :p2 do
-    url "https://github.com/SConsProject/scons/commit/2e0de3c5.patch?full_index=1"
-    sha256 "ca9348417478a729f6fdaae62cc25d73a30371c4d467415196246f1d0dcfd195"
-  end
-
   depends_on :python unless OS.mac?
 
   def install
