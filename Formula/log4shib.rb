@@ -20,7 +20,7 @@ class Log4shib < Formula
   end
 
   test do
-    assert_equal "-L#{HOMEBREW_PREFIX}/Cellar/log4shib/1.0.9/lib -llog4shib",
+    assert_equal "-L#{HOMEBREW_PREFIX}/Cellar/log4shib/1.0.9/lib -llog4shib" + (" -lnsl" unless OS.mac?),
                  shell_output("#{bin}/log4shib-config --libs").chomp
   end
 end
