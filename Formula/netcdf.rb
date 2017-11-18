@@ -4,6 +4,7 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.5.0.tar.gz"
   mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.5.0.tar.gz"
   sha256 "cbe70049cf1643c4ad7453f86510811436c9580cb7a1684ada2f32b95b00ca79"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "6a9d39204ae9bfbacc985bc082e9d3e6bf522ee78668b4b7adb2ef70081ac381" => :high_sierra
@@ -37,7 +38,7 @@ class Netcdf < Formula
   def install
     ENV.deparallelize
 
-    common_args = std_cmake_args << "-DBUILD_TESTING=OFF"
+    common_args = std_cmake_args << "-DBUILD_TESTING=OFF" << "-DCMAKE_INSTALL_LIBDIR=#{lib}"
 
     mkdir "build" do
       args = common_args.dup
