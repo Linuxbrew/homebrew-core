@@ -12,17 +12,6 @@ class Bchunk < Formula
     sha256 "665af973709071e982939f37ba39c79c6e41f7f18277d65670475ba9d8315f94" => :el_capitan
   end
 
-  # Last upstream release was in 2004, so probably safe to assume this isn't
-  # going away any time soon.
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/b/bchunk/bchunk_1.2.0-12.1.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/b/bchunk/bchunk_1.2.0-12.1.debian.tar.xz"
-    sha256 "8c7b530e37f0ebcce673c74962214da02aff7bb1ecc96a4dd359e6115f5c0f57"
-    apply "patches/01-track-size.patch",
-          "patches/CVE-2017-15953.patch",
-          "patches/CVE-2017-15955.patch"
-  end
-
   def install
     system "make"
     bin.install "bchunk"
