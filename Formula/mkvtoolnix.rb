@@ -24,7 +24,7 @@ class Mkvtoolnix < Formula
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
-  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
+  depends_on "ruby" => :build if MacOS.version <= :mountain_lion || !OS.mac?
   depends_on "boost"
   depends_on "libebml"
   depends_on "libmatroska"
@@ -32,13 +32,19 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "gettext" => :optional
+  depends_on "gettext" => OS.mac? ? :optional : :recommended
   depends_on "qt" => :optional
   depends_on "cmark" if build.with? "qt"
+  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
 
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?
+
     ENV.cxx11
 
     features = %w[libogg libvorbis libebml libmatroska]
@@ -78,7 +84,7 @@ class Mkvtoolnix < Formula
 
     system "./configure", *args
 
-    system "rake", "-j#{ENV.make_jobs}"
+    system "rake", *("--trace" if ENV["CIRCLECI"]), "-j#{ENV.make_jobs}"
     system "rake", "install"
   end
 
