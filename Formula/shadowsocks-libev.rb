@@ -1,3 +1,4 @@
+# shadowsocks-libev: Build a bottle for Linuxbrew
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
