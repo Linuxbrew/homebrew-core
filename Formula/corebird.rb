@@ -1,3 +1,4 @@
+# corebird: Build a bottle for Linuxbrew
 class Corebird < Formula
   desc "Native Gtk+ Twitter Client"
   homepage "https://corebird.baedert.org"
