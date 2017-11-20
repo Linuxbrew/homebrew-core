@@ -1,3 +1,4 @@
+# suite-sparse: Build a bottle for Linuxbrew
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
