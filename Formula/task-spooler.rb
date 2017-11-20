@@ -18,4 +18,8 @@ class TaskSpooler < Formula
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
+
+  test do
+    system "#{bin}/ts", "-l"
+  end
 end
