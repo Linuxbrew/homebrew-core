@@ -65,7 +65,7 @@ class Fontforge < Formula
 
     # The app here is not functional.
     # If you want GUI/App support, check the caveats to see how to get it.
-    (pkgshare/"osx/FontForge.app").rmtree
+    (pkgshare/"osx/FontForge.app").rmtree if OS.mac?
 
     if build.with? "extra-tools"
       cd "contrib/fonttools" do
@@ -84,7 +84,7 @@ class Fontforge < Formula
     Alternatively, install with Homebrew-Cask:
       brew cask install fontforge
     EOS
-  end
+  end if OS.mac?
 
   test do
     system bin/"fontforge", "-version"
