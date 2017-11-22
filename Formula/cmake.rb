@@ -69,6 +69,13 @@ class Cmake < Formula
     elisp.install "Auxiliary/cmake-mode.el"
   end
 
+  def post_install
+    inreplace "#{pkgshare}/Modules/Platform/UnixPaths.cmake" do |s|
+      s.gsub! "list(APPEND CMAKE_SYSTEM_INCLUDE_PATH", "list(APPEND CMAKE_SYSTEM_INCLUDE_PATH\n  #{HOMEBREW_PREFIX}/include"
+      s.gsub! "list(APPEND CMAKE_SYSTEM_LIBRARY_PATH", "list(APPEND CMAKE_SYSTEM_LIBRARY_PATH\n  #{HOMEBREW_PREFIX}/lib"
+    end
+  end
+
   test do
     (testpath/"CMakeLists.txt").write("find_package(Ruby)")
     system bin/"cmake", "."
