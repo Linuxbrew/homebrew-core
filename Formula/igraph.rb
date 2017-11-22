@@ -15,6 +15,10 @@ class Igraph < Formula
 
   depends_on "glpk"
   depends_on "gmp"
+  unless OS.mac?
+    depends_on "libxml2"
+    depends_on "openblas"
+  end
 
   def install
     system "./configure", "--disable-debug",
