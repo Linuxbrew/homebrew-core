@@ -65,13 +65,13 @@ class Rust < Formula
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
       url "https://static.rust-lang.org/dist/2017-10-12/cargo-0.22.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "caccf4ab039c806a9e6fdc7fe389cc88fb771e28e30d93c07a5c56ef845cdf57"
+      sha256 "eca53c055006f3a77871317368d4bd585ffb04ddbf0ecd2aa79aaf5cc4c84280"
     end
   end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j12 -l2.5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8 -l2.5" if ENV["CIRCLECI"]
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
