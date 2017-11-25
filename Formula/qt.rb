@@ -22,7 +22,7 @@ class Qt < Formula
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  depends_on :macos => :mountain_lion
+  depends_on :macos => :mountain_lion if OS.mac?
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
