@@ -17,6 +17,9 @@ class Libwps < Formula
   depends_on "librevenge"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           # Installing Doxygen docs trips up make install
                           "--prefix=#{prefix}", "--without-docs"
