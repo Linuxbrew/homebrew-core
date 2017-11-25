@@ -11,11 +11,6 @@ class Fish < Formula
     sha256 "463cfa8edc0603761f25e0ba4e49524f69a1d856263d370d1de5fb8698dd5ccf" => :el_capitan
   end
 
-  devel do
-    url "https://github.com/fish-shell/fish-shell/releases/download/2.7b1/fish-2.7b1.tar.gz"
-    sha256 "326dbea5d0f20eba54fa0b0c5525e58b4a39ebd8c52c14cfffc5f4d6cdf55385"
-  end
-
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
