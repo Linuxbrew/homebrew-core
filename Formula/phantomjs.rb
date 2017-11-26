@@ -1,3 +1,4 @@
+# phantomjs: Build a bottle for Linuxbrew
 class Phantomjs < Formula
   desc "Headless WebKit scriptable with a JavaScript API"
   homepage "http://phantomjs.org/"
@@ -31,10 +32,11 @@ class Phantomjs < Formula
     sha256 "d837e04d137ae8ddc8eb807b7ca5a08a0fccdfd513f4fdd4f1d610ce8abc0874" => :mavericks
   end
 
-  depends_on MinimumMacOSRequirement => :lion
-  depends_on :xcode => :build
+  depends_on MinimumMacOSRequirement => :lion if OS.mac?
+  depends_on :xcode => :build if OS.mac?
   depends_on "openssl"
   unless OS.mac?
+    depends_on "bison" => :build
     depends_on "flex" => :build
     depends_on "gperf" => :build
     depends_on "freetype"
@@ -46,7 +48,11 @@ class Phantomjs < Formula
   def install
     ENV["HOMEBREW_MAKE_JOBS"] = "4" if ENV["CIRCLECI"]
     ENV["OPENSSL"] = Formula["openssl"].opt_prefix
-    inreplace "src/qt/qtbase/mkspecs/features/default_post.prf", "use_gold_linker: QMAKE_LFLAGS += $$QMAKE_LFLAGS_USE_GOLD", "" if OS.linux?
+    unless OS.mac?
+      inreplace "src/qt/qtbase/mkspecs/features/default_post.prf", "use_gold_linker: QMAKE_LFLAGS += $$QMAKE_LFLAGS_USE_GOLD", ""
+      # Inspired by 0a8b13403f21d2946ab70324a0f50f67e8ec1bbd, not needed for a full build.
+      inreplace "src/qt/preconfig.sh", "QT_CFG+=' -icu'", ""
+    end
     system "./build.py", "--confirm", "--jobs", ENV.make_jobs
     bin.install "bin/phantomjs"
     pkgshare.install "examples"
