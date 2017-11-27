@@ -1,3 +1,4 @@
+# gv: Build a bottle for Linuxbrew
 class Gv < Formula
   desc "View and navigate through PostScript and PDF documents"
   homepage "https://www.gnu.org/s/gv/"
