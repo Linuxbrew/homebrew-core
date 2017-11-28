@@ -16,6 +16,10 @@ class Libtcod < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl2"
+  unless OS.mac?
+    depends_on :x11
+    depends_on "zlib"
+  end
 
   conflicts_with "libzip", :because => "both install `zip.h` header"
 
