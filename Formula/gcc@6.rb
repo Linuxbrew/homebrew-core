@@ -20,6 +20,11 @@ class GccAT6 < Formula
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
 
+  unless OS.mac?
+    depends_on "zlib"
+    depends_on "binutils" if build.with? "glibc"
+    depends_on "glibc" => (Formula["glibc"].installed? || !GlibcRequirement.new.satisfied?) ? :recommended : :optional
+  end
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
@@ -42,9 +47,11 @@ class GccAT6 < Formula
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
   # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
-    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+  if OS.mac?
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
+      sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+    end
   end
 
   # Fix parallel build on APFS filesystem
@@ -59,6 +66,9 @@ class GccAT6 < Formula
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
 
     if build.with? "all-languages"
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
@@ -84,10 +94,25 @@ class GccAT6 < Formula
     osmajor = `uname -r`.chomp
     arch = MacOS.prefer_64_bit? ? "x86_64" : "i686"
 
-    args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
+    args = []
+    args << "--build=#{arch}-apple-darwin#{osmajor}" if OS.mac?
+    if build.with? "glibc"
+      # Fix for GCC 4.4 and older that do not support -static-libstdc++
+      # gengenrtl: error while loading shared libraries: libstdc++.so.6
+      mkdir_p lib
+      ln_s ["/usr/lib64/libstdc++.so.6", "/lib64/libgcc_s.so.1"], lib
+      binutils = Formula["binutils"].prefix/"x86_64-unknown-linux-gnu/bin"
+      args += [
+        "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
+        "--with-local-prefix=#{HOMEBREW_PREFIX}/local",
+        "--with-build-time-tools=#{binutils}",
+      ]
+      # Set the search path for glibc libraries and objects.
+      ENV["LIBRARY_PATH"] = Formula["glibc"].lib
+    end
+    args += [
       "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
+      ("--libdir=#{lib}/gcc/#{version_suffix}" if OS.mac?),
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -95,7 +120,7 @@ class GccAT6 < Formula
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--with-system-zlib",
+      ("--with-system-zlib" if OS.mac?),
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
@@ -118,7 +143,8 @@ class GccAT6 < Formula
       args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
     end
 
-    if MacOS.prefer_64_bit?
+    # Fix Linux error: gnu/stubs-32.h: No such file or directory.
+    if OS.mac? && MacOS.prefer_64_bit?
       args << "--enable-multilib"
     else
       args << "--disable-multilib"
@@ -149,6 +175,22 @@ class GccAT6 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
+
+    # Move lib64/* to lib/ on Linuxbrew.
+    lib64 = Pathname.new "#{lib}64"
+    if lib64.directory?
+      mv Dir[lib64/"*"], lib
+      rmdir lib64
+      prefix.install_symlink "lib" => "lib64"
+    end
+
+    # Strip the binaries to reduce their size.
+    unless OS.mac?
+      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   def add_suffix(file, suffix)
