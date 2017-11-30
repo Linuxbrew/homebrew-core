@@ -16,8 +16,14 @@ class Spidermonkey < Formula
     sha256 "38d1b7f54b5dbdd4a0e28e3a1077aed2ada42a9266cfaddeda6a08d761a2d8b2" => :yosemite
   end
 
-  depends_on "readline"
+  # Readline support is disabled; fails with:
+  # No rule to make target '-lreadline', needed by 'js'.  Stop.
+  depends_on "readline" if OS.mac?
   depends_on "nspr"
+  unless OS.mac?
+    depends_on :python
+    depends_on "zip"
+  end
 
   conflicts_with "narwhal", :because => "both install a js binary"
 
@@ -31,7 +37,7 @@ class Spidermonkey < Formula
 
     mkdir "brew-build" do
       system "../js/src/configure", "--prefix=#{prefix}",
-                                    "--enable-readline",
+                                    *("--enable-readline" if OS.mac?),
                                     "--enable-threadsafe",
                                     "--with-system-nspr",
                                     "--with-nspr-prefix=#{Formula["nspr"].opt_prefix}",
