@@ -1,3 +1,4 @@
+# libunistring: Build a bottle for Linuxbrew
 class Libunistring < Formula
   desc "C string library for manipulating Unicode strings"
   homepage "https://www.gnu.org/software/libunistring/"
