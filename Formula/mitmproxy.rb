@@ -19,6 +19,11 @@ class Mitmproxy < Formula
   depends_on "openssl@1.1"
   depends_on :python3
   depends_on "protobuf"
+  unless OS.mac?
+    depends_on "libffi"
+    # pkg-config helps setuptools find libffi
+    depends_on "pkg-config" => :build
+  end
 
   resource "EditorConfig" do
     url "https://files.pythonhosted.org/packages/3b/c9/ea1eb869568f3dca689eb8528f9bead16f3544a38447d86dedbcd45b4e8f/EditorConfig-0.12.1.tar.gz"
@@ -196,6 +201,9 @@ class Mitmproxy < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
+
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     venv.pip_install_and_link buildpath
