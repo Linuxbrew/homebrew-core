@@ -3,13 +3,13 @@ class Sdl2 < Formula
   homepage "https://www.libsdl.org/"
   url "https://libsdl.org/release/SDL2-2.0.7.tar.gz"
   sha256 "ee35c74c4313e2eda104b14b1b86f7db84a04eeab9430d56e001cea268bf4d5e"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "d3436a34a1795c14dd71616ea222b06f47b82d46818fb845b630431f3f036de6" => :high_sierra
     sha256 "8e0ed1c42064a78da85f0375fa32e36e2f6e94d33fa1acbf67b7b2777691aeed" => :sierra
     sha256 "44aa4e28bac52c21e3d1751394d1927768817a6af3cedd8c54e23ae09e52cff3" => :el_capitan
-    sha256 "1ed57ae91502d1af91ec04479deaeb72f119ca37a5212874d83c83d8b1fcc891" => :x86_64_linux
   end
 
   head do
@@ -44,7 +44,7 @@ class Sdl2 < Formula
     if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
       args << "--disable-assembly"
     end
-    args << "--without-x"
+    args << "--without-x" if OS.mac?
     args << "--disable-haptic" << "--disable-joystick" if MacOS.version <= :snow_leopard
 
     system "./configure", *args
@@ -62,7 +62,7 @@ class Sdl2 < Formula
                      testoverlay2.c testsprite2.c],
                   /"(\w+\.(?:bmp|dat|wav))"/,
                   "\"#{pkgshare}/test_extras/\\1\""
-        system "./configure", "--without-x"
+        system "./configure", *("--without-x" if OS.mac?)
         system "make"
         # Tests don't have a "make install" target
         (pkgshare/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
