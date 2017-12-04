@@ -32,6 +32,13 @@ class Numpy < Formula
   end
 
   def install
+    config = <<~EOS
+      [DEFAULT]
+      library_dirs = #{HOMEBREW_PREFIX}/lib
+      include_dirs = #{HOMEBREW_PREFIX}/include
+    EOS
+    Pathname("site.cfg").write config
+
     Language::Python.each_python(build) do |python, version|
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
