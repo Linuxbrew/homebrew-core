@@ -1,3 +1,4 @@
+# haproxy: Build a bottle for Linuxbrew
 class Haproxy < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
