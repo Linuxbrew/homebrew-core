@@ -18,7 +18,10 @@ class LuaAT51 < Formula
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
-  depends_on "readline" unless OS.mac?
+  unless OS.mac?
+    depends_on "readline"
+    depends_on "unzip" # To be able to work with rock files (in the test and in real life)
+  end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
@@ -68,7 +71,7 @@ class LuaAT51 < Formula
       s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.1 -lm"
     end
 
-    arch = if OS.mac? then "macosx" elsif OS.linux? then "linux" else "posix" end
+    arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
 
