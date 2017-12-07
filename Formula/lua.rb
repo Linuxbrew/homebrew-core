@@ -24,12 +24,6 @@ class Lua < Formula
   # ***Update me with each version bump!***
   patch :DATA if OS.mac?
 
-  # Add shared library for linux
-  patch do
-    url "https://gist.githubusercontent.com/rwhogg/51b19615fc619bf980d7200a51f3875a/raw/cf7aea1ea6cb904975758aa66e0488ce2b7679da/lua.patch"
-    sha256 "82a7781c37afc6f8363a8c62c691a4fc64072201366a2fc8c9879092ac4e40fb"
-  end if OS.linux?
-
   # Don't use the https://luarocks.org/releases/luarocks-x.y.z.tar.gz URL
   # directly as it redirects to the HTTP version of the below URL.
   resource "luarocks" do
