@@ -1,3 +1,4 @@
+# gnuplot: Build a bottle for Linuxbrew
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
