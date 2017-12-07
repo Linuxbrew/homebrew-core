@@ -1,3 +1,4 @@
+# highlight: Build a bottle for Linuxbrew
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
