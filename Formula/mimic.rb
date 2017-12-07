@@ -1,3 +1,4 @@
+# mimic: Build a bottle for Linuxbrew
 class Mimic < Formula
   desc "Lightweight text-to-speech engine based on CMU Flite"
   homepage "https://mimic.mycroft.ai"
