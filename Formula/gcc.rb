@@ -250,31 +250,35 @@ class Gcc < Formula
       homebrew_bin.install_symlink "gcc" => "cc" unless (homebrew_bin/"cc").exist?
       homebrew_bin.install_symlink "g++" => "c++" unless (homebrew_bin/"c++").exist?
 
+      # Symlink crt1.o and friends where gcc can find it.
+      gcc = "#{bin}/gcc-#{version_suffix}"
+      libgccdir = Pathname.new(`#{gcc} -print-libgcc-file-name`).dirname
+      glibc = Formula["glibc"]
+      ln_sf Dir[glibc.opt_lib/"*crt?.o"], libgccdir if glibc.any_version_installed?
+
       # Create the GCC specs file
       # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
 
       # Locate the specs file
-      gcc = "gcc-#{version_suffix}"
-      specs = Pathname.new(`#{bin}/#{gcc} -print-libgcc-file-name`).dirname/"specs"
+      specs = libgccdir/"specs"
       ohai "Creating the GCC specs file: #{specs}"
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
       specs_orig = Pathname.new("#{specs}.orig")
       rm_f [specs_orig, specs]
 
       # Save a backup of the default specs file
-      specs_string = `#{bin}/#{gcc} -dumpspecs`
+      specs_string = `#{gcc} -dumpspecs`
       raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
       specs_orig.write specs_string
 
       # Set the library search path
-      glibc = Formula["glibc"]
       libgcc = lib/"gcc/x86_64-unknown-linux-gnu"/version
       specs.write specs_string + <<-EOS.undent
         *cpp_unique_options:
         + -isystem #{HOMEBREW_PREFIX}/include
 
         *link_libgcc:
-        #{glibc.installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+        #{glibc.any_version_installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
 
         *link:
         + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
@@ -283,7 +287,7 @@ class Gcc < Formula
 
       # Symlink ligcc_s.so.1 where glibc can find it.
       # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
-      ln_sf opt_lib/"libgcc_s.so.1", glibc.lib if glibc.installed?
+      ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc.any_version_installed?
     end
   end
 
