@@ -1,3 +1,4 @@
+# assimp: Build a bottle for Linuxbrew
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "http://www.assimp.org"
