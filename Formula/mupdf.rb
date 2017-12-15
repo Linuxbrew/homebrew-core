@@ -15,6 +15,10 @@ class Mupdf < Formula
 
   depends_on :x11
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/glu"
+  end
 
   conflicts_with "mupdf-tools",
     :because => "mupdf and mupdf-tools install the same binaries."
