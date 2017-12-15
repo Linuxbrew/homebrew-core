@@ -1,3 +1,4 @@
+# pilosa: Build a bottle for Linuxbrew
 require "language/go"
 
 class Pilosa < Formula
