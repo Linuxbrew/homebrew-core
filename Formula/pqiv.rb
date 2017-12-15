@@ -19,6 +19,7 @@ class Pqiv < Formula
   depends_on "imagemagick" => :recommended
   depends_on "libarchive" => :recommended
   depends_on "webp" => :recommended
+  depends_on "libtiff" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
