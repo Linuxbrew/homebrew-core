@@ -15,13 +15,13 @@ class Whois < Formula
 
   option "with-libidn2", "Compile with IDN support"
 
-  depends_on "pkg-config" => :build if build.with? "libidn2"
+  depends_on "pkg-config" => :build if build.with?("libidn2") || !OS.mac?
   depends_on "libidn2" => :optional
 
   def install
-    ENV.append "LDFLAGS", "-L/usr/lib -liconv"
+    ENV.append "LDFLAGS", "-L/usr/lib -liconv" if OS.mac?
 
-    system "make", "whois", *("HAVE_ICONV=1" if OS.mac?)
+    system "make", "whois", *(OS.mac? ? "HAVE_ICONV=1" : "HAVE_ICONV=0")
     bin.install "whois"
     man1.install "whois.1"
     man5.install "whois.conf.5"
