@@ -74,15 +74,15 @@ class Docbook < Formula
     # only create catalog file if it doesn't exist already to avoid content added
     # by other formulae to be removed
     unless File.file?("#{etc}/xml/catalog")
-      system "xmlcatalog", "--noout", "--create", "#{etc}/xml/catalog"
+      system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "-v", "--noout", "--create", "#{etc}/xml/catalog"
     end
 
     %w[4.2 4.1.2 4.3 4.4 4.5 5.0].each do |version|
       catalog = prefix/"docbook/xml/#{version}/catalog.xml"
 
-      system "xmlcatalog", "--noout", "--del",
+      system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "--noout", "--del",
              "file://#{catalog}", "#{etc}/xml/catalog"
-      system "xmlcatalog", "--noout", "--add", "nextCatalog",
+      system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "--noout", "--add", "nextCatalog",
              "", "file://#{catalog}", "#{etc}/xml/catalog"
     end
   end
