@@ -20,6 +20,8 @@ class Urh < Formula
 
   depends_on "hackrf" => :optional
 
+  depends_on "bison" => :build unless OS.mac?
+
   resource "numpy" do
     url "https://files.pythonhosted.org/packages/bf/2d/005e45738ab07a26e621c9c12dc97381f372e06678adf7dc3356a69b5960/numpy-1.13.3.zip"
     sha256 "36ee86d5adbabc4fa2643a073f93d5504bdfed37a149a3a49f4dde259f35a750"
