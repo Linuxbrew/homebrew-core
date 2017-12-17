@@ -39,13 +39,13 @@ class DocbookXsl < Formula
   def post_install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     [prefix/"docbook-xsl/catalog.xml", prefix/"docbook-xsl-ns/catalog.xml"].each do |catalog|
-      system "xmlcatalog", "--noout", "--del", "file://#{catalog}", "#{etc}/xml/catalog"
-      system "xmlcatalog", "--noout", "--add", "nextCatalog", "", "file://#{catalog}", "#{etc}/xml/catalog"
+      system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "--noout", "--del", "file://#{catalog}", "#{etc}/xml/catalog"
+      system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "--noout", "--add", "nextCatalog", "", "file://#{catalog}", "#{etc}/xml/catalog"
     end
   end
 
   test do
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/snapshot_9899/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/1.79.1/"
+    system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/snapshot_9899/"
+    system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/1.79.1/"
   end
 end
