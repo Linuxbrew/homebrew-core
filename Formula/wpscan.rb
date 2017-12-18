@@ -15,7 +15,11 @@ class Wpscan < Formula
   end
 
   depends_on :ruby => "2.1.9"
-  depends_on "curl" unless OS.mac?
+  unless OS.mac?
+    depends_on "unzip" => :build
+    depends_on "curl"
+    depends_on "zlib"
+  end
 
   def install
     inreplace "lib/common/common_helper.rb" do |s|
