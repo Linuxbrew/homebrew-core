@@ -1,3 +1,4 @@
+# enet: Build a bottle for Linuxbrew
 class Enet < Formula
   desc "Provides a network communication layer on top of UDP"
   homepage "http://enet.bespin.org"
