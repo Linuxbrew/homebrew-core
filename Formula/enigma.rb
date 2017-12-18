@@ -1,3 +1,4 @@
+# enigma: Build a bottle for Linuxbrew
 class Enigma < Formula
   desc "Puzzle game inspired by Oxyd and Rock'n'Roll"
   homepage "http://www.nongnu.org/enigma/"
