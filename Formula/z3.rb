@@ -17,6 +17,9 @@ class Z3 < Formula
   depends_on :python3 => :optional
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     if build.without?("python3") && build.without?("python")
       odie "z3: --with-python3 must be specified when using --without-python"
     end
