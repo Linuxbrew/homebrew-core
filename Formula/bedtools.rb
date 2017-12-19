@@ -12,6 +12,9 @@ class Bedtools < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     system "make"
     system "make", "install", "prefix=#{prefix}"
     prefix.install "RELEASE_HISTORY"
