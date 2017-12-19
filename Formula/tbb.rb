@@ -13,13 +13,16 @@ class Tbb < Formula
 
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
-  depends_on :macos => :lion
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :macos => :lion if OS.mac?
+  depends_on :python if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on "swig" => :build
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
+
+    # Fix /usr/bin/ld: cannot find -lirml by building rml
+    system "make", "rml", *args unless OS.mac?
 
     system "make", *args
     if OS.mac?
