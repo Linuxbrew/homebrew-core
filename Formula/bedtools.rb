@@ -11,6 +11,11 @@ class Bedtools < Formula
     sha256 "56d2a63e1193f1326505c9a1829b7a4c6257261734a775fce0829cd7accb84f3" => :el_capitan
   end
 
+  unless OS.mac?
+    depends_on "python" => :build
+    depends_on "zlib"
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
