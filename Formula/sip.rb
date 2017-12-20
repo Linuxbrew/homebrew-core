@@ -3,14 +3,15 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.6/sip-4.19.6.tar.gz"
   sha256 "9dda27ae181bea782ebc8768d29f22f85ab6e5128ee3ab21f491febad707925a"
+  revision 1
+
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0886b0789975637f27eaa7c4b3688ab54c81d9bb5471fd02961c6a7a6c45935" => :high_sierra
-    sha256 "87dd330b2ad778cd581820def38a9c1d1acc864fafae9560bab45a34ad0833bc" => :sierra
-    sha256 "01911c287b03a581c1038b6316416be599ddd28aff90f4dc145e6ab1768ab8c4" => :el_capitan
-    sha256 "53299af5232f9a882e41e2ef9dd65d6605db48f82160905be95e92a60ba511e9" => :x86_64_linux
+    sha256 "2390aad991d6c1019a1ff0945d049a4b2ed6e8590b9eb59ccd3b320c3b0f8fe3" => :high_sierra
+    sha256 "5b896527a3e97ff384d87fb4d8fafaa78a4d9ce2f830fa1c99cde8eb3f27041e" => :sierra
+    sha256 "54c8eab04790a70a639739ec9d3c6fedd02f08782ac91118e2f4b406ded4153d" => :el_capitan
   end
 
   depends_on :python => :recommended
