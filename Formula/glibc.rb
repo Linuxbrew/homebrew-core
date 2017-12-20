@@ -17,7 +17,8 @@ class GawkRequirement < Requirement
   fatal true
 
   satisfy(:build_env => false) do
-    which "gawk"
+    # Returning which("gawk") causes a cyclic dependency.
+    !which("gawk").nil?
   end
 
   def message
