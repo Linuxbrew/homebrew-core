@@ -91,10 +91,15 @@ class Glibc < Formula
       LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH
       HOMEBREW_DYNAMIC_LINKER HOMEBREW_LIBRARY_PATHS HOMEBREW_RPATH_PATHS
     ].each { |x| ENV.delete x }
-    gcc = Formula["gcc"]
-    if gcc.installed? && ENV.compiler == "gcc-" + gcc.version.to_s.split(".")[0]
+
+    gcc_keg = begin
+      Keg.for HOMEBREW_PREFIX/"bin"/ENV.cc
+    rescue NotAKegError
+      nil
+    end
+    if gcc_keg
       # Use the original GCC specs file.
-      specs = gcc.lib/"gcc/x86_64-unknown-linux-gnu/#{gcc.version}/specs.orig"
+      specs = gcc_keg.lib/"gcc/x86_64-unknown-linux-gnu/#{gcc_keg.version}/specs.orig"
       raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
       ENV["LDFLAGS"] = "-specs=#{specs}"
 
