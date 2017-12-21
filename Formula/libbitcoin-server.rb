@@ -3,12 +3,12 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.4.0.tar.gz"
   sha256 "a2c88f463b85efe8c9b7617332759e9964dbe250273cb473ebbb479be2525ef5"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "eba54ea7605e50bfca3eab3c2c9f0515e1dcb6ca8c4b071197a749e76c1fa2d1" => :high_sierra
-    sha256 "4724d4eeff0f858bb253239a670e56377dd1e768077d020a89ab1ed2d39e236a" => :sierra
-    sha256 "0469441a85173cf6acce5b0cfd7a2447e310941dcbcc741cdd0c5a82d15eb083" => :el_capitan
+    sha256 "52d31d7631dd84c1417f2eb8c7c8d207f565ce9a372889909a4333eb2d3934d1" => :high_sierra
+    sha256 "1ddeef96853973dc736b29ab89751ee6a57df8e2dc91a51eeb5a155f1ed819c4" => :sierra
+    sha256 "4c6d505dc6e4d7ef7af4d61d222fd71de10c5825cb85db5da08f61bfcf9b4144" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -42,6 +42,8 @@ class LibbitcoinServer < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bash_completion.install "data/bs"
   end
 
   test do

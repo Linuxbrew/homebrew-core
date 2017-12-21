@@ -3,12 +3,12 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.4.0.tar.gz"
   sha256 "c0ed8ee51d780a3787699de47a5b8b5e73e539376be62f4e5cd89acfd8744ba3"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "ae169a92cf51bb9f563c708c64fa86a318b7dc83dcb4dd71196a36f371524a34" => :high_sierra
-    sha256 "24080133138d3f21431f4699ee57e019851c17d0d8156f2caedf90326689db31" => :sierra
-    sha256 "d7b23bbb50091940a7b148ec683fa080a5466934220372241884536cd1f7bcd0" => :el_capitan
+    sha256 "cc840aa895778f15b6fc16d3621ac5bf6125e5ea1a1ba4e70a272e0f61e287c1" => :high_sierra
+    sha256 "59cb12ef010d03c3cf53c84833444eecc743222c339d95db0327c6645e238b53" => :sierra
+    sha256 "6026d21bbc09ffb450e737b4b7517837833779e8922ecc6a82f0e1eba2b889ad" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -66,6 +66,8 @@ class LibbitcoinExplorer < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bash_completion.install "data/bx"
   end
 
   test do

@@ -1,25 +1,22 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://fftw.org/fftw-3.3.6-pl2.tar.gz"
-  version "3.3.6-pl2"
-  sha256 "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
+  url "http://fftw.org/fftw-3.3.7.tar.gz"
+  sha256 "3b609b7feba5230e8f6dd8d245ddbefac324c5a6ae4186947670d9ac2cd25573"
 
   bottle do
     cellar :any
-    sha256 "76ec18439c8fc1bee47919205e68cf0cb5d6d30dd27f58eb2d6964d5501eb199" => :high_sierra
-    sha256 "293e6d290a437b18e0a1563622ca1e6bb3efc0574de8db461dc7066281fcf8e4" => :sierra
-    sha256 "3b0c6440faf90169571c67ef1f6532db743adfb64ccb41e5786eaffc2a2d925f" => :el_capitan
-    sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
-    sha256 "0d29f86c9eb57815c13cc7ff9a484523e238f3d4b3bbf59da8dc511700d6565b" => :x86_64_linux # glibc 2.19
+    sha256 "7c6d0f9133c5b491fe5538edd7a073d730cda6a7ce097c206a9372054505f123" => :high_sierra
+    sha256 "0682cdd73c692d6bb9e8ced37a94d1a39297546a110243ae9d6007870c46c52e" => :sierra
+    sha256 "a4bd0dfab078a5c5cd98166947e6537e393964bfbe68c82a8912e42333bea8f3" => :el_capitan
   end
 
-  option "with-fortran", "Enable Fortran bindings"
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
-  depends_on :fortran => :optional
+  depends_on :fortran => :recommended
   depends_on :mpi => [:cc, :optional]
+
   needs :openmp if build.with? "openmp"
 
   def install
