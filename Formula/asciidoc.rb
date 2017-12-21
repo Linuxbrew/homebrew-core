@@ -17,6 +17,12 @@ class Asciidoc < Formula
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
+  unless OS.mac?
+    depends_on "libxml2" => :build
+    depends_on "xmlto" => :build
+    depends_on "libxslt" => :build # for xsltproc
+    depends_on :python
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
@@ -24,13 +30,15 @@ class Asciidoc < Formula
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
 
-    inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
-                 filters/graphviz/graphviz2png.py filters/latex/latex2img.py
-                 filters/music/music2png.py filters/unwraplatex.py],
-      "#!/usr/bin/env python2", "#!/usr/bin/python"
+    if OS.mac?
+      inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
+                   filters/graphviz/graphviz2png.py filters/latex/latex2img.py
+                   filters/music/music2png.py filters/unwraplatex.py],
+        "#!/usr/bin/env python2", "#!/usr/bin/python"
+    end
 
     # otherwise macOS's xmllint bails out
-    inreplace "Makefile", "-f manpage", "-f manpage -L"
+    inreplace "Makefile", "-f manpage", "-f manpage -L" if OS.mac?
     system "make", "install"
     system "make", "docs"
   end
