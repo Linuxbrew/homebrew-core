@@ -1,3 +1,4 @@
+# pgcli: Build a bottle for Linuxbrew
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
