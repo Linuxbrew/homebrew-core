@@ -17,6 +17,7 @@ class Serf < Formula
   depends_on "go" => :build
   depends_on "govendor" => :build
   depends_on "gox" => :build
+  depends_on "zip" => :build unless OS.mac?
 
   def install
     contents = Dir["*"]
