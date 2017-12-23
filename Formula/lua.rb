@@ -3,14 +3,13 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
   sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any
     sha256 "6312fdaa1a4ce5bbabc19352a5db6777715568f8840d6b28f74b5caac99b555c" => :high_sierra
     sha256 "ff0a15af61df2a80d41740586df41ebe93cb2c0a1c91f28cf291ae051764e0c7" => :sierra
     sha256 "5d6e7dc0b597bd81493e02e77e35ef13efbc29823d2dd0bd8fbeb30166f1365b" => :el_capitan
-    sha256 "82af5ad1d59558d57e7ab3e2ee8f1bfea4814a75a14ec4b779256a8b7738184e" => :x86_64_linux
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
@@ -19,6 +18,14 @@ class Lua < Formula
     depends_on "unzip"
     depends_on "readline"
   end
+
+  # Add shared library for linux
+  # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
+  # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+  patch do
+    url "https://gist.githubusercontent.com/iMichka/baa7e609848d8eb9fc063c3bf664b5bf/raw/56a4b4993b30c533585b706b2465ff86a71995e7/lua.patch"
+    sha256 "b9bba9d10ed5d34335c831972a02ec48471ca1dbf95230edc13fe5f575d5542c"
+  end unless OS.mac?
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
@@ -33,6 +40,11 @@ class Lua < Formula
   end
 
   def install
+    # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+    # when making a shared object; recompile with -fPIC
+    # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    ENV.append_to_cflags "-fPIC" unless OS.mac?
+
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
@@ -48,7 +60,7 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.4" unless OS.mac?)
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
