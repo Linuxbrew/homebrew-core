@@ -1,3 +1,4 @@
+# algernon: Build a bottle for Linuxbrew
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "http://algernon.roboticoverlords.org/"
