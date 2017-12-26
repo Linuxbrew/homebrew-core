@@ -1,3 +1,4 @@
+# spades: Build a bottle for Linuxbrew
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://bioinf.spbau.ru/spades/"
@@ -19,6 +20,9 @@ class Spades < Formula
   needs :openmp
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
