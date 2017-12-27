@@ -1,3 +1,4 @@
+# htmlcleaner: Build a bottle for Linuxbrew
 class Htmlcleaner < Formula
   desc "HTML parser written in Java"
   homepage "https://htmlcleaner.sourceforge.io"
