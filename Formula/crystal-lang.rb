@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
@@ -43,7 +38,6 @@ class CrystalLang < Formula
   depends_on "pcre"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
-  depends_on CIRequirement
 
   resource "boot" do
     version "0.23.1"
