@@ -1,3 +1,4 @@
+# neko: Build a bottle for Linuxbrew
 class Neko < Formula
   desc "High-level, dynamically typed programming language"
   homepage "https://nekovm.org/"
