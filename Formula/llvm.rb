@@ -47,8 +47,8 @@ class Llvm < Formula
     end
 
     resource "libcxxabi" do
-      url "https://llvm.org/releases/5.0.0/libcxxabi-5.0.0.src.tar.xz"
-      sha256 "176918c7eb22245c3a5c56ef055e4d69f5345b4a98833e0e8cb1a19cab6b8911"
+      url "https://llvm.org/releases/5.0.1/libcxxabi-5.0.1.src.tar.xz"
+      sha256 "5a25152cb7f21e3c223ad36a1022faeb8a5ac27c9e75936a5ae2d3ac48f6e854"
     end
 
     resource "libunwind" do
