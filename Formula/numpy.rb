@@ -3,12 +3,12 @@ class Numpy < Formula
   homepage "http://www.numpy.org"
   url "https://files.pythonhosted.org/packages/bf/2d/005e45738ab07a26e621c9c12dc97381f372e06678adf7dc3356a69b5960/numpy-1.13.3.zip"
   sha256 "36ee86d5adbabc4fa2643a073f93d5504bdfed37a149a3a49f4dde259f35a750"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "03e4c83c4d936bfd0ca7ba2f37572431e58d58185bdc5bf3acf9b4802e3b051c" => :high_sierra
     sha256 "a57efe4118c1cbe1f8d6f6cba65c0fe3a19de26d964e33b4d0fd692745c4c799" => :sierra
     sha256 "3500437e7b0fc0f4d9362145e86630d913421e9ac474fbdf9a29a2e8d3bc06d1" => :el_capitan
-    sha256 "1aedd904ef90de02b80d934500ef0f7285ef0b88e48e61078c2a88b9a84cd43a" => :x86_64_linux
   end
 
   head do
@@ -25,6 +25,7 @@ class Numpy < Formula
   depends_on :fortran => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on :python3 => :recommended
+  depends_on "openblas" unless OS.mac?
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -32,6 +33,15 @@ class Numpy < Formula
   end
 
   def install
+    unless OS.mac?
+      # Help the installer finding openblas on Red Hat
+      config = <<~EOS
+        [DEFAULT]
+        library_dirs = #{HOMEBREW_PREFIX}/lib
+        include_dirs = #{HOMEBREW_PREFIX}/include
+      EOS
+      Pathname("site.cfg").write config
+    end
     Language::Python.each_python(build) do |python, version|
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
