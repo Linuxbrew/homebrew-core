@@ -13,6 +13,10 @@ class Libpqxx < Formula
 
   depends_on "pkg-config" => :build
   depends_on :postgresql
+  unless OS.mac?
+    depends_on "doxygen" => :build
+    depends_on "xmlto" => :build
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
