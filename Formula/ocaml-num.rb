@@ -14,6 +14,7 @@ class OcamlNum < Formula
 
   depends_on "ocaml-findlib" => :build
   depends_on "ocaml"
+  depends_on "m4" unless OS.mac?
 
   def install
     ENV["OCAMLFIND_DESTDIR"] = lib/"ocaml"
