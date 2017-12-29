@@ -44,9 +44,17 @@ class BoostAT160 < Formula
     depends_on :mpi => [:cc, :cxx, :optional]
   end
 
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
+
   needs :cxx11 if build.cxx11?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     # https://svn.boost.org/trac/boost/ticket/8841
     if build.with?("mpi") && build.with?("single")
       raise <<~EOS
@@ -58,7 +66,11 @@ class BoostAT160 < Formula
 
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} ;\n"
+      if OS.mac?
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      else
+        file.write "using gcc : : #{ENV.cxx} ;\n"
+      end
       file.write "using mpi ;\n" if build.with? "mpi"
     end
 
@@ -111,6 +123,10 @@ class BoostAT160 < Formula
         args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
       end
     end
+
+    # Fix error: bzlib.h: No such file or directory
+    # and /usr/bin/ld: cannot find -lbz2
+    args += ["include=#{HOMEBREW_PREFIX}/include", "linkflags=-L#{HOMEBREW_PREFIX}/lib"] unless OS.mac?
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"
