@@ -49,6 +49,11 @@ class BoostAT155 < Formula
   depends_on :python => :optional
   depends_on :python3 => :optional
 
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
+
   if build.with?("python3") && build.with?("python")
     odie "boost@1.55: --with-python3 cannot be specified when using --with-python"
   end
@@ -70,6 +75,9 @@ class BoostAT155 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     # Patch boost::serialization for Clang
     # https://svn.boost.org/trac/boost/raw-attachment/ticket/8757/0005-Boost.S11n-include-missing-algorithm.patch
     inreplace "boost/archive/iterators/transform_width.hpp",
@@ -96,7 +104,11 @@ class BoostAT155 < Formula
 
     # Force boost to compile using the appropriate GCC version.
     open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} ;\n"
+      if OS.mac?
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      else
+        file.write "using gcc : : #{ENV.cxx} ;\n"
+      end
       file.write "using mpi ;\n" if build.with? "mpi"
 
       # Link against correct version of Python if python3 build was requested
