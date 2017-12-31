@@ -47,10 +47,12 @@ class Mgba < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
 
-    # Replace SDL frontend binary with a script for running Qt frontend
-    # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
-    rm bin/"mgba"
-    bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
+    if OS.mac?
+      # Replace SDL frontend binary with a script for running Qt frontend
+      # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
+      rm bin/"mgba"
+      bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
+    end
   end
 
   test do
