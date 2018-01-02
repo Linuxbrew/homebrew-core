@@ -150,7 +150,7 @@ class Ghc < Formula
         ["ghc/stage2/build/tmp/ghc-stage2", Dir["libraries/*/dist-install/build/*.so",
             "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"]].each do |s|
           file = Pathname.new(s)
-          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.mach_o_executable? || file.dylib?
+          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.dynamic_elf?
         end
       end
 
