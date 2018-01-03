@@ -1,4 +1,5 @@
 language: ruby
+rvm: system
 sudo: required
 dist: trusty
 
@@ -80,6 +81,9 @@ before_install:
   - git clone --depth=1 https://github.com/Linuxbrew/brew "$LINUXBREW/Homebrew"
   - ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
   - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
+  - export HOMEBREW_DEVELOPER=1
+  - export HOMEBREW_FORCE_VENDOR_RUBY=1
+  - export HOMEBREW_NO_AUTO_UPDATE=1
   - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
   - rm -rf "$HOMEBREW_TAP_DIR"
   - mkdir -p "$(dirname "$HOMEBREW_TAP_DIR")"
@@ -87,9 +91,6 @@ before_install:
   # Fix error: Incorrect file permissions (664)
   - chmod 0644 Formula/*.rb
   - umask 022
-  - export HOMEBREW_DEVELOPER=1
-  - export HOMEBREW_NO_AUTO_UPDATE=1
-  - export HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
   - env | grep TRAVIS | tee /tmp/travis.env
   - ulimit -n 1024
   - brew tap homebrew/science
@@ -100,7 +101,6 @@ matrix:
   fast_finish: true
   allow_failures:
     - os: linux
-    - rvm: 2.0.0
 
 script:
   - brew test-bot
