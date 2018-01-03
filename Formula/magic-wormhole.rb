@@ -17,7 +17,11 @@ class MagicWormhole < Formula
   depends_on "libsodium"
   depends_on "openssl"
   depends_on "python"
-  depends_on "libffi" unless OS.mac?
+  unless OS.mac?
+    depends_on "libffi"
+    # pkg-config helps setuptools find libffi
+    depends_on "pkg-config" => :build
+  end
 
   resource "Automat" do
     url "https://files.pythonhosted.org/packages/de/05/b8e453085cf8a7f27bb1226596f4ccf5cc9e758377d60284f990bbdc592c/Automat-0.6.0.tar.gz"
