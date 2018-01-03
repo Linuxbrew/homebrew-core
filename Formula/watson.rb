@@ -1,3 +1,4 @@
+# watson: Build a bottle for Linuxbrew
 class Watson < Formula
   include Language::Python::Virtualenv
 
