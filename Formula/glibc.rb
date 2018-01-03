@@ -149,8 +149,10 @@ class Glibc < Formula
     # Compile locale definition files
     mkdir_p lib/"locale"
     locales = ENV.map { |k, v| v if k[/^LANG$|^LC_/] && v != "C" }.compact
-    locales << "en_US.UTF-8" # Required by gawk make check
-    locales.uniq.each do |locale|
+    # en_US.UTF-8 is required by gawk make check
+    locales = (locales + ["en_US.UTF-8"]).sort.uniq
+    ohai "Installing locale data for #{locales.join(" ")}"
+    locales.each do |locale|
       lang, charmap = locale.split(".", 2)
       if !charmap.nil?
         system bin/"localedef", "-i", lang, "-f", charmap, locale
