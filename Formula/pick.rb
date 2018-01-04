@@ -11,6 +11,8 @@ class Pick < Formula
     sha256 "29fe7c34922662f10555594fb3f817863d872aea289d51ddc2f98ba8921e2674" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
