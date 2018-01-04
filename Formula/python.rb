@@ -3,14 +3,13 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
   sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
     sha256 "adafea2f5c6f9d88f2c790cef0f1eec6435771f1ba7e9bc1221f57e41b3b32d7" => :high_sierra
     sha256 "09b4d4519c073c52b857d7b974ba2973f8642ebd4afdb54cccbcf2a92195d4c4" => :sierra
     sha256 "0341dd55560451668a5d12a4f19e15eeaf8f598178c60ff7adf9284e07324039" => :el_capitan
-    sha256 "4531097ffe11eb6ebd6420289c46dae3351d27ab6e133e913192e2063121924e" => :x86_64_linux
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -40,11 +39,9 @@ class Python < Formula
   depends_on "gdbm" => :recommended
   depends_on "openssl"
   depends_on "tcl-tk" => :optional
-  if OS.mac?
-    depends_on "berkeley-db@4" => :optional
-  else
+  depends_on "berkeley-db@4" => :optional
+  unless OS.mac?
     depends_on :x11 if build.with? "tcl-tk"
-    depends_on "berkeley-db@4" => :recommended
     depends_on "bzip2"
     depends_on "ncurses"
     depends_on "zlib"
