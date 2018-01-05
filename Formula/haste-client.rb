@@ -1,3 +1,4 @@
+# haste-client: Build a bottle for Linuxbrew
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
