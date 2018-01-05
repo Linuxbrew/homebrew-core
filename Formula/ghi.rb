@@ -1,3 +1,4 @@
+# ghi: Build a bottle for Linuxbrew
 class Ghi < Formula
   desc "Work on GitHub issues on the command-line"
   homepage "https://github.com/stephencelis/ghi"
