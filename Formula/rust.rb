@@ -44,7 +44,7 @@ class Rust < Formula
   unless OS.mac?
     depends_on "binutils"
     depends_on "curl"
-    depends_on :python
+    depends_on "python"
     depends_on "zlib"
   end
 
@@ -64,14 +64,14 @@ class Rust < Formula
       sha256 "1eac1e406efed2472cbeac6316677c1ada90acc77eb7b3fee8a9573c23b02a5f"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2017-11-12/cargo-0.23.0-x86_64-apple-darwin.tar.gz"
+      url "https://static.rust-lang.org/dist/2017-11-22/cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "0540d18adbe45d922d54a581c3766abacafddf08a059abf101cd4a528e45fe74"
     end
   end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8 -l2.5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1 -l2.0" if ENV["CIRCLECI"]
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
