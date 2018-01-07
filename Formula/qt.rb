@@ -27,7 +27,7 @@ class Qt < Formula
   depends_on :macos => :mountain_lion if OS.mac?
 
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
 
