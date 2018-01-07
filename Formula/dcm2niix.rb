@@ -1,3 +1,4 @@
+# dcm2niix: Build a bottle for Linuxbrew
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
