@@ -35,7 +35,11 @@ class BoostMpi < Formula
     end
 
     open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} ;\n"
+      if OS.mac?
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      else
+        file.write "using gcc : : #{ENV.cxx} ;\n"
+      end
       file.write "using mpi ;\n"
     end
 
@@ -45,14 +49,16 @@ class BoostMpi < Formula
 
     lib.install Dir["stage/lib/*mpi*"]
 
-    # libboost_mpi links to libboost_serialization, which comes from the main boost formula
-    boost = Formula["boost"]
-    MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",
-                                     "libboost_serialization-mt.dylib",
-                                     "#{boost.lib}/libboost_serialization-mt.dylib")
-    MachO::Tools.change_install_name("#{lib}/libboost_mpi.dylib",
-                                     "libboost_serialization.dylib",
-                                     "#{boost.lib}/libboost_serialization.dylib")
+    if OS.mac?
+      # libboost_mpi links to libboost_serialization, which comes from the main boost formula
+      boost = Formula["boost"]
+      MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",
+                                       "libboost_serialization-mt.dylib",
+                                       "#{boost.lib}/libboost_serialization-mt.dylib")
+      MachO::Tools.change_install_name("#{lib}/libboost_mpi.dylib",
+                                       "libboost_serialization.dylib",
+                                       "#{boost.lib}/libboost_serialization.dylib")
+    end
   end
 
   test do
@@ -84,7 +90,7 @@ class BoostMpi < Formula
       }
     EOS
     boost = Formula["boost"]
-    system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi", "-lboost_serialization", "-o", "test"
+    system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi-mt", "-lboost_serialization", "-o", "test"
     system "mpirun", "-np", "2", "./test"
   end
 end
