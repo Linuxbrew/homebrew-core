@@ -1,3 +1,4 @@
+# ldc: Build a bottle for Linuxbrew
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
@@ -36,7 +37,8 @@ class Ldc < Formula
   def install
     # Fix the error:
     # CMakeFiles/LDCShared.dir/build.make:68: recipe for target 'dmd2/id.h' failed
-    ENV.deparallelize if OS.linux?
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" unless OS.mac?
 
     ENV.cxx11
     (buildpath/"ldc-lts").install resource("ldc-lts")
