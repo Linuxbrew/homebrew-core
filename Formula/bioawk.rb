@@ -11,6 +11,11 @@ class Bioawk < Formula
     sha256 "df0810bc087f924cdddcdb73f00faf9772de9475e0e698c7af8a7d036b3a4c91" => :el_capitan
   end
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "zlib"
+  end
+
   def install
     # Fix make: *** No rule to make target `ytab.h', needed by `b.o'.
     ENV.deparallelize
