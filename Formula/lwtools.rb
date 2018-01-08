@@ -1,3 +1,4 @@
+# lwtools: Build a bottle for Linuxbrew
 class Lwtools < Formula
   desc "Cross-development tools for Motorola 6809 and Hitachi 6309"
   homepage "http://lwtools.projects.l-w.ca/"
