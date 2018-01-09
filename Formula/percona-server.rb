@@ -1,14 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-18/source/tarball/percona-server-5.7.20-18.tar.gz"
-  sha256 "ebbdf859d571562b9c9614c29355dd73adb9021b67108edd46b67063039a28af"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-19/source/tarball/percona-server-5.7.20-19.tar.gz"
+  sha256 "17f06c07165954e7eacc3ba2cac0e1d4ba65b0b568f2437298d3c17a6a0940fd"
 
   bottle do
-    sha256 "50522ea171bc0dead84f6692f41450e7ce91005e1d0658fae1790e5040ab4478" => :high_sierra
-    sha256 "2788076738cd2a1fc4077814657858fbbc0a0eaf7ca9943ca84f2408a4d941cb" => :sierra
-    sha256 "f042a7d27165b39542abea85b52f79f0caf00c99ec7a7778c727a172a0e69f29" => :el_capitan
+    sha256 "f7e92bf47cdeb861426231fbdf5f641f0ca7e211b8e7f12618251a4905aa8075" => :high_sierra
+    sha256 "651528630a1053592bf0e37f3dcb40ee6e6c27f5e050caf276051d9f9537800b" => :sierra
+    sha256 "f4e786ea655b805196640323c0f7bb135326a77ba99d451cf7db4c1a28c116ae" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
@@ -59,6 +58,10 @@ class PerconaServer < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
+    # Set HAVE_MEMSET_S flag to fix compilation
+    # https://bugs.launchpad.net/percona-server/+bug/1741647
+    ENV.prepend "CPPFLAGS", "-DHAVE_MEMSET_S=1"
+
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
@@ -92,7 +95,7 @@ class PerconaServer < Formula
     args << "-DWITH_BOOST=#{buildpath}/boost"
 
     # Percona MyRocks does not compile on macOS
-    # https://www.percona.com/doc/percona-server/LATEST/myrocks/install.html
+    # https://bugs.launchpad.net/percona-server/+bug/1741639
     args.concat %w[-DWITHOUT_ROCKSDB=1]
 
     # TokuDB does not compile on macOS

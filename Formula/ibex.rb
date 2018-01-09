@@ -1,16 +1,16 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.3.tar.gz"
-  sha256 "55f6d1dddadd8818cef0d1251a5637cb21ccf353f22392360375f2deed213864"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.4.tar.gz"
+  sha256 "f59d4d7a77ca7d1a0f0926caed825a5e284a927de5202f584bce4cac3aeb1d90"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "b64d56dc20a566e3276edca37326f005070dee046bb20be81302e4ecf2748d66" => :high_sierra
-    sha256 "c4777f842a2536da1d5fcd0962a4dc4cada8cb135c1892778c8f3415308b2e7d" => :sierra
-    sha256 "098308ad900c41c1fb8b8136a8cae0f9d85b3e78b36008ca2ae949cc40ca01e7" => :el_capitan
-    sha256 "00b8d88b7e7e6984fd8b5a7bacd1b0ae7b0c35319cd6b604e3db3fe3f53c7df3" => :x86_64_linux
+    sha256 "94a734be24019ffb5567a0937bf48b1161c53bb0e553f71dac067fc5a24987ed" => :high_sierra
+    sha256 "f8a7013ceb439028655d4583790dbd6c68cea179301223d6f40b486d96a6ec63" => :sierra
+    sha256 "5cebbd21926601440436cb3a4b7aa860b1400af4e1d23a4903e2311271d50efb" => :el_capitan
+    sha256 "a1537b64499a12c5f79a0ca388a454e364b6c0bb7e7cf68e94c755fe47d9241c" => :x86_64_linux
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
@@ -20,6 +20,7 @@ class Ibex < Formula
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => :build
+  depends_on "zlib" unless OS.mac?
 
   needs :cxx11
 

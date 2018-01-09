@@ -5,14 +5,14 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/84/82/dbe98467658b024c7ac104c77045346074df03de158bedb7c0122380f417/pipenv-9.0.1.tar.gz"
   sha256 "e1fb0aa2571c9c5a1b403ac782e7da09719625ac51a1238b0e6c5d157c3c679a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a3fec200a7f7b8ad99f8c09f8db72da2d6d93dbd499f1edb4e8962fb3bcdc7a6" => :high_sierra
-    sha256 "5a083e88797566a5ceb475bcfbf0023b638bd4895f7cb1e1b4873910b1fd29cc" => :sierra
-    sha256 "f30be9bba8116f564b55f026422ccfb1c71ebf69b458227c61597c0dad94d67b" => :el_capitan
-    sha256 "2b5f1efc7041a190fe085a42ed57a6597b1225ae939b3b87d3d6a67d5de1f1ed" => :x86_64_linux
+    sha256 "a0e68439380537a009be3b4044dda959282bdb4da420fe9bb6525fae70ed5432" => :high_sierra
+    sha256 "1c9c699deb1dfb0f2848bb4e222865f3ec4282d5eaa3389cdbcdbfa96243fbdc" => :sierra
+    sha256 "fa8ecab2d9e9f4e576b5d2469d20faa2e01a21e09117b66cd88cbc92d44fa2a6" => :el_capitan
+    sha256 "bf02ae30af123fdf597a789d999c7e0ee44af82efc144d9e4dfdd95a327c7e0c" => :x86_64_linux
   end
 
   depends_on "python3"

@@ -1,15 +1,14 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.3/tintin-2.01.3.tar.gz"
-  sha256 "c55215ff4a73d4c651a8ecfdc323f981b62262338e0180bf5bdc95bbc1aefe2d"
+  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.4/tintin-2.01.4.tar.gz"
+  sha256 "7f3eb8237252d1a23c6388e6f9ee2a8a2e79e143b5f5a809700775a45a6c6c55"
 
   bottle do
     cellar :any
-    sha256 "c145ddfed37a2fa59169a0206c8183c3d249925029471125b7f3d423d732aef0" => :high_sierra
-    sha256 "54f0d71d82cef428d1745ccb9668e3c7c7059bce089ec3057bad8410fca36fc0" => :sierra
-    sha256 "3deb1aa079eb9217b8b8c5739a09a0614eac26d9010c1316bf79e4ccc9afdad9" => :el_capitan
-    sha256 "ac8a20af5fae810a6ef80abc030ca0fac55b63ff636dd65a4fc95eff6c824ba5" => :x86_64_linux
+    sha256 "20b753a099b4e1b373644159d0a8ca6c3dd9936d7ed80893cbe54c103e420e9e" => :high_sierra
+    sha256 "dfd430eba6604dc4f24cac804f9105ec653c02bb1a828a71d1085a148f25654b" => :sierra
+    sha256 "85fa5212c0caa90e256120c1640b11c525a9279e56c35417c0a43af7f182041d" => :el_capitan
   end
 
   depends_on "pcre"

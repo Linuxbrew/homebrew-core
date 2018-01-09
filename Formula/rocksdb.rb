@@ -8,19 +8,19 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v5.9.2.tar.gz"
   sha256 "784023d5fea572e860938ec9041e064c9ca529a129574d7fccb74618c7e0dad8"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6b44e8ffe4c7a4950d33e0e5ce7584dee0d81d24a8e746ffa315e2dce9030c6a" => :high_sierra
-    sha256 "8c583791929cdaf1d8ce2168288240ef1977f0c01142080472a958e3bcab1960" => :sierra
-    sha256 "2599a6ebe0133ae964e7f4eb11a1c1fad3c28ed27edd78cf86f2edcd5edc1b26" => :el_capitan
+    sha256 "a2c0bbb462c769b14e3d8960cce66c7521131f25db7da86994809f7904cb2336" => :high_sierra
+    sha256 "a4e46bae57d30ad82ee29abd8138c5e3fd964e4a5935ec94d9187bcb592d5cae" => :sierra
+    sha256 "888e57814ffae73b2a4dfc167327928c659ec43ee83bb3a758e3ef93d4e10f59" => :el_capitan
   end
 
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
   depends_on "gflags"
-  depends_on "jemalloc"
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
@@ -32,6 +32,7 @@ class Rocksdb < Formula
     ENV["PORTABLE"] = "1" if build.bottle?
     ENV["DEBUG_LEVEL"] = "0"
     ENV["USE_RTTI"] = "1"
+    ENV["DISABLE_JEMALLOC"] = "1" # prevent opportunistic linkage
 
     # build regular rocksdb
     system "make", "clean"

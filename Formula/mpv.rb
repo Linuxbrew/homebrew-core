@@ -3,14 +3,14 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
   sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
-  revision 3
+  revision 5
 
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "fc4659938264ba5b13648d8a1efb47e0221d8825b0501a28554f34515c91bae4" => :high_sierra
-    sha256 "a8fe60dbd1227468637e43a61fc3319709298312bbd2ae651a2f97645fac072b" => :sierra
-    sha256 "ea052ccde68b4cbe15d6d6aed67bbf04b3435048a1aa467d87799354cc564b67" => :el_capitan
+    sha256 "400407134ecae015f75a45c27ab0bec2087310737f7fd14f3849a21834c415a7" => :high_sierra
+    sha256 "82dc721763626f8acf23e374b28c1a7fe7ade4675286dd34cdd5eebe616da2d1" => :sierra
+    sha256 "67d08c667592b5c6138d3a0e80cc2e3887bea46ddee0f3f5a8411cf08db1f839" => :el_capitan
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -24,6 +24,7 @@ class Mpv < Formula
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
+  depends_on "mujs" => :recommended
   depends_on "youtube-dl" => :recommended
 
   depends_on "jack" => :optional
@@ -78,6 +79,7 @@ class Mpv < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-dvdnav" if build.with? "libdvdnav"
     args << "--enable-dvdread" if build.with? "libdvdread"
+    args << "--enable-javascript" if build.with? "mujs"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"

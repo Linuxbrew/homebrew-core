@@ -1,15 +1,15 @@
 class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
-  homepage "https://v6shell.org/"
-  url "https://v6shell.org/src/etsh-5.0.0.tar.gz"
-  sha256 "1b8ac975c384a4d470425b29c5c858a48c85360d3d193b25394c5ccf87b4d51f"
+  homepage "https://etsh.io/"
+  url "https://etsh.io/src/etsh-5.0.1.tar.gz"
+  sha256 "0433740b6d86625c25a3ef37431736461ceb18443cb8601eb7c11fe07f71a0d1"
   version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
   bottle do
-    sha256 "5e72a437ca40c261c7e5c838be1020212b6e08a65ca6c89ad5de145c9fbef4fa" => :high_sierra
-    sha256 "ac12cf35b1661ca64b8377d80a0532f9b60c24d0b32656ed19d879b9f4eb9e2c" => :sierra
-    sha256 "fe50c9545a3b89097bff241a437575f4365181f2436737aa4313aaa2e42f8412" => :el_capitan
+    sha256 "776835da5ff4280aa106fc853f12654362c4a6fc7766e149aa461bc09dfbba8d" => :high_sierra
+    sha256 "0428630ac530a086400aea771f0fc2d3c1fb7ba5c69d86569c0b27a3e90d5e1c" => :sierra
+    sha256 "c44d9e2de590ff783857d21265ee3c9fa882d399ebbce44852ee58637789669a" => :el_capitan
   end
 
   option "with-examples", "Build with shell examples"
@@ -17,7 +17,7 @@ class Etsh < Formula
   conflicts_with "teleport", :because => "both install `tsh` binaries"
 
   resource "examples" do
-    url "https://v6shell.org/v6scripts/v6scripts-20160128.tar.gz"
+    url "https://etsh.io/v6scripts/v6scripts-20160128.tar.gz"
     sha256 "c23251137de67b042067b68f71cd85c3993c566831952af305f1fde93edcaf4d"
   end
 

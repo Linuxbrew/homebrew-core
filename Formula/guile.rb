@@ -1,16 +1,14 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-2.2.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.2.tar.xz"
-  sha256 "1c91a46197fb1adeba4fd62a25efcf3621c6450be166d7a7062ef6ca7e11f5ab"
-  revision 1
+  url "https://ftp.gnu.org/gnu/guile/guile-2.2.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.3.tar.xz"
+  sha256 "8353a8849cd7aa77be66af04bd6bf7a6207440d2f8722e46672232bb9f0a4086"
 
   bottle do
-    sha256 "3e0ae1973c460e01b1614aaf180dec00a4f9032949ee287cb0171e7597a70108" => :high_sierra
-    sha256 "3e8f9ea395892b75f3f2ff1d2ea2893bf13377361b9efeee8ef11e6d66f44755" => :sierra
-    sha256 "7a6af0696b721d9b157e83d1352d6bc6285000b2471719710d0e190a83389c62" => :el_capitan
-    sha256 "ce6968407d9d2d7d7bbcc037cf53656f9ff14f754b30e04aa03f260bccd74c72" => :x86_64_linux
+    sha256 "f5d2b4d9466af132ef010862a6265157caa23e94a482aed8bbf6d3d94b9e207a" => :high_sierra
+    sha256 "6a762adf5ff8eee8882a86ef87aa188678208cd43c263fe9877eee182d3d728e" => :sierra
+    sha256 "3eb640a61ca351f12478334528370e57464dec7fe18818ef9143f71aad7e6411" => :el_capitan
   end
 
   head do
@@ -38,6 +36,13 @@ class Guile < Formula
 
   def install
     system "./autogen.sh" unless build.stable?
+
+    # Fixes "sed: -i may not be used with stdin"
+    # Reported 7 Jan 2018 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=30011
+    inreplace "libguile/Makefile.in",
+      /-e 's,\[@\]GUILE_EFFECTIVE_VERSION\[@\],\$\(GUILE_EFFECTIVE_VERSION\),g'      \\\n         -i/,
+      "\\0 ''"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",

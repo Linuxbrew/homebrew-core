@@ -1,14 +1,14 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.5.tar.gz"
-  sha256 "ade4d12ea8b7fe9188e78cf43b0b70608853ed4b511e285971675ef6a4fd9b0e"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.7.tar.gz"
+  sha256 "085746e891edbb2cfda22bb2a8b86043bd680a68ad9121bc568118c730ace7b9"
 
   bottle do
-    sha256 "967e57f7b87255ad9af901d2842110d5f7ec4c9a1e1d7937b6e2c2fd82aec289" => :high_sierra
-    sha256 "e252bae440fb28bb0270c67997be929004bba9bd4668fe7a62dfe60fbf5bc6ac" => :sierra
-    sha256 "852761add98282424a87e5e314473d86205284d429873054a1b29e4fb3b40608" => :el_capitan
-    sha256 "494ce969d9a0de26f9a564c895154f326ab4b24e10cfda582a1ebd5bfef93229" => :x86_64_linux
+    sha256 "35f5427c7f206b4964e0d0fbf76bd03f3796b0afc8622790f962c318c92fb298" => :high_sierra
+    sha256 "c0ceb17e9bf1f3de0cc9d66ef5e1142fc725d1a09e415a13fdba8e06b428535f" => :sierra
+    sha256 "cb34de2b4310b67342fddf0aebfa48f03eadc5c7f4c653fa64139241fdf1da71" => :el_capitan
+    sha256 "cf3a25d511855ecfd17723d934922c8defefd8fd604b63e8bfd663da9b252a69" => :x86_64_linux
   end
 
   depends_on :macos => :lion
@@ -27,13 +27,6 @@ class Povray < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
-    # Boost 1.66 compat
-    # Fix undefined symbol error for boost::system::generic_category
-    # Reported 1 Jan 2018 https://github.com/POV-Ray/povray/issues/341
-    inreplace "unix/configure.ac",
-              "[[boost::defer_lock_t(); return 0;]])],",
-              "[[boost::mutex m; boost::defer_lock_t(); return 0;]])],"
 
     ENV.cxx11
 

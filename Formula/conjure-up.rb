@@ -3,26 +3,25 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.0.tar.gz"
-  sha256 "2d13f9b27ad4c82a6ef33079b24278cfef8c65d23f65e7e57895e10ec8ccb760"
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.1.tar.gz"
+  sha256 "daf4c32e162506ac90acdaa52b2f85f106fe4aa58a9c88cc992b5ebb9d64f378"
 
   bottle do
     cellar :any
-    sha256 "7453dd0717ddc892436218a0c4b668dcafadb6665032fee6187bf09b50a151a1" => :high_sierra
-    sha256 "f5e172f8f231716c2a112c9094b04773109cca4b36ad4e82affa5c582ce9cbb5" => :sierra
-    sha256 "e2ed3bb07b920586ac687aa1cbc105ba363ced9da7841f8544ddf2813ae1cefd" => :el_capitan
-    sha256 "1aa9cffdc2cfa873ce12a37f28919057ff21f6b68dec68b43140580662a1f225" => :x86_64_linux
+    sha256 "cae80e6938c7ae1fd6561253f44001ec83e542d5b01a7c2ae942716473d93088" => :high_sierra
+    sha256 "3ce60268ca63b6acb1069de0b28b35535ff9740aa2f8008bd145f849c535abcc" => :sierra
+    sha256 "a798f99a7b6907d29cf0051effa21946cbbcaa7009d590ec557dbaf8c45d153a" => :el_capitan
+    sha256 "b9c86c15d6f0fc57cc544e442ff4dcc9f51ab5b59c26ca35fb9d7b185bf77c98" => :x86_64_linux
   end
 
-  depends_on :python3
   depends_on "libyaml"
   depends_on "juju"
   depends_on "juju-wait"
   depends_on "jq"
-  depends_on "wget"
   depends_on "redis"
   depends_on "awscli"
   depends_on "pwgen"
+  depends_on "python3"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
@@ -186,8 +185,8 @@ class ConjureUp < Formula
   end
 
   resource "ubuntui" do
-    url "https://files.pythonhosted.org/packages/b1/55/9c7d1085b67405e7d713de7bc935bddd47efd8a81b53242928a43b58086c/ubuntui-0.1.8.tar.gz"
-    sha256 "ded4bd76d6d24bd8f9da886e4565585ec88eac09b110613b139f0c1048062d89"
+    url "https://files.pythonhosted.org/packages/e8/18/a8cf8f69de1b5bfc135bec5f46a14832e3f9eae3abf7b7978602dc49ed4b/ubuntui-0.1.9.tar.gz"
+    sha256 "7249c2bfbdfe5bc4f86ac7a94fe606064f8f068f1436de35cca71b6cd6f57c78"
   end
 
   resource "urwid" do

@@ -1,5 +1,3 @@
-require "language/go"
-
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
@@ -8,32 +6,24 @@ class Pilosa < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd3e69f7d165e6c65b4d673c9a3edd91c2195341205ed048868f458c9dc25976" => :high_sierra
-    sha256 "05486cdc3bea99cef4a1ebeaad026576fde9c8e9ef51d2b0d8e62ebc3e10a5cf" => :sierra
-    sha256 "ee9027e727a396959468fd8f22082d8d26a9bd42a78171f84c513a7ddc3d849d" => :el_capitan
-    sha256 "84d402b1d06ef8a4b882575a6945251738d98652474e3e54f83cb7c8c24e0f92" => :x86_64_linux
+    rebuild 1
+    sha256 "2e64a75a94801252b2577415e17e6ae86cec6527e160a594efe68a1652e89931" => :high_sierra
+    sha256 "15c7355adb18fbe2f5243668dbb474dccb5321c615034cb2d85fa8ca35f5bab7" => :sierra
+    sha256 "1bcdd2852c3326df870aa5780f240950b67c8f6db7c915a7ac004d762211a0e8" => :el_capitan
+    sha256 "68473a5508ed5c5051bcaf297a789aa1c95f051285ab096de8f21fa9aa5d324a" => :x86_64_linux
   end
 
-  depends_on "go" => :build
   depends_on "dep" => :build
-
-  go_resource "github.com/rakyll/statik" do
-    url "https://github.com/rakyll/statik.git",
-        :tag => "v0.1.1"
-  end
+  depends_on "go" => :build
+  depends_on "go-statik" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV.prepend_path "PATH", "#{buildpath}/bin"
-
     (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/rakyll/statik" do
-      system "go", "install"
-    end
     cd "src/github.com/pilosa/pilosa" do
       system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
+      prefix.install_metafiles
     end
   end
 

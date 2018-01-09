@@ -13,6 +13,7 @@ class Qt < Formula
     sha256 "d63559b06141047f1d65a431db7aed630461db8d821ed8f925af2ba77ecb0ab4" => :high_sierra
     sha256 "c3a892407ff379b940b28b6098719bd97a37bc706a0b25485e4d2bfed3f5264d" => :sierra
     sha256 "ac70588d769dfd34c954f9ce9a8f9c3200b57eff84eadcbb96d918bc1bbc1d42" => :el_capitan
+    sha256 "4e34428bd8fcc7581203793ce5f240e030d374206fdcdd58e9e77596be37a9d8" => :x86_64_linux
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -27,7 +28,7 @@ class Qt < Formula
   depends_on :macos => :mountain_lion if OS.mac?
 
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
 

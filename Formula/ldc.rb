@@ -3,8 +3,8 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.6.0/ldc-1.6.0-src.tar.gz"
-    sha256 "bec1821b170e4b3f0b071f3fea357172ad90c7a45d64f7542f7843ac4de6a763"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.7.0/ldc-1.7.0-src.tar.gz"
+    sha256 "7cd46140ca3e4ca0d52c352e5b694d4d5336898ed4f02c3e18e0eafd69dd18bd"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
@@ -13,20 +13,9 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 "b282682e7002a5ca1cc69e195ac49b746aafe06d120c0e64e0daefcd5171574e" => :high_sierra
-    sha256 "73dda487ecba87af435727755d477d8170f61fd5c9b60658b121948aa9b79b6f" => :sierra
-    sha256 "775e20c82003b21ab01401cce815c6e19155d9cc594db10f8835530bffc7a81d" => :el_capitan
-    sha256 "b42d1a882e86bf8eb8d54098e00a4c015f09924779a8f1de04cba0b210a535e8" => :x86_64_linux
-  end
-
-  devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.6.0-beta1/ldc-1.6.0-beta1-src.tar.gz"
-    sha256 "4216b32b7fdcc65a410a7c0724af6cd4f3ae02b14749b3c073f1e55de8fd6028"
-
-    resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
-      sha256 "7aa540a135f9fa1ee9722cad73100a8f3600a07f9a11d199d8be68887cc90008"
-    end
+    sha256 "b94a78eb56c888d137870b5674510e899e40fd153829e560debc3f99ed49547f" => :high_sierra
+    sha256 "aa3aedaea3ca30fea1c8aeb0158bd2ed91c796dec52a96f992c9b988e11aed38" => :sierra
+    sha256 "50d0676d3b51c574923d110004f2efea2b5dfc8ea2b4f3458141bccd94c272d0" => :el_capitan
   end
 
   head do

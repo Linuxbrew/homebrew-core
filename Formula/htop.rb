@@ -3,14 +3,12 @@ class Htop < Formula
   homepage "https://hisham.hm/htop/"
   url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
   sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
+  revision 1
 
   bottle do
-    sha256 "74bfbb9dd0ff5d1268274c83e67a2a3cef674a04914f30e6bffcf23e9008de73" => :high_sierra
-    sha256 "555ff188b1990fb0a5b4634beef196ed1fb843336b99cac33d0291d592d93233" => :sierra
-    sha256 "b13e6457905778a75d2627e1586e14ab20920001bed16b84c1fb64a258715741" => :el_capitan
-    sha256 "f50fd11325a34da989c268f1e4bb998c4b8415079c23a95c267088e9576bef3e" => :yosemite
-    sha256 "785c2806efe12a008c2fc958f567501e2931d2457261eed721ffae374f989498" => :mavericks
-    sha256 "2c44e3de62f62e8b554ff1927a61c8a2cd46e5a8f9add6db98888f26668123b7" => :x86_64_linux # glibc 2.19
+    sha256 "012058c2b3b3d4061b51ea4782ab4ecbe7063e0256ff4275d5f2f6514617faf4" => :sierra
+    sha256 "fbb902d02cb45215128fe96a81132f6eb02afc91de38c8cc21e4ad28171c9119" => :el_capitan
+    sha256 "d58c864e6048ca31a4c5ca5d76b675907a3f6ca9b35801f0f2220d30b19a5cb9" => :x86_64_linux
   end
 
   head do
@@ -27,6 +25,10 @@ class Htop < Formula
   else
     depends_on "ncurses"
   end
+
+  # Running htop can lead to system freezes on macOS 10.13
+  # https://github.com/hishamhm/htop/issues/682
+  depends_on MaximumMacOSRequirement => :sierra if OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
