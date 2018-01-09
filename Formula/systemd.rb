@@ -25,6 +25,7 @@ class Systemd < Formula
   depends_on "expat"
   depends_on "libcap"
   depends_on "util-linux" # for libmount
+  depends_on "libgpg-error" => :build
 
   # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
   fails_with :gcc => "4.8"
@@ -52,7 +53,8 @@ class Systemd < Formula
       "--sysconfdir=#{prefix}/etc",
       "--with-rootprefix=#{prefix}",
       "--with-sysvinit-path=#{prefix}/etc/init.d",
-      "--with-sysvrcnd-path=#{prefix}/etc/rc.d"
+      "--with-sysvrcnd-path=#{prefix}/etc/rc.d",
+      "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"  
     system "make", "install"
   end
 
