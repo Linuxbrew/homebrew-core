@@ -22,7 +22,11 @@ class Libidn2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
+  if OS.mac?
+    depends_on "gettext"
+  else
+    depends_on "gettext" => :build
+  end
   depends_on "libunistring"
 
   def install
