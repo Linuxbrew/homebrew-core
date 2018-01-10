@@ -15,6 +15,7 @@ class Valabind < Formula
   depends_on "swig" => :run
 
   # vala dependencies
+  depends_on "flex" => build unless OS.mac?
   depends_on "gettext"
   depends_on "glib"
 
@@ -36,6 +37,8 @@ class Valabind < Formula
 
     ENV.prepend_path "PATH", libexec/"bin"
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+    # Ensure that libvala will be found.
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}/lib" unless OS.mac?
 
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
