@@ -14,6 +14,7 @@ class Blast < Formula
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "cpio" => :build unless OS.mac?
 
   # Remove for > 2.6
   patch do
