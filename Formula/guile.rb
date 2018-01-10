@@ -27,7 +27,10 @@ class Guile < Formula
   depends_on "bdw-gc"
   depends_on "gmp"
   depends_on "readline"
-  depends_on "gperf" unless OS.mac?
+  unless OS.mac?
+    depends_on "gnu-sed" => :build
+    depends_on "gperf"
+  end
 
   fails_with :clang do
     build 211
@@ -35,6 +38,8 @@ class Guile < Formula
   end
 
   def install
+    ENV["SED"] = "gsed" unless OS.mac?
+
     system "./autogen.sh" unless build.stable?
 
     # Fixes "sed: -i may not be used with stdin"
