@@ -1,3 +1,4 @@
+# sql-translator: Build a bottle for Linuxbrew
 class SqlTranslator < Formula
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
