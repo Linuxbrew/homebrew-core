@@ -14,6 +14,7 @@ class Blast < Formula
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "cpio" => :build unless OS.mac?
 
   # Remove for > 2.6
   patch do
@@ -22,6 +23,9 @@ class Blast < Formula
   end
 
   def install
+    # Reduce memory usage for CircleCI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     cd "c++" do
       # Use ./configure --without-boost to fix
       # error: allocating an object of abstract class type 'ncbi::CNcbiBoostLogger'
