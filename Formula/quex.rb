@@ -12,6 +12,8 @@ class Quex < Formula
     sha256 "da04cc7e91f0a5f2de59dac9fc6cc4f8c42ac6d0768c85dd7cdd48adec8181fb" => :el_capitan
   end
 
+  depends_on "python" unless OS.mac?
+
   def install
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"
