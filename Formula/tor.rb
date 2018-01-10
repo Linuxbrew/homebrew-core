@@ -1,3 +1,4 @@
+# tor: Build a bottle for Linuxbrew
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
