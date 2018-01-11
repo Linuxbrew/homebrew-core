@@ -1,3 +1,4 @@
+# git-annex: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class GitAnnex < Formula
