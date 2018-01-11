@@ -1,3 +1,4 @@
+# smlnj: Build a bottle for Linuxbrew
 class Smlnj < Formula
   desc "Standard ML of New Jersey"
   homepage "https://www.smlnj.org/"
