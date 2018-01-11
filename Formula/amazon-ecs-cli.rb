@@ -1,3 +1,4 @@
+# amazon-ecs-cli: Build a bottle for Linuxbrew
 class AmazonEcsCli < Formula
   desc "CLI for Amazon ECS to manage clusters and tasks for development"
   homepage "https://aws.amazon.com/ecs"
