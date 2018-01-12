@@ -4,12 +4,8 @@ class Systemd < Formula
   url "https://github.com/systemd/systemd/archive/v234.tar.gz"
   sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
   head "https://github.com/systemd/systemd.git"
-  revision 1
+  revision 2
   # tag "linuxbrew"
-
-  bottle do
-    sha256 "af6857ce54506942d7944518442b40b767a0ce6dbfba7f6c2dbc20f22b8f7928" => :x86_64_linux
-  end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
