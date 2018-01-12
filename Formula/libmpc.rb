@@ -1,3 +1,4 @@
+# libmpc: Build a bottle for Linuxbrew
 class Libmpc < Formula
   desc "C library for the arithmetic of high precision complex numbers"
   homepage "http://www.multiprecision.org/mpc/"
