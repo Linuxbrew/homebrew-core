@@ -20,7 +20,7 @@ class Djview4 < Formula
   depends_on "qt"
 
   def install
-    inreplace "src/djview.pro", "10.6", MacOS.version
+    inreplace "src/djview.pro", "10.6", MacOS.version if OS.mac?
     system "autoreconf", "-fiv"
 
     system "./configure", "--disable-debug",
@@ -33,6 +33,10 @@ class Djview4 < Formula
     # From the djview4.8 README:
     # Note3: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    prefix.install "src/djview.app"
+    if OS.mac? 
+      bin.install "src/djview.app"
+    else
+      bin.install "src/djview"
+    end
   end
 end
