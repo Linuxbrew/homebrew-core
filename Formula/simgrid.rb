@@ -1,3 +1,4 @@
+# simgrid: Build a bottle for Linuxbrew
 class Simgrid < Formula
   desc "Studies behavior of large-scale distributed systems"
   homepage "http://simgrid.gforge.inria.fr"
