@@ -14,17 +14,9 @@ class Mpfr < Formula
     sha256 "4c5baae6c9f8e4cefb94c67aad7bfa23f5a4096e27f4207e63b111c829cc6499" => :x86_64_linux
   end
 
-  option "32-bit"
-
   depends_on "gmp"
 
   def install
-    ENV.m32 if build.build_32_bit?
-
-    # Fix error makeinfo: command not found
-    # The mpfr.info timestamp is older than the mpfr.texi timestamp.
-    touch "doc/mpfr.info"
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make"
