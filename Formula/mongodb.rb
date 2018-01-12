@@ -1,3 +1,4 @@
+# mongodb: Build a bottle for Linuxbrew
 require "language/go"
 
 class Mongodb < Formula
