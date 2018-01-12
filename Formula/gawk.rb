@@ -22,7 +22,7 @@ class Gawk < Formula
                           "--without-libsigsegv-prefix"
     system "make"
     if which "cmp"
-      system "make", "check"
+      system "make", "check" if OS.mac?
     else
       opoo "Skipping `make check` due to unavailable `cmp`"
     end
