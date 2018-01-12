@@ -1,3 +1,4 @@
+# gcc@6: Build a bottle for Linuxbrew
 class GccAT6 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"
