@@ -33,7 +33,7 @@ class Djview4 < Formula
     # From the djview4.8 README:
     # Note3: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    if OS.mac? 
+    if OS.mac?
       bin.install "src/djview.app"
     else
       bin.install "src/djview"
