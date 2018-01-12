@@ -1,3 +1,4 @@
+# twtxt: Build a bottle for Linuxbrew
 class Twtxt < Formula
   desc "Decentralised, minimalist microblogging service for hackers"
   homepage "https://github.com/buckket/twtxt"
