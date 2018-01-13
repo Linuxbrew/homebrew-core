@@ -7,18 +7,18 @@ class Dpkg < Formula
   url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.0.4.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.19.0.4.tar.xz"
   sha256 "98a66bb19012f9bde848e1e02903fe411dd0b9e61921108ee4323c4167e6990a"
+  revision 1
 
   bottle do
-    sha256 "4514edf429e5c0ba98d68ee24458e450ee11ddc05003b7c00836c6bf7750451f" => :high_sierra
-    sha256 "8a691e148760a8bf970a8dfc4190010e70200a5810a0013c1332f2082f069076" => :sierra
-    sha256 "a46a6de14534cc3429261820e3c10d39902196ed64ad290f1d5b55d62c46d449" => :el_capitan
-    sha256 "1081ea3be4dd9cf5f43ed60d9767d8f36d42b2321c1b5b0f05c58cc33194dc4f" => :x86_64_linux
+    sha256 "9d1175964409ac089cbba25fd03e3e8a64a92f7ea1dbb06146663797be3d3b3f" => :high_sierra
+    sha256 "e27bba9004cad2a6294cec07357b5e8302b5c9211962929ff8a983b75e9fd13f" => :sierra
+    sha256 "45286144c9cf87bf53a76a6b78992a8b2e51780447467f08a07330deca1efe87" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
   depends_on "gpatch"
-  depends_on :perl => "5.20"
+  depends_on "perl"
   depends_on "xz" # For LZMA
   unless OS.mac?
     depends_on "bzip2"
