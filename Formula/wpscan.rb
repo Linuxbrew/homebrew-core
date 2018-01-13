@@ -1,3 +1,4 @@
+# wpscan: Build a bottle for Linuxbrew
 class Wpscan < Formula
   desc "Black box WordPress vulnerability scanner"
   homepage "https://wpscan.org"
