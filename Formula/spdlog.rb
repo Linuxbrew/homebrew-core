@@ -1,3 +1,4 @@
+# spdlog: Build a bottle for Linuxbrew
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
