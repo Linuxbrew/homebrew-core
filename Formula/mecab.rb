@@ -1,3 +1,4 @@
+# mecab: Build a bottle for Linuxbrew
 class Mecab < Formula
   desc "Yet another part-of-speech and morphological analyzer"
   homepage "https://taku910.github.io/mecab/"
