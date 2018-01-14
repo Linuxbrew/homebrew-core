@@ -1,3 +1,4 @@
+# wxpython: Build a bottle for Linuxbrew
 class Wxpython < Formula
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxwidgets.org/"
