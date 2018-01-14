@@ -20,6 +20,8 @@ class CharmTools < Formula
   depends_on "charm"
   depends_on "openssl"
   unless OS.mac?
+    # pkg-config helps setuptools find libffi
+    depends_on "pkg-config" => :build
     depends_on "libffi" # for cffi
     depends_on "gmp" # for pycrypto
   end
