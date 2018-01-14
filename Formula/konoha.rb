@@ -24,6 +24,7 @@ class Konoha < Formula
   depends_on "pcre"
   depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "sqlite"
+  depends_on "curl" unless OS.mac?
 
   def install
     mkdir "build" do
