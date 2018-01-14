@@ -1,3 +1,4 @@
+# bsponmpi: Build a bottle for Linuxbrew
 class Bsponmpi < Formula
   desc "Implements the BSPlib standard on top of MPI"
   homepage "https://sourceforge.net/projects/bsponmpi/"
