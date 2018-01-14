@@ -11,6 +11,8 @@ class Talloc < Formula
     sha256 "ceefd04e6ce90d617b7968e1ea0dc0bf5f81c84c70b1bc003f92de62976701cb" => :el_capitan
   end
 
+  depends_on "python" => :build unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-rpath",
