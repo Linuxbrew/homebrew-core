@@ -12,6 +12,8 @@ class Mdp < Formula
     sha256 "d2db9becc3573a975c8da120dcb62dcfc3cbb0f146850744dab3fda4917fd693" => :el_capitan
   end
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
