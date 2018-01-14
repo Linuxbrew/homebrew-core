@@ -1,3 +1,4 @@
+# pwgen: Build a bottle for Linuxbrew
 class Pwgen < Formula
   desc "Password generator"
   homepage "https://pwgen.sourceforge.io/"
