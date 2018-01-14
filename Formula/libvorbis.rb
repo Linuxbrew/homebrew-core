@@ -3,7 +3,7 @@ class Libvorbis < Formula
   homepage "http://vorbis.com/"
   url "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.xz"
   sha256 "54f94a9527ff0a88477be0a71c0bab09a4c3febe0ed878b24824906cd4b0e1d1"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
@@ -11,7 +11,6 @@ class Libvorbis < Formula
     sha256 "bb0732d6af0d2a9cdf1004ebbf48da1758cfac1fbb65cfbb91d0bbf936d7d596" => :sierra
     sha256 "8a0b39934d086a5be7d7daede5807bd99baf0d9f5ce5dc860abcec3427c32a44" => :el_capitan
     sha256 "e3892e6523bc1411f5b164b7c64f392897c7735894aa654688cd904d4cfaa3b2" => :yosemite
-    sha256 "8ed0a5b1ddebbc53cdb406a099b16a2153efb08043f545882644ea59442a7a55" => :x86_64_linux # glibc 2.19
   end
 
   head do
