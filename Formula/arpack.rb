@@ -1,3 +1,4 @@
+# arpack: Build a bottle for Linuxbrew
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
