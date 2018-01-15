@@ -141,7 +141,7 @@ class MingwW64 < Formula
     unless OS.mac?
       system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
         f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
+        f.file? && f.elf?
       end)
     end
   end
