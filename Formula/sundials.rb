@@ -20,6 +20,7 @@ class Sundials < Formula
   depends_on "open-mpi" if build.with? "mpi"
   depends_on "suite-sparse"
   depends_on "veclibfort" if OS.mac?
+  depends_on "python" unless OS.mac?
 
   fails_with :clang if build.with? "openmp"
 
