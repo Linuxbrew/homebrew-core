@@ -1,3 +1,4 @@
+# gobuster: Build a bottle for Linuxbrew
 require "language/go"
 
 class Gobuster < Formula
