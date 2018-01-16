@@ -19,6 +19,7 @@ class Httest < Formula
   depends_on "lua@5.1" => :recommended
   depends_on "nghttp2" => :recommended
   depends_on "spidermonkey" => :recommended
+  depends_on :python unless OS.mac?
 
   deprecated_option "without-lua" => "without-lua@5.1"
 
