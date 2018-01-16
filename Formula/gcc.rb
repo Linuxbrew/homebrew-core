@@ -30,6 +30,7 @@ class Gcc < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "7961743f198120b68dac549268a380485e28e23347f72bddfc5dafab405a532c" => :high_sierra
     sha256 "946d376af4da1e6db59cae92f85ad44fac19f5c259a0b9121a3ad3ac2578db1b" => :sierra
     sha256 "0a25dd61dc7b1521262b3769b723cc66d6cf61105113545eea673a55041b2447" => :el_capitan
