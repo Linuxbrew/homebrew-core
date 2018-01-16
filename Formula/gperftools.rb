@@ -32,9 +32,14 @@ class Gperftools < Formula
     ENV["LDFLAGS"] = "-L#{Formula["libunwind"].opt_prefix}/lib" unless OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-libunwind"
+    if OS.mac?
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{prefix}"
+    else
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{prefix}",
+                            "--enable-libunwind"
+    end
     system "make"
     system "make", "install"
   end
