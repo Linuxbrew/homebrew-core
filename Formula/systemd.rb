@@ -50,7 +50,7 @@ class Systemd < Formula
       "--with-rootprefix=#{prefix}",
       "--with-sysvinit-path=#{prefix}/etc/init.d",
       "--with-sysvrcnd-path=#{prefix}/etc/rc.d",
-      "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"  
+      "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
     system "make", "install"
   end
 
