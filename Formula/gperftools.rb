@@ -29,12 +29,12 @@ class Gperftools < Formula
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     ENV.append_to_cflags "-I#{Formula["libunwind"].opt_prefix}/include" unless OS.mac?
-    ENV["LDFLAGS"] = "-L#{Formula["libunwind"].opt_prefix}/lib"
+    ENV["LDFLAGS"] = "-L#{Formula["libunwind"].opt_prefix}/lib" unless OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-			  "--enable-libunwind"
+                          "--enable-libunwind"
     system "make"
     system "make", "install"
   end
