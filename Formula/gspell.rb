@@ -26,6 +26,8 @@ class Gspell < Formula
   patch :DATA
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?
+
     system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
