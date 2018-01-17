@@ -90,6 +90,7 @@ class Gnuplot < Formula
     args << "--without-lua" if build.without? "lua"
     args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << (build.with?("x11") ? "--with-x" : "--without-x")
+    args << "--with-texdir=#{prefix}/share/texmf"
 
     system "./prepare" if build.head?
     system "./configure", *args
