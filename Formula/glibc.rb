@@ -94,7 +94,7 @@ class Glibc < Formula
 
     gcc_keg = begin
       Keg.for HOMEBREW_PREFIX/"bin"/ENV.cc
-    rescue NotAKegError
+    rescue Errno::ENOENT, NotAKegError
       nil
     end
     if gcc_keg
