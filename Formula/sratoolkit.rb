@@ -28,6 +28,11 @@ class Sratoolkit < Formula
   end
 
   def install
+    # sratoolkit seems to have race conditions during the build and exhibit
+    # during pacbio util builds
+    # Issue: https://github.com/Linuxbrew/homebrew-core/issues/5323
+    ENV.deparallelize unless OS.mac?
+
     ngs_sdk_prefix = buildpath/"ngs-sdk-prefix"
     resource("ngs-sdk").stage do
       cd "ngs-sdk" do
@@ -53,6 +58,10 @@ class Sratoolkit < Formula
     # Fix the error: ld: library not found for -lmagic-static
     # Upstream PR: https://github.com/ncbi/sra-tools/pull/105
     inreplace "tools/copycat/Makefile", "-smagic-static", "-smagic"
+
+    # Fix the error: undefined reference to `SZ_encoder_enabled'
+    # Issue: https://github.com/Linuxbrew/homebrew-core/issues/5323
+    inreplace "tools/pacbio-load/Makefile", "-shdf5 ", "-shdf5 -ssz " unless OS.mac?
 
     system "./configure",
       "--prefix=#{prefix}",
