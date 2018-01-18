@@ -13,7 +13,7 @@ class Openldap < Formula
     sha256 "8e7e60c9bdea8dd7a6949d91566d2e8dd5254cd9e72d867d98bb1919bb730329" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   option "with-sssvlv", "Enable server side sorting and virtual list view"
 

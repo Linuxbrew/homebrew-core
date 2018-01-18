@@ -14,7 +14,7 @@ class Bc < Formula
     sha256 "57de5ac07f99f1b7b67b854997e9f2a6fb69664f904ea3c3cf4538d509227d91" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   unless OS.mac?
     depends_on "bison" => :build

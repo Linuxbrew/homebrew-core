@@ -14,7 +14,7 @@ class Ant < Formula
     sha256 "2cb9acc8acd965aea4e4fbc49095f874aad5e9564c3ac04eb40abbbcfbe97438" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx if MacOS.version < :mavericks
+  keg_only :provided_by_macos if MacOS.version < :mavericks
 
   option "with-ivy", "Install ivy dependency manager"
   option "with-bcel", "Install Byte Code Engineering Library"

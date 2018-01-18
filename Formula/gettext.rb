@@ -14,7 +14,7 @@ class Gettext < Formula
     sha256 "dae894eedee985c8c15b9f1525686130c1c9dcdcfca71632cfbf37dd01747c21" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :shadowed_by_osx,
+  keg_only :shadowed_by_macos,
     "macOS provides the BSD gettext library & some software gets confused if both are in the library path"
 
   # https://savannah.gnu.org/bugs/index.php?46844

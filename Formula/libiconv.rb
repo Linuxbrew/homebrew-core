@@ -21,7 +21,7 @@ class Libiconv < Formula
     sha256 "19eb1ef341c6f45c08347bfb8d24e50d666a269523753862fa9a7a62691c0199" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on MacOSRequirement
 

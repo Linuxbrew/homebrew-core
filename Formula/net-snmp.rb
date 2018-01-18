@@ -14,7 +14,7 @@ class NetSnmp < Formula
     sha256 "c80df48be1687256235c6137944bda030d9e81ed7dff6326e7ed132b9966b631" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "openssl"
   depends_on "python" => :optional

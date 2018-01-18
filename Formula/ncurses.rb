@@ -13,7 +13,7 @@ class Ncurses < Formula
     sha256 "f43de564df83afeb9327ef19179ccad67342e94ec047529a59ecb2c286383f9e" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
   depends_on "gpatch" => :build unless OS.mac?

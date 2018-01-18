@@ -13,7 +13,7 @@ class Sqlite < Formula
     sha256 "68d73392894e1b525a8b6c826c1e741e553dd86aa4d3a9c58c8d03b9af2b9550" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx, "macOS provides an older sqlite3"
+  keg_only :provided_by_macos, "macOS provides an older sqlite3"
 
   option "with-docs", "Install HTML documentation"
   option "without-rtree", "Disable the R*Tree index module"

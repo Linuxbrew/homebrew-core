@@ -17,7 +17,7 @@ class Openssl < Formula
     sha256 "00421923740438aa1341b55d8cf4ac0ae8b3be70234888f44e2a27a8a4d099b0" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
   option "without-test", "Skip build-time tests (not recommended)"

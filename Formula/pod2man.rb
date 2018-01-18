@@ -12,7 +12,7 @@ class Pod2man < Formula
     sha256 "728bde6c39f0a34e6d4ec5c43f92bfc69eff342e1b9e20e8016d2ee315eacc22" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   def install
     system "perl", "Makefile.PL", "PREFIX=#{prefix}",
