@@ -3,12 +3,12 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.8.0.tar.bz2"
   sha256 "b06ff476bbf05533cb97ae6749262cc3c76c9969f032bd8496690084ddeb15c9"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "c228054cab6171395cf7fc0aae7baa020743514a41dd374e668d4d9440675e7f" => :high_sierra
     sha256 "e49db6c81c43d172e13ced53c61175afb5bcd3f14121e501c4a111267ad014ae" => :sierra
     sha256 "5bad0992c7a9022f3b083a8d127d6cd7aa9f024b4aec6f5edc21a8dac3115324" => :el_capitan
-    sha256 "d9dde1980308afbef8ef5c035ad495d00b56d5869f4f52741aa7fc8a0937bbb2" => :x86_64_linux
   end
 
   head do
@@ -32,7 +32,7 @@ class Collectd < Formula
   depends_on :java => :optional
   depends_on "python" => :optional
   depends_on "net-snmp"
-  depends_on :perl => "5.18" unless OS.mac?
+  depends_on "perl" unless OS.mac?
 
   fails_with :clang do
     build 318
