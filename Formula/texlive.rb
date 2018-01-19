@@ -2,12 +2,11 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20171026"
-  sha256 "929965f57591bad3544bd0fc9f4e8ad2a69ad33a444d9c1ca4030dfa4bb118c9"
+  version "20180119"
+  sha256 "c5fe7d8747bd6968b83fa2028cbeaf87c0d4e7de69d671930b086e3ac2b2a287"
   # tag "linuxbrew"
 
   bottle do
-    sha256 "3b41a7314f69dadf2279a6e86ee04e4b3e6fabc669d420f1a0d5f877d4903e20" => :x86_64_linux
   end
 
   option "with-full", "install everything"
@@ -16,7 +15,7 @@ class Texlive < Formula
   option "with-basic", "install plain and latex"
   option "with-minimal", "install plain only"
 
-  depends_on :perl => ["5.14", :build]
+  depends_on "perl"
   depends_on "fontconfig"
   depends_on "wget" => :build
   depends_on "linuxbrew/xorg/libice"
