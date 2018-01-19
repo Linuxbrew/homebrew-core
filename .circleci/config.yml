@@ -32,7 +32,7 @@ jobs:
           brew tap homebrew/science
           brew tap linuxbrew/extra
           brew tap linuxbrew/xorg
-          brew test-bot --tap=homebrew/core --keep-old
+          brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       - store_artifacts:
           path: /tmp/bottles
           destination: bottles
