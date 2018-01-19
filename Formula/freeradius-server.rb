@@ -4,18 +4,18 @@ class FreeradiusServer < Formula
   url "ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.15.tar.bz2"
   sha256 "23267d8505e7b2909f5bdbf3938ca077c1fe122290dc969304d4f3b594f7e3ba"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "5adc71adc9bde382df1aebc66fb46e6aeab326f79ce114c2d5b48e52c12db70c" => :high_sierra
     sha256 "ff932637e3ec318b58513eae08c1f5e8dbfe6ae1ec7754f1e7eee0c009c51d2f" => :sierra
     sha256 "759a444aec877b3ab6d06938fbb7b01a4ab7e7302e8ad5843837187dacc30973" => :el_capitan
     sha256 "65f998ce03daee3c05bb02cc83ac8de864c47193fdc4637305edb2dfea6c2260" => :yosemite
-    sha256 "70328b2e2a6acac9665d7c86c23fc7b4bcb933c0efc22b08d4c9e6e0dc1bcc2a" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "openssl"
   depends_on "talloc"
-  depends_on :perl => "5.18" unless OS.mac?
+  depends_on "perl" unless OS.mac?
 
   def install
     ENV.deparallelize
