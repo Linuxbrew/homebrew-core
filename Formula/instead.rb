@@ -18,6 +18,7 @@ class Instead < Formula
   depends_on "sdl_image"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
+  depends_on "glibc" unless OS.mac?
 
   def install
     mkdir "build" do
