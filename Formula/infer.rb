@@ -26,10 +26,11 @@ class Infer < Formula
   depends_on "pkg-config" => :build
   unless OS.mac?
     depends_on "m4" => :build
+    depends_on "unzip" => :build
     depends_on "ncurses"
     depends_on "zlib"
     depends_on :java
-    depends_on :python
+    depends_on "python"
   end
 
   def install
