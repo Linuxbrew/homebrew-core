@@ -3,21 +3,24 @@ class Ginac < Formula
   homepage "https://www.ginac.de/"
   url "https://www.ginac.de/ginac-1.7.2.tar.bz2"
   sha256 "24b75b61c5cb272534e35b3f2cfd64f053b28aee7402af4b0e569ec4de21d8b7"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "24b91c576cb96f43c0dc64d59b65c58a8727e1414685890b38956c4ce9dad680" => :high_sierra
     sha256 "f0d4538f1192bcc7cd609e430b821204286ba927fbddd95c0fb916309fac7734" => :sierra
     sha256 "299fa1acfa8338209289e3e622c3ebeb8faa873b9c04537247bf78b24293e2b3" => :el_capitan
     sha256 "ac20716d581c5e0e5db6326c1a4f3ef9528ecc3c50dbc6bb3c46e9df32e0b888" => :yosemite
-    sha256 "50002d2982642e0fa6a2d84885aa717ee988667b12e5898fe223b684b8abb1cf" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build
   depends_on "cln"
   depends_on "readline"
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
 
   def install
+    # Reduce memory usage for CircleCI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
