@@ -4,13 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     sha256 "2de1e1d3691d8adc101cdb39a62792907f879fe5462c9870f07edef6c3c4160c" => :high_sierra
     sha256 "ee2be3846eca442aea461878da9f5ef208092836b91bc38bd13fa5572040f5a5" => :sierra
     sha256 "9445c1341c69187a4a28c5ff8ab341539beff082923729629abcc2699efda095" => :el_capitan
-    sha256 "7d7546ce982425935ed020aa74e7704e12224dc625bbbc1c0fff3999dcd05a01" => :x86_64_linux
   end
 
   deprecated_option "java" => "with-java"
@@ -29,7 +28,7 @@ class Subversion < Formula
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
   depends_on "perl" => :recommended
-  depends_on "python" => :optional
+  depends_on "python" => OS.mac? ? :optional : :recommended
 
   # Bindings require swig
   if build.with?("perl") || build.with?("python") || build.with?("ruby")
@@ -46,7 +45,7 @@ class Subversion < Formula
     depends_on "zlib"
     depends_on "krb5" => :recommended
     depends_on "util-linux" # for libuuid
-    depends_on :ruby => ["1.8", :recommended]
+    depends_on "ruby" => :recommended
   end
 
   # Other optional dependencies
