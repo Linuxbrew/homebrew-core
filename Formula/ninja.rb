@@ -4,20 +4,20 @@ class Ninja < Formula
   url "https://github.com/ninja-build/ninja/archive/v1.8.2.tar.gz"
   sha256 "86b8700c3d0880c2b44c2ff67ce42774aaf8c28cbf57725cb881569288c1c6f4"
   head "https://github.com/ninja-build/ninja.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "eeba4fff08b3ed4b308250fb650f7d06630acd18465900ba0e27cecfe925a6cc" => :high_sierra
     sha256 "90ecf90948f0fa65c82011d79338d7c5ca2a4d0cb7cb8dc3892243f749fbe2eb" => :sierra
     sha256 "675165ce642fa811e1a0a363be0ba66a7b907d46056f89fd20938aa33e7d59f7" => :el_capitan
-    sha256 "129f9fcc2892215bebefe1bdd13971039d1760af4425fac28473c2ace3724b3a" => :x86_64_linux
   end
 
   option "without-test", "Don't run build-time tests"
 
   deprecated_option "without-tests" => "without-test"
 
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
 
   resource "gtest" do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
