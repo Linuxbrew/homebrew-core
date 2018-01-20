@@ -4,20 +4,20 @@ class BoostPython < Formula
   url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
   sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
   head "https://github.com/boostorg/boost.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "7eb61418c5c91034a7bc00cd5b56070a901afa4adfd3a7c0551e3809da4673a1" => :high_sierra
     sha256 "1821cfeabaeafe8ab6e003a8715fdff1c481afee0ebdef423082a321bc24d505" => :sierra
     sha256 "0d49ef79a0be83226cdb0fb2b010f6bcc867ce343fa980aee2ddb6356327688f" => :el_capitan
-    sha256 "da39a498341f75be1e232bde3955ead4911bcc40f7d308b1dc7e7ab14314f142" => :x86_64_linux
   end
 
   option "without-python", "Build without python 2 support"
 
   depends_on "python3" => :optional
   depends_on "boost"
-  depends_on :python => :recommended unless OS.mac?
+  depends_on "python" => :recommended unless OS.mac?
 
   needs :cxx11
 
