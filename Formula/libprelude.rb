@@ -3,10 +3,10 @@ class Libprelude < Formula
   homepage "https://www.prelude-siem.org/"
   url "https://www.prelude-siem.org/attachments/download/721/libprelude-3.1.0.tar.gz"
   sha256 "b8fbaaa1f2536bd54a7f69fe905ac84d936435962c8fc9de67b2f2b375c7ac96"
+  revision 1
   # tag "linuxbrew"
 
   bottle do
-    sha256 "b64476f67ceaed95d508692ffaf245e7cc9e31c854337acd36c15ea93236a771" => :x86_64_linux # glibc 2.19
   end
 
   option "without-ruby", "Build without Ruby bindings"
@@ -16,7 +16,7 @@ class Libprelude < Formula
   depends_on "gnutls"
   depends_on "swig" => [:build, :recommended]
   depends_on "perl" => [:build, :optional]
-  depends_on :python => [:build, :recommended]
+  depends_on "python" => [:build, :recommended]
   depends_on :python3 => :recommended
   depends_on "valgrind" => [:build, :recommended]
   depends_on "lua" => [:build, :optional]
