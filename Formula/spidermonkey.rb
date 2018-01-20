@@ -4,7 +4,7 @@ class Spidermonkey < Formula
   url "https://archive.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz"
   version "1.8.5"
   sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   head "https://hg.mozilla.org/mozilla-central", :using => :hg
 
@@ -14,7 +14,6 @@ class Spidermonkey < Formula
     sha256 "62193341691f6f35a1d844409c587b431aa7540b70c02d90451e2cb3623788de" => :sierra
     sha256 "5e7789a8ba4e3259364bd3ae827037ba83bf3a076633799bf8f5869b885db399" => :el_capitan
     sha256 "38d1b7f54b5dbdd4a0e28e3a1077aed2ada42a9266cfaddeda6a08d761a2d8b2" => :yosemite
-    sha256 "9ba7ed12129a48954b05a0aa98b4e895fdf9ee6d6b3cabe1270087398659a412" => :x86_64_linux
   end
 
   # Readline support is disabled; fails with:
@@ -22,8 +21,8 @@ class Spidermonkey < Formula
   depends_on "readline" if OS.mac?
   depends_on "nspr"
   unless OS.mac?
-    depends_on :python
-    depends_on "zip"
+    depends_on "python" => :build
+    depends_on "zip" => :build
   end
 
   conflicts_with "narwhal", :because => "both install a js binary"
