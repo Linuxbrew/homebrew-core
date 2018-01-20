@@ -4,18 +4,18 @@ class Micropython < Formula
   url "https://github.com/micropython/micropython.git",
       :tag => "v1.9.3",
       :revision => "fe45d78b1edd6d2202c3544797885cb0b12d4f03"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "82a2f96e85c1d9899b6b4c316d9ead47027fb55e038d315d7c55afa081d67a58" => :high_sierra
     sha256 "84624d68acfdac350881b703c4c719cd13cc9501bd06bf876ecd7551d1f71b92" => :sierra
     sha256 "b16e8e3acbd1271f6449e19e60ea10a0c0c54245937cf95caec322d7a2671f9f" => :el_capitan
-    sha256 "c214db759609ffbe5520a1e1758dadf7d482583122a8668f20337c8cf72681bb" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
 
   def install
     cd "ports/unix" do
