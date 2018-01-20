@@ -3,16 +3,16 @@ class Scons < Formula
   homepage "http://www.scons.org"
   url "https://downloads.sourceforge.net/project/scons/scons/3.0.1/scons-3.0.1.tar.gz"
   sha256 "24475e38d39c19683bc88054524df018fe6949d70fbd4c69e298d39a0269f173"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :high_sierra
     sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :sierra
     sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :el_capitan
-    sha256 "4074c7da2d3fac23a03986a7ec31226275446926455b6e02fff6201f85f7a5b3" => :x86_64_linux
   end
 
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
 
   def install
     inreplace "engine/SCons/Platform/posix.py",
