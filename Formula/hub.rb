@@ -3,7 +3,7 @@ class Hub < Formula
   homepage "https://hub.github.com/"
   url "https://github.com/github/hub/archive/v2.2.9.tar.gz"
   sha256 "b3f949c4500288a18ed68c38755962c9571c9e10063fb77583a19d0fcca5ecdf"
-
+  revision 1 unless OS.mac?
   head "https://github.com/github/hub.git"
 
   bottle do
@@ -12,7 +12,6 @@ class Hub < Formula
     sha256 "6c23abd1255f04855fc1dfb8d44706337b728b5785e5b79f2319637575be93c7" => :sierra
     sha256 "3452a355c8e4ef25714be7105d8946e01319e7760ffe97f7df3fc9dd21c89c76" => :el_capitan
     sha256 "3f116b4c0587ab5d2a87d9d2f013ea058407ac2f9e845461d4970f36548e6be4" => :yosemite
-    sha256 "463c39a0a717153893ee7f307435d46c53c5774b3bc8d2bf29d7fac64200028d" => :x86_64_linux # glibc 2.19
   end
 
   devel do
@@ -24,9 +23,7 @@ class Hub < Formula
   option "without-docs", "Don't install man pages"
 
   depends_on "go" => :build
-  if !OS.mac? && build.with?("docs") && !build.stable?
-    depends_on :ruby => ["1.9+", :build]
-  end
+  depends_on "ruby" => :build if build.with?("docs") && !OS.mac?
 
   def install
     if build.stable?
