@@ -21,7 +21,11 @@ class HaskellStack < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "gmp"
+    depends_on "xz"
+    depends_on "zlib"
+  end
 
   # Remove when stack.yaml uses GHC 8.2.x
   resource "stack_nightly_yaml" do
