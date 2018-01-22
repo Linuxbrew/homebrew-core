@@ -25,9 +25,13 @@ class Musepack < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = *std_cmake_args
+    # Fix: ../libmpcdec/libmpcdec.so: undefined reference to `pow'
+    args << "-DCMAKE_CXX_FLAGS=-lm" unless OS.mac?
+    system "cmake", ".", *args
     system "make", "install"
-    lib.install "libmpcdec/libmpcdec.dylib"
+    ext = OS.mac? ? "dylib" : "so"
+    lib.install "libmpcdec/libmpcdec.#{ext}"
   end
 
   test do
