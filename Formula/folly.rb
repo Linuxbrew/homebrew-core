@@ -25,6 +25,7 @@ class Folly < Formula
   depends_on "snappy"
   depends_on "lz4"
   depends_on "openssl"
+  depends_on "python" unless OS.mac?
 
   # https://github.com/facebook/folly/issues/451
   depends_on :macos => :el_capitan unless OS.mac?
