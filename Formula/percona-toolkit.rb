@@ -4,6 +4,7 @@ class PerconaToolkit < Formula
   url "https://www.percona.com/downloads/percona-toolkit/3.0.6/source/tarball/percona-toolkit-3.0.6.tar.gz"
   sha256 "02a978dd61fe282cae42afb92ed7da585d6e5c9b6f0c1ca57272b378a004f365"
   head "lp:percona-toolkit", :using => :bzr
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -14,7 +15,6 @@ class PerconaToolkit < Formula
 
   depends_on "mysql"
   depends_on "openssl"
-  depends_on "DBI::DBD" => :perl unless OS.mac?
 
   resource "DBD::mysql" do
     url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
@@ -27,6 +27,12 @@ class PerconaToolkit < Formula
     mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
     sha256 "12271b5cee49943bbdde430eef58f1fe64ba6561980b22c69585e08fc977dc6d"
   end
+
+  resource "DBI::DBD" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.639.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.639.tar.gz"
+    sha256 "8e2cb3d6a8425bd68702aebbeee01e754ee11ad00e7f4f9a61b75483de104e8c"
+  end unless OS.mac?
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
