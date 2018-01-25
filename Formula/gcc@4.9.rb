@@ -1,3 +1,4 @@
+# gcc@4.9: Build a bottle for Linuxbrew
 class GccAT49 < Formula
   def arch
     if Hardware::CPU.type == :intel
@@ -44,8 +45,9 @@ class GccAT49 < Formula
   deprecated_option "enable-profiled-build" => "with-profiled-build"
 
   unless OS.mac?
-    depends_on "binutils"
     depends_on "zlib"
+    depends_on "binutils" if build.with? "glibc"
+    depends_on "glibc" => (Formula["glibc"].installed? || !GlibcRequirement.new.satisfied?) ? :recommended : :optional
   end
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
@@ -56,8 +58,10 @@ class GccAT49 < Formula
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
-  def pour_bottle?
-    MacOS::CLT.installed?
+  pour_bottle? do
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs the Xcode CLT to be installed and to be installed into #{default_prefix}."
+    satisfy { !OS.mac? || (MacOS::CLT.installed? && HOMEBREW_PREFIX.to_s == default_prefix) }
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
@@ -81,6 +85,9 @@ class GccAT49 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
+
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
@@ -104,6 +111,20 @@ class GccAT49 < Formula
       args << "--build=#{arch}-apple-darwin#{osmajor}"
       args << "--libdir=#{lib}/gcc/#{version_suffix}"
     end
+    if build.with? "glibc"
+      # Fix for GCC 4.4 and older that do not support -static-libstdc++
+      # gengenrtl: error while loading shared libraries: libstdc++.so.6
+      mkdir_p lib
+      ln_s ["/usr/lib64/libstdc++.so.6", "/lib64/libgcc_s.so.1"], lib
+      binutils = Formula["binutils"].prefix/"x86_64-unknown-linux-gnu/bin"
+      args += [
+        "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
+        "--with-local-prefix=#{HOMEBREW_PREFIX}/local",
+        "--with-build-time-tools=#{binutils}",
+      ]
+      # Set the search path for glibc libraries and objects.
+      ENV["LIBRARY_PATH"] = Formula["glibc"].lib
+    end
     args = [
       "--prefix=#{prefix}",
       "--enable-languages=#{languages.join(",")}",
@@ -114,7 +135,7 @@ class GccAT49 < Formula
       "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
       "--with-cloog=#{Formula["cloog"].opt_prefix}",
       "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
-      "--with-system-zlib",
+      ("--with-system-zlib" if OS.mac?),
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
@@ -172,6 +193,13 @@ class GccAT49 < Formula
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.
       system "make", "install"
+
+      unless OS.mac?
+        # Create cpp, gcc and g++ symlinks
+        bin.install_symlink "cpp-#{version_suffix}" => "cpp"
+        bin.install_symlink "gcc-#{version_suffix}" => "gcc"
+        bin.install_symlink "g++-#{version_suffix}" => "g++"
+      end
     end
 
     # Handle conflicts between GCC formulae.
@@ -180,7 +208,7 @@ class GccAT49 < Formula
     # Even when we disable building info pages some are still installed.
     info.rmtree
 
-    if OS.linux?
+    unless OS.mac?
       # Strip the executables to reduce their size from 600 MB to 100 MB.
       libexecgcc = libexec/"gcc/x86_64-unknown-linux-gnu"/version
       system "strip", *(Dir[libexecgcc/"*"] - Dir[libexecgcc/"*.la"]).select { |f| File.file? f }
@@ -195,37 +223,51 @@ class GccAT49 < Formula
   end
 
   def post_install
-    return if OS.mac?
+    unless OS.mac?
+      # Create cc and c++ symlinks, unless they already exist
+      homebrew_bin = Pathname.new "#{HOMEBREW_PREFIX}/bin"
+      homebrew_bin.install_symlink "gcc" => "cc" unless (homebrew_bin/"cc").exist?
+      homebrew_bin.install_symlink "g++" => "c++" unless (homebrew_bin/"c++").exist?
 
-    # Create the GCC specs file
-    # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-    version_suffix = version.to_s[/\d\.\d/]
-    gcc = bin/"gcc-#{version_suffix}"
-    libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name").chomp).dirname
-    raise "command failed: #{gcc} -print-libgcc-file-name" unless $?.success?
-    specs = libgcc/"specs"
-    ohai "Creating the GCC specs file: #{specs}"
-    specs_orig = Pathname.new("#{specs}.orig")
-    rm_f [specs_orig, specs]
+      # Symlink crt1.o and friends where gcc can find it.
+      gcc = "#{bin}/gcc-#{version_suffix}"
+      libgccdir = Pathname.new(`#{gcc} -print-libgcc-file-name`).dirname
+      glibc = Formula["glibc"]
+      ln_sf Dir[glibc.opt_lib/"*crt?.o"], libgccdir if glibc.any_version_installed?
 
-    # Save a backup of the default specs file
-    specs_string = Utils.popen_read(gcc, "-dumpspecs")
-    raise "command failed: #{gcc} -dumpspecs" unless $?.success?
-    specs_orig.write specs_string
+      # Create the GCC specs file
+      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
 
-    # Set the dynamic linker and library search path
-    glibc = Formula["glibc"]
-    specs.write specs_string + <<-EOS.undent
-      *cpp_unique_options:
-      + -isystem #{HOMEBREW_PREFIX}/include
+      # Locate the specs file
+      specs = libgccdir/"specs"
+      ohai "Creating the GCC specs file: #{specs}"
+      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
+      specs_orig = Pathname.new("#{specs}.orig")
+      rm_f [specs_orig, specs]
 
-      *link_libgcc:
-      #{glibc.installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+      # Save a backup of the default specs file
+      specs_string = `#{gcc} -dumpspecs`
+      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
+      specs_orig.write specs_string
 
-      *link:
-      + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
+      # Set the library search path
+      libgcc = lib/"gcc/x86_64-unknown-linux-gnu"/version
+      specs.write specs_string + <<-EOS.undent
+        *cpp_unique_options:
+        + -isystem #{HOMEBREW_PREFIX}/include
 
-    EOS
+        *link_libgcc:
+        #{glibc.any_version_installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+
+        *link:
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
+
+      EOS
+
+      # Symlink ligcc_s.so.1 where glibc can find it.
+      # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+      ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc.any_version_installed?
+    end
   end
 
   test do
