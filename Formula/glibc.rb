@@ -6,7 +6,7 @@ class BrewedGlibcNotOlderRequirement < Requirement
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       Your system's glibc version is #{GlibcRequirement.system_version}, and Linuxbrew's gcc version is #{Glibc.version}.
       Installing a version of glibc that is older than your system's can break formulae installed from source.
     EOS
@@ -22,7 +22,7 @@ class GawkRequirement < Requirement
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       gawk is required to build glibc.
       Install gawk with your host package manager if you have sudo access.
         sudo apt-get install gawk
@@ -45,7 +45,7 @@ class LinuxKernelRequirement < Requirement
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       Linux kernel version #{MINIMUM_LINUX_KERNEL_VERSION} or greater is required by glibc.
       Your system has Linux kernel version #{linux_kernel_version}.
     EOS
