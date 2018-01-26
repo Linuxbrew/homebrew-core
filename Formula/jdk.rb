@@ -29,15 +29,15 @@ class Jdk < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
-    By installing and using JDK you agree to the
-    Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
-    http://www.oracle.com/technetwork/java/javase/terms/license/index.html
+  def caveats; <<~EOS
+      By installing and using JDK you agree to the
+      Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
+      http://www.oracle.com/technetwork/java/javase/terms/license/index.html
     EOS
   end
 
   test do
-    (testpath/"Hello.java").write <<-EOS.undent
+    (testpath/"Hello.java").write <<~EOS
       class Hello
       {
         public static void main(String[] args)
