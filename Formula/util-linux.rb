@@ -47,15 +47,15 @@ class UtilLinux < Formula
     ["mount", "rtcwake"].each { |conflict| rm bash_completion/conflict }
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Some commands were moved to the bsdmainutils formula.
-    You may wish to install it as well.
+      You may wish to install it as well.
     EOS
   end
 
   test do
     (testpath/"tmpfile").write("temp")
     system bin/"rename", "tmp", "temp", testpath/"tmpfile"
-    assert File.exist?(testpath/"tempfile")
+    assert_predicate testpath/"tempfile", :exist?
   end
 end
