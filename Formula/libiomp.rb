@@ -47,7 +47,7 @@ class Libiomp < Formula
   end
 
   test do
-    testfile = <<-EOS.undent
+    testfile = <<~EOS
       #include <omp.h>
       #include <stdlib.h>
 
