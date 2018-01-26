@@ -26,7 +26,7 @@ class Libfuse < Formula
   end
 
   test do
-    (testpath/"fuse-test.c").write <<-EOS.undent
+    (testpath/"fuse-test.c").write <<~EOS
       #include <fuse.h>
       #include <stdlib.h>
       int main(int argc, char** argv)
