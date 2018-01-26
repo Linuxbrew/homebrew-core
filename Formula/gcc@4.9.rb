@@ -215,7 +215,7 @@ class GccAT49 < Formula
 
     # Set the dynamic linker and library search path
     glibc = Formula["glibc"]
-    specs.write specs_string + <<-EOS.undent
+    specs.write specs_string + <<~EOS
       *cpp_unique_options:
       + -isystem #{HOMEBREW_PREFIX}/include
 
