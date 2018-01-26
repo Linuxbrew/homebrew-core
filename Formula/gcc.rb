@@ -276,7 +276,7 @@ class Gcc < Formula
 
       # Set the library search path
       libgcc = lib/"gcc/x86_64-unknown-linux-gnu"/version
-      specs.write specs_string + <<-EOS.undent
+      specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isystem #{HOMEBREW_PREFIX}/include
 
