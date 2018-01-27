@@ -21,7 +21,7 @@ class Vimpc < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build unless MacOS.version >= :mavericks
+  depends_on "boost" => :build unless MacOS.version >= :mavericks || !OS.mac?
   depends_on "taglib"
   depends_on "libmpdclient"
   depends_on "pcre"
