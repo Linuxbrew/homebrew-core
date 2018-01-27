@@ -1,3 +1,4 @@
+# sops: Build a bottle for Linuxbrew
 class Sops < Formula
   include Language::Python::Virtualenv
 
