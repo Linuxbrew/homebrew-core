@@ -1,3 +1,4 @@
+# dssim: Build a bottle for Linuxbrew
 class Dssim < Formula
   desc "RGBA Structural Similarity Rust implementation"
   homepage "https://github.com/pornel/dssim"
