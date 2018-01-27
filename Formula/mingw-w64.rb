@@ -1,3 +1,4 @@
+# mingw-w64: Build a bottle for Linuxbrew
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://mingw-w64.org/"
