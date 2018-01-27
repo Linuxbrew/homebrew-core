@@ -1,3 +1,4 @@
+# streamlink: Build a bottle for Linuxbrew
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
