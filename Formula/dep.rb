@@ -1,3 +1,4 @@
+# dep: Build a bottle for Linuxbrew
 class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
