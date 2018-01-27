@@ -12,6 +12,7 @@ class Samtools < Formula
   end
 
   depends_on "htslib"
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}",
