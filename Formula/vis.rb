@@ -1,3 +1,4 @@
+# vis: Build a bottle for Linuxbrew
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
