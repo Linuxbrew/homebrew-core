@@ -1,3 +1,4 @@
+# chromaprint: Build a bottle for Linuxbrew
 class Chromaprint < Formula
   desc "Core component of the AcoustID project (Audio fingerprinting)"
   homepage "https://acoustid.org/chromaprint"
