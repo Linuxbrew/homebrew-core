@@ -1,3 +1,4 @@
+# snappystream: Build a bottle for Linuxbrew
 class Snappystream < Formula
   desc "C++ snappy stream realization (compatible with snappy)"
   homepage "https://github.com/hoxnox/snappystream"
