@@ -1,3 +1,4 @@
+# kedge: Build a bottle for Linuxbrew
 class Kedge < Formula
   desc "Deployment tool for Kubernetes artifacts"
   homepage "http://kedgeproject.org/"
