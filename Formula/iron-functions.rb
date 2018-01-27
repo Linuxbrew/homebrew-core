@@ -1,3 +1,4 @@
+# iron-functions: Build a bottle for Linuxbrew
 class IronFunctions < Formula
   desc "Go version of the IronFunctions command-line tools"
   homepage "https://github.com/iron-io/functions"
