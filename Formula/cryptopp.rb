@@ -7,6 +7,13 @@ class Cryptopp < Formula
   # https://cryptopp.com/wiki/Config.h#Options_and_Defines
   bottle :disable, "Library and clients must be built on the same microarchitecture"
 
+  # fix for linuxbrew. to be removed in the next release.
+  # https://github.com/weidai11/cryptopp/pull/575
+  patch do
+    url "https://github.com/weidai11/cryptopp/commit/0bec01233352c2675cf0436dd35c9c6f5a2206ac.patch?full_index=1"
+    sha256 "af18461f9d0e59c5fed86475a5cf93e91b06fe79818ba27ca6e4b23265cd609d"
+  end unless OS.mac?
+
   def install
     system "make", "shared", "all", "CXX=#{ENV.cxx}"
     system "./cryptest.exe", "v"
