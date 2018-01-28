@@ -1,3 +1,4 @@
+# eventlog: Build a bottle for Linuxbrew
 class Eventlog < Formula
   desc "Replacement for syslog API providing structure to messages"
   homepage "https://my.balabit.com/downloads/eventlog/"
