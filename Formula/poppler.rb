@@ -3,12 +3,12 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
   sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "e7ef8133d2a55b7b9d060e1bb39e85daa421805315b78cdaac2eb74e6ee7e50b" => :high_sierra
     sha256 "67553e08dc541aa5db51e480b768a289095cf236279fe46defb4061783967bf8" => :sierra
     sha256 "3797b24ecd422d96b7418c942c26937dd14af4e4e0b135c15cb1164a109ab5af" => :el_capitan
-    sha256 "34d67828840bd80e2399166c353a4ef9fe731cab9f6cdc226edb6674057b8c56" => :x86_64_linux
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -34,12 +34,7 @@ class Poppler < Formula
   depends_on "qt" => :optional
   depends_on "little-cms2" => :optional
   depends_on "nss" => :optional
-
-  unless OS.mac?
-    depends_on "curl"
-    # workaround for incorrect X11 dependency propogation by cairo
-    depends_on :x11
-  end
+  depends_on "curl" unless OS.mac?
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
