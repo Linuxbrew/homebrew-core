@@ -1,3 +1,4 @@
+# rasqal: Build a bottle for Linuxbrew
 class Rasqal < Formula
   desc "RDF query library"
   homepage "http://librdf.org/rasqal/"
