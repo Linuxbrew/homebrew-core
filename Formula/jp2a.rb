@@ -1,3 +1,4 @@
+# jp2a: Build a bottle for Linuxbrew
 class Jp2a < Formula
   desc "Convert JPG images to ASCII"
   homepage "https://csl.name/jp2a/"
