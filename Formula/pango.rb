@@ -3,12 +3,12 @@ class Pango < Formula
   homepage "http://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.40/pango-1.40.14.tar.xz"
   sha256 "90af1beaa7bf9e4c52db29ec251ec4fd0a8f2cc185d521ad1f88d01b3a6a17e3"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "b475f7b4ff1d51d8b224b626fd53ed85a9945b4afd1ae4f3817295bd8dded8de" => :high_sierra
     sha256 "3f79d4e771ad92bf6f36a9ab01b87e3ad86011a0c0b2d10761dc0e1d24c0bcd0" => :sierra
     sha256 "01dc17241762d6a4a7cbc8fad532b69dc4cde941dd5123a6d9624ef0bed62a9d" => :el_capitan
-    sha256 "dedd94a4cf92857482e9bb42baf31b1ccad6d8571594637f876fb3b96b95f165" => :x86_64_linux
   end
 
   head do
@@ -26,11 +26,8 @@ class Pango < Formula
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "harfbuzz"
-  if OS.mac?
-    depends_on :x11 => :optional
-  else
-    depends_on :x11
-  end
+  depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
