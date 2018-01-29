@@ -3,7 +3,7 @@ class Imlib2 < Formula
   homepage "https://sourceforge.net/projects/enlightenment/"
   url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.4.10/imlib2-1.4.10.tar.bz2"
   sha256 "3f698cd285cbbfc251c1d6405f249b99fafffafa5e0a5ecf0ca7ae49bbc0a272"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     rebuild 1
@@ -11,7 +11,6 @@ class Imlib2 < Formula
     sha256 "8ee074fbc1fa4ec9b48151518cc4dcfaf02ad15a9001288f636d94684e7172a1" => :sierra
     sha256 "139bf652a1e3b056f9100d33adeab3a576cd87cc86e7d7566cf1acadd8638fda" => :el_capitan
     sha256 "c817b22453401f614d195af1009aaa3a94d0e5c08db2d4ef34cf76a1c74720b5" => :yosemite
-    sha256 "8f503a1bd46048e73bdc36f121572a8a31bc855708066e5657129a3a34e0ef34" => :x86_64_linux # glibc 2.19
   end
 
   deprecated_option "without-x" => "without-x11"
@@ -23,7 +22,8 @@ class Imlib2 < Formula
   depends_on "giflib" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "libid3tag" => :optional
-  depends_on :x11 => :recommended
+  depends_on :x11 => :recommended if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     args = %W[
