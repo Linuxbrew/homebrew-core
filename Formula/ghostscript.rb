@@ -3,17 +3,12 @@ class Ghostscript < Formula
   homepage "https://www.ghostscript.com/"
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922/ghostscript-9.22.tar.xz"
   sha256 "c1f862e6f40f997dbe3feba89355e8cb05d55818994e10f4932b0dd9b627d1bb"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "dec4d99345c0d402cd78e12fc2b6d1c2efa9fc9e207480bb665b60cbcfef1c21" => :high_sierra
     sha256 "45a8136781fc46574f134114b7db8417994406c81160211ad4e7252b17154810" => :sierra
     sha256 "f935b2fc2d7a5dc580e530f4e571bca53ed2423633461e1a8c34957990258adf" => :el_capitan
-    sha256 "a25a81730fdb8cacc3991341c78f296096d04f8029d72ce2607d747c082def1e" => :x86_64_linux
-  end
-
-  devel do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922rc2/ghostscript-9.22rc2.tar.gz"
-    sha256 "1861c0cee1e005bd2712873e3058ee1c131c79819625fe479ebcef68e055648e"
   end
 
   head do
@@ -30,8 +25,11 @@ class Ghostscript < Formula
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
   depends_on :x11 => :optional
-  depends_on "libidn" unless OS.mac?
-  depends_on "fontconfig" unless OS.mac?
+  unless OS.mac?
+    depends_on "libidn"
+    depends_on "fontconfig"
+    depends_on "linuxbrew/xorg/xorg"
+  end
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
