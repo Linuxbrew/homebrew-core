@@ -3,12 +3,12 @@ class Gromacs < Formula
   homepage "http://www.gromacs.org/"
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.tar.gz"
   sha256 "deb5d0b749a52a0c6083367b5f50a99e08003208d81954fb49e7009e1b1fd0e9"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "c9a80ad8b736c718b8dad61a2150239cf362f471e5651e31e29f9c7eac50698c" => :high_sierra
     sha256 "f2591692c45ce6f2b584eb62c113e72143c1930276b9cdcfa5072f191add99f9" => :sierra
     sha256 "2da1f5cc720905623d23591b30adf60a1c78bb09b25735949dfd2c426dac287f" => :el_capitan
-    sha256 "bef5ee8b6b560288fce8549f59ed5f048ec27df5deddfd3b6c5033aca2df5b4a" => :x86_64_linux
   end
 
   option "with-double", "Enables double precision"
@@ -19,6 +19,7 @@ class Gromacs < Formula
   depends_on "gsl"
   depends_on "open-mpi" if build.with? "mpi"
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     args = std_cmake_args + %w[-DGMX_GSL=ON]
