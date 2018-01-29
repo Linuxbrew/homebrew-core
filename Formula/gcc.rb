@@ -13,14 +13,15 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
+  revision 1 unless OS.mac?
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
     if OS.mac?
-      url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
-      mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
-      sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
+      url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+      mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+      sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
     else
       url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
       mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
@@ -30,11 +31,10 @@ class Gcc < Formula
 
   bottle do
     cellar :any
-    sha256 "3b7606d2b98cf9ca5c25d2620d2c9d6c146a910f6063c071ac4bf5abdeb73faa" => :high_sierra
-    sha256 "bc96bddd0e9f7c074eab7c4036973bc60d5d5ef4489e65db64018363d63d248d" => :sierra
-    sha256 "755ed27d3aa9b60523aead68f36d17f6396b9f4b622a0972c05eae3302922d5c" => :el_capitan
-    sha256 "eecedf7c9233bd1553d3e22027f415f15a9d1a7ad11e486855bf3a8f7d36ed23" => :yosemite
-    sha256 "8c0551133ef4ec8a66d56c8f56fbf0cecd771231c37f38cfec33c45fbfe54bf8" => :x86_64_linux
+    sha256 "276420d0b1f1355189ee6701408dfbf351477b7d7166c1ffca313a4368bfb5d8" => :high_sierra
+    sha256 "a1f43d52abe183d270997256f32463281ae3d3c5d2a40f7348d6170a55555246" => :sierra
+    sha256 "f582beda3d37ceaa591bdf3070e357adb31967d8edee2f8075c15732740c7fe8" => :el_capitan
+    sha256 "4c2282e0e6fea90ab2dc1540ad7f95319f8f41c0254f6dc7ae2d112c616c55d8" => :x86_64_linux
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -276,7 +276,7 @@ class Gcc < Formula
 
       # Set the library search path
       libgcc = lib/"gcc/x86_64-unknown-linux-gnu"/version
-      specs.write specs_string + <<-EOS.undent
+      specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isystem #{HOMEBREW_PREFIX}/include
 

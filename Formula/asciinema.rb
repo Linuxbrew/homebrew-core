@@ -3,18 +3,18 @@ class Asciinema < Formula
   homepage "https://asciinema.org"
   url "https://github.com/asciinema/asciinema/archive/v1.4.0.tar.gz"
   sha256 "841a55b0f51988d5e155e99badbd6ce5cf3b43cca2ba15cd20c971a19719dc9a"
+  revision 1
   head "https://github.com/asciinema/asciinema.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb365467441ca7fb242c015264dcf94ffd4c7dc322007c69cecb78215b5db88f" => :high_sierra
-    sha256 "bb083c12bf50fe56b223784cb761a6dcefd55cefaac138815912c85102c43153" => :sierra
-    sha256 "e95c895bee1ee5c1f852e06522104489807510f157843ef10ea1d68a84318634" => :el_capitan
-    sha256 "e95c895bee1ee5c1f852e06522104489807510f157843ef10ea1d68a84318634" => :yosemite
-    sha256 "28bc0a83b93a70818c1070510c7424d319381eee7c818260bfee8d038809ff77" => :x86_64_linux # glibc 2.19
+    sha256 "c87255dfbc081c753105dc317b5b0469b91bdf8804895deb23bbebc82fe42836" => :high_sierra
+    sha256 "c87255dfbc081c753105dc317b5b0469b91bdf8804895deb23bbebc82fe42836" => :sierra
+    sha256 "c87255dfbc081c753105dc317b5b0469b91bdf8804895deb23bbebc82fe42836" => :el_capitan
+    sha256 "c98c67e8c4a0809b2af47e883d7bb93bb89996a534f0cb25989ddcb78467166c" => :x86_64_linux
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     xy = Language::Python.major_minor_version "python3"

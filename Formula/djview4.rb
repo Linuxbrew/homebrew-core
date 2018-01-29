@@ -10,6 +10,7 @@ class Djview4 < Formula
     sha256 "8cc214252ddf146d8e4b65210436036197b556ff40b136e2784a1d95c9a4f43e" => :sierra
     sha256 "82c4310f2e0af35fb98fce109660ec79bdc4075205b8f5c053d58b4b87b37099" => :el_capitan
     sha256 "92dec68ad76d1e5a1e158b6b1a700d119f4a651cafd45c8cd4a787ecf31ff402" => :yosemite
+    sha256 "da31d6614920f9d8c5f29a5722878493c156179af7fe02fc1d4600d95977cb72" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -20,7 +21,7 @@ class Djview4 < Formula
   depends_on "qt"
 
   def install
-    inreplace "src/djview.pro", "10.6", MacOS.version
+    inreplace "src/djview.pro", "10.6", MacOS.version if OS.mac?
     system "autoreconf", "-fiv"
 
     system "./configure", "--disable-debug",
@@ -33,6 +34,10 @@ class Djview4 < Formula
     # From the djview4.8 README:
     # Note3: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    prefix.install "src/djview.app"
+    if OS.mac?
+      bin.install "src/djview.app"
+    else
+      bin.install "src/djview"
+    end
   end
 end

@@ -32,17 +32,14 @@ class BoostAT160 < Formula
   option "with-icu4c", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
-  option "with-mpi", "Build with MPI support"
   option :cxx11
 
   deprecated_option "with-icu" => "with-icu4c"
 
   if build.cxx11?
     depends_on "icu4c" => [:optional, "c++11"]
-    depends_on "open-mpi" => "c++11" if build.with? "mpi"
   else
     depends_on "icu4c" => :optional
-    depends_on :mpi => [:cc, :cxx, :optional]
   end
 
   unless OS.mac?
@@ -56,15 +53,6 @@ class BoostAT160 < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
 
-    # https://svn.boost.org/trac/boost/ticket/8841
-    if build.with?("mpi") && build.with?("single")
-      raise <<~EOS
-        Building MPI support for both single and multi-threaded flavors
-        is not supported.  Please use "--with-mpi" together with
-        "--without-single".
-      EOS
-    end
-
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
       if OS.mac?
@@ -72,7 +60,6 @@ class BoostAT160 < Formula
       else
         file.write "using gcc : : #{ENV.cxx} ;\n"
       end
-      file.write "using mpi ;\n" if build.with? "mpi"
     end
 
     # libdir should be set by --prefix but isn't
@@ -86,12 +73,11 @@ class BoostAT160 < Formula
     end
 
     # Handle libraries that will not be built.
-    without_libraries = ["python"]
+    without_libraries = ["python", "mpi"]
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
-    without_libraries << "mpi" if build.without? "mpi"
 
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 

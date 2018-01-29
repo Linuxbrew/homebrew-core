@@ -2,11 +2,11 @@ class AppEngineGo64 < Formula
   desc "Google App Engine SDK for Go (AMD64)"
   homepage "https://cloud.google.com/appengine/docs/go/"
   if OS.mac?
-    url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_darwin_amd64-1.9.61.zip"
-    sha256 "4291ecc6939e557d73c44fe742dba4c5f42d3455e56480f96ee86b6ba34c99e3"
+    url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_darwin_amd64-1.9.62.zip"
+    sha256 "abc350f5d630aa06e84b5f8f58e7b79c421b591e4419010da6f159911f2e0306"
   elsif OS.linux?
-    url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.60.zip"
-    sha256 "e59217e0c25f8beb77ad5d765e265463b502219c38fd70a16af355533a894c7d"
+    url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.62.zip"
+    sha256 "3514fa6576842ffd53d7954eddf590e7167e7415ec29d70e92c953c7c0c6c3cb"
   end
 
   bottle :unneeded

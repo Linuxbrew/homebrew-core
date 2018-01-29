@@ -10,6 +10,7 @@ class Libass < Formula
     sha256 "2d8f9ced8b8d4d7327a79e86ddf80d01bfbb96e040a8ac56798d4e2513a26e90" => :high_sierra
     sha256 "67f577f99f875a5f4998fb5d5cac85ba67dd39ef3b1b76037759fd64c86548bd" => :sierra
     sha256 "f48697b75e514bc69f390803b1d7c8f748c9796ad332c4fdceebbc57402592a3" => :el_capitan
+    sha256 "d34b7773a45dec2765c48a504bd7cbd83b57301c488ca10053a7684b49532b3b" => :x86_64_linux
   end
 
   head do
@@ -20,7 +21,7 @@ class Libass < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-fontconfig", "Disable CoreText backend in favor of the more traditional fontconfig"
+  option "with-fontconfig", "Disable CoreText backend in favor of the more traditional fontconfig" if OS.mac?
 
   depends_on "pkg-config" => :build
   depends_on "nasm" => :build
@@ -28,7 +29,7 @@ class Libass < Formula
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "harfbuzz" => :recommended
-  depends_on "fontconfig" => :optional
+  depends_on "fontconfig" => OS.mac? ? :optional : :recommended
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]

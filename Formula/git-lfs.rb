@@ -9,9 +9,11 @@ class GitLfs < Formula
     sha256 "d7c2b6887938ad68e914106ba3e7d61c1828b2a5478b60c57fd6940cb9e67c6d" => :high_sierra
     sha256 "a8bed726486ae5a74ea788cfe649f43b1462664d45b8c00c308f9d1bed9f9e99" => :sierra
     sha256 "0af771189963edc8c59f05a77de9be3a7a3b4f901b1f0cde60c7307e78afcbcc" => :el_capitan
+    sha256 "3fd2f80a65f2e02e0038477d3d43fe821af68f36ddaac8a0d94470af96bcf1aa" => :x86_64_linux
   end
 
   depends_on "go" => :build
+  depends_on "ruby" unless OS.mac?
 
   def install
     begin

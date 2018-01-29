@@ -1,15 +1,15 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/leandromartinez98/packmol/archive/18.002.tar.gz"
-  sha256 "c8e70e314bbbc327f2b6c3e407101d219a4a8a016c09fe808ae2649536165fc9"
+  url "https://github.com/leandromartinez98/packmol/archive/18.013.tar.gz"
+  sha256 "2e87f8ffc24a7a8702baf895a051ad5b5f2dbdebc158ba0235a6f6eaf617eb9a"
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
-    sha256 "a0356e819992dbe7b4a0d9c57c4e4f4dd49f61ad84111720549ccc00364b5706" => :high_sierra
-    sha256 "0a3941940fd3e86eb17846daf14d9c0f5816f5cb7b1e4f1f94dc7e6e349d8fe4" => :sierra
-    sha256 "c407ce4267f46650484760f66a205dc4d76521676ad08c6913cd34a4d5809f89" => :el_capitan
-    sha256 "5c49eefec119fdb9591e5bf4fa42c087242aedf63efc491fbf6298f5153633c6" => :x86_64_linux
+    sha256 "96deacd0dca499fb3f577033ceabb122822d44a2060cdc47b02a57fb2358a63f" => :high_sierra
+    sha256 "d1948aba64f56109ccfc9e7bedf48950114c6bce751e6f653bee140e6d58a1d7" => :sierra
+    sha256 "517f2c6c55adf427b5c2b6132fb3a1ca654057a0b95c46cef33b8ef1cb6cc57a" => :el_capitan
+    sha256 "ca658449cfcffdc0f035ecbeb2acdc15fea2a9bb2961b786ea1ce9293d15561f" => :x86_64_linux
   end
 
   depends_on "gcc"

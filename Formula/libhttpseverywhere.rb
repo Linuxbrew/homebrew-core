@@ -1,15 +1,14 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.6/libhttpseverywhere-0.6.5.tar.xz"
-  sha256 "7fc8c7b3247de62b2e88aa77701ac11a53fc6a3b2414bf5b12314a2ff1364e4f"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.6/libhttpseverywhere-0.6.6.tar.xz"
+  sha256 "af52638f6da4dfe9e1532ced907519d1096269882447fb976f936eda7403b4ca"
 
   bottle do
     cellar :any
-    sha256 "1a437712025a9b0d61ee19551b301830e1139cf803b772e9f7b7d1a689972188" => :high_sierra
-    sha256 "17339c9d366b5e3d79b233dbce01d824bfe0da4c1360a56492cd3479e033548f" => :sierra
-    sha256 "974962147bf3919db1837e488593ba804eae84a0ea91c2d5fab829e3a57aa7ae" => :el_capitan
-    sha256 "cef213bab0d596da935f9a50232f591b57f9cb2b8e637035603ec0c8011a4177" => :x86_64_linux
+    sha256 "d76292f894a83e2cc100a2a632d505781194dbae4bd418d63ed015f1fd6b7b1a" => :high_sierra
+    sha256 "203afceabb262a6c58ef645db491093e1fa7ad9a51e0901260c4094ed455afcb" => :sierra
+    sha256 "05ed8c5bfb788fcddd6022d48052da1c63b4dfda0e7bfcef8917662324fcea32" => :el_capitan
   end
 
   depends_on "meson" => :build

@@ -4,16 +4,13 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-19.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-19.tar.xz"
-  sha256 "5f1156824c37e5dde6ec37c5b1c51d9806f6d0e97aeaeb1e6907d7aba15951d9"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-22.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-22.tar.xz"
+  sha256 "49de9e08ea255a1f939158d85d50dfa29285bccbdcb7fee0fe4309061d438489"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "565f35b2c3b7ee98f7caef383df2efced9d8b13f7321370870fbdc59ccda4ece" => :high_sierra
-    sha256 "e6771271b5a8989587766615ba6c93f2f823735e1a8da4c8c0006b9fe4119fb2" => :sierra
-    sha256 "6223f56153c1164b91705595ee74b6181b2c2b4e63935da7615c2cd48ff2191a" => :el_capitan
-    sha256 "244d5ec2e1efedea8a39b725d35a9c3322f6945848c322d16db089fb667d93b7" => :x86_64_linux
+    sha256 "18e44782f8e1933fd155e55265c96da1b11c8304e9f7dbd0f46eaab18f4ec186" => :x86_64_linux
   end
 
   option "with-fftw", "Compile with FFTW support"
@@ -54,7 +51,7 @@ class Imagemagick < Formula
   depends_on "openjpeg" => :optional
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
-  depends_on :perl => ["5.5", :optional]
+  depends_on "perl" => :optional
 
   skip_clean :la
 

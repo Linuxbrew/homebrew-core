@@ -14,7 +14,7 @@ class Libedit < Formula
     sha256 "4ca6431ac5f8e5c1d854c69eae28889b220482abb134831cf6a9a3bce80a1877" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "ncurses" unless OS.mac?
 

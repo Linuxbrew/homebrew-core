@@ -14,7 +14,7 @@ class M4 < Formula
     sha256 "5a2327087fb76145b4d0fb23acc244115adc3ced14ffc2a6231159a4f16c8a7f" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   # Fix crash from usage of %n in dynamic format strings on High Sierra
   # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>

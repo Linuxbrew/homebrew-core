@@ -15,7 +15,7 @@ class Unzip < Formula
     sha256 "fb94d99fcb5f703c3897727a37acdfaa931c75a3c6691bdac757f5e4ae7d3948" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "bzip2" unless OS.mac?
 

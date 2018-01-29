@@ -3,18 +3,18 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.4/gdcm-2.8.4.tar.gz"
   sha256 "8f480d0a9b0b331f2e83dcc9cdb3d957f10eb32ee4db90fc1c153172dcb45587"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     sha256 "7ca91961ffb0f74e9f055ece921101a23621c49a3130b06e6b4386ef374950e0" => :high_sierra
     sha256 "15626e2bd1f80f15d05562fd25697a0f54476196f3fe52bfb9fc67d432d34de4" => :sierra
     sha256 "51a57b3a49a2d65ceda86c6401303c514b940d9adeb54659d0d4aac34aa89fde" => :el_capitan
-    sha256 "bedd5bcaecf3a1d73ebbb0430d7954a78d00ef87587395894adbb456a02263c8" => :x86_64_linux
+    sha256 "2b712c520fe47082f408c75df0142d50422c717b0f829099900d82ef95572bb4" => :x86_64_linux
   end
 
   option "without-python", "Build without python2 support"
 
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on "swig" => :build if build.with?("python") || build.with?("python3")
 
   depends_on "cmake" => :build
@@ -22,7 +22,7 @@ class Gdcm < Formula
   depends_on "openjpeg"
   depends_on "openssl"
 
-  depends_on :python => :recommended unless OS.mac?
+  depends_on "python" => :recommended unless OS.mac?
 
   needs :cxx11
 

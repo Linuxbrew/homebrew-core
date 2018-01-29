@@ -4,14 +4,14 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
   sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
-    sha256 "3fba691b7c0df7b8dc941749ea5f4e4c3db3ca0b445412b0cb575aa3b1b71d37" => :high_sierra
-    sha256 "b4972b2e2a693b080518b3e2f4e749df550cbd5b4b9cd8e5773d2debce90ed69" => :sierra
-    sha256 "bffb176a37a98cc2eb75bd625d764775ff84dbef73276e7cd4fb4fb82d838b2b" => :el_capitan
-    sha256 "c1e84bceefc96e78f0461ace6495807827531d45173eda745bd184b11829be64" => :x86_64_linux
+    sha256 "8141b15d231787df0eae37c7d05621337f59f90f2703fd5e8adf17c7e16a1f3e" => :high_sierra
+    sha256 "1c378d48411a8ea062a97e3e4876a7d432f03e1b98df225d33568a17bbf719e6" => :sierra
+    sha256 "d7a2088d014c409bd6ac1d80fc04cdd9bee23ec35e83534b427c2260af9bbc5c" => :el_capitan
+    sha256 "9c358916373eaf873d8de80165a28126fed16eef2bcf7aa60ad7493dd2116f64" => :x86_64_linux
   end
 
   option "with-xz", "Include support for LZMA compression"
@@ -19,6 +19,16 @@ class Libtiff < Formula
   depends_on "jpeg"
   depends_on "xz" => :optional
   depends_on "zlib" unless OS.mac?
+
+  # All of these have been reported upstream & should
+  # be fixed in the next release, but please check.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-3.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-3.debian.tar.xz"
+    sha256 "c413f5b2423b95d8b068adca695f0ddaea5219088a1d38de4800b379bc20ca73"
+    apply "patches/CVE-2017-9935.patch",
+          "patches/CVE-2017-18013.patch"
+  end
 
   def install
     args = %W[

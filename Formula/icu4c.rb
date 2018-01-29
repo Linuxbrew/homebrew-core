@@ -15,7 +15,7 @@ class Icu4c < Formula
     sha256 "b83739278018fbb0014d306301e9bb93ac5a3e8bffa956ec3eb2c4f1aad78a36" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

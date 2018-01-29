@@ -3,36 +3,28 @@ class Qrupdate < Formula
   homepage "https://sourceforge.net/projects/qrupdate/"
   url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "cc98f58515cad95967f6ef0ec7e7dd6b7a00b0365f465c05d04c8b2d3908dd96" => :high_sierra
-    sha256 "6ed6531659001d949538c70ccfc4380b7cfaa4cae7be40947baba1cce596c005" => :sierra
-    sha256 "00f285ea5819d6dc6b5000c835b9b12da725c5a4c7e8049368581e7071fa087d" => :el_capitan
-    sha256 "773cb82bd7665e6948ca0a3d9dae7d2bcaf79c384b219a6bc1de5b0451e1d876" => :yosemite
-    sha256 "a467d9a9d8b2f05b1bd3146ddafb4e3439cb1d9b50cd07ce0dd1acbd7dae3c05" => :x86_64_linux # glibc 2.19
+    sha256 "840232d0b89e23401a97fab779ccc7ac4ebbe2084dab14885e84af782ae659bd" => :high_sierra
+    sha256 "13e312d56e25a4c3af283a09c8e08cee22a4da677e16388d6cc65910a7086ad4" => :sierra
+    sha256 "7615aa35c9399e47ee37a61a2431cde51c7976f1343e4bd85a55b1ea06075784" => :el_capitan
+    sha256 "6abda7f6108d68cb59133b67683973d7649531d54ecd50ad89027b6896f0762b" => :x86_64_linux
   end
 
-  depends_on :fortran
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
-  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on "gcc" # for gfortran
+  depends_on "openblas" unless OS.mac?
+  depends_on "veclibfort" if OS.mac?
 
   def install
     # Parallel compilation not supported. Reported on 2017-07-21 at
     # https://sourceforge.net/p/qrupdate/discussion/905477/thread/d8f9c7e5/
     ENV.deparallelize
 
-    args = %W[FC=#{ENV.fc}]
-    if build.with? "openblas"
-      args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
-    elsif build.with? "veclibfort"
-      args << "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
-    else
-      args << "BLAS=-lblas -llapack"
-    end
-
-    system "make", "lib", "solib", *args
+    system "make", "lib", "solib",
+                   *("BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" if OS.mac?),
+                   *("BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas" unless OS.mac?)
 
     # Confuses "make install" on case-insensitive filesystems
     rm "INSTALL"
@@ -47,16 +39,10 @@ class Qrupdate < Formula
   end
 
   test do
-    ENV.fortran
-    opts = %W[-L#{opt_lib} -lqrupdate]
-    if Tab.for_name("qrupdate").with? "openblas"
-      opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
-    elsif OS.mac?
-      opts << "-L#{Formula["veclibfort"].opt_lib}" << "-lvecLibFort"
-    else
-      opts << "-lblas" << "-llapack"
-    end
-    system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f", *opts
+    system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+                       "-L#{lib}", "-lqrupdate",
+                       *("-lvecLibFort" if OS.mac?),
+                       *("-lopenblas" unless OS.mac?)
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end

@@ -5,20 +5,19 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v2.0.2.tar.gz"
   sha256 "42e8cbcd27b85e60a165d1a28692098181813bbd9d7731a42b2cda68824c6c9d"
-  revision 1
+  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "3d9dfa4a5b811460a7b0107a99dbc09296b5ca8ca0ab97e07767bf7c800afd64" => :high_sierra
-    sha256 "77e2da2c4d982dfea9bac15642197826dd4f876ddeb9a8c7c907f28109efbe3b" => :sierra
-    sha256 "5159ac8e3751777f376168049fdf9726d1d596f4937d23bbb1c7f0e386f696c7" => :el_capitan
-    sha256 "0cbef5d89844ca8b4d13308675122d87c0242df777eb47f31905cc488c1e34a8" => :yosemite
-    sha256 "dbacb3873d4114297a0c506cf79a31615cb571d8636ffcef55fb130e15a9488a" => :x86_64_linux
+    sha256 "0c5bfb89a5e83fe35889bbdaa9de472e942d117d373737298376ca2cfa9887ff" => :high_sierra
+    sha256 "c520cfbd2e0c40acf9dd5a89c7b76e5403366e8c70a07d83cfa7bb3138fadd95" => :sierra
+    sha256 "ea761d922464e68c24665011fb6fa9949ea744e0eab56a438f18edef2c2be569" => :el_capitan
+    sha256 "a9f44133a2dd74d30128860f8d20d8329522536e33069a7d0169ccc2375bd628" => :x86_64_linux
   end
 
-  depends_on "openssl@1.1"
-  depends_on :python3
+  depends_on "openssl"
+  depends_on "python3"
   depends_on "protobuf"
   unless OS.mac?
     depends_on "libffi"

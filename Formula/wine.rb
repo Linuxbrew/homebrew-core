@@ -9,42 +9,11 @@ class Wine < Formula
   homepage "https://www.winehq.org/"
 
   stable do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.4.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.4.tar.xz"
-    sha256 "b5e07b350edd34e4fb2615edb143f832a208a939fc9937a819181eecaf32985a"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.tar.xz"
+    sha256 "346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec"
 
-    # Patch to fix texture compression issues. Still relevant on 2.0.
-    # https://bugs.winehq.org/show_bug.cgi?id=14939
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=52384"
-      sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
-    end
-
-    # Patch to fix screen-flickering issues. Still relevant on 2.0.
-    # https://bugs.winehq.org/show_bug.cgi?id=34166
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=55968"
-      sha256 "1b5086798ce6dc959b3cbb8f343ee236ae06c7910e4bbae7d9fde3f162f03a79"
-    end
-
-    resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.6.4/wine-mono-4.6.4.msi", :using => :nounzip
-      sha256 "91b7d58177b9a9355edf007dab94535471aebdddae12734ceb4a219d2ecc4152"
-    end
-  end
-
-  bottle do
-    sha256 "08c1b0d4e91869554617e0c69f71a168f611707971b970ee5ddb35883445d315" => :high_sierra
-    sha256 "f39a49f5fdc34166b2209f9dac924a2e6c27266d818c19e036f34e91c80d5d19" => :sierra
-    sha256 "7e5753439f64ef376821eb0150f0fa2593fc0f55d9cac25cb908c63471cd8b50" => :el_capitan
-  end
-
-  devel do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0-rc5.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0-rc5.tar.xz"
-    sha256 "4b4a9249db8b1ca6800421dd52f6ae411bbd81d75704022fdd464a8bc57dc206"
-
-    # Patch to fix screen-flickering issues. Still relevant on 2.14.
+    # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/74c2566/wine/2.14.patch"
@@ -55,6 +24,12 @@ class Wine < Formula
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
+  end
+
+  bottle do
+    sha256 "dd0f1dcf59471f1f6d3ad180e58aaedfa42e0fde6b6d97cdf4b00631c320ca43" => :high_sierra
+    sha256 "e75f25c644d7585571101611db70ccf57f51d5dcac34e0ac923228a5abcb6a58" => :sierra
+    sha256 "c445629c61f46c581aa33fa9149b6aa15bf4bdfbb3647dea26759ad206670730" => :el_capitan
   end
 
   head do
@@ -111,9 +86,9 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
-    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
-    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
+    url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
+    sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
   end
 
   resource "little-cms2" do
@@ -129,9 +104,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8.1/freetype-2.8.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.1.tar.bz2"
-    sha256 "e5435f02e02d2b87bb8e4efdcaa14b1f78c9cf3ab1ed80f94b6382fb6acc7d78"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
+    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
   end
 
   resource "libusb" do

@@ -3,14 +3,13 @@ class Vte < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz"
   sha256 "86cf0b81aa023fa93ed415653d51c96767f20b2d7334c893caba71e42654b0ae"
+  revision 1
 
   bottle do
-    sha256 "8af5602249d0434837489037c48812af2fbc9145f72dce7225b4a83612e3c7f8" => :high_sierra
-    sha256 "8fd13c859c3bf8f22017e98ea05486af32760ec0925b599ed46a3f09bdcc9128" => :sierra
-    sha256 "2d4c27bd624e106946dc839ecab9eea7b0ffd51cf9df82b2bb50673e25f3cb35" => :el_capitan
-    sha256 "bcde7d6b80b907ab67d76429618c1402e194c45dd6082d45f20a12af5c13bb0f" => :yosemite
-    sha256 "773d6ee5399c52d6c2d69061ec2bd7dd74c0138e4eaa307ddae863810efa1640" => :mavericks
-    sha256 "a9ccbd3fe2d35915e66779c98c3e6c3a89a48c46a3a3d5fd016689d2da5716a7" => :x86_64_linux # glibc 2.19
+    sha256 "ede19ccc89ee79e3de5f8f150621c4d4fd966e1fab0f251d26ed56087db00a7d" => :high_sierra
+    sha256 "3bb0bd706103b4d3744d3013955a7133864755d0df75c6309ef43a33a0526c1a" => :sierra
+    sha256 "5c7130cbecd9801ec2acee9190dc02ca8bc2ba70e696419aa6ef7fca10d4847b" => :el_capitan
+    sha256 "0c1d5ec27f9e64a9dee508dbfeea1e2c38707dfe4f2e1731766ed93c4c1d44a5" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -20,9 +19,12 @@ class Vte < Formula
   depends_on "gtk+"
   depends_on "pygobject"
   depends_on "pygtk"
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard || !OS.mac?
 
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}

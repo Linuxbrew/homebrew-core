@@ -1,22 +1,22 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.6.0.tar.gz"
-  sha256 "c9bec16f5b82873a59be079538192c0007359c612c0224b9c579dae18631e8c9"
-  revision 1
+  url "https://mikutter.hachune.net/bin/mikutter.3.6.1.tar.gz"
+  sha256 "852ebf397b07fd98db5ce8d12afce698ca96ff6cfb0f742ae2fd7417ec6dde89"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "3c7a0fe3cd2ef41e20e6bb65035ba24d80912f4bc61446042bd9ea36e1a250be" => :high_sierra
-    sha256 "99035a05e747c4d1fb2f8bdda4be20029550aa5f2a2625e3b64314d358c5db12" => :sierra
-    sha256 "a3df00ae61910fdcf4efe92248cd58b2f92d3c8110001ffce5f15f054c980f65" => :el_capitan
-    sha256 "7a0d7473876a43aad63032ff04eeb0d867066c12f9d17f90c493007c12577db9" => :x86_64_linux
+    sha256 "ac7147b19e9f3dac50e95a2ee43abc965f5bad60d4964c7b315df1fc0ac5203d" => :high_sierra
+    sha256 "244aeec203fe948056f30c46ce623ed6b0a39048f4198abca5ccfc1c88d92f5d" => :sierra
+    sha256 "466308cd18d16b174a0a3f361ead753809afecc49a8596b5dc9a990529747e9e" => :el_capitan
+    sha256 "09cc8147a6d2f5e6363cb1d7cfe983798f69dc4bd8d12267f3295f905a633c74" => :x86_64_linux
   end
 
   depends_on "gtk+"
   depends_on "libidn"
+  depends_on "ruby"
   depends_on "terminal-notifier" => :recommended if OS.mac?
-  depends_on :ruby => "2.1"
+  depends_on "xz" unless OS.mac? # get liblzma compression algorithm library from XZutils
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.5.2.gem"
@@ -54,8 +54,8 @@ class Mikutter < Formula
   end
 
   resource "diva" do
-    url "https://rubygems.org/gems/diva-0.3.0.gem"
-    sha256 "f019dc3206f966cf56affbbc2c91827f1f7abef87f38554448862aca68603dd8"
+    url "https://rubygems.org/gems/diva-0.3.1.gem"
+    sha256 "a8b5151497db49a12778401e20fe3405596a7d3a6a888be98124ec016b20ef58"
   end
 
   resource "gdk_pixbuf2" do
@@ -164,8 +164,8 @@ class Mikutter < Formula
   end
 
   resource "pkg-config" do
-    url "https://rubygems.org/gems/pkg-config-1.2.8.gem"
-    sha256 "9aff7ab9d6aea2218dba94791a1b3ba6f149fa57dc9c81634e54f0c59959d814"
+    url "https://rubygems.org/gems/pkg-config-1.2.9.gem"
+    sha256 "8880747a35362493a48dd331a40f9dab2e0469fe74a0899bd3559f810046b8d8"
   end
 
   resource "pluggaloid" do

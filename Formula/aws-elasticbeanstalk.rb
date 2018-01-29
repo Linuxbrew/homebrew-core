@@ -3,15 +3,15 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/e9/82/ef6f42b1a01772e7e9b0ecb1225bc55bd06a4f240e04991eb841d559f276/awsebcli-3.12.0.tar.gz"
-  sha256 "6db6aae69f5ec61048d2ac81fe2f1355cb1361a52ad23b6898f5f6b788565952"
+  url "https://files.pythonhosted.org/packages/2c/77/9ade0e1455d9b55cb1a48cdf7f789fe14c19a7f2548edee4af47495bda5d/awsebcli-3.12.1.tar.gz"
+  sha256 "7495eca3a80949619eef9f79432a95c927ecf711f0f4f4e37b84e298ccff638b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d207f4eeab0a523875daa5a9836ede61f346e9ed46b3b7d9a38c21f70e7a352c" => :high_sierra
-    sha256 "ddb90d10aa4616b390a7b4f3ab8d2b8e09ca4e447f4d8cd2ef0843e34acb633d" => :sierra
-    sha256 "1c6b7218472b429695d8390642fa2e53f2fec98e254190d030f919449d7b546f" => :el_capitan
-    sha256 "7b137c8adcaf98f1ddd8e2d2314602f031d49592c16c1dda1a66720624b27e77" => :x86_64_linux
+    sha256 "2d9d0b128623f85142e9ec5d3f42993e8c8a7cdaac045cf5a930e07548a9cd7a" => :high_sierra
+    sha256 "2179a59766199ecdd01b9bd84f55b278e020c206315b2f71eba514c51ec94b66" => :sierra
+    sha256 "ff0b0b1784ce687a878b34f40e3e3bda2e9d433b640a69e09b08992c96ab589c" => :el_capitan
+    sha256 "643de982e828ea87de1d9da501f8f957bfc46940af025358d6709dfa822bbe13" => :x86_64_linux
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
@@ -22,8 +22,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6e/25/9dceea9455b318af8befd7d1659411599da864ebfc811e99f3b2b088d514/botocore-1.7.34.tar.gz"
-    sha256 "7e048dcdb2bc5f2f35141542c872c602a08db921bafd42f21823c49756dc4e90"
+    url "https://files.pythonhosted.org/packages/fb/24/13b42563aaf30d815f81c6393c6d306a06523f9756063bfcb6cf15fef117/botocore-1.8.26.tar.gz"
+    sha256 "9bb609fc0c8b219fd8f209586508ea857c83b16042030507e3300042015a4326"
   end
 
   resource "cement" do

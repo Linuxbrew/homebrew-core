@@ -9,9 +9,18 @@ class Bedtools < Formula
     sha256 "ca1a234e9bcdb62f4c71aad27a12c1b286c0a0dd9101b22c8a55492c35b50a68" => :high_sierra
     sha256 "96e8d3f30f6b0f542b2fa17ce324d82c7c2ed1c8c579007fd7138dbbae63188e" => :sierra
     sha256 "56d2a63e1193f1326505c9a1829b7a4c6257261734a775fce0829cd7accb84f3" => :el_capitan
+    sha256 "ea46585cfb98f15b748777203db53e861c5bc2c99974b23580d7dc865bcdfce1" => :x86_64_linux
+  end
+
+  unless OS.mac?
+    depends_on "python" => :build
+    depends_on "zlib"
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     system "make"
     system "make", "install", "prefix=#{prefix}"
     prefix.install "RELEASE_HISTORY"

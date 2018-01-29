@@ -14,7 +14,7 @@ class Zlib < Formula
     sha256 "6f604280b9e056da163b81cef3076b2e39bbd2b8d3cc8c36d27c19c472c760a4" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   # https://zlib.net/zlib_how.html
   resource "test_artifact" do

@@ -1,19 +1,17 @@
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
-  revision 1
 
   stable do
-    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.31.tar.xz"
-    sha256 "68c1922732c7efc08df4656a5366dcc3afdc8791513400dac276009b40954658"
+    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
+    sha256 "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
   end
 
   bottle do
-    sha256 "9fdc12a30a9338224c7af6120e4dc916ae7ba557007eac348725a54adcaa2799" => :high_sierra
-    sha256 "860a8dd62ae8990a7dc3c403421fa3ee6bdf8ae810463fd5368094676b7c827d" => :sierra
-    sha256 "6be79985859e6f5a6bec18a23bf2bb5364b9f536bcd1283913d72f0cb32baa8c" => :el_capitan
-    sha256 "f18ee768ba59c29741133b7427f28ffdb2d615eb1c783d5b2995249b8b473086" => :yosemite
-    sha256 "e07b24058eb4f838088c58dd400b25d0400bdbb0eacec44a215c6c1713e4ad3f" => :x86_64_linux # glibc 2.19
+    sha256 "fddc3c3e42a03fcd44088060a87adde38153c6dbc4a4db4bbb6ea6fe82502ea6" => :high_sierra
+    sha256 "64652ec795e1e5bef45edcae0e73207c8bd943834e0ab33cfa72a0ec309ea964" => :sierra
+    sha256 "a3797a10d8c6351eb85d60280b7e3ed19e0fd3251df74561b1bde80220eab6d6" => :el_capitan
+    sha256 "b8355c09fc8792b02bfc72082f220aa8e166d33c8d92e949e4178e408751f0df" => :x86_64_linux
   end
 
   head do

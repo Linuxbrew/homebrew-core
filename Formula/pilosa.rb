@@ -1,16 +1,15 @@
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.8.3.tar.gz"
-  sha256 "ecf59f8296424e1661965430202d04e19ccb1cdfd595a66959f6665b16db31dd"
+  url "https://github.com/pilosa/pilosa/archive/v0.8.5.tar.gz"
+  sha256 "5090811adda9857285f4e0e4ea2cf8e2dd66730fc8b2d5642d3e30bf4ba4731f"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2e64a75a94801252b2577415e17e6ae86cec6527e160a594efe68a1652e89931" => :high_sierra
-    sha256 "15c7355adb18fbe2f5243668dbb474dccb5321c615034cb2d85fa8ca35f5bab7" => :sierra
-    sha256 "1bcdd2852c3326df870aa5780f240950b67c8f6db7c915a7ac004d762211a0e8" => :el_capitan
-    sha256 "68473a5508ed5c5051bcaf297a789aa1c95f051285ab096de8f21fa9aa5d324a" => :x86_64_linux
+    sha256 "7f6ec17d560337d139123507c2ae67ecba76e21bd2f510be77ca2221465f4a1a" => :high_sierra
+    sha256 "69329b7dc35640530c9f177aee9f21b7bbaf4c98e648b8ad3be9771066e6092e" => :sierra
+    sha256 "cbcf7f0754f0334c9674540e5dc7f79e609ea2cced4d89a0ba72f5fd4c2fe193" => :el_capitan
+    sha256 "ee55748bc2de88fec4b662de69ee298690bbe1bcd72e339ead4732147521de5e" => :x86_64_linux
   end
 
   depends_on "dep" => :build

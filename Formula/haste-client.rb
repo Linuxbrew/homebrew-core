@@ -1,8 +1,8 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
+  revision 3
   head "https://github.com/seejohnrun/haste-client.git"
-  revision 2
 
   stable do
     url "https://github.com/seejohnrun/haste-client/archive/v0.2.3.tar.gz"
@@ -18,13 +18,13 @@ class HasteClient < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2bd39925b80e6c0d05ad4160fb7c4959063f1a3ed585e06c12690fb7bb738f9c" => :high_sierra
-    sha256 "f0abc49274875fee34e1cfd61163c1687934d4f89193774c36cbdaec61f8c479" => :sierra
-    sha256 "1186a48c9fa3ca1e284b920141e5c64e7e5d804e2ea43e63a32b1b2477ee8464" => :el_capitan
-    sha256 "de4964fe7286bf34e311bf39ea32f48a63efc5e8d0ec00157695a93667dec84f" => :x86_64_linux
+    sha256 "e11fbbf6bab06ef1bda10174f263bf16fe7de2c3b8969b36bdaf178b171f8abf" => :high_sierra
+    sha256 "85c7c24c6cb14d5cb948481aeac65928339dec7ff2ecc4220ccd5fb3bebfba79" => :sierra
+    sha256 "2d6cee84eee9e2a0fc75a03ca6fbdb970dfa9ac6ecdeea6a4e32537ee1869fbf" => :el_capitan
+    sha256 "62c7c63b5209f5059f0bd5ccd9f09c1fc7b53c74e0b28d1daa5d948471008c81" => :x86_64_linux
   end
 
-  depends_on :ruby => "2.3"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "faraday" do
     url "https://rubygems.org/gems/faraday-0.12.2.gem"

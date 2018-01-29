@@ -13,7 +13,7 @@ class Libarchive < Formula
     sha256 "0fc50ba48259f8af6b0c52e2391ff4ee5bae0d6f0458a2ca74debdc1fa958288" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "xz" => :recommended
   depends_on "lz4" => :optional

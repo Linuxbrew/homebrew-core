@@ -11,9 +11,11 @@ class Blast < Formula
     sha256 "8d21490761a54f139a503886e2323cc0b8787b4c53d97b0b6db3a3272be2a22f" => :high_sierra
     sha256 "de7ffc542448f52cb3530f9e2249b6b33119484b252f19a659056650de21c0d0" => :sierra
     sha256 "923382e15b9ece9d81579fc8791f680d450826cbefcad7eda0d3c3fae40682a6" => :el_capitan
+    sha256 "86f266268c04b3c0432edfdd5cc7bf5fae726c1c97fc01794fd5ba5378da1bf8" => :x86_64_linux
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "cpio" => :build unless OS.mac?
 
   # Remove for > 2.6
   patch do
@@ -22,6 +24,9 @@ class Blast < Formula
   end
 
   def install
+    # Reduce memory usage for CircleCI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     cd "c++" do
       # Use ./configure --without-boost to fix
       # error: allocating an object of abstract class type 'ncbi::CNcbiBoostLogger'

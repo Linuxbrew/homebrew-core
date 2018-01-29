@@ -1,14 +1,14 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-19.0.0.tar.xz"
-  sha256 "4b4af84cfdf3062f8ca4ab3c37854be7cd9a71bcf5c46b8ca805a101d414b6a1"
-  revision 1
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-20.0.0.tar.xz"
+  sha256 "6f4b86a16af1f979ce2e83e64223b1bb8635ac8f81863d8ce46014a82c8bf500"
 
   bottle do
-    sha256 "5cf269cfd06131fb79196e4fb5c7e9e78f6d1f9aff2f4fe1bfa0a90e88cee977" => :high_sierra
-    sha256 "7a63e0f6804e269015b702d2155045cfec5b013164339630850ef6895fdceec6" => :sierra
-    sha256 "0808e15cf8eac4519a0d97398e410c48f50a2b9f736d0d93d2bb5064e449e75c" => :el_capitan
+    sha256 "36081c1268bfe99a5349f158eb29bfe16d1a8dada1aa31f59218b4b8502d06a1" => :high_sierra
+    sha256 "2cb43d0ef9a83b0b4a3545e67c6e2b052c768ab5611ec9aa507b2ff0c321eb1b" => :sierra
+    sha256 "aab65265f17ee544656e500594f63193cb616066b0d80068615000ea0e310309" => :el_capitan
+    sha256 "3e2dce4b3f1b71e8eb9b2a0767e68c8d4d8f0150397130937a5d9d584ef4f4e2" => :x86_64_linux
   end
 
   head do
@@ -25,7 +25,7 @@ class Mkvtoolnix < Formula
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
-  depends_on :ruby => ["1.9", :build]
+  depends_on "ruby" => :build if MacOS.version <= :mountain_lion || !OS.mac?
   depends_on "boost"
   depends_on "libebml"
   depends_on "libmatroska"
@@ -33,12 +33,19 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
+  depends_on "gettext" => OS.mac? ? :optional : :recommended
   depends_on "qt" => :optional
-  depends_on "gettext" => :optional
+  depends_on "cmark" if build.with? "qt"
+  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
 
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?
+
     ENV.cxx11
 
     features = %w[libogg libvorbis libebml libmatroska]
@@ -78,7 +85,7 @@ class Mkvtoolnix < Formula
 
     system "./configure", *args
 
-    system "rake", "-j#{ENV.make_jobs}"
+    system "rake", *("--trace" if ENV["CIRCLECI"]), "-j#{ENV.make_jobs}"
     system "rake", "install"
   end
 

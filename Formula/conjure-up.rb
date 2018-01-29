@@ -3,15 +3,15 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.1.tar.gz"
-  sha256 "daf4c32e162506ac90acdaa52b2f85f106fe4aa58a9c88cc992b5ebb9d64f378"
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.2.tar.gz"
+  sha256 "7d1aa8f034d44d12b341be86e7dfc74a844f21750ed6ac8f968cc47b7a1c9973"
 
   bottle do
     cellar :any
-    sha256 "cae80e6938c7ae1fd6561253f44001ec83e542d5b01a7c2ae942716473d93088" => :high_sierra
-    sha256 "3ce60268ca63b6acb1069de0b28b35535ff9740aa2f8008bd145f849c535abcc" => :sierra
-    sha256 "a798f99a7b6907d29cf0051effa21946cbbcaa7009d590ec557dbaf8c45d153a" => :el_capitan
-    sha256 "b9c86c15d6f0fc57cc544e442ff4dcc9f51ab5b59c26ca35fb9d7b185bf77c98" => :x86_64_linux
+    sha256 "9f9f6df0594c7edba201e680d167af113377f5e2caa9fa1909a6b3d418b466d6" => :high_sierra
+    sha256 "07a6a2cea95ef12a8bf525c6c1b9211fe9c770be8bda16081ad1ce928a3095d3" => :sierra
+    sha256 "eb01b2cfad61bf1412ce6bb3e6a4852bb84bca49a346871da603b74bfd6cb0b0" => :el_capitan
+    sha256 "2c2a9feb0f5730d1cff9a2194580135b349996b0a4fade32cdf437310bb301c7" => :x86_64_linux
   end
 
   depends_on "libyaml"

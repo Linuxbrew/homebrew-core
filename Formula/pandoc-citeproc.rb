@@ -5,15 +5,15 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.12.2.5/pandoc-citeproc-0.12.2.5.tar.gz"
-  sha256 "ddfb40b4ff42e1781172bf1077e344fb8909df99b3463c12b39f5a46ddb2a8d0"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14/pandoc-citeproc-0.14.tar.gz"
+  sha256 "a2906864e0312f59c644e4e7bb86c888c84e7f78d7b66d6e789864beb39b6bdd"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "100d0ef1cccf69729f4176a2de08ca856b29610731433768268d17f95fa0daff" => :high_sierra
-    sha256 "85dda805b8cc8ee862811bd656359193e70ac8782781a3d352144910492847f8" => :sierra
-    sha256 "795cca06f55370047310d5be5a47a1cd9fe8865590f582b247cbbcf4181fd1a7" => :el_capitan
-    sha256 "7ababc71d7a74bc3e6ff03d1b808a53f7664515b25f38614a92973bbb3b8fb44" => :x86_64_linux
+    sha256 "dae3fbb40f5db40d530a6ae0a9e9de775df13297206821116eeed0aeab05608e" => :high_sierra
+    sha256 "f999b43bfb052384a669af2573e56436bfd50c06cb102ce862340eae50c0b4b9" => :sierra
+    sha256 "aab25851baa2c1a3423c677e667d6b61407a8cef40d4b39f2b88b66e08e2000b" => :el_capitan
+    sha256 "ce7fdca20b3b25b7a662c00be2b520efc65a757e82a003450e2a369b4cc598ec" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
@@ -45,7 +45,7 @@ class PandocCiteproc < Formula
         - family: Doe
           given: John
         issued:
-        - year: '2005'
+        - year: 2005
         title: First book
         publisher: Cambridge University Press
         publisher-place: Cambridge

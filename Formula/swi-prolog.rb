@@ -1,19 +1,19 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/stable/src/swipl-7.6.3.tar.gz"
-  sha256 "9c0be513dc98e6ca420d109f7a455a6593840682cf1b0e21876d1e71e7f35d39"
+  url "http://www.swi-prolog.org/download/stable/src/swipl-7.6.4.tar.gz"
+  sha256 "2d3d7aabd6d99a02dcc2da5d7604e3500329e541c6f857edc5aa06a3b1267891"
 
   bottle do
-    sha256 "bda74534dcb93d046b43b88675092762a498cd85ffb101816011c2de5ca51a2b" => :high_sierra
-    sha256 "6549e63e9b1cd04f0d6cf935dad538d08ebf672f65fb5a72485b7476e8c4ddbd" => :sierra
-    sha256 "fb5391ef29bac81e9e7d75bf926c6daa270998b121f707eea42bc3743c02f7c0" => :el_capitan
-    sha256 "b163e12a5b096c896adf65a6e5ba4b677918bf72d703bf369c69f7ca8db963b4" => :x86_64_linux
+    sha256 "7a1a76d4b9160e0fea1899a8af0dcd448f71efef8476b1732d75e8d0339ac419" => :high_sierra
+    sha256 "af00bfcc0da68a800dd50e608aabc6620db00de1a7bf1b986a7bc49ae58ea234" => :sierra
+    sha256 "2016d9b076b252805f48f705181d03cd26183b0f74a026c029cd34f9e8afb79d" => :el_capitan
+    sha256 "7b86e11f244c21051f94c9ffd2648f3411131f58b5b6efcf2830c3982c1257a8" => :x86_64_linux
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.7.tar.gz"
-    sha256 "0b0ca7832fcfebbf8b9d707aeccb13c926dc18ca7dd68dec206fb9868a75a232"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.8.tar.gz"
+    sha256 "4123ceecd349c73eb1196ff04eb0ca77df5b60171016819ba4e9b9c132f0a032"
   end
 
   head do

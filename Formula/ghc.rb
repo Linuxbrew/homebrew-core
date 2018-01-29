@@ -34,7 +34,7 @@ class Ghc < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on :macos => :lion if OS.mac?
-  depends_on :python3 => :build if build.bottle? || build.with?("test")
+  depends_on "python3" => :build if build.bottle? || build.with?("test")
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "m4" => :build unless OS.mac?
   depends_on "ncurses" unless OS.mac?
@@ -147,8 +147,8 @@ class Ghc < Formula
       # Change the dynamic linker and RPATH of the binary executables.
       if OS.linux? && Formula["glibc"].installed?
         keg = Keg.new(prefix)
-        ["ghc/stage2/build/tmp/ghc-stage2", Dir["libraries/*/dist-install/build/*.so",
-            "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"]].each do |s|
+        ["ghc/stage2/build/tmp/ghc-stage2"].concat(Dir["libraries/*/dist-install/build/*.so",
+            "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"]).each do |s|
           file = Pathname.new(s)
           keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.dynamic_elf?
         end

@@ -1,8 +1,8 @@
 class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
+  revision 2
   head "https://github.com/kontena/kontena.git"
-  revision 1
 
   stable do
     url "https://github.com/kontena/kontena.git",
@@ -152,13 +152,13 @@ class Kontena < Formula
 
   bottle do
     cellar :any
-    sha256 "595afdf31f9a686b55931a8701950b7aa29d882769201076297baf05af61b76d" => :high_sierra
-    sha256 "455b8d8bd91f8e7b65fed3a3be4ccde65a73abd3df6ba302c176295a25fa7a80" => :sierra
-    sha256 "db485586cbe945b34c167f8daf7813048759cb32674f5099606539f2147b87af" => :el_capitan
-    sha256 "e740f69d79ae21e90396cff61ab45b6305d16effb51ac3149a8a4a59721bf1e9" => :x86_64_linux
+    sha256 "6c6d1d6aee7b339f81b64bac2fe8932e903494fef93a2845d2ac97ddf6ea1851" => :high_sierra
+    sha256 "ab74b8585a37a0e480328d20ae44cb44959aca029eb2a5f0d3ecd46352f1ef33" => :sierra
+    sha256 "b0df339a2370a98e557e9710695b1be87dcdaba8ecaafc4ee66bf121e9d416d6" => :el_capitan
+    sha256 "ad3f181c65882503709a208a1dbe9e3a0d08b0bbeb3f4763fe41a16fd2d63bcf" => :x86_64_linux
   end
 
-  depends_on :ruby => "2.1"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     ENV["GEM_HOME"] = libexec

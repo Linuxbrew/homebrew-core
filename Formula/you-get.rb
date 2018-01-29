@@ -5,17 +5,18 @@ class YouGet < Formula
   homepage "https://you-get.org/"
   url "https://github.com/soimort/you-get/releases/download/v0.4.1011/you-get-0.4.1011.tar.gz"
   sha256 "0f0504c7049ee8b664c60b184a49bf494d2783d6d86cdd13d260b0e8ecd5ca40"
+  revision 1
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70f791b3a5c497cf13327205019235d30d927b3f3f38f794012116416843003c" => :high_sierra
-    sha256 "58fa58f07a1ef5c08b0ce11fd692cfe8d610672fafd5f119480de9271f81f022" => :sierra
-    sha256 "24c5d9053d7cc080c1c5fef9c341cf30f9c5a4e17f81579e9cb745102e0aac43" => :el_capitan
-    sha256 "172e8fbc653ea44dd7012de769b1933b870c3dfe99a16c34da375c1b2f8b04b2" => :x86_64_linux
+    sha256 "0bf36a3d3d48ea141b7287c98d8804004aca43cb0c8a261a5be52ef2277f2630" => :high_sierra
+    sha256 "f08df909178b648bea1c32077a413100bd82e6906c1a3764bf1fbe153d54b8cb" => :sierra
+    sha256 "df84283a5e29cd71b0468680352fba7024affc46f8a1c55d420149dcdf0a3403" => :el_capitan
+    sha256 "355c81a589148aefcd96ccc5e5ebf8450dbabd523f2b1ff9fd8f9f21cf3436b8" => :x86_64_linux
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   depends_on "rtmpdump" => :optional
 

@@ -3,21 +3,21 @@ class Spades < Formula
   homepage "http://cab.spbu.ru/software/spades/"
   url "http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1.tar.gz"
   sha256 "3ab85d86bf7d595bd8adf11c971f5d258bbbd2574b7c1703b16d6639a725b474"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "33703ec0e665cfdb383134a3acd52c2422a21b141f7bf7b5817f4ddcfb9dd68b" => :high_sierra
-    sha256 "a243edfa5fc7ac9f76749ded4ba508b6edd020ff937fa0f5e7b35af14af1a91b" => :sierra
-    sha256 "61f9df50e6d477e5363790e19a8a2a273f7dddbbafc2205739487d0141ae330e" => :el_capitan
-    sha256 "d59826d09f5395489509b4d5025e36d65af2cc0f72ebcc7b410f1767086bbb82" => :x86_64_linux
+    sha256 "ac5ba28bf8f5a036fef692e9bac49b0a639498a8cad6a147a60278718d7e2dd5" => :high_sierra
+    sha256 "d76f3eaab06132b2abc7111cc0bddb28b83c5bd587838f369059511887d9fe00" => :sierra
+    sha256 "b987897ae0e825ef61471d32a210fadfe54abf3aa8a785d64699d0f123971537" => :el_capitan
+    sha256 "1bea6164c9a61d187b7965275f80a9c3c9a5a828ad16ac08e263d2f131489f7a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "python" if MacOS.version <= :snow_leopard
 
-  needs :openmp
+  fails_with :clang # no OpenMP support
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

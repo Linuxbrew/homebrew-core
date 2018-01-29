@@ -18,14 +18,14 @@ class AlsaLib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
-    #include <alsa/asoundlib.h>
-    int main(void)
-    {
-        snd_ctl_card_info_t *info;
-        snd_ctl_card_info_alloca(&info);
-        return 0;
-    }
+    (testpath/"test.c").write <<~EOS
+      #include <alsa/asoundlib.h>
+      int main(void)
+      {
+          snd_ctl_card_info_t *info;
+          snd_ctl_card_info_alloca(&info);
+          return 0;
+      }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lasound", "-o", "test"
     system "./test"

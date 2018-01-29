@@ -102,7 +102,7 @@ matrix:
     - os: linux
 
 script:
-  - brew test-bot
+  - brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
 
 notifications:
   slack:

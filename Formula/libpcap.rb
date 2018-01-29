@@ -14,7 +14,7 @@ class Libpcap < Formula
     sha256 "99c2ac9cf9224caf95b5b61259bedba02ad68ce283466912d80278b4e3fbd1cc" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   unless OS.mac?
     depends_on "bison" => :build

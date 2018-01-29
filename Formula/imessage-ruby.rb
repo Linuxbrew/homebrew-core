@@ -18,7 +18,7 @@ class ImessageRuby < Formula
   depends_on :macos
 
   def install
-    rake "standalone:install", "prefix=#{prefix}"
+    system "rake", "standalone:install", "prefix=#{prefix}"
   end
 
   test do

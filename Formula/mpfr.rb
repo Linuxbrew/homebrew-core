@@ -1,38 +1,22 @@
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "http://www.mpfr.org/"
-  url "https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-3.1.6.tar.xz"
-  sha256 "7a62ac1a04408614fccdc506e4844b10cf0ad2c2b1677097f8f35d3a1344a950"
+  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.0.tar.xz"
+  mirror "http://www.mpfr.org/mpfr-4.0.0/mpfr-4.0.0.tar.xz"
+  sha256 "fbe2cd1418b321f5c899ce4f0f0f4e73f5ecc7d02145b0e1fd096f5c3afb8a1d"
 
   bottle do
     cellar :any
-    sha256 "ff2f02099a071f15f73ac776026c30e33bb43f9b389b19b87f575cd9bd4ac0bb" => :high_sierra
-    sha256 "a8f99b5754688942fdb644a6c00f37d3c4311bcd4477f58b6dc356b0f32ee29d" => :sierra
-    sha256 "853b75811634d2d0f10772dd68f0b81b46af29dab53588edcac1cd2bebc16a3c" => :el_capitan
-    sha256 "e1687f23e9e15cad619bd857ecb06de89add3f9f392e426484c10daa0a4c7ec0" => :yosemite
-    sha256 "0c55b9bbdab9f6b4821157d5b9c585f2792ab1de2a994917c92dec877ae0f3c1" => :x86_64_linux
+    sha256 "e09cdf149a648968e92fb36f88e00746c9e63424f25738bebddb85904c27ba10" => :high_sierra
+    sha256 "ff7915ee0cc083fda9c60d1a6c57686d3c64a06cb688965057072cb8b52bce92" => :sierra
+    sha256 "01a35f06478a922f99469c2a98bf4de316a4a1271136941078483dc706a12131" => :el_capitan
+    sha256 "4c5baae6c9f8e4cefb94c67aad7bfa23f5a4096e27f4207e63b111c829cc6499" => :x86_64_linux
   end
-
-  option "32-bit"
 
   depends_on "gmp"
 
-  fails_with :clang do
-    build 421
-    cause <<~EOS
-      clang build 421 segfaults while building in superenv;
-      see https://github.com/Homebrew/homebrew/issues/15061
-    EOS
-  end
-
   def install
-    ENV.m32 if build.build_32_bit?
-
-    # Fix error makeinfo: command not found
-    # The mpfr.info timestamp is older than the mpfr.texi timestamp.
-    touch "doc/mpfr.info"
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make"

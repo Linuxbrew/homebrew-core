@@ -4,12 +4,13 @@ class Gawk < Formula
   url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.0.tar.xz"
   sha256 "d4f3cd31c001fd0ed52832d4fbfbdfeaa38ad541c182f80ff8fdf87324a6a9f2"
+  revision 1
 
   bottle do
-    sha256 "8f594a72cd1f11264f1a5df92f0318ab4ef3fe1772ca157f1b8a27d2be79dd26" => :high_sierra
-    sha256 "604603592f400a332898ec34e8e0efc4abd636b6983540f20b5d693531c64d8e" => :sierra
-    sha256 "ddb688892a4ba768a8d0d21c6a643c6a0efe327e35f1a19b0064a42ab228b033" => :el_capitan
-    sha256 "23b131021adc099e3f34fc1738896407aef977130531a49e049e314f118beca8" => :x86_64_linux
+    sha256 "506f2f173b24afbf3467a5408a4268bbb749b0eccfa354a8c3a2c3139fd1deed" => :high_sierra
+    sha256 "ec83ac264e9a13b6e83bd70e5f0d965e78ba46837244b224d0fae90f7e66631c" => :sierra
+    sha256 "5c463865ee87a53bd13b380552a4dcfc4933fe100e2c740586ba69d1eb870c2e" => :el_capitan
+    sha256 "2b778dd1cbe0b95402a70f723f97911778d6c07dc81daf51944dcdfe2893ed39" => :x86_64_linux
   end
 
   depends_on "mpfr"
@@ -22,7 +23,7 @@ class Gawk < Formula
                           "--without-libsigsegv-prefix"
     system "make"
     if which "cmp"
-      system "make", "check"
+      system "make", "check" if OS.mac?
     else
       opoo "Skipping `make check` due to unavailable `cmp`"
     end

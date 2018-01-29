@@ -2,14 +2,15 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.5.1",
-      :revision => "d1d38e9b2d5600a3485442b75641bf73b566313b"
+      :tag => "0.6.0",
+      :revision => "28019a2de56f2f383e5e161e7a32087030239239"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb551bfa0db0374198b07387b6ecbe1278ae12c6012cbb2389da687f343824e6" => :high_sierra
-    sha256 "d3cd94acd089f7ab4a2d301363841bffbd34d7338b7912e187420ea1551f5503" => :sierra
-    sha256 "39218f56765ec45c8288807b97d2fe4c78106d4159abca5d4d8f5958a400ded1" => :el_capitan
+    sha256 "8fe8ef333c838a6d376ceb2d47a1af01ac1dbbfcd5de586c19301f745f75a41b" => :high_sierra
+    sha256 "3eec171a1639a953ab1b1c1fc505b8220e1ed9b57e2378c322edf64bcad97105" => :sierra
+    sha256 "3453158cdacf10d4cb3d980263a65b7f0ec2e5fdcded48024675cb1c49a32242" => :el_capitan
+    sha256 "c1606821a69358d56e3d26141dd867a4b1fae566bf8458cdfed9d8d9eb8d76dd" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -64,18 +65,17 @@ class FaasCli < Formula
 
     expected = <<~EOS
       Deploying: dummy_function.
-      Removing old function.
-      Deployed.
-      URL: http://localhost:#{port}/function/dummy_function
+      Function dummy_function already exists, attempting rolling-update.
 
-      200 OK
+      Deployed. 200 OK.
+      URL: http://localhost:#{port}/function/dummy_function
     EOS
 
     begin
       cp_r pkgshare/"template", testpath
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output
+      assert_equal expected, output.chomp
 
       rm_rf "template"
 
@@ -86,7 +86,7 @@ class FaasCli < Formula
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output
+      assert_equal expected, output.chomp
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]

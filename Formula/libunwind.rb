@@ -23,7 +23,7 @@ class Libunwind < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #define UNW_LOCAL_ONLY
       #include <libunwind.h>
       #include <stdio.h>

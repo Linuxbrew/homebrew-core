@@ -1,6 +1,6 @@
 class Cockatrice < Formula
-  desc "Virtual tabletop for multiplayer card games"
-  homepage "https://github.com/Cockatrice/Cockatrice"
+  desc "Cross-platform virtual tabletop for multiplayer card games"
+  homepage "https://cockatrice.github.io/"
   url "https://github.com/Cockatrice/Cockatrice.git",
       :tag => "2017-11-19-Release-2.4.0",
       :revision => "4d641eb0e723bf4f83343a3b3c6650a1008793f8"
@@ -15,7 +15,7 @@ class Cockatrice < Formula
     sha256 "a2cdd5af63512f981696e6dae273ffdad8b7ea78dc646e4bb16a61a1904d118d" => :x86_64_linux
   end
 
-  depends_on :macos => :mavericks
+  depends_on :macos => :el_capitan
   depends_on "cmake" => :build
   depends_on "protobuf"
   depends_on "qt"
@@ -31,7 +31,6 @@ class Cockatrice < Formula
       system "make", "install"
       prefix.install Dir["release/*.app"]
     end
-    doc.install Dir["doc/usermanual/*"]
   end
 
   test do

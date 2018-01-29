@@ -3,18 +3,19 @@ class Py3cairo < Formula
   homepage "https://cairographics.org/pycairo/"
   url "https://github.com/pygobject/pycairo/releases/download/v1.15.4/pycairo-1.15.4.tar.gz"
   sha256 "ee4c3068c048230e5ce74bb8994a024711129bde1af1d76e3276c7acd81c4357"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "59c42199630db8cf62329d804669d56efabc98ac476e01511b40f72e0f781756" => :high_sierra
-    sha256 "57ac45f5e597588478ed3c1eeda5f1918d11816a7fb29396add5616c7f86d89a" => :sierra
-    sha256 "d1315a45a52290fbffd8ecd7a21f05c36a21fc50110a0f63a4a11caa736faa22" => :el_capitan
-    sha256 "c38e01dca83ca01b9a9dc84e1c09b9eecd255dd1b9063a70782b7e092409f181" => :x86_64_linux
+    sha256 "6e406c3d2a25243a94dc431943af690609c05e3c5f249aa92aaf50990a3f8bab" => :high_sierra
+    sha256 "6a920f844ddc419ab1606ec5883dcde4591fd10d09df0db00e0c36f7c89c6579" => :sierra
+    sha256 "f87c163a44a9600cd6a7cff663d49cac28262c02c71978353c880571f7046283" => :el_capitan
+    sha256 "021391d84d08fc6f6b19b51461f9522c87045b53db6c22b8dd1e728d8ceb8846" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on :python3
+  depends_on "python3"
 
   def install
     system "python3", *Language::Python.setup_install_args(prefix)

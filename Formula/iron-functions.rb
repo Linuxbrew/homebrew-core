@@ -1,15 +1,15 @@
 class IronFunctions < Formula
   desc "Go version of the IronFunctions command-line tools"
   homepage "https://github.com/iron-io/functions"
-  url "https://github.com/iron-io/functions/archive/0.2.69.tar.gz"
-  sha256 "92814a6049b20d7e6a9c3653a25484a50808a080603251bea6c63b0caa074d91"
+  url "https://github.com/iron-io/functions/archive/0.2.72.tar.gz"
+  sha256 "8022db6eb7354003810bdb98250d4c2931dacb527dd1a5369686c9674b5ef649"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "831bf1e125e7f98e4a954a9cd2643ed5d8da0ca875755ea41d4e3e13a51cd3a1" => :high_sierra
-    sha256 "93a44cadfc23f995d90985c5ba9282dc8d95ddf202ec9227109178231e0efc11" => :sierra
-    sha256 "de0f0b61cac685f7942a0491fd8dcd2f56de4b367afa081e8b7654c42a9116f5" => :el_capitan
-    sha256 "775ed2f4c2fc6c821111a15fedddd9183b505532c1f21efd1e2170283fbad62f" => :x86_64_linux
+    sha256 "0c7b0ffb269c9f977cd2c10d7bd838257ff49ebf9bf99967deda27cdcdc3420f" => :high_sierra
+    sha256 "9a2edabc008d14c1eabbda2cb0c1368a39b69f842d78f2b9fb0fd25d50cabeca" => :sierra
+    sha256 "874a0fb12f7aaca58e8da405a0930cb108fd505a547355ac4bc8ddceec083816" => :el_capitan
+    sha256 "d83e7c0c4f71fc82044b158b74fdcf14e95447ac49881f8c245e545eb6537abc" => :x86_64_linux
   end
 
   depends_on "dep" => :build

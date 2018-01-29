@@ -22,6 +22,7 @@ class Rust < Formula
     sha256 "be4b6c1711d42886bf77e72e1d27bfc954b271ec0de4f693119dd58c6e312068" => :high_sierra
     sha256 "4ba3ca650dd74fcbfaa7be2dbeafe3cdf9e7b0528bedfdfe2a3148debde818c9" => :sierra
     sha256 "b8303377de5e16bd7d4fee633ec82f359bc7fec63a2855c5596db4e3943d9e5d" => :el_capitan
+    sha256 "6012334f9227d291a40d8f0d8acac0b325efe575dcf36cb506f7f6d61510d786" => :x86_64_linux
   end
 
   head do
@@ -44,7 +45,7 @@ class Rust < Formula
   unless OS.mac?
     depends_on "binutils"
     depends_on "curl"
-    depends_on :python
+    depends_on "python"
     depends_on "zlib"
   end
 
@@ -64,14 +65,23 @@ class Rust < Formula
       sha256 "1eac1e406efed2472cbeac6316677c1ada90acc77eb7b3fee8a9573c23b02a5f"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2017-11-12/cargo-0.23.0-x86_64-apple-darwin.tar.gz"
+      url "https://static.rust-lang.org/dist/2017-11-22/cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "0540d18adbe45d922d54a581c3766abacafddf08a059abf101cd4a528e45fe74"
     end
   end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8 -l2.5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1 -l2.0" if ENV["CIRCLECI"]
+
+    # Remove for > 1.23.0; fix build failure on APFS
+    # See https://github.com/rust-lang/cargo/pull/4739
+    if build.stable? && MacOS.version >= :high_sierra
+      inreplace "src/stage0.txt" do |s|
+        s.gsub! "date: 2017-11-20", "date: 2017-11-23"
+        s.gsub! "rustc: 1.22.0", "rustc: 1.22.1"
+      end
+    end
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"

@@ -3,17 +3,18 @@ class Googler < Formula
   homepage "https://github.com/jarun/googler"
   url "https://github.com/jarun/googler/archive/v3.4.tar.gz"
   sha256 "187d9369ed0d7d2db118a0144ccbc54f18a1b8e7ef24921571b80dbaaad726aa"
+  revision 1
   head "https://github.com/jarun/googler.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :high_sierra
-    sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :sierra
-    sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :el_capitan
-    sha256 "74fb9011cdd468da698af475e47ceb59b6760886294aac13c8768742aae08d32" => :x86_64_linux
+    sha256 "4a89cfbe31f679fad1a15cc900718ea76246e7802718e62e6fc7b14c46ef2dc5" => :high_sierra
+    sha256 "4a89cfbe31f679fad1a15cc900718ea76246e7802718e62e6fc7b14c46ef2dc5" => :sierra
+    sha256 "4a89cfbe31f679fad1a15cc900718ea76246e7802718e62e6fc7b14c46ef2dc5" => :el_capitan
+    sha256 "8bc0193274fdf7f5a5a4d9609481dc745b314cbe55a9f28ffec7285de021871e" => :x86_64_linux
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     system "make", "disable-self-upgrade"

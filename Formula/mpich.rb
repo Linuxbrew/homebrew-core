@@ -4,12 +4,13 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.2.1.tar.gz"
   sha256 "5db53bf2edfaa2238eb6a0a5bc3d2c2ccbfbb1badd79b664a1a919d2ce2330f1"
+  revision 1
 
   bottle do
-    sha256 "58cead221276267a7a223e9b6f7804f2b0a6870089e6dafe6182df189700dfcb" => :high_sierra
-    sha256 "015a8430ff178cd7cbe83d6e0c3d10cfe696755d1e04cf273ad6d7180a511344" => :sierra
-    sha256 "f19d9c2cb611a3cb64d64bdc17cfe4c6f5d7a5c989cd029813669004e6473feb" => :el_capitan
-    sha256 "c1911285d3b74e271985cca51a06162a8547e7e9944aa1cacd386ca36be7f8fa" => :x86_64_linux
+    sha256 "bab0862c4f607c8f411d16b754fb6474f536c5340c2d1c9be4a339ca4a6d9bf9" => :high_sierra
+    sha256 "bfb708826242dd9e27ce8c46bba866cbec2c95ee6db419c56e7942c32a88b3b3" => :sierra
+    sha256 "214e469d1b5bdbdc685cc31a53e8673880640a2551274c8f06c08b347db7ee54" => :el_capitan
+    sha256 "fc2ae124539eeae51740490bbcedc782ff700998f78176d77a79a52c64f5c49f" => :x86_64_linux
   end
 
   devel do
@@ -24,11 +25,10 @@ class Mpich < Formula
     depends_on "automake" => :build
     depends_on "libtool"  => :build
   end
-  deprecated_option "disable-fortran" => "without-fortran"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" # for gfortran
 
-  conflicts_with "open-mpi", :because => "both install mpi__ compiler wrappers"
+  conflicts_with "open-mpi", :because => "both install MPI compiler wrappers"
 
   def install
     if build.head?
@@ -38,16 +38,11 @@ class Mpich < Formula
       system "./autogen.sh"
     end
 
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--mandir=#{man}",
-    ]
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}"
 
-    args << "--disable-fortran" if build.without? "fortran"
-
-    system "./configure", *args
     system "make"
     system "make", "check"
     system "make", "install"
@@ -74,21 +69,20 @@ class Mpich < Formula
     system "#{bin}/mpicc", "hello.c", "-o", "hello"
     system "./hello"
     system "#{bin}/mpirun", "-np", "4", "./hello"
-    if build.with? "fortran"
-      (testpath/"hellof.f90").write <<~EOS
-        program hello
-        include 'mpif.h'
-        integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
-        call MPI_INIT(ierror)
-        call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
-        call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
-        print*, 'node', rank, ': Hello Fortran world'
-        call MPI_FINALIZE(ierror)
-        end
-      EOS
-      system "#{bin}/mpif90", "hellof.f90", "-o", "hellof"
-      system "./hellof"
-      system "#{bin}/mpirun", "-np", "4", "./hellof"
-    end
+
+    (testpath/"hellof.f90").write <<~EOS
+      program hello
+      include 'mpif.h'
+      integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
+      call MPI_INIT(ierror)
+      call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
+      call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
+      print*, 'node', rank, ': Hello Fortran world'
+      call MPI_FINALIZE(ierror)
+      end
+    EOS
+    system "#{bin}/mpif90", "hellof.f90", "-o", "hellof"
+    system "./hellof"
+    system "#{bin}/mpirun", "-np", "4", "./hellof"
   end
 end
