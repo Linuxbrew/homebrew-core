@@ -5,21 +5,20 @@ class Fltk < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fltk/fltk-1.3.4-source.tar.gz"
   mirror "https://fossies.org/linux/misc/fltk-1.3.4-source.tar.gz"
   sha256 "c8ab01c4e860d53e11d40dc28f98d2fe9c85aaf6dbb5af50fd6e66afec3dc58f"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 "7561987fff4639d07a28407b8d4f511fffe4579fb452a0aaa9dad2f0a0bde48d" => :high_sierra
     sha256 "1fbd79e3f5c36f70cc5f2d0256520fd8c6ee969990412cb9080eacfe9e75e4a1" => :sierra
     sha256 "fca842e5e25fc0a0566d64b3d34226e667f072f82cd51f009180a09db218666b" => :el_capitan
     sha256 "bb481cbaefe696696c3bf527b4902b8251de3ee7c75619f89fd554a6e73b1b40" => :yosemite
-    sha256 "e1193aa2cf65df126fd37037da55e05c859f9bbd576800969f1dda7e49c3e95e" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "libpng"
   depends_on "jpeg"
   unless OS.mac?
-    depends_on :x11
-    depends_on "linuxbrew/xorg/mesa" => :recommended
+    depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   def install
