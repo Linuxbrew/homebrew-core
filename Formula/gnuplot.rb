@@ -40,6 +40,7 @@ class Gnuplot < Formula
   depends_on "qt" => :optional
   depends_on "wxmac" => :optional
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   needs :cxx11 if build.with? "qt"
 
