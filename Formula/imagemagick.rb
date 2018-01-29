@@ -8,9 +8,9 @@ class Imagemagick < Formula
   mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-22.tar.xz"
   sha256 "49de9e08ea255a1f939158d85d50dfa29285bccbdcb7fee0fe4309061d438489"
   head "https://github.com/ImageMagick/ImageMagick.git"
+  revision 1 unless OS.mac?
 
   bottle do
-    sha256 "18e44782f8e1933fd155e55265c96da1b11c8304e9f7dbd0f46eaab18f4ec186" => :x86_64_linux
   end
 
   option "with-fftw", "Compile with FFTW support"
@@ -52,6 +52,8 @@ class Imagemagick < Formula
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on "perl" => :optional
+
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   skip_clean :la
 
