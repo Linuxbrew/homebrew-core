@@ -4,13 +4,13 @@ class Dlib < Formula
   url "http://dlib.net/files/dlib-19.9.tar.bz2"
   sha256 "ec6374745d24b53568ae4d171b2ad86d102ae238dbdb093b462d5c8ae48b65b9"
   head "https://github.com/davisking/dlib.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "ef3b081c16dd4929066f2ea4612adb800aaa67a7f3bda3a229d07ecba8edb5ce" => :high_sierra
     sha256 "58eea7acdbe59d13bdc7fd788f2b989700b257240eaa0cf52245c8649bde5c0a" => :sierra
     sha256 "d442b43b991e78aa8961d3672007517dd11dfba480baad493307b94127bad8ea" => :el_capitan
-    sha256 "b1daad2f136e39cc7330d33f44eb6d4a20d042e9fd5989b27c58226d258b16a0" => :x86_64_linux
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
@@ -20,6 +20,7 @@ class Dlib < Formula
   depends_on "libpng"
   depends_on "openblas" => :optional
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   needs :cxx11
 
