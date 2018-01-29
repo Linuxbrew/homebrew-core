@@ -3,13 +3,13 @@ class Libtcod < Formula
   homepage "http://roguecentral.org/doryen/libtcod/"
   url "https://bitbucket.org/libtcod/libtcod/get/1.6.4.tar.bz2"
   sha256 "f40855d48e89b34cd9c0091fbe8d7bdb59e58b9f574445824abbb3e9a29a06b7"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "c9e64cf1266592a440401c31028f97daf076d8bb9ace113a19da1b9c6a01b4bc" => :high_sierra
     sha256 "360839e84034f149f3538be489273274a7db2f3b9020162dc94b9798e31dc402" => :sierra
     sha256 "8728af3c1c018e2586708b66fdf8578260a83c875602ff6e796f96f44ea0382e" => :el_capitan
-    sha256 "935560b6ef2924e0a384a0dad2c541dd02be69d4171009c2baf493f320064d04" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -18,8 +18,8 @@ class Libtcod < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   unless OS.mac?
-    depends_on :x11
     depends_on "zlib"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   conflicts_with "libzip", :because => "both install `zip.h` header"
