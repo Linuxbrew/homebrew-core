@@ -24,6 +24,7 @@ class FileFormula < Formula
 
   def install
     ENV.prepend "LDFLAGS", "-L#{Formula["libmagic"].opt_lib} -lmagic"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["libmagic"].opt_include}" unless OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
