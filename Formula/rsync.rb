@@ -1,3 +1,4 @@
+# rsync: Build a bottle for Linuxbrew
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
