@@ -16,6 +16,9 @@ class KubernetesCli < Formula
   depends_on "go" => :build
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
+
     ENV["GOPATH"] = buildpath
     os = OS.linux? ? "linux" : "darwin"
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
