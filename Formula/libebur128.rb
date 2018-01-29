@@ -1,3 +1,4 @@
+# libebur128: Build a bottle for Linuxbrew
 class Libebur128 < Formula
   desc "Library implementing the EBU R128 loudness standard"
   homepage "https://github.com/jiixyj/libebur128"
