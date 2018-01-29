@@ -4,12 +4,12 @@ class Graphicsmagick < Formula
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.28/GraphicsMagick-1.3.28.tar.xz"
   sha256 "942a68a9a8a5af6f682b896fd4f0ad617d8b49907e474acfe59549956bcc994a"
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "999255f3842b6184ec9fd9f8398611074b6642c25d0a3a707244f9c4f4c9e2c6" => :high_sierra
     sha256 "f170545068ad94562775d481b21988c5b3692b5c4a252e7f2f7cc07ab8537a11" => :sierra
     sha256 "9baa3988debf4eb1234fbb49e5bfc542bfd9db3dc6e8d155eec2b45705ac41e4" => :el_capitan
-    sha256 "3cce01f0d353400593eb46318951ec597384b8da5e67526b12c885d9ca80d709" => :x86_64_linux
   end
 
   option "without-magick-plus-plus", "disable build/install of Magick++"
@@ -32,6 +32,7 @@ class Graphicsmagick < Formula
     depends_on "bzip2"
     depends_on "libxml2"
     depends_on "zlib"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   skip_clean :la
