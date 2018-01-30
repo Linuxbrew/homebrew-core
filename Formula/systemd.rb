@@ -4,11 +4,10 @@ class Systemd < Formula
   url "https://github.com/systemd/systemd/archive/v234.tar.gz"
   sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
   head "https://github.com/systemd/systemd.git"
-  revision 1
+  revision 2
   # tag "linuxbrew"
 
   bottle do
-    sha256 "af6857ce54506942d7944518442b40b767a0ce6dbfba7f6c2dbc20f22b8f7928" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +24,7 @@ class Systemd < Formula
   depends_on "expat"
   depends_on "libcap"
   depends_on "util-linux" # for libmount
+  depends_on "libgpg-error" => :build
 
   # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
   fails_with :gcc => "4.8"
@@ -52,7 +52,8 @@ class Systemd < Formula
       "--sysconfdir=#{prefix}/etc",
       "--with-rootprefix=#{prefix}",
       "--with-sysvinit-path=#{prefix}/etc/init.d",
-      "--with-sysvrcnd-path=#{prefix}/etc/rc.d"
+      "--with-sysvrcnd-path=#{prefix}/etc/rc.d",
+      "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
     system "make", "install"
   end
 
