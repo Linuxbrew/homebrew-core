@@ -23,13 +23,13 @@ class Rsync < Formula
     sha256 "0dc2848f20ca75c07a30c3237ccf8d61b61082ae7de94758a27dac350c99fb98"
     apply "patches/fileflags.diff",
           "patches/crtimes.diff"
-  end
+  end if OS.mac?
 
   # Fix "error: too few arguments to function call, expected 4, have 2"
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/344bf3b/rsync/fix-crtimes-patch-3.1.3.diff"
     sha256 "1a3c9043e19b55290bd6a6bc480544fe79a155c2c7ed003de185521f7516ecc3"
-  end
+  end if OS.mac?
 
   def install
     system "./prepare-source"
