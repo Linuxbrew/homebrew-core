@@ -17,6 +17,7 @@ class Ocaml < Formula
   url "https://caml.inria.fr/pub/distrib/ocaml-4.06/ocaml-4.06.0.tar.xz"
   sha256 "1236b5f91e1c075086d69e2d40cfab21e048b9fe38e902f707815bebbc20c5b7"
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
+  revision 1 unless OS.mac?
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
@@ -31,13 +32,13 @@ class Ocaml < Formula
     sha256 "377756d07b0253fd30eb0d5761d7a0e53d4305daa742122dbcbe70a378277f5c" => :high_sierra
     sha256 "e62b761a4e814661d3ec110d3e3da378316ad57416d9d01bdc2dbd445d92e2b6" => :sierra
     sha256 "0422ddaa6ee523fc6c9b30ad239118ae4de011b64bcb9687b917b586b7794595" => :el_capitan
-    sha256 "dd2fa23948979cb8713a5b81720cb59bed8e3ae31b0c95699be2bf65a8d2a161" => :x86_64_linux
   end
 
   option "with-x11", "Install with the Graphics module"
   option "with-flambda", "Install with flambda support"
 
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
