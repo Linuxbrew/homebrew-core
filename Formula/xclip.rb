@@ -3,18 +3,19 @@ class Xclip < Formula
   homepage "https://github.com/astrand/xclip"
   url "https://github.com/astrand/xclip/archive/0.13.tar.gz"
   sha256 "ca5b8804e3c910a66423a882d79bf3c9450b875ac8528791fb60ec9de667f758"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "0963015158b7d4ae2981503edc18427737a0586b7155da5cd2ddaa93fb3b92bd" => :high_sierra
     sha256 "bb26c2bb6d7ce8f15ab50144f38d11ddde113bb400326ccea990ca9a5d0a9c69" => :sierra
     sha256 "9e17790e9a94ae1e29317f013a65f2d639ae9063db48ed7fa0aed7449f221abb" => :el_capitan
-    sha256 "f332942ce4d09487d063476a6c8896092858ec7e85a03f31075ede391d4fe9da" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11
+  depends_on :x11 if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     system "autoreconf", "-fiv"
