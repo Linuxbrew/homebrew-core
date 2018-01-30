@@ -3,12 +3,12 @@ class Pike < Formula
   homepage "https://pike.lysator.liu.se"
   url "https://pike.lysator.liu.se/pub/pike/all/8.0.498/Pike-v8.0.498.tar.gz"
   sha256 "b14ceccb26f37dbd9e078d87648a95f0501f290e89ae9b8197b2376d13eb1f2b"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "9b3c1d8c9a1eceef90ce1bfe78137b0ccd726ec5dfc12f9746a471c5e855f92a" => :high_sierra
     sha256 "c8abc1e8fcc26523b257cd2144c22a27ed6063c07e33193c70e3d0898c94fa86" => :sierra
     sha256 "1ecfea274c44b5d087003b51acb934c4c3cc8494667cbaa4f6d57c1e919a2e20" => :el_capitan
-    sha256 "9cc884189e822ef6a29401795a212569adae31c9d752c5f3e2d7e9ce0c2e6a8e" => :x86_64_linux
   end
 
   option "with-gettext", "Include Gettext support"
@@ -38,7 +38,10 @@ class Pike < Formula
   depends_on "pdflib-lite"   if build.with?("pdf")     || build.with?("all")
   depends_on "mesalib-glw"   if build.with?("gl")      || build.with?("all")
 
-  depends_on "jpeg" unless OS.mac?
+  unless OS.mac?
+    depends_on "jpeg"
+    depends_on "linuxbrew/xorg/xorg"
+  end
 
   def install
     args = ["--prefix=#{prefix}", "--without-bundles"]
