@@ -3,19 +3,20 @@ class Xdotool < Formula
   homepage "https://www.semicomplete.com/projects/xdotool/"
   url "https://github.com/jordansissel/xdotool/archive/v3.20160805.1.tar.gz"
   sha256 "ddafca1239075c203769c17a5a184587731e56fbe0438c09d08f8af1704e117a"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "2f949fc70d828db23364beed16bdbd15c728d790601e5e0a59b110f8f6eb3826" => :high_sierra
     sha256 "13b1b017e94c76bde510b06427cf517c0d78028994e3b1bb8501ec2cbd5c7ef1" => :sierra
     sha256 "d7fad4610977a3a5f8879b4f51d35e08e4ef3e65cfbc04353e67bdc14b279867" => :el_capitan
     sha256 "037a599194a39189e8d8397c358dce21c1425065fdeeb29e59db26b696425f63" => :yosemite
-    sha256 "6df309df5b279675130a21f0312b6889d334ea06cd37430ff207621734edcb2b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "libxkbcommon"
 
-  depends_on :x11
+  depends_on :x11 if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     # Work around an issue with Xcode 8 on El Capitan, which
