@@ -1,3 +1,4 @@
+# wiredtiger: Build a bottle for Linuxbrew
 class Wiredtiger < Formula
   desc "High performance NoSQL extensible platform for data management"
   homepage "http://www.wiredtiger.com"
