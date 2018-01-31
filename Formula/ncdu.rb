@@ -1,3 +1,4 @@
+# ncdu: Build a bottle for Linuxbrew
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
