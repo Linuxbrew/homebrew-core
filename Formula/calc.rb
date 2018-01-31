@@ -1,3 +1,4 @@
+# calc: Build a bottle for Linuxbrew
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
@@ -11,6 +12,7 @@ class Calc < Formula
   end
 
   depends_on "readline"
+  depends_on "bsdmainutils" => :build unless OS.mac? # for 'col'
 
   def install
     ENV.deparallelize
