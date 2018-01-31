@@ -1,3 +1,4 @@
+# libtrng: Build a bottle for Linuxbrew
 class Libtrng < Formula
   desc "Tina's Random Number Generator Library"
   homepage "https://www.numbercrunch.de/trng/"
