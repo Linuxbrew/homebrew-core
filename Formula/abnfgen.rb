@@ -1,3 +1,4 @@
+# abnfgen: Build a bottle for Linuxbrew
 class Abnfgen < Formula
   desc "Quickly generate random documents that match an ABFN grammar"
   homepage "http://www.quut.com/abnfgen/"
