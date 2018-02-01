@@ -21,6 +21,7 @@ class Plplot < Formula
   depends_on "pango"
   depends_on :java => :optional
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   def install
     args = std_cmake_args + %w[
