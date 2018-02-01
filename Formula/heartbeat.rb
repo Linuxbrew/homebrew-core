@@ -1,3 +1,4 @@
+# heartbeat: Build a bottle for Linuxbrew
 class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/products/beats/heartbeat"
