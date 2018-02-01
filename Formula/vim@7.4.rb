@@ -36,6 +36,7 @@ class VimAT74 < Formula
   depends_on "luajit" => :optional
   depends_on "python3" => :optional
   depends_on :x11 if build.with? "client-server"
+  depends_on "linuxbrew/xorg/xorg" if build.with?("client-server") && !OS.mac?
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
