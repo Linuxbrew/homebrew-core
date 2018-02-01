@@ -3,14 +3,13 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
   sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
     sha256 "783739edc153fa49d624f80baf543404e39aefcb137896f716fd39d0f8a40101" => :high_sierra
     sha256 "ff784eab3e8072ae8a1e3b7b51e932f905a39a8d65cbf500f27a844cfa1e261a" => :sierra
     sha256 "8853f6910125020b4cd92bc02a24df157981a78c727786e60516337beaf23c9d" => :el_capitan
-    sha256 "c7eb4f68e3760306ab94d42ce60985cccad45032232e38202b2953b3e3bd8abd" => :x86_64_linux
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -39,10 +38,10 @@ class Python < Formula
   depends_on "sqlite" => :recommended
   depends_on "gdbm" => :recommended
   depends_on "openssl"
-  depends_on "tcl-tk" => :optional
+  depends_on "tcl-tk" => OS.mac? ? :optional : :recommended
   depends_on "berkeley-db@4" => :optional
   unless OS.mac?
-    depends_on :x11 if build.with? "tcl-tk"
+    depends_on "linuxbrew/xorg/xorg" if build.with? "tcl-tk"
     depends_on "bzip2"
     depends_on "ncurses"
     depends_on "zlib"
