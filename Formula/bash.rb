@@ -1,3 +1,4 @@
+# bash: Build a bottle for Linuxbrew
 class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
