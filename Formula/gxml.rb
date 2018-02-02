@@ -20,6 +20,9 @@ class Gxml < Formula
   depends_on "gobject-introspection"
 
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     # ensures that the gobject-introspection files remain within the keg
     inreplace "gxml/Makefile.in" do |s|
       s.gsub! "@HAVE_INTROSPECTION_TRUE@girdir = $(INTROSPECTION_GIRDIR)",
