@@ -1,3 +1,4 @@
+# freedink: Build a bottle for Linuxbrew
 class Freedink < Formula
   desc "Portable version of the Dink Smallwood game engine"
   homepage "https://www.gnu.org/software/freedink/"
