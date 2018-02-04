@@ -1,3 +1,4 @@
+# htop: Build a bottle for Linuxbrew
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://hisham.hm/htop/"
