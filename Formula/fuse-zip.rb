@@ -15,7 +15,8 @@ class FuseZip < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libzip"
-  depends_on :osxfuse
+  depends_on :osxfuse if OS.mac?
+  depends_on "libfuse" unless OS.mac?
 
   def install
     system "make", "prefix=#{prefix}", "install"
