@@ -1,3 +1,4 @@
+# exempi: Build a bottle for Linuxbrew
 class Exempi < Formula
   desc "Library to parse XMP metadata"
   homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
@@ -12,6 +13,7 @@ class Exempi < Formula
   end
 
   depends_on "boost"
+  depends_on "expat" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
