@@ -78,6 +78,8 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
+    args << -DWITH_NUMA=OFF unless OS.mac?
+    
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
