@@ -3,18 +3,18 @@ class Ncview < Formula
   homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 5
+  revision OS.mac? ? 5 : 6
 
   bottle do
     sha256 "bd2df1b3290bf6fc03543fecf727698064f858329b62d7665f516bff8e094067" => :high_sierra
     sha256 "df920fc488f54f8f128f635c42c618fed9cf82beaed5e99087b44397e3770066" => :sierra
     sha256 "65e303f36bc95f74adcac5eac2c6f11a3d474ad1babd573016576c8467320214" => :el_capitan
-    sha256 "65d92a41c996e296c5e06df0fb6a862b1878106db70a197fde4e8eb76ec67fe7" => :x86_64_linux
   end
 
   depends_on "netcdf"
   depends_on "udunits"
-  depends_on :x11
+  depends_on :x11 if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
