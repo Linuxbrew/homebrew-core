@@ -39,7 +39,7 @@ class Ocaml < Formula
   option "with-flambda", "Install with flambda support"
 
   depends_on :x11 => :optional
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
