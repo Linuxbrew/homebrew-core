@@ -31,6 +31,7 @@ class GstPluginsGood < Formula
   depends_on "libsoup"
 
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
