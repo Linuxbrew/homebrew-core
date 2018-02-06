@@ -3,14 +3,13 @@ class Python3 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz"
   sha256 "159b932bf56aeaa76fd66e7420522d8c8853d486b8567c459b84fe2ed13bcaba"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
     sha256 "85e704c3ce17fb06edafe488db5e449ba6fa82799aee32d64f6c3ad5414801e0" => :high_sierra
     sha256 "df733b44cbe6c34e66ff762aca3dfbe958e315551ace602a395400ed2b900616" => :sierra
     sha256 "b9d96a42fd003b241e6562598c44da8956446624199278c71e49c53df74fe4a4" => :el_capitan
-    sha256 "1fea3a7bfba32c1755cd5bc58482d3d42610622c2b765f2102adcf3313a308d8" => :x86_64_linux
   end
 
   devel do
@@ -18,7 +17,7 @@ class Python3 < Formula
     sha256 "3432d3ddf97483339badda961f7d0564595460fee166dd8f106dc4201e68446e"
   end
 
-  option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
+  option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)" if OS.mac?
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
 
@@ -31,9 +30,10 @@ class Python3 < Formula
   depends_on "gdbm" => :recommended
   depends_on "openssl"
   depends_on "xz" => :recommended # for the lzma module added in 3.3
-  depends_on "tcl-tk" => :optional
+  depends_on "tcl-tk" => OS.mac? ? :optional : :recommended
   depends_on "sphinx-doc" => [:build, :optional]
   unless OS.mac?
+    depends_on "linuxbrew/xorg/xorg" if build.with? "tcl-tk"
     depends_on "bzip2"
     depends_on "libffi"
     depends_on "ncurses"
@@ -130,7 +130,7 @@ class Python3 < Formula
       ldflags  << "-isysroot #{MacOS.sdk_path}"
       cppflags << "-I#{MacOS.sdk_path}/usr/include" # find zlib
       # For the Xlib.h, Python needs this header dir with the system Tk
-      if build.without? "tcl-tk"
+      if build.without?("tcl-tk") && OS.mac?
         cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
     end
