@@ -35,7 +35,8 @@ class SwiProlog < Formula
   depends_on "libarchive" => :optional
 
   if build.with? "xpce"
-    depends_on :x11
+    depends_on :x11 if OS.mac?
+    depends_on "linuxbrew/xorg/xorg" unless OS.mac?
     depends_on "jpeg"
   end
 
