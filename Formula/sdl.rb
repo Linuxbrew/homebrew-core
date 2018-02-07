@@ -29,6 +29,7 @@ class Sdl < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on :x11 => :optional
+  depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   if build.with? "x11"
     depends_on "autoconf" => :build
