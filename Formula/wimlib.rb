@@ -15,6 +15,7 @@ class Wimlib < Formula
   depends_on "pkg-config" => :build
   depends_on "ntfs-3g" => :optional
   depends_on "openssl"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     # fuse requires librt, unavailable on OSX
@@ -35,7 +36,7 @@ class Wimlib < Formula
   test do
     # make a directory containing a dummy 1M file
     mkdir("foo")
-    system "dd", "if=/dev/random", "of=foo/bar", "bs=1m", "count=1"
+    system "dd", "if=/dev/random", "of=foo/bar", (OS.mac? ? "bs=1m" : "bs=1M"), "count=1"
 
     # capture an image
     ENV.append "WIMLIB_IMAGEX_USE_UTF8", "1"
