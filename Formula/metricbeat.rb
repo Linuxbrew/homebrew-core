@@ -1,3 +1,4 @@
+# metricbeat: Build a bottle for Linuxbrew
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
