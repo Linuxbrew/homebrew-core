@@ -15,7 +15,7 @@ class Wimlib < Formula
   depends_on "pkg-config" => :build
   depends_on "ntfs-3g" => :optional
   depends_on "openssl"
-  depends_on "libxml2"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     # fuse requires librt, unavailable on OSX
