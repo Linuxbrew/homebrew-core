@@ -1,3 +1,4 @@
+# postgresql@9.5: Build a bottle for Linuxbrew
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
