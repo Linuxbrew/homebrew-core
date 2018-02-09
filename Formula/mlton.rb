@@ -27,6 +27,9 @@ class Mlton < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
     # Install the corresponding upstream binary release to 'bootstrap'.
     bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage do
