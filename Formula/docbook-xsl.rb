@@ -3,6 +3,7 @@ class DocbookXsl < Formula
   homepage "https://docbook.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/docbook/docbook-xsl/1.79.1/docbook-xsl-1.79.1.tar.bz2"
   sha256 "725f452e12b296956e8bfb876ccece71eeecdd14b94f667f3ed9091761a4a968"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -11,10 +12,14 @@ class DocbookXsl < Formula
     sha256 "ae0cdc12fcfa0b8a1c4e72532c4bf49697de862017f5a5820093cdd26ac24e06" => :el_capitan
     sha256 "4390c7e9a0e06aeb05cc950b04991bca819279e1ced05763073b65860867a9a5" => :yosemite
     sha256 "b6166ebd526d11e436d6138d53160774b5ff95c5ff5fe5cd34841185d7529855" => :mavericks
-    sha256 "b533cd75b5f1380463c702d97920d95f02ad3f82d43f10d5bcd2b57b2f781afa" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "docbook"
+
+  # Fixes: #12 replacement target string #13 target string #14 string
+  # error: file man/systemd.index.xml xsltRunStylesheet : run failed
+  # when building systemd
+  patch :DATA
 
   resource "ns" do
     url "https://downloads.sourceforge.net/project/docbook/docbook-xsl-ns/1.79.1/docbook-xsl-ns-1.79.1.tar.bz2"
@@ -49,3 +54,29 @@ class DocbookXsl < Formula
     system (OS.mac? ? "xmlcatalog" : "#{Formula["libxml2"].opt_bin}/xmlcatalog"), "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/1.79.1/"
   end
 end
+
+__END__
+--- A/lib/lib.xsl
++++ B/lib/lib.xsl
+@@ -10,7 +10,10 @@
+      This module implements DTD-independent functions
+ 
+      ******************************************************************** -->
+-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
++<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
++                xmlns:str="http://exslt.org/strings"
++                exclude-result-prefixes="str"
++                version="1.0">
+ 
+ <xsl:template name="dot.count">
+   <!-- Returns the number of "." characters in a string -->
+@@ -56,6 +59,9 @@
+   <xsl:param name="replacement"/>
+ 
+   <xsl:choose>
++    <xsl:when test="function-available('str:replace')">
++      <xsl:value-of select="str:replace($string, string($target), string($replacement))"/>
++    </xsl:when>
+     <xsl:when test="contains($string, $target)">
+       <xsl:variable name="rest">
+         <xsl:call-template name="string.subst">
