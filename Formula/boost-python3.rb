@@ -1,3 +1,4 @@
+# boost-python3: Build a bottle for Linuxbrew
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
@@ -22,11 +23,14 @@ class BoostPython3 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    jobs = OS.mac? ? ENV.make_jobs : 4
+
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",
             "-d2",
-            "-j#{ENV.make_jobs}",
+            "-j#{jobs}",
             "--layout=tagged",
             "--user-config=user-config.jam",
             "threading=multi,single",
