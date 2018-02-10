@@ -3,6 +3,7 @@ class KyotoCabinet < Formula
   homepage "http://fallabs.com/kyotocabinet/"
   url "http://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
   sha256 "812a2d3f29c351db4c6f1ff29d94d7135f9e601d7cc1872ec1d7eed381d0d23c"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "2ba12ca100464a78f42b5b9d3540d99e26458d8bcac0bb9a530858b5bc49bc0a" => :high_sierra
@@ -10,7 +11,6 @@ class KyotoCabinet < Formula
     sha256 "c4b2e78762b188a19b3c6c2aec1733c59b03fd69d23aa2ae41ba8e756704c795" => :el_capitan
     sha256 "149125dc24b899ac4d6dd48a11aebb2ac092252b8e9cccac6472d3713062f914" => :yosemite
     sha256 "bfed1b4b4aa5e742c89f9aa0ba83375ad4ff1d5daaf0e060260d16df4024582d" => :mavericks
-    sha256 "ef4eba5edb599d051cc9acf12f8cc8e4de3732611eac6c92c1f30be8f9d0f452" => :x86_64_linux # glibc 2.19
   end
 
   fails_with :clang do
@@ -21,10 +21,10 @@ class KyotoCabinet < Formula
     EOS
   end
 
-  patch :DATA if MacOS.version >= :mavericks
+  patch :DATA if MacOS.version >= :mavericks && !OS.mac?
 
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    system "./configure", "--disable-debug", "--prefix=#{prefix}", *("--disable-zlib" unless OS.mac?)
     system "make" # Separate steps required
     system "make", "install"
   end
