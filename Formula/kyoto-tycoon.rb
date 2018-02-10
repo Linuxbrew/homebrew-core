@@ -14,7 +14,7 @@ class KyotoTycoon < Formula
   depends_on "lua" => :recommended
   depends_on "kyoto-cabinet"
 
-  patch :DATA if MacOS.version >= :mavericks
+  patch :DATA if MacOS.version >= :mavericks || !OS.mac?
 
   def install
     # Locate kyoto-cabinet for non-/usr/local builds
