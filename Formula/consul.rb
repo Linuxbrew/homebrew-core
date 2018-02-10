@@ -58,8 +58,9 @@ class Consul < Formula
     # Avoid running `go get`
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
 
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["XC_OS"] = OS.mac? ? "darwin" : "linux"
+    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386" if OS.mac?
+    ENV["XC_ARCH"] = "amd64" unless OS.mac?
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/hashicorp/consul").install contents
