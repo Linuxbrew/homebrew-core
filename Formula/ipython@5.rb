@@ -1,3 +1,4 @@
+# ipython@5: Build a bottle for Linuxbrew
 class IpythonAT5 < Formula
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
