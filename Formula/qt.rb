@@ -6,7 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
   sha256 "936d4cf5d577298f4f9fdb220e85b008ae321554a5fcd38072dc327a7296230e"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
 
   bottle do
@@ -46,7 +46,6 @@ class Qt < Formula
   end
 
   unless OS.mac?
-    depends_on :x11
     depends_on "fontconfig"
     depends_on "glib"
     depends_on "icu4c"
@@ -56,6 +55,7 @@ class Qt < Formula
     depends_on "systemd"
     depends_on "libxkbcommon"
     depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   # Remove for > 5.10.0
