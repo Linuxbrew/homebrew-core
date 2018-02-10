@@ -1,3 +1,4 @@
+# libpqxx: Build a bottle for Linuxbrew
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
