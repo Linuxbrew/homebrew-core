@@ -1,3 +1,4 @@
+# you-get: Build a bottle for Linuxbrew
 class YouGet < Formula
   include Language::Python::Virtualenv
 
