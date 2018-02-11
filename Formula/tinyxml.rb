@@ -3,6 +3,7 @@ class Tinyxml < Formula
   homepage "http://www.grinninglizard.com/tinyxml/"
   url "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz"
   sha256 "15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -11,7 +12,6 @@ class Tinyxml < Formula
     sha256 "16e6052892b43e68c45f5122b6802e9bc32001dc9478dfcd89511a24544660e5" => :el_capitan
     sha256 "4b1df9cb229b04f9968621a52737d96e86fcd6c2ad8904ae8a5c324347845f50" => :yosemite
     sha256 "75f79bb5d502e7be74de20e1cd3e3dcdd4702b37ef7de53d9d9a546a51776b50" => :mavericks
-    sha256 "2e9ea1a329d20d809df6fb9b084c0f69bc1f60af3bc4283482bc9acc3d0fb544" => :x86_64_linux # glibc 2.19
     sha256 "2db8d34dafd503a2982dd9ca5ffb4a2a2740e0eb78195933cb121dd7b7836728" => :mountain_lion
   end
 
