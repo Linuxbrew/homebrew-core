@@ -1,3 +1,4 @@
+# py2cairo: Build a bottle for Linuxbrew
 class Py2cairo < Formula
   desc "Python 2 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
