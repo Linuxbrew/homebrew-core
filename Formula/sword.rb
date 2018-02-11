@@ -1,3 +1,4 @@
+# sword: Build a bottle for Linuxbrew
 class Sword < Formula
   desc "Cross-platform tools to write Bible software"
   homepage "https://www.crosswire.org/sword/index.jsp"
