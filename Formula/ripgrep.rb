@@ -22,7 +22,8 @@ class Ripgrep < Formula
     # Completion scripts and manpage are generated in the crate's build
     # directory, which includes a fingerprint hash. Try to locate it first
     out_dir = Dir["target/release/build/ripgrep-*/out"].first
-    man1.install "#{out_dir}/rg.1"
+    # No man page gets built on Linux:
+    man1.install "#{out_dir}/rg.1" if OS.mac?
     bash_completion.install "#{out_dir}/rg.bash"
     fish_completion.install "#{out_dir}/rg.fish"
     zsh_completion.install "complete/_rg"
