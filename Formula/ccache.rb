@@ -19,6 +19,8 @@ class Ccache < Formula
     depends_on "asciidoc" => :build
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog" if build.head?
 
