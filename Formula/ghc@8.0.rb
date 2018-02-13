@@ -7,13 +7,13 @@ class GhcAT80 < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-src.tar.xz"
   sha256 "11625453e1d0686b3fa6739988f70ecac836cadc30b9f0c8b49ef9091d6118b1"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "f2a42cd1cef4c212cae841513039bd280457ea8f58b696707c16dbc90c829a88" => :high_sierra
     sha256 "9184f9147b526c425fd14498dca9fa1550c563857291c3c5ad616c6e5e521e47" => :sierra
     sha256 "be71492dc8783027300be80d8554bf0a239ba53991002094dc11c5d982f7294f" => :el_capitan
     sha256 "715e6fd851a5044e1ccaa812b12db136cfa96c9b6e118893f93d92c625040e95" => :yosemite
-    sha256 "2a2314a427dc0079905b7a73f7dc490e483542e861c3fd8241c1ea91518313aa" => :x86_64_linux # glibc 2.19
   end
 
   keg_only :versioned_formula
@@ -55,10 +55,8 @@ class GhcAT80 < Formula
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
     if OS.linux?
-      # Using 8.0.1 gives the error message:
-      # strip: Not enough room for program headers, try linking with -N
-      url "https://downloads.haskell.org/~ghc/7.8.4/ghc-7.8.4-x86_64-unknown-linux-deb7.tar.xz"
-      sha256 "f62e00e93a5ac16ebfe97cd7cb8cde6c6f3156073d4918620542be3e0ad55f8d"
+      url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-x86_64-deb7-linux.tar.xz"
+      sha256 "b2f5c304b57ac5840a0d2ef763a3c6fa858c70840f749cfad12ed227da973c0a"
     else
       url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-x86_64-apple-darwin.tar.xz"
       sha256 "ff50a2df9f002f33b9f09717ebf5ec5a47906b9b65cc57b1f9849f8b2e06788d"
@@ -72,7 +70,7 @@ class GhcAT80 < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j29" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
 
     # Setting -march=native, which is what --build-from-source does, fails
     # on Skylake (and possibly other architectures as well) with the error
