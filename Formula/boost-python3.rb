@@ -45,7 +45,8 @@ class BoostPython3 < Formula
     inreplace "bootstrap.sh", "using python", "#using python"
 
     pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    # py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    py_prefix = `python3 -c "import sys; print(sys.prefix)"`.strip
 
     numpy_site_packages = buildpath/"homebrew-numpy/lib/python#{pyver}/site-packages"
     numpy_site_packages.mkpath
@@ -56,7 +57,7 @@ class BoostPython3 < Formula
 
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
-      using darwin : : #{ENV.cxx} ;
+      using #{OS.mac? ? "darwin" : "gcc"} : : #{ENV.cxx} ;
       using python : #{pyver}
                    : python3
                    : #{py_prefix}/include/python#{pyver}m
