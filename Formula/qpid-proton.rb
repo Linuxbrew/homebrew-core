@@ -1,3 +1,4 @@
+# qpid-proton: Build a bottle for Linuxbrew
 class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
@@ -15,6 +16,7 @@ class QpidProton < Formula
   depends_on "cmake" => :build
   depends_on "libuv"
   depends_on "openssl"
+  depends_on "python"  => :build unless OS.mac?
 
   def install
     system "cmake", ".", "-DBUILD_BINDINGS=",
