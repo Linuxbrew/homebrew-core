@@ -45,7 +45,6 @@ class Qt < Formula
   end
 
   unless OS.mac?
-    depends_on :x11
     depends_on "fontconfig"
     depends_on "glib"
     depends_on "icu4c"
@@ -55,11 +54,12 @@ class Qt < Formula
     depends_on "systemd"
     depends_on "libxkbcommon"
     depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16 -l2.5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j20 -l2.5" if ENV["CIRCLECI"]
 
     args = %W[
       -verbose
