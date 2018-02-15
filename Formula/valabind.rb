@@ -15,9 +15,12 @@ class Valabind < Formula
   depends_on "swig" => :run
 
   # vala dependencies
-  depends_on "flex" => build unless OS.mac?
   depends_on "gettext"
   depends_on "glib"
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
 
   # Upstream issue "Build failure with vala 0.38.0"
   # Reported 6 Sep 2017 https://github.com/radare/valabind/issues/43
