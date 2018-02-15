@@ -1,3 +1,4 @@
+# expect: Build a bottle for Linuxbrew
 class Expect < Formula
   desc "Program that can automate interactive applications"
   homepage "https://expect.sourceforge.io/"
