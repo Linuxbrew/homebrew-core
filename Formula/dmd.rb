@@ -1,6 +1,7 @@
 class Dmd < Formula
   desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
+  revision 2 unless OS.mac?
 
   stable do
     url "https://github.com/dlang/dmd/archive/v2.079.0.tar.gz"
@@ -26,7 +27,6 @@ class Dmd < Formula
     sha256 "97d03f87d565f4de54115979f93caf06bb6f5efc1eee9b85abb91b1e9a935620" => :high_sierra
     sha256 "f794c009e4f0ad7bac0d02d95d26c4008c773c0412fe981eafb3cfdf9e983d36" => :sierra
     sha256 "5df9aba344c92105b0d08ce5b6535778ea1ec28eddc6ede4ebf4c84ede0fa38a" => :el_capitan
-    sha256 "a3131797fc77dc6d6880f4165f888fc4e5343669464a141a7e12ff6d61efdf73" => :x86_64_linux
   end
 
   head do
@@ -72,7 +72,11 @@ class Dmd < Formula
 
     (include/"dlang/dmd").install Dir["druntime/import/*"]
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
-    lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
+    if OS.mac?
+       lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.a"]
+    else
+       lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.*"]
+    end
 
     (buildpath/"dmd.conf").write <<~EOS
       [Environment]
