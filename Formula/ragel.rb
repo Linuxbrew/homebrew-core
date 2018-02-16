@@ -1,3 +1,4 @@
+# ragel: Build a bottle for Linuxbrew
 class Ragel < Formula
   desc "State machine compiler"
   homepage "https://www.colm.net/open-source/ragel/"
