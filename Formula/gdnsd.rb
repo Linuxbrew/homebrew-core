@@ -1,3 +1,4 @@
+# gdnsd: Build a bottle for Linuxbrew
 class Gdnsd < Formula
   desc "Authoritative-only DNS server"
   homepage "http://gdnsd.org/"
