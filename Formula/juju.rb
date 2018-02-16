@@ -1,3 +1,4 @@
+# juju: Build a bottle for Linuxbrew
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
