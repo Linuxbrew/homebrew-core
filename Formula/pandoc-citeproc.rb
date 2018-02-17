@@ -18,6 +18,7 @@ class PandocCiteproc < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pandoc"
+  depends_on "unzip" => :build unless OS.mac?
 
   def install
     args = []
