@@ -11,6 +11,8 @@ class Opendetex < Formula
     sha256 "4cc67ed6010d4b4ac0c0df288af9fe66e55ab7446a297b1fa65bf5e78c7d769b" => :el_capitan
   end
 
+  depends_on "flex" => :build unless OS.mac?
+
   patch :DATA
 
   def install
