@@ -1,3 +1,4 @@
+# forego: Build a bottle for Linuxbrew
 class Forego < Formula
   desc "Foreman in Go for Procfile-based application management"
   homepage "https://github.com/ddollar/forego"
