@@ -5,7 +5,7 @@
 
 class VimRequirement < Requirement
   fatal true
-  default_formula "vim"
+  # formula "vim"
   satisfy { which "vim" }
 end
 
@@ -24,7 +24,10 @@ class Cvs < Formula
 
   keg_only :provided_until_xcode5
 
-  depends_on VimRequirement
+  unless OS.mac?
+    depends_on VimRequirement unless ENV["CI"]
+    depends_on "vim" unless which "vim"
+  end
 
   patch :p0 do
     url "https://opensource.apple.com/tarballs/cvs/cvs-45.tar.gz"
