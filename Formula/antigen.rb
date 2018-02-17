@@ -1,6 +1,6 @@
 class ZshRequirement < Requirement
   fatal true
-  default_formula "zsh"
+  # formula "zsh"
   satisfy { which "zsh" }
 end
 
@@ -13,7 +13,10 @@ class Antigen < Formula
 
   bottle :unneeded
 
-  depends_on ZshRequirement unless OS.mac?
+  unless OS.mac?
+    depends_on ZshRequirement unless ENV["CI"]
+    depends_on "zsh" unless which "zsh"
+  end
 
   def install
     pkgshare.install "bin/antigen.zsh"
