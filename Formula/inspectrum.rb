@@ -24,6 +24,9 @@ class Inspectrum < Formula
   end
 
   test do
-    assert_match "-r, --rate <Hz>  Set sample rate.", shell_output("#{bin}/inspectrum -h").strip
+    unless ENV["CIRCLECI"]
+      # This test requires X11.
+      assert_match "-r, --rate <Hz>  Set sample rate.", shell_output("#{bin}/inspectrum -h").strip
+    end
   end
 end
