@@ -23,7 +23,9 @@ jobs:
       - run: chmod 0644 Formula/*.rb
       - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
       - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/$CIRCLE_PROJECT_REPONAME
-      - run: |
+      - run: 
+        no_output_timeout: 30m
+        command: |
           mkdir /tmp/bottles
           cd /tmp/bottles
           umask 022
