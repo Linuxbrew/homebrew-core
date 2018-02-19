@@ -4,6 +4,8 @@ class Seqtk < Formula
   url "https://github.com/lh3/seqtk/archive/v1.2.tar.gz"
   sha256 "bd53316645ab10f0aaba59e1e72c28442ee4c9c37fddaacce5e24757eff78d7b"
 
+  depends_on "zlib" unless OS.mac?
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a2fcc7104562aeba2bcbbfd43ca2af2d6adc9825d6823776fad2c2332248a66e" => :high_sierra
