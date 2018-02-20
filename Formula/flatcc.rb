@@ -1,3 +1,4 @@
+# flatcc: Build a bottle for Linuxbrew
 class Flatcc < Formula
   desc "FlatBuffers Compiler and Library in C for C"
   homepage "https://github.com/dvidelabs/flatcc"
