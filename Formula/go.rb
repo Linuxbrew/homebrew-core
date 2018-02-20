@@ -31,7 +31,7 @@ class Go < Formula
   option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-race", "Build without race detector"
 
-  depends_on :macos => :mountain_lion
+  depends_on :macos => :mountain_lion if OS.mac?
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
