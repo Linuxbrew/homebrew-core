@@ -1,3 +1,4 @@
+# zip: Build a bottle for Linuxbrew
 class Zip < Formula
   desc "Compression and file packaging/archive utility"
   homepage "http://www.info-zip.org/Zip.html"
