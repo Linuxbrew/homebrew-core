@@ -1,3 +1,4 @@
+# rust: Build a bottle for Linuxbrew
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
