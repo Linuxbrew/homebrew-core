@@ -1,3 +1,4 @@
+# chocolate-doom: Build a bottle for Linuxbrew
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
