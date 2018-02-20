@@ -1,3 +1,4 @@
+# mapnik: Build a bottle for Linuxbrew
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
