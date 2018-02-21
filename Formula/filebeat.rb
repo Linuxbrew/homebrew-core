@@ -13,6 +13,7 @@ class Filebeat < Formula
   end
 
   depends_on "go" => :build
+  depends_on "rsync" => :build unless OS.mac?
 
   def install
     gopath = buildpath/"gopath"
