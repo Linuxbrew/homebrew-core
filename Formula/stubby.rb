@@ -78,8 +78,8 @@ class Stubby < Formula
     end
     begin
       sleep 2
-      output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
-      assert_match "status: NOERROR", output
+      output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net") if OS.mac?
+      assert_match "status: NOERROR", output if OS.mac?
     ensure
       Process.kill 9, pid
       Process.wait pid
