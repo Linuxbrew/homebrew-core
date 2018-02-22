@@ -1,3 +1,4 @@
+# pinentry: Build a bottle for Linuxbrew
 class Pinentry < Formula
   desc "Passphrase entry dialog utilizing the Assuan protocol"
   homepage "https://www.gnupg.org/related_software/pinentry/"
