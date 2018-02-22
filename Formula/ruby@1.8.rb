@@ -1,3 +1,4 @@
+# ruby@1.8: Build a bottle for Linuxbrew
 class RubyAT18 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
