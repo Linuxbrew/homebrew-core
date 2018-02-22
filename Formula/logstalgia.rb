@@ -1,3 +1,4 @@
+# logstalgia: Build a bottle for Linuxbrew
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
   homepage "http://logstalgia.io/"
