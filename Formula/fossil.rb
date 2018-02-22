@@ -18,6 +18,7 @@ class Fossil < Formula
 
   depends_on "openssl"
   depends_on :osxfuse => :optional
+  depends_on "tcl-tk" if build.with?("tcl-tk") && unless OS.mac?
 
   def install
     args = [
