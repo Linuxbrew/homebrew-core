@@ -1,3 +1,4 @@
+# snakemake: Build a bottle for Linuxbrew
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
