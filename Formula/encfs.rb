@@ -1,3 +1,4 @@
+# encfs: Build a bottle for Linuxbrew
 class Encfs < Formula
   desc "Encrypted pass-through FUSE file system"
   homepage "https://vgough.github.io/encfs/"
