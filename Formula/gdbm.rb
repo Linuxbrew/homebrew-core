@@ -31,6 +31,7 @@ class Gdbm < Formula
     ]
 
     args << "--enable-libgdbm-compat" if build.with? "libgdbm-compat"
+    args << "CFLAGS=-D_GNU_SOURCE" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
