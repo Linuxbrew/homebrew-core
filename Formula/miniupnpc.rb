@@ -1,3 +1,4 @@
+# miniupnpc: Build a bottle for Linuxbrew
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "https://miniupnp.tuxfamily.org"
