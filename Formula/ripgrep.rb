@@ -16,6 +16,9 @@ class Ripgrep < Formula
   depends_on "rust" => :build
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "cargo", "build", "--release"
