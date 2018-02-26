@@ -1,3 +1,4 @@
+# eralchemy: Build a bottle for Linuxbrew
 class Eralchemy < Formula
   include Language::Python::Virtualenv
 
