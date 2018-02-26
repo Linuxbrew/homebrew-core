@@ -1,3 +1,4 @@
+# bmake: Build a bottle for Linuxbrew
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "http://www.crufty.net/help/sjg/bmake.html"
