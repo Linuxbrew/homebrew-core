@@ -17,7 +17,7 @@ class Openh264 < Formula
 
   def install
     system "make", "install-shared", "PREFIX=#{prefix}"
-    chmod 0444, "#{lib}/libopenh264.dylib"
+    chmod 0444, "#{lib}/libopenh264.dylib" if OS.mac?
   end
 
   test do
