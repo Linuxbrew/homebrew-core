@@ -21,6 +21,10 @@ class ConjureUp < Formula
   depends_on "awscli"
   depends_on "pwgen"
   depends_on "python3"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libffi"
+  end
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
