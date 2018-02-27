@@ -1,3 +1,4 @@
+# wavpack: Build a bottle for Linuxbrew
 class Wavpack < Formula
   desc "Hybrid lossless audio compression"
   homepage "http://www.wavpack.com/"
