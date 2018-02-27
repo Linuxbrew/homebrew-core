@@ -12,6 +12,7 @@ class Atdtool < Formula
   end
 
   depends_on "txt2tags" => :build
+  depends_on "python" unless OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
