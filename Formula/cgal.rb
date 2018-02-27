@@ -1,3 +1,4 @@
+# cgal: Build a bottle for Linuxbrew
 class Cgal < Formula
   desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
