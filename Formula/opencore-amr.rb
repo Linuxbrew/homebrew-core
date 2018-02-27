@@ -1,3 +1,4 @@
+# opencore-amr: Build a bottle for Linuxbrew
 class OpencoreAmr < Formula
   desc "Audio codecs extracted from Android open source project"
   homepage "https://opencore-amr.sourceforge.io/"
