@@ -1,3 +1,4 @@
+# libgsm: Build a bottle for Linuxbrew
 class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "http://www.quut.com/gsm/"
