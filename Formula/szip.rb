@@ -1,3 +1,4 @@
+# szip: Build a bottle for Linuxbrew
 class Szip < Formula
   desc "Implementation of extended-Rice lossless compression algorithm"
   homepage "https://support.hdfgroup.org/HDF5/release/obtain5.html#extlibs"
