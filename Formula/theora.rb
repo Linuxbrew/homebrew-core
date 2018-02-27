@@ -1,3 +1,4 @@
+# theora: Build a bottle for Linuxbrew
 class Theora < Formula
   desc "Open video compression format"
   homepage "https://www.theora.org/"
