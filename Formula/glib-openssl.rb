@@ -1,3 +1,4 @@
+# glib-openssl: Build a bottle for Linuxbrew
 class GlibOpenssl < Formula
   desc "OpenSSL GIO module for glib"
   homepage "https://launchpad.net/glib-networking"
