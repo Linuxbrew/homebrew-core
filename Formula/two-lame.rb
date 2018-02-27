@@ -1,3 +1,4 @@
+# two-lame: Build a bottle for Linuxbrew
 class TwoLame < Formula
   desc "Optimized MPEG Audio Layer 2 (MP2) encoder"
   # Homepage down since at least December 2015
