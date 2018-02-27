@@ -1,3 +1,4 @@
+# l-smash: Build a bottle for Linuxbrew
 class LSmash < Formula
   desc "Tool for working with MP4 files"
   homepage "https://l-smash.github.io/l-smash/"
