@@ -1,3 +1,4 @@
+# libbs2b: Build a bottle for Linuxbrew
 class Libbs2b < Formula
   desc "Bauer stereophonic-to-binaural DSP"
   homepage "https://bs2b.sourceforge.io/"
