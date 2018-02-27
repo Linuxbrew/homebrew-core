@@ -1,3 +1,4 @@
+# pandoc-citeproc: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class PandocCiteproc < Formula
