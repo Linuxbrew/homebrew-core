@@ -4,7 +4,7 @@ class Dep < Formula
   url "https://github.com/golang/dep.git",
       :tag => "v0.4.1",
       :revision => "37d9ea0ac16f0e0a05afc3b60e1ac8c364b6c329"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/golang/dep.git"
 
   bottle do
@@ -12,7 +12,6 @@ class Dep < Formula
     sha256 "0b974c08cfb94c31a652908312620e6dac1a617ffd2d21816c5e9c8f259ea559" => :high_sierra
     sha256 "4e6e39bb9678fd4ddf200a80ba657f09d3d91bd133f5795775153a3aa12688eb" => :sierra
     sha256 "4e95ecf37819ce91f1e52a6b11e6c875c2e9b3b17edba1b919c55ffc98ba95cf" => :el_capitan
-    sha256 "43f59f0bbd0fe25a8721cbc1c90e4b9659981931f798edf6fe500fead5958d52" => :x86_64_linux
   end
 
   depends_on "go"
@@ -20,12 +19,13 @@ class Dep < Formula
   def install
     ENV["GOPATH"] = buildpath
     arch = MacOS.prefer_64_bit? ? "amd64" : "386"
+    platform = OS.mac? ? "darwin" : "linux"
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
-      ENV["DEP_BUILD_PLATFORMS"] = "darwin"
+      ENV["DEP_BUILD_PLATFORMS"] = platform
       ENV["DEP_BUILD_ARCHS"] = arch
       system "hack/build-all.bash"
-      bin.install "release/dep-darwin-#{arch}" => "dep"
+      bin.install "release/dep-#{platform}-#{arch}" => "dep"
       prefix.install_metafiles
     end
   end
