@@ -31,13 +31,13 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
   depends_on "perl" => :recommended
-  depends_on "python" => OS.mac? ? :optional : :recommended
 
   # For Serf
   depends_on "scons" => :build
   depends_on "openssl"
 
   unless OS.mac?
+    depends_on "python@2"
     depends_on "expat"
     depends_on "libmagic"
     depends_on "zlib"
