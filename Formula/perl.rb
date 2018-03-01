@@ -3,6 +3,7 @@ class Perl < Formula
   homepage "https://www.perl.org/"
   url "https://www.cpan.org/src/5.0/perl-5.26.1.tar.xz"
   sha256 "fe8208133e73e47afc3251c08d2c21c5a60160165a8ab8b669c43a420e4ec680"
+  revision 1 unless OS.mac?
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
@@ -10,7 +11,6 @@ class Perl < Formula
     sha256 "ff03e9042330bb182ef42b33522cbeedb226b5444e13d3979ca48c643c6a7486" => :high_sierra
     sha256 "692aa67df67df2919f4847941076ed48ff01d4c72fdaf4481b2352e60ab272e7" => :sierra
     sha256 "c9be82944446ef4972d7c258163c41dfa01ab16aedb5a149577033bcd4a158bc" => :el_capitan
-    sha256 "00210d6f187b67bc2a4963edc85c9164b33c5f63e26ee11433c6c112ad69a91e" => :x86_64_linux
   end
 
   option "with-dtrace", "Build with DTrace probes"
