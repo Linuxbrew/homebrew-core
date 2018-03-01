@@ -1,15 +1,14 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.54.tar.gz"
-  sha256 "6a53ead9e3064bf66c2e6efcb6cb4e51324694f5c5b6241f62f2dfac32b0b55d"
+  url "https://github.com/fnproject/cli/archive/0.4.55.tar.gz"
+  sha256 "aa9f680a53daeb8fc41350a3ce185a2858dee56a270b29bb55a2613c7cb9c298"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0d3a4b01cd60cc3d612be5f2be55cfc96e497f5ae1e6ad54c4163ee082b2e90" => :high_sierra
-    sha256 "99a364d80854b90c9169314bef3cab854377ad2321864dca9419f88b55999d4d" => :sierra
-    sha256 "a0786303f8b94231aac18c331a52b024ccf8c08fb7fde0288babd17157f4b132" => :el_capitan
-    sha256 "3329f0f0aa3051610074afd6594199b9de90e0652497ee84a2282ce1683ea64b" => :x86_64_linux
+    sha256 "c589fa1f8c15268bcb392d570656069a29166b65e107c596471ded7cfc0c0751" => :high_sierra
+    sha256 "2c021db01f374c92b40a9286df1d006beb1ff2b2aea669060bed2ced9367af28" => :sierra
+    sha256 "f38e734b101402b30b29b645292c3dee795d12a83fd26a4417728504723fdeaf" => :el_capitan
   end
 
   depends_on "dep" => :build
