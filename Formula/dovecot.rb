@@ -1,3 +1,4 @@
+# dovecot: Build a bottle for Linuxbrew
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
