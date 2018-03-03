@@ -60,11 +60,17 @@ class Unzip < Formula
   end
 
   test do
+    zip = OS.mac? ? "/usr/bin/zip" : which("zip")
+    if zip.nil?
+      opoo "Not testing unzip, because it requires zip, which is unavailable."
+      return
+    end
+
     (testpath/"test1").write "Hello!"
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Hej!"
 
-    system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    system zip, "test.zip", "test1", "test2", "test3"
     %w[test1 test2 test3].each do |f|
       rm f
       refute_predicate testpath/f, :exist?, "Text files should have been removed!"

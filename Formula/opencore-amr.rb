@@ -10,6 +10,7 @@ class OpencoreAmr < Formula
     sha256 "2b6378d4427dc88bac7e01d2614dd100535f1d78b1e6b81560e3a074e1d5a770" => :sierra
     sha256 "4b628ad01f725342698a8556c4176f5d57e3647cc0f52669092a0523b76cc5d0" => :el_capitan
     sha256 "0e8940ad28407b353c69b7fa0cdcd7d90777345f5ea86dcc9974552f99c1030c" => :yosemite
+    sha256 "0718e8b5edad39d2ff92939c0ecccf3068b052f7ab17c71fcbfb6e387bf9a4b6" => :x86_64_linux
   end
 
   def install

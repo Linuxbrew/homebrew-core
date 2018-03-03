@@ -11,13 +11,14 @@ class Openh264 < Formula
     sha256 "d3daaa5995cb2ad25fb3a4e0a9e99de2c4ca5c98f3da4f455b5e58d04aa3e6b2" => :sierra
     sha256 "1b9c6a03cd9dfe776d1de7c23e1b210f25bbeb1b99e4a12d1f4b8a354498a3ab" => :el_capitan
     sha256 "28303efdce99fbcc37ee2045398ea060170e6690936acfb8c2f4bb1378dac079" => :yosemite
+    sha256 "c64f9c5598db3f5f56d8842cda26b8e83eee4c86cafb043991cddc9aa86cde37" => :x86_64_linux
   end
 
   depends_on "nasm" => :build
 
   def install
     system "make", "install-shared", "PREFIX=#{prefix}"
-    chmod 0444, "#{lib}/libopenh264.dylib"
+    chmod 0444, "#{lib}/libopenh264.dylib" if OS.mac?
   end
 
   test do

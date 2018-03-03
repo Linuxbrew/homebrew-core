@@ -13,6 +13,11 @@ class Libgit2 < Formula
     sha256 "410364c88a29956992369f13e675646834b09f5d0f1fc69aeab2c03f9acb6c34" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://github.com/libgit2/libgit2/archive/v0.27.0-rc2.tar.gz"
+    sha256 "7ba5b1155f3a35da63654f29465ab7e39e616a039b05bd639e38194e9c2784be"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "libssh2" => :recommended

@@ -10,6 +10,7 @@ class Leaps < Formula
     sha256 "37343e978d4035fa9b2881c038748ec4704bf8a57308c59e64592dd404166e36" => :high_sierra
     sha256 "d269ec8f0e492e2a9c7804ca2cc6d9211a9be7c3dfbb0daaab19c5b14bef5b24" => :sierra
     sha256 "e36259af15ec8cf6546b1f7d99a105efb9a30c198f549a67964417e31892fe97" => :el_capitan
+    sha256 "9227ee7760070da32d60a5cecb15d91af5aec49c6dbb053b3b3a098a9abe6e0a" => :x86_64_linux
   end
 
   depends_on "dep" => :build

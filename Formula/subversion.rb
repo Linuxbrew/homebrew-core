@@ -4,12 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 3 : 4
 
   bottle do
-    sha256 "2de1e1d3691d8adc101cdb39a62792907f879fe5462c9870f07edef6c3c4160c" => :high_sierra
-    sha256 "ee2be3846eca442aea461878da9f5ef208092836b91bc38bd13fa5572040f5a5" => :sierra
-    sha256 "9445c1341c69187a4a28c5ff8ab341539beff082923729629abcc2699efda095" => :el_capitan
+    sha256 "7482d281e4e0ff5b10377a576f3e97ed867795645291308d35adf51747ff2162" => :high_sierra
+    sha256 "a181531a3a3ad04d429b7aead29fec814c6e042482ea35abc581cc9e4571a25a" => :sierra
+    sha256 "6cb9acb883f5d7045324846bab0d51315da6fbb462b9ef664e0c9d0c9b58ef8d" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
@@ -22,6 +22,7 @@ class Subversion < Formula
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
+  depends_on "swig" => :build
   depends_on "apr-util"
   depends_on "apr"
 
@@ -29,11 +30,6 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "perl" => :recommended
   depends_on "python" => OS.mac? ? :optional : :recommended
-
-  # Bindings require swig
-  if build.with?("perl") || build.with?("python") || build.with?("ruby")
-    depends_on "swig" => :build
-  end
 
   # For Serf
   depends_on "scons" => :build
@@ -74,8 +70,9 @@ class Subversion < Formula
   end
 
   def install
-    serf_prefix = OS.mac? ? libexec/"serf" : prefix
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
 
+    serf_prefix = OS.mac? ? libexec/"serf" : prefix
     resource("serf").stage do
       inreplace "SConstruct" do |s|
         s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
@@ -145,11 +142,9 @@ class Subversion < Formula
     system "make", "tools"
     system "make", "install-tools"
 
-    if build.with? "python"
-      system "make", "swig-py"
-      system "make", "install-swig-py"
-      (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
-    end
+    system "make", "swig-py"
+    system "make", "install-swig-py"
+    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     if build.with? "perl"
       # In theory SWIG can be built in parallel, in practice...

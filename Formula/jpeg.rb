@@ -9,6 +9,7 @@ class Jpeg < Formula
     sha256 "178200fd8aa50d5db22c5faa4ca403652d2bf912616c34dfbc6b035a456c2fc6" => :high_sierra
     sha256 "8ecc3407d188472a7f775bb44314fff40f0e3b17a83da1666f3fa306d8fffeec" => :sierra
     sha256 "931236302e58c53a9728dde5cb93a896b8a39b16d1f195c85381da04ea17c407" => :el_capitan
+    sha256 "a300fac63fb68f52e2a473107b44b70a919cb859f3bb35b536c3e4321e112626" => :x86_64_linux
   end
 
   def install

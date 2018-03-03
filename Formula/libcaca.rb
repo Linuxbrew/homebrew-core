@@ -15,6 +15,7 @@ class Libcaca < Formula
     sha256 "ba475a145203197f637059f20dfcb5d8cfb34615ce30bfe342fbe7887ebcad41" => :el_capitan
     sha256 "1d02b3264c1665a8f6af5d88ba944bc1009ee7e553ae8decfff89615b7dc79d9" => :yosemite
     sha256 "511f48aa84b45eb509de89296102517bd77c25347999cf1d733bc8593c95a00b" => :mavericks
+    sha256 "d9f5961243b7026bb8f2e5b7a52482195ac132521e604a610d66da99e1d99f5d" => :x86_64_linux
   end
 
   head do

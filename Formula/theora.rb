@@ -12,6 +12,7 @@ class Theora < Formula
     sha256 "03b63a91812185120355da8292b40a2afd8377dcd8e3825eb9cbc217a3f4bc79" => :el_capitan
     sha256 "ab9dd77803ec6885cb9701859de9b1b8ff6b85cb7cef24400dec6adb4b8c6378" => :yosemite
     sha256 "58be26743e23be63aee48186bfa9cd8a982de957efb040a6ab3030aa62753977" => :mavericks
+    sha256 "c9980f278bca53f6cca1bd77631f7d1b20b0e1cc6df052af7bdab97d41606d33" => :x86_64_linux
   end
 
   devel do

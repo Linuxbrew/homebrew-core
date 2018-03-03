@@ -13,6 +13,7 @@ class TwoLame < Formula
     sha256 "f42b6a20cbe1d020ed818145180be176361ceda2c203a09bddc0bc1f4c903530" => :el_capitan
     sha256 "7d5a39e1189f77321a2603b77984c57970f897a69aee9bccc008e84a807dbf59" => :yosemite
     sha256 "b03ee3602cad74094fc1141c3fd9aac92f2e298bf0f98a3281a6ba3f547511cd" => :mavericks
+    sha256 "a967a4601f5fe1e7c5d88064a9bc3e9f3450a59fedfea03a2f931790ee4b6931" => :x86_64_linux
   end
 
   option "with-libsndfile", "Build the twolame frontend"
