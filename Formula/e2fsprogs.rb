@@ -4,6 +4,7 @@ class E2fsprogs < Formula
   url "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git/snapshot/e2fsprogs-1.43.9.tar.gz"
   sha256 "89b9b19045aeae76888ec5d2cdd9fa74a5b5d18721382a2403df87b295d53633"
   revision 1 unless OS.mac?
+
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   bottle do
