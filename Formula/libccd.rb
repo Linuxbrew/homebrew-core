@@ -1,3 +1,4 @@
+# libccd: Build a bottle for Linuxbrew
 class Libccd < Formula
   desc "Collision detection between two convex shapes"
   homepage "http://libccd.danfis.cz/"
