@@ -3,6 +3,7 @@ class AzureCli < Formula
   homepage "https://docs.microsoft.com/cli/azure/overview"
   url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.28.tar.gz"
   sha256 "3c087e30baa373d3b271961446066b69f4198edf0451040afcbb8535125b1137"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -14,7 +15,7 @@ class AzureCli < Formula
   end
 
   depends_on "openssl"
-  depends_on "python3"
+  depends_on "python"
 
   unless OS.mac?
     # pkg-config helps setuptools find libffi

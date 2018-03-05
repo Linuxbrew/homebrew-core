@@ -5,6 +5,7 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.21.1.tar.gz"
   sha256 "9a11265528ada7e41fb8e124d5c7b03a5077880f26e8d169bab2b661a678803e"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Certbot < Formula
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl"
-  depends_on "python3"
+  depends_on "python"
   unless OS.mac?
     depends_on "libffi"
     depends_on "pkg-config" => :build

@@ -3,7 +3,7 @@ class Ddgr < Formula
   homepage "https://github.com/jarun/ddgr"
   url "https://github.com/jarun/ddgr/archive/v1.2.tar.gz"
   sha256 "a9828b8863949dc93dd574a15b6779d9390b6f5e277e35c157064d7c06423758"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,7 @@ class Ddgr < Formula
     sha256 "427133f9eb6d9ec4611ac11e54323efbcef5ef5e332291f62c2f83d8b0be9ac8" => :x86_64_linux
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
