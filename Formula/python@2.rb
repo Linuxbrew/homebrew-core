@@ -11,7 +11,11 @@ class PythonAT2 < Formula
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
-  option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
+  if OS.mac?
+    option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
+  else
+    option "without-poll", "Disable select.poll"
+  end
 
   # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
   # brew, which would lead to circular dependency.
@@ -28,8 +32,14 @@ class PythonAT2 < Formula
   depends_on "sqlite" => :recommended
   depends_on "gdbm" => :recommended
   depends_on "openssl"
-  depends_on "tcl-tk" => :optional
+  depends_on "tcl-tk" => OS.mac? ? :optional : :recommended
   depends_on "berkeley-db@4" => :optional
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/xorg" if build.with? "tcl-tk"
+    depends_on "bzip2"
+    depends_on "ncurses"
+    depends_on "zlib"
+  end
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/6c/54/f7e9cea6897636a04e74c3954f0d8335cc38f7d01e27eec98026b049a300/setuptools-38.5.1.zip"
@@ -56,7 +66,8 @@ class PythonAT2 < Formula
   end
 
   def lib_cellar
-    prefix/"Frameworks/Python.framework/Versions/2.7/lib/python2.7"
+    prefix / (OS.mac? ? "Frameworks/Python.framework/Versions/2.7" : "") /
+      "lib/python2.7"
   end
 
   def site_packages_cellar
@@ -80,7 +91,7 @@ class PythonAT2 < Formula
   end
 
   def install
-    if build.with? "poll"
+    if OS.mac? && build.with?("poll")
       opoo "The given option --with-poll enables a somewhat broken poll() on macOS (https://bugs.python.org/issue5154)."
     end
 
@@ -94,7 +105,7 @@ class PythonAT2 < Formula
       --enable-ipv6
       --datarootdir=#{share}
       --datadir=#{share}
-      --enable-framework=#{frameworks}
+      #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --without-ensurepip
     ]
 
@@ -123,6 +134,19 @@ class PythonAT2 < Formula
       if build.without? "tcl-tk"
         cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
+    end
+
+    # Python's setup.py parses CPPFLAGS and LDFLAGS to learn search
+    # paths for the dependencies of the compiled extension modules.
+    # See Homebrew/linuxbrew#420, Homebrew/linuxbrew#460, and Homebrew/linuxbrew#875
+    unless OS.mac?
+      if build.bottle?
+        # Configure Python to use cc and c++ to build extension modules.
+        ENV["CC"] = "cc"
+        ENV["CXX"] = "c++"
+      end
+      cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
+      ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
@@ -184,7 +208,7 @@ class PythonAT2 < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
     # Fixes setting Python build flags for certain software
@@ -193,25 +217,27 @@ class PythonAT2 < Formula
     inreplace lib_cellar/"config/Makefile" do |s|
       s.change_make_var! "LINKFORSHARED",
         "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
-    end
+    end if OS.mac?
 
     # Any .app get a " 2" attached, so it does not conflict with python 3.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 2.app") }
+    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 2.app") } if OS.mac?
 
     # Prevent third-party packages from building against fragile Cellar paths
-    inreplace [lib_cellar/"_sysconfigdata.py",
-               lib_cellar/"config/Makefile",
-               frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
-              prefix, opt_prefix
+    if OS.mac?
+      inreplace [lib_cellar/"_sysconfigdata.py",
+                 lib_cellar/"config/Makefile",
+                 frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
+                prefix, opt_prefix
 
-    # A fix, because python and python@2 both want to install Python.framework
-    # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
-    # https://github.com/Homebrew/homebrew/issues/15943
-    ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
-    rm prefix/"Frameworks/Python.framework/Versions/Current"
+      # A fix, because python and python@2 both want to install Python.framework
+      # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
+      # https://github.com/Homebrew/homebrew/issues/15943
+      ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
+      rm prefix/"Frameworks/Python.framework/Versions/Current"
+    end
 
     # Symlink the pkgconfig files into lib/pkgconfig so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"]
+    (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"] if OS.mac?
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
@@ -258,7 +284,7 @@ class PythonAT2 < Formula
 
     # Write our sitecustomize.py
     rm_rf Dir["#{site_packages}/sitecustomize.py[co]"]
-    (site_packages/"sitecustomize.py").atomic_write(sitecustomize)
+    (site_packages/"sitecustomize.py").atomic_write(sitecustomize) if OS.mac?
 
     # Remove old setuptools installations that may still fly around and be
     # listed in the easy_install.pth. This can break setuptools build with
@@ -388,7 +414,7 @@ class PythonAT2 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python2", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()"
+    system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()" if OS.mac?
     system "#{bin}/python2", "-c", "import gdbm"
     system bin/"pip2", "list", "--format=columns"
   end
