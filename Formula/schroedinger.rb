@@ -1,3 +1,4 @@
+# schroedinger: Build a bottle for Linuxbrew
 class Schroedinger < Formula
   desc "High-speed implementation of the Dirac codec"
   homepage "https://launchpad.net/schroedinger"
