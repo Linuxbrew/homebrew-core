@@ -5,7 +5,7 @@ class Httpie < Formula
   homepage "https://httpie.org/"
   url "https://files.pythonhosted.org/packages/28/93/4ebf2de4bc74bd517a27a600b2b23a5254a20f28e6e36fc876fd98f7a51b/httpie-0.9.9.tar.gz"
   sha256 "f1202e6fa60367e2265284a53f35bfa5917119592c2ab08277efc7fffd744fcb"
-  revision 1
+  revision 2
   head "https://github.com/jkbrzt/httpie.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Httpie < Formula
     sha256 "36e41da65a68cffcd492777a8dcea8aaa9ed7b87ec1b858917cb57c117e1b4b7" => :x86_64_linux
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
