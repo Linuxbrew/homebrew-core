@@ -1,3 +1,4 @@
+# fcl: Build a bottle for Linuxbrew
 class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
