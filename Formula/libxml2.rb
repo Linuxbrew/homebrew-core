@@ -4,13 +4,13 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.7.tar.gz"
   sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "ff9bf7d946d5413fb1f2837a187bd026f469a67b78ba6589f5b565f0133b58f2" => :high_sierra
     sha256 "0b9bc0fe308a22b557822d0bc254f209e33bd7b4948d7d08a14d620e1f8b6a3b" => :sierra
     sha256 "cdcc13eab3436e1c44dcae42396e519e4a5119552818b656a2c7a5d878b9a912" => :el_capitan
-    sha256 "0680e822ae4efb38df31366db7ea288af10d51638b3c348a6f7eb789d5f5af51" => :x86_64_linux
   end
 
   head do
@@ -40,10 +40,11 @@ class Libxml2 < Formula
     system "make", "install"
 
     cd "python" do
+      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin" unless OS.mac?
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
         "includes_dir = ['#{include}', '#{OS.mac? ? MacOS.sdk_path/"usr" : HOMEBREW_PREFIX}/include',"
-      system "python", "setup.py", "install", "--prefix=#{prefix}"
+      system *(OS.mac? ? "python" : "python2"), "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
