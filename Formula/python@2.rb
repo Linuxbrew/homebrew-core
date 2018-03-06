@@ -13,7 +13,7 @@ class PythonAT2 < Formula
     sha256 "950c98d490145daacf025511aadfcfda184adf4d38a6ea61e77580cdc314ced1" => :x86_64_linux
   end
 
-  keg_only :versioned_formula
+  keg_only :versioned_formula if OS.mac?
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
