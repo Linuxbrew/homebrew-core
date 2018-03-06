@@ -1,3 +1,4 @@
+# sdl2: Build a bottle for Linuxbrew
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
