@@ -1,3 +1,4 @@
+# brotli: Build a bottle for Linuxbrew
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google"
   homepage "https://github.com/google/brotli"
