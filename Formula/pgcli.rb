@@ -11,7 +11,7 @@ class Pgcli < Formula
     sha256 "5671e0443ff970e652ce47ae1a7ad2a1143828250f71cc3f9a578a8c52c73ffc" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on "libpq"
   depends_on "openssl"
 
@@ -94,7 +94,7 @@ class Pgcli < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system *(OS.mac? ? "python" : "python2"), *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -102,7 +102,7 @@ class Pgcli < Formula
     touch libexec/"vendor/lib/python2.7/site-packages/backports/__init__.py"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    system *(OS.mac? ? "python" : "python2"), *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
