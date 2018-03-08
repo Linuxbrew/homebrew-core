@@ -15,7 +15,7 @@ class Thefuck < Formula
     sha256 "749035abba81d339478eeec0823eed85c3ed89c88231c55d801b51a17f4fd1f8" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python3"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
