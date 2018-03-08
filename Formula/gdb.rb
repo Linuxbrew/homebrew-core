@@ -17,9 +17,9 @@ class Gdb < Formula
   deprecated_option "with-python" => "with-python@2"
 
   if OS.mac?
-    option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+    option "with-python@2", "Use the Homebrew version of Python; by default system Python is used"
   else
-    option "without-python", "Use the system version of Python; by default Homebrew Python is used"
+    option "without-python@2", "Use the system version of Python; by default Homebrew Python is used"
   end
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
@@ -61,7 +61,7 @@ class Gdb < Formula
     args << "--enable-targets=all" if build.with? "all-targets"
 
     if build.with? "python@2"
-      args << "--with-python=#{Formula["python"].opt_libexec}/bin"
+      args << "--with-python=#{Formula["python@2"].opt_libexec}/bin"
     else
       args << "--without-python"
     end
