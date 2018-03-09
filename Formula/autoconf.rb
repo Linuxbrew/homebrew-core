@@ -4,6 +4,7 @@ class Autoconf < Formula
   url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
   mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
   sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,6 @@ class Autoconf < Formula
     sha256 "ded69c7dac4bc8747e52dca37d6d561e55e3162649d3805572db0dc2f940a4b8" => :el_capitan
     sha256 "daf70656aa9ff8b2fb612324222aa6b5e900e2705c9f555198bcd8cd798d7dd0" => :yosemite
     sha256 "d153b3318754731ff5e91b45b2518c75880993fa9d1f312a03696e2c1de0c9d5" => :mavericks
-    sha256 "be778785c3f72e8b5914f99afd79e54e6c7b668ec88c9dc5dfa41293a2be5392" => :x86_64_linux # glibc 2.19
     sha256 "37e77a2e7ca6d479f0a471d5f5d828efff621bd051c1884ff1363d77c5c4675e" => :mountain_lion
   end
 
@@ -23,7 +23,11 @@ class Autoconf < Formula
   depends_on "m4" unless OS.mac?
 
   def install
-    ENV["PERL"] = "/usr/bin/perl" if OS.mac?
+    if OS.mac?
+      ENV["PERL"] = "/usr/bin/perl" if OS.mac?
+    elsif OS.linux?
+      ENV["PERL"] = "#{Formula["perl"].opt_bin}/perl" if OS.linux?
+    end
 
     # force autoreconf to look for and use our glibtoolize
     inreplace "bin/autoreconf.in", "libtoolize", "glibtoolize"
