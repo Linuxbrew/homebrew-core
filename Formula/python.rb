@@ -3,13 +3,13 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz"
   sha256 "159b932bf56aeaa76fd66e7420522d8c8853d486b8567c459b84fe2ed13bcaba"
+  revision OS.mac? ? 3 : 4
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
     sha256 "638bc10452b2eba31092fba018bdc2584361cbf553693506301964ffa8ea4425" => :high_sierra
     sha256 "99d76fdd41540744923f0b99411af6a9a4002e304c345e16773c6ee03fb8f665" => :sierra
     sha256 "f1c93aca100003bb9b7f23096c80c8ac9068559d26aeb291e9e415b3f243a32a" => :el_capitan
-    sha256 "27217aebd44d652c22824fdb2a355a58b6e8659c0973d4cd616a45d2b053c724" => :x86_64_linux
   end
 
   devel do
@@ -30,7 +30,7 @@ class Python < Formula
   depends_on "gdbm" => :recommended
   depends_on "openssl"
   depends_on "xz" => :recommended # for the lzma module added in 3.3
-  depends_on "tcl-tk" => OS.mac? ? :optional : :recommended
+  depends_on "tcl-tk" => :optional
   depends_on "sphinx-doc" => [:build, :optional]
   unless OS.mac?
     depends_on "linuxbrew/xorg/xorg" if build.with? "tcl-tk"
