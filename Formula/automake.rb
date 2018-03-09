@@ -16,6 +16,7 @@ class Automake < Formula
   keg_only :provided_until_xcode43
 
   depends_on "autoconf" => :run
+  depends_on "perl" unless OS.mac?
 
   def install
     if OS.mac?

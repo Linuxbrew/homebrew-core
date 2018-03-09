@@ -21,6 +21,7 @@ class Autoconf < Formula
 
   # Fix configure: error: no acceptable m4 could be found in $PATH.
   depends_on "m4" unless OS.mac?
+  depends_on "perl" unless OS.mac?
 
   def install
     if OS.mac?
