@@ -1,3 +1,4 @@
+# consul-backinator: Build a bottle for Linuxbrew
 class ConsulBackinator < Formula
   desc "Consul backup and restoration application"
   homepage "https://github.com/myENA/consul-backinator"
