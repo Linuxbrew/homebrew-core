@@ -9,6 +9,7 @@ jobs:
       HOMEBREW_NO_AUTO_UPDATE: 1
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
+      HOMEBREW_FAIL_LOG_LINES: 300
     steps:
       - run: |
           cd /home/linuxbrew/.linuxbrew/Homebrew
