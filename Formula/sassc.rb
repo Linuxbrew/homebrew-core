@@ -1,3 +1,4 @@
+# sassc: Build a bottle for Linuxbrew
 class Sassc < Formula
   desc "Wrapper around libsass that helps to create command-line apps"
   homepage "https://github.com/sass/sassc"
