@@ -1,3 +1,4 @@
+# lynis: Build a bottle for Linuxbrew
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
