@@ -1,3 +1,4 @@
+# cc65: Build a bottle for Linuxbrew
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
