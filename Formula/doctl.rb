@@ -1,3 +1,4 @@
+# doctl: Build a bottle for Linuxbrew
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
