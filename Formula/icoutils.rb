@@ -1,3 +1,4 @@
+# icoutils: Build a bottle for Linuxbrew
 class Icoutils < Formula
   desc "Create and extract MS Windows icons and cursors"
   homepage "https://www.nongnu.org/icoutils/"
