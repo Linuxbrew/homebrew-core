@@ -1,3 +1,4 @@
+# sparkey: Build a bottle for Linuxbrew
 class Sparkey < Formula
   desc "Constant key-value store, best for frequent read/infrequent write uses"
   homepage "https://github.com/spotify/sparkey/"
