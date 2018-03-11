@@ -1,3 +1,4 @@
+# gxml: Build a bottle for Linuxbrew
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
