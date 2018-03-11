@@ -1,3 +1,4 @@
+# poco: Build a bottle for Linuxbrew
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
