@@ -1,3 +1,4 @@
+# httpd: Build a bottle for Linuxbrew
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
