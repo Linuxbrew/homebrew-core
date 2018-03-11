@@ -16,6 +16,7 @@ class Flow < Formula
   depends_on "opam" => :build
   unless OS.mac?
     depends_on "m4" => :build
+    depends_on "rsync" => :build
     depends_on "unzip" => :build
     depends_on "elfutils"
   end
