@@ -1,3 +1,4 @@
+# burp: Build a bottle for Linuxbrew
 class Burp < Formula
   desc "Network backup and restore"
   homepage "http://burp.grke.org/"
