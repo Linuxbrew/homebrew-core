@@ -1,3 +1,4 @@
+# goad: Build a bottle for Linuxbrew
 class Goad < Formula
   desc "AWS Lambda powered, highly distributed, load testing tool built in Go"
   homepage "https://goad.io/"
