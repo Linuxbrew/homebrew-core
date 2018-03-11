@@ -1,3 +1,4 @@
+# spigot: Build a bottle for Linuxbrew
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
