@@ -21,13 +21,13 @@ class Autoconf < Formula
 
   # Fix configure: error: no acceptable m4 could be found in $PATH.
   depends_on "m4" unless OS.mac?
-  depends_on "perl" unless OS.mac?
+  depends_on "perl" unless which "perl" 
 
   def install
     if OS.mac?
-      ENV["PERL"] = "/usr/bin/perl" if OS.mac?
+      ENV["PERL"] = "/usr/bin/perl"
     elsif OS.linux?
-      ENV["PERL"] = "#{Formula["perl"].opt_bin}/perl" if OS.linux?
+      ENV["PERL"] = "/usr/bin/env perl"
     end
 
     # force autoreconf to look for and use our glibtoolize
