@@ -1,3 +1,4 @@
+# crystal-lang: Build a bottle for Linuxbrew
 class CIRequirement < Requirement
   fatal true
   satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
