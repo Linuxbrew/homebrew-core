@@ -22,7 +22,7 @@ class Automake < Formula
     if OS.mac?
       ENV["PERL"] = "/usr/bin/perl"
     elsif OS.linux?
-      ENV["PERL"] = "/usr/bin/env perl"
+      ENV["PERL"] = "#{Formula["perl"].opt_bin}/perl"
     end
 
     system "./configure", "--prefix=#{prefix}"
