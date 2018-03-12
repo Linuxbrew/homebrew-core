@@ -1,3 +1,4 @@
+# bedops: Build a bottle for Linuxbrew
 class Bedops < Formula
   desc "Set and statistical operations on genomic data of arbitrary scale"
   homepage "https://github.com/bedops/bedops"
