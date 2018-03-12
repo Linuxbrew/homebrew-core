@@ -1,14 +1,14 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.2.tar.xz"
-  sha256 "e2c68c2a59c351066469cbf93ccae51c796f49e0d48639aed72af39c544dcef3"
+  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.3.tar.xz"
+  sha256 "520d4d779b1d31591762b2a98f84072531b9e17ac401df9668493e189eafc6ba"
 
   bottle do
-    sha256 "f620b6f5829f81e5765c1a85b9b5e07f005616829152ca63b9207a085f860671" => :high_sierra
-    sha256 "45546962152f60be6fd37f8fa6a1606d7756db29888394b5b4b8e8320607107a" => :sierra
-    sha256 "8c1c8d5fded334e196facb009f5ae73df785816a421c940f99565d730643a12e" => :el_capitan
-    sha256 "f8e56d44f9b3239acd11de1e4528996d9009052cc83de9e8476a709655facfdd" => :x86_64_linux
+    sha256 "faf9da56560023721c8f04fb1871281ae556b8017b42847be5265f38b462484e" => :high_sierra
+    sha256 "da0481c932a3aa2fbff97ad185c4191376f2b509bf8a3f948ec6feb752f7229a" => :sierra
+    sha256 "d863844b85f0c0b67f40074108a690242989237dd3c98f16d34813c88e3b0958" => :el_capitan
+    sha256 "3b8ff222160e9dc65f2ebf492898b807b3850554f7f9a7ee7733c341a72c7232" => :x86_64_linux
   end
 
   depends_on "gtk-doc" => :build

@@ -3,17 +3,19 @@ class Getmail < Formula
   homepage "http://pyropus.ca/software/getmail/"
   url "http://pyropus.ca/software/getmail/old-versions/getmail-5.5.tar.gz"
   sha256 "e0382ee59f1ec6ac2d6f01b71ca71db0826db0d267704b2bc2d97b9beda28350"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d5cd5119d410de2641ba8c2c525ba5139ccc65b0670160aa4ebd3fcedd84c01" => :high_sierra
-    sha256 "1d5cd5119d410de2641ba8c2c525ba5139ccc65b0670160aa4ebd3fcedd84c01" => :sierra
-    sha256 "1d5cd5119d410de2641ba8c2c525ba5139ccc65b0670160aa4ebd3fcedd84c01" => :el_capitan
-    sha256 "8202e6c027dbf9812433bd926fcb3728457687f2c7ecb62a8afb94853bd9e028" => :x86_64_linux
+    sha256 "504fc11caf6b211ede0d42cf2e9efcb1bee013228bc20bdb6e2265b1b54acf19" => :high_sierra
+    sha256 "504fc11caf6b211ede0d42cf2e9efcb1bee013228bc20bdb6e2265b1b54acf19" => :sierra
+    sha256 "504fc11caf6b211ede0d42cf2e9efcb1bee013228bc20bdb6e2265b1b54acf19" => :el_capitan
+    sha256 "c741b85ba8227ccfa929fc01b878d82663e4f47db1fe5c97ed8704dde73f67cf" => :x86_64_linux
   end
 
   def install
     libexec.install %w[getmail getmail_fetch getmail_maildir getmail_mbox]
+    inreplace Dir[libexec/"*"], %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
     bin.install_symlink Dir["#{libexec}/*"]
     libexec.install "getmailcore"
     man1.install Dir["docs/*.1"]

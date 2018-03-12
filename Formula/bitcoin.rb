@@ -1,27 +1,15 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  revision 1
-
-  stable do
-    url "https://bitcoin.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1.tar.gz"
-    sha256 "34de2dbe058c1f8b6464494468ebe2ff0422614203d292da1c6458d6f87342b4"
-
-    # Boost 1.66 compat
-    # Upstream commit 7 Dec 2017 "Make boost::multi_index comparators const"
-    patch do
-      url "https://github.com/bitcoin/bitcoin/commit/1ec0c0a01c31.patch?full_index=1"
-      sha256 "a1f761fe29f78e783cb4b55f8029900f94b45d1188cb81c80f73347ee2fdc025"
-    end
-  end
+  url "https://bitcoin.org/bin/bitcoin-core-0.16.0/bitcoin-0.16.0.tar.gz"
+  sha256 "8cbec0397d932cab7297a8c23c918392f6eebd410646b4b954787de9f4a3ee40"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f35862353add963547629ac5ee78d8bb059db5b8f44c5b9063f5c15a84fdc887" => :high_sierra
-    sha256 "2224e5dd483337e4b43c2be6e53ee7bfe96c8bb0f5b858b16534802c99a93e8d" => :sierra
-    sha256 "474b22e594a48dcc9e7506641084f2f58f3329fff9afd832b1d417196ec60219" => :el_capitan
-    sha256 "7968bb08ba69b0d6b51c0d9e1550b8aa7d56dd44b5e5c344fa6a2b972b1a708c" => :x86_64_linux
+    sha256 "1e5b8d2dfabeef1502f199fa4ba196d823ac64315577da2e52b90b811ae7ee89" => :high_sierra
+    sha256 "d620f8850f97194dac428075d88f12d93553c99671fbfe60c3f56c1f42f5b7a7" => :sierra
+    sha256 "87dd0b490e717967782332b26291b8184e15466c0205ab3d386afd842f1f0def" => :el_capitan
+    sha256 "d2d2fe7545d418faa7d72320bd15134d0f5c9681333b431d6a43e5afc15f44c8" => :x86_64_linux
   end
 
   head do
@@ -58,7 +46,7 @@ class Bitcoin < Formula
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--prefix=#{prefix}"
     system "make", "install"
-    pkgshare.install "share/rpcuser"
+    pkgshare.install "share/rpcauth"
   end
 
   plist_options :manual => "bitcoind"

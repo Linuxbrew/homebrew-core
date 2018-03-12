@@ -1,5 +1,3 @@
-require "language/go"
-
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
@@ -10,29 +8,20 @@ class Traefik < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a94770c0cfdd82e419e2bdc0672a21aa9a1d592fe76997af9977793d9d628afe" => :high_sierra
-    sha256 "6dda878842677bf5b1fc96b2dc30d3ccca4593def4d7b8f345f59e0424b14a37" => :sierra
-    sha256 "e145a36f35101f8e5ebabeb56fa25b3083a426845b032f341df268506371c6a8" => :el_capitan
+    rebuild 1
+    sha256 "e03833a08674dacb0c498869be4a00f471c046c9d0ec0136a2d6502a0f1eb34f" => :high_sierra
+    sha256 "a419b68a45d103000db77949b1fe8e3e4b59e68e24a4bed412d9ab1b6a27e1ad" => :sierra
+    sha256 "d67ca87eb2d0f7ec2e173ac0f0d89a17752362c88b72cd07c820274f2cd9e49d" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-
-  go_resource "github.com/containous/go-bindata" do
-    url "https://github.com/containous/go-bindata.git",
-        :revision => "e237f24c9fab3ae0ed95bf04e3699e92c2a41283"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containous/traefik").install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/containous/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd "src/github.com/containous/traefik" do
       cd "webui" do

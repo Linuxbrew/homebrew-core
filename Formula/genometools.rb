@@ -35,6 +35,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system "python", "-c", "import gt"
+    system "python2.7", "-c", "import gt"
   end
 end

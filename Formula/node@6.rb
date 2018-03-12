@@ -1,15 +1,14 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.13.0/node-v6.13.0.tar.xz"
-  sha256 "b7166fe2c6b29fbaa5a81c6953dc6764a91966ac00d746581fad66ddb1bb4d04"
+  url "https://nodejs.org/dist/v6.13.1/node-v6.13.1.tar.xz"
+  sha256 "c437350b476503a0f5605a5cc08bc41fe3bdb8ec100939ec7ea6600e44d56a46"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    rebuild 2
-    sha256 "0b37f5dd42ed7736580473140f4ae767d33f349c6d64f8a83d01f5ce388b2a2d" => :high_sierra
-    sha256 "70ac01d90ed6b3997c74793e45bd24ee4d7cfcf27a2305b1b26841e02f260f4c" => :sierra
-    sha256 "233c27e2a389b8b410cce0616ac059bed418975a174cbff0917fb54550953654" => :el_capitan
+    sha256 "d55206aaa7976f07a8cd20479636302ddcd8fc6d8f203ec496994e6972dc7724" => :high_sierra
+    sha256 "b771ccdb95320a8c10798322e63dff966d0276daec4992b294c25bb1959617ff" => :sierra
+    sha256 "6ada9c624eecd1b1a321db083a844c5ece03242b0f723ab70314f954105e9415" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -34,7 +33,6 @@ class NodeAT6 < Formula
 
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
     version "58.2"
     sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
@@ -55,6 +53,15 @@ class NodeAT6 < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  def post_install
+    return if build.without? "npm"
+
+    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python
+    EOS
   end
 
   def caveats

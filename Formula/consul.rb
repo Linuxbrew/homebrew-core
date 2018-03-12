@@ -1,5 +1,3 @@
-require "language/go"
-
 class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
@@ -12,45 +10,16 @@ class Consul < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af238993eee220ad707c6b1ceb0a907961394ff6a16d479f2db5a4f9bb2f4f6e" => :high_sierra
-    sha256 "5cb23f5729072d31d727e6659b5bd622fb1dd978c729c74fe902312866d33638" => :sierra
-    sha256 "30aa2a7dd3a0d57d174e6d2e45b73d0bd7d1528b1a9b41868f18bc75567e02b1" => :el_capitan
-    sha256 "a879ddc714fd571e86c857dae905c5401df6398bc2fe601f0b02c078dcc2fe32" => :x86_64_linux
+    rebuild 1
+    sha256 "426227ee114e91f2560c141722d7b31a148b507a7617485ff1482f8b30f386c3" => :high_sierra
+    sha256 "3154593fd96aa3efd6f2f0c9ca2aa8d1e13685e106a8cebdb5ea55a14e46662c" => :sierra
+    sha256 "aa9f709a5d4a1042584b2f332848e30a62f3e909123fdbfdc6feac033d230ef0" => :el_capitan
+    sha256 "d68eb77eccf300d7b47d4e663d484f892db3061ecf7f807e44d2fe3cf0a62dd1" => :x86_64_linux
   end
 
   depends_on "go" => :build
   depends_on "gox" => :build
   depends_on "zip" => :build unless OS.mac?
-
-  go_resource "github.com/axw/gocov" do
-    url "https://github.com/axw/gocov.git",
-        :revision => "3a69a0d2a4ef1f263e2d92b041a69593d6964fe8"
-  end
-
-  go_resource "github.com/elazarl/go-bindata-assetfs" do
-    url "https://github.com/elazarl/go-bindata-assetfs.git",
-        :revision => "30f82fa23fd844bd5bb1e5f216db87fd77b5eb43"
-  end
-
-  go_resource "github.com/hashicorp/go-bindata" do
-    url "https://github.com/hashicorp/go-bindata.git",
-        :revision => "bf7910af899725e4938903fb32048c7c0b15f12e"
-  end
-
-  go_resource "github.com/magiconair/vendorfmt" do
-    url "https://github.com/magiconair/vendorfmt.git",
-        :revision => "0fde667441ebc14dbd64a1de758ab656b78c607b"
-  end
-
-  go_resource "github.com/matm/gocov-html" do
-    url "https://github.com/matm/gocov-html.git",
-        :revision => "f6dd0fd0ebc7c8cff8b24c0a585caeef250627a3"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.9"
-  end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -66,24 +35,7 @@ class Consul < Formula
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/hashicorp/consul").install contents
 
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    build_tools = [
-      "github.com/axw/gocov/gocov",
-      "github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs",
-      "github.com/hashicorp/go-bindata/go-bindata",
-      "github.com/magiconair/vendorfmt/cmd/vendorfmt",
-      "github.com/matm/gocov-html",
-      "golang.org/x/tools/cmd/cover",
-      "golang.org/x/tools/cmd/stringer",
-    ]
-
-    build_tools.each do |tool|
-      cd "src/#{tool}" do
-        system "go", "install"
-      end
-    end
+    (buildpath/"bin").mkpath
 
     cd "src/github.com/hashicorp/consul" do
       system "make"

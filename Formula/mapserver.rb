@@ -47,7 +47,7 @@ class Mapserver < Formula
       -DWITH_WFS=ON
       -DWITH_FRIBIDI=OFF
       -DWITH_HARFBUZZ=OFF
-      -DPYTHON_EXECUTABLE:FILEPATH=#{which("python")}
+      -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
     ]
 
     # Install within our sandbox.
@@ -110,6 +110,6 @@ class Mapserver < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mapserv -v")
-    system "python", "-c", "import mapscript"
+    system "python2.7", "-c", "import mapscript"
   end
 end

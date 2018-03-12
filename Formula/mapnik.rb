@@ -1,16 +1,15 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.18/mapnik-v3.0.18.tar.bz2"
-  sha256 "18b9ceef70e5922dd7b392cff841d473c121c907b04cb7d4f8af0aa96664d919"
-  revision 1
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.19/mapnik-v3.0.19.tar.bz2"
+  sha256 "5bf17afaf456e63021a4c948e25cf5e756782ef369226441a1e436adc3e790e9"
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
     cellar :any
-    sha256 "f83fff1b9401b0e602d4d2587386452ed3ca01182661626047c38421fd8ecbaf" => :high_sierra
-    sha256 "e1f64375c074b3283bffd29f77924eb988ea77996c92634c280cdd82947f2880" => :sierra
-    sha256 "c8518fe411b8445079cd4659ea7655fd53adbc06f847f62c0541fc5ca23875d9" => :el_capitan
+    sha256 "f41d9cb363acd3db3def9574e1a83b973ec95bb403d8284172aa7d282043ca60" => :high_sierra
+    sha256 "7ea965c66cc3978fab4754f6aa3bc064eda4f16c2b669b57dc96796439765955" => :sierra
+    sha256 "4183d1662c44bb8efad476472b94ea8c85c387bbac8e8382e1f04865937f94e8" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

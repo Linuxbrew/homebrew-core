@@ -3,14 +3,14 @@ class PythonAT2 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
   sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "12e2d289661c80fd4346941a17fa30788e2d24e0a4a5d353cf00029f4675e960" => :high_sierra
-    sha256 "94a4ec65ccb23dd25b5954cfe334e8635623b13054a37873d8b7cafb1d243501" => :sierra
-    sha256 "4aa1e910a28588c40fa656d707b86c2b7cad5e1cd3588c6e8936f83c7e574bcb" => :el_capitan
-    sha256 "e51bde294dfbd88f9ac9f46286d33defcbfb630cb336c9506e2839ff063d8580" => :x86_64_linux
+    sha256 "d6ebdbd3ddb3651c565d68f6ff2c1b5e5f35f9263453d7e1af7d35d437ff6412" => :high_sierra
+    sha256 "3459588fb09a6fc911965f7268ed1271d98f989953af0991401c3a957cbf3114" => :sierra
+    sha256 "4218d62bfb18d242f27b8c5702ed62a89ef95a2b7f790fac398ee613b369e70a" => :el_capitan
+    sha256 "0bc43aa636a19ec71e5dc6efce1823e0e4d138e3711eb61f75a8f88b79f0ff02" => :x86_64_linux
   end
 
   keg_only :versioned_formula if OS.mac?

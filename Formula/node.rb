@@ -3,12 +3,14 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v9.7.1/node-v9.7.1.tar.xz"
   sha256 "06fae194a1eb962cc6f69f74f5be9f7c022265e7b3c3d7b08872157d02929042"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "1595bb21e107e39dd36ad0e9481847def58973ca9b10703dd36fa07bfc4f587b" => :high_sierra
-    sha256 "4e950788133b160da68cb95c234dc49acea1388d74bee90d919a229bccc1fd18" => :sierra
-    sha256 "ad79f9976d2fd2383642d01184d2d6a5aee34e9ec5d86a826f175ebb78108fee" => :el_capitan
+    sha256 "f1665dde9e67a7147245cfab0093fea1152aaf660784535fb9fd2d6eebacfa88" => :high_sierra
+    sha256 "b8aaa77c269b0676047f1b26c056c3eda6bf05a0853eb2766692ac5ff78aaaf2" => :sierra
+    sha256 "fd0b86ca5f18744d33c904b91ce7a4a438660f0572745ea231d33c4740fe751d" => :el_capitan
+    sha256 "b03ea52e06a96df7fd2bb9d221b444ac0f0a9ecf6f4462f1c19fe661a3c83e4d" => :x86_64_linux
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -108,9 +110,12 @@ class Node < Formula
       cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
-    npm_root = node_modules/"npm"
-    npmrc = npm_root/"npmrc"
-    npmrc.atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    npmrc = <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python\n
+    EOS
+    (node_modules/"npm"/"npmrc").atomic_write npmrc
+    (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
   end
 
   def caveats

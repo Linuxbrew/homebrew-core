@@ -3,8 +3,8 @@ class Burp < Formula
   homepage "http://burp.grke.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.28/burp-2.1.28.tar.bz2"
-    sha256 "c625fed9a9d911f25007cb0189d941efbf16449cf02e8599d6f506901a9ecd7d"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.1.30/burp-2.1.30.tar.bz2"
+    sha256 "990fb1b61bddf5cd5cc2e1bfabb80f3acc496aa6f3dadbda757a3aacace068ab"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
@@ -13,10 +13,10 @@ class Burp < Formula
   end
 
   bottle do
-    sha256 "3f9a25cb501a8bb41aba37cf848c45d6dd0e5e58b9b99fb3ab647b3694e9d585" => :high_sierra
-    sha256 "afa781546ca98f48e3f1a8f202ba4630fa0fc0037882cd81961dc8025792b05e" => :sierra
-    sha256 "cce7317e40d0b4ba7cddd49523e71315f8a604d671fb29ef98fcdf1ffc3e57db" => :el_capitan
-    sha256 "a39d096d0ae98fe5c2b32252b4be91e55769a16a2d813a6c1980ec0eb9eed718" => :x86_64_linux
+    sha256 "96e1e1c11821b71db862daaa8a5e81e8c4bd39444be45dbc16a14edab79019b9" => :high_sierra
+    sha256 "c2fc5214b281b51806cfcadc5151c69977797c77cb8e39641153fba51ff8f913" => :sierra
+    sha256 "3bdd206d6fdbbf7b877a82aab6c508d31f8183c5a686fcd04144eadddbd2a08d" => :el_capitan
+    sha256 "b274e9939766a9eb5050b1a9b8cf616adae6124b49e9e7015b0eca6b52da1655" => :x86_64_linux
   end
 
   head do
@@ -31,6 +31,7 @@ class Burp < Formula
     end
   end
 
+  depends_on "pkg-config" => :build
   depends_on "librsync"
   depends_on "openssl"
 

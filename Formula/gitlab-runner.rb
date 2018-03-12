@@ -1,5 +1,3 @@
-require "language/go"
-
 class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
@@ -10,19 +8,16 @@ class GitlabRunner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69b0d9adb80ee3177970bd9efd65a6369dcf03662df0eefc053ab239ef5fb7fa" => :high_sierra
-    sha256 "b10dcb5cd4d988c26be5eac4ed8931f58598e08e7b12736b49c582592c82a8e7" => :sierra
-    sha256 "e4c681e2dd0579d988e21b2f67bdce5e088047c53ad59c02882f54d17aa07590" => :el_capitan
-    sha256 "cc6299e8f20fe3eb4463f71c86177193589447ded02fd755e9b35cf7c373cef7" => :x86_64_linux
+    rebuild 1
+    sha256 "879073031b87d7c1af68cfa4381d1bb3e76d783f4d675b65f690ab9bc346b234" => :high_sierra
+    sha256 "17abdf661e167271f8cc8bd355add7cf27eb98e4c2b8a879f6a33e66ae417bf8" => :sierra
+    sha256 "a27fdf1040486b383b910b6153295b39f9354c696e9b6de941ef5308f406948e" => :el_capitan
+    sha256 "1d66ffdd4470dfecd28809b930dc55f4f7b969e68e84d4a791e905619f2cfe60" => :x86_64_linux
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "docker" => :recommended
-
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
 
   resource "prebuilt-x86_64.tar.xz" do
     url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-x86_64.tar.xz",
@@ -42,12 +37,6 @@ class GitlabRunner < Formula
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd dir do
       Pathname.pwd.install resource("prebuilt-x86_64.tar.xz"),

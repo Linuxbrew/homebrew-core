@@ -1,14 +1,14 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.63.zip"
-  sha256 "c6bbd6cd4290136db77649dd709e7d42dfd7625116487350d5ed6b799b02b72d"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.64.zip"
+  sha256 "221213dd9ba398e4e568ae24d545607c4177f04d3920a6195d9db66a64a69030"
 
   bottle do
-    sha256 "f679d033483903a9be5ed20f39f514439fe8652f9864a08fd361ef7f9a49a7ee" => :high_sierra
-    sha256 "5b1ad4ede9de7834fcd144a2212068d67851c7f41eaa796ba40ddcc254673aa8" => :sierra
-    sha256 "e0f5e6acf7f21b5505cff2e230e3e9e196f3433d595b2072b4f46a494de2f212" => :el_capitan
-    sha256 "93404f6c9edfcd502db40fc6183ebd2c12eb5cf7a1e5b5fb54ff398bc038ff8f" => :x86_64_linux
+    sha256 "bbbd212bcf5081e66e24bf5890e0dc38771cf6887e9bbeb213aaf84e96281b3d" => :high_sierra
+    sha256 "b355e9d3abf0281e0161aece9cadf6b0778fcdc620fa75078eca4ba13651025a" => :sierra
+    sha256 "19ee666aa98529b0964a1a6c4f4077517fa17d0d8ad949a6cfe4c0c70580b6ce" => :el_capitan
+    sha256 "edb662fa29fbff46099f1492f652ffaddf0dfa0ff5d62166d9736a23a257c113" => :x86_64_linux
   end
 
   depends_on "openssl"

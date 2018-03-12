@@ -1,15 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.xz"
-  sha256 "6cdcde9c9c1ca9f450a0b24eafa229ca759e576daa0fae892ce74d541ecdc86f"
+  url "https://nodejs.org/dist/v8.10.0/node-v8.10.0.tar.xz"
+  sha256 "b72d4e71618d6bcbd039b487b51fa7543631a4ac3331d7caf69bdf55b5b2901a"
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    rebuild 1
-    sha256 "388983b525fcf73c83fb21e13ffa350b71da37c1cca7dc3cb129f3e62c4e8b7f" => :high_sierra
-    sha256 "3a92ecd2cdeff45fea42aacb07de1e827d0b6a6cf2a441d73121acff73ac6f4c" => :sierra
-    sha256 "0f37df2a9ed5e27f6177e8e167541b2a212b6eb68f3c5ae0c2b91025911dc87e" => :el_capitan
+    sha256 "e737c61870d5a320b81d97346037fb9d91f65dcf3f3bb6c9aa3cbb2cc233889e" => :high_sierra
+    sha256 "e8e1f9baa66f7ba57078ba1566b20a57e6e4ba7999eef591a2983eb328e8b1a9" => :sierra
+    sha256 "43f77dc6882cc921d389a2e6c121959dc55e971cdd9200c6cc8feedc0845f2e9" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -43,6 +42,15 @@ class NodeAT8 < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  def post_install
+    return if build.without? "npm"
+
+    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python
+    EOS
   end
 
   def caveats

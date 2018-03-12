@@ -3,9 +3,8 @@ class Offlineimap < Formula
   homepage "https://www.offlineimap.org/"
   url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.5.tar.gz"
   sha256 "8e28e786a00768e8a97d9f049406744829212cffb69903ffbb15faa1479d43e1"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/OfflineIMAP/offlineimap.git"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation

@@ -3,13 +3,14 @@ class Protobuf < Formula
   homepage "https://github.com/google/protobuf/"
   url "https://github.com/google/protobuf/archive/v3.5.1.tar.gz"
   sha256 "826425182ee43990731217b917c5c3ea7190cfda141af4869e6d4ad9085a740f"
+  revision 1
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "1220bdfc9fea448df265b0d6dc957301cfb6e7f750fbcf7cb285e959fe0bde74" => :high_sierra
-    sha256 "fdb2cce4d549df62f359c42cc070ed2dbd948ae2bde878ab39f0504796df215b" => :sierra
-    sha256 "0f4ba8bf3fe29b96637dc653cfa7e031aee79dd6f9b9b929307fd45f31a5afc5" => :el_capitan
-    sha256 "092b620c76542ee49a5f0328142cc425985ef6f4a25725d21355dbb7819cf7d9" => :x86_64_linux
+    sha256 "89d3e4a62799951c2a908f102ed305691f0fd0141b27c4337ef9bfe64840d8a9" => :high_sierra
+    sha256 "917abbf787422c4702b3104f5f6fb77f48dae573284f5aa7a9a2ef53793e5834" => :sierra
+    sha256 "5a0956aa0639b5943bee597942e7c0ab1439f2db6e322423a72a5ad68e28af82" => :el_capitan
+    sha256 "de3b1b0c5ac1187fd59489d37f4cb9a7cd22cc35870dfedda3daece315ef0893" => :x86_64_linux
   end
 
   # this will double the build time approximately if enabled
