@@ -42,6 +42,7 @@ class Graphviz < Formula
   depends_on :x11 => :optional
   depends_on "gd"
   depends_on "libpng"
+  depends_on "linuxbrew/xorg/xorg" if build.with("x11") && !OS.mac?
 
   if build.with? "bindings"
     depends_on "swig" => :build
