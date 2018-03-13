@@ -1,3 +1,4 @@
+# nopoll: Build a bottle for Linuxbrew
 class Nopoll < Formula
   desc "Open-source C WebSocket toolkit"
   homepage "https://www.aspl.es/nopoll/"
