@@ -14,7 +14,11 @@ class Libzip < Formula
 
   conflicts_with "libtcod", :because => "both install `zip.h` header"
 
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+    depends_on "openssl"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -22,6 +26,12 @@ class Libzip < Formula
   end
 
   test do
+    zip = OS.mac? ? "/usr/bin/zip" : which("zip")
+    if zip.nil?
+      opoo "Not testing unzip, because it requires zip, which is unavailable."
+      return
+    end
+
     touch "file1"
     system "zip", "file1.zip", "file1"
     touch "file2"
