@@ -1,3 +1,4 @@
+# pipenv: Build a bottle for Linuxbrew
 class Pipenv < Formula
   include Language::Python::Virtualenv
 
