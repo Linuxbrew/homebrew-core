@@ -44,7 +44,7 @@ class Rust < Formula
   unless OS.mac?
     depends_on "binutils"
     depends_on "curl"
-    depends_on "python"
+    depends_on "python@2"
     depends_on "zlib"
   end
 
