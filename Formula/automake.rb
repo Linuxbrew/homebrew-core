@@ -4,14 +4,13 @@ class Automake < Formula
   url "https://ftp.gnu.org/gnu/automake/automake-1.16.tar.xz"
   mirror "https://ftpmirror.gnu.org/automake/automake-1.16.tar.xz"
   sha256 "f98f2d97b11851cbe7c2d4b4eaef498ae9d17a3c2ef1401609b7b4ca66655b8a"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "8135f20535b5b225c082106b005d85aa280010b1c1eeedb56d456b6e3478359a" => :high_sierra
     sha256 "8135f20535b5b225c082106b005d85aa280010b1c1eeedb56d456b6e3478359a" => :sierra
     sha256 "8accb0115d48ed86969fb4591bd911dded858fba5346f76715e9cd7233ce21ba" => :el_capitan
-    sha256 "49ced3cef2e2032d3fe74e7900a970788e05da9006fe3f8cd4ae0053db1132ae" => :x86_64_linux
   end
 
   # Linux bug fix: https://github.com/Linuxbrew/homebrew-core/issues/6275
@@ -21,9 +20,14 @@ class Automake < Formula
   keg_only :provided_until_xcode43
 
   depends_on "autoconf" => :run
+  depends_on "perl" unless OS.mac?
 
   def install
-    ENV["PERL"] = "/usr/bin/perl" if OS.mac?
+    if OS.mac?
+      ENV["PERL"] = "/usr/bin/perl"
+    elsif OS.linux?
+      ENV["PERL"] = "#{Formula["perl"].opt_bin}/perl"
+    end
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
