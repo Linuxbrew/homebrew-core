@@ -1,3 +1,4 @@
+# gnu-time: Build a bottle for Linuxbrew
 class GnuTime < Formula
   desc "GNU implementation of time utility"
   homepage "https://www.gnu.org/software/time/"
