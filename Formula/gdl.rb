@@ -1,3 +1,4 @@
+# gdl: Build a bottle for Linuxbrew
 class Gdl < Formula
   desc "GNOME Docking Library provides docking features for GTK+ 3"
   homepage "https://developer.gnome.org/gdl/"
