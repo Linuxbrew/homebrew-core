@@ -12,10 +12,6 @@ class Automake < Formula
     sha256 "397f56ce7582b559171de62dfa772fc1a90d99bb1f03ae2f20e6824a243f7ae7" => :el_capitan
   end
 
-  # Linux bug fix: https://github.com/Linuxbrew/homebrew-core/issues/6275
-  # Function 'none' was only introduced in List::Util 1.33, so we emulate it
-  patch :DATA unless OS.mac?
-
   keg_only :provided_until_xcode43
 
   depends_on "autoconf" => :run
@@ -57,18 +53,3 @@ class Automake < Formula
     system "./test"
   end
 end
-
-__END__
-diff -bur automake-1.16/bin/automake.in  automake-1.16.new/bin/automake.in
---- automake-1.16/bin/automake.in       2018-02-26 01:13:58.000000000 +1100
-+++ automake-1.16.new/bin/automake.in   2018-03-04 10:28:25.357886554 +1100
-@@ -73,7 +73,8 @@
- use Automake::Language;
- use File::Basename;
- use File::Spec;
--use List::Util 'none';
-+use List::Util 'reduce';
-+sub none (&@) { my $code=shift; reduce { $a && !$code->(local $_ = $b) } 1, @_; }
- use Carp;
-
- ## ----------------------- ##
