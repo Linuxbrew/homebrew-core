@@ -12,6 +12,7 @@ class Bitrise < Formula
   end
 
   depends_on "go" => :build
+  depends_on "rsync" => :test
 
   def install
     ENV["GOPATH"] = buildpath
