@@ -1,3 +1,4 @@
+# dcd: Build a bottle for Linuxbrew
 class Dcd < Formula
   desc "Auto-complete program for the D programming language"
   homepage "https://github.com/dlang-community/DCD"
