@@ -1,3 +1,4 @@
+# proj: Build a bottle for Linuxbrew
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "http://proj4.org/"
