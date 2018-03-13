@@ -46,6 +46,11 @@ class LlvmAT5 < Formula
       sha256 "fa8f99dd2bde109daa3276d529851a3bce5718d46ce1c5d0806f46caa3e57c00"
     end
 
+    resource "libcxxabi" do
+      url "https://llvm.org/releases/5.0.1/libcxxabi-5.0.1.src.tar.xz"
+      sha256 "5a25152cb7f21e3c223ad36a1022faeb8a5ac27c9e75936a5ae2d3ac48f6e854"
+    end
+
     resource "libunwind" do
       url "https://releases.llvm.org/5.0.1/libunwind-5.0.1.src.tar.xz"
       sha256 "6bbfbf6679435b858bd74bdf080386d084a76dfbf233fb6e47b2c28e0872d0fe"
@@ -79,6 +84,7 @@ class LlvmAT5 < Formula
       sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
     end
   end
+
   bottle do
     cellar :any
     sha256 "bc1f754761a77c5f9d8ac9ab04a3e6ac1105084bf1e6e24d4ec181042a6605af" => :high_sierra
@@ -86,6 +92,11 @@ class LlvmAT5 < Formula
     sha256 "c2efb36438b01e305fd50b556b9acf72d5aba073aa9781a91d25ec7b764fb536" => :el_capitan
   end
 
+  pour_bottle? do
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs to be installed into #{default_prefix}."
+    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
+  end
 
   head do
     url "https://llvm.org/git/llvm.git", :branch => "release_50"
@@ -104,6 +115,10 @@ class LlvmAT5 < Formula
 
     resource "libcxx" do
       url "https://llvm.org/git/libcxx.git", :branch => "release_50"
+    end
+
+    resource "libcxxabi" do
+      url "http://llvm.org/git/libcxxabi.git", :branch => "release_50"
     end
 
     resource "libunwind" do
@@ -130,7 +145,11 @@ class LlvmAT5 < Formula
   keg_only :versioned_formula
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
-  option "without-libcxx", "Do not build libc++ standard library"
+  if OS.mac?
+    option "without-libcxx", "Do not build libc++ standard library"
+  else
+    option "with-libcxx", "Build libc++ standard library"
+  end
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
   option "with-python@2", "Build bindings against Homebrew's Python 2"
@@ -151,6 +170,18 @@ class LlvmAT5 < Formula
     depends_on "pkg-config" => :build
   end
 
+  unless OS.mac?
+    depends_on "gcc" # <atomic> is provided by gcc
+    depends_on "glibc" => (GlibcRequirement.system_version.to_f >= 2.19) ? :optional : :recommended
+    depends_on "binutils" # needed for gold and strip
+    depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "ncurses"
+    depends_on "libxml2"
+    depends_on "python" if build.with?("python") || build.with?("lldb")
+    depends_on "zlib"
+    needs :cxx11
+  end
+
   if MacOS.version <= :snow_leopard
     depends_on "python@2"
   else
@@ -159,8 +190,8 @@ class LlvmAT5 < Formula
   depends_on "cmake" => :build
 
   if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
+    depends_on "swig" if MacOS.version >= :lion || !OS.mac?
+    depends_on CodesignRequirement if OS.mac?
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
@@ -175,6 +206,9 @@ class LlvmAT5 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -183,9 +217,16 @@ class LlvmAT5 < Formula
     end
 
     (buildpath/"tools/clang").install resource("clang")
+    unless OS.mac?
+      # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
+      inreplace buildpath/"tools/clang/lib/Driver/ToolChains/Linux.cpp",
+        "// Add the multilib suffixed paths where they are available.",
+        "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
+    end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
+    (buildpath/"projects/libcxxabi").install resource("libcxxabi") if build_libcxx? && !OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -194,7 +235,8 @@ class LlvmAT5 < Formula
       if build.with? "python@2"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
+        dylib = OS.mac? ? "dylib" : "so"
+        pylib = "#{pyhome}/lib/libpython2.7.#{dylib}"
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
@@ -205,9 +247,11 @@ class LlvmAT5 < Formula
       # the search path in a superenv build. The following three lines add
       # the login keychain to ~/Library/Preferences/com.apple.security.plist,
       # which adds it to the superenv keychain search path.
-      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-      username = ENV["USER"]
-      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+      if OS.mac?
+        mkdir_p "#{ENV["HOME"]}/Library/Preferences"
+        username = ENV["USER"]
+        system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+      end
     end
 
     if build.with? "compiler-rt"
@@ -243,6 +287,7 @@ class LlvmAT5 < Formula
     end
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
+    args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build_libcxx? && !OS.mac?
 
     if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -250,10 +295,23 @@ class LlvmAT5 < Formula
       args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
     end
 
+    # Enable llvm gold plugin for LTO
+    args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}" if OS.linux?
+
     if build.with? "libffi"
       args << "-DLLVM_ENABLE_FFI=ON"
       args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+    end
+
+    # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
+    unless OS.mac?
+      gccpref = Formula["gcc"].opt_prefix.to_s
+      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
+      args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
+      args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
+      args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
     mktemp do
@@ -272,7 +330,7 @@ class LlvmAT5 < Formula
       end
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain"
+      system "make", "install-xcode-toolchain" if build.with?("toolchain") && OS.mac?
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
@@ -284,6 +342,19 @@ class LlvmAT5 < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    # Remove conflicting libraries.
+    # libgomp.so conflicts with gcc.
+    # libunwind.so conflcits with libunwind.
+    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
+
+    # Strip executables/libraries/object files to reduce their size
+    unless OS.mac?
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   def caveats
@@ -314,7 +385,7 @@ class LlvmAT5 < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{version}/include",
-                           "omptest.c", "-o", "omptest"
+                           "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -347,7 +418,7 @@ class LlvmAT5 < Formula
     EOS
 
     # Testing Command Line Tools
-    if MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
