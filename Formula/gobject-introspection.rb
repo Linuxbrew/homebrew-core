@@ -14,7 +14,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :mavericks
+  depends_on "python@2" if MacOS.version <= :mavericks || !OS.mac?
 
   unless OS.mac?
     depends_on "bison"
@@ -33,7 +33,7 @@ class GobjectIntrospection < Formula
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
     end
 
-    python = if MacOS.version >= :yosemite
+    python = if OS.mac? && MacOS.version >= :yosemite
       "/usr/bin/python2.7"
     else
       Formula["python@2"].opt_bin/"python2.7"
