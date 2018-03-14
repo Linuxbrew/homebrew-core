@@ -22,7 +22,10 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "util-linux" unless OS.mac? # for libmount.so
+  unless OS.mac?
+    depends_on "util-linux" # for libmount.so
+    depends_on "python@2"
+  end
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
