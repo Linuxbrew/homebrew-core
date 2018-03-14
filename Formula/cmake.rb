@@ -18,10 +18,8 @@ class Cmake < Formula
 
   depends_on "sphinx-doc" => :build if build.with? "docs"
   unless OS.mac?
-    depends_on "bzip2"
-    depends_on "curl"
-    depends_on "libidn" => :optional
     depends_on "ncurses"
+    depends_on "openssl"
   end
 
   # The `with-qt` GUI option was removed due to circular dependencies if
@@ -47,6 +45,7 @@ class Cmake < Formula
       --system-bzip2
       --system-curl
     ]
+    args -= ["--system-zlib", "--system-bzip2", "--system-curl"] unless OS.mac?
 
     if build.with? "docs"
       # There is an existing issue around macOS & Python locale setting
