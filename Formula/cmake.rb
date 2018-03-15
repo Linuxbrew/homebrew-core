@@ -3,6 +3,7 @@ class Cmake < Formula
   homepage "https://www.cmake.org/"
   url "https://cmake.org/files/v3.10/cmake-3.10.2.tar.gz"
   sha256 "80d0faad4ab56de07aa21a7fc692c88c4ce6156d42b0579c6962004a70a3218b"
+  revision 1 unless OS.mac?
   head "https://cmake.org/cmake.git"
 
   bottle do
@@ -10,7 +11,6 @@ class Cmake < Formula
     sha256 "7ad98f403e21c76cfd0789d83acffce92cb29aad3d2ea9b4fe8b2c05de8f33b9" => :high_sierra
     sha256 "878aeaeda98df7a8940bdccc42b7ff22195980a62410428f8febc7cd03a1c681" => :sierra
     sha256 "05efc0e612c16eabdf8e509545d18a7e1016de2c6cb6deb597b49ffd590dcc0a" => :el_capitan
-    sha256 "cf12cf11e0c24c6a35dd24fd2d50e0e7e568f33377b5fa8811047b5681b9dd5d" => :x86_64_linux
   end
 
   option "without-docs", "Don't build man pages"
@@ -18,10 +18,8 @@ class Cmake < Formula
 
   depends_on "sphinx-doc" => :build if build.with? "docs"
   unless OS.mac?
-    depends_on "bzip2"
-    depends_on "curl"
-    depends_on "libidn" => :optional
     depends_on "ncurses"
+    depends_on "openssl"
   end
 
   # The `with-qt` GUI option was removed due to circular dependencies if
@@ -47,6 +45,7 @@ class Cmake < Formula
       --system-bzip2
       --system-curl
     ]
+    args -= ["--system-zlib", "--system-bzip2", "--system-curl"] unless OS.mac?
 
     if build.with? "docs"
       # There is an existing issue around macOS & Python locale setting
