@@ -12,6 +12,8 @@ class Moe < Formula
     sha256 "4b7e08c089bcf431efba6be217df5a30e7ade7fa2813ae53152e5671958abb69" => :el_capitan
   end
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     # Fix compilation bug with Xcode 9
     # http://lists.gnu.org/archive/html/bug-moe/2017-10/msg00000.html
