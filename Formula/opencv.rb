@@ -81,13 +81,8 @@ class Opencv < Formula
       -DBUILD_opencv_python2=ON
       -DBUILD_opencv_python3=ON
       -DPYTHON2_EXECUTABLE=#{which "python"}
-<<<<<<< HEAD
-      -DPYTHON2_LIBRARY=#{py_lib}/libpython2.7.#{dylib}
-      -DPYTHON2_INCLUDE_DIR=#{py_prefix}/include/python2.7
-=======
-      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
+      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.#{dylib}
       -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
->>>>>>> da0533a982
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.#{dylib}
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
