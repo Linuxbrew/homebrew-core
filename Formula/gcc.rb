@@ -13,7 +13,7 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision OS.mac? ? 1 : 2
+  revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
@@ -30,9 +30,11 @@ class Gcc < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "e28abdcd4b1eca7b8bdfc76779e8d6343eb11d8fc4e9c523f03c3c1c887aac2a" => :high_sierra
     sha256 "eef4c6b68313e913b3c71329575699e960a384044b12a76fd880a500fb8dbf1c" => :sierra
     sha256 "a2a77d7caeda7cb6dcacebc2f5113f7a8a3579a146b3a9b539f060409198bba1" => :el_capitan
+    sha256 "4c2282e0e6fea90ab2dc1540ad7f95319f8f41c0254f6dc7ae2d112c616c55d8" => :x86_64_linux
   end
 
   # GCC's Go compiler is not currently supported on macOS.
