@@ -7,15 +7,15 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "http://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.2.4.tar.gz"
-  sha256 "82072944a1278ff992867b84da7499c64e34e8a853804f4e7a557235308c79d7"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.tar.gz"
+  sha256 "e73a9b2c2a16f3739aa642b2a8698c56939e9b0d3664bb92bd9fc51a7308d73e"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "e871f14a23eccf573a5401094e5770224ab3f8f2a160bb2d00f41a7b5e2aa72e" => :high_sierra
-    sha256 "31fa89fb6bac105c02f4e8c2674c35315c560c5d096526d96ea286878e4d64f2" => :sierra
-    sha256 "af6cfa114f204c95c0487d8525c422b159adc00cc53b0e4f8bec571fba1c539b" => :el_capitan
+    sha256 "fdb064d5abe81e90b71a29312de9c5d2c86a8a520811444776fcaae9703f1977" => :high_sierra
+    sha256 "62e2017e7cad2843a757d06776339d24d27582b23a78d32a0ed1c0eedaf8d001" => :sierra
+    sha256 "400bc561ee07cdaddf687f31d3cb6b8d64cad58674d1861322894f9fd4120eef" => :el_capitan
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
@@ -37,15 +37,15 @@ class Erlang < Formula
   depends_on CIRequirement
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_20.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_20.2.tar.gz"
-    sha256 "950e088f9e47fc10a98e3f67d6420a990650836c648686a2f5dafe331747cbdf"
+    url "https://www.erlang.org/download/otp_doc_man_20.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_20.3.tar.gz"
+    sha256 "17e0b2f94f11576a12526614a906ecad629b8804c25e6c18523f7c4346607112"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_20.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_20.2.tar.gz"
-    sha256 "7f5e7d4cd0c58e15d7d29231931c2a710f7f5fdfcb0ff8edb8142969520c4256"
+    url "https://www.erlang.org/download/otp_doc_html_20.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_20.3.tar.gz"
+    sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
   def install

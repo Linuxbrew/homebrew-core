@@ -5,13 +5,13 @@ class AnsibleLint < Formula
   homepage "https://github.com/willthames/ansible-lint/"
   url "https://files.pythonhosted.org/packages/f1/c3/902434e131709640533bc6e8b877ed3a37c93c74082f260611f29d6a6ac1/ansible-lint-3.4.21.tar.gz"
   sha256 "fd86229fe6315137537d5380a13512e0cefa169d740a5a9e1f60dbd9ef6d6704"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3ebdc7b68b79842d897f1107280c196f1e638d17a73b7318f5e6519315e39ee4" => :high_sierra
-    sha256 "2164cc676b0f15d3b0d59820ecd6d8aa99f8453b8ec499c7a6e124e3d79f20ed" => :sierra
-    sha256 "2a27f0c7b2a9165211009e653e1e8d6ad72af31f3382e506847dbb23aa3945b7" => :el_capitan
-    sha256 "cadc4765a6439c1de6940ef4ba780577eb2a2493406829aff3097a33de169224" => :x86_64_linux
+    sha256 "ef2dc3c036b120e9e98e08f7e46a2dbafa7ffff25dd3f249091513b372eee216" => :high_sierra
+    sha256 "3ec82b61f00771f47596f753511089c0c4c524e53c5a8ce8055b4a816eef5766" => :sierra
+    sha256 "21ceb15b7731ad64794dd274ae2a5f9ee89af9ca1ec14adb6f42cc2cbe762e25" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -24,8 +24,8 @@ class AnsibleLint < Formula
   end
 
   resource "ansible" do
-    url "https://files.pythonhosted.org/packages/4f/65/ae3ad8589c38f9e04ebc8a824c2880eb4f9e603a1f62b5f5a3f938e524b0/ansible-2.4.2.0.tar.gz"
-    sha256 "315f1580b20bbc2c2f1104f8b5e548c6b4cac943b88711639c5e0d4dfc4d7658"
+    url "https://files.pythonhosted.org/packages/ed/84/09e8dd117081db2077cf08dbd670a3454ab0265b05e8e7f75482492b46f0/ansible-2.4.3.0.tar.gz"
+    sha256 "0e98b3a56928d03979d5f8e7ae5d8e326939111b298729b03f00b3ad8f998a3d"
   end
 
   resource "asn1crypto" do
@@ -39,8 +39,8 @@ class AnsibleLint < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/c9/70/89b68b6600d479034276fed316e14b9107d50a62f5627da37fafe083fde3/cffi-1.11.2.tar.gz"
-    sha256 "ab87dd91c0c4073758d07334c1e5f712ce8fe48f007b86f8238773963ee700a6"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "cryptography" do
@@ -74,8 +74,8 @@ class AnsibleLint < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/c8/de/791773d6a4b23327c7475ae3d7ada0d07fa147bf77fb6f561a4a7d8afd11/paramiko-2.4.0.tar.gz"
-    sha256 "486f637f0a33a4792e0e567be37426c287efaa8c4c4a45e3216f9ce7fd70b1fc"
+    url "https://files.pythonhosted.org/packages/29/65/83181630befb17cd1370a6abb9a87957947a43c2332216e5975353f61d64/paramiko-2.4.1.tar.gz"
+    sha256 "33e36775a6c71790ba7692a73f948b329cf9295a72b0102144b031114bd2a4f3"
   end
 
   resource "pyasn1" do
