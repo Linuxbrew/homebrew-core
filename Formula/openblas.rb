@@ -3,7 +3,7 @@ class Openblas < Formula
   homepage "https://www.openblas.net/"
   url "https://github.com/xianyi/OpenBLAS/archive/v0.2.20.tar.gz"
   sha256 "5ef38b15d9c652985774869efd548b8e3e972e1e99475c673b25537ed7bcf394"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -11,15 +11,18 @@ class Openblas < Formula
     sha256 "4a62a8e0a79f1f06c30ea4743ee02eba1599fc66cfc9812967b838093dca048d" => :high_sierra
     sha256 "31c10a9ff27fe87694c8ca729d7fdc919f872302479082cbb5e42d22a84d66b8" => :sierra
     sha256 "6aa065aea2afd4573b8d20ac24ae8fec6fd6bf71562e33c6d25c397b3cea8187" => :el_capitan
-    sha256 "5cf1d99f8c69dca4ab8382eb25c07862aabd89c826d4316851415e5a885afe6e" => :x86_64_linux
   end
 
   keg_only :provided_by_macos,
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
-  option "with-openmp", "Enable parallel computations with OpenMP"
+  if OS.mac?
+    option "with-openmp", "Enable parallel computations with OpenMP"
+  else
+    option "without-openmp", "Disable parallel computations with OpenMP"
+  end
 
-  depends_on "gcc" if OS.mac? # for gfortran
+  depends_on "gcc" # for gfortran
 
   fails_with :clang if build.with? "openmp"
 
