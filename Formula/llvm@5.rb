@@ -1,3 +1,4 @@
+# llvm@5: Build a bottle for Linuxbrew
 class CodesignRequirement < Requirement
   fatal true
 
