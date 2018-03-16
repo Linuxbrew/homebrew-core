@@ -12,6 +12,8 @@ class Cdk < Formula
     sha256 "7d8e6706f54a83fe58b0ae7480bc7ff0fff3374a1d3f4615286057c336f31c37" => :el_capitan
   end
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-ncurses"
     system "make", "install"
