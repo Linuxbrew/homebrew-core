@@ -13,7 +13,7 @@ class Twarc < Formula
     sha256 "477df59ca1134c841f7856c657d7ffb330cafbe8202c519c2b8968221ecf7f07" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
 
   def install
     venv = virtualenv_create(libexec)
