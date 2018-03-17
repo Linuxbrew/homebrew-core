@@ -12,6 +12,12 @@ class Acpica < Formula
     sha256 "59d4456d75b19a9e864e1764dcacacdfe43c4cdc6bf2f93d7444a3994d7669bf" => :el_capitan
   end
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "m4" => :build
+  end
+
   def install
     ENV.deparallelize
     system "make", "PREFIX=#{prefix}"
