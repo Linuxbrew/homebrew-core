@@ -13,7 +13,7 @@ class KubernetesCli < Formula
     sha256 "70f600bd7cefd0733ca95aa0e82d408d6b803774ad556974db899902802637dc" => :el_capitan
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.9" => :build
 
   def install
     ENV["GOPATH"] = buildpath
