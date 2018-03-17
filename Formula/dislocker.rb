@@ -1,3 +1,4 @@
+# dislocker: Build a bottle for Linuxbrew
 class Dislocker < Formula
   desc "FUSE driver to read/write Windows' BitLocker-ed volumes"
   homepage "https://github.com/Aorimn/dislocker"
