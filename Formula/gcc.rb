@@ -13,7 +13,7 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
@@ -34,7 +34,6 @@ class Gcc < Formula
     sha256 "e28abdcd4b1eca7b8bdfc76779e8d6343eb11d8fc4e9c523f03c3c1c887aac2a" => :high_sierra
     sha256 "eef4c6b68313e913b3c71329575699e960a384044b12a76fd880a500fb8dbf1c" => :sierra
     sha256 "a2a77d7caeda7cb6dcacebc2f5113f7a8a3579a146b3a9b539f060409198bba1" => :el_capitan
-    sha256 "872130b9280b2805c7a87adcdbe520dadf8f3902a849164b6629ea1a584ca42b" => :x86_64_linux
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -53,7 +52,7 @@ class Gcc < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on OS.mac? ? "isl" : "isl@18"
+  depends_on OS.mac? ? "isl" : "isl@0.18"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   fails_with :gcc_4_0
@@ -143,7 +142,7 @@ class Gcc < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      (OS.mac? ? "--with-isl=#{Formula["isl"].opt_prefix}" : "--with-isl=#{Formula["isl@18"].opt_prefix}"),
+      (OS.mac? ? "--with-isl=#{Formula["isl"].opt_prefix}" : "--with-isl=#{Formula["isl@0.18"].opt_prefix}"),
       ("--with-system-zlib" if OS.mac?),
       "--enable-stage1-checking",
       "--enable-checking=release",
