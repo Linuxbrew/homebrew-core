@@ -1,3 +1,4 @@
+# dfix: Build a bottle for Linuxbrew
 class Dfix < Formula
   desc "Auto-upgrade tool for D source code"
   homepage "https://github.com/dlang-community/dfix"
