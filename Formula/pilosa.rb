@@ -1,3 +1,4 @@
+# pilosa: Build a bottle for Linuxbrew
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
