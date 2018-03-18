@@ -35,8 +35,8 @@ class Vtk < Formula
     depends_on "szip"
     depends_on "zlib"
     depends_on "tcl-tk"
-    depends_on :x11
     depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   needs :cxx11
