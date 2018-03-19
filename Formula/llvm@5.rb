@@ -202,7 +202,7 @@ class LlvmAT5 < Formula
   end
 
   def build_libcxx?
-    build.with?("libcxx") || !MacOS::CLT.installed?
+    build.with?("libcxx") || OS.mac? && !MacOS::CLT.installed?
   end
 
   def install
