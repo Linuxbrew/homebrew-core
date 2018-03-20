@@ -1,3 +1,4 @@
+# fribidi: Build a bottle for Linuxbrew
 class Fribidi < Formula
   desc "Implementation of the Unicode BiDi algorithm"
   homepage "https://github.com/fribidi/fribidi"
