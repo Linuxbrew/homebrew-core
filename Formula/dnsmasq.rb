@@ -1,3 +1,4 @@
+# dnsmasq: Build a bottle for Linuxbrew
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
