@@ -1,3 +1,4 @@
+# gtkmm3: Build a bottle for Linuxbrew
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
