@@ -1,3 +1,4 @@
+# gstreamer: Build a bottle for Linuxbrew
 class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
