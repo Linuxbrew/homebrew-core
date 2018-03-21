@@ -1,3 +1,4 @@
+# pdfpc: Build a bottle for Linuxbrew
 class Pdfpc < Formula
   desc "Presenter console with multi-monitor support for PDF files"
   homepage "https://pdfpc.github.io/"
