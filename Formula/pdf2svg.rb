@@ -1,3 +1,4 @@
+# pdf2svg: Build a bottle for Linuxbrew
 class Pdf2svg < Formula
   desc "PDF converter to SVG"
   homepage "http://www.cityinthesky.co.uk/opensource/pdf2svg"
