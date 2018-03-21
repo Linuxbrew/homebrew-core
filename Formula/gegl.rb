@@ -1,3 +1,4 @@
+# gegl: Build a bottle for Linuxbrew
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
