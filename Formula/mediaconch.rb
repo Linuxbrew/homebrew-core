@@ -1,3 +1,4 @@
+# mediaconch: Build a bottle for Linuxbrew
 class Mediaconch < Formula
   desc "Conformance checker and technical metadata reporter"
   homepage "https://mediaarea.net/MediaConch"
