@@ -1,3 +1,4 @@
+# gtkdatabox: Build a bottle for Linuxbrew
 class Gtkdatabox < Formula
   desc "Widget for live display of large amounts of changing data"
   homepage "https://sourceforge.net/projects/gtkdatabox/"
