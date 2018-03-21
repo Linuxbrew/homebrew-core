@@ -1,3 +1,4 @@
+# at-spi2-atk: Build a bottle for Linuxbrew
 class AtSpi2Atk < Formula
   desc "Accessibility Toolkit GTK+ module"
   homepage "http://a11y.org"
