@@ -1,3 +1,4 @@
+# gst-rtsp-server: Build a bottle for Linuxbrew
 class GstRtspServer < Formula
   desc "RTSP server library based on GStreamer"
   homepage "https://gstreamer.freedesktop.org/modules/gst-rtsp-server.html"
