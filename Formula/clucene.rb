@@ -1,3 +1,4 @@
+# clucene: Build a bottle for Linuxbrew
 class Clucene < Formula
   desc "C++ port of Lucene: high-performance, full-featured text search engine"
   homepage "https://clucene.sourceforge.io/"
