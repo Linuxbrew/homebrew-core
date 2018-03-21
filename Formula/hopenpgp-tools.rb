@@ -1,3 +1,4 @@
+# hopenpgp-tools: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class HopenpgpTools < Formula
