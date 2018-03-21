@@ -1,3 +1,4 @@
+# sylpheed: Build a bottle for Linuxbrew
 class Sylpheed < Formula
   desc "Simple, lightweight email-client"
   homepage "https://sylpheed.sraoss.jp/en/"
