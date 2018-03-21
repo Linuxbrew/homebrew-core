@@ -533,7 +533,7 @@ class Ansible < Formula
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     # https://github.com/Homebrew/homebrew-core/issues/7197
-    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if OS.mac?
 
     virtualenv_install_with_resources
 
