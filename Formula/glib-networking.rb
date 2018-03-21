@@ -1,3 +1,4 @@
+# glib-networking: Build a bottle for Linuxbrew
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
