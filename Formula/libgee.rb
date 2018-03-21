@@ -1,3 +1,4 @@
+# libgee: Build a bottle for Linuxbrew
 class Libgee < Formula
   desc "Collection library providing GObject-based interfaces"
   homepage "https://wiki.gnome.org/Projects/Libgee"
