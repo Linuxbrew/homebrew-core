@@ -1,3 +1,4 @@
+# libgnomecanvas: Build a bottle for Linuxbrew
 class Libgnomecanvas < Formula
   desc "Highlevel, structured graphics library"
   homepage "https://developer.gnome.org/libgnomecanvas/2.30/"
