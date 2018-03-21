@@ -19,6 +19,9 @@ class Atkmm < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
+
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
