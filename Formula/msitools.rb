@@ -1,3 +1,4 @@
+# msitools: Build a bottle for Linuxbrew
 class Msitools < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
