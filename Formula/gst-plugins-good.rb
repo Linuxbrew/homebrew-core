@@ -1,3 +1,4 @@
+# gst-plugins-good: Build a bottle for Linuxbrew
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
