@@ -1,3 +1,4 @@
+# gst-validate: Build a bottle for Linuxbrew
 class GstValidate < Formula
   desc "Tools to validate GstElements from GStreamer"
   homepage "https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
