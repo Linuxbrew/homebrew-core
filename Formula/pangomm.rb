@@ -16,6 +16,7 @@ class Pangomm < Formula
   depends_on "glibmm"
   depends_on "cairomm"
   depends_on "pango"
+  depends_on "linuxbrew/xorg/libpthread-stubs" => :build unless OS.mac?
 
   needs :cxx11
 
