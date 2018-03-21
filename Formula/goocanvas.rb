@@ -1,3 +1,4 @@
+# goocanvas: Build a bottle for Linuxbrew
 class Goocanvas < Formula
   desc "Canvas widget for GTK+ using the Cairo 2D library for drawing"
   homepage "https://live.gnome.org/GooCanvas"
