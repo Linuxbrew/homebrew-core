@@ -1,3 +1,4 @@
+# libinfinity: Build a bottle for Linuxbrew
 class Libinfinity < Formula
   desc "GObject-based C implementation of the Infinote protocol"
   homepage "https://gobby.github.io"
