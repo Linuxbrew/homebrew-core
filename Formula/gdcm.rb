@@ -1,3 +1,4 @@
+# gdcm: Build a bottle for Linuxbrew
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
