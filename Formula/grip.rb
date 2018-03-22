@@ -1,3 +1,4 @@
+# grip: Build a bottle for Linuxbrew
 class Grip < Formula
   desc "GitHub Markdown previewer"
   homepage "https://github.com/joeyespo/grip"
