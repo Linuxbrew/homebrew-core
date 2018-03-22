@@ -21,9 +21,15 @@ class GhcAT82 < Formula
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
 
-  depends_on :macos => :lion
+  depends_on :macos => :lion if OS.mac?
   depends_on "python" => :build if build.bottle? || build.with?("test")
   depends_on "sphinx-doc" => :build if build.with? "docs"
+  unless OS.mac?
+    depends_on "m4" => :build
+    # This dependency is needed for the bootstrap executables.
+    depends_on "gmp" => :build unless OS.mac?
+    depends_on "ncurses"
+  end
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
@@ -46,8 +52,13 @@ class GhcAT82 < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.2.2/ghc-8.2.2-x86_64-apple-darwin.tar.xz"
-    sha256 "f90fcf62f7e0936a6dfc3601cf663729bfe9bbf85097d2d75f0a16f8c2e95c27"
+    if OS.linux?
+      url "https://downloads.haskell.org/~ghc/8.2.2/ghc-8.2.2-x86_64-deb8-linux.tar.xz"
+      sha256 "48e205c62b9dc1ccf6739a4bc15a71e56dde2f891a9d786a1b115f0286111b2a"
+    else
+      url "https://downloads.haskell.org/~ghc/8.2.2/ghc-8.2.2-x86_64-apple-darwin.tar.xz"
+      sha256 "d774e39f3a0105843efd06709b214ee332c30203e6c5902dd6ed45e36285f9b7"
+    end
   end
 
   resource "testsuite" do
@@ -56,6 +67,9 @@ class GhcAT82 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
