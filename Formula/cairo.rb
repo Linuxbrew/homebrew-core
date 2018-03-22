@@ -23,7 +23,7 @@ class Cairo < Formula
   keg_only :provided_pre_mountain_lion
 
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
+  depends_on :x11 => :optional if OS.mac?
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libpng"
@@ -31,7 +31,7 @@ class Cairo < Formula
   depends_on "glib"
   unless OS.mac?
     depends_on "zlib"
-    depends_on "linuxbrew/xorg/xorg"
+    depends_on "linuxbrew/xorg/xorg" => :recommended
   end
 
   def install
@@ -46,7 +46,7 @@ class Cairo < Formula
       --enable-quartz-image
     ] if OS.mac?
 
-    if build.with?("x11") || !OS.mac?
+    if build.with?("x11") || build.with?("xorg")
       args << "--enable-xcb=yes" << "--enable-xlib=yes" << "--enable-xlib-xrender=yes"
     else
       args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
