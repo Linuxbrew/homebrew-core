@@ -18,6 +18,11 @@ class Libzzip < Formula
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
   depends_on "sdl" => :optional
+  unless OS.mac?
+    depends_on "python" => :build
+    depends_on "zip" => :test
+    depends_on "libzip"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
