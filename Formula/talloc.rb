@@ -11,7 +11,7 @@ class Talloc < Formula
     sha256 "bed9fd9c2af02a6cf42eda10539c1e5e7360a9c7bc6338bdf8524bc4f73119cc" => :el_capitan
   end
 
-  depends_on "python" => :build unless OS.mac?
+  depends_on "python@2" => :build unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}",
