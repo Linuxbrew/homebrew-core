@@ -21,7 +21,7 @@ class Unixodbc < Formula
   def install
     # Fixes "sed: -e: No such file or directory"
     # Reported 22 Mar 2018 to nick AT unixodbc DOT org
-    inreplace "exe/Makefile.in", "@sed -i -e", "@sed -i '' -e"
+    inreplace "exe/Makefile.in", "@sed -i -e", "@sed -i '' -e" if OS.mac?
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
