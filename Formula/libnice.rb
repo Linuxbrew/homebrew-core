@@ -1,3 +1,4 @@
+# libnice: Build a bottle for Linuxbrew
 class Libnice < Formula
   desc "GLib ICE implementation"
   homepage "https://wiki.freedesktop.org/nice/"
