@@ -1,3 +1,4 @@
+# lua@5.1: Build a bottle for Linuxbrew
 class LuaAT51 < Formula
   # 5.3 is not fully backwards compatible so we must retain 2 Luas for now.
   desc "Powerful, lightweight programming language (v5.1.5)"
