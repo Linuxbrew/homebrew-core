@@ -25,6 +25,7 @@ class Czmq < Formula
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
   depends_on "zeromq"
+  depends_on "python@2" => :build unless OS.mac?
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
