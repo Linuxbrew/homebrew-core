@@ -1,3 +1,4 @@
+# gnatsd: Build a bottle for Linuxbrew
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
