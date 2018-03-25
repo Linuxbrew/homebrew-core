@@ -1,3 +1,4 @@
+# latexdiff: Build a bottle for Linuxbrew
 class Latexdiff < Formula
   desc "Determine and markup differences between two LaTeX files"
   homepage "https://www.ctan.org/pkg/latexdiff"
