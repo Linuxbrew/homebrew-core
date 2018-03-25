@@ -1,3 +1,4 @@
+# minio-mc: Build a bottle for Linuxbrew
 class MinioMc < Formula
   desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
   homepage "https://github.com/minio/mc"
