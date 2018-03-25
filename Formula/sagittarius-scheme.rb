@@ -1,3 +1,4 @@
+# sagittarius-scheme: Build a bottle for Linuxbrew
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
