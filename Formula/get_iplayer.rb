@@ -1,3 +1,4 @@
+# get_iplayer: Build a bottle for Linuxbrew.
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
@@ -15,7 +16,7 @@ class GetIplayer < Formula
   depends_on "atomicparsley" => :recommended
   depends_on "ffmpeg" => :recommended
 
-  depends_on :macos => :yosemite
+  depends_on :macos => :yosemite if OS.mac?
 
   resource "IO::Socket::IP" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz"
