@@ -1,3 +1,4 @@
+# dirac: Build a bottle for Linuxbrew
 class Dirac < Formula
   desc "General-purpose video codec aimed at a range of resolutions"
   homepage "https://sourceforge.net/projects/dirac/"
