@@ -19,6 +19,7 @@ class AvroC < Formula
   depends_on "jansson"
   depends_on "snappy" => :optional
   depends_on "xz" => :optional
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "cmake", ".", *std_cmake_args
