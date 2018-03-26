@@ -1,3 +1,4 @@
+# libmms: Build a bottle for Linuxbrew
 class Libmms < Formula
   desc "Library for parsing mms:// and mmsh:// network streams"
   homepage "https://sourceforge.net/projects/libmms/"
