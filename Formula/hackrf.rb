@@ -1,3 +1,4 @@
+# hackrf: Build a bottle for Linuxbrew
 class Hackrf < Formula
   desc "Low cost software radio platform"
   homepage "https://github.com/mossmann/hackrf"
