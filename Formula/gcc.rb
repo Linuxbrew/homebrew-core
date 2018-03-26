@@ -13,7 +13,7 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision OS.mac? ? 1 : 3
+  revision OS.mac? ? 1 : 4
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
@@ -29,6 +29,7 @@ class Gcc < Formula
     end
   end
 
+  # gcc is designed to be portable.
   bottle do
     cellar :any
     sha256 "e28abdcd4b1eca7b8bdfc76779e8d6343eb11d8fc4e9c523f03c3c1c887aac2a" => :high_sierra
@@ -90,7 +91,7 @@ class Gcc < Formula
   # Fix parallel build on APFS filesystem
   # Remove for 7.4.0 and later
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
-  if MacOS.version >= :high_sierra
+  if OS.mac? && MacOS.version >= :high_sierra
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/df0465c02a/gcc/apfs.patch"
       sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
@@ -119,41 +120,56 @@ class Gcc < Formula
     end
 
     args = []
-    args << "--build=#{arch}-apple-darwin#{osmajor}" if OS.mac?
-    if build.with? "glibc"
-      # Fix for GCC 4.4 and older that do not support -static-libstdc++
-      # gengenrtl: error while loading shared libraries: libstdc++.so.6
-      mkdir_p lib
-      ln_s ["/usr/lib64/libstdc++.so.6", "/lib64/libgcc_s.so.1"], lib
-      binutils = Formula["binutils"].prefix/"x86_64-unknown-linux-gnu/bin"
+
+    if OS.mac?
       args += [
-        "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
-        "--with-local-prefix=#{HOMEBREW_PREFIX}/local",
-        "--with-build-time-tools=#{binutils}",
+        "--build=#{arch}-apple-darwin#{osmajor}",
+        "--libdir=#{lib}/gcc/#{version_suffix}",
+        "--with-isl=#{Formula["isl"].opt_prefix}",
+        "--with-system-zlib",
+        # Use 'bootstrap-debug' build configuration to force stripping of object
+        # files prior to comparison during bootstrap (broken by Xcode 6.3).
+        "--with-build-config=bootstrap-debug",
+        "--with-bugurl=https://github.com/Homebrew/homebrew/issues",
       ]
-      # Set the search path for glibc libraries and objects.
-      ENV["LIBRARY_PATH"] = Formula["glibc"].lib
+    else
+      args += [
+        "--with-local-prefix=#{HOMEBREW_PREFIX}/local",
+        "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
+        "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues",
+      ]
+
+      if build.with? "glibc"
+        args += [
+          "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
+          # Pass the specs to ./configure so that gcc can pickup brewed glibc.
+          # This fixes the building failure if the building system uses brewed gcc
+          # and brewed glibc. Document on specs can be found at
+          # https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
+          # Howerver, there is very limit document on `--with-specs` option,
+          # which has certain difference compared with regular spec file.
+          # But some relevant information can be found at https://stackoverflow.com/a/47911839
+          "--with-specs=%{!static:%x{--dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so} %x{-rpath=#{HOMEBREW_PREFIX}/lib}}",
+        ]
+        # Set the search path for glibc libraries and objects.
+        # Fix the error: ld: cannot find crti.o: No such file or directory
+        ENV["LIBRARY_PATH"] = Formula["glibc"].opt_lib
+      end
     end
+
     args += [
       "--prefix=#{prefix}",
-      ("--libdir=#{lib}/gcc/#{version_suffix}" if OS.mac?),
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      (OS.mac? ? "--with-isl=#{Formula["isl"].opt_prefix}" : "--with-isl=#{Formula["isl@0.18"].opt_prefix}"),
-      ("--with-system-zlib" if OS.mac?),
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
-      # Use 'bootstrap-debug' build configuration to force stripping of object
-      # files prior to comparison during bootstrap (broken by Xcode 6.3).
-      "--with-build-config=bootstrap-debug",
       "--disable-werror",
       "--with-pkgversion=Homebrew #{name} #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew/issues",
     ]
 
     # Fix cc1: error while loading shared libraries: libisl.so.15
@@ -174,7 +190,7 @@ class Gcc < Formula
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}" if OS.mac?
 
     mkdir "build" do
       if OS.mac? && !MacOS::CLT.installed?
@@ -237,16 +253,16 @@ class Gcc < Formula
       end
     end
 
-    # Move lib64/* to lib/ on Linuxbrew
-    lib64 = Pathname.new "#{lib}64"
-    if lib64.directory?
-      mv Dir[lib64/"*"], lib
-      rmdir lib64
-      prefix.install_symlink "lib" => "lib64"
-    end
-
-    # Strip the binaries to reduce their size.
     unless OS.mac?
+      # Move lib64/* to lib/ on Linuxbrew
+      lib64 = Pathname.new "#{lib}64"
+      if lib64.directory?
+        mv Dir[lib64/"*"], lib
+        rmdir lib64
+        prefix.install_symlink "lib" => "lib64"
+      end
+
+      # Strip the binaries to reduce their size.
       system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
         f = Pathname.new(f)
         f.file? && (f.elf? || f.extname == ".a")
@@ -268,44 +284,61 @@ class Gcc < Formula
       homebrew_bin.install_symlink "gcc" => "cc" unless (homebrew_bin/"cc").exist?
       homebrew_bin.install_symlink "g++" => "c++" unless (homebrew_bin/"c++").exist?
 
-      # Symlink crt1.o and friends where gcc can find it.
       gcc = "#{bin}/gcc-#{version_suffix}"
-      libgccdir = Pathname.new(`#{gcc} -print-libgcc-file-name`).dirname
+      libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
+      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
       glibc = Formula["glibc"]
-      ln_sf Dir[glibc.opt_lib/"*crt?.o"], libgccdir if glibc.any_version_installed?
+      glibc_installed = glibc.any_version_installed?
+
+      # Symlink crt1.o and friends where gcc can find it.
+      ln_sf Dir[glibc.opt_lib/"*crt?.o"], libgcc if glibc_installed
 
       # Create the GCC specs file
       # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
 
       # Locate the specs file
-      specs = libgccdir/"specs"
+      specs = libgcc/"specs"
       ohai "Creating the GCC specs file: #{specs}"
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
       specs_orig = Pathname.new("#{specs}.orig")
       rm_f [specs_orig, specs]
 
       # Save a backup of the default specs file
-      specs_string = `#{gcc} -dumpspecs`
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
+      specs_string = Utils.popen_read(gcc, "-dumpspecs")
       specs_orig.write specs_string
 
       # Set the library search path
-      libgcc = lib/"gcc/x86_64-unknown-linux-gnu"/version
+      # For include path:
+      #   * `-isysroot #{HOMEBREW_PREFIX}` prevents gcc searching
+      #     system header files /usr/include
+      #   * `-idirafter #{HOMEBREW_PREFIX}/include` instructs gcc to
+      #     search HOMEBREW_PREFIX/include after gcc internal header
+      #     files.
+      #   * `-idirafter /usr/include` is only necessary if user uses
+      #     system glibc. It instructs gcc to search system native
+      #     header files with the lowest priority.
+      # For libraries:
+      #   * `-nostdlib -L#{libgcc}` instructs gcc to use brewed glibc
+      #     if applied.
+      #   * `-L#{opt_lib}` instructs gcc to find the corresponding
+      #     libgcc. It is essential if there are multiple brewed gcc
+      #     with different versions installed.
+      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the reset
+      #     brew libraries.
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
-        + -isystem #{HOMEBREW_PREFIX}/include
+        + -isysroot #{HOMEBREW_PREFIX} -idirafter #{HOMEBREW_PREFIX}/include #{"-idirafter /usr/include" unless glibc_installed}
 
         *link_libgcc:
-        #{glibc.any_version_installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+        #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{opt_lib} -L#{HOMEBREW_PREFIX}/lib
 
         *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{opt_lib} -rpath #{HOMEBREW_PREFIX}/lib
 
       EOS
 
       # Symlink ligcc_s.so.1 where glibc can find it.
       # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
-      ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc.any_version_installed?
+      ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc_installed
     end
   end
 
