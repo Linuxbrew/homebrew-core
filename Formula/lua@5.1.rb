@@ -23,6 +23,13 @@ class LuaAT51 < Formula
     depends_on "unzip" # To be able to work with rock files (in the test and in real life)
   end
 
+  # Add shared library for linux
+  # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
+  patch do
+    url "https://gist.githubusercontent.com/iMichka/0f389e65e5abd63bfc6073bfa76082b0/raw/6e9c4c4690c737d93a376e053bcb82cdd69aac3b/lua5.1.5.patch"
+    sha256 "342b0d08eea9b9836be49fc88b3518cf207ee0e9aea09a248d3620c0b34e8e44"
+  end unless OS.mac?
+
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
   patch :DATA if OS.mac?
@@ -51,6 +58,11 @@ class LuaAT51 < Formula
   end
 
   def install
+    # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+    # when making a shared object; recompile with -fPIC
+    # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    ENV.append_to_cflags "-fPIC" unless OS.mac?
+
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
       s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
@@ -74,7 +86,7 @@ class LuaAT51 < Formula
 
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1", *("TO_LIB=liblua.a liblua.so liblua.so.5.1 liblua.so.5.1.5" unless OS.mac?)
 
     (lib/"pkgconfig").install "etc/lua.pc"
 
