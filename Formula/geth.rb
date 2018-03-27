@@ -1,3 +1,4 @@
+# geth: Build a bottle for Linuxbrew
 class Geth < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
