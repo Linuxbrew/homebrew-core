@@ -1,3 +1,4 @@
+# zstd: Build a bottle for Linuxbrew
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "http://zstd.net/"
