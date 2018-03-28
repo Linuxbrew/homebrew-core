@@ -37,12 +37,6 @@ class Openssl < Formula
     depends_on "perl" => :build
   end
 
-  # Build without makedepend.
-  patch do
-    url "https://github.com/openssl/openssl/pull/1524.patch"
-    sha256 "bc954e98673a78983e58da2fe6decfcf94b38eeec78d8b456ca716a539f78b06"
-  end unless OS.mac?
-
   def arch_args
     return {
       :i386 => %w[linux-generic32],
