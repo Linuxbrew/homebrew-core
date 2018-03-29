@@ -1,3 +1,4 @@
+# ruby@2.3: Build a bottle for Linuxbrew
 class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
