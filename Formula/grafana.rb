@@ -1,3 +1,4 @@
+# grafana: Build a bottle for Linuxbrew
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
