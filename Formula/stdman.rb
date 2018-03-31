@@ -13,6 +13,8 @@ class Stdman < Formula
     sha256 "d4b15103ae4011c1f2c9a4e3dcb0b205bfa45595d7ad25d6cb87ec1dc4f395ab" => :el_capitan
   end
 
+  depends_on "linuxbrew/extra/man-db" => :test unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
