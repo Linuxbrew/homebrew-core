@@ -1,3 +1,4 @@
+# dnscrypt-proxy: Build a bottle for Linuxbrew
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://github.com/jedisct1/dnscrypt-proxy"
