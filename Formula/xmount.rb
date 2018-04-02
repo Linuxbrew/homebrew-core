@@ -16,7 +16,11 @@ class Xmount < Formula
   depends_on "afflib"
   depends_on "libewf"
   depends_on "openssl"
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl"].opt_lib/"pkgconfig"
