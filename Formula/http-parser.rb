@@ -1,3 +1,4 @@
+# http-parser: Build a bottle for Linuxbrew
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
