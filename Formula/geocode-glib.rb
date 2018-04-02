@@ -1,3 +1,4 @@
+# geocode-glib: Build a bottle for Linuxbrew
 class GeocodeGlib < Formula
   desc "GNOME library for gecoding and reverse geocoding"
   homepage "https://developer.gnome.org/geocode-glib"
