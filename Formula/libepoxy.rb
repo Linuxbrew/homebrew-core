@@ -16,7 +16,17 @@ class Libepoxy < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
-  depends_on "linuxbrew/xorg/mesa" if OS.linux?
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/libpthread-stubs" => :build
+    depends_on "freeglut"
+    depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xorg"
+    depends_on "linuxbrew/xorg/damageproto"
+    depends_on "linuxbrew/xorg/fixesproto"
+    depends_on "linuxbrew/xorg/kbproto"
+    depends_on "linuxbrew/xorg/xf86vidmodeproto"
+    depends_on "linuxbrew/xorg/xextproto"
+  end
 
   # submitted upstream at https://github.com/anholt/libepoxy/pull/156
   patch :DATA
