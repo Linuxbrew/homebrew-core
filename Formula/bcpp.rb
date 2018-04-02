@@ -1,3 +1,4 @@
+# bcpp: Build a bottle for Linuxbrew
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
