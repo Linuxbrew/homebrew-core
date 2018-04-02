@@ -17,6 +17,7 @@ class Hledger < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "ncurses" unless OS.mac?
 
   def install
     install_cabal_package :using => ["happy"]
