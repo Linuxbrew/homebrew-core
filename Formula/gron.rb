@@ -1,3 +1,4 @@
+# gron: Build a bottle for Linuxbrew
 require "language/go"
 
 class Gron < Formula
