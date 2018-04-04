@@ -16,7 +16,7 @@ class Redis < Formula
 
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
-    ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
+    ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}" if OS.mac?
 
     args = %W[
       PREFIX=#{prefix}
