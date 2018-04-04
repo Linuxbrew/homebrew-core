@@ -33,7 +33,7 @@ class GoogleBenchmark < Formula
       BENCHMARK(BM_StringCreation);
       BENCHMARK_MAIN();
     EOS
-    flags = ["-stdlib=libc++", "-I#{include}", "-L#{lib}", "-lbenchmark"] + ENV.cflags.to_s.split
+    flags = [*("-stdlib=libc++" if OS.mac?), "-I#{include}", "-L#{lib}", "-lbenchmark", *("-pthread" if ENV.compiler == :gcc)] + ENV.cflags.to_s.split
     system ENV.cxx, "-o", "test", "test.cpp", *flags
     system "./test"
   end
