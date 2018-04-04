@@ -1,3 +1,4 @@
+# mednafen: Build a bottle for Linuxbrew
 class Mednafen < Formula
   desc "Multi-system emulator"
   homepage "https://mednafen.github.io/"
