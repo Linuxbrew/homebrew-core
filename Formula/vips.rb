@@ -41,6 +41,9 @@ class Vips < Formula
   end
 
   def install
+    # Reduce memory usage for CircleCI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
