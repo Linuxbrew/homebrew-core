@@ -17,6 +17,7 @@ class AtSpi2Atk < Formula
   depends_on "python" => :build
   depends_on "at-spi2-core"
   depends_on "atk"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     ENV.refurbish_args
