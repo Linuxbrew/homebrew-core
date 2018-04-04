@@ -22,6 +22,8 @@ class Openssh < Formula
   unless OS.mac?
     depends_on "libedit"
     depends_on "krb5"
+    depends_on "zlib"
+    depends_on "lsof" => :test
   end
 
   # Both these patches are applied by Apple.
