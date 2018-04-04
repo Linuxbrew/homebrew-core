@@ -1,3 +1,4 @@
+# at-spi2-core: Build a bottle for Linuxbrew
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "http://a11y.org"
