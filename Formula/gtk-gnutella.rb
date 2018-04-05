@@ -1,3 +1,4 @@
+# gtk-gnutella: Build a bottle for Linuxbrew
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "https://gtk-gnutella.sourceforge.io"
