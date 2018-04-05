@@ -1,3 +1,4 @@
+# mat: Build a bottle for Linuxbrew
 class Mat < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://mat.boum.org/"
