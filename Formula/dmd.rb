@@ -1,7 +1,7 @@
 class Dmd < Formula
   desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
-  revision 2 unless OS.mac?
+  revision 1 unless OS.mac?
 
   stable do
     url "https://github.com/dlang/dmd/archive/v2.079.0.tar.gz"
