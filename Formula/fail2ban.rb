@@ -12,6 +12,7 @@ class Fail2ban < Formula
 
   depends_on "help2man" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "python@2" unless OS.mac?
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
