@@ -1,3 +1,4 @@
+# neofetch: Build a bottle for Linuxbrew
 class Neofetch < Formula
   desc "Fast, highly customisable system info script"
   homepage "https://github.com/dylanaraps/neofetch"
