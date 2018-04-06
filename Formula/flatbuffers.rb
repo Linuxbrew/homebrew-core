@@ -1,3 +1,4 @@
+# flatbuffers: Build a bottle for Linuxbrew
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
