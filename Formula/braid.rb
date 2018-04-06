@@ -1,3 +1,4 @@
+# braid: Build a bottle for Linuxbrew
 class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
