@@ -47,8 +47,8 @@ class Terraform < Formula
       ENV["XC_ARCH"] = arch
       system "make", "test", "bin"
 
-      bin.install "pkg/darwin_#{arch}/terraform"
-      zsh_completion.install "contrib/zsh-completion/_terraform"
+      bin.install "pkg/#{OS::NAME}_#{arch}/terraform"
+      zsh_completion.install "contrib/zsh-completion/_terraform" if OS.mac?
       prefix.install_metafiles
     end
   end
