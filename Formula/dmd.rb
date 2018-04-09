@@ -73,9 +73,9 @@ class Dmd < Formula
     (include/"dlang/dmd").install Dir["druntime/import/*"]
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
     if OS.mac?
-       lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.a"]
+      lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.a"]
     else
-       lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.*"]
+      lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.*"]
     end
 
     (buildpath/"dmd.conf").write <<~EOS
