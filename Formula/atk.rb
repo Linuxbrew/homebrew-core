@@ -1,3 +1,4 @@
+# atk: Build a bottle for Linuxbrew
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
