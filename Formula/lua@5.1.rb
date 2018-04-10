@@ -5,14 +5,13 @@ class LuaAT51 < Formula
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
-  revision 7
+  revision OS.mac? ? 7 : 8
 
   bottle do
     cellar :any
     sha256 "d15ca25fd066ed059219faf39a6597ea5b0777ad9ca733b2c2a5f7ddf84bf582" => :high_sierra
     sha256 "a6304c0dee627086dbba1a26e514d94602db0dffe629f190762d805afafc4952" => :sierra
     sha256 "808ca67cb42bf72cab1a62cefecb1f0848b004d90762ab2086cbad5ffddfae37" => :el_capitan
-    sha256 "0cde172c2479f2b104ff78f3955b72a983bf5ca63734fa28348e31ad18a0776a" => :x86_64_linux
   end
 
   option "with-completion", "Enables advanced readline support"
@@ -87,7 +86,7 @@ class LuaAT51 < Formula
 
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1", *("TO_LIB=liblua.a liblua.so liblua.so.5.1 liblua.so.5.1.5" unless OS.mac?)
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1", *("TO_LIB=liblua.so.5.1 liblua.so.5.1.5" unless OS.mac?)
 
     (lib/"pkgconfig").install "etc/lua.pc"
 
