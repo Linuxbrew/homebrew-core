@@ -5,14 +5,13 @@ class LuaAT51 < Formula
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
-  revision OS.mac? ? 7 : 8
+  revision OS.mac? ? 7 : 9
 
   bottle do
     cellar :any
     sha256 "d15ca25fd066ed059219faf39a6597ea5b0777ad9ca733b2c2a5f7ddf84bf582" => :high_sierra
     sha256 "a6304c0dee627086dbba1a26e514d94602db0dffe629f190762d805afafc4952" => :sierra
     sha256 "808ca67cb42bf72cab1a62cefecb1f0848b004d90762ab2086cbad5ffddfae37" => :el_capitan
-    sha256 "b7cdf0a9ac84038f49ecff8d539a316026e9628a6ee51e9a7b079ae01a523647" => :x86_64_linux
   end
 
   option "with-completion", "Enables advanced readline support"
@@ -117,6 +116,12 @@ class LuaAT51 < Formula
                               "--versioned-rocks-dir"
         system "make", "build"
         system "make", "install"
+
+        unless OS.mac?
+          # Hack around wrong .so file naming
+          lib.install_symlink "liblua.so.5.1.5" => "liblua.5.1.5.so"
+          lib.install_symlink "liblua.so.5.1" => "liblua.5.1.so"
+        end
 
         (share/"lua/5.1/luarocks").install_symlink Dir["#{libexec}/share/lua/5.1/luarocks/*"]
         bin.install_symlink libexec/"bin/luarocks-5.1"
