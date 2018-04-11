@@ -24,6 +24,9 @@ class Asio < Formula
   needs :cxx11 if build.without? "boost"
 
   def install
+    # Reduce memory usage for CircleCI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     ENV.cxx11 if build.without? "boost"
 
     if build.head?
