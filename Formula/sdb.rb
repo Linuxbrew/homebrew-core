@@ -1,3 +1,4 @@
+# sdb: Build a bottle for Linuxbrew
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB"
   homepage "https://github.com/radare/sdb"
