@@ -1,3 +1,4 @@
+# docker-squash: Build a bottle for Linuxbrew
 class DockerSquash < Formula
   desc "Docker image squashing tool"
   homepage "https://github.com/goldmann/docker-squash"
