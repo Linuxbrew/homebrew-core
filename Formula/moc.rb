@@ -1,3 +1,4 @@
+# moc: Build a bottle for Linuxbrew
 class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net/"
