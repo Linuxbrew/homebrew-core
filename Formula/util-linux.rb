@@ -20,13 +20,31 @@ class UtilLinux < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
-      "--disable-ipcs",        # does not build on macOS
-      "--disable-ipcrm",       # does not build on macOS
-      "--disable-wall",        # already comes with macOS
-      "--disable-libuuid",     # conflicts with ossp-uuid
-      "--disable-libsmartcols" # macOS already ships 'column'
+      "--disable-libuuid", # conflicts with ossp-uuid
     ]
-    args += %w[--disable-chfn-chsh --disable-login --disable-su --disable-runuser] if build.without? "linux-pam"
+
+    if OS.mac?
+      args << "--disable-ipcs" # does not build on macOS
+      args << "--disable-ipcrm" # does not build on macOS
+      args << "--disable-wall" # already comes with macOS
+      args << "--disable-libuuid" # conflicts with ossp-uuid
+      args << "--disable-libsmartcols" # macOS already ships 'column'
+    else
+      args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
+      args << "--disable-kill" # Conflicts with coreutils.
+      args << "--disable-cal" # Conflicts with bsdmainutils
+      args << "--without-systemd" # Do not install systemd files
+    end
+
+    args += %w[
+      --disable-chfn-chsh
+      --disable-login
+      --disable-su
+      --disable-runuser
+      --disable-makeinstall-chown
+      --disable-makeinstall-setuid
+    ] if build.without? "linux-pam"
+
     system "./configure", *args
     system "make", "install"
 
@@ -37,11 +55,12 @@ class UtilLinux < Formula
       rm_f man1/"#{prog}.1"
       rm_f man8/"#{prog}.8"
       rm_f share/"bash-completion"/"completions"/prog
-    end
+    end if OS.mac?
   end
 
   test do
     out = shell_output("#{bin}/namei -lx /usr").split("\n")
-    assert_equal ["f: /usr", "Drwxr-xr-x root wheel /", "drwxr-xr-x root wheel usr"], out
+    group = OS.mac? ? "wheel" : "root"
+    assert_equal ["f: /usr", "Drwxr-xr-x root #{group} /", "drwxr-xr-x root #{group} usr"], out
   end
 end
