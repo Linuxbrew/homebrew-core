@@ -1,3 +1,4 @@
+# yash: Build a bottle for Linuxbrew
 class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
