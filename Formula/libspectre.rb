@@ -1,3 +1,4 @@
+# libspectre: Build a bottle for Linuxbrew
 class Libspectre < Formula
   desc "Small library for rendering Postscript documents"
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
