@@ -1,3 +1,4 @@
+# container-diff: Build a bottle for Linuxbrew
 class ContainerDiff < Formula
   desc "Diff your Docker containers"
   homepage "https://github.com/GoogleCloudPlatform/container-diff"
