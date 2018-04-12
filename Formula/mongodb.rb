@@ -57,9 +57,15 @@ class Mongodb < Formula
         system "python", *Language::Python.setup_install_args(buildpath/"vendor")
       end
     end
-    (buildpath/".brew_home/Library/Python/2.7/lib/python/site-packages/vendor.pth").write <<~EOS
-      import site; site.addsitedir("#{buildpath}/vendor/lib/python2.7/site-packages")
-    EOS
+    if OS.mac?
+      (buildpath/".brew_home/Library/Python/2.7/lib/python/site-packages/vendor.pth").write <<~EOS
+        import site; site.addsitedir("#{buildpath}/vendor/lib/python2.7/site-packages")
+      EOS
+    else
+      site_packages = "lib/python#{version}/site-packages"
+      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+      (prefix/site_packages/"homebrew-mongodb.pth").write pth_contents
+    end
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
