@@ -1,3 +1,4 @@
+# coreos-ct: Build a bottle for Linuxbrew
 class CoreosCt < Formula
   desc "Convert a Container Linux Config into Ignition"
   homepage "https://coreos.com/os/docs/latest/configuration.html"
