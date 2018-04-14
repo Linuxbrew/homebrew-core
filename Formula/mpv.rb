@@ -22,7 +22,7 @@ class Mpv < Formula
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
-  depends_on "mujs" => :recommended
+  depends_on "mujs" => :recommended if OS.mac?
   depends_on "youtube-dl" => :recommended
 
   depends_on "jack" => :optional
@@ -46,6 +46,9 @@ class Mpv < Formula
   end
 
   def install
+    # Fix ld relocation error
+    ENV.append_to_cflags "-fPIC" unless OS.mac?
+
     # LANG is unset by default on macOS and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
@@ -79,6 +82,7 @@ class Mpv < Formula
     args << "--enable-dvdread" if build.with? "libdvdread"
     args << "--enable-javascript" if build.with? "mujs"
     args << "--enable-pulse" if build.with? "pulseaudio"
+    args << "--disable-javascript" unless OS.mac? # The mujs formula does not build .so files
 
     system "./bootstrap.py"
     system "python3", "waf", "configure", *args
