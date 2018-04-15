@@ -14,6 +14,7 @@ class GlobusToolkit < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool"
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.deparallelize
