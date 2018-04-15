@@ -1,3 +1,4 @@
+# discount: Build a bottle for Linuxbrew
 class Discount < Formula
   desc "C implementation of Markdown"
   homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
