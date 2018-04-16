@@ -14,6 +14,7 @@ class Py2cairo < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "python@2"
+  depends_on "linuxbrew/xorg/libpthread-stubs" => :build unless OS.mac?
 
   def install
     system "python", *Language::Python.setup_install_args(prefix)
