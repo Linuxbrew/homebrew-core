@@ -1,3 +1,4 @@
+# genometools: Build a bottle for Linuxbrew
 class Genometools < Formula
   desc "GenomeTools: The versatile open source genome analysis software"
   homepage "http://genometools.org/"
