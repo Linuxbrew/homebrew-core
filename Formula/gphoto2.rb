@@ -1,3 +1,4 @@
+# gphoto2: Build a bottle for Linuxbrew
 class Gphoto2 < Formula
   desc "Command-line interface to libgphoto2"
   homepage "http://www.gphoto.org/"
