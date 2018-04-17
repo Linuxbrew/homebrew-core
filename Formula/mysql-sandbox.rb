@@ -1,3 +1,4 @@
+# mysql-sandbox: Build a bottle for Linuxbrew
 class MysqlSandbox < Formula
   desc "Install one or more MySQL servers"
   homepage "https://mysqlsandbox.net"
