@@ -18,7 +18,10 @@ class PandocCrossref < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pandoc"
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "unzip" => :build
+    depends_on "zlib"
+  end
 
   def install
     args = []
