@@ -13,7 +13,7 @@ class BoostPython < Formula
   end
 
   depends_on "boost"
-  depends_on "python" => :recommended unless OS.mac?
+  depends_on "python@2" => :recommended unless OS.mac?
 
   needs :cxx11
 
