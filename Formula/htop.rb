@@ -22,6 +22,7 @@ class Htop < Formula
     option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
     depends_on "ncurses" => :optional
   else
+    depends_on "python@2" => :build
     depends_on "ncurses"
   end
 
