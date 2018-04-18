@@ -17,6 +17,7 @@ class Genometools < Formula
   depends_on "cairo"
   depends_on "pango"
   depends_on "python@2"
+  depends_on "linuxbrew/xorg/libpthread-stubs" unless OS.mac?
 
   def install
     system "make", "prefix=#{prefix}"
