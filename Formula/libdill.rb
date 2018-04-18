@@ -1,3 +1,4 @@
+# libdill: Build a bottle for Linuxbrew
 class Libdill < Formula
   desc "Structured concurrency in C"
   homepage "http://libdill.org/"
