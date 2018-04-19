@@ -18,7 +18,6 @@ class LibsvgCairo < Formula
   depends_on "libsvg"
   depends_on "libpng"
   depends_on "cairo"
-  depends_on "linuxbrew/xorg/libpthread-stubs" => :build unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking", "--disable-debug",
