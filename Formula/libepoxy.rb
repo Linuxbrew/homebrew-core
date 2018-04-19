@@ -15,7 +15,6 @@ class Libepoxy < Formula
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
   unless OS.mac?
-    depends_on "linuxbrew/xorg/libpthread-stubs" => :build
     depends_on "freeglut"
     depends_on "linuxbrew/xorg/mesa"
     depends_on "linuxbrew/xorg/xorg"
