@@ -1,3 +1,4 @@
+# link-grammar: Build a bottle for Linuxbrew
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
