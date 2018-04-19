@@ -27,7 +27,6 @@ class Pango < Formula
   depends_on "fontconfig"
   depends_on "glib"
   depends_on "harfbuzz"
-  depends_on "linuxbrew/xorg/libpthread-stubs" => :build unless OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
