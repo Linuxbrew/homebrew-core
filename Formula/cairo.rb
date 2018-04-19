@@ -31,7 +31,6 @@ class Cairo < Formula
     depends_on "zlib"
     depends_on "linuxbrew/xorg/xorg" => :recommended
     if build.with?("xorg")
-      depends_on "linuxbrew/xorg/libpthread-stubs" => :build
       depends_on "linuxbrew/xorg/kbproto"
       depends_on "linuxbrew/xorg/libxcb"
       depends_on "linuxbrew/xorg/renderproto"
