@@ -30,10 +30,7 @@ class Fontforge < Formula
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
   depends_on "python@2"
-  unless OS.mac?
-    depends_on "libxml2"
-    depends_on "linuxbrew/xorg/libpthread-stubs" => :build
-  end
+  depends_on "libxml2" unless OS.mac?
 
   # Remove for > 20170731
   # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
