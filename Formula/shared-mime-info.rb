@@ -23,6 +23,7 @@ class SharedMimeInfo < Formula
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     # Needed by intltool (xml::parser)
