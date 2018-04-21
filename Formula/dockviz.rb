@@ -1,3 +1,4 @@
+# dockviz: Build a bottle for Linuxbrew
 class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
