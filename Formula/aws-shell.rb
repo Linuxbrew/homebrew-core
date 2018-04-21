@@ -1,3 +1,4 @@
+# aws-shell: Build a bottle for Linuxbrew
 class AwsShell < Formula
   desc "Integrated shell for working with the AWS CLI"
   homepage "https://github.com/awslabs/aws-shell"
