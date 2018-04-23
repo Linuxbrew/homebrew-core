@@ -1,3 +1,4 @@
+# hdf5: Build a bottle for Linuxbrew
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
