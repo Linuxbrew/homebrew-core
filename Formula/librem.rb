@@ -22,13 +22,24 @@ class Librem < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
-      #include <re/re.h>
-      #include <rem/rem.h>
-      int main() {
-        return (NULL != vidfmt_name(VID_FMT_YUV420P)) ? 0 : 1;
-      }
-    EOS
+    if OS.mac?
+      (testpath/"test.c").write <<~EOS
+        #include <re/re.h>
+        #include <rem/rem.h>
+        int main() {
+          return (NULL != vidfmt_name(VID_FMT_YUV420P)) ? 0 : 1;
+        }
+      EOS
+    else
+      (testpath/"test.c").write <<~EOS
+        #include <stdint.h>
+        #include <re/re.h>
+        #include <rem/rem.h>
+        int main() {
+          return (NULL != vidfmt_name(VID_FMT_YUV420P)) ? 0 : 1;
+        }
+      EOS
+    end
     system ENV.cc, "test.c", "-L#{opt_lib}", "-lrem", "-o", "test"
     system "./test"
   end
