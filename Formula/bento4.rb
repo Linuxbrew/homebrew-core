@@ -1,3 +1,4 @@
+# bento4: Build a bottle for Linuxbrew
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
