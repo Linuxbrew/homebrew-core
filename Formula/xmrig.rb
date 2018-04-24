@@ -17,7 +17,8 @@ class Xmrig < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DUV_LIBRARY=#{Formula["libuv"].opt_lib}/libuv.dylib",
+      dylib_ext = OS.mac? ? "dylib" : "so"
+      system "cmake", "..", "-DUV_LIBRARY=#{Formula["libuv"].opt_lib}/libuv.#{dylib_ext}",
                             *std_cmake_args
       system "make"
       bin.install "xmrig"
