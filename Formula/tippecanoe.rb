@@ -1,3 +1,4 @@
+# tippecanoe: Build a bottle for Linuxbrew
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/mapbox/tippecanoe"
