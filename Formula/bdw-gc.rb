@@ -1,3 +1,4 @@
+# bdw-gc: Build a bottle for Linuxbrew
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "http://www.hboehm.info/gc/"
