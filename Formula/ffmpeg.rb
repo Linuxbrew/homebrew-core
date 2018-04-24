@@ -89,7 +89,7 @@ class Ffmpeg < Formula
   depends_on "wavpack" => :optional
   depends_on "webp" => :optional
   depends_on "x265" => :optional
-  depends_on "xz" => :optional
+  depends_on "xz" => OS.mac? ? :optional : [:optional, :test]
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
 
