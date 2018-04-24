@@ -1,3 +1,4 @@
+# grib-api: Build a bottle for Linuxbrew
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
