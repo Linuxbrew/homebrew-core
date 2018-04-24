@@ -18,12 +18,22 @@ class Libre < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
-      #include <re/re.h>
-      int main() {
-        return libre_init();
-      }
-    EOS
+    if OS.mac?
+      (testpath/"test.c").write <<~EOS
+        #include <re/re.h>
+        int main() {
+          return libre_init();
+        }
+      EOS
+    else
+      (testpath/"test.c").write <<~EOS
+        #include <stdint.h>
+        #include <re/re.h>
+        int main() {
+          return libre_init();
+        }
+      EOS
+    end
     system ENV.cc, "test.c", "-L#{lib}", "-lre"
   end
 end
