@@ -1,9 +1,8 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/PromyLOPh/pianobar.git"
-  revision 1 unless OS.mac?
 
   stable do
     url "https://6xq.net/pianobar/pianobar-2017.08.30.tar.bz2"
