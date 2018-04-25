@@ -1,3 +1,4 @@
+# mpw: Build a bottle for Linuxbrew
 class Mpw < Formula
   desc "Stateless/deterministic password and identity manager"
   homepage "https://ssl.masterpasswordapp.com/"
