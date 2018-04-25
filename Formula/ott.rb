@@ -1,3 +1,4 @@
+# ott: Build a bottle for Linuxbrew
 class Ott < Formula
   desc "Tool for writing definitions of programming languages and calculi"
   homepage "https://www.cl.cam.ac.uk/~pes20/ott/"
