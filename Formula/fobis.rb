@@ -1,3 +1,4 @@
+# fobis: Build a bottle for Linuxbrew
 class Fobis < Formula
   include Language::Python::Virtualenv
 
