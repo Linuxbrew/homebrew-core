@@ -18,7 +18,7 @@ class Libwps < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           # Installing Doxygen docs trips up make install
