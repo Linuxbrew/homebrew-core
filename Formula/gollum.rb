@@ -1,3 +1,4 @@
+# gollum: Build a bottle for Linuxbrew
 class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
