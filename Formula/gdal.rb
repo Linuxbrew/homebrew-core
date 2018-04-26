@@ -56,6 +56,11 @@ class Gdal < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
+    ENV.append_to_cflags "-msse4.1" if ENV["CIRCLECI"]
+
     args = [
       # Base configuration
       "--prefix=#{prefix}",
@@ -63,7 +68,6 @@ class Gdal < Formula
       "--disable-debug",
       "--with-libtool",
       "--with-local=#{prefix}",
-      "--with-opencl",
       "--with-threads",
 
       # GDAL native backends
@@ -99,6 +103,7 @@ class Gdal < Formula
     ]
 
     if OS.mac?
+      args << "--with-opencl"
       args << "--with-curl=/usr/bin/curl-config"
     else
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
