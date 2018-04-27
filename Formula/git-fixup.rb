@@ -1,3 +1,4 @@
+# git-fixup: Build a bottle for Linuxbrew
 class GitFixup < Formula
   desc "Alias for git commit --fixup <ref>"
   homepage "https://github.com/keis/git-fixup"
