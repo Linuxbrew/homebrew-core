@@ -16,6 +16,7 @@ class KubernetesHelm < Formula
   depends_on "mercurial" => :build
   depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "python@2" => :build unless OS.mac?
 
   def install
     ENV["GOPATH"] = buildpath
