@@ -16,6 +16,7 @@ class Grafana < Formula
   depends_on "node" => :build
   depends_on "yarn" => :build
   unless OS.mac?
+    depends_on "python@2" => :build
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "zlib"
@@ -24,6 +25,7 @@ class Grafana < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+    ENV["PYTHON"] = "python" unless OS.mac?
 
     ENV["GOPATH"] = buildpath
     grafana_path = buildpath/"src/github.com/grafana/grafana"
