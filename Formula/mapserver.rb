@@ -30,6 +30,7 @@ class Mapserver < Formula
   depends_on "postgresql" => :optional unless MacOS.version >= :lion
   depends_on "cairo" => :optional
   depends_on "fcgi" if build.with? "fastcgi"
+  depends_on "curl" unless OS.mac?
 
   def install
     # Harfbuzz support requires fribidi and fribidi support requires
