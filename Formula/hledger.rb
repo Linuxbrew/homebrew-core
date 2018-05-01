@@ -1,3 +1,4 @@
+# hledger: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Hledger < Formula
