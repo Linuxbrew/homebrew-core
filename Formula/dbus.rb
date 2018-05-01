@@ -27,6 +27,10 @@ class Dbus < Formula
   end
 
   depends_on "xmlto" => :build
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "expat"
+  end
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
@@ -35,15 +39,15 @@ class Dbus < Formula
     sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
   end
 
-  depends_on "expat" unless OS.mac?
-
   def install
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
 
-    # macOS doesn't include a pkg-config file for expat
-    ENV["EXPAT_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
-    ENV["EXPAT_LIBS"] = "-lexpat"
+    if OS.mac?
+      # macOS doesn't include a pkg-config file for expat
+      ENV["EXPAT_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
+      ENV["EXPAT_LIBS"] = "-lexpat"
+    end
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
