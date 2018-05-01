@@ -3,13 +3,13 @@ class Sdl2 < Formula
   homepage "https://www.libsdl.org/"
   url "https://libsdl.org/release/SDL2-2.0.8.tar.gz"
   sha256 "edc77c57308661d576e843344d8638e025a7818bff73f8fbfab09c3c5fd092ec"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "25cc31a9680beb16321613f740fee7fdd862489948a5280e4a5f94b8ed291dd6" => :high_sierra
     sha256 "81ae8deb6918e241fc0c3c47c11b1e5041deb297e9010f87e1a1584fcf2c17e8" => :sierra
     sha256 "d1cf341785b66ce316564564abe44d7e6e1d1d6e16b26dc9b1e307c68f0bd22d" => :el_capitan
-    sha256 "1ac4b6a03d733a9954ec2a47579b8a2c6a7037c86a230be226005aeb05576ea7" => :x86_64_linux
   end
 
   head do
@@ -21,6 +21,14 @@ class Sdl2 < Formula
   end
 
   option "with-test", "Compile and install the tests"
+
+  unless OS.mac?
+    depends_on "pulseaudio"
+    depends_on "libxkbcommon"
+    depends_on "linuxbrew/xorg/kbproto"
+    depends_on "linuxbrew/xorg/xextproto"
+    depends_on "linuxbrew/xorg/xorg"
+  end
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
   if OS.mac? && MacOS.version <= :snow_leopard
@@ -46,6 +54,23 @@ class Sdl2 < Formula
     end
     args << "--without-x" if OS.mac?
     args << "--disable-haptic" << "--disable-joystick" if MacOS.version <= :snow_leopard
+
+    unless OS.mac?
+      args << "--enable-pulseaudio"
+      args << "--enable-pulseaudio-shared"
+
+      args << "--enable-video-dummy"
+      args << "--enable-video-opengl"
+      args << "--enable-video-opengles"
+      args << "--enable-video-x11"
+      args << "--enable-video-x11-scrnsaver"
+      args << "--enable-video-x11-xcursor"
+      args << "--enable-video-x11-xinerama"
+      args << "--enable-video-x11-xinput"
+      args << "--enable-video-x11-xrandr"
+      args << "--enable-video-x11-xshape"
+      args << "--enable-x11-shared"
+    end
 
     system "./configure", *args
     system "make", "install"
