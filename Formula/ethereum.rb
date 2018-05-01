@@ -1,3 +1,4 @@
+# ethereum: Build a bottle for Linuxbrew
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
