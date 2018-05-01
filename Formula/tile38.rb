@@ -1,3 +1,4 @@
+# tile38: Build a bottle for Linuxbrew
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "http://tile38.com"
