@@ -15,7 +15,7 @@ class Blockhash < Formula
 
   depends_on "pkg-config" => :build
   depends_on "imagemagick"
-  depends_on "python" unless OS.mac?
+  depends_on "python@2" unless OS.mac?
 
   resource "testdata" do
     url "https://raw.githubusercontent.com/commonsmachinery/blockhash/ce08b465b658c4e886d49ec33361cee767f86db6/testdata/clipper_ship.jpg"
