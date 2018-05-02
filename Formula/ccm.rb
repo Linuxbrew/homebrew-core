@@ -4,13 +4,13 @@ class Ccm < Formula
   url "https://files.pythonhosted.org/packages/fc/ab/b51afd466cc4acf2192e230ddb6fd3adb56066f05c7be1852af7bd655068/ccm-3.1.4.tar.gz"
   sha256 "a98268c2d8e5534d8d2d94267060e9ee9105b35e43d704bac0fa495a773acf7d"
   head "https://github.com/pcmanus/ccm.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "996ae7df7b2eff3e519f056ac05ac86529355f2d2c2023683464c3043794a187" => :high_sierra
     sha256 "996ae7df7b2eff3e519f056ac05ac86529355f2d2c2023683464c3043794a187" => :sierra
     sha256 "e370947953aa56e48eb71ea1555d3ce971a6257f741f8c3abccf9fe9a002eef5" => :el_capitan
-    sha256 "9bfba86e3f8e43196afb7cd7f1b235254af780f64368be2ce9d302c53b76f210" => :x86_64_linux
   end
 
   depends_on "python@2"
