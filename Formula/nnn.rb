@@ -1,3 +1,4 @@
+# nnn: Build a bottle for Linuxbrew
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
