@@ -1,3 +1,4 @@
+# armor: Build a bottle for Linuxbrew
 class Armor < Formula
   desc "Uncomplicated, modern HTTP server"
   homepage "https://github.com/labstack/armor"
