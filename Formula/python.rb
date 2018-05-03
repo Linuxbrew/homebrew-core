@@ -428,7 +428,7 @@ class Python < Formula
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac?
-    system "#{bin}/python#{xy}", "-c", "import _gdbm"
+    system "#{bin}/python#{xy}", "-c", "import dbm"
     system bin/"pip3", "list", "--format=columns"
   end
 end
