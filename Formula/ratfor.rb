@@ -1,3 +1,4 @@
+# ratfor: Build a bottle for Linuxbrew
 class Ratfor < Formula
   desc "Rational Fortran"
   homepage "http://www.dgate.org/ratfor/"
