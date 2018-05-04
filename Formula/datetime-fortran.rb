@@ -1,3 +1,4 @@
+# datetime-fortran: Build a bottle for Linuxbrew
 class DatetimeFortran < Formula
   desc "Fortran time and date manipulation library"
   homepage "https://github.com/milancurcic/datetime-fortran"
