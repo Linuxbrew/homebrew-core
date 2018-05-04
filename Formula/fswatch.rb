@@ -1,3 +1,4 @@
+# fswatch: Build a bottle for Linuxbrew
 class Fswatch < Formula
   desc "Monitor a directory for changes and run a shell command"
   homepage "https://github.com/emcrisostomo/fswatch"
