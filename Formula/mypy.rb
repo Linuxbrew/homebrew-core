@@ -1,3 +1,4 @@
+# mypy: Build a bottle for Linuxbrew
 class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
