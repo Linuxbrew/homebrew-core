@@ -1,3 +1,4 @@
+# kafka: Build a bottle for Linuxbrew
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
