@@ -1,3 +1,4 @@
+# lapack: Build a bottle for Linuxbrew
 class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "http://www.netlib.org/lapack/"
