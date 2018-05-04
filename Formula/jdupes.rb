@@ -1,3 +1,4 @@
+# jdupes: Build a bottle for Linuxbrew
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
