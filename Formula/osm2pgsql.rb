@@ -1,3 +1,4 @@
+# osm2pgsql: Build a bottle for Linuxbrew
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
