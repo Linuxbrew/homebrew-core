@@ -1,23 +1,14 @@
 class GccAT7 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-    sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
-  end
+  url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+  sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
     sha256 "10fe64f506ae90c9141317a534fe0f83d879c6ea92b04e42f790ac55bc4ce8a3" => :x86_64_linux
-  end
-
-  bottle do
-    sha256 "45cfaae98c9e82d6eb90449a541019c7b5f10c20e0221acc3b1a9b6fe48f5f39" => :high_sierra
-    sha256 "5875cde355e4e7611ccd58c3ab4c35ab27740bca99e37de59081953111de4ce0" => :sierra
-    sha256 "d38130e28eaf1d76e29f09deb616a5a1063dad898a2856879d93a67f51573ef6" => :el_capitan
   end
 
   option "with-jit", "Build just-in-time compiler"
@@ -192,8 +183,7 @@ class GccAT7 < Formula
 
   def post_install
     unless OS.mac?
-      version_suffix = version.to_s.slice(/\d/)
-      gcc = bin/"gcc-#{version_suffix}"
+      gcc = bin/"gcc-7"
       libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -228,7 +218,7 @@ class GccAT7 < Formula
 
       # Set the library search path
       # For include path:
-      #   * `-isysroot /nonexistent` prevents gcc searching built-in
+      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
       #     system header files.
       #   * `-idirafter <dir>` instructs gcc to search system header
       #     files after gcc internal header files.
@@ -241,10 +231,10 @@ class GccAT7 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
+      libdir = HOMEBREW_PREFIX/"lib/gcc/7"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
-        + -isysroot /nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
+        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
 
         *link_libgcc:
         #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
