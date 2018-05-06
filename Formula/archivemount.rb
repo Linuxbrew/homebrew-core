@@ -13,7 +13,11 @@ class Archivemount < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libarchive"
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     system "./configure", "--disable-debug",
