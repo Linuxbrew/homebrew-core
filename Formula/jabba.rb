@@ -1,3 +1,4 @@
+# jabba: Build a bottle for Linuxbrew
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
