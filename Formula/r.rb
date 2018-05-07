@@ -23,7 +23,7 @@ class R < Formula
   depends_on :java => :optional
 
   unless OS.mac?
-    depends_on "cairo"
+    depends_on "cairo" => :recommended
     depends_on "curl"
     depends_on "tcl-tk" => :optional
     depends_on "linuxbrew/xorg/xorg" => :recommended
@@ -57,8 +57,8 @@ class R < Formula
 
     if OS.linux?
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
-      args << "--with-cairo"
-      args << "--with-x" if build.with?("x11")
+      args << "--with-cairo" if build.with? "cairo"
+      args << "--without-x" if build.without? "x11"
 
       # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
       # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
