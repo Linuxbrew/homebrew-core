@@ -19,7 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/6.0.0/llvm-6.0.0.src.tar.xz"
@@ -83,7 +83,6 @@ class Llvm < Formula
     sha256 "6e8c461f99e8b2725bb9c34d7fc548490f1e74f162f75f3670e0bd759dcbd473" => :high_sierra
     sha256 "3603e0a48860d079c9cdf32c6f65f87758bbfca4ab9aa6e2eb8b4d47a7751688" => :sierra
     sha256 "2ce6aed36aab360b9ec09c094727c76c6620bcf201802f5d5d59035c7e6c80f2" => :el_capitan
-    sha256 "3fc66e4a81882840e76f0071e93ad70f7c16cb37d581757a2ea1eee50adf7180" => :x86_64_linux
   end
 
   pour_bottle? do
@@ -269,6 +268,10 @@ class Llvm < Formula
       -DLINK_POLLY_INTO_TOOLS=ON
       -DLLVM_TARGETS_TO_BUILD=all
     ]
+    unless OS.mac?
+      args << "-DCMAKE_C_FLAGS_RELEASE=-O3 -DNDEBUG"
+      args << "-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG"
+    end
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
