@@ -1,3 +1,4 @@
+# rakudo-star: Build a bottle for Linuxbrew
 class RakudoStar < Formula
   desc "Perl 6 compiler"
   homepage "https://rakudo.org/"
