@@ -1,3 +1,4 @@
+# pod2man: Build a bottle for Linuxbrew
 class Pod2man < Formula
   desc "Perl documentation generator"
   homepage "https://www.eyrie.org/~eagle/software/podlators/"
