@@ -12,7 +12,7 @@ class Swig < Formula
   end
 
   depends_on "pcre"
-  depends_on "ruby" => :test
+  depends_on "ruby" => :test unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
