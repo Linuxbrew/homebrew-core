@@ -1,3 +1,4 @@
+# r: Build a bottle for Linuxbrew
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
