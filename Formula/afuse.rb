@@ -3,6 +3,7 @@ class Afuse < Formula
   homepage "https://github.com/pcarrier/afuse/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/afuse/afuse-0.4.1.tar.gz"
   sha256 "c6e0555a65d42d3782e0734198bbebd22486386e29cb00047bc43c3eb726dca8"
+  revision 1
 
   bottle do
     cellar :any
@@ -10,11 +11,14 @@ class Afuse < Formula
     sha256 "900e55a47834181f518e87e7cbaaf0f3f078b0d40631ffccfc776e82c7c61f87" => :sierra
     sha256 "a4c0f86a179ca8c5d1e3977ff167dbcd1abff4ec1ee17fd5700a3fb602c781a3" => :el_capitan
     sha256 "2a57c7752c7b461f6b628a1c30e845fe13685eab394d933e8da3aebf7102ae9c" => :yosemite
-    sha256 "665941554de04597c0d573ce254e81b956159d3266de707316a1f5d0933ea24c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
@@ -22,6 +26,6 @@ class Afuse < Formula
   end
 
   test do
-    assert_match /OSXFUSE/, pipe_output("#{bin}/afuse --version 2>&1")
+    assert_match (OS.mac? ? /OSXFUSE/ : /FUSE library version/), pipe_output("#{bin}/afuse --version 2>&1")
   end
 end
