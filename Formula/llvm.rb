@@ -177,7 +177,7 @@ class Llvm < Formula
   end
 
   if MacOS.version <= :snow_leopard
-    depends_on "python@2"
+    depends_on "python@2" => :recommended
   else
     depends_on "python@2" => :optional
   end
