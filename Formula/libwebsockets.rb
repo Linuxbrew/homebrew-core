@@ -18,6 +18,7 @@ class Libwebsockets < Formula
   depends_on "libuv"
   depends_on "libevent"
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "cmake", ".", *std_cmake_args,
