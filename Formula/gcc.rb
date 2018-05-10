@@ -291,7 +291,7 @@ class Gcc < Formula
 
       # Set the library search path
       # For include path:
-      #   * `-isysroot /nonexistent` prevents gcc searching built-in
+      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
       #     system header files.
       #   * `-idirafter <dir>` instructs gcc to search system header
       #     files after gcc internal header files.
@@ -302,7 +302,7 @@ class Gcc < Formula
       #     brew libraries.
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
-        + -isysroot /nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
+        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
 
         *link_libgcc:
         #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
