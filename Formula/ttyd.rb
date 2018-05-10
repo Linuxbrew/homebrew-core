@@ -1,3 +1,4 @@
+# ttyd: Build a bottle for Linuxbrew
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://github.com/tsl0922/ttyd"
