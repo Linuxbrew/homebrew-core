@@ -75,10 +75,13 @@ class Pulseaudio < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --disable-neon-opt
-      --with-mac-sysroot=#{MacOS.sdk_path}
-      --with-mac-version-min=#{MacOS.version}
       --disable-x11
     ]
+
+    if OS.mac?
+      args << "--with-mac-sysroot=#{MacOS.sdk_path})"
+      args << "--with-mac-version-min=#{MacOS.version}"
+    end
 
     args << "--disable-nls" if build.without? "nls"
 
