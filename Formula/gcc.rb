@@ -131,6 +131,12 @@ class Gcc < Formula
         # Set the search path for glibc libraries and objects.
         # Fix the error: ld: cannot find crti.o: No such file or directory
         ENV["LIBRARY_PATH"] = Formula["glibc"].opt_lib
+      else
+        # Set the search path for glibc libraries and objects, using the system's glibc
+        # Fix the error: ld: cannot find crti.o: No such file or directory
+        ENV.prepend_path "LIBRARY_PATH", "/usr/lib32"
+        ENV.prepend_path "LIBRARY_PATH", "/usr/lib64"
+        ENV.prepend_path "LIBRARY_PATH", "/usr/lib"
       end
     end
 
