@@ -95,6 +95,16 @@ class GccAT8 < Formula
         # Set the search path for glibc libraries and objects.
         # Fix the error: ld: cannot find crti.o: No such file or directory
         ENV["LIBRARY_PATH"] = Formula["glibc"].opt_lib
+      else
+        # Set the search path for glibc libraries and objects, using the system's glibc
+        # Fix the error: ld: cannot find crti.o: No such file or directory
+        # Order is important, we put the /usr/libXY first in the path
+        ENV.prepend_path "LIBRARY_PATH", "/usr/lib"
+        if Hardware::CPU.is_32_bit?
+          ENV.prepend_path "LIBRARY_PATH", "/usr/lib32"
+        else
+          ENV.prepend_path "LIBRARY_PATH", "/usr/lib64"
+        end
       end
     end
 
