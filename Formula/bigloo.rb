@@ -1,3 +1,4 @@
+# bigloo: Build a bottle for Linuxbrew
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
