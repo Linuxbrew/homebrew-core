@@ -134,9 +134,13 @@ class Gcc < Formula
       else
         # Set the search path for glibc libraries and objects, using the system's glibc
         # Fix the error: ld: cannot find crti.o: No such file or directory
-        ENV.prepend_path "LIBRARY_PATH", "/usr/lib32"
-        ENV.prepend_path "LIBRARY_PATH", "/usr/lib64"
+        # Order is important, we put the /usr/libXY first in the path
         ENV.prepend_path "LIBRARY_PATH", "/usr/lib"
+        if Hardware::CPU.is_32_bit?
+          ENV.prepend_path "LIBRARY_PATH", "/usr/lib32"
+        else
+          ENV.prepend_path "LIBRARY_PATH", "/usr/lib64"
+        end
       end
     end
 
