@@ -27,10 +27,19 @@ class Pypy < Formula
   depends_on "gdbm" => :recommended
   depends_on "sqlite" => :recommended
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "expat"
+    depends_on "libffi"
+  end
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-osx64.tar.bz2"
-    sha256 "30b392b969b54cde281b07f5c10865a7f2e11a229c46b8af384ca1d3fe8d4e6e"
+    if OS.mac?
+      url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-osx64.tar.bz2"
+      sha256 "30b392b969b54cde281b07f5c10865a7f2e11a229c46b8af384ca1d3fe8d4e6e"
+    else
+      url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-linux64.tar.bz2"
+      sha256 "7764fb6b662407f8709eaa334c542aac9cb6bfe3291ac198dad0980ca129f3c2"
+    end
   end
 
   resource "setuptools" do
