@@ -3,7 +3,7 @@ class Apng2gif < Formula
   homepage "https://apng2gif.sourceforge.io/"
   url "https://downloads.sourceforge.net/apng2gif/apng2gif-1.8-src.zip"
   sha256 "9a07e386017dc696573cd7bc7b46b2575c06da0bc68c3c4f1c24a4b39cdedd4d"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
@@ -12,11 +12,9 @@ class Apng2gif < Formula
     sha256 "fa18274f18fb0d3a2b3f5c360c24587b805db3f4734972c350643c35b8677174" => :sierra
     sha256 "42d033ae0a661d75b588af8d7c0cdb67a81bfc481aa88665973d95d3e4fb64ec" => :el_capitan
     sha256 "5456ec2b90086c84f2094972fa0dacc11de0abdde5346e3445a6b7d64b49201c" => :yosemite
-    sha256 "60c38d858dd8404a5aa654a2a72f3af000064aea33a4979bb8d30ed6b400513b" => :x86_64_linux
   end
 
   depends_on "libpng"
-  depends_on "zlib" unless OS.mac?
 
   if MacOS.version <= :yosemite
     depends_on "gcc"
