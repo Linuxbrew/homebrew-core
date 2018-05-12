@@ -116,6 +116,11 @@ class Gcc < Formula
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
 
+      # Fix for GCC 4.4 and older that do not support -static-libstdc++
+      # gengenrtl: error while loading shared libraries: libstdc++.so.6
+      mkdir_p lib
+      ln_s ["/usr/lib64/libstdc++.so.6", "/lib64/libgcc_s.so.1"], lib
+
       if build.with? "glibc"
         args += [
           "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
