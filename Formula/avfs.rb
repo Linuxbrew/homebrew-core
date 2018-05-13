@@ -3,18 +3,22 @@ class Avfs < Formula
   homepage "https://avf.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/avf/avfs/1.0.5/avfs-1.0.5.tar.bz2"
   sha256 "e5ce6b1f4193c37148b1b8a021f4f3d05e88f725cf11b16b95a58e8fdae50176"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "18dd2a2958a2a07b74309e3ec832dcc4c99de70b73e5d5b263be8833cc820ebb" => :high_sierra
     sha256 "23a05f6de2db30b39d4ce575afe7feca996439857798628645f258085b6dbda5" => :sierra
-    sha256 "2dacd1b4ace3ddd199d11699f055ea7488b33f21f9650659dc8fc91087d7933e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on :macos => :sierra # needs clock_gettime
   depends_on "xz" => :recommended # Upstream recommends building with lzma support.
   depends_on "openssl" => :optional
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   # Fix scripts to work on Mac OS X.
   # Nothing the patch fixes has been changed in 1.0.2, so still necessary.
