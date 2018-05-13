@@ -3,13 +3,13 @@ class Bindfs < Formula
   homepage "https://bindfs.org/"
   url "https://bindfs.org/downloads/bindfs-1.13.9.tar.gz"
   sha256 "acfa2ca9d604f4147c42758ccbb4a429855df26768dfe70521ba5d7a0596f8b5"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "7af619973ac822cd21215f60f29b8468f61b6104158830e172be8231e773b05c" => :high_sierra
     sha256 "89f82a2b44e1b8861c917e9f5a3479edc0136ba20a48fe5e1b7597514219b5e5" => :sierra
     sha256 "be32d6c5fd45382418c52c28ee9722486d71b23cb8dffa42ecf1179442518c0f" => :el_capitan
-    sha256 "462182867c7c678dbed989c7ebda540cc60a66a526c5223b7d90fb7ec9b8e288" => :x86_64_linux
   end
 
   head do
@@ -20,7 +20,11 @@ class Bindfs < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     args = %W[
