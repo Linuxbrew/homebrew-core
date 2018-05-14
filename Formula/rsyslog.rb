@@ -12,7 +12,10 @@ class Rsyslog < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libestr"
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "zlib"
+  end
 
   resource "libfastjson" do
     url "http://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
