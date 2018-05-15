@@ -24,7 +24,7 @@ class AtSpi2Atk < Formula
     ENV.refurbish_args
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", "--prefix=#{prefix}", *("--libdir=#{lib}" unless OS.mac?), ".."
       system "ninja"
       system "ninja", "install"
     end
