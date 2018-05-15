@@ -30,6 +30,9 @@ class Postgrest < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
+
     install_cabal_package :using => ["happy"]
   end
 
