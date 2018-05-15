@@ -122,11 +122,11 @@ class Vtk < Formula
       if build.with? "python@2"
         s.gsub! Formula["python@2"].prefix.realpath, Formula["python@2"].opt_prefix
       end
-    end
+    end if OS.mac?
 
     # Avoid hard-coding HDF5's Cellar path
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
-      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix
+      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix if OS.mac?
   end
 
   def caveats; <<~EOS
