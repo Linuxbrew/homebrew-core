@@ -59,12 +59,24 @@ class Gdal < Formula
     depends_on "xz" # get liblzma compression algorithm library from XZutils
   end
 
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "bash-completion"
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
 
     # Fixes: error: inlining failed in call to always_inline __m128i _mm_shuffle_epi8
     ENV.append_to_cflags "-msse4.1" if ENV["CIRCLECI"]
+
+    unless OS.mac?
+      # The python build needs libgdal.so, which is located in .libs
+      ENV.append "LDFLAGS", "-L#{buildpath}/.libs"
+      # The python build needs gnm headers, which are located in the gnm folder
+      ENV.append "CFLAGS", "-I#{buildpath}/gnm"
+    end
 
     args = [
       # Base configuration
