@@ -3,14 +3,13 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.tar.xz"
   sha256 "6c7397abc764e32e8159c2e96042874a190303e77adceb4ac5bd502a272a4734"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "8ff96bb1e4e04a8df26e0d062e855e0a83f4f6afe437c0fecca2ba0b891ac3e5" => :high_sierra
     sha256 "353016648e93cdaf7e9d277c0e7e26b3c681b19ccc6f87faa79996100de0925d" => :sierra
     sha256 "7d29b310f3bf5228b702031923ab8877ddaadaf46120ccf577d8b5ee9ca77e00" => :el_capitan
-    sha256 "6273868b97b9e5d4cb55e199d54126b24c3769a4d5646964466b411aa191e1eb" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
@@ -35,6 +34,7 @@ class UtilLinux < Formula
       args << "--disable-kill" # Conflicts with coreutils.
       args << "--disable-cal" # Conflicts with bsdmainutils
       args << "--without-systemd" # Do not install systemd files
+      args << "--with-bashcompletiondir=#{bash_completion}"
     end
 
     args += %w[
@@ -57,6 +57,9 @@ class UtilLinux < Formula
       rm_f man8/"#{prog}.8"
       rm_f share/"bash-completion"/"completions"/prog
     end if OS.mac?
+
+    # conflicts with bash-completion
+    ["mount", "rtcwake"].each { |conflict| rm bash_completion/conflict } unless OS.mac?
   end
 
   test do
