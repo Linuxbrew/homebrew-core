@@ -91,11 +91,14 @@ class Tepl < Formula
       -ltepl-4
       -lamtk-4
       -lgtk-3
-      -lgtksourceview-4.0
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    flags << "-lintl" if OS.mac?
+    if OS.mac?
+      flags << "-lintl -lgtksourceview-4.0"
+    else
+      flags << "-lgtksourceview-4"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
