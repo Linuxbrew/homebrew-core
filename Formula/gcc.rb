@@ -1,3 +1,4 @@
+# gcc: Build a bottle for Linuxbrew
 class Gcc < Formula
   def arch
     if MacOS.prefer_64_bit?
