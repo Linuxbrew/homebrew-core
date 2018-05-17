@@ -1,3 +1,4 @@
+# baobab: Build a bottle for Linuxbrew
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
