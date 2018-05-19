@@ -18,8 +18,8 @@ class Dlib < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "openblas" => :optional
-  depends_on :x11 => :optional
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  depends_on :x11 => :optional if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" => :optional unless OS.mac?
 
   needs :cxx11
 
@@ -55,7 +55,7 @@ class Dlib < Formula
         dlog << dlib::LINFO << "The answer is " << 42;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
+    system ENV.cxx, *("-pthread" unless OS.mac?), "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
                     "-L#{lib}", "-ldlib"
     assert_match /INFO.*example: The answer is 42/, shell_output("./test")
   end
