@@ -23,6 +23,7 @@ class Gstreamer < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "bison"
+  depends_on "flex" => :build unless OS.mac?
 
   def install
     args = %W[
