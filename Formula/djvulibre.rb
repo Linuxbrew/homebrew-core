@@ -1,3 +1,4 @@
+# djvulibre: Build a bottle for Linuxbrew.
 class Djvulibre < Formula
   desc "DjVu viewer"
   homepage "https://djvu.sourceforge.io/"
