@@ -120,7 +120,8 @@ class Gcc < Formula
       # Fix for system gccs that do not support -static-libstdc++
       # gengenrtl: error while loading shared libraries: libstdc++.so.6
       mkdir_p lib
-      ln_s ["/usr/lib64/libstdc++.so.6", "/lib64/libgcc_s.so.1"], lib
+      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
+      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
 
       if build.with? "glibc"
         args += [
@@ -140,13 +141,7 @@ class Gcc < Formula
       else
         # Set the search path for glibc libraries and objects, using the system's glibc
         # Fix the error: ld: cannot find crti.o: No such file or directory
-        # Order is important, we put the /usr/libXY first in the path
-        ENV.prepend_path "LIBRARY_PATH", "/usr/lib"
-        if Hardware::CPU.is_32_bit?
-          ENV.prepend_path "LIBRARY_PATH", "/usr/lib32"
-        else
-          ENV.prepend_path "LIBRARY_PATH", "/usr/lib64"
-        end
+        ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
       end
     end
 
