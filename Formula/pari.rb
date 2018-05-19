@@ -13,7 +13,10 @@ class Pari < Formula
   depends_on "gmp"
   depends_on "readline"
   depends_on :x11 if OS.mac?
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/kbproto"
+    depends_on "linuxbrew/xorg/xorg"
+  end
 
   def install
     readline = Formula["readline"].opt_prefix
