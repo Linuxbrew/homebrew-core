@@ -19,7 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/6.0.0/llvm-6.0.0.src.tar.xz"
@@ -28,6 +28,11 @@ class Llvm < Formula
     resource "clang" do
       url "https://releases.llvm.org/6.0.0/cfe-6.0.0.src.tar.xz"
       sha256 "e07d6dd8d9ef196cfc8e8bb131cbd6a2ed0b1caf1715f9d05b0f0eeaddb6df32"
+
+      patch do
+        url "https://github.com/xu-cheng/clang/commit/83c39729df671c06b003e2638a2d5600a8a2278c.patch?full_index=1"
+        sha256 "c8a038fb648278d9951d03a437723d5a55abc64346668566b707d555ae5997a6"
+      end unless OS.mac?
     end
 
     resource "clang-extra-tools" do
@@ -86,17 +91,16 @@ class Llvm < Formula
     sha256 "3fc66e4a81882840e76f0071e93ad70f7c16cb37d581757a2ea1eee50adf7180" => :x86_64_linux
   end
 
-  pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs to be installed into #{default_prefix}."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
-  end
-
   head do
     url "https://llvm.org/git/llvm.git"
 
     resource "clang" do
       url "https://llvm.org/git/clang.git"
+
+      patch do
+        url "https://github.com/xu-cheng/clang/commit/83c39729df671c06b003e2638a2d5600a8a2278c.patch?full_index=1"
+        sha256 "c8a038fb648278d9951d03a437723d5a55abc64346668566b707d555ae5997a6"
+      end unless OS.mac?
     end
 
     resource "clang-extra-tools" do
@@ -165,18 +169,20 @@ class Llvm < Formula
   end
 
   unless OS.mac?
-    depends_on "gcc" # <atomic> is provided by gcc
-    depends_on "glibc" => (GlibcRequirement.system_version.to_f >= 2.19) ? :optional : :recommended
+    depends_on "gcc" # needed for libstdc++
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
-    depends_on "python" if build.with?("python") || build.with?("lldb")
     depends_on "zlib"
     needs :cxx11
+
+    conflicts_with "clang-format", :because => "both install `clang-format` binaries"
   end
 
-  if MacOS.version <= :snow_leopard
+  if !OS.mac?
+    depends_on "python@2" => :recommended
+  elsif MacOS.version <= :snow_leopard
     depends_on "python@2"
   else
     depends_on "python@2" => :optional
@@ -211,12 +217,6 @@ class Llvm < Formula
     end
 
     (buildpath/"tools/clang").install resource("clang")
-    unless OS.mac?
-      # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
-      inreplace buildpath/"tools/clang/lib/Driver/ToolChains/Linux.cpp",
-        "// Add the multilib suffixed paths where they are available.",
-        "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
-    end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
@@ -282,6 +282,7 @@ class Llvm < Formula
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
     args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build_libcxx? && !OS.mac?
+    args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build_libcxx? ? "libc++" : "libstdc++"}" unless OS.mac?
 
     if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -296,16 +297,6 @@ class Llvm < Formula
       args << "-DLLVM_ENABLE_FFI=ON"
       args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
-    end
-
-    # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
-    unless OS.mac?
-      gccpref = Formula["gcc"].opt_prefix.to_s
-      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
-      args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
-      args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
-      args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
     mktemp do
@@ -337,13 +328,12 @@ class Llvm < Formula
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
-    # Remove conflicting libraries.
-    # libgomp.so conflicts with gcc.
-    # libunwind.so conflcits with libunwind.
-    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
-
-    # Strip executables/libraries/object files to reduce their size
     unless OS.mac?
+      # Remove conflicting libraries.
+      # libgomp.so conflicts with gcc.
+      rm lib/"libgomp.so"
+
+      # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)
         f.file? && (f.elf? || f.extname == ".a")
@@ -411,6 +401,11 @@ class Llvm < Formula
       }
     EOS
 
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
+
     # Testing Command Line Tools
     if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
@@ -430,7 +425,7 @@ class Llvm < Formula
     end
 
     # Testing Xcode
-    if MacOS::Xcode.installed?
+    if OS.mac? && MacOS::Xcode.installed?
       libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
@@ -449,7 +444,7 @@ class Llvm < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    if build_libcxx?
+    if OS.mac? && build_libcxx?
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-std=c++11", "-stdlib=libc++",
               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
