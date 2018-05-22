@@ -99,7 +99,7 @@ class Glibc < Formula
     end
     if gcc_keg
       # Use the original GCC specs file.
-      specs = gcc_keg.lib/"gcc/x86_64-unknown-linux-gnu/#{gcc_keg.version}/specs.orig"
+      specs = Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=specs.orig").chomp)
       raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
       ENV["LDFLAGS"] = "-specs=#{specs}"
 
