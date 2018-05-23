@@ -1,3 +1,4 @@
+# lua: Build a bottle for Linuxbrew
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
