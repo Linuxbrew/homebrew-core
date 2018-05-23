@@ -1,3 +1,4 @@
+# pdfgrep: Build a bottle for Linuxbrew
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
