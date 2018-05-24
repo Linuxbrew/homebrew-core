@@ -1,3 +1,4 @@
+# nanomsg: Build a bottle for Linuxbrew
 class Nanomsg < Formula
   desc "Socket library in C"
   homepage "http://nanomsg.org"
