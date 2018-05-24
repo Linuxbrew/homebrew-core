@@ -1,3 +1,4 @@
+# genact: Build a bottle for Linuxbrew
 class Genact < Formula
   desc "Nonsense activity generator"
   homepage "https://github.com/svenstaro/genact"
