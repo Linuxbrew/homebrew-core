@@ -13,6 +13,11 @@ class Kakoune < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
 
+  unless OS.mac?
+    depends_on "libxslt" => :build
+    depends_on "pkg-config" => :build
+  end
+
   if MacOS.version <= :el_capitan
     depends_on "gcc"
     fails_with :clang do
