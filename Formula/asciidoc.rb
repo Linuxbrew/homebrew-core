@@ -22,7 +22,7 @@ class Asciidoc < Formula
     depends_on "libxml2" => :build
     depends_on "xmlto" => :build
     depends_on "libxslt" => :build # for xsltproc
-    depends_on "python"
+    depends_on "python@2"
   end
 
   def install
