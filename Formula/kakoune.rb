@@ -14,7 +14,9 @@ class Kakoune < Formula
   depends_on "docbook-xsl" => :build
 
   unless OS.mac?
+    depends_on "binutils" => :build
     depends_on "libxslt" => :build
+    depends_on "linux-headers" => :build
     depends_on "pkg-config" => :build
   end
 
