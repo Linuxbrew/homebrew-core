@@ -29,6 +29,7 @@ class Kakoune < Formula
   end
 
   def install
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     cd "src" do
