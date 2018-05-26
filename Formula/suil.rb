@@ -14,7 +14,8 @@ class Suil < Formula
   depends_on "pkg-config" => :build
   depends_on "lv2"
   depends_on "gtk+" => :recommended
-  depends_on :x11 => :optional
+  depends_on :x11 => :optional if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" => :optional unless OS.mac?
 
   def install
     system "./waf", "configure", "--prefix=#{prefix}"
