@@ -31,12 +31,11 @@ class Asciidoc < Formula
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
 
-    if OS.mac?
-      inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
-                   filters/graphviz/graphviz2png.py filters/latex/latex2img.py
-                   filters/music/music2png.py filters/unwraplatex.py],
-        "#!/usr/bin/env python2", "#!/usr/bin/python"
-    end
+    python = OS.mac? ? "/usr/bin/python" : Formula["python@2"].bin/"python"
+    inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
+                 filters/graphviz/graphviz2png.py filters/latex/latex2img.py
+                 filters/music/music2png.py filters/unwraplatex.py],
+      "#!/usr/bin/env python2", "#!#{python}"
 
     # otherwise macOS's xmllint bails out
     inreplace "Makefile", "-f manpage", "-f manpage -L" if OS.mac?
