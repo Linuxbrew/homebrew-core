@@ -35,9 +35,9 @@
   "quassel": "homebrew/cask",
   "sqlitebrowser": "homebrew/cask",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
-  "tuntap": "homebrew/cask"
+  "tuntap": "homebrew/cask",
   "iotop": "linuxbrew/extra",
   "libpipeline": "linuxbrew/extra",
   "man-db": "linuxbrew/extra",
-  "strace": "linuxbrew/extra",
+  "strace": "linuxbrew/extra"
 }
