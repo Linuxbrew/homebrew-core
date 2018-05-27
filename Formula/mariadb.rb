@@ -24,6 +24,7 @@ class Mariadb < Formula
   depends_on "cmake" => :build
   depends_on "openssl"
   unless OS.mac?
+    depends_on "bison" => :build
     depends_on "ncurses"
     depends_on "bzip2"
   end
