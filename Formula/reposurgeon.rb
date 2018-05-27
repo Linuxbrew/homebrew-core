@@ -1,3 +1,4 @@
+# reposurgeon: Build a bottle for Linuxbrew
 class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
