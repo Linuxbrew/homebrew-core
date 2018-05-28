@@ -4,7 +4,7 @@ class Asciidoc < Formula
   # This release is listed as final on GitHub, but not listed on asciidoc.org.
   url "https://github.com/asciidoc/asciidoc/archive/8.6.10.tar.gz"
   sha256 "9e52f8578d891beaef25730a92a6e723596ddbd07bfe0d2a56486fcf63a0b983"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
   head "https://github.com/asciidoc/asciidoc.git"
 
   bottle do
@@ -12,7 +12,6 @@ class Asciidoc < Formula
     sha256 "c82aaf006c1e61742f4b0d01106b34efa0bba4c7b315f31298b6cce1d9616947" => :high_sierra
     sha256 "c82aaf006c1e61742f4b0d01106b34efa0bba4c7b315f31298b6cce1d9616947" => :sierra
     sha256 "c82aaf006c1e61742f4b0d01106b34efa0bba4c7b315f31298b6cce1d9616947" => :el_capitan
-    sha256 "fef651417eeae42905dcd1da05e413eb23a466fe807aab45da12dff8ae919343" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +21,7 @@ class Asciidoc < Formula
     depends_on "libxml2" => :build
     depends_on "xmlto" => :build
     depends_on "libxslt" => :build # for xsltproc
-    depends_on "python"
+    depends_on "python@2"
   end
 
   def install
@@ -31,12 +30,11 @@ class Asciidoc < Formula
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
 
-    if OS.mac?
-      inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
-                   filters/graphviz/graphviz2png.py filters/latex/latex2img.py
-                   filters/music/music2png.py filters/unwraplatex.py],
-        "#!/usr/bin/env python2", "#!/usr/bin/python"
-    end
+    python = OS.mac? ? "/usr/bin/python" : Formula["python@2"].bin/"python"
+    inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
+                 filters/graphviz/graphviz2png.py filters/latex/latex2img.py
+                 filters/music/music2png.py filters/unwraplatex.py],
+      "#!/usr/bin/env python2", "#!#{python}"
 
     # otherwise macOS's xmllint bails out
     inreplace "Makefile", "-f manpage", "-f manpage -L" if OS.mac?
