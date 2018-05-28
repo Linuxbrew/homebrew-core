@@ -1,3 +1,4 @@
+# libewf: Build a bottle for Linuxbrew
 class Libewf < Formula
   desc "Library for support of the Expert Witness Compression Format"
   homepage "https://github.com/libyal/libewf"
