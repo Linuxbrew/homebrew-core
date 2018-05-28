@@ -27,7 +27,7 @@ class P11Kit < Formula
     # Reported 25 May 2018 https://github.com/p11-glue/p11-kit/issues/158
     inreplace %w[common/debug.c common/library.c common/message.c
                  common/test-message.c],
-              "#include <locale.h>", "#include <xlocale.h>"
+              "#include <locale.h>", "#include <xlocale.h>" if OS.mac?
 
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
