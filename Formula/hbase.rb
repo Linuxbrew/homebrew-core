@@ -1,3 +1,4 @@
+# hbase: Build a bottle for Linuxbrew
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
