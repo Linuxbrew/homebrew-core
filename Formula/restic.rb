@@ -1,3 +1,4 @@
+# restic: Build a bottle for Linuxbrew
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.github.io/"
