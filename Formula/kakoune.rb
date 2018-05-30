@@ -13,6 +13,14 @@ class Kakoune < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
 
+  unless OS.mac?
+    depends_on "binutils" => :build
+    depends_on "libxslt" => :build
+    depends_on "linux-headers" => :build
+    depends_on "pkg-config" => :build
+    depends_on "ncurses"
+  end
+
   if MacOS.version <= :el_capitan
     depends_on "gcc"
     fails_with :clang do
@@ -22,6 +30,7 @@ class Kakoune < Formula
   end
 
   def install
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     cd "src" do
