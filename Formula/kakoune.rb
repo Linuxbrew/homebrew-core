@@ -18,6 +18,7 @@ class Kakoune < Formula
     depends_on "libxslt" => :build
     depends_on "linux-headers" => :build
     depends_on "pkg-config" => :build
+    depends_on "ncurses"
   end
 
   if MacOS.version <= :el_capitan
