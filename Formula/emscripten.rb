@@ -44,6 +44,7 @@ class Emscripten < Formula
   depends_on "node"
   depends_on "closure-compiler" => :optional
   depends_on "yuicompressor"
+  depends_on "binutils" => :build unless OS.mac? # needed for strip
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -87,6 +88,12 @@ class Emscripten < Formula
        emranlib emrun emscons].each do |emscript|
       bin.install_symlink libexec/emscript
     end
+
+    # Strip executables/libraries/object files to reduce their size
+    system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[libexec/"llvm/bin/**/*", libexec/"llvm/bin/**/*"]).select do |f|
+      f = Pathname.new(f)
+      f.file? && (f.elf? || f.extname == ".a")
+    end)
   end
 
   def caveats; <<~EOS
