@@ -18,6 +18,7 @@ class H2o < Formula
   depends_on "openssl"
   depends_on "libuv" => :optional
   depends_on "wslay" => :optional
+  depends_on "zlib" unless OS.mac?
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
