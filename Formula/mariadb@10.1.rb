@@ -5,7 +5,10 @@ class MariadbAT101 < Formula
   sha256 "94312c519f2c0c25e1964c64e22aff0036fb22dfb2685638f43a6b2211395d2d"
 
   bottle do
-    sha256 "407192212142e11c373816d02d4baaaa88203c3d3e1a56f7dd83c6e6e74742f0" => :x86_64_linux
+    rebuild 1
+    sha256 "eaaaa34adceb08f90074282119ad89495365a2f9ebaca9afb8ec2943c5b2516f" => :high_sierra
+    sha256 "01c45c54e0ea36f1d38940bb07292c3793ece036fad5cf630545b7a513b0993e" => :sierra
+    sha256 "3f33b22f7ceb7275c2be880a6e93dd8c29754e56a3635ba10814b0ede72a1cea" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -47,8 +50,8 @@ class MariadbAT101 < Formula
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DWITH_PCRE=bundled
       -DWITH_SSL=yes
-      -DDEFAULT_CHARSET=utf8
-      -DDEFAULT_COLLATION=utf8_general_ci
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
