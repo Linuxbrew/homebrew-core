@@ -21,7 +21,7 @@ class Autoconf < Formula
   depends_on "m4" unless OS.mac?
 
   # For autom4te.
-  depends_on "perl" unless OS.mac?
+  depends_on "perl" unless which("perl")
 
   def install
     ENV["PERL"] = "/usr/bin/perl" if OS.mac?
