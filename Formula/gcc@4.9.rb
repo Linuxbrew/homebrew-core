@@ -26,7 +26,9 @@ class GccAT49 < Formula
   sha256 "6c11d292cd01b294f9f84c9a59c230d80e9e4a47e5c6355f046bb36d4f358092"
   revision 1
 
+  # gcc is designed to be portable.
   bottle do
+    cellar :any
     sha256 "0c4f2650325b060bf72beafd78dabab80973ee4ab330d4de16eb648b88225096" => :high_sierra
     sha256 "01a231e69b3c3e10a9e6aa99b5cbb6077eb1a011660bbbf06871ee262b6f31e6" => :sierra
     sha256 "1c407f31d58ab8e41230a83c6ffd1d77503c0c6528ccbc182f6888c23c5fb972" => :el_capitan
@@ -116,8 +118,17 @@ class GccAT49 < Formula
 
     args = []
     if OS.mac?
-      args << "--build=#{arch}-apple-darwin#{osmajor}"
-      args << "--libdir=#{lib}/gcc/#{version_suffix}"
+      args += [
+        "--build=#{arch}-apple-darwin#{osmajor}",
+        "--with-system-zlib",
+        "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
+      ]
+    else
+      args << "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues"
+
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=."
     end
     args = [
       "--prefix=#{prefix}",
@@ -125,7 +136,6 @@ class GccAT49 < Formula
       "--enable-languages=c,c++,fortran,objc,obj-c++",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
-      "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
@@ -138,7 +148,6 @@ class GccAT49 < Formula
       # raise errors. But still a good idea to include.
       "--disable-werror",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
       # Even when suffixes are appended, the info pages conflict when
       # install-info is run.
       "MAKEINFO=missing",
@@ -146,7 +155,7 @@ class GccAT49 < Formula
 
     args << "--disable-nls" if build.without? "nls"
 
-    if MacOS.prefer_64_bit?
+    if OS.mac? && MacOS.prefer_64_bit?
       args << "--enable-multilib"
     else
       args << "--disable-multilib"
@@ -187,10 +196,12 @@ class GccAT49 < Formula
     # Even when we disable building info pages some are still installed.
     info.rmtree
 
-    if OS.linux?
-      # Strip the executables to reduce their size from 600 MB to 100 MB.
-      libexecgcc = libexec/"gcc/x86_64-unknown-linux-gnu"/version
-      system "strip", *(Dir[libexecgcc/"*"] - Dir[libexecgcc/"*.la"]).select { |f| File.file? f }
+    unless OS.mac?
+      # Strip the binaries to reduce their size.
+      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
     end
   end
 
@@ -202,37 +213,68 @@ class GccAT49 < Formula
   end
 
   def post_install
-    return if OS.mac?
+    unless OS.mac?
+      gcc = bin/"gcc-4.9"
+      libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
+      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
-    # Create the GCC specs file
-    # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-    version_suffix = version.to_s[/\d\.\d/]
-    gcc = bin/"gcc-#{version_suffix}"
-    libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name").chomp).dirname
-    raise "command failed: #{gcc} -print-libgcc-file-name" unless $CHILD_STATUS.exitstatus.nonzero?
-    specs = libgcc/"specs"
-    ohai "Creating the GCC specs file: #{specs}"
-    specs_orig = Pathname.new("#{specs}.orig")
-    rm_f [specs_orig, specs]
+      glibc = Formula["glibc"]
+      glibc_installed = glibc.any_version_installed?
 
-    # Save a backup of the default specs file
-    specs_string = Utils.popen_read(gcc, "-dumpspecs")
-    raise "command failed: #{gcc} -dumpspecs" unless $CHILD_STATUS.exitstatus.nonzero?
-    specs_orig.write specs_string
+      # Symlink crt1.o and friends where gcc can find it.
+      ln_sf Dir[glibc.opt_lib/"*crt?.o"], libgcc if glibc_installed
 
-    # Set the dynamic linker and library search path
-    glibc = Formula["glibc"]
-    specs.write specs_string + <<~EOS
-      *cpp_unique_options:
-      + -isystem #{HOMEBREW_PREFIX}/include
+      # Create the GCC specs file
+      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
 
-      *link_libgcc:
-      #{glibc.installed? ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+      # Locate the specs file
+      specs = libgcc/"specs"
+      ohai "Creating the GCC specs file: #{specs}"
+      specs_orig = Pathname.new("#{specs}.orig")
+      rm_f [specs_orig, specs]
 
-      *link:
-      + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
+      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
 
-    EOS
+      # Locate the native system header dirs if user uses system glibc
+      unless glibc_installed
+        target = Utils.popen_read(gcc, "-print-multiarch").chomp
+        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
+        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
+      end
+
+      # Save a backup of the default specs file
+      specs_string = Utils.popen_read(gcc, "-dumpspecs")
+      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
+      specs_orig.write specs_string
+
+      # Set the library search path
+      # For include path:
+      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
+      #     system header files.
+      #   * `-idirafter <dir>` instructs gcc to search system header
+      #     files after gcc internal header files.
+      # For libraries:
+      #   * `-nostdlib -L#{libgcc}` instructs gcc to use brewed glibc
+      #     if applied.
+      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
+      #     libraries. It is essential if there are multiple brewed gcc
+      #     with different versions installed.
+      #     Noted that it should only be passed for the `gcc@*` formulae.
+      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
+      #     brew libraries.
+      libdir = HOMEBREW_PREFIX/"lib/gcc/6"
+      specs.write specs_string + <<~EOS
+        *cpp_unique_options:
+        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
+
+        *link_libgcc:
+        #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
+
+        *link:
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
+
+      EOS
+    end
   end
 
   test do
