@@ -3,12 +3,11 @@ class Systemd < Formula
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
   url "https://github.com/systemd/systemd/archive/v234.tar.gz"
   sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
+  revision OS.mac? ? 2 : 3
   head "https://github.com/systemd/systemd.git"
-  revision 2
   # tag "linuxbrew"
 
   bottle do
-    sha256 "66b631eb35da4691e489fbecb0cec19707bfd5212d070c589d91310d4292c182" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -26,6 +25,11 @@ class Systemd < Formula
   depends_on "libcap"
   depends_on "util-linux" # for libmount
   depends_on "libgpg-error" => :build
+
+  patch do
+    url "https://github.com/systemd/systemd/commit/227b8a762fea1458547be2cdf0e6e4aac0079730.diff?full_index=1"
+    sha256 "3a123a6cba8cf1e27b2ace04f81c6d0a87e29c7a9900aa2ec1d1fea8e06656a8"
+  end unless OS.mac?
 
   # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
   fails_with :gcc => "4.8"
