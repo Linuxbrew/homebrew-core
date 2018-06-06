@@ -251,7 +251,12 @@ class GccAT5 < Formula
       glibc_installed = glibc.any_version_installed?
 
       # Symlink crt1.o and friends where gcc can find it.
-      ln_sf Dir[glibc.opt_lib/"*crt?.o"], libgcc if glibc_installed
+      if glibc_installed
+        crtdir = glibc.opt_lib
+      else
+        crtdir = Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
+      end
+      ln_sf Dir[crtdir/"*crt?.o"], libgcc
 
       # Create the GCC specs file
       # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
