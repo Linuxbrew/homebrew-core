@@ -13,7 +13,11 @@ class Securefs < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
