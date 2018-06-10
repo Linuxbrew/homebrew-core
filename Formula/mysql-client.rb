@@ -19,6 +19,7 @@ class MysqlClient < Formula
   # Note: MySQL themselves don't support anything below El Capitan.
   depends_on :macos => :lion
   depends_on "openssl"
+  depends_on "libedit" unless OS.mac?
 
   def install
     # https://bugs.mysql.com/bug.php?id=87348
