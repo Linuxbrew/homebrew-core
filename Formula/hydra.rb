@@ -1,3 +1,4 @@
+# hydra: Build a bottle for Linuxbrew
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
