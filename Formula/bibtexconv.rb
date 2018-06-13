@@ -14,11 +14,16 @@ class Bibtexconv < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl"
-  depends_on "curl" unless OS.mac?
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "curl"
+  end
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
     system "cmake", *std_cmake_args,
-                    "-DCRYPTO_LIBRARY=#{Formula["openssl"].opt_lib}/libcrypto.dylib"
+                    "-DCRYPTO_LIBRARY=#{Formula["openssl"].opt_lib}/libcrypto.#{dylib}"
     system "make", "install"
   end
 
