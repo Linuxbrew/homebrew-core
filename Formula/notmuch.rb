@@ -1,3 +1,4 @@
+# notmuch: Build a bottle for Linuxbrew
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
