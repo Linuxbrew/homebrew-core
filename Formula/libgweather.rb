@@ -1,3 +1,4 @@
+# libgweather: Build a bottle for Linuxbrew
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
