@@ -18,6 +18,11 @@ class LastpassCli < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "pinentry" => :optional
+  unless OS.mac?
+    depends_on "curl" => :build
+    depends_on "libxml2" => :build
+    depends_on "python@2" => :build
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
