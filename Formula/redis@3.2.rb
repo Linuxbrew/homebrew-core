@@ -1,3 +1,4 @@
+# redis@3.2: Build a bottle for Linuxbrew
 class RedisAT32 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
