@@ -24,6 +24,9 @@ class Dbxml < Formula
   end
 
   def install
+    # Reduce memory usage for CircleCI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     inreplace "dbxml/configure" do |s|
