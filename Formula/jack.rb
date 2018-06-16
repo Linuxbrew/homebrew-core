@@ -1,3 +1,4 @@
+# jack: Build a bottle for Linuxbrew
 # This now builds a version of JACKv1 which matches the current API
 # for JACKv2. JACKv2 is not buildable on a number of macOS
 # distributions, and the JACK team instead suggests installation of
