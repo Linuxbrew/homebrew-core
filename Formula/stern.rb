@@ -1,3 +1,4 @@
+# stern: Build a bottle for Linuxbrew
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
   homepage "https://github.com/wercker/stern"
