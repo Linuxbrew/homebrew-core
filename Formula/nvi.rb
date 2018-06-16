@@ -1,3 +1,4 @@
+# nvi: Build a bottle for Linuxbrew
 class Nvi < Formula
   desc "44BSD re-implementation of vi"
   homepage "https://sites.google.com/a/bostic.com/keithbostic/vi/"
