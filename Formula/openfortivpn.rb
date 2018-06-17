@@ -1,3 +1,4 @@
+# openfortivpn: Build a bottle for Linuxbrew
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
