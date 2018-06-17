@@ -1,3 +1,4 @@
+# saltstack: Build a bottle for Linuxbrew
 class Saltstack < Formula
   include Language::Python::Virtualenv
 
