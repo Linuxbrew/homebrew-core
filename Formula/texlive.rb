@@ -2,8 +2,8 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20180119"
-  sha256 "c5fe7d8747bd6968b83fa2028cbeaf87c0d4e7de69d671930b086e3ac2b2a287"
+  version "20180615"
+  sha256 "6821dc2ffa7b6272b1ef1366d61875c63a38d6d4c3385f1e20255f77baa3f0c2"
   # tag "linuxbrew"
 
   bottle do
