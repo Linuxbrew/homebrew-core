@@ -1,3 +1,4 @@
+# gloox: Build a bottle for Linuxbrew
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
