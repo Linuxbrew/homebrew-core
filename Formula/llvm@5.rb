@@ -270,6 +270,7 @@ class LlvmAT5 < Formula
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
+    args << "-DLLVM_PARALLEL_LINK_JOBS=1" if ENV["CIRCLECI"]
 
     if build.with? "shared-libs"
       args << "-DBUILD_SHARED_LIBS=ON"
