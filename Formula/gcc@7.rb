@@ -222,8 +222,11 @@ class GccAT7 < Formula
 
       system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
 
-      # Locate the native system header dirs if user uses system glibc
-      unless glibc_installed
+      if glibc_installed
+        # https://github.com/Linuxbrew/brew/issues/724
+        system_header_dirs << glibc.opt_include
+      else
+        # Locate the native system header dirs if user uses system glibc
         target = Utils.popen_read(gcc, "-print-multiarch").chomp
         raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
         system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
