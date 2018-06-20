@@ -32,11 +32,7 @@ class Openssl < Formula
     sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
   end
 
-  if OS.mac?
-    depends_on "makedepend" => :build
-  else
-    depends_on "perl" => :build
-  end
+  depends_on "makedepend" => :build if OS.mac?
 
   def arch_args
     return {
