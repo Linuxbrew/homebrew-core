@@ -26,17 +26,19 @@ class Lsof < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c3acbb8/lsof/lsof-489-darwin-compile-fix.patch"
     sha256 "997d8c147070987350fc12078ce83cd6e9e159f757944879d7e4da374c030755"
-  end
+  end if OS.mac?
 
   def install
-    ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    if OS.mac?
+      ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
 
-    # Source hardcodes full header paths at /usr/include
-    inreplace %w[
-      dialects/darwin/kmem/dlsof.h
-      dialects/darwin/kmem/machine.h
-      dialects/darwin/libproc/machine.h
-    ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+      # Source hardcodes full header paths at /usr/include
+      inreplace %w[
+        dialects/darwin/kmem/dlsof.h
+        dialects/darwin/kmem/machine.h
+        dialects/darwin/libproc/machine.h
+      ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+    end
 
     mv "00README", "README"
     system "./Configure", "-n", `uname -s`.chomp.downcase
