@@ -4,13 +4,12 @@ class Perl < Formula
   url "https://www.cpan.org/src/5.0/perl-5.26.2.tar.xz"
   sha256 "0f8c0fb1b0db4681adb75c3ba0dd77a0472b1b359b9e80efd79fc27b4352132c"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     sha256 "30317077ce9e42f30f9d4c875339ee5ade289cb8de08ddb55953803a52560aec" => :high_sierra
     sha256 "4aa888c405e50b43f0fd0191a84c509b3d4403dc02c9631085842f9ed98ed2a6" => :sierra
     sha256 "c87180da0272ae59e35e39733a5912d490bb5833de7b1600bdeee369a576806a" => :el_capitan
-    sha256 "531deee74fc8b60685dc550d15418e557b4a5ea5fee9c8d8179f98de5b26fc61" => :x86_64_linux
   end
 
   option "with-dtrace", "Build with DTrace probes"
@@ -18,6 +17,7 @@ class Perl < Formula
 
   unless OS.mac?
     depends_on "gdbm"
+    depends_on "berkeley-db"
 
     # required for XML::Parser
     depends_on "expat"
@@ -83,16 +83,6 @@ class Perl < Formula
     end
   end
 
-  def caveats; <<~EOS
-    By default non-brewed cpan modules are installed to the Cellar. If you wish
-    for your modules to persist across updates we recommend using `local::lib`.
-
-    You can set that up like this:
-      PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"' >> #{shell_profile}
-  EOS
-  end
-
   def post_install
     # CPAN modules installed via the system package manager will not be visible to
     # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
@@ -104,6 +94,16 @@ class Perl < Formula
         system bin/"cpan", "-i", "XML::SAX"
       end
     end
+  end
+
+  def caveats; <<~EOS
+    By default non-brewed cpan modules are installed to the Cellar. If you wish
+    for your modules to persist across updates we recommend using `local::lib`.
+
+    You can set that up like this:
+      PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
+      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"' >> #{shell_profile}
+  EOS
   end
 
   test do
