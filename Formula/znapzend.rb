@@ -1,3 +1,4 @@
+# znapzend: Build a bottle for Linuxbrew
 class Znapzend < Formula
   desc "ZFS backup with remote capabilities and mbuffer integration"
   homepage "https://www.znapzend.org/"
