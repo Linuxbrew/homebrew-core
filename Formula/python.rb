@@ -346,7 +346,7 @@ class Python < Formula
     if OS.mac? && prefix.exist?
       (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
     else
-      version.to_s.slice(/(3\.\d)/) || "3.6"
+      version.to_s[/^\d\.\d/]
     end
   end
 
@@ -423,7 +423,6 @@ class Python < Formula
   end
 
   test do
-    xy = (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
