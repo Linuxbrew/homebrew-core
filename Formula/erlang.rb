@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "http://www.erlang.org/"
@@ -34,7 +29,6 @@ class Erlang < Formula
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
-  depends_on CIRequirement
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.0.tar.gz"
