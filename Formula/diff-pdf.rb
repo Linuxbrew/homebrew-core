@@ -1,3 +1,4 @@
+# diff-pdf: Build a bottle for Linuxbrew
 class DiffPdf < Formula
   desc "Visually compare two PDF files"
   homepage "https://vslavik.github.io/diff-pdf/"
