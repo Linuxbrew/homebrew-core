@@ -25,7 +25,9 @@ class ProtobufSwift < Formula
                      "plugin/compiler/google/protobuf/swift-descriptor.proto",
                      "--cpp_out=plugin/compiler"
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "CXXFLAGS=-I#{Formula["protobuf"].opt_include}",
+                          "LDFLAGS=-L#{Formula["protobuf"].opt_lib}"
     system "make"
     system "make", "install"
   end
