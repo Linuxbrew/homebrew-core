@@ -47,6 +47,11 @@ class Pulseaudio < Formula
     depends_on "libcap"
     depends_on "expat"
 
+    # Depends on XML::Parser
+    # Using the host's Perl interpreter to install XML::Parser fails when using brew's glibc.
+    # Use brew's Perl interpreter instead.
+    # See Linuxbrew/homebrew-core#8148
+    depends_on "perl" => :build
     resource "XML::Parser" do
       url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
       sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
@@ -84,6 +89,15 @@ class Pulseaudio < Formula
     end
 
     args << "--disable-nls" if build.without? "nls"
+
+    # Perl depends on gdbm.
+    # If the dependency of pulseaudio on perl is build-time only,
+    # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
+    # Thus, we have to
+    #  - specify not to use gdbm, or
+    #  - add a dependency on gdbm if gdbm is wanted (not implemented).
+    # See Linuxbrew/homebrew-core#8148
+    args << "--with-database=simple" unless OS.mac?
 
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure
