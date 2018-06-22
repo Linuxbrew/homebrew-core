@@ -33,6 +33,12 @@ class Protobuf < Formula
 
   needs :cxx11
 
+  unless OS.mac?
+    fails_with :gcc => "4"
+    fails_with :gcc => "5"
+    depends_on "gcc@6"
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
