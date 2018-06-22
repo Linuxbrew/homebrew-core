@@ -1,3 +1,4 @@
+# ripgrep: Build a bottle for Linuxbrew
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
