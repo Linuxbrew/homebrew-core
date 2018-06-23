@@ -17,6 +17,7 @@ class Tinc < Formula
 
   depends_on "lzo"
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
