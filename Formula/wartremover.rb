@@ -1,3 +1,4 @@
+# wartremover: Build a bottle for Linuxbrew
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
