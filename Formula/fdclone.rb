@@ -11,6 +11,7 @@ class Fdclone < Formula
   end
 
   depends_on "nkf" => :build
+  depends_on "ncurses" unless OS.mac?
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/86107cf/fdclone/3.01b.patch"
