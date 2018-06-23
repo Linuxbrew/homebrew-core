@@ -1,3 +1,4 @@
+# skaffold: Build a bottle for Linuxbrew
 class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://github.com/GoogleContainerTools/skaffold"
