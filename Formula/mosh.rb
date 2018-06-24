@@ -41,7 +41,7 @@ class Mosh < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check" if build.with?("test") || (build.bottle? && OS.mac?)
     system "make", "install"
   end
 
