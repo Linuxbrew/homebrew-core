@@ -1,3 +1,4 @@
+# osm-pbf: Build a bottle for Linuxbrew
 class OsmPbf < Formula
   desc "Tools related to PBF (an alternative to XML format)"
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
