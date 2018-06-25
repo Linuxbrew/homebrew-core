@@ -102,4 +102,11 @@ matrix:
     - os: linux
 
 script:
-  - cd formulae.brew.sh && rake
+  - brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
+
+notifications:
+  slack:
+    secure: PvK4LXijxgFTbT6SvWUveluJdbe7AfnJ+Ip/xb2gVRsq71DHSi96OtaEZq+qAvU6UU07VaCY/55cTb+HZE1twCOE4aE4l6iJONVmwIb+s9bGQfV9+H/r+y+J1EJzIzAfTbsn4mGJpkG9e2326c0vGcM/lFpHH0qarhOEYs4jLt17Ijg4mk+I5jLIOZ2vZsC7IZ0W8oe7Qzomyyfzj5XW2kUa41e8CgZf4byqAvnVpPpfvkm/rODGPREOmcpOr2Pu8fhNLrswXRlhgakZgi5JPPdaRocIhnbRbyqE2Qngnlk/wzno1e3NZYDcxTa5xAgAa5h/TIpyLeB/pXfpc1n5RuP7BjA/mZSYaG5Dg1IIvGPu/23+HlZ9umMn0E0f5j3EsV66CwErJGChm6hN7xPAxLz1Mj9v2E3CIDjyYcg/aZ+O27oaUlGoBGrX51g8poq6LhG+SxHx/VkDAJ+X4T56EQYTCA+ezEIs6KdWZl7AB4ztHqTe7w4YJIIhh509iViFKX4pJdQnajNf97IvRl9hHsLa9k9GuLWOQvxjkEJ/1LSfVkNEfPxHd2btIVdg6DQsVrxyfwufF+KlQDKNHR4Jbz+KEvrWIbXWQAj+2g7xwj5l2/Tyv69gR7FqBpSxh+Ue7wrWrVCIkzn/BEU4H0nHGR5D4dOwmgiOxXVhEZjYqjU=
+  email:
+    on_success: never
+    on_failure: always
