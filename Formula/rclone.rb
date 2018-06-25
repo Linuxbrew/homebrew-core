@@ -1,3 +1,4 @@
+# rclone: Build a bottle for Linuxbrew
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
