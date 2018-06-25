@@ -15,6 +15,7 @@ class KubernetesCli < Formula
 
   # kubernetes-cli will not support go1.10 until version 1.11.x
   depends_on "go@1.9" => :build
+  depends_on "rsync" => :build unless OS.mac?
 
   def install
     ENV["GOPATH"] = buildpath
