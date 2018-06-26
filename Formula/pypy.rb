@@ -26,6 +26,8 @@ class Pypy < Formula
   unless OS.mac?
     depends_on "expat"
     depends_on "libffi"
+    depends_on "tcl-tk"
+    depends_on "zlib"
   end
 
   resource "bootstrap" do
@@ -65,6 +67,11 @@ class Pypy < Formula
       python = buildpath/"bootstrap/bin/pypy"
     end
 
+    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+      s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
+      s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
+    end unless OS.mac?
+
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
              "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
@@ -79,17 +86,18 @@ class Pypy < Formula
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
     end
 
-    (libexec/"lib").install libexec/"bin/libpypy-c.dylib"
+    dylib = OS.mac? ? "dylib" : "so"
+    (libexec/"lib").install libexec/"bin/libpypy-c.#{dylib}"
     MachO::Tools.change_install_name("#{libexec}/bin/pypy",
                                      "@rpath/libpypy-c.dylib",
-                                     "#{libexec}/lib/libpypy-c.dylib")
+                                     "#{libexec}/lib/libpypy-c.dylib") if OS.mac?
 
     # The PyPy binary install instructions suggest installing somewhere
     # (like /opt) and symlinking in binaries as needed. Specifically,
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy"
-    lib.install_symlink libexec/"lib/libpypy-c.dylib"
+    lib.install_symlink libexec/"lib/libpypy-c.#{dylib}"
   end
 
   def post_install
