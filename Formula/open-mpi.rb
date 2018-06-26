@@ -33,6 +33,9 @@ class OpenMpi < Formula
   needs :cxx11
 
   def install
+    # Fix libopen-pal.so: undefined reference to `__atomic_compare_exchange_16'
+    ENV["HOMEBREW_OPTFLAGS"] = "" if !OS.mac? && build.bottle?
+
     # otherwise libmpi_usempi_ignore_tkr gets built as a static library
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
