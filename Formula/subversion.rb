@@ -4,10 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.10.0.tar.bz2"
   sha256 "2cf23f3abb837dea0585a6b0ebd70e80e01f95bddef7c1aa097c18e3eaa6b584"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "0a67f296c25eb6c6f2d1d8c032b10cd1afcf0a26bfdfd5e0a00a56cd82ee9403" => :x86_64_linux
+    sha256 "a7590cd2a4c4ac1ad99574476de9a4c15535e25497e532495d498d02faaf8b09" => :high_sierra
+    sha256 "698430808bdd4f1fc5a8118cf80932114a1598ee89c98853f1a6874dc877be7a" => :sierra
+    sha256 "042e602af3a20ea5b10c589cb4194d7f141525d64044fd49f6e7559120f69415" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
