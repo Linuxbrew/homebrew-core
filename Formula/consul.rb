@@ -21,7 +21,7 @@ class Consul < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    inreplace "scripts/build.sh", "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
+    inreplace "build-support/functions/20-build.sh", "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
 
     # Avoid running `go get`
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
