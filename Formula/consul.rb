@@ -82,7 +82,7 @@ class Consul < Formula
     return if ENV["CIRCLECI"] || ENV["TRAVIS"]
 
     fork do
-      exec "#{bin}/consul", "agent", "-data-dir", "."
+      exec "#{bin}/consul", "agent", "-bind", "127.0.0.1", "-data-dir", "."
     end
     sleep 3
     system "#{bin}/consul", "leave"
