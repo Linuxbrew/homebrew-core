@@ -20,7 +20,6 @@ class Consul < Formula
   depends_on "zip" => :build unless OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
     inreplace "build-support/functions/20-build.sh", "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
 
     # Avoid running `go get`
