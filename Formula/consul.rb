@@ -20,7 +20,7 @@ class Consul < Formula
   depends_on "zip" => :build unless OS.mac?
 
   def install
-    inreplace *(Os.mac? ? "scripts/build.sh" : "build-support/functions/20-build.sh"), "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
+    inreplace *(OS.mac? ? "scripts/build.sh" : "build-support/functions/20-build.sh"), "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
 
     # Avoid running `go get`
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
