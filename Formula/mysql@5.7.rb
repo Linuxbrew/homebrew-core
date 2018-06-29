@@ -27,14 +27,21 @@ class MysqlAT57 < Formula
   # https://github.com/Homebrew/homebrew-core/issues/1475
   # Needs at least Clang 3.3, which shipped alongside Lion.
   # Note: MySQL themselves don't support anything below El Capitan.
-  depends_on :macos => :lion
+  depends_on :macos => :lion unless OS.mac?
   depends_on "openssl"
+  depends_on "libedit" unless OS.mac?
 
   def datadir
     var/"mysql"
   end
 
   def install
+    ENV["MAKEFLAGS"] = "-j3" if ENV["CIRCLECI"]
+    # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
+    # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
+    # a shared object; recompile with -fPIC
+    ENV.append_to_cflags "-fPIC" unless OS.mac?
+
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
