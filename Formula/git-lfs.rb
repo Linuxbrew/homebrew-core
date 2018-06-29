@@ -15,6 +15,9 @@ class GitLfs < Formula
   depends_on "go" => :build
   depends_on "ruby" unless OS.mac?
 
+  # System Ruby uses old TLS versions no longer supported by RubyGems.
+  depends_on "ruby" => :build if MacOS.version <= :sierra
+
   def install
     begin
       deleted = ENV.delete "SDKROOT"
