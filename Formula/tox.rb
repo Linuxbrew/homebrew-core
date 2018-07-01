@@ -1,3 +1,4 @@
+# tox: Build a bottle for Linuxbrew
 class Tox < Formula
   include Language::Python::Virtualenv
 
