@@ -1,3 +1,4 @@
+# meson-internal: Build a bottle for Linuxbrew
 class MesonInternal < Formula
   include Language::Python::Virtualenv
   desc "Fast and user friendly build system"
