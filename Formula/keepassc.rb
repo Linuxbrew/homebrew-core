@@ -1,3 +1,4 @@
+# keepassc: Build a bottle for Linuxbrew
 class Keepassc < Formula
   desc "Curses-based password manager for KeePass v.1.x and KeePassX"
   homepage "https://raymontag.github.com/keepassc/"
