@@ -1,3 +1,4 @@
+# todoman: Build a bottle for Linuxbrew
 class Todoman < Formula
   include Language::Python::Virtualenv
 
