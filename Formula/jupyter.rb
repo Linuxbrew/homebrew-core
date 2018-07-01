@@ -21,6 +21,7 @@ class Jupyter < Formula
   depends_on "python"
   depends_on "zeromq"
   depends_on "pyqt" if build.with? "qtconsole"
+  depends_on "expect" => :test unless OS.mac?
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
