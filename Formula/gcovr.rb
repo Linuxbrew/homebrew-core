@@ -1,3 +1,4 @@
+# gcovr: Build a bottle for Linuxbrew
 class Gcovr < Formula
   desc "Reports from gcov test coverage program"
   homepage "https://gcovr.com/"
