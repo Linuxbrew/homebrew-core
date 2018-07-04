@@ -31,6 +31,8 @@ class Fakeroot < Formula
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=766649
   patch :DATA
 
+  depends_on "libpcap" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-static",
@@ -61,7 +63,7 @@ class Fakeroot < Formula
        #ifdef HAVE_RENAMEAT
     EOS
 
-    system "patch < patch-for-wraptmpf-h"
+    system "patch < patch-for-wraptmpf-h" if OS.mac?
 
     system "make"
     system "make", "install"
