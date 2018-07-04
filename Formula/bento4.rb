@@ -13,8 +13,9 @@ class Bento4 < Formula
     sha256 "a9f65233b8bfd756e673a09ea18cb1847610170402bd9ac6a57107370ce9a3e5" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "python@2"
+  depends_on "cmake" => :build unless OS.mac?
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
 
@@ -27,7 +28,19 @@ class Bento4 < Formula
         File.file?(f) && File.executable?(f)
       end
       bin.install programs
-    end
+    end if OS.mac?
+
+    mkdir "cmakebuild" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "AP4_BUILD_CONFIG=Release"
+      programs = Dir["build/Release/*"].select do |f|
+        next if f.end_with? ".so"
+        next if f.end_with? "Test"
+        File.file?(f) && File.executable?(f)
+      end
+      bin.install programs
+      Dir.chdir "cmakebuild"
+    end unless OS.mac?
 
     rm Dir["Source/Python/wrappers/*.bat"]
     inreplace Dir["Source/Python/wrappers/*"],
