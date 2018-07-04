@@ -1,3 +1,4 @@
+# libtiff: Build a bottle for Linuxbrew
 class Libtiff < Formula
   desc "TIFF library and utilities"
   homepage "http://libtiff.maptools.org/"
