@@ -1,3 +1,4 @@
+# rubberband: Build a bottle for Linuxbrew
 class Rubberband < Formula
   desc "Audio time stretcher tool and library"
   homepage "https://breakfastquay.com/rubberband/"
