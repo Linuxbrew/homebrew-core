@@ -1,3 +1,4 @@
+# hevea: Build a bottle for Linuxbrew
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
   homepage "http://hevea.inria.fr/"
