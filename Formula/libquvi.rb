@@ -1,3 +1,4 @@
+# libquvi: Build a bottle for Linuxbrew
 class Libquvi < Formula
   desc "C library to parse flash media stream properties"
   homepage "https://quvi.sourceforge.io/"
