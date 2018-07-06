@@ -1,3 +1,4 @@
+# fmt: Build a bottle for Linuxbrew
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmtlib.github.io/"
