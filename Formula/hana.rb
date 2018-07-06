@@ -1,3 +1,4 @@
+# hana: Build a bottle for Linuxbrew
 class Hana < Formula
   desc "The Boost.Hana C++14 metaprogramming library"
   homepage "https://github.com/boostorg/hana"
