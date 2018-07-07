@@ -1,3 +1,4 @@
+# creduce: Build a bottle for Linuxbrew
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
