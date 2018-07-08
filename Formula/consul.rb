@@ -19,8 +19,7 @@ class Consul < Formula
   depends_on "zip" => :build unless OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    inreplace "scripts/build.sh", "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
+    inreplace *(OS.mac? ? "scripts/build.sh" : "build-support/functions/20-build.sh"), "-tags=\"${GOTAGS}\" \\", "-tags=\"${GOTAGS}\" -parallel=4 \\"
 
     # Avoid running `go get`
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
@@ -81,7 +80,7 @@ class Consul < Formula
     return if ENV["CIRCLECI"] || ENV["TRAVIS"]
 
     fork do
-      exec "#{bin}/consul", "agent", "-data-dir", "."
+      exec "#{bin}/consul", "agent", *("-bind" unless OS.mac?), *("127.0.0.1" unless OS.mac?), "-data-dir", "."
     end
     sleep 3
     system "#{bin}/consul", "leave"
