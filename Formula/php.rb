@@ -17,6 +17,8 @@ class Php < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
+  depends_on "bzip2"
+  depends_on "berkeley-db"
   depends_on "curl" if MacOS.version < :lion
   depends_on "freetds"
   depends_on "freetype"
@@ -25,14 +27,18 @@ class Php < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
+  depends_on "libedit"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
+  depends_on "libxslt"
   depends_on "libzip"
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "unixodbc"
   depends_on "webp"
+  depends_on "zlib"
 
   needs :cxx11
 
@@ -84,7 +90,7 @@ class Php < Formula
       --enable-bcmath
       --enable-calendar
       --enable-dba
-      --enable-dtrace
+
       --enable-exif
       --enable-ftp
       --enable-fpm
@@ -105,7 +111,7 @@ class Php < Formula
       --enable-wddx
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
-      --with-bz2
+      --with-bz2-dir=#{Formula["bzip2"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
@@ -116,14 +122,14 @@ class Php < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos
       --with-layout=GNU
-      --with-ldap
-      --with-ldap-sasl
-      --with-libedit
+      --with-ldap-dir=#{Formula["openldap"].opt_prefix}
+      
+      --with-libedit-dir=#{Formula["libedit"].opt_prefix}
       --with-libzip
       --with-mhash
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
-      --with-ndbm
+      --with-ndbm-dir=#{Formula["berkeley-db"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
@@ -138,8 +144,8 @@ class Php < Formula
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
-      --with-xsl
-      --with-zlib
+      --with-xsl-dir=#{Formula["libxslt"].opt_prefix}
+      --with-zlib-dir=#{Formula["zlib"].opt_prefix}
     ]
 
     if MacOS.version < :lion
