@@ -12,6 +12,10 @@ class UBootTools < Formula
   end
 
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
 
   def install
     system "make", "sandbox_defconfig"
