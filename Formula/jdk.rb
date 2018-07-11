@@ -1,27 +1,19 @@
-class JdkDownloadStrategy < CurlDownloadStrategy
-  def _curl_opts
-    super << "--cookie" << "oraclelicense=accept-securebackup-cookie"
-  end
-end
-
 class Jdk < Formula
-  desc "Java Platform, Standard Edition Development Kit (JDK)."
+  desc "Java Platform, Standard Edition Development Kit (JDK)"
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
   # tag "linuxbrew"
 
-  version "9.0.1+11"
+  version "9.0.4"
   version_scheme 1
   if OS.linux?
-    url "http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz",
-      :using => JdkDownloadStrategy
-    sha256 "2cdaf0ff92d0829b510edd883a4ac8322c02f2fc1beae95d048b6716076bc014"
+    url "http://ftp.osuosl.org/pub/funtoo/distfiles/oracle-java/jdk-9.0.4_linux-x64_bin.tar.gz"
+    sha256 "90c4ea877e816e3440862cfa36341bc87d05373d53389ec0f2d54d4e8c95daa2"
   elsif OS.mac?
     url "http://java.com/"
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0701a22799493a1989ce113a5c3e43c0e1a140f33733ff7cc04c91257f456c6d" => :x86_64_linux
   end
 
   def install
@@ -30,10 +22,10 @@ class Jdk < Formula
   end
 
   def caveats; <<~EOS
-      By installing and using JDK you agree to the
-      Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
-      http://www.oracle.com/technetwork/java/javase/terms/license/index.html
-    EOS
+    By installing and using JDK you agree to the
+    Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
+    http://www.oracle.com/technetwork/java/javase/terms/license/index.html
+  EOS
   end
 
   test do
