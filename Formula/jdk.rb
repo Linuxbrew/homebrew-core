@@ -5,11 +5,11 @@ class Jdk < Formula
 
   version "9.0.4"
   version_scheme 1
-  if OS.linux?
+  if OS.mac?
+    url "http://java.com/"
+  else
     url "http://ftp.osuosl.org/pub/funtoo/distfiles/oracle-java/jdk-9.0.4_linux-x64_bin.tar.gz"
     sha256 "90c4ea877e816e3440862cfa36341bc87d05373d53389ec0f2d54d4e8c95daa2"
-  elsif OS.mac?
-    url "http://java.com/"
   end
 
   bottle do
