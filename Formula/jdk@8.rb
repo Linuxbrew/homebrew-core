@@ -4,11 +4,11 @@ class JdkAT8 < Formula
   # tag "linuxbrew"
 
   version "1.8.0-162"
-  if OS.linux?
+  if OS.mac?
+    url "http://java.com/"
+  else
     url "http://ftp.osuosl.org/pub/funtoo/distfiles/oracle-java/jdk-8u162-linux-x64.tar.gz"
     sha256 "68ec82d47fd9c2b8eb84225b6db398a72008285fafc98631b1ff8d2229680257"
-  elsif OS.mac?
-    url "http://java.com/"
   end
 
   bottle do
