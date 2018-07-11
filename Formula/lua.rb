@@ -22,8 +22,8 @@ class Lua < Formula
   # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
   # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
   patch do
-    url "https://gist.githubusercontent.com/iMichka/baa7e609848d8eb9fc063c3bf664b5bf/raw/56a4b4993b30c533585b706b2465ff86a71995e7/lua.patch"
-    sha256 "b9bba9d10ed5d34335c831972a02ec48471ca1dbf95230edc13fe5f575d5542c"
+    url "https://gist.githubusercontent.com/iMichka/dfc8617c85c1a6c21ca22240d4f5407b/raw/0dfef35c31fa41de0bface13e9c9f6ea09bd89fa/lua-5.3.5.patch"
+    sha256 "e74a6ada94e4340e664b35065392ebe5060d5d329b3d8d3e5603df0a8238a961"
   end unless OS.mac?
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
