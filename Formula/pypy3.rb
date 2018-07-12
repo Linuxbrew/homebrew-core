@@ -81,6 +81,12 @@ class Pypy3 < Formula
     ENV["PYPY_USESSION_DIR"] = buildpath
 
     python = Formula["pypy"].opt_bin/"pypy"
+
+    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+      s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
+      s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
+    end unless OS.mac?
+
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
              "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
@@ -93,16 +99,17 @@ class Pypy3 < Formula
       package_args << "--without-gdbm" if build.without? "gdbm"
       package_args << "--without-lzma" if build.without? "xz"
       system python, "package.py", *package_args
-      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy3.tar.bz2"
+      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
-    (libexec/"lib").install libexec/"bin/libpypy3-c.dylib" => "libpypy3-c.dylib"
+    dylib = OS.mac? ? "dylib" : "so"
+    (libexec/"lib").install libexec/"bin/libpypy3-c.#{dylib}" => "libpypy3-c.#{dylib}"
 
     MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
                                      "@rpath/libpypy3-c.dylib",
-                                     "#{libexec}/lib/libpypy3-c.dylib")
+                                     "#{libexec}/lib/libpypy3-c.dylib") if OS.mac?
     MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3-c.dylib",
-                                 "#{opt_libexec}/lib/libpypy3-c.dylib")
+                                 "#{opt_libexec}/lib/libpypy3-c.dylib") if OS.mac?
 
     (libexec/"lib-python").install "lib-python/3"
     libexec.install %w[include lib_pypy]
@@ -113,7 +120,7 @@ class Pypy3 < Formula
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy3"
     bin.install_symlink libexec/"bin/pypy" => "pypy3.5"
-    lib.install_symlink libexec/"lib/libpypy3-c.dylib"
+    lib.install_symlink libexec/"lib/libpypy3-c.#{dylib}"
   end
 
   def post_install
