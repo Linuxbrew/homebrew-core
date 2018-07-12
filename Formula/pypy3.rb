@@ -19,6 +19,13 @@ class Pypy3 < Formula
   depends_on "openssl"
   depends_on "xz" => :recommended
 
+  unless OS.mac?
+    depends_on "expat"
+    depends_on "libffi"
+    depends_on "tcl-tk"
+    depends_on "zlib"
+  end
+
   # packaging depends on pyparsing
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
