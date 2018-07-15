@@ -44,6 +44,7 @@ class Rust < Formula
   depends_on "llvm" => :optional
   depends_on "openssl"
   depends_on "libssh2"
+  depends_on "patchelf" => :build
 
   unless OS.mac?
     depends_on "binutils"
@@ -102,7 +103,18 @@ class Rust < Formula
       args << "--release-channel=stable"
     end
     system "./configure", *args
-    system "make"
+    if Formula["glibc"].installed?
+      begin
+        system "make"
+      rescue
+        %w[cargo rustc rustdoc].each do |f|
+          system "patchelf", "--set-interpreter", "#{HOMEBREW_PREFIX}/lib/ld-linux-x86-64.so.2", "#{buildpath}/build/x86_64-unknown-linux-gnu/stage0/bin/#{f}"
+        end
+        system "make"
+      end
+    else
+      system "make"
+    end
     system "make", "install"
 
     resource("cargobootstrap").stage do
