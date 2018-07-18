@@ -24,6 +24,11 @@ class Campari < Formula
     share.mkpath
     system "make", "all_brew"
     bin.install "campari"
+    bin.install "campari_mpi"
+    bin.install "campari_threads"
+    bin.install "campari_mpi_threads"
+    bin.install "camp_ncminer"
+    bin.install "camp_ncminer_threads"
     lib.install "../lib/*"
     doc.install "../doc/*"
     share.install "../params"
