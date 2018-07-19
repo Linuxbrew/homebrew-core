@@ -14,6 +14,7 @@ class Bamtools < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     mkdir "build" do
