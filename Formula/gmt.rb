@@ -1,3 +1,4 @@
+# gmt: Build a bottle for Linuxbrew
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "https://gmt.soest.hawaii.edu/"
