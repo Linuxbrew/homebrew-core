@@ -3,11 +3,8 @@ class Paraview < Formula
   homepage "https://www.paraview.org/"
   url "https://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.4&type=source&os=Sources&downloadFile=ParaView-v5.4.1.tar.gz"
   sha256 "390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4"
-  revision 4
 
   head "https://gitlab.kitware.com/paraview/paraview.git"
-
-  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-osmesa", "Build with off-sceen mesa(osmesa)"
 
@@ -67,7 +64,7 @@ class Paraview < Formula
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "mpich"
     args << "-DPARAVIEW_ENABLE_FFMPEG:BOOL=ON" if build.with? "ffmpeg"
     args << "-DPARAVIEW_USE_VISITBRIDGE:BOOL=ON" if build.with? "boost"
-    args << "-DPARAVIEW_ENABLE_PYTHON:BOOL=" + ((build.with? "python") ? "ON" : "OFF")
+    args << "-DPARAVIEW_ENABLE_PYTHON:BOOL=" + (build.with?("python") ? "ON" : "OFF")
 
     mkdir "build" do
       # Python3 support is being worked on, see https://gitlab.kitware.com/paraview/paraview/issues/16818
