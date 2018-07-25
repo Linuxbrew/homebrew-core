@@ -1,3 +1,4 @@
+# futhark: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Futhark < Formula
