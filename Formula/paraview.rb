@@ -10,21 +10,21 @@ class Paraview < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "boost" => :recommended
-  depends_on "ffmpeg" => :recommended
-  depends_on "qt" => :recommended
-  depends_on "open-mpi" => :optional
-  depends_on "mpich" => :optional
-  depends_on "python" => :recommended
-
+  depends_on "fontconfig"
   depends_on "freetype"
+  depends_on "glu" if OS.linux? && (build.without? "osmesa")
   depends_on "hdf5"
   depends_on "jpeg"
-  depends_on "libtiff"
-  depends_on "fontconfig"
   depends_on "libpng"
-  depends_on "linuxbrew/xorg/mesa" if OS.linux?
-  depends_on "linuxbrew/xorg/glu" if OS.linux? && (build.without? "osmesa")
+  depends_on "libtiff"
+  depends_on "mesa" if OS.linux?
+
+  depends_on "boost" => :recommended
+  depends_on "ffmpeg" => :recommended
+  depends_on "python" => :recommended
+  depends_on "qt" => :recommended
+  depends_on "mpich" => :optional
+  depends_on "open-mpi" => :optional
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
