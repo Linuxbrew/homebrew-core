@@ -1,3 +1,4 @@
+# sratoolkit: Build a bottle for Linuxbrew
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
