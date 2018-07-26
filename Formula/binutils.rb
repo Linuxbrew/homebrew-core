@@ -1,3 +1,4 @@
+# binutils: Build a bottle for Linuxbrew
 class Binutils < Formula
   desc "FSF/GNU ld, ar, readelf, etc. for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
