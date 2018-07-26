@@ -1,3 +1,4 @@
+# htslib: Build a bottle for Linuxbrew
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
