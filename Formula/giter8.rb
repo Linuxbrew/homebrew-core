@@ -1,3 +1,4 @@
+# giter8: Build a bottle for Linuxbrew
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
   homepage "https://github.com/foundweekends/giter8"
