@@ -1,3 +1,4 @@
+# capstone: Build a bottle for Linuxbrew
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
