@@ -1,3 +1,4 @@
+# tig: Build a bottle for Linuxbrew
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
