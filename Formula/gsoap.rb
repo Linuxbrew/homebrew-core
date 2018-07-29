@@ -1,3 +1,4 @@
+# gsoap: Build a bottle for Linuxbrew
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
