@@ -1,3 +1,4 @@
+# ffmpeg@2.8: Build a bottle for Linuxbrew
 class FfmpegAT28 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
