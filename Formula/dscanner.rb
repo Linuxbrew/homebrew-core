@@ -1,3 +1,4 @@
+# dscanner: Build a bottle for Linuxbrew
 class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code"
   homepage "https://github.com/dlang-community/Dscanner"
