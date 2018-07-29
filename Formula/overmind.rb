@@ -1,3 +1,4 @@
+# overmind: Build a bottle for Linuxbrew
 class Overmind < Formula
   desc "Process manager for Procfile-based applications and tmux"
   homepage "https://github.com/DarthSim/overmind"
