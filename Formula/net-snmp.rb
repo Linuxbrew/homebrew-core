@@ -1,3 +1,4 @@
+# net-snmp: Build a bottle for Linuxbrew
 class NetSnmp < Formula
   desc "Implements SNMP v1, v2c, and v3, using IPv4 and IPv6"
   homepage "http://www.net-snmp.org/"
