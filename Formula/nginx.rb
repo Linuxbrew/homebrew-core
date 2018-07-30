@@ -1,3 +1,4 @@
+# nginx: Build a bottle for Linuxbrew
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
