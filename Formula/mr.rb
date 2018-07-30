@@ -1,3 +1,4 @@
+# mr: Build a bottle for Linuxbrew
 class Mr < Formula
   desc "Multiple Repository management tool"
   homepage "https://myrepos.branchable.com/"
