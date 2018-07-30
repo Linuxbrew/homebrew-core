@@ -1,3 +1,4 @@
+# fruit: Build a bottle for Linuxbrew
 class Fruit < Formula
   desc "Dependency injection framework for C++"
   homepage "https://github.com/google/fruit/wiki"
