@@ -1,3 +1,4 @@
+# python@2: Build a bottle for Linuxbrew
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
