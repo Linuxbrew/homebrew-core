@@ -1,3 +1,4 @@
+# webpack: Build a bottle for Linuxbrew
 require "language/node"
 require "json"
 
