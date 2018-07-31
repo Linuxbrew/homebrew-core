@@ -1,15 +1,14 @@
 class GccAT8 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-  sha256 "1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+  sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    sha256 "624161b922b7a5cd2843aba349a202cfd7a52dc7da280fa1d4f556c2a6847cd2" => :x86_64_linux
   end
 
   option "with-jit", "Build just-in-time compiler"
@@ -43,6 +42,10 @@ class GccAT8 < Formula
       version.to_s.slice(/\d/)
     end
   end
+
+  # isl 0.20 compatibility
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+  patch :DATA
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -159,10 +162,11 @@ class GccAT8 < Formula
 
     unless OS.mac?
       # Strip the binaries to reduce their size.
-      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
+      Pathname.glob(prefix/"**/*") do |f|
+        if f.file? && (f.elf? || f.extname == ".a")
+          f.ensure_writable { system "strip", "--strip-unneeded", "--preserve-dates", f }
+        end
+      end
     end
   end
 
@@ -284,3 +288,17 @@ class GccAT8 < Formula
     assert_equal "Done\n", `./test`
   end
 end
+
+__END__
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 4e0e58c..be0a22b 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
+#include <isl/schedule.h>
+#include <isl/ast_build.h>
+#include <isl/schedule_node.h>
++#include <isl/id.h>
++#include <isl/space.h>
+
+typedef struct poly_dr *poly_dr_p;
