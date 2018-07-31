@@ -1,3 +1,4 @@
+# bitcoin: Build a bottle for Linuxbrew
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
