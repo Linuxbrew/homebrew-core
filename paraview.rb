@@ -6,7 +6,7 @@ class Paraview < Formula
   revision 1
 
   head "https://gitlab.kitware.com/paraview/paraview.git"
-  
+
   bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-osmesa", "Build with off-sceen mesa(osmesa)"
@@ -32,7 +32,7 @@ class Paraview < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
-    
+
     dylib = OS.mac? ? "dylib" : "so"
 
     args = std_cmake_args + %W[
@@ -64,7 +64,7 @@ class Paraview < Formula
         -DVTK_USE_OFFSCREEN=OFF
       ]
     end
- 
+
     args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt"
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "open-mpi"
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "mpich"
