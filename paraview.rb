@@ -102,8 +102,9 @@ class Paraview < Formula
       system "make", "install"
     end
   end
-
-  test do
-    assert_match "paraview version #{version}", shell_output("#{prefix}/paraview.app/Contents/MacOS/paraview --version 2>&1", 0)
+  if OS.mac?
+    test do
+      assert_match "paraview version #{version}", shell_output("#{prefix}/paraview.app/Contents/MacOS/paraview --version 2>&1", 0)
+    end
   end
 end
