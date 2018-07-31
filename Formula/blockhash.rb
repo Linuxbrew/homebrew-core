@@ -1,3 +1,4 @@
+# blockhash: Build a bottle for Linuxbrew
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
   homepage "https://github.com/commonsmachinery/blockhash"
