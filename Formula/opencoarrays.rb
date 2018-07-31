@@ -1,3 +1,4 @@
+# opencoarrays: Build a bottle for Linuxbrew
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://opencoarrays.org"
