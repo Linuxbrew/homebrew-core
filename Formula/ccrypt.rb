@@ -1,3 +1,4 @@
+# ccrypt: Build a bottle for Linuxbrew
 class Ccrypt < Formula
   desc "Encrypt and decrypt files and streams"
   homepage "https://ccrypt.sourceforge.io/"
