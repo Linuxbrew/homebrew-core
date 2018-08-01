@@ -1,3 +1,4 @@
+# pango: Build a bottle for Linuxbrew
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
