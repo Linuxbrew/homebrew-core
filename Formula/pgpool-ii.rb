@@ -1,3 +1,4 @@
+# pgpool-ii: Build a bottle for Linuxbrew
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
