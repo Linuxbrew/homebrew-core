@@ -17,16 +17,14 @@ class Gdb < Formula
   if OS.mac?
     option "with-python", "Use the Homebrew version of Python; by default system Python is used"
     option "with-python@2", "Use the Homebrew version of Python 2; by default system Python is used"
-  else
-    option "without-python", "Use the system version of Python; by default Homebrew Python is used"
-    option "without-python@2", "Use the system version of Python; by default Homebrew Python is used"
   end
+
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
   depends_on "python" => OS.mac? ? :optional : :recommended
-  depends_on "python@2" => OS.mac? ? :optional : :recommended
+  depends_on "python@2" => :optional
   depends_on "guile@2.0" => :optional
   unless OS.mac?
     depends_on "texinfo" => :build
