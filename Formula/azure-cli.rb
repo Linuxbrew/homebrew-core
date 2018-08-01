@@ -1,3 +1,4 @@
+# azure-cli: Build a bottle for Linuxbrew
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
