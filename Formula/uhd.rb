@@ -25,7 +25,7 @@ class Uhd < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
