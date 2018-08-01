@@ -1,3 +1,4 @@
+# pyinvoke: Build a bottle for Linuxbrew
 class Pyinvoke < Formula
   include Language::Python::Virtualenv
 
