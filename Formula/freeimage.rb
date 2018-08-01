@@ -1,3 +1,4 @@
+# freeimage: Build a bottle for Linuxbrew
 class Freeimage < Formula
   desc "Library for FreeImage, a dependency-free graphics library"
   homepage "https://sourceforge.net/projects/freeimage"
