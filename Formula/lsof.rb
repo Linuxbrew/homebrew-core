@@ -14,20 +14,22 @@ class Lsof < Formula
   def install
     system "tar", "xf", "lsof_#{version}_src.tar"
     cd "lsof_#{version}_src" do
-      inreplace "dialects/darwin/libproc/dfile.c",
-                "#extern\tstruct pff_tab\tPgf_tab[];", "extern\tstruct pff_tab\tPgf_tab[];"
+      if OS.mac?
+        inreplace "dialects/darwin/libproc/dfile.c",
+                  "#extern\tstruct pff_tab\tPgf_tab[];", "extern\tstruct pff_tab\tPgf_tab[];"
 
-      ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+        ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
 
-      # Source hardcodes full header paths at /usr/include
-      inreplace %w[
-        dialects/darwin/kmem/dlsof.h
-        dialects/darwin/kmem/machine.h
-        dialects/darwin/libproc/machine.h
-      ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+        # Source hardcodes full header paths at /usr/include
+        inreplace %w[
+          dialects/darwin/kmem/dlsof.h
+          dialects/darwin/kmem/machine.h
+          dialects/darwin/libproc/machine.h
+        ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+      end
 
       mv "00README", "README"
-      system "./Configure", "-n", "darwin"
+      system "./Configure", "-n", OS.mac? ? "darwin" : "linux"
       system "make"
       bin.install "lsof"
       man8.install "lsof.8"
