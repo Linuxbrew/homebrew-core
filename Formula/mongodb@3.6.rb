@@ -23,6 +23,11 @@ class MongodbAT36 < Formula
   depends_on "openssl" => :recommended
   depends_on "boost" => :optional
 
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libpcap"
+  end
+
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
     sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
@@ -73,7 +78,13 @@ class MongodbAT36 < Formula
 
       args << "sasl" if build.with? "sasl"
 
-      system "./build.sh", *args
+      if OS.mac?
+        system "./build.sh", *args
+      else
+        ENV["CGO_CPPFLAGS"] = "-I " + Formula["libpcap"].opt_include
+        ENV["CGO_LDFLAGS"] = "-L " + Formula["libpcap"].opt_lib
+        system "bash", "./build.sh", *args
+      end
     end
 
     (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
