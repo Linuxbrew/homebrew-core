@@ -1,3 +1,4 @@
+# buildifier: Build a bottle for Linuxbrew
 class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
