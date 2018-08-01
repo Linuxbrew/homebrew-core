@@ -1,3 +1,4 @@
+# shellharden: Build a bottle for Linuxbrew
 class Shellharden < Formula
   desc "Bash syntax highlighter that encourages/fixes variables quoting"
   homepage "https://github.com/anordal/shellharden"
