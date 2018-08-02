@@ -84,6 +84,7 @@ class Perl < Formula
     unless OS.mac?
       ENV.with_build_environment do
         ENV["PERL_MM_USE_DEFAULT"] = "1"
+        ENV["C_INCLUDE_PATH"] = Formula["perl"].lib/"perl5/#{version}/x86_64-linux-thread-multi/CORE"
         system bin/"cpan", "-i", "XML::Parser"
         system bin/"cpan", "-i", "XML::SAX"
       end
