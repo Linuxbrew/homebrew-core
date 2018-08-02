@@ -13,30 +13,39 @@ class ClozureCl < Formula
   end
 
   depends_on :xcode => :build
+  depends_on "m4" => :build unless OS.mac?
 
   conflicts_with "cclive", :because => "both install a ccl binary"
 
   resource "bootstrap" do
-    url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
-    sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"
+    if OS.mac?
+      url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
+      sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"
+    else
+      url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-linuxx86.tar.gz"
+      sha256 "b80850d8d6ca8662499975f1cd76bf51affdd29e2025796ddcff6576fe704143"
+    end
   end
 
   def install
+    kernel = OS.mac? ? "dx86cl64" : "lx86cl64"
+    headers = OS.mac? ? "darwin-x86-headers64" : "x86-headers64"
     tmpdir = Pathname.new(Dir.mktmpdir)
     tmpdir.install resource("bootstrap")
-    buildpath.install tmpdir/"dx86cl64.image"
-    buildpath.install tmpdir/"darwin-x86-headers64"
-    cd "lisp-kernel/darwinx8664" do
+    buildpath.install tmpdir/"#{kernel}"
+    buildpath.install tmpdir/"#{headers}"
+    dir = OS.mac? ? "darwinx8664": "linuxx8664"
+    cd "lisp-kernel/#{dir}" do
       system "make"
     end
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
 
-    system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
+    system "./#{kernel}", "-n", "-l", "lib/x8664env.lisp",
                          "-e", "(ccl:xload-level-0)",
                          "-e", "(ccl:compile-ccl)",
                          "-e", "(quit)"
-    system "echo \"(ccl:save-application \\\"dx86cl64.image\\\")\\n(quit)\" | ./dx86cl64 -n --image-name x86-boot64.image"
+    system "echo \"(ccl:save-application \\\"#{kernel}.image\\\")\\n(quit)\" | ./#{kernel} -n --image-name x86-boot64.image"
 
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
