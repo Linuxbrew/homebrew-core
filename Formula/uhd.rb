@@ -1,3 +1,4 @@
+# uhd: Build a bottle for Linuxbrew
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
