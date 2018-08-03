@@ -161,9 +161,11 @@ class GccAT8 < Formula
     info.rmtree
 
     unless OS.mac?
+      # Remove files conflicted with gcc formula.
+      rm_f lib/"libgcc_s.so.1", lib/"libstdc++.so.6"
       # Strip the binaries to reduce their size.
       Pathname.glob(prefix/"**/*") do |f|
-        if f.file? && (f.elf? || f.extname == ".a")
+        if f.file? && (f.elf? || f.extname == ".a") && !f.symlink?
           f.ensure_writable { system "strip", "--strip-unneeded", "--preserve-dates", f }
         end
       end
