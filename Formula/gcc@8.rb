@@ -162,7 +162,7 @@ class GccAT8 < Formula
 
     unless OS.mac?
       # Remove files conflicted with gcc formula.
-      rm_f lib/"libgcc_s.so.1", lib/"libstdc++.so.6"
+      rm_f [lib/"libgcc_s.so.1", lib/"libstdc++.so.6"]
       # Strip the binaries to reduce their size.
       Pathname.glob(prefix/"**/*") do |f|
         if f.file? && (f.elf? || f.extname == ".a") && !f.symlink?
