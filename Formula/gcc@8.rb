@@ -295,10 +295,10 @@ index 4e0e58c..be0a22b 100644
 --- a/gcc/graphite.h
 +++ b/gcc/graphite.h
 @@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
-#include <isl/schedule.h>
-#include <isl/ast_build.h>
-#include <isl/schedule_node.h>
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
+ #include <isl/schedule_node.h>
 +#include <isl/id.h>
 +#include <isl/space.h>
-
-typedef struct poly_dr *poly_dr_p;
+ 
+ typedef struct poly_dr *poly_dr_p;
