@@ -76,7 +76,7 @@ class Gcc < Formula
 
   # isl 0.20 compatibility
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-  patch :DATA
+  patch :DATA if OS.mac?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
