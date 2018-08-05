@@ -1,3 +1,4 @@
+# todolist: Build a bottle for Linuxbrew
 class Todolist < Formula
   desc "Very fast, simple task manager for the command-line, based upon GTD"
   homepage "http://todolist.site"
