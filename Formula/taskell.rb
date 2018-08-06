@@ -17,6 +17,10 @@ class Taskell < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  unless OS.mac?
+    depends_on "ncurses"
+    depends_on "zlib"
+  end
 
   def install
     cabal_sandbox do
