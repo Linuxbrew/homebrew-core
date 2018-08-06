@@ -1,3 +1,4 @@
+# bear: Build a bottle for Linuxbrew
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
