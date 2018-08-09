@@ -28,7 +28,7 @@ class Mysql < Formula
   # https://github.com/Homebrew/homebrew-core/issues/1475
   # Needs at least Clang 3.6, which shipped alongside Yosemite.
   # Note: MySQL themselves don't support anything below Sierra.
-  depends_on :macos => :yosemite
+  depends_on :macos => :yosemite if OS.mac?
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
