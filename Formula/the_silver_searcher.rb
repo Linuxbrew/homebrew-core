@@ -1,3 +1,4 @@
+# the_silver_searcher: Build a bottle for Linuxbrew
 class TheSilverSearcher < Formula
   desc "Code-search similar to ack"
   homepage "https://github.com/ggreer/the_silver_searcher"
