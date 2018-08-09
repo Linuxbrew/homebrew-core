@@ -11,6 +11,10 @@ class Optipng < Formula
     sha256 "416ce24daab37aaef4fecda949fc80bed2b1d9b9714406f972b093846578ab3a" => :sierra
     sha256 "f59e3cedb808003915ee214f6487b968e3e6dcea669452f0a732fcced03aaa8f" => :el_capitan
   end
+  
+  unless OS.mac?
+    depends_on "zlib"
+  end
 
   def install
     system "./configure", "--with-system-zlib",
