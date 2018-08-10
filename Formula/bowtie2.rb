@@ -1,3 +1,4 @@
+# bowtie2: Build a bottle for Linuxbrew
 class Bowtie2 < Formula
   desc "Fast and sensitive gapped read aligner"
   homepage "https://bowtie-bio.sourceforge.io/"
