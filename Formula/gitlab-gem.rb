@@ -1,3 +1,4 @@
+# gitlab-gem: Build a bottle for Linuxbrew
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://github.com/NARKOZ/gitlab"
