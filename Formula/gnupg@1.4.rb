@@ -1,3 +1,4 @@
+# gnupg@1.4: Build a bottle for Linuxbrew
 class GnupgAT14 < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
