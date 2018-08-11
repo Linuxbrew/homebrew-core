@@ -1,25 +1,20 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.143.tar.gz"
-  sha256 "b716f79ecad44e1ee7742bd4a4ec5c3321578d32c7346e5a1d818c4383e9cfcc"
+  url "https://github.com/fnproject/cli/archive/0.4.144.tar.gz"
+  sha256 "6705582b64be4b3eae5a361f8ae213ce2e135df931ecb8b327ee7888cef09534"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9dff0297c7956c7ccbac296f8db73d17b2fcdc97d31bf75fba3ad1a70f39ef13" => :high_sierra
-    sha256 "ecfcf91b0260c61f8dda97f862c8bf8397dc00372eb6699891e32ae0347654d6" => :sierra
-    sha256 "f64d75db709ac73be7c928af918ab1f3fb6b0d5106cb4d18ce15c833b8780738" => :el_capitan
-    sha256 "ff8ec080e050c7b9fa27718d862dc62dcb0addc108991965b175fb82a92bdaac" => :x86_64_linux
+    sha256 "5cd681b620f16da3393669ff16877d65bbe5fef6bd38868530938a337d86ada2" => :high_sierra
+    sha256 "210e8b6c9d2d1f27d4d9c05d5898e04022789a542ca51eb812ddbad3b96c2114" => :sierra
+    sha256 "1ad34622d26219e963f0d88e235e537add3817dac178e2f47924b7a38139a960" => :el_capitan
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    # Remove once fixed, due to upstream incorrectly hardcoded version number.
-    # See https://github.com/fnproject/cli/issues/376
-    inreplace "config/version.go", "0.4.135", version
-
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
