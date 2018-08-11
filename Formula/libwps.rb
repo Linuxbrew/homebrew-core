@@ -1,3 +1,4 @@
+# libwps: Build a bottle for Linuxbrew
 class Libwps < Formula
   desc "Library to import files in MS Works format"
   homepage "https://libwps.sourceforge.io"
