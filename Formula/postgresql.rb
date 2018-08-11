@@ -1,3 +1,4 @@
+# postgresql: Build a bottle for Linuxbrew
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
