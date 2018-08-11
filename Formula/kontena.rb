@@ -1,3 +1,4 @@
+# kontena: Build a bottle for Linuxbrew
 class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
