@@ -1,3 +1,4 @@
+# fdclone: Build a bottle for Linuxbrew
 class Fdclone < Formula
   desc "Console-based file manager"
   homepage "https://hp.vector.co.jp/authors/VA012337/soft/fd/"
