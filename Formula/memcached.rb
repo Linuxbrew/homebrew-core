@@ -1,3 +1,4 @@
+# memcached: Build a bottle for Linuxbrew
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
