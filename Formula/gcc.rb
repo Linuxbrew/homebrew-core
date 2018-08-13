@@ -1,3 +1,5 @@
+require "os/linux/glibc"
+
 class Gcc < Formula
   def arch
     if MacOS.prefer_64_bit?

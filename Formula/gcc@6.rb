@@ -1,3 +1,5 @@
+require "os/linux/glibc"
+
 class GccAT6 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"

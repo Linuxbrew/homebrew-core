@@ -1,3 +1,5 @@
+require "os/linux/glibc"
+
 class CodesignRequirement < Requirement
   fatal true
 

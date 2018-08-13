@@ -1,3 +1,5 @@
+require "os/linux/glibc"
+
 class GccAT5 < Formula
   def arch
     if Hardware::CPU.type == :intel

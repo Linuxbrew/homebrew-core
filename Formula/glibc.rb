@@ -1,3 +1,5 @@
+require "os/linux/glibc"
+
 class BrewedGlibcNotOlderRequirement < Requirement
   fatal true
 
