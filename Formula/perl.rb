@@ -82,11 +82,11 @@ class Perl < Formula
     # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
     # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
     unless OS.mac?
-      ENV.with_build_environment do
-        ENV["PERL_MM_USE_DEFAULT"] = "1"
-        system bin/"cpan", "-i", "XML::Parser"
-        system bin/"cpan", "-i", "XML::SAX"
-      end
+      ENV.activate_extensions!
+      ENV.setup_build_environment(self)
+      ENV["PERL_MM_USE_DEFAULT"] = "1"
+      system bin/"cpan", "-i", "XML::Parser"
+      system bin/"cpan", "-i", "XML::SAX"
     end
   end
 
