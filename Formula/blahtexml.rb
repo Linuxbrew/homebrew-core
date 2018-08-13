@@ -32,7 +32,7 @@ class Blahtexml < Formula
 
   def install
     ENV.cxx11 if build.with? "blahtexml"
-    os = OS.mac? ? "mac" : OS::NAME
+    os = OS.mac? ? "mac" : "linux"
     system "make", "blahtex-#{os}"
     bin.install "blahtex"
     if build.with? "blahtexml"

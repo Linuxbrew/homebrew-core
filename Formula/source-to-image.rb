@@ -22,7 +22,7 @@ class SourceToImage < Formula
     inreplace "hack/common.sh", "go1.4", "go1.0"
 
     system "hack/build-go.sh"
-    bin.install "_output/local/bin/#{OS::NAME}/amd64/s2i"
+    bin.install "_output/local/bin/#{OS.mac? ? "darwin" : "linux"}/amd64/s2i"
   end
 
   test do

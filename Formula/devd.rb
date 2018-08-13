@@ -16,7 +16,7 @@ class Devd < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOOS"] = OS::NAME
+    ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
     ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children

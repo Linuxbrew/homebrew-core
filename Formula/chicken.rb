@@ -16,7 +16,7 @@ class Chicken < Formula
     ENV.deparallelize
 
     args = %W[
-      PLATFORM=#{OS.mac? ? "macosx" : OS::NAME}
+      PLATFORM=#{OS.mac? ? "macosx" : "linux"}
       PREFIX=#{prefix}
       C_COMPILER=#{ENV.cc}
       LIBRARIAN=ar

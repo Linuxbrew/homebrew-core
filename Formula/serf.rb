@@ -28,7 +28,7 @@ class Serf < Formula
     ENV["GOPATH"] = gopath
     arch = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["XC_ARCH"] = arch
-    ENV["XC_OS"] = OS::NAME
+    ENV["XC_OS"] = OS.mac? ? "darwin" : "linux"
 
     (gopath/"bin").mkpath
 

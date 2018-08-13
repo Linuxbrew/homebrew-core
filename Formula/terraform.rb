@@ -41,11 +41,12 @@ class Terraform < Formula
       ENV.delete "AWS_SECRET_KEY"
 
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      ENV["XC_OS"] = OS::NAME
+      os = OS.mac? ? "darwin" : "linux"
+      ENV["XC_OS"] = os
       ENV["XC_ARCH"] = arch
       system "make", "test", "bin"
 
-      bin.install "pkg/#{OS::NAME}_#{arch}/terraform"
+      bin.install "pkg/#{os}_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform" if OS.mac?
       prefix.install_metafiles
     end

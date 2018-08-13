@@ -66,8 +66,7 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = OS::NAME
-
+      ENV["GOOS"]         = OS.mac? ? "darwin" : "linux"
       ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end

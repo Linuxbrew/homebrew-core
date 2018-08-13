@@ -19,7 +19,7 @@ class Packer < Formula
   depends_on "gox" => :build
 
   def install
-    ENV["XC_OS"] = OS::NAME
+    ENV["XC_OS"] = OS.mac? ? "darwin" : "linux"
     ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
 

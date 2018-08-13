@@ -55,7 +55,7 @@ class GoAT19 < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = OS::NAME
+      ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
       if build.without?("cgo")
         ENV["CGO_ENABLED"]  = "0"
       else

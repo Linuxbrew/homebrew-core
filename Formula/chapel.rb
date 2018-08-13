@@ -28,7 +28,7 @@ class Chapel < Formula
     prefix.install_metafiles
 
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
-    platform = "#{OS::NAME}#{Hardware::CPU.bits if OS.linux?}"
+    platform = "#{OS.mac? ? "darwin" : "linux"}#{Hardware::CPU.bits if OS.linux?}"
     bin.install Dir[libexec/"bin/#{platform}/*"]
     bin.env_script_all_files libexec/"bin/#{platform}/", :CHPL_HOME => libexec
     man1.install_symlink Dir["#{libexec}/man/man1/*.1"]

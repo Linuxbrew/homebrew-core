@@ -23,7 +23,7 @@ class OpenshiftCli < Formula
 
     system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
 
-    bin.install "_output/local/bin/#{OS::NAME}/amd64/oc"
+    bin.install "_output/local/bin/#{OS.mac? ? "darwin" : "linux"}/amd64/oc"
     bin.install_symlink "oc" => "oadm"
 
     bash_completion.install Dir["contrib/completions/bash/*"]

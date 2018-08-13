@@ -26,7 +26,7 @@ class Fibjs < Formula
       ENV["CI"] = env_ci
     end
 
-    bin.install "bin/#{OS::NAME.capitalize}_amd64_release/fibjs"
+    bin.install "bin/#{OS.mac? ? "Darwin" : "Linux"}_amd64_release/fibjs"
   end
 
   test do
