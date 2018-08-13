@@ -7,7 +7,7 @@ class BrewedGlibcNotOlderRequirement < Requirement
 
   def message
     <<~EOS
-      Your system's glibc version is #{OS::Linux::Glibc.system_version}, and Linuxbrew's gcc version is #{Glibc.version}.
+      Your system's glibc version is #{OS::Linux::Glibc.system_version}, and Linuxbrew's glibc version is #{Glibc.version}.
       Installing a version of glibc that is older than your system's can break formulae installed from source.
     EOS
   end
