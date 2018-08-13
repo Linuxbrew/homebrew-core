@@ -1,3 +1,4 @@
+# p11-kit: Build a bottle for Linuxbrew
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
