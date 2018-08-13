@@ -1,3 +1,4 @@
+# b2-tools: Build a bottle for Linuxbrew
 class B2Tools < Formula
   include Language::Python::Virtualenv
 
