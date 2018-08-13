@@ -1,3 +1,4 @@
+# vsts-cli: Build a bottle for Linuxbrew
 class VstsCli < Formula
   include Language::Python::Virtualenv
 
