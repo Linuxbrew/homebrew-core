@@ -14,6 +14,11 @@ class Dxpy < Formula
   end
 
   depends_on "python@2"
+  unless OS.mac?
+    depends_on "libffi" # for cffi
+    # pkg-config helps setuptools find libffi
+    depends_on "pkg-config" => :build
+  end
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
