@@ -1,3 +1,4 @@
+# rtv: Build a bottle for Linuxbrew
 class Rtv < Formula
   include Language::Python::Virtualenv
 
