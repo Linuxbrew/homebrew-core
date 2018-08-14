@@ -14,7 +14,11 @@ class Grep < Formula
     sha256 "e72b0fa9dd48046c96209eef2b248ebc4d989804baf93f50e96dfc2614e22cac" => :x86_64_linux
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
   deprecated_option "default-names" => "with-default-names"
 
   depends_on "pkg-config" => :build

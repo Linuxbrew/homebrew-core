@@ -12,7 +12,11 @@ class GnuTar < Formula
     sha256 "0a3faa9909699e720cce5322ce865792ac03c9602e350e413f2ac8ab3eca09a5" => :x86_64_linux
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of

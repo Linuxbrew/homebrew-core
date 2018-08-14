@@ -15,7 +15,12 @@ class Ed < Formula
   end
 
   deprecated_option "default-names" => "with-default-names"
-  option "with-default-names", "Don't prepend 'g' to the binaries"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
+
 
   def install
     ENV.deparallelize

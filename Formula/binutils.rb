@@ -14,7 +14,6 @@ class Binutils < Formula
   end
 
   # No --default-names option as it interferes with Homebrew builds.
-  option "with-default-names", "Do not prepend 'g' to the binary" if OS.linux?
   option "without-gold", "Do not build the gold linker" if OS.linux?
 
   depends_on "zlib" => :recommended unless OS.mac?
@@ -22,7 +21,7 @@ class Binutils < Formula
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
-                          ("--program-prefix=g" if build.without? "default-names"),
+                          ("--program-prefix=g" if OS.mac?),
                           ("--with-sysroot=/" if OS.linux?),
                           "--enable-deterministic-archives",
                           "--prefix=#{prefix}",
@@ -44,7 +43,7 @@ class Binutils < Formula
   end
 
   test do
-    size = build.with?("default-names") ? "size" : "gsize"
+    size = OS.mac? ? "gsize" : "size"
     assert_match "text", shell_output("#{bin}/#{size} #{bin}/#{size}")
   end
 end

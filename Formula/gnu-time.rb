@@ -13,7 +13,11 @@ class GnuTime < Formula
     sha256 "17187494a6e02964e19812e57c8547734f2aeecf0ce2954e3fb6fb4523d2cc00" => :x86_64_linux
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   def install
     args = [

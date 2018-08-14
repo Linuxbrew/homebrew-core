@@ -13,7 +13,11 @@ class GnuIndent < Formula
     sha256 "ff3a53ac15b4baaf030f1f1556b24a7f69788175559660ac841e039d7aee996b" => :mavericks
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   depends_on "gettext"
 

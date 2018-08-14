@@ -14,7 +14,11 @@ class Make < Formula
     sha256 "6aec3155056aaf4298192fd3c1bf49b2fb2383c77d2852014b9255a4b3130267" => :x86_64_linux
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   deprecated_option "with-guile" => "with-guile@2.0"
 

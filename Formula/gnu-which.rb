@@ -19,7 +19,11 @@ class GnuWhich < Formula
 
   deprecated_option "default-names" => "with-default-names"
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   def install
     args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]

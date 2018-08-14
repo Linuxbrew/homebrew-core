@@ -13,7 +13,11 @@ class Inetutils < Formula
     sha256 "92a36071d070e040bf5740e5d3b375b5755c79062c9efcef91f0ba83c38d87a9" => :x86_64_linux
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   depends_on "libidn"
 

@@ -13,7 +13,11 @@ class GnuSed < Formula
     sha256 "3c8fb888991760ba097dc601acb784778175ae265b67d1ce7f3c580fb877db3f" => :x86_64_linux
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  if OS.mac?
+    option "with-default-names", "Don't prepend 'g' to the binaries"
+  else
+    option "without-default-names", "Prepend 'g' to the binaries"
+  end
 
   conflicts_with "ssed", :because => "both install share/info/sed.info"
 

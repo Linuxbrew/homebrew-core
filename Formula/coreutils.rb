@@ -12,10 +12,6 @@ class Coreutils < Formula
     sha256 "621d8cc935be3563d79fa3d5ffa8e52f1f3bcdf29a8a0e8ff62474336768d12b" => :x86_64_linux
   end
 
-  # --default-names interferes with Mac builds.
-  option "with-default-names", "Do not prepend 'g' to the binary" if OS.linux?
-  deprecated_option "default-names" => "with-default-names"
-
   head do
     url "https://git.savannah.gnu.org/git/coreutils.git"
 
@@ -70,7 +66,11 @@ class Coreutils < Formula
       (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
     end
 
-    if build.with? "default-names"
+    if OS.mac?
+      # Symlink non-conflicting binaries
+      bin.install_symlink "grealpath" => "realpath"
+      man1.install_symlink "grealpath.1" => "realpath.1"
+    else
       # Symlink all commands without the 'g' prefix
       coreutils_filenames(bin).each do |cmd|
         bin.install_symlink "g#{cmd}" => cmd
@@ -79,10 +79,6 @@ class Coreutils < Formula
       coreutils_filenames(man1).each do |cmd|
         man1.install_symlink "g#{cmd}" => cmd
       end
-    else
-      # Symlink non-conflicting binaries
-      bin.install_symlink "grealpath" => "realpath"
-      man1.install_symlink "grealpath.1" => "realpath.1"
     end
   end
 
