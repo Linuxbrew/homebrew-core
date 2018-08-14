@@ -33,6 +33,9 @@ class Libewf < Formula
   depends_on :osxfuse => :optional
 
   def install
+    # See https://github.com/libyal/libuna/issues/2
+    ENV.append "CFLAGS", "-std=gnu89" unless OS.mac?
+
     if build.head?
       system "./synclibs.sh"
       system "./autogen.sh"
