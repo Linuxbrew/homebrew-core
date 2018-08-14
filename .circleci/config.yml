@@ -35,6 +35,8 @@ jobs:
           brew tap linuxbrew/extra
           brew tap linuxbrew/xorg
           brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+          cd $(brew --repo) && git remote add homebrew https://github.com/Homebrew/brew.git && git fetch homebrew/master && git checkout homebrew/master && cd -
+          brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --no-bottle --local --fast
       - store_artifacts:
           path: /tmp/bottles
           destination: bottles
