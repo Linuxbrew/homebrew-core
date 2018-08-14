@@ -1,3 +1,4 @@
+# mongoose: Build a bottle for Linuxbrew
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
