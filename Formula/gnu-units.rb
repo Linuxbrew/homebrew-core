@@ -31,6 +31,7 @@ class GnuUnits < Formula
   end
 
   test do
-    assert_equal "* 18288", shell_output("#{bin}/gunits '600 feet' 'cm' -1").strip
+    units = OS.mac? ? "gunits" : "units"
+    assert_equal "* 18288", shell_output("#{bin}/#{units} '600 feet' 'cm' -1").strip
   end
 end

@@ -41,8 +41,9 @@ class GnuIndent < Formula
   end
 
   test do
+    indent = OS.mac? ? "gindent" : "indent"
     (testpath/"test.c").write("int main(){ return 0; }")
-    system "#{bin}/gindent", "test.c"
+    system "#{bin}/#{indent}", "test.c"
     assert_equal File.read("test.c"), <<~EOS
       int
       main ()
