@@ -1,3 +1,4 @@
+# beast: Build a bottle for Linuxbrew
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
