@@ -1,3 +1,4 @@
+# babl: Build a bottle for Linuxbrew
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
