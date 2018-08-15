@@ -230,6 +230,7 @@ class Llvm < Formula
     depends_on "gcc" # needed for libstdc++
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "libelf" # openmp requires <gelf.h>
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
