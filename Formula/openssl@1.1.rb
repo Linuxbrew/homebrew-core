@@ -67,8 +67,10 @@ class OpensslAT11 < Formula
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
-    system "make", "test" if build.with?("test")
+    system "make", "test" if build.with?("test") && OS.mac?
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
+    # See https://github.com/Linuxbrew/homebrew-core/pull/8891
+    system "make", "test" if build.with?("test") && !OS.mac?
   end
 
   def openssldir
