@@ -103,6 +103,8 @@ matrix:
 
 script:
   - brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
+  - cd $(brew --repo) && git remote add homebrew https://github.com/Homebrew/brew.git && git fetch homebrew/master && git checkout homebrew/master && cd -
+  - brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
 
 notifications:
   slack:
