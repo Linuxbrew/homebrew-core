@@ -19,7 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 2 unless OS.mac?
+  revision 3 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
@@ -53,8 +53,8 @@ class Llvm < Formula
     end
 
     resource "libcxxabi" do
-      url "https://llvm.org/releases/6.0.0/libcxxabi-6.0.0.src.tar.xz"
-      sha256 "91c6d9c5426306ce28d0627d6a4448e7d164d6a3f64b01cb1d196003b16d641b"
+      url "https://llvm.org/releases/6.0.1/libcxxabi-6.0.1.src.tar.xz"
+      sha256 "209f2ec244a8945c891f722e9eda7c54a5a7048401abd62c62199f3064db385f"
     end
 
     resource "libunwind" do
@@ -88,7 +88,6 @@ class Llvm < Formula
     sha256 "7faa7e25bd2e1b9391689e4261f4649738369a7dbbb01199390542ed4e2fdff2" => :high_sierra
     sha256 "d4b1c4fff2714eb55e8b9bee5a9df356ec12f8ca58eea7bc7d0cff005add966d" => :sierra
     sha256 "cdfb1c08bf5a0862c51edf302b6edba29eff09414bb8ac35093b7d74863a7cfb" => :el_capitan
-    sha256 "813f61e1d1a3b96ec5bf2a1c455fdf012f6adbfa36fc5b40d4192e6751b31f4d" => :x86_64_linux
   end
 
   devel do
@@ -115,6 +114,11 @@ class Llvm < Formula
     resource "libcxx" do
       url "http://prereleases.llvm.org/7.0.0/rc1/libcxx-7.0.0rc1.src.tar.xz"
       sha256 "2ce8fb8d86456bdcd61d83611eaaf99c47ce2ec9d2122740714a7d17b6cfbd1e"
+    end
+
+    resource "libcxxabi" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/libcxxabi-7.0.0rc1.src.tar.xz"
+      sha256 "fefeb8bf2953b55750ebd028202020d55c3f28be2c60add55182fad45977494d"
     end
 
     resource "libunwind" do
@@ -263,7 +267,7 @@ class Llvm < Formula
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
     satisfy { MacOS::CLT.installed? }
-  end
+  end if OS.mac?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
