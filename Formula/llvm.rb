@@ -19,7 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 2 unless OS.mac?
+  revision 3 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
@@ -88,7 +88,6 @@ class Llvm < Formula
     sha256 "7faa7e25bd2e1b9391689e4261f4649738369a7dbbb01199390542ed4e2fdff2" => :high_sierra
     sha256 "d4b1c4fff2714eb55e8b9bee5a9df356ec12f8ca58eea7bc7d0cff005add966d" => :sierra
     sha256 "cdfb1c08bf5a0862c51edf302b6edba29eff09414bb8ac35093b7d74863a7cfb" => :el_capitan
-    sha256 "813f61e1d1a3b96ec5bf2a1c455fdf012f6adbfa36fc5b40d4192e6751b31f4d" => :x86_64_linux
   end
 
   devel do
@@ -266,9 +265,6 @@ class Llvm < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
-
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -327,6 +323,13 @@ class Llvm < Formula
       -DLINK_POLLY_INTO_TOOLS=ON
       -DLLVM_TARGETS_TO_BUILD=all
     ]
+
+    if ENV["CIRCLECI"]
+      # Reduce memory usage below 4 GB for Circle CI.
+      args << "-DLLVM_PARALLEL_COMPILE_JOBS=1"
+      args << "-DLLVM_PARALLEL_LINK_JOBS=1"
+    end
+
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
