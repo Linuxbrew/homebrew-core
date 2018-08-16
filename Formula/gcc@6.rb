@@ -203,11 +203,11 @@ class GccAT6 < Formula
     info.rmtree
 
     unless OS.mac?
-      # Strip the binaries to reduce their size.
-      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
+      Pathname.glob(prefix/"**/*") do |f|
+        if f.file? && (f.elf? || f.extname == ".a") && !f.symlink?
+          f.ensure_writable { system "strip", "--strip-unneeded", "--preserve-dates", f }
+        end
+      end
     end
   end
 
