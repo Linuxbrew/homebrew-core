@@ -1,3 +1,4 @@
+# expat: Build a bottle for Linuxbrew
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
