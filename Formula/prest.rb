@@ -1,3 +1,4 @@
+# prest: Build a bottle for Linuxbrew
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/prest/prest"
