@@ -1,3 +1,4 @@
+# git-archive-all: Build a bottle for Linuxbrew
 class GitArchiveAll < Formula
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
