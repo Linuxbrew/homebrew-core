@@ -1,3 +1,4 @@
+# graphite2: Build a bottle for Linuxbrew
 class Graphite2 < Formula
   desc "Smart font renderer for non-Roman scripts"
   homepage "http://graphite.sil.org"
