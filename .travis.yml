@@ -104,8 +104,8 @@ matrix:
 script:
   - brew test-bot --tap=linuxbrew/core --fast
   - brew style linuxbrew/core
-  - brew audit -D --except=revision_and_version_scheme $(cd $(brew --repo linuxbrew/core)/Formula && ls *.rb)
-  - brew audit -D --except=revision_and_version_scheme --strict $(cd $(brew --repo linuxbrew/core)/Formula && ls *.rb) || true
+  - brew audit -D --except=revision_and_version_scheme $(ls $(brew --repo linuxbrew/core)/Formula/*.rb)
+  - brew audit -D --except=revision_and_version_scheme --strict $(ls $(brew --repo linuxbrew/core)/Formula/*.rb) || true
   - brew readall --aliases --syntax linuxbrew/core
 
 notifications:
