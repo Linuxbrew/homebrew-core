@@ -102,7 +102,11 @@ matrix:
     - os: linux
 
 script:
+  - brew test-bot --tap=linuxbrew/core --fast
   - brew style linuxbrew/core
+  - brew audit $(cd $(brew --repo linuxbrew/core)/Formula; ls *.rb | sed 's|.rb$||')
+  - brew audit --strict $(cd $(brew --repo linuxbrew/core)/Formula; ls *.rb | sed 's|.rb$||') || true
+  - brew readall --aliases --syntax linuxbrew/core
 
 notifications:
   slack:
