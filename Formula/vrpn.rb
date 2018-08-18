@@ -23,10 +23,10 @@ class Vrpn < Formula
   depends_on "libusb" # for HID support
 
   def install
-    ENV.libstdcxx unless MacOS.version > :mavericks
+    ENV.libstdcxx unless MacOS.version > :mavericks && OS.mac?
 
     args = std_cmake_args
-    args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+    args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
     args << "-DVRPN_BUILD_JAVA:BOOL=OFF"
 
     if build.with? "clients"
