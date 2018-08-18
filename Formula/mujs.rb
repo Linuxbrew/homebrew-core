@@ -14,6 +14,8 @@ class Mujs < Formula
     sha256 "5376177a24d6ac21859f8c313267b558ab417ee8f3154b96fc3b42b380d3bea6" => :el_capitan
   end
 
+  depends_on "readline" unless OS.mac?
+
   def install
     system "make", "release"
     system "make", "prefix=#{prefix}", "install"
