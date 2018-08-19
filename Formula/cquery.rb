@@ -7,13 +7,6 @@ class Cquery < Formula
   head "https://github.com/cquery-project/cquery.git"
   revision 1 unless OS.mac?
 
-  unless OS.mac?
-    depends_on "python@2" => :build
-    depends_on "llvm"
-
-    needs :cxx11
-  end
-
   bottle do
     sha256 "ee46fd2b279edc3b52df5ca9b84bdce404bb888f8a7d31e092b3fda33285a02b" => :high_sierra
     sha256 "ac3ad5aada30ca31d70f36e6e3ba76d96aa0e235ccdd62259a086578fe182b44" => :sierra
@@ -27,9 +20,6 @@ class Cquery < Formula
   needs :cxx14
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["JOBS"] = "8" if ENV["CIRCLECI"]
-
     system "cmake", ".", "-DSYSTEM_CLANG=ON", *std_cmake_args
     system "make", "install"
   end
