@@ -1,3 +1,4 @@
+# glibc: Build a bottle for Linuxbrew
 require "os/linux/glibc"
 
 class BrewedGlibcNotOlderRequirement < Requirement
