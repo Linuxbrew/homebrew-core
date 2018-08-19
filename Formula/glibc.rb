@@ -62,9 +62,6 @@ class Glibc < Formula
   revision 1
   # tag "linuxbrew"
 
-  bottle do
-  end
-
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
   depends_on BrewedGlibcNotOlderRequirement
