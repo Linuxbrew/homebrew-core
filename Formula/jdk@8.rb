@@ -1,19 +1,21 @@
 class JdkAT8 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)"
-  homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
+  homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
   # tag "linuxbrew"
 
-  version "1.8.0-162"
+  version "1.8.0-181"
   if OS.mac?
     url "http://java.com/"
   else
-    url "http://ftp.osuosl.org/pub/funtoo/distfiles/oracle-java/jdk-8u162-linux-x64.tar.gz"
-    sha256 "68ec82d47fd9c2b8eb84225b6db398a72008285fafc98631b1ff8d2229680257"
+    url "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz",
+      cookies: {
+        "oraclelicense" => "accept-securebackup-cookie",
+      }
+    sha256 "1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3"
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e67c59f7e22cd8902e94e3c6e6863e043aa141ed81eb2b7b653dd579a6dfba82" => :x86_64_linux
   end
 
   keg_only :versioned_formula
