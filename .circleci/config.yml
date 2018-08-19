@@ -27,6 +27,7 @@ jobs:
       - run:
          no_output_timeout: 60m
          command: |
+          sudo apt-get update && sudo apt-get install -y gawk
           mkdir /tmp/bottles
           cd /tmp/bottles
           umask 022
