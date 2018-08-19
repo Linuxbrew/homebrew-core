@@ -14,6 +14,9 @@ class Draco < Formula
   depends_on "cmake" => :build
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     mkdir "build" do
       system "cmake", "..", * std_cmake_args
       system "make", "install"
