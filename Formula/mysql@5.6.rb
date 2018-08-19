@@ -26,8 +26,9 @@ class MysqlAT56 < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
+  depends_on "pidof" unless MacOS.version >= :mountain_lion || !OS.mac?
   depends_on "openssl"
+  depends_on "libedit" unless OS.mac?
 
   def datadir
     var/"mysql"
