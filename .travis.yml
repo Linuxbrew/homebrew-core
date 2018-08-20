@@ -102,7 +102,11 @@ matrix:
     - os: linux
 
 script:
-  - brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
+  - brew test-bot --tap=linuxbrew/core --fast
+  - brew style linuxbrew/core
+  - brew audit -D --except=revision_and_version_scheme $(ls $(brew --repo linuxbrew/core)/Formula/*.rb)
+  - brew audit -D --except=revision_and_version_scheme --strict $(ls $(brew --repo linuxbrew/core)/Formula/*.rb) || true
+  - brew readall --aliases --syntax linuxbrew/core
 
 notifications:
   slack:
