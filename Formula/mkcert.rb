@@ -1,15 +1,14 @@
 class Mkcert < Formula
   desc "Simple tool to make locally trusted development certificates"
   homepage "https://github.com/FiloSottile/mkcert"
-  url "https://github.com/FiloSottile/mkcert/archive/v1.1.0.tar.gz"
-  sha256 "3b040210e46977921871d8d065b86ac7fec3bcab63d2b96f8bfb2d580d26943d"
+  url "https://github.com/FiloSottile/mkcert/archive/v1.1.1.tar.gz"
+  sha256 "9b44ce4c5d4539458416ae9e84a0fec8df92592bef4d9198c42f793df684af73"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "961fef7c3f09f4777b857db48f8bc6f37390c6747b6617781f9b087bbaa3dfe5" => :high_sierra
-    sha256 "050eb6efb186aadcdbaf2d20ed6396074f09e8e777a666955e69fde0ff588198" => :sierra
-    sha256 "34f2c89fc0d5cdfd197948ea68d40405887b4eaa048d1402bb4a80555b14c33b" => :el_capitan
-    sha256 "40ef231f026a70e2ee1804dc9260d2ad99ab7a7d3b9e78f27a3d07401109617c" => :x86_64_linux
+    sha256 "a72c7d0ed6880960fa7124ad1e68e67a9c471f100fc856a794bff15721b19620" => :high_sierra
+    sha256 "976ef4ed36ecbde9e13d540781e4cf1a9844c173ba4f75bfb9d6737fe83cdea4" => :sierra
+    sha256 "664d321bf8892d67f3506aaa2cd54b496536111fd779513c893e267a7a99bf29" => :el_capitan
   end
 
   depends_on "go" => :build
