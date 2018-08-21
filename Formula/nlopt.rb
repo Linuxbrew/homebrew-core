@@ -91,7 +91,7 @@ class Nlopt < Formula
         nlopt_destroy(opt);
       }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-lnlopt", "-lm"
+    system ENV.cxx, "test.c", "-o", "test", "-lnlopt", "-lm"
     assert_match "found minimum", shell_output("./test")
   end
 end
