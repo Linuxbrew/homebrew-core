@@ -1,16 +1,15 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/eb/3c/702e89ad33529c0107d44ebc1a7eca97c4fd77ae2784060923a65864fcbd/Sphinx-1.7.6.tar.gz"
-  sha256 "217ad9ece2156ed9f8af12b5d2c82a499ddf2c70a33c5f81864a08d8c67b9efc"
+  url "https://files.pythonhosted.org/packages/18/66/5aabe11160435a905ca137788c12c3d58c8693ad71cf9e7bb86e84b77d2a/Sphinx-1.7.7.tar.gz"
+  sha256 "71531900af3f68625a29c4e00381bee8f85255219a3d500a3e255076a45b735e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1aac8a9240797d36eddb64c9d49d276886f556b63ef44f0068ed5468d60d7a53" => :mojave
-    sha256 "9e73f7074aa832595fc653d1756ddee32398e7a7dc201cdc313a9a992df2cfe6" => :high_sierra
-    sha256 "711334da18471a31324cbdff175c7e95a82aef78a69488b896194188f5f23017" => :sierra
-    sha256 "2767442b385b50334d19e3b9e808e196495236f6df6e538e10cf33427b49519c" => :el_capitan
-    sha256 "16f95d04b193439cd76ac06687ac9e2bca919424fadbbc4c8b7d6378f163f8c6" => :x86_64_linux
+    sha256 "2c5fcd23cd542290535c524201c64cf3c5617ac0d16c378377e80eb1bae6e6cb" => :mojave
+    sha256 "6dbb2a8b4d7781d88f7116fdae9b0462cfe123d6c6d9985031e8962584c15afe" => :high_sierra
+    sha256 "6b6db7ee369c8e1f7ed6c126e82d0f56a4ae6289067e7f9f7a7a4b2162a914da" => :sierra
+    sha256 "a2407114e130cc94100f5d0c18597eb1da8abdd7c0f65eb5f8cce895b77a1f63" => :el_capitan
   end
 
   keg_only <<~EOS
@@ -22,8 +21,8 @@ class SphinxDoc < Formula
 
   # generated from sphinx, setuptools, numpydoc and python-docs-theme
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d3/3e/1d74cdcb393b68ab9ee18d78c11ae6df8447099f55fe86ee842f9c5b166c/setuptools-40.0.0.zip"
-    sha256 "012adb8e25fbfd64c652e99e7bab58799a3aaf05d39ab38561f69190a909015f"
+    url "https://files.pythonhosted.org/packages/5a/df/b2e3d9693bb0dcbeac516a73dd7a9eb82b126ae52e4a74605a9b01beddd5/setuptools-40.1.0.zip"
+    sha256 "664500268e4d649ce5b9f9dc0af0edc2b144666b1544d64af0453da94aa72b70"
   end
 
   resource "alabaster" do
@@ -37,8 +36,8 @@ class SphinxDoc < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
-    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
+    url "https://files.pythonhosted.org/packages/53/0d/d1d13a63563cc50a27b310f5612645bef06d29a5022a7e79ac659dd0fc50/certifi-2018.8.13.tar.gz"
+    sha256 "4c1d68a1408dd090d2f3a869aa94c3947cc1d967821d1ed303208c9f41f0f2f4"
   end
 
   resource "chardet" do
@@ -92,8 +91,8 @@ class SphinxDoc < Formula
   end
 
   resource "python-docs-theme" do
-    url "https://files.pythonhosted.org/packages/9f/6d/5f04061edd1035654ff36396ac36eabc4eea5be7ab973e5f8d12be15ec24/python-docs-theme-2018.2.tar.gz"
-    sha256 "f9a7e0d44af1719f8975f089632c7ce10c6cf85ee6f08028147b993781d0baa7"
+    url "https://files.pythonhosted.org/packages/77/f9/8c63766fe271549db3a578b652dea6678b90b593300315507b9c922f7173/python-docs-theme-2018.7.tar.gz"
+    sha256 "018a5bf2a7318c9c9a8346303dac8afc6bc212d92e86561c9b95a3372714155a"
   end
 
   resource "pytz" do
