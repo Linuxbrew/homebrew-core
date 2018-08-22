@@ -1,6 +1,7 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
+  revision 1 unless OS.mac?
   head "https://github.com/beast-dev/beast-mcmc.git"
 
   stable do
@@ -20,7 +21,6 @@ class Beast < Formula
     sha256 "18363f90761d465aa9b3e1a2e37b884fcc2361fbb927cb5d91184eb92fc3c0d7" => :high_sierra
     sha256 "3440a01630e7673369720258960618b4c0f0f8305775151b62e8b50818208675" => :sierra
     sha256 "b11b1291e5a960aaf77bef07542f9e7a9b0da2e8fb24a24da3fa8c12a07381ee" => :el_capitan
-    sha256 "7a8afe150363144a2364954d30ace127b569a2cc8459c6fe2b29086ac9eab97e" => :x86_64_linux
   end
 
   depends_on "ant" => :build
@@ -32,6 +32,7 @@ class Beast < Formula
     libexec.install Dir["release/Linux/BEASTv*/*"]
     pkgshare.install_symlink libexec/"examples"
     bin.install_symlink Dir[libexec/"bin/*"]
+    inreplace libexec/"bin/beast", "/usr/local/lib:$LD_LIBRARY_PATH", Formula["beagle"].lib unless OS.mac?
   end
 
   test do
