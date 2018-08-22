@@ -4,12 +4,12 @@ class Gammu < Formula
   url "https://dl.cihar.com/gammu/releases/gammu-1.39.0.tar.xz"
   sha256 "66d1d991d7a993fdf254d4c425f0fdd38c9cca15b1735936695a486067a6a9f8"
   head "https://github.com/gammu/gammu.git"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "d18ac85aafe7b0808af71def3812d623223234d17ce2f8281a3c673079e6509a" => :high_sierra
     sha256 "eeb48b7fe0b0b97f96aa3580c92b76e0cd59ece002eb1bc076efa30c85327ce8" => :sierra
     sha256 "abe55374ac1e3898e321af01126d0da4ad436be24ea2bd14e44cf61a386f4692" => :el_capitan
-    sha256 "b8a99db7750ec03431e91be60d5f2ca39ab75dba9b198e0e51d4a4ac1b446c14" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
