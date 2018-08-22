@@ -26,6 +26,10 @@ class Mono < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  unless OS.mac?
+    depends_on "python@2" => :build
+    depends_on "unzip" => :build
+  end
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
 
