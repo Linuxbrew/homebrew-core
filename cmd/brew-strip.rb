@@ -3,7 +3,7 @@
 #:
 #:    If `--all` is passed, strip all installed formulae.
 
-require File.expand_path("../strip", __FILE__)
+require File.expand_path("strip", __dir__)
 
 odie "Command not found: strip" unless which "strip"
 formulae = if ARGV.include?("--all") || ARGV.include?("--installed")

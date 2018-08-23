@@ -26,7 +26,7 @@ class JdkAT7 < Formula
     By installing and using JDK you agree to the
       Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
       http://www.oracle.com/technetwork/java/javase/terms/license/index.html
-    EOS
+  EOS
   end
 
   test do

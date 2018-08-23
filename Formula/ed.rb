@@ -21,7 +21,6 @@ class Ed < Formula
     option "without-default-names", "Prepend 'g' to the binaries"
   end
 
-
   def install
     ENV.deparallelize
 
