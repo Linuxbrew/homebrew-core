@@ -1,5 +1,5 @@
 class Libfuse < Formula
-  desc "Reference implementation of the Linux FUSE interface."
+  desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
   url "https://github.com/libfuse/libfuse/archive/fuse_2_9_5.tar.gz"
   sha256 "ccea9c00f7572385e9064bc55b2bfefd8d34de487ba16d9eb09672202b5440ec"
@@ -35,6 +35,6 @@ class Libfuse < Formula
         return fuse_main(argc, argv, &ops, NULL);
       }
     EOS
-    system "$CC $CPPFLAGS -DFUSE_USE_VERSION=26 -D_FILE_OFFSET_BITS=64 fuse-test.c $LDFLAGS -lfuse"
+    system "$CC", "$CPPFLAGS", "-DFUSE_USE_VERSION=26", "-D_FILE_OFFSET_BITS=64", "fuse-test.c", "$LDFLAGS", "-lfuse"
   end
 end

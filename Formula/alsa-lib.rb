@@ -1,5 +1,5 @@
 class AlsaLib < Formula
-  desc "Provides audio and MIDI functionality to the Linux operating system."
+  desc "Provides audio and MIDI functionality to the Linux operating system"
   homepage "http://www.alsa-project.org/"
   url "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.2.tar.bz2"
   sha256 "d38dacd9892b06b8bff04923c380b38fb2e379ee5538935ff37e45b395d861d6"
