@@ -29,10 +29,16 @@ class Qtkeychain < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I#{include}",
-                    "-L#{lib}", "-lqt5keychain",
-                    "-I#{Formula["qt"].opt_include}",
-                    "-F#{Formula["qt"].opt_lib}", "-framework", "QtCore"
+    args = ["test.cpp", "-o", "test", "-std=c++11", "-I#{include}",
+            "-L#{lib}", "-lqt5keychain",
+            "-I#{Formula["qt"].opt_include}"]
+    if OS.mac?
+      args += ["-F#{Formula["qt"].opt_lib}", "-framework", "QtCore"]
+    else
+      # Fix error: You must build your code with position independent code if Qt was built with -reduce-relocations.
+      args += ["-fPIC", "-L#{Formula["qt"].opt_lib}", "-lQt5Core", "-Wl,-rpath=#{lib}/x86_64-linux-gnu:#{Formula["qt"].lib}"]
+    end
+    system ENV.cxx, *args
     system "./test"
   end
 end
