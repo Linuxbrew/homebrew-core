@@ -28,7 +28,7 @@ class GoStatik < Formula
   end
 
   test do
-    system bin/"statik", "-src", "/Library/Fonts/STIXGeneral.otf"
+    system bin/"statik", "-src", OS.mac? ? "/Library/Fonts/STIXGeneral.otf" : "/bin/ls"
     assert_predicate testpath/"statik/statik.go", :exist?
     refute_predicate (testpath/"statik/statik.go").size, :zero?
   end
