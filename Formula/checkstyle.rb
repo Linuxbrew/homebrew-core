@@ -6,7 +6,7 @@ class Checkstyle < Formula
 
   bottle :unneeded
 
-  depends_on "jdk" unless OS.mac?
+  depends_on :java unless OS.mac?
 
   def install
     libexec.install "checkstyle-#{version}-all.jar"
