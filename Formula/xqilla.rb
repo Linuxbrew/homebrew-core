@@ -6,6 +6,9 @@ class Xqilla < Formula
 
   bottle do
     cellar :any
+    sha256 "44d063c9ae223e0c7fadc62711bbf2b09bd780be2316fac2693ec8da7aff3d92" => :high_sierra
+    sha256 "06e5550ca3a1b779ac47209f155af8888183edc2eb97c68ef47bdc70b6e6c0e9" => :sierra
+    sha256 "6f106b38d852616826712cdb3e35a61cf4690a8e7cfc120375723a57157a1322" => :el_capitan
     sha256 "fa6316219b06b9d0d1231d678bda4890c8cf22f8e0afb80312eb9a1080fa68fd" => :x86_64_linux
   end
 
@@ -41,10 +44,11 @@ class Xqilla < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lxqilla",
+    system ENV.cxx, "-std=c++11", "-I#{include}",
            "-I#{Formula["xerces-c"].opt_include}",
-           "-L#{Formula["xerces-c"].opt_lib}", "-lxerces-c",
-           testpath/"test.cpp", "-o", testpath/"test"
+           testpath/"test.cpp", "-o", testpath/"test",
+           "-L#{lib}", "-lxqilla",
+           "-L#{Formula["xerces-c"].opt_lib}", "-lxerces-c"
     system testpath/"test"
   end
 end
