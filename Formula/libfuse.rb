@@ -35,6 +35,6 @@ class Libfuse < Formula
         return fuse_main(argc, argv, &ops, NULL);
       }
     EOS
-    system "$CC", "$CPPFLAGS", "-DFUSE_USE_VERSION=26", "-D_FILE_OFFSET_BITS=64", "fuse-test.c", "$LDFLAGS", "-lfuse"
+    system ENV.cc, ENV["$CPPFLAGS"], "-DFUSE_USE_VERSION=26", "-D_FILE_OFFSET_BITS=64", "fuse-test.c", "$LDFLAGS", "-lfuse"
   end
 end
