@@ -1,5 +1,5 @@
 class Libuuid < Formula
-  desc "Portable uuid C library"
+  desc "Portable UUID C library"
   homepage "https://sourceforge.net/projects/libuuid/"
   # tag "linuxbrew"
 
