@@ -11,6 +11,7 @@ jobs:
       HOMEBREW_VERBOSE_USING_DOTS: 1
       HOMEBREW_FAIL_LOG_LINES: 300
     steps:
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends netbase
       - run: |
           cd /home/linuxbrew/.linuxbrew/Homebrew
           git fetch origin --unshallow --tags
