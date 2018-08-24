@@ -17,6 +17,10 @@ class Elm < Formula
 
   depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
+  unless OS.mac?
+    depends_on "ncurses"
+    depends_on "zlib"
+  end
 
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
