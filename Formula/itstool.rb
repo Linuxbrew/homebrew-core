@@ -1,7 +1,7 @@
 class Itstool < Formula
   desc "Make XML documents translatable through PO files"
   homepage "http://itstool.org/"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   stable do
     url "http://files.itstool.org/itstool/itstool-2.0.4.tar.bz2"
@@ -20,7 +20,6 @@ class Itstool < Formula
     sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :high_sierra
     sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :sierra
     sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :el_capitan
-    sha256 "34afd91b5d312141a1e754abb738b5f9223be9931f519f91d967e1197d640032" => :x86_64_linux
   end
 
   head do
