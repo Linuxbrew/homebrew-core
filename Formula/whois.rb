@@ -36,6 +36,6 @@ class Whois < Formula
   end
 
   test do
-    system "#{bin}/whois", "brew.sh"
+    system "#{bin}/whois", "brew.sh" if Pathname.new("/etc/services").readable?
   end
 end
