@@ -3,8 +3,8 @@ class Ode < Formula
   homepage "https://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.15.2.tar.gz"
   sha256 "2eaebb9f8b7642815e46227956ca223806f666acd11e31708bd030028cf72bac"
-  head "https://bitbucket.org/odedevs/ode/", :using => :hg
   revision OS.mac? ? 1 : 2
+  head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
@@ -53,8 +53,7 @@ class Ode < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lccd",
-                   "-lc++", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lccd", "-lpthread", "-o", "test"
     system "./test"
   end
 end
