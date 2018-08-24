@@ -105,6 +105,11 @@ class JenkinsJobBuilder < Formula
   end
 
   test do
+    assert_match "usage", shell_output("#{bin}/jenkins-jobs --help")
+
+    # The following test requires that Jenkins is configured on this host.
+    return unless OS.mac?
+
     assert_match(/Managed by Jenkins Job Builder/,
                  pipe_output("#{bin}/jenkins-jobs test /dev/stdin",
                              "- job:\n    name: test-job\n\n", 0))
