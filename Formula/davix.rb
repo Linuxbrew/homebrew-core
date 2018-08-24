@@ -18,9 +18,17 @@ class Davix < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "openssl"
-  depends_on "ossp-uuid"
+  if OS.mac?
+    depends_on "ossp-uuid"
+  else
+    depends_on "libxml2"
+    depends_on "util-linux" # for libuuid
+  end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     ENV.libcxx
 
     system "cmake", ".", *std_cmake_args
