@@ -5,6 +5,7 @@ class Cookiecutter < Formula
   homepage "https://github.com/audreyr/cookiecutter"
   url "https://github.com/audreyr/cookiecutter/archive/1.6.0.tar.gz"
   sha256 "0c9018699b556b83d7c37b27fe0cc17485b90b6e1f47365b3cdddf77f6ca9d36"
+  revision 1 unless OS.mac?
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
@@ -12,7 +13,6 @@ class Cookiecutter < Formula
     sha256 "c41fc38106412dbff9fabc1d996610ffc781e7a620552c8d71a8efed878a2052" => :high_sierra
     sha256 "a6ff87583db4af994e8987cd6335960bfb2613f820c484af3276e7b42f041a04" => :sierra
     sha256 "2add95022eec8b10c91f28bfa209ba1bd866e474a8d65350a965d081211b4584" => :el_capitan
-    sha256 "51ca979b6e6f7828a8f951e1c944290cf8de16f8dbfa288e2088ff3f5a8b4ff6" => :x86_64_linux
   end
 
   depends_on "python@2"
