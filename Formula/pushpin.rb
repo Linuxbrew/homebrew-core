@@ -1,3 +1,4 @@
+# pushpin: Build a bottle for Linuxbrew
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
