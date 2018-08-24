@@ -5,6 +5,7 @@ class Legit < Formula
   homepage "https://www.git-legit.org/"
   url "https://files.pythonhosted.org/packages/44/72/a086485566cf7b5ff7b6858b7dc144c76323e021d88f455ceacd5a6c02fd/legit-1.0.1.tar.gz"
   sha256 "e71c2dd4139afc0e4b8c2d1b5ab1265ad930e2cc8e4d6badf92923cee4e5baff"
+  revision 1 unless OS.mac?
   head "https://github.com/kennethreitz/legit.git", :branch => "develop"
 
   bottle do
@@ -12,7 +13,6 @@ class Legit < Formula
     sha256 "2919e3ef7827297d891afe3fb123507e96de5cc8f3e4080cd21519d453dcbb1c" => :high_sierra
     sha256 "defc980ee36b65d40c6e4cf5293b9bc22dd169998dcd9e88585d92aa08855c20" => :sierra
     sha256 "d5b4098018676b19f06a15d1438c881cdba2fec784cb8f07477413ae9f3dcfcb" => :el_capitan
-    sha256 "0c89fd50b5d7fba6d4d2408dae8790220573fdee844f6037da2384b6d1545078" => :x86_64_linux
   end
 
   depends_on "python@2"
