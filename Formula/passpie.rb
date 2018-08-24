@@ -5,7 +5,7 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/7a/e5/f808549a4ae369ed1d97795e6039085d38ec4244aa953fac3cb870c66fbc/passpie-1.6.0.tar.gz"
   sha256 "8d4371b89d02469d7f2cc4e79480f6f1c80dde81da33d2968c9a212d704a2213"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Passpie < Formula
     sha256 "c76cf8962d2cef65aa5a59672e58be1ad0fd74f48ef94608f34275800f243d29" => :high_sierra
     sha256 "858a53fbd86235af38263ff97b7f283f434fe59623f6bf170845fc51a0ebc0c7" => :sierra
     sha256 "9676b9237428cd46ce1fcfb42b7911ebf96a7df2535e936bb60d3f57507db8f4" => :el_capitan
-    sha256 "80853bbcd7a24fa8d1aefcef47a38376b85f7d96b2a9c05c90765047a369b151" => :x86_64_linux
   end
 
   depends_on "python@2"
