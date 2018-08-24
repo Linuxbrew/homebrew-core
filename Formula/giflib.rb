@@ -1,3 +1,4 @@
+# giflib: Build a bottle for Linuxbrew
 class Giflib < Formula
   desc "Library and utilities for processing GIFs"
   homepage "https://giflib.sourceforge.io/"
