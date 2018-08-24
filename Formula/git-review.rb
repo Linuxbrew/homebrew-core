@@ -59,6 +59,8 @@ class GitReview < Formula
 
   test do
     system "git", "init"
+    system "git", "config", "user.email", "you@example.com"
+    system "git", "config", "user.name", "Your Name"
     system "git", "remote", "add", "gerrit", "https://github.com/Homebrew/homebrew.github.io"
     (testpath/".git/hooks/commit-msg").write "# empty - make git-review happy"
     (testpath/"foo").write "test file"
