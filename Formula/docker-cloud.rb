@@ -3,13 +3,13 @@ class DockerCloud < Formula
   homepage "https://cloud.docker.com/"
   url "https://files.pythonhosted.org/packages/78/75/511a967ccabff691b57f97bde04cff29af2f493c6ec91a5f57c42badc3b0/docker-cloud-1.0.9.tar.gz"
   sha256 "dcddda43b2e9acbadcc3b658a61a35a413a5e623513c72c35c990e6ed15b4f8e"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "809594637760e2118111760fee5b298ee528dd862f845055a8f0e2a03aee10b5" => :high_sierra
     sha256 "b5337ce18f9053667a61f4873e3d1e8b7f910b0a668505c853531be48b95428a" => :sierra
     sha256 "90b1feb11ccb54a1481a2c23df1c70762b346d0907b7f873296b70fb6774b763" => :el_capitan
-    sha256 "b683caaa05a93da2766af75daf474ef76a488dec1fc7c321e067ffc084f7e388" => :x86_64_linux
   end
 
   depends_on "python@2"
