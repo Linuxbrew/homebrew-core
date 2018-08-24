@@ -4,6 +4,7 @@ class RabbitmqC < Formula
   url "https://github.com/alanxz/rabbitmq-c/archive/v0.9.0.tar.gz"
   sha256 "316c0d156452b488124806911a62e0c2aa8a546d38fc8324719cd29aaa493024"
   head "https://github.com/alanxz/rabbitmq-c.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -11,7 +12,6 @@ class RabbitmqC < Formula
     sha256 "d95c6f2c892a815ac20fe9a57fac961c73390182abb748d95d5901a3cb45d7ab" => :high_sierra
     sha256 "b2c77dd791f014dfd33983394a369f97e23e0c4519d451b552322df9dced4081" => :sierra
     sha256 "892c266e4c6086c65b3e4cee8cf5116f59d682b178540ee3f78efeff1e9d912a" => :el_capitan
-    sha256 "b72f20fd1c70b467c9c8c61e97303696af128f7447e27c315f06541610adc0bc" => :x86_64_linux
   end
 
   option "without-tools", "Build without command-line tools"
@@ -35,6 +35,11 @@ class RabbitmqC < Formula
 
     system "cmake", ".", *args
     system "make", "install"
+
+    if (lib/"x86_64-linux-gnu").directory?
+      lib.install Dir[lib/"x86_64-linux-gnu/*"]
+      rmdir lib/"x86_64-linux-gnu"
+    end
   end
 
   test do
