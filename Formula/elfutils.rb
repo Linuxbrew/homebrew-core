@@ -17,7 +17,7 @@ class Elfutils < Formula
   depends_on "valgrind" => [:build, :optional]
   depends_on "m4" => :build
 
-  conflicts_with "libelf",  :because => "both install `libelf.a` library"
+  conflicts_with "libelf", :because => "both install `libelf.a` library"
 
   fails_with :clang do
     build 700
