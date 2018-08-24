@@ -168,7 +168,7 @@ class GccAT7 < Formula
       end
 
       system "make", *make_args
-      system "make", "install"
+      system "make", OS.mac? ? "install" : "install-strip"
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
@@ -177,14 +177,6 @@ class GccAT7 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
-
-    unless OS.mac?
-      # Strip the binaries to reduce their size.
-      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
   end
 
   def add_suffix(file, suffix)
