@@ -1,3 +1,4 @@
+# deark: Build a bottle for Linuxbrew
 require "base64"
 
 class Deark < Formula
