@@ -34,6 +34,10 @@ class Elfutils < Formula
       *("--enable-valgrind" if build.with? "valgrind")
     system "make"
 
+    # Some tests in elfutils require that the package
+    # is built with `-g` flag which if filtered out
+    # by the superenv. Instead of re-enabling this flag
+    # for elfutils, we disable the tests that fail.
     skip_tests = %w[
       backtrace-data
       backtrace-dwarf
