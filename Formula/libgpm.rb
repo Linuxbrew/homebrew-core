@@ -22,7 +22,7 @@ class Libgpm < Formula
   patch :DATA
   patch do
     url "https://github.com/telmich/gpm/pull/14.patch?full_index=1"
-    sha256 "53c7d470ccdad04a769223995c085e4b3d46f8931bc4febfa75bd7bd9519a937"
+    sha256 "0bcee6127c9fcae7f515fc2adda621877cb19f741a8e99c400d044c8f01832c3"
   end
 
   def install
