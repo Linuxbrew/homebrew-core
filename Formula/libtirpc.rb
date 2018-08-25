@@ -2,7 +2,7 @@ class Libtirpc < Formula
   desc "Port of Sun's Transport-Independent RPC library to Linux"
   homepage "https://sourceforge.net/projects/libtirpc/"
   url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.0.3/libtirpc-1.0.3.tar.bz2"
-  sha256 "251a85b3bac687974f360d3796048c20ded3bf0bd69e0d1cfd1db23d013f89ed"
+  sha256 "86c3a78fc1bddefa96111dd233124c703b22a78884203c55c3e06b3be6a0fd5e"
   # tag "linuxbrew"
 
   bottle do
