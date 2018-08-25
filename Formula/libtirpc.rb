@@ -10,14 +10,14 @@ class Libtirpc < Formula
     sha256 "7c093d0948f7794df11cae0a0f0e974e8b0734d46beb2f7977db39d84aa16720" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "krb5"
+  depends_on "krb5" => :optional
 
   def install
     system "./configure",
-      "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
-      "--prefix=#{prefix}"
+      "--prefix=#{prefix}",
+      "#{"--disable-gssapi" if build.without? "krb5"}"
     system "make", "install"
   end
 
