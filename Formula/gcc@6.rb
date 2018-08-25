@@ -6,7 +6,7 @@ class GccAT6 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-6.4.0/gcc-6.4.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-6.4.0/gcc-6.4.0.tar.xz"
   sha256 "850bf21eafdfe5cd5f6827148184c08c4a0852a37ccf36ce69855334d2c914d4"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
 
   # gcc is designed to be portable.
   bottle do
@@ -14,7 +14,6 @@ class GccAT6 < Formula
     sha256 "1e33eda2bb05662fe7f061765332f32451d7b9ac0dc70651e94ff5dfd6ef2d07" => :high_sierra
     sha256 "dfc7cef94a96b5c9e38463ae771726747576b77af63e91c2158d5344c189d681" => :sierra
     sha256 "929f81db0795b08b4768f667780cff9ef0950990faa7d7215f4498c9752df7cd" => :el_capitan
-    sha256 "aa6949d83241961de8c587cad10a4b5d6216d52745052d403c52803ce9c769fb" => :x86_64_linux
   end
 
   option "with-all-languages", "Enable all compilers and languages, except Ada"
@@ -119,12 +118,6 @@ class GccAT6 < Formula
       # Change the default directory name for 64-bit libraries to `lib`
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
-
-      # Fix for system gccs that do not support -static-libstdc++
-      # gengenrtl: error while loading shared libraries: libstdc++.so.6
-      mkdir_p lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
 
       if build.with? "glibc"
         args += [
