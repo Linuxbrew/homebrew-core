@@ -53,7 +53,7 @@ class Elfutils < Formula
     skip_tests.each do |test|
       file = "tests/run-#{test}.sh"
       rm_f file
-      Pathname(file).write("exit 77", perm: 0755)
+      Pathname(file).write("exit 77", :perm => 0755)
     end
     system "make", "check"
     system "make", "install"
