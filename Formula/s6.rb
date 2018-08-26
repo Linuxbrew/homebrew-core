@@ -1,3 +1,4 @@
+# s6: Build a bottle for Linuxbrew
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
