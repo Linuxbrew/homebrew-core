@@ -10,7 +10,6 @@ class AprUtil < Formula
     sha256 "1bdf0cda4f0015318994a162971505f9807cb0589a4b0cbc7828531e19b6f739" => :high_sierra
     sha256 "75c244c3a34abab343f0db7652aeb2c2ba472e7ad91f13af5524d17bba3001f2" => :sierra
     sha256 "bae285ada445a2b5cc8b43cb8c61a75e177056c6176d0622f6f87b1b17a8502f" => :el_capitan
-    sha256 "c6f01dd4bd4ad3f3c8bc0b84be39361efc2b36101d34c88651076f0ed8588052" => :x86_64_linux
   end
 
   keg_only :provided_by_macos, "Apple's CLT package contains apr"
@@ -21,9 +20,11 @@ class AprUtil < Formula
   depends_on "mysql" => :optional
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
-  depends_on "sqlite" => :optional
   depends_on "openldap" => :optional
-  unless OS.mac?
+  if OS.mac?
+    depends_on "sqlite" => :optional
+  elsif OS.linux?
+    depends_on "sqlite" => :recommended
     depends_on "expat"
     depends_on "util-linux" # for libuuid
   end
@@ -35,13 +36,13 @@ class AprUtil < Formula
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-crypto
-      --with-sqlite3=#{build.with?("sqlite") ? "yes" : "no"}
     ]
 
     args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
     args << "--with-mysql=#{Formula["mysql"].opt_prefix}" if build.with? "mysql"
     args << "--with-freetds=#{Formula["freetds"].opt_prefix}" if build.with? "freetds"
     args << "--with-odbc=#{Formula["unixodbc"].opt_prefix}" if build.with? "unixodbc"
+    args  << "--with-sqlite3=#{build.with?("sqlite") ? "yes" : "no"}" unless OS.mac?
 
     if build.with? "openldap"
       args << "--with-ldap"
