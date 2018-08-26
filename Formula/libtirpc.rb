@@ -17,7 +17,7 @@ class Libtirpc < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
-      "#{"--disable-gssapi" if build.without? "krb5"}"
+      "--disable-gssapi" if build.without? "krb5"
     system "make", "install"
   end
 
