@@ -1,5 +1,5 @@
 class Libfuse < Formula
-  desc "Reference implementation of the Linux FUSE interface."
+  desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
   url "https://github.com/libfuse/libfuse/archive/fuse_2_9_5.tar.gz"
   sha256 "ccea9c00f7572385e9064bc55b2bfefd8d34de487ba16d9eb09672202b5440ec"
@@ -27,14 +27,18 @@ class Libfuse < Formula
 
   test do
     (testpath/"fuse-test.c").write <<~EOS
+      #define FUSE_USE_VERSION 26
       #include <fuse.h>
-      #include <stdlib.h>
-      int main(int argc, char** argv)
-      {
-        struct fuse_operations ops = {NULL, };
+      static struct fuse_operations ops = {
+        .init = NULL,
+      };
+      int main(int argc, char** argv) {
+        umask(0);
         return fuse_main(argc, argv, &ops, NULL);
       }
     EOS
-    system "$CC $CPPFLAGS -DFUSE_USE_VERSION=26 -D_FILE_OFFSET_BITS=64 fuse-test.c $LDFLAGS -lfuse"
+    system ENV.cc, "fuse-test.c", "-L#{lib}", "-I#{include}", "-D_FILE_OFFSET_BITS=64", "-lfuse", "-o", "fuse-test"
+    output = shell_output("patchelf --print-needed fuse-test").chomp
+    assert_equal "libfuse.so.2\nlibc.so.6", output
   end
 end
