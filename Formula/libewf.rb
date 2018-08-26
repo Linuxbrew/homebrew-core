@@ -33,13 +33,15 @@ class Libewf < Formula
   if OS.mac?
     depends_on :osxfuse => :optional
   else
-    depends_on "libfuse" => :optional
-    depends_on "libuuid"
-    depends_on "zlib"
     depends_on "bzip2"
+    depends_on "libfuse" => :optional
+    depends_on "util-linux" => :optional
+    depends_on "zlib"
   end
 
   def install
+    # Workaround bug in gcc-5 that causes the following error:
+    # undefined reference to `libuna_ ...
     ENV.append_to_cflags "-std=gnu89" if ENV.cc == "gcc-5"
 
     if build.head?
@@ -54,6 +56,7 @@ class Libewf < Formula
     ]
 
     args << "--with-libfuse=no" if build.without?(OS.mac? ? "osxfuse" : "libfuse")
+    args << "--with-libuuid=#{build.with?("util-linux") ? Formula["util-linux"].opt_prefix.to_s : "no"}" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"
