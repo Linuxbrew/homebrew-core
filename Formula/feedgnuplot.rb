@@ -1,3 +1,4 @@
+# feedgnuplot: Build a bottle for Linuxbrew
 class Feedgnuplot < Formula
   desc "Tool to plot realtime and stored data from the command-line"
   homepage "https://github.com/dkogan/feedgnuplot"
