@@ -12,10 +12,12 @@ class Elfutils < Formula
   option "with-valgrind", "Run tests with valgrind"
 
   depends_on "xz"
-  depends_on "bzip2" unless OS.mac?
-  depends_on "zlib" unless OS.mac?
   depends_on "valgrind" => [:build, :optional]
-  depends_on "m4" => :build
+  unless OS.mac?
+    depends_on "m4" => :build
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   conflicts_with "libelf", :because => "both install `libelf.a` library"
 
@@ -55,6 +57,7 @@ class Elfutils < Formula
       rm_f file
       Pathname(file).write("exit 77", :perm => 0755)
     end
+
     system "make", "check"
     system "make", "install"
   end
