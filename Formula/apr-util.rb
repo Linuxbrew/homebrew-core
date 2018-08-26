@@ -35,6 +35,7 @@ class AprUtil < Formula
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-crypto
+      --with-sqlite3=#{build.with?("sqlite") ? "yes" : "no"}
     ]
 
     args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
