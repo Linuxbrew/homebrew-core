@@ -1,3 +1,4 @@
+# tomcat-native: Build a bottle for Linuxbrew
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
