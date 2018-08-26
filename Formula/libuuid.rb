@@ -1,4 +1,5 @@
 class Libuuid < Formula
+  desc "Portable UUID C library"
   homepage "https://sourceforge.net/projects/libuuid/"
   # tag "linuxbrew"
 
@@ -20,5 +21,23 @@ class Libuuid < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <uuid/uuid.h>
+      int main () {
+        uuid_t obj1, obj2, obj3, obj4;
+        uuid_generate(obj1);
+        uuid_generate_random(obj2);
+        uuid_generate_time(obj3);
+        if (uuid_generate_time_safe(obj4) != 0)
+            return 1;
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-luuid", "-o", "test"
+    system "./test"
   end
 end
