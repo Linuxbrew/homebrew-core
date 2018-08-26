@@ -114,7 +114,7 @@ class PythonAT2 < Formula
     ldflags  = []
     cppflags = []
 
-    if MacOS.sdk_path_if_needed
+    if OS.mac? && MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
       cflags  << "-isysroot #{MacOS.sdk_path}"
