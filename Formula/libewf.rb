@@ -35,7 +35,6 @@ class Libewf < Formula
   else
     depends_on "bzip2"
     depends_on "libfuse" => :optional
-    depends_on "util-linux" => :optional
     depends_on "zlib"
   end
 
@@ -56,7 +55,6 @@ class Libewf < Formula
     ]
 
     args << "--with-libfuse=no" if build.without?(OS.mac? ? "osxfuse" : "libfuse")
-    args << "--with-libuuid=#{build.with?("util-linux") ? Formula["util-linux"].opt_prefix.to_s : "no"}" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"
