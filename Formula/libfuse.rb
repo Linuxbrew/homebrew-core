@@ -1,5 +1,5 @@
 class Libfuse < Formula
-  desc "Reference implementation of the Linux FUSE interface."
+  desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
   url "https://github.com/libfuse/libfuse/archive/fuse_2_9_5.tar.gz"
   sha256 "ccea9c00f7572385e9064bc55b2bfefd8d34de487ba16d9eb09672202b5440ec"
@@ -13,7 +13,7 @@ class Libfuse < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "gettext"
+  depends_on "gettext" => :build
 
   def install
     cp Formula["gettext"].pkgshare/"config.rpath", "."
@@ -22,19 +22,22 @@ class Libfuse < Formula
     ENV["UDEV_RULES_PATH"] = "#{etc}/udev/rules.d"
     ENV["INIT_D_PATH"] = "#{etc}/init.d"
     system "./configure", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
   test do
     (testpath/"fuse-test.c").write <<~EOS
       #include <fuse.h>
-      #include <stdlib.h>
-      int main(int argc, char** argv)
-      {
-        struct fuse_operations ops = {NULL, };
-        return fuse_main(argc, argv, &ops, NULL);
+      #include <stdio.h>
+      int main() {
+        printf("%d%d\\n", FUSE_MAJOR_VERSION, FUSE_MINOR_VERSION);
+        printf("%d\\n", fuse_version());
+        return 0;
       }
     EOS
-    system "$CC $CPPFLAGS -DFUSE_USE_VERSION=26 -D_FILE_OFFSET_BITS=64 fuse-test.c $LDFLAGS -lfuse"
+    system ENV.cc, "fuse-test.c", "-L#{lib}", "-I#{include}", "-D_FILE_OFFSET_BITS=64", "-lfuse", "-o", "fuse-test"
+    output = shell_output("./fuse-test").chomp
+    assert_equal "21\n29", output
   end
 end
