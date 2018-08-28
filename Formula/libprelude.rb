@@ -19,8 +19,8 @@ class Libprelude < Formula
   depends_on "gnutls"
   depends_on "swig" => [:build, :recommended]
   depends_on "perl" => [:build, :optional]
-  depends_on "python" => [:build, :recommended]
-  depends_on "python3" => :recommended
+  depends_on "python@2" => [:build, :recommended]
+  depends_on "python" => :recommended
   depends_on "valgrind" => [:build, :recommended]
   depends_on "lua" => [:build, :optional]
   depends_on "ruby"
