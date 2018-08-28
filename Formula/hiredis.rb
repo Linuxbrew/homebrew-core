@@ -17,7 +17,7 @@ class Hiredis < Formula
 
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
-    ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
+    ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}" if OS.mac?
 
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "examples"
@@ -26,8 +26,8 @@ class Hiredis < Formula
   test do
     # running `./test` requires a database to connect to, so just make
     # sure it compiles
-    system ENV.cc, "-I#{include}/hiredis", "-L#{lib}", "-lhiredis",
-           pkgshare/"examples/example.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}/hiredis", "-L#{lib}",
+           pkgshare/"examples/example.c", "-o", testpath/"test", "-lhiredis"
     assert_predicate testpath/"test", :exist?
   end
 end
