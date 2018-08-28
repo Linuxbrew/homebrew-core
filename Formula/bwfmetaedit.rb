@@ -1,3 +1,4 @@
+# bwfmetaedit: Build a bottle for Linuxbrew
 class Bwfmetaedit < Formula
   desc "Tool for embedding, validating, and exporting BWF file metadata"
   homepage "https://mediaarea.net/BWFMetaEdit"
