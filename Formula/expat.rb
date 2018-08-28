@@ -18,8 +18,10 @@ class Expat < Formula
 
   # On Ubuntu 14, fix the error: You do not have support for any sources of high quality entropy
   depends_on "libbsd" unless OS.mac?
+  depends_on "xmlto" => :build unless OS.mac?
 
   def install
+    ENV["DOCBOOK_TO_MAN"] = "xmlto man --skip-validation"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           *("--with-libbsd" unless OS.mac?)
