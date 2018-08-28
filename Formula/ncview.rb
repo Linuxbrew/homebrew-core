@@ -1,3 +1,4 @@
+# ncview: Build a bottle for Linuxbrew
 class Ncview < Formula
   desc "Visual browser for netCDF format files"
   homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
