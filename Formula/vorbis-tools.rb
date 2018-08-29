@@ -19,11 +19,15 @@ class VorbisTools < Formula
   depends_on "libvorbis"
   depends_on "libao"
   depends_on "flac" => :optional
+  depends_on "curl" unless OS.mac?
 
   def install
     # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
     # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+    ENV.delete("SDKROOT") if OS.mac? && MacOS.version == :yosemite
+
+    # Fixes: /usr/bin/ld: vgfilter.o: undefined reference to symbol 'tanh@@GLIBC_2.2.5'
+    ENV.prepend "LDFLAGS", "-lm" unless OS.mac?
 
     args = %W[
       --disable-debug
