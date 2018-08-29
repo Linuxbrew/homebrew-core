@@ -188,7 +188,7 @@ class GccAT6 < Formula
 
       system "../configure", *args
       system "make", "bootstrap"
-      system "make", "install"
+      system "make", OS.mac? ? "install" : "install-strip"
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
@@ -197,14 +197,6 @@ class GccAT6 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
-
-    unless OS.mac?
-      Pathname.glob(prefix/"**/*") do |f|
-        if f.file? && (f.elf? || f.extname == ".a") && !f.symlink?
-          f.ensure_writable { system "strip", "--strip-unneeded", "--preserve-dates", f }
-        end
-      end
-    end
   end
 
   def add_suffix(file, suffix)
