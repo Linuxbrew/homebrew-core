@@ -144,12 +144,6 @@ class GccAT5 < Formula
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
 
-      # Fix for system gccs that do not support -static-libstdc++
-      # gengenrtl: error while loading shared libraries: libstdc++.so.6
-      mkdir_p lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
-
       if build.with? "glibc"
         args += [
           "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
@@ -226,7 +220,7 @@ class GccAT5 < Formula
 
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.
-      system "make", "install"
+      system "make", OS.mac? ? "install" : "install-strip"
     end
 
     # Handle conflicts between GCC formulae.
