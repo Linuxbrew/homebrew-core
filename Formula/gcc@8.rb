@@ -86,12 +86,6 @@ class GccAT8 < Formula
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
 
-      # Fix for system gccs that do not support -static-libstdc++
-      # gengenrtl: error while loading shared libraries: libstdc++.so.6
-      mkdir_p lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
-
       if build.with? "glibc"
         args += [
           "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
@@ -153,7 +147,7 @@ class GccAT8 < Formula
       end
 
       system "make", *make_args
-      system "make", "install"
+      system "make", OS.mac? ? "install" : "install-strip"
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
@@ -162,17 +156,6 @@ class GccAT8 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
-
-    unless OS.mac?
-      # Remove files conflicted with gcc formula.
-      rm_f [lib/"libgcc_s.so.1", lib/"libstdc++.so.6"]
-      # Strip the binaries to reduce their size.
-      Pathname.glob(prefix/"**/*") do |f|
-        if f.file? && (f.elf? || f.extname == ".a") && !f.symlink?
-          f.ensure_writable { system "strip", "--strip-unneeded", "--preserve-dates", f }
-        end
-      end
-    end
   end
 
   def add_suffix(file, suffix)
