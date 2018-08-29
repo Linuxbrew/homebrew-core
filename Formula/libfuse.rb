@@ -16,9 +16,9 @@ class Libfuse < Formula
   depends_on "doxygen" => [:build, :optional]
 
   def install
-    ENV["MOUNT_FUSE_PATH"] = "#{sbin}/"
-    ENV["UDEV_RULES_PATH"] = prefix/"etc/udev/rules.d"
-    ENV["INIT_D_PATH"] = prefix/"etc/init.d"
+    ENV["MOUNT_FUSE_PATH"] = sbin
+    ENV["UDEV_RULES_PATH"] = etc/"udev/rules.d"
+    ENV["INIT_D_PATH"] = etc/"init.d"
     system "./configure",
       "--prefix=#{prefix}",
       "--disable-silent-rules",
