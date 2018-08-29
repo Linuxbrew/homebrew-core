@@ -37,7 +37,6 @@ class Libfuse < Formula
       }
     EOS
     system ENV.cc, "fuse-test.c", "-L#{lib}", "-I#{include}", "-D_FILE_OFFSET_BITS=64", "-lfuse", "-o", "fuse-test"
-    output = shell_output("./fuse-test").chomp
-    assert_equal "21\n29", output
+    system "./fuse-test"
   end
 end
