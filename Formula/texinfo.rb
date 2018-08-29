@@ -23,6 +23,7 @@ class Texinfo < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-install-warnings",
+                          *("--disable-perl-xs" unless OS.mac?),
                           "--prefix=#{prefix}"
     system "make", "install"
     doc.install Dir["doc/refcard/txirefcard*"]
