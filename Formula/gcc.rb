@@ -222,7 +222,7 @@ class Gcc < Formula
       end
 
       system "make", *make_args
-      system "make", "install"
+      system "make", OS.mac? ? "install" : "install-strip"
 
       if build.with?("fortran") || build.with?("all-languages")
         bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
@@ -256,14 +256,6 @@ class Gcc < Formula
       config_files.each do |file|
         add_suffix file, version_suffix if File.exist? file
       end
-    end
-
-    unless OS.mac?
-      # Strip the binaries to reduce their size.
-      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
     end
   end
 
