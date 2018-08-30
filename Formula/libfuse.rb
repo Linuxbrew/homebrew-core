@@ -1,8 +1,8 @@
 class Libfuse < Formula
   desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
-  url "https://github.com/libfuse/libfuse/archive/fuse_2_9_5.tar.gz"
-  sha256 "ccea9c00f7572385e9064bc55b2bfefd8d34de487ba16d9eb09672202b5440ec"
+  url "https://github.com/libfuse/libfuse/releases/download/fuse-2.9.8/fuse-2.9.8.tar.gz"
+  sha256 "5e84f81d8dd527ea74f39b6bc001c874c02bad6871d7a9b0c14efb57430eafe3"
   head "https://github.com/libfuse/libfuse.git"
   # tag "linuxbrew"
 
@@ -13,17 +13,23 @@ class Libfuse < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "gettext" => :build
 
   def install
-    cp Formula["gettext"].pkgshare/"config.rpath", "."
-    system "./makeconf.sh"
-    ENV["MOUNT_FUSE_PATH"] = "#{sbin}/"
-    ENV["UDEV_RULES_PATH"] = "#{etc}/udev/rules.d"
-    ENV["INIT_D_PATH"] = "#{etc}/init.d"
-    system "./configure", "--prefix=#{prefix}"
+    ENV["MOUNT_FUSE_PATH"] = sbin
+    ENV["UDEV_RULES_PATH"] = etc/"udev/rules.d"
+    ENV["INIT_D_PATH"] = etc/"init.d"
+    system "./configure",
+      "--prefix=#{prefix}",
+      "--disable-silent-rules",
+      "--enable-lib",
+      "--enable-util",
+      "--enable-example",
+      "--disable-rpath"
+
     system "make"
     system "make", "install"
+    (pkgshare/"doc").install Dir["./doc/how-fuse-works", "./doc/kernel.txt"]
+    (pkgshare/"example").install Dir["./example/Makefile", "./example/*.{c,h}"]
   end
 
   test do
