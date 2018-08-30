@@ -13,7 +13,6 @@ class Libfuse < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "doxygen" => [:build, :optional]
 
   def install
     ENV["MOUNT_FUSE_PATH"] = sbin
@@ -31,10 +30,6 @@ class Libfuse < Formula
     system "make", "install"
     (pkgshare/"doc").install Dir["./doc/how-fuse-works", "./doc/kernel.txt"]
     (pkgshare/"example").install Dir["./example/Makefile", "./example/*.{c,h}"]
-    if build.with? "doxygen"
-      system "doxygen", "./doc/Doxyfile"
-      (pkgshare/"html").install Dir["./doc/html/*"]
-    end
   end
 
   test do
