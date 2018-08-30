@@ -1,3 +1,4 @@
+# circleci: Build a bottle for Linuxbrew
 class Circleci < Formula
   desc "Enables you to reproduce the CircleCI environment locally"
   homepage "https://circleci.com/docs/2.0/local-cli/"
