@@ -14,6 +14,7 @@ class Lftp < Formula
   depends_on "readline"
   depends_on "openssl"
   depends_on "libidn"
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
