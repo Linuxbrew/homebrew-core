@@ -54,7 +54,7 @@ class IslAT018 < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lisl", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lisl", "-o", "test"
     system "./test"
   end
 end
