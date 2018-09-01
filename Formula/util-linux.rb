@@ -3,7 +3,7 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
   sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
@@ -11,7 +11,6 @@ class UtilLinux < Formula
     sha256 "d551dad77ab8c533bab98d5bd91291db1f296564336d59d600f0ce75496a9d08" => :high_sierra
     sha256 "aeef9c88dd7ea82ac3f71b6f3793b2316b76ee59a8e01cc56f6316efa4e1346c" => :sierra
     sha256 "f3040a39ad4ffb9eabd9446843dfc3b66df01b3264c875dc68e7339636830357" => :el_capitan
-    sha256 "e9b848c71aa03ed81c425e4d73d9bdd5e955cb496aea0edc37753bb8282c21ba" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
@@ -60,9 +59,16 @@ class UtilLinux < Formula
       rm_f man8/"#{prog}.8"
     end if OS.mac?
 
+    # these conflict with bash-completion-1.3
+    %w[chsh mount rfkill rtcwake].each do |prog|
+      rm_f bash_completion/prog
+    end unless OS.mac?
+
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
       if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
+        # these conflict with bash-completion on Linux
+        next if !OS.mac? && %w[chsh mount rfkill rtcwake].include?(prog.basename.to_s)
         bash_completion.install prog
       end
     end
