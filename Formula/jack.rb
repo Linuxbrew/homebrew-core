@@ -24,19 +24,21 @@ class Jack < Formula
   depends_on "berkeley-db"
   depends_on "libsndfile"
   depends_on "libsamplerate"
-  depends_on "util-linux" if OS.linux? # for libuuid
+  depends_on "util-linux" unless OS.mac? # for libuuid
 
   def install
-    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+    if OS.mac?
+      sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
 
-    # Makefile hardcodes Carbon header location
-    inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
-      "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
-      "#{sdk}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
+      # Makefile hardcodes Carbon header location
+      inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
+        "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
+        "#{sdk}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
 
-    # https://github.com/jackaudio/jack1/issues/81
-    inreplace "configure", "-mmacosx-version-min=10.4",
-                           "-mmacosx-version-min=#{MacOS.version}"
+      # https://github.com/jackaudio/jack1/issues/81
+      inreplace "configure", "-mmacosx-version-min=10.4",
+                             "-mmacosx-version-min=#{MacOS.version}"
+    end
 
     ENV["LINKFLAGS"] = ENV.ldflags
     system "./configure", "--prefix=#{prefix}"
