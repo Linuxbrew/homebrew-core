@@ -20,7 +20,7 @@ class Knot < Formula
   end
 
   # due to AT_REMOVEDIR
-  depends_on :macos => :yosemite
+  depends_on :macos => :yosemite unless OS.mac?
 
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
