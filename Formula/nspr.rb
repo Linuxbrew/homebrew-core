@@ -1,3 +1,4 @@
+# nspr: Build a bottle for Linuxbrew
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
