@@ -1,3 +1,4 @@
+# mdp: Build a bottle for Linuxbrew
 class Mdp < Formula
   desc "Command-line based markdown presentation tool"
   homepage "https://github.com/visit1985/mdp"
