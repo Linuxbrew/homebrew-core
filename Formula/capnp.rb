@@ -19,7 +19,7 @@ class Capnp < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j20" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
