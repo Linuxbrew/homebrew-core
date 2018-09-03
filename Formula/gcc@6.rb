@@ -1,3 +1,4 @@
+# gcc@6: Build a bottle for Linuxbrew
 require "os/linux/glibc"
 
 class GccAT6 < Formula
