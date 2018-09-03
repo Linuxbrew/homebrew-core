@@ -1,3 +1,4 @@
+# htmldoc: Build a bottle for Linuxbrew
 class Htmldoc < Formula
   desc "Convert HTML to PDF or PostScript"
   homepage "https://www.msweet.org/htmldoc/"
