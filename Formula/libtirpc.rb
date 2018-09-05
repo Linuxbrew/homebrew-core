@@ -1,14 +1,11 @@
 class Libtirpc < Formula
   desc "Port of Sun's Transport-Independent RPC library to Linux"
   homepage "https://sourceforge.net/projects/libtirpc/"
-  url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.0.1/libtirpc-1.0.1.tar.bz2"
-  sha256 "5156974f31be7ccbc8ab1de37c4739af6d9d42c87b1d5caf4835dda75fcbb89e"
-  revision 1
+  url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.1.4/libtirpc-1.1.4.tar.bz2"
+  sha256 "2ca529f02292e10c158562295a1ffd95d2ce8af97820e3534fe1b0e3aec7561d"
   # tag "linuxbrew"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "881f70ffa32003c9140bd124485e420ef32d5f966b91a8bcaf67f6ee9922c7ee" => :x86_64_linux
   end
 
   depends_on "krb5" => :optional unless OS.mac?
@@ -31,7 +28,7 @@ class Libtirpc < Formula
         if (sizeof(key) != 16)
           return 1;
         des_setparity(key);
-        printf("%d\\n", sizeof(key));
+        printf("%lu\\n", sizeof(key));
         return 0;
       }
     EOS
