@@ -14,6 +14,7 @@ class Libpsl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
+  depends_on "python@2"
 
   def install
     system "./configure", "--disable-silent-rules",
