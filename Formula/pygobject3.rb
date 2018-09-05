@@ -34,7 +34,8 @@ class Pygobject3 < Formula
         # avoid linking against python framework
         # reported at https://gitlab.gnome.org/GNOME/pygobject/issues/253
         libs = Utils.popen_read("pkg-config --libs python-#{version}").chomp.split
-        dylib = libs[0][2..-1] + "/lib" + libs[1][2..-1] + ".dylib"
+        ext = OS.mac? ? ".dylib" : ".so"
+        dylib = libs[0][2..-1] + "/lib" + libs[1][2..-1] + ext
         inreplace "build.ninja", dylib, ""
 
         system "ninja", "-v"
