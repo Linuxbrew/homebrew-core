@@ -1,3 +1,4 @@
+# libxlsxwriter: Build a bottle for Linuxbrew
 class Libxlsxwriter < Formula
   desc "C library for creating Excel XLSX files"
   homepage "https://libxlsxwriter.github.io/"
