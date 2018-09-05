@@ -1,3 +1,4 @@
+# libquicktime: Build a bottle for Linuxbrew
 class Libquicktime < Formula
   desc "Library for reading and writing quicktime files"
   homepage "https://libquicktime.sourceforge.io/"
