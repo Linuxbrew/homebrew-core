@@ -30,6 +30,8 @@ class Erlang < Formula
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
 
+  depends_on "m4" => :build unless OS.mac?
+
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.1.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_man_21.1.tar.gz"
