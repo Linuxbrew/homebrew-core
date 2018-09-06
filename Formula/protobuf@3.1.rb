@@ -82,6 +82,9 @@ class ProtobufAT31 < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
     # https://github.com/protocolbuffers/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
@@ -146,7 +149,12 @@ class ProtobufAT31 < Formula
     system bin/"protoc", "test.proto", "--cpp_out=."
     if build.with? "python@2"
       protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
-      (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+      if OS.mac?
+        (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+      else
+        user_site = Pathname.new shell_output("python2.7 -m site --user-site").chomp
+        user_site.install_symlink protobuf_pth
+      end
       system "python2.7", "-c", "import google.protobuf"
     end
   end
