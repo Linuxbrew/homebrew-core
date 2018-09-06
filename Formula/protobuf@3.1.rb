@@ -146,7 +146,12 @@ class ProtobufAT31 < Formula
     system bin/"protoc", "test.proto", "--cpp_out=."
     if build.with? "python@2"
       protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
-      (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+      if OS.mac?
+        (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+      else
+        user_site = Pathname.new shell_output("python2.7 -m site --user-site").chomp
+        user_site.install_symlink protobuf_pth
+      end
       system "python2.7", "-c", "import google.protobuf"
     end
   end
