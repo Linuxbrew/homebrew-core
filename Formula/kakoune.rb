@@ -1,3 +1,4 @@
+# kakoune: Build a bottle for Linuxbrew
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
