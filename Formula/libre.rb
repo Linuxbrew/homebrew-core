@@ -15,7 +15,7 @@ class Libre < Formula
   depends_on "openssl"
 
   def install
-    system "make", "SYSROOT=#{MacOS.sdk_path}/usr", "install", "PREFIX=#{prefix}"
+    system "make", *("SYSROOT=#{MacOS.sdk_path}/usr" if OS.mac?), "install", "PREFIX=#{prefix}"
   end
 
   test do
