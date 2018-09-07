@@ -8,6 +8,12 @@ class DhallJson < Formula
   url "https://hackage.haskell.org/package/dhall-json-1.2.3/dhall-json-1.2.3.tar.gz"
   sha256 "83cb1e27f937c50ba6852eeb55ed3f06af8db9b73716bfa8c1326699482ffcda"
   head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library.git"
+  revision 1 unless OS.mac?
+
+  unless OS.mac?
+    depends_on "ncurses"
+    depends_on "zlib"
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +21,6 @@ class DhallJson < Formula
     sha256 "7eebce96f35a991539034c2939dbffe8d36606b2b134eb2a164efb01956bfe7a" => :high_sierra
     sha256 "9b24081f5cb6d98467ef9ba670336166dc0f2a68733667147b08fb929d7c0bb3" => :sierra
     sha256 "46a7cf5d4660faefe3cd940ca9eab0e445b97a70b8a4a3d4d8eef19521995f4e" => :el_capitan
-    sha256 "98159c2d58a341d004b1b2aa1a960ff971a2cad1358cec3b38bab9925925e7ce" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
