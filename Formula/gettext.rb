@@ -59,6 +59,7 @@ class Gettext < Formula
                           "--without-git",
                           "--without-cvs",
                           "--without-xz",
+                          ("--with-libxml2-prefix=#{libexec}" unless OS.mac?),
                           ("--with-libxml2-prefix=#{Formula["libxml2"].opt_prefix}" if OS.mac?)
     system "make"
     ENV.deparallelize # install doesn't support multiple make jobs
