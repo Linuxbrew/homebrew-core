@@ -23,6 +23,7 @@ class LlvmAT4 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz"
   sha256 "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -31,13 +32,6 @@ class LlvmAT4 < Formula
     sha256 "0c97a3cd61602de11f49bdff478a3eb43fd2b72c47b58bcd607a7a4b8652fdb2" => :sierra
     sha256 "cfe3899f563c1dd1f5f6db15d5aeee6163a990344d29892453fe6f0bc6b3299c" => :el_capitan
     sha256 "1bbffa119d25d27b4b2596c0277882d0a4de3c327bfecffcce98529cd4275486" => :yosemite
-    sha256 "a6f0944762edf007bac387d7fb817ee93b7e8d1dd68271c9d84cea7d14d4907b" => :x86_64_linux
-  end
-
-  pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs to be installed into #{default_prefix}."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
   keg_only :versioned_formula
@@ -68,7 +62,7 @@ class LlvmAT4 < Formula
     depends_on "pkg-config" => :build
   end
 
-  if MacOS.version <= :snow_leopard
+  if !OS.mac? || MacOS.version <= :snow_leopard
     depends_on "python@2"
   else
     depends_on "python@2" => :optional
@@ -81,13 +75,11 @@ class LlvmAT4 < Formula
   end
 
   unless OS.mac?
-    depends_on "gcc" # <atomic> is provided by gcc
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "gcc" # needed for libstdc++
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
-    depends_on "python" if build.with?("python") || build.with?("lldb")
     depends_on "zlib"
     needs :cxx11
   end
@@ -152,7 +144,7 @@ class LlvmAT4 < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -162,12 +154,6 @@ class LlvmAT4 < Formula
     end
 
     (buildpath/"tools/clang").install resource("clang")
-    unless OS.mac?
-      # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
-      inreplace buildpath/"tools/clang/lib/Driver/ToolChains.cpp",
-      "// Add the multilib suffixed paths where they are available.",
-      "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
-    end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
@@ -248,16 +234,6 @@ class LlvmAT4 < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
-    unless OS.mac?
-      gccpref = Formula["gcc"].opt_prefix.to_s
-      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
-      args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
-      args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
-      args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
-    end
-
     mktemp do
       if build.with? "ocaml"
         args << "-DLLVM_OCAML_INSTALL_PATH=#{lib}/ocaml"
@@ -286,13 +262,12 @@ class LlvmAT4 < Formula
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
-    # Remove conflicting libraries.
-    # libgomp.so conflicts with gcc.
-    # libunwind.so conflcits with libunwind.
-    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
-
-    # Strip executables/libraries/object files to reduce their size
     unless OS.mac?
+      # Remove conflicting libraries.
+      # libgomp.so conflicts with gcc.
+      rm lib/"libgomp.so"
+
+      # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)
         f.file? && (f.elf? || f.extname == ".a")
@@ -361,6 +336,11 @@ class LlvmAT4 < Formula
       }
     EOS
 
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
+
     # Testing Command Line Tools
     if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
@@ -399,7 +379,7 @@ class LlvmAT4 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    if build_libcxx?
+    if OS.mac? && build_libcxx?
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-std=c++11", "-stdlib=libc++",
               "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
