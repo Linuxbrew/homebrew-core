@@ -30,7 +30,7 @@ class Infer < Formula
     depends_on "ncurses"
     depends_on "zlib"
     depends_on :java
-    depends_on "python"
+    depends_on "python@2"
   end
 
   def install
