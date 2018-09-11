@@ -1,3 +1,4 @@
+# xmount: Build a bottle for Linuxbrew
 class Xmount < Formula
   desc "Convert between multiple input & output disk image types"
   homepage "https://www.pinguin.lu/xmount/"
