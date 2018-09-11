@@ -58,6 +58,8 @@ class GdkPixbuf < Formula
       -Dman=false
     ]
 
+    args << "--libdir=#{lib}" unless OS.mac?
+
     args << "-Djasper=true" if build.with?("jasper")
 
     included_loaders = ARGV.value("with-included-loaders")
