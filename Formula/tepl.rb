@@ -53,6 +53,8 @@ class Tepl < Formula
     pixman = Formula["pixman"]
     uchardet = Formula["uchardet"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    amtklib = OS.mac? ? "amtk-5.0" : "amtk-5"
+    gtksourceviewlib = OS.mac? ? "gtksourceview-4.0" : "gtksourceview-4"
     flags += %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{amtk.opt_include}/amtk-5
@@ -85,8 +87,8 @@ class Tepl < Formula
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
+      -l#{amtklib}
       -latk-1.0
-      -lamtk-5.0
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -95,15 +97,12 @@ class Tepl < Formula
       -lglib-2.0
       -lgobject-2.0
       -ltepl-4
+      -l#{gtksourceviewlib}
       -lgtk-3
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    if OS.mac?
-      flags << "-lintl -lgtksourceview-4.0"
-    else
-      flags << "-lgtksourceview-4"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
