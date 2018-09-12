@@ -65,7 +65,8 @@ class Pagmo < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
-                    "-I#{include}", "-std=c++11", "-o", "test"
+                    "-I#{include}", "-std=c++11", *("-pthread" unless OS.mac?),
+                    "-o", "test"
     system "./test"
   end
 end
