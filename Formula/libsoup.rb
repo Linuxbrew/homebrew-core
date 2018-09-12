@@ -22,6 +22,7 @@ class Libsoup < Formula
   unless OS.mac?
     depends_on "libxml2"
     depends_on "krb5"
+    depends_on "python@2" => :build
   end
 
   def install
