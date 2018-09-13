@@ -115,8 +115,8 @@ class Llvm < Formula
     end
 
     resource "libcxxabi" do
-      url "http://prereleases.llvm.org/7.0.0/rc1/libcxxabi-7.0.0rc1.src.tar.xz"
-      sha256 "fefeb8bf2953b55750ebd028202020d55c3f28be2c60add55182fad45977494d"
+      url "https://prereleases.llvm.org/7.0.0/rc3/libcxxabi-7.0.0rc3.src.tar.xz"
+      sha256 "d71ecbe969c3234cd3900fd4bbecf46197b6f8b20cc389a701ef85d434d9c0e7"
     end
 
     resource "libunwind" do
@@ -260,7 +260,7 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxxabi").install resource("libcxxabi") unless OS.mac?
-    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
+    (buildpath/"projects/libcxx").install resource("libcxx")
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -315,7 +315,10 @@ class Llvm < Formula
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
     ]
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
-    args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++" unless OS.mac?
+    unless OS.mac?
+      args << "-DLLVM_ENABLE_LIBCXXABI=ON"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
+    end
 
     if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
