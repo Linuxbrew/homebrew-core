@@ -1,3 +1,4 @@
+# mmark: Build a bottle for Linuxbrew
 require "language/go"
 
 class Mmark < Formula
