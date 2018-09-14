@@ -1,3 +1,4 @@
+# libotr: Build a bottle for Linuxbrew
 class Libotr < Formula
   desc "Off-The-Record (OTR) messaging library"
   homepage "https://otr.cypherpunks.ca/"
