@@ -1,3 +1,4 @@
+# nuttcp: Build a bottle for Linuxbrew
 class Nuttcp < Formula
   desc "Network performance measurement tool"
   homepage "https://www.nuttcp.net/nuttcp"
