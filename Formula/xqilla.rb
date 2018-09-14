@@ -1,3 +1,4 @@
+# xqilla: Build a bottle for Linuxbrew
 class Xqilla < Formula
   desc "XQuery and XPath 2 command-line interpreter"
   homepage "https://xqilla.sourceforge.io/"
