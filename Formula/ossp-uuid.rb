@@ -1,3 +1,4 @@
+# ossp-uuid: Build a bottle for Linuxbrew
 class OsspUuid < Formula
   desc "ISO-C API and CLI for generating UUIDs"
   homepage "https://web.archive.org/web/www.ossp.org/pkg/lib/uuid/"
