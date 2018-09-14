@@ -4,6 +4,7 @@ class Io < Formula
   url "https://github.com/stevedekorte/io/archive/2017.09.06.tar.gz"
   sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
   head "https://github.com/stevedekorte/io.git"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "9e628fa0879d7d2e370ae5275393d1d52b578f6f10d3f005faf9d0360caf8851" => :mojave
@@ -11,7 +12,6 @@ class Io < Formula
     sha256 "2d0e05344917ad3a1d322f2860030013315ceb7e8ae962cf6070d1ee8cc395d4" => :sierra
     sha256 "3a5a0e9a1ec0ce7f4bc6bcfc5fb8c782f0b1ba0451251aaab51a796452b59e67" => :el_capitan
     sha256 "16d31a7062e2c7ebab815bcd48b03aab9597a6c40071cb407e2bc6dec91fef0b" => :yosemite
-    sha256 "be56e5ec4568a194ad2566e91b9bb84675f37a44a2bd7c4eb251bcf2b90293a5" => :x86_64_linux
   end
 
   option "without-addons", "Build without addons"
@@ -33,12 +33,17 @@ class Io < Formula
     depends_on "libsndfile"
     depends_on "libtiff"
     depends_on "libvorbis"
-    depends_on "ossp-uuid"
+    if OS.mac?
+      depends_on "ossp-uuid"
+    else
+      depends_on "util-linux" # for libuuid
+    end
     depends_on "pcre"
     depends_on "yajl"
     depends_on "xz"
     depends_on "python" => :optional
   end
+  depends_on "libxml2" unless OS.mac?
 
   def install
     ENV.deparallelize
