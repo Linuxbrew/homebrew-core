@@ -1,3 +1,4 @@
+# packer: Build a bottle for Linuxbrew
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
