@@ -37,7 +37,11 @@ class Freexl < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-L#{lib}", "-lfreexl", "-o", "test"
+    end
     assert_equal version.to_s, shell_output("./test")
   end
 end
