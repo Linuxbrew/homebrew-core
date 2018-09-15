@@ -1,3 +1,4 @@
+# profanity: Build a bottle for Linuxbrew
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
@@ -30,7 +31,7 @@ class Profanity < Formula
   depends_on "openssl"
   depends_on "ossp-uuid"
   depends_on "readline"
-  depends_on "terminal-notifier"
+  depends_on "terminal-notifier" if OS.mac?
   depends_on "curl" unless OS.mac?
 
   def install
