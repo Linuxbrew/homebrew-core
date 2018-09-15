@@ -66,6 +66,7 @@ class Httpd < Formula
                           "--disable-lua",
                           "--disable-luajit"
     system "make"
+    ENV.deparallelize unless OS.mac?
     system "make", "install"
 
     # suexec does not install without root
