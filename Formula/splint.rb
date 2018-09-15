@@ -14,6 +14,8 @@ class Splint < Formula
     sha256 "ad8551b508f303c69499a60456de49d2b77d1f0f2383383d3c01c1b657a230b6" => :mavericks
   end
 
+  depends_on "flex" unless OS.mac?
+
   # fix compiling error of osd.c
   patch :DATA
 
@@ -23,6 +25,7 @@ class Splint < Formula
                           "--prefix=#{prefix}",
                           "--infodir=#{info}",
                           "--mandir=#{man}"
+    inreplace "src/Makefile", /^LIBS = $/, "LIBS = -lfl" unless OS.mac?
     system "make"
     system "make", "install"
   end
