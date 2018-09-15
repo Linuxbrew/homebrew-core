@@ -1,3 +1,4 @@
+# lz4: Build a bottle for Linuxbrew
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
   homepage "https://lz4.org/"
