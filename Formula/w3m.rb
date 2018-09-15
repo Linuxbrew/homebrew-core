@@ -24,7 +24,6 @@ class W3m < Formula
     sha256 "4b0be4259e778c1c7df97d43b9e176e019e6de5d7bdeceec89baa34bdc0392db" => :high_sierra
     sha256 "1e2305cc1e1e717648d331a44d3f0867ad20e63a50fbdd0d824e4482e4d8a6f7" => :sierra
     sha256 "745f4a07f511c4a9ecbf4cb12bba58eac9c36a92291945134cbebe4fe03dc747" => :el_capitan
-    sha256 "0985ae777239981b09a6628bf82fbd22e1bec549d6fac106a73f3bcfc58717ce" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
