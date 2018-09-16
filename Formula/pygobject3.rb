@@ -1,15 +1,14 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.0.tar.xz"
-  sha256 "7d20ba1475df922f4c26c69274ab89f7e7730d2101e46846caaddc53afd56bd0"
+  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.1.tar.xz"
+  sha256 "e1335b70e36885bf1ae207ec1283a369b8fc3e080688046c1edb5a676edc11ce"
 
   bottle do
-    sha256 "b2dc5ccd1ccb7a27c869edf6b4b8653088457e2fff29c2e83a5771b3284529de" => :mojave
-    sha256 "e7cdcda8c8b08569363811da5ddf6453b85975847dd30103181ac4c503d80fde" => :high_sierra
-    sha256 "974dc882d220f378dc2ea44a8bff6fa87b020fa48fe049e97cff24defa6cc170" => :sierra
-    sha256 "62af7aa4ba704a7b7ea9d55b9d08a7ce9ce787a30f13840523a5c67cf671e3e0" => :el_capitan
-    sha256 "387db3a562ddc6ca6e10a9d7e9b0ddedc061e56ccd082668d03a498f68d91502" => :x86_64_linux
+    sha256 "d2f915f9926b904ca20f3976c003be9f777403f4f0ac76646c6c410990a34285" => :mojave
+    sha256 "4d929370081936dfebf95767696c62be500c1e3197ee38d1b6cc6468f432daca" => :high_sierra
+    sha256 "9c9c97adeff1513f3f14f84dc6d1f17aea83dc322efea5c3733603e18b246947" => :sierra
+    sha256 "61a4cb205453ebb9c2e9bc1c9c92d7a93fb26b7886c94a7e03406c7f1541a72a" => :el_capitan
   end
 
   option "without-python", "Build without python3 support"
@@ -31,14 +30,6 @@ class Pygobject3 < Formula
                         "-Dpycairo=true",
                         "-Dpython=#{python}",
                         ".."
-
-        # avoid linking against python framework
-        # reported at https://gitlab.gnome.org/GNOME/pygobject/issues/253
-        libs = Utils.popen_read("pkg-config --libs python-#{version}").chomp.split
-        ext = OS.mac? ? ".dylib" : ".so"
-        dylib = libs[0][2..-1] + "/lib" + libs[1][2..-1] + ext
-        inreplace "build.ninja", dylib, ""
-
         system "ninja", "-v"
         system "ninja", "install"
       end

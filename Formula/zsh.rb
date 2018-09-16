@@ -1,16 +1,15 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.1/zsh-5.6.1.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.6.1.tar.xz"
-  sha256 "9566753f317d31b808b6b63a5622c71f25d473a6b5fea5c35ab1c7ed96fbb3e8"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.6.2.tar.xz"
+  sha256 "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
 
   bottle do
-    sha256 "0a005a146f095456fe122a0e5d5a6d783e0779b831f8e209e9c3a70d58d75a0e" => :mojave
-    sha256 "dc77c71144f5d953f73dc1f9214ea2ef70061ddb902708e21558507cb925b6c0" => :high_sierra
-    sha256 "aed8b15cc590f43cfe680b5619cb8649437dfdc2a3c8f624864c155c794f45e8" => :sierra
-    sha256 "56a757d55baf4f709dda5b89d036412d5aad5f74a508950186915b79231c9d26" => :el_capitan
-    sha256 "65206d954bacf8e8b2ad94c13b0ae589045fa5c9586a67d744994aadd92b51d3" => :x86_64_linux
+    sha256 "443795937f11b04a0bff7047fb183c18f48dabff111d1b9f7f576a9881285f58" => :mojave
+    sha256 "b907030adf23a3a218eca94e4a3d25b55167ab5a3b27ee1eaab75955dfc3eb70" => :high_sierra
+    sha256 "abbb8bd5136e9d550bab6c6d44e36df3246f7f4027fa716a1237e3d8432ebd95" => :sierra
+    sha256 "a5df51c6e413290baa02137530f3834a783f69ce942bf2928d5da77575b524ea" => :el_capitan
   end
 
   head do
@@ -31,9 +30,9 @@ class Zsh < Formula
   end
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.6.1/zsh-5.6.1-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.6.1-doc.tar.xz"
-    sha256 "b64a290c0176d8844d0bd7349b59078536f798cfc7f4eab175595dd75ae04896"
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz"
+    sha256 "98973267547cbdd8471b52e3a2bbe415be2c2c473246536ed8914f685e260114"
   end
 
   def install
@@ -51,6 +50,7 @@ class Zsh < Formula
       --enable-multibyte
       --enable-zsh-secure-free
       --with-tcsetpgrp
+      DL_EXT=bundle
     ]
 
     args << "--disable-gdbm" if build.without? "gdbm"
