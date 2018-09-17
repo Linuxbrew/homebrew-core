@@ -1,3 +1,4 @@
+# links: Build a bottle for Linuxbrew
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
