@@ -3,7 +3,7 @@ class Bazaar < Formula
   homepage "https://bazaar.canonical.com/"
   url "https://launchpad.net/bzr/2.7/2.7.0/+download/bzr-2.7.0.tar.gz"
   sha256 "0d451227b705a0dd21d8408353fe7e44d3a5069e6c4c26e5f146f1314b8fdab3"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,6 @@ class Bazaar < Formula
     sha256 "102d9ec9fbed0c83402195d77f20bbcf94210face42bcddf98c3feda6c9587f7" => :high_sierra
     sha256 "4a927398b0b1fc8ce43e16a227f40c63409a752338fd36600d05b907d960cab5" => :sierra
     sha256 "6d1409dc49d838c0209bc59ebeb4ec5b70c5c1caef3b27b97f0ebedd6d8ff515" => :el_capitan
-    sha256 "1eab82e2e5d2235a590ab39089d5cf665a67d627d69a3afaeb005b81f0ab8012" => :x86_64_linux
   end
 
   # CVE-2017-14176
@@ -23,7 +22,7 @@ class Bazaar < Formula
     apply "patches/27_fix_sec_ssh"
   end
 
-  depends_on "python" unless OS.mac?
+  depends_on "python@2" unless OS.mac?
 
   def install
     ENV.deparallelize # Builds aren't parallel-safe
