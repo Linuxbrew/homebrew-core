@@ -28,6 +28,7 @@ class Wxmac < Formula
   depends_on "libtiff"
 
   unless OS.mac?
+    depends_on "pkg-config" => :build
     depends_on "gtk+"
     depends_on "linuxbrew/xorg/glu"
     depends_on "linuxbrew/xorg/libsm"
