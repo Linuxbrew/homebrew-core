@@ -30,6 +30,7 @@ class Wxmac < Formula
   unless OS.mac?
     depends_on "gtk+"
     depends_on "linuxbrew/xorg/glu"
+    depends_on "linuxbrew/xorg/libsm"
   end
 
   def install
