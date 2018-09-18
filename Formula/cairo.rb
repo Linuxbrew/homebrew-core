@@ -34,14 +34,8 @@ class Cairo < Formula
   depends_on "pixman"
   unless OS.mac?
     depends_on "zlib"
-    depends_on "linuxbrew/xorg/xorg" => :recommended
-    if build.with?("xorg")
-      depends_on "linuxbrew/xorg/kbproto"
-      depends_on "linuxbrew/xorg/libxcb"
-      depends_on "linuxbrew/xorg/renderproto"
-      depends_on "linuxbrew/xorg/xcb-proto"
-      depends_on "linuxbrew/xorg/xextproto"
-    end
+    depends_on "linuxbrew/xorg/libxext"
+    depends_on "linuxbrew/xorg/libxrender"
   end
 
   def install
@@ -51,16 +45,12 @@ class Cairo < Formula
       --enable-gobject=yes
       --enable-svg=yes
       --enable-tee=yes
+      --enable-quartz-image=#{OS.mac? ? "yes" : "no"}
+      --enable-xcb=#{OS.mac? ? "no" : "yes"}
+      --enable-xlib=#{OS.mac? ? "no" : "yes"}
+      --enable-xlib-xrender=#{OS.mac? ? "no" : "yes"}
+      --enable-valgrind=no
     ]
-    args += %w[
-      --enable-quartz-image
-    ] if OS.mac?
-
-    if !OS.mac? || build.with?("xorg")
-      args << "--enable-xcb=yes" << "--enable-xlib=yes" << "--enable-xlib-xrender=yes"
-    else
-      args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
-    end
 
     if build.head?
       ENV["NOCONFIGURE"] = "1"
