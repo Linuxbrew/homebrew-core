@@ -1,3 +1,4 @@
+# openjdk: Build a bottle for Linuxbrew
 class Openjdk < Formula
   desc "Java Development Kit"
   homepage "https://github.com/ojdkbuild/"
