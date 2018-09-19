@@ -1,3 +1,4 @@
+# openjdk@10: Build a bottle for Linuxbrew
 class OpenjdkAT10 < Formula
   desc "Java Development Kit"
   homepage "http://jdk.java.net/10/"
