@@ -1,3 +1,4 @@
+# isync: Build a bottle for Linuxbrew
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
