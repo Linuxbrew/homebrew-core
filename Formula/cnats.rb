@@ -1,3 +1,4 @@
+# cnats: Build a bottle for Linuxbrew
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/cnats"
