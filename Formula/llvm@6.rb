@@ -49,15 +49,28 @@ class LlvmAT6 < Formula
   depends_on "cmake" => :build
   depends_on "libffi"
 
-  if MacOS.version <= :snow_leopard
+  unless OS.mac?
+    depends_on "gcc" # needed for libstdc++
+    depends_on "binutils" # needed for gold and strip
+    depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "ncurses"
+    depends_on "libxml2"
+    depends_on "zlib"
+    needs :cxx11
+  end
+
+  if !OS.mac?
+    depends_on "python@2" => :recommended
+  elsif MacOS.version <= :snow_leopard
     depends_on "python@2"
   else
     depends_on "python@2" => :optional
   end
 
   if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
+    depends_on "swig" if MacOS.version >= :lion || !OS.mac?
+    depends_on CodesignRequirement if OS.mac?
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
@@ -70,6 +83,11 @@ class LlvmAT6 < Formula
   resource "clang" do
     url "https://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz"
     sha256 "7c243f1485bddfdfedada3cd402ff4792ea82362ff91fbdac2dae67c6026b667"
+
+    patch do
+      url "https://github.com/xu-cheng/clang/commit/83c39729df671c06b003e2638a2d5600a8a2278c.patch?full_index=1"
+      sha256 "c8a038fb648278d9951d03a437723d5a55abc64346668566b707d555ae5997a6"
+    end unless OS.mac?
   end
 
   resource "clang-extra-tools" do
@@ -85,7 +103,7 @@ class LlvmAT6 < Formula
   resource "libcxx" do
     url "https://releases.llvm.org/6.0.1/libcxx-6.0.1.src.tar.xz"
     sha256 "7654fbc810a03860e6f01a54c2297a0b9efb04c0b9aa0409251d9bdb3726fc67"
-  end
+  end if OS.mac?
 
   resource "libunwind" do
     url "https://releases.llvm.org/6.0.1/libunwind-6.0.1.src.tar.xz"
@@ -112,7 +130,16 @@ class LlvmAT6 < Formula
     sha256 "e7765fdf6c8c102b9996dbb46e8b3abc41396032ae2315550610cf5a1ecf4ecc"
   end
 
+  # Clang cannot find system headers if Xcode CLT is not installed
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end if OS.mac?
+
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -123,7 +150,7 @@ class LlvmAT6 < Formula
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -132,7 +159,8 @@ class LlvmAT6 < Formula
       if build.with? "python@2"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
+        dylib = OS.mac? ? "dylib" : "so"
+        pylib = "#{pyhome}/lib/libpython2.7.#{dylib}"
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
@@ -143,9 +171,11 @@ class LlvmAT6 < Formula
       # the search path in a superenv build. The following three lines add
       # the login keychain to ~/Library/Preferences/com.apple.security.plist,
       # which adds it to the superenv keychain search path.
-      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-      username = ENV["USER"]
-      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+      if OS.mac?
+        mkdir_p "#{ENV["HOME"]}/Library/Preferences"
+        username = ENV["USER"]
+        system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+      end
     end
 
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
@@ -164,7 +194,6 @@ class LlvmAT6 < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -175,6 +204,12 @@ class LlvmAT6 < Formula
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
     ]
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
+    if OS.mac?
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+    else
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
+    end
 
     if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -186,7 +221,7 @@ class LlvmAT6 < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain"
+      system "make", "install-xcode-toolchain" if build.with?("toolchain") && OS.mac?
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
@@ -198,6 +233,14 @@ class LlvmAT6 < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    unless OS.mac?
+      # Strip executables/libraries/object files to reduce their size
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   def caveats; <<~EOS
@@ -227,7 +270,8 @@ class LlvmAT6 < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{clean_version}/include",
-                           "omptest.c", "-o", "omptest"
+                           *("-Wl,-rpath=#{lib}" unless OS.mac?),
+                           "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -259,8 +303,13 @@ class LlvmAT6 < Formula
       }
     EOS
 
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
+
     # Testing Command Line Tools
-    if MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
@@ -278,7 +327,7 @@ class LlvmAT6 < Formula
     end
 
     # Testing Xcode
-    if MacOS::Xcode.installed?
+    if OS.mac? && MacOS::Xcode.installed?
       libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
@@ -297,14 +346,16 @@ class LlvmAT6 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v", "-nostdinc",
-            "-std=c++11", "-stdlib=libc++",
-            "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-            "-I#{libclangxc}/include",
-            "-I#{MacOS.sdk_path}/usr/include",
-            "-L#{lib}",
-            "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-    assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./test").chomp
+    if OS.mac?
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-std=c++11", "-stdlib=libc++",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "-L#{lib}",
+              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
   end
 end
