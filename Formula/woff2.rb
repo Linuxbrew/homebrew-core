@@ -1,3 +1,4 @@
+# woff2: Build a bottle for Linuxbrew
 class Woff2 < Formula
   desc "Utilities to create and convert Web Open Font File (WOFF) files"
   homepage "https://github.com/google/woff2"
