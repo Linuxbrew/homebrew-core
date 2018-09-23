@@ -1,3 +1,4 @@
+# vegeta: Build a bottle for Linuxbrew
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
