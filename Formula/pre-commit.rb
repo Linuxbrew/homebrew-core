@@ -14,6 +14,7 @@ class PreCommit < Formula
   end
 
   depends_on "python"
+  depends_on "python@2" => :test unless OS.mac?
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -33,7 +34,7 @@ class PreCommit < Formula
       ln_s realpath, f
     end
     inreplace lib_python_path/"orig-prefix.txt",
-              Formula["python3"].opt_prefix, Formula["python3"].prefix.realpath
+              Formula["python"].opt_prefix, Formula["python"].prefix.realpath
   end
 
   test do
