@@ -3,15 +3,14 @@ class Neko < Formula
   homepage "https://nekovm.org/"
   url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
   sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 5
+  revision 6
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 "ce8fdd0a4d8390fba3b3d36ceaae29aa173d4221507b32c5d1755b08c000ff90" => :mojave
-    sha256 "a1fa4028cc7485f7f1dcbb0b587e3c30b1d52ea7cc78e9fe7c1a4f74a72d0813" => :high_sierra
-    sha256 "32724bad0333f9d3c9d97ef095cda5a401d177949e522d63148c5f73852d1904" => :sierra
-    sha256 "2a526fb7bf64537f71d410fd757d1c0291c3e0105f5db8aa7bed878eb5914edd" => :el_capitan
-    sha256 "e299ed578b375e02b25e0117635768fedca1121bdf1b2fda2fb39b565d0b4077" => :x86_64_linux
+    sha256 "e4d68665d504273468b38a5891c938d59080147677abfc718967e11eeb70ce5d" => :mojave
+    sha256 "396aea7bce27dcba88338f6698036c097864a172732742e04bfac4815fc7c7e7" => :high_sierra
+    sha256 "12be1d612bea5f7efbca986107ea498edec85d610e7df6abde68c95a07e5746c" => :sierra
+    sha256 "0054a53a378dc7ab95c74fff99f80a3bd15b927fe87204635b728a9bbdc2b866" => :el_capitan
   end
 
   depends_on "cmake" => :build
