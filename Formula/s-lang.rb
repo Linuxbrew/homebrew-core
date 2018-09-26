@@ -1,3 +1,4 @@
+# s-lang: Build a bottle for Linuxbrew
 class SLang < Formula
   desc "Library for creating multi-platform software"
   homepage "https://www.jedsoft.org/slang/"
