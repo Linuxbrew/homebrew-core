@@ -1,3 +1,4 @@
+# sourcery: Build a bottle for Linuxbrew
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
