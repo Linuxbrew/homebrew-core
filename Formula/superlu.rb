@@ -37,10 +37,10 @@ class Superlu < Formula
   end
 
   test do
-    if build.with? "openblas"
-      args = ["-L#{Formula["openblas"].opt_lib}", "-lopenblas"]
-    else
+    if OS.mac?
       args = ["-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"]
+    else
+      args = ["-L#{Formula["openblas"].opt_lib}", "-lopenblas"]
     end
     system ENV.cc, pkgshare/"dlinsol.c", "-o", "test",
                    "-I#{include}/superlu", "-L#{lib}", "-lsuperlu", *args
