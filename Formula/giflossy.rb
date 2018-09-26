@@ -1,3 +1,4 @@
+# giflossy: Build a bottle for Linuxbrew
 class Giflossy < Formula
   desc "Lossy LZW compression, reduces GIF file sizes by 30-50%"
   homepage "https://pornel.net/lossygif"
