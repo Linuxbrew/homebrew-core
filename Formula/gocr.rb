@@ -1,3 +1,4 @@
+# gocr: Build a bottle for Linuxbrew
 class Gocr < Formula
   desc "Optical Character Recognition (OCR), converts images back to text"
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
