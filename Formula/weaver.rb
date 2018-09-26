@@ -1,3 +1,4 @@
+# weaver: Build a bottle for Linuxbrew
 class Weaver < Formula
   desc "Command-line tool for Weaver"
   homepage "https://github.com/scribd/Weaver"
