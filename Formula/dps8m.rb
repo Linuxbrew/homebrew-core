@@ -16,6 +16,7 @@ class Dps8m < Formula
   end
 
   depends_on "libuv"
+  depends_on "expect" => :test unless OS.mac?
 
   def install
     # Reported 23 Jul 2017 "make dosn't create bin directory"
