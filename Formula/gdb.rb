@@ -1,3 +1,4 @@
+# gdb: Build a bottle for Linuxbrew
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
