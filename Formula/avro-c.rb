@@ -1,3 +1,4 @@
+# avro-c: Build a bottle for Linuxbrew
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
