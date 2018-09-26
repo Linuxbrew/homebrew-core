@@ -1,3 +1,4 @@
+# libuvc: Build a bottle for Linuxbrew
 class Libuvc < Formula
   desc "Cross-platform library for USB video devices"
   homepage "https://github.com/ktossell/libuvc"
