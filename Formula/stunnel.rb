@@ -1,3 +1,4 @@
+# stunnel: Build a bottle for Linuxbrew
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
