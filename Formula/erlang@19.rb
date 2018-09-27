@@ -31,6 +31,7 @@ class ErlangAT19 < Formula
   depends_on "wxmac" => :recommended # for GUI apps like observer
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
+  depends_on "m4" => :build unless OS.mac?
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_19.3.tar.gz"
