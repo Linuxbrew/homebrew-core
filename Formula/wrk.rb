@@ -1,3 +1,4 @@
+# wrk: Build a bottle for Linuxbrew
 class Wrk < Formula
   desc "HTTP benchmarking tool"
   homepage "https://github.com/wg/wrk"
