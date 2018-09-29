@@ -1,3 +1,4 @@
+# pass: Build a bottle for Linuxbrew
 class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
