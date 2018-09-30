@@ -16,6 +16,12 @@ class Kibana < Formula
   resource "node" do
     url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
     sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
+
+    # Fix compilation with gcc 5.4-5.5
+    # https://github.com/Linuxbrew/homebrew-core/issues/9530
+    # https://github.com/nodejs/node/pull/19196
+    # Remove this patch after updating Node JS to >= v8.12
+    patch :DATA unless OS.mac?
   end
 
   resource "yarn" do
@@ -23,7 +29,10 @@ class Kibana < Formula
     sha256 "7667eb715077b4bad8e2a832e7084e0e6f1ba54d7280dc573c8f7031a7fb093e"
   end
 
-  depends_on "python" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "python@2" => :build
+    depends_on "linuxbrew/xorg/libx11"
+  end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -99,3 +108,24 @@ class Kibana < Formula
     assert_match /#{version}/, shell_output("#{bin}/kibana -V")
   end
 end
+
+__END__
+--- a/src/node_crypto.cc
++++ b/src/node_crypto.cc
+@@ -33,15 +33,15 @@
+ #include "env-inl.h"
+ #include "string_bytes.h"
+ #include "util-inl.h"
+ #include "v8.h"
+ 
+ #include <algorithm>
++#include <cmath>
+ #include <errno.h>
+ #include <limits.h>  // INT_MAX
+-#include <math.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <vector>
+ 
+ #define THROW_AND_RETURN_IF_NOT_STRING_OR_BUFFER(val, prefix)                  \
+   do {                                                                         \
