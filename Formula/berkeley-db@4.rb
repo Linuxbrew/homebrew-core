@@ -1,3 +1,4 @@
+# berkeley-db@4: Build a bottle for Linuxbrew
 class BerkeleyDbAT4 < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
