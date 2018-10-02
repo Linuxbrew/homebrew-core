@@ -15,9 +15,8 @@ class Curl < Formula
   end
 
   pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs to be installed into #{default_prefix} when built with OpenSSL."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX} when built with OpenSSL."
+    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   head do

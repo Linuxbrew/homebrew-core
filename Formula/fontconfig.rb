@@ -15,11 +15,10 @@ class Fontconfig < Formula
   end
 
   pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs to be installed into #{default_prefix}."
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
     # c.f. the identical hack in lua
     # https://github.com/Homebrew/homebrew/issues/47173
-    satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
+    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   head do
