@@ -41,8 +41,8 @@ class Libssh < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lssh",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", *("-L#{lib}" if OS.mac?), *("-lssh" if OS.mac?),
+           testpath/"test.c", *("-L#{lib}" unless OS.mac?), *("-lssh" unless OS.mac?), "-o", testpath/"test"
     system "./test"
   end
 end
