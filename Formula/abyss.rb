@@ -22,7 +22,7 @@ class Abyss < Formula
 
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
-  depends_on "gcc"
+  depends_on "gcc" if OS.mac?
   depends_on "open-mpi"
 
   fails_with :clang # no OpenMP support
