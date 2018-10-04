@@ -29,10 +29,9 @@ class Fish < Formula
         -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
         -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
         -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-        -DSED=/usr/bin/sed
       ]
 
-      args << "SED=/usr/bin/sed" if OS.mac?
+      args << "-DSED=/usr/bin/sed" if OS.mac?
       system "cmake", ".", *std_cmake_args, *args
     else
       # In Homebrew's 'superenv' sed's path will be incompatible, so
@@ -42,7 +41,6 @@ class Fish < Formula
         --with-extra-functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
         --with-extra-completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
         --with-extra-confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-        SED=/usr/bin/sed
       ]
 
       args << "SED=/usr/bin/sed" if OS.mac?
