@@ -1,3 +1,4 @@
+# qca: Build a bottle for Linuxbrew
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "http://delta.affinix.com/qca/"
