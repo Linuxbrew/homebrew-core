@@ -1,3 +1,4 @@
+# kubernetes-helm: Build a bottle for Linuxbrew
 class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
