@@ -63,6 +63,7 @@ class Httpd < Formula
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
+                          "--with-libxml2=#{Formula["libxml2"].opt_prefix}",
                           "--disable-lua",
                           "--disable-luajit"
     system "make"
