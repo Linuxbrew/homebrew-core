@@ -16,9 +16,15 @@ class Ldc < Formula
   depends_on "llvm"
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.12.0/ldc2-1.12.0-osx-x86_64.tar.xz"
-    version "1.12.0"
-    sha256 "a946e658aaff1eed80bffeb4d69b572f259368fac44673731781f6d487dea3cd"
+    if OS.mac?
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.12.0/ldc2-1.12.0-osx-x86_64.tar.xz"
+      version "1.12.0"
+      sha256 "a946e658aaff1eed80bffeb4d69b572f259368fac44673731781f6d487dea3cd"
+    else
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.12.0/ldc2-1.12.0-linux-x86_64.tar.xz"
+      version "1.12.0"
+      sha256 "eeb83d3356d6ba3f5892f629de466df79c02bac5fd1f0e1ecdf01fe6171d42ac"
+    end
   end
 
   needs :cxx11
