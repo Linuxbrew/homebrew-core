@@ -1,3 +1,4 @@
+# fzf: Build a bottle for Linuxbrew
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
