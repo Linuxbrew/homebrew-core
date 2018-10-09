@@ -17,6 +17,10 @@ class GitStandup < Formula
   end
 
   test do
+    unless OS.mac?
+      system "git", "config", "--global", "user.email", "\"you@example.com\""
+      system "git", "config", "--global", "user.name", "\"Your Name\""
+    end
     system "git", "init"
     (testpath/"test").write "test"
     system "git", "add", "#{testpath}/test"
