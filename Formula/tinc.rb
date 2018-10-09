@@ -1,3 +1,4 @@
+# tinc: Build a bottle for Linuxbrew
 class Tinc < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
