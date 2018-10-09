@@ -1,3 +1,4 @@
+# texmath: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Texmath < Formula
