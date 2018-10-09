@@ -26,18 +26,29 @@ class GoAT110 < Formula
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+    if OS.mac?
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    elsif OS.linux?
+      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+    end
     version "1.7"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
   end
 
   def install
+    # Fixes: Error: Failure while executing: ../bin/ldd ../line-clang.elf: Permission denied
+    unless OS.mac?
+      chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
+      chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
+    end
+
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
+      ENV["GOOS"]         = OS.mac? ? "darwin" : "linux"
       ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
