@@ -13,6 +13,7 @@ class Bettercap < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build unless OS.mac?
 
   def install
     ENV["GOPATH"] = buildpath
