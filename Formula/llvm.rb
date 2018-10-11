@@ -19,6 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/7.0.0/llvm-7.0.0.src.tar.xz"
@@ -82,7 +83,6 @@ class Llvm < Formula
     sha256 "c595bdab01a4fdbdf7c86c61737b2d3bf0b529ecf7a98298827b7edc9e723335" => :high_sierra
     sha256 "b3835b962a53e522634ac67960d5a0a6e221998539eef3158090849b786d1f6e" => :sierra
     sha256 "b0afc0d6a628eed90274ec79fd9b2602ed1c1ca2402e539dfbdafc6907671dc8" => :el_capitan
-    sha256 "7452b2c089fc0534df7e8f730d7ecc70836df76baf6720bdc4d65d61579989b5" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -194,8 +194,7 @@ class Llvm < Formula
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxxabi").install resource("libcxxabi") unless OS.mac?
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -239,7 +238,6 @@ class Llvm < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -250,8 +248,10 @@ class Llvm < Formula
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
     ]
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
-    unless OS.mac?
-      args << "-DLLVM_ENABLE_LIBCXXABI=ON"
+    if OS.mac?
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+    else
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
     end
 
