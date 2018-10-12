@@ -1,3 +1,4 @@
+# twarc: Build a bottle for Linuxbrew
 class Twarc < Formula
   include Language::Python::Virtualenv
 
