@@ -22,14 +22,9 @@ class AtSpi2Core < Formula
   depends_on "gettext"
   depends_on "glib"
   unless OS.mac?
-    depends_on "linuxbrew/xorg/bigreqsproto"
-    depends_on "linuxbrew/xorg/fixesproto"
-    depends_on "linuxbrew/xorg/inputproto"
-    depends_on "linuxbrew/xorg/kbproto"
+    depends_on "linuxbrew/xorg/xorgproto"
     depends_on "linuxbrew/xorg/libx11"
     depends_on "linuxbrew/xorg/libxtst"
-    depends_on "linuxbrew/xorg/recordproto"
-    depends_on "linuxbrew/xorg/xextproto"
   end
 
   def install
