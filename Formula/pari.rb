@@ -13,10 +13,10 @@ class Pari < Formula
 
   depends_on "gmp"
   depends_on "readline"
-  depends_on :x11 if OS.mac?
-  unless OS.mac?
-    depends_on "linuxbrew/xorg/kbproto"
-    depends_on "linuxbrew/xorg/xorg"
+  if OS.mac?
+    depends_on :x11
+  else
+    depends_on "linuxbrew/xorg/libx11"
   end
 
   def install
