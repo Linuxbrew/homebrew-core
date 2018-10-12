@@ -16,6 +16,7 @@ class Squashfs < Formula
   depends_on "lzo"
   depends_on "xz"
   depends_on "lz4" => :optional
+  depends_on "zlib" unless OS.mac?
 
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
@@ -23,6 +24,13 @@ class Squashfs < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/05ae0eb1/squashfs/squashfs-osx-bundle.diff"
     sha256 "276763d01ec675793ddb0ae293fbe82cbf96235ade0258d767b6a225a84bc75f"
+  end
+
+  # Fixes the following compilation issue of squash4.3 with newer versions of gcc:
+  # "mksquashfs.c:987:24: error: called object 'major' is not a function or function pointer"
+  patch do
+    url "https://raw.githubusercontent.com/rchikhi/formula-patches/14e9deef14117908e24c17b81b60b11996688991/squashfs/squashfs-new-gcc.diff"
+    sha256 "24e51ef16f6e6101b59f4913aa4acbd6ff541a1953e923019e8648f6e6bdd582"
   end
 
   def install
