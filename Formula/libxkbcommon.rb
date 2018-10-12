@@ -27,7 +27,6 @@ class Libxkbcommon < Formula
 
   unless OS.mac?
     depends_on "linuxbrew/xorg/xkeyboardconfig"
-    depends_on "linuxbrew/xorg/xorg"
     depends_on "linuxbrew/xorg/libxcb"
   end
 
