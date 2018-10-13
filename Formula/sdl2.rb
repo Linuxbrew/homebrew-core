@@ -3,7 +3,7 @@ class Sdl2 < Formula
   homepage "https://www.libsdl.org/"
   url "https://libsdl.org/release/SDL2-2.0.8.tar.gz"
   sha256 "edc77c57308661d576e843344d8638e025a7818bff73f8fbfab09c3c5fd092ec"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
@@ -11,7 +11,6 @@ class Sdl2 < Formula
     sha256 "25cc31a9680beb16321613f740fee7fdd862489948a5280e4a5f94b8ed291dd6" => :high_sierra
     sha256 "81ae8deb6918e241fc0c3c47c11b1e5041deb297e9010f87e1a1584fcf2c17e8" => :sierra
     sha256 "d1cf341785b66ce316564564abe44d7e6e1d1d6e16b26dc9b1e307c68f0bd22d" => :el_capitan
-    sha256 "235dc6146fe87cb86e48380dd8c2b63e235ef6de7846cfde19faf72e01aa86cb" => :x86_64_linux
   end
 
   head do
@@ -23,11 +22,12 @@ class Sdl2 < Formula
   end
 
   unless OS.mac?
+    depends_on "linuxbrew/xorg/libice"
+    depends_on "linuxbrew/xorg/libxcursor"
+    depends_on "linuxbrew/xorg/libxscrnsaver"
+    depends_on "linuxbrew/xorg/libxxf86vm"
+    depends_on "linuxbrew/xorg/xinput"
     depends_on "pulseaudio"
-    depends_on "libxkbcommon"
-    depends_on "linuxbrew/xorg/kbproto"
-    depends_on "linuxbrew/xorg/xextproto"
-    depends_on "linuxbrew/xorg/xorg"
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
@@ -46,7 +46,11 @@ class Sdl2 < Formula
 
     system "./autogen.sh" if build.head? || build.devel?
 
-    args = %W[--prefix=#{prefix} --without-x]
+    if OS.mac?
+      args = %W[--prefix=#{prefix} --without-x]
+    else
+      args = %W[--prefix=#{prefix} --with-x]
+    end
 
     # LLVM-based compilers choke on the assembly code packaged with SDL.
     if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
@@ -55,20 +59,21 @@ class Sdl2 < Formula
     args << "--disable-haptic" << "--disable-joystick" if MacOS.version <= :snow_leopard
 
     unless OS.mac?
-      args << "--enable-pulseaudio"
-      args << "--enable-pulseaudio-shared"
-
-      args << "--enable-video-dummy"
-      args << "--enable-video-opengl"
-      args << "--enable-video-opengles"
-      args << "--enable-video-x11"
-      args << "--enable-video-x11-scrnsaver"
-      args << "--enable-video-x11-xcursor"
-      args << "--enable-video-x11-xinerama"
-      args << "--enable-video-x11-xinput"
-      args << "--enable-video-x11-xrandr"
-      args << "--enable-video-x11-xshape"
-      args << "--enable-x11-shared"
+      args += %w[
+        --enable-pulseaudio
+        --enable-pulseaudio-shared
+        --enable-video-dummy
+        --enable-video-opengl
+        --enable-video-opengles
+        --enable-video-x11
+        --enable-video-x11-scrnsaver
+        --enable-video-x11-xcursor
+        --enable-video-x11-xinerama
+        --enable-video-x11-xinput
+        --enable-video-x11-xrandr
+        --enable-video-x11-xshape
+        --enable-x11-shared
+      ]
     end
 
     system "./configure", *args
