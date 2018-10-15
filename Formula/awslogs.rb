@@ -5,9 +5,8 @@ class Awslogs < Formula
   homepage "https://github.com/jorgebastida/awslogs"
   url "https://github.com/jorgebastida/awslogs/archive/0.10.tar.gz"
   sha256 "6b05e930ab83d2f7fce4f4aa0320bb855efcd951deb70644a043db539bc56bcf"
-  revision 1
+  revision OS.mac? ? 1 : 3
   head "https://github.com/jorgebastida/awslogs.git"
-  revision 2 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
