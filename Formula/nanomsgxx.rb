@@ -15,6 +15,7 @@ class Nanomsgxx < Formula
 
   depends_on "pkg-config" => :build
   depends_on "nanomsg"
+  depends_on "python@2" => :build unless OS.mac?
 
   def install
     args = %W[
