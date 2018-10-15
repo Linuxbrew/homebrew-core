@@ -34,6 +34,7 @@ class Zpython < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "python@2" unless OS.mac?
   depends_on "zsh"
 
   def install
