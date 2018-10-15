@@ -1,3 +1,4 @@
+# goolabs: Build a bottle for Linuxbrew
 class Goolabs < Formula
   desc "Command-line tool for morphologically analyzing Japanese language"
   homepage "https://pypi.python.org/pypi/goolabs"
