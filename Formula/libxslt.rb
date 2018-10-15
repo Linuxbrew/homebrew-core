@@ -42,7 +42,7 @@ class Libxslt < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           ("--without-crypto" if OS.linux?),
-                          "--with-python=#{Formula["python@2"].opt_include}"
+                          "--with-python=#{Formula["python@2"].opt_include}",
                           "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
     system "make"
     system "make", "install"
