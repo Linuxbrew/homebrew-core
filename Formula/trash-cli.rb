@@ -1,3 +1,4 @@
+# trash-cli: Build a bottle for Linuxbrew
 class TrashCli < Formula
   include Language::Python::Virtualenv
 
