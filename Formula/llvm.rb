@@ -19,7 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   stable do
     url "https://releases.llvm.org/7.0.0/llvm-7.0.0.src.tar.xz"
@@ -28,6 +28,11 @@ class Llvm < Formula
     resource "clang" do
       url "https://releases.llvm.org/7.0.0/cfe-7.0.0.src.tar.xz"
       sha256 "550212711c752697d2f82c648714a7221b1207fd9441543ff4aa9e3be45bba55"
+
+      patch do
+        url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
+        sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
+      end unless OS.mac?
     end
 
     resource "clang-extra-tools" do
@@ -83,7 +88,6 @@ class Llvm < Formula
     sha256 "c595bdab01a4fdbdf7c86c61737b2d3bf0b529ecf7a98298827b7edc9e723335" => :high_sierra
     sha256 "b3835b962a53e522634ac67960d5a0a6e221998539eef3158090849b786d1f6e" => :sierra
     sha256 "b0afc0d6a628eed90274ec79fd9b2602ed1c1ca2402e539dfbdafc6907671dc8" => :el_capitan
-    sha256 "891458b638541410123c9f0b4931777acb125abe235f3992e3583c42e0150045" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -97,6 +101,11 @@ class Llvm < Formula
 
     resource "clang" do
       url "https://git.llvm.org/git/clang.git"
+
+      patch do
+        url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
+        sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
+      end unless OS.mac?
     end
 
     resource "clang-extra-tools" do
