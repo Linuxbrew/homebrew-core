@@ -1,3 +1,4 @@
+# s-search: Build a bottle for Linuxbrew
 require "language/go"
 
 class SSearch < Formula
