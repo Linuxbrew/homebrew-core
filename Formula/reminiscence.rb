@@ -3,6 +3,7 @@ class Reminiscence < Formula
   homepage "http://cyxdown.free.fr/reminiscence/"
   url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.7.tar.bz2"
   sha256 "3e1b9d8e260e5aca086c4a95a833abb2918a2a81047df706770b8f7dcda1934f"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -10,7 +11,6 @@ class Reminiscence < Formula
     sha256 "ac5c1018c11c7050e248722bf6956dc6cd82a68eb7eb9db9917743815ffe027d" => :high_sierra
     sha256 "5c82408dca2c80f1f11e433a94f91b9689adf701d597c0c7e8a729c54373ce41" => :sierra
     sha256 "f8f3f8688125d6b24fc99df7f4d8acf29140b0fdf637dcb2d540b02600105355" => :el_capitan
-    sha256 "88b53bfc010dee96d84a04a13c6421f1d4a260c162c77f58155e5220a6bd69e2" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -39,6 +39,7 @@ class Reminiscence < Formula
 
     ENV.prepend "CPPFLAGS", "-I#{libexec}/include"
     ENV.prepend "LDFLAGS", "-L#{libexec}/lib"
+    ENV.append "LDFLAGS", "-Wl,-rpath=#{libexec}/lib" unless OS.mac?
 
     system "make"
     bin.install "rs" => "reminiscence"
