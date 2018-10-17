@@ -47,6 +47,16 @@ class SubversionAT18 < Formula
     end
   end
 
+  unless OS.mac?
+    depends_on "python@2"
+    depends_on "expat"
+    depends_on "libmagic"
+    depends_on "zlib"
+    depends_on "krb5" => :recommended
+    depends_on "util-linux" # for libuuid
+    depends_on "ruby" => :recommended
+  end
+
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
@@ -63,7 +73,7 @@ class SubversionAT18 < Formula
       "@APXS@ -i -S LIBEXECDIR=\"$(APACHE_LIBEXECDIR)\"",
       "@APXS@ -i -S LIBEXECDIR=\"#{libexec.to_s.sub("@", "\\@")}\""
 
-    serf_prefix = libexec/"serf"
+    serf_prefix = OS.mac? ? libexec/"serf" : prefix
 
     resource("serf").stage do
       # SConstruct merges in gssapi linkflags using scons's MergeFlags,
@@ -77,7 +87,7 @@ class SubversionAT18 < Formula
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
                 OPENSSL=#{Formula["openssl"].opt_prefix}]
 
-      if MacOS.version >= :sierra || !MacOS::CLT.installed?
+      if MacOS.version >= :sierra || !MacOS::CLT.installed? || !OS.mac?
         args << "APR=#{Formula["apr"].opt_prefix}"
         args << "APU=#{Formula["apr-util"].opt_prefix}"
       end
@@ -106,7 +116,7 @@ class SubversionAT18 < Formula
     # Don't mess with Apache modules (since we're not sudo)
     args = ["--disable-debug",
             "--prefix=#{prefix}",
-            "--with-zlib=/usr",
+            "--with-zlib=#{OS.mac? ? "/usr" : Formula["zlib"].opt_prefix}",
             "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
             "--with-serf=#{serf_prefix}",
             "--disable-mod-activation",
@@ -128,7 +138,7 @@ class SubversionAT18 < Formula
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
       # Peg to system Ruby
-      args << "RUBY=/usr/bin/ruby"
+      args << "RUBY=/usr/bin/ruby" if OS.mac?
     end
 
     # The system Python is built with llvm-gcc, so we override this
@@ -163,7 +173,7 @@ class SubversionAT18 < Formula
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) #{"-arch #{MacOS.preferred_arch}" if OS.mac?} -g -pipe -fno-common #{"-DPERL_DARWIN" if OS.mac?} -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl", "DESTDIR=#{prefix}"
