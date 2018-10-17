@@ -1,3 +1,4 @@
+# gpgme: Build a bottle for Linuxbrew
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
