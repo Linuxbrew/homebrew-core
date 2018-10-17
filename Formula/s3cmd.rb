@@ -1,3 +1,4 @@
+# s3cmd: Build a bottle for Linuxbrew
 class S3cmd < Formula
   desc "Command-line tool for the Amazon S3 service"
   homepage "https://s3tools.org/s3cmd"
