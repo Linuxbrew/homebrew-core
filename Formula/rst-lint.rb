@@ -1,3 +1,4 @@
+# rst-lint: Build a bottle for Linuxbrew
 class RstLint < Formula
   include Language::Python::Virtualenv
 
