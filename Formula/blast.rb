@@ -1,3 +1,4 @@
+# blast: Build a bottle for Linuxbrew
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
