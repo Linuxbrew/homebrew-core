@@ -1,3 +1,4 @@
+# atdtool: Build a bottle for Linuxbrew
 class Atdtool < Formula
   desc "Command-line interface for After the Deadline language checker"
   homepage "https://github.com/lpenz/atdtool"
