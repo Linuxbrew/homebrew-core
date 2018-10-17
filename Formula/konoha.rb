@@ -1,3 +1,4 @@
+# konoha: Build a bottle for Linuxbrew
 class Konoha < Formula
   desc "Static scripting language with extensible syntax"
   homepage "https://github.com/konoha-project/konoha3"
