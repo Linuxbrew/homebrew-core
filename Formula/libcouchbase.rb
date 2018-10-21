@@ -1,3 +1,4 @@
+# libcouchbase: Build a bottle for Linuxbrew
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://docs.couchbase.com/c-sdk/2.10/start-using-sdk.html"
