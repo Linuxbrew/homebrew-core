@@ -1,3 +1,4 @@
+# hiredis: Build a bottle for Linuxbrew
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
