@@ -15,6 +15,7 @@ class Cnats < Formula
   depends_on "libevent"
   depends_on "libuv"
   depends_on "openssl"
+  depends_on "protobuf-c" unless OS.mac?
 
   def install
     system "cmake", ".", "-DNATS_INSTALL_PREFIX=#{prefix}",
