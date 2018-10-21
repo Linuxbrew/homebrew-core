@@ -1,3 +1,4 @@
+# sleuthkit: Build a bottle for Linuxbrew
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
