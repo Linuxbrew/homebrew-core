@@ -1,3 +1,4 @@
+# libjson-rpc-cpp: Build a bottle for Linuxbrew
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
