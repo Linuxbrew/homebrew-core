@@ -1,3 +1,4 @@
+# kallisto: Build a bottle for Linuxbrew
 class Kallisto < Formula
   desc "Quantify abundances of transcripts from RNA-Seq data"
   homepage "https://pachterlab.github.io/kallisto/"
