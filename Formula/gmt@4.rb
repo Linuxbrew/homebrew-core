@@ -1,3 +1,4 @@
+# gmt@4: Build a bottle for Linuxbrew
 class GmtAT4 < Formula
   desc "Manipulation of geographic and Cartesian data sets"
   homepage "https://gmt.soest.hawaii.edu/"
