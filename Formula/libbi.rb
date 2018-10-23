@@ -1,3 +1,4 @@
+# libbi: Build a bottle for Linuxbrew
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
