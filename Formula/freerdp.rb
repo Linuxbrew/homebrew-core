@@ -40,11 +40,17 @@ class Freerdp < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on :x11
+  depends_on :x11 if OS.mac?
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     cmake_args = std_cmake_args
     cmake_args << "-DWITH_X11=ON" << "-DBUILD_SHARED_LIBS=ON" if build.head?
+    unless OS.mac?
+      cmake_args << "-DWITH_CUPS=OFF"
+      cmake_args << "-DWITH_FFMPEG=OFF"
+      cmake_args << "-DWITH_ALSA=OFF"
+    end
     system "cmake", ".", *cmake_args
     system "make", "install"
   end
