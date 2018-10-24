@@ -1,3 +1,4 @@
+# regex-opt: Build a bottle for Linuxbrew
 class RegexOpt < Formula
   desc "Perl-compatible regular expression optimizer"
   homepage "https://bisqwit.iki.fi/source/regexopt.html"
