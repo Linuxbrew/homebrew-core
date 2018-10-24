@@ -22,6 +22,8 @@ class GnuIndent < Formula
   deprecated_option "default-names" => "with-default-names"
 
   depends_on "gettext"
+  # Fix WARNING: 'makeinfo' is missing on your system.
+  depends_on "texinfo" => :build unless OS.mac?
 
   def install
     args = %W[
