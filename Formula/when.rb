@@ -1,3 +1,4 @@
+# when: Build a bottle for Linuxbrew
 class When < Formula
   desc "Tiny personal calendar"
   homepage "http://www.lightandmatter.com/when/when.html"
