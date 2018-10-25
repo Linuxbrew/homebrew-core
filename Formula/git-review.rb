@@ -1,3 +1,4 @@
+# git-review: Build a bottle for Linuxbrew
 class GitReview < Formula
   desc "Submit git branches to gerrit for review"
   homepage "https://git.openstack.org/cgit/openstack-infra/git-review"
