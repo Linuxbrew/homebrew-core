@@ -12,6 +12,7 @@ class Bluepill < Formula
   end
 
   depends_on :xcode => ["10.0", :build] if OS.mac?
+  depends_on :macos
 
   def install
     xcodebuild "-workspace", "Bluepill.xcworkspace",
