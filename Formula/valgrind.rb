@@ -52,6 +52,8 @@ class Valgrind < Formula
   end
 
   test do
-    system "#{bin}/valgrind", "ls", "-l"
+    assert_match "usage", shell_output("#{bin}/valgrind --help")
+    # Fails without the package libc6-dbg installed.
+    system "#{bin}/valgrind", "ls", "-l" unless ENV["CIRCLECI"]
   end
 end
