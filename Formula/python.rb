@@ -20,7 +20,7 @@ class Python < Formula
         You can install them, if desired, with:
           xcode-select --install
     EOS
-    satisfy { MacOS::CLT.installed? }
+    satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
   head do

@@ -69,7 +69,7 @@ class Erlang < Formula
     args << "--enable-native-libs" if build.with? "native-libs"
     args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
     args << "--enable-wx" if build.with? "wxmac"
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed? && OS.mac?
+    args << "--with-dynamic-trace=dtrace" if OS.mac? && MacOS::CLT.installed?
     args << "--enable-kernel-poll" if MacOS.version > :el_capitan
 
     if build.without? "hipe"

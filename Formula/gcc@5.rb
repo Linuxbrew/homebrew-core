@@ -41,7 +41,7 @@ class GccAT5 < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    satisfy { !OS.mac || MacOS::CLT.installed? }
   end
 
   option "with-all-languages", "Enable all compilers and languages, except Ada"

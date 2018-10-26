@@ -22,7 +22,7 @@ class PythonAT2 < Formula
         You can install them, if desired, with:
           xcode-select --install
     EOS
-    satisfy { MacOS::CLT.installed? }
+    satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.

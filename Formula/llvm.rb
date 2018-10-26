@@ -76,8 +76,8 @@ class Llvm < Formula
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end if OS.mac?
+    satisfy { !OS.mac? || MacOS::CLT.installed? }
+  end
 
   head do
     url "https://git.llvm.org/git/llvm.git"

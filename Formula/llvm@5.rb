@@ -350,7 +350,7 @@ class LlvmAT5 < Formula
     EOS
 
     # Testing Command Line Tools
-    if OS.mac? && OS.mac? && MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",

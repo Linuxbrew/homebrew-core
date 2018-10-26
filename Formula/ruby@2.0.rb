@@ -38,7 +38,7 @@ class RubyAT20 < Formula
       --with-opt-dir=#{paths.join(":")}
       --with-out-ext=tk
     ]
-    args << "--disable-dtrace" unless MacOS::CLT.installed?
+    args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     system "./configure", *args
 
