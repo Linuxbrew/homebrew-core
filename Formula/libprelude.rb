@@ -45,7 +45,8 @@ class Libprelude < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "check"
+    # Disabled due to https://lists.gnu.org/archive/html/bug-gnulib/2018-05/msg00059.html
+    system "make", "check" if OS.mac?
     system "make", "install"
   end
 
