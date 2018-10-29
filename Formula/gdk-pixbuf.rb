@@ -46,6 +46,19 @@ class GdkPixbuf < Formula
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)",
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
+    # set rpath for binaries
+    gdkpixbuf_bin_spec ="  bin = executable(bin_name, bin_source,
+                   dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
+                   include_directories: [ root_inc, gdk_pixbuf_inc ],
+                   c_args: common_cflags + gdk_pixbuf_cflags,
+                   install: true)"
+    gdkpixbuf_bin_spec_rpath="  bin = executable(bin_name, bin_source,
+                   dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
+                   include_directories: [ root_inc, gdk_pixbuf_inc ],
+                   c_args: common_cflags + gdk_pixbuf_cflags,
+                   install: true, install_rpath: '#{ENV.determine_rpath_paths(self)}')"
+    inreplace "gdk-pixbuf/meson.build", gdkpixbuf_bin_spec, gdkpixbuf_bin_spec_rpath
+
     args = %W[
       --prefix=#{prefix}
       -Dx11=false
