@@ -52,6 +52,7 @@ class Ffmpeg < Formula
   unless OS.mac?
     depends_on "zlib"
     depends_on "bzip2"
+    depends_on "linuxbrew/xorg/libxv"
   end
 
   depends_on "chromaprint" => :optional
