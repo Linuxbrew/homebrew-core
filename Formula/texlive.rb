@@ -2,12 +2,12 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20180617"
-  sha256 "4140038ec9a52dba1f43445df01ac98d717e3e654586b08f30336568b3287e88"
+  version "20181030"
+  sha256 "6b8ac875a05a4c40d9e97593dbf38d243bf9c5d5b35ac0a6b37843d304993ad4"
   # tag "linuxbrew"
 
   bottle do
-    sha256 "a0474bd6f2033213200f60336f6202379521c1cc8337e4a86df8900b792c42a8" => :x86_64_linux
+    cellar :any
   end
 
   option "with-full", "install everything"
@@ -37,10 +37,11 @@ class Texlive < Formula
     ENV["TEXLIVE_INSTALL_PREFIX"] = prefix
     system "./install-tl", "-scheme", scheme, "-portable", "-profile", "/dev/null"
 
+    man1.install Dir[prefix/"texmf-dist/doc/man/man1/*"]
+    man5.install Dir[prefix/"texmf-dist/doc/man/man5/*"]
     binarch = bin/"x86_64-linux"
-    man1.install Dir[binarch/"man/man1/*"]
-    man5.install Dir[binarch/"man/man5/*"]
-    bin.install Dir[binarch/"*"]
+    rm binarch/"man"
+    bin.install_symlink Dir[binarch/"*"]
   end
 
   test do
