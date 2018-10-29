@@ -6,6 +6,7 @@ class Graphviz < Formula
   mirror "https://fossies.org/linux/misc/graphviz-2.40.1.tar.gz"
   sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
   version_scheme 1
+  revision 1 unless OS.mac?
 
   bottle do
     rebuild 1
@@ -27,7 +28,11 @@ class Graphviz < Formula
 
   option "with-app", "Build GraphViz.app (requires full XCode install)"
   option "with-gts", "Build with GNU GTS support (required by prism)"
-  option "with-pango", "Build with Pango/Cairo for alternate PDF output"
+  if OS.mac?
+    option "with-pango", "Build with Pango/Cairo for alternate PDF output"
+  else
+    option "without-pango", "Build without Pango/Cairo to disable PDF output"
+  end
 
   deprecated_option "with-pangocairo" => "with-pango"
 
