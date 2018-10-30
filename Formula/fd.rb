@@ -1,3 +1,4 @@
+# fd: Build a bottle for Linuxbrew
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
