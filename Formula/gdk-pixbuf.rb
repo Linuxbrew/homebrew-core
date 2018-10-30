@@ -3,13 +3,13 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.0.tar.xz"
   sha256 "dd50973c7757bcde15de6bcd3a6d462a445efd552604ae6435a0532fbbadae47"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "f49a95e28e72c80d2376a0028cfe8ea77b8343c1aadb71fbe5ccb5c31100674f" => :mojave
     sha256 "b5fcfc3b0f9217182ead5b34ddb23dfdf5793fd249a813995f64296cff599ffb" => :high_sierra
     sha256 "fa967244c2682026689bf53ffa3b77792470c8a5fb1db261c13af564253e43bc" => :sierra
     sha256 "cafc68c2bfb6013f6f6f0fad456eb6454065346f38679b11c23a2fed75e714e6" => :el_capitan
-    sha256 "715b6ccb006caa7e15634aee7013336e8f8bbc07a255945a68a68d221cbfc00a" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
@@ -46,18 +46,20 @@ class GdkPixbuf < Formula
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)",
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
-    # set rpath for binaries
-    gdkpixbuf_bin_spec ="  bin = executable(bin_name, bin_source,
+    unless OS.mac?
+      # set rpath for binaries
+      gdkpixbuf_bin_spec ="  bin = executable(bin_name, bin_source,
                    dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                    include_directories: [ root_inc, gdk_pixbuf_inc ],
                    c_args: common_cflags + gdk_pixbuf_cflags,
                    install: true)"
-    gdkpixbuf_bin_spec_rpath="  bin = executable(bin_name, bin_source,
+      gdkpixbuf_bin_spec_rpath="  bin = executable(bin_name, bin_source,
                    dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                    include_directories: [ root_inc, gdk_pixbuf_inc ],
                    c_args: common_cflags + gdk_pixbuf_cflags,
                    install: true, install_rpath: '#{ENV.determine_rpath_paths(self)}')"
-    inreplace "gdk-pixbuf/meson.build", gdkpixbuf_bin_spec, gdkpixbuf_bin_spec_rpath
+      inreplace "gdk-pixbuf/meson.build", gdkpixbuf_bin_spec, gdkpixbuf_bin_spec_rpath
+    end
 
     args = %W[
       --prefix=#{prefix}
