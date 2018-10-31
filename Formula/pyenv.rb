@@ -17,6 +17,7 @@ class Pyenv < Formula
   depends_on "openssl"
   depends_on "pkg-config"
   depends_on "readline"
+  depends_on "python" => :test unless OS.mac?
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
