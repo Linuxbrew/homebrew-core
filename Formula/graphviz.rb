@@ -55,6 +55,10 @@ class Graphviz < Formula
     # Alternative fixes include using stdenv or using "xcrun make"
     inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", "" unless build.head?
 
+    # Fix error: storage size of 'ms' isn't known
+    # See https://github.com/NixOS/nix-pills/issues/40#issuecomment-358896369
+    inreplace "lib/vmalloc/features/vmalloc", "lib mstats\n", "" unless OS.mac?
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
