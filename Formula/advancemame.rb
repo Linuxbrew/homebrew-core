@@ -1,3 +1,4 @@
+# advancemame: Build a bottle for Linuxbrew
 class Advancemame < Formula
   desc "MAME with advanced video support"
   homepage "https://www.advancemame.it/"
