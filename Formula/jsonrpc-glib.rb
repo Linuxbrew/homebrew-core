@@ -1,3 +1,4 @@
+# jsonrpc-glib: Build a bottle for Linuxbrew
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
