@@ -1,3 +1,4 @@
+# ipython: Build a bottle for Linuxbrew
 class Ipython < Formula
   include Language::Python::Virtualenv
 
