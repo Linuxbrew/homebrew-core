@@ -12,7 +12,6 @@ class Binutils < Formula
     sha256 "b4ed7c31d6738e2f084e801cb747f98cb63a4857ab5044c757ae361e3a68d32b" => :mojave
     sha256 "35253f02238a83fcfc243a79b1fb445d6bec93b2a602789e063896d03f0012f5" => :high_sierra
     sha256 "3fa0ed58f41b068c5c6e81e2ae99879f0f36f9588814f52be8806e09a3b7bca5" => :sierra
-    sha256 "595876092114b5c4de50856d7f4ad16f4dbb1f4f92ed5f9cfdfd1478aea145ba" => :x86_64_linux
   end
 
   if OS.mac?
