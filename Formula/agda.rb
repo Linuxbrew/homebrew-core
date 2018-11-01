@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.5.4.1/Agda-2.5.4.1.tar.gz"
@@ -21,7 +22,6 @@ class Agda < Formula
     sha256 "a040cb1a273037a0ed2983be3c7ccddf8c606e762e976f22da5b7c89a7c5ae8a" => :high_sierra
     sha256 "b097269cfd028fae6bf73db2eccb41e253d4962340ae962e104196e36868985b" => :sierra
     sha256 "8b189b0fa2e7c2332d9ca1239c21f0dca0df714f59eb2fd5dd5e0483f33bd90a" => :el_capitan
-    sha256 "5883b8254e038d06b3b43db76c8fe7cd146e8d3f4c4380212004075d1bf2e87f" => :x86_64_linux
   end
 
   head do
@@ -35,6 +35,7 @@ class Agda < Formula
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc"
   depends_on "emacs" => :recommended
+  depends_on "zlib" unless OS.mac?
 
   def install
     # install Agda core
