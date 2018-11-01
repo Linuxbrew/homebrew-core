@@ -2,13 +2,12 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20181031"
-  sha256 "3b09fa0ec09c33b43bb12113678275a2a816067f17282eeebec5df7f7aed343c"
+  version "20181101"
+  sha256 "851fe2e1179721e4c953e3c307f381a155fe43cac28d00616f1628860ca563ef"
   # tag "linuxbrew"
 
   bottle do
     cellar :any
-    sha256 "c135a19f197f1284bc14aba65499c26b04fb02b6320d661662b695aa650b7350" => :x86_64_linux
   end
 
   option "with-full", "install everything"
@@ -45,7 +44,8 @@ class Texlive < Formula
     rm binarch/"man"
     Dir[binarch/"*"].each do |f|
       next unless File.symlink?(f)
-      bin.install_symlink File.realpath(f) => File.basename(f)
+      source = File.readlink(f).include?("/") ? File.realpath(f) : File.readlink(f)
+      bin.install_symlink source => File.basename(f)
     end
     Dir[binarch/"*"].each { |f| rm f if File.symlink?(f) }
     bin.install Dir[binarch/"*"]
