@@ -1,3 +1,4 @@
+# freetds@0.91: Build a bottle for Linuxbrew
 class FreetdsAT091 < Formula
   desc "Libraries to talk to Microsoft SQL Server & Sybase"
   homepage "http://www.freetds.org/"
