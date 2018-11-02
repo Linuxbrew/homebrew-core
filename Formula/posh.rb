@@ -1,3 +1,4 @@
+# posh: Build a bottle for Linuxbrew
 class Posh < Formula
   desc "Policy-compliant ordinary shell"
   homepage "https://salsa.debian.org/clint/posh"
