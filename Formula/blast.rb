@@ -1,21 +1,24 @@
-# blast: Build a bottle for Linuxbrew
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
   url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
   version "2.7.1"
   sha256 "10a78d3007413a6d4c983d2acbf03ef84b622b82bd9a59c6bd9fbdde9d0298ca"
+  revision 1 unless OS.mac?
 
   bottle do
     rebuild 1
     sha256 "1f0bdc5f64acf3ce913b36c3531ca631669bd2afbf5eaf8aa66d94432d497a31" => :mojave
     sha256 "18545f187e9af022d46e20bccbf4666c0d89033c7a3fe471174dc9bfda4abf94" => :high_sierra
     sha256 "243c089a32cce6871b3ca55da06749257e1de2cec3c8b46301b09a5135776711" => :sierra
-    sha256 "7c919c3d6b0a6896d084400f880419ab12dc7c7a9b1c528612604d5cc94e55c5" => :x86_64_linux
   end
 
   depends_on "lmdb"
-  depends_on "cpio" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "cpio" => :build
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 
