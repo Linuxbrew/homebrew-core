@@ -1,3 +1,4 @@
+# git-ftp: Build a bottle for Linuxbrew
 class GitFtp < Formula
   desc "Git-powered FTP client"
   homepage "https://git-ftp.github.io/"
