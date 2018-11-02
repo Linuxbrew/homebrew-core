@@ -40,7 +40,10 @@ class Emacs < Formula
   depends_on "imagemagick@6" => :optional
   depends_on "librsvg" => :optional
   depends_on "mailutils" => :optional
-  depends_on "ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "libxml2"
+    depends_on "ncurses"
+  end
 
   def install
     args = %W[
