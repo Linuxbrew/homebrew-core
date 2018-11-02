@@ -1,3 +1,4 @@
+# groff: Build a bottle for Linuxbrew
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
