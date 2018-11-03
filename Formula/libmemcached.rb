@@ -16,6 +16,7 @@ class Libmemcached < Formula
   end
 
   depends_on "memcached"
+  depends_on "libsasl2" => [:build, :test] unless OS.mac?
 
   # https://bugs.launchpad.net/libmemcached/+bug/1245562
   patch do
@@ -29,6 +30,7 @@ class Libmemcached < Formula
   end
 
   test do
+    port = OS.mac? ? "11211" : "11212"
     (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <string.h>
@@ -36,7 +38,7 @@ class Libmemcached < Formula
       #include <libmemcached-1.0/memcached.h>
 
       int main(int argc, char **argv) {
-          const char *conf = "--SERVER=localhost:11211";
+          const char *conf = "--SERVER=localhost:#{port}";
           memcached_st *memc = memcached(conf, strlen(conf));
           assert(memc != NULL);
 
@@ -62,11 +64,19 @@ class Libmemcached < Formula
           memcached_free(memc);
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmemcached", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-I#{include}", "-L#{lib}", "-lmemcached", "test.c", "-o", "test"
+    else
+      system ENV.cc,
+        "-I#{include}",
+        "test.c", "-L#{lib}", "-lmemcached",
+        *("-lpthread" unless OS.mac?),
+        "-o", "test"
+    end
 
     memcached = Formula["memcached"].bin/"memcached"
     # Assumes port 11211 is not already taken
-    io = IO.popen("#{memcached} --listen=localhost:11211")
+    io = IO.popen("#{memcached} --listen=localhost:#{port}")
     sleep 1
     system "./test"
     Process.kill "TERM", io.pid
