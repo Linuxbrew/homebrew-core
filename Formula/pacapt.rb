@@ -1,3 +1,4 @@
+# pacapt: Build a bottle for Linuxbrew
 class Pacapt < Formula
   desc "Package manager in the style of Arch's pacman"
   homepage "https://github.com/icy/pacapt"
