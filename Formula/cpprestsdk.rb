@@ -1,3 +1,4 @@
+# cpprestsdk: Build a bottle for Linuxbrew
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/Microsoft/cpprestsdk"
