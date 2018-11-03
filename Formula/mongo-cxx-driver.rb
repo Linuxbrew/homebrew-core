@@ -19,7 +19,7 @@ class MongoCxxDriver < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
 
     mongo_c_prefix = Formula["mongo-c-driver"].opt_prefix
     system "cmake", ".", *std_cmake_args,
