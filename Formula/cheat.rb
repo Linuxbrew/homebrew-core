@@ -1,3 +1,4 @@
+# cheat: Build a bottle for Linuxbrew
 class Cheat < Formula
   include Language::Python::Virtualenv
 
