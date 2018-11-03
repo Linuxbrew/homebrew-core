@@ -1,3 +1,4 @@
+# tesseract: Build a bottle for Linuxbrew
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
