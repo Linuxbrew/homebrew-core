@@ -1,3 +1,4 @@
+# git-cinnabar: Build a bottle for Linuxbrew
 class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
