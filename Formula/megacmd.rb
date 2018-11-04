@@ -1,3 +1,4 @@
+# megacmd: Build a bottle for Linuxbrew
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
