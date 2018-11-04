@@ -41,7 +41,7 @@ class Pugixml < Formula
 
     system ENV.cc, "test.cpp", "-o", "test", "-lstdc++",
                                "-L#{Dir["#{lib}/pug*"].first}", "-lpugixml",
-                               "-I#{include.children.first}"
+                               "-I#{include.children.first}", *("-lm" unless OS.mac?),
     system "./test"
   end
 end
