@@ -1,3 +1,4 @@
+# snapraid: Build a bottle for Linuxbrew
 class Snapraid < Formula
   desc "Backup program for disk arrays"
   homepage "https://snapraid.sourceforge.io/"
