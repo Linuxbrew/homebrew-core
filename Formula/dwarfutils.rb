@@ -12,7 +12,11 @@ class Dwarfutils < Formula
     sha256 "f2909fb054f392f80318f7d621124c6bd5aee4e8637ad2d26f350d8b645ec5ef" => :sierra
   end
 
-  depends_on "libelf" => :build
+  if OS.mac?
+    depends_on "libelf" => :build
+  else
+    depends_on "libelf"
+  end
 
   def install
     system "./configure"
@@ -51,7 +55,11 @@ class Dwarfutils < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-I#{include}", "-ldwarf", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-L#{lib}", "-I#{include}", "-ldwarf", "test.c", "-o", "test"
+    else
+      system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-ldwarf", "-o", "test"
+    end
     system "./test"
   end
 end
