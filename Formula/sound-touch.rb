@@ -1,3 +1,4 @@
+# sound-touch: Build a bottle for Linuxbrew
 class SoundTouch < Formula
   desc "Audio processing library"
   homepage "https://www.surina.net/soundtouch/"
