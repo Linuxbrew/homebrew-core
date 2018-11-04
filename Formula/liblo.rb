@@ -1,3 +1,4 @@
+# liblo: Build a bottle for Linuxbrew
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.io/"
