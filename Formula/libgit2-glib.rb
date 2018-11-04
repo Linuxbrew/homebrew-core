@@ -1,3 +1,4 @@
+# libgit2-glib: Build a bottle for Linuxbrew
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
