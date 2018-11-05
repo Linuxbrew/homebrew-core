@@ -12,7 +12,10 @@ class Muparser < Formula
     sha256 "d5d3fd87e54d300578836ed61e066ef08b665050d7986e46ed6995eeee819088" => :sierra
   end
 
+  needs :cxx11 unless OS.mac?
+
   def install
+    ENV.cxx11 unless OS.mac?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
@@ -53,7 +56,7 @@ class Muparser < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}",
+    system ENV.cxx, "-I#{include}", "-L#{lib}", *("-std=c++11" unless OS.mac?),
            testpath/"test.cpp", "-lmuparser", "-o", testpath/"test"
     system "./test"
   end
