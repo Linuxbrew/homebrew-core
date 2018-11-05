@@ -1,3 +1,4 @@
+# shairport-sync: Build a bottle for Linuxbrew
 class ShairportSync < Formula
   desc "AirTunes emulator that adds multi-room capability"
   homepage "https://github.com/mikebrady/shairport-sync"
