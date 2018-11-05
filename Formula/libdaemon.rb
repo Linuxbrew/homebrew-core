@@ -1,3 +1,4 @@
+# libdaemon: Build a bottle for Linuxbrew
 class Libdaemon < Formula
   desc "C library that eases writing UNIX daemons"
   homepage "http://0pointer.de/lennart/projects/libdaemon/"
