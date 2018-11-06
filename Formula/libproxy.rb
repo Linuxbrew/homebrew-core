@@ -3,21 +3,22 @@ class Libproxy < Formula
   homepage "https://libproxy.github.io/libproxy/"
   url "https://github.com/libproxy/libproxy/archive/0.4.15.tar.gz"
   sha256 "18f58b0a0043b6881774187427ead158d310127fc46a1c668ad6d207fb28b4e0"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
     sha256 "2bd92529540425a786f17b2b2cc10423394c53a6120bbfa7a8d1df29b0617818" => :mojave
     sha256 "1da068be3ea931eda7ac2f58c8db57d9169d299bc5d57c70b8a455decd351931" => :high_sierra
     sha256 "e848c71f0cdd15d30a2f8003188883f4cf395034447d8b8db4909db5d51904ea" => :sierra
-    sha256 "893358f913399f5898479aaa359b3704af2a25c5a5643efbed30ab5c8722d56a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "python"
 
-  # tries to install to system perl location
-  depends_on "perl" unless OS.mac?
+  unless OS.mac?
+    depends_on "glib"
+    depends_on "perl"
+  end
 
   def install
     args = std_cmake_args + %W[
