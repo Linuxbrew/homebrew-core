@@ -21,7 +21,7 @@ class Calc < Formula
 
     readline = Formula["readline"]
 
-    system "make", "install", "INCDIR=#{MacOS.sdk_path}/usr/include",
+    system "make", "install", *("INCDIR=#{MacOS.sdk_path}/usr/include" if OS.mac?),
                               "BINDIR=#{bin}",
                               "LIBDIR=#{lib}",
                               "MANDIR=#{man1}",
