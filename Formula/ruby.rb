@@ -3,13 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
   sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 "2e605dc994aa86afc8b4c0c8f91c719afb37d803d3cb4bd3f5cdad9b67c84855" => :mojave
     sha256 "f625fc4cb13e68d346731d6a557a79f70b725fc28cb2d00e522201099d8ef165" => :high_sierra
     sha256 "0ddd3a90b3518b8c5fe8c6b7e97b81c14391f5a6b5875cba325aa23de947e7d0" => :sierra
-    sha256 "363285982411f047f37a10e610224d40ed7bde9e44f529b8808c2ec3367024db" => :x86_64_linux
   end
 
   head do
@@ -38,7 +37,11 @@ class Ruby < Formula
   end
 
   def rubygems_bindir
-    HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
+    if OS.mac?
+      HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
+    else
+      HOMEBREW_PREFIX/"bin"
+    end
   end
 
   def install
@@ -202,7 +205,7 @@ class Ruby < Formula
 
     You may want to add this to your PATH.
   EOS
-  end
+  end if OS.mac?
 
   test do
     hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
