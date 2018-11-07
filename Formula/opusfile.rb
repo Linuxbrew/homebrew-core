@@ -1,3 +1,4 @@
+# opusfile: Build a bottle for Linuxbrew
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
