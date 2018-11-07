@@ -1,3 +1,4 @@
+# xtensor: Build a bottle for Linuxbrew
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "http://quantstack.net/xtensor"
