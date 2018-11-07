@@ -1,3 +1,4 @@
+# mmseqs2: Build a bottle for Linuxbrew
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
