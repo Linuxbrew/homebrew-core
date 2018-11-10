@@ -96,7 +96,7 @@ class Rust < Formula
       args << "--release-channel=stable"
     end
     system "./configure", *args
-    system "make"
+    system "make", *("-j2" if ENV["CIRCLECI"])
     system "make", "install"
 
     resource("cargobootstrap").stage do
