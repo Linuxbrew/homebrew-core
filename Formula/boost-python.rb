@@ -1,3 +1,4 @@
+# boost-python: Build a bottle for Linuxbrew
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
