@@ -1,3 +1,4 @@
+# quicktype: Build a bottle for Linuxbrew
 require "language/node"
 
 class Quicktype < Formula
