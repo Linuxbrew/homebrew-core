@@ -53,8 +53,10 @@ class Rpm < Formula
   def post_install
     (var/"lib/rpm").mkpath
 
-    # Attempt to fix expected location of GPG to a sane default.
-    inreplace lib/"rpm/macros", "/usr/bin/gpg2", HOMEBREW_PREFIX/"bin/gpg"
+    if OS.mac?
+      # Attempt to fix expected location of GPG to a sane default.
+      inreplace lib/"rpm/macros", "/usr/bin/gpg2", HOMEBREW_PREFIX/"bin/gpg"
+    end
   end
 
   def test_spec
