@@ -2,8 +2,8 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20181101"
-  sha256 "851fe2e1179721e4c953e3c307f381a155fe43cac28d00616f1628860ca563ef"
+  version "20181114"
+  sha256 "11be3bedb0e33ddcb05e1e60a24f3e99f294981fb13e3dddb641a996d147d26f"
   # tag "linuxbrew"
 
   bottle do
@@ -35,25 +35,17 @@ class Texlive < Formula
     end || "small"
 
     ohai "Downloading and installing TeX Live. This will take a few minutes."
-    ENV["TEXLIVE_INSTALL_PREFIX"] = prefix
+    ENV["TEXLIVE_INSTALL_PREFIX"] = libexec
     system "./install-tl", "-scheme", scheme, "-portable", "-profile", "/dev/null"
 
-    man1.install Dir[prefix/"texmf-dist/doc/man/man1/*"]
-    man5.install Dir[prefix/"texmf-dist/doc/man/man5/*"]
-
-    binarch = bin/"x86_64-linux"
-    rm binarch/"man"
-    Dir[binarch/"*"].each do |f|
-      next unless File.symlink?(f)
-      source = File.readlink(f).include?("/") ? File.realpath(f) : File.readlink(f)
-      bin.install_symlink source => File.basename(f)
-    end
-    Dir[binarch/"*"].each { |f| rm f if File.symlink?(f) }
-    bin.install Dir[binarch/"*"]
-    rmdir binarch
+    man1.install Dir[libexec/"texmf-dist/doc/man/man1/*"]
+    man5.install Dir[libexec/"texmf-dist/doc/man/man5/*"]
+    rm Dir[libexec/"bin/*/man"]
+    bin.install_symlink Dir[libexec/"bin/*/*"]
   end
 
   test do
     assert_match "Usage", shell_output("#{bin}/tex --help")
+    assert_match "revision", shell_output("#{bin}/tlmgr --version")
   end
 end
