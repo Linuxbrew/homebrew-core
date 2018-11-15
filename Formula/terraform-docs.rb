@@ -20,8 +20,8 @@ class TerraformDocs < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "make", "build-darwin-amd64"
-      bin.install "bin/darwin-amd64/terraform-docs"
+      system "make", "build-linux-amd64"
+      bin.install "bin/linux-amd64/terraform-docs"
       prefix.install_metafiles
     end
   end
