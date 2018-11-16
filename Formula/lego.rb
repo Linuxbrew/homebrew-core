@@ -1,3 +1,4 @@
+# lego: Build a bottle for Linuxbrew
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://github.com/xenolf/lego"
