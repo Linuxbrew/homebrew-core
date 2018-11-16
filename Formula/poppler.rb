@@ -89,7 +89,7 @@ class Poppler < Formula
     # fix gobject-introspection support
     # issue reported upstream as https://gitlab.freedesktop.org/poppler/poppler/issues/18
     # patch attached there does not work though...
-    inreplace share/"gir-1.0/Poppler-0.18.gir", "@rpath", lib.to_s
+    inreplace share/"gir-1.0/Poppler-0.18.gir", "@rpath", lib.to_s if OS.mac?
     system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Poppler-0.18.typelib", share/"gir-1.0/Poppler-0.18.gir"
   end
 
