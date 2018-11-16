@@ -1,3 +1,4 @@
+# diffoscope: Build a bottle for Linuxbrew
 class Diffoscope < Formula
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
