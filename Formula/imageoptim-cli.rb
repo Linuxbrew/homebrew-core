@@ -1,3 +1,4 @@
+# imageoptim-cli: Build a bottle for Linuxbrew
 require "language/node"
 
 class ImageoptimCli < Formula
