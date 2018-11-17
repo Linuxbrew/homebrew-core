@@ -18,7 +18,7 @@ class PhpAT71 < Formula
   depends_on "apr-util"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl" if MacOS.version < :lion
+  depends_on "curl" if !OS.mac? || MacOS.version < :lion
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -26,21 +26,28 @@ class PhpAT71 < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
-  depends_on "libiconv" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "libiconv" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libtool"
   depends_on "libzip"
   depends_on "mcrypt"
-  depends_on "openldap" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "openldap" if !OS.mac? || DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "pcre"
   depends_on "unixodbc"
   depends_on "webp"
+  unless OS.mac?
+    depends_on "xz" => :build
+    depends_on "bzip2"
+    depends_on "libedit"
+    depends_on "libxslt"
+    depends_on "zlib"
+  end
 
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
-  patch :DATA
+  patch :DATA if OS.mac?
 
   needs :cxx11
 
@@ -90,7 +97,11 @@ class PhpAT71 < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
+    if OS.mac?
+      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
+    else
+      headers_path = ""
+    end
 
     args = %W[
       --prefix=#{prefix}
@@ -102,7 +113,6 @@ class PhpAT71 < Formula
       --enable-bcmath
       --enable-calendar
       --enable-dba
-      --enable-dtrace
       --enable-exif
       --enable-ftp
       --enable-fpm
@@ -123,7 +133,6 @@ class PhpAT71 < Formula
       --enable-wddx
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
-      --with-bz2#{headers_path}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
@@ -134,15 +143,12 @@ class PhpAT71 < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
-      --with-ldap-sasl#{headers_path}
-      --with-libedit#{headers_path}
       --with-libxml-dir#{headers_path}
       --with-libzip
       --with-mcrypt=#{Formula["mcrypt"].opt_prefix}
       --with-mhash#{headers_path}
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
-      --with-ndbm#{headers_path}
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
@@ -155,21 +161,41 @@ class PhpAT71 < Formula
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
-      --with-xsl#{headers_path}
-      --with-zlib#{headers_path}
     ]
 
-    if MacOS.version < :lion
+    if OS.mac?
+      args << "--enable-dtrace"
+      args << "--with-zlib#{headers_path}"
+      args << "--with-bz2#{headers_path}"
+      args << "--with-ndbm#{headers_path}"
+      args << "--with-ldap-sasl#{headers_path}"
+      args << "--with-libedit#{headers_path}"
+      args << "--with-xsl#{headers_path}"
+    else
+      args << "--disable-dtrace"
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      args << "--with-bz2=#{Formula["bzip2"].opt_prefix}"
+      args << "--with-libedit=#{Formula["libedit"].opt_prefix}"
+      args << "--with-xsl=#{Formula["libxslt"].opt_prefix}"
+      args << "--without-ldap-sasl"
+      args << "--without-ndbm"
+      args << "--without-gdbm"
+    end
+
+    if !OS.mac? || MacOS.version < :lion
       args << "--with-curl=#{Formula["curl"].opt_prefix}"
     else
       args << "--with-curl#{headers_path}"
     end
 
-    if MacOS.sdk_path_if_needed
+    if !OS.mac? ||MacOS.sdk_path_if_needed
       args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
     else
       args << "--with-ldap"
+    end
+
+    if OS.mac? && MacOS.sdk_path_if_needed
+      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
     end
 
     system "./configure", *args
@@ -319,7 +345,7 @@ class PhpAT71 < Formula
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
     assert_includes MachO::Tools.dylibs("#{bin}/php"),
-      "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
+      "#{Formula["libpq"].opt_lib}/libpq.5.dylib" if OS.mac?
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
