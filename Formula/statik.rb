@@ -15,6 +15,11 @@ class Statik < Formula
   end
 
   depends_on "python@2"
+  unless OS.mac?
+    # pkg-config helps setuptools find libffi
+    depends_on "libffi"
+    depends_on "pkg-config" => :build
+  end
 
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 
