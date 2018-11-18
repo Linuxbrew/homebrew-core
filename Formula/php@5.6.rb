@@ -41,6 +41,7 @@ class PhpAT56 < Formula
     depends_on "xz" => :build
     depends_on "bzip2"
     depends_on "libedit"
+    depends_on "libxml2"
     depends_on "libxslt"
     depends_on "zlib"
   end
@@ -146,7 +147,6 @@ class PhpAT56 < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
-      --with-libxml-dir#{headers_path}
       --with-libzip
       --with-mcrypt=#{Formula["mcrypt"].opt_prefix}
       --with-mhash#{headers_path}
@@ -174,12 +174,14 @@ class PhpAT56 < Formula
       args << "--with-ndbm#{headers_path}"
       args << "--with-ldap-sasl#{headers_path}"
       args << "--with-libedit#{headers_path}"
+      args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
     else
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
       args << "--with-bz2=#{Formula["bzip2"].opt_prefix}"
       args << "--with-libedit=#{Formula["libedit"].opt_prefix}"
+      args << "--with-libxml-dir=#{Formula["libxml2"].opt_prefix}"
       args << "--with-xsl=#{Formula["libxslt"].opt_prefix}"
       args << "--without-ldap-sasl"
       args << "--without-ndbm"
