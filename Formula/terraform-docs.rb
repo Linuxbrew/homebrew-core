@@ -3,6 +3,7 @@ class TerraformDocs < Formula
   homepage "https://github.com/segmentio/terraform-docs"
   url "https://github.com/segmentio/terraform-docs/archive/v0.5.0.tar.gz"
   sha256 "310f4b13585d6ae59687bf20763af5e27930dd30673af24b7297d5fe1fe9df22"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
