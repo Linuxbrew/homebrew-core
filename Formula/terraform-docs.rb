@@ -9,7 +9,6 @@ class TerraformDocs < Formula
     sha256 "b41eeb6f997c60a93bc8ec9bf6ad8206561f98b3d2bd464a03b388dcdf1c4676" => :mojave
     sha256 "9ad7cf9b7bfe86ec62e72dc337bf020c13d48a1f97345988d3f8095ba4a6ec0b" => :high_sierra
     sha256 "5c93638483229ba886dbd760b05f29754c3845ac9a839fc2760bdadae5d7ecd4" => :sierra
-    sha256 "245f5114fd7113c4db62edfdc88f489111e7391d8a298826acca23e1fd317019" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -20,8 +19,8 @@ class TerraformDocs < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "make", "build-linux-amd64"
-      bin.install "bin/linux-amd64/terraform-docs"
+      system "make", "build-#{OS.mac? ? "darwin" : "linux"}-amd64"
+      bin.install "bin/#{OS.mac? ? "darwin" : "linux"}-amd64/terraform-docs"
       prefix.install_metafiles
     end
   end
