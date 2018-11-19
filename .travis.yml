@@ -78,7 +78,7 @@ before_install:
   - sudo chown "$USER:" $HOME
   - LINUXBREW=$HOME/.linuxbrew
   - mkdir -p $LINUXBREW/bin
-  - git clone --depth=1 https://github.com/Linuxbrew/brew "$LINUXBREW/Homebrew"
+  - git clone --depth=1 https://github.com/Homebrew/brew "$LINUXBREW/Homebrew"
   - ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
   - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
   - export HOMEBREW_DEVELOPER=1
