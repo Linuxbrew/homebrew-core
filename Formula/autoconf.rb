@@ -22,7 +22,9 @@ class Autoconf < Formula
   depends_on "m4" unless OS.mac?
 
   # For autom4te.
-  depends_on "perl" unless which("perl")
+  # Don't use system perl since autoconf requires Data/Dumper.pm which may not
+  # be installed. https://github.com/Linuxbrew/homebrew-core/issues/7522
+  depends_on "perl" unless OS.mac?
 
   def install
     ENV["PERL"] = "/usr/bin/perl" if OS.mac?
