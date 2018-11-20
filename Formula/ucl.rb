@@ -1,3 +1,4 @@
+# ucl: Build a bottle for Linuxbrew
 class Ucl < Formula
   desc "Data compression library with small memory footprint"
   homepage "https://www.oberhumer.com/opensource/ucl/"
