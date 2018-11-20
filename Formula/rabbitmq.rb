@@ -7,6 +7,7 @@ class Rabbitmq < Formula
   bottle :unneeded
 
   depends_on "erlang"
+  depends_on "unzip" => :build unless OS.mac?
 
   def install
     # Install the base files
@@ -40,7 +41,7 @@ class Rabbitmq < Formula
 
     # Extract rabbitmqadmin and install to sbin
     # use it to generate, then install the bash completion file
-    system "/usr/bin/unzip", "-qq", "-j",
+    system (OS.mac? ? "/usr/bin/unzip" : "unzip"), "-qq", "-j",
            "#{prefix}/plugins/rabbitmq_management-#{version}.ez",
            "rabbitmq_management-#{version}/priv/www/cli/rabbitmqadmin"
 
