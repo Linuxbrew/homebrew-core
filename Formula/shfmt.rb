@@ -1,3 +1,4 @@
+# shfmt: Build a bottle for Linuxbrew
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
