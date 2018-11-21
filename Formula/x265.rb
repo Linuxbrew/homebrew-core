@@ -14,7 +14,7 @@ class X265 < Formula
 
   depends_on "cmake" => :build
   depends_on "nasm" => :build
-  depends_on :macos => :lion
+  depends_on :macos => :lion if OS.mac?
 
   def install
     # Build based off the script at ./build/linux/multilib.sh
