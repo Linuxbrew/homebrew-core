@@ -22,11 +22,14 @@ class BoostPython3 < Formula
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    jobs = OS.mac? ? ENV.make_jobs : 4
+
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",
             "-d2",
-            "-j#{ENV.make_jobs}",
+            "-j#{jobs}",
             "--layout=tagged",
             "--user-config=user-config.jam",
             "threading=multi,single",
@@ -45,18 +48,35 @@ class BoostPython3 < Formula
     inreplace "bootstrap.sh", "using python", "#using python"
 
     pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    if OS.mac?
+      py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    else
+      py_prefix = Formula["python3"].opt_prefix
+    end
 
     numpy_site_packages = buildpath/"homebrew-numpy/lib/python#{pyver}/site-packages"
     numpy_site_packages.mkpath
     ENV["PYTHONPATH"] = numpy_site_packages
     resource("numpy").stage do
+      unless OS.mac?
+        openblas = Formula["openblas"].opt_prefix
+        ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
+        ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.so"
+        config = <<~EOS
+          [openblas]
+          libraries = openblas
+          library_dirs = #{openblas}/lib
+          include_dirs = #{openblas}/include
+        EOS
+        Pathname("site.cfg").write config
+      end
       system "python3", *Language::Python.setup_install_args(buildpath/"homebrew-numpy")
     end
 
     # Force boost to compile with the desired compiler
+    darwin = OS.mac? ? "using darwin : : #{ENV.cxx} ;" : ""
     (buildpath/"user-config.jam").write <<~EOS
-      using darwin : : #{ENV.cxx} ;
+      #{darwin}
       using python : #{pyver}
                    : python3
                    : #{py_prefix}/include/python#{pyver}m
@@ -90,7 +110,7 @@ class BoostPython3 < Formula
     pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
     pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
+    system ENV.cxx, "-shared", *("-fPIC" unless OS.mac?), "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS
