@@ -39,6 +39,14 @@ class Qt < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j20 -l2.5" if ENV["CIRCLECI"]
 
+    unless OS.mac?
+      # https://github.com/Linuxbrew/homebrew-core/pull/10418
+      # add missing -lxcb-shm flag
+      inreplace "qtbase/src/gui/configure.json", '[ "xcb/xcb.h", "X11/Xlib.h", "X11/Xlib-xcb.h" ],', '[ "xcb/xcb.h", "X11/Xlib.h", "X11/Xlib-xcb.h", "xcb/shm.h" ],'
+      inreplace "qtbase/src/gui/configure.json", "x11-xcb x11 xcb", "x11-xcb x11 xcb xcb-shm"
+      inreplace "qtbase/src/gui/configure.json", "-lxcb -lX11 -lX11-xcb", "-lxcb -lX11 -lX11-xcb -lxcb-shm"
+    end
+
     args = %W[
       -verbose
       -prefix #{prefix}
@@ -61,6 +69,8 @@ class Qt < Formula
     elsif OS.linux?
       args << "-qt-xcb"
       args << "-R#{lib}"
+      # https://bugreports.qt.io/projects/QTBUG/issues/QTBUG-71564
+      args << "-no-avx2"
     end
 
     system "./configure", *args
