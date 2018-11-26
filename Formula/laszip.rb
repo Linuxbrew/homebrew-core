@@ -21,7 +21,7 @@ class Laszip < Formula
 
   test do
     system ENV.cxx, pkgshare/"example/laszipdllexample.cpp", "-L#{lib}",
-                    "-llaszip", "-llaszip_api", "-Wno-format", "-o", "test"
+                    "-llaszip", "-llaszip_api", "-Wno-format", *("-ldl" unless OS.mac?), "-o", "test"
     assert_match "LASzip DLL", shell_output("./test -h 2>&1", 1)
   end
 end
