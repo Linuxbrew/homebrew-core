@@ -1,3 +1,4 @@
+# llvm@5: Build a bottle for Linuxbrew
 require "os/linux/glibc"
 
 class LlvmAT5 < Formula
