@@ -16,12 +16,23 @@ class Openmotif < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on :x11
+  if OS.mac?
+    depends_on :x11
+  else
+    depends_on "linuxbrew/xorg/xorg"
+    depends_on "linuxbrew/xorg/xbitmaps"
+    depends_on "flex" => :build
+  end
 
   conflicts_with "lesstif",
     :because => "Lesstif and Openmotif are complete replacements for each other"
 
   def install
+    unless OS.mac?
+      inreplace ["demos/programs/Exm/simple_app/Makefile.am", "demos/programs/Exm/simple_app/Makefile.in"],
+        /(LDADD.*\n.*libExm.a)/,
+        "\\1 -lX11"
+    end
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
