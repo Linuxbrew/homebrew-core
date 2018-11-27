@@ -15,7 +15,11 @@ class Ddd < Formula
   end
 
   depends_on "openmotif"
-  depends_on :x11
+  if OS.mac?
+    depends_on :x11
+  else
+    depends_on "linuxbrew/xorg/xorg"
+  end
 
   # Needed for OSX 10.9 DP6 build failure:
   # https://savannah.gnu.org/patch/?8178
@@ -40,6 +44,12 @@ class Ddd < Formula
   end
 
   def install
+    unless OS.mac?
+      # Patch to fix compilation error
+      # https://savannah.gnu.org/bugs/?33960
+      inreplace "ddd/strclass.C", "#include <stdlib.h>", "#include <stdlib.h>\n#include <cstdio>"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--enable-builtin-app-defaults",
