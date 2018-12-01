@@ -4,18 +4,16 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2p.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2p.tar.gz"
-  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2p.tar.gz"
-  sha256 "50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00"
+  url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2q.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2q.tar.gz"
+  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2q.tar.gz"
+  sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
 
   bottle do
-    sha256 "cabda4ca62a0b206366658e36ce7175e7da5f8ad24846843611ed19d7759404b" => :mojave
-    sha256 "f5f498c4e8dee3e835c1750cb4140c2f7c52ae21f18f699894d0f0e418970ec3" => :high_sierra
-    sha256 "f5b1eb9a6be49ffa4f1de54542156564ead972408d893c9a4ee54ba59d7ad66c" => :sierra
-    sha256 "62ed09b9c268f32a9ab73869d7e11d9ad9b07e5e207928e5773471952b34ba9d" => :el_capitan
-    sha256 "8c7457a3dc3d6f8dc774bcbc6b1481cf1d1c66c82bfb90b595e01dd3a03b3db5" => :x86_64_linux
+    sha256 "cdbee2befd8f2e178ff0c5f9e8796a73a7de20055aae51cba7cc749429e8c90f" => :mojave
+    sha256 "d3ac5de6ccd9c604a5f2b8582ebd721ab421c0fdbfefa5a4b1190f83277f2c27" => :high_sierra
+    sha256 "94881a8df581a9f63b6a0a6c9f362d873133c2a27f2708803bca778390356975" => :sierra
   end
 
   keg_only :provided_by_macos,
