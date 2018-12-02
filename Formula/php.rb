@@ -145,6 +145,8 @@ class Php < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
+      --with-ldap=#{Formula["openldap"].opt_prefix}
+      --with-ldap-sasl#{headers_path}
       --with-libzip
       --with-mhash#{headers_path}
       --with-mysql-sock=/tmp/mysql.sock
@@ -169,8 +171,6 @@ class Php < Formula
     ]
 
     if OS.mac?
-      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-      args << "--with-ldap-sasl#{headers_path}"
       args << "--enable-dtrace"
       args << "--with-zlib#{headers_path}"
       args << "--with-bz2#{headers_path}"
@@ -178,6 +178,7 @@ class Php < Formula
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
+      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
     else
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
@@ -188,11 +189,6 @@ class Php < Formula
       args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
-    end
-
-    if OS.mac?
-      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
-    else
       args << "--with-curl=#{Formula["curl"].opt_prefix}"
     end
 
@@ -342,8 +338,10 @@ class Php < Formula
       "Zend OPCache extension not loaded"
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
-    assert_includes MachO::Tools.dylibs("#{bin}/php"),
-      "#{Formula["libpq"].opt_lib}/libpq.5.dylib" if OS.mac?
+    if OS.mac?
+      assert_includes MachO::Tools.dylibs("#{bin}/php"),
+        "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
+    end
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
