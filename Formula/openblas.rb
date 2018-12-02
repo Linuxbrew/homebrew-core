@@ -30,7 +30,7 @@ class Openblas < Formula
     ENV["USE_OPENMP"] = "1" if build.with? "openmp"
 
     # Must call in two steps
-    system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
+    system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared", *("NO_AVX512=1" unless OS.mac?)
     system "make", "PREFIX=#{prefix}", "install"
 
     so = OS.mac? ? "dylib" : "so"
