@@ -1,3 +1,4 @@
+# mhash: Build a bottle for Linuxbrew
 class Mhash < Formula
   desc "Uniform interface to a large number of hash algorithms"
   homepage "https://mhash.sourceforge.io/"
