@@ -1,3 +1,4 @@
+# php@7.0: Build a bottle for Linuxbrew
 class PhpAT70 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
