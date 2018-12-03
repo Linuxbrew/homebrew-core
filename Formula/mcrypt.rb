@@ -1,3 +1,4 @@
+# mcrypt: Build a bottle for Linuxbrew
 class Mcrypt < Formula
   desc "Replacement for the old crypt package and crypt(1) command"
   homepage "https://mcrypt.sourceforge.io"
