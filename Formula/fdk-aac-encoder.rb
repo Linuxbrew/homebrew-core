@@ -1,3 +1,4 @@
+# fdk-aac-encoder: Build a bottle for Linuxbrew
 class FdkAacEncoder < Formula
   desc "Command-line encoder frontend for libfdk-aac"
   homepage "https://github.com/nu774/fdkaac"
