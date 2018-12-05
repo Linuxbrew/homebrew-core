@@ -1,3 +1,4 @@
+# libcdr: Build a bottle for Linuxbrew
 class Libcdr < Formula
   desc "C++ library to parse the file format of CorelDRAW documents"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
