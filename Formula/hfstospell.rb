@@ -1,3 +1,4 @@
+# hfstospell: Build a bottle for Linuxbrew
 class Hfstospell < Formula
   desc "Helsinki Finite-State Technology ospell"
   homepage "https://hfst.github.io/"
