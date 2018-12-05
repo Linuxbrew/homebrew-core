@@ -1,3 +1,4 @@
+# libextractor: Build a bottle for Linuxbrew
 class Libextractor < Formula
   desc "Library to extract meta data from files"
   homepage "https://www.gnu.org/software/libextractor/"
