@@ -5,6 +5,7 @@ class Mpc < Formula
   sha256 "62373e83a8a165b2ed43967975efecd3feee530f4557d6b861dd08aa89d52b2d"
 
   bottle do
+    cellar :any
     sha256 "a0978aee21d1d4326cac85904ad4dc381ffd0fae96c66b98912ecd5260b548a4" => :mojave
     sha256 "70bf0925e52814689cc58579288dafbefcd512caf3e4bcaa48f78d6c84fd7f36" => :high_sierra
     sha256 "34dc577f9ac9551204d7c36448468da5a69c152b2de21622fc5e649c051a98de" => :sierra
@@ -26,6 +27,6 @@ class Mpc < Formula
 
   test do
     assert_match "query", shell_output("#{bin}/mpc list 2>&1", 1)
-    assert_match "-F _mpc", shell_output("source #{bash_completion}/mpc && complete -p mpc")
+    assert_match "-F _mpc", shell_output("source #{bash_completion}/mpc && complete -p mpc") if OS.mac?
   end
 end
