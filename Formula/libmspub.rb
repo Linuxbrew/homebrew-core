@@ -1,3 +1,4 @@
+# libmspub: Build a bottle for Linuxbrew
 class Libmspub < Formula
   desc "Interpret and import Microsoft Publisher content"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libmspub"
