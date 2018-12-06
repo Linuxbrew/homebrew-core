@@ -1,3 +1,4 @@
+# kafka: Build a bottle for Linuxbrew
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
@@ -16,7 +17,7 @@ class Kafka < Formula
   # if you do not have Java 1.8 installed you cannot used the bottled version of Kafka
   pour_bottle? do
     reason "The bottle requires Java 1.8."
-    satisfy { quiet_system("/usr/libexec/java_home --version 1.8 --failfast") }
+    satisfy { !ENV["CIRCLECI"] && quiet_system("/usr/libexec/java_home --version 1.8 --failfast") }
   end
 
   depends_on :java => "1.8"
