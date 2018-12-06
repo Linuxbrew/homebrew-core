@@ -1,3 +1,4 @@
+# u-boot-tools: Build a bottle for Linuxbrew
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
