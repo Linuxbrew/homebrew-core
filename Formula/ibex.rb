@@ -15,11 +15,17 @@ class Ibex < Formula
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "python@2" => :build
+    depends_on "zlib"
+  end
 
   needs :cxx11
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     # Reported 9 Oct 2017 https://github.com/ibex-team/ibex-lib/issues/286
@@ -44,12 +50,14 @@ class Ibex < Formula
 
     cp_r (pkgshare/"examples").children, testpath
 
-    # so that pkg-config can remain a build-time only dependency
-    inreplace %w[makefile slam/makefile] do |s|
-      s.gsub!(/CXXFLAGS.*pkg-config --cflags ibex./,
-              "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd")
-      s.gsub!(/LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex")
+    if OS.mac?
+      # so that pkg-config can remain a build-time only dependency
+      inreplace %w[makefile slam/makefile] do |s|
+        s.gsub!(/CXXFLAGS.*pkg-config --cflags ibex./,
+                "CXXFLAGS := -I#{include} -I#{include}/ibex "\
+                            "-I#{include}/ibex/3rd")
+        s.gsub!(/LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex")
+      end
     end
 
     (1..8).each do |n|
