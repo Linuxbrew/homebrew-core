@@ -23,8 +23,8 @@ class Gdb < Formula
   deprecated_option "with-guile" => "with-guile@2.0"
 
   depends_on "pkg-config" => :build
-  depends_on "guile@2.0" => :optional
   depends_on "python" => OS.mac? ? :optional : :recommended
+  depends_on "guile@2.0" => :optional
   depends_on "python@2" => :optional
   unless OS.mac?
     depends_on "texinfo" => :build
