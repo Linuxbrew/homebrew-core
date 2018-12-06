@@ -30,7 +30,11 @@ class Libplctag < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lplctag", "-o", "test"
+    system ENV.cc, "test.c",
+                   *("-pthread" unless OS.mac?),
+                   *("-I#{include}" unless OS.mac?),
+                   *("-Wl,-rpath=#{lib}" unless OS.mac?),
+                   "-L#{lib}", "-lplctag", "-o", "test"
     system "./test"
   end
 end
