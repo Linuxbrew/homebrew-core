@@ -6,7 +6,7 @@ class AzureCli < Formula
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
-    cellar :any
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "e522b901ffff4ba7f04ec64cdfe378325dc47898778d1fb8bd16beca73abfdb1" => :mojave
     sha256 "e04e0a3594b6af8c0de5841ebc3c76938c843557dc859f72db2f4924b2183c53" => :high_sierra
     sha256 "8f3b5af04511a03e0741693d43ac252f4362809e3a44a05bcc70ebf1fe110b89" => :sierra
