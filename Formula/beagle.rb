@@ -1,3 +1,4 @@
+# beagle: Build a bottle for Linuxbrew
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
