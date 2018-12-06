@@ -1,3 +1,4 @@
+# abyss: Build a bottle for Linuxbrew
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
