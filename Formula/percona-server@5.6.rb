@@ -23,7 +23,10 @@ class PerconaServerAT56 < Formula
     depends_on "pidof" unless MacOS.version >= :mountain_lion
   end
   depends_on "openssl"
-  depends_on "readline" unless OS.mac?
+  unless OS.mac?
+    depends_on "libedit"
+    depends_on "readline"
+  end
 
   # Where the database files should be located. Existing installs have them
   # under var/percona, but going forward they will be under var/mysql to be
