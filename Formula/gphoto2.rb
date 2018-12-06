@@ -5,7 +5,7 @@ class Gphoto2 < Formula
   sha256 "a36f03b50a8f040f185cbc757f957f03dc05a9210907199e6919ef3f970248f6"
 
   bottle do
-    cellar :any
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "46bd976102f39a2b2a343eb5ec44db288d5f5bcb1a66caff9d64e56487d43642" => :mojave
     sha256 "c36a0a358efba0432699ecc445cf7585ed66410599d9bf4d22b05a2d515c4274" => :high_sierra
     sha256 "7bacc5db7d78e283d6d1a68d7b9fc0c5345c1047abe36f2ee89e06b7cf9260e8" => :sierra
