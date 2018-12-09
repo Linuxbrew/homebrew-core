@@ -21,7 +21,7 @@ class Dbus < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "xmlto" => :build
+  depends_on "xmlto" => :build if OS.mac?
   unless OS.mac?
     depends_on "pkg-config" => :build
     depends_on "expat"
@@ -51,7 +51,8 @@ class Dbus < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--enable-xml-docs",
+                          ("--enable-xml-docs" if OS.mac?),
+                          ("--disable-xml-docs" unless OS.mac?),
                           "--disable-doxygen-docs",
                           ("--enable-launchd" if OS.mac?),
                           ("--with-launchd-agent-dir=#{prefix}" if OS.mac?),
