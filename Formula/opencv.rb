@@ -6,6 +6,7 @@ class Opencv < Formula
   revision 2
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "97835bb2d4880df3b5c373dd2c8bde62fed17801414f411c38a628a71e283bfc" => :mojave
     sha256 "6286fee6bcd452cf0660e8cd397fe743ae820c47f22f02b3000bcfe4ebf32cbf" => :high_sierra
     sha256 "730be1700cbeae1e8a0f5c0359dae7e77dcb5be798367bc5417edfc256e334c8" => :sierra
