@@ -38,19 +38,33 @@ class ClangFormat < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "bison" => :build unless OS.mac?
+  depends_on "subversion" => :build
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "gcc" # needed for libstdc++
+    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "ncurses"
+    depends_on "libxml2"
+    depends_on "zlib"
+    needs :cxx11
+  end
 
   def install
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
+
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"tools/clang").install resource("clang")
 
     mkdir "build" do
       args = std_cmake_args
-      args << "-DCMAKE_OSX_SYSROOT=/" unless MacOS::Xcode.installed?
-      args << "-DLLVM_ENABLE_LIBCXX=ON"
+      args << "-DCMAKE_OSX_SYSROOT=/" unless OS.mac? && MacOS::Xcode.installed?
+      args << "-DLLVM_ENABLE_LIBCXX=ON" if OS.mac?
+      args << "-DLLVM_ENABLE_LIBCXX=OFF" unless OS.mac?
       args << ".."
       system "cmake", "-G", "Ninja", *args
-      system "ninja", "clang-format"
+      system "ninja", *("-j2" if ENV["CIRCLECI"]), "clang-format"
       bin.install "bin/clang-format"
     end
     bin.install "tools/clang/tools/clang-format/git-clang-format"
