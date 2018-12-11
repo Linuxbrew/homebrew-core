@@ -97,7 +97,7 @@ class Rust < Formula
       args << "--release-channel=stable"
     end
     system "./configure", *args
-    system "make", *("-j2" if ENV["CIRCLECI"])
+    system "make", *("-j1" if ENV["CIRCLECI"])
     system "make", "install"
 
     resource("cargobootstrap").stage do
@@ -107,7 +107,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix, "--path", ".", "--features", "curl-sys/force-system-lib-on-osx"
+      system "cargo", "install", "--root", prefix, "--path", ".", *("--features" if OS.mac?), *("curl-sys/force-system-lib-on-osx" if OS.mac?)
     end
 
     resource("racer").stage do
