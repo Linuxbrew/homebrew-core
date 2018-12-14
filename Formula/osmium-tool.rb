@@ -18,7 +18,7 @@ class OsmiumTool < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
 
     protozero = Formula["libosmium"].opt_libexec/"include"
     system "cmake", ".", "-DPROTOZERO_INCLUDE_DIR=#{protozero}", *std_cmake_args
