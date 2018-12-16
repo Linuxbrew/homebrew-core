@@ -44,7 +44,7 @@ class Grpc < Formula
         return GRPC_STATUS_OK;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", "-o", "test"
+    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", *("-Wl,-rpath=#{lib}" unless OS.mac?), "-o", "test"
     system "./test"
   end
 end
