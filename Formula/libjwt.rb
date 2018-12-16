@@ -1,3 +1,4 @@
+# libjwt: Build a bottle for Linuxbrew
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
@@ -38,7 +39,7 @@ class Libjwt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-ljwt", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-ljwt", *("-Wl,-rpath=#{lib}" unless OS.mac?), "-o", "test"
     system "./test"
   end
 end
