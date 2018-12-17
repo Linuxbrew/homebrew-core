@@ -19,7 +19,11 @@ class PhpAT72 < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on OS.mac? ? "curl-openssl" : "curl"
+  if OS.mac?
+    depends_on "curl-openssl"
+  else
+    depends_on "curl"
+  end
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -177,7 +181,6 @@ class PhpAT72 < Formula
       args << "--with-zlib#{headers_path}"
       args << "--with-bz2#{headers_path}"
       args << "--with-ndbm#{headers_path}"
-      args << "--with-ldap-sasl#{headers_path}"
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
@@ -341,8 +344,10 @@ class PhpAT72 < Formula
       "Zend OPCache extension not loaded"
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
-    assert_includes MachO::Tools.dylibs("#{bin}/php"),
-      "#{Formula["libpq"].opt_lib}/libpq.5.dylib" if OS.mac?
+    if OS.mac?
+      assert_includes MachO::Tools.dylibs("#{bin}/php"),
+        "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
+    end
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
