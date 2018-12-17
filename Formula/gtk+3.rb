@@ -35,6 +35,8 @@ class Gtkx3 < Formula
   end
 
   def install
+    inreplace "docs/tools/shooter.c", "gdk_screen_get_dfeault", "gdk_screen_get_default" unless OS.mac?
+
     args = %W[
       --enable-debug=minimal
       --disable-dependency-tracking
