@@ -5,6 +5,7 @@ class Librsvg < Formula
   sha256 "f4fc96b1542700e8b1116eac1bd623adac2717b4d587d26dedfeb7640cd7caae"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "d7763f75c8250931949bc2bdc6e9d8bab5180d3ae6bcabd6f9b804ff2d8165a3" => :mojave
     sha256 "cfa60e4a6ae97d85f57166ae38238a882ab858f86c72597900a31eb57dddfa02" => :high_sierra
     sha256 "b9a15434e31f4e50a1d20dbfd4deec4e7a699c6b4d922e2993dc9b8b90778554" => :sierra
