@@ -6,11 +6,6 @@ class Dub < Formula
   version_scheme 1
   head "https://github.com/dlang/dub.git"
 
-  devel do
-    url "https://github.com/dlang/dub/archive/v1.6.0-beta.2.tar.gz"
-    sha256 "da1877c7c39a4905bca78083784733bfae59d60c7b665169d87fe2d81651b38f"
-  end
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
