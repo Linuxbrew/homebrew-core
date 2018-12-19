@@ -1,3 +1,4 @@
+# ghq: Build a bottle for Linuxbrew
 require "language/go"
 
 class Ghq < Formula
