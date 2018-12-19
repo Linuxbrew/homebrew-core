@@ -6,6 +6,7 @@ class Gpsbabel < Formula
   revision 2
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "afa69a0f0729d4ba82d1f36edee585ed6dc88be4d36d4bd93d0c8512ee13ff11" => :mojave
     sha256 "4c3f17308d3d81e9a3ca96fd278e30a0cf927642a82cdb76a46ca649a6d9bb6f" => :high_sierra
     sha256 "be91d28547a74b5a5e5564ee9b6bc5fe2c54dc2a62afd992ca00a4e0836e5dfb" => :sierra
