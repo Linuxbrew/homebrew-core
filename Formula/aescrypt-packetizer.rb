@@ -1,3 +1,4 @@
+# aescrypt-packetizer: Build a bottle for Linuxbrew
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
