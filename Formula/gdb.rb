@@ -14,8 +14,9 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   unless OS.mac?
     depends_on "texinfo" => :build
-    depends_on "ncurses"
     depends_on "expat"
+    depends_on "ncurses"
+    depends_on "python"
     depends_on "xz"
   end
 
@@ -56,8 +57,13 @@ class Gdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --enable-targets=all
-      --with-python=/usr
     ]
+    if OS.mac?
+      arg << "--with-python=/usr"
+    else
+      args << "--with-python=#{Formula["python"].opt_bin}/python3"
+      ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}"
+    end
 
     system "./configure", *args
     system "make"
