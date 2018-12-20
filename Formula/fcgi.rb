@@ -23,9 +23,20 @@ class Fcgi < Formula
   # https://trac.macports.org/browser/trunk/dports/www/fcgi/files/patch-libfcgi-fcgi_stdio.c.diff
   patch :DATA
 
+  unless OS.mac?
+    patch do
+      # Fix: fcgio.cpp:50:14: error: 'EOF' was not declared in this scope
+      url "https://gist.githubusercontent.com/iMichka/f635b126d66d9d1161ed99d62f2b7a14/raw/c7e71898cc00edf4af67638d58d458c211e61176/fcgi?full_index=1"
+      sha256 "d4e088c96b5944bd137033ffff9d9291b3fad2c5b03ca7623b4ab0ff3deb4407"
+    end
+  end
+
   def install
+    ENV.deparallelize unless OS.mac?
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
