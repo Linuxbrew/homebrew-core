@@ -1,3 +1,4 @@
+# mapserver: Build a bottle for Linuxbrew
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
