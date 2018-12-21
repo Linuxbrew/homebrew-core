@@ -1,3 +1,4 @@
+# grep: Build a bottle for Linuxbrew
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
