@@ -1,3 +1,4 @@
+# z3: Build a bottle for Linuxbrew
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
