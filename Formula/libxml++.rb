@@ -3,7 +3,7 @@ class Libxmlxx < Formula
   homepage "https://libxmlplusplus.sourceforge.io/"
   url "https://download.gnome.org/sources/libxml++/2.40/libxml++-2.40.1.tar.xz"
   sha256 "4ad4abdd3258874f61c2e2a41d08e9930677976d303653cd1670d3e9f35463e9"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
@@ -13,12 +13,11 @@ class Libxmlxx < Formula
     sha256 "9bcaa205d33dbb8d44851e5f6c41ab95b322125cfd56215c55ce3abd0ac0b00e" => :el_capitan
     sha256 "53f18b1f5fe05dc545a8629292a498615ffd0c546c9fab98e5152be284081cbe" => :yosemite
     sha256 "8d120ff026529306553a82ca53c73747ee106b96ceb904d7cca54b807b32c4ff" => :mavericks
-    sha256 "d7a3d87919a7bc34ae043aa825732f09a48c8bf2fbccc3e4e66fe66a30a1dcb1" => :x86_64_linux # glibc 2.19
-    sha256 "812826fca25355195d57c7a00e26db274d17976725e2413aa8b40bf8cab2c27b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "glibmm"
+  depends_on "libxml2" unless OS.mac?
 
   needs :cxx11
 
