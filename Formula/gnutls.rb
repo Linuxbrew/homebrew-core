@@ -6,7 +6,7 @@ class Gnutls < Formula
   sha256 "073eced3acef49a3883e69ffd5f0f0b5f46e2760ad86eddc6c0866df4e7abb35"
 
   bottle do
-    cellar :any
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "b294c2d78f9eff321e6469d77e365bdb03c1611e04678879ec4337584432cb0a" => :mojave
     sha256 "b4d6c287ca7512397d2f06c7ad5fed7868b74fb8bd32a65bc2e87d3fea8586e4" => :high_sierra
     sha256 "e7e08cf6a0cb9a3ccb14442eb47e63de97c55aa36971c05707a0c96a38bb6b70" => :sierra
