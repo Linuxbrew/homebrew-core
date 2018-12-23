@@ -5,6 +5,7 @@ class Netcdf < Formula
   sha256 "c37525981167b3cd82d32e1afa3022afb94e59287db5f116c57f5ed4d9c6a638"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "2b607ef71b2f630e73441ed17dc9c40bc7dd9cc726c60563c61445d384ec0c2f" => :mojave
     sha256 "01ff7533d32cba92da675b1307c97338bee30adc093c8fa222353df896aa645c" => :high_sierra
     sha256 "bf00eb6cbc31d9e58c63c06724f92b5cd6110c9590659e0aa809e4b999f9abbd" => :sierra
