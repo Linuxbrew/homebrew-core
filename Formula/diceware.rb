@@ -1,3 +1,4 @@
+# diceware: Build a bottle for Linuxbrew
 class Diceware < Formula
   include Language::Python::Virtualenv
 
