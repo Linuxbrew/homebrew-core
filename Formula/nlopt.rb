@@ -1,3 +1,4 @@
+# nlopt: Build a bottle for Linuxbrew
 class Nlopt < Formula
   desc "Free/open-source library for nonlinear optimization"
   homepage "https://nlopt.readthedocs.io/"
