@@ -32,7 +32,7 @@ class Libass < Formula
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-fontconfig"
+                          *("--disable-fontconfig" if OS.mac?)
     system "make", "install"
   end
 
