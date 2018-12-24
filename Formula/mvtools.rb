@@ -30,19 +30,21 @@ class Mvtools < Formula
   end
 
   def caveats
+    dylib = OS.mac? ? "dylib" : "so"
     <<~EOS
       MVTools will not be autoloaded in your VapourSynth scripts. To use it
       use the following code in your scripts:
 
-        core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/libmvtools.dylib")
+        core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/libmvtools.#{dylib}")
     EOS
   end
 
   test do
+    dylib = OS.mac? ? "dylib" : "so"
     script = <<~EOS.split("\n").join(";")
       import vapoursynth as vs
       core = vs.get_core()
-      core.std.LoadPlugin(path="#{lib}/libmvtools.dylib")
+      core.std.LoadPlugin(path="#{lib}/libmvtools.#{dylib}")
     EOS
 
     system "python3", "-c", script
