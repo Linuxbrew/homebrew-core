@@ -1,3 +1,4 @@
+# git-secret: Build a bottle for Linuxbrew
 class GitSecret < Formula
   desc "Bash-tool to store the private data inside a git repo"
   homepage "https://sobolevn.github.io/git-secret/"
