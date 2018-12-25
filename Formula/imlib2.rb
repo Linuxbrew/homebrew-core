@@ -1,3 +1,4 @@
+# imlib2: Build a bottle for Linuxbrew
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
