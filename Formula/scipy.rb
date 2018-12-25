@@ -6,7 +6,7 @@ class Scipy < Formula
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    cellar :any
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     rebuild 1
     sha256 "ce12aaccd1d83c7e3921124978947707b164507766c055049c249348435ede6c" => :mojave
     sha256 "a1629e0a1c63fadafdc724e645cd4b7e7733a187e57eedbe6533ddbb94f22168" => :high_sierra
