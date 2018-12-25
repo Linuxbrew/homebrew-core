@@ -1,3 +1,4 @@
+# translate-shell: Build a bottle for Linuxbrew
 class TranslateShell < Formula
   desc "Command-line translator using Google Translate and more"
   homepage "https://www.soimort.org/translate-shell"
