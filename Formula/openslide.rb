@@ -1,3 +1,4 @@
+# openslide: Build a bottle for Linuxbrew
 class Openslide < Formula
   desc "C library to read whole-slide images (a.k.a. virtual slides)"
   homepage "https://openslide.org/"
