@@ -11,6 +11,8 @@ class Groff < Formula
     sha256 "2966f4b562c30eb6679d6940b43f4b99b2b625433e6a218489f160eb76c7c360" => :sierra
   end
 
+  depends_on "texinfo" => :build
+
   def install
     system "./configure", "--prefix=#{prefix}", "--without-x"
     system "make" # Separate steps required
