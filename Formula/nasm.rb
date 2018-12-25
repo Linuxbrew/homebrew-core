@@ -1,3 +1,4 @@
+# nasm: Build a bottle for Linuxbrew
 class Nasm < Formula
   desc "Netwide Assembler (NASM) is an 80x86 assembler"
   homepage "https://www.nasm.us/"
