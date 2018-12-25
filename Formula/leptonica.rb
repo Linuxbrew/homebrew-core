@@ -38,13 +38,13 @@ class Leptonica < Formula
       #include <leptonica/allheaders.h>
 
       int main(int argc, char **argv) {
-          std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
+          fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
           return 0;
       }
     EOS
 
     flags = ["-I#{include}/leptonica"] + ENV.cflags.to_s.split
-    system ENV.cc, "test.c", *flags
+    system ENV.cxx, "test.cpp", *flags
     assert_equal version.to_s, `./a.out`
   end
 end
