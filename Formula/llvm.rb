@@ -12,10 +12,12 @@ class Llvm < Formula
       url "https://releases.llvm.org/7.0.1/cfe-7.0.1.src.tar.xz"
       sha256 "a45b62dde5d7d5fdcdfa876b0af92f164d434b06e9e89b5d0b1cbc65dfe3f418"
 
-      patch do
-        url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
-        sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
-      end unless OS.mac?
+      unless OS.mac?
+        patch do
+          url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
+          sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
+        end
+      end
     end
 
     resource "clang-extra-tools" do
@@ -83,10 +85,12 @@ class Llvm < Formula
     resource "clang" do
       url "https://git.llvm.org/git/clang.git"
 
-      patch do
-        url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
-        sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
-      end unless OS.mac?
+      unless OS.mac?
+        patch do
+          url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
+          sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
+        end
+      end
     end
 
     resource "clang-extra-tools" do
@@ -170,7 +174,7 @@ class Llvm < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1 -l1.0" if ENV["CIRCLECI"]
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
