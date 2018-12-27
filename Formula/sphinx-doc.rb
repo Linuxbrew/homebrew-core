@@ -1,3 +1,4 @@
+# sphinx-doc: Build a bottle for Linuxbrew
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
