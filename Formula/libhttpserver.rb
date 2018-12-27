@@ -17,6 +17,7 @@ class Libhttpserver < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libmicrohttpd"
+  depends_on "curl" => :test unless OS.mac?
 
   def install
     args = [
