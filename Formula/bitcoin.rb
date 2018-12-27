@@ -32,7 +32,7 @@ class Bitcoin < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1 -l1.0" if ENV["CIRCLECI"]
 
     if MacOS.version == :el_capitan && MacOS::Xcode.installed? &&
        MacOS::Xcode.version >= "8.0"
