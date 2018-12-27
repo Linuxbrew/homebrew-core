@@ -1,3 +1,4 @@
+# gopass: Build a bottle for Linuxbrew
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://www.justwatch.com/gopass"
