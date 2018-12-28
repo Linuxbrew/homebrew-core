@@ -1,3 +1,4 @@
+# fish: Build a bottle for Linuxbrew
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
