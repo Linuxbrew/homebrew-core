@@ -6,6 +6,7 @@ class Libical < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "42d6e8ca8a0b5b4a04a1444b8370a8bc5663cccd69ca5c15b91005148c9011da" => :mojave
     sha256 "512f28a610777ff78aacf9ab8e6e2b9cd45eaa2dc3eeb696139bbe7c5fc62bba" => :high_sierra
     sha256 "d1e06a7e4c3af68b3188c047cc915e6cbef75c74373bfa811da686a5d18f742b" => :sierra
@@ -15,6 +16,7 @@ class Libical < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "icu4c"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
