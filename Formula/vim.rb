@@ -8,7 +8,7 @@ class Vim < Formula
   head "https://github.com/vim/vim.git"
 
   bottle do
-    cellar :any
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "392cdef5ca3621b83beb9d4bdd0de7f99aac6505958ba0f7beb92bfded596cee" => :mojave
     sha256 "dbe801b6859b3b4ea49c88ade7340f7ea349273feaa63fa178dfb330cb6aad02" => :high_sierra
     sha256 "2d7621a460bd6312d4c3e52dd2e40369ca00b641932e7cd028cb9aaeaf211136" => :sierra
