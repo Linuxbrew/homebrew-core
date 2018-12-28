@@ -6,7 +6,7 @@ class VimAT74 < Formula
   revision 18
 
   bottle do
-    cellar :any
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "18867439556347ed829fc7bef2865f957bd8785b0ac44629e687cdedb6b624ba" => :mojave
     sha256 "d6b2ef5343bb627902044c1b7308247313a01c4423e66218748bd33d836ceda0" => :high_sierra
     sha256 "4f7321b2f4a244b305c78666aefe4c45a3cb832f75b67d60b26f180f4e5391f6" => :sierra
