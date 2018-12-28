@@ -40,13 +40,14 @@ class Subversion < Formula
   depends_on "utf8proc"
 
   unless OS.mac?
+    depends_on "libtool" => :build
     depends_on "python@2"
     depends_on "expat"
     depends_on "libmagic"
     depends_on "zlib"
-    depends_on "krb5" => :recommended
+    depends_on "krb5"
     depends_on "util-linux" # for libuuid
-    depends_on "ruby" => :recommended
+    depends_on "ruby"
   end
 
   # Other optional dependencies
@@ -69,19 +70,21 @@ class Subversion < Formula
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
   # Prevent linking into a Python Framework
-  patch :DATA
+  patch :DATA if OS.mac?
 
   def install
-    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin" if OS.mac?
     # Fix #33530 by ensuring the system Ruby can build test programs.
-    ENV.delete "SDKROOT"
+    ENV.delete "SDKROOT" if OS.mac?
 
     serf_prefix = OS.mac? ? libexec/"serf" : prefix
     resource("serf").stage do
-      inreplace "SConstruct" do |s|
-        s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
-        "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
-      end unless OS.mac?
+      unless OS.mac?
+        inreplace "SConstruct" do |s|
+          s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
+          "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
+        end
+      end
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].opt_prefix} CC=#{ENV.cc}
@@ -104,6 +107,8 @@ class Subversion < Formula
     # Use existing system zlib
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
+    zlib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["zlib"].opt_prefix
+    ruby = OS.mac? ? "/usr/bin/ruby" : "#{Formula["ruby"].opt_bin}/ruby"
     args = %W[
       --prefix=#{prefix}
       --disable-debug
@@ -116,11 +121,11 @@ class Subversion < Formula
       --with-ruby-sitedir=#{lib}/ruby
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
+      --with-zlib=#{zlib}
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
-      RUBY=/usr/bin/ruby
+      RUBY=#{ruby}
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
@@ -158,11 +163,6 @@ class Subversion < Formula
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
           "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
-      end
-    else
-      inreplace "Makefile" do |s|
-        s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -g -pipe -fno-common -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
       end
     end
     system "make", "swig-pl"
