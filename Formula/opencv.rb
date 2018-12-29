@@ -5,7 +5,7 @@ class Opencv < Formula
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
 
   bottle do
-    cellar :any_skip_relocation
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     sha256 "17118449befa36421e1422e90ba5e42b6006cc478e15a5e061e2d0fbaed6eaba" => :mojave
     sha256 "7064acad53324be571630e78465dca9ccb0cb1890bf5f92211e196c077714e90" => :high_sierra
     sha256 "be55fb58bd72c9028b1abda5ae8102945a014bf5c679f60c944051aa680ff5eb" => :sierra
