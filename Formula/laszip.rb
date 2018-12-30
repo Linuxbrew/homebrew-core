@@ -6,6 +6,7 @@ class Laszip < Formula
   head "https://github.com/LASzip/LASzip.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "d57ead739b110077881947019ad017ca14c851d460d4a0e0055f5f7a10befe4b" => :mojave
     sha256 "84f82e70332ca9166871f1a731cb5f17dc80e42f07987f33e690b013c5d7febd" => :high_sierra
     sha256 "450e33770ba3271b4bed03371a2461fa08c738567db34c5da45198bb2079eb45" => :sierra
