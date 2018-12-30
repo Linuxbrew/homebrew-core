@@ -75,10 +75,16 @@ class Perl < Formula
   end
 
   def post_install
-    # CPAN modules installed via the system package manager will not be visible to
-    # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
-    # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
     unless OS.mac?
+      # Glibc does not provide the xlocale.h file since version 2.26
+      # Patch the perl.h file to be able to use perl on newer versions.
+      # locale.h includes xlocale.h if the latter one exists
+      perl_core = Pathname.new(`#{bin/"perl"} -MConfig -e 'print $Config{archlib}'`)+"CORE"
+      inreplace "#{perl_core}/perl.h", "include <xlocale.h>", "include <locale.h>", :audit_result => false
+
+      # CPAN modules installed via the system package manager will not be visible to
+      # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
+      # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
       ENV.activate_extensions!
       ENV.setup_build_environment(self)
       ENV["PERL_MM_USE_DEFAULT"] = "1"
