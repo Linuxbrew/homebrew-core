@@ -24,6 +24,7 @@ class Mongodb < Formula
 
   unless OS.mac?
     depends_on "pkg-config" => :build
+    depends_on "curl"
     depends_on "libpcap"
   end
 
@@ -67,8 +68,6 @@ class Mongodb < Formula
       ENV["CPATH"] = Formula["openssl"].opt_include
       ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
       unless OS.mac?
-        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
-        ENV["CPATH"] = Formula["openssl"].opt_include
         ENV["CGO_CPPFLAGS"] = "-I " + Formula["libpcap"].opt_include
         ENV["CGO_LDFLAGS"] = "-L " + Formula["libpcap"].opt_lib
       end
