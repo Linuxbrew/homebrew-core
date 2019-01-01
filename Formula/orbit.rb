@@ -1,3 +1,4 @@
+# orbit: Build a bottle for Linuxbrew
 class Orbit < Formula
   desc "CORBA 2.4-compliant object request broker (ORB)"
   homepage "https://projects.gnome.org/ORBit2"
