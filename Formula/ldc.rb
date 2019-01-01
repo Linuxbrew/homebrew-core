@@ -6,6 +6,7 @@ class Ldc < Formula
   head "https://github.com/ldc-developers/ldc.git", :shallow => false
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "08390a0dc2fd046152aadf76fbd1de2e38c1c9dfb7373696dd92dafa31ad137e" => :mojave
     sha256 "876f04436441623dea0622b09742444b8b938f809f06634a6d6d0feb164d291f" => :high_sierra
     sha256 "73e5d71a5e36a6c9d501badef4eac74f39df8212f95278eda0f6c5f49ca1cfc2" => :sierra
@@ -32,7 +33,7 @@ class Ldc < Formula
   def install
     # Fix the error:
     # CMakeFiles/LDCShared.dir/build.make:68: recipe for target 'dmd2/id.h' failed
-    ENV.deparallelize if OS.linux?
+    ENV.deparallelize unless OS.mac?
 
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
