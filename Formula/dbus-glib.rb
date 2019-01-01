@@ -1,3 +1,4 @@
+# dbus-glib: Build a bottle for Linuxbrew
 class DbusGlib < Formula
   desc "GLib bindings for the D-Bus message bus system"
   homepage "https://wiki.freedesktop.org/www/Software/DBusBindings/"
