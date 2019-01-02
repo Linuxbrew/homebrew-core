@@ -17,12 +17,14 @@ class Exiv2 < Formula
   depends_on "libssh"
 
   unless OS.mac?
+    depends_on "curl"
     depends_on "expat"
     depends_on "zlib"
   end
 
   def install
     args = std_cmake_args
+    so = OS.mac? ? "dylib" : "so"
     args += %W[
       -DEXIV2_ENABLE_XMP=ON
       -DEXIV2_ENABLE_VIDEO=ON
@@ -35,7 +37,7 @@ class Exiv2 < Formula
       -DEXIV2_ENABLE_CURL=ON
       -DEXIV2_ENABLE_SSH=ON
       -DEXIV2_BUILD_SAMPLES=OFF
-      -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/libssh.dylib
+      -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/libssh.#{so}
       -DSSH_INCLUDE_DIR=#{Formula["libssh"].opt_include}
       ..
     ]
