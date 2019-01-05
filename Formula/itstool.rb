@@ -1,3 +1,4 @@
+# itstool: Build a bottle for Linuxbrew
 class Itstool < Formula
   desc "Make XML documents translatable through PO files"
   homepage "http://itstool.org/"
