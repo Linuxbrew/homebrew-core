@@ -13,6 +13,8 @@ class GnuTime < Formula
     sha256 "d51ef948a5a87281175fef771cb28469cbdb3085e3c51ad325d780ff921cc013" => :sierra
   end
 
+  depends_on "ruby" => :test
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -28,21 +30,25 @@ class GnuTime < Formula
     end
   end
 
-  def caveats; <<~EOS
-    GNU "time" has been installed as "gtime".
-    If you need to use it as "time", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    return unless OS.mac?
+    <<~EOS
+      GNU "time" has been installed as "gtime".
+      If you need to use it as "time", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do
     if OS.mac?
       system bin/"gtime", "ruby", "--version"
-    else
-      system bin/"gtime", bin/"gtime", "--version"
+      system opt_libexec/"gnubin/time", "ruby", "--version"
     end
-    system opt_libexec/"gnubin/time", "ruby", "--version"
+
+    unless OS.mac?
+      system bin/"time", "ruby", "--version"
+    end
   end
 end
