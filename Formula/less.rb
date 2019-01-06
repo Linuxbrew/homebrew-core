@@ -1,3 +1,4 @@
+# less: Build a bottle for Linuxbrew
 class Less < Formula
   desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
