@@ -1,3 +1,4 @@
+# frei0r: Build a bottle for Linuxbrew
 class Frei0r < Formula
   desc "Minimalistic plugin API for video effects"
   homepage "https://frei0r.dyne.org/"
