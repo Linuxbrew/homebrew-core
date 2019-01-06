@@ -1,3 +1,4 @@
+# game-music-emu: Build a bottle for Linuxbrew
 class GameMusicEmu < Formula
   desc "Videogame music file emulator collection"
   homepage "https://bitbucket.org/mpyne/game-music-emu"
