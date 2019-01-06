@@ -32,7 +32,6 @@ class GnuTar < Formula
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
-      --program-prefix=g
     ]
 
     args << "--program-prefix=g" if OS.mac?
@@ -47,25 +46,33 @@ class GnuTar < Formula
     end
   end
 
-  def caveats; <<~EOS
-    GNU "tar" has been installed as "gtar".
-    If you need to use it as "tar", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    return unless OS.mac?
+    <<~EOS
+      GNU "tar" has been installed as "gtar".
+      If you need to use it as "tar", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
+          PATH="#{opt_libexec}/gnubin:$PATH"
 
-    Additionally, you can access its man page with normal name if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
+      Additionally, you can access its man page with normal name if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
 
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-  EOS
+          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+    EOS
   end
 
   test do
     (testpath/"test").write("test")
-    system bin/"gtar", "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+    if OS.mac?
+      system bin/"gtar", "-czvf", "test.tar.gz", "test"
+      assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+      assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    end
 
-    assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    unless OS.mac?
+      system bin/"tar", "-czvf", "test.tar.gz", "test"
+      assert_match /test/, shell_output("#{bin}/tar -xOzf test.tar.gz")
+    end
   end
 end
