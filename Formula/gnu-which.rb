@@ -30,22 +30,30 @@ class GnuWhich < Formula
     end
   end
 
-  def caveats; <<~EOS
-    GNU "which" has been installed as "gwhich".
-    If you need to use it as "which", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    return unless OS.mac?
+    <<~EOS
+      GNU "which" has been installed as "gwhich".
+      If you need to use it as "which", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
+          PATH="#{opt_libexec}/gnubin:$PATH"
 
-    Additionally, you can access its man page with normal name if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
+      Additionally, you can access its man page with normal name if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
 
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-  EOS
+          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+    EOS
   end
 
   test do
-    system "#{bin}/gwhich", "gcc"
-    system "#{opt_libexec}/gnubin/which", "gcc"
+    if OS.mac?
+      system "#{bin}/gwhich", "gcc"
+      system "#{opt_libexec}/gnubin/which", "gcc"
+    end
+
+    unless OS.mac?
+      system "#{bin}/which", "gcc"
+    end
   end
 end
