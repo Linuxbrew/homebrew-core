@@ -1,3 +1,4 @@
+# moreutils: Build a bottle for Linuxbrew
 class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
