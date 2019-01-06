@@ -1,3 +1,4 @@
+# arcade-learning-environment: Build a bottle for Linuxbrew
 class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
