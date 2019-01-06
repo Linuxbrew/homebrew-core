@@ -1,3 +1,4 @@
+# sox: Build a bottle for Linuxbrew
 class Sox < Formula
   desc "SOund eXchange: universal sound sample translator"
   homepage "https://sox.sourceforge.io/"
