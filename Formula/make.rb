@@ -29,18 +29,20 @@ class Make < Formula
     end
   end
 
-  def caveats; <<~EOS
-    GNU "make" has been installed as "gmake".
-    If you need to use it as "make", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    return unless OS.mac?
+    <<~EOS
+      GNU "make" has been installed as "gmake".
+      If you need to use it as "make", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
+          PATH="#{opt_libexec}/gnubin:$PATH"
 
-    Additionally, you can access its man page with normal name if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
+      Additionally, you can access its man page with normal name if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
 
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-  EOS
+          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+    EOS
   end
 
   test do
@@ -48,8 +50,13 @@ class Make < Formula
       default:
       \t@echo Homebrew
     EOS
+    if OS.mac?
+      assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
+      assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
+    end
 
-    assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
-    assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
+    unless OS.mac?
+      assert_equal "Homebrew\n", shell_output("#{bin}/make")
+    end
   end
 end
