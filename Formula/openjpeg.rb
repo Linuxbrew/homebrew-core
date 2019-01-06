@@ -1,3 +1,4 @@
+# openjpeg: Build a bottle for Linuxbrew
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "https://www.openjpeg.org/"
