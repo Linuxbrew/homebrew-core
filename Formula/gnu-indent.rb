@@ -24,7 +24,7 @@ class GnuIndent < Formula
       --mandir=#{man}
     ]
 
-    args << "--program-prefix=g"
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
@@ -34,24 +34,26 @@ class GnuIndent < Formula
     end
   end
 
-  def caveats; <<~EOS
-    GNU "indent" has been installed as "gindent".
-    If you need to use it as "indent", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    return unless OS.mac?
+    <<~EOS
+      GNU "indent" has been installed as "gindent".
+      If you need to use it as "indent", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
+          PATH="#{opt_libexec}/gnubin:$PATH"
 
-    Additionally, you can access its man page with normal name if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
+      Additionally, you can access its man page with normal name if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
 
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-  EOS
+          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+    EOS
   end
 
   test do
-    indent = OS.mac? ? "gindent" : "indent"
     (testpath/"test.c").write("int main(){ return 0; }")
-    system "#{bin}/#{indent}", "test.c"
+    system "#{bin}/gindent", "test.c" if OS.mac?
+    system "#{bin}/indent", "test.c" unless OS.mac?
     assert_equal File.read("test.c"), <<~EOS
       int
       main ()
