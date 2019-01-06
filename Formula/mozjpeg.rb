@@ -1,3 +1,4 @@
+# mozjpeg: Build a bottle for Linuxbrew
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
