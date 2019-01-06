@@ -1,3 +1,4 @@
+# geoip: Build a bottle for Linuxbrew
 class Geoip < Formula
   desc "This library is for the GeoIP Legacy format (dat)"
   homepage "https://github.com/maxmind/geoip-api-c"
