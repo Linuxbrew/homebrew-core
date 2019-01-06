@@ -6,7 +6,6 @@ class Findutils < Formula
   sha256 "ded4c9f73731cd48fec3b6bdaccce896473b6d8e337e9612e16cf1431bb1169d"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 3
     sha256 "d0f28626392b25451b03772cce4fa33a8b087982a99640f56aa666db5fce250a" => :mojave
     sha256 "9f3953da6f5e1ad0d21d12e557061dfdddb45424fa7ca6495772c781048bc6bc" => :high_sierra
@@ -57,21 +56,29 @@ class Findutils < Formula
     (var/"locate").mkpath
   end
 
-  def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/gnubin:$PATH"
+  def caveats
+    return unless OS.mac?
+    <<~EOS
+      All commands have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
 
-    Additionally, you can access their man pages with normal names if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
-      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-  EOS
+      Additionally, you can access their man pages with normal names if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+    EOS
   end
 
   test do
     touch "HOMEBREW"
-    assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
-    assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
+    if OS.mac?
+      assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
+      assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
+    end
+
+    unless OS.mac?
+      assert_match "HOMEBREW", shell_output("#{bin}/find .")
+    end
   end
 end
