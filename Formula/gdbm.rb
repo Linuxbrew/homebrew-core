@@ -6,7 +6,6 @@ class Gdbm < Formula
   sha256 "86e613527e5dba544e73208f42b78b7c022d4fa5a6d5498bf18c8d6f745b91dc"
 
   bottle do
-    cellar :any
     rebuild 1
     sha256 "2168d58856917ca996d12dedaa930643529c66046103fe55018afc51f2bc1fcb" => :mojave
     sha256 "ac688d571f9c00e09670440d67d2869a34dab0fb897ba0b183ed84fceffdbc9c" => :high_sierra
