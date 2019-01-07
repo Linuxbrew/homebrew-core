@@ -20,10 +20,6 @@ class Libiomp < Formula
     cause "libiomp can only be built with clang."
   end
 
-  fails_with :gcc_4_0 do
-    cause "libiomp can only be built with clang."
-  end
-
   ("4.3".."4.9").each do |n|
     fails_with :gcc => n do
       cause "libiomp can only be built with clang."
