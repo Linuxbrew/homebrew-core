@@ -1,3 +1,4 @@
+# ed: Build a bottle for Linuxbrew
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
