@@ -13,7 +13,7 @@ class Boost < Formula
     sha256 "0c42d1ba47651b72a761218c2e00143bea3c7771c84319a847225b95dc861aa6" => :sierra
   end
 
-  depends_on "icu4c"
+  depends_on "icu4c" if OS.mac?
 
   unless OS.mac?
     depends_on "bzip2"
@@ -24,7 +24,7 @@ class Boost < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
 
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
@@ -33,7 +33,6 @@ class Boost < Formula
       else
         file.write "using gcc : : #{ENV.cxx} ;\n"
       end
-      file.write "using mpi ;\n" if build.with? "mpi"
     end
 
     # libdir should be set by --prefix but isn't
@@ -41,8 +40,12 @@ class Boost < Formula
     bootstrap_args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-icu=#{icu4c_prefix}
     ]
+    if OS.mac?
+      bootstrap_args << "--with-icu=#{icu4c_prefix}"
+    else
+      bootstrap_args << "--without-icu"
+    end
 
     # Handle libraries that will not be built.
     without_libraries = ["python", "mpi"]
