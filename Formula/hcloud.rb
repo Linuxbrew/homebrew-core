@@ -1,3 +1,4 @@
+# hcloud: Build a bottle for Linuxbrew
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
