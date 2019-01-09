@@ -1,19 +1,63 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
 pool:
   vmImage: 'Ubuntu-16.04'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+container:
+  image: linuxbrew/brew:latest
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+variables:
+  System.Debug: true
+  Agent.Source.Git.ShallowFetchDepth: 50
+steps:
+- script: printenv
+  displayName: Azure printenv
+
+- bash: |
+    mkdir -p /tmp/bottles
+    cd /tmp/bottles
+    umask 022
+  displayName: Setup /tmp/bottles
+- bash: |
+    cd $(Build.Repository.LocalPath)
+    git remote set-url origin https://github.com/linuxbrew/homebrew-core
+    git fetch origin master
+    git checkout master
+    git reset --hard origin/master
+    echo "------------------"
+    git status
+    git rev-parse HEAD
+    echo "------------------"
+    git checkout $(Build.SourceVersion)
+    git checkout -b $(System.PullRequest.SourceBranch)
+    git status
+    git rev-parse HEAD
+    echo $(Build.SourceVersion)
+    echo "------------------"
+  displayName: Git setup and reset
+- bash: |
+    git config --global user.name LinuxbrewTestBot
+    git config --global user.email testbot@linuxbrew.sh
+    PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+    sudo rm -rf /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+    sudo cp -a $(Build.Repository.LocalPath) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+    cd /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/
+    sudo git clone https://github.com/iMichka/homebrew-test-bot homebrew-test-bot
+    cd homebrew-test-bot
+    sudo git fetch origin
+    sudo git checkout azure
+    sudo chown $(whoami): -R /home/linuxbrew
+  displayName: Setup homebre-core
+- bash: |
+    cd $(Build.Repository.LocalPath)
+    brew install patchelf
+    brew tap linuxbrew/extra
+    brew tap linuxbrew/xorg
+    /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+  displayName: Run test-bot
+  env:
+    HOMEBREW_DEVELOPER: 1
+    HOMEBREW_NO_AUTO_UPDATE: 1
+    HOMEBREW_VERBOSE: 1
+    HOMEBREW_VERBOSE_USING_DOTS: 1
+- bash: |
+    ls /tmp/bottles
+  displayName: Upload bottles
