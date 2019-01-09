@@ -208,6 +208,17 @@ class Llvm < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
+    unless OS.mac?
+      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
+      # Basically, the stage1 clang will try to locate a gcc toolchain and often
+      # get the default from /usr/local, which might contains an old version of
+      # gcc that can't build compiler-rt. This fixes the problem and, unlike
+      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
+      # hardcoding the gcc path into the binary 
+      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/, 
+        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
+    end
+
     args = %W[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
