@@ -1,3 +1,4 @@
+# emscripten: Build a bottle for Linuxbrew
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://kripken.github.io/emscripten-site/"
