@@ -6,7 +6,6 @@ class Mpd < Formula
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    cellar :any
     sha256 "0d7097c4dc2715a22d52dfb043079af7caff6334c86f02df9a94d391e7c07a3d" => :mojave
     sha256 "53ac967273ff331d9935747054ca99ed0f928527d1c89ffbcc8a3b0d6b46386d" => :high_sierra
     sha256 "c4a226d7ac56d643e0a9e9cf767511b642340af52c157f7bf014fad25791e35b" => :sierra
@@ -34,11 +33,18 @@ class Mpd < Formula
   depends_on "opus"
   depends_on "sqlite"
 
+  unless OS.mac?
+    fails_with :gcc => "5"
+    depends_on "gcc@6" => :build
+    depends_on "curl"
+  end
+
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
     # The build is fine with G++.
-    ENV.libcxx
+    ENV.libcxx if OS.mac?
+    ENV.cxx11 unless OS.mac?
 
     args = %W[
       --prefix=#{prefix}
