@@ -1,3 +1,4 @@
+# exim: Build a bottle for Linuxbrew
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
