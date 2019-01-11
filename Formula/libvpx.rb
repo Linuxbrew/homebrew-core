@@ -6,6 +6,7 @@ class Libvpx < Formula
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "ea63d0340f8acb7222773e1c702caa60aa843cb7106a44880b9e49b258cc0724" => :mojave
     sha256 "c908bf9b9438bee689162350cdf89e6a7ac612b556dfe557dd6cfee89ff043a8" => :high_sierra
