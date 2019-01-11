@@ -1,3 +1,4 @@
+# hbase: Build a bottle for Linuxbrew
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
@@ -49,6 +50,9 @@ class Hbase < Formula
       (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
     end
 
+    cmd = Language::Java.java_home_cmd("1.8")
+    java_home = OS.mac? ? "#(/usr/libexec/java_home --version 1.8)" : Utils.popen_read(cmd).chomp
+
     inreplace "#{libexec}/conf/hbase-env.sh" do |s|
       # upstream bugs for ipv6 incompatibility:
       # https://issues.apache.org/jira/browse/HADOOP-8568
@@ -56,7 +60,7 @@ class Hbase < Formula
       s.gsub!("export HBASE_OPTS=\"-XX:+UseConcMarkSweepGC\"",
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
-              "export JAVA_HOME=\"$(/usr/libexec/java_home --version 1.8)\"")
+              "export JAVA_HOME=\"#{java_home}\"")
       # avoid deprecated-option warning issued by Java 8
       s.gsub!(" -XX:PermSize=128m -XX:MaxPermSize=128m", "")
 
