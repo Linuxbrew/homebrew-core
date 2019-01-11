@@ -6,7 +6,6 @@ class Gsasl < Formula
   sha256 "310262d1ded082d1ceefc52d6dad265c1decae8d84e12b5947d9b1dd193191e5"
 
   bottle do
-    cellar :any
     rebuild 3
     sha256 "d52080e846621b8b297fb8f100c077a859545b933ec527573a02addddca0b40d" => :mojave
     sha256 "9e6544e25c68eff0e352ba84355a9a6ea201b9b533cbb9420eee3bdfd1531eb3" => :high_sierra
