@@ -1,3 +1,4 @@
+# make: Build a bottle for Linuxbrew
 class Make < Formula
   desc "Utility for directing compilation"
   homepage "https://www.gnu.org/software/make/"
