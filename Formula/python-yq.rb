@@ -1,3 +1,4 @@
+# python-yq: Build a bottle for Linuxbrew
 class PythonYq < Formula
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://yq.readthedocs.io/"
