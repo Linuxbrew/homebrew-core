@@ -1,3 +1,4 @@
+# etcd: Build a bottle for Linuxbrew
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
