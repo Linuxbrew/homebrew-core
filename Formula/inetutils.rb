@@ -1,3 +1,4 @@
+# inetutils: Build a bottle for Linuxbrew
 class Inetutils < Formula
   desc "GNU utilities for networking"
   homepage "https://www.gnu.org/software/inetutils/"
