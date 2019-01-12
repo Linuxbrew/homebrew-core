@@ -1,3 +1,4 @@
+# gnu-which: Build a bottle for Linuxbrew
 class GnuWhich < Formula
   desc "GNU implementation of which utility"
   # Previous homepage is dead. Have linked to the GNU Projects page for now.
