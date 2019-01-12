@@ -16,11 +16,12 @@ class Dcmtk < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "libxml2"
   depends_on "openssl"
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, ".."
+      system "cmake", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, ".."
       system "make", "install"
     end
   end
