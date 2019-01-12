@@ -17,7 +17,10 @@ class Pstoedit < Formula
   depends_on "plotutils"
   depends_on "xz" if MacOS.version < :mavericks
 
+  needs :cxx11 unless OS.mac?
+
   def install
+    ENV.cxx11 unless OS.mac?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
