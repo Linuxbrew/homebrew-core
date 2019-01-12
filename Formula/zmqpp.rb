@@ -36,7 +36,7 @@ class Zmqpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lzmqpp", "-o", "test", "-std=c++11", "-stdlib=libc++", "-lc++"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lzmqpp", "-o", "test", "-std=c++11", *("-stdlib=libc++" if OS.mac?), *("-lc++" if OS.mac?)
     system "./test"
   end
 end
