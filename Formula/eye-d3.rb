@@ -1,3 +1,4 @@
+# eye-d3: Build a bottle for Linuxbrew
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "http://eyed3.nicfit.net/"
