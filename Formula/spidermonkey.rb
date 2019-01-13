@@ -16,12 +16,9 @@ class Spidermonkey < Formula
   end
 
   depends_on "nspr"
-  # Readline support is disabled; fails with:
-  # No rule to make target '-lreadline', needed by 'js'.  Stop.
-  depends_on "readline" if OS.mac?
-  depends_on "nspr"
+  depends_on "readline"
   unless OS.mac?
-    depends_on "python" => :build
+    depends_on "python@2" => :build
     depends_on "zip" => :build
   end
 
@@ -37,7 +34,7 @@ class Spidermonkey < Formula
 
     mkdir "brew-build" do
       system "../js/src/configure", "--prefix=#{prefix}",
-                                    *("--enable-readline" if OS.mac?),
+                                    "--enable-readline",
                                     "--enable-threadsafe",
                                     "--with-system-nspr",
                                     "--with-nspr-prefix=#{Formula["nspr"].opt_prefix}",
