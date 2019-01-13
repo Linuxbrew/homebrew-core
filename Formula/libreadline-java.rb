@@ -1,3 +1,4 @@
+# libreadline-java: Build a bottle for Linuxbrew
 class LibreadlineJava < Formula
   desc "Port of GNU readline for Java"
   homepage "https://java-readline.sourceforge.io/"
