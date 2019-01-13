@@ -3,6 +3,7 @@ class Algol68g < Formula
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
   url "https://jmvdveer.home.xs4all.nl/algol68g-2.8.4.tar.gz"
   sha256 "5823ccd0c18fe10a368a117cc3924748c4a5d0fe8dff0d9d818ff73c342565f0"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "381a280f428418bbb2338bdbe6a3bd4881f5d857c0d6dc9274f850d67df73bfb" => :mojave
@@ -10,7 +11,6 @@ class Algol68g < Formula
     sha256 "888a4d7dfa4d9379d09657fe3ff4d673238c9827dfbe443f8cacbd40a32c042e" => :sierra
     sha256 "78c7f1fea5c16a6c7e8d774bbd91174bb541a9548766a70c2da3660f73c8a01c" => :el_capitan
     sha256 "8b635fbd56159120fef7b0dca5364de8baa2b7d9a2f87956b86d31e4dd51a111" => :yosemite
-    sha256 "a28634c00d51c3050ca7a4aa13f4f36377a7651e7b45e886c86d23cbfdf49440" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "postgresql" unless OS.mac?
