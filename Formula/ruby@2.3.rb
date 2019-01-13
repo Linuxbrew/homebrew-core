@@ -1,3 +1,4 @@
+# ruby@2.3: Build a bottle for Linuxbrew
 # This formula should never be deleted even when it is in violation of
 # https://docs.brew.sh/Versions. This is because it is useful to test things
 # with Ruby 2.3 for reproducing Ruby issues with older versions of macOS that
