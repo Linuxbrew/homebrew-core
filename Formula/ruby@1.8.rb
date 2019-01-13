@@ -22,6 +22,7 @@ class RubyAT18 < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "readline"
+  depends_on "zlib" unless OS.mac?
 
   def install
     # Compilation with `superenv` breaks because the Ruby build system sets
