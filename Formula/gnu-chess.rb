@@ -1,3 +1,4 @@
+# gnu-chess: Build a bottle for Linuxbrew
 class GnuChess < Formula
   desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
