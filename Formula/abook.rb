@@ -1,3 +1,4 @@
+# abook: Build a bottle for Linuxbrew
 class Abook < Formula
   desc "Address book with mutt support"
   homepage "https://abook.sourceforge.io/"
