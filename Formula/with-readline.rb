@@ -13,6 +13,7 @@ class WithReadline < Formula
   end
 
   depends_on "readline"
+  depends_on "expect" => :test unless OS.mac?
 
   def install
     system "./configure", "--disable-debug",
