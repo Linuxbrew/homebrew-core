@@ -42,18 +42,20 @@ class PostgresqlAT96 < Formula
       --with-perl
       --with-uuid=e2fs
     ]
-    args += %w[
-      --with-bonjour
-      --with-gssapi
-      --with-ldap
-      --with-pam
-    ] if OS.mac?
+    if OS.mac?
+      args += %w[
+        --with-bonjour
+        --with-gssapi
+        --with-ldap
+        --with-pam
+      ]
+    end
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if MacOS.version >= :mavericks || (OS.mac? && MacOS::CLT.installed?)
+    if OS.mac? && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
       args << "--with-tcl"
-      if OS.mac? && File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
         args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
       end
     end
