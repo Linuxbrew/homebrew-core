@@ -1,3 +1,4 @@
+# dwarf: Build a bottle for Linuxbrew
 class Dwarf < Formula
   desc "Object file manipulation tool"
   homepage "https://github.com/elboza/dwarf-ng/"
