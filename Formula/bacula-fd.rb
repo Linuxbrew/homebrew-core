@@ -6,6 +6,7 @@ class BaculaFd < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "1203c3f94bad96756d94dfbfcad52c9a1e45d574a4ef49357f57a75ee964c421" => :mojave
     sha256 "9535d7e258021a724b6dfa7b48cef870b52f41edae2175386b6e1b58a6cabb87" => :high_sierra
     sha256 "f9d7ba8ef75dbfc767ec209a488b2cbe05a3f7e30ad0d4759c7b9cafeef929fd" => :sierra
