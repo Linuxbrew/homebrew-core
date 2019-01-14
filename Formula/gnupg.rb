@@ -3,16 +3,16 @@ class Gnupg < Formula
   homepage "https://gnupg.org/"
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.12.tar.bz2"
   sha256 "db030f8b4c98640e91300d36d516f1f4f8fe09514a94ea9fc7411ee1a34082cb"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "24059d53a3cf368f1f385a872128a9abb27210238caa829fc4b811023aa26148" => :mojave
     sha256 "5e115ff184403643a7f23c2ed0847aa0e25cbaae17845fe4b104b7afddcfac50" => :high_sierra
     sha256 "a34544f51c4240b6b1621c1b83b881c7d70a6107d85b826c5f4693d92e9ab0a0" => :sierra
-    sha256 "60478bfed57af528db6aab223a3ed9546798a05f2b7267d08790e13cce39a43a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sqlite" => :build if MacOS.version == :mavericks
+  depends_on "sqlite" => :build if !OS.mac? || MacOS.version == :mavericks
   depends_on "adns"
   depends_on "gettext"
   depends_on "gnutls"
