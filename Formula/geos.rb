@@ -19,7 +19,14 @@ class Geos < Formula
     # https://trac.osgeo.org/geos/ticket/771
     inreplace "configure" do |s|
       s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python3-config --includes`.strip}")
-      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
+      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"' if OS.mac?
+    end
+
+    # Fixes "cannot find Python library path"
+    unless OS.mac?
+      inreplace "configure", "$base_python_path/lib/python$PYTHON_VERSION/config/", "$base_python_path/lib/"
+      inreplace "configure", "libpython$PYTHON_VERSION.*", "libpython3.so"
+      inreplace "configure", "-lpython$PYTHON_VERSION", "-lpython3"
     end
 
     system "./configure", "--disable-dependency-tracking",
