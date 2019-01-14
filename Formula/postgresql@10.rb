@@ -17,6 +17,11 @@ class PostgresqlAT10 < Formula
   depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
+  unless OS.mac?
+    depends_on "libxslt"
+    depends_on "perl"
+    depends_on "util-linux" # for libuuid
+  end
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -33,24 +38,30 @@ class PostgresqlAT10 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
-      --with-gssapi
       --with-icu
-      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
-      --with-pam
       --with-perl
       --with-uuid=e2fs
     ]
+    if OS.mac?
+      args += %w[
+        --with-bonjour
+        --with-gssapi
+        --with-ldap
+        --with-pam
+      ]
+    end
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if MacOS.version >= :mavericks || MacOS::CLT.installed?
-      args << "--with-tcl"
-      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+    if OS.mac?
+      if MacOS.version >= :mavericks || MacOS::CLT.installed?
+        args << "--with-tcl"
+        if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+          args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+        end
       end
     end
 
@@ -58,7 +69,7 @@ class PostgresqlAT10 < Formula
     # to inside the SDK, so we need to use `-iwithsysroot` instead
     # of `-I` to point to the correct location.
     # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib} -R#{lib}/postgresql"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib} -R#{lib}/postgresql" if OS.mac?
 
     system "./configure", *args
     system "make"
