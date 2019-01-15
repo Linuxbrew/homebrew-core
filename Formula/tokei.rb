@@ -1,3 +1,4 @@
+# tokei: Build a bottle for Linuxbrew
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
   homepage "https://github.com/Aaronepower/tokei"
