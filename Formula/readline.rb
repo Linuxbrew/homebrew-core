@@ -5,11 +5,10 @@ class Readline < Formula
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
   version "8.0.0"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
+  revision 1 unless OS.mac?
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "4d94eaf31d5cc553107065a1a425226183044ea7b741a5dc49fe5714b94ec8cf" => :x86_64_linux
   end
 
   keg_only :shadowed_by_macos, <<~EOS
@@ -22,9 +21,9 @@ class Readline < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-      ("--with-curses" if build.with? "ncurses")
+      ("--with-curses" unless OS.mac?)
     args = []
-    args << "SHLIB_LIBS=-lcurses" if build.with? "ncurses"
+    args << "SHLIB_LIBS=-lcurses" unless OS.mac?
     system "make", "install", *args
   end
 
