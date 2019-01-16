@@ -10,7 +10,6 @@ class Purescript < Formula
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "fcec4062d8cc3fd4d557968885af1fdbdc0c0c4155360ced8410750d7c6628a5" => :mojave
     sha256 "4783296a797a920116da18dade95b0e88621a088c9afffe8f2398a12d9fb1a79" => :high_sierra
     sha256 "0bf8e8eb526136769d2f8e969111cfe7842a3e2a7ce96e33195dd24e3b4141a6" => :sierra
