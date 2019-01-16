@@ -3,13 +3,13 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.1.4.tar.bz2"
   sha256 "e9408603383d529b3bbee2509b73187d2186c502a9b052d07e250cd8f3873ed5"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "bc1a65731abdae414d570226baba57f4c36b1052422d2382f40a8c53536eb5aa" => :mojave
     sha256 "1c11ec28d719c51ef467f008f4237873317f03feb414d29a220cc4207552ff95" => :high_sierra
     sha256 "bfc38558f2e8c7a2e76e7757ed7a89d1c384fd25bcd9ca8882153dc73f61be4b" => :sierra
     sha256 "33926c7c32351853246ffbaef636fcc24dfd8516afead31e84f3a151daba9816" => :el_capitan
-    sha256 "327c61603aeee2ce1874dbdaa162e0d62070fd2ac7401b612235ad590872a178" => :x86_64_linux
   end
 
   head do
