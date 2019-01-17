@@ -5,7 +5,7 @@ class LuaAT51 < Formula
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
-  revision OS.mac? ? 8 : 10
+  revision OS.mac? ? 8 : 11
 
   bottle do
     cellar :any
@@ -13,7 +13,6 @@ class LuaAT51 < Formula
     sha256 "d374b94b3e4b9af93cb5c04086f4a9836c06953b4b1941c68a92986ba57356b1" => :high_sierra
     sha256 "67ce3661b56fe8dd0daf6f94b7da31a9516b00ae85d9bbe9eabd7ed2e1dbb324" => :sierra
     sha256 "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3" => :el_capitan
-    sha256 "d6dc478158b2377d2783f2604cf2d6d4731827d206d74e1cb185eae5af1dfa89" => :x86_64_linux
   end
 
   unless OS.mac?
@@ -23,10 +22,12 @@ class LuaAT51 < Formula
 
   # Add shared library for linux
   # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
-  patch do
-    url "https://gist.githubusercontent.com/iMichka/0f389e65e5abd63bfc6073bfa76082b0/raw/6e9c4c4690c737d93a376e053bcb82cdd69aac3b/lua5.1.5.patch"
-    sha256 "342b0d08eea9b9836be49fc88b3518cf207ee0e9aea09a248d3620c0b34e8e44"
-  end unless OS.mac?
+  unless OS.mac?
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/0f389e65e5abd63bfc6073bfa76082b0/raw/6e9c4c4690c737d93a376e053bcb82cdd69aac3b/lua5.1.5.patch"
+      sha256 "342b0d08eea9b9836be49fc88b3518cf207ee0e9aea09a248d3620c0b34e8e44"
+    end
+  end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
