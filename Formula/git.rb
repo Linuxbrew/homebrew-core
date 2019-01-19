@@ -26,7 +26,6 @@ class Git < Formula
     depends_on "curl"
     depends_on "expat"
     depends_on "openssl"
-    depends_on "tcl-tk" => :optional
     depends_on "zlib"
   end
 
@@ -82,7 +81,7 @@ class Git < Formula
     ]
     args << "NO_TCLTK=1" if build.without? "tcl-tk"
 
-    if MacOS.version < :yosemite
+    if !OS.mac? && MacOS.version < :yosemite
       openssl_prefix = Formula["openssl"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
@@ -142,7 +141,7 @@ class Git < Formula
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
     # To avoid this feature hooking into the system OpenSSL, remove it
-    if MacOS.version >= :yosemite
+    if !OS.mac? && MacOS.version >= :yosemite
       rm "#{libexec}/git-core/git-imap-send"
     end
 
@@ -185,13 +184,15 @@ class Git < Formula
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
 
-    # Check Net::SMTP::SSL was installed correctly.
-    %w[foo bar].each { |f| touch testpath/f }
-    system bin/"git", "add", "foo", "bar"
-    system bin/"git", "commit", "-a", "-m", "Second Commit"
-    assert_match "Authentication Required", shell_output(
-      "#{bin}/git send-email --to=dev@null.com --smtp-server=smtp.gmail.com " \
-      "--smtp-encryption=tls --confirm=never HEAD^ 2>&1", 255
-    )
+    if OS.mac?
+      # Check Net::SMTP::SSL was installed correctly.
+      %w[foo bar].each { |f| touch testpath/f }
+      system bin/"git", "add", "foo", "bar"
+      system bin/"git", "commit", "-a", "-m", "Second Commit"
+      assert_match "Authentication Required", shell_output(
+        "#{bin}/git send-email --to=dev@null.com --smtp-server=smtp.gmail.com " \
+        "--smtp-encryption=tls --confirm=never HEAD^ 2>&1", 255
+      )
+    end
   end
 end
