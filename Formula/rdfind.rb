@@ -1,3 +1,4 @@
+# rdfind: Build a bottle for Linuxbrew
 class Rdfind < Formula
   desc "Find duplicate files based on content (NOT file names)"
   homepage "https://rdfind.pauldreik.se/"
