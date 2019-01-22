@@ -1,3 +1,4 @@
+# aspell: Build a bottle for Linuxbrew
 class Aspell < Formula
   desc "Spell checker with better logic than ispell"
   homepage "http://aspell.net/"
