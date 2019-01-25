@@ -1,3 +1,4 @@
+# epsilon: Build a bottle for Linuxbrew
 class Epsilon < Formula
   desc "Powerful wavelet image compressor"
   homepage "https://epsilon-project.sourceforge.io"
