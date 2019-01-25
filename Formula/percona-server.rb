@@ -17,8 +17,9 @@ class PerconaServer < Formula
 
   depends_on "cmake" => :build
   unless OS.mac?
-    depends_on "readline"
+    depends_on "curl"
     depends_on "libedit"
+    depends_on "readline"
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
