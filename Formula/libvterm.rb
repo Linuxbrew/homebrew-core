@@ -1,3 +1,4 @@
+# libvterm: Build a bottle for Linuxbrew
 class Libvterm < Formula
   desc "C99 library which implements a VT220 or xterm terminal emulator"
   homepage "http://www.leonerd.org.uk/code/libvterm/"
