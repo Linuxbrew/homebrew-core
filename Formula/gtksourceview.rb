@@ -16,15 +16,18 @@ class Gtksourceview < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
-  depends_on "gtk-mac-integration"
+  depends_on "gtk-mac-integration" if OS.mac?
 
   # patches added the ensure that gtk-mac-integration is supported properly instead
   # of the old released called ige-mac-integration.
   # These are already integrated upstream in their gnome-2-30 branch but a release of
   # this remains highly unlikely
-  patch :DATA
+  patch :DATA if OS.mac?
 
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
