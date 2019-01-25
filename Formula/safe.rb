@@ -1,3 +1,4 @@
+# safe: Build a bottle for Linuxbrew
 class Safe < Formula
   desc "Command-line interface for Vault"
   homepage "https://github.com/starkandwayne/safe"
