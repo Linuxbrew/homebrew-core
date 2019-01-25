@@ -6,6 +6,7 @@ class Ldns < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "62e817640791c4f6e6f3f99ed3621cdc62033772094a7fe9365813de0ab26c9e" => :mojave
     sha256 "59e16e20f7ec9324f2f0381eaa626788dc61f1a7acad8360d648ce9627669f3c" => :high_sierra
     sha256 "f696aa117920984beb08f77884fb6cc919d48f737f2684a6dd754ef76e069346" => :sierra
@@ -14,6 +15,7 @@ class Ldns < Formula
 
   depends_on "swig" => :build
   depends_on "openssl"
+  depends_on "python@2" unless OS.mac?
 
   def install
     args = %W[
@@ -26,11 +28,14 @@ class Ldns < Formula
       --disable-dane-verify
     ]
 
+    ENV["PYTHON"] = Formula["python@2"].opt_bin/"python2" unless OS.mac?
     system "./configure", *args
 
-    inreplace "Makefile" do |s|
-      s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
-      s.gsub! /(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1"
+    if OS.mac?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
+        s.gsub! /(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1"
+      end
     end
 
     system "make"
