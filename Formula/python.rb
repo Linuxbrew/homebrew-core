@@ -87,6 +87,8 @@ class Python < Formula
       --enable-loadable-sqlite-extensions
       --without-ensurepip
       --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-tcltk-includes="-I#{Formula["tcl-tk"].opt_include}"
+      --with-tcltk-libs="-L#{Formula["tcl-tk"].opt_lib}"
     ]
     args << "--with-dtrace" unless OS.linux?
 
@@ -348,6 +350,11 @@ class Python < Formula
         pip3 install <package>
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
+
+      The default python3 installation does not include tkinter module and does
+      not support module such as matplotlib TkAGG backend. To get python3 with
+      tkinter module, you need to install tcl-tk then install python3 by running
+        brew install tcl-tk && brew install python3 --build-from-source
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
