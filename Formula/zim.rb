@@ -1,3 +1,4 @@
+# zim: Build a bottle for Linuxbrew
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "http://zim-wiki.org/"
