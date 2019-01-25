@@ -1,3 +1,4 @@
+# pygtk: Build a bottle for Linuxbrew
 class Pygtk < Formula
   desc "GTK+ bindings for Python"
   homepage "http://www.pygtk.org/"
