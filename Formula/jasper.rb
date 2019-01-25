@@ -5,6 +5,7 @@ class Jasper < Formula
   sha256 "85266eea728f8b14365db9eaf1edc7be4c348704e562bb05095b9a077cf1a97b"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "ae619b7f71f1b8acc75cb50cb028fafd8d605cbd3f665eeafc73240a716e6e72" => :mojave
     sha256 "ba3837db475f627b3793168dd04dab63997d74e207bfb6908d8e66913393eb5f" => :high_sierra
