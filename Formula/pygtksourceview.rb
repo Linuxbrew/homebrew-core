@@ -1,3 +1,4 @@
+# pygtksourceview: Build a bottle for Linuxbrew
 class Pygtksourceview < Formula
   desc "Python wrapper for the GtkSourceView widget library"
   homepage "https://projects.gnome.org/gtksourceview/pygtksourceview.html"
