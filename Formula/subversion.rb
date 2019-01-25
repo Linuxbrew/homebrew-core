@@ -38,13 +38,14 @@ class Subversion < Formula
 
   unless OS.mac?
     depends_on "libtool" => :build
-    depends_on "python@2"
     depends_on "expat"
-    depends_on "libmagic"
-    depends_on "zlib"
     depends_on "krb5"
-    depends_on "util-linux" # for libuuid
+    depends_on "libmagic"
+    depends_on "openjdk"
+    depends_on "python@2"
     depends_on "ruby"
+    depends_on "util-linux" # for libuuid
+    depends_on "zlib"
   end
 
   resource "serf" do
@@ -109,6 +110,8 @@ class Subversion < Formula
       --without-jikes
       RUBY=#{ruby}
     ]
+
+    args << "--with-jdk=#{Formula["openjdk"].opt_prefix}"
 
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
