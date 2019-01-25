@@ -1,3 +1,4 @@
+# gauge: Build a bottle for Linuxbrew
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
