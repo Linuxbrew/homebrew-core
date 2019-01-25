@@ -1,3 +1,4 @@
+# vde: Build a bottle for Linuxbrew
 class Vde < Formula
   desc "Ethernet compliant virtual network"
   homepage "https://vde.sourceforge.io/"
