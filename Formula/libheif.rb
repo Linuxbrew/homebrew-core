@@ -1,3 +1,4 @@
+# libheif: Build a bottle for Linuxbrew
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
