@@ -12,7 +12,7 @@ class Quex < Formula
     sha256 "745f6d4fe25cb48f6e3389a6746027790c9c73dcdadd449d6bfba1845f2fe7b7" => :sierra
   end
 
-  depends_on "python" unless OS.mac?
+  depends_on "python@2" unless OS.mac?
 
   def install
     libexec.install "quex", "quex-exe.py"
