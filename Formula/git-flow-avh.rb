@@ -48,6 +48,10 @@ class GitFlowAvh < Formula
 
   test do
     system "git", "init"
+    unless OS.mac?
+      system "git", "config", "--global", "user.email", "\"you@example.com\""
+      system "git", "config", "--global", "user.name", "\"Your Name\""
+    end
     system "#{bin}/git-flow", "init", "-d"
     system "#{bin}/git-flow", "config"
     assert_equal "develop", shell_output("git symbolic-ref --short HEAD").chomp
