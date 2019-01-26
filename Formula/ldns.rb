@@ -1,3 +1,4 @@
+# ldns: Build a bottle for Linuxbrew
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
