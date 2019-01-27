@@ -9,10 +9,12 @@ class Openssl < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2q.tar.gz"
   mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2q.tar.gz"
   sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
-    sha256 "c719259835b8d1ae7b0f627986a127fe4bb9bd161c03a86417b23e73a0878fe8" => :x86_64_linux
+    sha256 "cdbee2befd8f2e178ff0c5f9e8796a73a7de20055aae51cba7cc749429e8c90f" => :mojave
+    sha256 "d3ac5de6ccd9c604a5f2b8582ebd721ab421c0fdbfefa5a4b1190f83277f2c27" => :high_sierra
+    sha256 "94881a8df581a9f63b6a0a6c9f362d873133c2a27f2708803bca778390356975" => :sierra
   end
 
   keg_only :provided_by_macos,
@@ -29,9 +31,9 @@ class Openssl < Formula
   unless OS.mac?
     resource "cacert" do
       # homepage "http://curl.haxx.se/docs/caextract.html"
-      url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
-      mirror "http://cdn.rawgit.com/sjackman/e4066d2cb6b45fbb6d213e676cb109d0/raw/58964378cb5eefe96cba245ef863c57fb2b480e0/cacert-2017-01-18.pem"
-      sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
+      url "https://curl.haxx.se/ca/cacert-2019-01-23.pem"
+      mirror "https://raw.githubusercontent.com/paragonie/certainty/master/data/cacert-2019-01-23.pem"
+      sha256 "c1fd9b235896b1094ee97bfb7e042f93530b5e300781f59b45edf84ee8c75000"
     end
   end
 
