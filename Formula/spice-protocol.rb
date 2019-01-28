@@ -1,3 +1,4 @@
+# spice-protocol: Build a bottle for Linuxbrew
 class SpiceProtocol < Formula
   desc "Headers for SPICE protocol"
   homepage "https://www.spice-space.org/"
