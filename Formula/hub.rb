@@ -13,9 +13,8 @@ class Hub < Formula
   end
 
   depends_on "go" => :build
-
-  if !OS.mac? && build.with?("docs")
-    depends_on "bsdmainutils" => :build
+  unless OS.mac?
+    depends_on "util-linux" => :build # for col
     depends_on "groff" => :build
     depends_on "ruby" => :build
   end
