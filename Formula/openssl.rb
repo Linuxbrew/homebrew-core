@@ -31,7 +31,7 @@ class Openssl < Formula
     resource "cacert" do
       # homepage "http://curl.haxx.se/docs/caextract.html"
       url "https://curl.haxx.se/ca/cacert-2019-01-23.pem"
-      mirror "https://raw.githubusercontent.com/paragonie/certainty/master/data/cacert-2019-01-23.pem"
+      mirror "http://linuxbrew.bintray.com/bottles/cacert-2019-01-23.pem"
       sha256 "c1fd9b235896b1094ee97bfb7e042f93530b5e300781f59b45edf84ee8c75000"
     end
   end
