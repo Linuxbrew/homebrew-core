@@ -4,6 +4,7 @@ class Autoconf < Formula
   url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
   mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
   sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -17,13 +18,15 @@ class Autoconf < Formula
     sha256 "37e77a2e7ca6d479f0a471d5f5d828efff621bd051c1884ff1363d77c5c4675e" => :mountain_lion
   end
 
-  # Fix configure: error: no acceptable m4 could be found in $PATH.
-  depends_on "m4" unless OS.mac?
+  unless OS.mac?
+    # Fix configure: error: no acceptable m4 could be found in $PATH.
+    depends_on "m4"
 
-  # For autom4te.
-  # Don't use system perl since autoconf requires Data/Dumper.pm which may not
-  # be installed. https://github.com/Linuxbrew/homebrew-core/issues/7522
-  depends_on "perl" unless OS.mac?
+    # For autom4te.
+    # Don't use system perl since autoconf requires Data/Dumper.pm which may not
+    # be installed. https://github.com/Linuxbrew/homebrew-core/issues/7522
+    depends_on "perl"
+  end
 
   def install
     ENV["PERL"] = "/usr/bin/perl" if OS.mac?
