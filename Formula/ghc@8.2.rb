@@ -63,8 +63,13 @@ class GhcAT82 < Formula
     # GMP *does not* use PIC by default without shared libs  so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
+      if OS.mac?
+        args = "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+      else
+        args = "--build=core2-linux-gnu"
+      end
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+                            *args
       system "make"
       system "make", "check"
       ENV.deparallelize { system "make", "install" }
