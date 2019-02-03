@@ -71,7 +71,6 @@ class Ffmpeg < Formula
       --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
-      --enable-videotoolbox
     ]
 
     system "./configure", *args
