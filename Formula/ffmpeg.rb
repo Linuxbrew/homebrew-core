@@ -73,6 +73,8 @@ class Ffmpeg < Formula
       --enable-libspeex
     ]
 
+    args << "--enable-videotoolbox" if OS.mac?
+
     system "./configure", *args
     system "make", "install"
 
