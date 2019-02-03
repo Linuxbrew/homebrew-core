@@ -50,12 +50,25 @@ class Qwt < Formula
         return (curve1 == NULL);
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "out",
-      "-std=c++11",
-      "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
-      "-I#{lib}/qwt.framework/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtCore.framework/Versions/5/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtGui.framework/Versions/5/Headers"
+
+    cppargs = %W["test.cpp", "-o", "out",
+        "-std=c++11",
+        "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
+        "-I#{lib}/qwt.framework/Headers",
+        "-I#{Formula["qt"].opt_lib}/QtCore.framework/Versions/5/Headers",
+        "-I#{Formula["qt"].opt_lib}/QtGui.framework/Versions/5/Headers"
+      ]
+    if OS.mac?
+      cppargs.push "-framework"
+      cppargs.push "qwt"
+      cppargs.push "-framework"
+      cppargs.push "QtCore"
+    elif OS.linux?
+      cppargs.push "-lqwt"
+      cppargs.push "-lQtCore"
+    end
+
+    system ENV.cxx, *cppargs
     system "./out"
   end
 end
