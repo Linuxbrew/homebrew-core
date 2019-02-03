@@ -29,10 +29,11 @@ class Qwt < Formula
 
     args = ["-config", "release"]
     if OS.mac?
+      args.push "-spec"
       if ENV.compiler == :clang
-        args.push *["--spec", "macx-clang"]
+        args.push "macx-clang"
       else
-        args.push *["--spec", "macx-g++"]
+        args.push "macx-g++"
       end
     end
 
@@ -51,7 +52,6 @@ class Qwt < Formula
     EOS
     system ENV.cxx, "test.cpp", "-o", "out",
       "-std=c++11",
-      "-framework", "qwt", "-framework", "QtCore",
       "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
       "-I#{lib}/qwt.framework/Headers",
       "-I#{Formula["qt"].opt_lib}/QtCore.framework/Versions/5/Headers",
