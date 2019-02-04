@@ -6,12 +6,14 @@ class Travis < Formula
   revision 3
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "d695085c0886f6db8d5a1afeb6cae27e61d7fcc41d2e069c16ce0909048dba64" => :mojave
     sha256 "32634e86fdc04e7ca0df1834cf1ee6e8cdd3bfb0f89c0e4ed36a0d55b08483b3" => :high_sierra
     sha256 "1d21554de55885fd08e4433772663410044f088cf346b63533142019a2d865f5" => :sierra
   end
 
   depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
+  depends_on "libffi" unless OS.mac?
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.4.0.gem"
