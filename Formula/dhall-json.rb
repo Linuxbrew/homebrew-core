@@ -16,7 +16,6 @@ class DhallJson < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "6f11856cac3d2516d0e7d53db129f1b4cd273ee9e073f145a4cb167ec3e167a1" => :mojave
     sha256 "ad0fa0e553afa962b8a006a0c1bd715e321e5797193589f63f2b1185e7759adb" => :high_sierra
     sha256 "fb36ce25ef819842687865bd82f857998ce9ea1d4b133566d78fcf75b8c536f0" => :sierra
