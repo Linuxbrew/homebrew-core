@@ -1,3 +1,4 @@
+# w3m: Build a bottle for Linuxbrew
 class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
