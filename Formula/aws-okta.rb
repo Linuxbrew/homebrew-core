@@ -13,6 +13,10 @@ class AwsOkta < Formula
 
   depends_on "go" => :build
   depends_on "govendor" => :build
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libusb"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
