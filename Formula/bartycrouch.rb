@@ -1,3 +1,4 @@
+# bartycrouch: Build a bottle for Linuxbrew
 class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
