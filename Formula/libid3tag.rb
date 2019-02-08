@@ -46,6 +46,20 @@ class Libid3tag < Formula
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
+  unless OS.mac?
+    # fix build with gperf
+    # https://bugs.gentoo.org/show_bug.cgi?id=605158
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/c23ea881388319b38838183754349bba/raw/4829ff0702a511f96026369676a11edd9a79ab30/libid3tag.diff"
+      sha256 "00f04427c6b3bab2bb8595f6df0ebc774b60031ee60428241801ccf6337d4c5d"
+    end
+  end
+
+  unless OS.mac?
+    depends_on "gperf"
+    depends_on "zlib"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
