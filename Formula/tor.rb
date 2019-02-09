@@ -16,6 +16,7 @@ class Tor < Formula
   depends_on "libevent"
   depends_on "libscrypt"
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   def install
     args = %W[
