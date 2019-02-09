@@ -28,12 +28,14 @@ class Libbluray < Formula
   depends_on "libxml2" unless OS.mac?
 
   def install
-    # Need to set JAVA_HOME manually since ant overrides 1.8 with 1.8+
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+    if OS.mac?
+      # Need to set JAVA_HOME manually since ant overrides 1.8 with 1.8+
+      cmd = Language::Java.java_home_cmd("1.8")
+      ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
 
-    # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
+      # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
+      ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
+    end
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
 
