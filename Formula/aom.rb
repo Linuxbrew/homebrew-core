@@ -27,7 +27,8 @@ class Aom < Formula
                       "-DENABLE_EXAMPLES=on",
                       "-DENABLE_TESTDATA=off",
                       "-DENABLE_TESTS=off",
-                      "-DENABLE_TOOLS=off"
+                      "-DENABLE_TOOLS=off",
+                      *("-DBUILD_SHARED_LIBS=1" unless OS.mac?)
 
       system "make", "install"
     end
