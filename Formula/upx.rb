@@ -1,3 +1,4 @@
+# upx: Build a bottle for Linuxbrew
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
