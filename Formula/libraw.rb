@@ -1,3 +1,4 @@
+# libraw: Build a bottle for Linuxbrew
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
