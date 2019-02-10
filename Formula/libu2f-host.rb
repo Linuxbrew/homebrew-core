@@ -1,3 +1,4 @@
+# libu2f-host: Build a bottle for Linuxbrew
 class Libu2fHost < Formula
   desc "Host-side of the Universal 2nd Factor (U2F) protocol"
   homepage "https://developers.yubico.com/libu2f-host/"
