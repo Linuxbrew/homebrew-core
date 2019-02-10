@@ -1,3 +1,4 @@
+# terraform_landscape: Build a bottle for Linuxbrew
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
