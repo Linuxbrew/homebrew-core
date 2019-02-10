@@ -1,3 +1,4 @@
+# mrboom: Build a bottle for Linuxbrew
 class Mrboom < Formula
   desc "Eight player Bomberman clone"
   homepage "http://mrboom.mumblecore.org/"
