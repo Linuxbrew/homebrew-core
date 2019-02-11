@@ -1,3 +1,4 @@
+# ladspa-sdk: Build a bottle for Linuxbrew
 class LadspaSdk < Formula
   desc "Linux Audio Developer's Simple Plugin"
   homepage "https://ladspa.org"
