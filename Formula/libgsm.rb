@@ -12,11 +12,18 @@ class Libgsm < Formula
     sha256 "72ab3562f8bafc91a0c6dd0149956ed1c1e97ddacb409a695e2b4581317a9260" => :el_capitan
   end
 
-  # Builds a dynamic library for gsm, this package is no longer developed
-  # upstream. Patch taken from Debian and modified to build a dylib.
-  patch do
-    url "https://gist.githubusercontent.com/dholm/5840964/raw/1e2bea34876b3f7583888b2284b0e51d6f0e21f4/gistfile1.txt"
-    sha256 "3b47c28991df93b5c23659011e9d99feecade8f2623762041a5dcc0f5686ffd9"
+  if OS.mac?
+    # Builds a dynamic library for gsm, this package is no longer developed
+    # upstream. Patch taken from Debian and modified to build a dylib.
+    patch do
+      url "https://gist.githubusercontent.com/dholm/5840964/raw/1e2bea34876b3f7583888b2284b0e51d6f0e21f4/gistfile1.txt"
+      sha256 "3b47c28991df93b5c23659011e9d99feecade8f2623762041a5dcc0f5686ffd9"
+    end
+  else
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/9aac903922bc0169f2f6ce4c848d2976/raw/63d5708692e1494daaf573df31be8695875ef4ec/libgsm"
+      sha256 "ccf749390d91511a5b1f3184f80d8a25898b77b661426eb1a5f3fd4704938908"
+    end
   end
 
   def install
@@ -30,15 +37,17 @@ class Libgsm < Formula
     man3.mkpath
 
     # Dynamic library must be built first
-    system "make", "lib/libgsm.1.0.13.dylib",
-           "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
-           "LDFLAGS=#{ENV.ldflags}"
+    library = OS.mac? ? "libgsm.1.0.13.dylib" : "libgsm.so"
+    dylib = OS.mac? ? "dylib" : "so"
+    system "make", "lib/#{library}",
+           "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}" + (" -fPIC" unless OS.mac?),
+           "LDFLAGS=#{ENV.ldflags}" + (" -fPIC" unless OS.mac?)
     system "make", "all",
            "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
            "LDFLAGS=#{ENV.ldflags}"
     system "make", "install",
            "INSTALL_ROOT=#{prefix}",
            "GSM_INSTALL_INC=#{include}"
-    lib.install Dir["lib/*dylib"]
+    lib.install Dir["lib/*#{dylib}"]
   end
 end
