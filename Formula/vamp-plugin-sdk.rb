@@ -1,3 +1,4 @@
+# vamp-plugin-sdk: Build a bottle for Linuxbrew
 class VampPluginSdk < Formula
   desc "Audio processing plugin system sdk"
   homepage "https://www.vamp-plugins.org/"
