@@ -1,3 +1,4 @@
+# libhttpserver: Build a bottle for Linuxbrew
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
