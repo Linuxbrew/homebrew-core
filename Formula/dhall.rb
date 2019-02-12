@@ -9,7 +9,6 @@ class Dhall < Formula
   sha256 "e077e8f4945484db4e35e8ae422e9eabac1b155972602f0404d818e3e185bcdc"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "257bed839ea53d14054be3fefa0e35b78b3b807e59f88eb84013e9aa0c364a09" => :mojave
     sha256 "ce895046f75e368da7c5e750bfdb32d487307a4ceecef3aa11febfa48524a28c" => :high_sierra
     sha256 "ee166bcae7c837e83ba18756321da6df166906b740403353432834363fff3bcf" => :sierra
@@ -17,6 +16,7 @@ class Dhall < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     install_cabal_package
