@@ -18,6 +18,7 @@ class Rubberband < Formula
   depends_on "libsamplerate"
   depends_on "libsndfile"
   unless OS.mac?
+    depends_on "ladspa-sdk"
     depends_on "fftw"
     depends_on "vamp-plugin-sdk"
     depends_on "openjdk"
@@ -34,17 +35,18 @@ class Rubberband < Formula
       ENV['JAVA_HOME'] = Formula['openjdk'].opt_prefix
       system "make", "jni"
       system "make", "install"
-      return
     end
 
-    system "make", "-f", "Makefile.osx"
-    # HACK: Manual install because "make install" is broken
-    # https://github.com/Homebrew/homebrew-core/issues/28660
-    bin.install "bin/rubberband"
-    lib.install "lib/librubberband.dylib" => "librubberband.2.1.1.dylib"
-    lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.2.dylib"
-    lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.dylib"
-    include.install "rubberband"
+    if OS.mac?
+      system "make", "-f", "Makefile.osx"
+      # HACK: Manual install because "make install" is broken
+      # https://github.com/Homebrew/homebrew-core/issues/28660
+      bin.install "bin/rubberband"
+      lib.install "lib/librubberband.dylib" => "librubberband.2.1.1.dylib"
+      lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.2.dylib"
+      lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.dylib"
+      include.install "rubberband"
+    end
 
     cp "rubberband.pc.in", "rubberband.pc"
     inreplace "rubberband.pc", "%PREFIX%", opt_prefix
