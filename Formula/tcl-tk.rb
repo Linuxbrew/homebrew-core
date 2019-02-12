@@ -90,10 +90,12 @@ class TclTk < Formula
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      ENV["SDKROOT"] = MacOS.sdk_path
+      if OS.mac?
+        ENV["SDKROOT"] = MacOS.sdk_path
+      end
       system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
-      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
+      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64" if OS.mac?
     end
 
     resource("tcltls").stage do
