@@ -3,26 +3,26 @@ class Kubeprod < Formula
   homepage "https://kubeprod.io"
   url "https://github.com/bitnami/kube-prod-runtime/archive/v1.1.1.tar.gz"
   sha256 "47290fb0f563264279f7130259aef355018e01b85d61d3cf1fc63b33cc601c0c"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "310dcc094f93c2bb8b79f53c95f35ac07f1ce60f87b1f33f0c311246e28bf9f3" => :mojave
     sha256 "0cbf1afda0ad5381d70b9df823ed78ff2ce556bfc1fab7430cec57cbf93a1b1c" => :high_sierra
     sha256 "66680d2eca38574cb5e5cf7f407a7da917f105247d562c151d539d775e0944b1" => :sierra
-    sha256 "886fe2e7b453a093993160c9dbc7d391ec6420c58a494fac81279fd73c744eac" => :x86_64_linux
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["TARGETS"] = "darwin/amd64"
+    ENV["TARGETS"] = OS.mac? ? "darwin/amd64" : "linux/amd64"
     dir = buildpath/"src/github.com/bitnami/kube-prod-runtime"
     dir.install buildpath.children
 
     cd dir do
       system "make", "-C", "kubeprod", "release", "VERSION=v#{version}"
-      bin.install "kubeprod/_dist/darwin-amd64/bkpr-v#{version}/kubeprod"
+      bin.install "kubeprod/_dist/" + ENV["TARGETS"].tr("/", "-") + "/bkpr-v#{version}/kubeprod"
     end
   end
 
