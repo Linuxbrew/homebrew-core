@@ -20,6 +20,7 @@ class Rubberband < Formula
   unless OS.mac?
     depends_on "fftw"
     depends_on "vamp-plugin-sdk"
+    depends_on "openjdk"
   end
 
   def install
@@ -29,6 +30,9 @@ class Rubberband < Formula
         "--disable-dependency-tracking",
         "--disable-silent-rules",
         "--prefix=#{prefix}"
+      system "make"
+      ENV['JAVA_HOME'] = Formula['openjdk'].opt_prefix
+      system "make", "jni"
       system "make", "install"
       return
     end
