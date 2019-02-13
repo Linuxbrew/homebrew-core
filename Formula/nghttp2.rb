@@ -27,6 +27,7 @@ class Nghttp2 < Formula
   depends_on "libev"
   depends_on "libevent"
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   unless OS.mac?
     patch do
