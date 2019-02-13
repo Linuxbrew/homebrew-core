@@ -1,3 +1,4 @@
+# python: Build bottle for Linuxbrew
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
