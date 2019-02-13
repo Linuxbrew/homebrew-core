@@ -187,7 +187,7 @@ class Gcc < Formula
       # Use -headerpad_max_install_names in the build,
       # otherwise updated load commands won't fit in the Mach-O header.
       # This is needed because `gcc` avoids the superenv shim.
-      system "make", "install"
+      system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       system "make", OS.mac? ? "install" : "install-strip"
 
       if build.with?("fortran") || build.with?("all-languages")
