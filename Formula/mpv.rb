@@ -27,6 +27,21 @@ class Mpv < Formula
   depends_on "vapoursynth"
   depends_on "youtube-dl"
 
+  unless OS.mac?
+    depends_on "libbluray"
+    depends_on "pulseaudio"
+    depends_on "rubberband"
+    
+    #depends_on "linuxbrew/xorg/libglvnd" # should become default GL library rather than mesa
+
+    depends_on "linuxbrew/xorg/libdrm"
+    depends_on "linuxbrew/xorg/libva"
+    depends_on "linuxbrew/xorg/libvdpau"
+    depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/wayland"
+    depends_on "linuxbrew/xorg/wayland-protocols"
+  end
+
   def install
     # Fix ld relocation error
     ENV.append_to_cflags "-fPIC" unless OS.mac?
@@ -51,7 +66,11 @@ class Mpv < Formula
       --enable-zsh-comp
       --zshdir=#{zsh_completion}
     ]
-    args << "--disable-javascript" unless OS.mac? # The mujs formula does not build .so files
+    
+    unless OS.mac?
+      args << "--disable-javascript" # The mujs formula does not build .so files
+      args << "--enable-libmpv-shared"
+    end
 
     system "./bootstrap.py"
     system "python3", "waf", "configure", *args
@@ -60,6 +79,14 @@ class Mpv < Formula
     system "python3", "TOOLS/osxbundle.py", "build/mpv"
     prefix.install "build/mpv.app"
   end
+
+  def caveats; <<~EOS
+    On linux if you use propietary gpu driver such as NVIDIA you should install
+    linuxbrew/xorg/libglvnd and set it as default link over mesa:
+      brew install linuxbrew/xorg/libglvnd
+      brew link  --overwrite linuxbrew/xorg/libglvnd
+  EOS
+  end unless OS.mac?
 
   test do
     system bin/"mpv", "--ao=null", test_fixtures("test.wav")
