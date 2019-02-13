@@ -27,6 +27,16 @@ class Mpv < Formula
   depends_on "vapoursynth"
   depends_on "youtube-dl"
 
+  unless OS.mac?
+    depends_on "pulseaudio"
+    depends_on "linuxbrew/xorg/libdrm"
+    depends_on "linuxbrew/xorg/libva"
+    depends_on "linuxbrew/xorg/libvdpau"
+    depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/wayland"
+    depends_on "linuxbrew/xorg/wayland-protocols"
+  end
+
   def install
     # Fix ld relocation error
     ENV.append_to_cflags "-fPIC" unless OS.mac?
@@ -51,7 +61,11 @@ class Mpv < Formula
       --enable-zsh-comp
       --zshdir=#{zsh_completion}
     ]
-    args << "--disable-javascript" unless OS.mac? # The mujs formula does not build .so files
+
+    unless OS.mac?
+      args << "--disable-javascript" # The mujs formula does not build .so files
+      args << "--enable-libmpv-shared"
+    end
 
     system "./bootstrap.py"
     system "python3", "waf", "configure", *args
