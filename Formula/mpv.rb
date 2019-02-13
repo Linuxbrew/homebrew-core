@@ -31,8 +31,6 @@ class Mpv < Formula
     depends_on "libbluray"
     depends_on "pulseaudio"
     depends_on "rubberband"
-    
-    #depends_on "linuxbrew/xorg/libglvnd" # should become default GL library rather than mesa
 
     depends_on "linuxbrew/xorg/libdrm"
     depends_on "linuxbrew/xorg/libva"
@@ -66,7 +64,7 @@ class Mpv < Formula
       --enable-zsh-comp
       --zshdir=#{zsh_completion}
     ]
-    
+
     unless OS.mac?
       args << "--disable-javascript" # The mujs formula does not build .so files
       args << "--enable-libmpv-shared"
@@ -80,13 +78,15 @@ class Mpv < Formula
     prefix.install "build/mpv.app"
   end
 
-  def caveats; <<~EOS
-    On linux if you use propietary gpu driver such as NVIDIA you should install
-    linuxbrew/xorg/libglvnd and set it as default link over mesa:
-      brew install linuxbrew/xorg/libglvnd
-      brew link  --overwrite linuxbrew/xorg/libglvnd
-  EOS
-  end unless OS.mac?
+  unless OS.mac?
+    def caveats; <<~EOS
+      On linux if you use propietary gpu driver such as NVIDIA you should install
+      linuxbrew/xorg/libglvnd and set it as default link over mesa:
+        brew install linuxbrew/xorg/libglvnd
+        brew link  --overwrite linuxbrew/xorg/libglvnd
+    EOS
+    end
+  end
 
   test do
     system bin/"mpv", "--ao=null", test_fixtures("test.wav")
