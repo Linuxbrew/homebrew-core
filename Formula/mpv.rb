@@ -28,10 +28,7 @@ class Mpv < Formula
   depends_on "youtube-dl"
 
   unless OS.mac?
-    depends_on "libbluray"
     depends_on "pulseaudio"
-    depends_on "rubberband"
-
     depends_on "linuxbrew/xorg/libdrm"
     depends_on "linuxbrew/xorg/libva"
     depends_on "linuxbrew/xorg/libvdpau"
@@ -80,8 +77,8 @@ class Mpv < Formula
 
   unless OS.mac?
     def caveats; <<~EOS
-      On linux if you use propietary gpu driver such as NVIDIA you should install
-      linuxbrew/xorg/libglvnd and set it as default link over mesa:
+      On linux if you use external GL library installed in your distribution you should
+      install linuxbrew/xorg/libglvnd and set it as default link over mesa:
         brew install linuxbrew/xorg/libglvnd
         brew link  --overwrite linuxbrew/xorg/libglvnd
     EOS
