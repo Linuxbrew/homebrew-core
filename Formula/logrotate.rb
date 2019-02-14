@@ -1,3 +1,4 @@
+# logrotate: Build a bottle for Linuxbrew
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
