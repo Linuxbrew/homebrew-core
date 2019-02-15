@@ -1,3 +1,4 @@
+# miniserve: Build a bottle for Linuxbrew
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
