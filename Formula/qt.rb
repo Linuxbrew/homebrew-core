@@ -29,31 +29,25 @@ class Qt < Formula
     depends_on "icu4c"
     depends_on "libproxy"
     depends_on "pulseaudio"
+    depends_on "python@2"
     depends_on "sqlite"
     depends_on "systemd"
     depends_on "libxkbcommon"
     depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xcb-util-image"
+    depends_on "linuxbrew/xorg/xcb-util-keysyms"
+    depends_on "linuxbrew/xorg/xcb-util-renderutil"
+    depends_on "linuxbrew/xorg/xcb-util"
+    depends_on "linuxbrew/xorg/xcb-util-wm"
     depends_on "linuxbrew/xorg/xorg"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j20 -l2.5" if ENV["CIRCLECI"]
-
-    unless OS.mac?
-      # https://github.com/Linuxbrew/homebrew-core/pull/10418
-      # add missing -lxcb-shm flag
-      inreplace "qtbase/src/gui/configure.json", '[ "xcb/xcb.h", "X11/Xlib.h", "X11/Xlib-xcb.h" ],', '[ "xcb/xcb.h", "X11/Xlib.h", "X11/Xlib-xcb.h", "xcb/shm.h" ],'
-      inreplace "qtbase/src/gui/configure.json", "x11-xcb x11 xcb", "x11-xcb x11 xcb xcb-shm"
-      inreplace "qtbase/src/gui/configure.json", "-lxcb -lX11 -lX11-xcb", "-lxcb -lX11 -lX11-xcb -lxcb-shm"
-    end
-
     args = %W[
       -verbose
       -prefix #{prefix}
       -release
       -opensource -confirm-license
-      -system-zlib
       -qt-libpng
       -qt-libjpeg
       -qt-freetype
@@ -67,11 +61,14 @@ class Qt < Formula
 
     if OS.mac?
       args << "-no-rpath"
+      args << "-system-zlib"
     elsif OS.linux?
-      args << "-qt-xcb"
+      args << "-system-xcb"
       args << "-R#{lib}"
       # https://bugreports.qt.io/projects/QTBUG/issues/QTBUG-71564
       args << "-no-avx2"
+      args << "-no-avx512"
+      args << "-qt-zlib"
     end
 
     system "./configure", *args
