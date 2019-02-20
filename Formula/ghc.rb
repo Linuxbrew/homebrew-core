@@ -93,6 +93,8 @@ class Ghc < Formula
       ENV.prepend_path "LIBRARY_PATH", gmp/"lib"
       # Fix ghc-stage2: error while loading shared libraries: libncursesw.so.5
       ln_s Formula["ncurses"].lib/"libncursesw.so", gmp/"lib/libncursesw.so.5"
+      # Fix ghc-stage2: error while loading shared libraries: libtinfo.so.5
+      ln_s Formula["ncurses"].lib/"libtinfo.so", gmp/"lib/libtinfo.so.5"
       # Fix ghc-pkg: error while loading shared libraries: libncursesw.so.6
       ENV.prepend_path "LD_LIBRARY_PATH", Formula["ncurses"].lib
     end
