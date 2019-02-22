@@ -53,7 +53,11 @@ class Openssl < Formula
       args << "darwin64-x86_64-cc"
       args << "enable-ec_nistp_64_gcc_128"
     else
-      args << "linux-x86_64"
+      if Hardware::CPU.intel?
+        args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
+      elsif Hardware::CPU.arm?
+        args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : args << "linux-armv4")
+      end
       args << "enable-md2"
     end
     system "perl", "./Configure", *args
