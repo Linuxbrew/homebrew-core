@@ -32,6 +32,7 @@ class Imagemagick < Formula
 
   depends_on "bzip2" unless OS.mac?
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  depends_on "libxml2" unless OS.mac?
 
   skip_clean :la
 
