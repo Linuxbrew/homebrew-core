@@ -1,3 +1,4 @@
+# file-formula: Build a bottle for Linuxbrew
 # "File" is a reserved class name
 class FileFormula < Formula
   desc "Utility to determine file types"
