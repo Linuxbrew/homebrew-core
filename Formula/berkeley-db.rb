@@ -20,6 +20,13 @@ class BerkeleyDb < Formula
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
 
+    # Fix this error for ARM64:
+    # checking build system type... .../sqlite/config.guess: unable to guess system type
+    if !OS.mac? && Hardware::CPU.arm?
+      cp "dist/config.guess", "lang/sql/sqlite/config.guess"
+      cp "dist/config.sub", "lang/sql/sqlite/config.sub"
+    end
+
     # --enable-compat185 is necessary because our build shadows
     # the system berkeley db 1.x
     args = %W[
