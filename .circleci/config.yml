@@ -25,7 +25,7 @@ jobs:
       - run: git config --global user.email testbot@linuxbrew.sh
       - run: chmod 0644 Formula/*.rb
       - run: mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew
-      - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/$CIRCLE_PROJECT_REPONAME
+      - run: cp -a . /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
       - run:
          no_output_timeout: 60m
          command: |
