@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: linuxbrew/brew
     environment:
-      CIRCLE_REPOSITORY_URL: https://github.com/linuxbrew/homebrew-core
+      CIRCLE_REPOSITORY_URL: https://github.com/homebrew/linuxbrew-core
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
       HOMEBREW_VERBOSE: 1
