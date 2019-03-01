@@ -1,3 +1,4 @@
+# primesieve: Build a bottle for Linuxbrew
 class Primesieve < Formula
   desc "Fast C/C++ prime number generator"
   homepage "https://primesieve.org/"
