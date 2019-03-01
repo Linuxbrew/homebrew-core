@@ -1,3 +1,4 @@
+# avfs: Build a bottle for Linuxbrew
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.io/"
