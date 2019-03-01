@@ -7,7 +7,8 @@ class PhantomjsLinuxX8664 < Formula
 
   depends_on :arch => :x86_64
   depends_on :linux
-  depends_on :fontconfig
+  depends_on :glibc
+  depends_on :glib
   
   def install
     bin.install "bin/phantomjs"
