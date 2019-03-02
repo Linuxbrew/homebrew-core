@@ -1,3 +1,4 @@
+# ncompress: Build a bottle for Linuxbrew
 class Ncompress < Formula
   desc "Fast, simple LZW file compressor"
   homepage "https://github.com/vapier/ncompress"
