@@ -1,3 +1,4 @@
+# backupninja: Build a bottle for Linuxbrew
 class Backupninja < Formula
   desc "Backup automation tool"
   homepage "https://0xacab.org/riseuplabs/backupninja"
