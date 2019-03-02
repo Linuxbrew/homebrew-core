@@ -1,3 +1,4 @@
+# gx-go: Build a bottle for Linuxbrew
 require "language/go"
 
 class GxGo < Formula
