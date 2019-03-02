@@ -1,3 +1,4 @@
+# axel: Build a bottle for Linuxbrew
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
