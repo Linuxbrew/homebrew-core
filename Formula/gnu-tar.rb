@@ -28,6 +28,9 @@ class GnuTar < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
+    # Fix configure: error: you should not run configure as root
+    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" unless ENV["CIRCLECI"]
+
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
@@ -49,6 +52,7 @@ class GnuTar < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       GNU "tar" has been installed as "gtar".
       If you need to use it as "tar", you can add a "gnubin" directory
