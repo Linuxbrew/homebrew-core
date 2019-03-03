@@ -1,3 +1,4 @@
+# cscope: Build a bottle for Linuxbrew
 class Cscope < Formula
   desc "Tool for browsing source code"
   homepage "https://cscope.sourceforge.io/"
