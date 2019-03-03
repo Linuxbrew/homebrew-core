@@ -1,3 +1,4 @@
+# plank: Build a bottle for Linuxbrew
 class Plank < Formula
   desc "Framework for generating immutable model objects"
   homepage "https://pinterest.github.io/plank/"
