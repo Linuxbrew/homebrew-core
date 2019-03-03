@@ -38,21 +38,6 @@ class GdkPixbuf < Formula
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)",
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
-    unless OS.mac?
-      # set rpath for binaries
-      gdkpixbuf_bin_spec ="  bin = executable(bin_name, bin_source,
-                   dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
-                   include_directories: [ root_inc, gdk_pixbuf_inc ],
-                   c_args: common_cflags + gdk_pixbuf_cflags,
-                   install: true)"
-      gdkpixbuf_bin_spec_rpath="  bin = executable(bin_name, bin_source,
-                   dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
-                   include_directories: [ root_inc, gdk_pixbuf_inc ],
-                   c_args: common_cflags + gdk_pixbuf_cflags,
-                   install: true, install_rpath: '#{ENV.determine_rpath_paths(self)}')"
-      inreplace "gdk-pixbuf/meson.build", gdkpixbuf_bin_spec, gdkpixbuf_bin_spec_rpath
-    end
-
     args = %W[
       --prefix=#{prefix}
       -Dx11=false
@@ -60,10 +45,10 @@ class GdkPixbuf < Formula
       -Dgir=true
       -Drelocatable=false
       -Dnative_windows_loaders=false
-      -Dinstalled_tests=false
       -Dman=false
     ]
 
+    args << "-Dinstalled_tests=false" if OS.mac?
     args << "--libdir=#{lib}" unless OS.mac?
 
     ENV["DESTDIR"] = "/"
@@ -84,7 +69,7 @@ class GdkPixbuf < Formula
     # fix gobject-introspection support
     # will not be necessary after next release of gobject-introspection
     %w[GdkPixbuf-2.0 GdkPixdata-2.0].each do |gir|
-      inreplace share/"gir-1.0/#{gir}.gir", "@rpath", lib.to_s
+      inreplace share/"gir-1.0/#{gir}.gir", "@rpath", lib.to_s if OS.mac?
       system "g-ir-compiler", "--includedir=#{share}/gir-1.0", "--output=#{lib}/girepository-1.0/#{gir}.typelib", share/"gir-1.0/#{gir}.gir"
     end
   end
