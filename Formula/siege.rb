@@ -1,3 +1,4 @@
+# siege: Build a bottle for Linuxbrew
 class Siege < Formula
   desc "HTTP regression testing and benchmarking utility"
   homepage "https://www.joedog.org/siege-home/"
