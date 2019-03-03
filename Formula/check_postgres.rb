@@ -1,3 +1,4 @@
+# check_postgres: Build a bottle for Linuxbrew
 class CheckPostgres < Formula
   desc "Monitor Postgres databases"
   homepage "https://bucardo.org/wiki/Check_postgres"
