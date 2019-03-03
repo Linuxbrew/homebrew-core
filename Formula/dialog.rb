@@ -1,3 +1,4 @@
+# dialog: Build a bottle for Linuxbrew
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
