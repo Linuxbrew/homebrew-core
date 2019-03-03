@@ -1,3 +1,4 @@
+# czmq: Build a bottle for Linuxbrew
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
