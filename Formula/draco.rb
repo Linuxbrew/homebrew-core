@@ -1,3 +1,4 @@
+# draco: Build a bottle for Linuxbrew
 class Draco < Formula
   desc "3D geometric mesh and point cloud compression library"
   homepage "https://google.github.io/draco/"
