@@ -1,3 +1,4 @@
+# dhex: Build a bottle for Linuxbrew
 class Dhex < Formula
   desc "Ncurses based advanced hex editor featuring diff mode and more"
   homepage "http://www.dettus.net/dhex/"
