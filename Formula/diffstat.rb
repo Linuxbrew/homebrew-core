@@ -1,3 +1,4 @@
+# diffstat: Build a bottle for Linuxbrew
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
