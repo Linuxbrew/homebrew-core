@@ -1,3 +1,4 @@
+# deja-gnu: Build a bottle for Linuxbrew
 class DejaGnu < Formula
   desc "Framework for testing other programs"
   homepage "https://www.gnu.org/software/dejagnu/"
