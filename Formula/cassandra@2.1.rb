@@ -1,3 +1,4 @@
+# cassandra@2.1: Build a bottle for Linuxbrew
 class CassandraAT21 < Formula
   desc "Distributed key-value store"
   homepage "https://cassandra.apache.org"
