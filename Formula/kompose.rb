@@ -1,3 +1,4 @@
+# kompose: Build a bottle for Linuxbrew
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "https://kompose.io/"
