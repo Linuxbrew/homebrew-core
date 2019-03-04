@@ -18,6 +18,7 @@ class AptDater < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     system "autoreconf", "-ivf"
