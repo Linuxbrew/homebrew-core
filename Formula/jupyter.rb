@@ -1,3 +1,4 @@
+# jupyter: Build a bottle for Linuxbrew
 class Jupyter < Formula
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
