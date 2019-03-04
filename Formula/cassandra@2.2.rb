@@ -1,3 +1,4 @@
+# cassandra@2.2: Build a bottle for Linuxbrew
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
