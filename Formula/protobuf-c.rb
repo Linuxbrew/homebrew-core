@@ -1,3 +1,4 @@
+# protobuf-c: Build a bottle for Linuxbrew
 class ProtobufC < Formula
   desc "Protocol buffers library"
   homepage "https://github.com/protobuf-c/protobuf-c"
