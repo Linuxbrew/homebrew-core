@@ -6,6 +6,7 @@ class Mosh < Formula
   revision 5
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "70ca7ccdb7df9a452d9968cbf5b6da4f9fb3be7cb5c175ab5117b1e4cff7b985" => :mojave
     sha256 "9ea48721b704ca8a2d14c285c406a6d74e549f1b0e3ef46c39483ff4ac50f530" => :high_sierra
     sha256 "742f74281cf18e9f7d435a805d1d554e2e8882849ddef32e1e54d794144c9ba3" => :sierra
