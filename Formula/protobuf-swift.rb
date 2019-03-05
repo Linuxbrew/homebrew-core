@@ -1,3 +1,4 @@
+# protobuf-swift: Build a bottle for Linuxbrew
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Swift"
   homepage "https://github.com/alexeyxo/protobuf-swift"
