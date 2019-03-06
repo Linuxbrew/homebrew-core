@@ -33,10 +33,11 @@ class Glib < Formula
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
-      -Diconv=native
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
     ]
+
+    args << "-Diconv=native" if OS.mac?
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", *args, ".."
