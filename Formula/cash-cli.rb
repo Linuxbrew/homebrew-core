@@ -1,3 +1,4 @@
+# cash-cli: Build a bottle for Linuxbrew
 require "language/node"
 
 class CashCli < Formula
