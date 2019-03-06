@@ -1,3 +1,4 @@
+# thrift: Build a bottle for Linuxbrew
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
