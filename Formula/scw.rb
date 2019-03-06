@@ -1,3 +1,4 @@
+# scw: Build a bottle for Linuxbrew
 class Scw < Formula
   desc "Manage BareMetal Servers from command-line (as easily as with Docker)"
   homepage "https://github.com/scaleway/scaleway-cli"
