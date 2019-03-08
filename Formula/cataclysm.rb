@@ -19,6 +19,7 @@ class Cataclysm < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "lua"
+  depends_on "mesa"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
