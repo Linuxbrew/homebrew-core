@@ -1,3 +1,4 @@
+# dtc: Build a bottle for Linuxbrew
 class Dtc < Formula
   desc "Device tree compiler"
   homepage "https://www.devicetree.org/"
