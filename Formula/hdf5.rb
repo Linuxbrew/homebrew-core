@@ -5,6 +5,7 @@ class Hdf5 < Formula
   sha256 "68d6ea8843d2a106ec6a7828564c1689c7a85714a35d8efafa2fee20ca366f44"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "6dc444fd95265b221047a69348d7a86e2471028a4d8d2af16050326c7f0abadb" => :mojave
     sha256 "ac43ade2f6ffda396907f67a642c4abdf266a6b57bf4e480013e6ff335528ebd" => :high_sierra
     sha256 "4219c8711cdf69836c9ad56b5f3237e866b5952563a2d43a35cf89a130701610" => :sierra
