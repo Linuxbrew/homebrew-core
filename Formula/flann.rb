@@ -1,3 +1,4 @@
+# flann: Build a bottle for Linuxbrew
 class Flann < Formula
   desc "Fast Library for Approximate Nearest Neighbors"
   homepage "https://www.cs.ubc.ca/research/flann/"
