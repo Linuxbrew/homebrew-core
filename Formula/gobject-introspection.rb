@@ -1,3 +1,4 @@
+# gobject-introspection: Build a bottle for Linuxbrew
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
