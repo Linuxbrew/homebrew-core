@@ -1,3 +1,4 @@
+# netpbm: Build a bottle for Linuxbrew
 class Netpbm < Formula
   desc "Image manipulation"
   homepage "https://netpbm.sourceforge.io/"
