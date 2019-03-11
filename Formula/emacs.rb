@@ -27,6 +27,7 @@ class Emacs < Formula
   unless OS.mac?
     depends_on "libxml2"
     depends_on "ncurses"
+    depends_on "libjpeg"
   end
 
   def install
