@@ -1,3 +1,4 @@
+# git-flow-avh: Build a bottle for Linuxbrew
 class GitFlowAvh < Formula
   desc "AVH edition of git-flow"
   homepage "https://github.com/petervanderdoes/gitflow-avh"
