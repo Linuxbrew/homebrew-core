@@ -36,7 +36,7 @@ class Libsoup < Formula
 
     # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
     %w[Soup-2.4 SoupGNOME-2.4].each do |gir|
-      inreplace share/"gir-1.0/#{gir}.gir", "@rpath", lib.to_s
+      inreplace share/"gir-1.0/#{gir}.gir", "@rpath", lib.to_s if OS.mac?
       system "g-ir-compiler", "--includedir=#{share}/gir-1.0", "--output=#{lib}/girepository-1.0/#{gir}.typelib", share/"gir-1.0/#{gir}.gir"
     end
   end
