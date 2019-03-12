@@ -24,7 +24,7 @@ class Atk < Formula
     end
 
     # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/Atk-1.0.gir", "@rpath", lib.to_s
+    inreplace share/"gir-1.0/Atk-1.0.gir", "@rpath", lib.to_s if OS.mac?
     system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Atk-1.0.typelib", share/"gir-1.0/Atk-1.0.gir"
   end
 
