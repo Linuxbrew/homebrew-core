@@ -1,3 +1,4 @@
+# krakend: Build a bottle for Linuxbrew
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
