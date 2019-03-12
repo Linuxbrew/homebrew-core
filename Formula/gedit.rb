@@ -1,3 +1,4 @@
+# gedit: Build a bottle for Linuxbrew
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
