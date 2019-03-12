@@ -33,6 +33,9 @@ class Coreutils < Formula
   conflicts_with "truncate", :because => "both install `truncate` binaries"
 
   def install
+    # Fix configure: error: you should not run configure as root
+    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" unless ENV["CIRCLECI"]
+
     if MacOS.version == :el_capitan
       # Work around unremovable, nested dirs bug that affects lots of
       # GNU projects. See:
