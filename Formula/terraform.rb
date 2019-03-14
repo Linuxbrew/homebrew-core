@@ -19,6 +19,7 @@ class Terraform < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
     ENV.prepend_create_path "PATH", buildpath/"bin"
 
     dir = buildpath/"src/github.com/hashicorp/terraform"
