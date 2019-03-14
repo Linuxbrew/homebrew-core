@@ -1,3 +1,4 @@
+# mutt: Build a bottle for Linuxbrew
 # Note: Mutt has a large number of non-upstream patches available for
 # it, some of which conflict with each other. These patches are also
 # not kept up-to-date when new versions of mutt (occasionally) come
