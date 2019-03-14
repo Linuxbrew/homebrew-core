@@ -1,3 +1,4 @@
+# libcerf: Build a bottle for Linuxbrew
 class Libcerf < Formula
   desc "Numeric library for complex error functions"
   homepage "http://apps.jcns.fz-juelich.de/doku/sc/libcerf"
