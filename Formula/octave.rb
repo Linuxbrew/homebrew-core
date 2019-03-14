@@ -56,7 +56,7 @@ class Octave < Formula
     depends_on "veclibfort"
   else
     depends_on "curl"
-    depends_on "openblas" => :recommended
+    depends_on "openblas"
   end
 
   # Dependencies use Fortran, leading to spurious messages about GCC
