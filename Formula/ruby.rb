@@ -1,3 +1,4 @@
+# ruby: Build a bottle for Linuxbrew
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
