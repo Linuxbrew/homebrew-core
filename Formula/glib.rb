@@ -3,14 +3,13 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
   sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "7f3dda9780ca3352b170afb63175cb8ebd6d759c028a088f5f73103ad312bdc4" => :mojave
     sha256 "2813d19cd554f197a914f40200fb1460cb9192d0ad0b19d7b224b4e13f16a2fa" => :high_sierra
     sha256 "c141ff8a13d4df9a5b41bc5b22ff4b80b6a2ea17fc162a6ef6a29a84c86d53fa" => :sierra
-    sha256 "40fc5ed5814859cab2b1d22e3534a4d145013b4ee58811e7687ab4b0a2740811" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -41,6 +40,8 @@ class Glib < Formula
     ]
 
     args << "-Diconv=native" if OS.mac?
+    # Prevent meson to use lib64 on centos
+    args << "--libdir=#{lib}" unless OS.mac?
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", *args, ".."
@@ -55,17 +56,16 @@ class Glib < Formula
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
               "giomoduledir=${libdir}/gio/modules"
 
-    if OS.mac?
-      # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
-      # have a pkgconfig file, so we add gettext lib and include paths here.
-      gettext = Formula["gettext"].opt_prefix
-      inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-        s.gsub! "Libs: -lintl -L${libdir} -lglib-2.0",
-                "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
-        s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
-                "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
-      end
-    end
+  # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
+  # have a pkgconfig file, so we add gettext lib and include paths here.
+  gettext = Formula["gettext"].opt_prefix
+  lintl = OS.mac? ? "-lintl ": ""
+  inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
+    s.gsub! "Libs: #{lintl}-L${libdir} -lglib-2.0",
+            "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib#{lintl}"
+    s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
+            "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+  end
   end
 
   def post_install
