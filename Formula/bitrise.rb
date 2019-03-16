@@ -1,3 +1,4 @@
+# bitrise: Build a bottle for Linuxbrew
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
