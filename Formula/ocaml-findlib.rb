@@ -12,6 +12,7 @@ class OcamlFindlib < Formula
   end
 
   depends_on "ocaml"
+  depends_on "m4" => :build unless OS.mac?
 
   def install
     # See https://gitlab.camlcity.org/gerd/lib-findlib/merge_requests/8
