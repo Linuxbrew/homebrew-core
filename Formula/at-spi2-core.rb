@@ -1,3 +1,4 @@
+# at-spi2-core: Build a bottle for Linuxbrew
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "https://wiki.linuxfoundation.org/accessibility/"
@@ -7,9 +8,6 @@ class AtSpi2Core < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "500ac594025a42f969e6166771f551abf0be27afbc0de2048bf0d65e763ee9b4" => :mojave
-    sha256 "cdca60e8b2787cc2694aa3d744c641bf68f8dfc835065bab63123d53a2c3c622" => :high_sierra
-    sha256 "11b05e7002247ae75a1f95c381b1bc4fe7839efca2f01ff882fd5b4e23a3668c" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
