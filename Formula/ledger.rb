@@ -7,6 +7,7 @@ class Ledger < Formula
   head "https://github.com/ledger/ledger.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "2683f4bc536528f174307e20ccaa005d6acc86cd8bad1d40dc5b139b6c8b780e" => :mojave
     sha256 "665ec36ed864b27bfebcbb5b2e38f9286b8eb2ab5c27ff550b6a315373465ad0" => :high_sierra
     sha256 "07a870d7fd711329e5f5ea79f94b80ee21c81da3b97041c024aeca993d7d857c" => :sierra
@@ -18,8 +19,12 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "python@2"
+  depends_on "groff" unless OS.mac?
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
     ENV.cxx11
 
     # Fix for https://github.com/ledger/ledger/pull/1760
