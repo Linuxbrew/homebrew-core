@@ -1,3 +1,4 @@
+# ocaml-num: Build a bottle for Linuxbrew
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
