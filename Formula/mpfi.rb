@@ -1,3 +1,4 @@
+# mpfi: Build a bottle for Linuxbrew
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
