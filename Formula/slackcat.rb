@@ -1,3 +1,4 @@
+# slackcat: Build a bottle for Linuxbrew
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
   homepage "https://github.com/vektorlab/slackcat"
