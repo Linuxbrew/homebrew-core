@@ -1,3 +1,4 @@
+# ctop: Build a bottle for Linuxbrew
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
