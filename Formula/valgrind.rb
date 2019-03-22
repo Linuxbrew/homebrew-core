@@ -1,6 +1,7 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://sourceware.org/pub/valgrind/valgrind-3.14.0.tar.bz2"
@@ -13,7 +14,6 @@ class Valgrind < Formula
   bottle do
     sha256 "7869473ca1009d871dfcb496cc4d08e0318315d18721854ef42960b76e2ef64d" => :high_sierra
     sha256 "5ac984d472025c7bbc081e3be88b31f709944cf924945ebe85427f00d7cca73e" => :sierra
-    sha256 "620c98bf3ab4cc57457d926561254e3229570bab063e03a43415ce9f460e0e19" => :x86_64_linux
   end
 
   head do
@@ -33,12 +33,9 @@ class Valgrind < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
-    if OS.mac?
-      args << "--enable-only64bit"
-      args << "--build=amd64-darwin"
-    else
-      args << "--enable-only32bit"
-    end
+
+    args << "--enable-only64bit"
+    args << "--build=amd64-darwin" if OS.mac?
 
     system "./autogen.sh" if build.head?
 
@@ -54,7 +51,7 @@ class Valgrind < Formula
 
   test do
     assert_match "usage", shell_output("#{bin}/valgrind --help")
-    # Fails without the package libc6-dbg installed.
-    system "#{bin}/valgrind", "ls", "-l" unless ENV["CIRCLECI"]
+    # Fails without the package libc6-dbg or glibc-debuginfo installed.
+    system "#{bin}/valgrind", "ls", "-l" if OS.mac?
   end
 end
