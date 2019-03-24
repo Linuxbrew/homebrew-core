@@ -1,3 +1,4 @@
+# source-highlight: Build a bottle for Linuxbrew
 class SourceHighlight < Formula
   desc "Source-code syntax highlighter"
   homepage "https://www.gnu.org/software/src-highlite/"
