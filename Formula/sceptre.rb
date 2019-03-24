@@ -1,3 +1,4 @@
+# sceptre: Build a bottle for Linuxbrew
 class Sceptre < Formula
   include Language::Python::Virtualenv
 
