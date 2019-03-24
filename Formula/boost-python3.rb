@@ -6,6 +6,7 @@ class BoostPython3 < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "9873bb2e521f8fe1fe741aa58f796916b482896d819bdd6ad2f95aa645f10d28" => :mojave
     sha256 "c16717503ea007358715710d45935392faa22e2ce4bd261d2f504de6101736e0" => :high_sierra
     sha256 "e1cda0088dd1ba4e860583ec00bd61635fbeb85b207254cc2dd231d7efbfe888" => :sierra
