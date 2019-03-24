@@ -1,3 +1,4 @@
+# pgloader: Build a bottle for Linuxbrew
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
