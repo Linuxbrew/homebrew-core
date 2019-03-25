@@ -1,3 +1,4 @@
+# go-statik: Build a bottle for Linuxbrew
 class GoStatik < Formula
   desc "Embed files into a Go executable"
   homepage "https://github.com/rakyll/statik"
