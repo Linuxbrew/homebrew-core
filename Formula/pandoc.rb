@@ -24,6 +24,9 @@ class Pandoc < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+
     cabal_sandbox do
       install_cabal_package
     end
