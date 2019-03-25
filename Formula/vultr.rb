@@ -1,3 +1,4 @@
+# vultr: Build a bottle for Linuxbrew
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
