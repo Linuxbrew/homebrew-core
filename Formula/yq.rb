@@ -1,3 +1,4 @@
+# yq: Build a bottle for Linuxbrew
 class Yq < Formula
   desc "Process YAML documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
