@@ -1,3 +1,4 @@
+# liblwgeom: Build a bottle for Linuxbrew
 class Liblwgeom < Formula
   desc "Allows SpatiaLite to support ST_MakeValid() like PostGIS"
   homepage "https://postgis.net/"
