@@ -1,3 +1,4 @@
+# exomizer: Build a bottle for Linuxbrew
 class Exomizer < Formula
   desc "6502 compressor with CBM PET 4032 support"
   homepage "https://bitbucket.org/magli143/exomizer/wiki/Home"
