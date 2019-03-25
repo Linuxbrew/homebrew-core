@@ -1,3 +1,4 @@
+# pius: Build a bottle for Linuxbrew
 class Pius < Formula
   include Language::Python::Virtualenv
 
