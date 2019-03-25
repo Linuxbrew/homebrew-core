@@ -10,6 +10,8 @@ class Chapel < Formula
     sha256 "f61ca08127d16681f68aabe1c1f6f0c695f4d557b1daa11c21ad06762359fb3f" => :sierra
   end
 
+  depends_on "python@2" unless OS.mac?
+
   def install
     libexec.install Dir["*"]
     # Chapel uses this ENV to work out where to install.
