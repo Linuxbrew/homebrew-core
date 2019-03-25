@@ -6,6 +6,7 @@ class Libfabric < Formula
   head "https://github.com/ofiwg/libfabric.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "483e8c6e48acf3788b3ca565881b025f8478cf0784d19223633e0a7e93577031" => :mojave
     sha256 "a8d5492119ac2e7496230e562eeaee9c2c54497fe00797b5b1250c246a907923" => :high_sierra
     sha256 "74312d87d7fb9073b7b339d74d96a36de0c6ab38578775e3b4015b8207f16a65" => :sierra
