@@ -3,21 +3,18 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
   sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   bottle do
-    cellar :any
     sha256 "977cf2845acc9cdcbcf1b7e92d9c0af0066c5d0cc17df307a123c13180a64e62" => :mojave
     sha256 "d551dad77ab8c533bab98d5bd91291db1f296564336d59d600f0ce75496a9d08" => :high_sierra
     sha256 "aeef9c88dd7ea82ac3f71b6f3793b2316b76ee59a8e01cc56f6316efa4e1346c" => :sierra
     sha256 "f3040a39ad4ffb9eabd9446843dfc3b66df01b3264c875dc68e7339636830357" => :el_capitan
-    sha256 "02de29addaafdb6266cbf4d43c3baed3fc24a1c7067025837f52531c8836c12f" => :x86_64_linux
   end
 
   unless OS.mac?
-    depends_on "linuxbrew/extra/linux-pam" => :optional
     depends_on "ncurses"
-    depends_on "python@2"
+    depends_on "zlib"
   end
 
   conflicts_with "rename", :because => "both install `rename` binaries"
@@ -41,38 +38,38 @@ class UtilLinux < Formula
       args << "--disable-cal" # Conflicts with bsdmainutils
       args << "--without-systemd" # Do not install systemd files
       args << "--with-bashcompletiondir=#{bash_completion}"
+      args << "--disable-chfn-chsh"
+      args << "--disable-login"
+      args << "--disable-su"
+      args << "--disable-runuser"
+      args << "--disable-makeinstall-chown"
+      args << "--disable-makeinstall-setuid"
     end
-
-    args += %w[
-      --disable-chfn-chsh
-      --disable-login
-      --disable-su
-      --disable-runuser
-      --disable-makeinstall-chown
-      --disable-makeinstall-setuid
-    ] if build.without? "linux-pam"
 
     system "./configure", *args
     system "make", "install"
 
-    # Remove binaries already shipped by macOS
-    %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
-      rm_f bin/prog
-      rm_f sbin/prog
-      rm_f man1/"#{prog}.1"
-      rm_f man8/"#{prog}.8"
-    end if OS.mac?
-
-    # these conflict with bash-completion-1.3
-    %w[chsh mount rfkill rtcwake].each do |prog|
-      rm_f bash_completion/prog
-    end unless OS.mac?
+    if OS.mac?
+      # Remove binaries already shipped by macOS
+      %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
+        rm_f bin/prog
+        rm_f sbin/prog
+        rm_f man1/"#{prog}.1"
+        rm_f man8/"#{prog}.8"
+      end
+    else
+      # these conflict with bash-completion-1.3
+      %w[chsh mount rfkill rtcwake].each do |prog|
+        rm_f bash_completion/prog
+      end
+    end
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
       if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
         # these conflict with bash-completion on Linux
         next if !OS.mac? && %w[chsh mount rfkill rtcwake].include?(prog.basename.to_s)
+
         bash_completion.install prog
       end
     end
