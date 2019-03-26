@@ -3,12 +3,11 @@ class Libxslt < Formula
   homepage "http://xmlsoft.org/XSLT/"
   url "http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz"
   sha256 "8e36605144409df979cab43d835002f63988f3dc94d5d3537c12796db90e38c8"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "59eba7a62043c9bc17d94777997b1080724b7118f33fa30a413f735e15de25bd" => :x86_64_linux
   end
 
   head do
@@ -22,7 +21,6 @@ class Libxslt < Formula
   keg_only :provided_by_macos
 
   depends_on "libxml2"
-  depends_on "python@2" unless OS.mac?
 
   def install
     system "autoreconf", "-fiv" if build.head?
