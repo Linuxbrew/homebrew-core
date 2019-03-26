@@ -4,14 +4,13 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.9.tar.gz"
   sha256 "94fb70890143e3c6549f265cee93ec064c80a84c42ad0f23e85ee1fd6540a871"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any
     sha256 "1e6143e9bfb756fe80e4a1db417b722569429a815365ed9070556e81bd2db02a" => :mojave
     sha256 "d6b944e43be98a8e4200eb247c1d4b1254f8026e2e5a39cfa8b67d1c9429a7f2" => :high_sierra
     sha256 "e5ac4cca18a3d8795895059253e610b24f8c7c491354ce21e2b19ae4c7e84bd6" => :sierra
-    sha256 "7ec46200f25836bc9ac6126a618038d605ffc1b57bd6415cc5a689dc1477f7e5" => :x86_64_linux
   end
 
   head do
@@ -25,8 +24,12 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python"
-  depends_on "zlib" unless OS.mac?
+  if OS.mac?
+    depends_on "python"
+  else
+    depends_on "minimal-python"
+    depends_on "zlib"
+  end
 
   # Fix crash when using Python 3 using Fedora's patch.
   # Reported upstream:
@@ -60,7 +63,8 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
         "includes_dir = ['#{include}', '#{OS.mac? ? MacOS.sdk_path/"usr" : HOMEBREW_PREFIX}/include',"
-      system "python3", "setup.py", "install", "--prefix=#{prefix}"
+      python = OS.mac? ? "python3" : Formula["minimal-python"].bin/"python3"
+      system python, "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
