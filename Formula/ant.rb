@@ -15,7 +15,7 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "http://archive.apache.org/dist/commons/bcel/binaries/bcel-6.3-bin.tar.gz"
+    url "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.3-bin.tar.gz"
     sha256 "378a2d81bbf8d660a4a2515ef19dc66e74f8f6aa9495a8a909cd35b17eef3665"
   end
 
