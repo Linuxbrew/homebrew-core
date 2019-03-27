@@ -1,3 +1,4 @@
+# libspatialite: Build a bottle for Linuxbrew
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
