@@ -1,3 +1,4 @@
+# parallel: Build a bottle for Linuxbrew
 class Parallel < Formula
   desc "Shell command parallelization utility"
   homepage "https://savannah.gnu.org/projects/parallel/"
