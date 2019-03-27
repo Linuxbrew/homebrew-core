@@ -1,3 +1,4 @@
+# glog: Build a bottle for Linuxbrew
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
