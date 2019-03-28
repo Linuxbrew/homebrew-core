@@ -1,3 +1,4 @@
+# autossh: Build a bottle for Linuxbrew
 class Autossh < Formula
   desc "Automatically restart SSH sessions and tunnels"
   homepage "https://www.harding.motd.ca/autossh/"
