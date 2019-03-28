@@ -1,3 +1,4 @@
+# liblcf: Build a bottle for Linuxbrew
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
