@@ -1,3 +1,4 @@
+# cabextract: Build a bottle for Linuxbrew
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
