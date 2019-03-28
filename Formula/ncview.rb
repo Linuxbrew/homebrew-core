@@ -7,6 +7,7 @@ class Ncview < Formula
   revision OS.mac? ? 9 : 10
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "49b0560fad1302ab92d5e259c62d893deb80ef5703e970e2e4ff982d7e4f6b8b" => :mojave
     sha256 "ce2795bcc8575c47ddfce0a16a8c9aab5f30ed925c6a2440dbe5eee136e018b8" => :high_sierra
     sha256 "fd1c64e7a79c0793bd89f0d2a5dedc9f08972cfcb26929abc49dbddc4ac6be0b" => :sierra
