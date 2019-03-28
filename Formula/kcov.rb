@@ -15,6 +15,13 @@ class Kcov < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "elfutils"
+    depends_on "python@2"
+    depends_on "zlib"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "-DSPECIFY_RPATH=ON", *std_cmake_args, ".."
