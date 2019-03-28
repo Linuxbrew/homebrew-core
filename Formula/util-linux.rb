@@ -46,6 +46,7 @@ class UtilLinux < Formula
       args << "--disable-runuser"
       args << "--disable-makeinstall-chown"
       args << "--disable-makeinstall-setuid"
+      args << "--without-python"
     end
 
     system "./configure", *args
