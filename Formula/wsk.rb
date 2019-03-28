@@ -1,3 +1,4 @@
+# wsk: Build a bottle for Linuxbrew
 class Wsk < Formula
   desc "OpenWhisk Command-Line Interface (CLI)"
   homepage "https://openwhisk.apache.org/"
