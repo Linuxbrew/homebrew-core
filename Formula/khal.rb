@@ -1,3 +1,4 @@
+# khal: Build a bottle for Linuxbrew
 class Khal < Formula
   include Language::Python::Virtualenv
 
