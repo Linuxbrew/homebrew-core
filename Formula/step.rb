@@ -1,3 +1,4 @@
+# step: Build a bottle for Linuxbrew
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
