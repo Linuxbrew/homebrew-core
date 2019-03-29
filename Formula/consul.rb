@@ -1,3 +1,4 @@
+# consul: Build a bottle for Linuxbrew
 class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
