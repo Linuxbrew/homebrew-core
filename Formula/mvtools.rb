@@ -1,3 +1,4 @@
+# mvtools: Build a bottle for Linuxbrew
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
