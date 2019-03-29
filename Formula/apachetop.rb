@@ -1,3 +1,4 @@
+# apachetop: Build a bottle for Linuxbrew
 class Apachetop < Formula
   desc "Top-like display of Apache log"
   homepage "https://web.archive.org/web/20170809160553/freecode.com/projects/apachetop"
