@@ -1,3 +1,4 @@
+# bitwarden-cli: Build a bottle for Linuxbrew
 require "language/node"
 
 class BitwardenCli < Formula
