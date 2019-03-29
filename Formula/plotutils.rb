@@ -4,7 +4,7 @@ class Plotutils < Formula
   url "https://ftp.gnu.org/gnu/plotutils/plotutils-2.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/plotutils/plotutils-2.6.tar.gz"
   sha256 "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   bottle do
     cellar :any
@@ -15,7 +15,6 @@ class Plotutils < Formula
     sha256 "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9" => :el_capitan
     sha256 "fae89f252628820ac83a0896fa022b1c08cacca6e6234b2fb23c10554f424fd3" => :yosemite
     sha256 "e51b4b5c367e8f9ec533f54e20c9df0b887818ee35c4cde19ba8feb73d4d2ff2" => :mavericks
-    sha256 "d8e7784b27bd783017cfc84e90b978c3e110163cee88112ad7f0f8aa8b73248a" => :x86_64_linux
   end
 
   depends_on "libpng"
