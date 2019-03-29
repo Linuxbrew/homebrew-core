@@ -3,24 +3,18 @@ class MinimalPython < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz"
   sha256 "f09d83c773b9cc72421abba2c317e4e6e05d919f9bcf34468e192b6a6c8e328d"
+  revision 1
   # tag "linuxbrew"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "5e020358df39c85cd6d415316f9109f21d5a815256e00ad00b4e2d4854cbbd25" => :x86_64_linux
   end
 
   keg_only "conflicts with python formula"
 
   depends_on "pkg-config" => :build
   depends_on "bzip2"
-  depends_on "gdbm"
   depends_on "libffi"
-  depends_on "ncurses"
-  depends_on "openssl"
-  depends_on "readline"
-  depends_on "sqlite"
-  depends_on "xz"
   depends_on "zlib"
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"
@@ -64,13 +58,10 @@ class MinimalPython < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --enable-ipv6
       --datarootdir=#{share}
       --datadir=#{share}
       --enable-shared
-      --enable-loadable-sqlite-extensions
       --without-ensurepip
-      --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
@@ -94,26 +85,6 @@ class MinimalPython < Formula
     cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
     ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
 
-    # We want our readline! This is just to outsmart the detection code,
-    # superenv makes cc always find includes/libs!
-    inreplace "setup.py",
-      "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
-      "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
-
-    inreplace "setup.py" do |s|
-      s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
-      s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
-              "for d_ in ['#{Formula["sqlite"].opt_include}']:"
-    end
-
-    # Allow python modules to use ctypes.find_library to find homebrew's stuff
-    # even if homebrew is not a /usr/local/lib. Try this with:
-    # `brew install enchant && pip install pyenchant`
-    inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
-      f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
-      f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
-    end
-
     args << "CFLAGS=#{cflags.join(" ")}" unless cflags.empty?
     args << "LDFLAGS=#{ldflags.join(" ")}" unless ldflags.empty?
     args << "CPPFLAGS=#{cppflags.join(" ")}" unless cppflags.empty?
@@ -124,11 +95,7 @@ class MinimalPython < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
-
-    # Any .app get a " 3" attached, so it does not conflict with python 2.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
     (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{xy}/lib/pkgconfig/*"]
@@ -211,10 +178,8 @@ class MinimalPython < Formula
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include,
-                    Formula["sqlite"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib,
-                    Formula["sqlite"].opt_lib]
+    include_dirs = [HOMEBREW_PREFIX/"include"]
+    library_dirs = [HOMEBREW_PREFIX/"lib"]
 
     (lib_cellar/"distutils/distutils.cfg").atomic_write <<~EOS
       [install]
@@ -288,12 +253,6 @@ class MinimalPython < Formula
   end
 
   test do
-    # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
-    # and it can occur that building sqlite silently fails if another sqlite is used.
-    system "#{bin}/python#{xy}", "-c", "import sqlite3"
-    # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{xy}", "-c", "import _gdbm"
-    system "#{bin}/python#{xy}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
   end
 end
