@@ -13,14 +13,12 @@ class Bedtools < Formula
 
   depends_on "xz"
   unless OS.mac?
-    depends_on "python" => :build
+    depends_on "python@2" => :build
+    depends_on "bzip2"
     depends_on "zlib"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
-
     system "make"
     system "make", "install", "prefix=#{prefix}"
     prefix.install "RELEASE_HISTORY"
