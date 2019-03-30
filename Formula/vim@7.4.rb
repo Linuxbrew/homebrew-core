@@ -1,3 +1,4 @@
+# vim@7.4: Build a bottle for Linuxbrew
 class VimAT74 < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
