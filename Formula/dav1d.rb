@@ -1,3 +1,4 @@
+# dav1d: Build a bottle for Linuxbrew
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
