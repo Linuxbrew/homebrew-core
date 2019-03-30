@@ -1,3 +1,4 @@
+# shapelib: Build a bottle for Linuxbrew
 class Shapelib < Formula
   desc "Library for reading and writing ArcView Shapefiles"
   homepage "http://shapelib.maptools.org/"
