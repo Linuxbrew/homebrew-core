@@ -18,12 +18,12 @@ class Ponyc < Formula
     reason <<~EOS
       The bottle requires Xcode/CLT 8.0 or later to work properly.
     EOS
-    satisfy { DevelopmentTools.clang_build_version >= 800 }
+    satisfy { !OS.mac? || DevelopmentTools.clang_build_version >= 800 }
   end
 
   depends_on "libressl"
   depends_on "llvm@7"
-  depends_on :macos => :yosemite
+  depends_on :macos => :yosemite if OS.mac?
   depends_on "pcre2"
 
   def install
