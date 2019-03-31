@@ -1,3 +1,4 @@
+# hub: Build a bottle for Linuxbrew
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
