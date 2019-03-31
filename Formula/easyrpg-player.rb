@@ -1,3 +1,4 @@
+# easyrpg-player: Build a bottle for Linuxbrew
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
