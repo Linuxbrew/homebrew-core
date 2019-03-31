@@ -1,3 +1,4 @@
+# libxmp: Build a bottle for Linuxbrew
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.io/"
