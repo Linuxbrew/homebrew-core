@@ -11,6 +11,8 @@ class Fio < Formula
     sha256 "c3a19915d2892a7e1dcea98e1d49437c61e101e1087ca256dbca327bf2d7656a" => :sierra
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     system "./configure"
     # fio's CFLAGS passes vital stuff around, and crushing it will break the build
