@@ -1,3 +1,4 @@
+# fades: Build a bottle for Linuxbrew
 class Fades < Formula
   desc "Automatically handle virtualenvs for python scripts"
   homepage "https://fades.readthedocs.org/"
