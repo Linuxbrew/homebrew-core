@@ -1,3 +1,4 @@
+# mint: Build a bottle for Linuxbrew
 class Mint < Formula
   desc "Dependency manager that installs and runs Swift command-line tool packages"
   homepage "https://github.com/yonaskolb/Mint"
