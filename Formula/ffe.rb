@@ -1,3 +1,4 @@
+# ffe: Build a bottle for Linuxbrew
 class Ffe < Formula
   desc "Parse flat file structures and print them in different formats"
   homepage "https://ff-extractor.sourceforge.io/"
