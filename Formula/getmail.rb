@@ -1,3 +1,4 @@
+# getmail: Build a bottle for Linuxbrew
 class Getmail < Formula
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "http://pyropus.ca/software/getmail/"
