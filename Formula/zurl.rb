@@ -1,3 +1,4 @@
+# zurl: Build a bottle for Linuxbrew
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
