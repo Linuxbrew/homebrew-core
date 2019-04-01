@@ -16,6 +16,11 @@ class DockerCompose < Formula
 
   depends_on "libyaml"
   depends_on "python"
+  unless OS.mac?
+    # pkg-config helps setuptools find libffi
+    depends_on "pkg-config" => :build
+    depends_on "libffi" # for cffi
+  end
 
   def install
     system "./script/build/write-git-sha" if build.head?
