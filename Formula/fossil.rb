@@ -1,3 +1,4 @@
+# fossil: Build a bottle for Linuxbrew
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
