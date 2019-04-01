@@ -1,3 +1,4 @@
+# exempi: Build a bottle for Linuxbrew
 class Exempi < Formula
   desc "Library to parse XMP metadata"
   homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
