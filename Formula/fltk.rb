@@ -1,3 +1,4 @@
+# fltk: Build a bottle for Linuxbrew
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.fltk.org/"
