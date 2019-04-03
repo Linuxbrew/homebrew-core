@@ -1,3 +1,4 @@
+# mackup: Build a bottle for Linuxbrew
 class Mackup < Formula
   include Language::Python::Virtualenv
 
