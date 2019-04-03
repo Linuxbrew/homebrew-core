@@ -17,6 +17,12 @@ class Glui < Formula
     sha256 "b1afada854f920692ab7cb6b6292034f3488936c4332e3e996798ee494a3fdd7"
   end
 
+  unless OS.mac?
+    depends_on "freeglut"
+    depends_on "linuxbrew/xorg/glu"
+    depends_on "linuxbrew/xorg/mesa"
+  end
+
   def install
     system "make", "setup"
     system "make", "lib/libglui.a"
@@ -25,17 +31,37 @@ class Glui < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
-      #include <cassert>
-      #include <GL/glui.h>
-      int main() {
-        GLUI *glui = GLUI_Master.create_glui("GLUI");
-        assert(glui != nullptr);
-        return 0;
-      }
-    EOS
-    system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
-      "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
-    system "./a.out"
+    if OS.mac?
+      (testpath/"test.cpp").write <<~EOS
+        #include <cassert>
+        #include <GL/glui.h>
+        int main() {
+          GLUI *glui = GLUI_Master.create_glui("GLUI");
+          assert(glui != nullptr);
+          return 0;
+        }
+      EOS
+      system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
+        "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
+      system "./a.out"
+    else
+      (testpath/"test.cpp").write <<~EOS
+        #include <cassert>
+        #include <GL/glui.h>
+        #include <GL/glut.h>
+        int main(int argc, char **argv) {
+          glutInit(&argc, argv);
+          GLUI *glui = GLUI_Master.create_glui("GLUI");
+          assert(glui != nullptr);
+          return 0;
+        }
+      EOS
+      system ENV.cxx, "-I#{include}", "-std=c++11", "test.cpp",
+        "-L#{lib}", "-lglui", "-lglut", "-lGLU", "-lGL"
+      if ENV["DISPLAY"]
+        # Fails without X display: freeglut (./a.out): failed to open display ''
+        system "./a.out"
+      end
+    end
   end
 end
