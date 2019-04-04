@@ -26,7 +26,7 @@ class Miller < Formula
     system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
                           "--disable-dependency-tracking"
     system "make"
-    # Time zone related tests fail
+    # Time zone related tests fail. Reported upstream https://github.com/johnkerl/miller/issues/237
     system "make", "check" unless OS.linux? && ENV["CI"]
     system "make", "install"
   end
