@@ -5,7 +5,6 @@ class Gssdp < Formula
   sha256 "22cbef547f522f0b062933e302482ebdb397e2f3703899757562ddffbbfd00d1"
 
   bottle do
-    cellar :any
     sha256 "ba0e685fdd43e1a7077acc89f426094cbac4bbd6ef8a7c9a41c019d51edb48a6" => :mojave
     sha256 "f8ffc61329914be5de59373b9d2aacc7a762bc902730e0202ddf82f1c6cf6186" => :high_sierra
     sha256 "e5e69427ba9125550e2e07d0ce98c02311d9cf21535244b5ea78bd01e8494271" => :sierra
@@ -36,7 +35,7 @@ class Gssdp < Formula
     end
 
     # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/GSSDP-1.2.gir", "@rpath", lib.to_s
+    inreplace share/"gir-1.0/GSSDP-1.2.gir", "@rpath", lib.to_s if OS.mac?
     system "g-ir-compiler", "--output=#{lib}/girepository-1.0/GSSDP-1.2.typelib", share/"gir-1.0/GSSDP-1.2.gir"
   end
 
