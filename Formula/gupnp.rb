@@ -5,7 +5,6 @@ class Gupnp < Formula
   sha256 "fd74a2c236f3dbe6f403405cecfd0632a14c7888a0f6c679da5eefb8c2a62124"
 
   bottle do
-    cellar :any
     sha256 "295cfce3c4ec93475d6ee8a1acde0dd3912b6ed260b7f43af2f99dba53f36b99" => :mojave
     sha256 "b6918c132d6c4a3343a82aa8985d62cea64ce0623498de0d90c8f3232f5cc403" => :high_sierra
     sha256 "e18535de152d6b26d5589eacddc4969a0f4ac7e09d51992b94f3494cccc4f1ba" => :sierra
@@ -55,6 +54,12 @@ class Gupnp < Formula
         return 0;
       }
     EOS
+    linker_flags = %W[
+      -L#{lib}
+      -lgupnp-1.2
+      -lglib-2.0
+      -lgobject-2.0
+    ]
     system ENV.cc, "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
            "-I#{Formula["gssdp"].opt_include}/gssdp-1.2",
            "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.2",
