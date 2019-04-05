@@ -1,3 +1,4 @@
+# carthage: Build a bottle for Linuxbrew
 class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
