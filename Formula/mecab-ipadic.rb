@@ -1,3 +1,4 @@
+# mecab-ipadic: Build a bottle for Linuxbrew
 class MecabIpadic < Formula
   desc "IPA dictionary compiled for MeCab"
   homepage "https://taku910.github.io/mecab/"
