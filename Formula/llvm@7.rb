@@ -14,19 +14,38 @@ class LlvmAT7 < Formula
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
   keg_only :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "libffi"
+
+  unless OS.mac?
+    depends_on "gcc" # needed for libstdc++
+    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "binutils" # needed for gold and strip
+    depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "ncurses"
+    depends_on "libxml2"
+    depends_on "python@2"
+    depends_on "zlib"
+  end
 
   resource "clang" do
     url "https://releases.llvm.org/7.0.1/cfe-7.0.1.src.tar.xz"
     sha256 "a45b62dde5d7d5fdcdfa876b0af92f164d434b06e9e89b5d0b1cbc65dfe3f418"
+
+    unless OS.mac?
+      patch do
+        url "https://gist.githubusercontent.com/iMichka/027fd3d17b4c729e73a190ae29e44b47/raw/a88c628f28ca9cd444cc3771072260fe46ff8a29/llvm7.patch?full_index=1"
+        sha256 "8db2acff4fbe0533667c9a0527a6a180fd2a84daea4271665fd42f88a08eaa86"
+      end
+    end
   end
 
   resource "clang-extra-tools" do
@@ -65,13 +84,16 @@ class LlvmAT7 < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -83,6 +105,17 @@ class LlvmAT7 < Formula
     # limited to compiler-rt. llvm makes this somewhat easier because compiler-rt
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
+
+    unless OS.mac?
+      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
+      # Basically, the stage1 clang will try to locate a gcc toolchain and often
+      # get the default from /usr/local, which might contains an old version of
+      # gcc that can't build compiler-rt. This fixes the problem and, unlike
+      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
+      # hardcoding the gcc path into the binary 
+      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/, 
+        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
+    end
 
     args = %W[
       -DLIBOMP_ARCH=x86_64
@@ -103,11 +136,21 @@ class LlvmAT7 < Formula
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
     ]
 
+    if OS.mac?
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+    else
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
+    end
+
+    # Enable llvm gold plugin for LTO
+    args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}" unless OS.mac?
+
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "make", "install-xcode-toolchain" if OS.mac? 
     end
 
     (share/"cmake").install "cmake/modules"
@@ -123,6 +166,18 @@ class LlvmAT7 < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    unless OS.mac?
+      # Remove conflicting libraries.
+      # libgomp.so conflicts with gcc.
+      rm lib/"libgomp.so"
+
+      # Strip executables/libraries/object files to reduce their size
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
   end
 
   def caveats; <<~EOS
@@ -184,8 +239,13 @@ class LlvmAT7 < Formula
       }
     EOS
 
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
+
     # Testing Command Line Tools
-    if MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
@@ -203,7 +263,7 @@ class LlvmAT7 < Formula
     end
 
     # Testing Xcode
-    if MacOS::Xcode.installed?
+    if OS.mac? && MacOS::Xcode.installed?
       libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
@@ -222,14 +282,16 @@ class LlvmAT7 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v", "-nostdinc",
-            "-std=c++11", "-stdlib=libc++",
-            "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-            "-I#{libclangxc}/include",
-            "-I#{MacOS.sdk_path}/usr/include",
-            "-L#{lib}",
-            "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-    assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./test").chomp
+    if OS.mac?
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-std=c++11", "-stdlib=libc++",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "-L#{lib}",
+              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
   end
 end
