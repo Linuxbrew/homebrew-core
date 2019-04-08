@@ -5,7 +5,7 @@ class LlvmAT4 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz"
   sha256 "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
@@ -32,7 +32,7 @@ class LlvmAT4 < Formula
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
-    depends_on "python" if build.with?("python") || build.with?("lldb")
+    depends_on "python@2"
     depends_on "zlib"
   end
 
@@ -83,7 +83,7 @@ class LlvmAT4 < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -97,7 +97,7 @@ class LlvmAT4 < Formula
     end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -110,6 +110,17 @@ class LlvmAT4 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
+    unless OS.mac?
+      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
+      # Basically, the stage1 clang will try to locate a gcc toolchain and often
+      # get the default from /usr/local, which might contains an old version of
+      # gcc that can't build compiler-rt. This fixes the problem and, unlike
+      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
+      # hardcoding the gcc path into the binary
+      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
+        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
+    end
+
     args = %W[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
@@ -117,7 +128,6 @@ class LlvmAT4 < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -130,10 +140,12 @@ class LlvmAT4 < Formula
 
     if OS.mac?
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
-    else
-      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DLLVM_ENABLE_LIBCXXABI=ON"
+    else
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
     end
 
     # Enable llvm gold plugin for LTO
@@ -142,11 +154,9 @@ class LlvmAT4 < Formula
     # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
     unless OS.mac?
       gccpref = Formula["gcc"].opt_prefix.to_s
-      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
       args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
       args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
       args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
     mkdir "build" do
@@ -170,13 +180,14 @@ class LlvmAT4 < Formula
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
-    # Remove conflicting libraries.
-    # libgomp.so conflicts with gcc.
-    # libunwind.so conflcits with libunwind.
-    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
 
-    # Strip executables/libraries/object files to reduce their size
     unless OS.mac?
+      # Remove conflicting libraries.
+      # libgomp.so conflicts with gcc.
+      # libunwind.so conflcits with libunwind.
+      rm [lib/"libgomp.so", lib/"libunwind.so"]
+
+      # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)
         f.file? && (f.elf? || f.extname == ".a")
@@ -207,11 +218,12 @@ class LlvmAT4 < Formula
       }
     EOS
 
-    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
+    system "#{bin}/clang", "-L#{HOMEBREW_PREFIX}/lib", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{version}/include",
-                           *("-Wl,-rpath=#{lib}" unless OS.mac?),
+                           *("-Wl,--dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so" unless OS.mac?),
+                           *("-Wl,-rpath=#{HOMEBREW_PREFIX}/lib:#{lib}" unless OS.mac?),
                            "omptest.c", "-o", "omptest"
-    testresult = shell_output("./omptest")
+    testresult = shell_output(testpath/"omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
     expected_result = <<~EOS
@@ -241,6 +253,15 @@ class LlvmAT4 < Formula
         return 0;
       }
     EOS
+
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "-L#{HOMEBREW_PREFIX}/lib", "-L#{lib}",
+                           "-I#{lib}/clang/#{version}/include",
+                           *("-Wl,--dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so" unless OS.mac?),
+                           *("-Wl,-rpath=#{HOMEBREW_PREFIX}/lib:#{lib}" unless OS.mac?),
+                           "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output(testpath/"test").chomp
+    end
 
     # Testing Command Line Tools
     if OS.mac? && MacOS::CLT.installed?
@@ -280,14 +301,16 @@ class LlvmAT4 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v", "-nostdinc",
-            "-std=c++11", "-stdlib=libc++",
-            "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-            "-I#{libclangxc}/include",
-            "-I#{MacOS.sdk_path}/usr/include",
-            "-L#{lib}",
-            "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-    assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./test").chomp
+    if OS.mac?
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-std=c++11", "-stdlib=libc++",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "-L#{lib}",
+              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
   end
 end
