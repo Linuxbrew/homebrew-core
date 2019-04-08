@@ -1,3 +1,4 @@
+# anyenv: Build a bottle for Linuxbrew
 class Anyenv < Formula
   desc "All in one for **env"
   homepage "https://anyenv.github.io/"
