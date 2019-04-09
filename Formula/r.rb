@@ -21,10 +21,9 @@ class R < Formula
   depends_on "xz"
 
   unless OS.mac?
-    depends_on "cairo" => :recommended
+    depends_on "cairo"
     depends_on "curl"
-    depends_on "tcl-tk" => :optional
-    depends_on "linuxbrew/xorg/xorg" => :recommended
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   # needed to preserve executable permissions on files without shebangs
@@ -55,10 +54,9 @@ class R < Formula
     # don't remember Homebrew's sed shim
     args << "SED=/usr/bin/sed" if File.exist?("/usr/bin/sed")
 
-    if OS.linux?
+    unless OS.mac?
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
-      args << "--with-cairo" if build.with? "cairo"
-      args << "--without-x" if build.without? "xorg"
+      args << "--with-cairo"
 
       # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
       # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
