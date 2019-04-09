@@ -32,7 +32,7 @@ class LlvmAT4 < Formula
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
-    depends_on "python" if build.with?("python") || build.with?("lldb")
+    depends_on "python@2"
     depends_on "zlib"
   end
 
@@ -49,6 +49,20 @@ class LlvmAT4 < Formula
   resource "compiler-rt" do
     url "https://releases.llvm.org/4.0.1/compiler-rt-4.0.1.src.tar.xz"
     sha256 "a3c87794334887b93b7a766c507244a7cdcce1d48b2e9249fc9a94f2c3beb440"
+
+    unless OS.mac?
+      # Fix sanitizer_common and tsan for glibc 2.26 and above.
+      patch do
+        url "https://github.com/llvm-mirror/compiler-rt/commit/8a5e425a68de4d2c80ff00a97bbcb3722a4716da.patch?full_index=1"
+        sha256 "1b2116421205097a22ba75e5ef4b7c63256aac3374e47efafaa1e324755060e4"
+      end
+
+      # Fix esan and tsan for glibc 2.26 and above.
+      patch do
+        url "https://github.com/llvm-mirror/compiler-rt/commit/78162497aa177b34956aee0458e09d8b97b5dd2b.patch?full_index=1"
+        sha256 "1922e76683dc21541cdae2562a7fab786b02b685cc088c9b66c04b3d738be873"
+      end
+    end
   end
 
   resource "libcxx" do
@@ -97,7 +111,7 @@ class LlvmAT4 < Formula
     end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -117,7 +131,6 @@ class LlvmAT4 < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -130,10 +143,11 @@ class LlvmAT4 < Formula
 
     if OS.mac?
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
     else
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
-      args << "-DLLVM_ENABLE_LIBCXX=ON"
-      args << "-DLLVM_ENABLE_LIBCXXABI=ON"
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
     end
 
     # Enable llvm gold plugin for LTO
@@ -146,7 +160,6 @@ class LlvmAT4 < Formula
       args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
       args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
       args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
     mkdir "build" do
@@ -182,12 +195,6 @@ class LlvmAT4 < Formula
         f.file? && (f.elf? || f.extname == ".a")
       end)
     end
-  end
-
-  def caveats; <<~EOS
-    To use the bundled libc++ please add the following LDFLAGS:
-      LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
-  EOS
   end
 
   test do
@@ -278,16 +285,18 @@ class LlvmAT4 < Formula
       assert_equal "Hello World!", shell_output("./testXC").chomp
     end
 
-    # link against installed libc++
-    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v", "-nostdinc",
-            "-std=c++11", "-stdlib=libc++",
-            "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-            "-I#{libclangxc}/include",
-            "-I#{MacOS.sdk_path}/usr/include",
-            "-L#{lib}",
-            "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-    assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./test").chomp
+    if OS.mac?
+      # link against installed libc++
+      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-std=c++11", "-stdlib=libc++",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "-L#{lib}",
+              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
   end
 end
