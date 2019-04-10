@@ -1,3 +1,4 @@
+# kube-aws: Build a bottle for Linuxbrew
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
