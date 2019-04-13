@@ -5,7 +5,6 @@ class Stoken < Formula
   sha256 "aa2b481b058e4caf068f7e747a2dcf5772bcbf278a4f89bc9efcbf82bcc9ef5a"
 
   bottle do
-    cellar :any
     rebuild 1
     sha256 "8b558486eeb55f39205d26201a1613eaaadc9b6615d1e5f24b3487749acfb89b" => :mojave
     sha256 "2aeef625d9594a2fc26890500d1c8ff611e8c5c69df6f8ac905b6a72f179caf0" => :high_sierra
@@ -13,6 +12,7 @@ class Stoken < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gtk+3" if OS.linux?
   depends_on "nettle"
 
   def install
