@@ -13,6 +13,8 @@ class Openvpn < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "iproute2mac" if OS.linux?
+  depends_on "linuxbrew/extra/linux-pam" if OS.linux?
   depends_on "lz4"
   depends_on "lzo"
 
@@ -41,12 +43,14 @@ class Openvpn < Formula
 
     ENV.prepend_path "PKG_CONFIG_PATH", vendor/"pkcs11-helper/lib/pkgconfig"
 
+    ENV["IPROUTE"] = "#{Formula["iproute2mac"].opt_bin}/ip"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-crypto-library=openssl",
                           "--enable-pkcs11",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-iproute2=yes"
     system "make", "install"
 
     inreplace "sample/sample-config-files/openvpn-startup.sh",
