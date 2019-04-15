@@ -5,7 +5,6 @@ class Libdazzle < Formula
   sha256 "238da19fdcc3ae9bb0c2d781d099fb8c6ec70c4dd3dffad80d230344ecc3f972"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "f5c33468fca212d808ff555d0af8baaf191d6ba140efc6b8286db9f15593c67e" => :mojave
     sha256 "bd07acbdd740554b3f73fea1cc97e774ba0bb9cf7c521af44a42dbf091801550" => :high_sierra
     sha256 "4dcfedf6c6625165b6e8dadc909d2bb9667e885dbe3362d100b558db3b975817" => :sierra
