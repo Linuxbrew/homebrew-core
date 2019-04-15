@@ -1,3 +1,4 @@
+# lolcat: Build a bottle for Linuxbrew
 class Lolcat < Formula
   desc "Rainbows and unicorns in your console!"
   homepage "https://github.com/busyloop/lolcat"
