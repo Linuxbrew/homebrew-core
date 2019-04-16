@@ -1,3 +1,4 @@
+# gox: Build a bottle for Linuxbrew
 class Gox < Formula
   desc "Go cross compile tool"
   homepage "https://github.com/mitchellh/gox"
