@@ -25,11 +25,12 @@ class Cmigemo < Formula
   def install
     chmod 0755, "./configure"
     system "./configure", "--prefix=#{prefix}"
-    system "make", "osx"
-    system "make", "osx-dict"
+    os = OS.mac? ? "osx" : "gcc"
+    system "make", os
+    system "make", "#{os}-dict"
     system "make", "-C", "dict", "utf-8" if build.stable?
     ENV.deparallelize # Install can fail on multi-core machines unless serialized
-    system "make", "osx-install"
+    system "make", "#{os}-install"
   end
 
   def caveats; <<~EOS
