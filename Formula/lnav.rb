@@ -1,3 +1,4 @@
+# lnav: Build a bottle for Linuxbrew
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
