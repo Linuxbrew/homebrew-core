@@ -1,3 +1,4 @@
+# jid: Build a bottle for Linuxbrew
 class Jid < Formula
   desc "Json incremental digger"
   homepage "https://github.com/simeji/jid"
