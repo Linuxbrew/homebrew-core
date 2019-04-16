@@ -1,3 +1,4 @@
+# glm: Build a bottle for Linuxbrew
 class Glm < Formula
   desc "C++ mathematics library for graphics software"
   homepage "https://glm.g-truc.net/"
