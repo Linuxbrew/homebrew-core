@@ -1,3 +1,4 @@
+# libssh: Build a bottle for Linuxbrew
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
