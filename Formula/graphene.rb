@@ -1,3 +1,4 @@
+# graphene: Build a bottle for Linuxbrew
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
