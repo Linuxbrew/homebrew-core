@@ -1,3 +1,4 @@
+# n: Build a bottle for Linuxbrew
 class N < Formula
   desc "Node version management"
   homepage "https://github.com/tj/n"
