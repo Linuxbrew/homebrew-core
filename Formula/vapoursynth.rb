@@ -9,6 +9,7 @@ class Vapoursynth < Formula
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "521193ca2eae647c44b10b5d7cb35412648a9597783c386a6a5e7092f9ea6f0b" => :mojave
     sha256 "70b9d58584a6ab74962105699c63f08c291eeb0871ed0777c1b112bdad065110" => :high_sierra
     sha256 "a97cac8bd38657bc16572d9611f1088465ecc09efb10cba714ef9e896fe38e65" => :sierra
