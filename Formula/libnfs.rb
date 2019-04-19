@@ -1,3 +1,4 @@
+# libnfs: Build a bottle for Linuxbrew
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
