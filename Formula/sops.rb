@@ -1,3 +1,4 @@
+# sops: Build a bottle for Linuxbrew
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
