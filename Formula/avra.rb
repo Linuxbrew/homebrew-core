@@ -1,3 +1,4 @@
+# avra: Build a bottle for Linuxbrew
 class Avra < Formula
   desc "Assember for the Atmel AVR microcontroller family"
   homepage "https://github.com/hsoft/avra"
