@@ -1,3 +1,4 @@
+# usbmuxd: Build a bottle for Linuxbrew
 class Usbmuxd < Formula
   desc "USB multiplexor daemon for iPhone and iPod Touch devices"
   homepage "https://www.libimobiledevice.org/"
