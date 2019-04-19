@@ -1,3 +1,4 @@
+# libimobiledevice: Build a bottle for Linuxbrew
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "https://www.libimobiledevice.org/"
