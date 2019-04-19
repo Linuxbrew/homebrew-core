@@ -22,6 +22,8 @@ class Libpqxx < Formula
   end
 
   def install
+    # Fixes No rule to make target 'config-internal-compiler.h', needed by 'all-am'.  Stop.
+    ENV.deparallelize unless OS.mac?
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
     system "make", "install"
   end
