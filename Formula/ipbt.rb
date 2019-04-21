@@ -1,3 +1,4 @@
+# ipbt: Build a bottle for Linuxbrew
 class Ipbt < Formula
   desc "Program for recording a UNIX terminal session"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/"
