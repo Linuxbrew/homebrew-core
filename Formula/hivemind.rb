@@ -1,3 +1,4 @@
+# hivemind: Build a bottle for Linuxbrew
 class Hivemind < Formula
   desc "The mind to rule processes of your development environment"
   homepage "https://github.com/DarthSim/hivemind"
