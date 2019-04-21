@@ -24,7 +24,7 @@ class Gmp < Formula
 
     if OS.mac?
       args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
-    elsif Hardware::CPU.Intel?
+    elsif Hardware::CPU.intel?
       args << "--build=core2-linux-gnu"
       args << "ABI=32" if Hardware::CPU.is_32_bit?
     end
