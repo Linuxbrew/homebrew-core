@@ -18,7 +18,7 @@ class John < Formula
   def install
     ENV.deparallelize
 
-    system "make", "-C", "src", "clean", "CC=#{ENV.cc}", "macosx-x86-64"
+    system "make", "-C", "src", "clean", "CC=#{ENV.cc}", (OS.mac? ? "macosx-x86-64" : "linux-x86-64")
 
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
