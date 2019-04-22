@@ -1,3 +1,4 @@
+# khard: Build a bottle for Linuxbrew
 class Khard < Formula
   include Language::Python::Virtualenv
 
