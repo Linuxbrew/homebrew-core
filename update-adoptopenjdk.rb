@@ -8,12 +8,12 @@ require "digest/sha2"
     openj9_sha256 = Digest::SHA256.file("openj9@#{version}").to_s
     File.write("Formula/adoptopenjdk@#{version}.rb", <<-FORMULA)
     class AdoptopenjdkAT#{version} < Formula
-      desc "AdoptOpenJDK uses infrastructure, build and test scripts to produce prebuilt binaries from OpenJDK™ class libraries and a choice of either the OpenJDK HotSpot or Eclipse OpenJ9 VM"
+      desc "AdoptOpenJDK are prebuilt binaries of OpenJDK"
       homepage "https://adoptopenjdk.net/"
       url "#{hotspot_url}"
       sha256 "#{hotspot_sha256}"
-      depends_on :linux
       option "with-openj9", "Install OpenJ9 instead of HotSpot"
+      depends_on :linux
     
       def install
         if build.with? "openj9"

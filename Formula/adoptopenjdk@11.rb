@@ -1,10 +1,10 @@
     class AdoptopenjdkAT11 < Formula
-      desc "AdoptOpenJDK uses infrastructure, build and test scripts to produce prebuilt binaries from OpenJDK™ class libraries and a choice of either the OpenJDK HotSpot or Eclipse OpenJ9 VM"
+      desc "AdoptOpenJDK are prebuilt binaries of OpenJDK"
       homepage "https://adoptopenjdk.net/"
       url "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.3_7.tar.gz"
       sha256 "23cded2b43261016f0f246c85c8948d4a9b7f2d44988f75dad69723a7a526094"
-      depends_on :linux
       option "with-openj9", "Install OpenJ9 instead of HotSpot"
+      depends_on :linux
     
       def install
         if build.with? "openj9"
