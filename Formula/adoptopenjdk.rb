@@ -1,13 +1,14 @@
-class Adoptopenjdk < Formula
+class AdoptopenjdkAT8 < Formula
   desc "Prebuilt binaries produced from OpenJDK class libraries"
   homepage "https://adoptopenjdk.net/"
-  url "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.3_7.tar.gz"
-  sha256 "23cded2b43261016f0f246c85c8948d4a9b7f2d44988f75dad69723a7a526094"
+  url "https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_linux_hotspot_8u212b03.tar.gz"
+  sha256 "dd28d6d2cde2b931caf94ac2422a2ad082ea62f0beee3bf7057317c53093de93"
   depends_on :linux
 
   def install
     prefix.install Dir["*"]
     share.mkdir
+    share.install prefix/"man"
   end
 
   test do

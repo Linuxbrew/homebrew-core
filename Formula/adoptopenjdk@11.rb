@@ -8,6 +8,7 @@ class AdoptopenjdkAT11 < Formula
   def install
     prefix.install Dir["*"]
     share.mkdir
+    share.install prefix/"man"
   end
 
   test do
