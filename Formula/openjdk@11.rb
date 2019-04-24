@@ -3,12 +3,12 @@ class OpenjdkAT11 < Formula
   homepage "https://jdk.java.net/11/"
   # tag "linuxbrew"
 
-  version "11+28"
+  version "11.0.2"
   if OS.mac?
     url "https://java.com/"
   else
-    url "https://download.java.net/java/early_access/jdk11/28/GPL/openjdk-11+28_linux-x64_bin.tar.gz"
-    sha256 "3784cfc4670f0d4c5482604c7c513beb1a92b005f569df9bf100e8bef6610f2e"
+    url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
+    sha256 "99be79935354f5c0df1ad293620ea36d13f48ec3ea870c838f20c504c9668b57"
   end
 
   bottle :unneeded
