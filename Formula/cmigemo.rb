@@ -23,6 +23,7 @@ class Cmigemo < Formula
   depends_on "nkf" => :build
 
   def install
+    ENV.deparallelize unless OS.mac?
     chmod 0755, "./configure"
     system "./configure", "--prefix=#{prefix}"
     os = OS.mac? ? "osx" : "gcc"
