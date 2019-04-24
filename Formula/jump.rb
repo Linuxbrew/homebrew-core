@@ -1,3 +1,4 @@
+# jump: Build a bottle for Linuxbrew
 class Jump < Formula
   desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
