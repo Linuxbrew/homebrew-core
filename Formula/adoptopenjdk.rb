@@ -1,5 +1,5 @@
 class Adoptopenjdk < Formula
-  desc "Prebuilt binaries produced from OpenJDK class libraries by AdoptOpenJDK"
+  desc "Prebuilt binaries produced from OpenJDK class libraries"
   homepage "https://adoptopenjdk.net/"
   url "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.3_7.tar.gz"
   sha256 "23cded2b43261016f0f246c85c8948d4a9b7f2d44988f75dad69723a7a526094"
