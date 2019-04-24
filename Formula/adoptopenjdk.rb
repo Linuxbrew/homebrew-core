@@ -1,4 +1,4 @@
-class AdoptopenjdkAT11 < Formula
+jclass Adoptopenjdk < Formula
   desc "AdoptOpenJDK are prebuilt binaries of OpenJDK"
   homepage "https://adoptopenjdk.net/"
   url "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_linux_hotspot_11.0.3_7.tar.gz"
