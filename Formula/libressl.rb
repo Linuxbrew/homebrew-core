@@ -40,6 +40,8 @@ class Libressl < Formula
   end
 
   def post_install
+    return unless OS.mac?
+
     keychains = %w[
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
@@ -61,7 +63,7 @@ class Libressl < Formula
     # LibreSSL install a default pem - We prefer to use macOS for consistency.
     rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
-  end if OS.mac?
+  end
 
   def caveats; <<~EOS
     A CA file has been bootstrapped using certificates from the SystemRoots
