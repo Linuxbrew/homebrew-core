@@ -1,13 +1,13 @@
-class AdoptopenjdkAT8 < Formula
+class Adoptopenjdk < Formula
   desc "Prebuilt binaries produced from OpenJDK class libraries"
   homepage "https://adoptopenjdk.net/"
   url "https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_linux_hotspot_8u212b03.tar.gz"
   sha256 "dd28d6d2cde2b931caf94ac2422a2ad082ea62f0beee3bf7057317c53093de93"
+
   depends_on :linux
 
   def install
     prefix.install Dir["*"]
-    share.mkdir
     share.install prefix/"man"
   end
 
