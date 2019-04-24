@@ -1,4 +1,5 @@
 # dbus: Build a bottle for Linuxbrew
+# dbus: Build a bottle for Linuxbrew
 class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
