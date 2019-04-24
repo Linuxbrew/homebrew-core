@@ -10,7 +10,6 @@ class GccAT6 < Formula
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
     sha256 "50d8452d2d87511d2e6d91b0487064d57b07d38c1022dc19fe0a4ccea7f2209e" => :mojave
     sha256 "93dc5c5ca44e01b074941cb96216ad948223dca5d04d354b0bfa11c536ff8e45" => :high_sierra
     sha256 "7737834f564e43eb4eb652accead7405382946bf1113eb10139b4421d385717b" => :sierra
@@ -26,7 +25,7 @@ class GccAT6 < Formula
   unless OS.mac?
     depends_on "zlib"
     depends_on "binutils" if build.with? "glibc"
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "glibc" if Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
   end
   depends_on "gmp"
   depends_on "isl"
@@ -208,12 +207,14 @@ class GccAT6 < Formula
         # Locate the native system header dirs if user uses system glibc
         target = Utils.popen_read(gcc, "-print-multiarch").chomp
         raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
+
         system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
       end
 
       # Save a backup of the default specs file
       specs_string = Utils.popen_read(gcc, "-dumpspecs")
       raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
+
       specs_orig.write specs_string
 
       # Set the library search path
