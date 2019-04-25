@@ -80,6 +80,8 @@ before_install:
   - git clone --depth=1 https://github.com/Homebrew/brew "$LINUXBREW/Homebrew"
   - ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
   - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
+  # Remove pyenv, phpenv, clang from $PATH
+  - export PATH="$(echo -n "$PATH"|tr ':' $'\n'|grep -Ev 'pyenv|phpenv|clang'|tr $'\n' ':')"
   - export HOMEBREW_DEVELOPER=1
   - export HOMEBREW_FORCE_VENDOR_RUBY=1
   - export HOMEBREW_NO_AUTO_UPDATE=1
