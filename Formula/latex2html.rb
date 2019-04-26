@@ -1,3 +1,4 @@
+# latex2html: Build a bottle for Linuxbrew
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
