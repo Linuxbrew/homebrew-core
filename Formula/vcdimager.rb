@@ -1,3 +1,4 @@
+# vcdimager: Build a bottle for Linuxbrew
 class Vcdimager < Formula
   desc "(Super) video CD authoring solution"
   homepage "https://www.gnu.org/software/vcdimager/"
