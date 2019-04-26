@@ -1,3 +1,4 @@
+# kyoto-cabinet: Build a bottle for Linuxbrew
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
   homepage "https://fallabs.com/kyotocabinet/"
