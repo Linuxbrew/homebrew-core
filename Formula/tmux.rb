@@ -1,3 +1,4 @@
+# tmux: Build a bottle for Linuxbrew
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
