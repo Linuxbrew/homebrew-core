@@ -1,3 +1,4 @@
+# minio-mc: Build a bottle for Linuxbrew
 class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
