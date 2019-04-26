@@ -1,3 +1,4 @@
+# kyoto-tycoon: Build a bottle for Linuxbrew
 class KyotoTycoon < Formula
   desc "Database server with interface to Kyoto Cabinet"
   homepage "https://fallabs.com/kyototycoon/"
