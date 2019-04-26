@@ -1,3 +1,4 @@
+# libcdio: Build a bottle for Linuxbrew
 class Libcdio < Formula
   desc "Compact Disc Input and Control Library"
   homepage "https://www.gnu.org/software/libcdio/"
