@@ -1,3 +1,4 @@
+# gifsicle: Build a bottle for Linuxbrew
 class Gifsicle < Formula
   desc "GIF image/animation creator/editor"
   homepage "https://www.lcdf.org/gifsicle/"
