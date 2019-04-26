@@ -58,6 +58,14 @@ class Subversion < Formula
   # Prevent linking into a Python Framework
   patch :DATA if OS.mac?
 
+  # Fix: configure: error: failed to recognize APR_INT64_T_FMT on this platform
+  unless OS.mac?
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/dbf47fb164dc0671a34db33785804af3/raw/7356e34a53e576ee45f48264bd352fa1ab6522f0/subversion1.12.0.patch"
+      sha256 "e8ea16aa3a88c339009d95b0ba694913e0b020b7616a48747ed34ce5bdea2972"
+    end
+  end
+
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin" if OS.mac?
     # Fix #33530 by ensuring the system Ruby can build test programs.
