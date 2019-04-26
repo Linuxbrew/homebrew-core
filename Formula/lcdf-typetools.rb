@@ -1,3 +1,4 @@
+# lcdf-typetools: Build a bottle for Linuxbrew
 class LcdfTypetools < Formula
   desc "Manipulate OpenType and multiple-master fonts"
   homepage "https://www.lcdf.org/type/"
