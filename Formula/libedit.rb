@@ -1,3 +1,4 @@
+# libedit: Build a bottle for Linuxbrew
 class Libedit < Formula
   desc "BSD-style licensed readline alternative"
   homepage "https://thrysoee.dk/editline/"
