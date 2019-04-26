@@ -1,3 +1,4 @@
+# minio: Build a bottle for Linuxbrew
 class Minio < Formula
   desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
