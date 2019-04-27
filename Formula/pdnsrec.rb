@@ -23,7 +23,7 @@ class Pdnsrec < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
 
     ENV.cxx11
 
