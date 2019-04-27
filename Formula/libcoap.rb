@@ -1,3 +1,4 @@
+# libcoap: Build a bottle for Linuxbrew
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
