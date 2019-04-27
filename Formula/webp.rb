@@ -1,3 +1,4 @@
+# webp: Build a bottle for Linuxbrew
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
