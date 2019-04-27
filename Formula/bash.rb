@@ -35,7 +35,6 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "c660e748bd9f045edc96432edaffa20e6816e814de50aaa55bc3f9533ae56ef1" => :x86_64_linux
     sha256 "07f1f20a0fd6a8b06cd66d9aa6bd26d4d5afe5bd79b5354b081493bb9ee28943" => :mojave
     sha256 "bf87f6875d02d049f651da3c31c2b5db66bb8324ce28641f18e0768112de72ac" => :high_sierra
     sha256 "68ca9e0ac8c1dfe45c4f9e9ff25fa44080b827f4634a7ff5cc5fc6e65a302d62" => :sierra
