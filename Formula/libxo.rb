@@ -1,3 +1,4 @@
+# libxo: Build a bottle for Linuxbrew
 class Libxo < Formula
   desc "Allows an application to generate text, XML, JSON, and HTML output"
   homepage "https://juniper.github.io/libxo/libxo-manual.html"
