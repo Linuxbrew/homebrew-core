@@ -6,8 +6,6 @@ class Numpy < Formula
   head "https://github.com/numpy/numpy.git"
 
   bottle do
-    sha256 "72f92c75de83abeba1c647b323021e783dc565333e01b9ea58a543e788204c72" => :x86_64_linux
-    cellar :any
     sha256 "b373b0cbbb2a03a5454f55b00d2a6c5fcb9a35f176eb6028649e5e12585ce5cf" => :mojave
     sha256 "f2d3c81fec3c0bf1ca6fa46426ba77e042fae29d03687c634fa82c0e646c04cd" => :high_sierra
     sha256 "2fcc77b840e15c3000c66674ad127c624aa569c9e42f15d4579dd09cb50b01d0" => :sierra
