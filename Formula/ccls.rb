@@ -15,7 +15,22 @@ class Ccls < Formula
   depends_on "llvm"
   depends_on :macos => :high_sierra # C++ 17 is required
 
+  # C++17 is required
+  depends_on "gcc@9" unless OS.mac?
+
+  fails_with :gcc => "4"
+  fails_with :gcc => "5"
+  fails_with :gcc => "6"
+  fails_with :gcc => "7" do
+    version "7.1"
+  end
+
   def install
+    # https://github.com/Homebrew/brew/issues/6070
+    unless OS.mac?
+      ENV.remove %w[LDFLAGS LIBRARY_PATH HOMEBREW_LIBRARY_PATHS], "#{HOMEBREW_PREFIX}/lib"
+    end
+
     system "cmake", *std_cmake_args
     system "make", "install"
   end
