@@ -71,7 +71,7 @@ class Sratoolkit < Formula
     system "make", "install"
 
     # Remove non-executable files.
-    rm_r [bin/"magic", bin/"ncbi"]
+    rm_rf [bin/"magic", bin/"ncbi"]
   end
 
   test do
