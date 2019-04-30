@@ -1,3 +1,4 @@
+# sipsak: Build a bottle for Linuxbrew
 class Sipsak < Formula
   desc "SIP Swiss army knife"
   homepage "https://github.com/nils-ohlmeier/sipsak/"
