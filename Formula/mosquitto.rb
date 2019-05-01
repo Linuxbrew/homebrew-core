@@ -5,10 +5,12 @@ class Mosquitto < Formula
   sha256 "33499e78dfa0ca1cb488fd196fde940a66305bdfd44ba763ce2001db2569a08b"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "5d7690648a9fda54ef89f4af23f6ff22df04023f5be6abb108fc5453ace38372" => :mojave
     sha256 "3fd61a58e6043ee0b60da0ed248c9ce17670bcf5904c9c74dbe16bbd4e8c19eb" => :high_sierra
     sha256 "19b7293955814bcf2d26b62ae913edf30cd4bf265fdf227c8a8506a74857cf37" => :sierra
+    sha256 "fa42f62ccc07003a74e3cbc586c8b72893fb85f13f24c7dea626fca6003f98ce" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
