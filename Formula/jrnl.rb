@@ -16,6 +16,41 @@ class Jrnl < Formula
 
   depends_on "python"
 
+  unless OS.mac?
+    depends_on "pkg-config"
+    depends_on "expect" => :test
+
+    resource "asn1crypto" do
+      url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+      sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    end
+
+    resource "cffi" do
+      url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+      sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    end
+
+    resource "cryptography" do
+      url "https://files.pythonhosted.org/packages/07/ca/bc827c5e55918ad223d59d299fff92f3563476c3b00d0a9157d9c0217449/cryptography-2.6.1.tar.gz"
+      sha256 "26c821cbeb683facb966045e2064303029d572a87ee69ca5a1bf54bf55f93ca6"
+    end
+
+    resource "jeepney" do
+      url "https://files.pythonhosted.org/packages/16/1d/74adf3b164a8d19a60d0fcf706a751ffa2a1eaa8e5bbb1b6705c92a05263/jeepney-0.4.tar.gz"
+      sha256 "6089412a5de162c04747f0220f6b2223b8ba660acd041e52a76426ca550e3c70"
+    end
+
+    resource "pycparser" do
+      url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+      sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    end
+
+    resource "secretstorage" do
+      url "https://files.pythonhosted.org/packages/a6/89/df343dbc2957a317127e7ff2983230dc5336273be34f2e1911519d85aeb5/SecretStorage-3.1.1.tar.gz"
+      sha256 "20c797ae48a4419f66f8d28fc221623f11fc45b6828f96bdb1ad9990acb59f92"
+    end
+  end
+
   resource "entrypoints" do
     url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
     sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
@@ -72,7 +107,7 @@ class Jrnl < Formula
 
   test do
     (testpath/"write_journal.sh").write <<~EOS
-      #!/usr/bin/expect -f
+      #!/usr/bin/env expect
       set timeout -1
       spawn #{bin}/jrnl today: Wrote this fancy test.
       expect -exact "Path to your journal file (leave blank for ~/journal.txt):"
