@@ -1,3 +1,4 @@
+# unp64: Build a bottle for Linuxbrew
 class Unp64 < Formula
   desc "Generic C64 prg unpacker,"
   homepage "http://iancoog.altervista.org/"
