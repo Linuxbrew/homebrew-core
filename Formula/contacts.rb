@@ -17,8 +17,8 @@ class Contacts < Formula
     sha256 "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346" => :mavericks
   end
 
-  depends_on :macos
   depends_on :xcode => :build if OS.mac?
+  depends_on :macos
 
   def install
     system "make", "SDKROOT=#{MacOS.sdk_path}"
