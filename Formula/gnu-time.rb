@@ -33,6 +33,7 @@ class GnuTime < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       GNU "time" has been installed as "gtime".
       If you need to use it as "time", you can add a "gnubin" directory
