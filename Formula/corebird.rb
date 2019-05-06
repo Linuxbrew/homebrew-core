@@ -40,6 +40,7 @@ class Corebird < Formula
   test do
     # Fails without an X11 display: Gtk-WARNING **: cannot open display
     return if ENV["CIRCLECI"] || ENV["TRAVIS"]
+
     system "#{bin}/corebird", "--help"
   end
 end
