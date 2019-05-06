@@ -202,6 +202,7 @@ class Ruby < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       By default, binaries installed by gem will be placed into:
         #{rubygems_bindir}
