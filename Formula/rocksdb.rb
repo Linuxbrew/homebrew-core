@@ -16,6 +16,7 @@ class Rocksdb < Formula
     sha256 "5e2bbca2e528f5ebe654d5ad9d6b1057cc5901c169e63dcb99b104ce6e468d5f" => :sierra
   end
 
+  depends_on CIRequirement
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"
@@ -23,7 +24,6 @@ class Rocksdb < Formula
     depends_on "bzip2"
     depends_on "zlib"
   end
-  depends_on CIRequirement
 
   def install
     ENV.cxx11
