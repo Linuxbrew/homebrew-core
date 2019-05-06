@@ -34,6 +34,7 @@ class Mednafen < Formula
   test do
     # Test fails on headless CI: Could not initialize SDL: No available video device
     return if ENV["CIRCLECI"] || ENV["TRAVIS"]
+
     cmd = "#{bin}/mednafen | head -n1 | grep -o '[0-9].*'"
     assert_equal version.to_s, shell_output(cmd).chomp
   end
