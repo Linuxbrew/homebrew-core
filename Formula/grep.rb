@@ -42,6 +42,7 @@ class Grep < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       All commands have been installed with the prefix "g".
       If you need to use these commands with their normal names, you
