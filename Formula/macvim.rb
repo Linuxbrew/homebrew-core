@@ -14,10 +14,10 @@ class Macvim < Formula
     sha256 "eeead308b30d6f4373955b9000c4fc56ea1b37adf16f99af9e99814c6518a1d8" => :sierra
   end
 
-  depends_on :macos
   depends_on :xcode => :build if OS.mac?
   depends_on "cscope"
   depends_on "lua"
+  depends_on :macos
   depends_on "python"
 
   conflicts_with "vim",
