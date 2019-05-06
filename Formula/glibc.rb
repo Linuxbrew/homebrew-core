@@ -103,6 +103,7 @@ class Glibc < Formula
       # Use the original GCC specs file.
       specs = Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=specs.orig").chomp)
       raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
+
       ENV["LDFLAGS"] = "-specs=#{specs}"
 
       # Fix error ld: cannot find -lc when upgrading glibc and compiling with a brewed gcc.
