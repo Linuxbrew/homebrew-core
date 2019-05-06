@@ -14,10 +14,9 @@ class Kes < Formula
     sha256 "833b3f0ebb8c1dcd8f0efefa76f04a1938964bb40c5c30081108b565f1a0e066" => :yosemite
   end
 
-  depends_on "readline"
-
   # see https://github.com/epilnivek/kes#known-issues
   depends_on :macos
+  depends_on "readline"
 
   conflicts_with "es", :because => "both install 'es' binary"
 
