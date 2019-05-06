@@ -12,8 +12,8 @@ class Xctool < Formula
     sha256 "193c2940c85153bfffed60c0f572f3fa26ee6e7e4781d8c0e3b477a0a9bd2f80" => :sierra
   end
 
-  depends_on :xcode => "7.0" if OS.mac?
   depends_on :macos
+  depends_on :xcode => "7.0" if OS.mac?
 
   def install
     xcodebuild "-workspace", "xctool.xcworkspace",
