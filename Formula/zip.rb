@@ -50,6 +50,7 @@ class Zip < Formula
     assert_predicate testpath/"test.zip", :exist?
     # zip -T needs unzip, disabled under Linux
     return unless OS.mac?
+
     assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip")
 
     # test bzip2 support that should be automatically linked in using the bzip2 library in macOS
