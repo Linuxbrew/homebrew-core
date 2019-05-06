@@ -24,6 +24,7 @@ class FirebaseCli < Formula
   test do
     # The following test requires /usr/bin/expect.
     return unless OS.mac?
+
     (testpath/"test.exp").write <<~EOS
       spawn #{bin}/firebase login:ci --no-localhost
       expect "Paste"
