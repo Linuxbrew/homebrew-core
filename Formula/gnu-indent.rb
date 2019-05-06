@@ -39,6 +39,7 @@ class GnuIndent < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       GNU "indent" has been installed as "gindent".
       If you need to use it as "indent", you can add a "gnubin" directory
