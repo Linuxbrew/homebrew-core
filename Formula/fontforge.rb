@@ -51,6 +51,7 @@ class Fontforge < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       This formula only installs the command line utilities.
 
