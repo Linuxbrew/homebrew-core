@@ -35,6 +35,7 @@ class GnuWhich < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       GNU "which" has been installed as "gwhich".
       If you need to use it as "which", you can add a "gnubin" directory
