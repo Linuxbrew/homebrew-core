@@ -12,9 +12,9 @@ class Mas < Formula
     sha256 "a0d1e45203448c08420c3eab2d40ef957fd22c8e40fbeb067bc7bffe4f08dfe2" => :high_sierra
   end
 
-  depends_on :macos
   depends_on "carthage" => :build
   depends_on :xcode => ["10.1", :build]
+  depends_on :macos
 
   def install
     # Working around build issues in dependencies
