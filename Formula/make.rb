@@ -34,6 +34,7 @@ class Make < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       GNU "make" has been installed as "gmake".
       If you need to use it as "make", you can add a "gnubin" directory
