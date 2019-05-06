@@ -6,11 +6,10 @@ class Pow < Formula
 
   bottle :unneeded
 
-  depends_on "node"
-
   # Linux is not supported and the DNS handling rules only work on macOS
   # see https://github.com/basecamp/pow/wiki/FAQ#is-linux-supported
   depends_on :macos
+  depends_on "node"
 
   def install
     libexec.install Dir["*"]
