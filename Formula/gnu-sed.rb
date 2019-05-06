@@ -36,6 +36,7 @@ class GnuSed < Formula
 
   def caveats
     return unless OS.mac?
+
     <<~EOS
       GNU "sed" has been installed as "gsed".
       If you need to use it as "sed", you can add a "gnubin" directory
