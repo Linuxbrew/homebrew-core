@@ -12,10 +12,10 @@ class Sonarqube < Formula
 
   def install
     # Delete native bin directories for other systems
-    rm_rf "bin/linux-x86-32" unless OS.linux? && !MacOS.prefer_64_bit?
-    rm_rf "bin/linux-x86-64" unless OS.linux? && MacOS.prefer_64_bit?
-    rm_rf "bin/macosx-universal-32" unless OS.mac? && !MacOS.prefer_64_bit?
-    rm_rf "bin/macosx-universal-64" unless OS.mac? && MacOS.prefer_64_bit?
+    rm_rf "bin/linux-x86-32"
+    rm_rf "bin/linux-x86-64" unless OS.linux?
+    rm_rf "bin/macosx-universal-32"
+    rm_rf "bin/macosx-universal-64" unless OS.mac?
     rm_rf Dir["bin/windows-*"]
 
     libexec.install Dir["*"]
