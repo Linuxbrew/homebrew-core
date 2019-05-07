@@ -28,14 +28,14 @@ class CrosstoolNg < Formula
   depends_on "lzip"
   depends_on "m4"
   depends_on "make"
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses" if !OS.mac? || DevelopmentTools.clang_build_version >= 1000
   depends_on "xz"
-  depends_on "make" => :optional
 
   unless OS.mac?
     depends_on "flex" => :build
     depends_on "gperf" => :build
     depends_on "texinfo" => :build
+    depends_on "unzip" => :build
   end
 
   def install
@@ -43,12 +43,13 @@ class CrosstoolNg < Formula
       system "./bootstrap"
     end
 
+    make = OS.mac? ? "gmake" :  "make"
     ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
-    ENV["MAKE"] = "#{Formula["make"].opt_bin}/gmake"
-    ENV.append "LDFLAGS", "-lintl"
+    ENV["MAKE"] = "#{Formula["make"].opt_bin}/#{make}"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", ("--disable-dependency-tracking" unless OS.mac?)
 
     # Must be done in two steps
     system "make"
