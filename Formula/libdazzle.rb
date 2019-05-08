@@ -1,3 +1,4 @@
+# libdazzle: Build a bottle for Linuxbrew
 class Libdazzle < Formula
   desc "GNOME companion library to GObject and Gtk+"
   homepage "https://gitlab.gnome.org/GNOME/libdazzle"
