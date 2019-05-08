@@ -1,3 +1,4 @@
+# reprepro: Build a bottle for Linuxbrew
 class Reprepro < Formula
   desc "Debian package repository manager"
   homepage "https://salsa.debian.org/brlink/reprepro"
