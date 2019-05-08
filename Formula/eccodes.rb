@@ -7,7 +7,6 @@ class Eccodes < Formula
 
   bottle do
     sha256 "2af2351f9391cb6849aac21ef3a841e1f65465fe334c303a69b07fea8f8d31eb" => :sierra
-    sha256 "066ff13676b1b59baff71754b240d8fbfe7c314541c5f2b92dd392108fb9e2a0" => :x86_64_linux
     sha256 "5e06fab2d6e9bf162d09de8e3c487d33843575316e865ea0bf20eddb8a5ecca6" => :mojave
     sha256 "37cf436e3db67327716b1189225bfa2c3328da6d8964592a6772a45e21252b55" => :high_sierra
     sha256 "b17fa8c8024bd8e0f64338e342d1ace4276112dfc47c63041e868841ca440aa9" => :sierra
