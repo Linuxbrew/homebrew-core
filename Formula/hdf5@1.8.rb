@@ -6,6 +6,7 @@ class Hdf5AT18 < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "1485cae9d86cf8858cbad57558e7fe5c87092df6558cf89781daf10abad1af5f" => :mojave
     sha256 "ec5ff75dd845f8718f816e2729ede6cb163866e86c16a9a206eea7a243846f94" => :high_sierra
     sha256 "3830625c54aa43948efd6bf23a84caee2be2427bf1345183b7b08075c32e7d3d" => :sierra
