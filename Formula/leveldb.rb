@@ -1,3 +1,4 @@
+# leveldb: Build a bottle for Linuxbrew
 class Leveldb < Formula
   desc "Key-value storage library with ordered mapping"
   homepage "https://github.com/google/leveldb/"
