@@ -10,6 +10,7 @@ class GccAT8 < Formula
 
   # gcc is designed to be portable.
   bottle do
+    cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "78ba36c509cbec01d6a85185bbee03a80efa1002d2e59613b5029ba334a7f716" => :x86_64_linux
   end
@@ -136,8 +137,8 @@ class GccAT8 < Formula
 
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
-    # Rename man8.
-    Dir.glob(man8/"*.8") { |file| add_suffix file, version_suffix }
+    # Rename man7.
+    Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
   end
