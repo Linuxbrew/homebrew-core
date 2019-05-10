@@ -1,3 +1,4 @@
+# ngspice: Build a bottle for Linuxbrew
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
