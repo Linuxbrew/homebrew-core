@@ -20,7 +20,9 @@ class AprUtil < Formula
   depends_on "openssl"
   unless OS.mac?
     depends_on "expat"
+    depends_on "mawk"
     depends_on "sqlite"
+    depends_on "unixodbc"
     depends_on "util-linux" # for libuuid
   end
 
