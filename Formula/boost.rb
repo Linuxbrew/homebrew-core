@@ -120,7 +120,11 @@ class Boost < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++14", "-stdlib=libc++", "-o", "test"
+    if OS.mac?
+      system ENV.cxx, "test.cpp", "-std=c++14", "-stdlib=libc++", "-o", "test"
+    else
+      system ENV.cxx, "test.cpp", "-std=c++14", "-o", "test"
+    end
     system "./test"
   end
 end
