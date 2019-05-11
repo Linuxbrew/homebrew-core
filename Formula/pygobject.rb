@@ -1,3 +1,4 @@
+# pygobject: Build a bottle for Linuxbrew
 class Pygobject < Formula
   desc "GLib/GObject/GIO Python bindings for Python 2"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
