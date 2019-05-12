@@ -14,14 +14,16 @@ class Ykpers < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libyubikey"
+  depends_on "libusb" unless OS.mac?
 
   def install
+    backend = OS.mac? ? "osx" : "libusb-1.0"
     libyubikey_prefix = Formula["libyubikey"].opt_prefix
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-libyubikey-prefix=#{libyubikey_prefix}",
-                          "--with-backend=osx"
+                          "--with-backend=#{backend}"
     system "make", "check"
     system "make", "install"
   end
