@@ -59,6 +59,8 @@ class OpenMpi < Formula
   end
 
   test do
+    ENV["OMPI_ALLOW_RUN_AS_ROOT"] = "1"
+    ENV["OMPI_ALLOW_RUN_AS_ROOT_CONFIRM"] = "1"
     (testpath/"hello.c").write <<~EOS
       #include <mpi.h>
       #include <stdio.h>
