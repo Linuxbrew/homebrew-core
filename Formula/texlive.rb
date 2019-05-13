@@ -48,7 +48,10 @@ class Texlive < Formula
       "scheme-medium" to install scheme-small + more packages and languages
       "scheme-small" to install scheme-basic + xetex, metapost, a few languages [default]
       "scheme-basic" to install plain and latex
-      "scheme-minimal" to install plain only
+      The small (~500 MB) distribution of TexLive is installed by default.
+      You may install a larger (medium or full) distribution of TexLive using one of:
+        tlmgr install scheme-medium # 1.5 GB
+        tlmgr install scheme-full # 6 GB
   EOS
 
   test do
