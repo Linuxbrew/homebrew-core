@@ -1,3 +1,4 @@
+# libshout: Build a bottle for Linuxbrew
 class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
   homepage "https://icecast.org/"
