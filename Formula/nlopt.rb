@@ -88,7 +88,11 @@ class Nlopt < Formula
         nlopt_destroy(opt);
       }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-L#{opt_lib}", "-lnlopt", "-lm"
+    if OS.mac?
+      system ENV.cc, "test.c", "-o", "test", "-L#{opt_lib}", "-lnlopt", "-lm"
+    else
+      system ENV.cxx, "test.c", "-o", "test", "-L#{opt_lib}", "-lnlopt", "-lm"
+    end
     assert_match "found minimum", shell_output("./test")
   end
 end
