@@ -1,3 +1,4 @@
+# profanity: Build a bottle for Linuxbrew
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
