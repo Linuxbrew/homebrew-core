@@ -1,3 +1,4 @@
+# libwpg: Build a bottle for Linuxbrew
 class Libwpg < Formula
   desc "Library for reading and parsing Word Perfect Graphics format"
   homepage "https://libwpg.sourceforge.io/"
