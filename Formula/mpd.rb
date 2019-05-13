@@ -1,3 +1,4 @@
+# mpd: Build a bottle for Linuxbrew
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
