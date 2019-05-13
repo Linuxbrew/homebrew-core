@@ -1,3 +1,4 @@
+# libmwaw: Build a bottle for Linuxbrew
 class Libmwaw < Formula
   desc "Library for converting legacy Mac document formats"
   homepage "https://sourceforge.net/p/libmwaw/wiki/Home/"
