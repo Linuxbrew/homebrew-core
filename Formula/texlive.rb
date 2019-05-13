@@ -10,12 +10,6 @@ class Texlive < Formula
     cellar :any
   end
 
-  option "with-full", "install everything"
-  option "with-medium", "install small + more packages and languages"
-  option "with-small", "install basic + xetex, metapost, a few languages [default]"
-  option "with-basic", "install plain and latex"
-  option "with-minimal", "install plain only"
-
   depends_on "wget" => :build
   depends_on "fontconfig"
   depends_on "linuxbrew/xorg/libice"
@@ -29,19 +23,33 @@ class Texlive < Formula
   depends_on "perl"
 
   def install
-    scheme = %w[full medium small basic minimal].find do |x|
-      build.with? x
-    end || "small"
-
     ohai "Downloading and installing TeX Live. This will take a few minutes."
     ENV["TEXLIVE_INSTALL_PREFIX"] = libexec
-    system "./install-tl", "-scheme", scheme, "-portable", "-profile", "/dev/null"
+    system "./install-tl", "-scheme", "small", "-portable", "-profile", "/dev/null"
 
     man1.install Dir[libexec/"texmf-dist/doc/man/man1/*"]
     man5.install Dir[libexec/"texmf-dist/doc/man/man5/*"]
     rm Dir[libexec/"bin/*/man"]
     bin.install_symlink Dir[libexec/"bin/*/*"]
   end
+
+  def caveats; <<~EOS
+    To remove default scheme-small you may run:
+
+      tlmgr remove scheme-small
+
+    To install scheme-minimal you may run:
+
+      tlmgr install scheme-minimal
+
+    All possible schemes:
+
+      "scheme-full" to install everything
+      "scheme-medium" to install scheme-small + more packages and languages
+      "scheme-small" to install scheme-basic + xetex, metapost, a few languages [default]
+      "scheme-basic" to install plain and latex
+      "scheme-minimal" to install plain only
+  EOS
 
   test do
     assert_match "Usage", shell_output("#{bin}/tex --help")
