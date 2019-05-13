@@ -1,3 +1,4 @@
+# libxc: Build a bottle for Linuxbrew
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "https://tddft.org/programs/libxc/"
