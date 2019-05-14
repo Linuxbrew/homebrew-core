@@ -34,22 +34,26 @@ class Texlive < Formula
   end
 
   def caveats; <<~EOS
-    To remove default scheme-small you may run:
+    To remove scheme-small and scheme-basic you may run:
 
-      tlmgr remove scheme-small
+      tlmgr remove scheme-small; tlmgr remove scheme-basic
 
-    To install scheme-minimal you may run:
+    Don't touch "scheme-minimal"!
+    The "scheme-small" (~500 MB) is installed by default.
+    You may install a larger (medium or full) distribution of TexLive using one of:
 
-      tlmgr install scheme-minimal
-
+        tlmgr install scheme-medium # 1.5 GB
+        tlmgr install scheme-full # 6 GB
+    
     All possible schemes:
 
       "scheme-full" to install everything
       "scheme-medium" to install scheme-small + more packages and languages
-      "scheme-small" to install scheme-basic + xetex, metapost, a few languages [default]
+      "scheme-small" to install scheme-basic + xetex, metapost, a few languages
       "scheme-basic" to install plain and latex
-      "scheme-minimal" to install plain only
+      "scheme-minimal" just plain distribution
   EOS
+  end
 
   test do
     assert_match "Usage", shell_output("#{bin}/tex --help")
