@@ -1,3 +1,4 @@
+# elixir: Build a bottle for Linuxbrew
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
