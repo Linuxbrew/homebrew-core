@@ -1,3 +1,4 @@
+# jsdoc3: Build a bottle for Linuxbrew
 require "language/node"
 
 class Jsdoc3 < Formula
