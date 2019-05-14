@@ -44,7 +44,7 @@ class Texlive < Formula
 
         tlmgr install scheme-medium # 1.5 GB
         tlmgr install scheme-full # 6 GB
-    
+
     All possible schemes:
 
       "scheme-full" to install everything
