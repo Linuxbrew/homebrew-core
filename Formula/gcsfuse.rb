@@ -13,7 +13,11 @@ class Gcsfuse < Formula
   end
 
   depends_on "go" => :build
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     # Build the build_gcsfuse tool. Ensure that it doesn't pick up any
