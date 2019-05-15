@@ -1,3 +1,4 @@
+# patchelf: Build a bottle for Linuxbrew
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://nixos.org/patchelf.html"
