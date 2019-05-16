@@ -17,7 +17,7 @@ class Pypy < Formula
   depends_on "gdbm"
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
-  depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "libffi" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "sqlite"
   unless OS.mac?
@@ -49,7 +49,7 @@ class Pypy < Formula
   end
 
   def install
-    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" if OS.mac?
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
@@ -59,10 +59,12 @@ class Pypy < Formula
     resource("bootstrap").stage buildpath/"bootstrap"
     python = buildpath/"bootstrap/bin/pypy"
 
-    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
-      s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
-    end unless OS.mac?
+    unless OS.mac?
+      inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+        s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
+        s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
+      end
+    end
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
@@ -79,9 +81,11 @@ class Pypy < Formula
 
     dylib = OS.mac? ? "dylib" : "so"
     (libexec/"lib").install libexec/"bin/libpypy-c.#{dylib}"
-    MachO::Tools.change_install_name("#{libexec}/bin/pypy",
-                                     "@rpath/libpypy-c.dylib",
-                                     "#{libexec}/lib/libpypy-c.dylib") if OS.mac?
+    if OS.mac?
+      MachO::Tools.change_install_name("#{libexec}/bin/pypy",
+                                       "@rpath/libpypy-c.dylib",
+                                       "#{libexec}/lib/libpypy-c.dylib")
+    end
 
     # The PyPy binary install instructions suggest installing somewhere
     # (like /opt) and symlinking in binaries as needed. Specifically,
@@ -89,6 +93,13 @@ class Pypy < Formula
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy"
     lib.install_symlink libexec/"lib/libpypy-c.#{dylib}"
+
+    # Delete two files shipped which we do not want to deliver
+    # These files make patchelf fail
+    unless OS.mac?
+      rm_f libexec/"bin/libpypy-c.so.debug"
+      rm_f libexec/"bin/pypy.debug"
+    end
   end
 
   def post_install
