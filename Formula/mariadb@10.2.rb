@@ -1,3 +1,4 @@
+# mariadb@10.2: Build a bottle for Linuxbrew
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
