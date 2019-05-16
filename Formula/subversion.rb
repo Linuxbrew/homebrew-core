@@ -22,7 +22,7 @@ class Subversion < Formula
   depends_on :java => ["1.8+", :build]
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
-  depends_on "swig" => :build
+  depends_on "swig@3.04" => :build
   depends_on "apr"
   depends_on "apr-util"
 
@@ -36,6 +36,12 @@ class Subversion < Formula
   depends_on "utf8proc"
 
   unless OS.mac?
+    # need to run `./autogen.sh` as we patched `build/ac-macros/swig.m4`
+    # remove these dependencies when the patch is removed.
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+
     depends_on "libtool" => :build
     depends_on "expat"
     depends_on "krb5"
@@ -57,6 +63,14 @@ class Subversion < Formula
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
   # Prevent linking into a Python Framework
   patch :DATA if OS.mac?
+
+  # https://issues.apache.org/jira/browse/SVN-4813
+  unless OS.mac?
+    patch do
+      url "https://github.com/apache/subversion/commit/d67979e61f8659af05fd4d0384a2db33645df83d.patch?full_index=1"
+      sha256 "49752a91866e386680db3dbff767d4fd3a7a7bf8493b35fe7281be69581d0bed"
+    end
+  end
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin" if OS.mac?
@@ -120,7 +134,9 @@ class Subversion < Formula
               "toolsdir = @bindir@/svn-tools",
               "toolsdir = @libexecdir@/svn-tools"
 
-    system "./autogen.sh" if build.head?
+    # regenerate configure file as we patched `build/ac-macros/swig.m4`
+    # revert back to `if build.head?` when the patch is no longer necessary
+    system "./autogen.sh" if build.head? || !OS.mac?
     system "./configure", *args
     system "make"
     # Fix ld: cannot find -lsvn_delta-1
@@ -134,8 +150,12 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    # Peg to system Ruby
-    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
+    if OS.mac?
+      # Peg to system Ruby
+      system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
+    else
+      system "make", "swig-rb"
+    end
     system "make", "install-swig-rb"
 
     # Java and Perl support don't build correctly in parallel:
