@@ -1,3 +1,4 @@
+# pari: Build a bottle for Linuxbrew
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
