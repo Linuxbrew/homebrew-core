@@ -5,6 +5,8 @@ class Adoptopenjdk < Formula
   version "1.8.0.212"
   sha256 "dd28d6d2cde2b931caf94ac2422a2ad082ea62f0beee3bf7057317c53093de93"
 
+  bottle :unneeded
+  
   depends_on :linux
 
   def install
