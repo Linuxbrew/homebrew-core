@@ -1,3 +1,4 @@
+# librsvg: Build a bottle for Linuxbrew
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
