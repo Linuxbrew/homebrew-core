@@ -1,3 +1,4 @@
+# lv2: Build a bottle for Linuxbrew
 class Lv2 < Formula
   desc "Portable plugin standard for audio systems"
   homepage "http://lv2plug.in"
