@@ -15,6 +15,8 @@ class OpenjdkAT10 < Formula
     sha256 "f3b26abc9990a0b8929781310e14a339a7542adfd6596afb842fa0dd7e3848b2"
   end
 
+  bottle :unneeded
+
   depends_on :linux
 
   def install

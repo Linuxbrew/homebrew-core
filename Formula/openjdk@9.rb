@@ -15,6 +15,8 @@ class OpenjdkAT9 < Formula
     sha256 "39362fb9bfb341fcc802e55e8ea59f4664ca58fd821ce956d48e1aa4fb3d2dec"
   end
 
+  bottle :unneeded
+
   depends_on :linux
 
   def install

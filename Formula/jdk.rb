@@ -12,10 +12,7 @@ class Jdk < Formula
     sha256 "90c4ea877e816e3440862cfa36341bc87d05373d53389ec0f2d54d4e8c95daa2"
   end
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "66f84d75594cf1f9a4bc390d9b685efa67dcf3b78ef52fd0ebe3e6cc393404e7" => :x86_64_linux
-  end
+  bottle :unneeded
 
   def install
     odie "Use 'brew cask install java' on Mac OS" if OS.mac?

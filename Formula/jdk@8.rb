@@ -14,10 +14,7 @@ class JdkAT8 < Formula
     sha256 "1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3"
   end
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "3376215f8b0b43525ba4655b7547565214340725862af7d946b906242221d485" => :x86_64_linux
-  end
+  bottle :unneeded
 
   keg_only :versioned_formula
 

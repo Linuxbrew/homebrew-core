@@ -11,9 +11,7 @@ class OpenjdkAT11 < Formula
     sha256 "3784cfc4670f0d4c5482604c7c513beb1a92b005f569df9bf100e8bef6610f2e"
   end
 
-  bottle do
-    sha256 "2866dc00248063e5736c5675271a2f65e7ab187202d4e217eb3317f280a7474d" => :x86_64_linux
-  end
+  bottle :unneeded
 
   depends_on :linux
 
