@@ -1,3 +1,4 @@
+# plzip: Build a bottle for Linuxbrew
 class Plzip < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/plzip.html"
