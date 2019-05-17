@@ -1,3 +1,4 @@
+# paperkey: Build a bottle for Linuxbrew
 class Paperkey < Formula
   desc "Extract just secret information out of OpenPGP secret keys"
   homepage "https://www.jabberwocky.com/software/paperkey/"
