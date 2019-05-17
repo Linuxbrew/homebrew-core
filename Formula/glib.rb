@@ -3,13 +3,13 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.60/glib-2.60.2.tar.xz"
   sha256 "2ef15475060addfda0443a7e8a52b28a10d5e981e82c083034061daf9a8f80d9"
+  revision 1 unless OS.mac?
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "1969b4088e0235f81bdd6fc846f0f990008d07122728b2e927a0af71b6edf56d" => :mojave
     sha256 "989876659fc86bb374e56e2d585ce0ae7dec6b2a54728e20e24b1b2609c9a45b" => :high_sierra
     sha256 "873a94deda0ef73e09e22fa30c1cdb3145f8acadfc275298d015e0a2f359725c" => :sierra
-    sha256 "11f5e63eaea0ca6d90f702842eb2bdcf0b2197aac5303bf5c08f02581f4b0163" => :x86_64_linux
   end
 
   depends_on "meson" => :build
