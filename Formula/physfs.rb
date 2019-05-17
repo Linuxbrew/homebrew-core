@@ -13,6 +13,10 @@ class Physfs < Formula
   end
 
   depends_on "cmake" => :build
+  unless OS.mac?
+    depends_on "readline"
+    depends_on "zip" => :test
+  end
 
   def install
     mkdir "macbuild" do
@@ -31,6 +35,10 @@ class Physfs < Formula
       addarchive test.zip 1
       cat test.txt
     EOS
-    assert_match /Successful\.\nhomebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
+    if OS.mac?
+      assert_match /Successful\.\nhomebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
+    else
+      assert_match /homebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
+    end
   end
 end
