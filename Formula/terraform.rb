@@ -1,3 +1,4 @@
+# terraform: Build a bottle for Linuxbrew
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
