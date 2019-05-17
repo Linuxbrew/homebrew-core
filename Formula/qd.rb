@@ -1,3 +1,4 @@
+# qd: Build a bottle for Linuxbrew
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
   homepage "https://crd.lbl.gov/~dhbailey/mpdist/"
