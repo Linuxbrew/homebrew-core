@@ -1,3 +1,4 @@
+# superlu: Build a bottle for Linuxbrew
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
   homepage "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
