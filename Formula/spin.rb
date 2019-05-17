@@ -1,3 +1,4 @@
+# spin: Build a bottle for Linuxbrew
 class Spin < Formula
   desc "The efficient verification tool of multi-threaded software"
   homepage "https://spinroot.com/spin/whatispin.html"
