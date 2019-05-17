@@ -1,3 +1,4 @@
+# shyaml: Build a bottle for Linuxbrew
 class Shyaml < Formula
   include Language::Python::Virtualenv
 
