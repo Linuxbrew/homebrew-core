@@ -1,3 +1,4 @@
+# recoverjpeg: Build a bottle for Linuxbrew
 class Recoverjpeg < Formula
   desc "Tool to recover JPEG images from a file system image"
   homepage "https://www.rfc1149.net/devel/recoverjpeg.html"
