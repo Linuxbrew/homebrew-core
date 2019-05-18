@@ -1,3 +1,4 @@
+# bat: Build a bottle for Linuxbrew
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
