@@ -1,3 +1,4 @@
+# serf: Build a bottle for Linuxbrew
 class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
