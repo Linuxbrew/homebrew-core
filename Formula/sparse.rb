@@ -1,3 +1,4 @@
+# sparse: Build a bottle for Linuxbrew
 class Sparse < Formula
   desc "Static C code analysis tool"
   homepage "https://sparse.wiki.kernel.org/"
