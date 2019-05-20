@@ -16,6 +16,7 @@ class Bison < Formula
   depends_on "m4" unless OS.mac?
 
   def install
+    ENV.deparallelize unless OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
