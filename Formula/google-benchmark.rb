@@ -1,3 +1,4 @@
+# google-benchmark: Build a bottle for Linuxbrew
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
