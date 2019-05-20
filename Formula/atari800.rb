@@ -1,3 +1,4 @@
+# atari800: Build a bottle for Linuxbrew
 class Atari800 < Formula
   desc "Atari 8-bit machine emulator"
   homepage "https://atari800.github.io/"
