@@ -21,10 +21,11 @@ class DcosCli < Formula
 
     bin_path = buildpath/"src/github.com/dcos/dcos-cli"
 
+    platform = OS.mac? ? "darwin" : "linux"
     bin_path.install Dir["*"]
     cd bin_path do
-      system "make", "darwin"
-      bin.install "build/darwin/dcos"
+      system "make", platform
+      bin.install "build/#{platform}/dcos"
     end
   end
 
