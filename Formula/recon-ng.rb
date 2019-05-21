@@ -15,6 +15,10 @@ class ReconNg < Formula
 
   # Dependency "mechanize" only support Python 2
   depends_on "python@2" # does not support Python 3
+  unless OS.mac?
+    depends_on "libxml2"
+    depends_on "libxslt"
+  end
 
   ### setup_requires dependencies
   resource "dicttoxml" do
