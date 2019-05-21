@@ -1,3 +1,4 @@
+# cglm: Build a bottle for Linuxbrew
 class Cglm < Formula
   desc "Optimized OpenGL/Graphics Math (glm) for C"
   homepage "https://github.com/recp/cglm"
