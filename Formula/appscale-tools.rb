@@ -17,7 +17,10 @@ class AppscaleTools < Formula
   depends_on "openssl"
   depends_on "python@2"
   depends_on "ssh-copy-id"
-  depends_on "libffi" unless OS.mac?
+  unless OS.mac?
+    depends_on "libffi"
+    depends_on "pkg-config" => :build
+  end
 
   resource "retrying" do
     url "https://files.pythonhosted.org/packages/44/ef/beae4b4ef80902f22e3af073397f079c96969c69b2c7d52a57ea9ae61c9d/retrying-1.3.3.tar.gz"
