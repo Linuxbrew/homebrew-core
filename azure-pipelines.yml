@@ -1,19 +1,61 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-16.04'
+
+container:
+  image: linuxbrew/brew:latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: printenv
+  displayName: Azure printenv
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- bash: |
+    mkdir -p /tmp/bottles
+    cd /tmp/bottles
+    umask 022
+  displayName: Setup /tmp/bottles
+- bash: |
+    git config --global user.name LinuxbrewTestBot
+    git config --global user.email testbot@linuxbrew.sh
+    cd /home/linuxbrew/.linuxbrew/Homebrew
+    sudo git fetch origin --tags
+    sudo git reset --hard origin/master
+  displayName: Setup Homebrew
+- bash: |
+    sudo rm -rf /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+    sudo cp -a $(Build.Repository.LocalPath) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+  displayName: Copy homebre-core
+- bash: |
+    sudo /home/linuxbrew/.linuxbrew/bin/brew tap linuxbrew/extra
+    sudo /home/linuxbrew/.linuxbrew/bin/brew tap linuxbrew/xorg
+    sudo /home/linuxbrew/.linuxbrew/bin/brew tap homebrew/homebrew-test-bot
+    cd /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+    # Checking out empty branch
+    git checkout -b test
+    git status
+    git log -n 1
+    echo "1 -----------"
+    echo "$SYSTEM_PULLREQUEST_TARGETBRANCH"
+    echo "$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER"
+    echo "$BUILD_SOURCEVERSION"
+    echo "2 -----------"
+    git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
+    git checkout pr
+    echo "3 -----------"
+    current_sha1=$(git rev-parse --short HEAD)
+    diff_end_sha1=$current_sha1
+    diff_start_sha1=$(git rev-parse --short "$SYSTEM_PULLREQUEST_TARGETBRANCH")
+    git merge-base $diff_start_sha1 $diff_end_sha1
+    echo $current_sha1
+    echo $diff_start_sha1
+    echo $diff_end_sha1
+    echo "4 -----------"
+    sudo /home/linuxbrew/.linuxbrew/bin/brew test-bot --no-pull --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+  displayName: Run test-bot
+  env:
+    HOMEBREW_DEVELOPER: 1
+    HOMEBREW_NO_AUTO_UPDATE: 1
+    HOMEBREW_VERBOSE: 1
+    HOMEBREW_VERBOSE_USING_DOTS: 1
+- bash: |
+    ls /tmp/bottles
+  displayName: List bottles
