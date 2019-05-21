@@ -1,19 +1,30 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
-pool:
-  vmImage: 'Ubuntu-16.04'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+- job: Linux
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+    - bash: |
+        set -ex
+        if [[ -n "$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER" ]]; then
+          git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
+          git checkout pr
+        fi
+        set -u
+        sudo mkdir /home/linuxbrew
+        sudo chown "$USER" /home/linuxbrew
+        git config --global user.name LinuxbrewTestBot
+        git config --global user.email testbot@linuxbrew.sh
+        git clone https://github.com/Linuxbrew/brew /home/linuxbrew/.linuxbrew/Homebrew
+        mkdir /home/linuxbrew/.linuxbrew/bin
+        ln -s ../Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/
+        tap=/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+        mkdir -p $(dirname "$tap")
+        ln -s "$PWD" "$tap"
+        chmod 644 Formula/*.rb
+        /home/linuxbrew/.linuxbrew/bin/brew install patchelf
+        /home/linuxbrew/.linuxbrew/bin/brew test-bot --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh
+      displayName: Run brew test-bot
+      env:
+        HOMEBREW_GITHUB_API_TOKEN: $(github.publicApiToken)
+        HOMEBREW_NO_ANALYTICS: 1
+        HOMEBREW_NO_AUTO_UPDATE: 1
