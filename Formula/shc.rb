@@ -1,3 +1,4 @@
+# shc: Build a bottle for Linuxbrew
 class Shc < Formula
   desc "Shell Script Compiler"
   homepage "https://neurobin.github.io/shc"
