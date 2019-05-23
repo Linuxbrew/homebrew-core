@@ -1,3 +1,4 @@
+# curl-openssl: Build a bottle for Linuxbrew
 class CurlOpenssl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
