@@ -1,3 +1,4 @@
+# cocoapods: Build a bottle for Linuxbrew
 class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
