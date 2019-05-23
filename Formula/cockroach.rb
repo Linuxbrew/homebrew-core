@@ -7,8 +7,6 @@ class Cockroach < Formula
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    cellar :any_skip_relocation
     sha256 "7f098dcc0ad0e1b1dcf70e6eed9a055016c9bc3b6738539ce25d010ba77d6c5c" => :mojave
     sha256 "a922a035b86966b2bcf51097791c144a8de7bc341fe4980cbfe6927d29d407ab" => :high_sierra
     sha256 "5c7371a4b225c20669e4bdd180abf1389b4dc141e79c7cb2850022783d85fe8a" => :sierra
@@ -19,6 +17,10 @@ class Cockroach < Formula
   depends_on "go" => :build
   depends_on "make" => :build
   depends_on "xz" => :build
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "ncurses"
+  end
 
   # Compiling CockroachDB v19.1 with Go 1.12 changes the behavior of setrlimit
   # in a way that causes CockroachDB to crash upon startup if kern.maxfiles is
