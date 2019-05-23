@@ -46,5 +46,12 @@ jobs:
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
   - bash: |
-      ls /tmp/bottles
-    displayName: List bottles
+      cd /tmp/bottles
+      cp *.bottle.* $(Build.ArtifactStagingDirectory)
+    displayName: Copy json & bottle files
+  - task: PublishPipelineArtifact@0
+    inputs:
+      artifactName: bottle-linux
+      targetPath: $(Build.ArtifactStagingDirectory)
+    displayName: Publish bottle-linux
+    continueOnError: true
