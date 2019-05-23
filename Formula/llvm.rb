@@ -3,7 +3,7 @@ require "os/linux/glibc"
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://releases.llvm.org/8.0.0/llvm-8.0.0.src.tar.xz"
@@ -71,7 +71,6 @@ class Llvm < Formula
     sha256 "14029e4108b81fc79afbf125b06075876586fb943af62e1a174ded1786b32192" => :mojave
     sha256 "efce74f9e72bc5f894e40daccd3b7cbeec6e7dc56bb1669d6ac3cbe1f3cfa7fb" => :high_sierra
     sha256 "aacfcce16427fbfd164291a540c807e960335ee4977a73dfa2159a593c3cb4df" => :sierra
-    sha256 "bdffba62fa434c8bfa02197be61c1f7170161409441a13a24eb4eb7bf5cddca6" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
