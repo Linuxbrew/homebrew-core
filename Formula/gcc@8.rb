@@ -7,6 +7,7 @@ class GccAT8 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
+  revision 1
 
   # gcc is designed to be portable.
   bottle do
@@ -110,6 +111,7 @@ class GccAT8 < Formula
       "--with-isl=#{Formula["isl"].opt_prefix}",
       "--enable-checking=release",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
+      "--disable-nls",
     ]
 
     # Ensure correct install names when linking against libgcc_s;
