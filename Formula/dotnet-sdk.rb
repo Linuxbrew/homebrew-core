@@ -5,6 +5,13 @@ class DotnetSdk < Formula
   version "2.2.300"
   sha256 "d28e21bb63bdc3cd778a1ad2f376164bd87b9d734f542d77a033ac250339c45c"
 
+  depends_on "zlib"
+  depends_on "openssl"
+  depends_on "krb5"
+  depends_on "curl"
+  depends_on "icu4c"
+  depends_on "lttng"
+
   def install
     pkgshare.install "host"
     pkgshare.install "shared"
