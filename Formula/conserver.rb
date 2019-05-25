@@ -1,3 +1,4 @@
+# conserver: Build a bottle for Linuxbrew
 class Conserver < Formula
   desc "Allows multiple users to watch a serial console at the same time"
   homepage "https://www.conserver.com/"
