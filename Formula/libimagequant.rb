@@ -1,3 +1,4 @@
+# libimagequant: Build a bottle for Linuxbrew
 class Libimagequant < Formula
   desc "Palette quantization library extracted from pnquant2"
   homepage "https://pngquant.org/lib/"
