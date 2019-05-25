@@ -1,3 +1,4 @@
+# aide: Build a bottle for Linuxbrew
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "https://aide.github.io/"
