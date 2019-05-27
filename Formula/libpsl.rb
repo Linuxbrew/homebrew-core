@@ -1,3 +1,4 @@
+# libpsl: Build a bottle for Linuxbrew
 class Libpsl < Formula
   desc "C library for the Public Suffix List"
   homepage "https://rockdaboot.github.io/libpsl"
