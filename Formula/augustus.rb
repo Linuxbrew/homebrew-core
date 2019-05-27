@@ -1,3 +1,4 @@
+# augustus: Build a bottle for Linuxbrew
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "http://bioinf.uni-greifswald.de/augustus/"
