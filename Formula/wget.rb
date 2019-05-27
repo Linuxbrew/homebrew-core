@@ -1,3 +1,4 @@
+# wget: Build a bottle for Linuxbrew
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
