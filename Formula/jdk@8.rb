@@ -3,15 +3,15 @@ class JdkAT8 < Formula
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
   # tag "linuxbrew"
 
-  version "1.8.0-181"
+  version "1.8.0-212"
   if OS.mac?
     url "http://java.com/"
   else
-    url "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz",
+    url "https://download.oracle.com/otn/java/jdk/8u212-b10/59066701cf1a433da9770636fbc4c9aa/jdk-8u212-linux-x64.tar.gz",
       :cookies => {
         "oraclelicense" => "accept-securebackup-cookie",
       }
-    sha256 "1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3"
+    sha256 "3160c50aa8d8e081c8c7fe0f859ea452922eca5d2ae8f8ef22011ae87e6fedfb"
   end
 
   bottle :unneeded
