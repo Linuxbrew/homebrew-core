@@ -1,3 +1,4 @@
+# libidn2: Build a bottle for Linuxbrew
 class Libidn2 < Formula
   desc "International domain name library (IDNA2008, Punycode and TR46)"
   homepage "https://www.gnu.org/software/libidn/#libidn2"
