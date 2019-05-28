@@ -1,3 +1,4 @@
+# dhall-json: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class DhallJson < Formula
