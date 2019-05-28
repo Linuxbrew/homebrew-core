@@ -1,3 +1,4 @@
+# peru: Build a bottle for Linuxbrew
 class Peru < Formula
   include Language::Python::Virtualenv
 
