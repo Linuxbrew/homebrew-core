@@ -1,3 +1,4 @@
+# gecode: Build a bottle for Linuxbrew
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
   homepage "https://www.gecode.org/"
