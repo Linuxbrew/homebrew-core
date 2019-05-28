@@ -5,10 +5,10 @@ class Openjdk < Formula
   if OS.mac?
     url "http://java.com/"
   else
-    url "https://github.com/ojdkbuild/contrib_jdk8u-ci/releases/download/jdk8u181-b13/jdk-8u181-ojdkbuild-linux-x64.zip"
-    sha256 "fe5f5f8870e3195b0ee4c25c597b990ebbe8e667f3a345ff0afc49a8ff212dae"
+    url "https://github.com/ojdkbuild/contrib_jdk8u-ci/releases/download/jdk8u212-b04/jdk-8u212-ojdkbuild-linux-x64.zip"
+    sha256 "ef6a3050a1c3477a6e13c24d10ab36decad548649a260559d466467401db15de"
   end
-  version "1.8.0-181"
+  version "1.8.0-212"
 
   bottle :unneeded
 
