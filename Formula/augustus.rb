@@ -15,9 +15,10 @@ class Augustus < Formula
 
   depends_on "boost" => :build
   depends_on "bamtools"
-  depends_on "gcc"
-  unless OS.mac?
-    depends_on "bamtools"
+
+  if OS.mac?
+    depends_on "gcc"
+  else
     depends_on "zlib"
   end
 
@@ -42,9 +43,11 @@ class Augustus < Formula
     # Clang breaks proteinprofile on macOS. This issue has been first reported
     # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
     # See also https://github.com/Gaius-Augustus/Augustus/issues/64
-    cd "src" do
-      with_env("HOMEBREW_CC" => "gcc-9") do
-        system "make"
+    if OS.mac?
+      cd "src" do
+        with_env("HOMEBREW_CC" => "gcc-9") do
+          system "make"
+        end
       end
     end
 
