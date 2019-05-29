@@ -6,7 +6,6 @@ class VimAT74 < Formula
   revision 21
 
   bottle do
-    cellar :any
     sha256 "a6571b33123a4f21ad176c4817d22394525a459a57f90fe24fadfe5b7775fb3b" => :mojave
     sha256 "781bd2dc0e30f145f41db3427a3480b8a9423c5fc81e332e9ed300935e3f0254" => :high_sierra
     sha256 "39fbbd9c68a6e6837c45fad7d8254da6f9d7989faba9e6aefee09f348a517a2e" => :sierra
