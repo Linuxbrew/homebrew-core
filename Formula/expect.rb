@@ -3,6 +3,7 @@ class Expect < Formula
   homepage "https://expect.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
   sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
+  revision 1 unless OS.mac?
 
   bottle do
     rebuild 1
@@ -10,7 +11,6 @@ class Expect < Formula
     sha256 "a0c6ffe797dc0bbe512b628819acee67a7a9b00573b6433fe0672285d41a9df1" => :high_sierra
     sha256 "fc9ad781caaf8d45f47a87d4303645faa2e600852c73fd5432f0be2e588e95f2" => :sierra
     sha256 "4fcb163b1b1e7e209b632c43ba03106ca1c4e4d6a745260b813d28a803581e58" => :el_capitan
-    sha256 "db222736cfe7b5bc23493a77dbc7af52fbeecb647c07aff01b17ba070935616e" => :x86_64_linux
   end
 
   # Autotools are introduced here to regenerate configure script. Remove
@@ -18,6 +18,7 @@ class Expect < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "tcl-tk" unless OS.mac?
 
   def install
     args = %W[
@@ -26,10 +27,14 @@ class Expect < Formula
       --mandir=#{man}
       --enable-shared
       --enable-64bit
-      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
     ]
 
-    ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+    if OS.mac?
+      args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+      ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+    else
+      args << "--with-tcl=#{Formula["tcl-tk"].opt_lib}"
+    end
 
     # Regenerate configure script. Remove after patch applied in newer
     # releases.
