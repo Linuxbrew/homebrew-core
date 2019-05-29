@@ -13,7 +13,6 @@ class GccAT8 < Formula
   bottle do
     cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "78ba36c509cbec01d6a85185bbee03a80efa1002d2e59613b5029ba334a7f716" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
