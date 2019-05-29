@@ -11,7 +11,6 @@ class GccAT8 < Formula
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
   end
 
