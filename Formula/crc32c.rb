@@ -1,3 +1,4 @@
+# crc32c: Build a bottle for Linuxbrew
 class Crc32c < Formula
   desc "CRC32C implementation with CPU-specific acceleration"
   homepage "https://github.com/google/crc32c"
