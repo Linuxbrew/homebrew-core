@@ -102,6 +102,8 @@ class GccAT8 < Formula
     args += [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
+      "--enable-checking=release",
+      "--disable-nls",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -109,9 +111,7 @@ class GccAT8 < Formula
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--enable-checking=release",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
-      "--disable-nls",
     ]
 
     # Ensure correct install names when linking against libgcc_s;
