@@ -23,7 +23,6 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
-  depends_on "zlib" unless OS.mac?
 
   def install
     args = %W[
