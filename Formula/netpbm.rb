@@ -21,7 +21,8 @@ class Netpbm < Formula
   depends_on "libpng"
   depends_on "libtiff"
   unless OS.mac?
-    depends_on "flex"
+    depends_on "flex" => :build
+    depends_on "libxml2"
     depends_on "zlib"
   end
 
