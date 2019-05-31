@@ -7,12 +7,11 @@ class GccAT9 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz"
   sha256 "79a66834e96a6050d8fe78db2c3b32fb285b230b855d0a66288235bc04b327a0"
   head "svn://gcc.gnu.org/svn/gcc/trunk"
+  revision 1 unless OS.mac?
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "514ef09a811d2990fe7b8a9fdb615089508daa0cfee97ad64b5f3efd028bb587" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -105,13 +104,14 @@ class GccAT9 < Formula
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
+      "--disable-nls",
+      "--enable-checking=release",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--enable-checking=release",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
     ]
 
