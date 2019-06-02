@@ -1,3 +1,4 @@
+# ccls: Build a bottle for Linuxbrew
 class Ccls < Formula
   desc "C/C++/ObjC language server"
   homepage "https://github.com/MaskRay/ccls"
