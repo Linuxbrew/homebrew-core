@@ -14,10 +14,18 @@ class Libstfl < Formula
 
   depends_on "swig" => :build
   depends_on "ruby"
+  unless OS.mac?
+    depends_on "perl"
+    depends_on "python@2"
+  end
 
   def install
-    ENV.append "LDLIBS", "-liconv"
-    ENV.append "LIBS", "-lncurses -liconv -lruby"
+    if OS.mac?
+      ENV.append "LDLIBS", "-liconv"
+      ENV.append "LIBS", "-lncurses -liconv -lruby"
+    else
+      ENV.append "LIBS", "-lncurses -lruby"
+    end
 
     %w[
       stfl.pc.in
@@ -41,8 +49,12 @@ class Libstfl < Formula
       s.change_make_var! "PYTHON_SITEARCH", lib/"python2.7/site-packages"
       s.gsub! "lib-dynload/", ""
       s.gsub! "ncursesw", "ncurses"
-      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
-      s.gsub! "-lncurses", "-lncurses -liconv"
+      if OS.mac?
+        s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
+        s.gsub! "-lncurses", "-lncurses -liconv"
+      else
+        s.gsub! "gcc", "gcc #{`python-config --cflags`.chomp}"
+      end
     end
 
     # Fails race condition of test:
@@ -52,7 +64,7 @@ class Libstfl < Formula
 
     system "make"
 
-    inreplace "perl5/Makefile", "Network/Library", libexec/"lib/perl5"
+    inreplace "perl5/Makefile", "Network/Library", libexec/"lib/perl5" if OS.mac?
     system "make", "install", "prefix=#{prefix}"
   end
 
