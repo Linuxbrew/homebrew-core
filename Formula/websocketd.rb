@@ -1,3 +1,4 @@
+# websocketd: Build a bottle for Linuxbrew
 class Websocketd < Formula
   desc "WebSockets the Unix way"
   homepage "http://websocketd.com"
