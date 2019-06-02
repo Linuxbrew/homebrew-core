@@ -1,3 +1,4 @@
+# mono-libgdiplus: Build a bottle for Linuxbrew
 class MonoLibgdiplus < Formula
   desc "GDI+-compatible API on non-Windows operating systems"
   homepage "https://www.mono-project.com/docs/gui/libgdiplus/"
