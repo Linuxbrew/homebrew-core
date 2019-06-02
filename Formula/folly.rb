@@ -1,3 +1,4 @@
+# folly: Build a bottle for Linuxbrew
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
@@ -43,9 +44,14 @@ class Folly < Formula
         -DFOLLY_USE_JEMALLOC=OFF
       ]
 
-      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
-      system "make"
-      system "make", "install"
+      if OS.mac?
+        # Disabled on Linux due to
+        # https://github.com/Homebrew/linuxbrew-core/pull/13458
+        # https://github.com/facebook/folly/issues/923#issuecomment-417891912
+        system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
+        system "make"
+        system "make", "install"
+      end
 
       system "make", "clean"
       system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
