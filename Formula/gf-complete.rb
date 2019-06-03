@@ -1,3 +1,4 @@
+# gf-complete: Build a bottle for Linuxbrew
 class GfComplete < Formula
   desc "Comprehensive Library for Galois Field Arithmetic"
   homepage "http://jerasure.org/"
