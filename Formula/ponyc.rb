@@ -1,3 +1,4 @@
+# ponyc: Build a bottle for Linuxbrew
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
