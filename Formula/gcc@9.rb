@@ -10,6 +10,7 @@ class GccAT9 < Formula
 
   # gcc is designed to be portable.
   bottle do
+    cellar :any
     sha256 "4da2eeae62e8c91afff94c80660a734a312efb0390cf9a9898ff9e7a6f662a50" => :x86_64_linux
   end
 
