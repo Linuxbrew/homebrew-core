@@ -1,3 +1,4 @@
+# jerasure: Build a bottle for Linuxbrew
 class Jerasure < Formula
   desc "Library in C that supports erasure coding in storage applications"
   homepage "http://jerasure.org/"
