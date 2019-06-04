@@ -1,3 +1,4 @@
+# mk-configure: Build a bottle for Linuxbrew
 class MkConfigure < Formula
   desc "Lightweight replacement for GNU autotools"
   homepage "https://github.com/cheusov/mk-configure"
