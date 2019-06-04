@@ -1,3 +1,4 @@
+# git-town: Build a bottle for Linuxbrew
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "https://www.git-town.com/"
