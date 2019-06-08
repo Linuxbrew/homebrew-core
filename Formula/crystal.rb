@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
@@ -35,7 +30,6 @@ class Crystal < Formula
   depends_on "automake"      => :build # for building bdw-gc
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libtool"       => :build # for building bdw-gc
-  depends_on CIRequirement
 
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
