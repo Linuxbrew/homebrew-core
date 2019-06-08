@@ -1,3 +1,4 @@
+# gnu-units: Build a bottle for Linuxbrew
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
