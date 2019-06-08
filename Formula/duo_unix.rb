@@ -1,3 +1,4 @@
+# duo_unix: Build a bottle for Linuxbrew
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
