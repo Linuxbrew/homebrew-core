@@ -1,3 +1,4 @@
+# geoipupdate: Build a bottle for Linuxbrew
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
