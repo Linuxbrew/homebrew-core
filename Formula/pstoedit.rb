@@ -1,3 +1,4 @@
+# pstoedit: Build a bottle for Linuxbrew
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
   homepage "http://www.pstoedit.net/"
