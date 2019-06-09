@@ -1,3 +1,4 @@
+# mariadb-connector-c: Build a bottle for Linuxbrew
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://downloads.mariadb.org/connector-c/"
