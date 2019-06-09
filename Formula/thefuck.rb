@@ -1,3 +1,4 @@
+# thefuck: Build a bottle for Linuxbrew
 class Thefuck < Formula
   include Language::Python::Virtualenv
 
