@@ -1,3 +1,4 @@
+# wimlib: Build a bottle for Linuxbrew
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
