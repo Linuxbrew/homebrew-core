@@ -1,3 +1,4 @@
+# boost-build: Build a bottle for Linuxbrew
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
