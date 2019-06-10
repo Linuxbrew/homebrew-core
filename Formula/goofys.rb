@@ -16,7 +16,11 @@ class Goofys < Formula
   end
 
   depends_on "go" => :build
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   go_resource "github.com/jacobsa/fuse" do
     url "https://github.com/jacobsa/fuse.git",
