@@ -1,3 +1,4 @@
+# mpich: Build a bottle for Linuxbrew
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
