@@ -1,3 +1,4 @@
+# cucumber-cpp: Build a bottle for Linuxbrew
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
