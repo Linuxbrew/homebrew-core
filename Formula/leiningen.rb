@@ -12,7 +12,7 @@ class Leiningen < Formula
     sha256 "f7ebcf91cfac411472d2dfdee71f008bc2ad3d7289b342a98db0916e74b7f615" => :sierra
   end
 
-  depends_on "openjdk" => :test unless OS.mac?
+  depends_on :java => :test unless OS.mac?
 
   resource "jar" do
     url "https://github.com/technomancy/leiningen/releases/download/2.9.1/leiningen-2.9.1-standalone.zip", :using => :nounzip
