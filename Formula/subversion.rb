@@ -49,7 +49,7 @@ class Subversion < Formula
     depends_on "expat"
     depends_on "krb5"
     depends_on "libmagic"
-    depends_on "openjdk"
+    depends_on "adoptopenjdk"
     depends_on "python@2"
     depends_on "ruby"
     depends_on "util-linux" # for libuuid
@@ -127,7 +127,7 @@ class Subversion < Formula
       RUBY=#{ruby}
     ]
 
-    args << "--with-jdk=#{Formula["openjdk"].opt_prefix}"
+    args << "--with-jdk=#{Formula["adoptopenjdk"].opt_prefix}"
 
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
