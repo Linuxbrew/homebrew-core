@@ -1,3 +1,4 @@
+# libsigc++: Build a bottle for Linuxbrew
 class Libsigcxx < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
