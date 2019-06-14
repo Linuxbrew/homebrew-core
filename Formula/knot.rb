@@ -1,3 +1,4 @@
+# knot: Build a bottle for Linuxbrew
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
