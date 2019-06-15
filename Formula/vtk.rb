@@ -34,6 +34,24 @@ class Vtk < Formula
   end
 
   def install
+    unless OS.mac?
+      linux_ldpath = `/sbin/ldconfig -v 2>/dev/null | grep -v ^$'\t'`
+      if linux_ldpath.include? "/usr/lib/#{RUBY_PLATFORM}:"
+        linux_lib = "/usr/lib/#{RUBY_PLATFORM}"
+      elsif linux_ldpath.include? "/usr/lib64:"
+        linux_lib = "/usr/lib64"
+      else
+        linux_lib = "/usr/lib"
+      end
+    end
+    dylib = OS.mac? ? "dylib" : "so"
+
+    python_executable = `which python3`.strip
+    python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+    python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
+    python_version = python_include.split("/").last
+    py_site_packages = `#{python_executable} -c "import site;print(site.getsitepackages()[0])"`.chomp
+
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -62,15 +80,17 @@ class Vtk < Formula
     ]
     args << "-DVTK_USE_COCOA=" + (OS.mac? ? "ON" : "OFF")
 
-    # CMake picks up the system's python dylib, even if we have a brewed one.
+    # CMake picks up the system's python {dylib|so}, even if we have a brewed one.
     if File.exist? "#{python_prefix}/Python"
       args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
     elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
       args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
+      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
+    elsif !OS.mac? && File.exist?("#{linux_lib}/lib#{python_version}.#{dylib}")
+      args << "-DPYTHON_LIBRARY='#{linux_lib}/lib#{python_version}.#{dylib}'"
     else
-      odie "No libpythonX.Y.{dylib|a} file found!"
+      odie "No libpythonX.Y.{#{dylib}|a} file found!"
     end
 
     mkdir "build" do
