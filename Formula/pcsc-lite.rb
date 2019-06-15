@@ -5,6 +5,7 @@ class PcscLite < Formula
   sha256 "5a27262586eff39cfd5c19aadc8891dd71c0818d3d629539bd631b958be689c9"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "be4068d6d357c142d4978b1325cb1c534fcc369cba2bbbe44fb3eaceb8fdd501" => :mojave
     sha256 "0ed981ad7244d50d3084cef08991c5662658cd321d24784b2a6c2f8586f8f205" => :high_sierra
     sha256 "16167530e755c8c59a43b72433e9e1aba53b14f4f7364e85fc3159ecdc8ce75b" => :sierra
@@ -14,12 +15,20 @@ class PcscLite < Formula
   keg_only :provided_by_macos,
     "pcsc-lite interferes with detection of macOS's PCSC.framework"
 
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libusb"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--disable-libsystemd"
+    args = %W[--disable-dependency-tracking
+              --disable-silent-rules
+              --prefix=#{prefix}
+              --sysconfdir=#{etc}
+              --disable-libsystemd]
+    args << "--disable-libudev" unless OS.mac?
+
+    system "./configure", *args
     system "make", "install"
   end
 
