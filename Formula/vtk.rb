@@ -34,16 +34,6 @@ class Vtk < Formula
   end
 
   def install
-    unless OS.mac?
-      linux_ldpath = `/sbin/ldconfig -v 2>/dev/null | grep -v ^$'\t'`
-      if linux_ldpath.include? "/usr/lib/#{RUBY_PLATFORM}:"
-        linux_lib = "/usr/lib/#{RUBY_PLATFORM}"
-      elsif linux_ldpath.include? "/usr/lib64:"
-        linux_lib = "/usr/lib64"
-      else
-        linux_lib = "/usr/lib"
-      end
-    end
     dylib = OS.mac? ? "dylib" : "so"
 
     python_executable = `which python3`.strip
@@ -87,8 +77,6 @@ class Vtk < Formula
       args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
     elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
       args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
-    elsif !OS.mac? && File.exist?("#{linux_lib}/lib#{python_version}.#{dylib}")
-      args << "-DPYTHON_LIBRARY='#{linux_lib}/lib#{python_version}.#{dylib}'"
     else
       odie "No libpythonX.Y.{#{dylib}|a} file found!"
     end
@@ -98,16 +86,6 @@ class Vtk < Formula
       system "make"
       system "make", "install"
     end
-
-    # Avoid hard-coding Python's Cellar paths
-    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first,
-      Formula["python"].prefix.realpath,
-      Formula["python"].opt_prefix
-
-    # Avoid hard-coding HDF5's Cellar path
-    inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
-      Formula["hdf5"].prefix.realpath,
-      Formula["hdf5"].opt_prefix
   end
 
   test do
