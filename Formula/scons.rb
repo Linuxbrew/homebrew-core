@@ -11,13 +11,14 @@ class Scons < Formula
     sha256 "4be2ad2f5201a3a59da7047a8fc4919f6e79ae8e1de13f5c5131a8582022ba69" => :sierra
   end
 
-  depends_on "python" unless OS.mac?
+  depends_on "python@2" unless OS.mac?
 
   def install
-    inreplace "engine/SCons/Platform/posix.py",
-      "env['ENV']['PATH']    = '/usr/local/bin:/opt/bin:/bin:/usr/bin'",
-      "env['ENV']['PATH']    = '#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/opt/bin:/bin:/usr/bin'" \
-      if OS.linux?
+    unless OS.mac?
+      inreplace "engine/SCons/Platform/posix.py",
+        "env['ENV']['PATH']    = '/usr/local/bin:/opt/bin:/bin:/usr/bin'",
+        "env['ENV']['PATH']    = '#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/opt/bin:/bin:/usr/bin'"
+    end
 
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
     system (OS.mac? ? "/usr/bin/python" : "python"), "setup.py", "install",
