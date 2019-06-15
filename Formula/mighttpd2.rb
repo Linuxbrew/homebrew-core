@@ -1,3 +1,4 @@
+# mighttpd2: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Mighttpd2 < Formula
