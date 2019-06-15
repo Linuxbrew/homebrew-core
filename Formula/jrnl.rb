@@ -106,8 +106,9 @@ class Jrnl < Formula
   end
 
   test do
+    expect = OS.mac? ? "#!/usr/bin/expect -f" : "#!/usr/bin/env expect"
     (testpath/"write_journal.sh").write <<~EOS
-      #!/usr/bin/env expect
+      #{expect}
       set timeout -1
       spawn #{bin}/jrnl today: Wrote this fancy test.
       expect -exact "Path to your journal file (leave blank for ~/journal.txt):"
