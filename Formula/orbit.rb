@@ -26,6 +26,8 @@ class Orbit < Formula
   end
 
   def install
+    # Fix for https://forums.gentoo.org/viewtopic-t-1020924-start-0.html
+    ENV.deparallelize unless OS.mac?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
