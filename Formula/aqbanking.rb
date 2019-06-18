@@ -1,3 +1,4 @@
+# aqbanking: Build a bottle for Linuxbrew
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
