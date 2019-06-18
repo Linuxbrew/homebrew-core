@@ -1,3 +1,4 @@
+# mu: Build a bottle for Linuxbrew
 # Note that odd release numbers indicate unstable releases.
 # Please only submit PRs for [x.x.even] version numbers:
 # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
