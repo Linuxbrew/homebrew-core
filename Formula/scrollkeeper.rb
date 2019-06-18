@@ -13,12 +13,30 @@ class Scrollkeeper < Formula
   depends_on "docbook"
   depends_on "gettext"
   uses_from_macos "libxslt"
+  depends_on "perl" unless OS.mac?
 
   conflicts_with "rarian",
     :because => "scrollkeeper and rarian install the same binaries."
 
+  resource "XML::Parser" do
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+    sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    unless OS.mac?
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-xml-catalog=#{etc}/xml/catalog"
