@@ -1,3 +1,4 @@
+# graphviz: Build a bottle for Linuxbrew
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
