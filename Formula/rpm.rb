@@ -1,3 +1,4 @@
+# rpm: Build a bottle for Linuxbrew
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
