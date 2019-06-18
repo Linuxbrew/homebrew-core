@@ -1,3 +1,4 @@
+# amtk: Build a bottle for Linuxbrew
 class Amtk < Formula
   desc "Actions, Menus and Toolbars Kit for GNOME"
   homepage "https://wiki.gnome.org/Projects/Amtk"
