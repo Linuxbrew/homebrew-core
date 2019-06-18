@@ -1,3 +1,4 @@
+# loudmouth: Build a bottle for Linuxbrew
 class Loudmouth < Formula
   desc "Lightweight C library for the Jabber protocol"
   homepage "https://mcabber.com"
