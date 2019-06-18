@@ -1,3 +1,4 @@
+# libidl: Build a bottle for Linuxbrew
 class Libidl < Formula
   desc "Library for creating CORBA IDL files"
   homepage "https://ftp.acc.umu.se/pub/gnome/sources/libIDL/0.8/"
