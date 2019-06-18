@@ -1,3 +1,4 @@
+# libfixbuf: Build a bottle for Linuxbrew
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
