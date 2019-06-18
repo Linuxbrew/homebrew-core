@@ -24,8 +24,13 @@ class Gtkx3 < Formula
   depends_on "libepoxy"
   depends_on "pango"
   unless OS.mac?
+    depends_on "libxslt" => :build # for xsltproc
+    depends_on "cmake"
     depends_on "at-spi2-atk"
     depends_on "cairo"
+    depends_on "iso-codes"
+    depends_on "libxkbcommon"
+    depends_on "linuxbrew/xorg/wayland-protocols"
     depends_on "linuxbrew/xorg/xorgproto"
   end
 
@@ -35,12 +40,18 @@ class Gtkx3 < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      -Dx11_backend=false
-      -Dquartz_backend=true
       -Dgtk_doc=false
       -Dman=true
       -Dintrospection=true
     ]
+
+    if OS.mac?
+      args << "-Dquartz_backend=true"
+      args << "-Dx11_backend=false"
+    else
+      args << "-Dquartz_backend=false"
+      args << "-Dx11_backend=true"
+    end
 
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
