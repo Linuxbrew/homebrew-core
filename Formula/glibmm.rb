@@ -1,3 +1,4 @@
+# glibmm: Build a bottle for Linuxbrew
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
