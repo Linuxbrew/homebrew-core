@@ -1,3 +1,4 @@
+# wdiff: Build a bottle for Linuxbrew
 class Wdiff < Formula
   desc "Display word differences between text files"
   homepage "https://www.gnu.org/software/wdiff/"
