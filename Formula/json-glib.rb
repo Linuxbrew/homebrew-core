@@ -1,3 +1,4 @@
+# json-glib: Build a bottle for Linuxbrew
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
