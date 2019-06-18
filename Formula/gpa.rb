@@ -1,3 +1,4 @@
+# gpa: Build a bottle for Linuxbrew
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
