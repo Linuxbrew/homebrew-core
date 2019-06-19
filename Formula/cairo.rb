@@ -1,3 +1,4 @@
+# cairo: Build a bottle for Linuxbrew
 class Cairo < Formula
   desc "Vector graphics library with cross-device output support"
   homepage "https://cairographics.org/"
