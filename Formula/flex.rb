@@ -1,3 +1,4 @@
+# flex: Build a bottle for Linuxbrew
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "https://github.com/westes/flex"
