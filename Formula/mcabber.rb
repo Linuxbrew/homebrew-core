@@ -1,3 +1,4 @@
+# mcabber: Build a bottle for Linuxbrew
 class Mcabber < Formula
   desc "Console Jabber client"
   homepage "https://mcabber.com/"
