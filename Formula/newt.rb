@@ -20,18 +20,20 @@ class Newt < Formula
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
 
-    inreplace "Makefile.in" do |s|
-      # name libraries correctly
-      # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
-      s.gsub! "libnewt.$(SOEXT).$(SONAME)", "libnewt.$(SONAME).dylib"
-      s.gsub! "libnewt.$(SOEXT).$(VERSION)", "libnewt.$(VERSION).dylib"
+    if OS.mac?
+      inreplace "Makefile.in" do |s|
+        # name libraries correctly
+        # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
+        s.gsub! "libnewt.$(SOEXT).$(SONAME)", "libnewt.$(SONAME).dylib"
+        s.gsub! "libnewt.$(SOEXT).$(VERSION)", "libnewt.$(VERSION).dylib"
 
-      # don't link to libpython.dylib
-      # causes https://github.com/Homebrew/homebrew/issues/30252
-      # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
-      s.gsub! "`$$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
-      s.gsub! "`$$pyconfig --libs`", '""'
-    end if OS.mac?
+        # don't link to libpython.dylib
+        # causes https://github.com/Homebrew/homebrew/issues/30252
+        # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
+        s.gsub! "`$$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
+        s.gsub! "`$$pyconfig --libs`", '""'
+      end
+    end
 
     inreplace "configure", "/usr/include/python", "#{HOMEBREW_PREFIX}/include/python" unless OS.mac?
 
@@ -41,7 +43,7 @@ class Newt < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    system "python2.7", "-c", "import snack"
+    system (OS.mac? ? "python2.7" : "python3"), "-c", "import snack"
 
     (testpath/"test.c").write <<~EOS
       #import <newt.h>
