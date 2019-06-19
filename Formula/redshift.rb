@@ -1,3 +1,4 @@
+# redshift: Build a bottle for Linuxbrew
 class Redshift < Formula
   desc "Adjust color temperature of your screen according to your surroundings"
   homepage "http://jonls.dk/redshift/"
