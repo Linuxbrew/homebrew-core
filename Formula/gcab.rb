@@ -1,3 +1,4 @@
+# gcab: Build a bottle for Linuxbrew
 class Gcab < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
