@@ -1,3 +1,4 @@
+# sshfs: Build a bottle for Linuxbrew
 class Sshfs < Formula
   desc "File system client based on SSH File Transfer Protocol"
   homepage "https://osxfuse.github.io/"
