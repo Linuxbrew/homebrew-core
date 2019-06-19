@@ -1,3 +1,4 @@
+# gpsim: Build a bottle for Linuxbrew
 class Gpsim < Formula
   desc "Simulator for Microchip's PIC microcontrollers"
   homepage "https://gpsim.sourceforge.io/"
