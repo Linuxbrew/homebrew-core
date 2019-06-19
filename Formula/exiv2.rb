@@ -1,3 +1,4 @@
+# exiv2: Build a bottle for Linuxbrew
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
   homepage "https://www.exiv2.org/"
