@@ -1,3 +1,4 @@
+# dfc: Build a bottle for Linuxbrew
 class Dfc < Formula
   desc "Display graphs and colors of file system space/usage"
   homepage "https://projects.gw-computing.net/projects/dfc"
