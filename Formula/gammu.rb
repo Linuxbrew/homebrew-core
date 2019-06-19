@@ -3,9 +3,8 @@ class Gammu < Formula
   homepage "https://wammu.eu/gammu/"
   url "https://dl.cihar.com/gammu/releases/gammu-1.40.0.tar.xz"
   sha256 "a760a3520d9f3a16a4ed73cefaabdbd86125bec73c6fa056ca3f0a4be8478dd6"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/gammu/gammu.git"
-  revision 1 unless OS.mac?
 
   bottle do
     sha256 "024da26d637286903f0456997dc4d0231f8163163106d23fae95085e33cb7862" => :mojave
