@@ -1,3 +1,4 @@
+# gnu-indent: Build a bottle for Linuxbrew
 class GnuIndent < Formula
   desc "C code prettifier"
   homepage "https://www.gnu.org/software/indent/"
