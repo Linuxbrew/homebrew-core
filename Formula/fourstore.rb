@@ -1,3 +1,4 @@
+# fourstore: Build a bottle for Linuxbrew
 class Fourstore < Formula
   desc "Efficient, stable RDF database"
   homepage "https://github.com/4store/4store"
