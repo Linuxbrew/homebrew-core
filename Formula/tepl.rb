@@ -1,3 +1,4 @@
+# tepl: Build a bottle for Linuxbrew
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
