@@ -1,3 +1,4 @@
+# fluid-synth: Build a bottle for Linuxbrew
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "http://www.fluidsynth.org"
