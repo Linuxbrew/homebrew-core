@@ -1,3 +1,4 @@
+# pangomm: Build a bottle for Linuxbrew
 class Pangomm < Formula
   desc "C++ interface to Pango"
   homepage "https://www.pango.org/"
