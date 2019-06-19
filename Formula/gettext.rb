@@ -9,7 +9,6 @@ class Gettext < Formula
     sha256 "fa2096f80238b8f4d9f3724d526626ab4db5c0586f3746ee13fc66e5a625aa1a" => :mojave
     sha256 "10dd5c2b9c6613b5310f95931d7233a8b7947c541433fcc5891ce837c45595a0" => :high_sierra
     sha256 "85c7bf74ba9b0209a08f2b87d69b54d03ec21985ad0bb7b9aeeda30c195529f8" => :sierra
-    sha256 "c1a033eb5b4c9221f8a00fea8d37ed13419966a4268037b20f7c81d94fef32f2" => :x86_64_linux
   end
 
   keg_only :shadowed_by_macos,
