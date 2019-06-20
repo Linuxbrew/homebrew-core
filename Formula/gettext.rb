@@ -17,25 +17,11 @@ class Gettext < Formula
 
   unless OS.mac?
     depends_on "ncurses"
-    depends_on "zlib" # for libxml2
     # libxml2 is vendored here to break a cyclic dependency:
     # python -> tcl-tk -> xorg -> libxpm -> gettext -> libxml2 -> python
-    resource("libxml2") do
-      url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
-      mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.7.tar.gz"
-      sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
-    end
   end
 
   def install
-    resource("libxml2").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{libexec}",
-                            "--without-python",
-                            "--without-lzma"
-      system "make", "install"
-    end unless OS.mac?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-debug",
@@ -52,7 +38,7 @@ class Gettext < Formula
                           "--without-git",
                           "--without-cvs",
                           "--without-xz",
-                          ("--with-libxml2-prefix=#{libexec}" unless OS.mac?),
+                          ("--with-included-libxml" unless OS.mac?),
                           ("--with-libxml2-prefix=#{Formula["libxml2"].opt_prefix}" if OS.mac?)
     system "make"
     ENV.deparallelize # install doesn't support multiple make jobs
