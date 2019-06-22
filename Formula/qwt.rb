@@ -25,11 +25,15 @@ class Qwt < Formula
              "\\1/lib/qt/\\2"
     end
 
-    args = ["-config", "release", "-spec"]
-    if ENV.compiler == :clang
-      args << "macx-clang"
-    elsif OS.mac?
-      args << "macx-g++"
+    if OS.mac?
+      args = ["-config", "release", "-spec"]
+      if ENV.compiler == :clang
+        args << "macx-clang"
+      elsif OS.mac?
+        args << "macx-g++"
+      end
+    else
+      args = ["-config", "release"]
     end
 
     system "qmake", *args
