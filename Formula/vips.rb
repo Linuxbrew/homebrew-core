@@ -35,6 +35,7 @@ class Vips < Formula
   depends_on "poppler"
   depends_on "webp"
   uses_from_macos "curl"
+  depends_on "gobject-introspection" unless OS.mac?
 
   def install
     args = %W[
