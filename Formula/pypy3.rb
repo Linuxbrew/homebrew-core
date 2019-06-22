@@ -17,7 +17,7 @@ class Pypy3 < Formula
   depends_on "gdbm"
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
-  depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "libffi" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "sqlite"
   depends_on "xz"
@@ -64,10 +64,10 @@ class Pypy3 < Formula
   end
 
   def install
-    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" if OS.mac?
 
     # Work around "dyld: Symbol not found: _utimensat"
-    if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
+    if OS.mac? && MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
       ENV.delete("SDKROOT")
     end
 
@@ -89,10 +89,12 @@ class Pypy3 < Formula
 
     python = Formula["pypy"].opt_bin/"pypy"
 
-    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
-      s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
-    end unless OS.mac?
+    unless OS.mac?
+      inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+        s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
+        s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
+      end
+    end
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
@@ -109,11 +111,13 @@ class Pypy3 < Formula
     dylib = OS.mac? ? "dylib" : "so"
     (libexec/"lib").install libexec/"bin/libpypy3-c.#{dylib}" => "libpypy3-c.#{dylib}"
 
-    MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
-                                     "@rpath/libpypy3-c.dylib",
-                                     "#{libexec}/lib/libpypy3-c.dylib") if OS.mac?
-    MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3-c.dylib",
-                                 "#{opt_libexec}/lib/libpypy3-c.dylib") if OS.mac?
+    if OS.mac?
+      MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
+                                       "@rpath/libpypy3-c.dylib",
+                                       "#{libexec}/lib/libpypy3-c.dylib")
+      MachO::Tools.change_dylib_id("#{libexec}/lib/libpypy3-c.dylib",
+                                   "#{opt_libexec}/lib/libpypy3-c.dylib")
+    end
 
     (libexec/"lib-python").install "lib-python/3"
     libexec.install %w[include lib_pypy]
@@ -125,6 +129,13 @@ class Pypy3 < Formula
     bin.install_symlink libexec/"bin/pypy3"
     bin.install_symlink libexec/"bin/pypy" => "pypy3.6"
     lib.install_symlink libexec/"lib/libpypy3-c.#{dylib}"
+
+    # Delete two files shipped which we do not want to deliver
+    # These files make patchelf fail
+    unless OS.mac?
+      rm_f libexec/"bin/libpypy3-c.so.debug"
+      rm_f libexec/"bin/pypy3.debug"
+    end
   end
 
   def post_install
