@@ -1,3 +1,4 @@
+# qbs: Build a bottle for Linuxbrew
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
