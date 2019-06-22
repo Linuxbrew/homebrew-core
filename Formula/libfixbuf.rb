@@ -3,13 +3,13 @@ class Libfixbuf < Formula
   homepage "https://tools.netsa.cert.org/fixbuf/"
   url "https://tools.netsa.cert.org/releases/libfixbuf-2.3.1.tar.gz"
   sha256 "2ba7877c5b09c120a20eb320d5d9e2ac93520c8308624eac3064aaece239bad3"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "e880e6bba9e44a26a962fc5dcec07b1b1083c23d46036f39bc330e4b75616c12" => :mojave
-    sha256 "ae3d11e94915eb3d2bb48061d0d3cc8ec7749cb833137a9648190c486850a5d7" => :high_sierra
-    sha256 "fab9df238cb38319886f2ecd02d724fd481c1634d9d35ef5d616337ad1c1ab87" => :sierra
-    sha256 "1dd24fc15de09d1305566184f515a91f12992f832df927abee182b482fb74b21" => :x86_64_linux
+    sha256 "72d1509d9b0bea98eb09e2fd2aaaff75a2a8bddbef035ee5c244578ccf247832" => :mojave
+    sha256 "a7bd2c731284fd783a6b1cc74efc0d7b3e3668b6b02afc33ce307aba8a2b3845" => :high_sierra
+    sha256 "cd6ba9552c12bfb738591876977a2470c6132c3fa649d542f9a9a064ffa64488" => :sierra
+    sha256 "5dcd7666ca491b99cc0f83b7547facde01df3dd873ad2e92713ea3b66c866e1a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

@@ -3,13 +3,13 @@ class GstPluginsBase < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.0.tar.xz"
   sha256 "4093aa7b51e28fb24dfd603893fead8d1b7782f088b05ed0f22a21ef176fb5ae"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "68c2133ee6fbc1cf02b6cbe2cf2196c0fe0945809101a03d92b4402745ab4306" => :mojave
-    sha256 "4e61e9185d605eea6fb7457467a9843d6585b47845ef1ee8e0b1a7b22bdaec20" => :high_sierra
-    sha256 "e6ce6564ba2d19701e8fde02be409a67cd91bef2cc3c85f4ca39d379aa36c73a" => :sierra
-    sha256 "a65c7903ebf0e30815efaf6722e157d3a2cbd5ef8c9a6bb0818a462a54b4e38e" => :x86_64_linux
+    sha256 "c5e6da8ef2c6e81c77b7fe59d35b78819dc079d8e14ded2dfe698b4c7ad2163b" => :mojave
+    sha256 "4ca45057ad13cf6190adce18eb437fba929f2f83a2550fad485b360fba80a637" => :high_sierra
+    sha256 "ba185f1a63a7e787589cfb8a0eaef7ffb2c638e1fe5f0ef0800a52c75b75b48e" => :sierra
+    sha256 "4ab7a49223e03a8a1a879ea960aae528f82cdc4e3c659fe013957381db5a99ce" => :x86_64_linux
   end
 
   head do

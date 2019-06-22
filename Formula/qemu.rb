@@ -3,12 +3,13 @@ class Qemu < Formula
   homepage "https://www.qemu.org/"
   url "https://download.qemu.org/qemu-4.0.0.tar.xz"
   sha256 "13a93dfe75b86734326f8d5b475fde82ec692d5b5a338b4262aeeb6b0fa4e469"
+  revision 2
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "603f2c464e6a162b34ac6056a7113f50bac93e22f0b87b08ecfb2040bd4994c0" => :mojave
-    sha256 "5f9bae5dceddc186eea64b23dc796ba3d9be9c75898884cd2c18c5cc3a4fb528" => :high_sierra
-    sha256 "2e5d4dc4971de5d91456cccf4fca67e58c9d8d94383044cc208a05bd79f239de" => :sierra
+    sha256 "ab07349107ddd9527951a9b4c9967c610ecabd4ed6b390800f374f9347f7107b" => :mojave
+    sha256 "a736a5809671357aa476fa7ca24e1d01684814bbbd011c5f047bc160cb0f9fc7" => :high_sierra
+    sha256 "785af5ce296aa8ace9bc773e95ed450b43b114281526ec44694837d46eadc2eb" => :sierra
   end
 
   depends_on "libtool" => :build
@@ -19,6 +20,7 @@ class Qemu < Formula
   depends_on "libpng"
   depends_on "libssh2"
   depends_on "libusb"
+  depends_on "lzo"
   depends_on "ncurses"
   depends_on "pixman"
   depends_on "vde"

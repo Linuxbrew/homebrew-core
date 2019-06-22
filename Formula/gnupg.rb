@@ -3,12 +3,13 @@ class Gnupg < Formula
   homepage "https://gnupg.org/"
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.16.tar.bz2"
   sha256 "6cbe8d454bf5dc204621eed3016d721b66298fa95363395bb8eeceb1d2fd14cb"
+  revision 1
 
   bottle do
-    sha256 "674772ba04716d9c3faa818cc30fb8b55810d6ce14f7663ec59c153215141141" => :mojave
-    sha256 "40d01ea1bf078644bbc69b31521ad2dcf563ec85d21f27e2e11d8a88478dc593" => :high_sierra
-    sha256 "331a1343e5069b204f0c10ae66afb1b5d294b5de9b0a0da79ad66c265e90b565" => :sierra
-    sha256 "2ef0158157145db9c9f62cd122efdf2526eb73a96054d4672d8988ac26998a1a" => :x86_64_linux
+    sha256 "2b0472114407f0b8d9e87addc5365593a003e87730538b7830a867d55d7656d9" => :mojave
+    sha256 "fb1bdbc7295dbd7595cd0c15edbd8813428f319c79fa40dcd674c67a02972731" => :high_sierra
+    sha256 "06c9fd498dddb5b88366e1d7cbd0624964d662705d520ddd7490db7ce8ac02f6" => :sierra
+    sha256 "4650b6436bcd82ab3358fdf163f09e420075ec4a022a91ec4549fd0fbb45c0ad" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

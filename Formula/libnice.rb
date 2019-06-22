@@ -3,14 +3,14 @@ class Libnice < Formula
   homepage "https://wiki.freedesktop.org/nice/"
   url "https://nice.freedesktop.org/releases/libnice-0.1.16.tar.gz"
   sha256 "06b678066f94dde595a4291588ed27acd085ee73775b8c4e8399e28c01eeefdf"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "a6f40364eb17b24ca46d91403c6dddd7c9035a82fef8dcb4dd4d2699751a6507" => :mojave
-    sha256 "aa5e65f90714052f77886dd5bcdf6996fc1fd469a8457225a9a236268bd1651e" => :high_sierra
-    sha256 "05cd1daa6254aeefef36744fb141bbb41253046d1ccdba7ee81fcff48a4e029c" => :sierra
-    sha256 "5a5f47c3a8d6a7a3dcea9e4baf485c3e5fa02a347bd887e69d0f28621c8ab900" => :x86_64_linux
+    sha256 "a5ef1e08fe29a17e47670e854e946b15c7c4c62bab5638df797fd315863b5bdb" => :mojave
+    sha256 "2c27b6b47ed04298c57ef98e1e639cd29ba98e634a7be954fc7d4ed06c96f82b" => :high_sierra
+    sha256 "d0c005749a7f6c923e1e704a92229c40cae62d3f20ddc60c999557a3c5e09a5a" => :sierra
+    sha256 "e6e03ecd9703d73d79d31ba855457d148cc403023a1110a5bb1e6f0bbaa9b01a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

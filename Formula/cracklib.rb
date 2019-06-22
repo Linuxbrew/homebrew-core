@@ -3,11 +3,14 @@ class Cracklib < Formula
   homepage "https://github.com/cracklib/cracklib"
   url "https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2"
   sha256 "fe82098509e4d60377b998662facf058dc405864a8947956718857dbb4bc35e6"
+  revision 1
 
   bottle do
-    sha256 "5ec5d327b820cae5b28440d88557669c83b6035adde41858c753a822df203bff" => :mojave
-    sha256 "9e73ad02d623bc310e908ee1e4d29e44bfc6c0a0d83dbaf96486986361942262" => :high_sierra
-    sha256 "2345643d79e6c5abdf7dffe54f2a04862cd396f948454b69270a511816274ea7" => :sierra
+    cellar :any_skip_relocation
+    sha256 "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be" => :mojave
+    sha256 "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78" => :high_sierra
+    sha256 "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef" => :sierra
+    sha256 "da217b61f4dab75cc43b8ea8e4fd5238176ce19c555f247652522e8dad2bd582" => :x86_64_linux
   end
 
   depends_on "gettext"

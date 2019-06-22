@@ -3,13 +3,14 @@ class Rpm < Formula
   homepage "https://rpm.org/"
   url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.2.1.tar.bz2"
   sha256 "1139c24b7372f89c0a697096bf9809be70ba55e006c23ff47305c1849d98acda"
+  revision 1
   version_scheme 1
 
   bottle do
-    sha256 "b1e3f6fbb8babb6105789236727be4e0e08c25a77f87f458a032235d72986675" => :mojave
-    sha256 "c8b3cf5d5c0de09cf18617c8c096f07354a7a6ac5db6c17a887e09272d5ec08f" => :high_sierra
-    sha256 "8d023b2d929fafbf627ebc906fb68e88a494b67887063cacb7fa30cddf6bbc5d" => :sierra
-    sha256 "aec432a817d76e37072c41123ac8bc4ac40b8c6e8169c90d4d7a928dd1e39739" => :x86_64_linux
+    rebuild 1
+    sha256 "146272222c7a701f62bce7965157ebc6bf73d13d0a2f6afafbdeca177f57001e" => :mojave
+    sha256 "c0b83fa4507ba62ad669439b450e99fcf71a57c1d26632fba0b89e18c1e5167a" => :high_sierra
+    sha256 "49a5e6d1d9e54674ed2946d13ae939c21492903ad36aa55d89ff791d111f792f" => :sierra
   end
 
   depends_on "berkeley-db"

@@ -15,6 +15,7 @@ class Qt < Formula
     sha256 "b669ba7803986326f32e9fe5d2b7229e6ecd806517e8bf750ea4ec59fa8da45f" => :mojave
     sha256 "4c95d0f48f2a933f6d339c7ccd13e9e3a7aaaef69fe84bec5ede7ae8d86dd053" => :high_sierra
     sha256 "fbffb16a29c8f755f0efeceb015554e685f616cdecbf70177f6992fffc698496" => :sierra
+    sha256 "09984504bb3dc636d72c7c1aba07f1893c9385e51da03fff14abd8dc384f7591" => :x86_64_linux
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -29,31 +30,25 @@ class Qt < Formula
     depends_on "icu4c"
     depends_on "libproxy"
     depends_on "pulseaudio"
+    depends_on "python@2"
     depends_on "sqlite"
     depends_on "systemd"
     depends_on "libxkbcommon"
     depends_on "linuxbrew/xorg/mesa"
+    depends_on "linuxbrew/xorg/xcb-util-image"
+    depends_on "linuxbrew/xorg/xcb-util-keysyms"
+    depends_on "linuxbrew/xorg/xcb-util-renderutil"
+    depends_on "linuxbrew/xorg/xcb-util"
+    depends_on "linuxbrew/xorg/xcb-util-wm"
     depends_on "linuxbrew/xorg/xorg"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j20 -l2.5" if ENV["CIRCLECI"]
-
-    unless OS.mac?
-      # https://github.com/Linuxbrew/homebrew-core/pull/10418
-      # add missing -lxcb-shm flag
-      inreplace "qtbase/src/gui/configure.json", '[ "xcb/xcb.h", "X11/Xlib.h", "X11/Xlib-xcb.h" ],', '[ "xcb/xcb.h", "X11/Xlib.h", "X11/Xlib-xcb.h", "xcb/shm.h" ],'
-      inreplace "qtbase/src/gui/configure.json", "x11-xcb x11 xcb", "x11-xcb x11 xcb xcb-shm"
-      inreplace "qtbase/src/gui/configure.json", "-lxcb -lX11 -lX11-xcb", "-lxcb -lX11 -lX11-xcb -lxcb-shm"
-    end
-
     args = %W[
       -verbose
       -prefix #{prefix}
       -release
       -opensource -confirm-license
-      -system-zlib
       -qt-libpng
       -qt-libjpeg
       -qt-freetype
@@ -67,11 +62,14 @@ class Qt < Formula
 
     if OS.mac?
       args << "-no-rpath"
+      args << "-system-zlib"
     elsif OS.linux?
-      args << "-qt-xcb"
+      args << "-system-xcb"
       args << "-R#{lib}"
       # https://bugreports.qt.io/projects/QTBUG/issues/QTBUG-71564
       args << "-no-avx2"
+      args << "-no-avx512"
+      args << "-qt-zlib"
     end
 
     system "./configure", *args

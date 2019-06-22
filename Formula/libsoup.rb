@@ -3,13 +3,13 @@ class Libsoup < Formula
   homepage "https://wiki.gnome.org/Projects/libsoup"
   url "https://download.gnome.org/sources/libsoup/2.66/libsoup-2.66.2.tar.xz"
   sha256 "bd2ea602eba642509672812f3c99b77cbec2f3de02ba1cc8cb7206bf7de0ae2a"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "da0b69bea4526d2e3876f7374e1815f233f4123fc205e3f50ea5e0bef5c28c9c" => :mojave
-    sha256 "6c078aa87d90d299ca6b5deab883efb38b740d89c12ddd93c24dc8f797efc82a" => :high_sierra
-    sha256 "21ae9f8c7a67cbb6f63507d59bdb178bf7a5804353fb716ef366386a18c8e7c9" => :sierra
-    sha256 "97ae99aeb72b2d2a0d0f9f20138308186e2ce02f66bd9774fad58ba3f37b3cb4" => :x86_64_linux
+    sha256 "8336aa92e8a2638745181f159f848b264bec952ecb5571eb36a3dbe62da3a016" => :mojave
+    sha256 "f157867c692050ca95d78b048c01a1f1ada8a8c53c3a65e83397de2a3ae92af8" => :high_sierra
+    sha256 "e8dbd05c6f0eeb707192192c6e1c370678ee63db12963dc1329e61e62b302398" => :sierra
+    sha256 "be44ad148ec154bb4ed4bd4aac08e166a931dc98d823647a60e62711d423b8dd" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build

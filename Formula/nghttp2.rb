@@ -1,15 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.38.0/nghttp2-1.38.0.tar.xz"
-  sha256 "ef75c761858241c6b4372fa6397aa0481a984b84b7b07c4ec7dc2d7b9eee87f8"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.39.1/nghttp2-1.39.1.tar.xz"
+  sha256 "679160766401f474731fd60c3aca095f88451e3cc4709b72306e4c34cf981448"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "aebb18502b1abd48b42022d09c37eff0486bdecd250e15e2cc98ca265f06e03a" => :mojave
-    sha256 "20703302a2bd99bc0580c5b76fcaec062e65a6f40d356ff9f1e2d2134d92f117" => :high_sierra
-    sha256 "b373c7c7f0df4e544a19fb623169bc3387515eb5aa53ca4a059624c20a5dec54" => :sierra
-    sha256 "800329edd996f0d4b953c61926156c2220480825fca673f5acb24afa194612f4" => :x86_64_linux
+    sha256 "927d1c581966fc68c3c69c4a165b3f406d83fa1048dd870d6eeb55d16b92d7d9" => :mojave
+    sha256 "7e2b180ce21aa6e93255bb70175f112a06d4e1d89216eb3ef9df8a542c6b9ed7" => :high_sierra
+    sha256 "91de55238ea6571f6059507684827549da393e026b6f0e528a25ca3954a7fb39" => :sierra
   end
 
   head do

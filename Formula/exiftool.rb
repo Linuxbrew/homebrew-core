@@ -8,11 +8,11 @@ class Exiftool < Formula
   sha256 "6337cc973a197ab3a40da8dcd5116be24950d33e3b075e6757157d923c221b35"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "1f94aa499cdd29681af5edd77803eaa42b1aab615f77f72aa6d9667b88a2b79c" => :mojave
     sha256 "5b370ff814da1bbbe715cc35f669dfee31cb9faa6b896846d9b7ba67878dcc59" => :high_sierra
     sha256 "5f46c6d11f0521d3da9c8a16f73529848470fdb3bd93033fa619735a3b9ba476" => :sierra
+    sha256 "3844df8465c689545357656337a8674c49fc91d2d980e80e7e69e91af531620f" => :x86_64_linux
   end
 
   def install

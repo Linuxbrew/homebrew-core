@@ -1,26 +1,25 @@
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.0.1/scons-3.0.1.tar.gz"
-  sha256 "24475e38d39c19683bc88054524df018fe6949d70fbd4c69e298d39a0269f173"
-  revision 1 unless OS.mac?
+  url "https://downloads.sourceforge.net/project/scons/scons/3.0.5/scons-3.0.5.tar.gz"
+  sha256 "df676f23dc6d4bfa384fc389d95dcd21ab907e6349d4c848958ba4befb73c73e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "169ca2e43315449b82c660d78c9586a0662c59ea069b09bdf7f941f6a4afff9f" => :mojave
-    sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :high_sierra
-    sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :sierra
-    sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :el_capitan
-    sha256 "311b21b2300ccead3058b52bb15c2d800767eb22709eed0cca349e215d2bc9e7" => :x86_64_linux
+    sha256 "0f837fb5da5203f5f953be220ab1c3075ff3be6d594d34fcb25f6ebe3d1477f4" => :mojave
+    sha256 "0f837fb5da5203f5f953be220ab1c3075ff3be6d594d34fcb25f6ebe3d1477f4" => :high_sierra
+    sha256 "4be2ad2f5201a3a59da7047a8fc4919f6e79ae8e1de13f5c5131a8582022ba69" => :sierra
+    sha256 "3816ec9020f451ebd64c81b186cafaaef60258a8363837f9e01b8018a46c531a" => :x86_64_linux
   end
 
-  depends_on "python" unless OS.mac?
+  depends_on "python@2" unless OS.mac?
 
   def install
-    inreplace "engine/SCons/Platform/posix.py",
-      "env['ENV']['PATH']    = '/usr/local/bin:/opt/bin:/bin:/usr/bin'",
-      "env['ENV']['PATH']    = '#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/opt/bin:/bin:/usr/bin'" \
-      if OS.linux?
+    unless OS.mac?
+      inreplace "engine/SCons/Platform/posix.py",
+        "env['ENV']['PATH']    = '/usr/local/bin:/opt/bin:/bin:/usr/bin'",
+        "env['ENV']['PATH']    = '#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/opt/bin:/bin:/usr/bin'"
+    end
 
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
     system (OS.mac? ? "/usr/bin/python" : "python"), "setup.py", "install",

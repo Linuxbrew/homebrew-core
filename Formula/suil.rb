@@ -3,13 +3,12 @@ class Suil < Formula
   homepage "https://drobilla.net/software/suil/"
   url "https://download.drobilla.net/suil-0.10.0.tar.bz2"
   sha256 "9895c531f80c7e89a2b4b47de589d73b70bf48db0b0cfe56e5d54237ea4b8848"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "5923dafda40c49d3ee3a402e497d642433111bfc041a286798bc952b46940079" => :mojave
-    sha256 "c8271567bd28cab7dfaacb5dc60c4031b3ec32b36e54604cb8ef2db16074d624" => :high_sierra
-    sha256 "75da682959d5f8a3ea4abbf6fd7da223c3c48a6e196629ecc1fe76e619c500ae" => :sierra
+    sha256 "944c05e6ea4310151bc71ba51a5dc6348935bdf8f32c0207a7f0ff72228dc8ac" => :mojave
+    sha256 "e6a553d61128f83423ee8fa0148591374896361458a770070124296bc3a233d0" => :high_sierra
+    sha256 "598d8ef20cb58feaae68ab3aff70d0fa36492245961f0997cb408aa52937428a" => :sierra
   end
 
   depends_on "pkg-config" => :build

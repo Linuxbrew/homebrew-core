@@ -3,12 +3,12 @@ class PhpAT72 < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.2.19.tar.xz"
   sha256 "4ffa2404a88d60e993a9fe69f829ebec3eb1e006de41b6048ce5e91bbeaa9282"
+  revision 1
 
   bottle do
-    sha256 "4aeb81392252f3880cdb0b0c11c2f9cbec638407c8de0ea5d5934fa098dc642c" => :mojave
-    sha256 "a40bb3e7e6a1a41082da3bebcc9527b723b94e25477d173af22fe171b01834b0" => :high_sierra
-    sha256 "6f66591807a147f1a1c90afbf0cc98beba93c6b0f083c55e1bac40e5466b3ab6" => :sierra
-    sha256 "4ef701248c1df09b79fd5c244019b1ce185eacdc688c8bd5d87cfb4c0c45e819" => :x86_64_linux
+    sha256 "c65bf4a0c42a1c163bf01082b2e9a45df332530978725c6368239119d0994f8b" => :mojave
+    sha256 "989998a6587e97616ac64879857fee8c11e75f0f6ba0c98d43caf25a3e320aa5" => :high_sierra
+    sha256 "445af56087168bf2e940d1e04f8275eb06257ffd4a743fe1347c2cf0adc353b7" => :sierra
   end
 
   keg_only :versioned_formula

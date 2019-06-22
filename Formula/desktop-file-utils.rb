@@ -3,15 +3,13 @@ class DesktopFileUtils < Formula
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
   url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz"
   sha256 "6c094031bdec46c9f621708f919084e1cb5294e2c5b1e4c883b3e70cb8903385"
+  revision 1
 
   bottle do
-    sha256 "c0538ee53f8e6f466cd601436f2a62209e871e41cbd2e2ef16ed38b2746b76ae" => :mojave
-    sha256 "0a3b290ebd40ce3b911268125379b6a0cd839db7fdaf9d88751eb442e2b00e1f" => :high_sierra
-    sha256 "a30b539cc22f037ccacfd1ff1993fbc6292e0fa399f2d796195a0870832bb12b" => :sierra
-    sha256 "8c18c3fe21f8d2b1bdb4befdadd2b6dabbbe89dcb9ebb7fbaf4a8a3c7a2153a1" => :el_capitan
-    sha256 "a6a09a60579ac8875cb92fbcf6177a860da6954c0aa61f323c66441211af0d1b" => :yosemite
-    sha256 "ccca14604b32329e36acf15be710bdc1458410c4bd382b8708d4afba1b68177a" => :mavericks
-    sha256 "79473d47fd25a99999b6ea12672769e8f1855ef6d86c9d176717b07f6399b49e" => :x86_64_linux # glibc 2.19
+    sha256 "c38944b2998cb74506a7cb10e621305db5b37d74d90aa7db51db146ccf378ca3" => :mojave
+    sha256 "f3666dfcad0fda5049ef9b9a7ac85429b0fe5f4c81b12526694c18980b9a3708" => :high_sierra
+    sha256 "67af40d090e09bfe3ce0f83d3f0cb910bd3762851131cc55ef9e434e85a11b11" => :sierra
+    sha256 "cd64c5e3c084d069ddffac58ae32198548164ac8f58bc5bd2d05ece6b175ffaa" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

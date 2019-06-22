@@ -5,12 +5,12 @@ class Nss < Formula
   sha256 "a5620e59b6eeedfd5a12c9298b50ad92e9898b223e214eb675e36f4ffb5b6aff"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "c3e7d1441531e733eee9010f033917ad51f395dc93b59cba7b88956567d9147c" => :mojave
     sha256 "357575ee06b79a9a090e857ebdcb620fd76ee7b048bf4a812d8e1139312f2245" => :high_sierra
     sha256 "4b687429ee708062bdfe5ca240c1be468417ce8f572322311252c7d36e1ad3d5" => :sierra
+    sha256 "62a1049f7b6aee98a2209fd24531cfd05819d50fd81337bd9d8cb5d4f1970cb7" => :x86_64_linux
   end
 
   keg_only <<~EOS

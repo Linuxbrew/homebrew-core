@@ -3,15 +3,14 @@ class Dfc < Formula
   homepage "https://projects.gw-computing.net/projects/dfc"
   url "https://projects.gw-computing.net/attachments/download/615/dfc-3.1.1.tar.gz"
   sha256 "962466e77407dd5be715a41ffc50a54fce758a78831546f03a6bb282e8692e54"
+  revision 1
   head "https://github.com/Rolinh/dfc.git"
 
   bottle do
-    sha256 "1d5e990bb866fcb44bbbe3ac9e959402fc1f5c7fd3ad0df5b5ac1da0b3453a35" => :mojave
-    sha256 "11d5691f5ca6020dfb6cdb084529c1d9caa4be674da27fa2d395adaccd799f56" => :high_sierra
-    sha256 "029104b15817e039032593cb9828b76f42f4362b63eeb7d582c7d0d90fc917b8" => :sierra
-    sha256 "bd407f57305b87838f0083c5a3d65493a76097fda65f4ffeebacfbcf33baeddf" => :el_capitan
-    sha256 "ba254d9a1213beb84728657e996c667eb9a87f61ea118d12cf022b389a2e35b0" => :yosemite
-    sha256 "b02cf9049d7df7c8cb4b979a1cdc4005ab5c002e46d8a1db428e58632cf7368d" => :x86_64_linux
+    sha256 "1a313424cdf9c4eecd2f9c343f8218da48bec1cf1da3585038e0b0d7742d5247" => :mojave
+    sha256 "6729cbd05c951477c251e240afc01f6a1cc4ab04441f653194388a6dcf048d13" => :high_sierra
+    sha256 "158a1dc96381a8c13a38aa6682120c5f6985ee2a71bf511eba5b99c32d6ab9e4" => :sierra
+    sha256 "5ce0086df3e06d06cb47e5482012a456238b7c7b530c255a2d75cb21ace98f5f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

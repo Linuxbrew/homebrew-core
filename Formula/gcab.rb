@@ -3,12 +3,13 @@ class Gcab < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz"
   sha256 "5a2d96fe7e69e42d363c31cf2370d7afa3bb69cec984d4128322ea40e62c100d"
+  revision 1
 
   bottle do
-    sha256 "1056d3e884ded021bbd441fa1005f798c5f670ce5c3c184f0c46faacff7d9c0a" => :mojave
-    sha256 "bc6f4702e8ceb84447aa2d933322a49ed61f4edbbe62e321d95d6b43202cab65" => :high_sierra
-    sha256 "c76cd39013a409c40844f2bbc39a53bd98f459888afd458a101dd9f0af96c32d" => :sierra
-    sha256 "b76b2358350be4a1fbd5599f575ed153bf06daa84e0afeaf582ed347fed64b6f" => :x86_64_linux
+    sha256 "b72ded95967c164253ee795435637e99dbe62202c82ad8a5730a5753a0f1a0af" => :mojave
+    sha256 "49f8e335616b55f0c3ee19078b7a2fc58e0066fba206adc94be76107f6f843ed" => :high_sierra
+    sha256 "257cac0a43760726ec36ea892695236a787b50f29bd41f6db67225200a9478c7" => :sierra
+    sha256 "e989c5e4c03b7a9c92f9aae39a886291e5b92495ed6fa6ae276f2a7c392f611a" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build

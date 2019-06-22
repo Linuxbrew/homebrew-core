@@ -3,14 +3,14 @@ class Megatools < Formula
   homepage "https://megatools.megous.com/"
   url "https://megatools.megous.com/builds/megatools-1.10.2.tar.gz"
   sha256 "179e84c68e24696c171238a72bcfe5e28198e4c4e9f9043704f36e5c0b17c38a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "68c1b72427e231c8bb1d05c79e78b0159eef3a9efec2ab6e11428813ecd39206" => :mojave
-    sha256 "f18ae236c38b575b3524c3dd1762b6291257231fdbadd09c8c84ef166cc3c34c" => :high_sierra
-    sha256 "096b9459462956a3257a8869154f9ce3003decaf3ed4f20ef65ba4d6094abc11" => :sierra
-    sha256 "956a0731c11c8ae3f999386cc95d57a787a19ad7ead8007b09efc7a96412c034" => :el_capitan
-    sha256 "cba661655bf399fa28e0fd1584acbe6142f451d4a342f30f55abc0a94ac44658" => :x86_64_linux
+    sha256 "d70a82b2a19ce986fd41511a0f589e91fc5e0bd0cc6205abf674cdfacb836266" => :mojave
+    sha256 "f98f3d41a95a1ab3bdeaaf57e18170ceb8cee53b1cc9050bb026a92ed6dfbcd1" => :high_sierra
+    sha256 "84fe224094799395a0a09c2c26d68dc76c4c06aa4dfd60c3acacb615470fa14f" => :sierra
+    sha256 "03745677d5a84dcc3d7df93d94a72d249610049145038fdc5deb3bd481ab3d14" => :x86_64_linux
   end
 
   depends_on "asciidoc" => :build

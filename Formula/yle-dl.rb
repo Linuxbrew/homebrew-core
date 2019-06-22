@@ -1,16 +1,16 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/20190502.tar.gz"
-  sha256 "ece1d3078a4b9ae8ffdf9a645cdba1c999be6ecaf1ecd87d06b276042848ee1a"
+  url "https://github.com/aajanki/yle-dl/archive/20190614.tar.gz"
+  sha256 "fe6a4286a4c10b7f40916315b77ebaf1b61c167385a6c9755aa45478827ba056"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "86fa4581508adbe2ba179c9dd62cb1852a87ea0540f537528702e1defa308499" => :mojave
-    sha256 "f322f2b7c72711efbad514b3664689dfdf9e0ad1c6cdd79abcd5bab2f06ec151" => :high_sierra
-    sha256 "ae25fd9f0377616af13d28be11cc0193a8507900c1c2a938b2f3c7005cb26bd3" => :sierra
-    sha256 "d824904d17ec7229071d40e610c01c1bad5da0de543c28ce6d8995b6a25eaab7" => :x86_64_linux
+    sha256 "e5c65346d832fc433ea77603e993c35d68feab65b280ff9c432cf1aa9b0e108b" => :mojave
+    sha256 "d0a4bfc074f9c74e4009bc6d59e65c5aa2c166a8bfeb427f95b788bcf04f9e87" => :high_sierra
+    sha256 "b0e2e4c61a35c7228ae03c08abeb02dc63ece1d56d9be533925ce7b7486debd5" => :sierra
+    sha256 "c629f31bb8d7f8fffc0bf5b145d2e09413b4ec1964d347f4eadcc8d1b11e1a61" => :x86_64_linux
   end
 
   depends_on "python"

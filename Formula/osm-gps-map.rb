@@ -3,13 +3,12 @@ class OsmGpsMap < Formula
   homepage "https://nzjrs.github.com/osm-gps-map/"
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "3fc5e8704885ee52388758422a586fe36f67f0bb88f260107d8d51ddaee69131" => :mojave
-    sha256 "9b4ff596f15ef4dd79f8a52869ce0f0dc4e104c827f79dd223c3ff3c60631c5c" => :high_sierra
-    sha256 "5303392a0018ff176e67b844d1808834500c1b0ac8dd5362ad5f2a70939d1bc2" => :sierra
-    sha256 "05bc6efb9676e68162e553bfe41f7467e5f7d8da85cb9cfda5256bf5a79ff884" => :el_capitan
+    sha256 "d3c08a9f0ea0bc4bfca2b44154af6197a981af685aff94d0f1c104732c4fa1a2" => :mojave
+    sha256 "7ff942b7e7c828122f55da09a654981a705ec46500e4d5f178d2400b18645a99" => :high_sierra
+    sha256 "a162b95d7811b797b07ccb5d8afbad6bb833b93faf034fc200378ad775c14a5f" => :sierra
   end
 
   head do

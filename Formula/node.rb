@@ -7,10 +7,11 @@ class Node < Formula
 
   bottle do
     cellar :any
-    sha256 "b8a3d390cc33f3e6ac5e6fcf508511e44389e37fba6afd4a406d62ed9ee46193" => :mojave
-    sha256 "5d3c0c5cac112502dbf9f9b5ce805c43812b07f69982dfbd64e893f70e9e9778" => :high_sierra
-    sha256 "db0662e104d19a080fb1f6d5ed01bb1250468e8bc4a7da44214cc875ce780ad3" => :sierra
-    sha256 "ec2710ce089dd995aa746197af51a2a995739683333df3ded4a2fe9feeee07a5" => :x86_64_linux
+    rebuild 1
+    sha256 "f1172f2ee2e6f3bce711e9213ee31c7ff9d87cb0d624a0ed32d86df8c7028acd" => :mojave
+    sha256 "e8abcacc00ff1b153b635a1119cdbdb02cbe07c3addd1fda97f1a7d0de115c31" => :high_sierra
+    sha256 "ae5116f85404b5a829ea561c7c4986937dea79c93fa52a8b3456cb55b87899d3" => :sierra
+    sha256 "ab18965db7e78c1633182665cbad9d8a588d834c862ff55ae893370bd92d33db" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -22,6 +23,13 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-6.9.0.tgz"
     sha256 "d6194c36bf612f1b2a6fbe351a7cb6f44dfb9a87a1d5336b1303dc1c07e87276"
+  end
+
+  # Fixes detecting Apple clang 11.
+  # This is an upstream patch and will be in the next release.
+  patch do
+    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
+    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
   end
 
   def install

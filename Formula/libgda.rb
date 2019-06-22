@@ -3,11 +3,13 @@ class Libgda < Formula
   homepage "https://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
   sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
+  revision 1
 
   bottle do
-    sha256 "0eef60c3caf722f54a6930f425b4579439145fa418640ac03fe949ebd0d14ce9" => :mojave
-    sha256 "bd5ae9ab6d59032a00f92d0abfde3fc36920da2dd04312eb35c07e53102d276c" => :high_sierra
-    sha256 "b6a6663b434c84ed92deae11a8784082954ec1096741940108df43bed2775ad0" => :sierra
+    rebuild 1
+    sha256 "07b04e77c649dc8c3e8af1eb1137356384c571933f2cb11f2c65f9892083d4b6" => :mojave
+    sha256 "0b49c8dfcc3ed6795a38b4fbefb54423dadcf2344b65ce1f154e3fa948112511" => :high_sierra
+    sha256 "684c85fad37d67323593150e75d06b7a08c038ec7c814f67cf1f72b7ca92c2fc" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

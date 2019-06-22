@@ -3,13 +3,14 @@ class Pangomm < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.0.tar.xz"
   sha256 "ca6da067ff93a6445780c0b4b226eb84f484ab104b8391fb744a45cbc7edbf56"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c008d458e22ce9f9cfaf4ecb05fa240885a8fbc43d40baa70a3acb66de81627e" => :mojave
-    sha256 "6b25f12f26122818dd7888de85efabe0fc5362e97e6ebd487a735d5011ca8bd5" => :high_sierra
-    sha256 "2e6c6e412d53446ed21018a68eca0ea227d16c5954c74f564b4f430fdc519ebd" => :sierra
-    sha256 "6bc0aba6805b496423728ca760f4ed8e8ff920ad1b99b730984ab60116e6d614" => :x86_64_linux
+    sha256 "3b1a4952eb3f0d4b5df3d179407b6ad65c9638a6f8da2a916668e51dc9f2581f" => :mojave
+    sha256 "739e5383f7c7c44ec8e8438d0e4741fc573b92dd4a1f41fb8f240034843fe5b2" => :high_sierra
+    sha256 "a140ebd7b3ddb682658ccff2e58a4049f46b4a4b69685810fe55e96e63cffa4b" => :sierra
+    sha256 "ba46b5764054238a05a5e13956901f83a20493650f9c8048ea206bef19b66695" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

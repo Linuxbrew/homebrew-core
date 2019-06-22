@@ -4,14 +4,13 @@ class Profanity < Formula
   url "http://www.profanity.im/profanity-0.6.0.tar.gz"
   # checksum change reported upstream at https://github.com/profanity-im/profanity/issues/1094
   sha256 "f1b2773b79eb294297686f3913e9489c20effae5e3a335c8956db18f6ee2f660"
-  revision 1
+  revision 2
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "e5249cc2d5a6382f385ed3986485942db175c41a96c261cbbc88992fc18b11b1" => :mojave
-    sha256 "bf44c79e3907a1fd4d6c2b40759a680b31163d4f63bbcb0d9ebb4a56a2702c7e" => :high_sierra
-    sha256 "2b7c7f7fe0f7348191dabb78964dfbb4ec1b2cb4ede5a09c36449918930b1604" => :sierra
-    sha256 "316a56caf6910de72e81fde1a140386f783207f1901ec6f8a56d30149b928a3c" => :x86_64_linux
+    sha256 "57d4299cc773dedb5a01221b414e97be579f025f50d8355bc965ae1750f9726b" => :mojave
+    sha256 "407aeeb2f9f3faf5633814b3900f5f4d79888f6ad1a94e0b75be894bc061e0a1" => :high_sierra
+    sha256 "7c3d5013c2b0c3ae7d4e1c56bc7a9552815feef3f19adaef0ec8de67d036b3b0" => :sierra
+    sha256 "0272c90fb9ba67e36e7d2ddc4046e6ff122e8f2437cb1bdf2d94241a2c516aff" => :x86_64_linux
   end
 
   head do

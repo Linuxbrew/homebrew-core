@@ -10,10 +10,15 @@ class Gcsfuse < Formula
     sha256 "230b369c0fbaae5d333b9aec107f1fefc27f85232d74095a47851630eb9ec306" => :mojave
     sha256 "4950b4ce77e3db24eee4fdfcdd573d7a9eb010a373e30e87b6854358257d3bff" => :high_sierra
     sha256 "bf8a520a19886681d27279b29484f44cb6794822945aa4cd9d7617e11d5b729e" => :sierra
+    sha256 "20aa0b42f03af66340dd7f9f11e0dec71eb02748e11245c8b0cbae875726d342" => :x86_64_linux
   end
 
   depends_on "go" => :build
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     # Build the build_gcsfuse tool. Ensure that it doesn't pick up any

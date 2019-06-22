@@ -3,14 +3,13 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz"
   sha256 "36fcac3e452666158e62459c6fc810adc247c7109ed71c5b6c3ad5fc2bf57509"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 3 : 4
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "97a94e973e7e47203e0892f175c6da61e4ec210e17472458067c04a0f605c59b" => :mojave
-    sha256 "e214d025cc499062c8f7eafdcb8cd82b75dcef7aa2b3d181bf0d87f7eb506bde" => :high_sierra
-    sha256 "345978973e9d942bfd23d1ba583ced2cfde65aff52fc8a400ea74b278aa5ca58" => :sierra
-    sha256 "005f31dbb18d2413e0a0db481528f7dbe631214481cc55262a5f98a4e772efa9" => :x86_64_linux
+    sha256 "3e45dc78f84aa09aa482443832c4b1f56cfac7b75c6f080e2d477c569dc4feea" => :mojave
+    sha256 "56fd740df6ff5a0c55197be50d12ded7ecdcfb09215be2132fb93b58803b6f4f" => :high_sierra
+    sha256 "d1620ff05cb9a574cb3342569a24bca956cf63fccb8751ca2fce5a223a96da32" => :sierra
+    sha256 "25913e21fbfeda9a60be2a2c851d32a6f5252fece49e212ba193b6d1247551d8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -34,9 +33,9 @@ class R < Formula
   skip_clean "lib/R/bin"
 
   resource "gss" do
-    url "https://cloud.r-project.org/src/contrib/gss_2.1-9.tar.gz", :using => :nounzip
-    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-9.tar.gz"
-    sha256 "2961fe61c1d3bb3fe7b8e1070d6fb1dfc5d71e0c6e8a6b7c46ff6b42867c4cf3"
+    url "https://cloud.r-project.org/src/contrib/gss_2.1-10.tar.gz", :using => :nounzip
+    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-10.tar.gz"
+    sha256 "26c47ecae6a9b7854a1b531c09f869cf8b813462bd8093e3618e1091ace61ee2"
   end
 
   def install

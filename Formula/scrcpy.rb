@@ -8,6 +8,7 @@ class Scrcpy < Formula
     sha256 "6b3c73d844f2e03884494b5ef35ae61e954d61deaabee3dc2c6890ea59f2c8d9" => :mojave
     sha256 "3ede1d5379b523fa49bafded248216359461d5f469f31f487317dd6b975fe2d4" => :high_sierra
     sha256 "894321121f744ff2e39557ebd913a6ba208f6f61eeb3578e8e61854091b63992" => :sierra
+    sha256 "7d283f97660cca29981d29311cc11f13fed3e5caae3d5284f2806b1c0c409466" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -28,7 +29,7 @@ class Scrcpy < Formula
   end
   def install
     r = resource("prebuilt-server")
-    r.verify_download_integrity(r.fetch)
+    r.fetch
     cp r.cached_download, buildpath/"prebuilt-server.jar"
 
     mkdir "build" do

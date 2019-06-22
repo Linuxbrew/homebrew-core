@@ -8,6 +8,7 @@ class Knot < Formula
     sha256 "347011384de6364dfa7200ad71c956d0de47ef21857134231166bfd99cfd5532" => :mojave
     sha256 "f52fcf5afafbec7d256687a506e05ad3bab4b5a4e110de4fb84a771baa5ff3cd" => :high_sierra
     sha256 "fd746fc54022157e32d505a600d21b6030bdaac77c6872c2728410e3b2e591a9" => :sierra
+    sha256 "73bea811725d51387727fedbc6faef7e0ea731b184afaa4972e0db39210c2fc5" => :x86_64_linux
   end
 
   head do

@@ -3,12 +3,13 @@ class Eiffelstudio < Formula
   homepage "https://www.eiffel.com"
   url "https://ftp.eiffel.com/pub/download/18.11/eiffelstudio-18.11.10.2592.tar"
   sha256 "9ee3c9663e21123a84e1447e301919171c2939b117ed1ad5780ba3e8021204ef"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "1d10a333b4a0c02bcb3349c0e08cc098044c910f41918d568ef64abf3a60c56e" => :mojave
-    sha256 "b8b9e63265767087d299fca6947226e01b619dcb675921736dba47e44422b783" => :high_sierra
-    sha256 "da85e81c76e071da3642ad3fa7f01414c5485cbea3320a2ec4081358dd0b9e05" => :sierra
+    sha256 "28b738ce36b616c1480309841aa04db4dd052223adf0fb86e218efe9aa9e835c" => :mojave
+    sha256 "4ca7f35feed76bb3c3c64a18c3aea0ac82087ce2022220faa921a5d310fb0410" => :high_sierra
+    sha256 "fe019f342cd9bc955afb00fbf87a8d2a78962829682f5bcd9f100efcc020a58d" => :sierra
   end
 
   depends_on "pkg-config" => :build

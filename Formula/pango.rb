@@ -3,14 +3,14 @@ class Pango < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.4.tar.xz"
   sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16c404ecab2dcf3d6eda9b93fe512c0f6b90b0d73887f80da814bc5d470c1ef3" => :mojave
-    sha256 "f1d5d2471ff6a0f6bdf643fd821d6d96fef211819ee080a0a6352554ce71fdb9" => :high_sierra
-    sha256 "9800e829c90780dd7a31f3a1806bd92a25bafadc47506830eaefb148d4b71570" => :sierra
-    sha256 "930d64813df24f9f1e46fee3a3fb52795d4b3bbefd823031543a630d8566eb47" => :x86_64_linux
+    sha256 "00b769ae7c76db06f9828398023c60597b11f33410b9f5b7c3f321b34fb7e0a9" => :mojave
+    sha256 "6d9f9ce407e6847a262eeea81f3bd93237f0ed4648d885a97c1409d95d26d892" => :high_sierra
+    sha256 "d400c90576eebb989be229742fc0fbdeb91c27e14bd98af94c05a84d2bcd7ca9" => :sierra
+    sha256 "9b4db2dba163a3117ed057d03df136c40973c346e24990b406cbb0fc9cdf1bc5" => :x86_64_linux
   end
 
   head do

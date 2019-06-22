@@ -1,17 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v19.1.1.src.tgz"
-  version "19.1.1"
-  sha256 "cc05d2f0a4310d23007985a91a2e3ac4ab17b9cd853934536228e6e4812c7fed"
+  url "https://binaries.cockroachdb.com/cockroach-v19.1.2.src.tgz"
+  version "19.1.2"
+  sha256 "fb43cbe938be7a44238cef6e545a4a8f333bc0c56007d102225720dfc501bda0"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    cellar :any_skip_relocation
-    sha256 "7f098dcc0ad0e1b1dcf70e6eed9a055016c9bc3b6738539ce25d010ba77d6c5c" => :mojave
-    sha256 "a922a035b86966b2bcf51097791c144a8de7bc341fe4980cbfe6927d29d407ab" => :high_sierra
-    sha256 "5c7371a4b225c20669e4bdd180abf1389b4dc141e79c7cb2850022783d85fe8a" => :sierra
+    sha256 "d58509e154e60bac9de2e094695114a8357ff17373ffe77c8b80fc1125fb4aac" => :mojave
+    sha256 "52db3b7236d44d9b859f7e998025c69caa1d9dd7aca826134697926603ff72de" => :high_sierra
+    sha256 "f8da28d0cdbb6a3fdec3e82735a5f5351065ed8caa2e77e910b3aa9994a1f782" => :sierra
+    sha256 "c8ed9e9e2428368235c10af78e0d3059693775298b25659bdf6b6bac3601cc6b" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -19,16 +18,9 @@ class Cockroach < Formula
   depends_on "go" => :build
   depends_on "make" => :build
   depends_on "xz" => :build
-
-  # Compiling CockroachDB v19.1 with Go 1.12 changes the behavior of setrlimit
-  # in a way that causes CockroachDB to crash upon startup if kern.maxfiles is
-  # too low. This patch backports the upstream fix from
-  # cockroachdb/cockroach#37705, which will be included in the next release.
-  # Note that the pull request patch cannot be used directly, as the paths in
-  # the release tarball do not exactly match the paths in the Git repository.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/cockroach/v19.1.1-kern-maxfiles-w-go-1.12.patch"
-    sha256 "7735ef5d3598214100f0bb3dbb718a499386987b99296ceb9c9f97a3945fd0ba"
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "ncurses"
   end
 
   def install

@@ -5,12 +5,12 @@ class Cadaver < Formula
   mirror "https://src.fedoraproject.org/repo/pkgs/cadaver/cadaver-0.23.3.tar.gz/502ecd601e467f8b16056d2acca39a6f/cadaver-0.23.3.tar.gz"
   mirror "https://web.archive.org/web/20170629224036/www.webdav.org/cadaver/cadaver-0.23.3.tar.gz"
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "28600e03c84fd8ae48660f43721fd441024da60d77424af8240340261b8234c7" => :mojave
-    sha256 "a45c291f627fa518cea46c157eb6db1ba110a9c5acc37f3d4c2f1704e1bffde0" => :high_sierra
-    sha256 "dfe6afc42e2949f64ae2985a02ec68f37e70908b8095aaf25e4fd553af3fa984" => :sierra
+    sha256 "9cfb44c7817e5d2b60810f4a2cde5210f984e8c43a692cbaf6d71863065f62bc" => :mojave
+    sha256 "a0d1b9b93dbcdb2e1892c6b71da549e3e287b64a0384636abb442167347c1509" => :high_sierra
+    sha256 "f2d16706e3af2ac5dcd2133655ca56fd0c881550b60d2a8d7e74d9966702fc68" => :sierra
   end
 
   depends_on "pkg-config" => :build

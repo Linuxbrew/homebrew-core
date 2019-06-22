@@ -3,13 +3,13 @@ class Enchant < Formula
   homepage "https://abiword.github.io/enchant/"
   url "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz"
   sha256 "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "558ae345cf128bf0eac582e1de427f40c0a8ab55a8b3ad3fa8d184c3c2f2eae6" => :mojave
-    sha256 "1e0a55ea0aa6b7c3e600e0fdff5dea8e58f48f5a758f5923f35a75bbd11606bb" => :high_sierra
-    sha256 "f58d3db9c100f56bb99bdc717975dcb8563d5c5fbfb07135834e49fa3cf43a8a" => :sierra
-    sha256 "214872b51861f2ecea6f7b59616d3774ba45e7eaf6cae8c682299dfdf3980680" => :x86_64_linux
+    sha256 "7fbdba60b779300ac514dd72ff45d70ae31614e9e8b745bbf7991b67d2046fab" => :mojave
+    sha256 "27754a73f3687c807dd3279347cd3c7087ae246b2854a0ec98a7f2106485a33f" => :high_sierra
+    sha256 "5720e90a3e0e8d3ec640342f845949a54cc040bd105bc2d6412c4a9e35004016" => :sierra
+    sha256 "e67c514b264451d397b5e74210307c88138d76f103a35837980257f3cab150d2" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

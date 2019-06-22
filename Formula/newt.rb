@@ -3,16 +3,13 @@ class Newt < Formula
   homepage "https://pagure.io/newt"
   url "https://pagure.io/releases/newt/newt-0.52.20.tar.gz"
   sha256 "8d66ba6beffc3f786d4ccfee9d2b43d93484680ef8db9397a4fb70b5adbb6dbc"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
-    sha256 "b6fcbf4441d9ed5957b34f773606eeba1dcef1beed75fafe4ebac83f72fbc305" => :mojave
-    sha256 "092e8f0a4603c337cd7e51d26d3721bd450a3a9ebf6eb0f55bf703f1a3c34cfa" => :high_sierra
-    sha256 "eb0b10566d3852909e6f11ad02dd09382cb494d05f1ea4a2371c15abda8cda1c" => :sierra
-    sha256 "1a3b16bafddded8ae06bcb5b261c50142b7b7752d4e4cf08d65709a2506edf82" => :el_capitan
-    sha256 "78f895d8ee19c343c5846a29699fd8be1f552f8d5c335081df353f8069cd9fa0" => :yosemite
-    sha256 "bc67bf57b038fe922ae756035bc441e547a0f9f2985d95787374ca7c1c4e18ca" => :x86_64_linux
+    sha256 "5affacd83b0c8584976235ae16a96c5264db5fbe45ed15f618f1da2562a9eb6c" => :mojave
+    sha256 "ec087d9023c820072ed8ecd769304ae66d993b9c445949feb020446cee6b3fe2" => :high_sierra
+    sha256 "9c5c1376d3346f0417303d9af608c1f2dbded3dd43fe9cc2405117cb412de567" => :sierra
   end
 
   depends_on "gettext"

@@ -6,16 +6,24 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "631b57f07cbd49116dc298ef3659f76bce6ba61b41c1a1eed52481a69aa00a40" => :mojave
-    sha256 "631b57f07cbd49116dc298ef3659f76bce6ba61b41c1a1eed52481a69aa00a40" => :high_sierra
-    sha256 "ba8794b30c1cb719229f0647e8674ada4e90dff2e1f25c7c478e3cf55d5041a1" => :sierra
-    sha256 "8f807475f1f885cea56b54fd4be2b3c832f3df4dc0fd414424fcc47b950c3cf8" => :x86_64_linux
+    rebuild 1
+    sha256 "ca178fb13cb8a3152875fb98c572e7a1f436ab97e408667479fcccb28cd9a815" => :mojave
+    sha256 "ca178fb13cb8a3152875fb98c572e7a1f436ab97e408667479fcccb28cd9a815" => :high_sierra
+    sha256 "ef9198b9fb068aa7f805fcb7a2de846c71390c495d4cbc07c6d9c50366811441" => :sierra
+    sha256 "5af01738e8860b4d00d5ad10cfb808c1678bfa9a85e39ad65340b21a278c16b3" => :x86_64_linux
   end
 
   depends_on "ninja"
   depends_on "python"
+
+  # Fixes support for Xcode 11.
+  # Backported from https://github.com/mesonbuild/meson/commit/b28e76f6bf6898a7de01f5dd103d5ad7c54bea45
+  # Should be in the next release.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd45b828dc74b33b35a89dc02dd1f556064d227f/meson/xcode_11.patch"
+    sha256 "7b03f81036478d234d94aa8731d7248007408e56917b07d083f1c4db9bb48c8b"
+  end
 
   def install
     version = Language::Python.major_minor_version("python3")

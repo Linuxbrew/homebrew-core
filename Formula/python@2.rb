@@ -6,11 +6,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     rebuild 1
-    sha256 "cb90a15faf89116993fd85c330069965aefe2d5c6b189a594868d03a34c94aaa" => :mojave
-    sha256 "6acdb60d186cf82ffdf3edd647bbe1ef4db7233ddf9f63b22126f5dbd6993a0a" => :high_sierra
-    sha256 "90ed98bed77836e4bd9e3f258d6de2cccaa04969a9c9e162c182b487680ab145" => :sierra
+    sha256 "aa69346be8048e6072735ccf74401b584c89acdee21b2663e68bb223e03684de" => :mojave
+    sha256 "ba1637cabc26da32f8162a0b6e00e2ec36bcf06f38c79991a7a1711647dd1e01" => :high_sierra
+    sha256 "273c69decd74b16117396afc932d6573a7775dd60f4692aa5d3f29b2ad989d36" => :sierra
     sha256 "75bdf25e29d54efc811ec20f908e24b55cc620557d8b8b24cf66f33f482eacd2" => :x86_64_linux
   end
 
@@ -50,6 +49,15 @@ class PythonAT2 < Formula
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/b7/cf/1ea0f5b3ce55cacde1e84cdde6cee1ebaff51bd9a3e6c7ba4082199af6f6/wheel-0.33.1.tar.gz"
     sha256 "66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d"
+  end
+
+  if OS.mac?
+    # Fixes finding zlib from within the CLT SDK.
+    # https://bugs.python.org/issue37285
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/519bb6f33c6d5948b1dbae0964599028b9a3a995/python%402/clt-sdk-path-lookup.patch"
+      sha256 "b8b82f7ef45054aca02ce5e24b0f8dd0b6d5cbc4142707ffd1d720ff6ace2162"
+    end
   end
 
   def lib_cellar

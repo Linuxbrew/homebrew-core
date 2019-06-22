@@ -3,13 +3,14 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz"
   sha256 "159e4b599f8af4612e70b666600a3139541f8bacc18124daf2cbe8d1b934f29f"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "b11303a919ad9bbde26d12dd5a67b3ee94a6204a631b0aa6b49c7d174ce37069" => :mojave
-    sha256 "c9f80770faac3a1ed05411c88dfe7e7830ae4b518dca12b6425567145212799e" => :high_sierra
-    sha256 "9e88cedfa85044cabdc3312c4c5f30097cf86ec4fa6307503636737582cbd96f" => :sierra
-    sha256 "2ba01c1c581a724e1f931f9b402f6f865ec7c0a1d4a39cd575e1eadc3a69a388" => :x86_64_linux
+    sha256 "38ce7760cf405112350d7f734db435b488ba224d437698c7a93cb8972f016660" => :mojave
+    sha256 "3363c946daf5f249083b7a146294dae7f89d64eadf591635d570c8da7553c522" => :high_sierra
+    sha256 "d40515ee220ae0a3f9992094873e9273c0065abc43bc703628e1feacdd83a9e0" => :sierra
+    sha256 "7cd9541b48b27896f85451a8702cd0bdfeb974ebc97ae9b7daa1f93735c843a4" => :x86_64_linux
   end
 
   depends_on "gettext"

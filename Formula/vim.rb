@@ -4,13 +4,14 @@ class Vim < Formula
   # vim should only be updated every 50 releases on multiples of 50
   url "https://github.com/vim/vim/archive/v8.1.1500.tar.gz"
   sha256 "4bdadee10b8060f3bfc90af3a97c7b4b5964e60182033f8cf3f51e5b6d635134"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "99da952cd721e393658152f50f0d6975aa5eeb4d8ba484d8f1024c6327665014" => :mojave
-    sha256 "e74386a89246e8372d22c893a5e1e49d7596553f9e46d8dbc35470a1311791f1" => :high_sierra
-    sha256 "47c9ac1b8eb614e9515bb774c99836fdec8319ebbea3d766a6f084767166ced8" => :sierra
-    sha256 "98800af96264b6a00990e0135a76b93f096b1a6665cb020a50bf153a7e2639e2" => :x86_64_linux
+    sha256 "7631104629898ad7ec9dd0c0adc3f8602970cd5ff1e49dba8890cbabfb85bf42" => :mojave
+    sha256 "e4fd97179d2dfbf9d4b7fa575860cb205138241d07bb5aa4fa031ed1a503affe" => :high_sierra
+    sha256 "a833cb295576a6285fd2ae729f3009bfb1fb18af1b157817b04c0b1cdd3b1864" => :sierra
+    sha256 "2f161eb14f1d64de5fc31a6749c491ad2a35aa3417608f167230becc168e65cd" => :x86_64_linux
   end
 
   depends_on "gettext"

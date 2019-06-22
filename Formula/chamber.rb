@@ -10,6 +10,7 @@ class Chamber < Formula
     sha256 "da720a76073dc7cf2cc2982fc1309a1c6fb6102f4d6bcaecdbebc34cc1115747" => :mojave
     sha256 "53c669dcb153a71882511900748ea47334e9235291fe6c9f5fa428afb2fbfb16" => :high_sierra
     sha256 "3b16347748b75763ef405c5692504dfb62f1057dd447f47ac366ff7375b020cb" => :sierra
+    sha256 "2ed7606430e43b3aa4f496cbcbacbc6e21e04034dc0fefe2ae4a61be9a0ee46d" => :x86_64_linux
   end
 
   depends_on "go" => :build

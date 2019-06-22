@@ -3,13 +3,14 @@ class MidnightCommander < Formula
   homepage "https://www.midnight-commander.org/"
   url "https://www.midnight-commander.org/downloads/mc-4.8.22.tar.xz"
   sha256 "ee7868d7ba0498cf2cccefe107d7efee7f2571098806bba2aed5a159db801318"
+  revision 1
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
-    sha256 "752b14547cba6c6165e15e1e39cbc1d643482ba84640948be02d1e7f7a7388e2" => :mojave
-    sha256 "7c715413595dee9cb2338a492f2ab467bdcba48d240c8b4773d7c967508d0e4a" => :high_sierra
-    sha256 "d6ffb05221808b6d37b59793cb4829755faeaca0697f335bf4699423760842b6" => :sierra
-    sha256 "422c70ff0505667966b97a41848c5a2602d0fee3236b180a05b51e726607ce0c" => :x86_64_linux
+    sha256 "c1b8c5c6f30a67ab06e29a441e1b33f2b2f351e1cac064d005c58a2061d3fc2d" => :mojave
+    sha256 "ab2a0274dad5bdb3073e9331ea29f69179735a0ed424eb02b6723d40e074ba80" => :high_sierra
+    sha256 "5fdca1bab0f0d9b430a743041b6567da126e3bd22e0d4433df58e1afe3404d60" => :sierra
+    sha256 "ec6ab3acc587456cdebc2c8589eea3a1d2e19bc89441f9ef3f14d994b24cedd8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

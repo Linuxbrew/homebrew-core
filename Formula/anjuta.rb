@@ -3,12 +3,10 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.28/anjuta-3.28.0.tar.xz"
   sha256 "b087b0a5857952d0edd24dae458616eb166a3257bc647d5279a9e71495544779"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "b161145bbb89ab51466f2a82f0e44d3b9050ac4bef2e72b1490bc5111bb329ae" => :mojave
-    sha256 "847cab22d1e101f20e5dc1f02041a6ec9570a18258ebcffb4afc6c431310f028" => :high_sierra
-    sha256 "1c49cb3084e1b742802fbbfde8b604b2477700cb220bd8d42cfb3b2e04f07a62" => :sierra
+    sha256 "d444cc03434f8949d26c807ef32cccbaec6b194f3c00e31f7e5c00338c94a508" => :mojave
   end
 
   depends_on "intltool" => :build

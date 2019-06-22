@@ -3,13 +3,12 @@ class Amtk < Formula
   homepage "https://wiki.gnome.org/Projects/Amtk"
   url "https://download.gnome.org/sources/amtk/5.0/amtk-5.0.0.tar.xz"
   sha256 "12a996978a30b7b69a810ac0c5656d5cf2f58d9787b98a0c028ff1b64e8f31ff"
+  revision 1
 
   bottle do
-    sha256 "62f05f5fc282e1f9ac7cb6fef99eafdc0680741de535be52590bdfc71c432d8c" => :mojave
-    sha256 "eec94f844c2786f6e9a5f5bb5ebd1b179e04432b4166dbdfd136451a4164201f" => :high_sierra
-    sha256 "304f48b54a08facfd5d96dd3ff1b82fcb189a9310342a9a3b721f8cb0160a29e" => :sierra
-    sha256 "36f23f1e7336d58d01a9b3bd0a27565b08437d503500fd1d35bab61c31ae7ca4" => :el_capitan
-    sha256 "25d832a4e78b89a3ce1e606d7d4a21d4c86628358139f9c82dbc814f0ecd2089" => :x86_64_linux
+    sha256 "a1d8f450b16dbe9a3f2354adbef9e427541bbb6bc470f9303c21a14d6967694d" => :mojave
+    sha256 "0ee9d60a1f60863fc6335b8916977757b4d56a586521419dd8c1823ebc9cb336" => :high_sierra
+    sha256 "20b4695338bb0cb8b50e2b889b4834b6576dd3599dff2e4c19a1ef66913a75cb" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

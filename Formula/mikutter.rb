@@ -3,15 +3,14 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.7.4.tar.gz"
   sha256 "7695a76a809555b2688b56f5335834fd876f82ce1b645815ec2020aedbdff55c"
-  revision 2
+  revision 3
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "14f2a2d9288a3bbc453864f707266373f546d27fecb4e95678f089c0d5a8f699" => :mojave
-    sha256 "8f5f8620e2dd2fbc12b15e886d0034640fcc82ac36b2a46f1761378ff4b12655" => :high_sierra
-    sha256 "6594762c87b71a9f8f7589cb390f2791b18200ea1a7f364de8040a4c9ed7406e" => :sierra
-    sha256 "ae0b8fc14568e4bc1dc988915901355e74ad712189125e77230e0a4b1fa66cd4" => :x86_64_linux
+    rebuild 1
+    sha256 "b6f2eaa31fe4b1cdd04781e262060eec1a6c70c9c409fc104c27339c891b943d" => :high_sierra
+    sha256 "a54a6a8d1df9c33eb645824ad215d16c4f89f53132e8d4626ddb9128f22bb139" => :sierra
   end
 
   depends_on "gobject-introspection"
@@ -199,7 +198,7 @@ class Mikutter < Formula
   def install
     (lib/"mikutter/vendor").mkpath
     resources.each do |r|
-      r.verify_download_integrity(r.fetch)
+      r.fetch
       system("gem", "install", r.cached_download, "--no-document",
              "--install-dir", "#{lib}/mikutter/vendor")
     end

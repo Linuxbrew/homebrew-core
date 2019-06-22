@@ -3,14 +3,14 @@ class Calcurse < Formula
   homepage "https://calcurse.org/"
   url "https://calcurse.org/files/calcurse-4.4.0.tar.gz"
   sha256 "edcbc9dbcdfe3aba43ac70b8d6895fb0ff4a364df89762d1ca3053a14cec826f"
+  revision 1
   head "https://git.calcurse.org/calcurse.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "cbbd5f48b6e829ba30d55ee43d171f57494c437685593146774800de8ea4a6d0" => :mojave
-    sha256 "dad2aeec1b1ad6a0af16f05a115c71a0ad490d40a8612309c1b7a0501146cb60" => :high_sierra
-    sha256 "5e368815101d3bead19d1fd9223073448f06c9acbd329236926b5f0ddb64dbcb" => :sierra
-    sha256 "2ff8d21ec5de223676a5e846513918af9907b9bcb6af03d81bd4bd2e43a5d3b8" => :x86_64_linux
+    sha256 "a8d96452549f69d900bdaa33145ddd7e7d0ebe11c303c4daec93825fae9d60f1" => :mojave
+    sha256 "73e2230461c906cea1e065ef512da4f7b82d1fba230da5122f0c7c875e2a6c41" => :high_sierra
+    sha256 "4f09d52ffd027cb13e73473fa5d01ad9a22aa985e0aa3e3d195df2e5b92f30e0" => :sierra
+    sha256 "5e5890a2031779cc362c17018f45d06ec722d2a34f3e09b455ff434dbbf6f500" => :x86_64_linux
   end
 
   depends_on "gettext"

@@ -6,13 +6,13 @@ class Mu < Formula
   homepage "https://www.djcbsoftware.nl/code/mu/"
   url "https://github.com/djcb/mu/releases/download/1.2/mu-1.2.0.tar.xz"
   sha256 "f634c7f244dc6844ff71dc3c3e1893e48e193caa9e0e747eba616309775f053a"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "f8695cbe6df5fcd53c97c2df27924dc5152ac169bdfff6d4332c000d36d818ee" => :mojave
-    sha256 "9f902b4b826662224f717e17cac441d622a31a813aa69ecb55fb4bd58dc9194d" => :high_sierra
-    sha256 "2c5f3e427d6527a3be3b9268cbfda0fef31f91c0c7702bab75c790f44ed035a3" => :sierra
-    sha256 "aeddee3974b30d9ae43b7a63ea1a342eb4c84a2b19a91a9c95d637a89e6adb21" => :x86_64_linux
+    sha256 "a8c766c5cfa0951ea3a683ddac460e2c66daa231fb586c2b73f91ddabccdb798" => :mojave
+    sha256 "b005381a23edee1bd9a7f02d5dae3cf4bb4e3bdfb494c17e0b44a817af40dd3a" => :high_sierra
+    sha256 "3cdc7db8c5adafc23cdce44aa0592afe203d770d4c1e226a5bf9e6243b9ed3ff" => :sierra
+    sha256 "b8986ff5c6a5d0b3ea9c4c3a8e63b47f06d484745419641f7aa3fa8ba5d0ac10" => :x86_64_linux
   end
 
   head do

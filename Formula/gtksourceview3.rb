@@ -3,13 +3,12 @@ class Gtksourceview3 < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz"
   sha256 "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "b2425a66c34919b9bc48c9cdf5f634736f0cf24459af1b7dc47e19cd3687d90d" => :mojave
-    sha256 "aa847d20eef1832339066f5f3f128b4bb2fb24793114b0d7c4c506ded7757b04" => :high_sierra
-    sha256 "78dded5b873437e0832eb24f3803f0ae1c7315f1b22d77a9ba6527f136eb1f24" => :sierra
-    sha256 "5b24c874d7f8020551caa761c32d2e652c37dde3d00b2facf86d46c1f28737bd" => :x86_64_linux
+    sha256 "dc3a503a2d12cdc288424158b41f9a147883ccd2f5fef09ea0be744ea155ff91" => :mojave
+    sha256 "36e7d2ebe437aff499c4ceaa990d6b985a45e4c547cd27b6453be0c33ca9f385" => :high_sierra
+    sha256 "94e67f3dd45d1ffae0bfea81eccca126cf692ab66c13dfa7c419abf1163359f8" => :sierra
   end
 
   depends_on "autoconf" => :build

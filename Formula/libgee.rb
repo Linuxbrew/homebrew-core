@@ -3,15 +3,14 @@ class Libgee < Formula
   homepage "https://wiki.gnome.org/Projects/Libgee"
   url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.1.tar.xz"
   sha256 "bb2802d29a518e8c6d2992884691f06ccfcc25792a5686178575c7111fea4630"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "8bda00ec686771f7d42a63085b9e11c93202cc9b90adbbc5f61a699666c99db8" => :mojave
-    sha256 "d4afb1bbccfd61b0a106595356d5f571a0df6a5fb0fd5e378c8321a46e152c1b" => :high_sierra
-    sha256 "b70794b96ce5d21dc3dac66f4e0e63177d7507c723d78a786110dc502d7777e1" => :sierra
-    sha256 "7602f76b0667a7dd1527c01285274c2cca24d5e638b9a0c4a90cbc004d5e097e" => :el_capitan
-    sha256 "4791ea0a57328e464ff8875867e26db127687d2891528667fcf97d403ad8f1ac" => :x86_64_linux
+    sha256 "4653b354ea0d94644d7513ec272cd32a19f6a62d24e1a9459513c562e77cd015" => :mojave
+    sha256 "98cceed95e7149d47d582970872896150aca66dda0f26915785dc24ce58de5b0" => :high_sierra
+    sha256 "cd38211f0a12c738e8537e94aeca8dfe992062ed3e9d44cc2a15148a57eefd6c" => :sierra
+    sha256 "5d32c16125c3fadf638c9a614e70910a4787e766a528eedd6470ac694bd78990" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build

@@ -3,14 +3,14 @@ class Libcroco < Formula
   homepage "http://www.linuxfromscratch.org/blfs/view/svn/general/libcroco.html"
   url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.13.tar.xz"
   sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "c4b14566816d0d88fda9e44ea88d10ea673c988bc996e542f8b533066715d7ce" => :mojave
-    sha256 "a49d23242587ef0d0717158e7a2212f64cdced70daf1494aa6df339638cb7329" => :high_sierra
-    sha256 "03c4e294957af16c882aa6b94cbf3b7f5f8e9da8f8a586a9a0732656b1af0d34" => :sierra
-    sha256 "8a7387622651ba7e773117f054021d048c0cd693f5d8ead2dc2b92531f9716e5" => :x86_64_linux
+    sha256 "edf97f493296bfe01b2a8cfe156f1e8052e181bed6ea34cabaf18ed59ef28b17" => :mojave
+    sha256 "f6e7d7d608dfcf6e57eaad77eef3cca27c15db0746e102f6dc33cccdd5a8a7bc" => :high_sierra
+    sha256 "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552" => :sierra
+    sha256 "41fe29bcc2ada0f0d6812b61f2ab2c3b21f20b16992f81082a65d496e89cd6cd" => :x86_64_linux
   end
 
   depends_on "intltool" => :build

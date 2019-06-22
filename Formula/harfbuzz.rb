@@ -3,13 +3,14 @@ class Harfbuzz < Formula
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
   url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.1.tar.xz"
   sha256 "6d4834579abd5f7ab3861c085b4c55129f78b27fe47961fd96769d3704f6719e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7c1600969389cebd8b32c9f0331831f1df773b4d9caf585b6d15d48607e6f030" => :mojave
-    sha256 "5e1084dfe9129112579b8bc1a986b9d4c9c6b28035986199284a7006a9b4ec8f" => :high_sierra
-    sha256 "bab1351bf9135c79c36c7fc56ad633fe22d068364290a216de8312dfa47688ef" => :sierra
-    sha256 "05a74beb13bca31af5d4c734f619ecec3980fb148d85ce178828fd55decae970" => :x86_64_linux
+    sha256 "11a93b1bdd447c17b0dae47c03f29b9244168e4a6add2a45051e9a805e979534" => :mojave
+    sha256 "ba88b18a661d1f6b4fdb35c0fe82f6c6782ea39b26c23197f923001ec1cdb8b3" => :high_sierra
+    sha256 "cb521d1047e509c5ca6093d3aae656a9ddb534f1a0aee7ab22ec599edfdad499" => :sierra
+    sha256 "daddaaf9ff10fe4ca22abc287d1132b86f60e0202ddb43ae2a108fcc0330c635" => :x86_64_linux
   end
 
   head do

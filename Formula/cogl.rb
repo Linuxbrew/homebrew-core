@@ -3,11 +3,12 @@ class Cogl < Formula
   homepage "https://developer.gnome.org/cogl/"
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.4.tar.xz"
   sha256 "5217bf94cbca3df63268a3b79d017725382b9e592b891d1e7dc6212590ce0de0"
+  revision 1
 
   bottle do
-    sha256 "d91786cb81bb327e01b990d95e9b0608033ae7c58f2f93bd605a16859b07a0eb" => :mojave
-    sha256 "8120175d546dd84a50305760e73bd4ff6daae1615f446f8affcff2f503c16f85" => :high_sierra
-    sha256 "0533885af6f17545cd5ed29b067052561a5e5b0be269d22a976f598a2013713e" => :sierra
+    sha256 "6b9f7bfe05979904a7bfd619e16502131eb216bb8d75f442ef2b9abaea252a7c" => :mojave
+    sha256 "a503e6cdc62cfab89857540532f7de0414efdb7a39f12678f2be62d8673eb002" => :high_sierra
+    sha256 "eb7471e236274b08f774e20b11755c84757ab7815ee44a99335d8465194fbbd1" => :sierra
   end
 
   head do

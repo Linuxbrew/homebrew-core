@@ -6,11 +6,11 @@ class Vultr < Formula
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "af7d3754f0136c4ed3f0067920c0351931df48f487457ba6f12741e745e636e4" => :mojave
     sha256 "9384a5df861603c74301e8500d70c170f806348fbfdf5117b1c6d91bed7d26d2" => :high_sierra
     sha256 "a49908fc98bd2c2e2322e1d9511352ece67dbedc02879c71811d82b7c9bdaa3e" => :sierra
+    sha256 "97b064b4c4c1313a0c5f1abe4fe5526e05916dda251a4e31b0368fdfe565bcff" => :x86_64_linux
   end
 
   depends_on "go" => :build

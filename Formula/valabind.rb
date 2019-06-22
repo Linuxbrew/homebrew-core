@@ -3,14 +3,14 @@ class Valabind < Formula
   homepage "https://github.com/radare/valabind"
   url "https://github.com/radare/valabind/archive/1.7.1.tar.gz"
   sha256 "b463b18419de656e218855a2f30a71051f03a9c4540254b4ceaea475fb79102e"
-  revision 1
+  revision 2
   head "https://github.com/radare/valabind.git"
 
   bottle do
     cellar :any
-    sha256 "97118de180e5871fee96c4a8de602b626ce5240e5e8d4f7e1783f1a09c985da1" => :mojave
-    sha256 "84c2f3f9fcb4216e50cf3a2f78733c4219f8e88dd38149f3b8f4c39be897b195" => :high_sierra
-    sha256 "8376e0ec22d6700263cea674b53f4fdaf7dca35c04c6656df9566c24fa1121e2" => :sierra
+    sha256 "80c600b2b30861288dfe1a9738a23194e6ef6248d19c157f99432db87872e50d" => :mojave
+    sha256 "113b9207da77e4bd15732cdac43b0ad7ac7aad4a511a4ad9e9ff87fc0922826e" => :high_sierra
+    sha256 "f1166c36f5ca7b5bd95b88ddfa95d03e8e7aa049289450d4591778426709221c" => :sierra
   end
 
   depends_on "pkg-config" => :build

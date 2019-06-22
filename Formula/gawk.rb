@@ -4,13 +4,13 @@ class Gawk < Formula
   url "https://ftp.gnu.org/gnu/gawk/gawk-5.0.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gawk/gawk-5.0.0.tar.xz"
   sha256 "50f091ed0eb485ad87dbb620d773a3e2c31a27f75f5e008f7bf065055f024406"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "0eb61cf2dc448b97f4f27054db3a3580482aae8c77a9fa5008844361f4c591c8" => :mojave
-    sha256 "8b935dbbfcc134e9f546399fc16ec87c446a30a3de59621e1b40dcefa78a97f8" => :high_sierra
-    sha256 "e4cf8406600238bcf9c0cfecc98a7d82f96720ea7f13855fa5dd4efc43936356" => :sierra
-    sha256 "1c5f15830d793fb3735b9aaf18f3dbb3b14027ea2011cb4ca36dd28d52550a7d" => :x86_64_linux
+    sha256 "47559c1ecaa9ee95cac1f7ae5c2a56c16e206c4f1b0bf1b25d6c0ee5ad8f5ac3" => :mojave
+    sha256 "1871a29927d77bc704a088ab5750af3ad56c08ae4762c8faafca1a39b0be0bac" => :high_sierra
+    sha256 "d0ea7024988dc4c6d43e3bf65b48640fcb67160bddbfd3bb08888be642bfeeff" => :sierra
+    sha256 "da599fd5b0e04f943a610f1be402daf25bc1e4c366a035fe6b8b9ef29111c788" => :x86_64_linux
   end
 
   depends_on "gettext"

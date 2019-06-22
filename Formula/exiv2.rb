@@ -3,15 +3,15 @@ class Exiv2 < Formula
   homepage "https://www.exiv2.org/"
   url "https://www.exiv2.org/builds/exiv2-0.27.1-Source.tar.gz"
   sha256 "f125286980fd1bcb28e188c02a93946951c61e10784720be2301b661a65b3081"
+  revision 1
   head "https://github.com/Exiv2/exiv2.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "57031a4f2db1e2f493eaf70a3633335f568b22bd3a325791d90dc2aba2d89902" => :mojave
-    sha256 "3bc7f852d91f4c88e4f23d3926f7097f912af373948fb565f4241605eaec6122" => :high_sierra
-    sha256 "e1a838f4ce6aa87f914aac1153a45fcf5e66347f6d2b5f2e3072a3738866a8cf" => :sierra
-    sha256 "0b17bf2864275a78457aa494fc994e34139c338de684170689d36c6e2f5000df" => :x86_64_linux
+    sha256 "7be6ba25f15d9eb371cba00aa26cd977fea27a1546b2ea8de96bc3945644b4fa" => :mojave
+    sha256 "0b4bf9fdcf3fd6ab4be92927bf8392fb46197d6f2904b427afcf924ad687b28a" => :high_sierra
+    sha256 "ca267d764864eb6858cd22c9614ea85df84b2fc801cc696681a5757e7df9f335" => :sierra
+    sha256 "c54281e2edec4b1a14c171097ee8b9e7dea352f9128da4b383be393b150c4c12" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

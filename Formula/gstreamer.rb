@@ -3,13 +3,13 @@ class Gstreamer < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz"
   sha256 "0e8e2f7118be437cba879353970cf83c2acced825ecb9275ba05d9186ef07c00"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "156abcabde77a54e45942449f643191b60da4ebf2a3434126355f723f67db0dc" => :mojave
-    sha256 "3694d158c391d341e4623f0f9e150b4d627b7ba08d3ffbd5351ed7e2d0cd8823" => :high_sierra
-    sha256 "718fafb11b85509bcb2a9aa1f751b1e45a8410b9d6247f5542a023557d886777" => :sierra
-    sha256 "002c4fdb6f4953579390462b8d79820fd45694afcafb2e1cd6fd35abf200a47b" => :x86_64_linux
+    sha256 "fe1ce0548e21fac19094dc4911f0739602f3076bdfd49ddf21fc1f5d6700bf2d" => :mojave
+    sha256 "62997c4bdca2dde57d5e048868e2eceece69399fb1765dc4c10b6df22ea53e2e" => :high_sierra
+    sha256 "df35466e2ff725dd1cac0c4937b48727c60cab86b57d0c8e36a4060b20aef36a" => :sierra
+    sha256 "b88e1e5349d9adbdb071205bd3a75ab05c800db3461ae2dda3412133dee2c38b" => :x86_64_linux
   end
 
   head do

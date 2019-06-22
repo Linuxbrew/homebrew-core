@@ -4,13 +4,13 @@ class GnuIndent < Formula
   url "https://ftp.gnu.org/gnu/indent/indent-2.2.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/indent/indent-2.2.12.tar.gz"
   sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
+  revision 1
 
   bottle do
-    rebuild 3
-    sha256 "424a7f469abb096382488440e00d55021d97405d8e72948cff93fb7826f71285" => :mojave
-    sha256 "ef3e9fa08a9cf100dcd9d5e85a17c88791b78fee201eba5ce8935da5072e4670" => :high_sierra
-    sha256 "73fb630f7391e4598bfeb823637f67ba8741926133813f00bde91dfd8a4f2972" => :sierra
-    sha256 "bc68f4f37b89b8a66f79d2495d37fc5f7a893527fe27ccbe7fc6ef17b8148a22" => :x86_64_linux
+    sha256 "e960e3f35f6a77daef487f54158953522f58a27caf27e39e0c17702754718ee1" => :mojave
+    sha256 "3280e6e9fc0c5cc895367291fc328dccae5f2e36606dd503b5721d449bc33eb8" => :high_sierra
+    sha256 "98bcdee2e49d7e165a07ce6468d2c1a3030db7205472d015ba516e43f5a1e0fd" => :sierra
+    sha256 "e9298e04acf0130485f44dc103928bb5e1ea7db7413160fb99864232e98ec514" => :x86_64_linux
   end
 
   depends_on "gettext"

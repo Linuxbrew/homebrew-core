@@ -3,14 +3,13 @@ class Libglade < Formula
   homepage "https://glade.gnome.org"
   url "https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.gz"
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "75df12d8db6a8ce9595704c743dc778d69f34af7db74228f0c7a4d4af61d2e1b" => :mojave
-    sha256 "2639d4af6b770ed782d7080b2b6105a0190eae1d8fdfd8076cdf3d89862b9364" => :high_sierra
-    sha256 "a26aa0e778ef074f9ba9726945297885fbfd49acab0ab392096990964e844fed" => :sierra
-    sha256 "057e25800e73c6233f353ed97ae4f7dfe1ca1f5eada9858d6527e03d4632ba87" => :el_capitan
-    sha256 "b34e72cdfe1da22f248c17c28aeab8430dddbd537d0be91f73006c65d25f2849" => :x86_64_linux
+    sha256 "08b0055c32830a1af896041fbedfa9edc8bd6e2d70d0bf600b13495408978f8f" => :mojave
+    sha256 "fbb11944fbd2e2ac64d0215e9887b20ed85309880ff78f2755a8ed3d9369c131" => :high_sierra
+    sha256 "81103372f3f554685388e8f2f7547594a630bd99c238f8b37c252ec144eb4fea" => :sierra
+    sha256 "52b22a0c5ffca4cd3f1e472d6a595a429aadb1418c0e3de0dd7be96561da6708" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

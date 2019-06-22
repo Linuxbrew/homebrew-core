@@ -1,15 +1,16 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
-  homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
+  homepage "https://www.swi-prolog.org/"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
   sha256 "abb81b55ac5f2c90997c0005b1f15b74ed046638b64e784840a139fe21d0a735"
-  revision OS.mac? ? 2 : 3 unless OS.mac?
+  revision OS.mac? ? 2 : 3
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
     sha256 "1f939859822bad18d36ab1a65bb51fa9eafad219cb5f3602ff3f5da5fdc57342" => :mojave
     sha256 "648648853bafd06553bdaf3e508f4eac9364ed317f305268eae70b133eb39a98" => :high_sierra
     sha256 "05a806650cd1a311eda4ab03e5ac941da4cf6e090a8e98be3f13ee5fa61c9441" => :sierra
+    sha256 "a6e8762e460647359a5595b8c8723fe7f5260d595354f2185257362f2e955a83" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -30,8 +31,8 @@ class SwiProlog < Formula
                       "-DSWIPL_PACKAGES_JAVA=OFF",
                       "-DSWIPL_PACKAGES_X=OFF",
                       "-DCMAKE_INSTALL_PREFIX=#{libexec}",
-                      "-DCMAKE_C_COMPILER=/usr/bin/clang",
-                      "-DCMAKE_CXX_COMPILER=/usr/bin/clang++"
+                      *("-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?),
+                      *("-DCMAKE_CXX_COMPILER=/usr/bin/clang++" if OS.mac?)
       system "make", "install"
     end
 

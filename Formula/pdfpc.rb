@@ -3,12 +3,13 @@ class Pdfpc < Formula
   homepage "https://pdfpc.github.io/"
   url "https://github.com/pdfpc/pdfpc/archive/v4.3.2.tar.gz"
   sha256 "44b487ea207bac88364e136570d4d4baaec08cfd1388e3477fb52a36b6c57f29"
+  revision 1
   head "https://github.com/pdfpc/pdfpc.git"
 
   bottle do
-    sha256 "265a44f7291d6305f93026167a3ebe49454cc50df1ca9e8ee0b84bbfe6c97614" => :mojave
-    sha256 "2e49ec7fe28511d0624c2163edbe263501c2090562d600d70b201fec4e308347" => :high_sierra
-    sha256 "2c106b929431db40e18755f1c1d7586bbf73916bc88a6b003ce4ed6462051b91" => :sierra
+    sha256 "58d09f41d494caa8b715b89618865fbcf97a0939257ed8d68b78a96cf7adf572" => :mojave
+    sha256 "e3dc005c7499f476836d2567ca40292cc611b77fc430d829845655dc9c35d409" => :high_sierra
+    sha256 "79dc6a0183f42c641554578f94a32bda35ac4658f39b78125d745113cb57b85a" => :sierra
   end
 
   depends_on "cmake" => :build

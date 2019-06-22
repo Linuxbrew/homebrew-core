@@ -6,11 +6,11 @@ class Xmrig < Formula
   head "https://github.com/xmrig/xmrig.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "2a05a2ce6d54579c4bf2d146c4669ef40ed25648fd02ac74c92d585079faed8c" => :mojave
     sha256 "813e654ae09af3044d50f1fdcbea93e13009ccf9f2e1ebb04c512ecbd8fdc377" => :high_sierra
     sha256 "83d020800b9dd01efa05bdea2b36e7658bf6e484da7a29137cb778d849a5c3dd" => :sierra
+    sha256 "de4a3f208b6e6f682862a1b8838b2d1044d0bcd348fffee6e7fdfec6be319dfa" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
