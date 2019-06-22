@@ -1,3 +1,4 @@
+# gpsbabel: Build a bottle for Linuxbrew
 class Gpsbabel < Formula
   desc "Converts/uploads GPS waypoints, tracks, and routes"
   homepage "https://www.gpsbabel.org/"
