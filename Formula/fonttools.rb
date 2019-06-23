@@ -1,3 +1,4 @@
+# fonttools: Build a bottle for Linuxbrew
 class Fonttools < Formula
   include Language::Python::Virtualenv
 
