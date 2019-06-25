@@ -11,7 +11,6 @@ class Postgrest < Formula
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
-    cellar :any
     sha256 "203a53be5ca17df60658df5a9b7b288339cb585ff3af90b67dce84419f4e2809" => :mojave
     sha256 "060cffafd12f00623bda0941f6ddd5f121ee602bcb8db0ee17c37b6b6da06754" => :high_sierra
     sha256 "08f7f10f551a8aae1ab220036b56e74db5516d196bf719dc72dc46690b2c9a62" => :sierra
