@@ -1,3 +1,4 @@
+# go@1.9: Build a bottle for Linuxbrew
 class GoAT19 < Formula
   desc "Go programming environment (1.9)"
   homepage "https://golang.org"
