@@ -1,3 +1,4 @@
+# amqp-cpp: Build a bottle for Linuxbrew
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
