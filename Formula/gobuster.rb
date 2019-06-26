@@ -1,3 +1,4 @@
+# gobuster: Build a bottle for Linuxbrew
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
