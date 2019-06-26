@@ -12,11 +12,9 @@ class ManDb < Formula
   end
 
   depends_on "pkg-config" => :build
-  unless OS.mac?
-    depends_on "groff"
-    depends_on "gdbm"
-    depends_on "zlib"
-  end
+  uses_from_macos "groff"
+  uses_from_macos "gdbm"
+  uses_from_macos "zlib"
 
   resource "libpipeline" do
     url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.1.tar.gz"
