@@ -1,3 +1,4 @@
+# libgit2: Build a bottle for Linuxbrew
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
