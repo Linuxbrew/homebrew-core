@@ -18,8 +18,8 @@ class Mediaconch < Formula
   depends_on "jansson"
   depends_on "libevent"
   depends_on "sqlite"
-  depends_on "libxslt" unless OS.mac?
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "libxslt"
+  uses_from_macos "curl"
 
   def install
     cd "ZenLib/Project/GNU/Library" do

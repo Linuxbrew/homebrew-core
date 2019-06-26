@@ -13,7 +13,7 @@ class Lame < Formula
     sha256 "293b74a7490a120e88ad55b4b663e8596636a98dbd6b7f54f1222f0a3246d9d3" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     # Fix undefined symbol error _lame_init_old

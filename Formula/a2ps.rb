@@ -21,7 +21,7 @@ class A2ps < Formula
     satisfy { HOMEBREW_PREFIX.to_s == desired_prefix }
   end
 
-  depends_on "gperf" unless OS.mac?
+  uses_from_macos "gperf"
 
   # Software was last updated in 2007.
   # https://svn.macports.org/ticket/20867

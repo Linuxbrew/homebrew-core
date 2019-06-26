@@ -16,7 +16,7 @@ class ZshSyntaxHighlighting < Formula
     sha256 "c6c1f6dae42a0900820c22d538c12e6be6b81c0c690c8e73724121fa0ccb2d24" => :x86_64_linux
   end
 
-  depends_on "zsh" unless OS.mac?
+  uses_from_macos "zsh"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

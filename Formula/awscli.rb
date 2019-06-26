@@ -20,7 +20,7 @@ class Awscli < Formula
   # Sierra
   depends_on "python"
 
-  depends_on "libyaml" unless OS.mac?
+  uses_from_macos "libyaml"
 
   def install
     venv = virtualenv_create(libexec, "python3")

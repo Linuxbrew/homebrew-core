@@ -22,7 +22,7 @@ class Irssi < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "openssl"
-  depends_on "perl" unless OS.mac? || build.without?("perl") # for libperl.so
+  uses_from_macos "perl" || build.without?("perl") # for libperl.so
 
   def install
     ENV.delete "HOMEBREW_SDKROOT" if MacOS.version == :high_sierra

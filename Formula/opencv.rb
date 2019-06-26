@@ -27,7 +27,7 @@ class Opencv < Formula
   depends_on "python"
   depends_on "python@2"
   depends_on "tbb"
-  depends_on "openblas" unless OS.mac?
+  uses_from_macos "openblas"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.1.0.tar.gz"

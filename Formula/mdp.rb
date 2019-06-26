@@ -13,7 +13,7 @@ class Mdp < Formula
     sha256 "506939f0a3c49d673c7644b25d734a1f63bb108775ba56cb7dcc2d711cfdeff1" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "make"

@@ -16,7 +16,7 @@ class Mruby < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "ruby" unless OS.mac?
+  uses_from_macos "ruby"
 
   def install
     system "make"

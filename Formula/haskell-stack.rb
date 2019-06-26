@@ -19,7 +19,7 @@ class HaskellStack < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   # Build using a stack config that matches the default Homebrew version of GHC
   resource "stack_lts_12_yaml" do

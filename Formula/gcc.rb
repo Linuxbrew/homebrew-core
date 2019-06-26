@@ -50,7 +50,7 @@ class Gcc < Formula
   depends_on "isl" if OS.mac?
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "isl@0.18" unless OS.mac?
+  uses_from_macos "isl@0.18"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip

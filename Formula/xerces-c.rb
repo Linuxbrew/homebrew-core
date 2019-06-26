@@ -19,7 +19,7 @@ class XercesC < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     ENV.cxx11

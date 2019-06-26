@@ -15,8 +15,8 @@ class Icecast < Formula
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
   depends_on "openssl"
-  depends_on "curl" unless OS.mac?
-  depends_on "libxslt" unless OS.mac?
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
 
   def install
     system "./configure", "--disable-dependency-tracking",

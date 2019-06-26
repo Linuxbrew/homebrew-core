@@ -14,7 +14,7 @@ class Zork < Formula
     sha256 "b4437e9cc54b1c8861dd43342e8726fc5a346d3ce1070aba8d72ec2eaf3deed3" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "make", "DATADIR=#{share}", "BINDIR=#{bin}"

@@ -13,7 +13,7 @@ class Pigz < Formula
     sha256 "447fa9c08dd2a52e68ece9408522cfdc6abd940467394de96b91bce20c2b2538" => :x86_64_linux
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     inreplace "Makefile", "-lm", "-lz -lm" unless OS.mac?

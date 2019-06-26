@@ -20,7 +20,7 @@ class Analog < Formula
   depends_on "gd"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     libs = "-lz"

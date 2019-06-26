@@ -17,7 +17,7 @@ class Hfstospell < Formula
   depends_on "icu4c"
   depends_on "libarchive"
   depends_on "libxml++"
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   # Fix "error: no template named 'auto_ptr' in namespace 'std'"
   # Upstream PR 20 Jun 2018 "C++14 (C++1y) should be the highest supported standard."

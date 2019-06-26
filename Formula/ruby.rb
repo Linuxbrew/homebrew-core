@@ -23,7 +23,7 @@ class Ruby < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on "readline"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this

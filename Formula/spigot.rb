@@ -14,7 +14,7 @@ class Spigot < Formula
     sha256 "fbdf5d1ebb41ea8cc4c346f04368bfb08356609673b41fd82a1f7923a056efcc" => :x86_64_linux
   end
 
-  depends_on "gmp" unless OS.mac?
+  uses_from_macos "gmp"
 
   def install
     system "./configure", "--disable-debug",

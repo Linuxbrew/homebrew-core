@@ -16,7 +16,7 @@ class Nload < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   # crash on F2 and garbage in adapter name, see https://sourceforge.net/p/nload/bugs/8/ reported on 2014-04-03
   patch :p0 do

@@ -14,7 +14,7 @@ class Bison < Formula
 
   keg_only :provided_by_macos, "some formulae require a newer version of bison"
 
-  depends_on "m4" unless OS.mac?
+  uses_from_macos "m4"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -17,7 +17,7 @@ class Ccls < Formula
   depends_on :macos => :high_sierra # C++ 17 is required
 
   # C++17 is required
-  depends_on "gcc@9" unless OS.mac?
+  uses_from_macos "gcc@9"
 
   fails_with :gcc => "4"
   fails_with :gcc => "5"

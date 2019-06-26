@@ -13,7 +13,7 @@ class Libgcrypt < Formula
   end
 
   depends_on "libgpg-error"
-  depends_on "libxslt" unless OS.mac?
+  uses_from_macos "libxslt"
 
   def install
     # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.

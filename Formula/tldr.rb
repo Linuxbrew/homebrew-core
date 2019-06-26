@@ -17,7 +17,7 @@ class Tldr < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libzip"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   conflicts_with "tealdeer", :because => "both install `tldr` binaries"
 

@@ -36,7 +36,7 @@ class Agda < Formula
   depends_on "cabal-install" => [:build, :test]
   depends_on "emacs"
   depends_on "ghc"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     # install Agda core

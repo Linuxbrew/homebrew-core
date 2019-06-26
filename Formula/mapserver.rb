@@ -25,7 +25,7 @@ class Mapserver < Formula
   depends_on "postgresql"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     # Harfbuzz support requires fribidi and fribidi support requires

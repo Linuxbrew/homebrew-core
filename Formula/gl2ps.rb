@@ -16,7 +16,7 @@ class Gl2ps < Formula
 
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "freeglut" unless OS.mac?
+  uses_from_macos "freeglut"
 
   def install
     # Prevent linking against X11's libglut.dylib when it's present

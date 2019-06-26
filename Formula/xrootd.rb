@@ -16,7 +16,7 @@ class Xrootd < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     mkdir "build" do

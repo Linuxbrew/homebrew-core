@@ -13,7 +13,7 @@ class OsmiumTool < Formula
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
   depends_on "boost"
-  depends_on "expat" unless OS.mac?
+  uses_from_macos "expat"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

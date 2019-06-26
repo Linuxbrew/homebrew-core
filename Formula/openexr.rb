@@ -15,7 +15,7 @@ class Openexr < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ilmbase"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   resource "exr" do
     url "https://github.com/openexr/openexr-images/raw/master/TestImages/AllHalfValues.exr"

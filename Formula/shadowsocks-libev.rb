@@ -26,7 +26,7 @@ class ShadowsocksLibev < Formula
   depends_on "libsodium"
   depends_on "mbedtls"
   depends_on "pcre"
-  depends_on "python@2" unless OS.mac?
+  uses_from_macos "python@2"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

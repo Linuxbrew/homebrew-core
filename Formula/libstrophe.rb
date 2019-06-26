@@ -20,7 +20,7 @@ class Libstrophe < Formula
   depends_on "pkg-config" => :build
   depends_on "check"
   depends_on "openssl"
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     system "./bootstrap.sh"

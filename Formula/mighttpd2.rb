@@ -17,7 +17,7 @@ class Mighttpd2 < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     install_cabal_package

@@ -12,7 +12,7 @@ class Xmake < Formula
     sha256 "d5159e8d6979900ac5865b3f4fa707d841af1ae5a5478cf460c4c3ca61c0f8c5" => :sierra
   end
 
-  depends_on "readline" unless OS.mac?
+  uses_from_macos "readline"
 
   def install
     system "./install", "output"

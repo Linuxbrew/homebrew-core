@@ -16,7 +16,7 @@ class Ldns < Formula
 
   depends_on "swig" => :build
   depends_on "openssl"
-  depends_on "python@2" unless OS.mac?
+  uses_from_macos "python@2"
 
   def install
     args = %W[

@@ -23,7 +23,7 @@ class Mysql < Formula
   depends_on "openssl"
 
   # Fix error: Cannot find system editline libraries.
-  depends_on "libedit" unless OS.mac?
+  uses_from_macos "libedit"
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."

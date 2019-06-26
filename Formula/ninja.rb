@@ -15,7 +15,7 @@ class Ninja < Formula
     sha256 "8a6394bada3b77e13ec39d6ad097afdfece17e28e65a6b4e4f7cd06c9f3d4d29" => :x86_64_linux
   end
 
-  depends_on "python@2" unless OS.mac?
+  uses_from_macos "python@2"
 
   def install
     system "python", "configure.py", "--bootstrap"

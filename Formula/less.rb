@@ -15,7 +15,7 @@ class Less < Formula
   end
 
   depends_on "pcre"
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"

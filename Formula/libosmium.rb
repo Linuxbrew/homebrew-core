@@ -15,7 +15,7 @@ class Libosmium < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "expat" unless OS.mac?
+  uses_from_macos "expat"
 
   resource "protozero" do
     url "https://github.com/mapbox/protozero/archive/v1.6.3.tar.gz"

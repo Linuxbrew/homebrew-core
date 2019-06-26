@@ -15,7 +15,7 @@ class Ipbt < Formula
     sha256 "afa03a7eb3907602141e1ac129aadaaf620ae0cf530ae90c56cb7821974e5be8" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",

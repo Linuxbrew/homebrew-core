@@ -19,7 +19,7 @@ class Ttyd < Formula
   depends_on "json-c"
   depends_on "libwebsockets"
   depends_on "openssl"
-  depends_on "vim" unless OS.mac? # needed for xxd
+  uses_from_macos "vim" # needed for xxd
 
   def install
     cmake_args = std_cmake_args + ["-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"]

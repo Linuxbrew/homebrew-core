@@ -16,7 +16,7 @@ class Binutils < Formula
              "because Apple provides the same tools and binutils is poorly supported on macOS"
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-debug",

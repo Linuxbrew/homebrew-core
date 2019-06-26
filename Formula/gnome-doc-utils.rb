@@ -20,7 +20,7 @@ class GnomeDocUtils < Formula
   depends_on "gettext"
   depends_on "libxml2"
   depends_on "python@2"
-  depends_on "libxslt" unless OS.mac?
+  uses_from_macos "libxslt"
 
   def install
     # Needed by intltool (xml::parser)

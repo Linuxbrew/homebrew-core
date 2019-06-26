@@ -18,7 +18,7 @@ class Links < Formula
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "openssl"
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  uses_from_macos "linuxbrew/xorg/xorg"
 
   def install
     args = %W[

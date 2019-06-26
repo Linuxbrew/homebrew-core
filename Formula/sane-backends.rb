@@ -22,7 +22,7 @@ class SaneBackends < Formula
   depends_on "net-snmp"
   depends_on "openssl"
   depends_on "pkg-config" => :build
-  depends_on "libpng" unless OS.mac?
+  uses_from_macos "libpng"
 
   def install
     system "./configure", "--disable-dependency-tracking",

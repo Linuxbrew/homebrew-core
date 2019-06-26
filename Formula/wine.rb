@@ -26,7 +26,7 @@ class Wine < Formula
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan if OS.mac?
   # libusb depends on libudev
-  depends_on "systemd" unless OS.mac?
+  uses_from_macos "systemd"
 
   resource "mono" do
     url "https://dl.winehq.org/wine/wine-mono/4.7.5/wine-mono-4.7.5.msi"

@@ -21,7 +21,7 @@ class Readline < Formula
     defaulting this GNU Readline installation to keg-only
   EOS
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",

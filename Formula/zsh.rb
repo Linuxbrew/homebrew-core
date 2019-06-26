@@ -19,7 +19,7 @@ class Zsh < Formula
 
   depends_on "ncurses"
   depends_on "pcre"
-  depends_on "texinfo" unless OS.mac?
+  uses_from_macos "texinfo"
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7.1/zsh-5.7.1-doc.tar.xz"

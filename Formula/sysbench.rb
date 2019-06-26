@@ -19,7 +19,7 @@ class Sysbench < Formula
   depends_on "pkg-config" => :build
   depends_on "mysql-client"
   depends_on "openssl"
-  depends_on "vim" unless OS.mac? # needed for xxd
+  uses_from_macos "vim" # needed for xxd
 
   def install
     system "./autogen.sh"

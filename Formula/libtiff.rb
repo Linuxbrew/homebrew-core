@@ -15,7 +15,7 @@ class Libtiff < Formula
   end
 
   depends_on "jpeg"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   # Patches are taken from latest Fedora package, which is currently
   # libtiff-4.0.10-2.fc30.src.rpm and whose changelog is available at

@@ -20,7 +20,7 @@ class Plotutils < Formula
   end
 
   depends_on "libpng"
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  uses_from_macos "linuxbrew/xorg/xorg"
 
   def install
     # Fix usage of libpng to be 1.5 compatible

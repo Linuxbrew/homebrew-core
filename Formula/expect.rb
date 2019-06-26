@@ -19,7 +19,7 @@ class Expect < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "tcl-tk" unless OS.mac?
+  uses_from_macos "tcl-tk"
 
   def install
     args = %W[

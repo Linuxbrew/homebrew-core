@@ -21,7 +21,7 @@ class TelegramCli < Formula
   depends_on "libevent"
   depends_on "openssl"
   depends_on "readline"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   # Pull Request: https://github.com/vysheng/tg/pull/1306

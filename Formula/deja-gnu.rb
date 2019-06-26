@@ -18,7 +18,7 @@ class DejaGnu < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "expect" unless OS.mac?
+  uses_from_macos "expect"
 
   def install
     ENV.deparallelize # Or fails on Mac Pro

@@ -13,7 +13,7 @@ class Sickle < Formula
     sha256 "844f7c565e7d2cce34318080b0fd4eeb25bcead46fb7ed5c673b54aebdc368c5" => :x86_64_linux
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     system "make"

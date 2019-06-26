@@ -51,7 +51,7 @@ class Upx < Formula
   end
 
   depends_on "ucl"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     (buildpath/"src/lzma-sdk").install resource("lzma-sdk") if build.stable?

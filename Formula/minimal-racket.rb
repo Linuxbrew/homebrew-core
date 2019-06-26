@@ -12,7 +12,7 @@ class MinimalRacket < Formula
     sha256 "64d0e61fff733d5ec69d0fb48aca0366cce9aab20975e3063ebf99779785c065" => :x86_64_linux
   end
 
-  depends_on "libffi" unless OS.mac?
+  uses_from_macos "libffi"
 
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"

@@ -12,7 +12,7 @@ class Scons < Formula
     sha256 "3816ec9020f451ebd64c81b186cafaaef60258a8363837f9e01b8018a46c531a" => :x86_64_linux
   end
 
-  depends_on "python@2" unless OS.mac?
+  uses_from_macos "python@2"
 
   def install
     unless OS.mac?

@@ -16,7 +16,7 @@ class Mosquitto < Formula
   depends_on "pkg-config" => :build
   depends_on "libwebsockets"
   depends_on "openssl"
-  depends_on "util-linux" unless OS.mac? # for libuuid
+  uses_from_macos "util-linux" # for libuuid
 
   def install
     system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON"

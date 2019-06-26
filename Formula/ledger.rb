@@ -20,7 +20,7 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "python@2"
-  depends_on "groff" unless OS.mac?
+  uses_from_macos "groff"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

@@ -18,7 +18,7 @@ class Libcroco < Formula
   depends_on "glib"
 
   # Fix error: No package 'libxml-2.0' found
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",

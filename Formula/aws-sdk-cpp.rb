@@ -19,7 +19,7 @@ class AwsSdkCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
   depends_on CIRequirement
 
   def install

@@ -15,7 +15,7 @@ class Xmlstarlet < Formula
     sha256 "88b419a7af11d19f44e0450b8f50ae1c56a75d4b04124ad612e2ea15db557f3f" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "libxslt" unless OS.mac?
+  uses_from_macos "libxslt"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -34,7 +34,7 @@ class Vips < Formula
   depends_on "pango"
   depends_on "poppler"
   depends_on "webp"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     args = %W[

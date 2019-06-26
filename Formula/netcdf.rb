@@ -17,7 +17,7 @@ class Netcdf < Formula
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "hdf5"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"

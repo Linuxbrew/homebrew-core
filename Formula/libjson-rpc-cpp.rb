@@ -19,7 +19,7 @@ class LibjsonRpcCpp < Formula
   depends_on "hiredis"
   depends_on "jsoncpp"
   depends_on "libmicrohttpd"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     system "cmake", ".", *std_cmake_args

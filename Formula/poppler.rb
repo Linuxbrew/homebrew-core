@@ -27,7 +27,7 @@ class Poppler < Formula
   depends_on "nss"
   depends_on "openjpeg"
   depends_on "qt"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"

@@ -21,7 +21,7 @@ class Aide < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "pcre"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
   depends_on "bison" => :build unless OS.mac?
   depends_on "flex" => :build unless OS.mac?
 

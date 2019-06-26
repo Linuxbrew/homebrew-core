@@ -16,7 +16,7 @@ class Ftgl < Formula
   end
 
   depends_on "freetype"
-  depends_on "linuxbrew/xorg/glu" unless OS.mac?
+  uses_from_macos "linuxbrew/xorg/glu"
 
   def install
     # If doxygen is installed, the docs may still fail to build.

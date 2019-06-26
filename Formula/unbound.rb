@@ -14,7 +14,7 @@ class Unbound < Formula
 
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "expat" unless OS.mac?
+  uses_from_macos "expat"
 
   def install
     args = %W[

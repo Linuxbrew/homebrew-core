@@ -13,7 +13,7 @@ class Liboping < Formula
     sha256 "c85669755c8afdc54ec31e0ba30e49589c84cd0ed2ad2b0988e97135d5381fc1" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--disable-debug",

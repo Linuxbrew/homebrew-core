@@ -26,7 +26,7 @@ class Libbluray < Formula
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     if OS.mac?

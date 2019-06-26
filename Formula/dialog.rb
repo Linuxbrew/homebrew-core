@@ -13,7 +13,7 @@ class Dialog < Formula
     sha256 "99d0de68d49761bdf135cf073c8874f853681166b33548e20a292003fdbf3b48" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}"

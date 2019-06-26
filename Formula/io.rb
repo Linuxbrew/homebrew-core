@@ -18,7 +18,7 @@ class Io < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     ENV.deparallelize

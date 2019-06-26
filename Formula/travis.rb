@@ -14,7 +14,7 @@ class Travis < Formula
   end
 
   depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
-  depends_on "libffi" unless OS.mac?
+  uses_from_macos "libffi"
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.4.0.gem"

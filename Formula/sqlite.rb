@@ -18,7 +18,7 @@ class Sqlite < Formula
   keg_only :provided_by_macos, "macOS provides an older sqlite3"
 
   depends_on "readline"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"

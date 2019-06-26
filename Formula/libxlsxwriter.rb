@@ -12,7 +12,7 @@ class Libxlsxwriter < Formula
     sha256 "212ed6216f90977a3cd0bb173a51f6061263db2a3391a3c3fcf0d09df80ed176" => :sierra
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     system "make", "install", "INSTALL_DIR=#{prefix}", "V=1"

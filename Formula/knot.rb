@@ -27,7 +27,7 @@ class Knot < Formula
   depends_on :macos => :yosemite if OS.mac? # due to AT_REMOVEDIR
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
-  depends_on "libedit" unless OS.mac?
+  uses_from_macos "libedit"
 
   def install
     system "autoreconf", "-fvi" if build.head?

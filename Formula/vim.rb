@@ -18,7 +18,7 @@ class Vim < Formula
   depends_on "perl"
   depends_on "python"
   depends_on "ruby"
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"

@@ -18,7 +18,7 @@ class MysqlClient < Formula
   depends_on "cmake" => :build
 
   depends_on "openssl"
-  depends_on "libedit" unless OS.mac?
+  uses_from_macos "libedit"
 
   def install
     # https://bugs.mysql.com/bug.php?id=87348

@@ -17,7 +17,7 @@ class Stella < Formula
   depends_on :xcode => :build if OS.mac?
   depends_on "sdl2"
   depends_on "libpng"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
   # Stella is using c++14
   fails_with :gcc => "4.8" unless OS.mac?
 

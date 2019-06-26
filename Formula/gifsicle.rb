@@ -20,7 +20,7 @@ class Gifsicle < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  uses_from_macos "linuxbrew/xorg/xorg"
 
   conflicts_with "giflossy",
     :because => "both install an `gifsicle` binary"

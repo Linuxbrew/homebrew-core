@@ -22,7 +22,7 @@ class Pianobar < Formula
   depends_on "libao"
   depends_on "libgcrypt"
   depends_on "mad"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     # Discard Homebrew's CFLAGS as Pianobar reportedly doesn't like them

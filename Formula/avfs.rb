@@ -17,7 +17,7 @@ class Avfs < Formula
   depends_on "openssl"
   depends_on :osxfuse if OS.mac?
   depends_on "xz"
-  depends_on "libfuse" unless OS.mac?
+  uses_from_macos "libfuse"
 
   # Fix scripts to work on Mac OS X.
   # Nothing the patch fixes has been changed in 1.0.2, so still necessary.

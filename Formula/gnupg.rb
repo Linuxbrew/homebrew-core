@@ -24,7 +24,7 @@ class Gnupg < Formula
   depends_on "libusb"
   depends_on "npth"
   depends_on "pinentry"
-  depends_on "libidn" unless OS.mac?
+  uses_from_macos "libidn"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -16,7 +16,7 @@ class Libgpm < Formula
   depends_on "libtool" => :build
   depends_on "bison" => :build
   depends_on "texinfo" => :build
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   patch :DATA
   patch do

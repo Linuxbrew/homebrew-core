@@ -24,8 +24,8 @@ class Pcre < Formula
 
   option "without-check", "Skip build-time tests (not recommended)"
 
-  depends_on "bzip2" unless OS.mac?
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     args = %W[

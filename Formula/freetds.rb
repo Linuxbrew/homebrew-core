@@ -24,7 +24,7 @@ class Freetds < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "unixodbc"
-  depends_on "readline" unless OS.mac?
+  uses_from_macos "readline"
 
   def install
     args = %W[

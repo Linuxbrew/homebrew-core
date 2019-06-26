@@ -13,7 +13,7 @@ class Cscope < Formula
     sha256 "f2b2a031558cffb1e8fc759945cbefd3ac9702400fedeabef65dbec8e970ab11" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",

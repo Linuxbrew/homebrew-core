@@ -19,7 +19,7 @@ class Ncdu < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "autoreconf", "-i" if build.head?

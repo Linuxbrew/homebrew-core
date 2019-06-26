@@ -13,7 +13,7 @@ class Check < Formula
     sha256 "d34a6b9db7235c4e9233626201c99da1f2bd5c30aca4389a3ab1b813b81e936a" => :x86_64_linux
   end
 
-  depends_on "gawk" unless OS.mac?
+  uses_from_macos "gawk"
 
   def install
     system "./configure", "--disable-dependency-tracking",

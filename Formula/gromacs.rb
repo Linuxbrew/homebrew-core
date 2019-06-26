@@ -15,7 +15,7 @@ class Gromacs < Formula
   depends_on "fftw"
   depends_on "gsl"
   depends_on "gcc" # for OpenMP
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+  uses_from_macos "linuxbrew/xorg/xorg"
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR

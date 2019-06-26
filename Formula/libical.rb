@@ -16,7 +16,7 @@ class Libical < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "icu4c"
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",

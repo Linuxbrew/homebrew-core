@@ -27,7 +27,7 @@ class Libass < Formula
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "harfbuzz"
-  depends_on "fontconfig" unless OS.mac?
+  uses_from_macos "fontconfig"
 
   def install
     system "autoreconf", "-i" if build.head?

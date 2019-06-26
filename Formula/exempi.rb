@@ -14,7 +14,7 @@ class Exempi < Formula
   end
 
   depends_on "boost"
-  depends_on "expat" unless OS.mac?
+  uses_from_macos "expat"
 
   def install
     system "./configure", "--disable-dependency-tracking",

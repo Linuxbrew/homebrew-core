@@ -13,7 +13,7 @@ class MariadbConnectorC < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   conflicts_with "mysql", "mariadb", "percona-server",
                  :because => "both install plugins"

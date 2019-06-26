@@ -14,7 +14,7 @@ class Docbook < Formula
     sha256 "8898bf1783b50d7da4d63b966b82e0a51be1d16829be045287ba95fbdbb4da4b" => :x86_64_linux
   end
 
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   resource "xml412" do
     url "https://docbook.org/xml/4.1.2/docbkx412.zip"

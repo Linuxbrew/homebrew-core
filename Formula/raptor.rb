@@ -15,7 +15,7 @@ class Raptor < Formula
     sha256 "a04c8786feb2bc0715a9e3b1f1f306311840c1cae53a4251eb0dae25da22065e" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-debug",

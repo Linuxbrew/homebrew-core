@@ -17,7 +17,7 @@ class Dcmtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openssl"
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     mkdir "build" do

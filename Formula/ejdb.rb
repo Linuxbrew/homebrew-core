@@ -16,7 +16,7 @@ class Ejdb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "bzip2" unless OS.mac?
+  uses_from_macos "bzip2"
 
   def install
     mkdir "build" do

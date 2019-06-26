@@ -16,7 +16,7 @@ class Autogen < Formula
   depends_on "coreutils" => :build
   depends_on "pkg-config" => :build
   depends_on "guile"
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "libxml2"
 
   def install
     # Uses GNU-specific mktemp syntax: https://sourceforge.net/p/autogen/bugs/189/

@@ -13,7 +13,7 @@ class Bwa < Formula
     sha256 "543858a704eb3d584f464d78d092e92f015b36cb289e2e0949cba3494feccfcc" => :x86_64_linux
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     system "make"

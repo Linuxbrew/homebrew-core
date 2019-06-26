@@ -15,7 +15,7 @@ class Fossil < Formula
   end
 
   depends_on "openssl"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     args = [

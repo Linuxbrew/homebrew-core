@@ -19,7 +19,7 @@ class GlibNetworking < Formula
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
-  depends_on "libidn" unless OS.mac?
+  uses_from_macos "libidn"
 
   link_overwrite "lib/gio/modules"
 

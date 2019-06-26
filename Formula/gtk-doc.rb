@@ -22,7 +22,7 @@ class GtkDoc < Formula
   depends_on "libxml2"
   depends_on "python"
   depends_on "source-highlight"
-  depends_on "libxslt" unless OS.mac?
+  uses_from_macos "libxslt"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/1d/55/55cd82a72af652d71eb14f318e2d12d2fd14ded43d6fd105e50ed395198c/Pygments-2.4.0.tar.gz"

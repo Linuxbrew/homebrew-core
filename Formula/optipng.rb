@@ -14,7 +14,7 @@ class Optipng < Formula
     sha256 "583e39421ee8cba284602103d524f6d9c6abc46d5319415b54f4919b1819017f" => :x86_64_linux
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--with-system-zlib",

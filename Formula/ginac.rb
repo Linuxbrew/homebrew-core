@@ -16,7 +16,7 @@ class Ginac < Formula
   depends_on "pkg-config" => :build
   depends_on "cln"
   depends_on "readline"
-  depends_on "python@2" unless OS.mac?
+  uses_from_macos "python@2"
 
   def install
     # Reduce memory usage for CircleCI.

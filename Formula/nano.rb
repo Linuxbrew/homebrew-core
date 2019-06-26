@@ -14,7 +14,7 @@ class Nano < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "ncurses"
-  depends_on "libmagic" unless OS.mac?
+  uses_from_macos "libmagic"
 
   def install
     system "./configure", "--disable-debug",

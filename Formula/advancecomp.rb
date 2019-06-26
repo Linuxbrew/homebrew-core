@@ -17,8 +17,8 @@ class Advancecomp < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on "bzip2" unless OS.mac?
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "autoreconf", "-fiv"

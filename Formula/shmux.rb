@@ -13,7 +13,7 @@ class Shmux < Formula
     sha256 "b9f5655875e42cc02cdc82f49a3aa29d2b9b3af7f5eff7f8c9dd8ffbe14262ed" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}"

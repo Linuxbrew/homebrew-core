@@ -17,7 +17,7 @@ class Unzip < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "bzip2" unless OS.mac?
+  uses_from_macos "bzip2"
 
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/unzip

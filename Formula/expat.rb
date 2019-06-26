@@ -22,7 +22,7 @@ class Expat < Formula
   keg_only :provided_by_macos
 
   # On Ubuntu 14, fix the error: You do not have support for any sources of high quality entropy
-  depends_on "libbsd" unless OS.mac?
+  uses_from_macos "libbsd"
 
   def install
     cd "expat" if build.head?

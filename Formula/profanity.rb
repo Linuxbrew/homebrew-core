@@ -31,7 +31,7 @@ class Profanity < Formula
   depends_on "openssl"
   depends_on "readline"
   depends_on "terminal-notifier" if OS.mac?
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     system "./bootstrap.sh" if build.head?

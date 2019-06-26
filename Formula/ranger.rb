@@ -7,7 +7,7 @@ class Ranger < Formula
 
   bottle :unneeded
 
-  depends_on "python" unless OS.mac?
+  uses_from_macos "python"
 
   def install
     man1.install "doc/ranger.1"

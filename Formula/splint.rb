@@ -15,7 +15,7 @@ class Splint < Formula
     sha256 "cd1436875ca596ff9100db6dd03022815b1a534c13b457a5b695efef58a5a5cc" => :x86_64_linux
   end
 
-  depends_on "flex" unless OS.mac?
+  uses_from_macos "flex"
 
   # fix compiling error of osd.c
   patch :DATA

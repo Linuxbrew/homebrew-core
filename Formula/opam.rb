@@ -15,7 +15,7 @@ class Opam < Formula
   end
 
   depends_on "ocaml" => [:build, :test]
-  depends_on "unzip" unless OS.mac?
+  uses_from_macos "unzip"
 
   def install
     ENV.deparallelize

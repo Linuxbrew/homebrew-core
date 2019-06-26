@@ -15,7 +15,7 @@ class Ghi < Formula
     sha256 "9a6ddc8d9c63ba0fe0d6417dae8cbf6b7f53fec7ded853799dcfa6579c1d8961" => :x86_64_linux
   end
 
-  depends_on "ruby" unless OS.mac?
+  uses_from_macos "ruby"
 
   resource "multi_json" do
     url "https://rubygems.org/gems/multi_json-1.12.1.gem"

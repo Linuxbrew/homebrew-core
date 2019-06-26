@@ -30,9 +30,9 @@ class Imagemagick < Formula
   depends_on "webp"
   depends_on "xz"
 
-  depends_on "bzip2" unless OS.mac?
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
-  depends_on "libxml2" unless OS.mac?
+  uses_from_macos "bzip2"
+  uses_from_macos "linuxbrew/xorg/xorg"
+  uses_from_macos "libxml2"
 
   skip_clean :la
 

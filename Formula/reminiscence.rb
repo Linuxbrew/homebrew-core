@@ -21,7 +21,7 @@ class Reminiscence < Formula
   depends_on "libmodplug"
   depends_on "libogg"
   depends_on "sdl2"
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   resource "tremor" do
     url "https://git.xiph.org/tremor.git",

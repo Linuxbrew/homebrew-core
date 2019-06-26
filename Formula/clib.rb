@@ -15,7 +15,7 @@ class Clib < Formula
     sha256 "d44eea7bb3437fea93982839cb3f898b808b8307c9248bd51feb2a7649facc85" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     ENV["PREFIX"] = prefix

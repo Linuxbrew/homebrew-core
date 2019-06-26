@@ -15,7 +15,7 @@ class DuoUnix < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "linuxbrew/extra/linux-pam" unless OS.mac?
+  uses_from_macos "linuxbrew/extra/linux-pam"
 
   def install
     system "./bootstrap"

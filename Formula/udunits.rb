@@ -13,7 +13,7 @@ class Udunits < Formula
     sha256 "7fabdc9fadd7cc82f75de69b1e31fb14b5d999d64394bce419b1f4a6341f8d63" => :x86_64_linux
   end
 
-  depends_on "expat" unless OS.mac?
+  uses_from_macos "expat"
 
   def install
     system "./configure", "--disable-debug",

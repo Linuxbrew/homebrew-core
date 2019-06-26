@@ -16,7 +16,7 @@ class Exa < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "libgit2" unless OS.mac?
+  uses_from_macos "libgit2"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

@@ -13,7 +13,7 @@ class AwsElasticbeanstalk < Formula
     sha256 "c51ecef2685f2fc9c50b1fa6b3e77fbaf54d81b126b416a9c68009797862fa96" => :x86_64_linux
   end
 
-  depends_on "python@2" unless OS.mac?
+  uses_from_macos "python@2"
 
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"

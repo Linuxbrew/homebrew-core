@@ -15,7 +15,7 @@ class Libtecla < Formula
     sha256 "d51094034ca406b255ddd2a44c9eeb078ace5502b5bb9b9421e8260a0beb1e10" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     ENV.deparallelize

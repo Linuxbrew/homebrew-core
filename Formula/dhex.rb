@@ -13,7 +13,7 @@ class Dhex < Formula
     sha256 "e9acf5875c20249ac61ecf9884713525aab0ae56d86f42155713f4151b1e72ff" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     inreplace "Makefile", "$(DESTDIR)/man", "$(DESTDIR)/share/man"

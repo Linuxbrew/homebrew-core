@@ -25,7 +25,7 @@ class Jack < Formula
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  depends_on "util-linux" unless OS.mac? # for libuuid
+  uses_from_macos "util-linux" # for libuuid
 
   def install
     if OS.mac?

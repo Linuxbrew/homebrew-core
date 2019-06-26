@@ -26,7 +26,7 @@ class Mongrel2 < Formula
   end
 
   depends_on "zeromq"
-  depends_on "sqlite" unless OS.mac?
+  uses_from_macos "sqlite"
 
   def install
     # Build in serial. See:

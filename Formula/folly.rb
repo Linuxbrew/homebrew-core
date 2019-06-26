@@ -28,7 +28,7 @@ class Folly < Formula
   depends_on "xz"
   depends_on "zstd"
 
-  depends_on "python" unless OS.mac?
+  uses_from_macos "python"
 
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445

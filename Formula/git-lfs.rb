@@ -14,7 +14,7 @@ class GitLfs < Formula
   end
 
   depends_on "go" => :build
-  depends_on "ruby" unless OS.mac?
+  uses_from_macos "ruby"
 
   # System Ruby uses old TLS versions no longer supported by RubyGems.
   depends_on "ruby" => :build if MacOS.version <= :sierra

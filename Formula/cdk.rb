@@ -14,7 +14,7 @@ class Cdk < Formula
     sha256 "ef6bbf2aa9ef13b15b14f3a8038ba769aef6ca45582800b970a6a01d89f1c4c2" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-ncurses"

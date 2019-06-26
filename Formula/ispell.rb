@@ -15,7 +15,7 @@ class Ispell < Formula
     sha256 "c8bbcdc12d3e90e63949f6f284d8e8ebc2c723ed53251fe4619d600896345bfb" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     ENV.deparallelize

@@ -25,7 +25,7 @@ class Konoha < Formula
   depends_on "pcre"
   depends_on "python"
   depends_on "sqlite"
-  depends_on "curl" unless OS.mac?
+  uses_from_macos "curl"
 
   def install
     mkdir "build" do

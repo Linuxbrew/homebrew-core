@@ -14,7 +14,7 @@ class Moe < Formula
     sha256 "a0ce31f8dfb6c90856d76f0a8fd6e12e2f24762207cf3ee35fc926a94fa99fbe" => :x86_64_linux
   end
 
-  depends_on "ncurses" unless OS.mac?
+  uses_from_macos "ncurses"
 
   def install
     # Fix compilation bug with Xcode 9
