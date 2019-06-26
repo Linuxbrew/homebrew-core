@@ -1,3 +1,4 @@
+# libre: Build a bottle for Linuxbrew
 class Libre < Formula
   desc "Toolkit library for asynchronous network I/O with protocol stacks"
   homepage "http://www.creytiv.com"
