@@ -34,6 +34,7 @@ class ManDb < Formula
         "--disable-shared"
       system "make"
       system "make", "install"
+      ENV.remove_from_cflags "-fPIC" unless OS.mac?
     end
 
     ENV["libpipeline_CFLAGS"] = "-I#{buildpath}/libpipeline/include"
@@ -59,9 +60,9 @@ class ManDb < Formula
 
     # NB: Remove once man-db 2.8.6 is released
     # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=056e8c7c012b00261133259d6438ff8303a8c36c
-    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress"
+    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress" if OS.mac?
 
-    system "make", *("CFLAGS=#{ENV.cflags}" if OS.mac?)
+    system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"
 
     # Symlink commands without 'g' prefix into libexec/bin and
