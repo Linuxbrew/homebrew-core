@@ -1,3 +1,4 @@
+# luarocks: Build a bottle for Linuxbrew
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
