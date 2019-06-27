@@ -1,8 +1,8 @@
 class Libbsd < Formula
   desc "Utility functions from BSD systems"
   homepage "https://libbsd.freedesktop.org/"
-  url "https://libbsd.freedesktop.org/releases/libbsd-0.8.3.tar.xz"
-  sha256 "934b634f4dfd865b6482650b8f522c70ae65c463529de8be907b53c89c3a34a8"
+  url "https://libbsd.freedesktop.org/releases/libbsd-0.9.1.tar.xz"
+  sha256 "56d835742327d69faccd16955a60b6dcf30684a8da518c4eca0ac713b9e0a7a4"
   # tag "linuxbrew"
 
   bottle do
