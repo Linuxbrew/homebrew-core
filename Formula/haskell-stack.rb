@@ -1,3 +1,4 @@
+# haskell-stack: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class HaskellStack < Formula
