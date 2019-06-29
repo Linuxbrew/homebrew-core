@@ -1,3 +1,4 @@
+# dehydrated: Build a bottle for Linuxbrew
 class Dehydrated < Formula
   desc "LetsEncrypt/acme client implemented as a shell-script"
   homepage "https://dehydrated.io"
