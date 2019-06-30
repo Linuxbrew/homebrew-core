@@ -1,3 +1,4 @@
+# zimg: Build a bottle for Linuxbrew
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
