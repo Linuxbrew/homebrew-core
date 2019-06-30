@@ -5,19 +5,25 @@ class Erlang < Formula
   url "https://github.com/erlang/otp/archive/OTP-22.0.4.tar.gz"
   sha256 "71b2fe49ed5ac386ebc189dd2e5f4b95b11b4427936be0e3c5695a903ea9ffcd"
   head "https://github.com/erlang/otp.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "695794f1a88303bcea1a0ac6f775a1fbbdea5eabfe88dc31f791d975da023c1f" => :mojave
     sha256 "aee965ebbbca68b9443ce0569693019efdc19c97aa03e9b139b44d25c8bac732" => :high_sierra
     sha256 "91341a585154496f6c2991b4453447eb3da230f1034a9d0ec872104993ac58cd" => :sierra
-    sha256 "1bd79fcdbc20f185cf0955ea3925dfa00edc90ca1f605fa3e58a346a96451a4e" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  if OS.mac?
+    depends_on "openssl@1.1"
+  else
+    # Since Homebrew/homebrew-core#41037, erlang uses openssl@1.1.
+    # We can not have a mix of openssl and openssl@1.1 in the dependency tree on Linux.
+    depends_on "openssl"
+  end
   depends_on "wxmac" # for GUI apps like observer
 
   depends_on "m4" => :build unless OS.mac?
@@ -53,7 +59,7 @@ class Erlang < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{OS.mac? ? Formula["openssl@1.1"].opt_prefix : Formula["openssl"].opt_prefix}
       --without-javac
     ]
 
