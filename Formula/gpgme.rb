@@ -17,6 +17,7 @@ class Gpgme < Formula
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
+  uses_from_macos "python@2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
