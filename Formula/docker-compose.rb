@@ -17,8 +17,11 @@ class DockerCompose < Formula
 
   depends_on "libyaml"
   depends_on "python"
+  uses_from_macos "libffi"
 
   def install
+    ENV.prepend "CPPFLAGS", "-I#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include" unless OS.mac?
+
     system "./script/build/write-git-sha" if build.head?
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
