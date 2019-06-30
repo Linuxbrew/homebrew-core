@@ -1,3 +1,4 @@
+# irssi: Build a bottle for Linuxbrew
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
