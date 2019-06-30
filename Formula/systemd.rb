@@ -1,9 +1,8 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd/archive/v234.tar.gz"
-  sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
-  revision 3
+  url "https://github.com/systemd/systemd/archive/v242.tar.gz"
+  sha256 "ec22be9a5dd94c9640e6348ed8391d1499af8ca2c2f01109198a414cff6c6cba"
   head "https://github.com/systemd/systemd.git"
   # tag "linuxbrew"
 
@@ -18,6 +17,7 @@ class Systemd < Formula
   depends_on "gettext" => :build
   depends_on "gperf" => :build
   depends_on "intltool" => :build
+  depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
   depends_on "libxslt" => :build # for xsltproc
   depends_on "m4" => :build
@@ -25,7 +25,8 @@ class Systemd < Formula
   depends_on "expat"
   depends_on "libcap"
   depends_on "util-linux" # for libmount
-  depends_on "libgpg-error" => :build
+
+  fails_with :gcc => "4.8"
 
   patch do
     url "https://github.com/systemd/systemd/commit/227b8a762fea1458547be2cdf0e6e4aac0079730.diff?full_index=1"
@@ -33,7 +34,6 @@ class Systemd < Formula
   end
 
   # src/core/dbus.c:1022:5: internal compiler error: Segmentation fault
-  fails_with :gcc => "4.8"
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
