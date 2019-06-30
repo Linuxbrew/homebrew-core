@@ -1,3 +1,4 @@
+# openh264: Build a bottle for Linuxbrew
 class Openh264 < Formula
   desc "H.264 codec from Cisco"
   homepage "https://www.openh264.org/"
