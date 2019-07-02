@@ -1,3 +1,4 @@
+# unzip: Build a bottle for Linuxbrew
 class Unzip < Formula
   desc "Extraction utility for .zip compressed archives"
   homepage "https://infozip.sourceforge.io/UnZip.html"
