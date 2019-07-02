@@ -1,3 +1,4 @@
+# userspace-rcu: Build a bottle for Linuxbrew
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://liburcu.org"
