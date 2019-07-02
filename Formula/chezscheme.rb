@@ -11,7 +11,7 @@ class Chezscheme < Formula
     sha256 "e26d93d7b1c4bfefa3238809c81cfe6b30a3d0fd57e716bb712a1258cb05d5f9" => :sierra
   end
 
-  depends_on :x11 => :build
+  depends_on :x11 => :build if OS.mac?
   uses_from_macos "ncurses"
 
   def install
