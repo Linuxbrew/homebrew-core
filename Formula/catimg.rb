@@ -1,3 +1,4 @@
+# catimg: Build a bottle for Linuxbrew
 class Catimg < Formula
   desc "Insanely fast image printing in your terminal"
   homepage "https://github.com/posva/catimg"
