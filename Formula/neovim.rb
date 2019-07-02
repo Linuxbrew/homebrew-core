@@ -16,6 +16,20 @@ class Neovim < Formula
     sha256 "0874c9a239cc6d8964e44dcba2eac512bb7932b680eaf9a74e4370f8581f0083" => :sierra
   end
 
+  head do
+    url "https://github.com/neovim/neovim.git"
+
+    resource "lua-compat-5.3" do
+      url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.7.tar.gz"
+      sha256 "bec3a23114a3d9b3218038309657f0f506ad10dfbc03bb54e91da7e5ffdba0a2"
+    end
+
+    resource "luv" do
+      url "https://github.com/luvit/luv/releases/download/1.30.0-0/luv-1.30.0-0.tar.gz"
+      sha256 "5cc75a012bfa9a5a1543d0167952676474f31c2d7fd8d450b56d8929dbebb5ef"
+    end
+  end
+
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
