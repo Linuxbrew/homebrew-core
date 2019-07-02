@@ -1,3 +1,4 @@
+# gammu: Build a bottle for Linuxbrew
 class Gammu < Formula
   desc "Command-line utility to control a phone"
   homepage "https://wammu.eu/gammu/"
