@@ -1,3 +1,4 @@
+# cppcheck: Build a bottle for Linuxbrew
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
