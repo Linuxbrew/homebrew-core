@@ -1,3 +1,4 @@
+# grpc: Build a bottle for Linuxbrew
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
