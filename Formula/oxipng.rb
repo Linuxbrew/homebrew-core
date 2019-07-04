@@ -1,3 +1,4 @@
+# oxipng: Build a bottle for Linuxbrew
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/shssoichiro/oxipng"
