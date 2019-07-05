@@ -1,3 +1,4 @@
+# libyubikey: Build a bottle for Linuxbrew
 class Libyubikey < Formula
   desc "C library for manipulating Yubico one-time passwords"
   homepage "https://yubico.github.io/yubico-c/"
