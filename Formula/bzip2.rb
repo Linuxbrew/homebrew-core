@@ -22,9 +22,9 @@ class Bzip2 < Formula
       # Install the shared library.
       system "make", "-f", "Makefile-libbz2_so", "clean"
       system "make", "-f", "Makefile-libbz2_so"
-      lib.install "libbz2.so.1.0.6", "libbz2.so.1.0"
-      lib.install_symlink "libbz2.so.1.0.6" => "libbz2.so.1"
-      lib.install_symlink "libbz2.so.1.0.6" => "libbz2.so"
+      lib.install "libbz2.so.1.0.7", "libbz2.so.1.0"
+      lib.install_symlink "libbz2.so.1.0.7" => "libbz2.so.1"
+      lib.install_symlink "libbz2.so.1.0.7" => "libbz2.so"
     end
   end
 
