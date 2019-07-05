@@ -20,6 +20,7 @@ class Snapcraft < Formula
   depends_on "python"
   depends_on "squashfs"
   depends_on "xdelta"
+  depends_on "libffi" unless OS.mac?
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
@@ -177,6 +178,11 @@ class Snapcraft < Formula
   end
 
   def install
+    unless OS.mac?
+      libffi = Formula["libffi"]
+      ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"
+    end
+
     virtualenv_install_with_resources
   end
 
