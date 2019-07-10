@@ -19,8 +19,10 @@ class OpenshiftCli < Formula
   depends_on "coreutils" => :build
   depends_on "go" => :build
   depends_on "socat"
+  depends_on "krb5" unless OS.mac?
 
   def install
+    ENV.O0 unless OS.mac? # See https://github.com/golang/go/issues/26487
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/openshift/origin"
     dir.install buildpath.children - [buildpath/".brew_home"]
