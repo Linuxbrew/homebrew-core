@@ -1,3 +1,4 @@
+# log4shib: Build a bottle for Linuxbrew
 class Log4shib < Formula
   desc "Forked version of log4cpp for the Shibboleth project"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/log4shib"
