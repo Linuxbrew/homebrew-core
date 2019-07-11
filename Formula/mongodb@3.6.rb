@@ -20,7 +20,6 @@ class MongodbAT36 < Formula
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build] if OS.mac?
-  depends_on :xcode => ["8.3.2", :build]
 
   depends_on "openssl"
   depends_on "python@2"
