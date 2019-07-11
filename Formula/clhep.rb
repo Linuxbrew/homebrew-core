@@ -1,3 +1,4 @@
+# clhep: Build a bottle for Linuxbrew
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
