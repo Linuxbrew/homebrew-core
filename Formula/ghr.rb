@@ -1,3 +1,4 @@
+# ghr: Build a bottle for Linuxbrew
 class Ghr < Formula
   desc "Upload multiple artifacts to GitHub Release in parallel"
   homepage "https://tcnksm.github.io/ghr"
