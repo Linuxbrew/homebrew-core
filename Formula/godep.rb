@@ -1,3 +1,4 @@
+# godep: Build a bottle for Linuxbrew
 class Godep < Formula
   desc "Dependency tool for go"
   homepage "https://godoc.org/github.com/tools/godep"
