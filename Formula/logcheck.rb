@@ -1,3 +1,4 @@
+# logcheck: Build a bottle for Linuxbrew
 class Logcheck < Formula
   desc "Mail anomalies in the system logfiles to the administrator"
   homepage "https://packages.debian.org/sid/logcheck"
