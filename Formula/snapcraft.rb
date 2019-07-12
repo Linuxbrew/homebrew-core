@@ -184,12 +184,12 @@ class Snapcraft < Formula
     end
 
     resource "distutils-extra" do
-      url "http://deb.debian.org/debian/pool/main/p/python-distutils-extra/python-distutils-extra_2.38.orig.tar.gz"
+      url "https://deb.debian.org/debian/pool/main/p/python-distutils-extra/python-distutils-extra_2.38.orig.tar.gz"
       sha256 "3d100d5d3492f40b3e7a6a4500f71290bfa91e2c50dc31ba8e3ff9b5d82ca153"
     end
 
     resource "python-apt" do
-      url "http://deb.debian.org/debian/pool/main/p/python-apt/python-apt_1.8.4.tar.xz"
+      url "https://deb.debian.org/debian/pool/main/p/python-apt/python-apt_1.8.4.tar.xz"
       sha256 "7831b3fd0093af5b76393f0d2610cb76c1d44e7aa438837779f9355a9174a220"
     end
   end
