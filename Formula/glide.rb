@@ -1,3 +1,4 @@
+# glide: Build a bottle for Linuxbrew
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
