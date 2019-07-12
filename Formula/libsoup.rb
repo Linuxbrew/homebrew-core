@@ -3,7 +3,7 @@ class Libsoup < Formula
   homepage "https://wiki.gnome.org/Projects/libsoup"
   url "https://download.gnome.org/sources/libsoup/2.66/libsoup-2.66.2.tar.xz"
   sha256 "bd2ea602eba642509672812f3c99b77cbec2f3de02ba1cc8cb7206bf7de0ae2a"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 "8336aa92e8a2638745181f159f848b264bec952ecb5571eb36a3dbe62da3a016" => :mojave
@@ -27,10 +27,27 @@ class Libsoup < Formula
   end
 
   def install
+
+    unless OS.mac?
+      # set rpath for binaries
+      inreplace "libsoup/meson.build", /(library.*?install\s*:\s*true)/m, "\\1, install_rpath: '#{ENV.determine_rpath_paths(self)}'"
+    end
+
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
+    end
+
+    unless OS.mac?
+      # move lib64 to lib and symlink lib64 -> lib
+      lib64 = Pathname.new "#{lib}64"
+      if lib64.directory?
+        mkdir_p lib
+        system "mv #{lib64}/* #{lib}/"
+        rmdir lib64
+        prefix.install_symlink "lib" => "lib64"
+      end
     end
   end
 
