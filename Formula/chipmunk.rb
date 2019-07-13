@@ -1,3 +1,4 @@
+# chipmunk: Build a bottle for Linuxbrew
 class Chipmunk < Formula
   desc "2D rigid body physics library written in C"
   homepage "https://chipmunk-physics.net/"
