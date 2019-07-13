@@ -37,23 +37,19 @@ jobs:
       git checkout -b test
       git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
       git checkout pr
+    displayName: Setup taps and checkout
+  - bash: |
       cd /tmp/bottles
       sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
-    displayName: Run test-bot
-    continueOnError: true
+      cp *.bottle.* $(Build.ArtifactStagingDirectory)
+    displayName: Run test bot and copy json & bottle files
     env:
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
-  - bash: |
-      cd /tmp/bottles
-      cp *.bottle.* $(Build.ArtifactStagingDirectory)
-    displayName: Copy json & bottle files
-    continueOnError: true
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: bottle-linux
       targetPath: $(Build.ArtifactStagingDirectory)
     displayName: Publish bottle-linux
-    continueOnError: true
