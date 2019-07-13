@@ -4,14 +4,13 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2"
   sha256 "7fae7c73d8a007c107c0ae5eb372bc0bb013dbfe966fcd5c59cd5a195a5e2edf"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     rebuild 1
     sha256 "f99b4392f0acebf4e61a5b8747d19fdae652add9b910f060ed1a8a95f9d0ad2c" => :mojave
     sha256 "dea97ac9eec8be1aa78cf4e8670c0c21db55fff756778e2b31021a508fb86707" => :high_sierra
     sha256 "ed8c961d325cba194b76059a6f498bbc1af89375f1b10e3e98117f2d0b43b1b4" => :sierra
-    sha256 "5af720ddf896f7b6996dd80664b0e0ba98ccc1c62744f448d807cd409bf3f136" => :x86_64_linux
   end
 
   head do
