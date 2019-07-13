@@ -15,7 +15,6 @@ class Caddy < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
     ENV["GOARCH"] = "amd64"
 
