@@ -11,12 +11,23 @@ class Modules < Formula
     sha256 "6c639f39e28ad98625f59540125fda9e86f4241ecdaa1d957b5f2ec413d014b0" => :sierra
   end
 
+  unless OS.mac?
+    depends_on "tcl-tk"
+    depends_on "less"
+  end
+
   def install
+    tcl = OS.mac? ? "#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework" : Formula["tcl-tk"].opt_lib
+    with_tclsh = OS.mac? ? "" : "--with-tclsh=#{Formula["tcl-tk"].opt_bin}/tclsh"
+    with_pager = OS.mac? ? "" : "--with-pager=#{Formula["less"].opt_bin}/less"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --datarootdir=#{share}
-      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
+      --with-tcl=#{tcl}
+      #{with_tclsh}
+      #{with_pager}
       --without-x
     ]
     system "./configure", *args
@@ -33,7 +44,11 @@ class Modules < Formula
 
   test do
     assert_match "restore", shell_output("#{bin}/envml --help")
-    output = shell_output("zsh -c 'source #{prefix}/init/zsh; module' 2>&1")
+    if OS.mac?
+      output = shell_output("zsh -c 'source #{prefix}/init/zsh; module' 2>&1")
+    else
+      output = shell_output("sh -c '. #{prefix}/init/sh; module' 2>&1")
+    end
     assert_match version.to_s, output
   end
 end
