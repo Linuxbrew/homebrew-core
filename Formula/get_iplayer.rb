@@ -54,9 +54,9 @@ class GetIplayer < Formula
       sha256 "7e42df2db7adce3e0eb4f78b88c450f453f5380f120fd5411232e03374ba951c"
     end
 
-    resource "Net::SSL" do
-      url "https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz"
-      sha256 "f5d34f813677829857cf8a0458623db45b4d9c2311daaebe446f9e01afa9ffe8"
+    resource "Net::SSLeay" do
+      url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz"
+      sha256 "2000da483c8471a0b61e06959e92a6fca7b9e40586d5c828de977d3d2081cfdd"
     end
 
     resource "HTML::Entities" do
@@ -67,12 +67,12 @@ class GetIplayer < Formula
     resource "HTTP::Cookies" do
       url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz"
       sha256 "0cc7f079079dcad8293fea36875ef58dd1bfd75ce1a6c244cd73ed9523eb13d4"
-    end unless OS.mac?
+    end
 
     resource "HTTP::Date" do
       url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz"
       sha256 "e8b9941da0f9f0c9c01068401a5e81341f0e3707d1c754f8e11f42a7e629e333"
-    end unless OS.mac?
+    end
 
     resource "HTML::Headers" do
       url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz"
@@ -108,6 +108,7 @@ class GetIplayer < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["NO_NETWORK_TESTING"] = "1"
+    ENV["PERL_MM_USE_DEFAULT"] = "1" unless OS.mac?
 
     resources.each do |r|
       r.stage do
@@ -118,7 +119,7 @@ class GetIplayer < Formula
 
     inreplace ["get_iplayer", "get_iplayer.cgi"] do |s|
       s.gsub!(/^(my \$version_text);/i, "\\1 = \"#{pkg_version}-homebrew\";")
-      s.gsub! "#!/usr/bin/env perl", "#!/usr/bin/perl"
+      s.gsub! "#!/usr/bin/env perl", "#!/usr/bin/perl" if OS.mac?
     end
 
     bin.install "get_iplayer", "get_iplayer.cgi"
