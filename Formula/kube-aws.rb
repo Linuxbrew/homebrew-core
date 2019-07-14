@@ -1,3 +1,4 @@
+# kube-aws: Build a bottle for Linuxbrew
 class KubeAws < Formula
   desc "Command-line tool to declaratively manage Kubernetes clusters on AWS"
   homepage "https://kubernetes-incubator.github.io/kube-aws/"
