@@ -1,3 +1,4 @@
+# eprover: Build a bottle for Linuxbrew
 class Eprover < Formula
   desc "Theorem prover for full first-order logic with equality"
   homepage "https://eprover.org/"
