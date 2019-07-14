@@ -1,4 +1,3 @@
-# dbus: Build a bottle for Linuxbrew
 class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
@@ -28,11 +27,13 @@ class Dbus < Formula
     depends_on "expat"
   end
 
-  # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
-  # Homebrew pr/issue: 50219
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
-    sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
+  if OS.mac?
+    # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
+    # Homebrew pr/issue: 50219
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
+      sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
+    end
   end
 
   def install
