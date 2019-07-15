@@ -1,3 +1,4 @@
+# sshguard: Build a bottle for Linuxbrew
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
