@@ -30,7 +30,11 @@ class MklDnn < Formula
         return !(status == mkldnn_success);
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lmkldnn", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-L#{lib}", "-lmkldnn", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-L#{lib}", "-lmkldnn", "-o", "test"
+    end
     system "./test"
   end
 end
