@@ -1,3 +1,4 @@
+# Build a bottle for Linuxbrew
 class Bzip2 < Formula
   desc "Freely available high-quality data compressor"
   homepage "https://sourceware.org/bzip2/"

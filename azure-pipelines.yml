@@ -40,7 +40,7 @@ jobs:
     displayName: Setup taps and checkout
   - bash: |
       cd /tmp/bottles
-      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old --skip-recursive-dependents
       cp *.bottle.* $(Build.ArtifactStagingDirectory)
     displayName: Run test bot and copy json & bottle files
     env:
