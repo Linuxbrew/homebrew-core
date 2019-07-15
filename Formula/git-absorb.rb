@@ -12,6 +12,7 @@ class GitAbsorb < Formula
   end
 
   depends_on "rust" => :build
+  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
