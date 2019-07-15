@@ -18,6 +18,7 @@ class Proj < Formula
   end
 
   depends_on "pkg-config" => :build
+  uses_from_macos "sqlite"
 
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 
