@@ -15,6 +15,7 @@ class Exa < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
   uses_from_macos "libgit2"
+  uses_from_macos "zlib"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
