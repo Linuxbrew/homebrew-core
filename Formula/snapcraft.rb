@@ -189,8 +189,8 @@ class Snapcraft < Formula
     end
 
     resource "python-apt" do
-      url "https://deb.debian.org/debian/pool/main/p/python-apt/python-apt_1.8.4.tar.xz"
-      sha256 "7831b3fd0093af5b76393f0d2610cb76c1d44e7aa438837779f9355a9174a220"
+      url "https://launchpad.net/ubuntu/+archive/primary/+files/python-apt_1.1.0~beta1build1.tar.xz"
+      sha256 "8d0a855299b8eb114476bdc7bef1b6fd6b35a4ee7ae90d4d56a2018977784148"
     end
   end
 
