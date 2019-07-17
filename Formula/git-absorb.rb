@@ -1,3 +1,4 @@
+# git-absorb: Build a bottle for Linuxbrew
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
