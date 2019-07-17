@@ -1,3 +1,4 @@
+# cfssl: Build a bottle for Linuxbrew
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
