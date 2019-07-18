@@ -5,16 +5,15 @@ class Curl < Formula
   mirror "http://curl.mirror.anstey.ca/curl-7.65.2.tar.bz2"
   sha256 "8093398b51e7d8337dac6f8fa6f1f77d562bdd9eca679dff9d9c3b8160ebfd28"
 
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX} when built with OpenSSL."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
-  end
-
   bottle do
-    cellar :any
     sha256 "e80e6d5551ef94025883515e677a925a9ea5cb8ea85392af284afa621b0eb006" => :mojave
     sha256 "ac76e250c9d06fbef9402ca42121842c4c7344ee10958dd07373fe31561eb8be" => :high_sierra
     sha256 "ef005d10feaf3e6c7c4a3bd75b00fa947402e19956858969ed3abdc9b30089dd" => :sierra
+  end
+
+  pour_bottle? do
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX} when built with OpenSSL."
+    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   head do
@@ -29,6 +28,7 @@ class Curl < Formula
 
   depends_on "pkg-config" => :build
   uses_from_macos "openssl"
+  uses_from_macos "zlib"
 
   def install
     system "./buildconf" if build.head?
