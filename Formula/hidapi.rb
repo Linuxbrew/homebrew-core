@@ -1,3 +1,4 @@
+# hidapi: Build a bottle for Linuxbrew
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
   homepage "https://github.com/libusb/hidapi"
