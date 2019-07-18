@@ -1,3 +1,4 @@
+# media-info: Build a bottle for Linuxbrew
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
