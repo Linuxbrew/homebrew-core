@@ -1,3 +1,4 @@
+# snakemake: Build a bottle for Linuxbrew
 class Snakemake < Formula
   include Language::Python::Virtualenv
 
