@@ -48,11 +48,13 @@ class Wxpython < Formula
   end
 
   def install
-    # Fix build of included wxwidgets
-    # see https://github.com/wxWidgets/Phoenix/issues/1247
-    inreplace "buildtools/build_wxwidgets.py",
-              "#wxpy_configure_opts.append(\"--enable-monolithic\")",
-              "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+    if OS.mac?
+      # Fix build of included wxwidgets
+      # see https://github.com/wxWidgets/Phoenix/issues/1247
+      inreplace "buildtools/build_wxwidgets.py",
+                "#wxpy_configure_opts.append(\"--enable-monolithic\")",
+                "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+    end
 
     venv = virtualenv_create(libexec, "python3")
 
