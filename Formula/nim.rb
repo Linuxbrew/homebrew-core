@@ -1,3 +1,4 @@
+# nim: Build a bottle for Linuxbrew
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
