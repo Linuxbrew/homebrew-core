@@ -6,6 +6,7 @@ class Tepl < Formula
   revision 2
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "8fe47776f7a5ee9e20b6357d4688ae59781d097bdbe085df944c1bf09d5f9bb6" => :mojave
     sha256 "a39f1c7cfa89b42040af44ba7b96332eab504d52395399096eda16c8b04f6307" => :high_sierra
     sha256 "dbc039c916631a5c5b5db30a96484ee9728b5275915fd42a5c7362534ef34524" => :sierra
