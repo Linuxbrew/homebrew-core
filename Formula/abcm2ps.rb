@@ -1,3 +1,4 @@
+# abcm2ps: Build a bottle for Linuxbrew
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
