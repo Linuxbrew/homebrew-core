@@ -1,3 +1,4 @@
+# libstatgrab: Build a bottle for Linuxbrew
 class Libstatgrab < Formula
   desc "Provides cross-platform access to statistics about the system"
   homepage "https://www.i-scream.org/libstatgrab/"
