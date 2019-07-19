@@ -12,6 +12,8 @@ class Flawfinder < Formula
     sha256 "5d58c32a6c4c947552e23265e71f8138daf6663cf2de5b6f50fd00f10ae8e2fb" => :sierra
   end
 
+  uses_from_macos "python@2"
+
   resource "flaws" do
     url "https://www.dwheeler.com/flawfinder/test.c"
     sha256 "4a9687a091b87eed864d3e35a864146a85a3467eb2ae0800a72e330496f0aec3"
