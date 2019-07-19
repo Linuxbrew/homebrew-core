@@ -1,4 +1,3 @@
-# stress-ng: Build a bottle for Linuxbrew
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://kernel.ubuntu.com/~cking/stress-ng/"
@@ -12,7 +11,8 @@ class StressNg < Formula
     sha256 "7b688aa6959a55ef8e0f34518bef70bf070f4696d8d44bca2d739f4b96b20dc2" => :sierra
   end
 
-  depends_on :macos => :sierra
+  depends_on :macos => :sierra if OS.mac?
+  uses_from_macos "zlib"
 
   def install
     inreplace "Makefile", "/usr", prefix
