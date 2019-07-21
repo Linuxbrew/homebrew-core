@@ -152,13 +152,15 @@ class Volatility < Formula
       inreplace "setup.py" do |s|
         if OS.mac?
           sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-          zlib_prefix = sdkprefix/"usr"
         else
           zlib_prefix = Formula["zlib"].opt_prefix
         end
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{zlib_prefix}/lib', '#{zlib_prefix}/include')"
-        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        if OS.mac?
+          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        else
+          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{zlib_prefix}/lib', '#{zlib_prefix}/include')"
+        end
         s.gsub! "JPEG_ROOT = None",
                 "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', " \
                              "'#{Formula["jpeg"].opt_prefix}/include')"
