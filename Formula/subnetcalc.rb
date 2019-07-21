@@ -1,3 +1,4 @@
+# subnetcalc: Build a bottle for Linuxbrew
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
   homepage "https://www.uni-due.de/~be0001/subnetcalc/"
