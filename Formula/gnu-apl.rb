@@ -1,3 +1,4 @@
+# gnu-apl: Build a bottle for Linuxbrew
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
