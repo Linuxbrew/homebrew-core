@@ -1,3 +1,4 @@
+# pcsc-lite: Build a bottle for Linuxbrew
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
   homepage "https://pcsclite.apdu.fr/"
