@@ -42,7 +42,11 @@ class Sdl2Image < Formula
           return success;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lsdl2_image", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-L#{lib}", "-lsdl2_image", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-L#{lib}", "-lSDL2_image", "-o", "test"
+    end
     system "./test"
   end
 end
