@@ -1,3 +1,4 @@
+# lmdb: Build a bottle for Linuxbrew
 class Lmdb < Formula
   desc "Lightning memory-mapped database: key-value data store"
   homepage "https://symas.com/mdb-and-sqlite/"
