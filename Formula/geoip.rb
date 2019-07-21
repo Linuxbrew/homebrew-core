@@ -6,6 +6,7 @@ class Geoip < Formula
   head "https://github.com/maxmind/geoip-api-c.git"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "311704d07adf7fa502e60bd0e462ba26f6830838c09461f8bbac38ccb5da77f1" => :mojave
     sha256 "17db912ce8ffcd831d775f22c1ea428faf55d7ecb4dd19cdba6ab3234874417c" => :high_sierra
