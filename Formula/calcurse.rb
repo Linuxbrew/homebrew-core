@@ -1,3 +1,4 @@
+# calcurse: Build a bottle for Linuxbrew
 class Calcurse < Formula
   desc "Text-based personal organizer"
   homepage "https://calcurse.org/"
