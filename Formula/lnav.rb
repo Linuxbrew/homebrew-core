@@ -1,3 +1,4 @@
+# lnav: Build a bottle for Linuxbrew
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
