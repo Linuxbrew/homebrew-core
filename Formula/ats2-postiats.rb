@@ -1,3 +1,4 @@
+# ats2-postiats: Build a bottle for Linuxbrew
 class Ats2Postiats < Formula
   desc "Programming language with formal specification features"
   homepage "http://www.ats-lang.org/"
