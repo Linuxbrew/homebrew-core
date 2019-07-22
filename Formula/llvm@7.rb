@@ -1,3 +1,4 @@
+# llvm@7: Build a bottle for Linuxbrew
 class LlvmAT7 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
