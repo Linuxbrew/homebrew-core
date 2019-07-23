@@ -1,3 +1,4 @@
+# pyvim: Build a bottle for Linuxbrew
 class Pyvim < Formula
   desc "Pure Python Vim clone"
   homepage "https://github.com/jonathanslenders/pyvim"
