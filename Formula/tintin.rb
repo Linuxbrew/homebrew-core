@@ -1,3 +1,4 @@
+# tintin: Build a bottle for Linuxbrew
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.sourceforge.io/"
