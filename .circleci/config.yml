@@ -36,7 +36,7 @@ jobs:
           brew install patchelf
           brew tap linuxbrew/extra
           brew tap linuxbrew/xorg
-          brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+          brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old --skip-recursive-dependents
       - store_artifacts:
           path: /tmp/bottles
           destination: bottles
