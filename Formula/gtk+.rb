@@ -32,6 +32,12 @@ class Gtkx < Formula
   unless OS.mac?
     depends_on "cairo"
     depends_on "linuxbrew/xorg/libxinerama"
+    depends_on "linuxbrew/xorg/libxcomposite"
+    depends_on "linuxbrew/xorg/libxcursor"
+    depends_on "linuxbrew/xorg/libxdamage"
+    depends_on "linuxbrew/xorg/libxfixes"
+    depends_on "linuxbrew/xorg/libxrandr"
+
   end
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
