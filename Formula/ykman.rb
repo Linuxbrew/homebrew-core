@@ -19,6 +19,11 @@ class Ykman < Formula
   depends_on "openssl"
   depends_on "python"
   depends_on "ykpers"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libffi"
+    depends_on "pcsc-lite"
+  end
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -81,6 +86,13 @@ class Ykman < Formula
   end
 
   def install
+    unless OS.mac?
+      ENV.prepend "CPPFLAGS", "-I#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include"
+
+      resource("pyscard").stage do
+        ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
+      end
+    end
     virtualenv_install_with_resources
   end
 
