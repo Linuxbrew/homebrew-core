@@ -1,3 +1,4 @@
+# uftp: Build a bottle for Linuxbrew
 class Uftp < Formula
   desc "Secure, reliable, efficient multicast file transfer program"
   homepage "https://uftp-multicast.sourceforge.io/"
