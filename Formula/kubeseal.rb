@@ -2,7 +2,7 @@ class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
   url "https://github.com/bitnami-labs/sealed-secrets/archive/v0.8.0.tar.gz"
-  sha256 "7f66b393b152da7000707f87560bea2ecba68ba53fed642b31fc334cbec13a3b"
+  sha256 "177db4073f840ca05f52a910cb3a3ee7ed8f48c2f76bad6d8cb03e50574fdb21"
 
   bottle do
     cellar :any_skip_relocation
