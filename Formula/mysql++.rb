@@ -1,3 +1,4 @@
+# mysql++: Build a bottle for Linuxbrew
 class Mysqlxx < Formula
   desc "C++ wrapper for MySQL's C API"
   homepage "https://tangentsoft.com/mysqlpp/home"
