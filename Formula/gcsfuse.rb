@@ -1,3 +1,4 @@
+# gcsfuse: Build a bottle for Linuxbrew
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
