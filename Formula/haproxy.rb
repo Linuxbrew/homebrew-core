@@ -18,7 +18,7 @@ class Haproxy < Formula
 
   def install
     args = %W[
-      TARGET=#{OS.mac? ? "generic" : "linux2628"}
+      TARGET=#{OS.mac? ? "generic" : "linux-glibc"}
       USE_POLL=1
       USE_PCRE=1
       USE_OPENSSL=1
