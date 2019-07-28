@@ -1,3 +1,4 @@
+# entr: Build a bottle for Linuxbrew
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "http://entrproject.org/"
