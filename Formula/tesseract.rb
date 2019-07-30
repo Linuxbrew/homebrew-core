@@ -6,6 +6,7 @@ class Tesseract < Formula
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "774212dc0edf27447e1d5ba46ae9d3dfb989a90b529e49d15df99b9bb16e73d7" => :mojave
     sha256 "eb9d24e2550bc7f13826306de27ceec45c2ddbde3440976a695c33daefbb204d" => :high_sierra
     sha256 "d118c493ae35173a0eb966dc7641887dc9670772561b7e6ba25bccf4bdaab384" => :sierra
