@@ -1,3 +1,4 @@
+# docutils: Build a bottle for Linuxbrew
 class Docutils < Formula
   include Language::Python::Virtualenv
 
