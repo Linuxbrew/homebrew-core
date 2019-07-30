@@ -1,3 +1,4 @@
+# wxmaxima: Build a bottle for Linuxbrew
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
