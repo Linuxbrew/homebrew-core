@@ -1,3 +1,4 @@
+# menhir: Build a bottle for Linuxbrew
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
