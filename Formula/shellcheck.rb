@@ -1,3 +1,4 @@
+# shellcheck: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Shellcheck < Formula
