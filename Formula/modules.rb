@@ -1,3 +1,4 @@
+# modules: Build a bottle for Linuxbrew
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
