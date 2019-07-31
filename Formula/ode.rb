@@ -1,3 +1,4 @@
+# ode: Build a bottle for Linuxbrew
 class Ode < Formula
   desc "Simulating articulated rigid body dynamics"
   homepage "https://www.ode.org/"
