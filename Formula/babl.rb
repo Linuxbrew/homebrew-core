@@ -1,3 +1,4 @@
+# babl: Build a bottle for Linuxbrew
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
@@ -13,16 +14,12 @@ class Babl < Formula
     sha256 "3cd4d6d3cc86dc1bc2b8411bf4ffb911df58458d54fc938730fdede11587c624" => :sierra
   end
 
-  head do
-    # Use Github instead of GNOME's git. The latter is unreliable.
-    url "https://github.com/GNOME/babl.git"
-
+  depends_on "pkg-config" => :build
+  if build.head? || !OS.mac?
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
-
-  depends_on "pkg-config" => :build
 
   def install
     system "./autogen.sh"
