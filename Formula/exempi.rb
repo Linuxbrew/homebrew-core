@@ -5,7 +5,6 @@ class Exempi < Formula
   sha256 "dc82fc24c0540a44a63fa4ad21775d24e00e63f1dedd3e2ae6f7aa27583b711b"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "f276793d07a9d9509e3d9e9267a59a22bb95b1a021468e121700d64ec8e5176d" => :mojave
     sha256 "424eaeb7c609a08e98ba614d386d5b19deda7c808606698b398bac710637cfa4" => :high_sierra

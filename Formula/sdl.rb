@@ -6,7 +6,6 @@ class Sdl < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "28bfde74acbd1e68c0c2600d0bef4ebe7baf089f62f957779deb2c5dc0df2dd9" => :mojave
     sha256 "115af7ed86433a36baf4ca221bf19a7a61059fb6c2e55ae3d499fd7cdc2854bc" => :high_sierra

@@ -5,7 +5,6 @@ class Getdns < Formula
   sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "c293ffbb7cf95d03a0aaefe3192528e1ac48a45b178dbe7221c36cba3eef3193" => :mojave
     sha256 "a1e16166536523e0a38364c3a3734c3283ecfd45836f30bf2f3f134f75987306" => :high_sierra

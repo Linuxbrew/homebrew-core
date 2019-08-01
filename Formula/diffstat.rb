@@ -6,7 +6,6 @@ class Diffstat < Formula
   sha256 "7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "f2ddd2775174056c48eab541d32b99cfd2cc586e0227c4f2eec4b15bf5ce7128" => :mojave
     sha256 "ac1e5199d1776d52adc03842b378da475f1db1282150ed9ce22c365a5b0cf7dd" => :high_sierra

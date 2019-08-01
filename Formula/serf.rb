@@ -7,7 +7,6 @@ class Serf < Formula
   head "https://github.com/hashicorp/serf.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "692266b0fa6ba7a7772849938ba42dc9246d1f117a216bdcb8bd1a130181a814" => :mojave
     sha256 "979604efa2ecf8c34e88d7060c84ffb003fe9eeafd26871bbc3cc94a77e0eede" => :high_sierra

@@ -6,7 +6,6 @@ class TranslateShell < Formula
   head "https://github.com/soimort/translate-shell.git", :branch => "develop"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "36a689f6c97099a7143160efa40f2de05856f701a78ea7e0c92dc8da764c85d6" => :mojave
     sha256 "36a689f6c97099a7143160efa40f2de05856f701a78ea7e0c92dc8da764c85d6" => :high_sierra

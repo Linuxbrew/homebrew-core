@@ -6,7 +6,6 @@ class Iniparser < Formula
   head "https://github.com/ndevilla/iniparser.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "69dde8e886645f5b89f83f36835c18449afe7f6c4f119d466d7f204e994952c7" => :mojave
     sha256 "cec20d33114e7a5811acb41f9f9a36a411ffd2eebb7d537167b9b541b03fff8d" => :high_sierra

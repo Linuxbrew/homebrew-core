@@ -6,7 +6,6 @@ class Libtommath < Formula
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "e69fa7fa3b1ff2e85209b6719ad17192942c9d2954321f30b7e039745e4e9ffb" => :mojave
     sha256 "291e7d5f7f5ecace41fc8d9a402f8bb630004700f264339ad013df713f9b33eb" => :high_sierra

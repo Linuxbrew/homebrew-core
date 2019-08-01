@@ -5,7 +5,6 @@ class Libtermkey < Formula
   sha256 "6945bd3c4aaa83da83d80a045c5563da4edd7d0374c62c0d35aec09eb3014600"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "efa6360ccb50275ee143410e57b4ff47b2d6bafd97d6f4feeb3cb3ee02050a2c" => :mojave
     sha256 "e3b848de428f811c1879530c043145152bf4b0e599ed642aa2845904d13f7081" => :high_sierra

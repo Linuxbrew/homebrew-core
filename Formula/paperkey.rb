@@ -5,7 +5,6 @@ class Paperkey < Formula
   sha256 "a245fd13271a8d2afa03dde979af3a29eb3d4ebb1fbcad4a9b52cf67a27d05f7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854" => :mojave
     sha256 "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8" => :high_sierra

@@ -7,7 +7,6 @@ class Tasksh < Formula
   revision 1 unless OS.mac?
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "c766ebd317962a04a3d78a4fbcc202085a27e0d15f63debf095f84a9a97d6306" => :mojave
     sha256 "17f99be8d0aea4c43877fbfb121b7989047f04650ccffa85e948859e8ee51e0b" => :high_sierra

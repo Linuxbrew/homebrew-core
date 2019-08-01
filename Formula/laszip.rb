@@ -6,7 +6,6 @@ class Laszip < Formula
   head "https://github.com/LASzip/LASzip.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "bb1b85c70f7efee68cac94ed831941fe1420530f36166587a8715ec5507330eb" => :mojave
     sha256 "a9396e0e7d10b57df846c73fcfe807d354a1aab80f5b0c85fb6a68b420db00aa" => :high_sierra

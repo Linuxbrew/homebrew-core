@@ -5,7 +5,6 @@ class Libmwaw < Formula
   sha256 "0440bb09f05e3419423d8dfa36ee847056ebfd837f9cbc091fdb5b057daab0b1"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "9b17fa0d1afca2803fed1412bcb20275552a73cf6a3ec6377d2070abc87310ee" => :mojave
     sha256 "a03479bf4c1becc688f76ce5c16519a6ccde95fc65da8d46c3e9cc6664b07fdb" => :high_sierra

@@ -5,7 +5,6 @@ class Sipsak < Formula
   sha256 "e07f32e692381d9db404d75868218b553e0aba414d35efc96d13024533a53f0f"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "20c81bc83de9456d6bef1a04e2782c8c0a4898151f063c716077f7159a5dff24" => :mojave
     sha256 "908c57962d3cc43847b4048db06a291437756fd8da691a7703f5285776fd2d78" => :high_sierra

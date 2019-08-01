@@ -6,7 +6,6 @@ class Libmicrohttpd < Formula
   sha256 "37c36f1be177f0e37ef181a645cd3baac1000bd322a01c2eff70f3cc8c91749c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "065c03c15e7cddac444a335ae9a4a581b9cb10f9ea4edbafab86cb9ec083ce49" => :mojave
     sha256 "2b022a903526ca0d939b8660fd1d9ca82877c29734b177bb865631a6fbf0e375" => :high_sierra

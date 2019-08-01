@@ -8,7 +8,6 @@ class Gx < Formula
   head "https://github.com/whyrusleeping/gx.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "684f06520e421a1bff37db9419bec73924826428953b4dc5227546f1c94819aa" => :mojave
     sha256 "c60a535b2e9de4688ba699f4012527d25912b74ef9be40ff59fe5d3e6222000f" => :high_sierra

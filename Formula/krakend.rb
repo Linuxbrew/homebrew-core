@@ -5,7 +5,6 @@ class Krakend < Formula
   sha256 "8d6938af3483c909b0762ab44998f09812632081045bebc33b707c85b3985a00"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "7dd2278ffff7ddf5a88988a3ea5180df6da93c7189e673de995cace1948c7bd9" => :mojave
     sha256 "7cd76dbba92ea6011ef3ff439d51d19a7dddb9e1c64bf339cd78b2acb34e560c" => :high_sierra

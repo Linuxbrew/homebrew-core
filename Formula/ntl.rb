@@ -5,7 +5,6 @@ class Ntl < Formula
   sha256 "84ba3145abf8d5f3be6832a14c60b3368eb920719ee96e5774587e71ecd66e9d"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "5a54ada102a07c107ff8b08f1995230cf977f6770552e16529dbb188f272ee11" => :mojave
     sha256 "0e55147c25186a9f5f5d22c47855570de07d7d5bd2eb1b9d4b0276b75dd31808" => :high_sierra

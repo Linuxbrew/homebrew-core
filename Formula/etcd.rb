@@ -6,7 +6,6 @@ class Etcd < Formula
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "1767fd0f8122f4d4b29b19fdec99bbf6c434afa900a616149b07540d8991cd9d" => :mojave
     sha256 "a9903de125291e17da64a827370420c9b162bc0a2cbe6284a5c4c391ae87a5f2" => :high_sierra

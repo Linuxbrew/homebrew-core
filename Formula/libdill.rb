@@ -5,7 +5,6 @@ class Libdill < Formula
   sha256 "ebba0e5b433ec123b74a57d49b89dfa673aa258e03e6a452959e556b4c4529b9"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "7ebbbe85ab5989b48664688c9fdc833b4bbc7846ea94f3f73c34ef620026b878" => :mojave
     sha256 "062d2f9f6fdeb5588036d3e06752ecfd95b5f4e7b6008b727208fc0a2e7f50a6" => :high_sierra

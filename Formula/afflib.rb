@@ -5,7 +5,6 @@ class Afflib < Formula
   sha256 "5481cd5d8dbacd39d0c531a68ae8afcca3160c808770d66dcbf5e9b5be3e8199"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "8777c09fb89f6ef70f6324fe9765a2dfc1c3d9a86fcd0b583d9c8f2465be61f1" => :mojave
     sha256 "09d2326ac0d816477129b38f85af29b8f2ab42448b76f603ec77bf8b64aebb24" => :high_sierra

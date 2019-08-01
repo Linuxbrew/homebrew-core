@@ -6,7 +6,6 @@ class Itstool < Formula
   head "https://github.com/itstool/itstool.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "460851d054248b512c108b4f8b47731ee90fcb69b179a661f721efe8fa67bf60" => :mojave
     sha256 "460851d054248b512c108b4f8b47731ee90fcb69b179a661f721efe8fa67bf60" => :high_sierra

@@ -5,7 +5,6 @@ class Shapelib < Formula
   sha256 "1fc0a480982caef9e7b9423070b47750ba34cd0ba82668f2e638fab1d07adae1"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e" => :mojave
     sha256 "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68" => :high_sierra

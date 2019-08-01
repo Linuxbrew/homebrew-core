@@ -6,7 +6,6 @@ class Gox < Formula
   head "https://github.com/mitchellh/gox.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "008ec56acef96c3ad3117bcde87f1998fcf4ef9c93f82ae363ed6ac39914a95d" => :mojave
     sha256 "c2d77e6fadb6c7585a5df89eb91aaf1f41f6b88829e1a647efb4ebbc70277b3b" => :high_sierra

@@ -5,7 +5,6 @@ class TesseractLang < Formula
   sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414" => :mojave
     sha256 "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414" => :high_sierra

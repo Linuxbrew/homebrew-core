@@ -6,7 +6,6 @@ class Glog < Formula
   head "https://github.com/google/glog.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "034a4d2272b48fd7655b467b92c78eebfb11efb33cc6cd31f7b13ee085b7169b" => :mojave
     sha256 "bbe6c4138b5fe8cd58d269a39644176f640fa62e694ffac36337f87661cacc69" => :high_sierra

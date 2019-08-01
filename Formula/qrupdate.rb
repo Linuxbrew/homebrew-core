@@ -6,7 +6,6 @@ class Qrupdate < Formula
   revision 10
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "cbaca0a12ab0f6527739e37a9100b82e3aaa5b35760739e679395dbfd63dca44" => :mojave
     sha256 "fee484380157553a368f516ad9b8cbe01be53bca3bd20068a0d255c33d8ccf94" => :high_sierra

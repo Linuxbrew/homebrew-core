@@ -6,7 +6,6 @@ class Castxml < Formula
   head "https://github.com/CastXML/castxml.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "3a87a080247a21ab0f05db2dafb826664bb88426563507bb6a00d9c465d41e62" => :mojave
     sha256 "295056ef0feae25c6f00c1e7e669f7f017bc3242c4cbdb0d6c95b34568b31655" => :high_sierra

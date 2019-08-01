@@ -66,7 +66,6 @@ class Llvm < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "14029e4108b81fc79afbf125b06075876586fb943af62e1a174ded1786b32192" => :mojave
     sha256 "efce74f9e72bc5f894e40daccd3b7cbeec6e7dc56bb1669d6ac3cbe1f3cfa7fb" => :high_sierra

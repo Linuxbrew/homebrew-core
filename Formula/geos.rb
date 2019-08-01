@@ -5,7 +5,6 @@ class Geos < Formula
   sha256 "2166e65be6d612317115bfec07827c11b403c3f303e0a7420a2106bc999d7707"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "8347358e36c773c315f742972786ac7a6e13f5998f799dd8fad3afec22ba5fcf" => :mojave
     sha256 "3f074801c641178e222dfa871463e1891419545e07c36bcedff0c00de8dc8c2a" => :high_sierra

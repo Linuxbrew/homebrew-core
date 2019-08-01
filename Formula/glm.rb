@@ -6,7 +6,6 @@ class Glm < Formula
   head "https://github.com/g-truc/glm.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "12ad0bff26df5739227bb1f2865c064b46a1e21faa07e77f19c2be4e2abd8182" => :mojave
     sha256 "534081b8d1624708d52a12d75a31b47372c1711c56057b658c0dbf5fa67306c0" => :high_sierra

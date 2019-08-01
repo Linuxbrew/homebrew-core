@@ -6,7 +6,6 @@ class Libmxml < Formula
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "a2b4ef33ab0e325d90dc981a1ec1dcc51cc7f655f9dbfdf4d1d22b77f2c485be" => :mojave

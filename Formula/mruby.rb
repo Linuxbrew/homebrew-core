@@ -7,7 +7,6 @@ class Mruby < Formula
   revision 1 unless OS.mac?
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "3279a9fe511530c4fe0a56323efcbfd555d2fa981204a0d1595f0365f56cdd59" => :mojave
     sha256 "3e808c9c9a25a98a20a8af26a369bf688db7c9a635e3ae52836e2eda0e42b442" => :high_sierra

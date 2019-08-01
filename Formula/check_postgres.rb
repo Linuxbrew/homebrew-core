@@ -6,7 +6,6 @@ class CheckPostgres < Formula
   head "https://github.com/bucardo/check_postgres.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "eed2892822abe3b006befc6f7933040b8deec32074c9729408c6c4f4765efce8" => :mojave
     sha256 "eed2892822abe3b006befc6f7933040b8deec32074c9729408c6c4f4765efce8" => :high_sierra

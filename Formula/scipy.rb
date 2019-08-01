@@ -6,7 +6,6 @@ class Scipy < Formula
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "6ba4af97b345fb1b95db42eafc9b5a89af45c2da60734b4d317daba2f93bd2f2" => :mojave
     sha256 "02c6c92cb694c7c1c493e4c309043f104538366dc2813c180d4def06d28892c6" => :high_sierra
     sha256 "9d3f6843a954b1b525af1deb5a0e66cd9b9e0ee377d4435ddd6bd602a68cb862" => :sierra

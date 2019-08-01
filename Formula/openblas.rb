@@ -7,7 +7,6 @@ class Openblas < Formula
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "ce1788eedcf1776fcad04ae78cb81e7141e7db07762dafb44118c9cfb7748de0" => :mojave
     sha256 "50d5f9b0eae2a5b3c97c4a5adb23cd9d7a8e78c2dee9b7a8ea789185aed64b1e" => :high_sierra

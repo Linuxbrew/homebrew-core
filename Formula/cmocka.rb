@@ -6,7 +6,6 @@ class Cmocka < Formula
   head "https://git.cryptomilk.org/projects/cmocka.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "a05bfdbe08b08dc01db59d0c2c724b2a58c4f9e12c260dc5865e27dd456e7771" => :mojave
     sha256 "c4fc9fe8a73b23206c0db8907c2f67dea482d689afea18c5e746556aff8098b5" => :high_sierra

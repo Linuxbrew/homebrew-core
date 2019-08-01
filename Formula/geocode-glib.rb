@@ -5,7 +5,6 @@ class GeocodeGlib < Formula
   sha256 "5baa6ab76a76c9fc567e4c32c3af2cd1d1784934c255bc5a62c512e6af6bde1c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "089531370e651e0420bc0c475c458c717c4b7f60f5c25295e03c7ac979e2ff62" => :mojave
     sha256 "d4feecf40ea213121cec19cc80bccf17af7ac12139d4a9c6f64cf8ee48b1b79a" => :high_sierra
     sha256 "635e4c949e7159977e828ef5e3e36c556c8d32eb548fbbbbc8dce69556cf7229" => :sierra

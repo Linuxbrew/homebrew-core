@@ -5,7 +5,6 @@ class Sysbench < Formula
   sha256 "9bcad62eaf473510f5184f33cc41f1e07c2640c8810ae9eebe25ba27ba04df5d"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "064afff9de05baa1de8eea0fb9d4c94fb247c87364e7bdbe238e127b68922971" => :mojave
     sha256 "39aef6117641eebb5157d30a6523b9881e9049d5f5cfabb9710f34f37387cb1a" => :high_sierra

@@ -8,7 +8,6 @@ class Shyaml < Formula
   head "https://github.com/0k/shyaml.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "6aa2db7ebec7ea9a269c90e6c63491bad0f419570790b717ce4e6db3e382ea74" => :mojave
     sha256 "a985968768985ec82d27b9b2e4d409fe965a1b610e12f31086175417eafa8ffb" => :high_sierra

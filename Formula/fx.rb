@@ -7,7 +7,6 @@ class Fx < Formula
   sha256 "d1bd4bdf821a0053a5972febd06ca8c9652d2cc0a62844e2b3bb521a73032b4b"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "1b7b95e489a1e63f52412bbd0fb053e0debe8c52ffbb3f8cf039510f32361b3c" => :mojave
     sha256 "bb119118bdee2f95492a21515064644fa9954ab72d4174798b21ef8fbeaf4729" => :high_sierra

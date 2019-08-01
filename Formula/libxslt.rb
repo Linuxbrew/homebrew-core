@@ -6,7 +6,6 @@ class Libxslt < Formula
   revision OS.mac? ? 1 : 2
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "c4881b3aa600bd7e96b799a852782dff5feca9a8c376a6d72038d1c38ea98d71" => :x86_64_linux
   end

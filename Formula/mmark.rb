@@ -5,7 +5,6 @@ class Mmark < Formula
   sha256 "fa64a7321ff8cc531a0caa36af2a72057c5bebd634b623407b9d6415e7184003"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "64668c943a366014740e8fb017fc7e6735454c1ba8d0314f8f618725d8d8a531" => :mojave
     sha256 "a77f99cc9523aeef1d1c0b55dccd094e5afa81e32444339a00432ef2c0029fce" => :high_sierra

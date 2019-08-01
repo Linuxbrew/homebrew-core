@@ -6,7 +6,6 @@ class Hivemind < Formula
   head "https://github.com/DarthSim/hivemind.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "8e6f70ca5e0c8eb1e42d47bee207ec5333b453660d808103a36d53c51a7fb59a" => :mojave
     sha256 "7a89018774693681975cea22dcdebe35df043507476d1318f195e6d194978693" => :high_sierra

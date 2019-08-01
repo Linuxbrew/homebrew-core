@@ -8,7 +8,6 @@ class Coffeescript < Formula
   head "https://github.com/jashkenas/coffeescript.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "9c1bf5218600450ce9f3e8ed18e762f38d066d313f2d7ad198c8c0ffd7a7ad38" => :mojave
     sha256 "46c1294c0ddabe9e77e83a1a43e2ce26c91c88f8831c0134fd4806704fc6838c" => :high_sierra

@@ -5,7 +5,6 @@ class Glui < Formula
   sha256 "f7f6983f7410fe8dfaa032b2b7b1aac2232ec6a400a142b73f680683dad795f8"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "24c323dbaa5f6f1b01fbf8f837c379ef503d323a448d2bb3d673c31ced622f0d" => :mojave
     sha256 "7cd9b9d6bffa3b6b6ff806c4041f495d5a7ef40296cb50097db25d17eb616265" => :high_sierra

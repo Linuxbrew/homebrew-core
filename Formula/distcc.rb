@@ -6,7 +6,6 @@ class Distcc < Formula
   head "https://github.com/distcc/distcc.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     rebuild 1
     sha256 "cc6733686bc22b48972455982fe93656bcc27f3f4fea1d202c42316a2baceb6a" => :mojave
     sha256 "e0e26dfa751cc3790a81de8ed8bda041a36ff487cbc9c18790e11a1d487893ae" => :high_sierra

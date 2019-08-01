@@ -6,7 +6,6 @@ class Pgloader < Formula
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "38db7f6a7695e08463a32172d9b31a14766fbfe8c7aaa4c552c9336537be6d5d" => :mojave
     sha256 "3d569cdcdc3a27a6a0401582dd09b21aecf2032ec13e6df29d7f92c087857e84" => :high_sierra
     sha256 "d4f9b42c3ec8d2794b887d659e7da03390f799cbfcbca0defa6c5387a6dbe00a" => :sierra

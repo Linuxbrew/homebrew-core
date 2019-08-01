@@ -5,7 +5,6 @@ class Pixman < Formula
   sha256 "da66d6fd6e40aee70f7bd02e4f8f76fc3f006ec879d346bae6a723025cfbdde7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "3990b771ee29451c8a9bcb6cb077205ae08adc0d5af2faebf29197d13c36a51a" => :mojave
     sha256 "d383ddee57685391ea55033e6fccdca0352a898cbc4c75be40d7b5dc7c312916" => :high_sierra

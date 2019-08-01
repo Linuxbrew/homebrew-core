@@ -9,7 +9,6 @@ class Salt < Formula
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "34e1a591055346fe0d3a34e7d857fde0cd8e4ea6abded8e13500282f0993c340" => :mojave
     sha256 "f7e521f883eca1584d91317e0afb0dd0f410fb0190cb3db05f13030d6732ba6d" => :high_sierra

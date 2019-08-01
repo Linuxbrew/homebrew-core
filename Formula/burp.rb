@@ -13,7 +13,6 @@ class Burp < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "3db87f3ffbd42fbf4cd122393abb5e8d0971c92f164dd5276e865d4b1de25be6" => :mojave
     sha256 "599ab71a1111c212dd7a840c0efe212ee11f01dad2537a21c1636d9c24ac5ea4" => :high_sierra
     sha256 "0ed8e8db9c0358582be4e8a28476057dc18325b0d868c4554c3200ce9a6844cd" => :sierra

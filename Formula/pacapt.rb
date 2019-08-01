@@ -5,7 +5,6 @@ class Pacapt < Formula
   sha256 "ff59e9b1a5f049b7c5d8c309d99829a014d095153b453b03f6ab83dd96a538f1"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "572ec7a9d8ff9a4401901f686e12a80755d41445096255874b638f6985805d6f" => :mojave
     sha256 "572ec7a9d8ff9a4401901f686e12a80755d41445096255874b638f6985805d6f" => :high_sierra

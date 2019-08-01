@@ -5,7 +5,6 @@ class Utf8proc < Formula
   sha256 "b2e5d547c1d94762a6d03a7e05cea46092aab68636460ff8648f1295e2cdfbd7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "5cbd1c95723915eda5c5bb0437f49c3aeb50d768cfec87e9ff09507912244589" => :mojave
     sha256 "b1bbbd93be674c8304888ff5843a63433a5e3b7ccd7d8c8d9ceb450ce71a9c88" => :high_sierra

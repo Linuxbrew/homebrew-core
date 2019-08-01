@@ -5,7 +5,6 @@ class Libcdr < Formula
   sha256 "6ace5c499a8be34ad871e825442ce388614ae2d8675c4381756a7319429e3a48"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "d5362604839f1948a8b594c53e2db0c1bd419ab63c59e158813d56e916d7201f" => :mojave
     sha256 "99fe39b40cf1977d09536fd15fa7557042c200e5848424b98b1b67fa8ed54198" => :high_sierra

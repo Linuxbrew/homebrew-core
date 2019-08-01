@@ -5,7 +5,6 @@ class Ipv6calc < Formula
   sha256 "a0ec4a1ff197210162f8a644381dd08b2c552cf50c68041748ea7e067df70080"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "e5816eae9ca8eed194d698a289d1f3d9dedcb93b983cd9761c6dca233d3a5ed7" => :mojave
     sha256 "8803971206dffa1bf5d040199f774e32f052d0d142b674ca41777e3736ab2bb3" => :high_sierra

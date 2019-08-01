@@ -5,7 +5,6 @@ class BdwGc < Formula
   sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "05219d7d030791e3c3e3751b36a603a710cce86dc63c97cc64ea6743b8828406" => :mojave
     sha256 "280e51afa899236777022c30b756fb4b87e034b9e23a5526c183fe3d0e24731c" => :high_sierra

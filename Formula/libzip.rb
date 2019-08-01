@@ -5,7 +5,6 @@ class Libzip < Formula
   sha256 "be694a4abb2ffe5ec02074146757c8b56084dbcebf329123c84b205417435e15"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "0036272939932029e74982ae3757ddb3e2a671ea3328f80fbc6a61036396a8ec" => :mojave
     sha256 "adede5bd45b75dbbfb5df7ba638688afa3fa7ad71c84b5b238221fb982bed720" => :high_sierra

@@ -6,7 +6,6 @@ class Scalapack < Formula
   revision 15
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "5145405aea16d22bc8aa4672fbda2cf9b5ad98a89c4704c0ab2c7d4d94af154e" => :mojave
     sha256 "a18a1dce08bc8f7114143e35fea3aa9d3bbab7ff92c368664ae00083352ebc83" => :high_sierra

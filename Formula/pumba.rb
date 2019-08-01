@@ -6,7 +6,6 @@ class Pumba < Formula
   head "https://github.com/alexei-led/pumba.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "247794d0ef37e5eb999c989e0e8c5fb3bf8f2b61ec35e93b94321cbff5c2b79a" => :mojave
     sha256 "72f425c3c11e1c08da7485cf6f7db1d771a2f914f342f4f61f0d273e12fc9b8e" => :high_sierra

@@ -6,7 +6,6 @@ class Abyss < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "b3b0b70dd3911e0a94689f1ff4c0066a77f1698d6644e948a70b6cc073d2bcae" => :mojave
     sha256 "465013b8098487135b82083d9a73562d27dd856a1a9707d9a7946032e9828e02" => :high_sierra

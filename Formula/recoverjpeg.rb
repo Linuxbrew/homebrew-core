@@ -5,7 +5,6 @@ class Recoverjpeg < Formula
   sha256 "db996231e3680bfaf8ed77b60e4027c665ec4b271648c71b00b76d8a627f3201"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "89bd9fe522bc64508a3c2925edda2a3ae3cfc32e7ff59f7e70eb1069352129b2" => :mojave
     sha256 "ce460e293cc4c4c5bf3650cf9860e7b06654017473c414dc88c1df9d82e8466e" => :high_sierra

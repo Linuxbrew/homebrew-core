@@ -5,7 +5,6 @@ class Cassandra < Formula
   sha256 "5d598e23c3ffc4db0301ec2b313061e3208fae0f9763d4b47888237dd9069987"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "d3095afa053d64cb3c7f02e193df760029c0b475c7b9de2fab1531370d30ae94" => :mojave
     sha256 "b85177946477a400d6bbfa2cf0cae6536542657055167a833b2752657044378a" => :high_sierra

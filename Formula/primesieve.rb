@@ -5,7 +5,6 @@ class Primesieve < Formula
   sha256 "ff9b9e8c6ca3b5c642f9a334cc399dd55830a8d9c25afd066528aa2040032399"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "c932276f2380adb0931435638641dcce166d2ab542ec7254a6fc4257b9b2f259" => :mojave
     sha256 "799b34ea32419dd37598adeaac9b6b779351cfd91a3dba99c122ba3b518e5a04" => :high_sierra

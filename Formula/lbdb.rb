@@ -5,7 +5,6 @@ class Lbdb < Formula
   sha256 "b0cbc68abeb70be779b234f736dd7eb14bf3f7cd1a2ea41e636de1949da025bf"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "a02ea4967e809c9254dac7726c7ee9365e1ba99a8eef68fe6dfd4de34d2fa5af" => :mojave
     sha256 "0e5c126d7cb1c5ed3211ee1758a388597b00f32c3fb22c0420919e3667371ee2" => :high_sierra

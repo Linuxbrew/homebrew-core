@@ -8,7 +8,6 @@ class Davix < Formula
   head "https://github.com/cern-it-sdc-id/davix.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "85564894b2b7eb8f1896a815e1b3b9fe0bdcd1598060ec3872ec1fa0806f96d7" => :mojave
     sha256 "702eb13a7e16c4f73904f064bedce4a9e13a95d72b5428e5684ad3f5bb9566e9" => :high_sierra

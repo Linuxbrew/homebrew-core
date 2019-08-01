@@ -7,7 +7,6 @@ class Ninja < Formula
   revision 2 unless OS.mac?
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "d3f825237b23175d46ed02f492df8297968f3ce45f328362f167caf962323c98" => :mojave
     sha256 "c6057431959eb3117f5eca1bb62d2403d189f3091f2cacaef89c9696b2ecec39" => :high_sierra

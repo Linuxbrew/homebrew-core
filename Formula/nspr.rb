@@ -5,7 +5,6 @@ class Nspr < Formula
   sha256 "15ea32c7b100217b6e3193bc03e77f485d9bf7504051443ba9ce86d1c17c6b5a"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "df7f55099d7210f68306857a154677cfffe0bfc03a782674c8424a8f1dfe4e5e" => :mojave
     sha256 "4ebdabe6497e0f587aa034628469de65b57e7eec1450f7f580474f1a44c18078" => :high_sierra

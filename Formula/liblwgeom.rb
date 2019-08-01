@@ -7,7 +7,6 @@ class Liblwgeom < Formula
   head "https://svn.osgeo.org/postgis/trunk/"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "ae9c29245251a22f8a93b751ae13ebb756e32f29f3fcfc18f1908db22fec534d" => :mojave
     sha256 "7fb25efd9d5c9066478b3bfa37eb20fe9067dde08a68d5d0ab71906f16c9b934" => :high_sierra

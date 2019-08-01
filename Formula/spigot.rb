@@ -6,7 +6,6 @@ class Spigot < Formula
   sha256 "a2c29bf6aa627300444bb06b277edb7e841a83a31fbae7d33adf6f52b1019df7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "629d5dcb9ce0a58cb0983956ece08b26c5adefe4fb13eea562cda70f7f172b15" => :mojave
     sha256 "dd9f37d3a0104425cc70b7bb7c917d3e79879e9bc9abd2f012b4bff1ec76278e" => :high_sierra

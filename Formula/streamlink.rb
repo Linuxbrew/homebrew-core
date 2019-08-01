@@ -5,7 +5,6 @@ class Streamlink < Formula
   sha256 "496c81804bbe534b47f6cf4d77aa6fae95347ebaab495277f9d2526543cbafa6"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "5037aada38d677b20836b833e27531f97de860d3fb3e9fb8ba2c4dc5542ae9ac" => :mojave
     sha256 "7c528315997d20e5429bb7c82947463912b7b3e1881d07863df3e3e8ea97e3c6" => :high_sierra

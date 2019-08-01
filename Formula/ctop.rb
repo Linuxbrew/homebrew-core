@@ -6,7 +6,6 @@ class Ctop < Formula
     :revision => "70bd2ae3a3476969cae3c7f921d38b130ceec648"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     rebuild 1
     sha256 "2e2f235137e94a3480bf54a0ef951665756736e38db7e0d61bee478e03d550ce" => :mojave

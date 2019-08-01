@@ -5,7 +5,6 @@ class Libbluray < Formula
   sha256 "a3dd452239b100dc9da0d01b30e1692693e2a332a7d29917bf84bb10ea7c0b42"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "25de56ece940908d1be482b234b5c6fc5ec2bc8d24aaf9c75d67718ea5770605" => :mojave
     sha256 "152dd759f3c3170eecf59f095c6b8dde3a9fc8dcf317846b50fbd85644bc3296" => :high_sierra

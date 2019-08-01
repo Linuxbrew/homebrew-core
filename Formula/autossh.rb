@@ -6,7 +6,6 @@ class Autossh < Formula
   sha256 "5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "2674ee43690b5d99490a0979359fdefa52033650b935547a6353de726f916275" => :mojave
     sha256 "f88fcb32499fff8aa2899c85fc39dc6678ebed2849791a4312d427d9073b6b98" => :high_sierra

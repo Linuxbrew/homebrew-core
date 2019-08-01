@@ -6,7 +6,6 @@ class SuiteSparse < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "cd8f66c3e7358c6bb81f9e7975663283c605d057838bf74edafa21d5a9f55401" => :mojave
     sha256 "f3c2906bb5685a2c1a1c2702ec902b21dcbb41867a0962a8b161201a999200d2" => :high_sierra

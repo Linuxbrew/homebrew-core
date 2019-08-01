@@ -5,7 +5,6 @@ class LibgpgError < Formula
   sha256 "babd98437208c163175c29453f8681094bcaf92968a15cafb1a276076b33c97c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "a708445b7304f711ed41bbf95f5cc90e3c6c08339bb9e4d707b2a476971827d3" => :mojave
     sha256 "b17e8b8e93add16424efb34b5a9f6ab280b3127050c560db5829b4e16de7cabd" => :high_sierra
     sha256 "bba0dd545de4ce5469ba008009c04fcae21db32ae1cb755b7d57071741de3cfe" => :sierra

@@ -5,7 +5,6 @@ class Yq < Formula
   sha256 "5277293b3bcd7c891d8c20c029637ca5064409696b77937a1cba1bfc07164163"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "04f9e504ff627ee5c24a2051122c68bbb2cabf66d6ea2be4c6d161613e38d2c0" => :mojave
     sha256 "691172310ea3a78373640dcb21d2d9f8615d337f7314e78627fbda47dd59f47c" => :high_sierra

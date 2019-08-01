@@ -5,7 +5,6 @@ class Libdvdread < Formula
   sha256 "28ce4f0063883ca4d37dfd40a2f6685503d679bca7d88d58e04ee8112382d5bd"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "3919d408e59a7b7b50a22e088d347d78e0e5c1a2cf4c9d557210954a0aba9311" => :mojave
     sha256 "71d7adc722864315fcf72d6011b7932e5a038562585ec92ac1adcd7c22bfbcf2" => :high_sierra

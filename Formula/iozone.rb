@@ -5,7 +5,6 @@ class Iozone < Formula
   sha256 "2c488a7ccddd624fd557af16e71442c367b131d6178e1b4023bbd532bacdda59"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "ed77f59ddfb45e302b60e80d2f4a842e838af5973df7e6dc7d95a3d27c06d0e8" => :mojave
     sha256 "c0f0f7a10f585f40435d1d0a07322739925c9cae2afeb8c8714fe9e121a41572" => :high_sierra

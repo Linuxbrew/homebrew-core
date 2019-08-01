@@ -5,7 +5,6 @@ class GribApi < Formula
   sha256 "6afd09feede94faf353b71caa2567b985ab214331d58e8c3f303ea01f387777d"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "c47b2b6a977a73b010707e6190d0dde94499615913f88ef7eb4aedc4804768d0" => :mojave
     sha256 "1a0749fb9fa2f5b66ab7230920806f3dddcfb1a7b0cd3cd090e506c3f7e0e9af" => :high_sierra
     sha256 "e556a07e1d8a1ef6bd7f4c5f0c3770ffab42c897b3213d05d65e3ec9b386912b" => :sierra

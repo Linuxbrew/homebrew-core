@@ -7,7 +7,6 @@ class Osm2pgsql < Formula
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "0ebba50375c8d63d13db3e8d1dc2b326d5099758f272c6fd5216be6497bba2ae" => :mojave
     sha256 "2ad65d522d094b6b9b742bca379d66f9999658050efbb19f1ad79fafbb1f823d" => :high_sierra
     sha256 "59fa881b0b8e0f1f0c542881814f21896d676bdcf6ab71c823f1676b0432be87" => :sierra

@@ -19,7 +19,6 @@ class Sdl2 < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "73dc083fe09bef54cdd08d6e1d86fba67172bc7bda4886e410d3e72fe5ab1c32" => :mojave
     sha256 "eb6b0eb77c69f111c67f48962699e5b237eab26c3a49f8f46bf59bfa241839ab" => :high_sierra

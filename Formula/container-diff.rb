@@ -5,7 +5,6 @@ class ContainerDiff < Formula
   sha256 "4bdd73a81b6f7a988cf270236471016525d0541f5fe04286043f3db28e4b250c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "31af3976b5c63927f934d3155de81d6b6a241bae7244d103012d0d7cbfbeded7" => :mojave
     sha256 "6002efa7d3d475f95c9bec04896e338a99da5bd333f6fc0ccd20ca80eb6e9726" => :high_sierra

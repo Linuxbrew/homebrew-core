@@ -6,7 +6,6 @@ class Cdk < Formula
   sha256 "adad7870988d44b95df57722ab8dffc587d035183eb6b12a9500ebed4d8dba25"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "c786783f05f2aa98019d5142c7c8a019cf9caee471fa41aa7ba360d0b8cb6b6e" => :mojave
     sha256 "706723393e31a2969cb8686726426e72eaee75e848d60082c67da7daa1929ac5" => :high_sierra

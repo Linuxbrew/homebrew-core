@@ -5,7 +5,6 @@ class Graphene < Formula
   sha256 "82a07f188d34eb69df4b087b5e1d66e918475f59f7e62fb0308e2c91432a712f"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "14955a68031fdc7e48a9f0b6438a59fec32495bf5a4afa21173977027146a376" => :mojave
     sha256 "ce298f614ae9c0bacb0a0d7856db30ad25ff27bfc2f8bb18193a08d8ad83fd2f" => :high_sierra
     sha256 "2647d2925ca5a6f5da5375e7b8b4fc6080248ea2c576cc8914376a8c05076fb0" => :sierra

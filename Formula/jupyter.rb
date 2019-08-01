@@ -6,7 +6,6 @@ class Jupyter < Formula
   revision 5
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 3
     sha256 "b37596a5d6115045e04b687d6d90bb00c15ac544a3e5aa04ea66e60af099e622" => :mojave

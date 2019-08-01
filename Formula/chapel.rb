@@ -5,7 +5,6 @@ class Chapel < Formula
   sha256 "c2b68a20d87cc382c2f73dd1ecc6a4f42fb2f590b0b10fbc577382dd35c9e9bd"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "566175e438251b20ede1a382c3bf9adf6190a0795ddadbd424fa0e359ef587f8" => :mojave
     sha256 "20ae69dac7474ca917e4753b6c9e7ce1761c4b054f950abfad99fce05332fd52" => :high_sierra
     sha256 "f61ca08127d16681f68aabe1c1f6f0c695f4d557b1daa11c21ad06762359fb3f" => :sierra

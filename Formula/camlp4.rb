@@ -8,7 +8,6 @@ class Camlp4 < Formula
   head "https://github.com/ocaml/camlp4.git", :branch => "trunk"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "4052c0b687d48ea6aebcdd44159d2a3ef187e70776727b53071bea13d144aec5" => :mojave
     sha256 "2916c776974e59cd6b8813208f538736456dc6c59fdced7eb360fba1a3bb23af" => :high_sierra

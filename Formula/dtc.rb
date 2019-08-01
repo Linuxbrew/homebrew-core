@@ -5,7 +5,6 @@ class Dtc < Formula
   sha256 "c672e443c9f7e39f5a7c8e602da6777f9ad55ad70de87de300a43828c8050172"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "a153daba5d7e2d361cc072a310379a939c8a83986584a1899edba80371e04b56" => :mojave
     sha256 "d64946a773558b22387e1e251185180d386b592828d87c166fa43dbd35cdbf1f" => :high_sierra

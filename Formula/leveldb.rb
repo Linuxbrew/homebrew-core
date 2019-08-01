@@ -5,7 +5,6 @@ class Leveldb < Formula
   sha256 "55423cac9e3306f4a9502c738a001e4a339d1a38ffbee7572d4a07d5d63949b2"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "22e4a129bedd5030525f749a5b5ec978bf6da0a9b0625fe829da482a5ab85755" => :mojave
     sha256 "b1cf697cad28caac418d2e0ef49bc90863f389402185d3cc0f1f7079516d02c2" => :high_sierra

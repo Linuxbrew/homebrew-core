@@ -6,7 +6,6 @@ class Reprepro < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "0fe440a480fa2c723af48142ca77b2cc5fb733ba5e20c011f90c11a0a1f221a0" => :mojave
     sha256 "dfeae3f34e3cf85ed2a5242f2b692a647935b78bae036398e02595448eb82e69" => :high_sierra

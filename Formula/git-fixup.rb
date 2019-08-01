@@ -6,7 +6,6 @@ class GitFixup < Formula
   head "https://github.com/keis/git-fixup.git", :branch => "master"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "0fc85e047798c8602c8ad69796c6b6ac4d9759852bdba1b189aa0e999dfb53a2" => :mojave
     sha256 "0fc85e047798c8602c8ad69796c6b6ac4d9759852bdba1b189aa0e999dfb53a2" => :high_sierra

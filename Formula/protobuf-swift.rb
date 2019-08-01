@@ -6,7 +6,6 @@ class ProtobufSwift < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "bae411c98ef6433579d163c3768da147faa3f467dd9c194c1de0edc57fbc1863" => :mojave
     sha256 "ac056837e13336ab4a19148fcba9638b2598409ef81eb7fda97f8db3b4bca573" => :high_sierra

@@ -5,7 +5,6 @@ class Jp2a < Formula
   sha256 "e509d8bbf9434afde5c342568b21d11831a61d9942ca8cb1633d4295b7bc5059"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "97f05a0bb8f9ee5b075e21aff16503284592106cc87d384c1b85936128690345" => :mojave
     sha256 "36bd941b1b215c93b6934a085b9cf8fdaad2ba2ce47a8fbe096e53a144932201" => :high_sierra

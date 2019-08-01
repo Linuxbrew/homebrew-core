@@ -6,7 +6,6 @@ class Flatbuffers < Formula
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "7d796ffd01ee8b81de0ffba7ef8dd6c5a85111d2007f2bf06096e461cb2f2210" => :mojave
     sha256 "96246b405f3804a2e0bec7ff4b214fcb009e086a65941018a602f24dfe098c37" => :high_sierra

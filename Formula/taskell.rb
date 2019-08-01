@@ -9,7 +9,6 @@ class Taskell < Formula
   sha256 "3aec117a845542513f6f674f5841c6edc5e494ad313b1f0572c224971d359ff0"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "86c3605cf37d04617f6db0ff165d17817ad0379a1dbbd1addec3ab692910cbff" => :mojave
     sha256 "be0d352ef92c4908cc4044e91fc0f5baa86b1c0443dfb32653986445773228eb" => :high_sierra

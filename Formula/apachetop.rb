@@ -5,7 +5,6 @@ class Apachetop < Formula
   sha256 "1cbbfd1bf12275fb21e0cb6068b9050b2fee8c276887054a015bf103a1ae9cc6"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "90dcbabb24c87f8cc0571a0cf1e6e559019c3af7f9502f09c4a0f98b7dafa038" => :mojave
     sha256 "f11376a3c66e0c038d0bedb25e105414a27a26a766f1b138e2cd9fdac44e4e4f" => :high_sierra

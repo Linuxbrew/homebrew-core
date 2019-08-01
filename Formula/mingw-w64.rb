@@ -6,7 +6,6 @@ class MingwW64 < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "3dc78c01bccb499a4c2ecc1a80f25bd2a59267c394fc377443efd4c9204d31a8" => :mojave
     sha256 "49039add961b0c0bd3b2efbfccd7cd5ba861c143fdf9d39a382f4c594caa3c1e" => :high_sierra
     sha256 "c339faff3c3f83b1f640c50633127edbb3f67fdaff02b702c2408727c4190d9a" => :sierra

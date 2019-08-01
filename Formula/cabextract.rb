@@ -5,7 +5,6 @@ class Cabextract < Formula
   sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "cd27b939a0191d4dfff8ae13300b260b5ae01c563a21613718160012a982d5e8" => :mojave
     sha256 "c77caa7c32b4320f9e887abeea99261345e83f03e2c321ec9e99ddd9c75f5d98" => :high_sierra

@@ -7,7 +7,6 @@ class LlvmAT6 < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "fa82b34b02759b52cf6d6eab0e41602a1c2b902b8eb94624d30ff0652697c16e" => :x86_64_linux

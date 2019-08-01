@@ -5,7 +5,6 @@ class Xxhash < Formula
   sha256 "b34792646d5e19964bb7bba24f06cb13aecaac623ab91a54da08aa19d3686d7e"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "ba896fa36c62ca5100bfe8a0e224a8c8af7d780da0f9859f6f3eabcff11f66a6" => :mojave
     sha256 "3e2f2e6993a2655c6bbbc5f8ab269729285dfc176afce79152119c2442e7fbb4" => :high_sierra

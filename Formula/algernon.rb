@@ -8,7 +8,6 @@ class Algernon < Formula
   head "https://github.com/xyproto/algernon.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "ac2fac7c0662d6864f2dc2e99fbae53041463a67b5e55bb3922deb487daf7382" => :mojave
     sha256 "db60d68e16302c740d2581fb113bbee08438ecf2706ce5cb91abc04b643d1ccc" => :high_sierra

@@ -5,7 +5,6 @@ class Aurora < Formula
   sha256 "90ac08b7c960aa24ee0c8e60759e398ef205f5b48c2293dd81d9c2f17b24ca42"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     rebuild 1
     sha256 "3d0f318def46f1bed3f7e16af66c2d1eddb6fdb305dd68d797d3c6cdbf99c13f" => :mojave

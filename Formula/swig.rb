@@ -5,7 +5,6 @@ class Swig < Formula
   sha256 "e8a39cd6437e342cdcbd5af27a9bf11b62dc9efec9248065debcb8276fcbb925"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "9eff7a235762c2727dfdb767217be4a48a55f29efcae5fedc450c3dfeb806904" => :mojave
     sha256 "aed79cb436b3a0ac5812c4085e3121ffd62866397b8c7eaa06815ed8ec1e22b7" => :high_sierra
     sha256 "af4c42215d5c7c042d83e98aecb70958acd73038dfc2b59d1854f2287fb50980" => :sierra

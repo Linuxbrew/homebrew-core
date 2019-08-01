@@ -9,7 +9,6 @@ class Ghc < Formula
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "ab7cfe45159057538fcde888c14ccf19b0154ac6e0e2d9bd92727c5a0b7734d5" => :mojave
     sha256 "6736c0d1bbff9d7c775c70979b4df8e54d2183ded84965bc44fa6b0c16a0996c" => :high_sierra

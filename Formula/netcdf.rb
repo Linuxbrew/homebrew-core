@@ -6,7 +6,6 @@ class Netcdf < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "d798cbc16c2e6c312d921abf4cef0d74f094c9f6496114c06219baabaa962974" => :mojave
     sha256 "0307831230fe41037beb09e9434d587497dc246ad4c0eb083e603efa4d5fbbec" => :high_sierra

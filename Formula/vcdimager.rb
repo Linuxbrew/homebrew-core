@@ -7,7 +7,6 @@ class Vcdimager < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "cb45bd1a48e551a60e8b344668a79e24414012ebc76a141ee6c0677ec21ad594" => :mojave
     sha256 "993b40efcd1af1844ed14064de2551cecbdacc3a1c4d39f9fe1d8b289b3b6eb9" => :high_sierra

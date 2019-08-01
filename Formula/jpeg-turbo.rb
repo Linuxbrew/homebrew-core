@@ -6,7 +6,6 @@ class JpegTurbo < Formula
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "8b1bebbe396aa8c87ffaf728e55206e6d87d431a1f26960e0043a4d314ecafaa" => :mojave
     sha256 "67e420053c229a4c33aaed0e6c585da8290b88c4fd6ca4e09d7c65c8d96656e8" => :high_sierra

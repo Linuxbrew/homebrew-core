@@ -5,7 +5,6 @@ class Pilosa < Formula
   sha256 "5e0040b7605cae3ebf2b617d472e7c104ad026982ba52e83f8b0593b32b6fa05"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "36b8c8e39db4de4e18698e139d709166ef5ff09ef64c0e007f63b31bf11ce14f" => :mojave
     sha256 "45ed3cc1e4ce0d1d30b4492bf1f997eb21f31c074ef4d59ac46728d0563e23bc" => :high_sierra

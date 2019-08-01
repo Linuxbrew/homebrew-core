@@ -6,7 +6,6 @@ class Hdf5AT18 < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "1485cae9d86cf8858cbad57558e7fe5c87092df6558cf89781daf10abad1af5f" => :mojave
     sha256 "ec5ff75dd845f8718f816e2729ede6cb163866e86c16a9a206eea7a243846f94" => :high_sierra

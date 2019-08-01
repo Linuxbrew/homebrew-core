@@ -6,7 +6,6 @@ class OpenMpi < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "f7c495b7015a86f61cbc44c5788912d919e5bdd70b13160b0a94e4d07f892f69" => :mojave
     sha256 "6660708bc834553df9cda635ea590ad5e30112af7aa522e33c78b4655105901b" => :high_sierra
     sha256 "ecd525d18b89900646a4bbe161760830ad84ad2c9d4ca3afcb9f8855a692c5f1" => :sierra

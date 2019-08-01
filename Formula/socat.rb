@@ -5,7 +5,6 @@ class Socat < Formula
   sha256 "8cc0eaee73e646001c64adaab3e496ed20d4d729aaaf939df2a761e99c674372"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "8df52f1aac80cb54571c817acf3dc3a37dc7c6cc61efda3ff5d894b802e41488" => :mojave
     sha256 "146f0a748cf86284207e7a23f178eace6019d861add738fca74e74171a079fb6" => :high_sierra

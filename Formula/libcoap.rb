@@ -5,7 +5,6 @@ class Libcoap < Formula
   sha256 "9523e38da6ee8b2a8f5ce83ded64107dd1e514c7ad00cd74ccfe3454b679c271"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "e43618d83730577d3a647565e919d8b8db6ccd6d947995b001fc75a6e02655f0" => :mojave
     sha256 "c39515311e41413a6a569dd3b652cac35c15fe21a51140976e7f3294b14193b7" => :high_sierra

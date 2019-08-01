@@ -5,7 +5,6 @@ class Spatialindex < Formula
   sha256 "52d6875deea12f88e6918d192cbfd38d6e78d13f84e1fd10cca66132fa063941"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "bdda20e0607a6ac0a2bbf3ee37c0d507b7f9ede93f2210c3b33887b1682c173e" => :mojave
     sha256 "81cb9da70510a276cf06cc993f1b94aa27ce688b923aeac8170df372496bd371" => :high_sierra

@@ -6,7 +6,6 @@ class AutoconfArchive < Formula
   sha256 "17195c833098da79de5778ee90948f4c5d90ed1a0cf8391b4ab348e2ec511e3f"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "37d5baf229236e25cc249934f6e052f3c99fe2b2c0fbf799c35e3b46ae861520" => :mojave
     sha256 "37d5baf229236e25cc249934f6e052f3c99fe2b2c0fbf799c35e3b46ae861520" => :high_sierra

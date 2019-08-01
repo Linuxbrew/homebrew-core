@@ -5,7 +5,6 @@ class Miller < Formula
   sha256 "d9a7ed10a1a5e71082c33d489f77ab9caba6e6c4f9bf0f6c3958201b64974f7e"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "a2a049c66f1a1f3d8bb14a316afa5624c290ddca8a5723417fe7bfb0b682d62e" => :mojave
     sha256 "dfe0d02b8fe42510d2637a6016ac7527b7e7fef981b6677f9171236780ffd05b" => :high_sierra

@@ -5,7 +5,6 @@ class Gloox < Formula
   sha256 "4ade1b14848ccfcd89a505a4fff05116c24f13cef8d02fab0ade2717117ec964"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "b443d6fa0056204e7f7584c0e945eb231f1f1e2f19dea9d959f6ccf31cb190da" => :mojave
     sha256 "12c47414e056dbec998397a7b362d289aaa0966323fb90cf6cddc1ccb04d0b57" => :high_sierra

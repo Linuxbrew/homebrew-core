@@ -5,7 +5,6 @@ class Kompose < Formula
   sha256 "6da3ba8b66c7023f66b3ddc8f9ff1e5ce5f38e299da9ff93c4dd1c2a765b8dc5"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "f5aa21a04462d384e5eee491c064417868a987643e483d0abdf63b34ff1ef384" => :mojave
     sha256 "cca8ebca8fc06f5b756f8c507b69b4cf1e4dd43b8d77cd1aa42fb2a33e931e36" => :high_sierra

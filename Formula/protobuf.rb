@@ -7,7 +7,6 @@ class Protobuf < Formula
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     rebuild 1
     sha256 "410f34fc3240dc94c16bf74e3317b56d987acddc361228c03e6b10e8373588fb" => :mojave
     sha256 "cb0e47a0eaa45e5237eab16fec5cc1efb00c531d51484aefceb9a19d6c686f61" => :high_sierra

@@ -6,7 +6,6 @@ class Libcddb < Formula
   revision 4
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "2eb96af074a3f8dc8babf689481d9be863c0e79445499a473f94c57773381983" => :mojave
     sha256 "f6f41c88a20822be86c07ce27b0f426d3c34d4d420c77d35ff457291c7ad3ada" => :high_sierra

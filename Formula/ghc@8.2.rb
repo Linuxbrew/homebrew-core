@@ -9,7 +9,6 @@ class GhcAT82 < Formula
   sha256 "bb8ec3634aa132d09faa270bbd604b82dfa61f04855655af6f9d14a9eedc05fc"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     rebuild 1
     sha256 "4e0fb4e1672332d2efc68e76bdf23daaf1047c78908c99407616219fef56f961" => :x86_64_linux
   end

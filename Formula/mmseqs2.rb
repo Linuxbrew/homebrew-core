@@ -6,7 +6,6 @@ class Mmseqs2 < Formula
   sha256 "2890a748b38ed1a04d98c2197b11bac6b50c1329313b6218ba2f53aeb6c5e874"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "681f2f8d6ff749a72eff0f8d05a8bcf840941c8146ef26e976e78de65564a440" => :mojave
     sha256 "61c186285e1aeef7720fd770f870a452d1ec74fb8fefbf64ec043181fee0aa98" => :high_sierra

@@ -5,7 +5,6 @@ class Opus < Formula
   sha256 "65b58e1e25b2a114157014736a3d9dfeaad8d41be1c8179866f144a2fb44ff9d"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "787bf9b6d56f63cc3d0cf0f7f17affeb85b6496b32bf9a200f57431c886ae4a5" => :mojave
     sha256 "187884409b33deb371002701b6ffb790c1832fecbe6b8e79e437039dae87aff8" => :high_sierra

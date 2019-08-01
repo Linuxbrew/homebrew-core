@@ -6,7 +6,6 @@ class Physfs < Formula
   head "https://hg.icculus.org/icculus/physfs/", :using => :hg
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "cb97a3a17728f3173d4c19fde495cffbddce965bbf6015e45882e3c27f267cf3" => :mojave
     sha256 "296927566472c976a578f89c4bd6bf0f518427a53d586499a8e202896d469ee3" => :high_sierra

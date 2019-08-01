@@ -6,7 +6,6 @@ class Quilt < Formula
   head "https://git.savannah.gnu.org/git/quilt.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "5d7f412108ec8831b8b6bfbc8e41d8b577523ffd66f9d095853a4680ec23b04f" => :mojave
     sha256 "691a01a091194910f0848aea529b331559fb98d44e9821c1ebafba51d2a2d62c" => :high_sierra

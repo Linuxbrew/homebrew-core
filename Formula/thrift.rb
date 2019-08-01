@@ -5,7 +5,6 @@ class Thrift < Formula
   sha256 "c336099532b765a6815173f62df0ed897528a9d551837d627c1f87fadad90428"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "84321af08a88b55fb203083d5653cf2daf7815dbaa3093deb38af952c65e749b" => :mojave
     sha256 "51a0d9888ed9ca351ad0668632f0ec920c7509bfb9fa7bca5e0f446fbf3358a2" => :high_sierra

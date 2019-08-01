@@ -15,7 +15,6 @@ class Usbmuxd < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "2305d6794314c64d0fb8c3339c2d75a8e01d218715bc871560e4fe9fcad486a8" => :mojave
     sha256 "253be465f391159e278a0a9625775075503f75b0a404aa64b9f557486de3b82c" => :high_sierra

@@ -5,7 +5,6 @@ class Jmeter < Formula
   sha256 "844d510fe04aaf62269311f18117d75c959148bb9f0fc76b4047abc8a8edb4ae"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "75fe29e4b60b96e881c3b64475d4f7fc268cd405e300b31f1aa3ce6cb26c4211" => :mojave
     sha256 "75fe29e4b60b96e881c3b64475d4f7fc268cd405e300b31f1aa3ce6cb26c4211" => :high_sierra

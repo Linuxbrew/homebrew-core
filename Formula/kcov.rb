@@ -6,7 +6,6 @@ class Kcov < Formula
   head "https://github.com/SimonKagstrom/kcov.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "eb5bc53867f7dc0ebb53216daf6b1ec62ee45036fa36d60ccfa03722644176ed" => :mojave
     sha256 "e5c56807425593829fa59be83f58ba473cdde545216c06fdda54e7e59996f413" => :high_sierra

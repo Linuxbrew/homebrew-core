@@ -5,7 +5,6 @@ class Jid < Formula
   sha256 "0912050b3be3760804afaf7ecd6b42bfe79e7160066587fbc0afa5324b03fb48"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "2552c0ab94b892750ecff994b5f3fa963d8ab69298fc27abff7ca92f1e371532" => :mojave
     sha256 "4cfdd2d04b54fdd4d63a1297205bc7867b8bd7049c727ab8ad306c12f0d270d6" => :high_sierra

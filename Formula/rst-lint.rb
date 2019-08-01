@@ -7,7 +7,6 @@ class RstLint < Formula
   sha256 "4bf9d4724f59bc05ebe1cd5192c03d4597ee95c4bbf60bd5644422e1a2558da3"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "6141abff3561e93a197148e81d2c0634a3665f41beabb4a5bbf92bb0355ce270" => :mojave
     sha256 "377505a302c81418df15ab1a29723a0b4572d78e7a8bb984a33bd57daf352fbd" => :high_sierra

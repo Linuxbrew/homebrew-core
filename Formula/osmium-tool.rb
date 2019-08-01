@@ -5,7 +5,6 @@ class OsmiumTool < Formula
   sha256 "f0a75ce39ac92c43a01d978c1ecae05d864930bf7d518ea059d7ba320735dd66"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "7005a84bc3c481fa61a4279da2314e2a11f136c942f6d344206fcc3cd6544687" => :x86_64_linux
   end

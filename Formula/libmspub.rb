@@ -6,7 +6,6 @@ class Libmspub < Formula
   revision 4
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "93f7e02d005fb22101eab93659f200ed8376130c9a4bad0c24b0cdde51b92f18" => :mojave
     sha256 "43347c63d9fb4a6746929b2127453241cdad9b13a9fd00ddf82af418d6a175b2" => :high_sierra

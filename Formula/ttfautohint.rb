@@ -5,7 +5,6 @@ class Ttfautohint < Formula
   sha256 "87bb4932571ad57536a7cc20b31fd15bc68cb5429977eb43d903fa61617cf87e"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "04ca530843887602e80fde17d24f4ed8e19d1248bd71c81c925c161770dbdf56" => :mojave
     sha256 "a6573ae816a7555d62308759c2d64f9fb955ba056d856d904a522996ba0a0c83" => :high_sierra

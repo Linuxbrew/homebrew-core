@@ -6,7 +6,6 @@ class Jump < Formula
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "125750ca3597f9d628b2fc988c492a5c77e3bbacb18580905d9169c24688049c" => :mojave
     sha256 "03cbd33d75d0928fb0ff6141b4460b76cd288864831147e0b323d0f767d26477" => :high_sierra

@@ -6,7 +6,6 @@ class Polyml < Formula
   head "https://github.com/polyml/polyml.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "7d004ce1e0cd9920cc0d66a690be780e11365f8725bbfaa68222ddf324d1d0f8" => :mojave
     sha256 "11835db3f5848077c9b0e6af52bceffaf4c356892c9e3dc795976bcf9711a06b" => :high_sierra
     sha256 "b3dd5bae8d8cef36c6258c2620a4ae894a7a1c66fe56330c48e19a1f81aa66d9" => :sierra

@@ -5,7 +5,6 @@ class Ansifilter < Formula
   sha256 "e2eee3912718b226d3217e2848e5c5a447bf30b7fbb9f0ebc8dd4ddfeb4797af"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "78a752145456f9be0bf7eb0639c0797ee61f262d3305c95ebd3efafd43568176" => :mojave
     sha256 "0038d6bc9d690591df08c050a63fac325174df8c6cb64264524199f4b0c000c5" => :high_sierra

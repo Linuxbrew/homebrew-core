@@ -7,7 +7,6 @@ class Plotutils < Formula
   revision OS.mac? ? 1 : 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "96a618ea8123f08d676b0db38c1c3b93dc8f707c742e97442b74650c2dd8e4c5" => :mojave

@@ -11,7 +11,6 @@ class Cmigemo < Formula
     patch :DATA
   end
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "28db47c1cedcff4dc6ee2d48bd07a147ae18f400e035e6a583d6b8e6cb36dfa1" => :mojave
     sha256 "a56e9422e30145d388649e9c85bf814adb58688c2c5e374385f4260b8daa049a" => :high_sierra

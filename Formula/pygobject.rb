@@ -6,7 +6,6 @@ class Pygobject < Formula
   revision OS.mac? ? 2 : 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "caf4b79e8454b58bb67e73a6f06853d7a410c1fa9b31478c6ac389424ca690bb" => :mojave
     sha256 "04550d558f335fd6431ee3c124ba19011ec4284e7584eff343ad6b78483472a5" => :high_sierra

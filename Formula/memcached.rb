@@ -5,7 +5,6 @@ class Memcached < Formula
   sha256 "45a22c890dc1edb27db567fb4c9c25b91bfd578477c08c5fb10dca93cc62cc5a"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "5deff247a1bbbdecd0e22ed534a4de8d57fc5a9d5c7dde08763a366c8783b54a" => :mojave
     sha256 "ef7043afc7f9af67793fb428e00ad392bbd5bc028821974dfc09349215a3aa2a" => :high_sierra

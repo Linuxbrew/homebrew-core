@@ -5,7 +5,6 @@ class Draco < Formula
   sha256 "a3ac692397574166ad99493ff1efcd7b5c69b580e7eb4500d5d181b2f676aa6e"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "c1bae68f6c01adcce21376bd26f66e9274fa5e733eed5b2e1e032a61e2641cef" => :mojave
     sha256 "fd67b398a18f03ed070ceb6cd3dccd58ce761e2030f6bc75599df3fb49a4d8bf" => :high_sierra

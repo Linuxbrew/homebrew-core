@@ -16,7 +16,6 @@ class Libspatialite < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "443cb7ecfdc6b7df7a471e563935acde7c54109851ea0f28c37d76f4f3c84557" => :mojave
     sha256 "d5d2e556d73cd57ce5c9b57492c235cf78ee123f3e2e95259c3b5ba8148efc4b" => :high_sierra

@@ -9,7 +9,6 @@ class Hledger < Formula
   sha256 "849a6e0683192ec504da9a631ddfc82e04973583f4a028fd39b8cdac2efe29ea"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "f8f717413411bf98616d3df20f31583928b8b93e937080632e08677512cd9d5b" => :mojave
     sha256 "5150a38fc8378410ca9b7b9d2fca755ccc7fe0eef6805fc07650fd836460a0bb" => :high_sierra

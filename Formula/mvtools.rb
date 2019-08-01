@@ -6,7 +6,6 @@ class Mvtools < Formula
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "38a737a0f57228a8feafd128cf5124cb563a1579396943c5f3ae28716922ddc9" => :mojave
     sha256 "ddc7826a71b5c15138526db3857afbf16cda335c7037236bd2abe35035c9bcc9" => :high_sierra

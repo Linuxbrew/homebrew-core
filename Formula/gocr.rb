@@ -5,7 +5,6 @@ class Gocr < Formula
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "f0af1bb6614e72f70b54eeacb2063aff9eea014965611828f2e13eb8677d636b" => :mojave
     sha256 "8bcc15b6bef035a94d27a242f7cd40f6c71d4585a2b0c964f3e26aa800258f8a" => :high_sierra

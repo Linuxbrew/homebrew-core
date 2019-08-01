@@ -5,7 +5,6 @@ class GoogleJavaFormat < Formula
   sha256 "199c70851146bc15c8e828f5ca78d6c2d7b338def9cc70786ac3ef5967796399"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "bb1fcc168016355d6f847b858018f6c5b188f41e9461aa956a1541e609406d93" => :mojave
     sha256 "c8f23d50f6512d56d4402cb0b2325d7e01563625104579f4ea52a1f47e7f2802" => :high_sierra

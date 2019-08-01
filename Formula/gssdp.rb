@@ -5,7 +5,6 @@ class Gssdp < Formula
   sha256 "6b57b79a96e229367981b6f00474e4bbc795909a2d3160c748cba3395b3556d3"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "2290af08181d27e7aa38ee9a005872b0c4c00b36b6d07bc35eb42ca475dfe73e" => :mojave
     sha256 "02e1fa177854c341451732648d6fe1d3872521efdcbaab7d6fc9427ae9b4fa6d" => :high_sierra
     sha256 "1c06bb7d867ca5f542e83340649e757ee07faf45540fdb37eb7685e600ef83ca" => :sierra

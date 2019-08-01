@@ -6,7 +6,6 @@ class Lz4 < Formula
   head "https://github.com/lz4/lz4.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "a898c71e6e254a98310ed55d54962685c2c08c181dee12ad5f705083e18c168d" => :mojave
     sha256 "a3e6eac647b6a34547606523e97d004f29cdf3866334d04238bf088340e29a14" => :high_sierra

@@ -5,7 +5,6 @@ class GsettingsDesktopSchemas < Formula
   sha256 "2d59b4b3a548859dfae46314ee4666787a00d5c82db382e97df7aa9d0e310a35"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b2873d19eca42edb79cbf3055f0814eb66314edd60df6400ce91a3119661a3a9" => :mojave
     sha256 "b2873d19eca42edb79cbf3055f0814eb66314edd60df6400ce91a3119661a3a9" => :high_sierra

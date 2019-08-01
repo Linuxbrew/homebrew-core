@@ -6,7 +6,6 @@ class Opencolorio < Formula
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "c672c422e3d7b9559acf9925c0c6529fee5caee63083d74c78e9ac70b64a1b31" => :mojave
     sha256 "ebc3541bd070af3a7c5ccee3b858fa37e20ef10ffec611130e24bb3676c180d4" => :high_sierra

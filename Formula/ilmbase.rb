@@ -5,7 +5,6 @@ class Ilmbase < Formula
   sha256 "456978d1a978a5f823c7c675f3f36b0ae14dba36638aeaa3c4b0e784f12a3862"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "436dbe30d0bc520c5c056dac23a3558dd2595e5f5b68c6c17e18566716c71e56" => :mojave
     sha256 "4ef6417909dee0313b9d493b5689d04382907beb650abc669fc5a6346e4c4d5b" => :high_sierra

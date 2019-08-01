@@ -10,7 +10,6 @@ class Purescript < Formula
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "ffe0e6ec4234b1c57ed36f6a5de31bb06e05b7c01a25a4667880a7295837cc7d" => :mojave
     sha256 "c68dc6a3d29335c469dd96649f490a3f8b8af267e86ba0740ceb5da3556a8122" => :high_sierra
     sha256 "587f83a8e1ba6acd493bb82b75413d155cd7e8afd22d355c539eafe7b7bc2958" => :sierra

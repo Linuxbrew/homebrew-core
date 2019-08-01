@@ -5,7 +5,6 @@ class OcamlFindlib < Formula
   sha256 "2b7b7d6d65bb0f3f8a2c51c63c02b0bcf1fea4c23513f866140dc7dc24fe27ad"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "6399780e078bca007730b218f4561ef4a513ba2296230aca2bcd9b6cfc75ea98" => :mojave
     sha256 "8c2e25008b18bde6fdbefacf85397ecd93a2b916d98c1e1954532509abbfd756" => :high_sierra
     sha256 "16682aa54745337c9aaae81fdd22000831c2b85b021250c6d4112fb94ab918a1" => :sierra

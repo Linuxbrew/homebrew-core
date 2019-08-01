@@ -5,7 +5,6 @@ class Libyaml < Formula
   sha256 "46bca77dc8be954686cff21888d6ce10ca4016b360ae1f56962e6882a17aa1fe"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "aa23980d03fe5bd2e60d59424061b7ac91c24f315de84ec33856ab3bf44de0af" => :mojave
     sha256 "b763aa33bfdf6dca21b3bc16919217939ec28916266bb476ff8f44e777bde176" => :high_sierra

@@ -6,7 +6,6 @@ class Fftw < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "35006ccac20707ac44c02bc93f29b37899af307ea18d2d52dcea86ac1f80730b" => :x86_64_linux
     sha256 "fafc0d1b43619cf3ac63946a4380782747903378dfb4f7b21387c40131ad2d59" => :mojave

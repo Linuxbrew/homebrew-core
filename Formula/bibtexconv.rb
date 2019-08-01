@@ -6,7 +6,6 @@ class Bibtexconv < Formula
   head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "6f6011d0f4881805977ee882cdead5e69222b3a8d119d27ef9b3895f8e63b288" => :mojave
     sha256 "96eda092763e70b1af132b834a5f8bb9c9f12ad6f2f0802e3c09d18ebf2f6115" => :high_sierra

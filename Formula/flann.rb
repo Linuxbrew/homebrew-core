@@ -6,7 +6,6 @@ class Flann < Formula
   revision 7
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "d7a3870b59388e523bb964b92f0030e75823c84072a55dfdcbe676bd2b1b046f" => :mojave
     sha256 "0dbf4ddcdab675609aa59e953052fde8e557212127ee0befad52fc5d92a561f0" => :high_sierra

@@ -6,7 +6,6 @@ class Coreutils < Formula
   sha256 "ff7a9c918edce6b4f4b2725e3f9b37b0c4d193531cac49a48b56c4d0d3a9e9fd"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "f11898e59abf1c9ea9807ab15c7cdfc930bbfe1df14e432e5d2a89f11c405445" => :mojave
     sha256 "8ceacbb21daeeb2c526d28789fe8d703d437bb72a382a7c3a3c024901f17cae6" => :high_sierra
     sha256 "3451c10504ed3cc49893e84e6f3e09a0457cd28eb953482489548dfb593d098f" => :sierra

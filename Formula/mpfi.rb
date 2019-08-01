@@ -5,7 +5,6 @@ class Mpfi < Formula
   sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "55d8819c0310e6b8bc66742f7ab5881b9b552a9c60eaf940595ed08e8a320a56" => :mojave

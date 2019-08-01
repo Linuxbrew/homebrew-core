@@ -6,7 +6,6 @@ class Help2man < Formula
   sha256 "f371cbfd63f879065422b58fa6b81e21870cd791ef6e11d4528608204aa4dcfb"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "fe3ddffa91085d678ab198ffe981edf55b6347faf55bcc04f93fc4eb457d036e" => :mojave
     sha256 "fe3ddffa91085d678ab198ffe981edf55b6347faf55bcc04f93fc4eb457d036e" => :high_sierra

@@ -5,7 +5,6 @@ class Shmux < Formula
   sha256 "c9f8863e2550e23e633cf5fc7a9c4c52d287059f424ef78aba6ecd98390fb9ab"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "e433bd14622d3f77a35042649d0d73e888b164ab4f04431864fb68c9ec64b62c" => :mojave
     sha256 "bc38ad3a6feddd116edd9d3ab00ac18bc6663d08b9d111414975bdd1543d1b79" => :high_sierra

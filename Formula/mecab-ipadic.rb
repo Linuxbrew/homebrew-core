@@ -7,7 +7,6 @@ class MecabIpadic < Formula
   sha256 "b62f527d881c504576baed9c6ef6561554658b175ce6ae0096a60307e49e3523"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "30967b4167d34f05c79f185d71a40198fff4067d0cce82aed59383548c898681" => :mojave
     sha256 "ef5cf167b05fd74457d5c31a46750450e8f80720ebc705766ee10df6ed41a861" => :high_sierra

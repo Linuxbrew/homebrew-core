@@ -6,7 +6,6 @@ class Libimobiledevice < Formula
   revision 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "08f492ac669856b6c8b24b47837e1ad771d028dd86017c1fa2fd22a64e681183" => :mojave
     sha256 "99f3f03c16a4a3818ade87ca533a54d411613b9f07e8c61bf49f157771bddc2f" => :high_sierra

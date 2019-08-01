@@ -6,7 +6,6 @@ class KyotoTycoon < Formula
   revision 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "04d72b5c55be3c26c688eda6c0cc9f88c85855ba6fe81aa36e210fc29afe7572" => :mojave
     sha256 "ce7db5082c632bef982d5463f3a8507d786fd3bcae7f7cccf8663ab36c3571bd" => :high_sierra
     sha256 "e75c60a4417bc00d04e1f24241320329f01b0d3076de2585e92375b12c4ef31d" => :sierra

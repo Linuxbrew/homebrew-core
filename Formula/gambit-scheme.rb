@@ -5,7 +5,6 @@ class GambitScheme < Formula
   sha256 "a5e4e5c66a99b6039fa7ee3741ac80f3f6c4cff47dc9e0ff1692ae73e13751ca"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     rebuild 1
     sha256 "a8b9f1adce4260059b05505e13fd9036a9bdb689aa8e7a56ef8d0804199988b0" => :mojave
     sha256 "8626389fe8f07074733a80f85d6da64b5961258f7f5a6c8258427a5378842f01" => :high_sierra

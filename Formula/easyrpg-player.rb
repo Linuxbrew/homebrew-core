@@ -5,7 +5,6 @@ class EasyrpgPlayer < Formula
   sha256 "d364a272aa3e14adfb696b537d957541c9fff9df9a4e3948a24d42ad89b9bf7d"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "83f79e7c021e82a781d50f3d7f731a2a4fbafc3dd166c5bdb2941859331982e4" => :mojave
     sha256 "75e146b0e863c2638c34e4d97affc301638cb6b041cf1b4a05aac1e93c7eead7" => :high_sierra

@@ -7,7 +7,6 @@ class SourceToImage < Formula
   head "https://github.com/openshift/source-to-image.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "179ed06aa8cee8c8c7c6b8658eed696359170116c2ac366dadfaf086d533b033" => :mojave
     sha256 "a315100e844a70c78cf11eae24c70ff663f239fe79274da5b99223fbe6081a87" => :high_sierra

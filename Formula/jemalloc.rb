@@ -5,7 +5,6 @@ class Jemalloc < Formula
   sha256 "74be9f44a60d2a99398e706baa921e4efde82bf8fd16e5c0643c375c5851e3b4"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "65f360353caa81de08b1b1882de13e8423d0f72d92a67bb3a8cfd7ce71f39c71" => :mojave
     sha256 "9c0d0531d6da443ae28a585f23b6f959383c6c92e37c7db9287ba59c6b91bfc9" => :high_sierra

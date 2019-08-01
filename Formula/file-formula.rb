@@ -7,7 +7,6 @@ class FileFormula < Formula
   head "https://github.com/file/file.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "63271d014690b6ac45ca3ad13d23d6756ef196bd60870f7fbcf08853b60576c5" => :mojave
     sha256 "add66c41a0a6d051f263b9082ae931c0eb0f177bd04d4b2c08b79f89c3e6730b" => :high_sierra

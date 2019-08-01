@@ -5,7 +5,6 @@ class Dhex < Formula
   sha256 "52730bcd1cf16bd4dae0de42531be9a4057535ec61ca38c0804eb8246ea6c41b"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "2d6043ce881b7b407fa40691639c25c72d73a427fcdd39a56e0683f48b16b328" => :mojave
     sha256 "bfc2aa6c73ffff61a471b4dd8e183e493781a5c34baeddffc56fa89b0542a9bd" => :high_sierra

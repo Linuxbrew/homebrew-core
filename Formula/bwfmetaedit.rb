@@ -6,7 +6,6 @@ class Bwfmetaedit < Formula
   sha256 "58bab975d5cd5860246acad7260b07404f9cb453fc2f4acdd35ab4f5cf1d0d5b"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "84b882f74d83bb3e15132b2b702f8264ac865f043136c5b69a11a07fa9ce13be" => :mojave
     sha256 "0201e1bf51774f427210f28d27235c45e472571f76d3c82f840dc5c41cf47dd5" => :high_sierra

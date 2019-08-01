@@ -5,7 +5,6 @@ class AdwaitaIconTheme < Formula
   sha256 "698db6e407bb987baec736c6a30216dfc0317e3ca2403c7adf3a5aa46c193286"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "40bdecea5ba2547c6e1b18c002c55cb36929927bb292a1a0a2b118c1c518492a" => :mojave
     sha256 "40bdecea5ba2547c6e1b18c002c55cb36929927bb292a1a0a2b118c1c518492a" => :high_sierra

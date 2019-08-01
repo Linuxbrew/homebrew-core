@@ -6,7 +6,6 @@ class GtkDoc < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b4c6a1d8576e0a796c9522b461e2485ffb98a3af35844401e8c5d3b862c20a69" => :mojave
     sha256 "b4c6a1d8576e0a796c9522b461e2485ffb98a3af35844401e8c5d3b862c20a69" => :high_sierra

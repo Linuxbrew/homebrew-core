@@ -6,7 +6,6 @@ class Afio < Formula
   head "https://github.com/kholtman/afio.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "a0f6de009260949cb2199851b08f77fb82b99b92cd1c9e680cd557ed2515b42f" => :mojave
     sha256 "38f4da84d7056b33a6b7685f5206c32691ea673824faf3a971045feee8f52d93" => :high_sierra

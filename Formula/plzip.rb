@@ -5,7 +5,6 @@ class Plzip < Formula
   sha256 "edafae3c15142ac0ebd84c2231ff81da4f68db58359a737e750f2780686c3612"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "3e266c42c66babd4fbdfe82645ab876fc7224846e94b26a39183c57404e17c35" => :mojave
     sha256 "0a5df85c11e9afb266709a907980424cd60f1d1fd3adda71e8b0f9939ddf72a7" => :high_sierra

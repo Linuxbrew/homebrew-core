@@ -5,7 +5,6 @@ class Wabt < Formula
   sha256 "90e7f4a4e924e38af4edb6ca298ade662869c5b61a12399e71ee53d598d52cbe"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "c1339d52cf0c351231d7e3dda70ac733746a186a4478641c9be00a790acc2d1f" => :mojave
     sha256 "2923d126a13d7075629d6180bbf4a79ca081f979a85e3386f88b4ed2e5efb5ff" => :high_sierra

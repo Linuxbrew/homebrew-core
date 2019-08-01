@@ -8,7 +8,6 @@ class YouGet < Formula
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "7a16d5cb1e0159d4750f1453cbe0814c3eeba309bc6906df426a9dc995e8a82a" => :mojave
     sha256 "36211043db5029d7c4ed660c2d3f4bb28c35e2820af18c186039411b35594c6e" => :high_sierra

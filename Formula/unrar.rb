@@ -5,7 +5,6 @@ class Unrar < Formula
   sha256 "e1c2fddaa87a88b1535bfc10ca484f3c5af4e5a55fbb933f8819e26203bbe2ee"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "8d30a945be9a3b5a668d3c558f40dd22d3ba1e4b44e3f3d3a1b004b594d66fbf" => :mojave
     sha256 "3d5b170619917ee01c311696c457eb1b75310cc13cbe5cc7fc57c37e17c31a44" => :high_sierra

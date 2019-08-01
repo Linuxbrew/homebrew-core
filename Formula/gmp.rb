@@ -7,7 +7,6 @@ class Gmp < Formula
   revision OS.mac? ? 2 : 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "84f74594086bccc53bdb141f4d06d7847680374e255ebe016654da1e47db2dfc" => :mojave

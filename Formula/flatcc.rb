@@ -6,7 +6,6 @@ class Flatcc < Formula
   head "https://github.com/dvidelabs/flatcc.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "4ca5ad18001cd6511efd9e6eca6b7c4be094c276c6febda4961ef9eaaface955" => :mojave
     sha256 "b792b08126ca76b61e6b0957b11e22118138cc698b8512169bae6d1a6a1f3213" => :high_sierra

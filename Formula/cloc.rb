@@ -6,7 +6,6 @@ class Cloc < Formula
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "661f3c3b8eb7e0a348e36b5b1b7aebf2b579eec5ae078e7f2d2c64ab302a3644" => :mojave
     sha256 "15a38a7a5172213f2c1577a0aef34260203d5e0c25d38c6a4a2252990a9c9414" => :high_sierra
