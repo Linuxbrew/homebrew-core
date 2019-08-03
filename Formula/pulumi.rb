@@ -1,3 +1,4 @@
+# pulumi: Build a bottle for Linuxbrew
 class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
