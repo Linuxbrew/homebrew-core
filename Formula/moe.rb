@@ -1,3 +1,4 @@
+# moe: Build a bottle for Linuxbrew
 class Moe < Formula
   desc "Console text editor for ISO-8859 and ASCII"
   homepage "https://www.gnu.org/software/moe/moe.html"
