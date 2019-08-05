@@ -25,10 +25,14 @@ class MesonInternal < Formula
   depends_on "ninja"
   depends_on "python"
 
-  # see https://github.com/mesonbuild/meson/pull/2577
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a20d7df94112f93ea81f72ff3eacaa2d7e681053/meson-internal/meson-osx.patch?full_index=1"
-    sha256 "d8545f5ffbb4dcc58131f35a9a97188ecb522c6951574c616d0ad07495d68895"
+  if OS.mac?
+    # see https://github.com/mesonbuild/meson/pull/2577
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a20d7df94112f93ea81f72ff3eacaa2d7e681053/meson-internal/meson-osx.patch?full_index=1"
+      sha256 "d8545f5ffbb4dcc58131f35a9a97188ecb522c6951574c616d0ad07495d68895"
+    end
+  else
+    patch :DATA
   end
 
   def install
@@ -53,3 +57,21 @@ class MesonInternal < Formula
     end
   end
 end
+__END__
+--- a/mesonbuild/scripts/meson_install.py
++++ b/mesonbuild/scripts/meson_install.py
+@@ -366,14 +366,6 @@ def install_targets(d):
+                     print("Symlink creation does not work on this platform. "
+                           "Skipping all symlinking.")
+                     printed_symlink_error = True
+-        if os.path.isfile(outname):
+-            try:
+-                depfixer.fix_rpath(outname, install_rpath, False)
+-            except SystemExit as e:
+-                if isinstance(e.code, int) and e.code == 0:
+-                    pass
+-                else:
+-                    raise
+
+ def run(args):
+     global install_log_file
