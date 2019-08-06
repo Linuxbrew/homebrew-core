@@ -1,3 +1,4 @@
+# lsof: Build a bottle for Linuxbrew
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://people.freebsd.org/~abe/"
