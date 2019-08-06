@@ -1,3 +1,4 @@
+# kibana: Build a bottle for Linuxbrew
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
