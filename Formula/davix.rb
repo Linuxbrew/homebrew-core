@@ -25,9 +25,6 @@ class Davix < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
-
     ENV.libcxx
 
     system "cmake", ".", *std_cmake_args

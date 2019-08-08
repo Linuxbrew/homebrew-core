@@ -18,9 +18,6 @@ class Wxmaxima < Formula
   depends_on "wxmac"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     prefix.install "wxMaxima.app" if OS.mac?

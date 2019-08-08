@@ -32,9 +32,6 @@ class KibanaAT44 < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     resource("node").stage do
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "install"

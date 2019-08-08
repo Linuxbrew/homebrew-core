@@ -156,9 +156,6 @@ class Mitmproxy < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
-
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("cffi")
     venv.pip_install resources

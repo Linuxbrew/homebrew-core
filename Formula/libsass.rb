@@ -19,9 +19,6 @@ class Libsass < Formula
   depends_on "libtool" => :build
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
-
     ENV.cxx11
     system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",

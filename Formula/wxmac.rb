@@ -31,9 +31,6 @@ class Wxmac < Formula
   patch :DATA if OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
-
     args = [
       "--prefix=#{prefix}",
       "--enable-clipboard",

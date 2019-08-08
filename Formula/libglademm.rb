@@ -17,9 +17,6 @@ class Libglademm < Formula
   depends_on "libglade"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
-
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

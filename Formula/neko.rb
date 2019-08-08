@@ -32,9 +32,6 @@ class Neko < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
-
     args = std_cmake_args
     unless OS.mac?
       args << "-DAPR_LIBRARY=#{Formula["apr"].libexec}/lib"

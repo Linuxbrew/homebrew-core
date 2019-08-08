@@ -49,9 +49,6 @@ class GccAT7 < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8 -l2.5" if ENV["CIRCLECI"]
-
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 

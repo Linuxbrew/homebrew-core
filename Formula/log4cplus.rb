@@ -13,9 +13,6 @@ class Log4cplus < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]
-
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

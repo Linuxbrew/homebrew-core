@@ -34,9 +34,6 @@ class Mkvtoolnix < Formula
   depends_on "ruby" => :build unless OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?
 
     ENV.cxx11

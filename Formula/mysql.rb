@@ -44,8 +44,6 @@ class Mysql < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j3" if ENV["CIRCLECI"]
     # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
     # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
     # a shared object; recompile with -fPIC

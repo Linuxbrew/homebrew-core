@@ -34,9 +34,6 @@ class MysqlCluster < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
-
     # Make sure the var/mysql-cluster directory exists
     (var/"mysql-cluster").mkpath
 

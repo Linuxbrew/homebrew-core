@@ -26,9 +26,6 @@ class Cmake < Formula
   # For the GUI application please instead use `brew cask install cmake`.
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
-
     ENV.cxx11 unless OS.mac?
 
     args = %W[

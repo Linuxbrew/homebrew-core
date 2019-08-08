@@ -16,9 +16,6 @@ class Fibjs < Formula
   depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["HOMEBREW_MAKE_JOBS"] = "16" if ENV["CIRCLECI"]
-
     # the build script breaks when CI is set by Homebrew
     begin
       env_ci = ENV.delete "CI"

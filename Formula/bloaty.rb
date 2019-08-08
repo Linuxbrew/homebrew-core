@@ -16,9 +16,6 @@ class Bloaty < Formula
   depends_on "cmake" => :build
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     system "cmake", ".", *std_cmake_args
     system "make"
     bin.install buildpath/"bloaty"

@@ -22,9 +22,6 @@ class PandocCiteproc < Formula
   depends_on "unzip" => :build unless OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
-
     install_cabal_package
   end
 

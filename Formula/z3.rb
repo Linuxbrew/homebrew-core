@@ -16,9 +16,6 @@ class Z3 < Formula
   depends_on "python"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
-
     xy = Language::Python.major_minor_version "python3"
     system "python3", "scripts/mk_make.py",
                       "--prefix=#{prefix}",

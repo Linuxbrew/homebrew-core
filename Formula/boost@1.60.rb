@@ -36,9 +36,6 @@ class BoostAT160 < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
-
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
       if OS.mac?

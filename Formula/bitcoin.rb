@@ -31,9 +31,6 @@ class Bitcoin < Formula
   depends_on "zeromq"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j1 -l1.0" if ENV["CIRCLECI"]
-
     if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       ENV.delete("SDKROOT")
     end

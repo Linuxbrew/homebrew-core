@@ -21,9 +21,6 @@ class Ibex < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
-
     ENV.cxx11
 
     # Reported 9 Oct 2017 https://github.com/ibex-team/ibex-lib/issues/286

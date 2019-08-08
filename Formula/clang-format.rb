@@ -51,9 +51,6 @@ class ClangFormat < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
-
     (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"tools/clang").install resource("clang")
 

@@ -43,9 +43,6 @@ class Emscripten < Formula
   depends_on "yuicompressor"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
-
     ENV.cxx11
     # rewrite hardcoded paths from system python to homebrew python
     python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`

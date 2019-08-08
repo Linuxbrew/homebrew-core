@@ -43,9 +43,6 @@ class Mongodb < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
-
     ENV.libcxx
 
     ["Cheetah", "PyYAML", "typing"].each do |r|

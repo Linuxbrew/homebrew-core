@@ -27,9 +27,6 @@ class Pdns < Formula
   depends_on "sqlite"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
-
     # Fix "configure: error: cannot find boost/program_options.hpp"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 

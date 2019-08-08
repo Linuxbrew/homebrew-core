@@ -21,9 +21,6 @@ class Stella < Formula
   fails_with :gcc => "4.8" unless OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
-
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]
     if OS.mac?

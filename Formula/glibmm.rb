@@ -18,9 +18,6 @@ class Glibmm < Formula
   depends_on "libsigc++"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]
-
     ENV.cxx11
 
     # see https://bugzilla.gnome.org/show_bug.cgi?id=781947
