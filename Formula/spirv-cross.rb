@@ -1,3 +1,4 @@
+# spirv-cross: Build a bottle for Linuxbrew
 class SpirvCross < Formula
   desc "Performing reflection and disassembling SPIR-V"
   homepage "https://github.com/KhronosGroup/SPIRV-Cross"
