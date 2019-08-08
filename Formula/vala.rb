@@ -1,3 +1,4 @@
+# vala: Build a bottle for Linuxbrew
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
