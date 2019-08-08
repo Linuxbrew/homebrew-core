@@ -1,3 +1,4 @@
+# folly: Build a bottle for Linuxbrew
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
