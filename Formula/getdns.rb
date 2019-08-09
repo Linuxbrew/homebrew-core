@@ -1,3 +1,4 @@
+# getdns: Build a bottle for Linuxbrew
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
