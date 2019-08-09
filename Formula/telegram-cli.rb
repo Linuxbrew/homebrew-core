@@ -1,3 +1,4 @@
+# telegram-cli: Build a bottle for Linuxbrew
 class TelegramCli < Formula
   desc "Command-line interface for Telegram"
   homepage "https://github.com/vysheng/tg"
