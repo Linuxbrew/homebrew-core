@@ -85,6 +85,8 @@ class Crystal < Formula
 
     ENV.prepend_path "CRYSTAL_LIBRARY_PATH", buildpath/"gc/.libs"
 
+    # TODO: Remove `--threads=1` when a release fixing https://github.com/crystal-lang/crystal/issues/8044 is merged.
+
     # Build crystal
     (buildpath/".build").mkpath
     system "make", "deps"
@@ -94,11 +96,11 @@ class Crystal < Formula
                           "-D", "preview_overflow",
                           "-o", ".build/crystal",
                           "src/compiler/crystal.cr",
-                          "--release", "--no-debug"
+                          "--release", "--no-debug", "--threads=1"
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr", "--threads=1"
 
       man1.install "man/shards.1"
       man5.install "man/shard.yml.5"
