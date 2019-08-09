@@ -1,3 +1,4 @@
+# libevent: Build a bottle for Linuxbrew
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "https://libevent.org/"
