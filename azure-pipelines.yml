@@ -35,7 +35,6 @@ jobs:
       sudo /home/linuxbrew/.linuxbrew/bin/brew tap homebrew/homebrew-test-bot
       cd /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
       git checkout -b test
-      if [ -e .git/shallow ]; then git fetch --unshallow; fi
       git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
       git checkout pr
     displayName: Setup taps and checkout
