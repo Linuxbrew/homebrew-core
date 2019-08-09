@@ -1,3 +1,4 @@
+# dnscrypt-wrapper: Build a bottle for Linuxbrew
 class DnscryptWrapper < Formula
   desc "Server-side proxy that adds dnscrypt support to name resolvers"
   homepage "https://cofyc.github.io/dnscrypt-wrapper/"
