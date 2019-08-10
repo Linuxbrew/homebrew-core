@@ -1,3 +1,4 @@
+# node@10: Build a bottle for Linuxbrew
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
