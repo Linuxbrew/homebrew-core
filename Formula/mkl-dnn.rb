@@ -1,3 +1,4 @@
+# mkl-dnn: Build a bottle for Linuxbrew
 class MklDnn < Formula
   desc "Intel Math Kernel Library for Deep Neural Networks"
   homepage "https://01.org/mkl-dnn"
