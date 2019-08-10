@@ -1,3 +1,4 @@
+# consul-template: Build a bottle for Linuxbrew
 class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
