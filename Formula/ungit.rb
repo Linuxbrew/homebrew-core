@@ -1,4 +1,3 @@
-# ungit: Build a bottle for Linuxbrew
 require "language/node"
 
 class Ungit < Formula

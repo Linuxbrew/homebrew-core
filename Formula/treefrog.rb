@@ -1,4 +1,3 @@
-# treefrog: Build a bottle for Linuxbrew
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "http://www.treefrogframework.org/"

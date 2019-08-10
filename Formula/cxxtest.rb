@@ -1,4 +1,3 @@
-# cxxtest: Build a bottle for Linuxbrew
 class Cxxtest < Formula
   desc "xUnit-style unit testing framework for C++"
   homepage "https://cxxtest.com/"

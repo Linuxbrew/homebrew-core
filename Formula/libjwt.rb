@@ -1,4 +1,3 @@
-# libjwt: Build a bottle for Linuxbrew
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"

@@ -1,4 +1,3 @@
-# cgdb: Build a bottle for Linuxbrew
 class Cgdb < Formula
   desc "Curses-based interface to the GNU Debugger"
   homepage "https://cgdb.github.io/"
