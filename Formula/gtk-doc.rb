@@ -1,3 +1,4 @@
+# gtk-doc: Build a bottle for Linuxbrew
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
