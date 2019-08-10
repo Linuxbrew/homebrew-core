@@ -1,3 +1,4 @@
+# scrcpy: Build a bottle for Linuxbrew
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
