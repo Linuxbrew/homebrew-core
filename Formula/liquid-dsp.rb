@@ -1,3 +1,4 @@
+# liquid-dsp: Build a bottle for Linuxbrew
 class LiquidDsp < Formula
   desc "Digital signal processing library for software-defined radios"
   homepage "https://liquidsdr.org/"
