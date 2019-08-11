@@ -1,3 +1,4 @@
+# pass-otp: Build a bottle for Linuxbrew
 class PassOtp < Formula
   desc "The Pass extension for managing one-time-password (OTP) tokens"
   homepage "https://github.com/tadfisher/pass-otp#readme"
