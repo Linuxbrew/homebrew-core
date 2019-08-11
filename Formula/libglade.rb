@@ -1,3 +1,4 @@
+# libglade: Build a bottle for Linuxbrew
 class Libglade < Formula
   desc "RAD tool to help build GTK+ interfaces"
   homepage "https://glade.gnome.org"
