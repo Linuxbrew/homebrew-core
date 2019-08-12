@@ -12,7 +12,11 @@ class GdkPixbuf < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson" => :build
+  if OS.mac?
+    depends_on "meson" => :build
+  else
+    depends_on "meson-internal" => :build
+  end
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -49,22 +53,16 @@ class GdkPixbuf < Formula
       -Dman=false
     ]
 
-    unless OS.mac?
-      # set rpath for binaries
-      gdkpixbuf_bin_spec ="c_args: common_cflags + gdk_pixbuf_cflags,
-                   install: true)"
-      gdkpixbuf_bin_spec_rpath="c_args: common_cflags + gdk_pixbuf_cflags,
-                   install: true, install_rpath: '#{ENV.determine_rpath_paths(self)}')"
-      inreplace "gdk-pixbuf/meson.build", gdkpixbuf_bin_spec, gdkpixbuf_bin_spec_rpath
-      args << "-Dpng=true"
-    end
-
     args << "-Dinstalled_tests=false" if OS.mac?
     args << "--libdir=#{lib}" unless OS.mac?
 
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", *args, ".."
+      if OS.mac?
+        system "meson", *args, ".."
+      else
+        system "#{Formula["meson-internal"].bin}/meson", *args, ".."
+      end
       system "ninja", "-v"
       system "ninja", "install"
     end
