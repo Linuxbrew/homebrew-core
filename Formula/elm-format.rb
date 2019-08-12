@@ -1,3 +1,4 @@
+# elm-format: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class ElmFormat < Formula
