@@ -1,3 +1,4 @@
+# transmission-cli: Build a bottle for Linuxbrew
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
