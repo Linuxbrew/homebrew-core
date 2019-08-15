@@ -1,3 +1,4 @@
+# mdds: Build a bottle for Linuxbrew
 class Mdds < Formula
   desc "Multi-dimensional data structure and indexing algorithm"
   homepage "https://gitlab.com/mdds/mdds"
