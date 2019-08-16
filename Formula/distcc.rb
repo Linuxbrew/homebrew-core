@@ -1,3 +1,4 @@
+# distcc: Build a bottle for Linuxbrew
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
