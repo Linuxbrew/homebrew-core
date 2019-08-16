@@ -1,3 +1,4 @@
+# logtalk: Build a bottle for Linuxbrew
 class Logtalk < Formula
   desc "Object-oriented logic programming language"
   homepage "https://logtalk.org/"
