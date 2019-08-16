@@ -3,15 +3,12 @@ require "os/linux/glibc"
 class GccAT9 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz"
-  sha256 "79a66834e96a6050d8fe78db2c3b32fb285b230b855d0a66288235bc04b327a0"
-  revision 1 unless OS.mac?
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+  sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
-    sha256 "4da2eeae62e8c91afff94c80660a734a312efb0390cf9a9898ff9e7a6f662a50" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
