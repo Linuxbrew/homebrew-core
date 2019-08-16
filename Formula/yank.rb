@@ -1,3 +1,4 @@
+# yank: Build a bottle for Linuxbrew
 class Yank < Formula
   desc "Copy terminal output to clipboard"
   homepage "https://github.com/mptre/yank"
