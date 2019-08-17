@@ -33,7 +33,7 @@ class Imagemagick < Formula
   uses_from_macos "libxml2"
 
   uses_from_macos "bzip2"
-  uses_from_macos "linuxbrew/xorg/xorg"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
   uses_from_macos "libxml2"
 
   skip_clean :la

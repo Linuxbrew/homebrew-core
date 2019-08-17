@@ -18,7 +18,7 @@ class Xdotool < Formula
   depends_on "libxkbcommon"
 
   depends_on :x11 if OS.mac?
-  uses_from_macos "linuxbrew/xorg/xorg"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     # Work around an issue with Xcode 8 on El Capitan, which

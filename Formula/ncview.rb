@@ -17,7 +17,7 @@ class Ncview < Formula
   depends_on "netcdf"
   depends_on "udunits"
   depends_on :x11 if OS.mac?
-  uses_from_macos "linuxbrew/xorg/xorg"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being

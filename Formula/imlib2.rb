@@ -19,7 +19,7 @@ class Imlib2 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on :x11 if OS.mac?
-  uses_from_macos "linuxbrew/xorg/xorg"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     args = %W[

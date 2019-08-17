@@ -42,7 +42,7 @@ class Freerdp < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on :x11 if OS.mac?
-  uses_from_macos "linuxbrew/xorg/xorg"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     cmake_args = std_cmake_args

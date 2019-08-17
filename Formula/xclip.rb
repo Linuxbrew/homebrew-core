@@ -17,7 +17,7 @@ class Xclip < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on :x11 if OS.mac?
-  uses_from_macos "linuxbrew/xorg/xorg"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     system "autoreconf", "-fiv"
