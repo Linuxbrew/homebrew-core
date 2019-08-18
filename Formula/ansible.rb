@@ -21,6 +21,7 @@ class Ansible < Formula
   unless OS.mac?
     depends_on "libffi" # for cffi
     depends_on "libxslt" # for lxml
+    depends_on "python@2" => :test # for the test
   end
 
   # Collect requirements from:
