@@ -1,3 +1,4 @@
+# libmodplug: Build a bottle for Linuxbrew
 class Libmodplug < Formula
   desc "Library from the Modplug-XMMS project"
   homepage "https://modplug-xmms.sourceforge.io/"
