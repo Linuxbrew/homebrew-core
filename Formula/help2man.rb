@@ -1,3 +1,4 @@
+# help2man: Build a bottle for Linuxbrew
 class Help2man < Formula
   desc "Automatically generate simple man pages"
   homepage "https://www.gnu.org/software/help2man/"
