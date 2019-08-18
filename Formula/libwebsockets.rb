@@ -1,3 +1,4 @@
+# libwebsockets: Build a bottle for Linuxbrew
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
