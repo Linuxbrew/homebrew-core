@@ -39,6 +39,7 @@ jobs:
       git checkout pr
     displayName: Setup taps and checkout
   - bash: |
+      set -e
       cd /tmp/bottles
       sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       cp *.bottle.* $(Build.ArtifactStagingDirectory)
