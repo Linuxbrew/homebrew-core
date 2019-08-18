@@ -1,3 +1,4 @@
+# vapoursynth: Build a bottle for Linuxbrew
 class Vapoursynth < Formula
   include Language::Python::Virtualenv
 
