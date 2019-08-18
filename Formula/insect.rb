@@ -1,3 +1,4 @@
+# insect: Build a bottle for Linuxbrew
 require "language/node"
 
 class Insect < Formula
