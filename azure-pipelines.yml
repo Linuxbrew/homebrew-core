@@ -54,3 +54,5 @@ jobs:
       artifactName: bottle-linux
       targetPath: $(Build.ArtifactStagingDirectory)
     displayName: Publish bottle-linux
+    condition: always()
+
