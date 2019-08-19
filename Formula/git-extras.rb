@@ -12,6 +12,8 @@ class GitExtras < Formula
     sha256 "3e50176046daa936eded6a4f5ac27d56fd05375c145c61889a050fdb3797d596" => :sierra
   end
 
+  depends_on "bsdmainutils" => :build unless OS.mac?
+
   conflicts_with "git-utils",
     :because => "both install a `git-pull-request` script"
 
