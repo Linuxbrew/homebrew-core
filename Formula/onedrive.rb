@@ -3,6 +3,10 @@ class Onedrive < Formula
   homepage "https://github.com/abraunegg/onedrive"
   url "https://github.com/abraunegg/onedrive/archive/v2.3.5.tar.gz"
   sha256 "db8426faeaa93168a300b46b5a3890b5b69937658f093c36d3d1eabb223afdb7"
+  # tag "linuxbrew"
+
+  bottle do
+  end
 
   depends_on "ldc" => :build
   depends_on "pkg-config" => :build
