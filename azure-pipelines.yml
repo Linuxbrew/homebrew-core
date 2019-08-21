@@ -49,7 +49,7 @@ jobs:
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
   - bash: |
-      cp *.bottle.* $(Build.ArtifactStagingDirectory)
+      cp /tmp/bottles/*.bottle.* $(Build.ArtifactStagingDirectory)
     displayName: Copy json & bottle files
     condition: always()
     continueOnError: true
