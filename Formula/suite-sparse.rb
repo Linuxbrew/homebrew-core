@@ -6,7 +6,6 @@ class SuiteSparse < Formula
   revision 1
 
   bottle do
-    cellar :any
     sha256 "084ddd8dce513563655e5669735e04c98d6bd943733cafbc5d95e1f8e8e008d8" => :mojave
     sha256 "8b35538d0cf72b43c7be15a3d4ab2f1daa66dc05990f7d5237fc9f91d6d4e05f" => :high_sierra
     sha256 "c318dd0df8749f62f14b16d3e256fdbaf242338be99ecc9434cf7e316545b651" => :sierra
@@ -15,6 +14,7 @@ class SuiteSparse < Formula
   depends_on "cmake" => :build
   depends_on "metis"
   depends_on "openblas"
+  uses_from_macos "m4"
 
   conflicts_with "mongoose", :because => "suite-sparse vendors libmongoose.dylib"
 
