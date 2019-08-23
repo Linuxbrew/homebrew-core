@@ -1,3 +1,4 @@
+# qrupdate: Build a bottle for Linuxbrew
 class Qrupdate < Formula
   desc "Fast updates of QR and Cholesky decompositions"
   homepage "https://sourceforge.net/projects/qrupdate/"
