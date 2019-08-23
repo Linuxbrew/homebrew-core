@@ -1,3 +1,4 @@
+# opencv@2: Build a bottle for Linuxbrew
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
