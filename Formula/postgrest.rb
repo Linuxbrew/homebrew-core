@@ -1,3 +1,4 @@
+# postgrest: Build a bottle for Linuxbrew
 require "language/haskell"
 require "net/http"
 
