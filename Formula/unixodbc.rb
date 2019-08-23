@@ -1,3 +1,4 @@
+# unixodbc: Build a bottle for Linuxbrew
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
