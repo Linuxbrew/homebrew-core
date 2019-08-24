@@ -1,3 +1,4 @@
+# pdfcrack: Build a bottle for Linuxbrew
 class Pdfcrack < Formula
   desc "PDF files password cracker"
   homepage "https://pdfcrack.sourceforge.io/"
