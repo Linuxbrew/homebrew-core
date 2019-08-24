@@ -1,4 +1,3 @@
 {
-  "iotop": "linuxbrew/extra",
-  "strace": "linuxbrew/extra"
+  "iotop": "linuxbrew/extra"
 }
