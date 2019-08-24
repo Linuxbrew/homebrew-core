@@ -1,6 +1,4 @@
 {
   "iotop": "linuxbrew/extra",
-  "libpipeline": "linuxbrew/extra",
-  "man-db": "linuxbrew/extra",
   "strace": "linuxbrew/extra"
 }
