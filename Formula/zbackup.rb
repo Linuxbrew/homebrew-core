@@ -1,3 +1,4 @@
+# zbackup: Build a bottle for Linuxbrew
 class Zbackup < Formula
   desc "Globally-deduplicating backup tool (based on ideas in rsync)"
   homepage "http://zbackup.org"
