@@ -21,10 +21,11 @@ class CeresSolver < Formula
   depends_on "suite-sparse"
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DEIGEN_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
-                    "-DMETIS_LIBRARY=#{Formula["metis"].opt_lib}/libmetis.dylib",
+                    "-DMETIS_LIBRARY=#{Formula["metis"].opt_lib}/libmetis.#{dylib}",
                     "-DGLOG_INCLUDE_DIR_HINTS=#{Formula["glog"].opt_include}",
                     "-DGLOG_LIBRARY_DIR_HINTS=#{Formula["glog"].opt_lib}",
                     "-DTBB=OFF"
