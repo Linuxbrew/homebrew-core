@@ -1,3 +1,4 @@
+# protobuf: Build a bottle for Linuxbrew
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
