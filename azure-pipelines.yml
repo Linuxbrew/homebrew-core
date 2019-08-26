@@ -41,7 +41,7 @@ jobs:
   - bash: |
       set -e
       cd /tmp/bottles
-      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --skip-recursive-dependents --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
     displayName: Run test bot
     env:
       HOMEBREW_DEVELOPER: 1
@@ -60,4 +60,3 @@ jobs:
       targetPath: $(Build.ArtifactStagingDirectory)
     displayName: Publish bottle-linux
     condition: always()
-
