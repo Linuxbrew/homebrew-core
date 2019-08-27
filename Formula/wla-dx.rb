@@ -1,3 +1,4 @@
+# wla-dx: Build a bottle for Linuxbrew
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
