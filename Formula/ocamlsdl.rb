@@ -1,3 +1,4 @@
+# ocamlsdl: Build a bottle for Linuxbrew
 class Ocamlsdl < Formula
   desc "OCaml interface with the SDL C library"
   homepage "https://ocamlsdl.sourceforge.io/"
