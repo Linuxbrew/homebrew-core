@@ -79,6 +79,7 @@ class Opencv < Formula
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.#{dylib}
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
     ]
+    args << "-DENABLE_PRECOMPILED_HEADERS=OFF" unless OS.mac?
 
     # The compiler on older Mac OS cannot build some OpenCV files using AVX2
     # extensions, failing with errors such as
