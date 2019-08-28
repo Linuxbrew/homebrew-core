@@ -1,3 +1,4 @@
+# wskdeploy: Build a bottle for Linuxbrew
 class Wskdeploy < Formula
   desc "Apache OpenWhisk project deployment utility"
   homepage "https://openwhisk.apache.org/"
