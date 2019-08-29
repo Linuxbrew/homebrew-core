@@ -1,3 +1,4 @@
+# libmowgli: Build a bottle for Linuxbrew
 class Libmowgli < Formula
   desc "Core framework for Atheme applications"
   homepage "https://github.com/atheme/libmowgli-2"
