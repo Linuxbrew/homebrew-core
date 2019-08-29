@@ -1,3 +1,4 @@
+# taskell: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Taskell < Formula
