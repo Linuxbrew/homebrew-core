@@ -1,3 +1,4 @@
+# http_load: Build a bottle for Linuxbrew
 class HttpLoad < Formula
   desc "Test throughput of a web server by running parallel fetches"
   homepage "https://www.acme.com/software/http_load/"
