@@ -1,3 +1,4 @@
+# pyvim: Build a bottle for Linuxbrew
 class Pyvim < Formula
   include Language::Python::Virtualenv
 
