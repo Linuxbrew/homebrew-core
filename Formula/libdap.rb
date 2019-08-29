@@ -1,3 +1,4 @@
+# libdap: Build a bottle for Linuxbrew
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
