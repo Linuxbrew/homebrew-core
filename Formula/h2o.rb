@@ -1,3 +1,4 @@
+# h2o: Build a bottle for Linuxbrew
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
