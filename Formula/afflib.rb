@@ -1,3 +1,4 @@
+# afflib: Build a bottle for Linuxbrew
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
