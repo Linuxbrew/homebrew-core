@@ -13,6 +13,7 @@ class Dovecot < Formula
   depends_on "openssl@1.1"
   unless OS.mac?
     depends_on "bzip2"
+    depends_on "linux-pam"
     depends_on "sqlite"
   end
 
