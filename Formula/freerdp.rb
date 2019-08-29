@@ -1,3 +1,4 @@
+# freerdp: Build a bottle for Linuxbrew
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
