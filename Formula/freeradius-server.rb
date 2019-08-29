@@ -1,3 +1,4 @@
+# freeradius-server: Build a bottle for Linuxbrew
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
