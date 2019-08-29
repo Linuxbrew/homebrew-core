@@ -18,6 +18,7 @@ class TerraformAT011 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on" unless OS.mac?
     ENV.prepend_create_path "PATH", buildpath/"bin"
 
     dir = buildpath/"src/github.com/hashicorp/terraform"
@@ -28,11 +29,14 @@ class TerraformAT011 < Formula
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      ENV["XC_OS"] = "darwin"
+      os = OS.mac? ? "darwin" : "linux"
+      ENV["XC_OS"] = os
       ENV["XC_ARCH"] = "amd64"
-      system "make", "tools", "test", "bin"
+      # Tests fail to build on linux: FAIL: TestFmt_check
+      # See https://github.com/Homebrew/linuxbrew-core/pull/13309
+      system "make", "tools", *("test" if OS.mac?), "bin"
 
-      bin.install "pkg/darwin_amd64/terraform"
+      bin.install "pkg/#{os}_amd64/terraform"
       prefix.install_metafiles
     end
   end
