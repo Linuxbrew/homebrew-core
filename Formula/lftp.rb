@@ -1,3 +1,4 @@
+# lftp: Build a bottle for Linuxbrew
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.yar.ru/"
