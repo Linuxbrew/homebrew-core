@@ -1,3 +1,4 @@
+# bibtexconv: Build a bottle for Linuxbrew
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
