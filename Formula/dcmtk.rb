@@ -1,3 +1,4 @@
+# dcmtk: Build a bottle for Linuxbrew
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "https://dicom.offis.de/dcmtk.php.en"
