@@ -1,3 +1,4 @@
+# davix: Build a bottle for Linuxbrew
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://dmc.web.cern.ch/projects/davix/home"
