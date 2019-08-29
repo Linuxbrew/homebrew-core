@@ -1,3 +1,4 @@
+# git-crypt: Build a bottle for Linuxbrew
 class GitCrypt < Formula
   desc "Enable transparent encryption/decryption of files in a git repo"
   homepage "https://www.agwa.name/projects/git-crypt/"
