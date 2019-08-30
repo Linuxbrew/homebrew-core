@@ -1,3 +1,4 @@
+# opencolorio: Build a bottle for Linuxbrew
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
