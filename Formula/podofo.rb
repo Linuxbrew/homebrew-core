@@ -1,3 +1,4 @@
+# podofo: Build a bottle for Linuxbrew
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://podofo.sourceforge.io"
