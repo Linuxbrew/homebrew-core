@@ -36,7 +36,13 @@ class Vtk < Formula
 
   def install
     pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    if OS.mac?
+      dylib = "libpython#{pyver}.dylib"
+      py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    else
+      dylib = "libpython3.so"
+      py_prefix = Formula["python3"].opt_prefix
+    end
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -58,7 +64,7 @@ class Vtk < Formula
       -DVTK_PYTHON_VERSION=3
       -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
       -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m
-      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{pyver}.dylib
+      -DPYTHON_LIBRARY=#{py_prefix}/lib/#{dylib}
       -DVTK_PYTHON_SITE_PACKAGES_SUFFIX=#{lib}/python3/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
