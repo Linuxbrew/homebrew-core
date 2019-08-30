@@ -18,6 +18,7 @@ class Mupdf < Formula
   unless OS.mac?
     depends_on "linuxbrew/xorg/mesa"
     depends_on "linuxbrew/xorg/glu"
+    depends_on "linuxbrew/xorg/xinput"
   end
 
   conflicts_with "mupdf-tools",
