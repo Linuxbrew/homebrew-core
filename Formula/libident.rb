@@ -1,3 +1,4 @@
+# libident: Build a bottle for Linuxbrew
 class Libident < Formula
   desc "Ident protocol library"
   homepage "https://www.remlab.net/libident/"
