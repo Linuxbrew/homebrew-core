@@ -1,3 +1,4 @@
+# ngircd: Build a bottle for Linuxbrew
 class Ngircd < Formula
   desc "Lightweight Internet Relay Chat server"
   homepage "https://ngircd.barton.de/"
