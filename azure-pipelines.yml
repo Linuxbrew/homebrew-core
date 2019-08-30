@@ -30,7 +30,6 @@ jobs:
       sudo cp -a $(Build.Repository.LocalPath) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
     displayName: Copy homebrew-core
   - bash: |
-      sudo /home/linuxbrew/.linuxbrew/bin/brew tap linuxbrew/extra
       sudo /home/linuxbrew/.linuxbrew/bin/brew tap linuxbrew/xorg
       sudo /home/linuxbrew/.linuxbrew/bin/brew tap homebrew/homebrew-test-bot
       cd /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
