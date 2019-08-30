@@ -15,10 +15,7 @@ class MysqlAT56 < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl" # no OpenSSL 1.1 support
-  unless OS.mac?
-    depends_on "libedit"
-    depends_on "pidof"
-  end
+  depends_on "libedit" unless OS.mac?
 
   def datadir
     var/"mysql"
