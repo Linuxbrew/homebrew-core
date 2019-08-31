@@ -1,3 +1,4 @@
+# md5sha1sum: Build a bottle for Linuxbrew
 class Md5sha1sum < Formula
   desc "Hash utilities"
   homepage "http://microbrew.org/tools/md5sha1sum/"
