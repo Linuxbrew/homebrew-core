@@ -1,3 +1,4 @@
+# softhsm: Build a bottle for Linuxbrew
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
