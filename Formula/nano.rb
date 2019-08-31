@@ -1,3 +1,4 @@
+# nano: Build a bottle for Linuxbrew
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
