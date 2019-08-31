@@ -1,3 +1,4 @@
+# rename: Build a bottle for Linuxbrew
 class Rename < Formula
   desc "Perl-powered file rename script with many helpful built-ins"
   homepage "http://plasmasturm.org/code/rename"
