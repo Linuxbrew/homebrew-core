@@ -1,3 +1,4 @@
+# skipfish: Build a bottle for Linuxbrew
 class Skipfish < Formula
   desc "Web application security scanner"
   homepage "https://code.google.com/archive/p/skipfish/"
