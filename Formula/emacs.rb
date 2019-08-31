@@ -1,3 +1,4 @@
+# emacs: Build a bottle for Linuxbrew
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
