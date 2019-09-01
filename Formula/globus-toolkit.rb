@@ -1,3 +1,4 @@
+# globus-toolkit: Build a bottle for Linuxbrew
 class GlobusToolkit < Formula
   desc "Toolkit used for building grids"
   homepage "https://www.globus.org/toolkit/"
