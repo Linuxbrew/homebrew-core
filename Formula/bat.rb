@@ -13,6 +13,7 @@ class Bat < Formula
 
   depends_on "rust" => :build
   uses_from_macos "zlib"
+  depends_on "llvm" unless OS.mac?
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
