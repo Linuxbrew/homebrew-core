@@ -1,3 +1,4 @@
+# gambit-scheme: Build a bottle for Linuxbrew
 class GambitScheme < Formula
   desc "Gambit Scheme is an implementation of the Scheme Language"
   homepage "https://github.com/gambit/gambit"
