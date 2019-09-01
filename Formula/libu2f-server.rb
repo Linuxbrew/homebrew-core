@@ -1,3 +1,4 @@
+# libu2f-server: Build a bottle for Linuxbrew
 class Libu2fServer < Formula
   desc "Server-side of the Universal 2nd Factor (U2F) protocol"
   homepage "https://developers.yubico.com/libu2f-server/"
