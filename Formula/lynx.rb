@@ -1,3 +1,4 @@
+# lynx: Build a bottle for Linuxbrew
 class Lynx < Formula
   desc "Text-based web browser"
   homepage "https://invisible-island.net/lynx/"
