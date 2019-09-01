@@ -1,3 +1,4 @@
+# libgcrypt: Build a bottle for Linuxbrew
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://gnupg.org/related_software/libgcrypt/"
