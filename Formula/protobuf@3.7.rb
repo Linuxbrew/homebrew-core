@@ -1,3 +1,4 @@
+# protobuf@3.7: Build a bottle for Linuxbrew
 class ProtobufAT37 < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
