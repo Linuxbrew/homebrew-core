@@ -1,3 +1,4 @@
+# nanopb-generator: Build a bottle for Linuxbrew
 class NanopbGenerator < Formula
   desc "C library for encoding and decoding Protocol Buffer messages"
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
