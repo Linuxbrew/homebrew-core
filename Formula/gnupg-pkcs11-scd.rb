@@ -1,3 +1,4 @@
+# gnupg-pkcs11-scd: Build a bottle for Linuxbrew
 class GnupgPkcs11Scd < Formula
   desc "Enable the use of PKCS#11 tokens with GnuPG"
   homepage "https://gnupg-pkcs11.sourceforge.io"
