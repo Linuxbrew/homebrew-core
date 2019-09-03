@@ -47,7 +47,8 @@ class Bind < Formula
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python=#{Formula["python"].opt_bin}/python3",
-                          "--with-python-install-dir=#{vendor_site_packages}"
+                          "--with-python-install-dir=#{vendor_site_packages}",
+                          *("--disable-linux-caps" unless OS.mac?)
 
     system "make"
     system "make", "install"
