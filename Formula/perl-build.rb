@@ -12,6 +12,8 @@ class PerlBuild < Formula
     sha256 "fd55b31409de788975a6118a73786b845a131e944edc8cf41877c5eea21044bf" => :el_capitan
   end
 
+  uses_from_macos "perl"
+
   resource "inc::latest" do
     url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/inc-latest-0.500.tar.gz"
     sha256 "daa905f363c6a748deb7c408473870563fcac79b9e3e95b26e130a4a8dc3c611"
