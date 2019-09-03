@@ -5,6 +5,8 @@ class Gengetopt < Formula
   mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.23.tar.xz"
   sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
+  depends_on "texinfo" unless OS.mac?
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2ae5eeef439a6abc4d1f65965e1bafa9ac5ad0620cb4ef5e9444a4b2dbef1872" => :mojave
