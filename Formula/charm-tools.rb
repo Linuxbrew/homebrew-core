@@ -1,3 +1,4 @@
+# charm-tools: Build a bottle for Linuxbrew
 class CharmTools < Formula
   include Language::Python::Virtualenv
 
