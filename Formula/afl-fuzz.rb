@@ -1,3 +1,4 @@
+# afl-fuzz: Build a bottle for Linuxbrew
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "https://github.com/google/AFL"
