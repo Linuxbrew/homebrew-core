@@ -1,3 +1,4 @@
+# ddgr: Build a bottle for Linuxbrew
 class Ddgr < Formula
   desc "DuckDuckGo from the terminal"
   homepage "https://github.com/jarun/ddgr"
