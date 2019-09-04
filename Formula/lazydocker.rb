@@ -1,3 +1,4 @@
+# lazydocker: Build a bottle for Linuxbrew
 class Lazydocker < Formula
   desc "The lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
