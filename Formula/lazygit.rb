@@ -1,3 +1,4 @@
+# lazygit: Build a bottle for Linuxbrew
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
