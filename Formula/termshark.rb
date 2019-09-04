@@ -1,3 +1,4 @@
+# termshark: Build a bottle for Linuxbrew
 class Termshark < Formula
   desc "Terminal UI for tshark, inspired by Wireshark"
   homepage "https://termshark.io"
