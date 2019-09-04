@@ -1,3 +1,4 @@
+# vgmstream: Build a bottle for Linuxbrew
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
