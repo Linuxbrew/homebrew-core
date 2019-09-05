@@ -1,3 +1,4 @@
+# libarchive: Build a bottle for Linuxbrew
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
