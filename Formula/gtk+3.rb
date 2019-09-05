@@ -1,3 +1,4 @@
+# gtk+3: Build a bottle for Linuxbrew
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
