@@ -1,3 +1,4 @@
+# psqlodbc: Build a bottle for Linuxbrew
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
