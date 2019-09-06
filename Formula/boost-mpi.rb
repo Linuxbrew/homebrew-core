@@ -1,3 +1,4 @@
+# boost-mpi: Build a bottle for Linuxbrew
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
