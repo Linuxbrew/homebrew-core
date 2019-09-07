@@ -1,3 +1,4 @@
+# hadolint: Build a bottle for Linuxbrew
 require "language/haskell"
 
 class Hadolint < Formula
