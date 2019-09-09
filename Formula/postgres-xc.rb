@@ -15,11 +15,10 @@ class PostgresXc < Formula
   depends_on "ossp-uuid"
   depends_on "readline"
   unless OS.mac?
+    depends_on "flex" => :build
     depends_on "krb5"
     depends_on "libxslt"
-    depends_on "perl"
     depends_on "python@2"
-    depends_on "flex" => :build
   end
 
   conflicts_with "postgresql",
@@ -41,12 +40,13 @@ class PostgresXc < Formula
     ENV.append "LDFLAGS", `uuid-config --ldflags`.strip
     ENV.append "LIBS", `uuid-config --libs`.strip
 
+    ENV.prepend_path "PGAC_PATH_FLEX", Formula["flex"].opt_bin/"flex" unless OS.mac?
+
     args = [
       "--disable-debug",
       "--prefix=#{prefix}",
       "--datadir=#{pkgshare}",
       "--docdir=#{doc}",
-      "--enable-thread-safety",
       "--with-gssapi",
       "--with-krb5",
       "--with-libxml",
@@ -56,8 +56,12 @@ class PostgresXc < Formula
       "ARCHFLAGS=-arch x86_64",
     ]
 
-    args << "--with-bonjour" if OS.mac?
-    args << "--with-perl" if build.with? "perl"
+    if OS.mac?
+      args << "--with-bonjour"
+      args << "--enable-thread-safety"
+    else
+      args << "--disable-thread-safety"
+    end
 
     system "./configure", *args
 
