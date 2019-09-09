@@ -1,3 +1,4 @@
+# pspg: Build a bottle for Linuxbrew
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
