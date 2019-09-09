@@ -1,3 +1,4 @@
+# qt: Build a bottle for Linuxbrew
 # Patches for Qt must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt < Formula
