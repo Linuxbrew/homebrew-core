@@ -1,3 +1,4 @@
+# xml-tooling-c: Build a bottle for Linuxbrew
 class XmlToolingC < Formula
   desc "Provides a higher level interface to XML processing"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
