@@ -11,6 +11,8 @@ class LibsigcxxAT2 < Formula
     sha256 "d9c71c15b7d4d244aa74aa319a14f0bba110ca97160abe035a461409b2b1630b" => :sierra
   end
 
+  depends_on "m4" => :build unless OS.mac?
+
   def install
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
