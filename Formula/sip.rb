@@ -1,3 +1,4 @@
+# sip: Build a bottle for Linuxbrew
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
