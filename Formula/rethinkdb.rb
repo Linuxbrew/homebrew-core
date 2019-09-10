@@ -16,6 +16,7 @@ class Rethinkdb < Formula
   depends_on "boost" => :build
   depends_on "openssl" # no OpenSSL 1.1 support
   uses_from_macos "curl"
+  depends_on "python@2" unless OS.mac?
 
   # Fix error with Xcode 9, patch merged upstream:
   # https://github.com/rethinkdb/rethinkdb/pull/6450
