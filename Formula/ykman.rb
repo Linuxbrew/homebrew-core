@@ -1,3 +1,4 @@
+# ykman: Build a bottle for Linuxbrew
 class Ykman < Formula
   include Language::Python::Virtualenv
 
