@@ -1,3 +1,4 @@
+# swi-prolog: Build a bottle for Linuxbrew
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
