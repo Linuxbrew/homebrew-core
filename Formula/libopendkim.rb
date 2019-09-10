@@ -6,6 +6,7 @@ class Libopendkim < Formula
   revision 2
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "76268e02f90b0931a9fd8d2ae933d334c2efb9ee34dc85c77d8eecc25b48c68b" => :mojave
     sha256 "e5d79e2cd539dff2a02ac91b171b23c0c36d7d012d2a3d21af1cbd732c2ee58a" => :high_sierra
     sha256 "33a66999fc2479cd6d0d27d2189ed34125e2510afb7afe0c97cdb08ed67efc95" => :sierra
@@ -16,6 +17,7 @@ class Libopendkim < Formula
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
   depends_on "unbound"
+  depends_on "pkg-config" => :build unless OS.mac?
 
   # Patch for compatibility with OpenSSL 1.1.1
   # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223568
