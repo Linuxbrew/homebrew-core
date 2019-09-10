@@ -24,6 +24,7 @@ class OpencvAT2 < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "python@2" # does not support Python 3
+  depends_on "glib" unless OS.mac?
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
