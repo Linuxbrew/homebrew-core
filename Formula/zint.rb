@@ -1,3 +1,4 @@
+# zint: Build a bottle for Linuxbrew
 class Zint < Formula
   desc "Barcode encoding library supporting over 50 symbologies"
   homepage "http://www.zint.org.uk/"
