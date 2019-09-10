@@ -1,3 +1,4 @@
+# mysql-connector-c++: Build a bottle for Linuxbrew
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
