@@ -1,3 +1,4 @@
+# talloc: Build a bottle for Linuxbrew
 class Talloc < Formula
   desc "Hierarchical, reference-counted memory pool with destructors"
   homepage "https://talloc.samba.org/"
