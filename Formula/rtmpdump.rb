@@ -15,6 +15,7 @@ class Rtmpdump < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   conflicts_with "flvstreamer", :because => "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
