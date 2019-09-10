@@ -1,3 +1,4 @@
+# php@7.2: Build a bottle for Linuxbrew
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
