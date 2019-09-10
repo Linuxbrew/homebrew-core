@@ -1,3 +1,4 @@
+# megatools: Build a bottle for Linuxbrew
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
