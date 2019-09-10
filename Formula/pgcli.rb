@@ -1,3 +1,4 @@
+# pgcli: Build a bottle for Linuxbrew
 class Pgcli < Formula
   include Language::Python::Virtualenv
 
