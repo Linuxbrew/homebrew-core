@@ -1,3 +1,4 @@
+# libsigc++: Build a bottle for Linuxbrew
 class Libsigcxx < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
@@ -13,10 +14,11 @@ class Libsigcxx < Formula
   depends_on :macos => :high_sierra if OS.mac? # needs C++17
   unless OS.mac?
     depends_on "m4" => :build
-    depends_on "gcc@6"
+    depends_on "gcc@7"
 
     fails_with :gcc => "4"
     fails_with :gcc => "5"
+    fails_with :gcc => "6"
   end
 
   def install
