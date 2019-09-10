@@ -1,3 +1,4 @@
+# xml-security-c: Build a bottle for Linuxbrew
 class XmlSecurityC < Formula
   desc "Implementation of primary security standards for XML"
   homepage "https://santuario.apache.org/"
