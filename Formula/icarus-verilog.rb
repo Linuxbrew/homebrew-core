@@ -1,3 +1,4 @@
+# icarus-verilog: Build a bottle for Linuxbrew
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
