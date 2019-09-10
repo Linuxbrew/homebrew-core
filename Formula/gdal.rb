@@ -1,3 +1,4 @@
+# gdal: Build a bottle for Linuxbrew
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
