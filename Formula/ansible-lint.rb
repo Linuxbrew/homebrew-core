@@ -1,3 +1,4 @@
+# ansible-lint: Build a bottle for Linuxbrew
 class AnsibleLint < Formula
   include Language::Python::Virtualenv
 
