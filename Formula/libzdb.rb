@@ -1,3 +1,4 @@
+# libzdb: Build a bottle for Linuxbrew
 class Libzdb < Formula
   desc "Database connection pool library"
   homepage "https://tildeslash.com/libzdb/"
