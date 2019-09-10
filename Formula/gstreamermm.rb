@@ -1,3 +1,4 @@
+# gstreamermm: Build a bottle for Linuxbrew
 class Gstreamermm < Formula
   desc "GStreamer C++ bindings"
   homepage "https://gstreamer.freedesktop.org/bindings/cplusplus.html"
