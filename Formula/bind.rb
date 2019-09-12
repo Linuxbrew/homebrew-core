@@ -49,8 +49,8 @@ class Bind < Formula
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--with-python-install-dir=#{vendor_site_packages}",
+                          "--without-lmdb",
                           *("--disable-linux-caps" unless OS.mac?)
-                          "--without-lmdb"
 
     system "make"
     system "make", "install"
