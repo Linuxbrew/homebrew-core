@@ -1,3 +1,4 @@
+# oath-toolkit: Build a bottle for Linuxbrew
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://www.nongnu.org/oath-toolkit/"
