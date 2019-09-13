@@ -12,6 +12,7 @@ class Cppcheck < Formula
   end
 
   depends_on "pcre"
+  depends_on "python@2" => :test unless OS.mac?
 
   def install
     ENV.cxx11
