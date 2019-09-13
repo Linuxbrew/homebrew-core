@@ -40,7 +40,7 @@ jobs:
   - bash: |
       set -e
       cd /tmp/bottles
-      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot --tap=homebrew/core --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old --skip-recursive-dependents
     displayName: Run test bot
     env:
       HOMEBREW_DEVELOPER: 1
