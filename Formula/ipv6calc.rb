@@ -1,3 +1,4 @@
+# ipv6calc: Build a bottle for Linuxbrew
 class Ipv6calc < Formula
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
