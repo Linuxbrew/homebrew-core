@@ -1,3 +1,4 @@
+# dcos-cli: Build a bottle for Linuxbrew
 class DcosCli < Formula
   desc "The DC/OS command-line interface"
   homepage "https://docs.d2iq.com/mesosphere/dcos/latest/cli"
