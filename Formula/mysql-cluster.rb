@@ -1,3 +1,4 @@
+# mysql-cluster: Build a bottle for Linuxbrew
 class MysqlCluster < Formula
   desc "Shared-nothing clustering and auto-sharding for MySQL"
   homepage "https://www.mysql.com/products/cluster/"
