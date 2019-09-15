@@ -1,3 +1,4 @@
+# mage: Build a bottle for Linuxbrew
 class Mage < Formula
   desc "Make/rake-like build tool using Go"
   homepage "https://magefile.org"
