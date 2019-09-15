@@ -1,3 +1,4 @@
+# watchman: Build a bottle for Linuxbrew
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
@@ -63,8 +64,10 @@ class Watchman < Formula
     # support; while there are still folks with watchman <4.8 this is still an
     # upgrade concern.
     home = ENV["HOME"]
-    system "launchctl", "unload",
-           "-F", "#{home}/Library/LaunchAgents/com.github.facebook.watchman.plist" if OS.mac?
+    if OS.mac?
+      system "launchctl", "unload",
+             "-F", "#{home}/Library/LaunchAgents/com.github.facebook.watchman.plist"
+    end
   end
 
   test do
