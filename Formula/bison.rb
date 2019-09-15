@@ -15,9 +15,9 @@ class Bison < Formula
 
   keg_only :provided_by_macos, "some formulae require a newer version of bison"
 
-  uses_from_macos "m4"
-
   def install
+    # https://www.mail-archive.com/bug-guix@gnu.org/msg13512.html
+    ENV.deparallelize unless OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
