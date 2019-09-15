@@ -1,3 +1,4 @@
+# srt: Build a bottle for Linuxbrew
 class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
