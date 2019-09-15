@@ -1,4 +1,5 @@
 # pulseaudio: Build a bottle for Linuxbrew
+# pulseaudio: Build a bottle for Linuxbrew
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
