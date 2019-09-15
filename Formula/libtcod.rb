@@ -18,6 +18,7 @@ class Libtcod < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   unless OS.mac?
+    depends_on "python@2" => :build
     depends_on "zlib"
     depends_on "linuxbrew/xorg/xorg"
   end
