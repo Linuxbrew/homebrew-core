@@ -39,6 +39,17 @@ class Mysql < Formula
     cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
   end
 
+  unless OS.mac?
+    patch do
+      url "https://raw.githubusercontent.com/NixOS/nixpkgs/dae42566dbee37a3b7a609fa86eca9618f4f4b67/pkgs/servers/sql/mysql/abi-check.patch"
+      sha256 "0dcfcca3bb3e7eb7ccd3ae02d4eb4fb07877970359611f081b03eab77bd4d6c9"
+    end
+    depends_on "pkg-config" => :build
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
+    depends_on "gcc@7"
+  end
+
   def datadir
     var/"mysql"
   end
@@ -160,6 +171,9 @@ class Mysql < Formula
   end
 
   test do
+    # Fatal error: Please read "Security" section of the manual to find out how to run mysqld as root!
+    return if ENV["CI"]
+
     # Expects datadir to be a completely clean dir, which testpath isn't.
     dir = Dir.mktmpdir
     system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
@@ -174,7 +188,9 @@ class Mysql < Formula
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure
-    Process.kill(9, pid)
-    Process.wait(pid)
+    unless ENV["CI"]
+      Process.kill(9, pid)
+      Process.wait(pid)
+    end
   end
 end
