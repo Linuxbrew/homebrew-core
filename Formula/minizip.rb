@@ -1,3 +1,4 @@
+# minizip: Build a bottle for Linuxbrew
 class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "https://www.winimage.com/zLibDll/minizip.html"
