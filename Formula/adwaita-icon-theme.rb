@@ -1,3 +1,4 @@
+# adwaita-icon-theme: Build a bottle for Linuxbrew
 class AdwaitaIconTheme < Formula
   desc "Icons for the GNOME project"
   homepage "https://developer.gnome.org"
