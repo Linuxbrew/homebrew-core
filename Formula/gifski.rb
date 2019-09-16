@@ -1,3 +1,4 @@
+# gifski: Build a bottle for Linuxbrew
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
