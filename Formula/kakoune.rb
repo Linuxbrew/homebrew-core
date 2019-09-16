@@ -17,15 +17,17 @@ class Kakoune < Formula
   depends_on "ncurses"
 
   unless OS.mac?
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
     depends_on "binutils" => :build
     depends_on "libxslt" => :build
     depends_on "linux-headers" => :build
     depends_on "pkg-config" => :build
+    depends_on "gcc@7"
     depends_on "ncurses"
   end
 
   def install
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     cd "src" do
