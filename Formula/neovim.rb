@@ -1,3 +1,4 @@
+# neovim: Build a bottle for Linuxbrew
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
