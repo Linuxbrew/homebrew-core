@@ -1,3 +1,4 @@
+# vtk: Build a bottle for Linuxbrew
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
