@@ -1,3 +1,4 @@
+# owfs: Build a bottle for Linuxbrew
 class Owfs < Formula
   desc "Monitor and control physical environment using Dallas/Maxim 1-wire system"
   homepage "https://owfs.org/"
