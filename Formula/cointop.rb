@@ -1,3 +1,4 @@
+# cointop: Build a bottle for Linuxbrew
 class Cointop < Formula
   desc "Interactive terminal based UI application for tracking cryptocurrencies"
   homepage "https://cointop.sh"
