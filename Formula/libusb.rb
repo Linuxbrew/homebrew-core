@@ -1,3 +1,4 @@
+# libusb: Build a bottle for Linuxbrew
 class Libusb < Formula
   desc "Library for USB device access"
   homepage "https://libusb.info/"
