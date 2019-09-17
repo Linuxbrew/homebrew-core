@@ -1,3 +1,4 @@
+# vips: Build a bottle for Linuxbrew
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
