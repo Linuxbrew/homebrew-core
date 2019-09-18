@@ -5,12 +5,12 @@ class Vim < Formula
   url "https://github.com/vim/vim/archive/v8.1.2000.tar.gz"
   sha256 "11f19bb169391e9eefb775baf9b8db0c8382ecb222c3bd0fa321f6b945fa4a65"
   head "https://github.com/vim/vim.git"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "1864054669ee13ce21a34fc9306be860b5584c5c77423e0359d7327cf1bbdf77" => :mojave
     sha256 "cc641ce613cdbee9182ed2fb269f62e7050e6c8965d7e4df7b8bcbb08137ae89" => :high_sierra
     sha256 "0b44d535bfcf3273bab46ccf183575a018ec15f7b9665f03d1951d82d803c809" => :sierra
-    sha256 "b0dfed063fe441d5ab845da0e105c735a373dce48dcc80f9f6307d8708bd6005" => :x86_64_linux
   end
 
   depends_on "gettext"
