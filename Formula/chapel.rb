@@ -10,6 +10,8 @@ class Chapel < Formula
     sha256 "34a5eac538de8fb6ac632109a0154e1d14ff8551bc8f4fec8df8359568697338" => :sierra
   end
 
+  depends_on "python@2" unless OS.mac?
+
   def install
     libexec.install Dir["*"]
     # Chapel uses this ENV to work out where to install.
@@ -37,6 +39,10 @@ class Chapel < Formula
   end
 
   test do
+    # Fix [Fail] chpl not found. Make sure it available in the current PATH.
+    # Makefile:203: recipe for target 'check' failed
+    ENV.prepend_path "PATH", bin unless OS.mac?
+    
     ENV["CHPL_HOME"] = libexec
     cd libexec do
       system "make", "check"
