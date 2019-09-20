@@ -1,3 +1,4 @@
+# libosmium: Build a bottle for Linuxbrew
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "https://osmcode.org/libosmium/"
