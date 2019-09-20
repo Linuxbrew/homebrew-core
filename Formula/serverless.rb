@@ -14,6 +14,7 @@ class Serverless < Formula
   end
 
   depends_on "node"
+  depends_on "python" unless OS.mac?
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
