@@ -1,3 +1,4 @@
+# jfrog-cli-go: Build a bottle for Linuxbrew
 class JfrogCliGo < Formula
   desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/jfrog/jfrog-cli"
