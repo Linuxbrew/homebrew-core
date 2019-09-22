@@ -1,3 +1,4 @@
+# pybind11: Build a bottle for Linuxbrew
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
