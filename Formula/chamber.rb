@@ -18,7 +18,7 @@ class Chamber < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GOOS"] = "darwin"
+    ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
     ENV["GOARCH"] = "amd64"
     ENV["CGO_ENABLED"] = "0"
 
