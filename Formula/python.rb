@@ -3,11 +3,10 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz"
   sha256 "fb799134b868199930b75f26678f18932214042639cd52b16da7fd134cd9b13f"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/python/cpython.git"
 
   bottle do
-    sha256 "826f498701eaced3c4c365526c0bf48da9a64242024868133e6ded9746ed4d4b" => :x86_64_linux
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -182,6 +181,12 @@ class Python < Formula
       # https://github.com/Homebrew/homebrew/issues/15943
       ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
       rm prefix/"Frameworks/Python.framework/Versions/Current"
+    else
+      # Prevent third-party packages from building against fragile Cellar paths
+      inreplace Dir[lib_cellar/"**/_sysconfigdata_m_linux_x86_64-*.py",
+                    lib_cellar/"config*/Makefile",
+                    lib/"pkgconfig/python-3.?.pc"],
+                prefix, opt_prefix
     end
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
