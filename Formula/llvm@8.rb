@@ -16,74 +16,25 @@ class LlvmAT8 < Formula
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end
-
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
-  end
-
-  head do
-    url "https://llvm.org/git/llvm.git", :branch => "release_50"
-
-    resource "clang" do
-      url "https://llvm.org/git/clang.git", :branch => "release_50"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git", :branch => "release_50"
-    end
-
-    resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git", :branch => "release_50"
-    end
-
-    resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git", :branch => "release_50"
-    end
-
-    resource "libcxxabi" do
-      url "http://llvm.org/git/libcxxabi.git", :branch => "release_50"
-    end
-
-    resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git", :branch => "release_50"
-    end
-
-    resource "lld" do
-      url "https://llvm.org/git/lld.git", :branch => "release_50"
-    end
-
-    resource "lldb" do
-      url "https://llvm.org/git/lldb.git", :branch => "release_50"
-    end
-
-    resource "openmp" do
-      url "https://llvm.org/git/openmp.git", :branch => "release_50"
-    end
-
-    resource "polly" do
-      url "https://llvm.org/git/polly.git", :branch => "release_50"
-    end
+    satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
   keg_only :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "libffi"
   depends_on "swig"
 
   unless OS.mac?
-    depends_on "gcc" # <atomic> is provided by gcc
+    depends_on "gcc" # needed for libstdc++
     depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "libelf" # openmp requires <gelf.h>
     depends_on "ncurses"
     depends_on "libxml2"
-    depends_on "python" if build.with?("python") || build.with?("lldb")
     depends_on "zlib"
     depends_on "python@2"
   end
@@ -91,6 +42,13 @@ class LlvmAT8 < Formula
   resource "clang" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/cfe-8.0.1.src.tar.xz"
     sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
+
+    unless OS.mac?
+      patch do
+        url "https://gist.githubusercontent.com/iMichka/https://gist.githubusercontent.com/iMichka/a5d88f6bbe1f62fc43dc040282234452/raw/430616d646260e47360d9cba0901ac2876007350/clang8?full_index=1"
+        sha256 "a7403c5a3ea2edddb7c1cb70274396f4c31d6b7c37aa1e4e4edaca3d1b78300f"
+      end
+    end
   end
 
   resource "clang-extra-tools" do
@@ -106,6 +64,11 @@ class LlvmAT8 < Formula
   resource "libcxx" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/libcxx-8.0.1.src.tar.xz"
     sha256 "7f0652c86a0307a250b5741ab6e82bb10766fb6f2b5a5602a63f30337e629b78"
+  end
+
+  resource "libcxxabi" do
+    url "https://llvm.org/releases/6.0.1/libcxxabi-6.0.1.src.tar.xz"
+    sha256 "209f2ec244a8945c891f722e9eda7c54a5a7048401abd62c62199f3064db385f"
   end
 
   resource "libunwind" do
@@ -138,16 +101,9 @@ class LlvmAT8 < Formula
     ENV.libcxx if ENV.compiler == :clang
 
     (buildpath/"tools/clang").install resource("clang")
-    unless OS.mac?
-      # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
-      inreplace buildpath/"tools/clang/lib/Driver/ToolChains/Linux.cpp",
-        "// Add the multilib suffixed paths where they are available.",
-        "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
-    end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
-    (buildpath/"projects/libcxxabi").install resource("libcxxabi") unless OS.mac?
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/lldb").install resource("lldb")
@@ -161,6 +117,17 @@ class LlvmAT8 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
+    unless OS.mac?
+      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
+      # Basically, the stage1 clang will try to locate a gcc toolchain and often
+      # get the default from /usr/local, which might contains an old version of
+      # gcc that can't build compiler-rt. This fixes the problem and, unlike
+      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
+      # hardcoding the gcc path into the binary
+      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
+        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
+    end
+
     args = %W[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
@@ -168,7 +135,6 @@ class LlvmAT8 < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -181,24 +147,17 @@ class LlvmAT8 < Formula
       -DLLDB_DISABLE_PYTHON=1
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
-
     if OS.mac?
-      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
-    else
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
-      args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
-      args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build_libcxx? && !OS.mac?
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+    else
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
     end
 
-    # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
-    unless OS.mac?
-      gccpref = Formula["gcc"].opt_prefix.to_s
-      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
-      args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
-      args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
-      args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
-    end
+    # Enable llvm gold plugin for LTO
+    args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}" unless OS.mac?
 
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
@@ -217,13 +176,8 @@ class LlvmAT8 < Formula
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
-    # Remove conflicting libraries.
-    # libgomp.so conflicts with gcc.
-    # libunwind.so conflcits with libunwind.
-    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
-
-    # Strip executables/libraries/object files to reduce their size
     unless OS.mac?
+      # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)
         f.file? && (f.elf? || f.extname == ".a")
@@ -258,7 +212,7 @@ class LlvmAT8 < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{clean_version}/include",
-                           "omptest.c", "-o", "omptest"
+                           "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -289,6 +243,11 @@ class LlvmAT8 < Formula
         return 0;
       }
     EOS
+
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
 
     # Testing Command Line Tools
     if OS.mac? && MacOS::CLT.installed?
@@ -328,14 +287,16 @@ class LlvmAT8 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v", "-nostdinc",
-            "-std=c++11", "-stdlib=libc++",
-            "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-            "-I#{libclangxc}/include",
-            "-I#{MacOS.sdk_path}/usr/include",
-            "-L#{lib}",
-            "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-    assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./test").chomp
+    if OS.mac?
+      system "#{bin}/clang++", "-v", "-nostdinc",
+              "-std=c++11", "-stdlib=libc++",
+              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+              "-I#{libclangxc}/include",
+              "-I#{MacOS.sdk_path}/usr/include",
+              "-L#{lib}",
+              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
   end
 end
