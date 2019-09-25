@@ -39,8 +39,12 @@ class Mpv < Formula
   end
 
   def install
-    # Fix ld relocation error
-    ENV.append_to_cflags "-fPIC" unless OS.mac?
+    unless OS.mac?
+      # Fix ld relocation error
+      ENV.append_to_cflags "-fPIC"
+
+      inreplace "bootstrap.py", "#!/usr/bin/env python", "#!/usr/bin/env python3"
+    end
 
     # LANG is unset by default on macOS and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
