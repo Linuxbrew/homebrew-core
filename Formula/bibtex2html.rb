@@ -1,3 +1,4 @@
+# bibtex2html: Build a bottle for Linuxbrew
 class Bibtex2html < Formula
   desc "BibTeX to HTML converter"
   homepage "https://www.lri.fr/~filliatr/bibtex2html/"
