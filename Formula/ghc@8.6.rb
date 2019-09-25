@@ -9,6 +9,7 @@ class GhcAT86 < Formula
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "0aaed7d9ff0734d21611b8987796238e60288c87435eac3a834464471f3c14e0" => :mojave
     sha256 "5af541eb9720ef526d3ac96a5f81b36ad21983c845ff228c79687ea1f2d4013a" => :high_sierra
     sha256 "34a9a1e3a59b2adec9ab6cab93f36fcf459e8ed2dc90b845aca6245c703d66c2" => :sierra
@@ -18,6 +19,14 @@ class GhcAT86 < Formula
 
   depends_on "python" => :build
   depends_on "sphinx-doc" => :build
+
+  unless OS.mac?
+    depends_on "m4" => :build
+    depends_on "ncurses"
+
+    # This dependency is needed for the bootstrap executables.
+    depends_on "gmp" => :build
+  end
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
@@ -29,8 +38,13 @@ class GhcAT86 < Formula
   # https://www.haskell.org/ghc/download_ghc_8_6_5#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    if OS.mac?
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
+      sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    else
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-deb8-linux.tar.xz"
+      sha256 "c419fd0aa9065fe4d2eb9a248e323860c696ddf3859749ca96a84938aee49107"
+    end
   end
 
   def install
@@ -44,8 +58,13 @@ class GhcAT86 < Formula
     # GMP *does not* use PIC by default without shared libs so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
+      if OS.mac?
+        args = "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+      else
+        args = "--build=core2-linux-gnu"
+      end
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
+                            *args
       system "make"
       system "make", "check"
       system "make", "install"
@@ -53,6 +72,20 @@ class GhcAT86 < Formula
 
     args = ["--with-gmp-includes=#{gmp}/include",
             "--with-gmp-libraries=#{gmp}/lib"]
+
+    unless OS.mac?
+      # Fix error while loading shared libraries: libgmp.so.10
+      ln_s Formula["gmp"].lib/"libgmp.so", gmp/"lib/libgmp.so.10"
+      ENV.prepend_path "LD_LIBRARY_PATH", gmp/"lib"
+      # Fix /usr/bin/ld: cannot find -lgmp
+      ENV.prepend_path "LIBRARY_PATH", gmp/"lib"
+      # Fix ghc-stage2: error while loading shared libraries: libncursesw.so.5
+      ln_s Formula["ncurses"].lib/"libncursesw.so", gmp/"lib/libncursesw.so.5"
+      # Fix ghc-stage2: error while loading shared libraries: libtinfo.so.5
+      ln_s Formula["ncurses"].lib/"libtinfo.so", gmp/"lib/libtinfo.so.5"
+      # Fix ghc-pkg: error while loading shared libraries: libncursesw.so.6
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["ncurses"].lib
+    end
 
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
     # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
@@ -70,6 +103,16 @@ class GhcAT86 < Formula
     end
 
     resource("binary").stage do
+      # Change the dynamic linker and RPATH of the binary executables.
+      if OS.linux? && Formula["glibc"].installed?
+        keg = Keg.new(prefix)
+        ["ghc/stage2/build/tmp/ghc-stage2"].concat(Dir["libraries/*/dist-install/build/*.so",
+            "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"]).each do |s|
+          file = Pathname.new(s)
+          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.dynamic_elf?
+        end
+      end
+
       binary = buildpath/"binary"
 
       system "./configure", "--prefix=#{binary}", *args
