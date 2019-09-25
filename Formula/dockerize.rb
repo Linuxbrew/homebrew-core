@@ -15,12 +15,13 @@ class Dockerize < Formula
   depends_on "go" => :build
 
   def install
+    platform = OS.mac? ? "darwin" : "linux"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/jwilder/dockerize").install buildpath.children
     ENV.append_path "PATH", buildpath/"bin"
     cd "src/github.com/jwilder/dockerize" do
       system "make", "dist"
-      bin.install "dist/darwin/amd64/dockerize"
+      bin.install "dist/#{platform}/amd64/dockerize"
     end
   end
 
