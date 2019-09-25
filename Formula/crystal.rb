@@ -51,15 +51,15 @@ class Crystal < Formula
   end
 
   resource "boot" do
-  if OS.mac?
-    url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-darwin-x86_64.tar.gz"
-    version "0.30.1-1"
-    sha256 "ffc3ee9124367a2dcd76f9b4c2bf8df083ba8fce506aaf0e3c6bfad738257adc"
-  else
-    url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-linux-x86_64.tar.gz"
-    version "0.30.1-1"
-    sha256 "aae60f90c809b480f069c6ae3f8ef54a8753dce5448ee34f1dda0e28c95955cc"
-  end
+    if OS.mac?
+      url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-darwin-x86_64.tar.gz"
+      version "0.30.1-1"
+      sha256 "ffc3ee9124367a2dcd76f9b4c2bf8df083ba8fce506aaf0e3c6bfad738257adc"
+    else
+      url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-linux-x86_64.tar.gz"
+      version "0.30.1-1"
+      sha256 "aae60f90c809b480f069c6ae3f8ef54a8753dce5448ee34f1dda0e28c95955cc"
+    end
   end
 
   def install
