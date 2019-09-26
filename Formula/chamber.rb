@@ -3,6 +3,7 @@ class Chamber < Formula
   homepage "https://github.com/segmentio/chamber"
   url "https://github.com/segmentio/chamber/archive/v2.5.0.tar.gz"
   sha256 "975d046eda38efc06c4fd77529612869d7cb76f35c6092b2a31f6000ec8fe9d1"
+  revision 1 unless OS.mac?
   head "https://github.com/segmentio/chamber.git"
 
   bottle do
@@ -10,7 +11,6 @@ class Chamber < Formula
     sha256 "0ea468454bbe3f97a52d4d5d6c0f0892030222902842682ae52498d2c3cd2627" => :mojave
     sha256 "e9c1c32c471e76fc4a3c4dc235988c53b24ca5e6a9ca3e1c35d10ffdd5172d04" => :high_sierra
     sha256 "0e153992bbdd6c4356ea2db2ea4844968d422205192ddbda0f1bd6a5431702c5" => :sierra
-    sha256 "f76c73767cc850db949cc7f663633fa78919b979a7c01250b59bd3e252fb4a18" => :x86_64_linux
   end
 
   depends_on "go" => :build
