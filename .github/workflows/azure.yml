@@ -1,0 +1,12 @@
+name: Check Azure Status
+
+on:
+  check_suite:
+    types:
+      - completed
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/azure
