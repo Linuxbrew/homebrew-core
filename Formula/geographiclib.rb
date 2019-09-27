@@ -15,7 +15,9 @@ class Geographiclib < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}", *std_cmake_args
+      args = std_cmake_args
+      args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
