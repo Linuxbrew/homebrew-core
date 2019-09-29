@@ -1,3 +1,4 @@
+# popt: Build a bottle for Linuxbrew
 class Popt < Formula
   desc "Library like getopt(3) with a number of enhancements"
   homepage "https://web.archive.org/web/20190425081726/rpm5.org/"
