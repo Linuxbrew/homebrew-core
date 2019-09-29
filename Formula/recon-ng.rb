@@ -13,14 +13,11 @@ class ReconNg < Formula
     sha256 "9b95337526fddba4a46d9ed0ffb6fdef87167f273f0bd802651e158c07367007" => :mojave
   end
 
-  # Dependency "mechanize" only support Python 2
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
   unless OS.mac?
     depends_on "libxml2"
     depends_on "libxslt"
   end
-
-  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
