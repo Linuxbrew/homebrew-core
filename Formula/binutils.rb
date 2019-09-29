@@ -8,7 +8,10 @@ class Binutils < Formula
   # binutils is portable.
   bottle do
     cellar :any
-    sha256 "ef7ed4e1f676ba42a72928a6925febf3a95d73424986f8ebb8d4b458923004b1" => :x86_64_linux
+    sha256 "cc0be2b4198597a513413e2957423e6db06b183dfef802f4fa1a493a42388ddb" => :catalina
+    sha256 "101c47b5ba0dd14c33ae6252f0f732f2c9e3db9bb5bf03c880533b62e9f18dc2" => :mojave
+    sha256 "b82cf83f50a4822652022612c4f51052a56741e281ee509c8f18e1485b29cdaa" => :high_sierra
+    sha256 "7fabb9b6e95bbc156469a765189e153917adb9b8fbdc24a7662f42b4995ba825" => :sierra
   end
 
   if OS.mac?
