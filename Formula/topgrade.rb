@@ -30,6 +30,7 @@ class Topgrade < Formula
 
     assert_match version.to_s, shell_output("#{bin}/topgrade --version")
 
+    mkdir "#{ENV["HOME"]}/.config" if OS.linux?
     output = shell_output("#{bin}/topgrade -n")
     assert_match "Dry running: #{HOMEBREW_PREFIX}/bin/brew upgrade", output
     assert_not_match /\sSelf update\s/, output
