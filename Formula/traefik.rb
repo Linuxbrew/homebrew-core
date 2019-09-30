@@ -1,3 +1,4 @@
+# traefik: Build a bottle for Linuxbrew
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
