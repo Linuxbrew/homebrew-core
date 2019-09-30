@@ -42,6 +42,7 @@ class Libomp < Formula
       }
     EOS
     system ENV.cxx, "-Werror", "-Xpreprocessor", "-fopenmp", "test.cpp",
+                    ("-std=c++11" unless OS.mac?),
                     "-L#{lib}", "-lomp", "-o", "test"
     system "./test"
   end
