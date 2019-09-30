@@ -11,8 +11,10 @@ class AflFuzz < Formula
   end
 
   def install
-    system "make", "PREFIX=#{prefix}"
-    system "make", "install", "PREFIX=#{prefix}"
+    defs = ["PREFIX=#{prefix}"]
+    defs << "AFL_NO_X86=1" unless OS.mac?
+    system "make", *defs
+    system "make", "install", *defs
   end
 
   test do
