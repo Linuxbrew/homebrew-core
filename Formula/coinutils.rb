@@ -1,3 +1,4 @@
+# coinutils: Build a bottle for Linuxbrew
 class Coinutils < Formula
   desc "COIN-OR utilities"
   homepage "https://github.com/coin-or/CoinUtils"
