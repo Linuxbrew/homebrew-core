@@ -1,3 +1,4 @@
+# squashfs: Build a bottle for Linuxbrew
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
