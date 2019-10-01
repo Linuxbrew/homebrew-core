@@ -1,14 +1,14 @@
 class GoJira < Formula
   desc "Simple jira command-line client in Go"
   homepage "https://github.com/go-jira/jira"
-  url "https://github.com/go-jira/jira/archive/v1.0.21.tar.gz"
-  sha256 "c76089423fc0d4b9dcdd39822d6d94452136f8f24b8c17ec75b0e702e40fbcc2"
+  url "https://github.com/go-jira/jira/archive/v1.0.22.tar.gz"
+  sha256 "428099801521debb46f30ed602481e92c4560e2251542c1f1a2dc4a818ff9765"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "470f7105708b78919c14f33a052ddb9224ed9a6e518771b656fbee408fe860ae" => :mojave
-    sha256 "dec791b7060932024a39da7f30830215db75594dc0626dba4807bcf4baa77680" => :high_sierra
-    sha256 "d3cd28544ccbd2e413e504b801e19107d7a3c009a51b65578af6c8b15b0ff44b" => :sierra
+    sha256 "562a0922313a626d983c8150a8527c42c933f9d21ac587bdf81f90f558228ad4" => :catalina
+    sha256 "bc1ceb2829539132828c91393d925481ea32fad23acd812caeded39245c4c7bc" => :mojave
+    sha256 "5dacf7ae9a20486722af587660682bada1acfd8e443e4ff7e67918afe6f33b39" => :high_sierra
   end
 
   depends_on "go" => :build

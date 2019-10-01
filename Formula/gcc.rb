@@ -11,6 +11,7 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
+  revision 1 if OS.mac?
   revision 4 unless OS.mac?
   head "https://gcc.gnu.org/git/gcc.git" if OS.mac?
 
@@ -28,9 +29,9 @@ class Gcc < Formula
   bottle do
     cellar :any
     rebuild 2
-    sha256 "a053832700c5f4d5606929b8101f5bf0fcc6b7b42b4bca73effc3f0316cfb691" => :mojave
-    sha256 "acd6c0f958c1947b192127d0173f449e6a13f51f53001c8678700c326f6a9f51" => :high_sierra
-    sha256 "de17691cff05be8b62df4cd753c6b74fb9b8ab30d8677507dcecc711b0129f51" => :sierra
+    sha256 "e1a6cd0d52fb715431063657cec4e3578170079168b612a6998d321d778330b1" => :catalina
+    sha256 "12951cda5ca32814387a1106fdaea9c4d4dd55e9c27f0dc7c044ab5e00dca695" => :mojave
+    sha256 "fd0945c648c9a6672892a9b17ce3108dd6b8319aaf67c2718290ea0d13e22f1b" => :high_sierra
     sha256 "406111bf6c70681f2acbf39bb2462da0a15e1522d01bd909abed43556dff50ca" => :x86_64_linux
   end
 
@@ -54,6 +55,15 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Fix system headers for Catalina SDK
+  # (otherwise __OSX_AVAILABLE_STARTING ends up undefined)
+  if DevelopmentTools.clang_build_version >= 1100
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/9.2.0-catalina.patch"
+      sha256 "0b8d14a7f3c6a2f0d2498526e86e088926671b5da50a554ffa6b7f73ac4f132b"
+    end
+  end
 
   def version_suffix
     if build.head?
