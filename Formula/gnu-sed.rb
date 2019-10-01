@@ -1,3 +1,4 @@
+# gnu-sed: Build a bottle for Linuxbrew
 class GnuSed < Formula
   desc "GNU implementation of the famous stream editor"
   homepage "https://www.gnu.org/software/sed/"
