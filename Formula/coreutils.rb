@@ -34,6 +34,9 @@ class Coreutils < Formula
   conflicts_with "truncate", :because => "both install `truncate` binaries"
 
   def install
+    # Fix configure: error: you should not run configure as root
+    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["CI"]
+
     system "./bootstrap" if build.head?
 
     args = %W[
