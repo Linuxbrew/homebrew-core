@@ -1,3 +1,4 @@
+# shared-mime-info: Build a bottle for Linuxbrew
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
