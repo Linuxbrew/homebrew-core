@@ -6,10 +6,10 @@ class Libbluray < Formula
 
   bottle do
     cellar :any
-    sha256 "25de56ece940908d1be482b234b5c6fc5ec2bc8d24aaf9c75d67718ea5770605" => :mojave
-    sha256 "152dd759f3c3170eecf59f095c6b8dde3a9fc8dcf317846b50fbd85644bc3296" => :high_sierra
-    sha256 "de230a76a5a163cf704b150ebcb2c1347bb64a41c5f68b0487ae83dbf48c13ac" => :sierra
-    sha256 "c620a6c51167013033ac30cf217de4fd18f6c884e96f60f242a5422c13a8ea6c" => :x86_64_linux
+    rebuild 1
+    sha256 "02450f9c05b48ec198c967ef34b109002c9d9f2c496ef8876f3779e451ed2271" => :catalina
+    sha256 "cf27d6ba0b4e169785801140ba11fb47e78040f26b5af9e2279bc808e5b62bc3" => :mojave
+    sha256 "1566fcca5871d636404d2517dba45f6c287ab8dd5c9ffc8b9b09dc1bf2af0e18" => :high_sierra
   end
 
   head do
@@ -36,6 +36,10 @@ class Libbluray < Formula
       # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
       ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
     end
+
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
 
