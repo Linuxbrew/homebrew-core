@@ -14,8 +14,10 @@ class Ship < Formula
   depends_on "go" => :build
   depends_on "node@8" => :build
   depends_on "yarn" => :build
+  depends_on "python" => :build unless OS.mac?
 
   def install
+    ENV["PYTHON"] = Formula["python"].opt_bin/"python" unless OS.mac?
     ENV["GOPATH"] = buildpath
     srcpath = buildpath/"src/github.com/replicatedhq/ship"
     srcpath.install buildpath.children
