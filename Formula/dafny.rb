@@ -1,3 +1,4 @@
+# dafny: Build a bottle for Linuxbrew
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness"
