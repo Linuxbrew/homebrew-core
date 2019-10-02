@@ -1,3 +1,4 @@
+# dos2unix: Build a bottle for Linuxbrew
 class Dos2unix < Formula
   desc "Convert text between DOS, UNIX, and Mac formats"
   homepage "https://waterlan.home.xs4all.nl/dos2unix.html"
