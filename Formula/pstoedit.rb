@@ -1,3 +1,4 @@
+# pstoedit: Build a bottle for Linuxbrew
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
   homepage "http://www.pstoedit.net/"
@@ -14,6 +15,13 @@ class Pstoedit < Formula
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "plotutils"
+
+  unless OS.mac?
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/master/graphics/pstoedit/files/patch-src-dxfacad.h.diff"
+      sha256 "41d767e655d0519e98b14bb05a1dafc4415b9b21de60179522c55bac3cbd8ed1"
+    end
+  end
 
   def install
     ENV.cxx11
