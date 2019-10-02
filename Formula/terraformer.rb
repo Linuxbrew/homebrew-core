@@ -1,3 +1,4 @@
+# terraformer: Build a bottle for Linuxbrew
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
