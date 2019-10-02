@@ -1,3 +1,4 @@
+# quickjs: Build a bottle for Linuxbrew
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
