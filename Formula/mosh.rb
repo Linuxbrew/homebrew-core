@@ -1,3 +1,4 @@
+# mosh: Build a bottle for Linuxbrew
 class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
