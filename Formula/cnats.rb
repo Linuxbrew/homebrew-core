@@ -19,6 +19,7 @@ class Cnats < Formula
 
   def install
     system "cmake", ".", "-DCMAKE_INSTALL_PREFIX=#{prefix}",
+                         ("-DNATS_PROTOBUF_LIBRARY=#{Formula["protobuf-c"].lib}/libprotobuf-c.so" unless OS.mac?),
                          "-DBUILD_TESTING=OFF", *std_cmake_args
     system "make", "install"
   end
