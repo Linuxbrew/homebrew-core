@@ -12,6 +12,8 @@ class AngleGrinder < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "pkg-config" => :build unless OS.mac?
+  depends_on "openssl" unless OS.mac?
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
