@@ -1,3 +1,4 @@
+# drone-cli: Build a bottle for Linuxbrew
 class DroneCli < Formula
   desc "Drone CLI"
   homepage "https://drone.io"
