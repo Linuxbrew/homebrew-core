@@ -7,7 +7,6 @@ class Protobuf < Formula
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    cellar :any
     sha256 "7e1a09099cc918a87e5b8b8aa8720b5398ae140ca2cb49203afb9a12f873feb9" => :catalina
     sha256 "b13a84b99a3c1655b6c0b1dacd7290b22ef8eb6ad321e5ce29372d4718e736be" => :mojave
     sha256 "0795805e92c9a9166de9be8529910e6783cf5300ca03783313a3c15ae243232a" => :high_sierra
