@@ -12,6 +12,38 @@ class Cloc < Formula
     sha256 "0407f6ec4d2378659b63bb33598f9b5f49756325322fe3fc0f339ec16b5edc5f" => :high_sierra
   end
 
+  unless OS.mac?
+    resource "Moo::Role" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003004.tar.gz"
+      sha256 "f8bbb625f8e963eabe05cff9048fdd72bdd26777404ff2c40bc690f558be91e1"
+    end
+
+    resource "Module::Runtime" do
+      url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
+      sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
+    end
+
+    resource "Devel::GlobalDestruction" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz"
+      sha256 "34b8a5f29991311468fe6913cadaba75fd5d2b0b3ee3bb41fe5b53efab9154ab"
+    end
+
+    resource "Sub::Exporter::Progressive" do
+      url "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
+      sha256 "d535b7954d64da1ac1305b1fadf98202769e3599376854b2ced90c382beac056"
+    end
+
+    resource "Role::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000008.tar.gz"
+      sha256 "b1541fc5e3e0eb2dbd55b25c432293c197e0153c2c9f7747deba4df72c27146a"
+    end
+
+    resource "Sub::Quote" do
+      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.gz"
+      sha256 "be1f3a6f773f351f203cdc8f614803ac492b77d15fd68d5b1f0cd3884be18176"
+    end
+  end
+
   resource "Regexp::Common" do
     url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz"
     sha256 "ee07853aee06f310e040b6bf1a0199a18d81896d3219b9b35c9630d0eb69089b"
