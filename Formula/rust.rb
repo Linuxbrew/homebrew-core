@@ -21,6 +21,7 @@ class Rust < Formula
   end
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "dc59b31db0a9095768c7c5487f892b0eeb206208f22beffae5183d44b407f5ae" => :catalina
     sha256 "1bc1a95de1a2ed519c60b666927fcfe7253004f2ba5adb022a8fb1065ba5760b" => :mojave
     sha256 "8b459d752dfa399f3595dbcdcee37024f60042501ffac23a5e3f83351e2b74d7" => :high_sierra
