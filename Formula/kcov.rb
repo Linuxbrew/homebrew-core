@@ -1,3 +1,4 @@
+# kcov: Build a bottle for Linuxbrew
 class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
