@@ -1,3 +1,4 @@
+# libfabric: Build a bottle for Linuxbrew
 class Libfabric < Formula
   desc "OpenFabrics libfabric"
   homepage "https://ofiwg.github.io/libfabric/"
