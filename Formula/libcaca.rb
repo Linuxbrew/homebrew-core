@@ -1,3 +1,4 @@
+# libcaca: Build a bottle for Linuxbrew
 class Libcaca < Formula
   desc "Convert pixel information into colored ASCII art"
   homepage "http://caca.zoy.org/wiki/libcaca"
