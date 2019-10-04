@@ -1,3 +1,4 @@
+# minizinc: Build a bottle for Linuxbrew
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
