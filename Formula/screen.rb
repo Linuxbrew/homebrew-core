@@ -1,3 +1,4 @@
+# screen: Build a bottle for Linuxbrew
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
