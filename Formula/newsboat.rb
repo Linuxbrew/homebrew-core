@@ -1,3 +1,4 @@
+# newsboat: Build a bottle for Linuxbrew
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
