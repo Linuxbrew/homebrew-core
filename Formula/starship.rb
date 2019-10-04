@@ -13,6 +13,7 @@ class Starship < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
