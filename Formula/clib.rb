@@ -1,3 +1,4 @@
+# clib: Build a bottle for Linuxbrew
 class Clib < Formula
   desc "Package manager for C programming"
   homepage "https://github.com/clibs/clib"
