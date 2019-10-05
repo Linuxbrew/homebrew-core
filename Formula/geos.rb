@@ -1,3 +1,4 @@
+# geos: Build a bottle for Linuxbrew
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
