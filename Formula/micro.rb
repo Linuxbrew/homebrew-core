@@ -1,3 +1,4 @@
+# micro: Build a bottle for Linuxbrew
 class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
