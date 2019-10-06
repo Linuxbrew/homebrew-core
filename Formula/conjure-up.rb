@@ -21,6 +21,8 @@ class ConjureUp < Formula
   depends_on "pwgen"
   depends_on "python"
   depends_on "redis"
+  depends_on "libffi" unless OS.mac?
+  depends_on "pkg-config" => :build unless OS.mac?
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
