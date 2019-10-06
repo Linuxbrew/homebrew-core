@@ -6,6 +6,7 @@ class OpencvAT2 < Formula
   revision 5
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "9b5ec41fcf3171360aaab7a54e4f9a0de45af3d067ba95f8cfc0752162df24f9" => :catalina
     sha256 "f3730ff75749689792411fc2b928e0682ca6d4fdf036617d2ea4c0f96e073023" => :mojave
