@@ -4,6 +4,7 @@ class Meson < Formula
   url "https://github.com/mesonbuild/meson/releases/download/0.51.2/meson-0.51.2.tar.gz"
   sha256 "23688f0fc90be623d98e80e1defeea92bbb7103bf9336a5f5b9865d36e892d76"
   head "https://github.com/mesonbuild/meson.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -11,11 +12,13 @@ class Meson < Formula
     sha256 "3b3d59e1d710726301fb379a020323b8f3b630a08b15581527386679be26b5a5" => :mojave
     sha256 "3b3d59e1d710726301fb379a020323b8f3b630a08b15581527386679be26b5a5" => :high_sierra
     sha256 "39a19f4d9b2b03fd6ff1df210cf0de4ae767d027b594046e3394fc1d22eb4d77" => :sierra
-    sha256 "9af92f534f6cfd0935a583e9b55126410d670af39a1526eb017732e59d217bf7" => :x86_64_linux
   end
 
   depends_on "ninja"
   depends_on "python"
+
+  # https://github.com/mesonbuild/meson/issues/2567#issuecomment-504581379
+  patch :DATA
 
   def install
     version = Language::Python.major_minor_version("python3")
@@ -44,3 +47,20 @@ class Meson < Formula
     end
   end
 end
+__END__
+--- meson-0.47.2.orig/mesonbuild/minstall.py
++++ meson-0.47.2/mesonbuild/minstall.py
+@@ -486,8 +486,11 @@ class Installer:
+                         printed_symlink_error = True
+             if os.path.isfile(outname):
+                 try:
+-                    depfixer.fix_rpath(outname, install_rpath, final_path,
+-                                       install_name_mappings, verbose=False)
++                    if install_rpath:
++                        depfixer.fix_rpath(outname, install_rpath, final_path,
++                                           install_name_mappings, verbose=False)
++                    else:
++                        print("RPATH changes at install time disabled")
+                 except SystemExit as e:
+                     if isinstance(e.code, int) and e.code == 0:
+                         pass
