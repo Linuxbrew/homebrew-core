@@ -1,3 +1,4 @@
+# ctags: Build a bottle for Linuxbrew
 class Ctags < Formula
   desc "Reimplementation of ctags(1)"
   homepage "https://ctags.sourceforge.io/"
