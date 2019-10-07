@@ -1,3 +1,4 @@
+# ocaml-findlib: Build a bottle for Linuxbrew
 class OcamlFindlib < Formula
   desc "OCaml library manager"
   homepage "http://projects.camlcity.org/projects/findlib.html"
