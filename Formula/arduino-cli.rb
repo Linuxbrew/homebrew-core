@@ -19,6 +19,7 @@ class ArduinoCli < Formula
 
   test do
     system "#{bin}/arduino-cli", "sketch", "new", "test_sketch"
-    assert File.directory?("#{testpath}/Documents/Arduino/test_sketch")
+    assert File.directory?("#{testpath}/Documents/Arduino/test_sketch") if OS.mac?
+    assert File.directory?("#{testpath}/Arduino/test_sketch") unless OS.mac?
   end
 end
