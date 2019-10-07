@@ -13,6 +13,8 @@ class Cmatrix < Formula
     sha256 "de744cafdaf5a208200e0a8fe13327d700396dae1162de3db6ffec67f4770808" => :high_sierra
   end
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
