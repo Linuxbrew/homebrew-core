@@ -20,12 +20,10 @@ class Graphviz < Formula
   depends_on "gts"
   depends_on "libpng"
   depends_on "libtool"
+  depends_on "byacc" => :build unless OS.mac?
+  depends_on "flex" => :build unless OS.mac?
 
   def install
-    # Fix error: storage size of 'ms' isn't known
-    # See https://github.com/NixOS/nix-pills/issues/40#issuecomment-358896369
-    inreplace "lib/vmalloc/features/vmalloc", "lib mstats\n", "" unless OS.mac?
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
