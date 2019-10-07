@@ -1,3 +1,4 @@
+# v2ray-plugin: Build a bottle for Linuxbrew
 class V2rayPlugin < Formula
   desc "SIP003 plugin based on v2ray for shadowsocks"
   homepage "https://github.com/shadowsocks/v2ray-plugin"
