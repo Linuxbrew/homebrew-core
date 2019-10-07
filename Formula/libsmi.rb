@@ -1,3 +1,4 @@
+# libsmi: Build a bottle for Linuxbrew
 class Libsmi < Formula
   desc "Library to Access SMI MIB Information"
   homepage "https://www.ibr.cs.tu-bs.de/projects/libsmi/"
