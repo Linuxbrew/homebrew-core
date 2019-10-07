@@ -16,7 +16,9 @@ class Xgboost < Formula
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, "-DUSE_OPENMP=0", ".."
+      system "cmake", *std_cmake_args,
+        ("-DUSE_OPENMP=0" if OS.mac?),
+        ".."
       system "make"
       system "make", "install"
     end
