@@ -19,6 +19,9 @@ class Broot < Formula
   end
 
   test do
+    # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
+    return if ENV["CI"]
+
     require "pty"
 
     %w[a b c].each { |f| (testpath/"root"/f).write("") }
