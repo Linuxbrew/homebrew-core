@@ -1,3 +1,4 @@
+# notifiers: Build a bottle for Linuxbrew
 class Notifiers < Formula
   include Language::Python::Virtualenv
 
