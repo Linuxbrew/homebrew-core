@@ -1,3 +1,4 @@
+# sccache: Build a bottle for Linuxbrew
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
