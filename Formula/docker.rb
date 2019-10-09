@@ -1,3 +1,4 @@
+# docker: Build a bottle for Linuxbrew
 class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
