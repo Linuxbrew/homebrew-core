@@ -1,3 +1,4 @@
+# terragrunt: Build a bottle for Linuxbrew
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://github.com/gruntwork-io/terragrunt"
