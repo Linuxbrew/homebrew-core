@@ -1,3 +1,4 @@
+# libsoup: Build a bottle for Linuxbrew
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
