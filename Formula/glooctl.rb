@@ -1,3 +1,4 @@
+# glooctl: Build a bottle for Linuxbrew
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://gloo.solo.io"
