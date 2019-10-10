@@ -1,3 +1,4 @@
+# libpcap: Build a bottle for Linuxbrew
 class Libpcap < Formula
   desc "Portable library for network traffic capture"
   homepage "https://www.tcpdump.org/"
