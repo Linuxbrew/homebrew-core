@@ -1,3 +1,4 @@
+# bazel: Build a bottle for Linuxbrew
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
