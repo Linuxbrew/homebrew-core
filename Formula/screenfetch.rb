@@ -1,3 +1,4 @@
+# screenfetch: Build a bottle for Linuxbrew
 class Screenfetch < Formula
   desc "Generate ASCII art with terminal, shell, and OS info"
   homepage "https://github.com/KittyKatt/screenFetch"
