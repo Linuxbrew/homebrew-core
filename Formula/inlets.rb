@@ -13,6 +13,7 @@ class Inlets < Formula
   end
 
   depends_on "go" => :build
+  depends_on "ruby" => :test unless OS.mac?
 
   def install
     ENV["GOPATH"] = buildpath
@@ -80,7 +81,8 @@ class Inlets < Formula
     EOS
 
     mock_upstream_server_pid = fork do
-      exec "ruby mock_upstream_server.rb"
+      exec "ruby mock_upstream_server.rb" if OS.mac?
+      exec "#{Formula["ruby"].opt_bin}/ruby mock_upstream_server.rb" unless OS.mac?
     end
 
     begin
