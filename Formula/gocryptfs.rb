@@ -15,7 +15,11 @@ class Gocryptfs < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  depends_on :osxfuse
+  if OS.mac?
+    depends_on :osxfuse
+  else
+    depends_on "libfuse"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
