@@ -1,3 +1,4 @@
+# pdfcpu: Build a bottle for Linuxbrew
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
