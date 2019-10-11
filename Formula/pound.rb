@@ -1,3 +1,4 @@
+# pound: Build a bottle for Linuxbrew
 class Pound < Formula
   desc "Reverse proxy, load balancer and HTTPS front-end for web servers"
   homepage "http://www.apsis.ch/pound"
