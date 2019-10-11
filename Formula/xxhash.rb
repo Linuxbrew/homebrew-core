@@ -1,3 +1,4 @@
+# xxhash: Build a bottle for Linuxbrew
 class Xxhash < Formula
   desc "Extremely fast non-cryptographic hash algorithm"
   homepage "https://github.com/Cyan4973/xxHash"
