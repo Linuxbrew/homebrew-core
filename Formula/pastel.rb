@@ -1,3 +1,4 @@
+# pastel: Build a bottle for Linuxbrew
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
