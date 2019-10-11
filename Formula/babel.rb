@@ -8,6 +8,7 @@ class Babel < Formula
   sha256 "b19527642ede6d98621e4f319448a5a78f2ad4a1cd825a8242d124ba6edbecd0"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "fc03e0a6dbb8155b5d6fd34aa0eb905afb54325ff078261bce7e89e348d4b659" => :catalina
     sha256 "0ca72f3c6ec1f145e004f0244a87841340c3ca075fd668075adb8948d48cd756" => :mojave
     sha256 "58b96958f2c724caa58c3506382f92314ddf920d1c23e9976b799cb21cdc4058" => :high_sierra
