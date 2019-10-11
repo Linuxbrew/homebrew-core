@@ -90,7 +90,6 @@ class Ffmpeg < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-libsoxr
-      --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
     ]
