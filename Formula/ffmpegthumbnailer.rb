@@ -1,3 +1,4 @@
+# ffmpegthumbnailer: Build a bottle for Linuxbrew
 class Ffmpegthumbnailer < Formula
   desc "Create thumbnails for your video files"
   homepage "https://github.com/dirkvdb/ffmpegthumbnailer"
