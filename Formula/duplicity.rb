@@ -17,6 +17,7 @@ class Duplicity < Formula
   depends_on "librsync"
   depends_on "openssl@1.1"
   depends_on "python"
+  uses_from_macos "expect"
 
   # Generated with homebrew-pypi-poet from
   # for i in fasteners future mock requests urllib3; do poet -r $i >> resources; done
@@ -95,7 +96,7 @@ class Duplicity < Formula
     begin
       (testpath/"test/hello.txt").write "Hello!"
       (testpath/"command.sh").write <<~EOS
-        #!/usr/bin/expect -f
+        #!/usr/bin/env expect
         set timeout -1
         spawn #{bin}/duplicity #{testpath} "file://test"
         expect -exact "Local and Remote metadata are synchronized, no sync needed."
