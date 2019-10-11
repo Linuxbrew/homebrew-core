@@ -189,6 +189,10 @@ class Certbot < Formula
     # This throws a bad exit code but we can check it actually is failing
     # for the right reasons by asserting. --version never fails even if
     # resources are missing or outdated/too new/etc.
-    assert_match "Either run as root", shell_output("#{bin}/certbot 2>&1", 1)
+    if ENV["USER"] == "root"
+      assert_match "Saving debug log", shell_output("#{bin}/certbot 2>&1", 1)
+    else
+      assert_match "Either run as root", shell_output("#{bin}/certbot 2>&1", 1)
+    end
   end
 end
