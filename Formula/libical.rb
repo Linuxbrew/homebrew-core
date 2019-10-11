@@ -1,3 +1,4 @@
+# libical: Build a bottle for Linuxbrew
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
