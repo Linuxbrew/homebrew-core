@@ -6,6 +6,7 @@ class VorbisTools < Formula
   revision 2
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "71a81bbeec2d79ddd7f39858cf66a450fac9d542824c30a064298229d6637594" => :catalina
     sha256 "c3e402519ad170a0a37d80d394d8afbe905985784f8ea5d93fcc84a4486a9977" => :mojave
