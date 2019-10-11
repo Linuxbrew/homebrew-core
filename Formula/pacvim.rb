@@ -5,6 +5,16 @@ class Pacvim < Formula
   sha256 "c869c5450fbafdfe8ba8a8a9bba3718775926f276f0552052dcfa090d21acb28"
   head "https://github.com/jmoon018/PacVim.git"
 
+  uses_from_macos "ncurses"
+
+  # Use ncurses.h instead of cursesw.h which is not installed by brew
+  unless OS.mac?
+    patch do
+      url "https://github.com/jmoon018/PacVim/pull/31.patch?full_index=1"
+      sha256 "e5b753de87937c0853a1adbab31eb1ec938add4ceb0df26eafef5b4f613bc3e6"
+    end
+  end
+
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -16,5 +26,9 @@ class Pacvim < Formula
   def install
     ENV.cxx11
     system "make", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    assert_predicate bin/name, :exist?
   end
 end
