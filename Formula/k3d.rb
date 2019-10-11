@@ -28,6 +28,11 @@ class K3d < Formula
 
   test do
     assert_match "k3d version dev", shell_output("#{bin}/k3d -v")
-    assert_match "Checking docker...", shell_output("#{bin}/k3d ct 2>&1", 1)
+    code = if File.exist?("/var/run/docker.sock")
+      0
+    else
+      1
+    end
+    assert_match "Checking docker...", shell_output("#{bin}/k3d ct 2>&1", code)
   end
 end
