@@ -1,3 +1,4 @@
+# cern-ndiff: Build a bottle for Linuxbrew
 class CernNdiff < Formula
   desc "Numerical diff tool"
   # Note: ndiff is a sub-project of Mad-X at the moment..
