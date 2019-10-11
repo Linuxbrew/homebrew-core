@@ -15,6 +15,10 @@ class Pgformatter < Formula
     system "perl", "Makefile.PL", "DESTDIR=."
     system "make", "install"
 
+    unless OS.mac?
+      mkdir "usr/local/share"
+      mv "usr/local/man", "usr/local/share"
+    end
     prefix.install (buildpath/"usr/local").children
     (libexec/"lib").install "blib/lib/pgFormatter"
     libexec.install bin/"pg_format"
