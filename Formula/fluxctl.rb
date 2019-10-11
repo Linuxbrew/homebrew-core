@@ -1,3 +1,4 @@
+# fluxctl: Build a bottle for Linuxbrew
 class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/weaveworks/flux"
