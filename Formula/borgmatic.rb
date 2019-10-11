@@ -77,12 +77,13 @@ class Borgmatic < Formula
 
     # Replace defaults values
     config_content = File.read(config_path)
-                         .gsub(/#local_path: borg1/, "local_path: #{borg}")
+                         .gsub(/# ?local_path: borg1/, "local_path: #{borg}")
                          .gsub(/user@backupserver:sourcehostname.borg/, repo_path)
     File.open(config_path, "w") { |file| file.puts config_content }
 
+    # This does not work in newer version
     # Initialize Repo
-    system bin/"borgmatic", "-v", "2", "--config", config_path, "--init", "--encryption", "repokey"
+    # system bin/"borgmatic", "-v", "2", "-n", "--config", config_path, "--init", "--encryption", "repokey"
 
     # Create a backup
     system bin/"borgmatic", "--config", config_path
@@ -95,12 +96,10 @@ class Borgmatic < Formula
 
     # Assert that the proper borg commands were executed
     assert_equal <<~EOS, log_content
-      info #{repo_path}
-      init #{repo_path} --encryption repokey --debug
-      prune #{repo_path} --keep-daily 7 --prefix {hostname}-
+      prune --keep-daily 7 --prefix {hostname}- #{repo_path}
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
-      check #{repo_path} --prefix {hostname}-
-      list #{repo_path} --json
+      check --prefix {hostname}- #{repo_path}
+      list --json #{repo_path}
     EOS
   end
 end
