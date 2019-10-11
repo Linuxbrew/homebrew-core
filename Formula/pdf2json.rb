@@ -1,3 +1,4 @@
+# pdf2json: Build a bottle for Linuxbrew
 class Pdf2json < Formula
   desc "PDF to JSON and XML converter"
   homepage "https://github.com/flexpaper/pdf2json"
