@@ -18,7 +18,7 @@ class Pgbadger < Formula
     system "make", "install"
 
     bin.install "usr/local/bin/pgbadger"
-    man1.install "usr/local/share/man/man1/pgbadger.1p"
+    man1.install "usr/local/man/man1/pgbadger.1p"
   end
 
   def caveats; <<~EOS
