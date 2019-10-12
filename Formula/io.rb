@@ -3,8 +3,8 @@ class Io < Formula
   homepage "http://iolanguage.com/"
   url "https://github.com/IoLanguage/io/archive/2017.09.06.tar.gz"
   sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
-  head "https://github.com/stevedekorte/io.git"
   revision OS.mac? ? 1 : 2
+  head "https://github.com/stevedekorte/io.git"
 
   bottle do
     sha256 "c4c862d20a8e4ddb1e6e588414a9e23ae2a17baa490e3beb621614aca7a8ca87" => :catalina
@@ -14,8 +14,6 @@ class Io < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  uses_from_macos "libxml2"
-
   uses_from_macos "libxml2"
 
   def install
