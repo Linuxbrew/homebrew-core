@@ -28,6 +28,8 @@ class Makepkg < Formula
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
   depends_on :macos => :yosemite
   depends_on "openssl@1.1"
+  depends_on "m4" => :build unless OS.mac?
+  uses_from_macos "libxslt"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
@@ -46,6 +48,11 @@ class Makepkg < Formula
       pkgrel=0
       pkgver=0
     EOS
-    assert_match "md5sums=('e232a2683c0", pipe_output("#{bin}/makepkg -dg 2>&1")
+    # Won't run as root, use more permissive test
+    if ENV["USER"] == "root"
+      assert_match "makepkg (pacman) #{version}", pipe_output("#{bin}/makepkg --version")
+    else
+      assert_match "md5sums=('e232a2683c0", pipe_output("#{bin}/makepkg -dg 2>&1")
+    end
   end
 end
