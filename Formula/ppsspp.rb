@@ -32,9 +32,13 @@ class Ppsspp < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
-      prefix.install "PPSSPPSDL.app"
-      bin.write_exec_script "#{prefix}/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
-      mv "#{bin}/PPSSPPSDL", "#{bin}/ppsspp"
+      if OS.mac?
+        prefix.install "PPSSPPSDL.app"
+        bin.write_exec_script "#{prefix}/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
+        mv "#{bin}/PPSSPPSDL", "#{bin}/ppsspp"
+      else
+        bin.install "PPSSPPSDL" => "ppsspp"
+      end
     end
   end
 end
