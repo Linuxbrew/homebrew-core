@@ -17,6 +17,7 @@ class Rocksdb < Formula
   depends_on "zstd"
   unless OS.mac?
     depends_on "bzip2"
+    depends_on "jemalloc"
     depends_on "zlib"
   end
 
@@ -25,8 +26,8 @@ class Rocksdb < Formula
     ENV["PORTABLE"] = "1"
     ENV["DEBUG_LEVEL"] = "0"
     ENV["USE_RTTI"] = "1"
-    ENV["ROCKSDB_DISABLE_ALIGNED_NEW"] = "1" if MacOS.version <= :sierra
-    ENV["DISABLE_JEMALLOC"] = "1" # prevent opportunistic linkage
+    ENV["ROCKSDB_DISABLE_ALIGNED_NEW"] = "1" if OS.mac? && MacOS.version <= :sierra
+    ENV["DISABLE_JEMALLOC"] = "1" if OS.mac? # prevent opportunistic linkage
 
     # build regular rocksdb
     system "make", "clean"
