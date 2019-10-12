@@ -19,9 +19,6 @@ class Asio < Formula
   depends_on "openssl@1.1"
 
   def install
-    # Reduce memory usage for CircleCI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     ENV.cxx11
 
     if build.head?

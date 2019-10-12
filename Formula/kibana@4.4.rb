@@ -1,6 +1,6 @@
 class CIRequirement < Requirement
   fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+  satisfy { ENV["CI"].nil? }
 end
 
 require "language/node"

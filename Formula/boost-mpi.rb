@@ -93,6 +93,6 @@ class BoostMpi < Formula
     EOS
     boost = Formula["boost"]
     system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi-mt", "-lboost_serialization", "-o", "test"
-    system "mpirun", *("--allow-run-as-root" if ENV["CIRCLECI"]), "-np", "2", "./test"
+    system "mpirun", *("--allow-run-as-root" if ENV["CI"]), "-np", "2", "./test"
   end
 end

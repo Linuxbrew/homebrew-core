@@ -16,9 +16,6 @@ class Wabt < Formula
   depends_on "python@2" => :build unless OS.mac?
 
   def install
-    # Reduce memory usage for CircleCI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     mkdir "build" do
       system "cmake", "..", "-DBUILD_TESTS=OFF", *std_cmake_args
       system "make", "install"

@@ -18,9 +18,6 @@ class Ginac < Formula
   uses_from_macos "python@2"
 
   def install
-    # Reduce memory usage for CircleCI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

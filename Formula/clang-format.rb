@@ -61,7 +61,7 @@ class ClangFormat < Formula
       args << "-DLLVM_ENABLE_LIBCXX=OFF" unless OS.mac?
       args << ".."
       system "cmake", "-G", "Ninja", *args
-      system "ninja", *("-j2" if ENV["CIRCLECI"]), "clang-format"
+      system "ninja", "clang-format"
       bin.install "bin/clang-format"
     end
     bin.install "tools/clang/tools/clang-format/git-clang-format"

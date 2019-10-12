@@ -40,7 +40,7 @@ class P11Kit < Formula
                           "--with-module-config=#{etc}/pkcs11/modules",
                           "--without-libtasn1"
     system "make"
-    system "make", "check" if OS.mac? # Takes more than 30 min on circle.ci
+    system "make", "check"
     system "make", "install"
   end
 

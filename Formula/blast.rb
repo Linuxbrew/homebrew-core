@@ -23,9 +23,6 @@ class Blast < Formula
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 
   def install
-    # Reduce memory usage for CircleCI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     cd "c++" do
       # Use ./configure --without-boost to fix
       # error: allocating an object of abstract class type 'ncbi::CNcbiBoostLogger'

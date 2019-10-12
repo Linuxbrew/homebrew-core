@@ -78,7 +78,7 @@ class Consul < Formula
 
   test do
     # Workaround for Error creating agent: Failed to get advertise address: Multiple private IPs found. Please configure one.
-    return if ENV["CIRCLECI"] || ENV["TRAVIS"]
+    return if ENV["CI"]
 
     fork do
       exec "#{bin}/consul", "agent", *("-bind" unless OS.mac?), *("127.0.0.1" unless OS.mac?), "-data-dir", "."

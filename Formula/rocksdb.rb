@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
@@ -17,7 +12,6 @@ class Rocksdb < Formula
     sha256 "86792cf15a7d20c03f15d1e2dfb40e3abe8407ace76a9436ec47db7f349b52ef" => :sierra
   end
 
-  depends_on CIRequirement
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"

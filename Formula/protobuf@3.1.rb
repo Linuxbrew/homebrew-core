@@ -74,9 +74,6 @@ class ProtobufAT31 < Formula
   end
 
   def install
-    # Reduce memory usage for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
     # https://github.com/protocolbuffers/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61

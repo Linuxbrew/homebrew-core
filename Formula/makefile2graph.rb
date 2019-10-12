@@ -20,9 +20,9 @@ class Makefile2graph < Formula
 
   def install
     system "make"
-    # make test fails on CircleCI. Error: fontconfig: Couldn't find font.
+    # make test fails on CI. Error: fontconfig: Couldn't find font.
     # It can be fixed with apt-get install fonts-dejavu-core
-    system "make", "test" unless ENV["CIRCLECI"]
+    system "make", "test" unless ENV["CI"]
     bin.install "make2graph", "makefile2graph"
     man1.install "make2graph.1", "makefile2graph.1"
     doc.install "LICENSE", "README.md", "screenshot.png"

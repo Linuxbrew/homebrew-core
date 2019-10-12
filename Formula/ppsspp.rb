@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
@@ -20,7 +15,6 @@ class Ppsspp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on CIRequirement
   depends_on "ffmpeg"
   depends_on "glew"
   depends_on "libzip"
