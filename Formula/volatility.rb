@@ -1,3 +1,4 @@
+# volatility: Build a bottle for Linuxbrew
 class Volatility < Formula
   include Language::Python::Virtualenv
 
