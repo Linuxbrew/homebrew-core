@@ -6,7 +6,6 @@ class GlibOpenssl < Formula
   revision 2
 
   bottle do
-    cellar :any
     rebuild 1
     sha256 "b2e75859c8bb44299d9a871d3193508fe5ea41c0ef0204fc570ea4d809a00513" => :catalina
     sha256 "8eefefc726dbee8d4c50bf5302a1f318ac1a79e27f5a5a182ee56a137cd35088" => :mojave
