@@ -1,3 +1,4 @@
+# glances: Build a bottle for Linuxbrew
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
