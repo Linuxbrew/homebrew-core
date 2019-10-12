@@ -43,7 +43,7 @@ class ClangFormat < Formula
   unless OS.mac?
     depends_on "bison" => :build
     depends_on "gcc" # needed for libstdc++
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "glibc" if Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "ncurses"
     depends_on "libxml2"
