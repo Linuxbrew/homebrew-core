@@ -1,3 +1,4 @@
+# cockroach: Build a bottle for Linuxbrew
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
