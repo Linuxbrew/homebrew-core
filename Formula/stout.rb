@@ -1,3 +1,4 @@
+# stout: Build a bottle for Linuxbrew
 class Stout < Formula
   desc "Reliable static website deploy tool"
   homepage "https://github.com/cloudflare/Stout"
