@@ -1,3 +1,4 @@
+# gdrive: Build a bottle for Linuxbrew
 class Gdrive < Formula
   desc "Google Drive CLI Client"
   homepage "https://github.com/gdrive-org/gdrive"
