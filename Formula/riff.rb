@@ -1,3 +1,4 @@
+# riff: Build a bottle for Linuxbrew
 require "open3"
 
 class Riff < Formula
