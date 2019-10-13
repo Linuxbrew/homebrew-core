@@ -1,3 +1,4 @@
+# immortal: Build a bottle for Linuxbrew
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
