@@ -1,3 +1,4 @@
+# piknik: Build a bottle for Linuxbrew
 class Piknik < Formula
   desc "Copy/paste anything over the network"
   homepage "https://github.com/jedisct1/piknik"
