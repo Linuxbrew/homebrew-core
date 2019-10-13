@@ -25,6 +25,9 @@ class Up < Formula
   end
 
   test do
+    # error: terminal entry not found
+    return if ENV["TERM"] == "dumb"
+
     shell_output("#{bin}/up --debug 2&>1", 1)
     assert_predicate testpath/"up.debug", :exist?, "up.debug not found"
     assert_includes File.read(testpath/"up.debug"), "checking $SHELL"
