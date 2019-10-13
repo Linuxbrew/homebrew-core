@@ -1,3 +1,4 @@
+# stolon: Build a bottle for Linuxbrew
 class Stolon < Formula
   desc "Cloud native PostgreSQL manager for high availability"
   homepage "https://github.com/sorintlab/stolon"
