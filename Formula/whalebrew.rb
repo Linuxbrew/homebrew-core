@@ -21,6 +21,10 @@ class Whalebrew < Formula
 
   test do
     output = shell_output("#{bin}/whalebrew install whalebrew/whalesay -y", 255)
-    assert_match "Cannot connect to the Docker daemon", output
+    if File.exist?("/var/run/docker.sock") && ENV["CI"]
+      assert_match "Unable to find image", output
+    else
+      assert_match "Cannot connect to the Docker daemon", output
+    end
   end
 end
