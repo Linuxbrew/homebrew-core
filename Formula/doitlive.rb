@@ -1,3 +1,4 @@
+# doitlive: Build a bottle for Linuxbrew
 class Doitlive < Formula
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
