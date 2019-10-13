@@ -1,3 +1,4 @@
+# kubespy: Build a bottle for Linuxbrew
 class Kubespy < Formula
   desc "Tools for observing Kubernetes resources in realtime"
   homepage "https://github.com/pulumi/kubespy"
