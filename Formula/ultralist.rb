@@ -1,3 +1,4 @@
+# ultralist: Build a bottle for Linuxbrew
 class Ultralist < Formula
   desc "Simple GTD-style task management for the command-line"
   homepage "https://ultralist.io"
