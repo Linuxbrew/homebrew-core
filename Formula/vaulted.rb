@@ -1,3 +1,4 @@
+# vaulted: Build a bottle for Linuxbrew
 class Vaulted < Formula
   desc "Allows the secure storage and execution of environments"
   homepage "https://github.com/miquella/vaulted"
