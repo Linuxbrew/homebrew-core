@@ -1,3 +1,4 @@
+# serve: Build a bottle for Linuxbrew
 class Serve < Formula
   desc "Static http server anywhere you need one"
   homepage "https://github.com/syntaqx/serve"
