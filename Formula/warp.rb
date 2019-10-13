@@ -1,3 +1,4 @@
+# warp: Build a bottle for Linuxbrew
 class Warp < Formula
   desc "Secure terminal sharing with one simple command"
   homepage "https://github.com/spolu/warp"
