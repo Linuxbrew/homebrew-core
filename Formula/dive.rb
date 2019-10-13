@@ -1,3 +1,4 @@
+# dive: Build a bottle for Linuxbrew
 class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
