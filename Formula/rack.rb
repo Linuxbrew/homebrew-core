@@ -1,3 +1,4 @@
+# rack: Build a bottle for Linuxbrew
 class Rack < Formula
   desc "CLI for Rackspace"
   homepage "https://github.com/rackspace/rack"
