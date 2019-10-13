@@ -1,3 +1,4 @@
+# atlantis: Build a bottle for Linuxbrew
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
   homepage "https://www.runatlantis.io/"
