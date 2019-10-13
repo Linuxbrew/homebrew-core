@@ -1,5 +1,9 @@
+trigger: none
 pr:
-- master
+  autoCancel: true
+  branches:
+    include:
+    - '*'
 
 jobs:
 
