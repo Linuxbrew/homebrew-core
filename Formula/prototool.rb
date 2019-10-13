@@ -1,3 +1,4 @@
+# prototool: Build a bottle for Linuxbrew
 class Prototool < Formula
   desc "Your Swiss Army Knife for Protocol Buffers"
   homepage "https://github.com/uber/prototool"
