@@ -1,3 +1,4 @@
+# gotags: Build a bottle for Linuxbrew
 class Gotags < Formula
   desc "Tag generator for Go, compatible with ctags"
   homepage "https://github.com/jstemmer/gotags"
