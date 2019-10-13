@@ -1,3 +1,4 @@
+# git-sizer: Build a bottle for Linuxbrew
 class GitSizer < Formula
   desc "Compute various size metrics for a Git repository"
   homepage "https://github.com/github/git-sizer"
