@@ -1,3 +1,4 @@
+# gitleaks: Build a bottle for Linuxbrew
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
