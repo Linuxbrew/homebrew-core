@@ -1,3 +1,4 @@
+# ccat: Build a bottle for Linuxbrew
 class Ccat < Formula
   desc "Like cat but displays content with syntax highlighting"
   homepage "https://github.com/jingweno/ccat"
