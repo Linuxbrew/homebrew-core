@@ -1,3 +1,4 @@
+# volt: Build a bottle for Linuxbrew
 class Volt < Formula
   desc "Meta-level vim package manager"
   homepage "https://github.com/vim-volt/volt"
