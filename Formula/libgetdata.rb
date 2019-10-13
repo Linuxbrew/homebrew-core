@@ -6,6 +6,7 @@ class Libgetdata < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 3
     sha256 "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9" => :catalina
     sha256 "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe" => :mojave
@@ -13,6 +14,7 @@ class Libgetdata < Formula
   end
 
   depends_on "libtool"
+  uses_from_macos "perl"
 
   def install
     system "./configure", "--prefix=#{prefix}",
