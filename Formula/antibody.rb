@@ -1,3 +1,4 @@
+# antibody: Build a bottle for Linuxbrew
 class Antibody < Formula
   desc "The fastest shell plugin manager"
   homepage "https://getantibody.github.io/"
