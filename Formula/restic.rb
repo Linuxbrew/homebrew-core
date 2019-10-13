@@ -17,7 +17,7 @@ class Restic < Formula
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
 
-    system "go", "run", "build.go"
+    system "go", "run", "-mod=vendor", "build.go"
 
     mkdir "completions"
     system "./restic", "generate", "--bash-completion", "completions/restic"
