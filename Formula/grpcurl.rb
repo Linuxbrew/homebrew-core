@@ -1,3 +1,4 @@
+# grpcurl: Build a bottle for Linuxbrew
 class Grpcurl < Formula
   desc "Like cURL, but for gRPC"
   homepage "https://github.com/fullstorydev/grpcurl"
