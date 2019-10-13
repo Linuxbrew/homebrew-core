@@ -1,3 +1,4 @@
+# virgil: Build a bottle for Linuxbrew
 class Virgil < Formula
   desc "CLI tool to manage your Virgil account and applications"
   homepage "https://github.com/VirgilSecurity/virgil-cli"
