@@ -1,3 +1,4 @@
+# wu: Build a bottle for Linuxbrew
 class Wu < Formula
   desc "CLI that retrieves weather data from Weather Underground"
   homepage "https://github.com/sramsay/wu"
