@@ -1,3 +1,4 @@
+# aliyun-cli: Build a bottle for Linuxbrew
 class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
