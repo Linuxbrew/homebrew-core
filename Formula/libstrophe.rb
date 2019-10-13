@@ -1,3 +1,4 @@
+# libstrophe: Build a bottle for Linuxbrew
 class Libstrophe < Formula
   desc "XMPP library for C"
   homepage "http://strophe.im/libstrophe/"
