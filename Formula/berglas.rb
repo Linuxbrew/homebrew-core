@@ -1,3 +1,4 @@
+# berglas: Build a bottle for Linuxbrew
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
