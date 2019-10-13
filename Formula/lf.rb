@@ -1,3 +1,4 @@
+# lf: Build a bottle for Linuxbrew
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
