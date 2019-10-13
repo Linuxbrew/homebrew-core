@@ -1,3 +1,4 @@
+# triangle: Build a bottle for Linuxbrew
 class Triangle < Formula
   desc "Convert images to computer generated art using Delaunay triangulation"
   homepage "https://github.com/esimov/triangle"
