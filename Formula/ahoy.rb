@@ -1,3 +1,4 @@
+# ahoy: Build a bottle for Linuxbrew
 class Ahoy < Formula
   desc "Creates self documenting CLI programs from commands in YAML files"
   homepage "http://www.ahoycli.com/"
