@@ -1,3 +1,4 @@
+# fork-cleaner: Build a bottle for Linuxbrew
 class ForkCleaner < Formula
   desc "Cleans up old and inactive forks on your GitHub account"
   homepage "https://github.com/caarlos0/fork-cleaner"
