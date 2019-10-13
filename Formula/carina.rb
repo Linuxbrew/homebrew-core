@@ -1,3 +1,4 @@
+# carina: Build a bottle for Linuxbrew
 class Carina < Formula
   desc "Command-line client for Carina"
   homepage "https://github.com/getcarina/carina"
