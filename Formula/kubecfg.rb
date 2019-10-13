@@ -1,3 +1,4 @@
+# kubecfg: Build a bottle for Linuxbrew
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/bitnami/kubecfg"
