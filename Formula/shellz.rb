@@ -1,3 +1,4 @@
+# shellz: Build a bottle for Linuxbrew
 class Shellz < Formula
   desc "Small utility to track and control custom shellz"
   homepage "https://github.com/evilsocket/shellz"
