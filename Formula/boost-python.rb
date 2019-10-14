@@ -14,7 +14,7 @@ class BoostPython < Formula
   end
 
   depends_on "boost"
-  depends_on "python@2" => :recommended unless OS.mac?
+  uses_from_macos "python@2"
 
   def install
     # "layout" should be synchronized with boost
@@ -77,6 +77,7 @@ class BoostPython < Formula
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",
+                    ("-fPIC" unless OS.mac?),
                     *pyincludes, *pylib
 
     output = <<~EOS
