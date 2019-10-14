@@ -8,7 +8,6 @@ class Fairymax < Formula
   head "http://hgm.nubati.net/git/fairymax.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
     sha256 "0e308c9dd845afa291091336b0e92e44e8a38e59400b2801ed55c69ae36a3cfb" => :catalina
     sha256 "41aa62f81177b236fe5555b0ed48ec704eef68850e4b9f9edf33a5ff76168a72" => :mojave
