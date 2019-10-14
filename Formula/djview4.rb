@@ -1,3 +1,4 @@
+# djview4: Build a bottle for Linuxbrew
 class Djview4 < Formula
   desc "Viewer for the DjVu image format"
   homepage "https://djvu.sourceforge.io/djview4.html"
