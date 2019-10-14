@@ -17,8 +17,16 @@ class ErlangAT21 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  if OS.mac?
+    depends_on "openssl@1.1"
+  else
+    # Since Homebrew/homebrew-core#41037, erlang uses openssl@1.1.
+    # We can not have a mix of openssl and openssl@1.1 in the dependency tree on Linux.
+    depends_on "openssl"
+  end
   depends_on "wxmac" # for GUI apps like observer
+
+  depends_on "m4" => :build unless OS.mac?
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.3.tar.gz"
@@ -55,13 +63,15 @@ class ErlangAT21 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{OS.mac? ? Formula["openssl@1.1"].opt_prefix : Formula["openssl"].opt_prefix}
       --without-javac
-      --enable-darwin-64bit
     ]
 
-    args << "--enable-kernel-poll" if MacOS.version > :el_capitan
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    if OS.mac?
+      args << "--enable-darwin-64bit"
+      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"
