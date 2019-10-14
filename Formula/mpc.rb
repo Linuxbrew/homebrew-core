@@ -1,3 +1,4 @@
+# mpc: Build a bottle for Linuxbrew
 class Mpc < Formula
   desc "Command-line music player client for mpd"
   homepage "https://www.musicpd.org/clients/mpc/"
