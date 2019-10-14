@@ -1,3 +1,4 @@
+# git-delta: Build a bottle for Linuxbrew
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git"
   homepage "https://github.com/dandavison/delta"
