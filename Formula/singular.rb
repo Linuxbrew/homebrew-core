@@ -1,3 +1,4 @@
+# singular: Build a bottle for Linuxbrew
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
