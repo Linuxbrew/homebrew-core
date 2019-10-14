@@ -20,6 +20,7 @@ class ErlangAT17 < Formula
   depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "unixodbc"
   depends_on "wxmac"
+  depends_on "m4" => :build unless OS.mac?
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_17.5.tar.gz"
@@ -64,7 +65,6 @@ class ErlangAT17 < Formula
       --disable-debug
       --disable-silent-rules
       --prefix=#{prefix}
-      --enable-kernel-poll
       --enable-threads
       --enable-sctp
       --enable-dynamic-ssl-lib
@@ -73,10 +73,13 @@ class ErlangAT17 < Formula
       --enable-shared-zlib
       --enable-smp-support
       --enable-wx
-      --enable-darwin-64bit
     ]
 
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    if OS.mac?
+      args << "--enable-darwin-64bit"
+      args << "--enable-kernel-poll"
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"
