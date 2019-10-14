@@ -3,7 +3,7 @@ class Libgetdata < Formula
   homepage "https://getdata.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/getdata/getdata/0.10.0/getdata-0.10.0.tar.xz"
   sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
@@ -11,11 +11,11 @@ class Libgetdata < Formula
     sha256 "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9" => :catalina
     sha256 "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe" => :mojave
     sha256 "6b8b5f7801a6cf31ecd5ac82ee02ca344f9634ad01c235a828e3875d0354931b" => :high_sierra
-    sha256 "2de6748987f1a3af36329235d69ddf68a455303fca20643c175f942e9e4db5e1" => :x86_64_linux
   end
 
   depends_on "libtool"
   uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}",
