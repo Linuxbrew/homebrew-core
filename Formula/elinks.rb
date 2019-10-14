@@ -21,6 +21,7 @@ class Elinks < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   # Two patches for compatibility with OpenSSL 1.1, from FreeBSD:
   # https://www.freshports.org/www/elinks/
