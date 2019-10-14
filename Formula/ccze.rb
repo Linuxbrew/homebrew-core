@@ -14,6 +14,7 @@ class Ccze < Formula
   end
 
   depends_on "pcre"
+  uses_from_macos "ncurses"
 
   def install
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823334
@@ -22,6 +23,9 @@ class Ccze < Formula
     # https://github.com/Homebrew/legacy-homebrew/pull/20636
     inreplace "src/Makefile.in", "-Wreturn-type -Wswitch -Wmulticharacter",
                                  "-Wreturn-type -Wswitch"
+
+    # error: two or more data types in declaration specifiers
+    inreplace "system.h.in", "#undef error_t", "" unless OS.mac?
 
     system "./configure", "--prefix=#{prefix}",
                           "--with-builtins=all"
