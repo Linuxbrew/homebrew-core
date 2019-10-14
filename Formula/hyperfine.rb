@@ -1,3 +1,4 @@
+# hyperfine: Build a bottle for Linuxbrew
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
