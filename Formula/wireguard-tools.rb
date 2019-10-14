@@ -16,6 +16,7 @@ class WireguardTools < Formula
 
   depends_on "bash"
   depends_on "wireguard-go"
+  depends_on "libmnl" unless OS.mac?
 
   def install
     system "make", "BASHCOMPDIR=#{bash_completion}", "WITH_BASHCOMPLETION=yes", "WITH_WGQUICK=yes",
