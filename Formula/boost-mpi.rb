@@ -7,6 +7,7 @@ class BoostMpi < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "e4fde273f5ea74d733c71978810d9510e54a2fcaca64459982dec9f43c500610" => :catalina
     sha256 "a6f535dfd42e05dd080e53d11642356087cf657b40b2113aa613cf50f93791d5" => :mojave
