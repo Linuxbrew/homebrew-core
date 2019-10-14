@@ -1,3 +1,4 @@
+# texinfo: Build a bottle for Linuxbrew
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
