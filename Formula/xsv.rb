@@ -6,6 +6,7 @@ class Xsv < Formula
   head "https://github.com/BurntSushi/xsv.git"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "8d155cc9c61f185849bfa30c52e697ed8544132a39c0f883be6073a7d8b07b12" => :catalina
     sha256 "d343b54fc05a8bf5fa01c7a0408e742bc145465a414466a6bcb5efb62252eb62" => :mojave
