@@ -5,6 +5,7 @@ class Xmlcatmgr < Formula
   sha256 "ea1142b6aef40fbd624fc3e2130cf10cf081b5fa88e5229c92b8f515779d6fdc"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "ae788970290574145fa3ca20e389469f1a8582c8b604a50e3e506b7ffcb9faa4" => :catalina
     sha256 "eb8b0acfdaed325cce3e6b7befb53a675f9f7f6dc8aa5d058b4ebecea2d50e53" => :mojave
