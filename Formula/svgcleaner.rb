@@ -1,3 +1,4 @@
+# svgcleaner: Build a bottle for Linuxbrew
 class Svgcleaner < Formula
   desc "Cleans your SVG files by removing unnecessary data"
   homepage "https://github.com/RazrFalcon/svgcleaner"
