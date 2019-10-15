@@ -1,3 +1,4 @@
+# aespipe: Build a bottle for Linuxbrew
 class Aespipe < Formula
   desc "AES encryption or decryption for pipes"
   homepage "https://loop-aes.sourceforge.io/"
