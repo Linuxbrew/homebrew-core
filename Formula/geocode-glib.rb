@@ -5,7 +5,6 @@ class GeocodeGlib < Formula
   sha256 "5baa6ab76a76c9fc567e4c32c3af2cd1d1784934c255bc5a62c512e6af6bde1c"
 
   bottle do
-    cellar :any
     rebuild 1
     sha256 "c820f7a59a67873f06b17fa6bb9b67c1bc2413f969a9ec1c2b403fe50fc81fb1" => :catalina
     sha256 "eb925bc4c5d4282f30a1eebda10de28309786f57e9b41c12e2805ea0f84a84f1" => :mojave
