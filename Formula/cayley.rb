@@ -1,3 +1,4 @@
+# cayley: Build a bottle for Linuxbrew
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
