@@ -5,6 +5,7 @@ class Libdbi < Formula
   sha256 "dafb6cdca524c628df832b6dd0bf8fabceb103248edb21762c02d3068fca4503"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "ce66e90000681c5f9174c3698ac4ceefd5d1be6ca4ffa574053f0705217c6837" => :catalina
     sha256 "3aff10515535dc3f99dfa56644229daba74f719838d3e580754b3bbdc3c0429d" => :mojave
