@@ -22,9 +22,15 @@ class Linkerd < Formula
     srcpath = buildpath/"src/github.com/linkerd/linkerd2"
     srcpath.install buildpath.children - [buildpath/".brew_home"]
 
+    os = if OS.mac?
+      "darwin"
+    else
+      "linux"
+    end
+
     cd srcpath do
       system "bin/build-cli-bin"
-      bin.install "target/cli/darwin/linkerd"
+      bin.install "target/cli/#{os}/linkerd"
 
       # Install bash completion
       output = Utils.popen_read("#{bin}/linkerd completion bash")
