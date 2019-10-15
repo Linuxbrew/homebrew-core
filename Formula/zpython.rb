@@ -26,7 +26,6 @@ class Zpython < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
     sha256 "96e60fde74aced3f604a886899bc6ae81a428626d7b98f27c38b15eada389a0e" => :catalina
     sha256 "0e46595052e37148376385290c0f0f9be7c6ee14bb958632fc264f830a9c8d74" => :mojave
