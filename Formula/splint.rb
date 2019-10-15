@@ -1,3 +1,4 @@
+# splint: Build a bottle for Linuxbrew
 class Splint < Formula
   desc "Secure Programming Lint"
   homepage "https://sourceforge.net/projects/splint/"
