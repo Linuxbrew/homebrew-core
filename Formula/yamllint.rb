@@ -1,3 +1,4 @@
+# yamllint: Build a bottle for Linuxbrew
 class Yamllint < Formula
   include Language::Python::Virtualenv
 
