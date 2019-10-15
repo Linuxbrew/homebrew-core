@@ -1,3 +1,4 @@
+# dark-mode: Build a bottle for Linuxbrew
 class DarkMode < Formula
   desc "Control the macOS dark mode from the command-line"
   homepage "https://github.com/sindresorhus/dark-mode"
