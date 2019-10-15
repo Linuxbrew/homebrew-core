@@ -1,3 +1,4 @@
+# rustup-init: Build a bottle for Linuxbrew
 class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang/rustup.rs"
