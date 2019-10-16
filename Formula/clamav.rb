@@ -24,6 +24,8 @@ class Clamav < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "yara"
+  uses_from_macos "zlib"
+  uses_from_macos "curl"
 
   skip_clean "share/clamav"
 
@@ -39,8 +41,14 @@ class Clamav < Formula
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre"].opt_prefix}
-      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
     ]
+
+    if OS.mac?
+      args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
+    else
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      args << "--with-libcurl=#{Formula["curl"].opt_prefix}"
+    end
 
     pkgshare.mkpath
     system "autoreconf", "-fvi" if build.head?
