@@ -6,6 +6,7 @@ class Hesiod < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "2e077b355ca0ed9f0bbadfc7b54ef681fc11f58c324ce19d3131fb61b99f15d2" => :catalina
     sha256 "76748e285f22aed694c2933e4cd3a1469398ea254671755e6f89ad07e76b7f73" => :mojave
