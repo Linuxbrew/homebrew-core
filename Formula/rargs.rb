@@ -1,3 +1,4 @@
+# rargs: Build a bottle for Linuxbrew
 class Rargs < Formula
   desc "Util like xargs + awk with pattern matching support"
   homepage "https://github.com/lotabout/rargs"
