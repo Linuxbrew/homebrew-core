@@ -1,3 +1,4 @@
+# bvi: Build a bottle for Linuxbrew
 class Bvi < Formula
   desc "Vi-like binary file (hex) editor"
   homepage "https://bvi.sourceforge.io"
