@@ -1,3 +1,4 @@
+# acmetool: Build a bottle for Linuxbrew
 class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
