@@ -14,6 +14,7 @@ class Advancemenu < Formula
 
   depends_on "sdl"
   uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   conflicts_with "advancemame", :because => "both install `advmenu` binaries"
 
