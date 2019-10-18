@@ -15,6 +15,7 @@ class Badtouch < Formula
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
+  uses_from_macos "libcap"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
