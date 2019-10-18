@@ -99,9 +99,9 @@ class Influxdb < Formula
       pid = fork do
         exec "#{bin}/influxd -config #{testpath}/config.toml"
       end
-      sleep 1
+      sleep 5
       output = shell_output("curl -Is localhost:8086/ping")
-      sleep 1
+      sleep 5
       assert_match /X-Influxdb-Version:/, output
     ensure
       Process.kill("SIGINT", pid)
