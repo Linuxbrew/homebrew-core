@@ -1,3 +1,4 @@
+# ppsspp: Build a bottle for Linuxbrew
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
