@@ -15,6 +15,7 @@ class RipgrepAll < Formula
 
   depends_on "rust" => :build
   depends_on "ripgrep"
+  depends_on "zip" => :test unless OS.mac?
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
