@@ -14,6 +14,12 @@ class Ghq < Formula
 
   depends_on "go" => :build
 
+  # Go 1.13 compatibility, remove when version > 0.12.6
+  patch do
+    url "https://github.com/motemen/ghq/pull/193.patch?full_index=1"
+    sha256 "03e9a4297d8ab94355f1f7fda2880e555154d034f3a670910fb0574b463f6468"
+  end
+
   def install
     system "make", "build"
     bin.install "ghq"
