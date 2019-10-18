@@ -1,3 +1,4 @@
+# jsonpp: Build a bottle for Linuxbrew
 class Jsonpp < Formula
   desc "Command-line JSON pretty-printer"
   homepage "https://jmhodges.github.io/jsonpp/"
