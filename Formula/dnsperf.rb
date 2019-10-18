@@ -1,3 +1,4 @@
+# dnsperf: Build a bottle for Linuxbrew
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
