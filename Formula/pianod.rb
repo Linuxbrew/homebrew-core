@@ -1,3 +1,4 @@
+# pianod: Build a bottle for Linuxbrew
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
