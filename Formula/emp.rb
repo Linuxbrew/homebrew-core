@@ -1,3 +1,4 @@
+# emp: Build a bottle for Linuxbrew
 class Emp < Formula
   desc "CLI for Empire"
   homepage "https://github.com/remind101/empire"
