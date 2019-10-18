@@ -1,3 +1,4 @@
+# landscaper: Build a bottle for Linuxbrew
 class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
