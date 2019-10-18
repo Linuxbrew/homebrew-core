@@ -1,3 +1,4 @@
+# github-release: Build a bottle for Linuxbrew
 class GithubRelease < Formula
   desc "Create and edit releases on Github (and upload artifacts)"
   homepage "https://github.com/aktau/github-release"
