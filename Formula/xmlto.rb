@@ -3,6 +3,7 @@ class Xmlto < Formula
   homepage "https://pagure.io/xmlto/"
   url "https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2"
   sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,6 @@ class Xmlto < Formula
     sha256 "e6c35d8216b36e13a890d839296f51989d58fbf6e35666ee161dcae6f1e5fcd3" => :sierra
     sha256 "7b12ea43ff42eb5acdf91a1b2390af62cb95abd80e0a651581653c3d2b470b60" => :el_capitan
     sha256 "b0042227a7b6f00c5e4f7eb0e9b0ce6959ff401035d0914a8be60d685929c4a4" => :yosemite
-    sha256 "124e3cab671ff0adaf212ebad0bc3fc1bfef6125a1dc06a241915a1ac25c6620" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "docbook"
