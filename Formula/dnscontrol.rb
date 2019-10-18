@@ -1,3 +1,4 @@
+# dnscontrol: Build a bottle for Linuxbrew
 class Dnscontrol < Formula
   desc "It is system for maintaining DNS zones"
   homepage "https://github.com/StackExchange/dnscontrol"
