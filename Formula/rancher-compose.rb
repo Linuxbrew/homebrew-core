@@ -1,3 +1,4 @@
+# rancher-compose: Build a bottle for Linuxbrew
 class RancherCompose < Formula
   desc "Docker Compose compatible client to deploy to Rancher"
   homepage "https://github.com/rancher/rancher-compose"
