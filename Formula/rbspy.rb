@@ -1,3 +1,4 @@
+# rbspy: Build a bottle for Linuxbrew
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
