@@ -1,3 +1,4 @@
+# httpdiff: Build a bottle for Linuxbrew
 class Httpdiff < Formula
   desc "Compare two HTTP(S) responses"
   homepage "https://github.com/jgrahamc/httpdiff"
