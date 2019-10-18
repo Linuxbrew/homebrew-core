@@ -1,3 +1,4 @@
+# diskus: Build a bottle for Linuxbrew
 class Diskus < Formula
   desc "Minimal, fast alternative to 'du -sh'"
   homepage "https://github.com/sharkdp/diskus"
