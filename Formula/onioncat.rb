@@ -1,3 +1,4 @@
+# onioncat: Build a bottle for Linuxbrew
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://www.onioncat.org"
