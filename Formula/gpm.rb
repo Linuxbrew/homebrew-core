@@ -1,3 +1,4 @@
+# gpm: Build a bottle for Linuxbrew
 class Gpm < Formula
   desc "Barebones dependency manager for Go"
   homepage "https://github.com/pote/gpm"
