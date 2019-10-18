@@ -1,3 +1,4 @@
+# prometheus: Build a bottle for Linuxbrew
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
