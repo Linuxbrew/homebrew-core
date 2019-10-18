@@ -5,6 +5,7 @@ class Nload < Formula
   sha256 "c1c051e7155e26243d569be5d99c744d8620e65fa8a7e05efcf84d01d9d469e5"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "2e566035d80abd97c43955ac5fa05ba347b67dbbd10d0543faef3cf5cc7b0bfb" => :catalina
     sha256 "1dbf614f22611f66ee49efa6b1f5a1af29066be04e461d56e9766b84aeb68077" => :mojave
