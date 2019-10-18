@@ -1,3 +1,4 @@
+# dbmate: Build a bottle for Linuxbrew
 class Dbmate < Formula
   desc "Lightweight, framework-agnostic database migration tool"
   homepage "https://github.com/amacneil/dbmate"
