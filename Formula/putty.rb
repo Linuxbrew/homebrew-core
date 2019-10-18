@@ -20,6 +20,7 @@ class Putty < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "expect" => :test unless OS.mac?
 
   conflicts_with "pssh", :because => "both install `pscp` binaries"
 
@@ -51,8 +52,13 @@ class Putty < Formula
   end
 
   test do
+    expect_path = if OS.mac?
+      "/usr/bin/expect"
+    else
+      Formula["expect"].opt_bin/"expect"
+    end
     (testpath/"command.sh").write <<~EOS
-      #!/usr/bin/expect -f
+      #!#{expect_path} -f
       set timeout -1
       spawn #{bin}/puttygen -t rsa -b 4096 -q -o test.key
       expect -exact "Enter passphrase to save key: "
