@@ -12,11 +12,15 @@ class Deno < Formula
     sha256 "708c1a0d8c34c6a283526583af060916dea43eb74ecc4f0e15c54037ff01722a" => :high_sierra
   end
 
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100
+  depends_on "llvm" => :build if OS.linux? || DevelopmentTools.clang_build_version < 1100
   depends_on "ninja" => :build
   depends_on "rust" => :build
+  unless OS.mac?
+    depends_on "xz" => :build
+    depends_on "python@2"
+  end
 
-  depends_on :xcode => ["10.0", :build] # required by v8 7.9+
+  depends_on :xcode => ["10.0", :build] if OS.mac? # required by v8 7.9+
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
@@ -36,10 +40,10 @@ class Deno < Formula
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
     args = %W[
       clang_use_chrome_plugins=false
-      mac_deployment_target="#{MacOS.version}"
       treat_warnings_as_errors=false
     ]
-    if DevelopmentTools.clang_build_version < 1100
+    args << "mac_deployment_target=\"#{MacOS.version}\"" if OS.mac?
+    if OS.linux? || DevelopmentTools.clang_build_version < 1100
       # build with llvm and link against system libc++ (no runtime dep)
       args << "clang_base_path=\"#{Formula["llvm"].prefix}\""
       ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
@@ -47,6 +51,10 @@ class Deno < Formula
       args << "clang_base_path=\"/usr/\""
     end
     ENV["DENO_BUILD_ARGS"] = args.join(" ")
+
+    unless OS.mac?
+      system "core/libdeno/build/linux/sysroot_scripts/install-sysroot.py", "--arch=amd64"
+    end
 
     cd "cli" do
       system "cargo", "install", "-vv", "--locked", "--root", prefix, "--path", "."
