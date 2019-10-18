@@ -1,3 +1,4 @@
+# slacknimate: Build a bottle for Linuxbrew
 class Slacknimate < Formula
   desc "Text animation for Slack messages"
   homepage "https://github.com/mroth/slacknimate"
