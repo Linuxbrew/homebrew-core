@@ -16,7 +16,7 @@ class Modd < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOOS"] = "darwin"
+    ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
     ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
