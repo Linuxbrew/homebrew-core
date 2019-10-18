@@ -1,3 +1,4 @@
+# k6: Build a bottle for Linuxbrew
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
