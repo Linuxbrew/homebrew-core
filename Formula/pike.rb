@@ -1,3 +1,4 @@
+# pike: Build a bottle for Linuxbrew
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se/"
