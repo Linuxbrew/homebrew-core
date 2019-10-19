@@ -7,6 +7,7 @@ class Dfix < Formula
   head "https://github.com/dlang-community/dfix.git", :shallow => false
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "ff3b76977bcbfb5b7a04bbebb53a794cc522b64987f724fe5f8a8236812eb1f8" => :catalina
     sha256 "24d234e206efa754f8bd900102720280d8efb1af6ec93059a467589acddca3ee" => :mojave
