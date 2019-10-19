@@ -1,3 +1,4 @@
+# ufraw: Build a bottle for Linuxbrew
 class Ufraw < Formula
   desc "Unidentified Flying RAW: RAW image processing utility"
   homepage "https://ufraw.sourceforge.io"
