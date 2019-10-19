@@ -1,3 +1,4 @@
+# librsync: Build a bottle for Linuxbrew
 class Librsync < Formula
   desc "Library that implements the rsync remote-delta algorithm"
   homepage "https://librsync.github.io/"
