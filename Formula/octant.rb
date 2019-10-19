@@ -1,3 +1,4 @@
+# octant: Build a bottle for Linuxbrew
 class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://github.com/vmware/octant"
