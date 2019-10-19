@@ -1,3 +1,4 @@
+# fstrm: Build a bottle for Linuxbrew
 class Fstrm < Formula
   desc "Frame Streams implementation in C"
   homepage "https://github.com/farsightsec/fstrm"
