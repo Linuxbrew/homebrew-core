@@ -1,3 +1,4 @@
+# source-to-image: Build a bottle for Linuxbrew
 class SourceToImage < Formula
   desc "Tool for building source and injecting into docker images"
   homepage "https://github.com/openshift/source-to-image"
