@@ -44,7 +44,10 @@ class Dmd < Formula
     end
   end
 
-  depends_on "unzip" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "unzip" => :build
+    depends_on "xz" => :build
+  end
 
   def install
     # Older DMD version is used for bootstraping itself - unfortunately version used for that
