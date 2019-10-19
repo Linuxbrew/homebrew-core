@@ -36,6 +36,9 @@ class Ghostscript < Formula
   patch :DATA if OS.mac? # Uncomment macOS-specific make vars
 
   def install
+    # Fixes: ./soobj/dxmainc.o: file not recognized: File truncated
+    ENV.deparallelize
+
     args = %W[
       --prefix=#{prefix}
       --disable-cups
