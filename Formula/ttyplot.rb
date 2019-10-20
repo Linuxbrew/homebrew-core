@@ -1,3 +1,4 @@
+# ttyplot: Build a bottle for Linuxbrew
 class Ttyplot < Formula
   desc "Realtime plotting utility for terminal with data input from stdin"
   homepage "https://github.com/tenox7/ttyplot"
