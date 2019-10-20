@@ -5,7 +5,6 @@ class UtilLinux < Formula
   sha256 "743f9d0c7252b6db246b659c1e1ce0bd45d8d4508b4dfa427bbb4a3e9b9f62b5"
 
   bottle do
-    cellar :any
     rebuild 1
     sha256 "ad4962d8ce56d784085cf53e2f3add3432a3905285acf05a23fcc2e5e40cf5a8" => :catalina
     sha256 "483548a881703f1e4645c40a9779758ff2da0db1dc521b4ce7321d86c723669d" => :mojave
