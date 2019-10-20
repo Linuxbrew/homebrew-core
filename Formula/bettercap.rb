@@ -1,3 +1,4 @@
+# bettercap: Build a bottle for Linuxbrew
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
