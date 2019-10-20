@@ -16,10 +16,13 @@ class Wal2json < Formula
   def install
     mkdir "stage"
     system "make", "install", "USE_PGXS=1", "DESTDIR=#{buildpath}/stage"
-    lib.install Dir["stage/**/lib/*"]
+    lib.install Dir["stage/#{HOMEBREW_PREFIX}/lib/*"]
   end
 
   test do
+    # Won't run as user
+    return if ENV["USER"] == "root"
+
     system "initdb", testpath/"datadir"
     mkdir testpath/"socket"
     File.open(testpath/"datadir"/"postgresql.conf", "a") do |f|
