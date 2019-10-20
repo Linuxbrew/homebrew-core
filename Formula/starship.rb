@@ -1,3 +1,4 @@
+# starship: Build a bottle for Linuxbrew
 class Starship < Formula
   desc "The cross-shell prompt for astronauts"
   homepage "https://starship.rs"
