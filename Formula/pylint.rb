@@ -1,3 +1,4 @@
+# pylint: Build a bottle for Linuxbrew
 class Pylint < Formula
   include Language::Python::Virtualenv
 
