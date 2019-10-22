@@ -20,7 +20,7 @@ class GolangMigrate < Formula
     # Build and install CLI as "migrate"
     cd "src/github.com/golang-migrate/migrate" do
       system "make", "build-cli", "VERSION=v#{version}"
-      bin.install "cli/build/migrate.darwin-amd64" => "migrate"
+      bin.install "cli/build/migrate.#{OS.mac? ? "darwin" : "linux"}-amd64" => "migrate"
       prefix.install_metafiles
     end
   end
