@@ -1,3 +1,4 @@
+# ccm: Build a bottle for Linuxbrew
 class Ccm < Formula
   desc "Create and destroy an Apache Cassandra cluster on localhost"
   homepage "https://github.com/pcmanus/ccm"
