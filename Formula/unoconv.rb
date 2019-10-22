@@ -15,6 +15,8 @@ class Unoconv < Formula
   depends_on "python"
 
   def install
+    # /usr/bin/env: 'python': No such file or directory
+    inreplace "unoconv", "#!/usr/bin/env python", "#!/usr/bin/env python3" unless OS.mac?
     system "make", "install", "prefix=#{prefix}"
   end
 
