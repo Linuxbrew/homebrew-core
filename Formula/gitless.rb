@@ -16,6 +16,8 @@ class Gitless < Formula
 
   depends_on "libgit2"
   depends_on "python"
+  uses_from_macos "libffi"
+  depends_on "pkg-config" => :build unless OS.mac?
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
@@ -57,6 +59,10 @@ class Gitless < Formula
   end
 
   test do
+    if ENV["CI"]
+      system "git", "config", "--global", "user.name", "Gitless Install"
+      system "git", "config", "--global", "user.email", "Gitless@Install"
+    end
     system bin/"gl", "init"
     system "git", "config", "user.name", "Gitless Install"
     system "git", "config", "user.email", "Gitless@Install"
