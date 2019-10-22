@@ -28,6 +28,9 @@ class Tintin < Formula
   end
 
   test do
+    # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
+    return if ENV["CI"]
+
     require "pty"
     (testpath/"input").write("#end {bye}\n")
     PTY.spawn(bin/"tt++", "-G", "input") do |r, _w, _pid|
