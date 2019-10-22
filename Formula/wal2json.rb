@@ -17,7 +17,11 @@ class Wal2json < Formula
   def install
     mkdir "stage"
     system "make", "install", "USE_PGXS=1", "DESTDIR=#{buildpath}/stage"
-    lib.install Dir["stage/#{HOMEBREW_PREFIX}/lib/*"]
+    if OS.mac?
+      lib.install Dir["stage/**/lib/*"]
+    else
+      lib.install Dir["stage/#{HOMEBREW_PREFIX}/lib/*"]
+    end
   end
 
   test do
