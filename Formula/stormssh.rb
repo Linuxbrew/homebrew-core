@@ -7,13 +7,14 @@ class Stormssh < Formula
   head "https://github.com/emre/storm.git"
 
   bottle do
-    cellar :any
     sha256 "3dfc531e43e43e4af569dbcc0226f3a2f98886def75f8a6d96a7339bb9b13254" => :catalina
     sha256 "bb637896cf459669199e861b092abc345195cdb73eb9db46f6f8d65e1a8a11e0" => :mojave
     sha256 "bb917e99b7f5e775f71e1c2bd0eea10a0c8e4c189d4effe6a41a72db52401ffd" => :high_sierra
   end
 
   depends_on "python"
+  uses_from_macos "libffi"
+  depends_on "pkg-config" => :build unless OS.mac?
 
   conflicts_with "storm", :because => "both install 'storm' binary"
 
