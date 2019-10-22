@@ -1,3 +1,4 @@
+# scc: Build a bottle for Linuxbrew
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
