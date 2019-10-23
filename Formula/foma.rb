@@ -3,6 +3,7 @@ class Foma < Formula
   homepage "https://code.google.com/p/foma/"
   url "https://bitbucket.org/mhulden/foma/downloads/foma-0.9.18.tar.gz"
   sha256 "cb380f43e86fc7b3d4e43186db3e7cff8f2417e18ea69cc991e466a3907d8cbd"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -13,7 +14,6 @@ class Foma < Formula
     sha256 "d50dfd48bb3418d809c7c95d6046a59f550e2089d7e6dbb80327015894f073e1" => :el_capitan
     sha256 "2113796151927413c1bc640f19d8a62083628a1a124657d5d6ca5c9e087b19dd" => :yosemite
     sha256 "19b54c8f060b5adf9e6a0c37a6e59dcf20017b6ae1fe642ea373f0ee0a03f01f" => :mavericks
-    sha256 "48c173c8cc3ebdc8807d8a5303046da608b51ca65e1fdfcc41b4a64703fc546b" => :x86_64_linux
   end
 
   unless OS.mac?
