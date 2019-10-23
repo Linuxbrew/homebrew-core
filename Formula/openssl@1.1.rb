@@ -58,11 +58,15 @@ class OpensslAT11 < Formula
       ENV["PERL"] = Formula["perl"].opt_bin/"perl"
     end
 
-    unless OS.mac?
-      arch_args = %w[linux-x86_64]
-    end
     if OS.mac?
       arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
+    else
+      arch_args = []
+      if Hardware::CPU.intel?
+        arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
+      elsif Hardware::CPU.arm?
+        arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv6")
+      end
     end
 
     ENV.deparallelize
