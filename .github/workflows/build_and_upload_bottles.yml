@@ -1,0 +1,67 @@
+name: Build and upload bottles
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: homebrew/brew
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v1
+      - name: Update Homebrew
+        run: brew update-reset "$(brew --repository)"
+      - name: Setup tap
+        run: ln -s "$PWD" "$(brew --prefix)/Homebrew/Library/Taps/$GITHUB_REPOSITORY"
+      - name: Build bottles
+        id: build
+        continue-on-error: true
+        run: |
+          mkdir /bottles
+          cd /bottles
+          GITHUB_ACTIONS=true \
+          HOMEBREW_CACHE=/home/linuxbrew/.cache \
+          HOMEBREW_TEMP=/home/linuxbrew/.tmp \
+            brew test-bot \
+              --tap=homebrew/core \
+              --bintray-org=linuxbrew \
+              --git-name=LinuxbrewTestBot \
+              --git-email=testbot@linuxbrew.sh \
+              --keep-old
+          echo "::set-output name=build_result::$?"
+          ls *.bottle.*
+          echo "::set-output name=bottle_result::$?"
+          mv /bottles $GITHUB_WORKSPACE
+      - name: Upload bottles
+        id: upload
+        env:
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+        run: |
+          brew update-reset
+          brew test-bot --bintray-org=linuxbrew --ci-upload
+          echo "::set-output name=upload_result::$?"
+          git \
+            -C "$(brew --repository ${{github.repository}}" \
+            push \
+            --force \
+            https://LinuxbrewTestBot:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git \
+            HEAD:pr-${{github.event.pull_request.number}}
+      - name: Report result
+        if: always()
+        run: |
+          if ${{steps.build.outputs.build_result}} -gt 0; then
+            state="failure"
+          else
+            state="success"
+          fi
+          curl -sSL \
+          -H "Content-Type: application/json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -X POST \
+          -d "{
+            \"state\": \"$state\",
+            \"description\": \"Build succeeded with issues!\",
+            \"context\": \"Check Build Status\"
+            }" \
+          https://api.github.com/repos/Homebrew/linuxbrew-core/statuses/${{github.event.pull_request.head.sha}}
