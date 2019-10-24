@@ -12,7 +12,7 @@ jobs:
       - name: Update Homebrew
         run: brew update-reset "$(brew --repository)"
       - name: Setup tap
-        run: ln -s "$PWD" "$(brew --prefix)/Homebrew/Library/Taps/$GITHUB_REPOSITORY"
+        run: ln -s "$PWD" "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core"
       - name: Build bottles
         id: build
         continue-on-error: true
