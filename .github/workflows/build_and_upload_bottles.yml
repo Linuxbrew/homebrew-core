@@ -35,6 +35,7 @@ jobs:
       - name: Upload bottles
         id: upload
         env:
+          HOMEBREW_BINTRAY_USER: linuxbrew
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         run: |
           brew update-reset
