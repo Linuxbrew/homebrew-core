@@ -1,3 +1,4 @@
+# serverless: Build a bottle for Linuxbrew
 require "language/node"
 
 class Serverless < Formula
