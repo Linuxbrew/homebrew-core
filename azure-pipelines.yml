@@ -14,7 +14,7 @@ jobs:
     vmImage: 'ubuntu-16.04'
 
   container:
-    image: linuxbrew/brew:latest
+    image: homebrew/brew:latest
 
   steps:
   - script: printenv
