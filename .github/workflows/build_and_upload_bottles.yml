@@ -3,7 +3,7 @@ name: Build and upload bottles
 on: pull_request
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     container: homebrew/brew
     steps:
@@ -49,10 +49,12 @@ jobs:
       - name: Report result
         if: always()
         run: |
-          if ${{steps.build.outputs.build_result}} -gt 0; then
+          if [ ${{steps.build.outputs.build_result}} -gt 0 ]; then
             state="failure"
+            description="Build succeeded with issues!"
           else
             state="success"
+            description="Build succeeded!"
           fi
           curl -sSL \
           -H "Content-Type: application/json" \
@@ -61,7 +63,7 @@ jobs:
           -X POST \
           -d "{
             \"state\": \"$state\",
-            \"description\": \"Build succeeded with issues!\",
-            \"context\": \"Check Build Status\"
+            \"description\": \"$description\",
+            \"context\": \"Build status\"
             }" \
           https://api.github.com/repos/Homebrew/linuxbrew-core/statuses/${{github.event.pull_request.head.sha}}
