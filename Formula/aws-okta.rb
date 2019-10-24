@@ -1,3 +1,4 @@
+# aws-okta: Build a bottle for Linuxbrew
 class AwsOkta < Formula
   desc "Authenticate with AWS using your Okta credentials"
   homepage "https://github.com/segmentio/aws-okta"
