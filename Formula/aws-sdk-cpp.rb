@@ -1,3 +1,4 @@
+# aws-sdk-cpp: Build a bottle for Linuxbrew
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
