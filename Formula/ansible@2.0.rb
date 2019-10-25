@@ -18,6 +18,10 @@ class AnsibleAT20 < Formula
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
+  uses_from_macos "libffi"
+  uses_from_macos "libxslt"
+  uses_from_macos "krb5"
+  depends_on "pkg-config" => :build unless OS.mac?
 
   #
   # ansible (core dependencies)
@@ -606,7 +610,11 @@ class AnsibleAT20 < Formula
         - name: ping
           ping:
     EOS
-    (testpath/"hosts.ini").write "localhost ansible_connection=local\n"
+    (testpath/"hosts.ini").write [
+      "localhost ansible_connection=local",
+      *(" ansible_python_interpreter=" + which("python2") unless OS.mac?),
+      "\n",
+    ].join("")
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
   end
 end
