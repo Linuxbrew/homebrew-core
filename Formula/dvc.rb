@@ -15,6 +15,7 @@ class Dvc < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "python"
+  depends_on "gcc" unless OS.mac? # libgfortran
 
   def install
     venv = virtualenv_create(libexec, "python3")
