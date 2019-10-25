@@ -29,10 +29,8 @@ jobs:
               --bintray-org=linuxbrew \
               --git-name=LinuxbrewTestBot \
               --git-email=testbot@linuxbrew.sh \
-              --keep-old
-          echo "::set-output name=build_result::$?"
-          ls *.bottle.*
-          echo "::set-output name=bottle_result::$?"
+              --keep-old && echo "::set-output name=build_succeeded::true"
+          ls *.bottle.* && echo "::set-output name=bottles_found::true"
           mv /bottles $GITHUB_WORKSPACE
       - name: Upload bottles
         id: upload
@@ -40,19 +38,20 @@ jobs:
           HOMEBREW_BINTRAY_USER: linuxbrew
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         run: |
-          brew update-reset
-          brew test-bot --bintray-org=linuxbrew --ci-upload
-          echo "::set-output name=upload_result::$?"
+          brew test-bot \
+            --bintray-org=linuxbrew \
+            --ci-upload && \
           git \
             -C "$(brew --repository ${{github.repository}}" \
             push \
             --force \
             https://LinuxbrewTestBot:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git \
-            HEAD:pr-${{github.event.pull_request.number}}
+            HEAD:pr-${{github.event.pull_request.number}} && \
+          echo "::set-output name=upload_succeeded::true"
       - name: Report result
         if: always()
         run: |
-          if [ ${{steps.build.outputs.build_result}} -gt 0 ]; then
+          if [ -z "${{steps.build.outputs.build_succeeded}}" ]; then
             state="failure"
             description="Build succeeded with issues!"
           else
