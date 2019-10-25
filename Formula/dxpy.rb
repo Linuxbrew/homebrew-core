@@ -126,8 +126,8 @@ class Dxpy < Formula
   end
 
   resource "xattr" do
-    url "https://files.pythonhosted.org/packages/c5/80/b25d549ae4bf4f3e9635a331b759ffca2de4dd8a78dc5106d1ca92f5d08d/xattr-0.6.4.tar.gz"
-    sha256 "f9dcebc99555634b697fa3dad8ea3047deb389c6f1928d347a0c49277a5c0e9e"
+    url "https://files.pythonhosted.org/packages/60/80/a1f35bfd3c7ffb78791b2a6a15c233584a102a20547fd96d48933ec453e7/xattr-0.9.6.tar.gz"
+    sha256 "7cb1b28eeab4fe99cc4350e831434142fce658f7d03f173ff7722144e6a47458"
   end
 
   resource "websocket-client" do
