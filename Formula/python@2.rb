@@ -162,10 +162,12 @@ class PythonAT2 < Formula
     # Fixes setting Python build flags for certain software
     # See: https://github.com/Homebrew/homebrew/pull/20182
     # https://bugs.python.org/issue3588
-    inreplace lib_cellar/"config/Makefile" do |s|
-      s.change_make_var! "LINKFORSHARED",
-        "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
-    end if OS.mac?
+    if OS.mac?
+      inreplace lib_cellar/"config/Makefile" do |s|
+        s.change_make_var! "LINKFORSHARED",
+          "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
+      end
+    end
 
     if OS.mac?
       # Prevent third-party packages from building against fragile Cellar paths
