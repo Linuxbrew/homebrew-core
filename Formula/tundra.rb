@@ -30,25 +30,50 @@ class Tundra < Formula
         return 0;
       }
     EOS
-    (testpath/"tundra.lua").write <<~'EOS'
-      Build {
-        Units = function()
-          local test = Program {
-            Name = "test",
-            Sources = { "test.c" },
-          }
-          Default(test)
-        end,
-        Configs = {
-          {
-            Name = "macosx-clang",
-            DefaultOnHost = "macosx",
-            Tools = { "clang-osx" },
+    if OS.mac?
+      (testpath/"tundra.lua").write <<~'EOS'
+        Build {
+          Units = function()
+            local test = Program {
+              Name = "test",
+              Sources = { "test.c" },
+            }
+            Default(test)
+          end,
+          Configs = {
+            {
+              Name = "macosx-clang",
+              DefaultOnHost = "macosx",
+              Tools = { "clang-osx" },
+            },
           },
-        },
-      }
-    EOS
+        }
+      EOS
+    else
+      (testpath/"tundra.lua").write <<~'EOS'
+        Build {
+          Units = function()
+            local test = Program {
+              Name = "test",
+              Sources = { "test.c" },
+            }
+            Default(test)
+          end,
+          Configs = {
+            {
+              Name = "linux-gcc",
+              DefaultOnHost = "linux",
+              Tools = { "gcc" },
+            },
+          },
+        }
+      EOS
+    end
     system bin/"tundra2"
-    system "./t2-output/macosx-clang-debug-default/test"
+    if OS.mac?
+      system "./t2-output/macosx-clang-debug-default/test"
+    else
+      system "./t2-output/linux-gcc-debug-default/test"
+    end
   end
 end
