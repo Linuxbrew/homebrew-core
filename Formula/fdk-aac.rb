@@ -1,3 +1,4 @@
+# fdk-aac: Build a bottle for Linuxbrew
 class FdkAac < Formula
   desc "Standalone library of the Fraunhofer FDK AAC code from Android"
   homepage "https://sourceforge.net/projects/opencore-amr/"
