@@ -1,3 +1,4 @@
+# stella: Build a bottle for Linuxbrew
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "https://stella-emu.github.io/"
