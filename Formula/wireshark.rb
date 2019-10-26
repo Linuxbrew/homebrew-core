@@ -1,3 +1,4 @@
+# wireshark: Build a bottle for Linuxbrew
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
