@@ -1,3 +1,4 @@
+# erlang@21: Build a bottle for Linuxbrew
 class ErlangAT21 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
