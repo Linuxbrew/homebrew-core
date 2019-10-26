@@ -1,3 +1,4 @@
+# omega: Build a bottle for Linuxbrew
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
