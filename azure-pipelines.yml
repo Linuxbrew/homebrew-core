@@ -17,6 +17,9 @@ jobs:
   - script: printenv
     displayName: Azure printenv
   - bash: |
+      whoami
+      id -u
+      ls -lh /home/linuxbrew/.linuxbrew
       cd /home/linuxbrew/.linuxbrew/Homebrew
       git config --global user.name LinuxbrewTestBot
       git config --global user.email testbot@linuxbrew.sh
