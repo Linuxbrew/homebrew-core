@@ -12,7 +12,7 @@ jobs:
     vmImage: 'ubuntu-16.04'
   container:
     image: homebrew/brew
-    options: --user=linuxbrew
+    options: --user=0:0
   steps:
   - script: printenv
     displayName: Azure printenv
