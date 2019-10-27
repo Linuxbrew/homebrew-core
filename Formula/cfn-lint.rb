@@ -1,3 +1,4 @@
+# cfn-lint: Build a bottle for Linuxbrew
 class CfnLint < Formula
   include Language::Python::Virtualenv
 
