@@ -1,14 +1,13 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/0.23/stone_soup-0.23.2.tar.xz"
-  sha256 "ebb8fb7c52f5947b23916a903fe2c18693c322132dc4bcef82473d365bc7c11e"
+  url "https://crawl.develz.org/release/0.24/stone_soup-0.24.0.tar.xz"
+  sha256 "eb069ae421d4246a3332d9081fb6e08b4bfaa71c407ffc17c194c5f9170d7561"
 
   bottle do
-    sha256 "375b560e53b05aba691bda692487df93905bcc67d644e3b5ba52fe1875f8ddb6" => :catalina
-    sha256 "38da66978f30d298863a898998973d0bf17fd3267e2cf643cbebff9b731e4579" => :mojave
-    sha256 "95393c6616f984316e2ad9021506d02b34a6263cc9ca757524d8e5d3de9acff3" => :high_sierra
-    sha256 "a0a1d32f7eb028db7cd7018505d88769c3506ed86cd0a402a44d0de79ce1c63e" => :sierra
+    sha256 "4a1647599ab29da11bc0bcb6f57f9554b3d1315e044637bfffe7a1518cab0e92" => :catalina
+    sha256 "0f8c131437b46bf836a852386ee2155f759ddee3ab5d672c68a3416fce409248" => :mojave
+    sha256 "ebdc756c9a25432d009c259e2e47b3c7e78b0ba579f29c4c67d475b10486bf76" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -57,15 +56,18 @@ class StoneSoup < Formula
       #
       # On 10.9, stone-soup will try to use xcrun and fail due to an empty
       # DEVELOPER_DIR
-      devdir = MacOS::Xcode.prefix.to_s
-      devdir += "/" unless MacOS::Xcode.installed?
-
-      system "make", "install",
-        "DEVELOPER_DIR=#{devdir}", "SDKROOT=#{MacOS.sdk_path}",
+      if OS.mac?
+        devdir = MacOS::Xcode.prefix.to_s
+        devdir += "/" unless MacOS::Xcode.installed?
+        args << "DEVELOPER_DIR=#{devdir}"
+        args << "SDKROOT=#{MacOS.sdk_path}"
+        args << "SDK_VER=#{MacOS.version}"
         # stone-soup tries to use `uname -m` to determine build -arch,
         # which is frequently wrong on OS X
-        "SDK_VER=#{MacOS.version}", "MARCH=#{MacOS.preferred_arch}",
-        *args
+        args << "MARCH=#{MacOS.preferred_arch}"
+      end
+
+      system "make", "install", *args
     end
   end
 
