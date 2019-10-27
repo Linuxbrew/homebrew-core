@@ -57,7 +57,7 @@ class Openssl < Formula
       if Hardware::CPU.intel?
         args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
       elsif Hardware::CPU.arm?
-        args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
+        args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv6")
       end
       args << "enable-md2"
     end
