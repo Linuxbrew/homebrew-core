@@ -13,7 +13,7 @@ class Pastebinit < Formula
     sha256 "2557d85100d111cf43ac51892d6401096c4f353689e34d611342f5ddb4e7c9d2" => :high_sierra
   end
 
-  depends_on "docbook2x" => :build
+  depends_on "docbook2x" => :build if OS.mac? # broken on linux
   depends_on "python"
 
   def install
@@ -22,10 +22,10 @@ class Pastebinit < Formula
       s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
     end
 
-    system "docbook2man", "pastebinit.xml"
+    system "docbook2man", "pastebinit.xml" if OS.mac?
     bin.install "pastebinit"
     etc.install "pastebin.d"
-    man1.install "PASTEBINIT.1" => "pastebinit.1"
+    man1.install "PASTEBINIT.1" => "pastebinit.1" if OS.mac?
     libexec.install %w[po utils]
   end
 
