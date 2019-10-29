@@ -1,3 +1,4 @@
+# borgmatic: Build a bottle for Linuxbrew
 class Borgmatic < Formula
   include Language::Python::Virtualenv
 
