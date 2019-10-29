@@ -16,6 +16,11 @@ issueConfigs:
   - "brew gist-logs"
   - "brew config"
   - "brew doctor"
+- content:
+# bottle request
+  - "brew install FORMULA"
+  - "block"
+  - "bottle"
 # Optional configuration:
 #
 # whether the keywords are case-insensitive
