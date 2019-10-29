@@ -15,6 +15,10 @@ class Skopeo < Formula
 
   depends_on "go" => :build
   depends_on "gpgme"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "device-mapper"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -40,7 +44,7 @@ class Skopeo < Formula
         "-X github.com/containers/image/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
       ].join(" ")
 
-      system "go", "build", "-v", "-x", "-tags", buildtags, "-ldflags", ldflags, "-o", bin/"skopeo", "./cmd/skopeo"
+      system "go", "build", "-v", "-tags", buildtags, "-ldflags", ldflags, "-o", bin/"skopeo", "./cmd/skopeo"
 
       (etc/"containers").install "default-policy.json" => "policy.json"
       (etc/"containers/registries.d").install "default.yaml"
