@@ -1,4 +1,5 @@
 # gitlab-runner: Build a bottle for Linuxbrew
+# gitlab-runner: Build a bottle for Linuxbrew
 class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
