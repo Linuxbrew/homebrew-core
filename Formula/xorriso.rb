@@ -1,3 +1,4 @@
+# xorriso: Build a bottle for Linux
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
