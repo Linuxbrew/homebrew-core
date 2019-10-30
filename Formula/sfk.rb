@@ -1,3 +1,4 @@
+# sfk: Build a bottle for Linuxbrew
 class Sfk < Formula
   desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
