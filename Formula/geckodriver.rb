@@ -1,3 +1,4 @@
+# geckodriver: Build a bottle for Linux
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
