@@ -12,8 +12,20 @@ class Grin < Formula
   end
 
   depends_on "rust" => :build
+  unless OS.mac?
+    # libclang
+    depends_on "llvm"
+    depends_on "gcc@9" => :build
+  end
+
+  fails_with :gcc => "4"
+  fails_with :gcc => "5"
+  fails_with :gcc => "6"
+  fails_with :gcc => "7"
+  fails_with :gcc => "8"
 
   def install
+    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib unless OS.mac?
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
