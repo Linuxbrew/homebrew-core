@@ -1,3 +1,4 @@
+# cli53: Build a bottle for Linux
 class Cli53 < Formula
   desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
