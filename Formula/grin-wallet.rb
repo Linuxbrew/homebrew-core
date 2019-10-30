@@ -1,3 +1,4 @@
+# grin-wallet: Build a bottle for Linux
 class GrinWallet < Formula
   desc "Official wallet for the cryptocurrency Grin"
   homepage "https://grin.mw"
