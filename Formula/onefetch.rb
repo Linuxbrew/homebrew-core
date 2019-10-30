@@ -12,6 +12,7 @@ class Onefetch < Formula
   end
 
   depends_on "rust" => :build
+  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
@@ -20,6 +21,10 @@ class Onefetch < Formula
   test do
     system "#{bin}/onefetch", "--help"
     assert_match "onefetch " + version.to_s, shell_output("#{bin}/onefetch -V").chomp
+    if ENV["CI"]
+      system "git config --global user.email you@example.com"
+      system "git config --global user.name Name"
+    end
     system "git init && echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
     assert_match /Language:.*Ruby/, shell_output("#{bin}/onefetch").chomp
   end
