@@ -1,3 +1,4 @@
+# dmtx-utils: Build a bottle for Linux
 class DmtxUtils < Formula
   desc "Read and write data matrix barcodes"
   homepage "https://github.com/dmtx/dmtx-utils"
