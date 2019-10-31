@@ -43,6 +43,9 @@ jobs:
       git checkout pr
     displayName: Checkout PR
   - bash: |
+      echo "TOKEN = $AZURE_BUILD_STATUS"
+      env
+
       cd /tmp/bottles
       sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot \
         --tap=homebrew/core \
