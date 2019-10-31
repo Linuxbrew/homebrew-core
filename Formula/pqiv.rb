@@ -1,3 +1,4 @@
+# pqiv: Build a bottle for Linux
 class Pqiv < Formula
   desc "Powerful image viewer with minimal UI"
   homepage "https://github.com/phillipberndt/pqiv"
