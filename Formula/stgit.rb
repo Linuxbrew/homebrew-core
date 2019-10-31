@@ -12,6 +12,8 @@ class Stgit < Formula
     sha256 "a8c5a52941bb5c524f97bddf295dbf65b79ec74b4ec5a0d0ebcdb25429e1e03d" => :high_sierra
   end
 
+  depends_on "python@2" unless OS.mac?
+
   def install
     ENV["PYTHON"] = "python" # overrides 'python2' built into makefile
     system "make", "prefix=#{prefix}", "all"
@@ -19,6 +21,10 @@ class Stgit < Formula
   end
 
   test do
+    if ENV["CI"]
+      system "git", "config", "--global", "user.email", "you@example.com"
+      system "git", "config", "--global", "user.name", "Your Name"
+    end
     system "git", "init"
     (testpath/"test").write "test"
     system "git", "add", "test"
