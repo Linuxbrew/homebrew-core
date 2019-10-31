@@ -14,8 +14,10 @@ class Zola < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+  depends_on "openssl@1.1" unless OS.mac?
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix unless OS.mac?
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     bash_completion.install "completions/zola.bash"
