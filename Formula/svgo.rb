@@ -1,3 +1,4 @@
+# svgo: Build a bottle for Linux
 require "language/node"
 
 class Svgo < Formula
