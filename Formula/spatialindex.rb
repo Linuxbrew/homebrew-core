@@ -1,3 +1,4 @@
+# spatialindex: Build a bottle for Linux
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
   homepage "https://libspatialindex.org/"
