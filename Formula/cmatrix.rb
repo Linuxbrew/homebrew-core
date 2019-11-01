@@ -1,3 +1,4 @@
+# cmatrix: Build a bottle for Linux
 class Cmatrix < Formula
   desc "Console Matrix"
   homepage "https://github.com/abishekvashok/cmatrix/"
