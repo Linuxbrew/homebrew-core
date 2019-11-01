@@ -22,8 +22,14 @@ class Gnunet < Formula
   depends_on "libmpc"
   depends_on "libunistring"
   depends_on "unbound"
+  depends_on "libtool" => :build unless OS.mac?
 
   def install
+    unless OS.mac?
+      # Fix /usr/bin/ld: cannot find -lgnunetblockgroup
+      ENV.prepend "LDFLAGS", "-L#{libexec}/lib"
+      ENV["GNUNET_PREFIX"] = prefix
+    end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
