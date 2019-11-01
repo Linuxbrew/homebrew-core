@@ -1,3 +1,4 @@
+# opencv: Build a bottle for Linux
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
