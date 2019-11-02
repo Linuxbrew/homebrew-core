@@ -1,3 +1,4 @@
+# sqlite: Build a bottle for Linux
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
