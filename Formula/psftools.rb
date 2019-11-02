@@ -1,3 +1,4 @@
+# psftools: Build a bottle for Linux
 class Psftools < Formula
   desc "Tools for fixed-width bitmap fonts"
   homepage "https://www.seasip.info/Unix/PSF/"
