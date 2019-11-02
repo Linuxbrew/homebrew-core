@@ -1,3 +1,4 @@
+# mupdf: Build a bottle for Linux
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
