@@ -1,3 +1,4 @@
+# x265: Build a bottle for Linux
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "https://bitbucket.org/multicoreware/x265"
