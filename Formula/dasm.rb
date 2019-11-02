@@ -1,3 +1,4 @@
+# dasm: Build a bottle for Linux
 class Dasm < Formula
   desc "Macro assembler with support for several 8-bit microprocessors"
   homepage "https://dasm-assembler.github.io/"
