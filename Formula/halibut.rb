@@ -1,3 +1,4 @@
+# halibut: Build a bottle for Linux
 class Halibut < Formula
   desc "Yet another free document preparation system"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/halibut/"
