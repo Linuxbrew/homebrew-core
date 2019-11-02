@@ -51,18 +51,9 @@ jobs:
         --git-email=testbot@linuxbrew.sh \
         --keep-old
       if [ $? -gt 0 ]; then
-        curl -sSL \
-          -H "Content-Type: application/json" \
-          -H "Authorization: token $AZURE_BUILD_STATUS" \
-          -H "Accept: application/vnd.github.v3+json" \
-          -X POST \
-          -d '{
-            "state": "failure",
-            "description": "The Azure build succeeded with issues!",
-            "context": "Check Azure Build Status"
-            }' \
-          "https://api.github.com/repos/Homebrew/linuxbrew-core/statuses/$SYSTEM_PULLREQUEST_SOURCECOMMITID"
-        exit 1
+        echo "The Azure build succeeded with issues!" > build_status.txt
+      else
+        echo "The Azure build succeeded" > build_status.txt
       fi
     displayName: Run test bot
     env:
@@ -70,10 +61,10 @@ jobs:
       HOMEBREW_NO_AUTO_UPDATE: 1
       HOMEBREW_VERBOSE: 1
       HOMEBREW_VERBOSE_USING_DOTS: 1
-      AZURE_BUILD_STATUS: $(AZURE_BUILD_STATUS)
     continueOnError: true
   - bash: |
       cp /tmp/bottles/*.bottle.* $(Build.ArtifactStagingDirectory)
+      cp /tmp/bottles/build_status.txt $(Build.ArtifactStagingDirectory)
     displayName: Copy json & bottle files
     condition: always()
     continueOnError: true
