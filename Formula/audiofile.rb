@@ -32,6 +32,8 @@ class Audiofile < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "alsa-lib" unless OS.mac?
+
   # These have all been reported upstream but beside
   # 03_CVE-2015-7747 not yet merged or fixed.
   # https://github.com/mpruett/audiofile/issues/31
@@ -58,6 +60,13 @@ class Audiofile < Formula
           "patches/10_Check-for-division-by-zero-in-BlockCodec-runPull.patch"
   end
 
+  unless OS.mac?
+    resource "aiff" do
+      url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
+      sha256 "a87279e3a101162f6ab0d4f70df78594d613e16b80e6257cf19c5fc957a375f9"
+    end
+  end
+
   def install
     if build.head?
       inreplace "autogen.sh", "libtool", "glibtool"
@@ -72,8 +81,22 @@ class Audiofile < Formula
   end
 
   test do
-    inn  = "/System/Library/Sounds/Glass.aiff"
-    out  = "Glass.wav"
+    unless OS.mac?
+      resource("aiff").stage do
+        mv "wood24.aiff", testpath/"test.aiff"
+      end
+    end
+
+    inn = if OS.mac?
+      "/System/Library/Sounds/Glass.aiff"
+    else
+      testpath/"test.aiff"
+    end
+    out = if OS.mac?
+      "Glass.wav"
+    else
+      "test.wav"
+    end
 
     system bin/"sfconvert", inn, out, "format", "wave"
     system bin/"sfinfo", "--short", "--reporterror", out
