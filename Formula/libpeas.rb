@@ -1,3 +1,4 @@
+# libpeas: Build a bottle for Linux
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://developer.gnome.org/libpeas/stable/"
