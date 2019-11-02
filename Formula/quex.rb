@@ -1,3 +1,4 @@
+# quex: Build a bottle for Linux
 class Quex < Formula
   desc "Generate lexical analyzers"
   homepage "https://quex.sourceforge.io/"
