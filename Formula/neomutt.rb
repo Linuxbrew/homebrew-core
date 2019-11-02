@@ -1,3 +1,4 @@
+# neomutt: Build a bottle for Linux
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
