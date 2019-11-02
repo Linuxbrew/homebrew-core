@@ -52,6 +52,7 @@ jobs:
         --keep-old
       if [ $? -gt 0 ]; then
         echo "The Azure build succeeded with issues!" > build_status.txt
+        exit 1
       else
         echo "The Azure build succeeded" > build_status.txt
       fi
