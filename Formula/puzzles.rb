@@ -1,3 +1,4 @@
+# puzzles: Build a bottle for Linux
 class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
