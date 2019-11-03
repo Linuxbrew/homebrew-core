@@ -1,3 +1,4 @@
+# wagyu: Build a bottle for Linux
 class Wagyu < Formula
   desc "Rust library for generating cryptocurrency wallets"
   homepage "https://github.com/ArgusHQ/wagyu"
