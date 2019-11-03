@@ -1,3 +1,4 @@
+# watchexec: Build a bottle for Linux
 class Watchexec < Formula
   desc "Execute commands when watched files change"
   homepage "https://github.com/watchexec/watchexec"
