@@ -1,3 +1,4 @@
+# hexyl: Build a bottle for Linux
 class Hexyl < Formula
   desc "Command-line hex viewer"
   homepage "https://github.com/sharkdp/hexyl"
