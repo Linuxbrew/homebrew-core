@@ -1,3 +1,4 @@
+# boringtun: Build a bottle for Linux
 class Boringtun < Formula
   desc "Userspace WireGuard implementation in Rust"
   homepage "https://github.com/cloudflare/boringtun"
