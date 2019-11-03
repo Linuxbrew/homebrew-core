@@ -1,3 +1,4 @@
+# loc: Build a bottle for Linux
 class Loc < Formula
   desc "Count lines of code quickly"
   homepage "https://github.com/cgag/loc"
