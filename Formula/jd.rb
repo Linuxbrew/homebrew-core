@@ -1,3 +1,4 @@
+# jd: Build a bottle for Linux
 class Jd < Formula
   desc "JSON diff and patch"
   homepage "https://github.com/josephburnett/jd"
