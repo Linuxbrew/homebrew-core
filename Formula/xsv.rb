@@ -1,3 +1,4 @@
+# xsv: Build a bottle for Linux
 class Xsv < Formula
   desc "Fast CSV toolkit written in Rust"
   homepage "https://github.com/BurntSushi/xsv"
