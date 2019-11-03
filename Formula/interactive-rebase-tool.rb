@@ -13,13 +13,19 @@ class InteractiveRebaseTool < Formula
   end
 
   depends_on "rust" => :build
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
+    # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
+    return if ENV["CI"]
+
     require "pty" # required for interactivity
+
     mkdir testpath/"repo" do
       system "git", "init"
       touch "FILE1"
