@@ -1,3 +1,4 @@
+# flake8: Build a bottle for Linux
 class Flake8 < Formula
   include Language::Python::Virtualenv
 
