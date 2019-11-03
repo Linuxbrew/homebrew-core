@@ -1,3 +1,4 @@
+# shadowenv: Build a bottle for Linux
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
