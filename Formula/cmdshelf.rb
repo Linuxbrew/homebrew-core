@@ -1,3 +1,4 @@
+# cmdshelf: Build a bottle for Linux
 class Cmdshelf < Formula
   desc "Better scripting life with cmdshelf"
   homepage "https://github.com/toshi0383/cmdshelf"
