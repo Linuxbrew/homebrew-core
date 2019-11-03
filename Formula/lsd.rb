@@ -1,3 +1,4 @@
+# lsd: Build a bottle for Linux
 class Lsd < Formula
   desc "Clone of ls with colorful output, file type icons, and more"
   homepage "https://github.com/Peltoche/lsd"
