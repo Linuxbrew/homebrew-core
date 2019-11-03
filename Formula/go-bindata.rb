@@ -1,3 +1,4 @@
+# go-bindata: Build a bottle for Linux
 class GoBindata < Formula
   desc "Small utility that generates Go code from any file"
   homepage "https://github.com/kevinburke/go-bindata"
