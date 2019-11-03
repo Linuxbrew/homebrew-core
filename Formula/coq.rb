@@ -1,3 +1,4 @@
+# coq: Build a bottle for Linux
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
