@@ -1,3 +1,4 @@
+# tectonic: Build a bottle for Linux
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
