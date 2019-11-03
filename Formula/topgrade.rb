@@ -1,3 +1,4 @@
+# topgrade: Build a bottle for Linux
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
