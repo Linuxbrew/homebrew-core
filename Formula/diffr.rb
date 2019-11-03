@@ -1,3 +1,4 @@
+# diffr: Build a bottle for Linux
 class Diffr < Formula
   desc "LCS based diff highlighting tool to ease code review from your terminal"
   homepage "https://github.com/mookid/diffr"
