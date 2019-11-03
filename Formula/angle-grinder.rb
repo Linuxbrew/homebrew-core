@@ -1,3 +1,4 @@
+# angle-grinder: Build a bottle for Linux
 class AngleGrinder < Formula
   desc "Slice and dice log files on the command-line"
   homepage "https://github.com/rcoh/angle-grinder"
