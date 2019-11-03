@@ -1,3 +1,4 @@
+# kyma-cli: Build a bottle for Linux
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
