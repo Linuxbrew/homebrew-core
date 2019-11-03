@@ -1,3 +1,4 @@
+# ktmpl: Build a bottle for Linux
 class Ktmpl < Formula
   desc "Parameterized templates for Kubernetes manifests"
   homepage "https://github.com/jimmycuadra/ktmpl"
