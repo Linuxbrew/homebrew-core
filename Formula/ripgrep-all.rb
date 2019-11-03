@@ -1,3 +1,4 @@
+# ripgrep-all: Build a bottle for Linux
 class RipgrepAll < Formula
   desc "Wrapper around ripgrep that adds multiple rich file types"
   homepage "https://github.com/phiresky/ripgrep-all"
