@@ -5,7 +5,6 @@ class Comby < Formula
   sha256 "081633c100ca6696760e21bd3decd01666c9ad4946b370dc90412e55a324435e"
 
   bottle do
-    cellar :any
     sha256 "ea3cbad9e3c7706bfe841c5bdc44a3e43514e8fa860a3097731aebe67a4f339a" => :catalina
     sha256 "6b8dc81e1c2c6fc901301b12935acd24584e36f4e14a265c3594fdbbb70a78d7" => :mojave
     sha256 "881acdce34bda5a69cafa4473240ff4b9d9533544fde801a19c09b0c176ab37e" => :high_sierra
@@ -15,6 +14,8 @@ class Comby < Formula
   depends_on "opam" => :build
   depends_on "pcre"
   depends_on "pkg-config"
+  uses_from_macos "m4"
+  uses_from_macos "unzip"
   uses_from_macos "zlib"
 
   def install
