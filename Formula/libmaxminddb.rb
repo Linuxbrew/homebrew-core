@@ -1,3 +1,4 @@
+# libmaxminddb: Build a bottle for Linux
 class Libmaxminddb < Formula
   desc "C library for the MaxMind DB file format"
   homepage "https://github.com/maxmind/libmaxminddb"
