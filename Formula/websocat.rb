@@ -14,6 +14,7 @@ class Websocat < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  uses_from_macos "openssl"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix,
