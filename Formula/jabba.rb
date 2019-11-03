@@ -34,6 +34,6 @@ class Jabba < Formula
     system bin/"jabba", "install", "1.13.0"
     jdk_path = Utils.popen_read("#{bin}/jabba which 1.13.0").strip
     assert_match 'java version "13.0',
-                 shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
+      shell_output("#{jdk_path}#{OS.mac? ? "/Contents/Home/" : "/"}bin/java -version 2>&1")
   end
 end
