@@ -1,3 +1,4 @@
+# sd: Build a bottle for Linux
 class Sd < Formula
   desc "Intuitive find & replace CLI"
   homepage "https://github.com/chmln/sd"
