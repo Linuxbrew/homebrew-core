@@ -1,3 +1,4 @@
+# jsvc: Build a bottle for Linux
 class Jsvc < Formula
   desc "Wrapper to launch Java applications as daemons"
   homepage "https://commons.apache.org/daemon/jsvc.html"
