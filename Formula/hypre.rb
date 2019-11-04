@@ -1,3 +1,4 @@
+# hypre: Build a bottle for Linux
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "https://computation.llnl.gov/casc/hypre/software.html"
