@@ -189,8 +189,8 @@ class Snapcraft < Formula
     end
 
     resource "python-apt" do
-      url "https://launchpad.net/ubuntu/+archive/primary/+files/python-apt_1.1.0~beta1build1.tar.xz"
-      sha256 "8d0a855299b8eb114476bdc7bef1b6fd6b35a4ee7ae90d4d56a2018977784148"
+      url "https://salsa.debian.org/apt-team/python-apt/-/archive/1.9.0/python-apt-1.9.0.tar.gz"
+      sha256 "6b0bdff48600266fcac1bebd57f04d6241dae32781396217612369421f5d0519"
     end
   end
 
