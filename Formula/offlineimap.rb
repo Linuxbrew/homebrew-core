@@ -1,3 +1,4 @@
+# offlineimap: Build a bottle for Linux
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
