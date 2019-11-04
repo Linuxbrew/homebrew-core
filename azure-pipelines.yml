@@ -6,45 +6,35 @@ pr:
     - '*'
 
 jobs:
-
 - job: BuildLinuxbrewCoreBottles
   timeoutInMinutes: 360
-
   pool:
-    vmImage: 'ubuntu-16.04'
-
+    vmImage: ubuntu-latest
   container:
-    image: homebrew/brew:latest
-
+    image: homebrew/brew
   steps:
   - script: printenv
     displayName: Azure printenv
-
   - bash: |
-      mkdir -p /tmp/bottles
-      cd /tmp/bottles
-      umask 022
-    displayName: Setup /tmp/bottles
+      sudo adduser $(whoami) linuxbrew
+    displayName: Setup user
   - bash: |
       git config --global user.name LinuxbrewTestBot
       git config --global user.email testbot@linuxbrew.sh
-      cd /home/linuxbrew/.linuxbrew/Homebrew
-      sudo git fetch origin --tags
-      sudo git reset --hard origin/master
-    displayName: Setup Homebrew
+    displayName: Setup git
   - bash: |
-      sudo rm -rf /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
-      sudo cp -a $(Build.Repository.LocalPath) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
-    displayName: Copy homebrew-core
-  - bash: |
-      cd /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
       git checkout -b test
       git fetch origin "master:master" "pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/head:pr"
       git checkout pr
-    displayName: Checkout PR
+      rm -rf $(brew --repository $BUILD_REPOSITORY_NAME)
+      ln -s $BUILD_REPOSITORY_LOCALPATH $(brew --repository $BUILD_REPOSITORY_NAME)
+    displayName: Setup tap
+  - bash: brew update-reset $(brew --repository)
+    displayName: Update Homebrew
   - bash: |
+      mkdir /tmp/bottles
       cd /tmp/bottles
-      sudo -E /home/linuxbrew/.linuxbrew/bin/brew test-bot \
+      brew test-bot \
         --tap=homebrew/core \
         --bintray-org=linuxbrew \
         --git-name=LinuxbrewTestBot \
@@ -54,25 +44,17 @@ jobs:
         echo "$SYSTEM_PULLREQUEST_SOURCECOMMITID" > build_status.txt
         exit 1
       fi
-    displayName: Run test bot
-    env:
-      HOMEBREW_DEVELOPER: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
-      HOMEBREW_VERBOSE: 1
-      HOMEBREW_VERBOSE_USING_DOTS: 1
+    displayName: Build bottles
     continueOnError: true
   - bash: |
-      cp /tmp/bottles/*.bottle.* $(Build.ArtifactStagingDirectory)
-      if [ -f /tmp/bottles/build_status.txt ]; then
-        cp /tmp/bottles/build_status.txt $(Build.ArtifactStagingDirectory)
-      fi
-    displayName: Copy json & bottle files
+      cp /tmp/bottles/*.bottle.* $BUILD_ARTIFACTSTAGINGDIRECTORY
+      cp /tmp/bottles/build_status.txt $BUILD_ARTIFACTSTAGINGDIRECTORY || true
+    displayName: Copy bottles
     condition: always()
-    continueOnError: true
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: bottle-linux
       targetPath: $(Build.ArtifactStagingDirectory)
-    displayName: Publish bottle-linux
+    displayName: Publish bottles
     condition: always()
 
