@@ -7,7 +7,7 @@ class Qt < Formula
   mirror "https://qt.mirror.constant.com/archive/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.13.1.tar.xz"
   sha256 "adf00266dc38352a166a9739f1a24a1e36f1be9c04bf72e16e142a256436974e"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
@@ -17,7 +17,6 @@ class Qt < Formula
     sha256 "3d0edac62d9e12bc7886bbe5d656abb719816ea0312235215ff29d7bd510bba5" => :catalina
     sha256 "8879bd6173c6bb83731ff3fa6114a1a5655d22d43cc10a6576c53f4940a1d3b9" => :mojave
     sha256 "04fe46304a54f80ffb9b83f5a2e01bbfe86d016275e4ec989b2eb142b81366d8" => :high_sierra
-    sha256 "2794d081307710109e51276b2566fe8ef8bc595991a43c62351e11b2a6732049" => :x86_64_linux
   end
 
   keg_only "Qt 5 has CMake issues when linked"
