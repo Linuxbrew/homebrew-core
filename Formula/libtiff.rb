@@ -1,3 +1,4 @@
+# libtiff: Build a bottle for Linux
 class Libtiff < Formula
   desc "TIFF library and utilities"
   homepage "https://libtiff.gitlab.io/libtiff/"
