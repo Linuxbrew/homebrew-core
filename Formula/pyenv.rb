@@ -1,3 +1,4 @@
+# pyenv: Build a bottle for Linux
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
