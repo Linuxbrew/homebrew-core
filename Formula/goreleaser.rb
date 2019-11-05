@@ -1,3 +1,4 @@
+# goreleaser: Build a bottle for Linux
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
