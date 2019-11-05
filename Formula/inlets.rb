@@ -1,3 +1,4 @@
+# inlets: Build a bottle for Linux
 class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
