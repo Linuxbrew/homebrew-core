@@ -1,3 +1,4 @@
+# nomad: Build a bottle for Linux
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
