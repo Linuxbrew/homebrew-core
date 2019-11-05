@@ -13,6 +13,9 @@ class Dive < Formula
   end
 
   depends_on "go" => :build
+  depends_on "gpgme" => :build
+  depends_on "pkg-config" => :build
+  depends_on "device-mapper"
 
   def install
     ENV["GOPATH"] = buildpath
