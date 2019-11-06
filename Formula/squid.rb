@@ -1,3 +1,4 @@
+# squid: Build a bottle for Linux
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
