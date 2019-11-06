@@ -1,3 +1,4 @@
+# duplicity: Build a bottle for Linux
 class Duplicity < Formula
   include Language::Python::Virtualenv
 
