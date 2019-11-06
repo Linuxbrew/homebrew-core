@@ -1,3 +1,4 @@
+# rpm: Build a bottle for Linux
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
