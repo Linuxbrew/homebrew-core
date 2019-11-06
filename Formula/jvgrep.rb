@@ -1,3 +1,4 @@
+# jvgrep: Build a bottle for Linux
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
