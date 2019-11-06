@@ -15,16 +15,25 @@ class OpenjdkAT12 < Formula
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
+  unless OS.mac?
+    depends_on "unzip"
+    depends_on "zip"
+  end
 
   resource "boot-jdk" do
-    url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
-    sha256 "f365750d4be6111be8a62feda24e265d97536712bc51783162982b8ad96a70ee"
+    if OS.mac?
+      url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
+      sha256 "f365750d4be6111be8a62feda24e265d97536712bc51783162982b8ad96a70ee"
+    else
+      url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
+      sha256 "99be79935354f5c0df1ad293620ea36d13f48ec3ea870c838f20c504c9668b57"
+    end
   end
 
   def install
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
-    boot_jdk = boot_jdk_dir/"Contents/Home"
+    boot_jdk = OS.mac? ? boot_jdk_dir/"Contents/Home" : boot_jdk_dir
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     short_version, _, build = version.to_s.rpartition("+")
@@ -44,7 +53,7 @@ class OpenjdkAT12 < Formula
                           "--without-version-opt",
                           "--with-version-build=#{build}",
                           "--with-toolchain-path=/usr/bin",
-                          "--with-extra-ldflags=-headerpad_max_install_names",
+                          ("--with-extra-ldflags=-headerpad_max_install_names" if OS.mac?),
                           "--with-boot-jdk=#{boot_jdk}",
                           "--with-boot-jdk-jvmargs=#{java_options}",
                           "--with-debug-level=release",
@@ -55,7 +64,8 @@ class OpenjdkAT12 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
+    os = OS.mac? ? "macosx" : "linux"
+    libexec.install "build/#{os}-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
     bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
   end
 
