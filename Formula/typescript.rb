@@ -1,3 +1,4 @@
+# typescript: Build a bottle for Linux
 require "language/node"
 
 class Typescript < Formula
