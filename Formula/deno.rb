@@ -1,3 +1,4 @@
+# deno: Build a bottle for Linux
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
