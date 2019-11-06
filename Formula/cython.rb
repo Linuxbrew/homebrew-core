@@ -1,3 +1,4 @@
+# cython: Build a bottle for Linux
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "https://cython.org/"
