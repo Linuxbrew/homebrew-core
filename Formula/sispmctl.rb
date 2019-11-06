@@ -1,3 +1,4 @@
+# sispmctl: Build a bottle for Linux
 class Sispmctl < Formula
   desc "Control Gembird SIS-PM programmable power outlet strips"
   homepage "https://sispmctl.sourceforge.io/"
