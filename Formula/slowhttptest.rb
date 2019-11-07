@@ -1,3 +1,4 @@
+# slowhttptest: Build a bottle for Linux
 class Slowhttptest < Formula
   desc "Simulates application layer denial of service attacks"
   homepage "https://github.com/shekyan/slowhttptest"
