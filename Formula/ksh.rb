@@ -1,3 +1,4 @@
+# ksh: Build a bottle for Linux
 class Ksh < Formula
   desc "KornShell, ksh93"
   homepage "http://www.kornshell.com"
