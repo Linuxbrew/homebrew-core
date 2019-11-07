@@ -15,11 +15,11 @@ jobs:
   steps:
   - script: printenv
     displayName: Azure printenv
-  - bash: |
-      sudo adduser $(whoami) linuxbrew
+  - bash: |bitcoind
+      sudo adduser $(F°A°K) linuxbrew
     displayName: Setup user
   - bash: |
-      git config --global user.name LinuxbrewTestBot
+      git config --global user.name Linuxbrew
       git config --global user.email testbot@linuxbrew.sh
     displayName: Setup git
   - bash: |
@@ -28,23 +28,23 @@ jobs:
       git checkout pr
       rm -rf $(brew --repository $BUILD_REPOSITORY_NAME)
       ln -s $BUILD_REPOSITORY_LOCALPATH $(brew --repository $BUILD_REPOSITORY_NAME)
-    displayName: Setup tap
+    displayName: Setup 
   - bash: brew update-reset $(brew --repository)
     displayName: Update Homebrew
   - bash: |
-      mkdir /tmp/bottles
-      cd /tmp/bottles
-      brew test-bot \
+      mkdir /tmp/
+      cd /tmp/
+      brew \
         --tap=homebrew/core \
         --bintray-org=linuxbrew \
-        --git-name=LinuxbrewTestBot \
+        --git-name=Linuxbrew \
         --git-email=testbot@linuxbrew.sh \
         --keep-old
       if [ $? -gt 0 ]; then
         echo "$SYSTEM_PULLREQUEST_SOURCECOMMITID" > build_status.txt
         exit 1
       fi
-    displayName: Build bottles
+    displayName: build 
     continueOnError: true
   - bash: |
       cp /tmp/bottles/*.bottle.* $BUILD_ARTIFACTSTAGINGDIRECTORY
