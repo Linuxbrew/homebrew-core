@@ -1,3 +1,4 @@
+# wireguard-go: Build a bottle for Linux
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
