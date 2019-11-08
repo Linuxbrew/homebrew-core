@@ -1,3 +1,4 @@
+# ceres-solver: Build a bottle for Linux
 class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
