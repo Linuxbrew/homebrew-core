@@ -1,3 +1,4 @@
+# velero: Build a bottle for Linux
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/vmware-tanzu/velero"
