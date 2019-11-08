@@ -1,3 +1,4 @@
+# figlet: Build a bottle for Linux
 class Figlet < Formula
   desc "Banner-like program prints strings as ASCII art"
   homepage "http://www.figlet.org/"
