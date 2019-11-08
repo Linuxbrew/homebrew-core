@@ -1,3 +1,4 @@
+# octave: Build a bottle for Linux
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
