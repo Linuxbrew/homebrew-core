@@ -1,3 +1,4 @@
+# sundials: Build a bottle for Linux
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
