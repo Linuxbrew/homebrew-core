@@ -1,3 +1,4 @@
+# frugal: Build a bottle for Linux
 class Frugal < Formula
   desc "Cross language code generator for creating scalable microservices"
   homepage "https://github.com/Workiva/frugal"
