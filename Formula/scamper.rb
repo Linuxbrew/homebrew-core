@@ -1,3 +1,4 @@
+# scamper: Build a bottle for Linux
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/tools/measurement/scamper/"
