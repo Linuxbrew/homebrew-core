@@ -1,3 +1,4 @@
+# prettier: Build a bottle for Linux
 require "language/node"
 
 class Prettier < Formula
