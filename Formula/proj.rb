@@ -1,15 +1,13 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-6.2.0.tar.gz"
-  sha256 "b300c0f872f632ad7f8eb60725edbf14f0f8f52db740a3ab23e7b94f1cd22a50"
+  url "https://download.osgeo.org/proj/proj-6.2.1.tar.gz"
+  sha256 "7f2e0fe63312f1e766057cceb53dc9585c4a335ff6641de45696dbd40d17c340"
 
   bottle do
-    sha256 "908f4bb4b562f146181b316cba0a74c9bbb786cb2cb347279d38c175f2aae78b" => :catalina
-    sha256 "136f63801c76a4c288ed6f520ae42fede385c65767ae9d323671ab0f00805e9b" => :mojave
-    sha256 "e18d22d518a9d7841815a87f29e1e56acf46d0aa3b9f1ee1740bff2537e38bb8" => :high_sierra
-    sha256 "2ffd7fa1cbed257c42e4d81f7f5e75ebdd81d009a0cf2eab0f3136a68f3579c2" => :sierra
-    sha256 "2f0af9ee50f849f0ef12c4151f6083e38b6e562ea30776a85003c601cd61582a" => :x86_64_linux
+    sha256 "afa15540ec072f6c577ad42fcf0cef6b0ea3d5fb25fe786c490cdbf1fcae918b" => :catalina
+    sha256 "47d58e22d2e01d1bbacd8abef95ccbe61935612c9a6b369c9065bd6a34cea26a" => :mojave
+    sha256 "f530ebfac70dc88a5fa1cab8094bf80000fc2e8229d87b60aeb4f424ad26f544" => :high_sierra
   end
 
   head do
