@@ -3,12 +3,14 @@ class Libnsl < Formula
   homepage "https://github.com/thkukuk/libnsl"
   url "https://github.com/thkukuk/libnsl/archive/v1.2.0.tar.gz"
   sha256 "a5a28ef17c4ca23a005a729257c959620b09f8c7f99d0edbfe2eb6b06bafd3f8"
+  revision 1
   # tag "linuxbrew"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd85dccde71cfaf515bbc24db70fe1c981617fbe10605a55b759cf655b684b06" => :x86_64_linux
   end
+
+  keg_only "it conflicts with glibc"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
