@@ -14,6 +14,7 @@ class Rethinkdb < Formula
 
   depends_on "boost" => :build
   depends_on "openssl@1.1"
+  depends_on "python@2" => :build unless OS.mac?
   uses_from_macos "curl"
 
   # Fix error with Xcode 9, patch merged upstream:
@@ -38,6 +39,7 @@ class Rethinkdb < Formula
   end
 
   def install
+    ENV["PYTHON"] = Formula["python@2"].opt_bin/"python" unless OS.mac?
     args = ["--prefix=#{prefix}"]
 
     # rethinkdb requires that protobuf be linked against libc++
