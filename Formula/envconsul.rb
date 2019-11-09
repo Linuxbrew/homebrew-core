@@ -1,3 +1,4 @@
+# envconsul: Build a bottle for Linux
 class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
