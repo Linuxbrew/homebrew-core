@@ -1,3 +1,4 @@
+# navi: Build a bottle for Linux
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
