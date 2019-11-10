@@ -1,3 +1,4 @@
+# hello: Build a bottle for Linux
 class Hello < Formula
   desc "Program providing model for GNU coding standards and practices"
   homepage "https://www.gnu.org/software/hello/"
