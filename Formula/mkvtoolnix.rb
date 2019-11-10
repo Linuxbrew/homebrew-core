@@ -30,11 +30,20 @@ class Mkvtoolnix < Formula
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
-  depends_on "ruby" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "libxslt" => :build # for xsltproc
+    depends_on "ruby" => :build
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
+    depends_on "gcc@7" => :build # C++17 required
+  end
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?
+    unless OS.mac?
+      # https://github.com/Homebrew/brew/issues/6070
+      ENV.remove %w[LDFLAGS LIBRARY_PATH HOMEBREW_LIBRARY_PATHS], "#{HOMEBREW_PREFIX}/lib"
+      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    end
 
     ENV.cxx11
 
