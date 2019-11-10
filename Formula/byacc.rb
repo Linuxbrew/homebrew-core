@@ -1,3 +1,4 @@
+# byacc: Build a bottle for Linux
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
