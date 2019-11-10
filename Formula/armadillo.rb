@@ -1,3 +1,4 @@
+# armadillo: Build a bottle for Linux
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
