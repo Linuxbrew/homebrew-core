@@ -1,3 +1,4 @@
+# rancher-cli: Build a bottle for Linux
 class RancherCli < Formula
   desc "The Rancher CLI is a unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
