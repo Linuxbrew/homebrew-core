@@ -1,3 +1,4 @@
+# bibutils: Build a bottle for Linux
 class Bibutils < Formula
   desc "Bibliography conversion utilities"
   homepage "https://sourceforge.net/p/bibutils/home/Bibutils/"
