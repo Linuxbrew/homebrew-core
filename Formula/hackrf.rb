@@ -21,7 +21,12 @@ class Hackrf < Formula
 
   def install
     cd "host" do
-      system "cmake", ".", *std_cmake_args
+      args = std_cmake_args
+      unless OS.mac?
+        args << "-DUDEV_RULES_GROUP=plugdev"
+        args << "-DUDEV_RULES_PATH=#{lib}/udev/rules.d"
+      end
+      system "cmake", ".", *args
       system "make", "install"
     end
   end
