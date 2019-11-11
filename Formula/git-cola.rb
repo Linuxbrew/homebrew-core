@@ -17,6 +17,7 @@ class GitCola < Formula
   depends_on "sphinx-doc" => :build
   depends_on "pyqt"
   depends_on "python"
+  depends_on "rsync" unless OS.mac?
 
   def install
     ENV.delete("PYTHONPATH")
