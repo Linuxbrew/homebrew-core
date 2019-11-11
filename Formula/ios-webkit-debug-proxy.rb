@@ -1,3 +1,4 @@
+# ios-webkit-debug-proxy: Build a bottle for Linux
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
