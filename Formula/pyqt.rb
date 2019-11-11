@@ -42,7 +42,7 @@ class Pyqt < Formula
     system "#{bin}/pylupdate5", "-version"
 
     system "python3", "-c", "import PyQt5"
-    %w[
+    m = %w[
       Gui
       Location
       Multimedia
