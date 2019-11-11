@@ -16,8 +16,16 @@ class OpenjdkAT12 < Formula
 
   depends_on "autoconf" => :build
   unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "cups"
     depends_on "unzip"
     depends_on "zip"
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxext"
+    depends_on "linuxbrew/xorg/libxrandr"
+    depends_on "linuxbrew/xorg/libxrender"
+    depends_on "linuxbrew/xorg/libxt"
+    depends_on "linuxbrew/xorg/libxtst"
   end
 
   resource "boot-jdk" do
@@ -53,7 +61,7 @@ class OpenjdkAT12 < Formula
                           "--without-version-opt",
                           "--with-version-build=#{build}",
                           "--with-toolchain-path=/usr/bin",
-                          "--with-extra-ldflags=-headerpad_max_install_names",
+                          ("--with-extra-ldflags=-headerpad_max_install_names" if OS.mac?),
                           "--with-boot-jdk=#{boot_jdk}",
                           "--with-boot-jdk-jvmargs=#{java_options}",
                           "--with-debug-level=release",
