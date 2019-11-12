@@ -45,7 +45,7 @@ class CrosstoolNg < Formula
       system "./bootstrap"
     end
 
-    make = OS.mac? ? "gmake" :  "make"
+    make = OS.mac? ? "gmake" : "make"
     ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
     ENV["MAKE"] = "#{Formula["make"].opt_bin}/#{make}"
