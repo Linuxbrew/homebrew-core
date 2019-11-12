@@ -19,6 +19,10 @@ class Haxe < Formula
   depends_on "pkg-config" => :build
   depends_on "neko"
   depends_on "pcre"
+  unless OS.mac?
+    depends_on "m4"
+    depends_on "unzip"
+  end
 
   def install
     # Build requires targets to be built in specific order
