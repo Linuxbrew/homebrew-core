@@ -27,10 +27,12 @@ class A2ps < Formula
   # Software was last updated in 2007.
   # https://svn.macports.org/ticket/20867
   # https://trac.macports.org/ticket/18255
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-contrib_sample_Makefile.in"
-    sha256 "5a34c101feb00cf52199a28b1ea1bca83608cf0a1cb123e6af2d3d8992c6011f"
-  end if OS.mac?
+  if OS.mac?
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-contrib_sample_Makefile.in"
+      sha256 "5a34c101feb00cf52199a28b1ea1bca83608cf0a1cb123e6af2d3d8992c6011f"
+    end
+  end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ae366e6/a2ps/patch-lib__xstrrpl.c"

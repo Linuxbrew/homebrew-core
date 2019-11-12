@@ -36,11 +36,13 @@ class PerconaToolkit < Formula
     sha256 "c4da1f1075878604b7b1f085ff3963e1073ed1c603c3bc9f0b0591e3831a1068"
   end
 
-  resource "DBI::DBD" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.639.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.639.tar.gz"
-    sha256 "8e2cb3d6a8425bd68702aebbeee01e754ee11ad00e7f4f9a61b75483de104e8c"
-  end unless OS.mac?
+  unless OS.mac?
+    resource "DBI::DBD" do
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.639.tar.gz"
+      mirror "http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.639.tar.gz"
+      sha256 "8e2cb3d6a8425bd68702aebbeee01e754ee11ad00e7f4f9a61b75483de104e8c"
+    end
+  end
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"

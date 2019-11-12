@@ -94,9 +94,11 @@ class PerconaServer < Formula
     system "make"
     system "make", "install"
 
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
-    end if OS.mac?
+    if OS.mac?
+      (prefix/"mysql-test").cd do
+        system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+      end
+    end
     # Test is disabled on Linux as it is currently failing
 
     # Remove the tests directory

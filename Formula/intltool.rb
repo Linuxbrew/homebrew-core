@@ -42,10 +42,12 @@ class Intltool < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make", "install"
-    Dir[bin/"intltool-*"].each do |f|
-      inreplace f, %r{^#!\/.*\/perl -w}, "#!/usr/bin/env perl"
-      inreplace f, /^(use strict;)/, "\\1\nuse warnings;"
-    end unless OS.mac?
+    unless OS.mac?
+      Dir[bin/"intltool-*"].each do |f|
+        inreplace f, %r{^#!\/.*\/perl -w}, "#!/usr/bin/env perl"
+        inreplace f, /^(use strict;)/, "\\1\nuse warnings;"
+      end
+    end
   end
 
   test do

@@ -19,10 +19,12 @@ class Flann < Formula
 
   # Fix for Linux build: https://bugs.gentoo.org/652594
   # Not yet fixed upstream: https://github.com/mariusmuja/flann/issues/369
-  patch do
-    url "https://raw.githubusercontent.com/buildroot/buildroot/0c469478f64d0ddaf72c0622a1830d855306d51c/package/flann/0001-src-cpp-fix-cmake-3.11-build.patch"
-    sha256 "aa181d0731d4e9a266f7fcaf5423e7a6b783f400cc040a3ef0fef77930ecf680"
-  end unless OS.mac?
+  unless OS.mac?
+    patch do
+      url "https://raw.githubusercontent.com/buildroot/buildroot/0c469478f64d0ddaf72c0622a1830d855306d51c/package/flann/0001-src-cpp-fix-cmake-3.11-build.patch"
+      sha256 "aa181d0731d4e9a266f7fcaf5423e7a6b783f400cc040a3ef0fef77930ecf680"
+    end
+  end
 
   resource("dataset.dat") do
     url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.dat"

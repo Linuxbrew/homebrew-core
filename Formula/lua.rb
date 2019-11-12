@@ -23,10 +23,12 @@ class Lua < Formula
   # Add shared library for linux
   # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
   # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
-  patch do
-    url "https://gist.githubusercontent.com/iMichka/dfc8617c85c1a6c21ca22240d4f5407b/raw/0dfef35c31fa41de0bface13e9c9f6ea09bd89fa/lua-5.3.5.patch"
-    sha256 "e74a6ada94e4340e664b35065392ebe5060d5d329b3d8d3e5603df0a8238a961"
-  end unless OS.mac?
+  unless OS.mac?
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/dfc8617c85c1a6c21ca22240d4f5407b/raw/0dfef35c31fa41de0bface13e9c9f6ea09bd89fa/lua-5.3.5.patch"
+      sha256 "e74a6ada94e4340e664b35065392ebe5060d5d329b3d8d3e5603df0a8238a961"
+    end
+  end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
