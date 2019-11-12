@@ -1,3 +1,4 @@
+# bullet: Build a bottle for Linux
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
