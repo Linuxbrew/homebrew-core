@@ -1,3 +1,4 @@
+# mdbook: Build a bottle for Linux
 class Mdbook < Formula
   desc "Create modern online books from Markdown files"
   homepage "https://rust-lang.github.io/mdBook/"
