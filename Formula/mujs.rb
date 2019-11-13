@@ -1,3 +1,4 @@
+# mujs: Build a bottle for Linux
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "https://www.mujs.com/"
