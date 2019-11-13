@@ -1,3 +1,4 @@
+# cf-tool: Build a bottle for Linux
 class CfTool < Formula
   desc "Command-line tool for Codeforces contests"
   homepage "https://github.com/xalanq/cf-tool"
