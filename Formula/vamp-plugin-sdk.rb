@@ -34,10 +34,14 @@ class VampPluginSdk < Formula
       vampGetPluginDescriptor(unsigned int version, unsigned int index) { return NULL; }
     EOS
 
-    system ENV.cxx, "test.cpp", "-I#{include}", "-Wl,-dylib", "-o", "test.dylib"
+    if OS.mac?
+      system ENV.cxx, "test.cpp", "-I#{include}", "-Wl,-dylib", "-o", "test.dylib"
+    else
+      system ENV.cxx, "test.cpp", "-I#{include}", "-shared", "-fPIC", "-o", "test.so"
+    end
     assert_match /Usage:/, shell_output("#{bin}/vamp-rdf-template-generator 2>&1", 2)
 
-    cp "#{lib}/vamp/vamp-example-plugins.so", testpath/"vamp-example-plugins.dylib"
+    cp "#{lib}/vamp/vamp-example-plugins.so", testpath/"vamp-example-plugins.#{OS.mac? ? "dylib" : "so"}"
     ENV["VAMP_PATH"]=testpath
     assert_match /amplitudefollower/, shell_output("#{bin}/vamp-simple-host -l")
   end
