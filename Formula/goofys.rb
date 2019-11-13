@@ -1,3 +1,4 @@
+# goofys: Build a bottle for Linux
 require "language/go"
 
 class Goofys < Formula
