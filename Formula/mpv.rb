@@ -27,6 +27,8 @@ class Mpv < Formula
   depends_on "vapoursynth"
   depends_on "youtube-dl"
 
+  uses_from_macos "python@2"
+
   def install
     # LANG is unset by default on macOS and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
