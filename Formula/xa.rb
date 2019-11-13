@@ -1,3 +1,4 @@
+# xa: Build a bottle for Linux
 class Xa < Formula
   desc "6502 cross assembler"
   homepage "https://www.floodgap.com/retrotech/xa/"
