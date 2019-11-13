@@ -1,3 +1,4 @@
+# ngt: Build a bottle for Linux
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
