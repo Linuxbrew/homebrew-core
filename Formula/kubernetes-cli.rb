@@ -1,3 +1,4 @@
+# kubernetes-cli: Build a bottle for Linux
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
