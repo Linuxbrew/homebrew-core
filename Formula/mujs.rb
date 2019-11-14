@@ -6,6 +6,7 @@ class Mujs < Formula
       :tag      => "1.0.6",
       :revision => "14dc9355bd71818cf01c1c690c1c91a0978ea9b8"
   head "https://github.com/ccxvii/mujs.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,6 @@ class Mujs < Formula
     sha256 "f72a17230b0e05824d76d355ea9d6950411194955af3322a908146601516baa9" => :mojave
     sha256 "82a44b3406b0bdbf9f0aaa895c7dc6b1a0f2b31c423317c148b7da5c3c973ff8" => :high_sierra
     sha256 "de680f18725e4e787cdd6a22d0a7e2ba2e2fc818171726b50068075624e8eb8e" => :sierra
-    sha256 "92554563fcc0c3f3506a2eb54a55ec9eddf2c9f3d1401e207d219cf73d03af0e" => :x86_64_linux
   end
 
   uses_from_macos "readline"
@@ -21,6 +21,7 @@ class Mujs < Formula
   def install
     system "make", "release"
     system "make", "prefix=#{prefix}", "install"
+    system "make", "prefix=#{prefix}", "install-shared" unless OS.mac?
   end
 
   test do
