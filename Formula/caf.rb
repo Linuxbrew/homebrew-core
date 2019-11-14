@@ -1,3 +1,4 @@
+# caf: Build a bottle for Linux
 class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
