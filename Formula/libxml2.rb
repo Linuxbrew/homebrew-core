@@ -1,3 +1,4 @@
+# libxml2: Build a bottle for Linux
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
