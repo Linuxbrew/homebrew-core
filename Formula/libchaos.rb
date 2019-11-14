@@ -13,6 +13,10 @@ class Libchaos < Formula
   end
 
   depends_on "cmake" => :build
+  unless OS.mac?
+    fails_with :gcc => "5"
+    depends_on "gcc@6" => :build
+  end
 
   def install
     mkdir "build" do
