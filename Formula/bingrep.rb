@@ -1,3 +1,4 @@
+# bingrep: Build a bottle for Linux
 class Bingrep < Formula
   desc "Greps through binaries from various OSs and architectures"
   homepage "https://github.com/m4b/bingrep"
