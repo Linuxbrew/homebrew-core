@@ -1,3 +1,4 @@
+# buildkit: Build a bottle for Linux
 class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
