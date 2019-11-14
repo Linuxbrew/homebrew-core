@@ -1,3 +1,4 @@
+# itk: Build a bottle for Linux
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://www.itk.org/"
