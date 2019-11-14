@@ -5,7 +5,6 @@ class MariadbConnectorOdbc < Formula
   sha256 "c5a96fa166c8e7c93ceb86eeef2b4f726e076329f7686e36f7044e7b23b44ea9"
 
   bottle do
-    cellar :any
     sha256 "d5345b3a38f7fc8d7828981e498615a2d57a9901d281c1df118c3884e85108de" => :catalina
     sha256 "b960e6ea642b098ef7cbe7b834d132ac8a5710cc81e8caa2b7223ce3436cabe2" => :mojave
     sha256 "b07194158ff198b5386768679975367af20a32b01ad87c90302e1c959eb4d374" => :high_sierra
@@ -19,7 +18,7 @@ class MariadbConnectorOdbc < Formula
   def install
     ENV.append_to_cflags "-I#{Formula["mariadb-connector-c"].opt_include}/mariadb"
     ENV.append "LDFLAGS", "-L#{Formula["mariadb-connector-c"].opt_lib}/mariadb"
-    system "cmake", ".", "-DMARIADB_LINK_DYNAMIC=1",
+    system "cmake", ".", (OS.mac? ? "-DMARIADB_LINK_DYNAMIC=1" : "-DMARIADB_FOUND=1"),
                          "-DWITH_SSL=OPENSSL",
                          "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                          "-DWITH_IODBC=0",
@@ -33,7 +32,8 @@ class MariadbConnectorOdbc < Formula
   end
 
   test do
-    output = shell_output("#{Formula["unixodbc"].opt_bin}/dltest #{lib}/libmaodbc.dylib")
-    assert_equal "SUCCESS: Loaded #{lib}/libmaodbc.dylib", output.chomp
+    ext = OS.mac? ? "dylib" : "so"
+    output = shell_output("#{Formula["unixodbc"].opt_bin}/dltest #{lib}/libmaodbc.#{ext}")
+    assert_equal "SUCCESS: Loaded #{lib}/libmaodbc.#{ext}", output.chomp
   end
 end
