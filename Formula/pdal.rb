@@ -1,3 +1,4 @@
+# pdal: Build a bottle for Linux
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
