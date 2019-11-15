@@ -18,6 +18,12 @@ class Libming < Formula
   depends_on "freetype"
   depends_on "giflib"
   depends_on "libpng"
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
+  uses_from_macos "perl"
+  uses_from_macos "python@2"
 
   def install
     system "autoreconf", "-fiv"
