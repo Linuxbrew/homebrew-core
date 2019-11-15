@@ -1,3 +1,4 @@
+# bro: Build a bottle for Linux
 class Bro < Formula
   desc "Network security monitor"
   homepage "https://www.bro.org"
