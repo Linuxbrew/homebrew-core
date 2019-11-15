@@ -38,7 +38,7 @@ class Deno < Formula
     # env args for building a release build with our clang, ninja and gn
     ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
-    args = %W[
+    args = %w[
       clang_use_chrome_plugins=false
       treat_warnings_as_errors=false
     ]
