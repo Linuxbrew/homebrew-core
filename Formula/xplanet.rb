@@ -35,7 +35,7 @@ class Xplanet < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-aqua",
+                          ("--with-aqua" if OS.mac?),
                           "--without-cspice",
                           "--without-cygwin",
                           "--with-gif",
