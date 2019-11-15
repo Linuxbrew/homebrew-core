@@ -1,3 +1,4 @@
+# leptonica: Build a bottle for Linux
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
