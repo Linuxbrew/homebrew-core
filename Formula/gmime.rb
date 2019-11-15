@@ -1,3 +1,4 @@
+# gmime: Build a bottle for Linux
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
