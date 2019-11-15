@@ -1,3 +1,4 @@
+# libxslt: Build a bottle for Linux
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
