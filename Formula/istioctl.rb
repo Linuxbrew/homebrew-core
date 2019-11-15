@@ -1,3 +1,4 @@
+# istioctl: Build a bottle for Linux
 class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
