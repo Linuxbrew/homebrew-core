@@ -1,3 +1,4 @@
+# console_bridge: Build a bottle for Linux
 class ConsoleBridge < Formula
   desc "Robot Operating System-independent package for logging"
   homepage "https://wiki.ros.org/console_bridge/"
