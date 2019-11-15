@@ -13,12 +13,17 @@ class Cups < Formula
   keg_only :provided_by_macos
 
   uses_from_macos "zlib"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "avahi"
+  end
 
   def install
     system "./configure", "--disable-debug",
                           "--with-components=core",
                           "--without-bundledir",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          ("--enable-avahi" unless OS.mac?)
     system "make", "install"
   end
 
