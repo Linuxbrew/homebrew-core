@@ -1,3 +1,4 @@
+# fontforge: Build a bottle for Linux
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
