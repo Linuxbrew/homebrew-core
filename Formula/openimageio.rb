@@ -44,18 +44,19 @@ class Openimageio < Formula
     ]
 
     # CMake picks up the system's python dylib, even if we have a brewed one.
+    ext = OS.mac? ? "dylib" : "so"
     py3ver = Language::Python.major_minor_version "python3"
-    py3prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    py3prefix = OS.mac? ? Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3ver}" : Formula["python3"].opt_prefix
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
 
     args << "-DPYTHON_EXECUTABLE=#{py3prefix}/bin/python3"
-    args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/libpython#{py3ver}.dylib"
+    args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/libpython#{py3ver}#{OS.mac? ? "" : "m"}.#{ext}"
     args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}m"
 
     # CMake picks up boost-python instead of boost-python3
     args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
-    args << "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python3"].opt_lib}/libboost_python#{py3ver.to_s.delete(".")}-mt.dylib"
+    args << "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python3"].opt_lib}/libboost_python#{py3ver.to_s.delete(".")}-mt.#{ext}"
 
     # This is strange, but must be set to make the hack above work
     args << "-DBoost_PYTHON_LIBRARY_DEBUG=''"
