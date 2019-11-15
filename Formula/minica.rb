@@ -1,3 +1,4 @@
+# minica: Build a bottle for Linux
 class Minica < Formula
   desc "Small, simple certificate authority"
   homepage "https://github.com/jsha/minica"
