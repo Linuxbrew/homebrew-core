@@ -5,6 +5,7 @@ class Iotop < Formula
   sha256 "3adea2a24eda49bbbaeb4e6ed2042355b441dbd7161e883067a02bfc8dcef75b"
   revision 1
   head "git://repo.or.cz/iotop.git"
+  # tag "linuxbrew"
 
   bottle do
     cellar :any_skip_relocation
