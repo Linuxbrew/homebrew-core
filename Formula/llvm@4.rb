@@ -1,3 +1,4 @@
+# llvm@4: Build a bottle for Linux
 require "os/linux/glibc"
 
 class LlvmAT4 < Formula
