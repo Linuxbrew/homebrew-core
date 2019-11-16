@@ -1,3 +1,4 @@
+# ampl-mp: Build a bottle for Linux
 class AmplMp < Formula
   desc "The AMPL modeling language solver library"
   homepage "https://www.ampl.com/"
