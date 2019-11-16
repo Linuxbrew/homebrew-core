@@ -1,3 +1,4 @@
+# helm: Build a bottle for Linux
 class Helm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
