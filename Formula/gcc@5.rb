@@ -119,7 +119,7 @@ class GccAT5 < Formula
     unless OS.mac?
       args += [
         "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
-        "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues",
+        "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues",
         # Fix cc1: error while loading shared libraries: libisl.so.15
         "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}",
       ]

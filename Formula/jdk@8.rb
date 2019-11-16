@@ -1,7 +1,7 @@
 class JdkAT8 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)"
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
-  # tag "linuxbrew"
+  # tag "linux"
 
   version "1.8.0-181"
   if OS.mac?

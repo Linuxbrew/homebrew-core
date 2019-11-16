@@ -3,7 +3,7 @@ class AlsaLib < Formula
   homepage "http://www.alsa-project.org/"
   url "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.2.tar.bz2"
   sha256 "d38dacd9892b06b8bff04923c380b38fb2e379ee5538935ff37e45b395d861d6"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "1adadace25e90c1dd8ae1253477868e85ba6f11668ed1c4624dcbc91f18ac499" => :x86_64_linux # glibc 2.19

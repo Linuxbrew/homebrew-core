@@ -3,7 +3,7 @@ class Onedrive < Formula
   homepage "https://github.com/abraunegg/onedrive"
   url "https://github.com/abraunegg/onedrive/archive/v2.3.8.tar.gz"
   sha256 "4268f54835592ef8d2d42bd086877bb403da3dbdda485175893bf73b3a561028"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,7 +3,7 @@ class Libtirpc < Formula
   homepage "https://sourceforge.net/projects/libtirpc/"
   url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.1.4/libtirpc-1.1.4.tar.bz2"
   sha256 "2ca529f02292e10c158562295a1ffd95d2ce8af97820e3534fe1b0e3aec7561d"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

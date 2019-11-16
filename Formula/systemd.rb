@@ -5,7 +5,7 @@ class Systemd < Formula
   sha256 "da3e69d10aa1c983d33833372ad4929037b411ac421fb085c8cee79ae1d80b6a"
   revision 3
   head "https://github.com/systemd/systemd.git"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "25ef6f91c22aee4651c7d74d67f5ed298b77744605508e0361311fc56337034a" => :x86_64_linux

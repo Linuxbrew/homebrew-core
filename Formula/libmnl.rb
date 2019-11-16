@@ -4,7 +4,7 @@ class Libmnl < Formula
   url "git://git.netfilter.org/libmnl",
     :tag      => "libmnl-1.0.4",
     :revision => "0930a63252958f40bb0f9d09de86985c25cea039"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

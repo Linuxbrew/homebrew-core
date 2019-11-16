@@ -4,7 +4,7 @@ class AtSpi2Atk < Formula
   url "https://download.gnome.org/sources/at-spi2-atk/2.32/at-spi2-atk-2.32.0.tar.xz"
   sha256 "0b51e6d339fa2bcca3a3e3159ccea574c67b107f1ac8b00047fa60e34ce7a45c"
   revision 1
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

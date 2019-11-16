@@ -106,7 +106,7 @@ class GccAT49 < Formula
         "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
       ]
     else
-      args << "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues"
+      args << "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues"
 
       # Change the default directory name for 64-bit libraries to `lib`
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html

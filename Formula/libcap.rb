@@ -3,7 +3,7 @@ class Libcap < Formula
   homepage "https://sites.google.com/site/fullycapable/"
   url "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.25.tar.xz"
   sha256 "693c8ac51e983ee678205571ef272439d83afe62dd8e424ea14ad9790bc35162"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

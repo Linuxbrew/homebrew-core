@@ -76,7 +76,7 @@ class GccAT7 < Formula
       ]
     else
       args += [
-        "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues",
+        "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues",
         # Fix Linux error: gnu/stubs-32.h: No such file or directory.
         "--disable-multilib",
       ]

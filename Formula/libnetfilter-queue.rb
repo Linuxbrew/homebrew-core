@@ -4,7 +4,7 @@ class LibnetfilterQueue < Formula
   url "git://git.netfilter.org/libnetfilter_queue",
     :tag      => "libnetfilter_queue-1.0.3",
     :revision => "601abd1c71ccdf90753cf294c120ad43fb25dc54"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

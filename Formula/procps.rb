@@ -4,7 +4,7 @@ class Procps < Formula
   url "https://gitlab.com/procps-ng/procps/repository/archive.tar.gz?ref=v3.3.12"
   sha256 "b1036c109f271c7c50325b11a748236f8e58aa1dbafefb30c995ff1d05b4a1a8"
   head "https://gitlab.com/procps-ng/procps.git"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "28754c074aebd72e441dc845370e20c9305321653654c412b89e5086ddc63120" => :x86_64_linux # glibc 2.19

@@ -37,7 +37,7 @@ class Nettle < Formula
     system "make", "install"
     system "make", "check"
 
-    # Move lib64/* to lib/ on Linuxbrew
+    # Move lib64/* to lib/ on Linux
     lib64 = Pathname.new "#{lib}64"
     if lib64.directory?
       mkdir_p lib

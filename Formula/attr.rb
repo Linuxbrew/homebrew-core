@@ -3,7 +3,7 @@ class Attr < Formula
   homepage "https://savannah.nongnu.org/projects/attr"
   url "http://mirror.csclub.uwaterloo.ca/nongnu/attr/attr-2.4.47.src.tar.gz"
   sha256 "25772f653ac5b2e3ceeb89df50e4688891e21f723c460636548971652af0a859"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "adf64e505f9639762be936223ff0b625598191a197ac69818f658c27ddc32558" => :x86_64_linux # glibc 2.19

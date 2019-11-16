@@ -4,7 +4,7 @@ class AtSpi2Core < Formula
   url "https://download.gnome.org/sources/at-spi2-core/2.32/at-spi2-core-2.32.0.tar.xz"
   sha256 "43a435d213f8d4b55e8ac83a46ae976948dc511bb4a515b69637cb36cf0e7220"
   revision 2
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "9044727242675687023cab0ef43808773c8bc00af7f3fe555eb980572fb0f35c" => :x86_64_linux

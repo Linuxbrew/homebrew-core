@@ -78,7 +78,7 @@ class GccAT6 < Formula
       args << "--with-dwarf2" if MacOS.version <= :mountain_lion
     else
       args += [
-        "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues",
+        "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues",
       ]
 
       # Change the default directory name for 64-bit libraries to `lib`

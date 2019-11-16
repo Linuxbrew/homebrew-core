@@ -4,7 +4,7 @@ class Libfuse < Formula
   url "https://github.com/libfuse/libfuse/releases/download/fuse-2.9.8/fuse-2.9.8.tar.gz"
   sha256 "5e84f81d8dd527ea74f39b6bc001c874c02bad6871d7a9b0c14efb57430eafe3"
   head "https://github.com/libfuse/libfuse.git"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "1c29503e1008d72d58bc2d6efc4ac38500116b3f5794f4aaf16b81afb25827d9" => :x86_64_linux # glibc 2.19

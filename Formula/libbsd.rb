@@ -3,7 +3,7 @@ class Libbsd < Formula
   homepage "https://libbsd.freedesktop.org/"
   url "https://libbsd.freedesktop.org/releases/libbsd-0.10.0.tar.xz"
   sha256 "34b8adc726883d0e85b3118fa13605e179a62b31ba51f676136ecb2d0bc1a887"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

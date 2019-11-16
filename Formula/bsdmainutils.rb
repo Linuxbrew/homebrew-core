@@ -5,7 +5,7 @@ class Bsdmainutils < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/debian/pool/main/b/bsdmainutils/bsdmainutils_9.0.12+nmu1.tar.gz"
   version "9.0.12+nmu1"
   sha256 "46ae19dcd28b2879379d70d149ea4fbe79b29d6c48e9ba4b576c5b38252043e8"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "f8682d65558e06d54bb1a1853e8000aa9506c6845d8caa1754179dbac0486386" => :x86_64_linux # glibc 2.19

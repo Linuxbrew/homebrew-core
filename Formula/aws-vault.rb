@@ -3,7 +3,7 @@ class AwsVault < Formula
   homepage "https://github.com/99designs/aws-vault"
   url "https://github.com/99designs/aws-vault/archive/v4.7.1.tar.gz"
   sha256 "a63163f2d1d344da19621c0b1d15dd2ed952abd2a7aa5e8f88f000ad71e6630a"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

@@ -100,7 +100,7 @@ class Gcc < Formula
     else
       args += [
         "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
-        "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues",
+        "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues",
       ]
 
       # Change the default directory name for 64-bit libraries to `lib`

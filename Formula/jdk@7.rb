@@ -1,7 +1,7 @@
 class JdkAT7 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)"
   homepage "https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"
-  # tag "linuxbrew"
+  # tag "linux"
 
   version "1.7.0-80"
   if OS.linux?

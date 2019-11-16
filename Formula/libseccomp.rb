@@ -3,7 +3,7 @@ class Libseccomp < Formula
   homepage "https://github.com/seccomp/libseccomp"
   url "https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz"
   sha256 "1ca3735249af66a1b2f762fe6e710fcc294ad7185f1cc961e5bd83f9988006e8"
-  # tag "linuxbrew"
+  # tag "linux"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

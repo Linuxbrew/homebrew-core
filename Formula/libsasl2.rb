@@ -3,7 +3,7 @@ class Libsasl2 < Formula
   homepage "https://www.cyrusimap.org/sasl/"
   url "ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
   sha256 "8fbc5136512b59bb793657f36fadda6359cae3b08f01fd16b3d406f1345b7bc3"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "96ce5c62f95a57f3371c7cd30f8c35a80407cbb13fa54fa7b155ea0378259d58" => :x86_64_linux

@@ -9,7 +9,7 @@ class BrewedGlibcNotOlderRequirement < Requirement
 
   def message
     <<~EOS
-      Your system's glibc version is #{OS::Linux::Glibc.system_version}, and Linuxbrew's glibc version is #{Glibc.version}.
+      Your system's glibc version is #{OS::Linux::Glibc.system_version}, and Homebrew's glibc version is #{Glibc.version}.
       Installing a version of glibc that is older than your system's can break formulae installed from source.
     EOS
   end
@@ -59,7 +59,7 @@ class Glibc < Formula
   homepage "https://www.gnu.org/software/libc/"
   url "https://ftp.gnu.org/gnu/glibc/glibc-2.23.tar.gz"
   sha256 "2bd08abb24811cda62e17e61e9972f091f02a697df550e2e44ddcfb2255269d2"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "654794e9e18c2401f1101a3fcf0a85eda448b4b969e9a99782a3f4f4659feda4" => :x86_64_linux

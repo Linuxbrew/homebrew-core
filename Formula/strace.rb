@@ -3,7 +3,7 @@ class Strace < Formula
   homepage "https://strace.io/"
   url "https://github.com/strace/strace/releases/download/v5.2/strace-5.2.tar.xz"
   sha256 "d513bc085609a9afd64faf2ce71deb95b96faf46cd7bc86048bc655e4e4c24d2"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

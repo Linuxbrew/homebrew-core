@@ -4,7 +4,7 @@ class Libnsl < Formula
   url "https://github.com/thkukuk/libnsl/archive/v1.2.0.tar.gz"
   sha256 "a5a28ef17c4ca23a005a729257c959620b09f8c7f99d0edbfe2eb6b06bafd3f8"
   revision 1
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

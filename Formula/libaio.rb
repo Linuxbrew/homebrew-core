@@ -3,7 +3,7 @@ class Libaio < Formula
   homepage "https://pagure.io/libaio"
   url "https://pagure.io/libaio/archive/libaio-0.3.111/libaio-libaio-0.3.111.tar.gz"
   sha256 "e6bc17cba66e59085e670fea238ad095766b412561f90b354eb4012d851730ba"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

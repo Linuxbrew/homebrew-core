@@ -4,7 +4,7 @@ class Libprelude < Formula
   url "https://www.prelude-siem.org/attachments/download/721/libprelude-3.1.0.tar.gz"
   sha256 "b8fbaaa1f2536bd54a7f69fe905ac84d936435962c8fc9de67b2f2b375c7ac96"
   revision 3
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "3062c5bc227c0febbc753b1fc33b11ee17e03de9a887d066044d2878952c43ea" => :x86_64_linux

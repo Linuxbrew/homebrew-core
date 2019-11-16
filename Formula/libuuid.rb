@@ -1,7 +1,7 @@
 class Libuuid < Formula
   desc "Portable UUID C library"
   homepage "https://sourceforge.net/projects/libuuid/"
-  # tag "linuxbrew"
+  # tag "linux"
 
   url "https://downloads.sourceforge.net/project/libuuid/libuuid-1.0.3.tar.gz"
   sha256 "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"

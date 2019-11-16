@@ -5,7 +5,7 @@ class DeviceMapper < Formula
     :tag      => "v2_02_186",
     :revision => "4e5761487efcb33a47f8913f5302e36307604832"
   version "2.02.186"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

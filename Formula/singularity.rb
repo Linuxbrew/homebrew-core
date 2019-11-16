@@ -3,7 +3,7 @@ class Singularity < Formula
   homepage "https://www.sylabs.io/singularity/"
   url "https://github.com/sylabs/singularity/releases/download/v3.3.0/singularity-3.3.0.tar.gz"
   sha256 "070530a472e7e78492f1f142c8d4b77c64de4626c4973b0589f0d18e1fcf5b4f"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

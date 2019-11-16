@@ -3,7 +3,7 @@ class SgmlCommon < Formula
   homepage "https://www.iso.org/cate/d16387.html"
   url "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
   sha256 "7dc418c1d361123ffc5e45d61f1b97257940a8eb35d0bfbbc493381cc5b1f959"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation

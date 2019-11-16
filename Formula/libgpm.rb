@@ -4,7 +4,7 @@ class Libgpm < Formula
   url "https://www.nico.schottelius.org/software/gpm/archives/gpm-1.20.7.tar.bz2"
   sha256 "f011b7dc7afb824e0a017b89b7300514e772853ece7fc4ee640310889411a48d"
   head "https://github.com/telmich/gpm.git"
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     cellar :any

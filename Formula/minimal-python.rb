@@ -4,7 +4,7 @@ class MinimalPython < Formula
   url "https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz"
   sha256 "f09d83c773b9cc72421abba2c317e4e6e05d919f9bcf34468e192b6a6c8e328d"
   revision 1
-  # tag "linuxbrew"
+  # tag "linux"
 
   bottle do
     sha256 "f0fb1887b88e5aa46ed6171a2501b0b9a5a16ac13a532b858b8f27c4e60114a8" => :x86_64_linux
