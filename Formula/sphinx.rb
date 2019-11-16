@@ -1,3 +1,4 @@
+# sphinx: Build a bottle for Linux
 class Sphinx < Formula
   desc "Full-text search engine"
   homepage "https://sphinxsearch.com/"
