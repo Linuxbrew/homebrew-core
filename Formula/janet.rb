@@ -1,3 +1,4 @@
+# janet: Build a bottle for Linux
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
