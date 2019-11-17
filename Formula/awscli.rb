@@ -1,3 +1,4 @@
+# awscli: Build a bottle for Linux
 class Awscli < Formula
   include Language::Python::Virtualenv
 
