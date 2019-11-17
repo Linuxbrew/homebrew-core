@@ -14,6 +14,8 @@ class Joplin < Formula
   end
 
   depends_on "node"
+  uses_from_macos "python@2"
+  depends_on "vips" unless OS.mac?
 
   def install
     # patch to support node 13, remove during next compatible upgrade
