@@ -1,3 +1,4 @@
+# trader: Build a bottle for Linux
 class Trader < Formula
   desc "Star Traders"
   homepage "https://www.zap.org.au/projects/trader/"
