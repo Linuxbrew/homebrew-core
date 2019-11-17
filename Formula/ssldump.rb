@@ -18,21 +18,23 @@ class Ssldump < Formula
   # reorder include files
   # https://sourceforge.net/p/ssldump/bugs/40/
   # increase pcap sample size from an arbitrary 5000 the max TLS packet size 18432
+  # pcap-bpf.h instead of net/bpf.h
   patch :DATA
 
   def install
     ENV["LIBS"] = "-lssl -lcrypto"
+    ENV.prepend "CFLAGS", "-DLINUX=1" unless OS.mac?
 
-    # .dylib, not .a
+    # .dylib (.so), not .a
     inreplace "configure", "if test -f $dir/libpcap.a; then",
-                           "if test -f $dir/libpcap.dylib; then"
+                           "if test -f $dir/libpcap.#{OS.mac? ? "dylib" : "so"}; then"
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-pcap=#{Formula["libpcap"].opt_prefix}",
-                          "osx"
+                          ("osx" if OS.mac?)
     system "make"
     # force install as make got confused by install target and INSTALL file.
     system "make", "install", "-B"
@@ -51,10 +53,10 @@ __END__
  static char *RCSSTRING="$Id: pcap-snoop.c,v 1.14 2002/09/09 21:02:58 ekr Exp $";
 
 -
-+#include <net/bpf.h>
  #include <pcap.h>
  #include <unistd.h>
 -#include <net/bpf.h>
++#include <pcap-bpf.h>
  #ifndef _WIN32
  #include <sys/param.h>
  #endif
