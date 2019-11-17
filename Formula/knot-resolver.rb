@@ -21,6 +21,7 @@ class KnotResolver < Formula
   depends_on "lmdb"
   depends_on "luajit"
   depends_on "nettle"
+  depends_on "bsdmainutils" => :build unless OS.mac?
 
   def install
     # Since we don't run `make install` or `make etc-install`, we need to
