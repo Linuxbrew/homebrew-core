@@ -36,6 +36,7 @@ class Libcapn < Formula
       (buildpath/"src/third_party/jansson").install resource("jansson")
     end
     system "cmake", ".", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                        ("-DCAPN_INSTALL_PATH_SYSCONFIG=#{etc}" unless OS.mac?),
                          *std_cmake_args
     system "make", "install"
     pkgshare.install "examples"
