@@ -22,6 +22,7 @@ class Solarus < Formula
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_ttf"
+  depends_on "glm" unless OS.mac?
 
   def install
     mkdir "build" do
