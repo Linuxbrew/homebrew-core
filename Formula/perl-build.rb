@@ -1,3 +1,4 @@
+# perl-build: Build a bottle for Linux
 class PerlBuild < Formula
   desc "Perl builder"
   homepage "https://github.com/tokuhirom/Perl-Build"
