@@ -15,6 +15,14 @@ class Sysdig < Formula
   depends_on "jsoncpp"
   depends_on "luajit"
   depends_on "tbb"
+  unless OS.mac?
+    depends_on "c-ares"
+    depends_on "curl"
+    depends_on "elfutils"
+    depends_on "grpc"
+    depends_on "jq"
+    depends_on "protobuf"
+  end
 
   # More info on https://gist.github.com/juniorz/9986999
   resource "sample_file" do
@@ -26,6 +34,8 @@ class Sysdig < Formula
     mkdir "build" do
       system "cmake", "..", "-DSYSDIG_VERSION=#{version}",
                             "-DUSE_BUNDLED_DEPS=OFF",
+                            ("-DUSE_BUNDLED_B64=ON" unless OS.mac?),
+                            ("-DBUILD_DRIVER=OFF" unless OS.mac?),
                             *std_cmake_args
       system "make"
       system "make", "install"
