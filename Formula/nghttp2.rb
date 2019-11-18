@@ -1,3 +1,4 @@
+# nghttp2: Build a bottle for Linux
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
