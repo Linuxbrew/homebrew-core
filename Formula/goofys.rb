@@ -1,3 +1,4 @@
+# goofys: Build a bottle for Linux
 class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
