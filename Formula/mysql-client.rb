@@ -1,3 +1,4 @@
+# mysql-client: Build a bottle for Linux
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
