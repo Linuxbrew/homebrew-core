@@ -20,6 +20,7 @@ class ThriftAT09 < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "openssl@1.1"
+  depends_on "flex" => :build unless OS.mac?
 
   # Fix CRYPTO_num_locks compile error
   patch do
