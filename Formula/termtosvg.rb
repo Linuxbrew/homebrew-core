@@ -1,3 +1,4 @@
+# termtosvg: Build a bottle for Linux
 class Termtosvg < Formula
   include Language::Python::Virtualenv
 
