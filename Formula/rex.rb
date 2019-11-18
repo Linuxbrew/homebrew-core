@@ -227,7 +227,11 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
+      if OS.mac?
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
+      else
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      end
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else
