@@ -1,3 +1,4 @@
+# node_exporter: Build a bottle for Linux
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
