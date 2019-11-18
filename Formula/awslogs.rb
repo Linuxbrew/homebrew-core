@@ -6,6 +6,7 @@ class Awslogs < Formula
   url "https://github.com/jorgebastida/awslogs/archive/0.11.0.tar.gz"
   sha256 "6258a121629cb872ee61fe78bf112753c8782c971524f0943a0e21f74d5e28bd"
   head "https://github.com/jorgebastida/awslogs.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +14,11 @@ class Awslogs < Formula
     sha256 "a2cb26fb8da13bd1198f918e69c412f06fc1a98a97622b4daac09ff49b11bad6" => :mojave
     sha256 "e85c038b6472ea984b2dc6ed56f2b06274abb6848a4077bf269f20d79424e90b" => :high_sierra
     sha256 "7abb54b867eaa110ef231718f22452cd663188037176de08ada4519835420282" => :sierra
-    sha256 "82fa30eb9060d06642bdd41f11a0aa4f74af879ea30a742726aae487f39274bc" => :x86_64_linux
   end
 
   unless OS.mac?
+    depends_on "openssl@1.1"
     depends_on "zlib"
-    depends_on "openssl"
   end
 
   depends_on "python"
