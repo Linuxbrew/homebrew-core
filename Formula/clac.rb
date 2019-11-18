@@ -1,3 +1,4 @@
+# clac: Build a bottle for Linux
 class Clac < Formula
   desc "Command-line, stack-based calculator with postfix notation"
   homepage "https://github.com/soveran/clac"
