@@ -1,3 +1,4 @@
+# travis: Build a bottle for Linux
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
