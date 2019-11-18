@@ -17,15 +17,8 @@ class ErlangAT20 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  if OS.mac?
-    depends_on "openssl@1.1"
-  else
-    # Since Homebrew/homebrew-core#41037, erlang uses openssl@1.1.
-    # We can not have a mix of openssl and openssl@1.1 in the dependency tree on Linux.
-    depends_on "openssl"
-  end
+  depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
-
   depends_on "m4" => :build unless OS.mac?
 
   resource "man" do
@@ -63,7 +56,7 @@ class ErlangAT20 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{OS.mac? ? Formula["openssl@1.1"].opt_prefix : Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
     ]
 
