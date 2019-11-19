@@ -1,3 +1,4 @@
+# firebase-cli: Build a bottle for Linux
 require "language/node"
 
 class FirebaseCli < Formula
