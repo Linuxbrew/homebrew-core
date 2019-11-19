@@ -1,3 +1,4 @@
+# git-revise: Build a bottle for Linux
 class GitRevise < Formula
   include Language::Python::Virtualenv
 
