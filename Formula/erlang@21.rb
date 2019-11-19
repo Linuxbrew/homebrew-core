@@ -4,13 +4,13 @@ class ErlangAT21 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-21.3.8.10.tar.gz"
   sha256 "68c4d1026992e61a9cf2db4db9a970e27c9d8c1b44366873e74b1fa8371ac3ea"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "0a9e26c3ff531bd814fe59447877905e22aa0f825c40c196d106b5a23aa7064d" => :catalina
     sha256 "e493545d294d2ad6ce423322ac10910c4945eb10366b42d3086a60396f50226a" => :mojave
     sha256 "877f7545eac82764c02459c7308204022cb3c951f279832545f65e0f5da70572" => :high_sierra
-    sha256 "c5e5d94ec7df04e0d3dd342084da506021008a63f0ffeed45cab52d56e23982a" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -18,13 +18,7 @@ class ErlangAT21 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  if OS.mac?
-    depends_on "openssl@1.1"
-  else
-    # Since Homebrew/homebrew-core#41037, erlang uses openssl@1.1.
-    # We can not have a mix of openssl and openssl@1.1 in the dependency tree on Linux.
-    depends_on "openssl"
-  end
+  depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
   depends_on "m4" => :build unless OS.mac?
@@ -64,7 +58,7 @@ class ErlangAT21 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{OS.mac? ? Formula["openssl@1.1"].opt_prefix : Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
     ]
 
