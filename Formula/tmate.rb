@@ -1,3 +1,4 @@
+# tmate: Build a bottle for Linux
 class Tmate < Formula
   desc "Instant terminal sharing"
   homepage "https://tmate.io/"
