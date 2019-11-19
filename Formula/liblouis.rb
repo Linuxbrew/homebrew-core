@@ -1,3 +1,4 @@
+# liblouis: Build a bottle for Linux
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "http://liblouis.org"
