@@ -1,3 +1,4 @@
+# libdnet: Build a bottle for Linux
 class Libdnet < Formula
   desc "Portable low-level networking library"
   homepage "https://github.com/dugsong/libdnet"
