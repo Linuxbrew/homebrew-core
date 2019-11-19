@@ -24,6 +24,8 @@ class GstPluginsGood < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "cairo"
   depends_on "flac"
   depends_on "gettext"
@@ -42,13 +44,7 @@ class GstPluginsGood < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --disable-gtk-doc
-      --disable-goom
-      --with-default-videosink=ximagesink
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-x
+      --libdir=#{lib}
     ]
 
     if build.head?
@@ -56,9 +52,11 @@ class GstPluginsGood < Formula
       system "./autogen.sh"
     end
 
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja install"
+    end
   end
 
   test do

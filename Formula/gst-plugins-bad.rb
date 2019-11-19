@@ -21,6 +21,10 @@ class GstPluginsBad < Formula
   depends_on "gobject-introspection" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "linuxbrew/xorg/libdrm" => :build
+  depends_on "openexr" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "faac"
   depends_on "faad2"
   depends_on "gettext"
@@ -37,11 +41,7 @@ class GstPluginsBad < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --disable-yadif
-      --disable-examples
-      --disable-debug
-      --disable-dependency-tracking
-      --enable-introspection=yes
+      --libdir=#{lib}
     ]
 
     if build.head?
@@ -50,9 +50,11 @@ class GstPluginsBad < Formula
       system "./autogen.sh"
     end
 
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja install"
+    end
   end
 
   test do
