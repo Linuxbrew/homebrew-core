@@ -4,6 +4,7 @@ class MongoCDriver < Formula
   url "https://github.com/mongodb/mongo-c-driver/releases/download/1.15.1/mongo-c-driver-1.15.1.tar.gz"
   sha256 "4ee47c146ff0059d15ab547a0c2a87f7113f063e1c625e51f8c5174853b07765"
   head "https://github.com/mongodb/mongo-c-driver.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -11,14 +12,13 @@ class MongoCDriver < Formula
     sha256 "8df25e1bb5101bb1fd920e48ccc0ddf09b92bd89619a55189c9ea1af5b2167da" => :mojave
     sha256 "e290daad2e58ac398b47227c9b3a7484bf2b73341cd9e2bc2991b554822f3218" => :high_sierra
     sha256 "6544daf5b18f3004d7d0a9dfbfe9594dafa37e15b57f55e3d8b99c134f25d9ef" => :sierra
-    sha256 "7b7ad54cba8c9e17ba17de27230a72bcd8e3e23e87175a3f8756f6c1f8cc1042" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   unless OS.mac?
-    depends_on "openssl"
+    depends_on "openssl@1.1"
     depends_on "zlib"
   end
 
