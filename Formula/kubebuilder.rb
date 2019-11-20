@@ -1,3 +1,4 @@
+# kubebuilder: Build a bottle for Linux
 class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
