@@ -1,3 +1,4 @@
+# redis: Build a bottle for Linux
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
