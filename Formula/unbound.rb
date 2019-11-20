@@ -1,3 +1,4 @@
+# unbound: Build a bottle for Linux
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
