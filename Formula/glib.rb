@@ -1,3 +1,4 @@
+# glib: Build a bottle for Linux
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
