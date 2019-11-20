@@ -1,3 +1,4 @@
+# fwup: Build a bottle for Linux
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
