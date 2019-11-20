@@ -1,3 +1,4 @@
+# darksky-weather: Build a bottle for Linux
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
   homepage "https://github.com/genuinetools/weather"
