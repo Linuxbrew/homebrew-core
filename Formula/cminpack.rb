@@ -1,3 +1,4 @@
+# cminpack: Build a bottle for Linux
 class Cminpack < Formula
   desc "Solves nonlinear equations and nonlinear least squares problems"
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
