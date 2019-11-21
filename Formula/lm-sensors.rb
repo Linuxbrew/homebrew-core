@@ -1,13 +1,12 @@
 class LmSensors < Formula
   desc "Tools for monitoring the temperatures, voltages, and fans"
   homepage "https://github.com/groeck/lm-sensors"
-  url "https://github.com/lm-sensors/lm-sensors/archive/V3-5-0.tar.gz"
-  version "3.5.0"
-  sha256 "f671c1d63a4cd8581b3a4a775fd7864a740b15ad046fe92038bcff5c5134d7e0"
+  url "https://github.com/lm-sensors/lm-sensors/archive/V3-6-0.tar.gz"
+  version "3.6.0"
+  sha256 "0591f9fa0339f0d15e75326d0365871c2d4e2ed8aa1ff759b3a55d3734b7d197"
   # tag "linux"
 
   bottle do
-    sha256 "ac30eb43d5fc1691278882d6924bd20b00f1e66df6342601f30dfe926e94f00c" => :x86_64_linux
   end
 
   depends_on "bison" => :build
