@@ -1,3 +1,4 @@
+# yaml-cpp: Build a bottle for Linux
 class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
