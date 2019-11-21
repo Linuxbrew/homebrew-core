@@ -1,3 +1,4 @@
+# procs: Build a bottle for Linux
 class Procs < Formula
   desc "Modern replacement for ps written by Rust"
   homepage "https://github.com/dalance/procs"
