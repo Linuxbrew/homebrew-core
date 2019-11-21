@@ -1,3 +1,4 @@
+# tunnel: Build a bottle for Linux
 class Tunnel < Formula
   desc "Expose local servers to the internet securely"
   homepage "https://tunnel.labstack.com/docs"
