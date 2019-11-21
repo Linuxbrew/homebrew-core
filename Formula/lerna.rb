@@ -1,3 +1,4 @@
+# lerna: Build a bottle for Linux
 require "language/node"
 
 class Lerna < Formula
