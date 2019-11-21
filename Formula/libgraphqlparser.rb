@@ -1,3 +1,4 @@
+# libgraphqlparser: Build a bottle for Linux
 class Libgraphqlparser < Formula
   desc "GraphQL query parser in C++ with C and C++ APIs"
   homepage "https://github.com/graphql/libgraphqlparser"
@@ -13,6 +14,7 @@ class Libgraphqlparser < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@2" => :build unless OS.mac?
 
   def install
     system "cmake", ".", "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
