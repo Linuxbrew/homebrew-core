@@ -1,3 +1,4 @@
+# luajit: Build a bottle for Linux
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
