@@ -1,3 +1,4 @@
+# libusbmuxd: Build a bottle for Linux
 class Libusbmuxd < Formula
   desc "USB multiplexor library for iOS devices"
   homepage "https://www.libimobiledevice.org/"
