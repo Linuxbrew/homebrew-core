@@ -1,3 +1,4 @@
+# libftdi: Build a bottle for Linux
 class Libftdi < Formula
   desc "Library to talk to FTDI chips"
   homepage "https://www.intra2net.com/en/developer/libftdi"
