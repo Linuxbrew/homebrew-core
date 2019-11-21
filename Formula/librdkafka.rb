@@ -1,3 +1,4 @@
+# librdkafka: Build a bottle for Linux
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
