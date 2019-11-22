@@ -1,3 +1,4 @@
+# gcc: Build a bottle for Linux
 require "os/linux/glibc"
 
 class Gcc < Formula
