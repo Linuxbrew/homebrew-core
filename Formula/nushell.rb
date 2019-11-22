@@ -1,3 +1,4 @@
+# nushell: Build a bottle for Linux
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
