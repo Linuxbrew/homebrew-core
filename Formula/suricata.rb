@@ -21,6 +21,7 @@ class Suricata < Formula
   depends_on "nss"
   depends_on "pcre"
   depends_on "python"
+  uses_from_macos "libpcap"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
@@ -62,8 +63,12 @@ class Suricata < Formula
       --with-libmagic-libraries=#{libmagic.opt_lib}
       --with-libnet-includes=#{libnet.opt_include}
       --with-libnet-libraries=#{libnet.opt_lib}
-      --enable-ipfw
     ]
+    args << "--enable-ipfw" if OS.mac?
+    unless OS.mac?
+      args << "--with-libpcap-includes=#{Formula["libpcap"].opt_include}"
+      args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
+    end
 
     system "./configure", *args
     system "make", "install-full"
