@@ -1,3 +1,4 @@
+# virustotal-cli: Build a bottle for Linux
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
