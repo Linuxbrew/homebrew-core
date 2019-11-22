@@ -17,6 +17,7 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "mpfr"
   uses_from_macos "groff"
+  uses_from_macos "python@2"
 
   def install
     ENV.cxx11
