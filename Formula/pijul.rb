@@ -18,6 +18,7 @@ class Pijul < Formula
   depends_on "libsodium"
   depends_on "nettle"
   depends_on "openssl@1.1"
+  depends_on "llvm" unless OS.mac?
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
