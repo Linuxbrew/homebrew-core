@@ -1,3 +1,4 @@
+# dnsviz: Build a bottle for Linux
 class Dnsviz < Formula
   include Language::Python::Virtualenv
 
