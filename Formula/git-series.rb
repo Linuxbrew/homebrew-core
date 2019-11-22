@@ -1,3 +1,4 @@
+# git-series: Build a bottle for Linux
 class GitSeries < Formula
   desc "Track changes to a patch series over time"
   homepage "https://github.com/git-series/git-series"
