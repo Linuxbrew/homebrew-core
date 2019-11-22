@@ -12,8 +12,20 @@ class Grin < Formula
   end
 
   depends_on "rust" => :build
+  unless OS.mac?
+    depends_on "cmake" => :build
+    depends_on "llvm" => :build
+    depends_on "pkg-config" => :build
+  end
+  uses_from_macos "openssl@1.1"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
+    unless OS.mac?
+      ENV["CC"] = "clang"
+      ENV["LDFLAGS"] ="-L/home/linuxbrew/.linuxbrew/opt/llvm/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/opt/llvm/lib"
+    end
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
