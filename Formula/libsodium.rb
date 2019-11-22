@@ -1,3 +1,4 @@
+# libsodium: Build a bottle for Linux
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://libsodium.org/"
