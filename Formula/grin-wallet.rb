@@ -12,6 +12,10 @@ class GrinWallet < Formula
   end
 
   depends_on "rust" => :build
+  unless OS.mac?
+    depends_on "llvm" => :build
+    depends_on "pkg-config" => :build
+  end
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
