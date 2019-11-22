@@ -1,3 +1,4 @@
+# mesa: Build a bottle for Linux
 class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
