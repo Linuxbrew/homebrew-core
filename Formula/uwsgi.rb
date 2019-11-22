@@ -27,15 +27,20 @@ class Uwsgi < Formula
   depends_on "pcre"
   depends_on "python"
   depends_on "yajl"
+  depends_on "linux-pam" unless OS.mac?
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+  uses_from_macos "openldap"
+  uses_from_macos "perl"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
+    if OS.mac? && (MacOS.version == :sierra || MacOS.version == :el_capitan)
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
+    ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}" if OS.mac?
     openssl = Formula["openssl@1.1"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
@@ -53,7 +58,7 @@ class Uwsgi < Formula
 
     system "python3", "uwsgiconfig.py", "--verbose", "--build", "brew"
 
-    plugins = %w[airbrake alarm_curl alarm_speech asyncio cache
+    plugins = %w[airbrake alarm_curl asyncio cache
                  carbon cgi cheaper_backlog2 cheaper_busyness
                  corerouter curl_cron cplusplus dumbloop dummy
                  echo emperor_amqp fastrouter forkptyrouter gevent
@@ -69,6 +74,9 @@ class Uwsgi < Formula
                  transformation_chunked transformation_gzip
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
+    if OS.mac?
+      plugins << "alarm_speech"
+    end
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
