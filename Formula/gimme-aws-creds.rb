@@ -14,6 +14,10 @@ class GimmeAwsCreds < Formula
   end
 
   depends_on "python"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+  end
+  uses_from_macos "libffi"
 
   def install
     venv = virtualenv_create(libexec, "python3")
