@@ -21,10 +21,17 @@ class Ipopt < Formula
     url "http://mumps.enseeiht.fr/MUMPS_5.2.1.tar.gz"
     sha256 "d988fc34dfc8f5eee0533e361052a972aa69cc39ab193e7f987178d24981744a"
 
-    # MUMPS does not provide a Makefile.inc customized for macOS.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b/ipopt/mumps-makefile-inc-generic-seq.patch"
-      sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
+    if OS.mac?
+      # MUMPS does not provide a Makefile.inc customized for macOS.
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b/ipopt/mumps-makefile-inc-generic-seq.patch"
+        sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
+      end
+    else
+      patch do
+        url "https://gist.githubusercontent.com/dawidd6/09f831daf608eb6e07cc80286b483030/raw/b5ab689dea5772e9b6a8b6d88676e8d76224c0cc/mumps-homebrew-linux.patch"
+        sha256 "13125be766a22aec395166bf015973f5e4d82cd3329c87895646f0aefda9e78e"
+      end
     end
   end
 
@@ -33,14 +40,16 @@ class Ipopt < Formula
     ENV.delete("MPICXX")
     ENV.delete("MPIFC")
 
+    dylib = OS.mac? ? "dylib" : "so"
+
     resource("mumps").stage do
       cp "Make.inc/Makefile.inc.generic.SEQ", "Makefile.inc"
-      inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/"
+      inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
 
       ENV.deparallelize { system "make", "d" }
 
       (buildpath/"mumps_include").install Dir["include/*.h", "libseq/mpi.h"]
-      lib.install Dir["lib/*.dylib", "libseq/*.dylib", "PORD/lib/*.dylib"]
+      lib.install Dir["lib/*.#{dylib}", "libseq/*.#{dylib}", "PORD/lib/*.#{dylib}"]
     end
 
     args = [
