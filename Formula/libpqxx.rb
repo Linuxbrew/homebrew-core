@@ -18,6 +18,7 @@ class Libpqxx < Formula
   depends_on "postgresql"
   unless OS.mac?
     depends_on "doxygen" => :build
+    depends_on "python@2" => :build
     depends_on "xmlto" => :build
   end
 
