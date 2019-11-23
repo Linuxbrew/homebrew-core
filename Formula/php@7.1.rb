@@ -3,6 +3,7 @@ class PhpAT71 < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.1.33.tar.xz"
   sha256 "bd7c0a9bd5433289ee01fd440af3715309faf583f75832b64fe169c100d52968"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "8d5fe6ef069cd38913facb42b72b5597aaeb1d7eb05377ba53259e2d5dd1ba2e" => :catalina
@@ -18,11 +19,7 @@ class PhpAT71 < Formula
   depends_on "apr-util"
   depends_on "aspell"
   depends_on "autoconf"
-  if OS.mac?
-    depends_on "curl-openssl"
-  else
-    depends_on "curl"
-  end
+  depends_on "curl-openssl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -136,6 +133,7 @@ class PhpAT71 < Formula
       --enable-wddx
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
+      --with-curl=#{Formula["curl-openssl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
@@ -179,7 +177,6 @@ class PhpAT71 < Formula
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
-      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
     else
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
@@ -190,7 +187,6 @@ class PhpAT71 < Formula
       args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
     end
 
     system "./configure", *args
