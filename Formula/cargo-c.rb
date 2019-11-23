@@ -1,3 +1,4 @@
+# cargo-c: Build a bottle for Linux
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
