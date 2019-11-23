@@ -1,3 +1,4 @@
+# dxpy: Build a bottle for Linux
 class Dxpy < Formula
   include Language::Python::Virtualenv
 
