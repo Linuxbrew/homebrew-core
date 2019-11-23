@@ -1,3 +1,4 @@
+# wal2json: Build a bottle for Linux
 class Wal2json < Formula
   desc "Convert PostgreSQL changesets to JSON format"
   homepage "https://github.com/eulerto/wal2json"
