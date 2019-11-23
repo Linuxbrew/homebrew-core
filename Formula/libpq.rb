@@ -1,3 +1,4 @@
+# libpq: Build a bottle for Linux
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/12/libpq.html"
