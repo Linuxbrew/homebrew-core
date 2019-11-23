@@ -3,12 +3,12 @@ class Php < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.3.12.tar.xz"
   sha256 "aafe5e9861ad828860c6af8c88cdc1488314785962328eb1783607c1fdd855df"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "722d443d96be2a8e13580c27630c39872da1b6d05a03b1df5780c34c45cfd315" => :catalina
     sha256 "622147992d0d1a7e837ac5c2431a5383306ed351ba5ca915f950e841f6ce4956" => :mojave
     sha256 "2963f4e3417d0f92beb93e5d5c87325132ea0828514ecd5ffb041f956b81653f" => :high_sierra
-    sha256 "436624e71d6b33236358aacf778e2766d23c99979e45fb13345815ed1f4ea564" => :x86_64_linux
   end
 
   depends_on "httpd" => [:build, :test]
@@ -18,11 +18,7 @@ class Php < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  if OS.mac?
-    depends_on "curl-openssl"
-  else
-    depends_on "curl"
-  end
+  depends_on "curl-openssl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -132,6 +128,7 @@ class Php < Formula
       --enable-wddx
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
+      --with-curl=#{Formula["curl-openssl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
@@ -176,7 +173,6 @@ class Php < Formula
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
-      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
     else
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
@@ -187,7 +183,6 @@ class Php < Formula
       args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
     end
 
     system "./configure", *args
