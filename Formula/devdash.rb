@@ -1,3 +1,4 @@
+# devdash: Build a bottle for Linux
 class Devdash < Formula
   desc "Highly Configurable Terminal Dashboard for Developers"
   homepage "https://thedevdash.com"
