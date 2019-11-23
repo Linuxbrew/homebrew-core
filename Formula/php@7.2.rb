@@ -3,12 +3,12 @@ class PhpAT72 < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.2.25.tar.xz"
   sha256 "746efeedc38e6ff7b1ec1432440f5fa801537adf6cd21e4afb3f040e5b0760a9"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "a951eaf1cc000be90aa3f8d212898c7374f889711d29812392dbb087d8177664" => :catalina
     sha256 "eed6eb7d281b72d7abc3f42a58d3257101c00633d9e7a057957628165ac1c553" => :mojave
     sha256 "1414b7e45bd689e56dfb1b83294185577b46196121966b14a3981614bd0acc48" => :high_sierra
-    sha256 "a9ed446fac349a182cc6d58d6589821b1223bbe127b0eb18d45ff66def0e3b30" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -20,11 +20,7 @@ class PhpAT72 < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  if OS.mac?
-    depends_on "curl-openssl"
-  else
-    depends_on "curl"
-  end
+  depends_on "curl-openssl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -138,6 +134,7 @@ class PhpAT72 < Formula
       --enable-wddx
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
+      --with-curl=#{Formula["curl-openssl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
@@ -182,7 +179,6 @@ class PhpAT72 < Formula
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
-      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
     else
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
@@ -193,7 +189,6 @@ class PhpAT72 < Formula
       args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
     end
 
     system "./configure", *args
