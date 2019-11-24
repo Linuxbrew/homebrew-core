@@ -1,18 +1,16 @@
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
-  homepage "https://wiki.linuxfoundation.org/accessibility/"
-  url "https://download.gnome.org/sources/at-spi2-core/2.32/at-spi2-core-2.32.0.tar.xz"
-  sha256 "43a435d213f8d4b55e8ac83a46ae976948dc511bb4a515b69637cb36cf0e7220"
-  revision 2
+  homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2"
+  url "https://download.gnome.org/sources/at-spi2-core/2.34/at-spi2-core-2.34.0.tar.xz"
+  sha256 "d629cdbd674e539f8912028512af583990938c7b49e25184c126b00121ef11c6"
   # tag "linux"
 
   bottle do
-    sha256 "9044727242675687023cab0ef43808773c8bc00af7f3fe555eb980572fb0f35c" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
