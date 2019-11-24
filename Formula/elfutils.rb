@@ -1,23 +1,17 @@
 class Elfutils < Formula
   desc "Libraries and utilities for handling ELF objects"
   homepage "https://fedorahosted.org/elfutils/"
-  url "https://sourceware.org/elfutils/ftp/0.168/elfutils-0.168.tar.bz2"
-  sha256 "b88d07893ba1373c7dd69a7855974706d05377766568a7d9002706d5de72c276"
+  url "https://sourceware.org/elfutils/ftp/0.177/elfutils-0.177.tar.bz2"
+  sha256 "fa489deccbcae7d8c920f60d85906124c1989c591196d90e0fd668e3dc05042e"
   # tag "linux"
 
   bottle do
-    sha256 "669e97f7421f27c39bc82ebd0b10d80a9643f5aadf4a029f2ee3accb867431ba" => :x86_64_linux # glibc 2.19
   end
 
-  option "with-valgrind", "Run tests with valgrind"
-
+  depends_on "m4" => :build
+  depends_on "bzip2"
   depends_on "xz"
-  depends_on "valgrind" => [:build, :optional]
-  unless OS.mac?
-    depends_on "m4" => :build
-    depends_on "bzip2"
-    depends_on "zlib"
-  end
+  depends_on "zlib"
 
   conflicts_with "libelf", :because => "both install `libelf.a` library"
 
@@ -32,8 +26,7 @@ class Elfutils < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--program-prefix=elfutils-",
-      "--prefix=#{prefix}",
-      *("--enable-valgrind" if build.with? "valgrind")
+      "--prefix=#{prefix}"
     system "make"
 
     # Some tests in elfutils require that the package
@@ -48,9 +41,17 @@ class Elfutils < Formula
       backtrace-native
       deleted
       disasm-x86
+      dwarf-die-addr-die
+      elfclassify
+      exprlocs-self
+      get-units-invalid
+      get-units-split
       readelf-self
+      strip-g
       strip-reloc
       strip-strmerge
+      unit-info
+      varlocs-self
     ]
     skip_tests.each do |test|
       file = "tests/run-#{test}.sh"
