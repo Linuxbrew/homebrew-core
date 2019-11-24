@@ -1,3 +1,4 @@
+# sn0int: Build a bottle for Linux
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
