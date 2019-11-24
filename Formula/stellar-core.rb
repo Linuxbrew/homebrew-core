@@ -24,6 +24,15 @@ class StellarCore < Formula
   depends_on "libpqxx"
   depends_on "libsodium"
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    # Needs libraries at runtime:
+    # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found
+    depends_on "gcc@6"
+    fails_with :gcc => "5"
+  end
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",
