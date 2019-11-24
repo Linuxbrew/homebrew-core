@@ -1,19 +1,19 @@
 class Procps < Formula
   desc "Utilities for browsing procfs"
   homepage "https://gitlab.com/procps-ng/procps"
-  url "https://gitlab.com/procps-ng/procps/repository/archive.tar.gz?ref=v3.3.12"
-  sha256 "b1036c109f271c7c50325b11a748236f8e58aa1dbafefb30c995ff1d05b4a1a8"
+  url "https://gitlab.com/procps-ng/procps/repository/archive.tar.gz?ref=v3.3.15"
+  sha256 "440af4845fee9f55b721aa456f88259668465ddb37168ea1e2d2ef195f55bbc4"
   head "https://gitlab.com/procps-ng/procps.git"
   # tag "linux"
 
   bottle do
-    sha256 "28754c074aebd72e441dc845370e20c9305321653654c412b89e5086ddc63120" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
+  depends_on "libtool" => :build
   depends_on "ncurses"
 
   def install
