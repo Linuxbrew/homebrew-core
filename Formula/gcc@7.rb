@@ -1,3 +1,4 @@
+# gcc@7: Build a bottle for Linux
 require "os/linux/glibc"
 
 class GccAT7 < Formula
