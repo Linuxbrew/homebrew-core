@@ -1,3 +1,4 @@
+# bit: Build a bottle for Linux
 require "language/node"
 
 class Bit < Formula
