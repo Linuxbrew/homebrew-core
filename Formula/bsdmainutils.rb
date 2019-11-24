@@ -1,14 +1,11 @@
 class Bsdmainutils < Formula
   desc "Collection of utilities from FreeBSD"
   homepage "https://packages.debian.org/sid/bsdmainutils"
-  url "http://ftp.debian.org/debian/pool/main/b/bsdmainutils/bsdmainutils_9.0.12+nmu1.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/debian/pool/main/b/bsdmainutils/bsdmainutils_9.0.12+nmu1.tar.gz"
-  version "9.0.12+nmu1"
-  sha256 "46ae19dcd28b2879379d70d149ea4fbe79b29d6c48e9ba4b576c5b38252043e8"
+  url "http://ftp.debian.org/debian/pool/main/b/bsdmainutils/bsdmainutils_11.1.2.tar.gz"
+  sha256 "101c0dede5f599921533da08a46b53a60936445e54aa5df1b31608f1407fee60"
   # tag "linux"
 
   bottle do
-    sha256 "f8682d65558e06d54bb1a1853e8000aa9506c6845d8caa1754179dbac0486386" => :x86_64_linux # glibc 2.19
   end
 
   unless OS.mac?
