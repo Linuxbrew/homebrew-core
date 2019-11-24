@@ -1,3 +1,4 @@
+# pgbouncer: Build a bottle for Linux
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
