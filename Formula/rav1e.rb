@@ -1,3 +1,4 @@
+# rav1e: Build a bottle for Linux
 class Rav1e < Formula
   desc "The fastest and safest AV1 encoder"
   homepage "https://github.com/xiph/rav1e"
