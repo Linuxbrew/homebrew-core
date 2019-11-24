@@ -1,3 +1,4 @@
+# proftpd: Build a bottle for Linux
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
