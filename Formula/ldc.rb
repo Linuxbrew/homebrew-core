@@ -15,6 +15,9 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "llvm"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+  end
 
   resource "ldc-bootstrap" do
     if OS.mac?
