@@ -9,8 +9,8 @@ class GccAT8 < Formula
   revision OS.mac? ? 1 : 2
 
   # gcc is designed to be portable.
+  # reminder: always add 'cellar :any'
   bottle do
-    cellar :any
     sha256 "6157934cbc4f7d4200ae2e3dd99d4e553f39b202991f7111aff07b68c1954a3d" => :mojave
     sha256 "43c0d8a28d1fb8c4a4f70c7cf1d33039983b8d0177566ea54bcc2bed4ffe6c8c" => :high_sierra
   end
