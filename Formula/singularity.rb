@@ -1,14 +1,12 @@
 class Singularity < Formula
   desc "Application containers for Linux"
   homepage "https://www.sylabs.io/singularity/"
-  url "https://github.com/sylabs/singularity/releases/download/v3.3.0/singularity-3.3.0.tar.gz"
-  sha256 "070530a472e7e78492f1f142c8d4b77c64de4626c4973b0589f0d18e1fcf5b4f"
-  revision 1
+  url "https://github.com/sylabs/singularity/releases/download/v3.5.0/singularity-3.5.0.tar.gz"
+  sha256 "849c699eb3569c1b9e4e0824223ea6c0fea8b0805b33ddd3400b7c795d07809e"
   # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9749352d720adb36d5121fa9631af9a0b39a49e2c4b98875c691d23596c0cf6c" => :x86_64_linux
   end
 
   depends_on "go" => :build
