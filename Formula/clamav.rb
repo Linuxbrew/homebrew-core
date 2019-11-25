@@ -1,3 +1,4 @@
+# clamav: Build a bottle for Linux
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
