@@ -1,3 +1,4 @@
+# stress-ng: Build a bottle for Linux
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://kernel.ubuntu.com/~cking/stress-ng/"
