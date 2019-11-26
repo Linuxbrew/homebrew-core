@@ -1,3 +1,4 @@
+# fauna-shell: Build a bottle for Linux
 require "language/node"
 
 class FaunaShell < Formula
