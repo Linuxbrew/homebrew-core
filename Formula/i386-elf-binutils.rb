@@ -1,3 +1,4 @@
+# i386-elf-binutils: Build a bottle for Linux
 class I386ElfBinutils < Formula
   desc "FSF Binutils for i386-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
