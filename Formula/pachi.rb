@@ -1,3 +1,4 @@
+# pachi: Build a bottle for Linux
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
