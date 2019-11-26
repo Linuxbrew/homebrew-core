@@ -1,3 +1,4 @@
+# arm-linux-gnueabihf-binutils: Build a bottle for Linux
 class ArmLinuxGnueabihfBinutils < Formula
   desc "FSF/GNU binutils for cross-compiling to arm-linux"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
