@@ -1,3 +1,4 @@
+# xapian: Build a bottle for Linux
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
