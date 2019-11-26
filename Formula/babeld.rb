@@ -13,16 +13,21 @@ class Babeld < Formula
   end
 
   def install
-    system "make", "LDLIBS=''"
+    system "make" unless OS.mac?
+    system "make", "LDLIBS=''" if OS.mac?
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
     shell_output("#{bin}/babeld -I #{testpath}/test.pid -L #{testpath}/test.log", 1)
-    expected = <<~EOS
-      Couldn't tweak forwarding knob.: Operation not permitted
-      kernel_setup failed.
-    EOS
-    assert_equal expected, (testpath/"test.log").read
+    if OS.mac?
+      expected = <<~EOS
+        Couldn't tweak forwarding knob.: Operation not permitted
+        kernel_setup failed.
+      EOS
+      assert_equal expected, (testpath/"test.log").read
+    else
+      assert_match "kernel_setup failed", (testpath/"test.log").read
+    end
   end
 end
