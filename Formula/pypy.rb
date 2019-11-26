@@ -24,6 +24,7 @@ class Pypy < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libffi"
+  uses_from_macos "unzip"
   uses_from_macos "zlib"
 
   resource "bootstrap" do
@@ -47,9 +48,11 @@ class Pypy < Formula
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
-    ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
-    ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
+    if OS.mac?
+      ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
+      ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
+      ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
+    end
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
@@ -58,10 +61,15 @@ class Pypy < Formula
 
     # Fix build on High Sierra
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
-              "#{prefix}/opt/tcl-tk/include"
-      s.gsub! "libdirs = []",
-              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
+      if OS.mac?
+        s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
+                "#{prefix}/opt/tcl-tk/include"
+        s.gsub! "libdirs = []",
+                "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
+      else
+        s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
+        s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
+      end
     end
 
     resource("bootstrap").stage buildpath/"bootstrap"
@@ -69,7 +77,7 @@ class Pypy < Formula
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
-             "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
+             "-Ojit", "--shared", "--cc", ENV.cc,
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
     end
 
@@ -130,7 +138,7 @@ class Pypy < Formula
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
         system bin/"pypy", "-s", "setup.py", "--no-user-cfg", "install",
-               "--force", "--verbose"
+               "--force"
       end
     end
 
