@@ -1,3 +1,4 @@
+# alexjs: Build a bottle for Linux
 require "language/node"
 
 class Alexjs < Formula
