@@ -14,6 +14,7 @@ class IncludeWhatYouUse < Formula
   depends_on "llvm" # include-what-you-use 0.13 is compatible with llvm 9.0
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+  depends_on "gcc" => :build unless OS.mac? # libstdc++
 
   def install
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
@@ -44,7 +45,7 @@ class IncludeWhatYouUse < Formula
     cp_r Formula["llvm"].opt_lib/"clang/#{Formula["llvm"].version}/include",
       libexec/"lib/clang/#{Formula["llvm"].version}"
     mkdir_p libexec/"include"
-    cp_r Formula["llvm"].opt_include/"c++", libexec/"include"
+    cp_r Formula[OS.mac? ? "llvm" : "gcc"].opt_include/"c++", libexec/"include"
   end
 
   test do
