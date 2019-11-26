@@ -24,6 +24,7 @@ class Pdns < Formula
   depends_on "lua"
   depends_on "openssl@1.1"
   depends_on "sqlite"
+  depends_on "curl" unless OS.mac?
 
   def install
     # Fix "configure: error: cannot find boost/program_options.hpp"
