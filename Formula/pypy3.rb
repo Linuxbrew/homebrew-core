@@ -25,6 +25,7 @@ class Pypy3 < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libffi"
+  uses_from_macos "unzip"
   uses_from_macos "zlib"
 
   # packaging depends on pyparsing
@@ -62,9 +63,11 @@ class Pypy3 < Formula
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/openssl/lib/pkgconfig:#{prefix}/opt/tcl-tk/lib/pkgconfig"
-    ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
-    ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
+    if OS.mac?
+      ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/openssl/lib/pkgconfig:#{prefix}/opt/tcl-tk/lib/pkgconfig"
+      ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
+      ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
+    end
     # Work around "dyld: Symbol not found: _utimensat"
     if OS.mac? && MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
       ENV.delete("SDKROOT")
@@ -72,10 +75,15 @@ class Pypy3 < Formula
 
     # Fix build on High Sierra
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
-              "#{prefix}/opt/tcl-tk/include"
-      s.gsub! "libdirs = []",
-              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
+      if OS.mac?
+        s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
+                "#{prefix}/opt/tcl-tk/include"
+        s.gsub! "libdirs = []",
+                "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
+      else
+        s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
+        s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
+      end
     end
 
     # This has been completely rewritten upstream in master so check with
@@ -95,7 +103,7 @@ class Pypy3 < Formula
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
-             "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
+             "-Ojit", "--shared", "--cc", ENV.cc,
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
     end
 
@@ -161,7 +169,7 @@ class Pypy3 < Formula
 
     %w[appdirs six packaging setuptools pyparsing pip].each do |pkg|
       resource(pkg).stage do
-        system bin/"pypy3", "-s", "setup.py", "install", "--force", "--verbose"
+        system bin/"pypy3", "-s", "setup.py", "install", "--force"
       end
     end
 
