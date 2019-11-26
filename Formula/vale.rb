@@ -1,3 +1,4 @@
+# vale: Build a bottle for Linux
 class Vale < Formula
   desc "Syntax-aware linter for prose"
   homepage "https://errata-ai.github.io/vale/"
