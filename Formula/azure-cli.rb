@@ -1,3 +1,4 @@
+# azure-cli: Build a bottle for Linux
 class AzureCli < Formula
   include Language::Python::Virtualenv
 
