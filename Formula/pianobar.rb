@@ -1,3 +1,4 @@
+# pianobar: Build a bottle for Linux
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
