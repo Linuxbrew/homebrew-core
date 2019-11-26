@@ -23,17 +23,32 @@ class Onnxruntime < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
-      #include <onnxruntime/core/session/onnxruntime_c_api.h>
-      #include <stdio.h>
-      int main()
-      {
-        printf("%s\\n", OrtGetApiBase()->GetVersionString());
-        return 0;
-      }
-    EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lonnxruntime",
-           testpath/"test.c", "-o", testpath/"test"
-    assert_equal version, shell_output("./test").strip
+    if OS.mac?
+      (testpath/"test.c").write <<~EOS
+        #include <onnxruntime/core/session/onnxruntime_c_api.h>
+        #include <stdio.h>
+        int main()
+        {
+          printf("%s\\n", OrtGetApiBase()->GetVersionString());
+          return 0;
+        }
+      EOS
+      system ENV.cc, "-I#{include}", "-L#{lib}", "-lonnxruntime",
+             testpath/"test.c", "-o", testpath/"test"
+      assert_equal version, shell_output("./test").strip
+    else
+      (testpath/"test.c").write <<~EOS
+        #include <onnxruntime/core/session/onnxruntime_c_api.h>
+        #include <stdio.h>
+        int main()
+        {
+          if(ORT_API_VERSION)
+            printf("ok");
+        }
+      EOS
+      system ENV.cc, "-I#{include}", "-L#{lib}", "-lonnxruntime",
+             testpath/"test.c", "-o", testpath/"test"
+      assert_equal "ok", shell_output("./test").strip
+    end
   end
 end
