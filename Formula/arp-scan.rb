@@ -1,3 +1,4 @@
+# arp-scan: Build a bottle for Linux
 class ArpScan < Formula
   desc "ARP scanning and fingerprinting tool"
   homepage "https://github.com/royhills/arp-scan"
