@@ -1,3 +1,4 @@
+# kepubify: Build a bottle for Linux
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
