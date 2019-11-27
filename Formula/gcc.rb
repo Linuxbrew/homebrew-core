@@ -1,17 +1,9 @@
 require "os/linux/glibc"
 
 class Gcc < Formula
-  def arch
-    if MacOS.prefer_64_bit?
-      "x86_64"
-    else
-      "i686"
-    end
-  end
-
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision OS.mac? ? 2 : 6
+  revision OS.mac? ? 2 : 7
   head "https://gcc.gnu.org/git/gcc.git" if OS.mac?
 
   if OS.mac?
@@ -27,11 +19,9 @@ class Gcc < Formula
   # gcc is designed to be portable.
   # reminder: always add 'cellar :any'
   bottle do
-    cellar :any
     sha256 "1564397f461f629f3811f1ececc7f2bb614f7520242743fc41348d190d8b6aa9" => :catalina
     sha256 "5012d43ce3ff9b31fc21f9df1075b9d5e205d1a727b75f6dbd098654aff0f0f2" => :mojave
     sha256 "cc0e6c6a7f7ce5823d0578cf57a6e201727238905aa8a4726e5f90dbc252d94b" => :high_sierra
-    sha256 "c972d0932d4ba0cac4fec1bc058df4ccb51ecc8b1bfc7841453c7d862b043b79" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -41,16 +31,16 @@ class Gcc < Formula
     satisfy { !OS.mac? || (MacOS::CLT.installed? && HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX) }
   end
 
-  unless OS.mac?
-    depends_on "zlib"
-    depends_on "binutils" if build.with? "glibc"
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
-  end
   depends_on "gmp"
   depends_on "isl" if OS.mac?
   depends_on "libmpc"
   depends_on "mpfr"
   uses_from_macos "isl@0.18"
+  uses_from_macos "zlib"
+  unless OS.mac?
+    depends_on "binutils" if build.with? "glibc"
+    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+  end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
@@ -81,12 +71,24 @@ class Gcc < Formula
     # currently only compilable on Linux.
     languages = %w[c c++ objc obj-c++ fortran]
 
-    args = []
+    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+
+    args = [
+      "--prefix=#{prefix}",
+      "--disable-nls",
+      "--enable-checking=release",
+      "--enable-languages=#{languages.join(",")}",
+      "--program-suffix=-#{version_suffix}",
+      "--with-gmp=#{Formula["gmp"].opt_prefix}",
+      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-pkgversion=#{pkgversion}",
+    ]
 
     if OS.mac?
       osmajor = `uname -r`.split(".").first
       args += [
-        "--build=#{arch}-apple-darwin#{osmajor}",
+        "--build=x86_64-apple-darwin#{osmajor}",
         "--libdir=#{lib}/gcc/#{version_suffix}",
         "--with-isl=#{Formula["isl"].opt_prefix}",
         "--with-system-zlib",
@@ -133,21 +135,8 @@ class Gcc < Formula
     # Fix cc1: error while loading shared libraries: libisl.so.15
     args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" unless OS.mac?
 
-    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
-    args += [
-      "--prefix=#{prefix}",
-      "--disable-nls",
-      "--enable-checking=release",
-      "--enable-languages=#{languages.join(",")}",
-      "--program-suffix=-#{version_suffix}",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-pkgversion=#{pkgversion}",
-    ]
-
     # Xcode 10 dropped 32-bit support
-    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+    args << "--disable-multilib" if OS.linux? || DevelopmentTools.clang_build_version >= 1000
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
@@ -164,13 +153,6 @@ class Gcc < Formula
         args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
       end
 
-      # Fix Linux error: gnu/stubs-32.h: No such file or directory
-      if OS.mac? && MacOS.prefer_64_bit?
-        args << "--enable-multilib"
-      else
-        args << "--disable-multilib"
-      end
-
       system "../configure", *args
 
       # Use -headerpad_max_install_names in the build,
@@ -179,9 +161,8 @@ class Gcc < Formula
       system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       system "make", OS.mac? ? "install" : "install-strip"
 
-      if build.with?("fortran") || build.with?("all-languages")
-        bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
-      end
+      bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+
       unless OS.mac?
         # Create cpp, gcc and g++ symlinks
         bin.install_symlink "cpp-#{version_suffix}" => "cpp"
@@ -198,19 +179,6 @@ class Gcc < Formula
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run. TODO fix this.
     info.rmtree
-
-    # Rename java properties
-    if build.with?("java") || build.with?("all-languages")
-      config_files = [
-        "#{lib}/gcc/#{version_suffix}/logging.properties",
-        "#{lib}/gcc/#{version_suffix}/security/classpath.security",
-        "#{lib}/gcc/#{version_suffix}/i386/logging.properties",
-        "#{lib}/gcc/#{version_suffix}/i386/security/classpath.security",
-      ]
-      config_files.each do |file|
-        add_suffix file, version_suffix if File.exist? file
-      end
-    end
   end
 
   def add_suffix(file, suffix)
@@ -319,22 +287,18 @@ class Gcc < Formula
     system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
-    if build.with?("fortran") || build.with?("all-languages")
-      fixture = <<~EOS
-        integer,parameter::m=10000
-        real::a(m), b(m)
-        real::fact=0.5
+    (testpath/"test.f90").write <<~EOS
+      integer,parameter::m=10000
+      real::a(m), b(m)
+      real::fact=0.5
 
-        do concurrent (i=1:m)
-          a(i) = a(i) + fact*b(i)
-        end do
-        print *, "done"
-        end
-      EOS
-      (testpath/"in.f90").write(fixture)
-      system "#{bin}/gfortran", "-c", "in.f90"
-      system "#{bin}/gfortran", "-o", "test", "in.o"
-      assert_equal "done", `./test`.strip
-    end
+      do concurrent (i=1:m)
+        a(i) = a(i) + fact*b(i)
+      end do
+      write(*,"(A)") "Done"
+      end
+    EOS
+    system "#{bin}/gfortran", "-o", "test", "test.f90"
+    assert_equal "Done\n", `./test`
   end
 end
