@@ -1,3 +1,4 @@
+# libepoxy: Build a bottle for Linux
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
