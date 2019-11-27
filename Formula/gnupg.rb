@@ -1,3 +1,4 @@
+# gnupg: Build a bottle for Linux
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
