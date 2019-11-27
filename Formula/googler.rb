@@ -1,3 +1,4 @@
+# googler: Build a bottle for Linux
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
