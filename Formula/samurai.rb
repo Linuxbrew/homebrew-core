@@ -1,3 +1,4 @@
+# samurai: Build a bottle for Linux
 class Samurai < Formula
   desc "Ninja-compatible build tool written in C"
   homepage "https://github.com/michaelforney/samurai"
