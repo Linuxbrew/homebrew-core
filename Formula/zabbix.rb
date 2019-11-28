@@ -1,3 +1,4 @@
+# zabbix: Build a bottle for Linux
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
