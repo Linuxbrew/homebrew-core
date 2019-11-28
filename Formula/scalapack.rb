@@ -1,3 +1,4 @@
+# scalapack: Build a bottle for Linux
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
   homepage "https://www.netlib.org/scalapack/"
