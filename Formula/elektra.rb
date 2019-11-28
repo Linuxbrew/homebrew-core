@@ -1,3 +1,4 @@
+# elektra: Build a bottle for Linux
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
