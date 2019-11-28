@@ -1,3 +1,4 @@
+# frpc: Build a bottle for Linux
 class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
