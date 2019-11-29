@@ -1,3 +1,4 @@
+# abyss: Build a bottle for Linux
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "https://www.bcgsc.ca/resources/gsc-software-centre"
