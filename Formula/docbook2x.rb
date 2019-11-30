@@ -3,7 +3,7 @@ class Docbook2x < Formula
   homepage "https://docbook2x.sourceforge.io/"
   url "https://downloads.sourceforge.net/docbook2x/docbook2X-0.8.8.tar.gz"
   sha256 "4077757d367a9d1b1427e8d5dfc3c49d993e90deabc6df23d05cfe9cd2fcdc45"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -14,13 +14,31 @@ class Docbook2x < Formula
     sha256 "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889" => :el_capitan
     sha256 "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717" => :yosemite
     sha256 "4b4750b139d7a262735e33ee0e314c7a589b6ada2d72e336aabaf334789a411d" => :mavericks
-    sha256 "d1bc1003ccbe24b5495735c8993fdeb4d038ec2cb635985b028a443a6a41d7eb" => :x86_64_linux # glibc 2.19
   end
 
   depends_on "docbook"
   uses_from_macos "libxslt"
+  uses_from_macos "perl"
+
+  unless OS.mac?
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
 
   def install
+    unless OS.mac?
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+          system "make", "install"
+        end
+      end
+    end
+
     inreplace "perl/db2x_xsltproc.pl", "http://docbook2x.sf.net/latest/xslt", "#{share}/docbook2X/xslt"
     inreplace "configure", "${prefix}", prefix
     system "./configure", "--disable-dependency-tracking",
