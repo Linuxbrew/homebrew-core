@@ -1,3 +1,4 @@
+# timewarrior: Build a bottle for Linux
 class Timewarrior < Formula
   desc "Command-line time tracking application"
   homepage "https://timewarrior.net/"
