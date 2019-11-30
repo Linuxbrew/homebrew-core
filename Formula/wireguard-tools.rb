@@ -1,3 +1,4 @@
+# wireguard-tools: Build a bottle for Linux
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
   homepage "https://www.wireguard.com/"
