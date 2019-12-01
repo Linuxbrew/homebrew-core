@@ -1,3 +1,4 @@
+# wiki: Build a bottle for Linux
 class Wiki < Formula
   desc "Fetch summaries from MediaWiki wikis, like Wikipedia"
   homepage "https://github.com/walle/wiki"
