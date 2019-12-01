@@ -82,7 +82,7 @@ jobs:
           git add _data/analytics-linux _data/formula-linux api/formula-linux formula-linux
 
           if ! git diff --no-patch --exit-code HEAD -- _data/analytics-linux _data/formula-linux api/formula-linux formula-linux; then
-            git commit -m "formula: update from ${GITHUB_REPOSITORY} push" _data/analytics-linux _data/formula-linux api/formula-linux formula-linux
+            git commit -m "formula-linux: update from ${GITHUB_REPOSITORY} push" _data/analytics-linux _data/formula-linux api/formula-linux formula-linux
             git push
           fi
         env:
