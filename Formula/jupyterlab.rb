@@ -1,3 +1,4 @@
+# jupyterlab: Build a bottle for Linux
 class Jupyterlab < Formula
   include Language::Python::Virtualenv
 
