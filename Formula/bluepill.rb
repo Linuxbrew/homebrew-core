@@ -1,3 +1,4 @@
+# bluepill: Build a bottle for Linux
 class Bluepill < Formula
   desc "iOS testing tool that runs UI tests using multiple simulators"
   homepage "https://github.com/linkedin/bluepill"
