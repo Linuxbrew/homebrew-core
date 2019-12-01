@@ -1,3 +1,4 @@
+# helmfile: Build a bottle for Linux
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
