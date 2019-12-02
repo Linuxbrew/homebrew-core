@@ -19,6 +19,7 @@ class PostgresqlAT11 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
+  depends_on "util-linux" unless OS.mac? # for libuuid
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -36,23 +37,28 @@ class PostgresqlAT11 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
-      --with-gssapi
       --with-icu
-      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
-      --with-pam
       --with-perl
       --with-uuid=e2fs
     ]
-
+    if OS.mac?
+      args += %w[
+        --with-bonjour
+        --with-gssapi
+        --with-ldap
+        --with-pam
+      ]
+    end
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    args << "--with-tcl"
-    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+    if OS.mac?
+      args << "--with-tcl"
+      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+      end
     end
 
     system "./configure", *args
@@ -69,7 +75,7 @@ class PostgresqlAT11 < Formula
   def post_install
     (var/"log").mkpath
     (var/name).mkpath
-    unless File.exist? "#{var}/#{name}/PG_VERSION"
+    if !Process.euid.zero? && !(File.exist? "#{var}/#{name}/PG_VERSION")
       system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/#{name}"
     end
   end
