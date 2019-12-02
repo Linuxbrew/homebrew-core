@@ -17,7 +17,9 @@ class OpenjdkAT12 < Formula
   depends_on "autoconf" => :build
   unless OS.mac?
     depends_on "pkg-config" => :build
+    depends_on "alsa-lib"
     depends_on "cups"
+    depends_on "fontconfig"
     depends_on "unzip"
     depends_on "zip"
     depends_on "linuxbrew/xorg/libx11"
@@ -67,14 +69,21 @@ class OpenjdkAT12 < Formula
                           "--with-debug-level=release",
                           "--with-native-debug-symbols=none",
                           "--enable-dtrace=auto",
-                          "--with-jvm-variants=server"
+                          "--with-jvm-variants=server",
+                          ("--with-x=#{HOMEBREW_PREFIX}" unless OS.mac?),
+                          ("--with-cups=#{HOMEBREW_PREFIX}" unless OS.mac?),
+                          ("--with-fontconfig=#{HOMEBREW_PREFIX}" unless OS.mac?)
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    os = OS.mac? ? "macosx" : "linux"
-    libexec.install "build/#{os}-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+    if OS.mac?
+      libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
+      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+    else
+      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
+      bin.install_symlink Dir["#{libexec}/bin/*"]
+    end
   end
 
   def caveats
