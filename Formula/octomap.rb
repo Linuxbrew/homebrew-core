@@ -1,3 +1,4 @@
+# octomap: Build a bottle for Linux
 class Octomap < Formula
   desc "Efficient probabilistic 3D mapping framework based on octrees"
   homepage "https://octomap.github.io/"
