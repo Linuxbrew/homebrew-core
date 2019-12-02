@@ -18,7 +18,7 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "gcc"
+  depends_on "gcc" if OS.mac?
   depends_on "hwloc"
   depends_on "libevent"
 
