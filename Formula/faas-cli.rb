@@ -1,3 +1,4 @@
+# faas-cli: Build a bottle for Linux
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
