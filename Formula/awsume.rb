@@ -1,3 +1,4 @@
+# awsume: Build a bottle for Linux
 class Awsume < Formula
   include Language::Python::Virtualenv
 
