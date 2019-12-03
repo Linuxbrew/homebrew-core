@@ -1,3 +1,4 @@
+# mosquitto: Build a bottle for Linux
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
