@@ -1,3 +1,4 @@
+# gimme-aws-creds: Build a bottle for Linux
 class GimmeAwsCreds < Formula
   include Language::Python::Virtualenv
 
