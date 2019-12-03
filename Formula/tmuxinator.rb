@@ -1,3 +1,4 @@
+# tmuxinator: Build a bottle for Linux
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
