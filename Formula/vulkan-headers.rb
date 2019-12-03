@@ -1,3 +1,4 @@
+# vulkan-headers: Build a bottle for Linux
 class VulkanHeaders < Formula
   desc "Vulkan Header files and API registry"
   homepage "https://github.com/KhronosGroup/Vulkan-Headers"
