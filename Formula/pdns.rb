@@ -1,3 +1,4 @@
+# pdns: Build a bottle for Linux
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
