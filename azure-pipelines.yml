@@ -47,14 +47,16 @@ jobs:
     displayName: Build bottles
     continueOnError: true
   - bash: |
-      cp /tmp/bottles/*.bottle.* $BUILD_ARTIFACTSTAGINGDIRECTORY
-      cp /tmp/bottles/build_status.txt $BUILD_ARTIFACTSTAGINGDIRECTORY || true
+      echo $BUILD_ARTIFACTSTAGINGDIRECTORY
+      mkdir $(System.DefaultWorkingDirectory)/bottles
+      cp /tmp/bottles/*.bottle.* $(System.DefaultWorkingDirectory)/bottles
+      cp /tmp/bottles/build_status.txt $(System.DefaultWorkingDirectory)/bottles || true
     displayName: Copy bottles
     condition: always()
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: bottle-linux
-      targetPath: $(Build.ArtifactStagingDirectory)
+      targetPath: $(System.DefaultWorkingDirectory)/bottles
     displayName: Publish bottles
     condition: always()
 
