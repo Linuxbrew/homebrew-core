@@ -1,3 +1,4 @@
+# eccodes: Build a bottle for Linux
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
