@@ -1,3 +1,4 @@
+# rabbitmq-c: Build a bottle for Linux
 class RabbitmqC < Formula
   desc "RabbitMQ C client"
   homepage "https://github.com/alanxz/rabbitmq-c"
