@@ -1,3 +1,4 @@
+# gnutls: Build a bottle for Linux
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
