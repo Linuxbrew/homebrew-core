@@ -1,3 +1,4 @@
+# adios2: Build a bottle for Linux
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
