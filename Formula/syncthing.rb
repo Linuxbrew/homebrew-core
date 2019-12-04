@@ -1,3 +1,4 @@
+# syncthing: Build a bottle for Linux
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
