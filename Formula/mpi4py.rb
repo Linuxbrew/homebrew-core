@@ -32,9 +32,13 @@ class Mpi4py < Formula
            "-c", "import mpi4py.MPI"
     system "#{Formula["python"].opt_bin}/python3",
            "-c", "import mpi4py.futures"
-    system "mpiexec", "-n", "4", "#{Formula["python"].opt_bin}/python3",
+
+    # Somehow our Azure CI only has two CPU cores available.
+    cpu_cores = (ENV["CI"] ? 2 : 4).to_s
+
+    system "mpiexec", "-n", cpu_cores, "#{Formula["python"].opt_bin}/python3",
            "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
-    system "mpiexec", "-n", "4", "#{Formula["python"].opt_bin}/python3",
+    system "mpiexec", "-n", cpu_cores, "#{Formula["python"].opt_bin}/python3",
            "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest",
            "-l", "10", "-n", "1024"
   end
