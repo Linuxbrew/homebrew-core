@@ -1,3 +1,4 @@
+# openal-soft: Build a bottle for Linux
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "https://openal-soft.org/"
