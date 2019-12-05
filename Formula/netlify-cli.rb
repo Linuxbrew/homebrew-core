@@ -15,6 +15,7 @@ class NetlifyCli < Formula
   end
 
   depends_on "node"
+  depends_on "expect" => :test unless OS.mac?
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
