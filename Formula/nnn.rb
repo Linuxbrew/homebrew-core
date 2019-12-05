@@ -1,3 +1,4 @@
+# nnn: Build a bottle for Linux
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
