@@ -1,3 +1,4 @@
+# cassandra: Build a bottle for Linux
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
