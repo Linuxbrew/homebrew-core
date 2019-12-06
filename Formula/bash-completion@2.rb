@@ -1,3 +1,4 @@
+# bash-completion@2: Build a bottle for Linux
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.1+"
   homepage "https://github.com/scop/bash-completion"
