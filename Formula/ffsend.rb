@@ -1,3 +1,4 @@
+# ffsend: Build a bottle for Linux
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
