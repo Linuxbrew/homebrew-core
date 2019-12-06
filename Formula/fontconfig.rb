@@ -3,6 +3,7 @@ class Fontconfig < Formula
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
   url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2"
   sha256 "f655dd2a986d7aa97e052261b36aa67b0a64989496361eca8d604e6414006741"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "64ff208b28613dfe2a65b9d74fd9b0129f3ca7e423db78329144cdaf51b36f70" => :catalina
@@ -10,7 +11,6 @@ class Fontconfig < Formula
     sha256 "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23" => :high_sierra
     sha256 "631531c4eb502bd97e4a5bef30760d1eef87dd50306ef2defb9460ac3338cfe1" => :sierra
     sha256 "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1" => :el_capitan
-    sha256 "99f1081880f8363ba5240210b8515311de3b01089680e66983e1d97ebd3b3306" => :x86_64_linux
   end
 
   pour_bottle? do
@@ -28,16 +28,11 @@ class Fontconfig < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-docs", "Skip building the fontconfig docs"
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   unless OS.mac?
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "gperf" => :build
     depends_on "gettext" => :build
-    depends_on "libtool" => :build
     depends_on "json-c" => :build
     depends_on "bzip2"
     depends_on "expat"
@@ -55,15 +50,15 @@ class Fontconfig < Formula
       font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max
     end
 
-    system "autoreconf", "-iv" if build.head? || !OS.mac?
+    system "autoreconf", "-iv" if build.head?
+    ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}" unless OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
                           "--with-add-fonts=#{font_dirs.join(",")}",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}",
-                          ("--disable-docs" if build.without? "docs")
+                          "--sysconfdir=#{etc}"
     system "make", "install", "RUN_FC_CACHE_TEST=false"
   end
 
