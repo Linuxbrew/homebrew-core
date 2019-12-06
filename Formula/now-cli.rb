@@ -1,3 +1,4 @@
+# now-cli: Build a bottle for Linux
 require "language/node"
 
 class NowCli < Formula
