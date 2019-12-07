@@ -1,3 +1,4 @@
+# netlify-cli: Build a bottle for Linux
 require "language/node"
 
 class NetlifyCli < Formula
