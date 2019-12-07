@@ -6,24 +6,22 @@ class Ansible < Formula
   url "https://releases.ansible.com/ansible/ansible-2.9.2.tar.gz"
   sha256 "2f83f8ccc50640aa41a24f6e7757ac06b0ee6189fdcaacab68851771d3b42f3a"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "b91a0494307d7755f12163e017804586f997fc95ca10cca5778ea2cdb20b4dbf" => :catalina
     sha256 "14e25108d466ebd08d0a6a3a5c70dca8e64d59d69ffdd616e7fcc07434f3baaf" => :mojave
     sha256 "ebf902e8dae71050637221a78699e70f1afb9917e6420339f427ff66b0678b97" => :high_sierra
-    sha256 "fe6fce433f4b339b6f2a52b3b821ee3c20423ae16fb8bc7c6279f9051733a7a9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python"
-  unless OS.mac?
-    depends_on "libffi" # for cffi
-    depends_on "libxslt" # for lxml
-    depends_on "python@2" => :test # for the test
-  end
+
+  uses_from_macos "libffi"
+  uses_from_macos "libxslt"
 
   # Collect requirements from:
   #   ansible
@@ -635,7 +633,7 @@ class Ansible < Formula
     EOS
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
-      *(" ansible_python_interpreter=" + which("python2") unless OS.mac?),
+      *(" ansible_python_interpreter=" + which("python3") unless OS.mac?),
       "\n",
     ].join("")
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
