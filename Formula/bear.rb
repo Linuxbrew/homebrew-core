@@ -4,18 +4,17 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/2.4.2.tar.gz"
   sha256 "e80c0d622a8192a1ec0c0efa139e5767c6c4b1defe1c75fc99cf680c6d1816c0"
   head "https://github.com/rizsotto/Bear.git"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "95726dc7ffc8bd4df3f976d0c3cdbbadf1509c755de876d855cbb21e625fe6cb" => :catalina
     sha256 "fd0d8a9cb6c5182d128bce82ed98c72c5960a12c927d30100f8fbb9834af6ef4" => :mojave
     sha256 "55dd8a9e37ef3f78dfa13f963cf1c7f82db6c026f449cce1dd1da47123b2a49e" => :high_sierra
-    sha256 "ef6a706a54959a4aa93fcdede8e7855c16e97cde88103ff6e3921920d9c71f63" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "python"
-  depends_on "python@2" => :test unless OS.mac?
 
   def install
     args = std_cmake_args + %W[
