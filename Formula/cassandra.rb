@@ -17,7 +17,6 @@ class Cassandra < Formula
   depends_on "python"
   unless OS.mac?
     depends_on :java => ["1.8+", :test]
-    depends_on "python@2" => :test
   end
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
