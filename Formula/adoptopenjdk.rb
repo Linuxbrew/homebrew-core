@@ -4,9 +4,10 @@ class Adoptopenjdk < Formula
   url "https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_linux_hotspot_8u212b03.tar.gz"
   version "1.8.0.212"
   sha256 "dd28d6d2cde2b931caf94ac2422a2ad082ea62f0beee3bf7057317c53093de93"
+  # tag "linux"
 
   bottle :unneeded
-  
+
   depends_on :linux
 
   def install
