@@ -40,6 +40,7 @@ class Php < Formula
   unless OS.mac?
     depends_on "xz" => :build
     depends_on "bzip2"
+    depends_on "krb5"
     depends_on "libedit"
     depends_on "libxml2"
     depends_on "libxslt"
@@ -90,16 +91,19 @@ class Php < Formula
 
     # system pkg-config missing
     ENV["KERBEROS_CFLAGS"] = " "
-    ENV["KERBEROS_LIBS"] = "-lkrb5"
     if OS.mac?
+      ENV["KERBEROS_LIBS"] = "-lkrb5"
       ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
       ENV["SASL_LIBS"] = "-lsasl2"
+    else
+      ENV["KERBEROS_LIBS"] = "-lkrb5 -I#{Formula["krb5"].opt_lib}"
     end
     ENV["EDIT_CFLAGS"] = " "
     ENV["EDIT_LIBS"] = "-ledit"
     unless OS.mac?
       ENV["SQLITE_CFLAGS"] = "-I#{Formula["sqlite"].opt_include}"
       ENV["SQLITE_LIBS"] = "-lsqlite3"
+      ENV["BZIP_DIR"] = Formula["bzip2"].opt_prefix
     end
 
     # Each extension that is built on Mojave needs a direct reference to the
@@ -161,7 +165,6 @@ class Php < Formula
       --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
-      --with-pdo-odbc=unixODBC
       --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
       --with-pdo-sqlite
       --with-pgsql=#{Formula["libpq"].opt_prefix}
@@ -187,6 +190,7 @@ class Php < Formula
       args << "--without-ndbm"
       args << "--without-gdbm"
       args << "--without-ldap-sasl"
+      args << "--with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}"
     end
 
     system "./configure", *args
