@@ -1,3 +1,4 @@
+# bcftools: Build a bottle for Linux
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "https://www.htslib.org/"
