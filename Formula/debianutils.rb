@@ -1,3 +1,4 @@
+# debianutils: Build a bottle for Linux
 class Debianutils < Formula
   desc "Miscellaneous utilities specific to Debian"
   homepage "https://packages.debian.org/sid/debianutils"
