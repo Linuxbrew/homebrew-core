@@ -1,3 +1,4 @@
+# samtools: Build a bottle for Linux
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
   homepage "https://www.htslib.org/"
