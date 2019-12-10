@@ -5,7 +5,6 @@ class GlibNetworking < Formula
   sha256 "0644b8dc042bab8c9d2892aee5716513280c8773dbef43a038149f24cae15544"
 
   bottle do
-    cellar :any
     sha256 "81ecbaeb6d3fff3839280d691de59b8aac6bcd5ec4d8d3fbf7bc3cdbc40cb9ef" => :catalina
     sha256 "c47a90d947d6e4ca48ccfe468107aa454bb1b80ab3047711abe0ff1be913b345" => :mojave
     sha256 "b13917cc21b6ceb0d867ace7ffd1cd568f31bdf71471665d0da1683cf3ac2375" => :high_sierra
