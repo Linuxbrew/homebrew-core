@@ -1,3 +1,4 @@
+# skymaker: Build a bottle for Linux
 class Skymaker < Formula
   desc "Generates fake astronomical images"
   homepage "https://www.astromatic.net/software/skymaker"
