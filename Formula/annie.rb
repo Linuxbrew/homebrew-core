@@ -1,3 +1,4 @@
+# annie: Build a bottle for Linux
 class Annie < Formula
   desc "Fast, simple and clean video downloader"
   homepage "https://github.com/iawia002/annie"
