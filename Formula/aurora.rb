@@ -1,3 +1,4 @@
+# aurora: Build a bottle for Linux
 class Aurora < Formula
   desc "Beanstalkd queue server console"
   homepage "https://xuri.me/aurora"
