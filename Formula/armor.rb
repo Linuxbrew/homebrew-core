@@ -22,10 +22,10 @@ class Armor < Formula
 
   test do
     pid = fork do
-      exec "#{bin}/armor"
+      exec "#{bin}/armor --port 22222"
     end
-    sleep 1
-    output = shell_output("curl -sI http://localhost:8080")
+    sleep 3
+    output = shell_output("curl -sI http://localhost:22222")
     assert_match(/200 OK/m, output)
   ensure
     Process.kill("HUP", pid)
