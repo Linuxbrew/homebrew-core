@@ -5,7 +5,6 @@ class Ncmpc < Formula
   sha256 "4632873dfc8efe61e501dc9184a5b921b482be2ddbedd3d23d05241d477a3e2c"
 
   bottle do
-    cellar :any
     sha256 "eb296eef08ee1bd8be2b0037f39479123301cb6454fed7f32e63f37e32da9b4f" => :catalina
     sha256 "2e240f225487cfd1b07b0bd196c05d152fb421a5dcd8ee9b6686f2f3dbeb1948" => :mojave
     sha256 "a16f92c342b7189b5c6b934a532a7fae6e48f4cd7486cc14b868a3a58434c191" => :high_sierra
@@ -15,10 +14,15 @@ class Ncmpc < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc" if DevelopmentTools.clang_build_version <= 800
   depends_on "gettext"
   depends_on "libmpdclient"
   depends_on "pcre"
+  if OS.mac?
+    depends_on "gcc" if DevelopmentTools.clang_build_version <= 800
+  else
+    fails_with :gcc => "5"
+    depends_on "gcc@6" => :build
+  end
 
   fails_with :clang do
     build 800
