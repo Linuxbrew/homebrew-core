@@ -22,7 +22,11 @@ class Bumpversion < Formula
   end
 
   test do
-    assert_includes shell_output("script -q /dev/null #{bin}/bumpversion --help"), "bumpversion: v#{version}"
+    if OS.mac?
+      assert_includes shell_output("script -q /dev/null #{bin}/bumpversion --help"), "bumpversion: v#{version}"
+    else
+      assert_includes shell_output("script -q /dev/null -c \"#{bin}/bumpversion --help\""), "bumpversion: v#{version}"
+    end
     version_file = testpath/"VERSION"
     version_file.write "0.0.0"
     system bin/"bumpversion", "--current-version", "0.0.0", "minor", version_file
