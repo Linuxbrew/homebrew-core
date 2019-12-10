@@ -8,7 +8,6 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    cellar :any
     sha256 "9fe11b8b078c97c49243321ac1404804ff08f2bde0fe8751eeaa4b073e08310e" => :catalina
     sha256 "84acaab2029abddb44702d34c073d11bc2f15a8a22c5cf61361d916c5875008c" => :mojave
     sha256 "a8356343fd650dc7b62268300ff54dbcf7828946a081a4cf9bbdfbfc06fcf9f0" => :high_sierra
