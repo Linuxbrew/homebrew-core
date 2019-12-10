@@ -1,3 +1,4 @@
+# anycable-go: Build a bottle for Linux
 class AnycableGo < Formula
   desc "Anycable Go WebSocket Server"
   homepage "https://github.com/anycable/anycable-go"
