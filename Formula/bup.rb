@@ -1,3 +1,4 @@
+# bup: Build a bottle for Linux
 class Bup < Formula
   desc "Backup tool"
   homepage "https://github.com/bup/bup"
