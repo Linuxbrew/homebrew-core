@@ -1,3 +1,4 @@
+# conan: Build a bottle for Linux
 class Conan < Formula
   include Language::Python::Virtualenv
 
