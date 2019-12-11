@@ -1,3 +1,4 @@
+# pdftoipe: Build a bottle for Linux
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
