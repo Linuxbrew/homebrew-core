@@ -1,3 +1,4 @@
+# nsd: Build a bottle for Linux
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
