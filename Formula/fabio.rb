@@ -1,3 +1,4 @@
+# fabio: Build a bottle for Linux
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
