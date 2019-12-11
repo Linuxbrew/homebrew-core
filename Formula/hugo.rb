@@ -1,3 +1,4 @@
+# hugo: Build a bottle for Linux
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
