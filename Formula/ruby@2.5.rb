@@ -19,6 +19,7 @@ class RubyAT25 < Formula
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "readline"
+  uses_from_macos "zlib"
 
   def api_version
     "2.5.0"
@@ -42,7 +43,7 @@ class RubyAT25 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    args << "--disable-dtrace" unless MacOS::CLT.installed?
+    args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     system "./configure", *args
 
