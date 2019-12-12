@@ -1,3 +1,4 @@
+# sysbench: Build a bottle for Linux
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
