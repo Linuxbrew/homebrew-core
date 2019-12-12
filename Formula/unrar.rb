@@ -1,3 +1,4 @@
+# unrar: Build a bottle for Linux
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "https://www.rarlab.com/"
