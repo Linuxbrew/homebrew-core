@@ -1,3 +1,4 @@
+# pandoc: Build a bottle for Linux
 require "language/haskell"
 
 class Pandoc < Formula
