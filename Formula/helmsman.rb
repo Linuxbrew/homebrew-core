@@ -1,3 +1,4 @@
+# helmsman: Build a bottle for Linux
 class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
