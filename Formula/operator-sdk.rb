@@ -1,3 +1,4 @@
+# operator-sdk: Build a bottle for Linux
 class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
