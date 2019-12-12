@@ -1,3 +1,4 @@
+# powerline-go: Build a bottle for Linux
 class PowerlineGo < Formula
   desc "Beautiful and useful low-latency prompt for your shell"
   homepage "https://github.com/justjanne/powerline-go"
