@@ -1,3 +1,4 @@
+# go@1.12: Build a bottle for Linux
 class GoAT112 < Formula
   desc "Go programming environment (1.12)"
   homepage "https://golang.org"
