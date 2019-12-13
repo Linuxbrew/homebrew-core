@@ -1,3 +1,4 @@
+# hey: Build a bottle for Linux
 class Hey < Formula
   desc "HTTP load generator, ApacheBench (ab) replacement"
   homepage "https://github.com/rakyll/hey"
