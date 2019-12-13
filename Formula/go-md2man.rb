@@ -1,3 +1,4 @@
+# go-md2man: Build a bottle for Linux
 class GoMd2man < Formula
   desc "Converts markdown into roff (man pages)"
   homepage "https://github.com/cpuguy83/go-md2man"
