@@ -1,3 +1,4 @@
+# borg: Build a bottle for Linux
 require "language/go"
 
 class Borg < Formula
