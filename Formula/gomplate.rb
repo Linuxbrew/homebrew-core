@@ -1,3 +1,4 @@
+# gomplate: Build a bottle for Linux
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
