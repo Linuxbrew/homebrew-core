@@ -1,3 +1,4 @@
+# goreman: Build a bottle for Linux
 class Goreman < Formula
   desc "Foreman clone written in Go"
   homepage "https://github.com/mattn/goreman"
