@@ -1,3 +1,4 @@
+# geographiclib: Build a bottle for Linux
 class Geographiclib < Formula
   desc "C++ geography library"
   homepage "https://geographiclib.sourceforge.io/"
