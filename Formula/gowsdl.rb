@@ -1,3 +1,4 @@
+# gowsdl: Build a bottle for Linux
 class Gowsdl < Formula
   desc "WSDL2Go code generation as well as its SOAP proxy"
   homepage "https://github.com/hooklift/gowsdl"
