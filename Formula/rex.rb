@@ -1,3 +1,4 @@
+# rex: Build a bottle for Linux
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
