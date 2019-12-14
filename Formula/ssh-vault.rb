@@ -1,3 +1,4 @@
+# ssh-vault: Build a bottle for Linux
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
