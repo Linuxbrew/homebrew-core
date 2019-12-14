@@ -1,3 +1,4 @@
+# gtk-mac-integration: Build a bottle for Linux
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
