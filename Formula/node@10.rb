@@ -16,7 +16,7 @@ class NodeAT10 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  uses_from_macos "python@2" => :build
+  uses_from_macos "python@2"
 
   # Fixes detecting Apple clang 11.
   patch do
