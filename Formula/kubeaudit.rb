@@ -1,3 +1,4 @@
+# kubeaudit: Build a bottle for Linux
 class Kubeaudit < Formula
   desc "Helps audit your Kubernetes clusters against common security controls"
   homepage "https://github.com/Shopify/kubeaudit"
