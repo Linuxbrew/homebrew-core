@@ -1,3 +1,4 @@
+# bison: Build a bottle for Linux
 class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
