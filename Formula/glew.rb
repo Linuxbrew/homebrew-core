@@ -1,3 +1,4 @@
+# glew: Build a bottle for Linux
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
   homepage "https://glew.sourceforge.io/"
