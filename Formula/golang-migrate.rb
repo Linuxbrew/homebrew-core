@@ -1,3 +1,4 @@
+# golang-migrate: Build a bottle for Linux
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
