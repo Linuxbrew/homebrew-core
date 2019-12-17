@@ -1,3 +1,4 @@
+# homeassistant-cli: Build a bottle for Linux
 class HomeassistantCli < Formula
   include Language::Python::Virtualenv
 
