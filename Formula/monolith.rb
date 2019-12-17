@@ -1,3 +1,4 @@
+# monolith: Build a bottle for Linux
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
