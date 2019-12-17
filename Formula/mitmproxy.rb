@@ -1,3 +1,4 @@
+# mitmproxy: Build a bottle for Linux
 class Mitmproxy < Formula
   include Language::Python::Virtualenv
 
