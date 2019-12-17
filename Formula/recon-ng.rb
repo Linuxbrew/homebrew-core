@@ -1,3 +1,4 @@
+# recon-ng: Build a bottle for Linux
 class ReconNg < Formula
   include Language::Python::Virtualenv
 
