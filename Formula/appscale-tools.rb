@@ -1,3 +1,4 @@
+# appscale-tools: Build a bottle for Linux
 class AppscaleTools < Formula
   desc "Command-line tools for working with AppScale"
   homepage "https://github.com/AppScale/appscale-tools"
