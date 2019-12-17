@@ -1,3 +1,4 @@
+# launch_socket_server: Build a bottle for Linux
 class LaunchSocketServer < Formula
   desc "Bind to privileged ports without running a server as root"
   homepage "https://github.com/mistydemeo/launch_socket_server"
