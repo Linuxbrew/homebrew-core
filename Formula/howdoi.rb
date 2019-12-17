@@ -1,3 +1,4 @@
+# howdoi: Build a bottle for Linux
 class Howdoi < Formula
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
