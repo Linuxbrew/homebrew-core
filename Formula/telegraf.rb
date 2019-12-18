@@ -1,3 +1,4 @@
+# telegraf: Build a bottle for Linux
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
