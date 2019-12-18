@@ -15,6 +15,7 @@ class Libpq < Formula
 
   depends_on "openssl@1.1"
   unless OS.mac?
+    depends_on "krb5"
     depends_on "readline"
     depends_on "zlib"
   end
