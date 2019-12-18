@@ -1,3 +1,4 @@
+# detekt: Build a bottle for Linux
 class Detekt < Formula
   desc "Static code analysis for Kotlin"
   homepage "https://github.com/arturbosch/detekt"
