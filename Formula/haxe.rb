@@ -1,3 +1,4 @@
+# haxe: Build a bottle for Linux
 class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
