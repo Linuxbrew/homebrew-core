@@ -1,3 +1,4 @@
+# terrahub: Build a bottle for Linux
 require "language/node"
 
 class Terrahub < Formula
