@@ -1,3 +1,4 @@
+# linkerd: Build a bottle for Linux
 class Linkerd < Formula
   desc "Command-line utility to interact with linkerd"
   homepage "https://linkerd.io"
