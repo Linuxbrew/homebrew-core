@@ -1,3 +1,4 @@
+# zeek: Build a bottle for Linux
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
