@@ -1,3 +1,4 @@
+# snapcraft: Build a bottle for Linux
 class Snapcraft < Formula
   include Language::Python::Virtualenv
 
