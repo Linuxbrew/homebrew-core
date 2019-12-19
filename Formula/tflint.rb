@@ -1,3 +1,4 @@
+# tflint: Build a bottle for Linux
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
