@@ -1,8 +1,13 @@
 class Unpaper < Formula
   desc "Post-processing for scanned/photocopied books"
   homepage "https://www.flameeyes.eu/projects/unpaper"
-  url "https://www.flameeyes.eu/files/unpaper-6.1.tar.xz"
-  sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
+  if OS.mac?
+    url "https://www.flameeyes.eu/files/unpaper-6.1.tar.xz"
+    sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
+  else
+    url "https://github.com/Flameeyes/unpaper/archive/unpaper-6.1.tar.gz"
+    sha256 "213f8143b3361dde3286537eb66aaf7cdd7e4f5e7bde42ac6e91020997a81f1d"
+  end
   revision 2
 
   bottle do
@@ -21,9 +26,14 @@ class Unpaper < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+  unless OS.mac?
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libxslt" => :build # for xsltproc
+  end
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-i" if build.head? || !OS.mac?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
