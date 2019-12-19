@@ -1,3 +1,4 @@
+# dashing: Build a bottle for Linux
 class Dashing < Formula
   desc "Generate Dash documentation from HTML files"
   homepage "https://github.com/technosophos/dashing"
