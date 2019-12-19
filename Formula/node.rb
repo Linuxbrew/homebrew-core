@@ -1,3 +1,4 @@
+# node: Build a bottle for Linux
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
