@@ -1,3 +1,4 @@
+# logentries: Build a bottle for Linux
 class Logentries < Formula
   include Language::Python::Virtualenv
 
