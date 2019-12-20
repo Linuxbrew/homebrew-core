@@ -1,3 +1,4 @@
+# nsq: Build a bottle for Linux
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
