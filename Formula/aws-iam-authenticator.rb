@@ -1,3 +1,4 @@
+# aws-iam-authenticator: Build a bottle for Linux
 class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
