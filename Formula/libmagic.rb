@@ -10,6 +10,8 @@ class Libmagic < Formula
     sha256 "8bf0dd3733907457d0102dd8e6e28ddaea304cd7eb59e5e559145f50046dd784" => :high_sierra
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -39,7 +41,11 @@ class Libmagic < Formula
           puts(magic_file(cookie, argv[1]));
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmagic", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-I#{include}", "-L#{lib}", "-lmagic", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmagic", "-o", "test"
+    end
     cp test_fixtures("test.png"), "test.png"
     assert_equal "image/png", shell_output("./test test.png").chomp
   end
