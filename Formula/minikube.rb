@@ -1,3 +1,4 @@
+# minikube: Build a bottle for Linux
 class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://minikube.sigs.k8s.io/"
