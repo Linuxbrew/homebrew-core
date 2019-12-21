@@ -549,6 +549,8 @@ class Aspell < Formula
   # const problems with llvm: https://www.freebsd.org/cgi/query-pr.cgi?pr=180565&cat=
   patch :DATA
 
+  depends_on "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
