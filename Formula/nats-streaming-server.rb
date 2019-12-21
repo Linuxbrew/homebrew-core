@@ -1,3 +1,4 @@
+# nats-streaming-server: Build a bottle for Linux
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
