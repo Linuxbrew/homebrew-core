@@ -1,3 +1,4 @@
+# arduino-cli: Build a bottle for Linux
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
