@@ -1,3 +1,4 @@
+# git-extras: Build a bottle for Linux
 class GitExtras < Formula
   desc "Small git utilities"
   homepage "https://github.com/tj/git-extras"
