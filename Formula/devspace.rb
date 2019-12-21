@@ -1,3 +1,4 @@
+# devspace: Build a bottle for Linux
 class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.cloud/docs"
