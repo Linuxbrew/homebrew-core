@@ -1,3 +1,4 @@
+# rethinkdb: Build a bottle for Linux
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://www.rethinkdb.com/"
