@@ -1,3 +1,4 @@
+# wolfssl: Build a bottle for Linux
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
