@@ -1,3 +1,4 @@
+# ephemeralpg: Build a bottle for Linux
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
   homepage "http://ephemeralpg.org"
