@@ -1,3 +1,4 @@
+# gitmoji: Build a bottle for Linux
 require "language/node"
 
 class Gitmoji < Formula
