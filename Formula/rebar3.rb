@@ -1,3 +1,4 @@
+# rebar3: Build a bottle for Linux
 class Rebar3 < Formula
   desc "Erlang build tool"
   homepage "https://github.com/erlang/rebar3"
