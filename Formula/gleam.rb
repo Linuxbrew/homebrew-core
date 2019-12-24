@@ -1,3 +1,4 @@
+# gleam: Build a bottle for Linux
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
