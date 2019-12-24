@@ -1,3 +1,4 @@
+# molecule: Build a bottle for Linux
 class Molecule < Formula
   include Language::Python::Virtualenv
 
