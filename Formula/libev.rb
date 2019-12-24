@@ -50,7 +50,11 @@ class Libev < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lev", "-o", "test", "test.c"
+    if OS.mac?
+      system ENV.cc, "-I#{include}", "-L#{lib}", "-lev", "-o", "test", "test.c"
+    else
+      system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lev", "-o", "test"
+    end
     input = "hello, world\n"
     assert_equal input, pipe_output("./test", input, 0)
   end
