@@ -187,8 +187,10 @@ class PythonAT2 < Formula
     # A fix, because python and python@2 both want to install Python.framework
     # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
     # https://github.com/Homebrew/homebrew/issues/15943
-    ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
-    rm prefix/"Frameworks/Python.framework/Versions/Current"
+    if OS.mac?
+      ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
+      rm prefix/"Frameworks/Python.framework/Versions/Current"
+    end
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
