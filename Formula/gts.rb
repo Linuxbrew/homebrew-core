@@ -1,3 +1,4 @@
+# gts: Build a bottle for Linux
 class Gts < Formula
   desc "GNU triangulated surface library"
   homepage "https://gts.sourceforge.io/"
