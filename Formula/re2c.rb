@@ -1,3 +1,4 @@
+# re2c: Build a bottle for Linux
 class Re2c < Formula
   desc "Generate C-based recognizers from regular expressions"
   homepage "https://re2c.org"
