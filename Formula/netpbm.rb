@@ -3,7 +3,12 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3712
+  if OS.mac?
+    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3712
+  else
+    url "https://sourceforge.net/code-snapshots/svn/n/ne/netpbm/code/netpbm-code-r3712-trunk.zip"
+    sha256 "e96662ea30d2704c8b22f34e67e898c5e956855bccfb323b9f74bb08f1dadf8d"
+  end
   version "10.86.07"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -19,11 +24,10 @@ class Netpbm < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  unless OS.mac?
-    depends_on "flex" => :build
-    depends_on "libxml2"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
