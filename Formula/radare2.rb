@@ -1,3 +1,4 @@
+# radare2: Build a bottle for Linux
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
