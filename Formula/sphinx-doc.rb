@@ -1,3 +1,4 @@
+# sphinx-doc: Build a bottle for Linux
 class SphinxDoc < Formula
   include Language::Python::Virtualenv
 
