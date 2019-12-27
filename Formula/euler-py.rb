@@ -1,3 +1,4 @@
+# euler-py: Build a bottle for Linux
 class EulerPy < Formula
   desc "Project Euler command-line tool written in Python"
   homepage "https://github.com/iKevinY/EulerPy"
