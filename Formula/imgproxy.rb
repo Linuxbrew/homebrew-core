@@ -1,3 +1,4 @@
+# imgproxy: Build a bottle for Linux
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
