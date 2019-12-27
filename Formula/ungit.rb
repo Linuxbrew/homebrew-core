@@ -1,3 +1,4 @@
+# ungit: Build a bottle for Linux
 require "language/node"
 
 class Ungit < Formula
