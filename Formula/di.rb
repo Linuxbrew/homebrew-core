@@ -1,3 +1,4 @@
+# di: Build a bottle for Linux
 class Di < Formula
   desc "Advanced df-like disk information utility"
   homepage "https://gentoo.com/di/"
