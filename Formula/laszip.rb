@@ -1,3 +1,4 @@
+# laszip: Build a bottle for Linux
 class Laszip < Formula
   desc "Lossless LiDAR compression"
   homepage "https://laszip.org/"
