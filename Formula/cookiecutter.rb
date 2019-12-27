@@ -1,3 +1,4 @@
+# cookiecutter: Build a bottle for Linux
 class Cookiecutter < Formula
   include Language::Python::Virtualenv
 
