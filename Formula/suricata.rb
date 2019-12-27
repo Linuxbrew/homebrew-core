@@ -83,4 +83,4 @@ class Suricata < Formula
   test do
     assert_match(/#{version}/, shell_output("#{bin}/suricata --build-info"))
   end
-  end
+end
