@@ -1,3 +1,4 @@
+# spades: Build a bottle for Linux
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
