@@ -1,3 +1,4 @@
+# statik: Build a bottle for Linux
 class Statik < Formula
   include Language::Python::Virtualenv
 
