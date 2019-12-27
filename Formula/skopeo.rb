@@ -6,7 +6,6 @@ class Skopeo < Formula
   revision 2
 
   bottle do
-    cellar :any
     sha256 "7d7d1e19a1428b5e95ed5d9aaefb9283b43b02efe9ce093a09de180050615be1" => :catalina
     sha256 "84f3a5721eac5c6d6bf3a8c60b2769dc91699a254dd181eaf73589794df5551b" => :mojave
     sha256 "d9bf95337e47606ce9b789327bb23b2e95de554584609bdfb857932906261dc0" => :high_sierra
