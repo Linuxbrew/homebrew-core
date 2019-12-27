@@ -1,3 +1,4 @@
+# ghq: Build a bottle for Linux
 class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
