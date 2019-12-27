@@ -1,3 +1,4 @@
+# bumpversion: Build a bottle for Linux
 class Bumpversion < Formula
   include Language::Python::Virtualenv
 
