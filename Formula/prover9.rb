@@ -12,6 +12,9 @@ class Prover9 < Formula
     sha256 "055cf6646dd19effa87d7b9fa8e820c24710a023bcefc98c35604205530ab2c3" => :high_sierra
   end
 
+  # Order of parameters passed to gcc matters
+  patch :DATA unless OS.mac?
+
   def install
     ENV.deparallelize
     system "make", "all"
@@ -46,3 +49,41 @@ class Prover9 < Formula
     system bin/"mace4", "-f", testpath/"group2.in"
   end
 end
+__END__
+diff --git a/provers.src/Makefile b/provers.src/Makefile
+index 78c2543..9c91b4e 100644
+--- a/provers.src/Makefile
++++ b/provers.src/Makefile
+@@ -63,25 +63,25 @@ prover:
+ 	$(MAKE) prover9
+ 
+ prover9: prover9.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o prover9 prover9.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o prover9 prover9.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ fof-prover9: fof-prover9.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o fof-prover9 fof-prover9.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o fof-prover9 fof-prover9.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ ladr_to_tptp: ladr_to_tptp.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o ladr_to_tptp ladr_to_tptp.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o ladr_to_tptp ladr_to_tptp.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ tptp_to_ladr: tptp_to_ladr.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o tptp_to_ladr tptp_to_ladr.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o tptp_to_ladr tptp_to_ladr.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ autosketches4: autosketches4.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o autosketches4 autosketches4.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o autosketches4 autosketches4.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ newauto: newauto.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o newauto newauto.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o newauto newauto.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ newsax: newsax.o $(OBJECTS)
+-	$(CC) $(CFLAGS) -lm -o newsax newsax.o $(OBJECTS) ../ladr/libladr.a
++	$(CC) $(CFLAGS) -o newsax newsax.o $(OBJECTS) ../ladr/libladr.a -lm
+ 
+ cgrep: cgrep.o $(OBJECTS)
+ 	$(CC) $(CFLAGS) -o cgrep cgrep.o $(OBJECTS) ../ladr/libladr.a
