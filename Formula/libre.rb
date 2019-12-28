@@ -12,6 +12,7 @@ class Libre < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   def install
     system "make", *("SYSROOT=#{MacOS.sdk_path}/usr" if OS.mac?), "install", "PREFIX=#{prefix}"
