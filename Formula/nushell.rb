@@ -23,6 +23,12 @@ class Nushell < Formula
   end
 
   test do
-    assert_equal "\n~ \n❯ 2\n\n~ \n❯ ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    if OS.mac?
+      assert_equal "\n~ \n❯ 2\n\n~ \n❯ ",
+                   pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    else
+      assert_equal "\nvsts_azpcontainer in ~ \n❯ 2\n\nvsts_azpcontainer in ~ \n❯ ",
+                   pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    end
   end
 end
