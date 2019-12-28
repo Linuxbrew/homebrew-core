@@ -1,3 +1,4 @@
+# qtkeychain: Build a bottle for Linux
 class Qtkeychain < Formula
   desc "Platform-independent Qt API for storing passwords securely"
   homepage "https://github.com/frankosterfeld/qtkeychain"
