@@ -1,3 +1,4 @@
+# perltidy: Build a bottle for Linux
 class Perltidy < Formula
   desc "Indents and reformats Perl scripts to make them easier to read"
   homepage "https://perltidy.sourceforge.io/"
