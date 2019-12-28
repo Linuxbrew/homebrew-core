@@ -1,3 +1,4 @@
+# ledger: Build a bottle for Linux
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
