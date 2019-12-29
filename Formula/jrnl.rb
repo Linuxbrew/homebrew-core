@@ -1,3 +1,4 @@
+# jrnl: Build a bottle for Linux
 class Jrnl < Formula
   include Language::Python::Virtualenv
 
