@@ -1,3 +1,4 @@
+# cedille: Build a bottle for Linux
 require "language/haskell"
 
 class Cedille < Formula
