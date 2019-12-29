@@ -1,3 +1,4 @@
+# sqlparse: Build a bottle for Linux
 class Sqlparse < Formula
   include Language::Python::Virtualenv
 
