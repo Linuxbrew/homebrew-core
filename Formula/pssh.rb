@@ -1,3 +1,4 @@
+# pssh: Build a bottle for Linux
 class Pssh < Formula
   include Language::Python::Virtualenv
   desc "Parallel versions of OpenSSH and related tools"
