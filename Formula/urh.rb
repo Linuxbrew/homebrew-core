@@ -1,3 +1,4 @@
+# urh: Build a bottle for Linux
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
