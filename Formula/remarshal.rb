@@ -1,3 +1,4 @@
+# remarshal: Build a bottle for Linux
 class Remarshal < Formula
   include Language::Python::Virtualenv
 
