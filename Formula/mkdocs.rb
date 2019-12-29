@@ -1,3 +1,4 @@
+# mkdocs: Build a bottle for Linux
 class Mkdocs < Formula
   include Language::Python::Virtualenv
 
