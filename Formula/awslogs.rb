@@ -5,9 +5,8 @@ class Awslogs < Formula
   homepage "https://github.com/jorgebastida/awslogs"
   url "https://github.com/jorgebastida/awslogs/archive/0.11.0.tar.gz"
   sha256 "6258a121629cb872ee61fe78bf112753c8782c971524f0943a0e21f74d5e28bd"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/jorgebastida/awslogs.git"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -16,12 +15,10 @@ class Awslogs < Formula
     sha256 "2adb8376393d9f0922bbe8938980d612995389d05794605cd565d4d4cf1874fc" => :high_sierra
   end
 
-  unless OS.mac?
-    depends_on "openssl@1.1"
-    depends_on "zlib"
-  end
-
   depends_on "python@3.8"
+
+  uses_from_macos "openssl@1.1"
+  uses_from_macos "zlib"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/fd/50/3868735fae36e0f93216019551ca0f75b6cf9f933a55891244efefdcc3bd/boto3-1.9.62.tar.gz"
