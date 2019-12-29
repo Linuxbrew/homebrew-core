@@ -1,3 +1,4 @@
+# xonsh: Build a bottle for Linux
 class Xonsh < Formula
   include Language::Python::Virtualenv
 
