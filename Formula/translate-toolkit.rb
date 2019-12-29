@@ -1,3 +1,4 @@
+# translate-toolkit: Build a bottle for Linux
 class TranslateToolkit < Formula
   include Language::Python::Virtualenv
 
