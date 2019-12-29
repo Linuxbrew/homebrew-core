@@ -1,3 +1,4 @@
+# git-cola: Build a bottle for Linux
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
