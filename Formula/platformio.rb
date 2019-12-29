@@ -1,3 +1,4 @@
+# platformio: Build a bottle for Linux
 class Platformio < Formula
   include Language::Python::Virtualenv
 
