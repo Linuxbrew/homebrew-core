@@ -1,3 +1,4 @@
+# gitup: Build a bottle for Linux
 class Gitup < Formula
   include Language::Python::Virtualenv
 
