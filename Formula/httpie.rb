@@ -1,3 +1,4 @@
+# httpie: Build a bottle for Linux
 class Httpie < Formula
   include Language::Python::Virtualenv
 
