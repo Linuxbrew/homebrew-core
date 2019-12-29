@@ -1,3 +1,4 @@
+# whistle: Build a bottle for Linux
 require "language/node"
 
 class Whistle < Formula
