@@ -1,3 +1,4 @@
+# proselint: Build a bottle for Linux
 class Proselint < Formula
   include Language::Python::Virtualenv
 
