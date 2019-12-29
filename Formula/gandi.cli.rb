@@ -1,3 +1,4 @@
+# gandi.cli: Build a bottle for Linux
 class GandiCli < Formula
   include Language::Python::Virtualenv
 
