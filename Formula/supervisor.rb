@@ -1,3 +1,4 @@
+# supervisor: Build a bottle for Linux
 class Supervisor < Formula
   include Language::Python::Virtualenv
 
