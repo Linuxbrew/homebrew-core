@@ -1,3 +1,4 @@
+# legit: Build a bottle for Linux
 class Legit < Formula
   include Language::Python::Virtualenv
 
