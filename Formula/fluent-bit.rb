@@ -19,6 +19,9 @@ class FluentBit < Formula
   conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries."
   conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries."
 
+  # Don't install service files
+  patch :DATA unless OS.mac?
+
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
@@ -34,3 +37,36 @@ class FluentBit < Formula
     assert_equal "Fluent Bit v#{version}", output
   end
 end
+__END__
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 54b3b291..72fd1088 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -316,27 +316,6 @@ if(FLB_BINARY)
+     ENABLE_EXPORTS ON)
+   install(TARGETS fluent-bit-bin RUNTIME DESTINATION ${FLB_INSTALL_BINDIR})
+ 
+-  # Detect init system, install upstart, systemd or init.d script
+-  if(IS_DIRECTORY /lib/systemd/system)
+-    set(FLB_SYSTEMD_SCRIPT "${PROJECT_SOURCE_DIR}/init/${FLB_OUT_NAME}.service")
+-    configure_file(
+-      "${PROJECT_SOURCE_DIR}/init/systemd.in"
+-      ${FLB_SYSTEMD_SCRIPT}
+-      )
+-    install(FILES ${FLB_SYSTEMD_SCRIPT} DESTINATION /lib/systemd/system)
+-    install(DIRECTORY DESTINATION ${FLB_INSTALL_CONFDIR})
+-  elseif(IS_DIRECTORY /usr/share/upstart)
+-    set(FLB_UPSTART_SCRIPT "${PROJECT_SOURCE_DIR}/init/${FLB_OUT_NAME}.conf")
+-    configure_file(
+-      "${PROJECT_SOURCE_DIR}/init/upstart.in"
+-      ${FLB_UPSTART_SCRIPT}
+-      )
+-    install(FILES ${FLB_UPSTART_SCRIPT} DESTINATION /etc/init)
+-    install(DIRECTORY DESTINATION ${FLB_INSTALL_CONFDIR})
+-  else()
+-    # FIXME: should we support Sysv init script ?
+-  endif()
+-
+   install(FILES
+     "${PROJECT_SOURCE_DIR}/conf/fluent-bit.conf"
+     DESTINATION ${FLB_INSTALL_CONFDIR}
