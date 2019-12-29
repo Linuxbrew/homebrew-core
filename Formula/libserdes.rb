@@ -1,3 +1,4 @@
+# libserdes: Build a bottle for Linux
 class Libserdes < Formula
   desc "Schema ser/deserializer lib for Avro + Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
