@@ -51,6 +51,8 @@ class Pyvim < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     # Need a pty due to https://github.com/jonathanslenders/pyvim/issues/101
     require "pty"
     PTY.spawn(bin/"pyvim", "--help") do |r, _w, _pid|
