@@ -19,12 +19,11 @@ class Pyenv < Formula
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "readline"
-
   depends_on "python@2" unless OS.mac?
+
   uses_from_macos "bzip2"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "pkg-config"
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
