@@ -15,8 +15,8 @@ class Wordgrinder < Formula
 
   depends_on "ninja" => :build
   depends_on "lua"
+  depends_on "pkg-config" => :build unless OS.mac?
 
-  uses_from_macos "pkg-config" => :build
   uses_from_macos "zlib"
 
   def install
