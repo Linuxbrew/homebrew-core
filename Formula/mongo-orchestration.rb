@@ -1,3 +1,4 @@
+# mongo-orchestration: Build a bottle for Linux
 class MongoOrchestration < Formula
   include Language::Python::Virtualenv
 
