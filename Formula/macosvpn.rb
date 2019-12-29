@@ -1,3 +1,4 @@
+# macosvpn: Build a bottle for Linux
 class Macosvpn < Formula
   desc "Create Mac OS VPNs programmatically"
   homepage "https://github.com/halo/macosvpn"
