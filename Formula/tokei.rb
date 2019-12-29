@@ -1,3 +1,4 @@
+# tokei: Build a bottle for Linux
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
   homepage "https://github.com/XAMPPRocky/tokei"
