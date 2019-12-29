@@ -1,3 +1,4 @@
+# nco: Build a bottle for Linux
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
