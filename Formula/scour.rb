@@ -1,3 +1,4 @@
+# scour: Build a bottle for Linux
 class Scour < Formula
   include Language::Python::Virtualenv
 
