@@ -1,3 +1,4 @@
+# esptool: Build a bottle for Linux
 class Esptool < Formula
   include Language::Python::Virtualenv
 
