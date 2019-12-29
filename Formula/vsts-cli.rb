@@ -1,3 +1,4 @@
+# vsts-cli: Build a bottle for Linux
 class VstsCli < Formula
   include Language::Python::Virtualenv
 
