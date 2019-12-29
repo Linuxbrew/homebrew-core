@@ -1,3 +1,4 @@
+# auditbeat: Build a bottle for Linux
 class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
