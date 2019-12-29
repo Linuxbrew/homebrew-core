@@ -1,3 +1,4 @@
+# pyqt: Build a bottle for Linux
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
