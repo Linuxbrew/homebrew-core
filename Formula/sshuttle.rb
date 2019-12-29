@@ -1,3 +1,4 @@
+# sshuttle: Build a bottle for Linux
 class Sshuttle < Formula
   include Language::Python::Virtualenv
 
