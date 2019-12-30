@@ -1,3 +1,4 @@
+# ucloud: Build a bottle for Linux
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
