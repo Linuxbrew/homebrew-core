@@ -1,3 +1,4 @@
+# nanomsgxx: Build a bottle for Linux
 class Nanomsgxx < Formula
   desc "Nanomsg binding for C++11"
   homepage "https://achille-roussel.github.io/nanomsgxx/doc/nanomsgxx.7.html"
