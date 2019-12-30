@@ -1,3 +1,4 @@
+# isl: Build a bottle for Linux
 class Isl < Formula
   desc "Integer Set Library for the polyhedral model"
   homepage "https://isl.gforge.inria.fr/"
