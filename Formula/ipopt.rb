@@ -1,3 +1,4 @@
+# ipopt: Build a bottle for Linux
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://projects.coin-or.org/Ipopt/"
