@@ -6,11 +6,10 @@ class GccAT9 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
   sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
+  revision 1
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
-    sha256 "80a5652b56f6e86aa6ffc1315800e5b287a9404075f994d451dc27cf8fd02045" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
