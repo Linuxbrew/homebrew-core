@@ -15,6 +15,7 @@ class Bazel < Formula
   depends_on "python" => :build
   depends_on :java => "1.8"
   depends_on :macos => :yosemite if OS.mac?
+  uses_from_macos "zip"
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
