@@ -52,7 +52,7 @@ class Doitlive < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
+    virtualenv_create(libexec, "python3") if OS.mac?
     virtualenv_install_with_resources
 
     output = Utils.popen_read("SHELL=bash #{libexec}/bin/doitlive completion")
