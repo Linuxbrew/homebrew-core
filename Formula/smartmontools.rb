@@ -1,3 +1,4 @@
+# smartmontools: Build a bottle for Linux
 class Smartmontools < Formula
   desc "SMART hard drive monitoring"
   homepage "https://www.smartmontools.org/"
