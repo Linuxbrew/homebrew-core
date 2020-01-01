@@ -1,3 +1,4 @@
+# toast: Build a bottle for Linux
 class Toast < Formula
   desc "Tool for running tasks in containers"
   homepage "https://github.com/stepchowfun/toast"
