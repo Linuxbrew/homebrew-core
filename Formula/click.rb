@@ -1,3 +1,4 @@
+# click: Build a bottle for Linux
 class Click < Formula
   desc "The command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
