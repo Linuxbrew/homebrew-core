@@ -1,3 +1,4 @@
+# securefs: Build a bottle for Linux
 class Securefs < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
