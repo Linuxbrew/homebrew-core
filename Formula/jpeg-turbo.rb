@@ -1,3 +1,4 @@
+# jpeg-turbo: Build a bottle for Linux
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
