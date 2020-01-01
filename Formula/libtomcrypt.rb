@@ -1,3 +1,4 @@
+# libtomcrypt: Build a bottle for Linux
 class Libtomcrypt < Formula
   desc "Comprehensive, modular and portable cryptographic toolkit"
   homepage "https://www.libtom.net/"
