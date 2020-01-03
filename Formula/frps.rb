@@ -1,3 +1,4 @@
+# frps: Build a bottle for Linux
 class Frps < Formula
   desc "Server app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
