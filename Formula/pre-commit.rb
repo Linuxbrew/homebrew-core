@@ -1,3 +1,4 @@
+# pre-commit: Build a bottle for Linux
 class PreCommit < Formula
   include Language::Python::Virtualenv
 
