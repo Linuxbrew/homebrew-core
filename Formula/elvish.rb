@@ -1,3 +1,4 @@
+# elvish: Build a bottle for Linux
 class Elvish < Formula
   desc "Friendly and expressive shell"
   homepage "https://github.com/elves/elvish"
