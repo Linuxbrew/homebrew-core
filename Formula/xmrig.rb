@@ -1,3 +1,4 @@
+# xmrig: Build a bottle for Linux
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
