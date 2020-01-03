@@ -1,3 +1,4 @@
+# msmtp: Build a bottle for Linux
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "https://marlam.de/msmtp/"
