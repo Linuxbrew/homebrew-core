@@ -1,3 +1,4 @@
+# watch: Build a bottle for Linux
 class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
