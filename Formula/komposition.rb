@@ -29,6 +29,11 @@ class Komposition < Formula
   depends_on "sox"
   uses_from_macos "libffi"
 
+  unless OS.mac?
+    fails_with :gcc => "5"
+    depends_on "gcc@6" => :build
+  end
+
   def install
     # The --allow-newer=base may be removed when the ffmpeg-light
     # bound on base is relaxed, or when Homebrew moves to Cabal 3
