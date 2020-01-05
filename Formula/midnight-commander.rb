@@ -1,3 +1,4 @@
+# midnight-commander: Build a bottle for Linux
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
