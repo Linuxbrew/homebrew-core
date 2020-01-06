@@ -1,3 +1,4 @@
+# freetds: Build a bottle for Linux
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
