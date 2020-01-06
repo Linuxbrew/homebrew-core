@@ -1,3 +1,4 @@
+# openimageio: Build a bottle for Linux
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
