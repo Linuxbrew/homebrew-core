@@ -3,13 +3,12 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz"
   sha256 "1384eba5614fed160044ae0d32369e3df7b4f517b03f4b1f24d383e528f4be83"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   bottle do
     sha256 "4ccac8c178075606f275a258c215d6b805e184335306d9a78cd4b7c7fbf4a13b" => :catalina
     sha256 "5198ebdb8d360fbc1d70b980f99b189348db793aa7a694c79cd7445f2ed7e6dd" => :mojave
     sha256 "23682d476062f2ca5324f2ba584f44712b4d3264c1c9b70d452fead937a77346" => :high_sierra
-    sha256 "64134a4c3776c6e69f6dbf4b7a008225319059a112e062820b64768ede7d7260" => :x86_64_linux
   end
 
   depends_on "docbook" => :build
