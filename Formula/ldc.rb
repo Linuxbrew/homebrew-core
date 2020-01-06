@@ -22,9 +22,12 @@ class Ldc < Formula
       version "1.19.0"
       sha256 "c7bf6facfa61f2e771091b834397b36331f5c28a56e988f06fc4dc9fe0ece3ae"
     else
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.19.0/ldc2-1.19.0-linux-x86_64.tar.xz"
-      version "1.19.0"
-      sha256 "30f8b810ab12df0885262e0b1d83566399d5cf59fecec747982e2b4e45cecf90"
+      # From nixpkgs:
+      #   LDC 0.17.x is the last version which doesn't need a working D compiler to
+      #   build so we use that version to bootstrap the actual build.
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc2-1.17.0-linux-x86_64.tar.xz"
+      version "1.17.0"
+      sha256 "715adbdd614edf926d5f53bb9f8bfa34d0c828aa40077cb627ce064955fd641d"
     end
   end
 
