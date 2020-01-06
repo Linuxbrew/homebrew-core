@@ -25,6 +25,8 @@ class Weechat < Formula
   depends_on "python"
   depends_on "ruby" if MacOS.version <= :sierra
 
+  uses_from_macos "curl"
+
   def install
     args = std_cmake_args + %W[
       -DENABLE_MAN=ON
