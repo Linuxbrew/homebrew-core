@@ -1,3 +1,4 @@
+# onefetch: Build a bottle for Linux
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
