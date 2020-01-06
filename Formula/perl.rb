@@ -1,3 +1,4 @@
+# perl: Build a bottle for Linux
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
