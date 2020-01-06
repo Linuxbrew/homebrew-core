@@ -3,6 +3,7 @@ class Boost < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
   sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  revision 1 unless OS.mac?
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -10,7 +11,6 @@ class Boost < Formula
     sha256 "75407eb4e779185ff8efbbcaa55683692d12c5512b20fdf6c25f4fc1982123d5" => :catalina
     sha256 "5778608e74bc4017fbb25d277dd0afa58c0ab5b7ec73d859ad8f760267b7b1d6" => :mojave
     sha256 "0b4ab9c75c3bbfcdf40d015b48463504d19405f57dec8b061491f113cd3f37e1" => :high_sierra
-    sha256 "2009057a9e5dfe69043fa18d16d2e07c49c544612b3ac30e72b53e7c1cfce862" => :x86_64_linux
   end
 
   depends_on "icu4c" if OS.mac?
@@ -65,6 +65,11 @@ class Boost < Formula
       threading=multi,single
       link=shared,static
     ]
+
+    unless OS.mac?
+      args << "cflags=\"#{ENV["CPPFLAGS"]} #{ENV["CFLAGS"]} -fPIC -O3\""
+      args << "cxxflags=\"#{ENV["CPPFLAGS"]} #{ENV["CXXFLAGS"]} -std=c++14 -fPIC -O3\""
+    end
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
