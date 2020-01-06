@@ -12,6 +12,8 @@ class Remake < Formula
     sha256 "ad4182037734bbaa6f4627598ba1358fb904d0fdcdebccb73e0dfdc8d2b6c780" => :high_sierra
   end
 
+  depends_on "readline" unless OS.mac?
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
