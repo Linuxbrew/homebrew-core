@@ -1,3 +1,4 @@
+# np2: Build a bottle for Linux
 class Np2 < Formula
   desc "Neko Project 2: PC-9801 emulator"
   homepage "https://www.yui.ne.jp/np2/"
