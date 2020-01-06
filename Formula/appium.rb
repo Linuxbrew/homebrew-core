@@ -26,7 +26,7 @@ class Appium < Formula
     assert_match version.to_str, output
     begin
       pid = fork do
-        exec bin/"appium &>appium-start.out"
+        exec bin/"appium >appium-start.out 2>&1"
       end
       sleep 3
 
