@@ -1,3 +1,4 @@
+# libcddb: Build a bottle for Linux
 class Libcddb < Formula
   desc "CDDB server access library"
   homepage "https://libcddb.sourceforge.io/"
