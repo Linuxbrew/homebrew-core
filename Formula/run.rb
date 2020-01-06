@@ -1,3 +1,4 @@
+# run: Build a bottle for Linux
 class Run < Formula
   desc "Easily manage and invoke small scripts and wrappers"
   homepage "https://github.com/TekWizely/run"
