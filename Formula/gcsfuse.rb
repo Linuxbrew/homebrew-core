@@ -37,6 +37,6 @@ class Gcsfuse < Formula
 
   test do
     system "#{bin}/gcsfuse", "--help"
-    system "#{sbin}/mount_gcsfuse", "--help"
+    system "#{sbin}/mount#{OS.mac? ? "_" : "."}gcsfuse", "--help"
   end
 end
