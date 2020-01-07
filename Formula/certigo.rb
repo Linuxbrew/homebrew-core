@@ -1,3 +1,4 @@
+# certigo: Build a bottle for Linux
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
