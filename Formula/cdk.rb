@@ -1,3 +1,4 @@
+# cdk: Build a bottle for Linux
 class Cdk < Formula
   desc "Curses development kit provides predefined curses widget for apps"
   homepage "https://invisible-island.net/cdk/"
