@@ -1,3 +1,4 @@
+# collectd: Build a bottle for Linux
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
