@@ -1,3 +1,4 @@
+# fn: Build a bottle for Linux
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
