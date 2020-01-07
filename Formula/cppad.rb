@@ -1,3 +1,4 @@
+# cppad: Build a bottle for Linux
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
