@@ -13,6 +13,9 @@ class Botan < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+  uses_from_macos "python@2" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
@@ -20,9 +23,9 @@ class Botan < Formula
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
-      --cpu=#{MacOS.preferred_arch}
-      --cc=#{ENV.compiler}
-      --os=darwin
+      --cpu=#{OS.mac? ? MacOS.preferred_arch : "x86_64"}
+      --cc=#{OS.mac? ? ENV.compiler : "gcc"}
+      --os=#{OS.mac? ? "darwin" : "linux"}
       --with-openssl
       --with-zlib
       --with-bzip2
