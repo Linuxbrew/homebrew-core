@@ -1,3 +1,4 @@
+# ccache: Build a bottle for Linux
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
