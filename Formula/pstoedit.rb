@@ -15,15 +15,17 @@ class Pstoedit < Formula
   depends_on "imagemagick"
   depends_on "plotutils"
 
+  # "You need a C++ compiler, e.g., g++ (newer than 6.0) to compile pstoedit."
   unless OS.mac?
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/master/graphics/pstoedit/files/patch-src-dxfacad.h.diff"
-      sha256 "41d767e655d0519e98b14bb05a1dafc4415b9b21de60179522c55bac3cbd8ed1"
-    end
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
+    fails_with :gcc => "7"
+    fails_with :gcc => "8"
+    depends_on "gcc@9" => :build
   end
 
   def install
-    ENV.cxx11
+    ENV.append "CXXFLAGS", "-std=c++17"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
