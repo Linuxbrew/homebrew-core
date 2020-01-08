@@ -1,3 +1,4 @@
+# gtkglext: Build a bottle for Linux
 class Gtkglext < Formula
   desc "OpenGL extension to GTK+"
   homepage "https://projects.gnome.org/gtkglext/"
