@@ -20,6 +20,7 @@ class Yaf < Formula
   depends_on "libfixbuf"
   depends_on "libtool"
   depends_on "pcre"
+  uses_from_macos "libpcap"
 
   def install
     system "./configure", "--disable-dependency-tracking",
