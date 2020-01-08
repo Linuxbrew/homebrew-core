@@ -1,3 +1,4 @@
+# ejdb: Build a bottle for Linux
 class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
