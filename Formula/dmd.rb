@@ -1,3 +1,4 @@
+# dmd: Build a bottle for Linux
 class Dmd < Formula
   desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
