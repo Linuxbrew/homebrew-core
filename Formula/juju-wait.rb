@@ -1,3 +1,4 @@
+# juju-wait: Build a bottle for Linux
 class JujuWait < Formula
   include Language::Python::Virtualenv
 
