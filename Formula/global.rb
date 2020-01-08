@@ -38,6 +38,11 @@ class Global < Formula
   end
 
   def install
+    unless OS.mac?
+      inreplace "plugin-factory/pygments_parser.py", "#!/usr/bin/env python", "#!/usr/bin/env python3"
+      inreplace "plugin-factory/pygments_parser.py.in", "#!/usr/bin/env python", "#!/usr/bin/env python3"
+    end
+
     system "sh", "reconf.sh" if build.head?
 
     xy = Language::Python.major_minor_version "python3"
