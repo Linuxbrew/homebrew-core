@@ -1,3 +1,4 @@
+# libb64: Build a bottle for Linux
 class Libb64 < Formula
   desc "Base64 encoding/decoding library"
   homepage "https://libb64.sourceforge.io/"
