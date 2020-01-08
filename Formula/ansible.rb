@@ -5,9 +5,8 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.9.2.tar.gz"
   sha256 "2f83f8ccc50640aa41a24f6e7757ac06b0ee6189fdcaacab68851771d3b42f3a"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/ansible/ansible.git", :branch => "devel"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
