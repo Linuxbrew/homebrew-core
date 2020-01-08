@@ -25,6 +25,8 @@ class ConjureUp < Formula
   depends_on "libffi" unless OS.mac?
   depends_on "pkg-config" => :build unless OS.mac?
 
+  patch :DATA unless OS.mac?
+
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/94/c2/e3cb60c1b7d9478203d4514e2d33ea424ad9bb98e45b21d6225db93f25c9/aiofiles-0.4.0.tar.gz"
@@ -254,6 +256,13 @@ class ConjureUp < Formula
   end
 
   def install
+    unless OS.mac?
+      inreplace "conjureup/juju.py" do |s|
+        s.gsub! "@@HOMEBREW_JUJU@@", Formula["juju"].opt_bin/"juju"
+        s.gsub! "@@HOMEBREW_JUJU_WAIT@@", Formula["juju-wait"].opt_bin/"juju-wait"
+      end
+    end
+
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
     res = resources.map(&:name).to_set - ["cffi"]
@@ -272,3 +281,24 @@ class ConjureUp < Formula
                      :exist?
   end
 end
+__END__
+diff --git a/conjureup/juju.py b/conjureup/juju.py
+index 6be93a4..1f9469a 100644
+--- a/conjureup/juju.py
++++ b/conjureup/juju.py
+@@ -44,6 +44,7 @@ def set_bin_path():
+     """ Sets the juju binary path
+     """
+     candidates = [
++        '@@HOMEBREW_JUJU@@',
+         '/snap/bin/juju',
+         '/snap/bin/conjure-up.juju',
+         '/usr/bin/juju',
+@@ -60,6 +61,7 @@ def set_wait_path():
+     """ Sets juju-wait path
+     """
+     candidates = [
++        '@@HOMEBREW_JUJU_WAIT@@',
+         '/snap/bin/juju-wait',
+         '/snap/bin/conjure-up.juju-wait',
+         '/usr/bin/juju-wait',
