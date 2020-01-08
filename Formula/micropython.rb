@@ -1,3 +1,4 @@
+# micropython: Build a bottle for Linux
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
