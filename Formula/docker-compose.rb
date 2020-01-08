@@ -1,3 +1,4 @@
+# docker-compose: Build a bottle for Linux
 class DockerCompose < Formula
   include Language::Python::Virtualenv
 
