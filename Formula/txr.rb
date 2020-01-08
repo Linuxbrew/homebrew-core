@@ -1,3 +1,4 @@
+# txr: Build a bottle for Linux
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
