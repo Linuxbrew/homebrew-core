@@ -1,3 +1,4 @@
+# sonobuoy: Build a bottle for Linux
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/heptio/sonobuoy"
