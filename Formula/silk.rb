@@ -14,6 +14,7 @@ class Silk < Formula
   depends_on "glib"
   depends_on "libfixbuf"
   depends_on "yaf"
+  uses_from_macos "libpcap"
 
   def install
     args = %W[
