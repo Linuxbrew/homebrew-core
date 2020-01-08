@@ -1,3 +1,4 @@
+# icecast: Build a bottle for Linux
 class Icecast < Formula
   desc "Streaming MP3 audio server"
   homepage "https://icecast.org/"
