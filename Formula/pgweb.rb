@@ -1,3 +1,4 @@
+# pgweb: Build a bottle for Linux
 class Pgweb < Formula
   desc "Web-based PostgreSQL database browser"
   homepage "https://sosedoff.github.io/pgweb/"
