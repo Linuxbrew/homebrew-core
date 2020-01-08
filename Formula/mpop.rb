@@ -1,3 +1,4 @@
+# mpop: Build a bottle for Linux
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
