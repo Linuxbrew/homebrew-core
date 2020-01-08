@@ -20,6 +20,9 @@ class AnsibleAT28 < Formula
   depends_on "openssl@1.1"
   depends_on "python"
 
+  uses_from_macos "libffi"
+  uses_from_macos "libxslt"
+
   # Collect requirements from:
   #   ansible
   #   docker-py
@@ -269,9 +272,11 @@ class AnsibleAT28 < Formula
     sha256 "fb04cfd54d8d7e4cc533108750047e9ccf43139c3c0220f8a082274b19564e98"
   end
 
-  resource "kerberos" do
-    url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
-    sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
+  if OS.mac?
+    resource "kerberos" do
+      url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
+      sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
+    end
   end
 
   resource "keystoneauth1" do
@@ -593,14 +598,14 @@ class AnsibleAT28 < Formula
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :sierra
 
     # Work around Xcode 11 clang bug
     # https://code.videolan.org/videolan/libbluray/issues/20
     ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     # https://github.com/Homebrew/homebrew-core/issues/7197
-    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if OS.mac?
 
     virtualenv_install_with_resources
 
