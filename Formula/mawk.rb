@@ -1,3 +1,4 @@
+# mawk: Build a bottle for Linux
 class Mawk < Formula
   desc "Interpreter for the AWK Programming Language"
   homepage "https://invisible-island.net/mawk/"
