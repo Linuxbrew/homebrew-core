@@ -9,7 +9,6 @@ class Texmath < Formula
   sha256 "5e1915a87774428733575cd47ce1f4050a70ab30c8518238e320036e877a8125"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "03203284dd76815b6ab59b24ae4730db26ca4ad37cceb09b6d8b92b598bfd1eb" => :catalina
     sha256 "eb7534eeb2e36f93cc7262e446e908918b87a0aeedac653a7d32212a964462b2" => :mojave
     sha256 "f2054064d399c56953d8cadedf9a23d77d251c5229279bbec929816acbfd6cc2" => :high_sierra
