@@ -1,3 +1,4 @@
+# cobalt: Build a bottle for Linux
 class Cobalt < Formula
   desc "Static site generator written in Rust"
   homepage "https://cobalt-org.github.io/"
