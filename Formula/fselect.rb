@@ -1,3 +1,4 @@
+# fselect: Build a bottle for Linux
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
