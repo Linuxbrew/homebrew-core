@@ -1,3 +1,4 @@
+# pcb: Build a bottle for Linux
 class Pcb < Formula
   desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
