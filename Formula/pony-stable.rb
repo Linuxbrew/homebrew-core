@@ -1,3 +1,4 @@
+# pony-stable: Build a bottle for Linux
 class PonyStable < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/pony-stable"
