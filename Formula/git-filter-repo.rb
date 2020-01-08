@@ -1,3 +1,4 @@
+# git-filter-repo: Build a bottle for Linux
 class GitFilterRepo < Formula
   desc "Quickly rewrite git repository history"
   homepage "https://github.com/newren/git-filter-repo"
