@@ -14,8 +14,10 @@ class Pwntools < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "libffi"
   # Has a 4.0 beta release with Python 3 support
   uses_from_macos "python@2"
+  depends_on "pkg-config" => :build unless OS.mac? # for libffi
 
   conflicts_with "moreutils", :because => "Both install `errno` binaries"
 
