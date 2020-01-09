@@ -1,3 +1,4 @@
+# http-server: Build a bottle for Linux
 require "language/node"
 
 class HttpServer < Formula
