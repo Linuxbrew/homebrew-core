@@ -1,3 +1,4 @@
+# yamllint: Build a bottle for Linux
 class Yamllint < Formula
   include Language::Python::Virtualenv
 
