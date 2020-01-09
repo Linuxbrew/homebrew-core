@@ -1,3 +1,4 @@
+# dfmt: Build a bottle for Linux
 class Dfmt < Formula
   desc "Formatter for D source code"
   homepage "https://github.com/dlang-community/dfmt"
