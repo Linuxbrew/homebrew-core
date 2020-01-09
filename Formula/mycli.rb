@@ -1,3 +1,4 @@
+# mycli: Build a bottle for Linux
 class Mycli < Formula
   include Language::Python::Virtualenv
 
