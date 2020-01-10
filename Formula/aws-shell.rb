@@ -1,3 +1,4 @@
+# aws-shell: Build a bottle for Linux
 class AwsShell < Formula
   include Language::Python::Virtualenv
 
