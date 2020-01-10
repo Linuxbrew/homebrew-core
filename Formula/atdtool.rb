@@ -1,3 +1,4 @@
+# atdtool: Build a bottle for Linux
 class Atdtool < Formula
   include Language::Python::Virtualenv
 
