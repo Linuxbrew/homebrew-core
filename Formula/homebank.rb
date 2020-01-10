@@ -1,3 +1,4 @@
+# homebank: Build a bottle for Linux
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
