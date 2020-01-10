@@ -1,3 +1,4 @@
+# howdoi: Build a bottle for Linux
 class Howdoi < Formula
   include Language::Python::Virtualenv
 
