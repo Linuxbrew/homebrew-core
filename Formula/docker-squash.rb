@@ -1,3 +1,4 @@
+# docker-squash: Build a bottle for Linux
 class DockerSquash < Formula
   include Language::Python::Virtualenv
 
