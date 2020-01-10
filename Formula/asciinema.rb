@@ -1,3 +1,4 @@
+# asciinema: Build a bottle for Linux
 class Asciinema < Formula
   include Language::Python::Virtualenv
 
