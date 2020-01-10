@@ -1,3 +1,4 @@
+# git-review: Build a bottle for Linux
 class GitReview < Formula
   include Language::Python::Virtualenv
 
