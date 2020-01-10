@@ -1,3 +1,4 @@
+# s3cmd: Build a bottle for Linux
 class S3cmd < Formula
   include Language::Python::Virtualenv
 
