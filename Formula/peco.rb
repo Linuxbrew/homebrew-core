@@ -1,3 +1,4 @@
+# peco: Build a bottle for Linux
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
