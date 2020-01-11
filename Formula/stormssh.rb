@@ -1,3 +1,4 @@
+# stormssh: Build a bottle for Linux
 class Stormssh < Formula
   desc "Command-line tool to manage your ssh connections"
   homepage "https://github.com/emre/storm"
