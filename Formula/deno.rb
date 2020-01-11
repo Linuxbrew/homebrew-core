@@ -16,15 +16,20 @@ class Deno < Formula
   depends_on "ninja" => :build
   depends_on "rust" => :build
   unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "python@2" => :build
     depends_on "xz" => :build
-    depends_on "python@2"
+    depends_on "glib"
+    depends_on "libxml2"
+    depends_on "libxslt"
   end
 
   depends_on :xcode => ["10.0", :build] if OS.mac? # required by v8 7.9+
 
+  # Use older revision on Linux, newer does not work.
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "a5bcbd726ac7bd342ca6ee3e3a006478fd1f00b5"
+      :revision => OS.mac? ? "a5bcbd726ac7bd342ca6ee3e3a006478fd1f00b5" : "152c5144ceed9592c20f0c8fd55769646077569b"
   end
 
   def install
@@ -37,16 +42,14 @@ class Deno < Formula
 
     # env args for building a release build with our clang, ninja and gn
     ENV["GN"] = buildpath/"gn/out/gn"
-    if OS.linux? || DevelopmentTools.clang_build_version < 1100
-      # build with llvm and link against system libc++ (no runtime dep)
-      ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    else # build with system clang
-      ENV["CLANG_BASE_PATH"] = "/usr/"
-    end
-
-    unless OS.mac?
-      system "core/libdeno/build/linux/sysroot_scripts/install-sysroot.py", "--arch=amd64"
+    if OS.mac?
+      if DevelopmentTools.clang_build_version < 1100
+        # build with llvm and link against system libc++ (no runtime dep)
+        ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
+        ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+      else # build with system clang
+        ENV["CLANG_BASE_PATH"] = "/usr/"
+      end
     end
 
     cd "cli" do
