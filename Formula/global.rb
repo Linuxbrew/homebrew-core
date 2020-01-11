@@ -1,3 +1,4 @@
+# global: Build a bottle for Linux
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
