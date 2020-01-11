@@ -18,14 +18,18 @@ class Mrboom < Formula
   depends_on "sdl2_mixer"
 
   # fix Makefile issue, remove in next release
-  patch do
-    url "https://github.com/Javanaise/mrboom-libretro/commit/c777f1059c9a4b3fcefe6e2a19cfe9f81a13740b.diff?full_index=1"
-    sha256 "19f469ccde5f1a9bc45fa440fd4cbfd294947f17b191f299822db17de66a5a23"
+  if OS.mac?
+    patch do
+      url "https://github.com/Javanaise/mrboom-libretro/commit/c777f1059c9a4b3fcefe6e2a19cfe9f81a13740b.diff?full_index=1"
+      sha256 "19f469ccde5f1a9bc45fa440fd4cbfd294947f17b191f299822db17de66a5a23"
+    end
+  else
+    patch :DATA
   end
 
   def install
     system "make", "mrboom", "LIBSDL2=1"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "MANDIR=share/man/man6"
   end
 
   test do
@@ -47,3 +51,22 @@ class Mrboom < Formula
     end
   end
 end
+__END__
+diff --git a/Makefile b/Makefile
+index f10b4d073d5d05fb91254479bc6186ca0fd4b8f8..17b8a4052ef0813a04792da8d4ff0cfadd088e6c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -500,11 +500,11 @@ clean:
+ 	rm -f *.d */*.d */*/*.d */*/*/*.d */*/*/*/*.d */*/*/*/*/*.d
+ 
+ strip:
+-	$(STRIP) $(TARGET_NAME).out
++	$(STRIP) $(TARGET_NAME)
+ 
+ install: strip
+ 	$(INSTALL) -m 0755 -d $(DESTDIR)$(PREFIX)/$(BINDIR)
+-	$(INSTALL) -m 555 $(TARGET_NAME).out $(DESTDIR)$(PREFIX)/$(BINDIR)/$(TARGET_NAME)
++	$(INSTALL) -m 555 $(TARGET_NAME) $(DESTDIR)$(PREFIX)/$(BINDIR)/$(TARGET_NAME)
+ 	$(INSTALL) -m 0755 -d $(DESTDIR)$(PREFIX)/$(MANDIR)
+ 	$(INSTALL) -m 644 Assets/$(TARGET_NAME).6 $(DESTDIR)$(PREFIX)/$(MANDIR) 
+ 
