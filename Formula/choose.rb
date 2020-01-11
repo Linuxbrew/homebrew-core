@@ -1,3 +1,4 @@
+# choose: Build a bottle for Linux
 class Choose < Formula
   desc "Make choices on the command-line"
   homepage "https://github.com/geier/choose"
