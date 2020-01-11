@@ -1,3 +1,4 @@
+# libvoikko: Build a bottle for Linux
 class Libvoikko < Formula
   desc "Linguistic software and Finnish dictionary"
   homepage "https://voikko.puimula.org/"
