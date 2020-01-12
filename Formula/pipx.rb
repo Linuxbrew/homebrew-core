@@ -1,3 +1,4 @@
+# pipx: Build a bottle for Linux
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://github.com/pipxproject/pipx"
