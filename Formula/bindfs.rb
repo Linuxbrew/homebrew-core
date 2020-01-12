@@ -1,3 +1,4 @@
+# bindfs: Build a bottle for Linux
 class Bindfs < Formula
   desc "FUSE file system for mounting to another location"
   homepage "https://bindfs.org/"
