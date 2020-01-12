@@ -1,3 +1,4 @@
+# kustomize: Build a bottle for Linux
 class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
