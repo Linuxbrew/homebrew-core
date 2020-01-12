@@ -1,3 +1,4 @@
+# pnpm: Build a bottle for Linux
 class Pnpm < Formula
   require "language/node"
 
