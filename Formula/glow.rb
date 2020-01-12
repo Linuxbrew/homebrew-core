@@ -1,3 +1,4 @@
+# glow: Build a bottle for Linux
 class Glow < Formula
   desc "Render markdown on the CLI"
   homepage "https://github.com/charmbracelet/glow"
