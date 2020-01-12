@@ -1,3 +1,4 @@
+# pagmo: Build a bottle for Linux
 class Pagmo < Formula
   desc "Scientific library for massively parallel optimization"
   homepage "https://esa.github.io/pagmo2/"
