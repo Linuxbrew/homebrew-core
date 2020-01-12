@@ -1,3 +1,4 @@
+# xdotool: Build a bottle for Linux
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
