@@ -1,3 +1,4 @@
+# aws-elasticbeanstalk: Build a bottle for Linux
 class AwsElasticbeanstalk < Formula
   include Language::Python::Virtualenv
 
