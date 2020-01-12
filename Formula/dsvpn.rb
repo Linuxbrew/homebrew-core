@@ -25,7 +25,11 @@ class Dsvpn < Formula
   end
 
   test do
-    expected = "tun device creation: Operation not permitted"
+    if which("ip")
+      expected = "tun device creation: Operation not permitted"
+    else
+      expected = "Unable to automatically determine the gateway IP"
+    end
     assert_match expected, shell_output("#{sbin}/dsvpn client /dev/zero 127.0.0.1 0 2>&1", 1)
   end
 end
