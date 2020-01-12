@@ -1,3 +1,4 @@
+# fail2ban: Build a bottle for Linux
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
