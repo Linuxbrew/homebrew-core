@@ -1,3 +1,4 @@
+# yaegi: Build a bottle for Linux
 class Yaegi < Formula
   desc "Yet another elegant Go interpreter"
   homepage "https://github.com/containous/yaegi"
