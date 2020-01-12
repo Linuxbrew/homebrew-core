@@ -1,3 +1,4 @@
+# libxkbcommon: Build a bottle for Linux
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
