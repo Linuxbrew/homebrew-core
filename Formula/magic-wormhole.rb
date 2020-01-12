@@ -1,3 +1,4 @@
+# magic-wormhole: Build a bottle for Linux
 class MagicWormhole < Formula
   include Language::Python::Virtualenv
 
