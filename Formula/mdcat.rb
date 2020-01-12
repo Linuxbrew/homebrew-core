@@ -1,3 +1,4 @@
+# mdcat: Build a bottle for Linux
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/lunaryorn/mdcat"
