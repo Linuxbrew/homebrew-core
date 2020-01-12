@@ -1,3 +1,4 @@
+# multimarkdown: Build a bottle for Linux
 class Multimarkdown < Formula
   desc "Turn marked-up plain text into well-formatted documents"
   homepage "https://fletcher.github.io/MultiMarkdown-6/"
