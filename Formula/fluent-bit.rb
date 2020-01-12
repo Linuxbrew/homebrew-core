@@ -1,3 +1,4 @@
+# fluent-bit: Build a bottle for Linux
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
