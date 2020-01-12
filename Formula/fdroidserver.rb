@@ -1,3 +1,4 @@
+# fdroidserver: Build a bottle for Linux
 class Fdroidserver < Formula
   include Language::Python::Virtualenv
 
