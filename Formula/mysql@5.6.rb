@@ -1,3 +1,4 @@
+# mysql@5.6: Build a bottle for Linux
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
