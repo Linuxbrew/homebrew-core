@@ -1,3 +1,4 @@
+# mafft: Build a bottle for Linux
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
