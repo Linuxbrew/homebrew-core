@@ -1,3 +1,4 @@
+# tintin: Build a bottle for Linux
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
