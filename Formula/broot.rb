@@ -23,6 +23,8 @@ class Broot < Formula
 
     assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
 
+    return if !OS.mac? && ENV["CI"]
+
     (testpath/"test.exp").write <<~EOS
       spawn #{bin}/broot --cmd :pt --no-style --out #{testpath}/output.txt
       send "n\r"
