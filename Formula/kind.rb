@@ -1,3 +1,4 @@
+# kind: Build a bottle for Linux
 class Kind < Formula
   desc "Run local Kubernetes cluster in Docker"
   homepage "https://kind.sigs.k8s.io/"
