@@ -1,3 +1,4 @@
+# opa: Build a bottle for Linux
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
