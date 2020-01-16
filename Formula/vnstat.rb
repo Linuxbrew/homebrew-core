@@ -13,6 +13,8 @@ class Vnstat < Formula
 
   depends_on "gd"
 
+  uses_from_macos "sqlite"
+
   def install
     inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|
@@ -73,7 +75,7 @@ class Vnstat < Formula
 
   test do
     cp etc/"vnstat.conf", testpath
-    inreplace "vnstat.conf", "/usr/local/var", testpath/"var"
+    inreplace "vnstat.conf", "#{HOMEBREW_PREFIX}/var", testpath/"var"
     (testpath/"var/db/vnstat").mkpath
 
     begin
