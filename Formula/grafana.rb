@@ -26,6 +26,8 @@ class Grafana < Formula
     grafana_path = buildpath/"src/github.com/grafana/grafana"
     grafana_path.install buildpath.children
 
+    os = OS.mac? ? "darwin" : "linux"
+
     cd grafana_path do
       system "go", "run", "build.go", "build"
 
@@ -33,8 +35,8 @@ class Grafana < Formula
 
       system "node_modules/grunt-cli/bin/grunt", "build"
 
-      bin.install "bin/darwin-amd64/grafana-cli"
-      bin.install "bin/darwin-amd64/grafana-server"
+      bin.install "bin/#{os}-amd64/grafana-cli"
+      bin.install "bin/#{os}-amd64/grafana-server"
       (etc/"grafana").mkpath
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
