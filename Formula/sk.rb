@@ -1,3 +1,4 @@
+# sk: Build a bottle for Linux
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/lotabout/skim"
