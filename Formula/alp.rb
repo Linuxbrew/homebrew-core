@@ -1,3 +1,4 @@
+# alp: Build a bottle for Linux
 class Alp < Formula
   desc "Access Log Profiler"
   homepage "https://github.com/tkuchiki/alp"
