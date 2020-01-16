@@ -1,3 +1,4 @@
+# triton: Build a bottle for Linux
 require "language/node"
 
 class Triton < Formula
