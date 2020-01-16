@@ -1,3 +1,4 @@
+# fastmod: Build a bottle for Linux
 class Fastmod < Formula
   desc "Fast partial replacement for the codemod tool"
   homepage "https://github.com/facebookincubator/fastmod"
