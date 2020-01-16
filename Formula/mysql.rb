@@ -182,9 +182,7 @@ class Mysql < Formula
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure
-    unless ENV["CI"]
-      Process.kill(9, pid)
-      Process.wait(pid)
-    end
+    Process.kill(9, pid)
+    Process.wait(pid)
   end
 end
