@@ -1,3 +1,4 @@
+# broot: Build a bottle for Linux
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
