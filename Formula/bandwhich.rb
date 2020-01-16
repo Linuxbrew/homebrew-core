@@ -1,3 +1,4 @@
+# bandwhich: Build a bottle for Linux
 class Bandwhich < Formula
   desc "Terminal bandwidth utilization tool"
   homepage "https://github.com/imsnif/bandwhich"
