@@ -1,3 +1,4 @@
+# cppunit: Build a bottle for Linux
 class Cppunit < Formula
   desc "Unit testing framework for C++"
   homepage "https://wiki.freedesktop.org/www/Software/cppunit/"
