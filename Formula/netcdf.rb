@@ -53,7 +53,7 @@ class Netcdf < Formula
 
     # Add newly created installation to paths so that binding libraries can
     # find the core libs.
-    args = common_args.dup << "-DNETCDF_C_LIBRARY=#{lib}/libnetcdf.dylib"
+    args = common_args.dup << "-DNETCDF_C_LIBRARY=#{lib}/libnetcdf.#{OS.mac? ? "dylib" : "so"}"
 
     cxx_args = args.dup
     cxx_args << "-DNCXX_ENABLE_TESTS=OFF"
