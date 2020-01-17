@@ -1,3 +1,4 @@
+# mongo-c-driver: Build a bottle for Linux
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
