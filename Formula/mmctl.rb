@@ -1,3 +1,4 @@
+# mmctl: Build a bottle for Linux
 class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
