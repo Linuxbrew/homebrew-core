@@ -1,3 +1,4 @@
+# openjdk: Build a bottle for Linux
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
