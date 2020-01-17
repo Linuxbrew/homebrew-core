@@ -3,13 +3,13 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.84.0.tar.xz"
   sha256 "c7a130da743b38a548f7a21fe5940506fb1949f4ebdd3209f0e5b302fa139731"
+  revision 1 unless OS.mac?
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
     sha256 "400df9890bc951aab711cbd2f1449498ce5708298d17b0cc0d2719cc8e20759c" => :catalina
     sha256 "a2bd748c1d782e9a75db56fa40a55362c9a998a9021b4d55074694bf7be6e090" => :mojave
     sha256 "19b42ed9d840c6476681be4db9578fe029a800450bec08956ee2a9de5e2ed554" => :high_sierra
-    sha256 "01f8722e9d62d408975a13088f32ed5317ad6f72c63065c4defb3a1312bb28dd" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
