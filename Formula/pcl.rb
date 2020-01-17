@@ -1,3 +1,4 @@
+# pcl: Build a bottle for Linux
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
