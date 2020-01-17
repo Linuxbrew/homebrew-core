@@ -1,12 +1,11 @@
 class AlsaLib < Formula
   desc "Provides audio and MIDI functionality to the Linux operating system"
   homepage "https://www.alsa-project.org/"
-  url "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.1.tar.bz2"
-  sha256 "c95ac63c0aad43a6ac457d960569096b0b2ef72dc4e3737e77e3e2de87022cec"
+  url "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.2.tar.bz2"
+  sha256 "958e260e3673f1f6ff6b2d2c0df3fc2e469bea5b2957163ce96ce17f23e87943"
   # tag "linux"
 
   bottle do
-    sha256 "e34ed1fe2d15292da93c911bb70a204019c223fc475ded583b3dfa477479c797" => :x86_64_linux
   end
 
   def install
