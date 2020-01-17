@@ -1,3 +1,4 @@
+# wtfutil: Build a bottle for Linux
 class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
