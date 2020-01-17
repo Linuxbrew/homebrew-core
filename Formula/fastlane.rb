@@ -1,3 +1,4 @@
+# fastlane: Build a bottle for Linux
 class Fastlane < Formula
   desc "Easiest way to build and release mobile apps"
   homepage "https://fastlane.tools"
