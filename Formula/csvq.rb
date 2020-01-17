@@ -1,3 +1,4 @@
+# csvq: Build a bottle for Linux
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
