@@ -47,8 +47,15 @@ class Gdal < Formula
   depends_on "zstd"
 
   unless OS.mac?
+    depends_on "gcc@9" => :build
     depends_on "pkg-config" => :build
     depends_on "bash-completion"
+
+    fails_with :gcc => "4"
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
+    fails_with :gcc => "7"
+    fails_with :gcc => "8"
   end
   conflicts_with "cpl", :because => "both install cpl_error.h"
 
