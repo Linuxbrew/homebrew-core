@@ -1,3 +1,4 @@
+# kapacitor: Build a bottle for Linux
 class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
