@@ -1,3 +1,4 @@
+# opam: Build a bottle for Linux
 class Opam < Formula
   desc "The OCaml package manager"
   homepage "https://opam.ocaml.org"
