@@ -1,3 +1,4 @@
+# byobu: Build a bottle for Linux
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://launchpad.net/byobu"
