@@ -1,3 +1,4 @@
+# terraform-docs: Build a bottle for Linux
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/segmentio/terraform-docs"
