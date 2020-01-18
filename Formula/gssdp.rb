@@ -1,3 +1,4 @@
+# gssdp: Build a bottle for Linux
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
