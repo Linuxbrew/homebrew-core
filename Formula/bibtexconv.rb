@@ -23,7 +23,7 @@ class Bibtexconv < Formula
   def install
     dylib = OS.mac? ? "dylib" : "so"
     system "cmake", *std_cmake_args,
-	            "-DCRYPTO_LIBRARY=#{Formula["openssl@1.1"].opt_lib}/libcrypto.#{dylib}"
+              "-DCRYPTO_LIBRARY=#{Formula["openssl@1.1"].opt_lib}/libcrypto.#{dylib}"
     system "make", "install"
   end
 
