@@ -1,3 +1,4 @@
+# nebula: Build a bottle for Linux
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
