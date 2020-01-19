@@ -1,3 +1,4 @@
+# wabt: Build a bottle for Linux
 class Wabt < Formula
   desc "Web Assembly Binary Toolkit"
   homepage "https://github.com/WebAssembly/wabt"
