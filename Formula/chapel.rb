@@ -3,13 +3,13 @@ class Chapel < Formula
   homepage "https://chapel-lang.org/"
   url "https://github.com/chapel-lang/chapel/releases/download/1.20.0/chapel-1.20.0.tar.gz"
   sha256 "08bc86df13e4ad56d0447f52628b0f8e36b0476db4e19a90eeb2bd5f260baece"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "057e5c71d41f2ff71434f446ffd8f9aa932b553612313729d4651fdc58233650" => :catalina
     sha256 "8fcaebe6a3c465a29a66e691581b88b2fc9960726e1f94b3f21aa0f53c424044" => :mojave
     sha256 "4aee5a0ddf8a44897a2f03c458a8e7e70d76b07f04024119ed482fbc06cf330c" => :high_sierra
     sha256 "34a5eac538de8fb6ac632109a0154e1d14ff8551bc8f4fec8df8359568697338" => :sierra
-    sha256 "145b8eae5a156308c11564cc0e9693836045a63fba02ec023f357aa4af3253fe" => :x86_64_linux
   end
 
   depends_on "python@2" unless OS.mac?
@@ -34,7 +34,11 @@ class Chapel < Formula
     prefix.install_metafiles
 
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
-    platform = OS.mac? ? "darwin-x86_64" : "linux-x86_64"
+    platform = if OS.mac?
+      "darwin-x86_64"
+    else
+      Hardware::CPU.is_64_bit? ? "linux64-x86_64" : "linux-x86_64"
+    end
     bin.install Dir[libexec/"bin/#{platform}/*"]
     bin.env_script_all_files libexec/"bin/#{platform}/", :CHPL_HOME => libexec
     man1.install_symlink Dir["#{libexec}/man/man1/*.1"]
