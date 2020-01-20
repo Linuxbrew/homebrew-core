@@ -1,3 +1,4 @@
+# wasmer: Build a bottle for Linux
 class Wasmer < Formula
   desc "🚀 The Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
