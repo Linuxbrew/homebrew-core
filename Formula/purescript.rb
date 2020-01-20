@@ -1,3 +1,4 @@
+# purescript: Build a bottle for Linux
 require "language/haskell"
 
 class Purescript < Formula
