@@ -1,3 +1,4 @@
+# cgrep: Build a bottle for Linux
 require "language/haskell"
 
 class Cgrep < Formula
