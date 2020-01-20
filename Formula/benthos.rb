@@ -1,3 +1,4 @@
+# benthos: Build a bottle for Linux
 class Benthos < Formula
   desc "Stream processor for mundane tasks written in Go"
   homepage "https://www.benthos.dev"
