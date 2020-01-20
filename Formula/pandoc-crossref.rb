@@ -1,3 +1,4 @@
+# pandoc-crossref: Build a bottle for Linux
 require "language/haskell"
 
 class PandocCrossref < Formula
