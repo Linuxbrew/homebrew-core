@@ -1,3 +1,4 @@
+# packmol: Build a bottle for Linux
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
