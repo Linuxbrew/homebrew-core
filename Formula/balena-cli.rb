@@ -1,3 +1,4 @@
+# balena-cli: Build a bottle for Linux
 require "language/node"
 
 class BalenaCli < Formula
