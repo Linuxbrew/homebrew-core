@@ -1,3 +1,4 @@
+# tundra: Build a bottle for Linux
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
