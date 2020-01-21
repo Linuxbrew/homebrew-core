@@ -1,3 +1,4 @@
+# vnstat: Build a bottle for Linux
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
