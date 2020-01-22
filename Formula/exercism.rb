@@ -1,3 +1,4 @@
+# exercism: Build a bottle for Linux
 class Exercism < Formula
   desc "Command-line tool to interact with exercism.io"
   homepage "https://exercism.io/cli/"
