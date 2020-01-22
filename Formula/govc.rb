@@ -1,3 +1,4 @@
+# govc: Build a bottle for Linux
 class Govc < Formula
   desc "Command-line tool for VMware vSphere"
   homepage "https://github.com/vmware/govmomi/tree/master/govc"
