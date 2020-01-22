@@ -1,3 +1,4 @@
+# skopeo: Build a bottle for Linux
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
