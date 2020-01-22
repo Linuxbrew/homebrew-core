@@ -1,3 +1,4 @@
+# scummvm: Build a bottle for Linux
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
