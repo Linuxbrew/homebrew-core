@@ -1,3 +1,4 @@
+# php: Build a bottle for Linux
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
