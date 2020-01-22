@@ -1,3 +1,4 @@
+# git-lfs: Build a bottle for Linux
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
