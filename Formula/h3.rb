@@ -1,3 +1,4 @@
+# h3: Build a bottle for Linux
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
