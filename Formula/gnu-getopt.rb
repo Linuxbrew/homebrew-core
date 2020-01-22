@@ -1,3 +1,4 @@
+# gnu-getopt: Build a bottle for Linux
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/karelzak/util-linux"
