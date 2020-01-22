@@ -3,12 +3,12 @@ class Znc < Formula
   homepage "https://wiki.znc.in/ZNC"
   url "https://znc.in/releases/archive/znc-1.7.5.tar.gz"
   sha256 "a8941e1385c8654287a4428018d93459482e9d5eeedf86bef7b020ddc5f24721"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "4bc43bf605d281484dbc34a779da628960df63ece897aa4d216ab6a7fc728b10" => :catalina
     sha256 "a0f33bcd73035f1c117ce51bbc9f1fd528b615a48a6f4783b64a26f3a02738e5" => :mojave
     sha256 "c708bb54d28e9780bfea6babc05f861b66fdbf1ac18e03ce9dfc19d9cc45052d" => :high_sierra
-    sha256 "ee8827e089f953989cc7069e8c1ffd336905c3fcffacadd53666a71bb0c56a2a" => :x86_64_linux
   end
 
   head do
@@ -24,6 +24,8 @@ class Znc < Formula
   depends_on "openssl@1.1"
   depends_on "python"
 
+  uses_from_macos "zlib"
+
   def install
     ENV.cxx11
     # These need to be set in CXXFLAGS, because ZNC will embed them in its
@@ -31,6 +33,12 @@ class Znc < Formula
     # flags itself if they're set in superenv and not in the environment.
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
+
+    # https://github.com/Homebrew/linuxbrew-core/issues/19150
+    unless OS.mac?
+      ENV.append "CXXFLAGS", "-I#{Formula["zlib"].opt_include}"
+      ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-python"
