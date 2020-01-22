@@ -1,3 +1,4 @@
+# tbb: Build a bottle for Linux
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
