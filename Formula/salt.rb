@@ -1,3 +1,4 @@
+# salt: Build a bottle for Linux
 class Salt < Formula
   include Language::Python::Virtualenv
 
