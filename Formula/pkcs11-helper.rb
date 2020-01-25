@@ -1,3 +1,4 @@
+# pkcs11-helper: Build a bottle for Linux
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
