@@ -1,3 +1,4 @@
+# akamai: Build a bottle for Linux
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
