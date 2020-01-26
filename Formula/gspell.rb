@@ -1,3 +1,4 @@
+# gspell: Build a bottle for Linux
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
