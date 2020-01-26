@@ -1,3 +1,4 @@
+# gotop: Build a bottle for Linux
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
   homepage "https://github.com/cjbassi/gotop"
