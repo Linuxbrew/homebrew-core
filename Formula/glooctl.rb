@@ -1,3 +1,4 @@
+# glooctl: Build a bottle for Linux
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
