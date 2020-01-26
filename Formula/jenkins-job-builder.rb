@@ -1,3 +1,4 @@
+# jenkins-job-builder: Build a bottle for Linux
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/jenkins-job-builder/"
