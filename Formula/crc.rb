@@ -16,8 +16,9 @@ class Crc < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "out/macos-amd64/crc"
-    bin.install "out/macos-amd64/crc"
+    os = OS.mac? ? "macos" : "linux"
+    system "make", "out/#{os}-amd64/crc"
+    bin.install "out/#{os}-amd64/crc"
   end
 
   test do
@@ -25,6 +26,10 @@ class Crc < Formula
 
     # Should error out as running crc requires root
     status_output = shell_output("#{bin}/crc setup 2>&1", 1)
-    assert_match "Unable to set ownership", status_output
+    if !OS.mac? && ENV["CI"]
+      assert_match "You need to enable virtualization in BIOS", status_output
+    else
+      assert_match "Unable to set ownership", status_output
+    end
   end
 end
