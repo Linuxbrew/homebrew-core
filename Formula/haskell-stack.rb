@@ -18,22 +18,41 @@ class HaskellStack < Formula
   end
 
   depends_on "cabal-install" => :build
-  uses_from_macos "zlib"
+  unless OS.mac?
+    depends_on "gmp"
+    depends_on "zlib"
+  end
 
   # Stack requires stack to build itself. Yep.
   resource "bootstrap-stack" do
-    url "https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-osx-x86_64.tar.gz"
-    sha256 "84b05b9cdb280fbc4b3d5fe23d1fc82a468956c917e16af7eeeabec5e5815d9f"
+    if OS.mac?
+      url "https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-osx-x86_64.tar.gz"
+      sha256 "84b05b9cdb280fbc4b3d5fe23d1fc82a468956c917e16af7eeeabec5e5815d9f"
+    else
+      url "https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-linux-x86_64.tar.gz"
+      sha256 "c724b207831fe5f06b087bac7e01d33e61a1c9cad6be0468f9c117d383ec5673"
+    end
   end
 
   # Stack has very specific GHC requirements.
   # For 2.1.1, it requires 8.4.4.
   resource "bootstrap-ghc" do
-    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-apple-darwin.tar.xz"
-    sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
+    if OS.mac?
+      url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-apple-darwin.tar.xz"
+      sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
+    else
+      url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-deb8-linux.tar.xz"
+      sha256 "4c2a8857f76b7f3e34ecba0b51015d5cb8b767fe5377a7ec477abde10705ab1a"
+    end
   end
 
   def install
+    unless OS.mac?
+      gmp = Formula["gmp"]
+      ENV.prepend_path "LD_LIBRARY_PATH", gmp.lib
+      ENV.prepend_path "LIBRARY_PATH", gmp.lib
+    end
+
     (buildpath/"bootstrap-stack").install resource("bootstrap-stack")
     ENV.append_path "PATH", "#{buildpath}/bootstrap-stack"
 
