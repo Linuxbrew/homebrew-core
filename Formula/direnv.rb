@@ -1,3 +1,4 @@
+# direnv: Build a bottle for Linux
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
