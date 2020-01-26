@@ -1,3 +1,4 @@
+# gitbatch: Build a bottle for Linux
 class Gitbatch < Formula
   desc "Manage your git repositories in one place"
   homepage "https://github.com/isacikgoz/gitbatch"
