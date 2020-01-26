@@ -1,3 +1,4 @@
+# reminiscence: Build a bottle for Linux
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
