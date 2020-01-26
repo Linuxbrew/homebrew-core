@@ -1,9 +1,14 @@
 trigger: none
 pr:
   autoCancel: true
+  paths:
+    include:
+    - 'Formula/*'
   branches:
     include:
     - '*'
+    exclude:
+    - 'merge-*-*-*-*'
 
 jobs:
 - job: BuildLinuxbrewCoreBottles
