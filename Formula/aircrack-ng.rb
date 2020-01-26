@@ -1,3 +1,4 @@
+# aircrack-ng: Build a bottle for Linux
 class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
