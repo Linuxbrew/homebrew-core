@@ -1,3 +1,4 @@
+# wcslib: Build a bottle for Linux
 class Wcslib < Formula
   desc "Library and utilities for the FITS World Coordinate System"
   homepage "https://www.atnf.csiro.au/people/mcalabre/WCS/"
