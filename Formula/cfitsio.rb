@@ -1,3 +1,4 @@
+# cfitsio: Build a bottle for Linux
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
