@@ -1,3 +1,4 @@
+# root: Build a bottle for Linux
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
