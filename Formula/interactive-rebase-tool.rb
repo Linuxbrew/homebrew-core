@@ -1,3 +1,4 @@
+# interactive-rebase-tool: Build a bottle for Linux
 class InteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
