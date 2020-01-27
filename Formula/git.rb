@@ -178,7 +178,6 @@ class Git < Formula
     etc.install "gitconfig" if OS.mac?
   end
 
-
   def caveats
     <<~EOS
       The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
