@@ -1,3 +1,4 @@
+# sfcgal: Build a bottle for Linux
 class Sfcgal < Formula
   desc "C++ wrapper library around CGAL"
   homepage "http://sfcgal.org/"
