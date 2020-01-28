@@ -1,3 +1,4 @@
+# ffmpeg: Build a bottle for Linux
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
