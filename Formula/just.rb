@@ -1,3 +1,4 @@
+# just: Build a bottle for Linux
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
