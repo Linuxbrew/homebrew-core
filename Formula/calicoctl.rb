@@ -1,3 +1,4 @@
+# calicoctl: Build a bottle for Linux
 class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
