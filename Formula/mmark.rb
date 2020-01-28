@@ -1,3 +1,4 @@
+# mmark: Build a bottle for Linux
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.miek.nl/"
