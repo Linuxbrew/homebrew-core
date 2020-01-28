@@ -1,3 +1,4 @@
+# xsimd: Build a bottle for Linux
 class Xsimd < Formula
   desc "Modern, portable C++ wrappers for SIMD intrinsics"
   homepage "https://xsimd.readthedocs.io/en/latest/"
