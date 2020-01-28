@@ -1,3 +1,4 @@
+# kitchen-sync: Build a bottle for Linux
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
