@@ -1,3 +1,4 @@
+# certbot: Build a bottle for Linux
 class Certbot < Formula
   include Language::Python::Virtualenv
 
