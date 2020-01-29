@@ -1,3 +1,4 @@
+# streamlink: Build a bottle for Linux
 class Streamlink < Formula
   include Language::Python::Virtualenv
 
