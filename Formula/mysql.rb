@@ -1,3 +1,4 @@
+# mysql: Build a bottle for Linux
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
