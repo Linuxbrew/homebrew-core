@@ -54,7 +54,7 @@ class Memcached < Formula
   test do
     pidfile = testpath/"memcached.pid"
     # Assumes port 11211 is not already taken
-    system bin/"memcached", "--listen=localhost:11211", "--daemon", "--pidfile=#{pidfile}"
+    system bin/"memcached", "--listen=127.0.0.1:11211", "--daemon", "--pidfile=#{pidfile}"
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
     pid = (testpath/"memcached.pid").read.chomp.to_i
