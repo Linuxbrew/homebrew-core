@@ -16,6 +16,7 @@ class Hadolint < Formula
   end
 
   depends_on "haskell-stack" => :build
+  depends_on "xz" unless OS.mac?
 
   def install
     # Let `stack` handle its own parallelization
