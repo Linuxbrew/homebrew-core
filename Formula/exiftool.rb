@@ -1,3 +1,4 @@
+# exiftool: Build a bottle for Linux
 class Exiftool < Formula
   desc "Perl lib for reading and writing EXIF metadata"
   homepage "https://exiftool.org"
