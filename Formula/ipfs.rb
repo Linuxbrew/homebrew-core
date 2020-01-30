@@ -1,3 +1,4 @@
+# ipfs: Build a bottle for Linux
 class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
