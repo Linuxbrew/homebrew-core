@@ -1,3 +1,4 @@
+# mps-youtube: Build a bottle for Linux
 class MpsYoutube < Formula
   include Language::Python::Virtualenv
 
