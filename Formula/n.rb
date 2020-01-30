@@ -1,3 +1,4 @@
+# n: Build a bottle for Linux
 class N < Formula
   desc "Node version management"
   homepage "https://github.com/tj/n"
