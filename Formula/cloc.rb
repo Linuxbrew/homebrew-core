@@ -1,3 +1,4 @@
+# cloc: Build a bottle for Linux
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
