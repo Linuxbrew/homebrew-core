@@ -1,3 +1,4 @@
+# kops: Build a bottle for Linux
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
