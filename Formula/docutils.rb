@@ -1,3 +1,4 @@
+# docutils: Build a bottle for Linux
 class Docutils < Formula
   include Language::Python::Virtualenv
 
