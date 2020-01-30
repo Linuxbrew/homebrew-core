@@ -1,3 +1,4 @@
+# kubeseal: Build a bottle for Linux
 class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
