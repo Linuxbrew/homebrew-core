@@ -1,3 +1,4 @@
+# pgformatter: Build a bottle for Linux
 class Pgformatter < Formula
   desc "PostgreSQL syntax beautifier"
   homepage "https://sqlformat.darold.net/"
