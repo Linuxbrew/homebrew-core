@@ -1,3 +1,4 @@
+# ffuf: Build a bottle for Linux
 class Ffuf < Formula
   desc "Fast web fuzzer written in Go"
   homepage "https://github.com/ffuf/ffuf"
