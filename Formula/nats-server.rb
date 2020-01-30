@@ -1,3 +1,4 @@
+# nats-server: Build a bottle for Linux
 class NatsServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
