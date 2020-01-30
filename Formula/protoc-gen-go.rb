@@ -1,3 +1,4 @@
+# protoc-gen-go: Build a bottle for Linux
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/golang/protobuf"
