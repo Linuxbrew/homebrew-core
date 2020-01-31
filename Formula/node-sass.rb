@@ -1,3 +1,4 @@
+# node-sass: Build a bottle for Linux
 class NodeSass < Formula
   require "language/node"
 
