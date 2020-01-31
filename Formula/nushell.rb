@@ -24,7 +24,13 @@ class Nushell < Formula
   end
 
   test do
-    assert_equal "Welcome to Nushell #{version} (type 'help' for more info)\n~ \n❯ 2\n~ \n❯ ",
-    pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    if !OS.mac? && ENV["CI"]
+      user = ENV["USER"]
+      assert_equal "Welcome to Nushell #{version} (type 'help' for more info)\n#{user} in ~ \n❯ 2\n#{user} in ~ \n❯ ",
+      pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    else
+      assert_equal "Welcome to Nushell #{version} (type 'help' for more info)\n~ \n❯ 2\n~ \n❯ ",
+      pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    end
   end
 end
