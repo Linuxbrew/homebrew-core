@@ -1,3 +1,4 @@
+# groonga: Build a bottle for Linux
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "https://groonga.org/"
