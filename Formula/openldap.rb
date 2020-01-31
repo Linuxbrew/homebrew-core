@@ -1,3 +1,4 @@
+# openldap: Build a bottle for Linux
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
