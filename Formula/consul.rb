@@ -1,3 +1,4 @@
+# consul: Build a bottle for Linux
 class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
