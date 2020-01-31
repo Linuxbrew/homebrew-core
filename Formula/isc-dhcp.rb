@@ -1,3 +1,4 @@
+# isc-dhcp: Build a bottle for Linux
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
   homepage "https://www.isc.org/software/dhcp"
