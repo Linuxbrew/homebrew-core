@@ -7,6 +7,7 @@ class HaskellStack < Formula
   homepage "https://haskellstack.org/"
   url "https://github.com/commercialhaskell/stack/archive/v2.1.3.tar.gz"
   sha256 "6a5b07e06585133bd385632c610f38d0c225a887e1ccb697ab09fec387838976"
+  revision 1 unless OS.mac?
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
@@ -15,12 +16,12 @@ class HaskellStack < Formula
     sha256 "65f8b095630d1018849e6e845efc33449af957143cddf2a1917908d7d11b4df6" => :catalina
     sha256 "228c583aa3eb036ca6aaa8a9b9fe6ad152790bd537bffdaca295aa9f497174e7" => :mojave
     sha256 "28d341adbc1acf444fb0f71899f14d81d772d5ba59ae6eebe201ac24fd6e3aa8" => :high_sierra
-    sha256 "48f42f2a7df2b9cbe35b07209977c810347d89389195e7d626ecacd528829696" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
   unless OS.mac?
     depends_on "gmp"
+    depends_on "xz"
     depends_on "zlib"
   end
 
@@ -82,5 +83,10 @@ class HaskellStack < Formula
 
   test do
     system bin/"stack", "new", "test"
+
+    # Additional test to check if libgmp is found
+    unless OS.mac?
+      system bin/"stack", "install", "optparse-applicative"
+    end
   end
 end
