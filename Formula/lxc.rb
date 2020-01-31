@@ -1,3 +1,4 @@
+# lxc: Build a bottle for Linux
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
