@@ -1,3 +1,4 @@
+# coffeescript: Build a bottle for Linux
 require "language/node"
 
 class Coffeescript < Formula
