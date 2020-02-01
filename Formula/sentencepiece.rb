@@ -1,3 +1,4 @@
+# sentencepiece: Build a bottle for Linux
 class Sentencepiece < Formula
   desc "Unsupervised text tokenizer and detokenizer"
   homepage "https://github.com/google/sentencepiece"
