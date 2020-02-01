@@ -1,3 +1,4 @@
+# rsyslog: Build a bottle for Linux
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
