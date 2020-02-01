@@ -1,3 +1,4 @@
+# k3d: Build a bottle for Linux
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
