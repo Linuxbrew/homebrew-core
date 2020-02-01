@@ -1,3 +1,4 @@
+# cheat: Build a bottle for Linux
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
