@@ -1,3 +1,4 @@
+# roswell: Build a bottle for Linux
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
