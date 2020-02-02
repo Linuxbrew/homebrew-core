@@ -1,0 +1,57 @@
+name: Upload bottles
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  upload-bottles:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_BINTRAY_USER: linuxbrewtestbot
+      HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Install dependencies
+        run: |
+          brew update-reset
+          brew install hub jq unzip
+          brew tap ${{github.repository}}
+      - name: Upload bottles
+        run: |
+          set -eu
+          echo sha1='${{github.event.head_commit.id}}'
+          echo '${{github.event.head_commit.message}}'
+          pr="$(echo '${{github.event.head_commit.message}}' | sed 's/^.*#\([0-9]*\).*/\1/;q')"
+          git -C "$(brew --repo ${{github.repository}})" fetch origin "pull/$pr/head:pr-head"
+          sha1="$(git -C "$(brew --repo ${{github.repository}})" rev-parse pr-head)"
+          echo pr="$pr" sha1="$sha1"
+          run_id=$(curl -s -H 'Accept: application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/workflows/build-bottles.yml/runs \
+            | jq ".workflow_runs[] | select(.head_sha == \"$sha1\").id")
+          artifact_id="$(curl -s -H 'Accept: application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/runs/$run_id/artifacts \
+            | jq '.artifacts[0].id')"
+          echo run_id="$run_id" artifact_id="$artifact_id"
+          curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/brewsci/homebrew-bio/actions/artifacts/$artifact_id/zip"
+          file bottles.zip
+          unzip bottles.zip
+          brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+          cd "$(brew --repo ${{github.repository}})"
+
+          git checkout master
+          git merge --squash -m "Merge pull request #$pr" develop
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master master:develop && exit
+
+          # Failed push due to race
+          git checkout develop
+          git branch -f "pr$pr"
+          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} "pr$pr"
+          GITHUB_TOKEN='${{secrets.HOMEBREW_GITHUB_API_TOKEN}}' hub pull-request -l bottles -b master -h "pr$pr" -m "Bottles for PR $pr" --no-edit
+          git fetch origin master
+          git reset --hard origin/master
+          git merge --no-ff -m "Merge pull request #$pr" "pr$pr"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master master:develop
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} -d "pr$pr"
+
