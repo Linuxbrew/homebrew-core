@@ -1,3 +1,4 @@
+# lighttpd: Build a bottle for Linux
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
