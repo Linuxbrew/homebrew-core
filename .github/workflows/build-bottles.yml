@@ -32,6 +32,7 @@ jobs:
             --keep-old
           cp -a ~/bottles $RUNNER_TEMP/
       - name: Upload bottles
+        if: always()
         uses: actions/upload-artifact@v1
         with:
           name: bottles
