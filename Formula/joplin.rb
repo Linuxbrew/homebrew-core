@@ -1,3 +1,4 @@
+# joplin: Build a bottle for Linux
 require "language/node"
 
 class Joplin < Formula
