@@ -1,0 +1,51 @@
+name: Build bottles from core merge request
+
+on: repository_dispatch
+
+jobs:
+  bottling:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup user
+        run: |
+          sudo adduser $(whoami) linuxbrew
+          git config --global user.name LinuxbrewTestBot
+          git config --global user.email testbot@linuxbrew.sh
+      - name: Setup tap
+        run: |
+          git checkout -b test
+          git fetch origin "master:master" "pull/${{github.event.number}}/head:pr"
+          git checkout pr
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
+      - name: Build bottles
+        run: |
+          mkdir ~/bottles
+          cd ~/bottles
+          brew test-bot \
+            --tap=homebrew/core \
+            --bintray-org=linuxbrew \
+            --git-name=LinuxbrewTestBot \
+            --git-email=testbot@linuxbrew.sh \
+            --keep-old ${{github.event.client_payload.formula}}
+          cp -a ~/bottles $RUNNER_TEMP/
+      - name: Save bottles
+        uses: actions/upload-artifact@v1
+        with:
+          name: bottles
+          path: ${{runner.temp}}/bottles
+        if: always()
+      - name: Upload and publish bottles on Bintray
+        run: |
+          cd ~/bottles
+          brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+      - name: Push bottles
+        run: |
+          cd "$(brew --repo ${{github.repository}})"
+          git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master
