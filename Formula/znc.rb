@@ -1,3 +1,4 @@
+# znc: Build a bottle for Linux
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
