@@ -1,3 +1,4 @@
+# libomp: Build a bottle for Linux
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
