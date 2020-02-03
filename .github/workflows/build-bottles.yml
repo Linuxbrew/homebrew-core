@@ -21,7 +21,7 @@ jobs:
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          brew test-bot --keep-old
+          brew test-bot --tap=homebrew/core --keep-old
           cp -a ~/bottles $GITHUB_WORKSPACE
       - name: Upload bottles
         if: always()
