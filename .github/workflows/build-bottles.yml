@@ -11,29 +11,21 @@ jobs:
       HOMEBREW_NO_ANALYTICS: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout tap
+        uses: actions/checkout@v2
       - name: Setup tap
         run: |
-          git checkout -b test
-          git fetch origin "master:master" "pull/${{github.event.number}}/head:pr"
-          git checkout pr
           rm -rf $(brew --repository ${{github.repository}})
-          ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
+          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
       - name: Build bottles
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          export GITHUB_SHA=${{github.event.pull_request.sha}}
-          brew test-bot \
-            --tap=homebrew/core \
-            --bintray-org=linuxbrew \
-            --git-name=LinuxbrewTestBot \
-            --git-email=testbot@linuxbrew.sh \
-            --keep-old
-          cp -a ~/bottles $RUNNER_TEMP/
+          brew test-bot --keep-old
+          cp -a ~/bottles $GITHUB_WORKSPACE
       - name: Upload bottles
         if: always()
         uses: actions/upload-artifact@v1
         with:
           name: bottles
-          path: ${{runner.temp}}/bottles
+          path: bottles
