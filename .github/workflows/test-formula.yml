@@ -20,5 +20,4 @@ jobs:
         run: |
           brew test-bot \
             --tap=homebrew/core \
-            --keep-old ${{github.event.client_payload.formula}}
-
+            --keep-old
