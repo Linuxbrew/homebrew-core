@@ -11,7 +11,7 @@ class Um < Formula
     sha256 "a479ed6f535f228d1bfa15a7292e58d06a4f07d1238c4fa83f1b99c80564a24e" => :high_sierra
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
 
   resource "kramdown" do
     url "https://rubygems.org/gems/kramdown-1.17.0.gem"
