@@ -34,7 +34,7 @@ jobs:
           cp -a ~/bottles $GITHUB_WORKSPACE
           # Nested echo here to trim spaces from wc -l
           file_count=$(echo $(ls ~/bottles | wc -l))
-          echo "::set-output name=file_count::$bottle_count"
+          echo "::set-output name=file_count::$file_count"
       - name: Upload bottles
         if: steps.copy_bottles.outputs.file_count > 0
         uses: actions/upload-artifact@v1
