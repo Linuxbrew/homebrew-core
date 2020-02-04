@@ -12,6 +12,9 @@ class Sniffglue < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "libseccomp" unless OS.mac?
+
+  uses_from_macos "libpcap"
 
   resource "testdata" do
     url "https://github.com/kpcyrd/sniffglue/raw/163ca299bab711fb0082de216d07d7089c176de6/pcaps/SkypeIRC.pcap"
