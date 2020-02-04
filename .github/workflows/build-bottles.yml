@@ -7,6 +7,7 @@ on:
 
 jobs:
   build-bottles:
+    if: startsWith(github.event.pull_request.title, 'Merge') == false
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
