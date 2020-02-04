@@ -5,6 +5,9 @@ class Dbhash < Formula
   version "3.31.1"
   sha256 "f2dc2382855d99a960c363c1e5ae72b49da4c55d49154aa6d100e5970a1fee58"
 
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite" => :test
+
   bottle do
     cellar :any_skip_relocation
     sha256 "9ea365cbc64a6623313e4d6701ac5cfe12d14b76be8b6fba72afdb47129327d6" => :catalina
@@ -21,8 +24,9 @@ class Dbhash < Formula
   test do
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
+    sqlite = OS.mac? ? "/usr/bin/sqlite3" : Formula["sqlite"].bin/"sqlite3"
     sqlpath.write "create table test (name text);"
-    system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
+    system "#{sqlite} #{dbpath} < #{sqlpath}"
     assert_equal "b6113e0ce62c5f5ca5c9f229393345ce812b7309",
                  shell_output("#{bin}/dbhash #{dbpath}").strip.split.first
   end
