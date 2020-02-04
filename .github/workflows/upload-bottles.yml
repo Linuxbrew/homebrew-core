@@ -13,18 +13,6 @@ jobs:
     container:
       image: homebrew/brew
     steps:
-      - name: Checkout tap
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup tap
-        run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
-      - name: Setup git
-        run: |
-          git config --global user.name LinuxbrewTestBot
-          git config --global user.email testbot@linuxbrew.sh
       - name: Get artifact data
         uses: actions/github-script@0.4.0
         id: artifact
@@ -120,6 +108,21 @@ jobs:
             }
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
+      - name: Checkout tap
+        if: steps.artifact.outputs.result != 0
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup tap
+        if: steps.artifact.outputs.result != 0
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+      - name: Setup git
+        if: steps.artifact.outputs.result != 0
+        run: |
+          git config --global user.name LinuxbrewTestBot
+          git config --global user.email testbot@linuxbrew.sh
       - name: Install dependencies
         if: steps.artifact.outputs.result != 0
         run: |
