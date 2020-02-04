@@ -1,4 +1,4 @@
-name: Build bottles from core merge request
+name: Build bottles from 'brew request-bottle' trigger.
 
 on: repository_dispatch
 
