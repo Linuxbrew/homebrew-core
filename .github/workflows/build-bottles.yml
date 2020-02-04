@@ -28,11 +28,15 @@ jobs:
             --tap=homebrew/core \
             --keep-old
       - name: Copy bottles
+        id: copy_bottles
         if: always()
         run: |
           cp -a ~/bottles $GITHUB_WORKSPACE
+          # Nested echo here to trim spaces from wc -l
+          file_count=$(echo $(ls ~/bottles | wc -l))
+          echo "::set-output name=file_count::$bottle_count"
       - name: Upload bottles
-        if: always()
+        if: steps.copy_bottles.outputs.file_count > 0
         uses: actions/upload-artifact@v1
         with:
           name: bottles
