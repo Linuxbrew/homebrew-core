@@ -20,6 +20,7 @@ class Libzip < Formula
     depends_on "bzip2"
     depends_on "zlib"
     depends_on "openssl@1.1"
+    depends_on "xz" # For LZMA
   end
 
   def install
