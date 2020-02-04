@@ -5,6 +5,9 @@ class Sqldiff < Formula
   version "3.31.1"
   sha256 "f2dc2382855d99a960c363c1e5ae72b49da4c55d49154aa6d100e5970a1fee58"
 
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite" => :test
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7c7c1d6b079bf9f336e8ea5e51347b7b07dc0370dd6daac8c33dd6bbbd0d0f12" => :catalina
@@ -21,8 +24,9 @@ class Sqldiff < Formula
   test do
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
+    sqlite = OS.mac? ? "/usr/bin/sqlite3" : Formula["sqlite"].bin/"sqlite3"
     sqlpath.write "create table test (name text);"
-    system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
+    system "#{sqlite} #{dbpath} < #{sqlpath}"
     assert_equal "test: 0 changes, 0 inserts, 0 deletes, 0 unchanged",
                  shell_output("#{bin}/sqldiff --summary #{dbpath} #{dbpath}").strip
   end
