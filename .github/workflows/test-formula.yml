@@ -1,0 +1,24 @@
+name: Non-bottling test-bot checks for formulae.
+
+on: pull_request
+
+jobs:
+  bottling:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup tap
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
+      - name: brew test-bot
+        run: |
+          brew test-bot \
+            --tap=homebrew/core \
+            --keep-old ${{github.event.client_payload.formula}}
+
