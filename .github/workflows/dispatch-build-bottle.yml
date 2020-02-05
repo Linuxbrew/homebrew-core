@@ -7,26 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
-    env:
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
-      - name: Checkout tap
-        uses: actions/checkout@v2
       - name: Print details
         run: |
           echo formula=${{github.event.client_payload.formula}}
           echo sender=${{github.event.sender.login}}
           echo name=${{github.event.client_payload.name}}
           echo ignore-errors=${{github.event.client_payload.ignore_errors}}
-      - name: Setup git
+      - name: Update tap
         run: |
-          git config --global user.name BrewTestBot
-          git config --global user.email homebrew-test-bot@lists.sfconservancy.org
-      - name: Setup tap
-        run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+          brew update-reset $(brew --repo ${{github.repository}})
       - name: Build bottles
         run: |
           mkdir ~/bottles
@@ -37,13 +27,10 @@ jobs:
             ${{github.event.client_payload.formula}}
       - name: Upload bottles
         env:
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         if: success() || github.event.client_payload.ignore_errors
         run: |
-          cd "$(brew --repo ${{github.repository}})"
-          git fetch origin
-          git reset --hard origin/master
           cd ~/bottles
           brew test-bot \
             --tap=homebrew/core \
@@ -53,12 +40,14 @@ jobs:
             --keep-old \
             ${{github.event.client_payload.formula}}
       - name: Push bottles
+        env:
+          GIT_COMMITTER_NAME: ${{github.event.client_payload.name}}
+          GIT_COMMITTER_EMAIL: ${{github.event.client_payload.email}}
         if: success() || github.event.client_payload.ignore_errors
         run: |
           cd $(brew --repo ${{github.repository}})
-          msg=$(git show -s --format=format:%s)
-          git commit --amend -m "$msg" -m "Co-authored-by: ${{github.event.client_payload.name}} <${{github.event.client_payload.email}}>"
-          git show
+          git commit --amend --no-edit
+          git show --pretty=fuller
           git fetch
           git rebase origin/master
           git fetch

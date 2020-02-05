@@ -14,23 +14,16 @@ jobs:
     container:
       image: homebrew/brew
     steps:
-      - name: Checkout tap
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 100
-      - name: Setup tap
-        run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
-      - name: Setup git
-        run: |
-          git config --global user.name BrewTestBot
-          git config --global user.email homebrew-test-bot@lists.sfconservancy.org
       - name: Tap linux-dev
-        run: brew tap homebrew/linux-dev
-      - name: Run brew request-bottle
+        run: |
+          brew tap homebrew/linux-dev
+      - name: Update tap
+        run: |
+          brew update-reset $(brew --repo ${{github.repository}})
+      - name: Request bottles
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          GIT_COMMITTER_NAME: ${{github.event.pusher.name}}
+          GIT_COMMITTER_EMAIL: ${{github.event.pusher.email}}
         run: |
-          set -eu
           brew find-formulae-to-bottle | xargs -n1 brew request-bottle

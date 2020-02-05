@@ -109,32 +109,15 @@ jobs:
             }
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
-      - name: Checkout tap
-        if: steps.artifact.outputs.result != 0
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup tap
+      - name: Update tap
         if: steps.artifact.outputs.result != 0
         run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
-      - name: Setup git
+          brew update-reset $(brew --repo ${{github.repository}})
+      - name: Install unzip
         if: steps.artifact.outputs.result != 0
         run: |
-          git config --global user.name BrewTestBot
-          git config --global user.email homebrew-test-bot@lists.sfconservancy.org
-      - name: Install dependencies
-        if: steps.artifact.outputs.result != 0
-        run: |
-          apt update
-          apt install -y unzip
-      - name: Upload and publish bottles
-        env:
-          HOMEBREW_BINTRAY_USER: linuxbrewtestbot
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-          HOMEBREW_NO_ANALYTICS: 1
-          HOMEBREW_NO_AUTO_UPDATE: 1
+          brew install unzip
+      - name: Download bottles
         if: steps.artifact.outputs.result != 0
         run: |
           set -eu
@@ -145,6 +128,13 @@ jobs:
           curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
           file bottles.zip
           unzip bottles.zip
+      - name: Upload and publish bottles
+        env:
+          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+        if: steps.artifact.outputs.result != 0
+        run: |
+          cd ~/bottles
           brew test-bot \
             --tap=homebrew/core \
             --bintray-org=linuxbrew \
@@ -152,12 +142,14 @@ jobs:
             --publish \
             --keep-old
       - name: Push bottle commit
+        env:
+          GIT_COMMITTER_NAME: ${{github.event.pusher.name}}
+          GIT_COMMITTER_EMAIL: ${{github.event.pusher.email}}
         if: steps.artifact.outputs.result != 0
         run: |
           cd $(brew --repo ${{github.repository}})
-          msg=$(git show -s --format=format:%s)
-          git commit --amend -m "$msg" -m "Co-authored-by: ${{github.event.pusher.name}} <${{github.event.pusher.email}}>"
-          git show
+          git commit --amend --no-edit
+          git show --pretty=fuller
           git fetch
           git rebase origin/master
           git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master
