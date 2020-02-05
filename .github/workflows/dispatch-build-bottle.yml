@@ -21,8 +21,8 @@ jobs:
           echo ignore-errors=${{github.event.client_payload.ignore_errors}}
       - name: Setup git
         run: |
-          git config --global user.name LinuxbrewTestBot
-          git config --global user.email testbot@linuxbrew.sh
+          git config --global user.name BrewTestBot
+          git config --global user.email homebrew-test-bot@lists.sfconservancy.org
       - name: Setup tap
         run: |
           rm -rf $(brew --repository ${{github.repository}})
@@ -48,8 +48,6 @@ jobs:
           brew test-bot \
             --tap=homebrew/core \
             --bintray-org=linuxbrew \
-            --git-name=LinuxbrewTestBot \
-            --git-email=testbot@linuxbrew.sh \
             --ci-upload \
             --publish \
             --keep-old \

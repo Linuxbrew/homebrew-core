@@ -122,8 +122,8 @@ jobs:
       - name: Setup git
         if: steps.artifact.outputs.result != 0
         run: |
-          git config --global user.name LinuxbrewTestBot
-          git config --global user.email testbot@linuxbrew.sh
+          git config --global user.name BrewTestBot
+          git config --global user.email homebrew-test-bot@lists.sfconservancy.org
       - name: Install dependencies
         if: steps.artifact.outputs.result != 0
         run: |
@@ -148,8 +148,6 @@ jobs:
           brew test-bot \
             --tap=homebrew/core \
             --bintray-org=linuxbrew \
-            --git-name=LinuxbrewTestBot \
-            --git-email=testbot@linuxbrew.sh \
             --ci-upload \
             --publish \
             --keep-old
