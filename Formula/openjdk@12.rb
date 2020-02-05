@@ -4,13 +4,13 @@ class OpenjdkAT12 < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk12u/archive/jdk-12.0.2+10.tar.bz2"
   version "12.0.2+10"
   sha256 "f7242b56e0292bc7ec5795bbaeb98552ef30d7a686cd7ca0a877fe37b399f384"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3892b99f99b2074c70bbae87b6d17cb26253b4021ea9ca7e032fe7be12b9b972" => :catalina
-    sha256 "846447341bfe7c51ce60db6b3e56b88934ef4266e96386c975cf7e2f50e84ba6" => :mojave
-    sha256 "8967f8909149bc48637dc06da8670380224b1ca3e41c654688d82c1dfd41a77a" => :high_sierra
-    sha256 "5827f422e71af4e00bf0b6d77be2cb0207ffb52dc8bc56e9dae25730640e098f" => :x86_64_linux
+    sha256 "e6524c481c67165053f4f0c06156f9367e161f661e95a21fccc9783889e000fb" => :catalina
+    sha256 "10ce1673479d4b762e93dfc1446e6e55d5b7bc5143505f597e3c2f30a7af4a36" => :mojave
+    sha256 "0e70e937b2e3fb3844b8582c2c55d8d233bb190781140f647df6c320bdb11d5a" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -80,11 +80,11 @@ class OpenjdkAT12 < Formula
 
     if OS.mac?
       libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
-      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
     else
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
-      bin.install_symlink Dir["#{libexec}/bin/*"]
     end
+    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
+    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
   end
 
   def caveats

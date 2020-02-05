@@ -4,13 +4,13 @@ class Openjdk < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk13u/archive/jdk-13.0.2+8.tar.bz2"
   version "13.0.2+8"
   sha256 "01059532335fefc5e0e7a23cc79eeb1dc6fea477606981b89f259aa0e0f9abc1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8fc66526646d9787cf6f08dd978fbca7ec59b51846199568e5845fbddb9610c6" => :catalina
-    sha256 "38f353fd52a84f5890dda7fd20b76e79f6280cbd427495254be356ee8730fb92" => :mojave
-    sha256 "447fd4616e32bba4fc8a8de5865df15795da1c5f6b5d233f8f3aeb771f522f3c" => :high_sierra
-    sha256 "98964b0f817b8aac482023a088ca9055b01ddd652f7d4631aa7bfc94727851e3" => :x86_64_linux
+    sha256 "80adbb10899eca74e20da21c346865ce80613ba8a3d5b69db1c7155ff8362a2e" => :catalina
+    sha256 "547f24340b88bc3db1e11b9df567fd561334134aeb9095834c90b27c2b374f80" => :mojave
+    sha256 "1e955b075c2061f9a650ea3d3d0906a6e16bb5456ae69ce2aff7abeb1a68ed8a" => :high_sierra
   end
 
   keg_only :provided_by_macos
@@ -70,10 +70,12 @@ class Openjdk < Formula
 
     if OS.mac?
       libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
-      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+      prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
+      prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
     else
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
-      bin.install_symlink Dir["#{libexec}/bin/*"]
+      prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
+      prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
     end
   end
 
