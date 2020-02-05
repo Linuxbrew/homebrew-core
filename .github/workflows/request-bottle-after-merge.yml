@@ -1,0 +1,28 @@
+name: Request bottle rebuild after merge
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Formula/*'
+
+jobs:
+  upload-bottles:
+    if: startsWith(github.event.head_commit.message, 'Merge') == true
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v2
+      - name: Setup tap
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+      - name: Tap linux-dev
+        run: brew tap homebrew/linux-dev
+      - name: Run brew request-bottle
+        run: |
+          set -eu
+          brew find-formulae-to-bottle | xargs brew request-bottle
