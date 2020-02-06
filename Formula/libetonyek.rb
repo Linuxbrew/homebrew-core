@@ -6,7 +6,6 @@ class Libetonyek < Formula
   revision 1
 
   bottle do
-    cellar :any
     sha256 "c646035faf6b7213d1aa15a2e37478607f30ec3743b9af7fc4a83190f40b1941" => :catalina
     sha256 "833ea6922b7e7eadd5446a9a1c8b6fe73fe49e4025703a63a90b8c4be966cb71" => :mojave
     sha256 "7fdf62c11f4874c487d132fb24307e7a3ede2b03cfb231afff8872ae9c230c06" => :high_sierra
@@ -17,6 +16,8 @@ class Libetonyek < Formula
   depends_on "glm"
   depends_on "librevenge"
   depends_on "mdds"
+
+  uses_from_macos "libxml2"
 
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.2.tar.bz2"
