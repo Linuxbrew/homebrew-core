@@ -5,6 +5,8 @@ class Rsnapshot < Formula
   sha256 "2b0c7aad3e14e0260513331425a605d73c3bdd7936d66d418d7714a76bc55bd1"
   head "https://github.com/rsnapshot/rsnapshot.git"
 
+  depends_on "rsync" unless OS.mac?
+
   bottle do
     cellar :any_skip_relocation
     sha256 "e195b17e2c28a787e6bc183c3f57397256fba91c8d5c490f3c24576033d39a74" => :catalina
