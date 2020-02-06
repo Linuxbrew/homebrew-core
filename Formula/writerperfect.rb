@@ -20,6 +20,8 @@ class Writerperfect < Formula
   depends_on "libwpg"
   depends_on "libwps"
 
+  uses_from_macos "libxml2"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
