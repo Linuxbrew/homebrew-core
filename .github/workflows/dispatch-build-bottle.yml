@@ -45,8 +45,12 @@ jobs:
           cd $(brew --repo ${{github.repository}})
           git commit --amend --no-edit
           git show --pretty=fuller
-          git fetch
-          git rebase origin/master
-          git fetch
-          git rebase origin/master
-          git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master
+          for try in $(seq 5); do
+            git fetch
+            git rebase origin/master
+            if git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master; then
+              break
+            else
+              sleep 3s
+            fi
+          done
