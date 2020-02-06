@@ -20,6 +20,7 @@ class Chronograf < Formula
   depends_on "yarn" => :build
   depends_on "influxdb"
   depends_on "kapacitor"
+  depends_on "python" => :build unless OS.mac?
 
   def install
     ENV["GOPATH"] = buildpath
@@ -29,6 +30,10 @@ class Chronograf < Formula
     chronograf_path.install buildpath.children
 
     cd chronograf_path do
+      unless OS.mac?
+        ENV["PYTHON"] = "python3"
+      end
+
       cd "ui" do # fix node 12 compatibility
         system "yarn", "upgrade", "parcel@1.11.0", "node-sass@4.12.0"
       end
