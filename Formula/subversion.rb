@@ -4,13 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.13.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
   sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     sha256 "92a78117ee83b94aeee65ac0b69fb37c7d687c6ce6f0a1c47effeb770d574050" => :catalina
     sha256 "291f02b397248291148dd22a1dd8bfb0e20c677a70ddec2affd7b5cefed8976e" => :mojave
     sha256 "e2d41f57af7cc391d9435728fc5004c7d0c9d0fd4e34d438fd7c5f047dec2327" => :high_sierra
-    sha256 "cc994f9b769eb3c4c0623c367f53a05a43b5a3f3c44fc50ede1ab6b8a123e70f" => :x86_64_linux
   end
 
   head do
@@ -37,16 +36,16 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
+  uses_from_macos "expat"
+  uses_from_macos "libtool"
+  uses_from_macos "python@2"
+  uses_from_macos "ruby"
+  uses_from_macos "zlib"
+
   unless OS.mac?
-    depends_on "libtool" => :build
-    depends_on "expat"
     depends_on "krb5"
     depends_on "libmagic"
-    depends_on "adoptopenjdk"
-    depends_on "python@2"
-    depends_on "ruby"
     depends_on "util-linux" # for libuuid
-    depends_on "zlib"
   end
 
   resource "serf" do
@@ -110,8 +109,6 @@ class Subversion < Formula
       --without-jikes
       RUBY=#{ruby}
     ]
-
-    args << "--with-jdk=#{Formula["adoptopenjdk"].opt_prefix}"
 
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
