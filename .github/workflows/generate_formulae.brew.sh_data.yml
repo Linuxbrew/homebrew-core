@@ -1,11 +1,7 @@
 name: Generate formulae.brew.sh data.
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'Formula/*'
+  schedule: '0 02,12,20 * * *'
 
 jobs:
   generate:
