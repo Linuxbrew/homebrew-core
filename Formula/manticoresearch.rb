@@ -1,15 +1,14 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.2.2/manticore-3.2.2-191226-afd6046-release.tar.gz"
-  sha256 "7942ae4d3484b125b9c336b75d751ac9b71b71f9f60ead9272be84ee69bb5e6f"
-  revision 1
+  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.3.0/manticore-3.3.0-200204-01fc8ad-release.tar.gz"
+  sha256 "f62801f6eb50bd08cb8fe976f0a3a43c7600b979a1ced8d14b8261ca06eaf22c"
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
   bottle do
-    sha256 "8d7ef25e3bc74517d1c62ac709166385ca05d6ffc8dc35421963f34fbec782b3" => :catalina
-    sha256 "ca9dce5b90e9607bfa6ed7c87fa7f699ea53e7ad1743d35ae314ef6ca49bed84" => :mojave
-    sha256 "e097f3a2ec00fc3f30ba844a746be2f47161c8898fc2f806c7a3ab336f5e081d" => :high_sierra
+    sha256 "1ca227dc0117b0dfcc68d1fca84c17c0b1ec40b7e14d354f2275045a4d8c218c" => :catalina
+    sha256 "c37e97a993bfe2bb7f80b3e75871c0a13bca43e8925d5a6b58e85743d1b91ea9" => :mojave
+    sha256 "7fba8f8cd8bd4245f85c4dca4901c96723fca0cbb5189176a74cfb5776cffa63" => :high_sierra
   end
 
   depends_on "cmake" => :build
