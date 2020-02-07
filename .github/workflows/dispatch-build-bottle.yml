@@ -38,6 +38,18 @@ jobs:
             --publish \
             --keep-old \
             ${{github.event.client_payload.formula}}
+      - name: Report upload failure
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          issue-number: 1 # TODO
+          body: |
+            Formula = `${{github.event.client_payload.formula}}`
+            Workflow = `${{github.workflow}}`
+            Run = `${{github.run_id}}`
+            Event = `${{github.event_name}}`
+            Actor = `${{github.actor}}`
       - name: Push bottles
         env:
           GIT_COMMITTER_NAME: ${{github.event.client_payload.name}}
@@ -56,3 +68,15 @@ jobs:
               sleep 3s
             fi
           done
+      - name: Report push failure
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          issue-number: 1 # TODO
+          body: |
+            Formula = `${{github.event.client_payload.formula}}`
+            Workflow = `${{github.workflow}}`
+            Run = `${{github.run_id}}`
+            Event = `${{github.event_name}}`
+            Actor = `${{github.actor}}`
