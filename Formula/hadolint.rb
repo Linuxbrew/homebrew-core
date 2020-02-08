@@ -16,8 +16,16 @@ class Hadolint < Formula
   end
 
   depends_on "haskell-stack" => :build
+  uses_from_macos "xz"
+  depends_on "gmp" unless OS.mac?
 
   def install
+    unless OS.mac?
+      gmp = Formula["gmp"]
+      ENV.prepend_path "LD_LIBRARY_PATH", gmp.lib
+      ENV.prepend_path "LIBRARY_PATH", gmp.lib
+    end
+
     # Let `stack` handle its own parallelization
     jobs = ENV.make_jobs
     ENV.deparallelize
