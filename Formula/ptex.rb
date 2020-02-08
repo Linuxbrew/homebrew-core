@@ -30,7 +30,7 @@ class Ptex < Formula
 
   test do
     resource("wtest").stage testpath
-    system ENV.cxx, "wtest.cpp", "-o", "wtest", "-L#{opt_lib}", "-lptex"
+    system ENV.cxx, "-I#{opt_include}", "-L#{opt_lib}", "-lptex", "wtest.cpp", "-o", "wtest"
     system "./wtest"
     system "#{bin}/ptxinfo", "-c", "test.ptx"
   end
