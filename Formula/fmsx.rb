@@ -15,7 +15,11 @@ class Fmsx < Formula
   end
 
   depends_on "pulseaudio"
-  depends_on :x11
+  if OS.mac?
+    depends_on :x11
+  else
+    depends_on "linuxbrew/xorg/xorg"
+  end
 
   resource "msx-rom" do
     url "https://fms.komkon.org/fMSX/src/MSX.ROM"
