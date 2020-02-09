@@ -36,7 +36,7 @@ class Osqp < Formula
     rm_rf include/"qdldl"
     rm_rf lib/"cmake/qdldl"
     rm lib/"libqdldl.a"
-    rm lib/"libqdldl.dylib"
+    rm lib/"libqdldl.dylib" if OS.mac?
   end
 
   test do
@@ -45,9 +45,9 @@ class Osqp < Formula
       project(osqp_demo LANGUAGES C)
       find_package(osqp CONFIG REQUIRED)
       add_executable(osqp_demo osqp_demo.c)
-      target_link_libraries(osqp_demo PRIVATE osqp::osqp)
+      target_link_libraries(osqp_demo PRIVATE osqp::osqp -lm)
       add_executable(osqp_demo_static osqp_demo.c)
-      target_link_libraries(osqp_demo_static PRIVATE osqp::osqpstatic)
+      target_link_libraries(osqp_demo_static PRIVATE osqp::osqpstatic -lm)
     EOS
     # from https://github.com/oxfordcontrol/osqp/blob/master/tests/demo/test_demo.h
     (testpath/"osqp_demo.c").write <<~EOS
