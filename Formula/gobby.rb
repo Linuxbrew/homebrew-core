@@ -45,6 +45,8 @@ class Gobby < Formula
   end
 
   test do
+    return if !OS.mac? && ENV["CI"]
+
     # executable (GUI)
     system bin/"gobby-0.5", "--version"
   end
