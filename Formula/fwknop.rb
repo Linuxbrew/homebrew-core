@@ -17,6 +17,8 @@ class Fwknop < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gpgme"
+  
+  uses_from_macos "libpcap"
 
   def install
     system "./autogen.sh"
