@@ -81,6 +81,10 @@ class OsmGpsMap < Formula
       -losmgpsmap-1.0
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
+
+    # (test:40601): Gtk-WARNING **: 23:06:24.466: cannot open display
+    return if !OS.mac? && ENV["CI"]
+
     system "./test"
   end
 end
