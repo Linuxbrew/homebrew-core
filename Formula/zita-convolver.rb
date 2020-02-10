@@ -15,7 +15,7 @@ class ZitaConvolver < Formula
 
   def install
     cd "source" do
-      inreplace "Makefile", "-Wl,-soname,", "-Wl,-install_name,"
+      inreplace "Makefile", "-Wl,-soname,", "-Wl,-install_name," if OS.mac?
       inreplace "Makefile", "ldconfig", "ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)/$(ZITA-CONVOLVER_MAJ)"
       system "make", "install", "PREFIX=#{prefix}", "SUFFIX="
     end
