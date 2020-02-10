@@ -3,12 +3,12 @@ class Neovim < Formula
   homepage "https://neovim.io/"
   url "https://github.com/neovim/neovim/archive/v0.4.3.tar.gz"
   sha256 "91a0b5d32204a821bf414690e6b48cf69224d1961d37158c2b383f6a6cf854d2"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "389ab254794ea04df8a106bf281c227c4fdee27c609d52951f32b9a0239031d6" => :catalina
     sha256 "fb6cc38c45be4650a4a750a314cec27f6f7643dc7c22a1f5abae347e1b39b388" => :mojave
     sha256 "b2f7450e005f4eb22bfaf650fe7741fa8629393a947b4dd48c9f91e7fc258113" => :high_sierra
-    sha256 "b9c56a15b38b68b6d1b569ac8d4805bfb32817232d198654834932c9fb9db24b" => :x86_64_linux
   end
 
   head do
@@ -27,7 +27,6 @@ class Neovim < Formula
   depends_on "msgpack"
   depends_on "unibilium"
   unless OS.mac?
-    depends_on "python@2"
     depends_on "unzip" => :build
     depends_on "gperf"
     depends_on "libnsl"
