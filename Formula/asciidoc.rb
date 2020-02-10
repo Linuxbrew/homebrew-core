@@ -4,7 +4,7 @@ class Asciidoc < Formula
   # This release is listed as final on GitHub, but not listed on asciidoc.org.
   url "https://github.com/asciidoc/asciidoc/archive/8.6.10.tar.gz"
   sha256 "9e52f8578d891beaef25730a92a6e723596ddbd07bfe0d2a56486fcf63a0b983"
-  revision OS.mac? ? 2 : 4
+  revision OS.mac? ? 2 : 5
   head "https://github.com/asciidoc/asciidoc.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Asciidoc < Formula
     sha256 "f89040aa055faab054a4b82e0cdfec724b57529844368c2f4fe81683ee2967f9" => :mojave
     sha256 "0a021fbfe992e2357c6d6b9b940ca3b080911a6d156bd3fb52775c452a272075" => :high_sierra
     sha256 "0a021fbfe992e2357c6d6b9b940ca3b080911a6d156bd3fb52775c452a272075" => :sierra
-    sha256 "48664a68c1b66f373538bad9db4a62f54dc368377e7758a1a36cf865e4a8ddcf" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -24,7 +23,7 @@ class Asciidoc < Formula
     depends_on "libxml2" => :build
     depends_on "xmlto" => :build
     depends_on "libxslt" => :build # for xsltproc
-    depends_on "python@2"
+    depends_on "python@3.8"
   end
 
   def install
@@ -34,7 +33,7 @@ class Asciidoc < Formula
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
 
-    python = OS.mac? ? "/usr/bin/python" : Formula["python@2"].bin/"python"
+    python = Formula["python@3.8"].bin/"python3"
     inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
                  filters/graphviz/graphviz2png.py filters/latex/latex2img.py
                  filters/music/music2png.py filters/unwraplatex.py],
