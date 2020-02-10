@@ -3,6 +3,7 @@ require "os/linux/glibc"
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz"
@@ -71,7 +72,6 @@ class Llvm < Formula
     sha256 "6964572246daac37b921125f1d8f60da8c2c626b54e289ff9b015725bfa3a9ea" => :catalina
     sha256 "13848a9e23a94df2468b931ae84ae72bb257fba6d2d67b94db59de308f0735ee" => :mojave
     sha256 "a68c82c388558bce245e4d7cee532cb7f8d743a02ed77c4add2867b905b6d6b5" => :high_sierra
-    sha256 "4e640be3c7a380794114cf89f4f550c5eefa7520e800aba0314a6422e01b0c23" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -148,7 +148,7 @@ class Llvm < Formula
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
-    depends_on "python@2"
+    depends_on "python@3.8"
 
     conflicts_with "clang-format", :because => "both install `clang-format` binaries"
   end
@@ -235,8 +235,9 @@ class Llvm < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    xz = OS.mac? ? "2.7": "3.8"
+    (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
+    (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
     unless OS.mac?
       # Strip executables/libraries/object files to reduce their size
