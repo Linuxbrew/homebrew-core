@@ -20,6 +20,7 @@ class Openvdb < Formula
   depends_on "jemalloc"
   depends_on "openexr"
   depends_on "tbb"
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   resource "test_file" do
     url "https://nexus.aswf.io/content/repositories/releases/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
@@ -51,6 +52,11 @@ class Openvdb < Formula
       "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}",
       "GLFW_LIB=-lglfw",
     ]
+
+    unless OS.mac?
+      args << "X11_X11_INCLUDE_PATH=#{Formula["linuxbrew/xorg/xorg"].opt_include}"
+      args << "X11_X11_LIB=#{Formula["linuxbrew/xorg/xorg"].opt_lib}"
+    end
 
     ENV.append_to_cflags "-I #{buildpath}"
 
