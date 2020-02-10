@@ -3,6 +3,7 @@ class Systemd < Formula
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
   url "https://github.com/systemd/systemd/archive/v244.tar.gz"
   sha256 "2207ceece44108a04bdd5459aa74413d765a829848109da6f5f836c25aa393aa"
+  revision 1
   head "https://github.com/systemd/systemd.git"
   # tag "linux"
 
