@@ -16,6 +16,10 @@ class Zssh < Formula
   end
 
   depends_on "lrzsz"
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "readline"
+  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
