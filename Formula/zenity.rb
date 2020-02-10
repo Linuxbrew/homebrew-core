@@ -23,6 +23,9 @@ class Zenity < Formula
   end
 
   test do
+    # (zenity:30889): Gtk-WARNING **: 13:12:26.818: cannot open display
+    return if !OS.mac? && ENV["CI"]
+
     system bin/"zenity", "--help"
   end
 end
