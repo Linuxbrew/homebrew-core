@@ -28,15 +28,17 @@ class Rust < Formula
     end
   end
 
+  # See https://github.com/rust-lang/rust/pull/66605
+  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "libssh2"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
+  uses_from_macos "python@2"
 
   unless OS.mac?
     depends_on "binutils"
     depends_on "curl"
-    depends_on "python@2"
     depends_on "zlib"
   end
 
