@@ -29,9 +29,11 @@ class Ortp < Formula
       system "make", "install"
     end
 
-    libbctoolbox = (libexec/"lib/libbctoolbox.dylib").readlink
-    MachO::Tools.change_dylib_id("#{libexec}/lib/libbctoolbox.dylib",
-                                 "#{libexec}/lib/#{libbctoolbox}")
+    if OS.mac?
+      libbctoolbox = (libexec/"lib/libbctoolbox.dylib").readlink
+      MachO::Tools.change_dylib_id("#{libexec}/lib/libbctoolbox.dylib",
+                                   "#{libexec}/lib/#{libbctoolbox}")
+    end
 
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
