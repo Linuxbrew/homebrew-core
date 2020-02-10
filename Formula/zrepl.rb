@@ -25,8 +25,9 @@ class Zrepl < Formula
     gopath = buildpath/"gopath"
     (gopath/"src/github.com/zrepl/zrepl").install contents
 
+    os = OS.mac? ? "darwin" : "linux"
     ENV["GOPATH"] = gopath
-    ENV["GOOS"]   = "darwin"
+    ENV["GOOS"]   = os
     ENV["GOARCH"] = "amd64"
 
     ENV.prepend_create_path "PATH", gopath/"bin"
@@ -37,7 +38,7 @@ class Zrepl < Formula
       system "go", "build", "-o", "'$GOPATH/bin/goimports'", "golang.org/x/tools/cmd/goimports"
       system "go", "build", "-o", "'$GOPATH/bin/golangci-lint'", "github.com/golangci/golangci-lint/cmd/golangci-lint"
       system "make", "ZREPL_VERSION=#{version}"
-      bin.install "artifacts/zrepl-darwin-amd64" => "zrepl"
+      bin.install "artifacts/zrepl-#{os}-amd64" => "zrepl"
     end
   end
 
