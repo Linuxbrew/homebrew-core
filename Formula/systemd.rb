@@ -26,6 +26,7 @@ class Systemd < Formula
   depends_on "libcap"
   depends_on "util-linux" # for libmount
   depends_on "xz"
+  depends_on "lz4"
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
@@ -46,6 +47,7 @@ class Systemd < Formula
       -Dpamconfdir=#{prefix}/etc/pam.d
       -Dcreate-log-dirs=false
       -Dhwdb=false
+      -Dlz4=true
     ]
 
     mkdir "build" do
