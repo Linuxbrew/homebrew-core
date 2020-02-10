@@ -27,6 +27,8 @@ class OsrmBackend < Formula
 
   depends_on "tbb"
 
+  uses_from_macos "expat"
+
   def install
     mkdir "build" do
       system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF", *std_cmake_args
