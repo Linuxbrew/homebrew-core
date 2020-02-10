@@ -8,7 +8,6 @@ class Systemd < Formula
   # tag "linux"
 
   bottle do
-    sha256 "cf69549f3a8cefabebbb0deeddf2441353c099d54604733be3e046712a2f0eea" => :x86_64_linux
   end
 
   depends_on "coreutils" => :build
