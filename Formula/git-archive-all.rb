@@ -3,6 +3,7 @@ class GitArchiveAll < Formula
   homepage "https://github.com/Kentzo/git-archive-all"
   url "https://github.com/Kentzo/git-archive-all/archive/1.20.0.tar.gz"
   sha256 "816cbd5fee43779be3e3527ddad011154bfdc496f93615c0d63340157adf5665"
+  revision 1 unless OS.mac?
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
@@ -10,12 +11,19 @@ class GitArchiveAll < Formula
     sha256 "f19b26ad5f84a0049ff16c4b0a2e5080eb06ba3d5925c4622b09b2dec80d3be9" => :catalina
     sha256 "f19b26ad5f84a0049ff16c4b0a2e5080eb06ba3d5925c4622b09b2dec80d3be9" => :mojave
     sha256 "f19b26ad5f84a0049ff16c4b0a2e5080eb06ba3d5925c4622b09b2dec80d3be9" => :high_sierra
-    sha256 "b5875eff33f4f00df2105242caa910df81d69dfd6a6f61582795bbdd59045acb" => :x86_64_linux
   end
 
-  depends_on "python@2" unless OS.mac?
+  depends_on "python@3.8" unless OS.mac?
 
   def install
+    unless OS.mac?
+      Dir["*.py"].each do |file|
+        next unless File.read(file).include?("/usr/bin/env python")
+
+        inreplace file, %r{#! ?/usr/bin/env python}, "#!#{Formula["python@3.8"].opt_bin/"python3"}"
+      end
+    end
+
     system "make", "prefix=#{prefix}", "install"
   end
 
