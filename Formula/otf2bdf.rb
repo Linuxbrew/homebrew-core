@@ -19,6 +19,13 @@ class Otf2bdf < Formula
     sha256 "e7b13759bd5caac0976facbd1672312fe624dd172bbfd989ffcc5918ab21bfc1"
   end
 
+  unless OS.mac?
+    resource "test-font" do
+      url "https://raw.githubusercontent.com/paddykontschak/finder/master/fonts/LucidaGrande.ttc"
+      sha256 "e188b3f32f5b2d15dbf01e9b4480fed899605e287516d7c0de6809d8e7368934"
+    end
+  end
+
   def install
     buildpath.install resource("mkinstalldirs")
     chmod 0755, "mkinstalldirs"
@@ -27,6 +34,12 @@ class Otf2bdf < Formula
   end
 
   test do
-    assert_match /MacRoman/, shell_output("#{bin}/otf2bdf -et /System/Library/Fonts/LucidaGrande.ttc")
+    if OS.mac?
+      assert_match /MacRoman/, shell_output("#{bin}/otf2bdf -et /System/Library/Fonts/LucidaGrande.ttc")
+    else
+      resource("test-font").stage do
+        assert_match /MacRoman/, shell_output("#{bin}/otf2bdf -et LucidaGrande.ttc")
+      end
+    end
   end
 end
