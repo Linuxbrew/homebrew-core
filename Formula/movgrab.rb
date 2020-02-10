@@ -12,7 +12,12 @@ class Movgrab < Formula
     sha256 "b93b158f7774abed4d3ba760afb185798782bf10b257ffbf09954f131387137b" => :high_sierra
   end
 
-  depends_on "libressl"
+  if OS.mac?
+    depends_on "libressl"
+  else
+    depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
+  end
 
   # Fixes an incompatibility between Linux's getxattr and macOS's.
   # Reported upstream; half of this is already committed, and there's
