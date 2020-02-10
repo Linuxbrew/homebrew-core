@@ -5,21 +5,20 @@ class Pyenv < Formula
   sha256 "a4cdda5902a2507518db460c375fcec5eee3ce7e3527a3e623bfb0b3c7543ccb"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "1da51fb67d5aac04bda57820d4bf9cc4454a6674a99c98fec4e42c8a32fa8dac" => :catalina
     sha256 "e16a7e18f0c439d1e8281cc512296d2cf289e538a2364c1b83e4384bf53c2a43" => :mojave
     sha256 "97ce8482cadd990833d98bee07dbb9ebd71bdd62b38b24248a10942e50519797" => :high_sierra
-    sha256 "262a683fa12812dd2ea78e07ae61060b1838d85d8e60cf42d9ea193263892a7d" => :x86_64_linux
   end
 
   depends_on "autoconf"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "readline"
-  depends_on "python@2" unless OS.mac?
+  depends_on "python@3.8" unless OS.mac?
 
   uses_from_macos "bzip2"
   uses_from_macos "libffi"
@@ -29,6 +28,7 @@ class Pyenv < Formula
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
+    inreplace "libexec/pyenv-versions", "system pyenv-which python", "system pyenv-which python3"
 
     system "src/configure"
     system "make", "-C", "src"
