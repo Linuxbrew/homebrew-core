@@ -16,10 +16,13 @@ class Ophcrack < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "expat"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-gui",
                           "--with-libssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          ("--with-libexpat=#{Formula["expat"].opt_prefix}" unless OS.mac?),
                           "--prefix=#{prefix}"
     system "make", "install"
   end
