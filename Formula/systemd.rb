@@ -24,9 +24,9 @@ class Systemd < Formula
   depends_on "pkg-config" => :build
   depends_on "expat"
   depends_on "libcap"
+  depends_on "lz4"
   depends_on "util-linux" # for libmount
   depends_on "xz"
-  depends_on "lz4"
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
