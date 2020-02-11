@@ -3,6 +3,7 @@ class GsettingsDesktopSchemas < Formula
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
   url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.34/gsettings-desktop-schemas-3.34.0.tar.xz"
   sha256 "288b04260f7040b0e004a8d59c773cfb4e32df4f1b4a0f9d705c51afccc95ead"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -10,19 +11,15 @@ class GsettingsDesktopSchemas < Formula
     sha256 "b4ee2623616015199defc0693af6a1b5ca5e33db176057f0c45c831463e73dce" => :mojave
     sha256 "b4ee2623616015199defc0693af6a1b5ca5e33db176057f0c45c831463e73dce" => :high_sierra
     sha256 "6c01b5599386af810b7bac0b6c4b8f2bf985a4d649e8d98c674097052a570a8f" => :sierra
-    sha256 "d77650207e616a12f3fc30bc2de90215642aa8335514616673e8a29719ab6cec" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  unless OS.mac?
-    depends_on "python@2"
-    depends_on "expat"
-  end
+  uses_from_macos "expat"
+  depends_on "python" unless OS.mac?
 
   def install
     ENV["DESTDIR"] = "/"
