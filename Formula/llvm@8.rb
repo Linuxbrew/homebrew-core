@@ -5,7 +5,7 @@ class LlvmAT8 < Formula
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
@@ -30,14 +30,14 @@ class LlvmAT8 < Formula
 
   unless OS.mac?
     depends_on "gcc" # needed for libstdc++
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "glibc" if Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
-    depends_on "python@2"
+    depends_on "python@3.8"
   end
 
   resource "clang" do
@@ -179,8 +179,9 @@ class LlvmAT8 < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    xz = OS.mac? ? "2.7": "3.8"
+    (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
+    (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
     unless OS.mac?
       # Strip executables/libraries/object files to reduce their size
@@ -217,6 +218,7 @@ class LlvmAT8 < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{clean_version}/include",
+                           *("-Wl,-rpath=#{lib}" unless OS.mac?),
                            "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
@@ -321,6 +323,6 @@ class LlvmAT8 < Formula
       EOS
       assert_equal "int main() { printf(\"Hello world!\"); }\n",
         shell_output("#{bin}/clang-format -style=google clangformattest.c")
-    end # OS.mac?
+    end
   end
 end
