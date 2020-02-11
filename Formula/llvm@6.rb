@@ -3,7 +3,7 @@ class LlvmAT6 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
   sha256 "b6d6c324f9c71494c0ccaf3dac1f16236d970002b42bb24a6c9e1634f7d0f4e2"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any
@@ -32,7 +32,7 @@ class LlvmAT6 < Formula
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
-    depends_on "python@2"
+    depends_on "python@3.8"
   end
 
   resource "clang" do
@@ -166,8 +166,9 @@ class LlvmAT6 < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    xz = OS.mac? ? "2.7": "3.8"
+    (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
+    (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
     unless OS.mac?
       # Strip executables/libraries/object files to reduce their size
@@ -312,6 +313,6 @@ class LlvmAT6 < Formula
       EOS
       assert_equal "int main() { printf(\"Hello world!\"); }\n",
         shell_output("#{bin}/clang-format -style=google clangformattest.c")
-    end # OS.mac?
+    end
   end
 end
