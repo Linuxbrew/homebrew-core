@@ -3,24 +3,23 @@ class Rethinkdb < Formula
   homepage "https://www.rethinkdb.com/"
   url "https://download.rethinkdb.com/dist/rethinkdb-2.4.0.tgz"
   sha256 "bfb0708710595c6762f42e25613adec692cf568201cd61da74c254f49fa9ee4c"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
     sha256 "ce3f886f880a43649c486fcc6c467e3ca44f526f06c4abeb7509e949b43b600e" => :catalina
     sha256 "7ecafe14d01b8289df21dae7cc8f6d6313bd2adb0e690be386d3bb09cf0efae8" => :mojave
     sha256 "fcec71e74c936790031c212773b91aea4c62fb80c0e25207c1162c3a486bf2da" => :high_sierra
-    sha256 "28cc039c31b7c360f5032048a725ca9067b4c7c16feb1a40c282ca2fbe729cea" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "boost" => :build
+  depends_on "python@3.8" => :build
   depends_on "openssl@1.1"
-  depends_on "python@2" => :build unless OS.mac?
   uses_from_macos "curl"
 
   def install
-    ENV["PYTHON"] = Formula["python@2"].opt_bin/"python" unless OS.mac?
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+
     args = ["--prefix=#{prefix}"]
 
     # rethinkdb requires that protobuf be linked against libc++
