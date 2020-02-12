@@ -4,6 +4,8 @@ class Advancescan < Formula
   url "https://github.com/amadvance/advancescan/releases/download/v1.18/advancescan-1.18.tar.gz"
   sha256 "8c346c6578a1486ca01774f30c3e678058b9b8b02f265119776d523358d24672"
 
+  uses_from_macos "zlib"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a2858248da2aa75092ab3511c6f9922bc85227e07c27444371e8d75931668bee" => :catalina
