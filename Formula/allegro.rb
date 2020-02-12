@@ -1,3 +1,4 @@
+# BUILD
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
