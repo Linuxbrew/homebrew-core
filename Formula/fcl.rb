@@ -1,43 +1,41 @@
 class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
-  url "https://github.com/flexible-collision-library/fcl/archive/0.5.0.tar.gz"
-  sha256 "8e6c19720e77024c1fbff5a912d81e8f28004208864607447bc90a31f18fb41a"
-  revision 1
+  url "https://github.com/flexible-collision-library/fcl/archive/v0.6.0.tar.gz"
+  sha256 "6891abac5cc26d64f5ef8894bc6c2a30174558c5c83a3ed63cf65a21cb619b2b"
 
   bottle do
-    sha256 "07ef96db4ac5806832c2e6bd28eba505c98c1bb55ed1f86d6d1793752b9265c4" => :catalina
-    sha256 "392131d9e9aea1fdd2e727161a7c4909dbe5efad7742e88ccc1afbc9090725bd" => :mojave
-    sha256 "72a5ca040739722599576b579a6f864ca3307bf01ad8403765d739813a3e1fd0" => :high_sierra
-    sha256 "8fd76b19ab4408397f161947d7da47f619ec710ddcdc2c012579440a6885f192" => :sierra
-    sha256 "a2bc2115c9cc18a7f155583e6209ade38e73b80a10704e4d26e44ed177bcf5a5" => :el_capitan
-    sha256 "74382ad665b9afce1034892e54f4ec78088362d18d2c7eb83913a49a9d652d4b" => :x86_64_linux
+    sha256 "20a679e735c69b58c4a97da7c03beac0f45ad80fa9230fcb25cf2f0c4a191f1d" => :catalina
+    sha256 "7bd24120f684a275154b6275cb9668e3447c2607cbb51c5ca40e6878171a6626" => :mojave
+    sha256 "9e4e2abcf7c2ce96c2208e097d27845041788b1a66e3a209756ea0d78ed45389" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "eigen"
   depends_on "libccd"
   depends_on "octomap"
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DBUILD_TESTING=OFF", *std_cmake_args
     system "make", "install"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <fcl/shape/geometric_shapes.h>
+      #include <fcl/geometry/shape/box.h>
       #include <cassert>
 
       int main() {
-        assert(fcl::Box(1, 1, 1).computeVolume() == 1);
+        assert(fcl::Boxd(1, 1, 1).computeVolume() == 1);
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
-                    "-lfcl", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}",
+                    "-I#{Formula["eigen"].include}/eigen3",
+                    "-L#{lib}", "-lfcl", "-o", "test"
     system "./test"
   end
 end
