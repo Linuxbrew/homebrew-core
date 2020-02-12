@@ -3,7 +3,7 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
@@ -11,26 +11,25 @@ class Ldns < Formula
     sha256 "4658a9bdae49915184e10be212a19f11504ca731e66ad8a118a6cb80838a555b" => :mojave
     sha256 "2f2ee1ff4f7c6513b9c59fcee2d36b44e0421d238cbecbd6c6ed8f5801ba1803" => :high_sierra
     sha256 "e4fe44eec5ae7b987b264cdbb64a02a7e53a25d1203edc44cb820cd7cc93093c" => :sierra
-    sha256 "6b89f084cd0662179238268ba05309685f0f78708a2636eedbf6a3dd3911b2c8" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "swig" => :build
   depends_on "openssl@1.1"
-  uses_from_macos "python@2"
+  depends_on "python@3.8" unless OS.mac?
 
   def install
+    python_version = OS.mac? ? "python2.7": "python3.8"
     args = %W[
       --prefix=#{prefix}
       --with-drill
       --with-examples
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pyldns
-      PYTHON_SITE_PKG=#{lib}/python2.7/site-packages
+      PYTHON_SITE_PKG=#{lib}/#{python_version}/site-packages
       --disable-dane-verify
     ]
 
-    ENV["PYTHON"] = Formula["python@2"].opt_bin/"python2" unless OS.mac?
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3" unless OS.mac?
     system "./configure", *args
 
     if OS.mac?
