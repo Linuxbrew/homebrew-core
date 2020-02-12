@@ -20,9 +20,6 @@ class Ttyd < Formula
   depends_on "openssl@1.1"
   uses_from_macos "vim" # needed for xxd
 
-  # Link against shared libwebsockets library
-  patch :DATA unless OS.mac?
-
   def install
     system "cmake", ".",
                     *std_cmake_args,
@@ -34,35 +31,3 @@ class Ttyd < Formula
     assert_match version.to_s, shell_output("#{bin}/ttyd --version")
   end
 end
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 4929624..9dd0ea2 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -33,13 +33,13 @@ set(LIBWEBSOCKETS_MIN_VERSION 1.7.0)
- set(SOURCE_FILES src/server.c src/http.c src/protocol.c src/utils.c)
-
- find_package(OpenSSL REQUIRED)
--find_package(Libwebsockets ${LIBWEBSOCKETS_MIN_VERSION} QUIET)
-+#find_package(Libwebsockets ${LIBWEBSOCKETS_MIN_VERSION} QUIET)
-
- find_package(PkgConfig)
-
--if(Libwebsockets_FOUND)
--    set(LIBWEBSOCKETS_INCLUDE_DIR ${LIBWEBSOCKETS_INCLUDE_DIR} ${LIBWEBSOCKETS_INCLUDE_DIRS})
--else() # try to find libwebsockets with pkg-config
-+#if(Libwebsockets_FOUND)
-+#    set(LIBWEBSOCKETS_INCLUDE_DIR ${LIBWEBSOCKETS_INCLUDE_DIR} ${LIBWEBSOCKETS_INCLUDE_DIRS})
-+#else() # try to find libwebsockets with pkg-config
-     pkg_check_modules(Libwebsockets REQUIRED libwebsockets>=${LIBWEBSOCKETS_MIN_VERSION})
-     find_path(LIBWEBSOCKETS_INCLUDE_DIR libwebsockets.h
-             HINTS ${LIBWEBSOCKETS_INCLUDEDIR} ${LIBWEBSOCKETS_INCLUDE_DIRS})
-@@ -48,7 +48,7 @@ else() # try to find libwebsockets with pkg-config
-     include(FindPackageHandleStandardArgs)
-     find_package_handle_standard_args(LIBWEBSOCKETS DEFAULT_MSG LIBWEBSOCKETS_LIBRARIES LIBWEBSOCKETS_INCLUDE_DIR)
-     mark_as_advanced(LIBWEBSOCKETS_INCLUDE_DIR LIBWEBSOCKETS_LIBRARIES)
--endif()
-+#endif()
-
- pkg_check_modules(PC_JSON-C REQUIRED json-c)
- find_path(JSON-C_INCLUDE_DIR json.h
