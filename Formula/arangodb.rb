@@ -13,7 +13,7 @@ class Arangodb < Formula
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on :macos => :mojave
+  depends_on :macos => :mojave if OS.mac?
   depends_on "openssl@1.1"
 
   # the ArangoStarter is in a separate github repository;
@@ -25,7 +25,7 @@ class Arangodb < Formula
   end
 
   def install
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if OS.mac?
 
     resource("starter").stage do
       ENV.append "GOPATH", Dir.pwd + "/.gobuild"
@@ -48,12 +48,13 @@ class Arangodb < Formula
         -DOPENSSL_USE_STATIC_LIBS=On
         -DCMAKE_LIBRARY_PATH=#{prefix}/opt/openssl@1.1/lib
         -DOPENSSL_ROOT_DIR=#{prefix}/opt/openssl@1.1/lib
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
         -DTARGET_ARCHITECTURE=nehalem
         -DUSE_CATCH_TESTS=Off
         -DUSE_GOOGLE_TESTS=Off
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       ]
+
+      args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
 
       if ENV.compiler == "gcc-6"
         ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks"
