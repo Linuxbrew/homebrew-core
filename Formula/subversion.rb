@@ -4,13 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.13.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
   sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
 
   bottle do
     sha256 "92a78117ee83b94aeee65ac0b69fb37c7d687c6ce6f0a1c47effeb770d574050" => :catalina
     sha256 "291f02b397248291148dd22a1dd8bfb0e20c677a70ddec2affd7b5cefed8976e" => :mojave
     sha256 "e2d41f57af7cc391d9435728fc5004c7d0c9d0fd4e34d438fd7c5f047dec2327" => :high_sierra
-    sha256 "5ee1fecb654636b109c007309abf0b7302b3a06f0750072341fc3e28f07f3dae" => :x86_64_linux
   end
 
   head do
@@ -21,7 +20,6 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
@@ -35,12 +33,12 @@ class Subversion < Formula
   depends_on "lz4"
   depends_on "openssl@1.1" # For Serf
   depends_on "perl"
+  depends_on "python@3.8"
   depends_on "sqlite"
   depends_on "utf8proc"
 
   uses_from_macos "expat"
   uses_from_macos "libtool"
-  uses_from_macos "python@2"
   uses_from_macos "ruby"
   uses_from_macos "zlib"
 
@@ -62,7 +60,7 @@ class Subversion < Formula
   patch :DATA if OS.mac?
 
   def install
-    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin" if OS.mac?
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     serf_prefix = OS.mac? ? libexec/"serf" : prefix
     resource("serf").stage do
@@ -70,6 +68,16 @@ class Subversion < Formula
         inreplace "SConstruct" do |s|
           s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
           "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
+        end
+        inreplace "SConstruct" do |s|
+          s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
+          "print('Warning: Used unknown variables:', ', '.join(unknown.keys()))"
+          s.gsub! "match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'",
+          "match = re.search(b'SERF_MAJOR_VERSION ([0-9]+).*'"
+          s.gsub! "'SERF_MINOR_VERSION ([0-9]+).*'",
+          "b'SERF_MINOR_VERSION ([0-9]+).*'"
+          s.gsub! "'SERF_PATCH_VERSION ([0-9]+)'",
+          "b'SERF_PATCH_VERSION ([0-9]+)'"
         end
       end
       # scons ignores our compiler and flags unless explicitly passed
@@ -133,7 +141,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
