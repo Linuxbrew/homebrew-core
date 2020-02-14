@@ -20,8 +20,6 @@ class Pcre < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
-
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
@@ -43,7 +41,7 @@ class Pcre < Formula
     system "./configure", *args
     system "make"
     ENV.deparallelize
-    system "make", "test" if build.with? "check"
+    system "make", "test"
     system "make", "install"
   end
 
