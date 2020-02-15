@@ -1,3 +1,4 @@
+# lcov: Build bottle for Linuxbrew
 class Lcov < Formula
   desc "Graphical front-end for GCC's coverage testing tool (gcov)"
   homepage "https://github.com/linux-test-project/lcov"
