@@ -12,18 +12,19 @@ class Libpqxx < Formula
     sha256 "9f1202b31703fb3b716668de6e9b48543faf517e6e419cb68b61d92bad20cb47" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
+  depends_on "python@3.8" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
   depends_on "postgresql"
+
   unless OS.mac?
     depends_on "doxygen" => :build
-    depends_on "python@2" => :build
     depends_on "xmlto" => :build
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin" unless OS.mac?
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
     system "make", "install"
