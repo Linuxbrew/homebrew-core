@@ -12,8 +12,12 @@ class Ldc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libconfig" => :build
   depends_on "llvm"
+
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libxml2" => :build
+  end
 
   resource "ldc-bootstrap" do
     if OS.mac?
@@ -34,6 +38,9 @@ class Ldc < Formula
 
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
+
+    # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
+    ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib
 
     mkdir "build" do
       args = std_cmake_args + %W[
