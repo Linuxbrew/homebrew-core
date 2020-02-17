@@ -13,11 +13,11 @@ class Wpscan < Formula
   end
 
   depends_on "ruby"
-  unless OS.mac?
-    depends_on "unzip" => :build
-    depends_on "curl"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "curl"
+  uses_from_macos "unzip"
+  uses_from_macos "xz" # for liblzma
+  uses_from_macos "zlib"
 
   # Fixes the --no-update commandline option
   # https://github.com/wpscanteam/wpscan/pull/1455
