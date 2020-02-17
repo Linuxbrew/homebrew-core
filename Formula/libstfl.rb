@@ -12,14 +12,15 @@ class Libstfl < Formula
     sha256 "533ea07754699c5ca284752d18378ff482f06eee9257c59e5fd49f445c6ff4b9" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "swig" => :build
+  depends_on "python@3.8" => :build
   depends_on "ruby"
 
   uses_from_macos "perl"
-  uses_from_macos "python@2"
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+
     if OS.mac?
       ENV.append "LDLIBS", "-liconv"
       ENV.append "LIBS", "-lncurses -liconv -lruby"
@@ -46,14 +47,15 @@ class Libstfl < Formula
 
     inreplace "python/Makefile.snippet" do |s|
       # Install into the site-packages in the Cellar (so uninstall works)
-      s.change_make_var! "PYTHON_SITEARCH", lib/"python2.7/site-packages"
+      s.change_make_var! "PYTHON_SITEARCH", lib/"python3.8/site-packages"
       s.gsub! "lib-dynload/", ""
       s.gsub! "ncursesw", "ncurses"
+      python_config = Formula["python@3.8"].opt_libexec/"bin/python-config"
       if OS.mac?
-        s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
+        s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`#{python_config} --cflags`.chomp}"
         s.gsub! "-lncurses", "-lncurses -liconv"
       else
-        s.gsub! "gcc", "gcc #{`python-config --cflags`.chomp}"
+        s.gsub! "gcc", "gcc #{`#{python_config} --cflags`.chomp}"
       end
     end
 
