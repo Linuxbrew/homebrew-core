@@ -19,10 +19,6 @@ class Gmp < Formula
   uses_from_macos "m4" => :build
 
   def install
-    # Work around macOS Catalina / Xcode 11 code generation bug
-    # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
-    ENV.append_to_cflags "-fno-stack-check"
-
     # Enable --with-pic to avoid linking issues with the static library
     args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
 

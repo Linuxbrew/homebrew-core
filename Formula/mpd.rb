@@ -1,15 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.19.tar.xz"
-  sha256 "d3275e11d85637adde250cadf3b4f5aec2144228f0d8085767493fc46c55b2f9"
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.20.tar.xz"
+  sha256 "422ef0a996d961f3ebc6856395f3a855b45fa0059910e878fb98281007e510e1"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    sha256 "8ae6ae0fa462ebaa09d1cbc079c8d09f49e550fe7c0402d7b0ef35988757f6e4" => :catalina
-    sha256 "bbd105f0749b0071115107cf1f8a29441dff3cd779ca3877291fe99c3e6b871e" => :mojave
-    sha256 "178ab20d42fcab20695b044af4591a1cc7691615901e183f79ff581451a74614" => :high_sierra
-    sha256 "2c42b62a31d40550dbbc84984eafc249de9c3a03d86f5d2a6e4bc3f6939ae098" => :x86_64_linux
+    cellar :any
+    sha256 "4876f64159b7851b91008f96a3bd5a0a498043d5ea7bdb97366eb92f77e166f1" => :catalina
+    sha256 "167476bde89814369602650a575f30f1245d704fa107a1a3e8067eea95dddd00" => :mojave
+    sha256 "b06bea18049a11e93bbcabbec7ebe6300f2dca78c5a473807acb9a2f3c54d54f" => :high_sierra
   end
 
   depends_on "boost" => :build

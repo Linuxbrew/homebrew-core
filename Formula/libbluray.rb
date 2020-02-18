@@ -38,10 +38,6 @@ class Libbluray < Formula
       ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
     end
 
-    # Work around Xcode 11 clang bug
-    # https://code.videolan.org/videolan/libbluray/issues/20
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
 
     system "./bootstrap" if build.head?
