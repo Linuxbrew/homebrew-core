@@ -13,11 +13,15 @@ class Nushell < Formula
   end
 
   depends_on "rust" => :build
-
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
-  depends_on "linuxbrew/xorg/libxcb" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "linuxbrew/xorg/libxcb"
+    depends_on "linuxbrew/xorg/libx11"
+  end
 
   def install
     system "cargo", "install", "--features", "stable", "--locked", "--root", prefix, "--path", "."
