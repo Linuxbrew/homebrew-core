@@ -17,6 +17,8 @@ class Dwarfutils < Formula
     depends_on "libelf"
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure"
     system "make"
