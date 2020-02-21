@@ -2,14 +2,13 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.2.tar.xz"
-  sha256 "98284deac017da0d426117ecae7599a1f1bf62ae3911e8bc16c4403a8f4bdf13"
+  url "https://www.php.net/distributions/php-7.4.3.tar.xz"
+  sha256 "cf1f856d877c268124ded1ede40c9fb6142b125fdaafdc54f855120b8bc6982a"
 
   bottle do
-    sha256 "ddd14746138f0212dfd8d2c0944d573ce05c3ba900c2579440f7e8defa63b0c7" => :catalina
-    sha256 "fcc85c9f550df021a7f505d57c43e19672940c37ef7a1f909eec2d1d13202cef" => :mojave
-    sha256 "edfcefb109b356338ed324305f7317659df02bb5a8252b67a696180e75e81b1c" => :high_sierra
-    sha256 "78845766ada0a27a3272c51d57200103cf486b952b47d1cf98b4ce53132fb0ee" => :x86_64_linux
+    sha256 "9370af1b117049783f81968fc800d1710224581cb8d9f396c38d9eef8aedf3ac" => :catalina
+    sha256 "364332e23b489c53fe9efddc881bd9fa8366df5ea66f9e69c9c843d6ec64518d" => :mojave
+    sha256 "c0c2fa82be5609534d3fdf875515e0d98ea17ed4de4f27aece8e275c840e889b" => :high_sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -39,15 +38,13 @@ class Php < Formula
   depends_on "tidy-html5"
   depends_on "unixodbc"
   depends_on "webp"
-  unless OS.mac?
-    depends_on "xz" => :build
-    depends_on "krb5"
-    depends_on "libedit"
-  end
 
+  uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
+  uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+  uses_from_macos "krb5"
   uses_from_macos "zlib"
 
   # PHP build system incorrectly links system libraries
