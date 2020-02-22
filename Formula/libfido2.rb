@@ -15,6 +15,8 @@ class Libfido2 < Formula
   depends_on "pkg-config" => :build
   depends_on "libcbor"
   depends_on "openssl@1.1"
+  
+  depends_on "systemd" if OS.linux? # libfido2 uses libudev on Linux but IOKit on macOS
 
   def install
     mkdir "build" do
@@ -24,7 +26,7 @@ class Libfido2 < Formula
       system "make", "man_symlink"
       system "make", "install"
     end
-    mv prefix/"man", share/"man"
+    mv prefix/"man", share/"man" if OS.mac? # Path bug on macOS might be upstream
   end
 
   test do
