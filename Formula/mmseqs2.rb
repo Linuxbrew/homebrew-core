@@ -14,7 +14,7 @@ class Mmseqs2 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
+  depends_on "libomp" if OS.mac?
   depends_on "wget"
 
   uses_from_macos "bzip2"
@@ -31,12 +31,14 @@ class Mmseqs2 < Formula
     args << "-DVERSION_OVERRIDE=#{version}"
     args << "-DHAVE_SSE4_1=1"
 
-    libomp = Formula["libomp"]
-    args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-    args << "-DOpenMP_C_LIB_NAMES=omp"
-    args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-    args << "-DOpenMP_CXX_LIB_NAMES=omp"
-    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
+    if OS.mac?
+      libomp = Formula["libomp"]
+      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_C_LIB_NAMES=omp"
+      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_CXX_LIB_NAMES=omp"
+      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
+    end
 
     system "cmake", ".", *args
     system "make", "install"
