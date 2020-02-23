@@ -13,6 +13,7 @@ class CassandraCppDriver < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build unless OS.mac?
   depends_on "libuv"
   depends_on "openssl@1.1"
 
@@ -21,7 +22,7 @@ class CassandraCppDriver < Formula
   def install
     Dir.mkdir "build"
     Dir.chdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, ("-DLIBUV_ROOT_DIR=#{Formula["libuv"].opt_prefix}" unless OS.mac?)
       system "make"
       system "make", "install"
     end
