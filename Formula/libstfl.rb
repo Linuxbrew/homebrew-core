@@ -12,8 +12,8 @@ class Libstfl < Formula
     sha256 "be2fa58735e737b334952209f35cb19824c6f7b7b8115727f175537cc28a6b12" => :high_sierra
   end
 
-  depends_on "swig" => :build
   depends_on "python@3.8" => :build
+  depends_on "swig" => :build
   depends_on "ruby"
 
   uses_from_macos "perl"
