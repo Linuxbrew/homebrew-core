@@ -18,6 +18,7 @@ class Cups < Formula
     system "./configure", "--disable-debug",
                           "--with-components=core",
                           "--without-bundledir",
+                          "--disable-gssapi",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
