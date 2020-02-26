@@ -12,12 +12,11 @@ jobs:
     container:
       image: homebrew/brew
     steps:
-      - name: Checkout tap
-        uses: actions/checkout@v2
       - name: Setup tap
         run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+          cd $(brew --repository ${{github.repository}})
+          git fetch origin ${{github.sha}}
+          git reset --hard ${{github.sha}}
       - name: Build bottles
         run: |
           mkdir ~/bottles
