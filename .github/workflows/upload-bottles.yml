@@ -14,125 +14,25 @@ jobs:
     container:
       image: homebrew/brew
     steps:
-      - name: Get artifact data
-        uses: actions/github-script@0.4.0
-        id: artifact
+      - name: Get PR associated with commit
+        uses: jwalton/gh-find-current-pr@v1.0.2
+        id: pr
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
-          result-encoding: string
-          script: |
-            const prs = await github.repos.listPullRequestsAssociatedWithCommit({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              commit_sha: context.payload.head_commit.id
-            })
-            console.log(prs.data.length + " prs")
-            if (prs.data.length === 0) {
-              console.log("No pull requests are associated with this merge commit.")
-              return 0
-            }
-            const pr = prs.data[0]
-            console.log("first pr head ref=" + pr.head.ref)
-
-            // register needed endpoints since the github action is too old
-            github.registerEndpoints({
-              actions: {
-                listWorkflowRuns: {
-                  method: "GET",
-                  url: "/repos/:owner/:repo/actions/workflows/:workflow_id/runs",
-                  headers: {
-                    accept: "application/vnd.github.groot-preview+json"
-                  },
-                  params: {
-                    owner: {
-                      required: true,
-                      type: "string"
-                    },
-                    repo: {
-                      required: true,
-                      type: "string"
-                    },
-                    workflow_id: {
-                      required: true,
-                      type: "string",
-                    },
-                    branch: {
-                      type: "string",
-                    }
-                  }
-                },
-                listWorkflowRunArtifacts: {
-                  method: "GET",
-                  url: "/repos/:owner/:repo/actions/runs/:run_id/artifacts",
-                  headers: {
-                    accept: "application/vnd.github.groot-preview+json"
-                  },
-                  params: {
-                    owner: {
-                      required: true,
-                      type: "string"
-                    },
-                    repo: {
-                      required: true,
-                      type: "string"
-                    },
-                    run_id: {
-                      required: true,
-                      type: "integer",
-                    }
-                  }
-                }
-              }
-            });
-
-            const runs = await github.actions.listWorkflowRuns({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: "build-bottles.yml",
-              branch: pr.head.ref
-              })
-            console.log(runs.data.total_count + " runs")
-            if (runs.data.total_count === 0) {
-              console.log("No workflow runs are associated with this pull request.")
-              return 0
-            }
-
-            const artifacts = await github.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: runs.data.workflow_runs[0].id
-              })
-            console.log(artifacts.data.total_count + " artifacts")
-            if (artifacts.data.total_count === 0) {
-              console.log("No artifacts were uploaded for this workflow run.")
-              return 0
-            }
-            console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
-            return artifacts.data.artifacts[0].id
-      - name: Install unzip
-        if: steps.artifact.outputs.result != 0
-        env:
-          HOMEBREW_NO_ANALYTICS: 1
-        run: |
-          brew install unzip
       - name: Download bottles
-        if: steps.artifact.outputs.result != 0
-        run: |
-          set -eu
-          mkdir ~/bottles
-          cd ~/bottles
-          artifact_id=${{steps.artifact.outputs.result}}
-          echo "artifact_id=$artifact_id"
-          curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
-          file bottles.zip
-          unzip bottles.zip
+        uses: dawidd6/action-download-artifact@v1.1.0
+        if: steps.pr.outputs.number != ''
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          pr: ${{steps.pr.outputs.number}}
+          workflow: build-bottles.yml
+          name: bottles
       - name: Upload and publish bottles
         env:
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        if: steps.artifact.outputs.result != 0
+        if: steps.pr.outputs.number != ''
         run: |
-          cd ~/bottles
           brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
             --tap=homebrew/core \
@@ -144,7 +44,7 @@ jobs:
         env:
           GIT_COMMITTER_NAME: ${{github.event.pusher.name}}
           GIT_COMMITTER_EMAIL: ${{github.event.pusher.email}}
-        if: steps.artifact.outputs.result != 0
+        if: steps.pr.outputs.number != ''
         run: |
           cd $(brew --repo ${{github.repository}})
           git commit --amend --no-edit
