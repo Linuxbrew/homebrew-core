@@ -15,8 +15,10 @@ class Unicorn < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.8" => [:build, :test] unless OS.mac?
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin" unless OS.mac?
     ENV["PREFIX"] = prefix
     ENV["UNICORN_ARCHS"] = "x86 x86_64 arm mips aarch64 m64k ppc sparc"
     ENV["UNICORN_SHARED"] = "yes"
@@ -77,6 +79,7 @@ class Unicorn < Formula
       "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
 
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin" unless OS.mac?
     system "python", "-c", "import unicorn; print(unicorn.__version__)"
   end
 end
