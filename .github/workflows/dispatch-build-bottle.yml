@@ -53,7 +53,7 @@ jobs:
           for try in $(seq 5); do
             git fetch
             git rebase origin/master
-            if git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master; then
+            if git push https://x-access-token:${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@github.com/${{github.repository}} master; then
               EXIT_CODE=0
               break
             else
