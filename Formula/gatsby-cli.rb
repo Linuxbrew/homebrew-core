@@ -22,10 +22,6 @@ class GatsbyCli < Formula
   end
 
   test do
-    if !OS.mac? && ENV["CI"]
-      system "git", "config", "--global", "user.email", "you@example.com"
-      system "git", "config", "--global", "user.name", "Your Name"
-    end
     system bin/"gatsby", "new", "hello-world", "https://github.com/gatsbyjs/gatsby-starter-hello-world"
     assert_predicate testpath/"hello-world/package.json", :exist?, "package.json was not cloned"
   end
