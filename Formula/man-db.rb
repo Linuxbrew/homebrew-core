@@ -13,8 +13,8 @@ class ManDb < Formula
 
   depends_on "pkg-config" => :build
 
-  uses_from_macos "groff"
   uses_from_macos "gdbm"
+  uses_from_macos "groff"
   uses_from_macos "zlib"
 
   resource "libpipeline" do
