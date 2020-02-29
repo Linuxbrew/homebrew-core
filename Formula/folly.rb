@@ -33,6 +33,8 @@ class Folly < Formula
   uses_from_macos "python"
 
   def install
+    ENV.cxx11 unless OS.mac?
+
     mkdir "_build" do
       args = std_cmake_args
       args << "-DFOLLY_USE_JEMALLOC=#{OS.mac? ? "OFF" : "ON"}"
