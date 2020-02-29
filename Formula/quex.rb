@@ -3,6 +3,7 @@ class Quex < Formula
   homepage "https://quex.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/quex/quex-0.70.0.tar.gz"
   sha256 "761b68d68255862001d1fe8bf8876ba3d35586fd1927a46a667aea11511452cd"
+  revision 1 unless OS.mac?
   head "https://svn.code.sf.net/p/quex/code/trunk"
 
   bottle do
@@ -10,13 +11,13 @@ class Quex < Formula
     sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :catalina
     sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :mojave
     sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :high_sierra
-    sha256 "ef42df0a4413a021056ceb695796065a083651c29f89f9a2f78e707ae3a1b823" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
-  uses_from_macos "python@2"
+  uses_from_macos "python@3.8"
 
   def install
+    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
+
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"
 
