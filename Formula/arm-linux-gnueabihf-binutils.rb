@@ -11,6 +11,8 @@ class ArmLinuxGnueabihfBinutils < Formula
     sha256 "247a0b582523ad5a3af119b223ef17a04ed4cdcf37cee118d3a0971944f63e17" => :high_sierra
   end
 
+  uses_from_macos "texinfo"
+
   def install
     ENV.cxx11
 
