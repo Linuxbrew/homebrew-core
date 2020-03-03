@@ -49,7 +49,15 @@ class Gdal < Formula
     depends_on "pkg-config" => :build
     depends_on "bash-completion"
   end
+
   conflicts_with "cpl", :because => "both install cpl_error.h"
+
+  # Fix for "too many arguments to function 'void setErrorCallback(ErrorCallback)'"
+  # Remove in next release
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/d587c2b056cd37a9bf51bf8afa1b740e16c7ba2b.patch?full_index=1"
+    sha256 "fed8fb8137c8366cc146e6df26dba6636cf75c3bb7b7ae40725600fa885f3ed0"
+  end
 
   def install
     # Fixes: error: inlining failed in call to always_inline __m128i _mm_shuffle_epi8
