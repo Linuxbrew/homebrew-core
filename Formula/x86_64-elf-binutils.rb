@@ -11,6 +11,8 @@ class X8664ElfBinutils < Formula
     sha256 "ed28927581eb4e2a8bfd10134eec40e1b1055161a5fb26580453943fb3bffe72" => :high_sierra
   end
 
+  uses_from_macos "texinfo"
+
   def install
     system "./configure", "--target=x86_64-elf",
                           "--enable-targets=all",
