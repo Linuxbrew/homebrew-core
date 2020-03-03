@@ -49,12 +49,24 @@ class Wdc < Formula
     EOS
     pugixml = Formula["pugixml"]
     openssl = Formula["openssl@1.1"]
-    system ENV.cxx, "test.cpp", "-o", "test", "-lcurl", "-std=c++11",
-                   "-L#{lib}", "-lwdc", "-I#{include}",
-                   "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
-                   "-I#{openssl.opt_include}",
-                   "-L#{pugixml.opt_lib}", "-lpugixml",
-                   "-I#{pugixml.opt_include}"
+    if OS.mac?
+      system ENV.cxx, "test.cpp", "-o", "test", "-lcurl", "-std=c++11",
+                     "-L#{lib}", "-lwdc", "-I#{include}",
+                     "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
+                     "-I#{openssl.opt_include}",
+                     "-L#{pugixml.opt_lib}", "-lpugixml",
+                     "-I#{pugixml.opt_include}"
+    else
+      curl = Formula["curl"]
+      system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-pthread",
+                     "-L#{lib}", "-lwdc", "-I#{include}",
+                     "-L#{curl.opt_lib}", "-lcurl",
+                     "-I#{curl.opt_include}",
+                     "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
+                     "-I#{openssl.opt_include}",
+                     "-L#{pugixml.opt_lib}", "-lpugixml",
+                     "-I#{pugixml.opt_include}"
+    end
     system "./test"
   end
 end
