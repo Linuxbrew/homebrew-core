@@ -16,6 +16,8 @@ class Psftools < Formula
 
   depends_on "autoconf" => :build
 
+  uses_from_macos "unzip" => :test
+
   resource "pc8x8font" do
     url "https://www.zone38.net/font/pc8x8.zip"
     sha256 "13a17d57276e9ef5d9617b2d97aa0246cec9b2d4716e31b77d0708d54e5b978f"
