@@ -29,7 +29,7 @@ class Zim < Formula
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.7/site-packages"
     resource("pyxdg").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
     ENV["XDG_DATA_DIRS"] = libexec/"share"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.7/site-packages"
