@@ -1,6 +1,7 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://libsdl.org/release/SDL2-2.0.10.tar.gz"
@@ -13,7 +14,6 @@ class Sdl2 < Formula
     sha256 "ede7f2495e32fd7f1a1bee57db35542066993f7ad4d24bb4c2078a68b0856dfb" => :mojave
     sha256 "e8e7c8484eaa791d312f9d77f626faad344f90db74bb93423ed2fc234c5f52a6" => :high_sierra
     sha256 "67961a420c2a8632822f60f61710b95b1173b8b1c2ae05b5f92e4c9892cdc5b7" => :sierra
-    sha256 "a77b9a5f279de335219bd3098f1bb71d576a1468de26ea444cfae8d9f656f4f1" => :x86_64_linux
   end
 
   head do
@@ -25,6 +25,7 @@ class Sdl2 < Formula
   end
 
   unless OS.mac?
+    depends_on "pkg-config" => :build
     depends_on "linuxbrew/xorg/libice"
     depends_on "linuxbrew/xorg/libxcursor"
     depends_on "linuxbrew/xorg/libxscrnsaver"
