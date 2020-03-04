@@ -13,6 +13,15 @@ class Seal < Formula
 
   depends_on "cmake" => [:build, :test]
 
+  # #pragma GCC error "SEAL requires __GNUC__ >= 6"
+  # In reality gcc@6 does not work because of some missing C++17 features.
+  unless OS.mac?
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
+    fails_with :gcc => "7"
+    depends_on "gcc@8" => [:build, :test]
+  end
+
   def install
     cd "native/src" do
       system "cmake", "-DSEAL_LIB_BUILD_TYPE=SHARED", ".", *std_cmake_args
@@ -23,6 +32,7 @@ class Seal < Formula
   end
 
   test do
+    ENV["CXX"] = Formula["gcc@8"].opt_bin/"g++-8" unless OS.mac?
     cp_r (pkgshare/"examples"), testpath
     system "cmake", "examples"
     system "make"
