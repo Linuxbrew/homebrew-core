@@ -35,7 +35,7 @@ class Libquantum < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-O3", "-o", "qtest", "qtest.c", "-L#{lib}", "-lquantum"
+    system ENV.cc, "-O3", ("-fopenmp" unless OS.mac?), "-o", "qtest", "qtest.c", "-L#{lib}", "-lquantum"
     system "./qtest"
   end
 end
