@@ -37,7 +37,7 @@ class Cpptest < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcpptest", "-o", "test"
+    system ENV.cxx, "test.cpp", ("-std=c++11" unless OS.mac?), "-L#{lib}", "-lcpptest", "-o", "test"
     system "./test"
   end
 end
