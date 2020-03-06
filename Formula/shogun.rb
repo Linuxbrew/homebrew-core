@@ -5,13 +5,12 @@ class Shogun < Formula
       :tag      => "shogun_6.1.4",
       :revision => "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "affaea43f1e4ed4d0102675079a1334fa5dca7f836842e4d10a7f64b0c969860" => :catalina
-    sha256 "5362818881e0f42095759525a346d59c49a0f8420916abd8ed03fd9884b5da36" => :mojave
-    sha256 "070a2ee1245e3ed473b928efecf401a6365fde05755e81251d3f63840f285c88" => :high_sierra
-    sha256 "d582e99dd27688c0b64a18626e13cb064a8e179dc51289b18b13a66724023684" => :x86_64_linux
+    sha256 "bd8fab03b4b3f86505ddf35aa9a6e6b050d3ae21f6d674370544aa266354e095" => :catalina
+    sha256 "27e59b71532ae5b921494f1c4a7a1f4f763edca727a332b172ffc0bc7381fbf6" => :mojave
+    sha256 "5278cbe96f013092f0941b97b2952aa96ac742efb8fe5c9641247d3f89e32d1d" => :high_sierra
   end
 
   depends_on "cmake" => :build

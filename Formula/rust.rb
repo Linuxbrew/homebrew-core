@@ -1,24 +1,22 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.41.0-src.tar.gz"
-    sha256 "5546822c09944c4d847968e9b7b3d0e299f143f307c00fa40e84a99fabf8d74b"
+    url "https://static.rust-lang.org/dist/rustc-1.41.1-src.tar.gz"
+    sha256 "38c93d016e6d3e083aa15e8f65511d3b4983072c0218a529f5ee94dd1de84573"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.41.0",
-          :revision => "bc8e4c8be13c8f8d1583f9d52e55fda038c0f9d4"
+          :tag      => "0.42.0",
+          :revision => "626f0f40efd32e6b3dbade50cd53fdfaa08446ba"
     end
   end
 
   bottle do
-    sha256 "e5aafa87b134aff16659a2b2fb2898cc2ac6b88d1bab32590aa1ab9ed1c8ca8f" => :catalina
-    sha256 "f98f829754ade2e0b17cd8ae339c2a5fdf63699ed5f5e8bb92647c152d658312" => :mojave
-    sha256 "f8ff3fd81fffd4b2e79f8d5af414f88091d7403cacc91224efaeea68af39c440" => :high_sierra
-    sha256 "bce86db974b6844e648f1a3cfd9c993051ac76339329906418b291e2b3024aaf" => :x86_64_linux
+    sha256 "cb6f748139b5a6b36cb859840183bbe295734d11cdfa4bf91f2f4b213aa706cf" => :catalina
+    sha256 "8e02732d6b8337d03422c206c8644975ae3e31caa41686c1e298494d0e45ccc2" => :mojave
+    sha256 "0b7a0246cbb9364eae54df7e182bcfbb35542c3feb5f3c166ba1535ffcf58432" => :high_sierra
   end
 
   head do

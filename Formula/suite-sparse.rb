@@ -3,12 +3,12 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.6.0.tar.gz"
   sha256 "76d34d9f6dafc592b69af14f58c1dc59e24853dcd7c2e8f4c98ffa223f6a1adb"
+  revision 1
 
   bottle do
-    sha256 "8eb58bbbd72d6ccc7a4aba9b2809a6dbd644fa885ff4928c1e407d468312b1a3" => :catalina
-    sha256 "d120874fd9475e4b65f2314da7db2cad5b20e2ece303c58a6cbd6dd36f8e47cf" => :mojave
-    sha256 "d578edbc2eb5813a86a85b7e2af8083bfcf3dc6aa265263b9c1c87feeb2cbd4a" => :high_sierra
-    sha256 "4e11ef48e049d94ed3b5f429c7d3270301c6c9bf9e9e8cb28312fc7e83998f5a" => :x86_64_linux
+    sha256 "c64f9234921c7bac81c9e045cb73540804085400753f682d919191fc7f075aea" => :catalina
+    sha256 "98ba4f1bf404e36c03bdeff9552a467bf34bc7e099612c4f5b5e5261e43b1527" => :mojave
+    sha256 "5fd562a90639d5dec695ed73a664ddcdec09f947429219cbc113998413fddb98" => :high_sierra
   end
 
   depends_on "cmake" => :build
