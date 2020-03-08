@@ -17,7 +17,7 @@ class GitTrim < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", "--root", prefix, "--path", "."
   end
 
   test do
