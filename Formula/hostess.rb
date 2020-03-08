@@ -15,9 +15,6 @@ class Hostess < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = "amd64"
-
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-o", bin/"hostess"
   end
 
