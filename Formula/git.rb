@@ -86,7 +86,6 @@ class Git < Formula
       LDFLAGS=#{ENV.ldflags}
       NO_TCLTK=1
     ]
-    args << "NO_TCLTK=1" if build.without? "tcl-tk"
 
     if !OS.mac? && MacOS.version < :yosemite
       openssl_prefix = Formula["openssl@1.1"].opt_prefix
