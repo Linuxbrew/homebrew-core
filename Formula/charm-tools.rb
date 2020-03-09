@@ -136,8 +136,15 @@ class CharmTools < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/7e/70/399b955e814380568c1f2e98145d37f0467b79531766b687bc27eb873a0a/keyring-21.1.0.tar.gz"
-    sha256 "1f393f7466314068961c7e1d508120c092bd71fa54e3d93b76180b526d4abc56"
+    if OS.mac?
+      url "https://files.pythonhosted.org/packages/7e/70/399b955e814380568c1f2e98145d37f0467b79531766b687bc27eb873a0a/keyring-21.1.0.tar.gz"
+      sha256 "1f393f7466314068961c7e1d508120c092bd71fa54e3d93b76180b526d4abc56"
+    else
+      # 'keyring<21'
+      # https://github.com/juju/charm-tools/commit/cde3ea4120736236dac160895d17065fc5483c83
+      url "https://files.pythonhosted.org/packages/97/b5/983b219cc9288340b1a572dc85b1efd96938d807dae9ebc9355616e0db32/keyring-20.0.1.tar.gz"
+      sha256 "963bfa7f090269d30bdc5e25589e5fd9dad2cf2a7c6f176a7f2386910e5d0d8d"
+    end
   end
 
   resource "launchpadlib" do
