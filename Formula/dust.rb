@@ -1,3 +1,4 @@
+# BUILD
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
