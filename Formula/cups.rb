@@ -8,7 +8,6 @@ class Cups < Formula
     sha256 "028330028dca9194605bdf6ec807b413adae82b1491bb69cbee64d31fc04a6f3" => :catalina
     sha256 "4fd5c5705dfb551e9fd5091f63a69d985bae05bc0b29fb253c9877138b254e7b" => :mojave
     sha256 "932ce69ebe900f3e307939ffb475a1d2d3f46d079b3c6b5238385051bdc110a1" => :high_sierra
-    sha256 "0b406518947c2396af9df83808d95f3ff8413410f946be765a3efb63fde64b2a" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
