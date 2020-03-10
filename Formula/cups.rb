@@ -20,7 +20,7 @@ class Cups < Formula
                           "--with-components=core",
                           "--without-bundledir",
                           "--prefix=#{prefix}",
-                          *("--without-gssapi" unless OS.mac?)
+                          *("--disable-gssapi" unless OS.mac?)
     system "make", "install"
   end
 
