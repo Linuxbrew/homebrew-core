@@ -11,6 +11,7 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8" unless OS.mac?
 
   def install
     system "cmake", ".", *std_cmake_args
