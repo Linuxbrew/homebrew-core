@@ -13,6 +13,7 @@ class GitTrim < Formula
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
+  depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "zlib"
 
