@@ -9,10 +9,9 @@ class LiterateGit < Formula
 
   bottle do
     cellar :any
-    sha256 "fbf303ecbea9942380695ec4fc385ee6cd61713b88da4681f61b2aeca8f4ed6f" => :catalina
-    sha256 "4b2b1cc91d729459c5effdb9a9b5e425589208bbd68764c9e2dd241747e91aed" => :mojave
-    sha256 "8b3458f7e5337f396d85cb00f9cbb5a0be6fe89943f5175b52e0a80f4d37e672" => :high_sierra
-    sha256 "25f68c744e4615723e9dd24ed30547f6ca73ad724d2cf7533c812c3710aabaa6" => :x86_64_linux
+    sha256 "9178197fb25710c7a75643218dd8089a042d6bb4a9f7aa5559807d62d451d723" => :catalina
+    sha256 "13e3bfb78683ef24b7eb6bade4986fb92a1934cf9f976c5c561b1c05589da241" => :mojave
+    sha256 "a9c03c8bbc4aab6043f663ca9dcc78c8fa94d080080625fbe22b2341ef8b50d9" => :high_sierra
   end
 
   depends_on "pkg-config" => :build unless OS.mac?

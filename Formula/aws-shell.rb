@@ -9,10 +9,9 @@ class AwsShell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31cbbe5d81a4f19927d148cdf09090baf0f3b60d0d879986ebb6de3d86fed78b" => :catalina
-    sha256 "dc1f1951cee4823efe8ab0bdfde72c024aa2a0dee1eafdaaa2c14805852df83a" => :mojave
-    sha256 "db4cb7f0285c0fac6af635083c8921c074995f7fd6c6b1bf4926c601d456b06a" => :high_sierra
-    sha256 "c3a612ccbd6b0d67ec7954379321423d866d5150905aad94936a64cdf48eb852" => :x86_64_linux
+    sha256 "80649fd9dfb5ef9c0506db4f74e0a4ff275617a718249cbc12d2c62efb46657f" => :catalina
+    sha256 "174cce4bc60dfa38babc3bae1dd3b1ab8614c2339340eaaf438012724ebc3646" => :mojave
+    sha256 "e59a26cea8549c99c0f6586db2f85d9400b53911902ec9ebdac1e6379d2518ac" => :high_sierra
   end
 
   depends_on "python@3.8"

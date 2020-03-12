@@ -9,10 +9,9 @@ class Esptool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0957ff12323413dfd8d106c492c2eae375b4d77d73f085ff36f11404bb9d490e" => :catalina
-    sha256 "408cf90221d809ffe687c897ae5ecd510b4cc894348f03a38c4da682f0497cfb" => :mojave
-    sha256 "c11b3731a7895ecea413fffb4de8455493f7f9db15066d42f2fcc79971ff4f30" => :high_sierra
-    sha256 "170e1fc2cd9c846d4c3cac35a735f71d5a1b12773ca849f110cd1c1d492d5e6e" => :x86_64_linux
+    sha256 "76e3c103172aca7021c785f9cfa3c5832353b439b7d1fa16db134f529c3ae331" => :catalina
+    sha256 "00903c838ed3185dad44f25793111f1298824df11ba5864820e3c7224f7080f4" => :mojave
+    sha256 "48cbb59cf7b2af574997ee6c9afe9d0c4dab75617179f66cce07030059941d4d" => :high_sierra
   end
 
   depends_on "python@3.8"

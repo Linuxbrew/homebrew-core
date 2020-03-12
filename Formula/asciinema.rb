@@ -10,10 +10,9 @@ class Asciinema < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5422076ad38dc1ebeb2b70dc3312a329e0f4e72dd747cdd134d8df25c669b98e" => :catalina
-    sha256 "326c68e10e65f73d1dcd0134ae912e075c7475422b04b90d714a6ee513ceae91" => :mojave
-    sha256 "d665c2d995562ef9c7aadbec4707d567851ba8d46df5e7ae02b23be9cc26c0c3" => :high_sierra
-    sha256 "0dd79ea19b5f2b7ddc02d91941f9e0c4a65d5791b84f79485ad4903dbd1c640e" => :x86_64_linux
+    sha256 "fcfe6fcf14def6bb9881182d67f94c91afdb0455e880aa743153269af7c77eaa" => :catalina
+    sha256 "1ecae96f0952d1ea2156f779c86e09986744249ad5903db5f6da12664a8b5b99" => :mojave
+    sha256 "d279386736b319c8cc83800303f0b3948b2e28bae92279479b69d70ed6c762b6" => :high_sierra
   end
 
   depends_on "python@3.8"

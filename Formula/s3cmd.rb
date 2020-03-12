@@ -10,10 +10,9 @@ class S3cmd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b1bec3d698b4a94ecad38a8a6321923465200724ef58fd7d05fbe3c1204d86b" => :catalina
-    sha256 "20d486647abe96f6ec32069ad52b4a191983073aceb836f9837e352af33f9de1" => :mojave
-    sha256 "876980c1a4073e32dbd58d6c63bf81ad57c5d30fdf9a00445e636e5279df73a2" => :high_sierra
-    sha256 "7a395043236caf8340504a71ce9e0e71c71261c92e966c1ba09807d695b3b820" => :x86_64_linux
+    sha256 "f0627257d8f5f897d8e256646ec08ab3a5275b8eb0f477f3227a95d5fed9ba8c" => :catalina
+    sha256 "b64f9fa8cb6ba4c2eb5183f6bf40735dbee52d673d198cdf1fdcedf4d29ed1b3" => :mojave
+    sha256 "570fd3c229506b4afaf8f9a78e9566537d649ed53f99a3a732bd35eb637f85ac" => :high_sierra
   end
 
   depends_on "python@3.8"

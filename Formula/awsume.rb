@@ -10,10 +10,9 @@ class Awsume < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1697566da97be3e9a067afe9e6af53137d60834244a64dc1fca368a282c53731" => :catalina
-    sha256 "8f8363d9ef1a7c932e27f7848d503b06ef7b10c61f890d672ca185f9dfa2886b" => :mojave
-    sha256 "670e56b9065f8b080be0b6a59b2632396b85ab59d9a2ef9094aa0501e611fd34" => :high_sierra
-    sha256 "8ee0d6efd8b9f46da5e1f6f3a761d0c7e676258f045117e0c79a73c07d64511e" => :x86_64_linux
+    sha256 "e37953394517c3ad482fa7236e1543f0656c8ce850af30e8079a60b500d372aa" => :catalina
+    sha256 "cc9fb242edd68a6503f20b49db02d9bc943d255745c6f2e766891767051173d5" => :mojave
+    sha256 "c41a8393be66c50dc1551bcd6c7077648d1cbb0b6955e8a34a8aa48cfe528ee9" => :high_sierra
   end
 
   depends_on "openssl@1.1"
