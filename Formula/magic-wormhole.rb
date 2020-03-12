@@ -12,7 +12,6 @@ class MagicWormhole < Formula
     sha256 "4a87746735a5a32fe36192717f4048f004b485f99aa18e884aa16c5012c16fea" => :catalina
     sha256 "8451d4f3536521063429103abf169176d65b911a35dfd363de9164fc4eb306ff" => :mojave
     sha256 "183ae4d0f054889bbf4d5fe594af92ecd18a5a45cb17605124183807ce89281a" => :high_sierra
-    sha256 "b15511bd7a324a9b8c040b3532ebf86091b452ecf8bcf252de55d61e08758462" => :x86_64_linux
   end
 
   depends_on "libsodium"
