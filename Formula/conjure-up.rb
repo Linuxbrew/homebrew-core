@@ -12,7 +12,6 @@ class ConjureUp < Formula
     sha256 "e9e7df0108dd3be03a9391a95befbbfa66950bbbb48ae8fd28f4855ae6c69932" => :catalina
     sha256 "dc221c6071b5a37760a530da1981a96a1f404fa461d44fee7a217897e9a01077" => :mojave
     sha256 "b20ebbe1aa0c30c713e58c03ac167196f7c3b5635f95c1ce8687e6bfad9a0294" => :high_sierra
-    sha256 "08dcda31dd5993697495b9f9548e55ccb5f71d5ce37d3499ecce3b319543500a" => :x86_64_linux
   end
 
   depends_on "awscli"
@@ -277,6 +276,9 @@ class ConjureUp < Formula
   end
 
   test do
+    # "!! This should _not_ be run as root or with sudo. !!"
+    return if Process.uid.zero?
+
     assert_match "conjure-up #{version}", shell_output("#{bin}/conjure-up --version")
     system bin/"conjure-up", "openstack-base", "metal", "--show-env"
     assert_predicate testpath/".cache/conjure-up-spells/spells-index.yaml",
