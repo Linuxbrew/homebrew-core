@@ -12,7 +12,6 @@ class Mkdocs < Formula
     sha256 "0c09ad3efe25fbf040db6b5028311a1f63d84f326dba2583a4564a9be69783fe" => :catalina
     sha256 "7a7c7bf5645567cb775a90156da26705f31ed7b4f3981e91dda8266dd2137c31" => :mojave
     sha256 "7395cd3eea2efb8a58c42bd5b53fb2debb0b263f9874d62c9818b46ed2797227" => :high_sierra
-    sha256 "1af96a97aead1787398fc3dfb0853e38ab66551fa983783575b155b5fe25339e" => :x86_64_linux
   end
 
   depends_on "python@3.8"
