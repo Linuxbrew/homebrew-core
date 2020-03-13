@@ -86,6 +86,7 @@ class OpensslAT11 < Formula
     unless OS.mac?
       # Download and install cacert.pem from curl.haxx.se
       cacert = resource("cacert")
+      cacert.fetch
       rm_f openssldir/"cert.pem"
       filename = Pathname.new(cacert.url).basename
       openssldir.install cacert.files(filename => "cert.pem")
