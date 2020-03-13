@@ -36,7 +36,7 @@ class Libzdb < Formula
   test do
     cp_r pkgshare/"test", testpath
     cd "test" do
-      system ENV.cc, "select.c", "-L#{lib}", "-lzdb", "-I#{include}/zdb", "-o", "select"
+      system ENV.cc, "select.c", "-L#{lib}", *("-lpthread" unless OS.mac?), "-lzdb", "-I#{include}/zdb", "-o", "select"
       system "./select"
     end
   end
