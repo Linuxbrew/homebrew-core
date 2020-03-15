@@ -14,8 +14,13 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
+  depends_on "libomp" if OS.mac?
   depends_on "python@3.8"
+
+  # Fix cmake error:
+  # Performing Test HAVE_CPU_SPINWAIT
+  # Performing Test HAVE_CPU_SPINWAIT - Failed
+  depends_on "jemalloc" unless OS.mac?
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
@@ -26,14 +31,16 @@ class Spades < Formula
     Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
 
     # Use libomp due to issues with headers in GCC.
-    libomp = Formula["libomp"]
     args = std_cmake_args
-    args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-    args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-    args << "-DOpenMP_CXX_LIB_NAMES=omp"
-    args << "-DOpenMP_C_LIB_NAMES=omp"
-    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-    args << "-DAPPLE_OUTPUT_DYLIB=ON"
+    if OS.mac?
+      libomp = Formula["libomp"]
+      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_CXX_LIB_NAMES=omp"
+      args << "-DOpenMP_C_LIB_NAMES=omp"
+      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
+      args << "-DAPPLE_OUTPUT_DYLIB=ON"
+    end
 
     mkdir "src/build" do
       system "cmake", "..", *args
