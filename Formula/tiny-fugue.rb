@@ -16,6 +16,8 @@ class TinyFugue < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "ncurses"
+
   conflicts_with "tee-clc", :because => "both install a `tf` binary"
 
   # pcre deprecated pcre_info. Switch to HB pcre-8.31 and pcre_fullinfo.
