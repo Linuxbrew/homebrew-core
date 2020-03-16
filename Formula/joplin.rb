@@ -13,13 +13,10 @@ class Joplin < Formula
     sha256 "5aec579f667bcbcb7d9eec4939cdb657312f236fb99bb8ce8088cf27f7f5de4d" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "node"
   depends_on "sqlite"
   depends_on "vips"
-
-  uses_from_macos "python@2"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec),
