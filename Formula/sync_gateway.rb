@@ -15,7 +15,7 @@ class SyncGateway < Formula
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
-  depends_on :macos # Due to Python 2
+  depends_on "python@3.8" => :build
 
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
@@ -35,11 +35,15 @@ class SyncGateway < Formula
 
     git_commit = `git rev-parse HEAD`.chomp
     manifest = buildpath/"new-manifest.xml"
-    manifest.write Utils.popen_read "python", "rewrite-manifest.sh",
+    manifest.write Utils.popen_read Formula["python@3.8"].opt_bin/"python3",
+                                    "rewrite-manifest.sh",
                                     "--manifest-url",
                                     "file://#{buildpath}/manifest/default.xml",
                                     "--project-name", "sync_gateway",
                                     "--set-revision", git_commit
+
+    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
+
     cd "build" do
       mkdir "godeps"
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
