@@ -70,7 +70,9 @@ class Root < Formula
     py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
     py_inc =
       Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-    py_lib = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_config_var(\"LDLIBRARY\"))'").chomp
+    py_lib = Utils.popen_read(
+      "python3 -c 'from distutils import sysconfig;print(sysconfig.get_config_var(\"LDLIBRARY\"))'",
+    ).chomp
 
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
@@ -96,13 +98,13 @@ class Root < Formula
       -Dxrootd=ON
     ]
 
-    if OS.mac?
-      args += %W[
+    args += if OS.mac?
+      %W[
         -DCLING_CXX_PATH=clang++
         -DPYTHON_LIBRARY=#{py_prefix}/Python
       ]
     else
-      args += %W[
+      %W[
         -DPYTHON_LIBRARY=#{py_prefix}/lib/#{py_lib}
       ]
     end
