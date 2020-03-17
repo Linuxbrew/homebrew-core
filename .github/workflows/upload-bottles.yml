@@ -159,3 +159,36 @@ jobs:
             fi
           done
           exit 1
+      - name: Post comment on failure
+        if: failure()
+        uses: actions/github-script@0.8.0
+        with:
+          script: |
+            const run_id = process.env.GITHUB_RUN_ID
+            const actor = process.env.GITHUB_ACTOR
+            console.log("run_id=" + run_id)
+            console.log("actor=" + actor)
+
+            const prs = await github.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.payload.head_commit.id
+            })
+            console.log(prs.data.length + " prs")
+            if (prs.data.length === 0) {
+              console.log("No pull requests are associated with this merge commit.")
+              return 0
+            }
+            const pr = prs.data[0]
+
+            console.log("pr=" + pr.number)
+
+            const repository = context.repo.owner + '/' + context.repo.repo
+            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+
+            github.issues.createComment({
+              issue_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '@' + actor + ' upload bottles job failed: ' + url
+            })
