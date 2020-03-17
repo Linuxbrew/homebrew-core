@@ -11,6 +11,8 @@ class Nift < Formula
     sha256 "b70e9a89d4dcd17e91a6a52e4a6a3344d38a08b0e9863d9556c42e42e5f2247a" => :high_sierra
   end
 
+  depends_on "luajit" unless OS.mac?
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
