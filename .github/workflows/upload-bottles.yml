@@ -111,6 +111,7 @@ jobs:
         if: failure()
         uses: actions/github-script@0.8.0
         with:
+          github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           script: |
             const run_id = process.env.GITHUB_RUN_ID
             const actor = process.env.GITHUB_ACTOR

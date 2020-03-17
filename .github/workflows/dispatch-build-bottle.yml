@@ -78,6 +78,7 @@ jobs:
           SENDER: ${{github.event.sender.login}}
           FORMULA: ${{github.event.client_payload.formula}}
         with:
+          github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           script: |
             const run_id = process.env.GITHUB_RUN_ID
             const actor = process.env.GITHUB_ACTOR
