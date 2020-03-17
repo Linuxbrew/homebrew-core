@@ -25,7 +25,17 @@ jobs:
             --tap=homebrew/core \
             --keep-old \
             ${{github.event.client_payload.formula}}
+      - name: Copy bottles
+        if: always()
+        run: |
+          cp -a ~/bottles $GITHUB_WORKSPACE
       - name: Upload bottles
+        if: always()
+        uses: actions/upload-artifact@v1
+        with:
+          name: bottles
+          path: bottles
+      - name: Upload bottles to Bintray
         env:
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
