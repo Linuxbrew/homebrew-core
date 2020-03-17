@@ -33,6 +33,36 @@ jobs:
             const pr = prs.data[0]
             console.log("first pr head ref=" + pr.head.ref)
 
+            // register needed endpoints since the github action is too old
+            github.registerEndpoints({
+             actions: {
+               listWorkflowRuns: {
+                 method: "GET",
+                 url: "/repos/:owner/:repo/actions/workflows/:workflow_id/runs",
+                 headers: {
+                   accept: "application/vnd.github.groot-preview+json"
+                 },
+                 params: {
+                   owner: {
+                     required: true,
+                     type: "string"
+                   },
+                   repo: {
+                     required: true,
+                     type: "string"
+                   },
+                   workflow_id: {
+                     required: true,
+                     type: "string",
+                   },
+                   branch: {
+                     type: "string",
+                   }
+                 }
+               }
+             }
+            });
+
             const runs = await github.actions.listWorkflowRuns({
               owner: context.repo.owner,
               repo: context.repo.repo,
