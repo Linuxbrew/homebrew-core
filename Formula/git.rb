@@ -143,9 +143,7 @@ class Git < Formula
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
     # To avoid this feature hooking into the system OpenSSL, remove it
-    if !OS.mac? && MacOS.version >= :yosemite
-      rm "#{libexec}/git-core/git-imap-send"
-    end
+    rm "#{libexec}/git-core/git-imap-send" if !OS.mac? && MacOS.version >= :yosemite
 
     # git-send-email needs Net::SMTP::SSL
     resource("Net::SMTP::SSL").stage do
