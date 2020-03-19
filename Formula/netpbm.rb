@@ -24,6 +24,8 @@ class Netpbm < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  depends_on "subversion" => :build unless OS.mac?
+
   conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
   def install
