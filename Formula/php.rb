@@ -60,9 +60,7 @@ class Php < Formula
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
-    if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -115,10 +113,10 @@ class Php < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    if OS.mac?
-      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
+    headers_path = if OS.mac?
+      "=#{MacOS.sdk_path_if_needed}/usr"
     else
-      headers_path = ""
+      ""
     end
 
     args = %W[
@@ -441,7 +439,7 @@ class Php < Formula
       Process.wait(pid)
 
       fpm_pid = fork do
-        exec sbin/"php-fpm", "-y", "fpm.conf"
+        exec sbin/"php-fpm", *("--allow-to-run-as-root" if Process.uid.zero?), "-y", "fpm.conf"
       end
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
