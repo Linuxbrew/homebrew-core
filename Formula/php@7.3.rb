@@ -97,10 +97,10 @@ class PhpAT73 < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    if OS.mac?
-      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
+    headers_path = if OS.mac?
+      "=#{MacOS.sdk_path_if_needed}/usr"
     else
-      headers_path = ""
+      ""
     end
 
     args = %W[
@@ -428,7 +428,7 @@ class PhpAT73 < Formula
       Process.wait(pid)
 
       fpm_pid = fork do
-        exec sbin/"php-fpm", "-y", "fpm.conf"
+        exec sbin/"php-fpm", *("--allow-to-run-as-root" if Process.uid.zero?), "-y", "fpm.conf"
       end
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
