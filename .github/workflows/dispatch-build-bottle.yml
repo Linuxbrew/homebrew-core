@@ -55,7 +55,6 @@ jobs:
         env:
           GIT_COMMITTER_NAME: ${{github.event.client_payload.name}}
           GIT_COMMITTER_EMAIL: ${{github.event.client_payload.email}}
-          PATH: /bin:/usr/bin
         if: success() || github.event.client_payload.ignore_errors
         run: |
           cd $(brew --repo ${{github.repository}})
