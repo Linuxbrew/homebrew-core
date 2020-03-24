@@ -57,6 +57,7 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{github.event.client_payload.email}}
         if: success() || github.event.client_payload.ignore_errors
         run: |
+          export PATH=/usr/bin:$PATH
           cd $(brew --repo ${{github.repository}})
           git commit --amend --no-edit
           git show --pretty=fuller
