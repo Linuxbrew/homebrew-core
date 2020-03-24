@@ -21,18 +21,12 @@ class PostgresqlAT94 < Formula
   uses_from_macos "perl"
 
   def install
-    if OS.mac?
-      # Fix "configure: error: readline library not found"
-      if MacOS.version == :sierra || MacOS.version == :el_capitan
-        ENV["SDKROOT"] = MacOS.sdk_path
-      end
-    end
+    # Fix "configure: error: readline library not found"
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && (MacOS.version == :sierra || MacOS.version == :el_capitan)
 
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
-    if OS.mac?
-      ENV.prepend "PG_SYSROOT", MacOS.sdk_path
-    end
+    ENV.prepend "PG_SYSROOT", MacOS.sdk_path if OS.mac?
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
 
     args = %W[
