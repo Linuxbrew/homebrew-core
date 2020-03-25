@@ -22,7 +22,6 @@ jobs:
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          brew tap linuxbrew/xorg
           brew test-bot \
             --tap=homebrew/core \
             --keep-old
