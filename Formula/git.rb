@@ -4,17 +4,18 @@ class Git < Formula
   # Note: Please keep these values in sync with git-gui.rb when updating.
   url "https://www.kernel.org/pub/software/scm/git/git-2.26.0.tar.xz"
   sha256 "9ece0dcb07a5e0d7366a92b613b201cca11ae368ab7687041364b3e756e495d6"
+  revision 1 unless OS.mac?
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
     sha256 "174f1f2513dfc0be1997c4385cc4579c37479aa1038e5f73088fb0a1edfbe5e9" => :catalina
     sha256 "872641963bc853b4e421a0d8fa3a535812fc1a81d07fe00cbd8b1f35bc66558c" => :mojave
     sha256 "d811df72427c53248ef4ba9e954ecd998c9b72cae87c620af37fa0813e0a0a5f" => :high_sierra
-    sha256 "424967e3343bd5c2ac682c77b8bfaf3f95eee7d0be070ce9c097ac665d18b096" => :x86_64_linux
   end
 
   depends_on "gettext"
   depends_on "pcre2"
+  depends_on "linux-headers" unless OS.mac?
 
   if !OS.mac? || MacOS.version < :yosemite
     depends_on "openssl@1.1"
