@@ -19,6 +19,8 @@ class Vala < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  depends_on "linuxbrew/xorg/libx11" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
