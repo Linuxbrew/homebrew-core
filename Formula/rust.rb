@@ -85,7 +85,9 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix, "--path", ".", *("--features" if OS.mac?), *("curl-sys/force-system-lib-on-osx" if OS.mac?)
+      args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
+      args -= %w[--features curl-sys/force-system-lib-on-osx] unless OS.mac?
+      system "cargo", "install", *args
     end
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"
