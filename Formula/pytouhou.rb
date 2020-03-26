@@ -25,6 +25,8 @@ class Pytouhou < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
+  depends_on "linuxbrew/xorg/libx11" unless OS.mac?
+
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
     sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
