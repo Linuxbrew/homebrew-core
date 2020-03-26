@@ -14,19 +14,34 @@ jobs:
     container:
       image: homebrew/brew
     steps:
+      - name: Determine associated pull request
+        uses: actions/github-script@0.9.0
+        id: pr
+        with:
+          script: |
+            const prs = await github.repos.listPullRequestsAssociatedWithCommit({
+              ...context.repo,
+              commit_sha: context.payload.head_commit.id
+            })
+            console.log(prs.data.length + " prs")
+            if (prs.data.length === 0) {
+              throw "No pull requests are associated with this merge commit."
+            }
+            core.setOutput("number", pr.data[0].number)
+            core.setOutput("head_sha", pr.data[0].head.sha)
       - name: Download workflow artifacts
         uses: Homebrew/actions/download-artifact@master
         with:
           github_token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           workflow: build-bottles.yml
-          commit: ${{github.sha}}
+          commit: ${{steps.pr.outputs.head_sha}}
           name: bottles
           path: bottles
       - name: Upload and publish bottles
         env:
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        if: steps.artifact.outputs.result != 0
+        if: steps.pr.outputs.number != 0
         run: |
           cd ~/bottles
           brew update-reset $(brew --repo ${{github.repository}})
@@ -40,7 +55,7 @@ jobs:
         env:
           GIT_COMMITTER_NAME: ${{github.event.pusher.name}}
           GIT_COMMITTER_EMAIL: ${{github.event.pusher.email}}
-        if: steps.artifact.outputs.result != 0
+        if: steps.pr.outputs.number != 0
         run: |
           cd $(brew --repo ${{github.repository}})
           git commit --amend --no-edit
