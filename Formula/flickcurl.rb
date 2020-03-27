@@ -16,8 +16,9 @@ class Flickcurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "curl"
-  depends_on "libxml2"
+
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
