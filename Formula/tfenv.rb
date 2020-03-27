@@ -7,7 +7,7 @@ class Tfenv < Formula
 
   bottle :unneeded
   
-  depends_on :unzip
+  depends_on "unzip"
 
   conflicts_with "terraform", :because => "tfenv symlinks terraform binaries"
 
