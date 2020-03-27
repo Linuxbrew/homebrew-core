@@ -6,6 +6,8 @@ class Tfenv < Formula
   head "https://github.com/tfutils/tfenv.git"
 
   bottle :unneeded
+  
+  depends_on :unzip
 
   conflicts_with "terraform", :because => "tfenv symlinks terraform binaries"
 
