@@ -13,6 +13,13 @@ class Glfw < Formula
   end
 
   depends_on "cmake" => :build
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxcursor"
+    depends_on "linuxbrew/xorg/libxi"
+    depends_on "linuxbrew/xorg/libxinerama"
+    depends_on "linuxbrew/xorg/libxrandr"
+  end
 
   def install
     args = std_cmake_args + %w[
