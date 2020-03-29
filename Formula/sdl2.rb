@@ -45,10 +45,10 @@ class Sdl2 < Formula
 
     system "./autogen.sh" if build.head?
 
-    if OS.mac?
-      args = %W[--prefix=#{prefix} --without-x]
+    args = if OS.mac?
+      %W[--prefix=#{prefix} --without-x]
     else
-      args = %W[--prefix=#{prefix} --with-x]
+      %W[--prefix=#{prefix} --with-x]
     end
 
     unless OS.mac?
