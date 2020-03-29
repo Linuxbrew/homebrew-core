@@ -100,7 +100,9 @@ class Node < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", ("--unsafe-perm" if Process.uid.zero?), "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", ("--unsafe-perm" if Process.uid.zero?), "bufferutil" unless head?
+    unless head?
+      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", ("--unsafe-perm" if Process.uid.zero?), "bufferutil"
+    end
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
