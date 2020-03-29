@@ -3,14 +3,13 @@ class TclTk < Formula
   homepage "https://www.tcl-lang.org"
   url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tcl8.6.10-src.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.10-src.tar.gz"
-  version "8.6.10"
   sha256 "5196dbf6638e3df8d5c87b5815c8c2b758496eb6f0e41446596c9a4e638d87ed"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "d5b280f55f29c99781e4c5a9b7a9833e16821a66489c0b260b554a9ffbb06329" => :catalina
     sha256 "17e8a266363eea5d26d464dd2ea624ae92d3b61733fa30268c7ffb23640059b2" => :mojave
     sha256 "fede48a3d35820745aab6098263ec906807e4f164baa41f6d59aa6e24b565274" => :high_sierra
-    sha256 "516a9abf0c419ecad04ad673fe0364bc7e080628efca58b5233daa33a511b455" => :x86_64_linux
   end
 
   keg_only :provided_by_macos,
@@ -40,7 +39,6 @@ class TclTk < Formula
   resource "tk" do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tk8.6.10-src.tar.gz"
     mirror "https://fossies.org/linux/misc/tk8.6.10-src.tar.gz"
-    version "8.6.10"
     sha256 "63df418a859d0a463347f95ded5cd88a3dd3aaa1ceecaeee362194bc30f3e386"
 
     # Upstream issue 7 Jan 2018 "Build failure with Aqua support on OS X 10.8 and 10.9"
@@ -90,9 +88,7 @@ class TclTk < Formula
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      if OS.mac?
-        ENV["SDKROOT"] = MacOS.sdk_path
-      end
+      ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
       system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
       ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64" if OS.mac?
@@ -105,6 +101,9 @@ class TclTk < Formula
                             "--mandir=#{man}"
       system "make", "install"
     end
+
+    # Conflicts with perl
+    mv man/"man3/Thread.3", man/"man3/ThreadTclTk.3" unless OS.mac?
   end
 
   test do
