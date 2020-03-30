@@ -69,6 +69,9 @@ class IrcdHybrid < Formula
   end
 
   test do
+    # Won't run as root
+    return if Process.uid.zero?
+
     system "#{bin}/ircd", "-version"
   end
 end
