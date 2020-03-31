@@ -32,9 +32,7 @@ class Zabbix < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    if OS.mac?
-      args << "--with-iconv=#{sdk}/usr"
-    end
+    args << "--with-iconv=#{sdk}/usr" if OS.mac?
 
     if OS.mac? && MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       inreplace "configure", "clock_gettime(CLOCK_REALTIME, &tp);",
