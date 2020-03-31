@@ -153,7 +153,7 @@ class Imapsync < Formula
 
     system "perl", "-c", "imapsync"
     system "pod2man", "imapsync", "imapsync.1"
-    inreplace "imapsync", "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    inreplace "imapsync", "#!/usr/bin/env perl", "#!/usr/bin/perl" if OS.mac?
     bin.install "imapsync"
     man1.install "imapsync.1"
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
