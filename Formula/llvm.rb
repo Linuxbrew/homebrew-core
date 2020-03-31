@@ -321,12 +321,16 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if OS.mac? && MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
+      libclangclt = Dir[
+        "/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"
+      ].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
               "-I#{libclangclt}/include",
-              "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
+              "-I/usr/include",
+              # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>,
+              # which CLT installs to /usr/include
               "test.cpp", "-o", "testCLT++"
       # Testing default toolchain and SDK location.
       system "#{bin}/clang++", "-v",
