@@ -27,6 +27,7 @@ class Salt < Formula
     # pkg-config helps "setup.py" find libffi
     depends_on "pkg-config" => :build
     depends_on "libffi"
+    depends_on "pcre"
   end
 
   # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
