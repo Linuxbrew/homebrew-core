@@ -14,20 +14,41 @@ class LlvmAT9 < Formula
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
   keg_only :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "libffi"
   depends_on "swig"
+
+  unless OS.mac?
+    depends_on "gcc" # needed for libstdc++
+    depends_on "glibc" if Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
+    depends_on "binutils" # needed for gold and strip
+    depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "ncurses"
+    depends_on "libxml2"
+    depends_on "zlib"
+    depends_on "python@3.8"
+
+    conflicts_with "clang-format", :because => "both install `clang-format` binaries"
+  end
 
   resource "clang" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz"
     sha256 "5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253"
+
+    unless OS.mac?
+      patch do
+        url "https://gist.githubusercontent.com/iMichka/9ac8e228679a85210e11e59d029217c1/raw/e50e47df860201589e6f43e9f8e9a4fc8d8a972b/clang9?full_index=1"
+        sha256 "65cf0dd9fdce510e74648e5c230de3e253492b8f6793a89534becdb13e488d0c"
+      end
+    end
   end
 
   resource "clang-extra-tools" do
@@ -77,7 +98,7 @@ class LlvmAT9 < Formula
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
+    (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/lldb").install resource("lldb")
@@ -91,6 +112,17 @@ class LlvmAT9 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
+    unless OS.mac?
+      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
+      # Basically, the stage1 clang will try to locate a gcc toolchain and often
+      # get the default from /usr/local, which might contains an old version of
+      # gcc that can't build compiler-rt. This fixes the problem and, unlike
+      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
+      # hardcoding the gcc path into the binary
+      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
+        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
+    end
+
     args = %W[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
@@ -98,7 +130,6 @@ class LlvmAT9 < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -107,11 +138,21 @@ class LlvmAT9 < Formula
       -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_DISABLE_PYTHON=1
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
+    if OS.mac?
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+    else
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
+    end
+
+    # Enable llvm gold plugin for LTO
+    args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}" unless OS.mac?
 
     mkdir "build" do
       if MacOS.version >= :mojave
@@ -122,7 +163,7 @@ class LlvmAT9 < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "make", "install-xcode-toolchain" if OS.mac?
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
@@ -132,8 +173,17 @@ class LlvmAT9 < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    xz = OS.mac? ? "2.7": "3.8"
+    (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
+    (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    unless OS.mac?
+      # Strip executables/libraries/object files to reduce their size
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
 
     # install emacs modes
     elisp.install Dir["utils/emacs/*.el"] + %w[
@@ -170,7 +220,8 @@ class LlvmAT9 < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{clean_version}/include",
-                           "omptest.c", "-o", "omptest"
+                           *("-Wl,-rpath=#{lib}" unless OS.mac?),
+                           "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -200,16 +251,21 @@ class LlvmAT9 < Formula
       }
     EOS
 
+    unless OS.mac?
+      system "#{bin}/clang++", "-v", "test.cpp", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
+
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib"
+    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp
 
     # Testing Command Line Tools
-    if MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       toolchain_path = "/Library/Developer/CommandLineTools"
       sdk_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       system "#{bin}/clang++", "-v",
@@ -225,7 +281,7 @@ class LlvmAT9 < Formula
     end
 
     # Testing Xcode
-    if MacOS::Xcode.installed?
+    if OS.mac? && MacOS::Xcode.installed?
       system "#{bin}/clang++", "-v",
              "-isysroot", MacOS.sdk_path,
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
@@ -242,31 +298,33 @@ class LlvmAT9 < Formula
 
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v",
-           "-isystem", "#{opt_include}/c++/v1",
-           "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
-    assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./testlibc++").chomp
+    if OS.mac?
+      system "#{bin}/clang++", "-v",
+             "-isystem", "#{opt_include}/c++/v1",
+             "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
+             "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+      assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
-    (testpath/"scanbuildtest.cpp").write <<~EOS
-      #include <iostream>
-      int main() {
-        int *i = new int;
-        *i = 1;
-        delete i;
-        std::cout << *i << std::endl;
-        return 0;
-      }
-    EOS
-    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
-      "warning: Use of memory after it is freed"
+      (testpath/"scanbuildtest.cpp").write <<~EOS
+        #include <iostream>
+        int main() {
+          int *i = new int;
+          *i = 1;
+          delete i;
+          std::cout << *i << std::endl;
+          return 0;
+        }
+      EOS
+      assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
+        "warning: Use of memory after it is freed"
 
-    (testpath/"clangformattest.c").write <<~EOS
-      int    main() {
-          printf("Hello world!"); }
-    EOS
-    assert_equal "int main() { printf(\"Hello world!\"); }\n",
-      shell_output("#{bin}/clang-format -style=google clangformattest.c")
+      (testpath/"clangformattest.c").write <<~EOS
+        int    main() {
+            printf("Hello world!"); }
+      EOS
+      assert_equal "int main() { printf(\"Hello world!\"); }\n",
+        shell_output("#{bin}/clang-format -style=google clangformattest.c")
+    end
   end
 end
