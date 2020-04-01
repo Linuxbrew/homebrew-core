@@ -5,13 +5,13 @@ class OpensslAT11 < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1f.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1f.tar.gz"
   sha256 "186c6bfe6ecfba7a5b48c47f8a1673d0f3b0e5ba2e25602dd23b629975da3f35"
+  revision 1 unless OS.mac?
   version_scheme 1
 
   bottle do
     sha256 "724cd97c269952cdc28e24798e350fcf520a32c5985aeb26053ce006a09d8179" => :catalina
     sha256 "25ab844d2f14fc85c7f52958b4b89bdd2965bbd9c557445829eff6473f238744" => :mojave
     sha256 "27f26e2442222ac0565193fe0b86d8719559d776bcdd070d6113c16bb13accf6" => :high_sierra
-    sha256 "08346b05efb1da0432ec1e9b197c920ff110aa7eb3fd49bd603603c6f10d6273" => :x86_64_linux
   end
 
   if OS.mac?
@@ -19,15 +19,6 @@ class OpensslAT11 < Formula
       "openssl/libressl is provided by macOS so don't link an incompatible version"
   else
     keg_only :versioned_formula
-  end
-
-  unless OS.mac?
-    resource "cacert" do
-      # homepage "http://curl.haxx.se/docs/caextract.html"
-      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
-      mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
-      sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
-    end
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
@@ -82,11 +73,8 @@ class OpensslAT11 < Formula
   def post_install
     unless OS.mac?
       # Download and install cacert.pem from curl.haxx.se
-      cacert = resource("cacert")
-      cacert.fetch
-      rm_f openssldir/"cert.pem"
-      filename = Pathname.new(cacert.url).basename
-      openssldir.install cacert.files(filename => "cert.pem")
+      cp "#{HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew-core/cacert-2020-01-01.pem", "cert.pem"
+      openssldir.install "cert.pem"
       return
     end
 
