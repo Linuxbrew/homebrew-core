@@ -71,7 +71,7 @@ class OpensslAT11 < Formula
     system "make", "test" if OS.mac?
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
     # See https://github.com/Linuxbrew/homebrew-core/pull/8891
-    system "make", "test" if build.with?("test") && !OS.mac?
+    system "make", "test" unless OS.mac?
   end
 
   def openssldir
