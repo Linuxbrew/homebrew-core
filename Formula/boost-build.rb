@@ -36,7 +36,13 @@ class BoostBuild < Formula
     (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
 
     system bin/"b2", "release"
-    out = Dir["bin/darwin-*/release/hello"]
+    if OS.mac?
+      release = "darwin-*"
+    else
+      version = IO.popen("gcc -dumpversion").read.chomp
+      release = "gcc-#{version}"
+    end
+    out = Dir["bin/#{release}/release/hello"]
     assert out.length == 1
     assert_predicate testpath/out[0], :exist?
     assert_equal "Hello world", shell_output(out[0])
