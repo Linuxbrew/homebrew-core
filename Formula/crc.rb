@@ -26,7 +26,7 @@ class Crc < Formula
 
     # Should error out as running crc requires root
     status_output = shell_output("#{bin}/crc setup 2>&1", 1)
-    if ENV["USER"] = "root"
+    if Process.uid.zero?
       assert_match "crc should be ran as a normal user", status_output
     else
       assert_match "Unable to set ownership", status_output
