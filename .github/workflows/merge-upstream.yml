@@ -1,0 +1,44 @@
+name: Merge upstream.
+
+on:
+  schedule:
+    - cron: '0 08,14,20 * * *'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      MESSAGE: Merge branch homebrew/master into linuxbrew/master
+      BRANCH: merge
+    steps:
+      - name: Merge upstream
+        env:
+          GIT_COMMITTER_NAME: BrewTestBot
+          GIT_COMMITTER_EMAIL: homebrew-test-bot@lists.sfconservancy.org
+          TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+        run: |
+          cd $(brew --repo $GITHUB_REPOSITORY)
+          git pull origin master
+          git remote add homebrew https://github.com/Homebrew/homebrew-core
+          git fetch homebrew master
+          git merge -m "$MESSAGE" homebrew/master || true
+          git checkout --theirs .
+          git add .
+          git commit --no-edit
+          git push https://$TOKEN@github.com/$GITHUB_REPOSITORY HEAD:$BRANCH
+      - name: Create PR
+        uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          script: |
+            github.pulls.create({
+              ...context.repo,
+              base: "master",
+              head: process.env.BRANCH,
+              title: process.env.MESSAGE,
+              body: "Automated upstream merge."
+            })
+
+
