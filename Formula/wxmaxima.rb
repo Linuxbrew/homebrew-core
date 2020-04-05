@@ -6,7 +6,6 @@ class Wxmaxima < Formula
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
-    cellar :any
     sha256 "bf250aac1701be4479a5134a9e0daf2695286e54557854be3848944c365b5024" => :catalina
     sha256 "e841aa552f522e7ca80fc01e6410f4660f70de4e85bd4194e54459e5915c2f03" => :mojave
     sha256 "baca78bfcf5a8253ef11f258704f13086bf44de0013bd420fe64339c5ea7d0bb" => :high_sierra
