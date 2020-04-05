@@ -42,7 +42,8 @@ class Scipy < Formula
     version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "build", (OS.mac? ? "--fcompiler=gnu95" : "--fcompiler=gfortran")
+    system Formula["python@3.8"].opt_bin/"python3", "setup.py",
+           "build", (OS.mac? ? "--fcompiler=gnu95" : "--fcompiler=gfortran")
     system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
