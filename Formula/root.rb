@@ -90,16 +90,7 @@ class Root < Formula
       -Dxrootd=ON
     ]
 
-    args += if OS.mac?
-      %W[
-        -DCLING_CXX_PATH=clang++
-        -DPYTHON_LIBRARY=#{py_prefix}/Python
-      ]
-    else
-      %W[
-        -DPYTHON_LIBRARY=#{py_prefix}/lib/#{py_lib}
-      ]
-    end
+    args << "-DCLING_CXX_PATH=clang++" if OS.mac?
 
     cxx_version = (MacOS.version < :mojave) ? 14 : 17
     args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
