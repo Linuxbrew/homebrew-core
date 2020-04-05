@@ -38,7 +38,6 @@ class Opencv < Formula
 
   def install
     ENV.cxx11
-    dylib = OS.mac? ? "dylib" : "so"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
