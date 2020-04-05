@@ -47,12 +47,16 @@ class Openimageio < Formula
     # CMake picks up the system's python dylib, even if we have a brewed one.
     ext = OS.mac? ? "dylib" : "so"
     py3ver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py3prefix = OS.mac? ? Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{py3ver}" : Formula["python@3.8"].opt_prefix
+    py3prefix = if OS.mac?
+      Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    else
+      Formula["python@3.8"].opt_prefix
+    end
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
 
     args << "-DPYTHON_EXECUTABLE=#{py3prefix}/bin/python3"
-    args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/libpython#{py3ver}#{OS.mac? ? "" : "m"}.#{ext}"
+    args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/libpython#{py3ver}.#{ext}"
     args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}"
 
     # CMake picks up boost-python instead of boost-python3
