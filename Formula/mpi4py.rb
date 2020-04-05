@@ -36,6 +36,11 @@ class Mpi4py < Formula
     # Somehow our Azure CI only has two CPU cores available.
     cpu_cores = (ENV["CI"] ? 2 : 4).to_s
 
+    if Process.uid.zero?
+      ENV["OMPI_ALLOW_RUN_AS_ROOT_CONFIRM"] = "1"
+      ENV["OMPI_ALLOW_RUN_AS_ROOT"] = "1"
+    end
+
     system "mpiexec", "-n", cpu_cores, "#{Formula["python@3.8"].opt_bin}/python3",
            "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
     system "mpiexec", "-n", cpu_cores, "#{Formula["python@3.8"].opt_bin}/python3",
