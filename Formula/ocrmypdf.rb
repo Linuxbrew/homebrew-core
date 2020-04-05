@@ -28,7 +28,6 @@ class Ocrmypdf < Formula
   depends_on "unpaper"
 
   uses_from_macos "libffi"
-  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
@@ -113,8 +112,10 @@ class Ocrmypdf < Formula
                                  "'#{Formula["freetype"].opt_prefix}/include')"
       end
 
-      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" if OS.mac? && !MacOS::CLT.installed?
+      if OS.mac? && !MacOS::CLT.installed?
+        # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
+        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+      end
       venv.pip_install Pathname.pwd
     end
 
