@@ -6,6 +6,8 @@ class WifiPassword < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     bin.install "wifi-password.sh" => "wifi-password"
   end
