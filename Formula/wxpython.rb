@@ -21,10 +21,12 @@ class Wxpython < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "python@3.8"
+
+  uses_from_macos "zlib"
+
   unless OS.mac?
     depends_on "pkg-config" => :build
     depends_on "gtk+3"
-    depends_on "zlib"
   end
 
   resource "Pillow" do
@@ -45,11 +47,13 @@ class Wxpython < Formula
   end
 
   def install
-    # Fix build of included wxwidgets
-    # see https://github.com/wxWidgets/Phoenix/issues/1247
-    inreplace "buildtools/build_wxwidgets.py",
-              /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
-              "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+    if OS.mac?
+      # Fix build of included wxwidgets
+      # see https://github.com/wxWidgets/Phoenix/issues/1247
+      inreplace "buildtools/build_wxwidgets.py",
+                /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
+                "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+    end
 
     venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
