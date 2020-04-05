@@ -41,7 +41,8 @@ class Pybind11 < Formula
     EOS
 
     python_flags = `#{Formula["python@3.8"].opt_bin}/python3-config --cflags --ldflags --embed`.split(" ")
-    system ENV.cxx, "-O3", "-shared", "-std=c++11", *python_flags, *("-fPIC" unless OS.mac?), "example.cpp", "-o", "example.so"
+    system ENV.cxx, "-O3", "-shared", "-std=c++11",
+           *python_flags, *("-fPIC" unless OS.mac?), "example.cpp", "-o", "example.so"
     system Formula["python@3.8"].opt_bin/"python3", "example.py"
   end
 end
