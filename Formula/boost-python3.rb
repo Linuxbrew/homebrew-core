@@ -48,10 +48,10 @@ class BoostPython3 < Formula
     inreplace "bootstrap.sh", "using python", "#using python"
 
     pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    if OS.mac?
-      py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    py_prefix = if OS.mac?
+      Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     else
-      py_prefix = Formula["python@3.8"].opt_prefix
+      Formula["python@3.8"].opt_prefix
     end
 
     # Force boost to compile with the desired compiler
