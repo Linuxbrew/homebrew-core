@@ -17,7 +17,7 @@ class PkgConfig < Formula
     pc_path = %W[
       #{HOMEBREW_PREFIX}/lib/pkgconfig
       #{HOMEBREW_PREFIX}/share/pkgconfig
-    ].uniq.join(File::PATH_SEPARATOR)
+    ]
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
