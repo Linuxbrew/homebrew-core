@@ -21,7 +21,7 @@ class Librsvg < Formula
 
   def install
     # https://gitlab.gnome.org/GNOME/librsvg/issues/545#note_753842
-    ENV.append "LDFLAGS", "-lobjc"
+    ENV.append "LDFLAGS", "-lobjc" if OS.mac?
 
     args = %W[
       --disable-dependency-tracking
