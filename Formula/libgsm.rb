@@ -20,8 +20,8 @@ class Libgsm < Formula
     end
   else
     patch do
-      url "https://gist.githubusercontent.com/iMichka/9aac903922bc0169f2f6ce4c848d2976/raw/63d5708692e1494daaf573df31be8695875ef4ec/libgsm"
-      sha256 "ccf749390d91511a5b1f3184f80d8a25898b77b661426eb1a5f3fd4704938908"
+      url "https://gist.githubusercontent.com/iMichka/e481a4ed28b9efcbf77ef6b4cb4ac823/raw/2b22db28d4169c5f51f3f90bcb78ff7382243927/libgms1.0.19"
+      sha256 "b95d3586c547ff23e0fffd5aa43effe123d4a7e0198a8d7096d60dd3b9b5ced9"
     end
   end
 
