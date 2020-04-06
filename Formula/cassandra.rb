@@ -13,9 +13,13 @@ class Cassandra < Formula
     sha256 "0e5180c86552204cdf71d1b2140d3c71fe7591d0a68e57155bad212dcecec3e3" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cython" => :build
   depends_on "python@3.8"
   depends_on :java => ["1.8+", :test] unless OS.mac?
+
+  # https://issues.apache.org/jira/browse/CASSANDRA-10190
+  uses_from_macos "python@2" # Does not support Python 3
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
