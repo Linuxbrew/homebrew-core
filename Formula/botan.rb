@@ -1,21 +1,20 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.13.0.tar.xz"
-  sha256 "f57ae42a41e1091bca58f44f41addebd9a390b651603952c881ec89d50187e90"
+  url "https://botan.randombit.net/releases/Botan-2.14.0.tar.xz"
+  sha256 "0c10f12b424a40ee19bde00292098e201d7498535c062d8d5b586d07861a54b5"
   head "https://github.com/randombit/botan.git"
 
   bottle do
-    sha256 "287dfed529e8e3318f53f8b7c15bb28d824ce7d37cc9d0efc31359758b816b34" => :catalina
-    sha256 "39b24feecd714f011916d659770f5fbc11cb652b530d6828c066112a4a58283b" => :mojave
-    sha256 "a21833781daf9b3c2f227dd71975b787e6e4047756d24adbe897360a40dc3c87" => :high_sierra
-    sha256 "49d6f4b6fadc9529190352b7e6b7b72dfe5b3d4a677d29978835c65c360aad11" => :x86_64_linux
+    sha256 "75f313ac637a72bc4d9bae3da9be62bc77c266f3fbe5802093c65085f1f02dea" => :catalina
+    sha256 "97fbb92e2f170233b142a71cc5781dd0166f802ca87f070b416e746803d9ba3f" => :mojave
+    sha256 "a1476f2cb331dbca755c3edb274cafe50c6d7fd6e5504d1e1990a98905accda1" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  uses_from_macos "python@2" => :build
+
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 

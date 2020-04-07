@@ -3,13 +3,13 @@ class Nco < Formula
   homepage "https://nco.sourceforge.io/"
   url "https://github.com/nco/nco/archive/4.9.2.tar.gz"
   sha256 "1a98c37c946c00232fa7319d00d1d80f77603adda7c9239d10d68a8a3545a4d5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "35f0438126a52c6ddfbf1f301be740c0589303a8fb61a63c695ca3d06cb2745a" => :catalina
-    sha256 "836dde6df4d77bca7a2e8f505241b1f2d0855c6cf5846ab13b2dd6d865fec519" => :mojave
-    sha256 "bb8b22c4ae16a13b48ec4f89fe3e521f71fd394d7550222c23762ea32ca9f67a" => :high_sierra
+    sha256 "9f53ff9c47aa40ee16bffe1e46fa9e6717d7c4ce6e31bafac25b35ad62bc2795" => :catalina
+    sha256 "4fa614f82d1192fca1bfae3dcac04a01f6d761dd950bef1382ff78a462e4842a" => :mojave
+    sha256 "8383912efae988148e4f80bca1a872c24fdcb04dfc1c0512c43cfd54825d66ed" => :high_sierra
   end
 
   head do

@@ -17,8 +17,6 @@ class BoostPython < Formula
   depends_on :macos # Due to Python 2
   depends_on "boost"
 
-  uses_from_macos "python@2"
-
   # Fix build on Xcode 11.4
   patch do
     url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"

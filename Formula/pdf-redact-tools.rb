@@ -19,9 +19,6 @@ class PdfRedactTools < Formula
   depends_on "ghostscript"
   depends_on "imagemagick"
 
-  # https://github.com/firstlookmedia/pdf-redact-tools/pull/34
-  uses_from_macos "python@2" # does not support Python 3
-
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)

@@ -25,7 +25,6 @@ class Gnuradio < Formula
   depends_on "portaudio"
   depends_on "uhd"
   depends_on "zeromq"
-  uses_from_macos "python@2" # Does not support Python 3
 
   # cheetah starts here
   resource "Markdown" do

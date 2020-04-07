@@ -22,9 +22,6 @@ class Deno < Formula
 
   depends_on :xcode => ["10.0", :build] if OS.mac? # required by v8 7.9+
 
-  # Does not work with Python 3
-  # https://github.com/denoland/deno/issues/2893
-  uses_from_macos "python@2"
   uses_from_macos "xz"
 
   resource "gn" do

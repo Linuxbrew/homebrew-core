@@ -40,10 +40,7 @@ class Subversion < Formula
 
   uses_from_macos "expat"
   uses_from_macos "krb5"
-  uses_from_macos "libmagic"
-  uses_from_macos "libtool"
   uses_from_macos "ruby"
-  uses_from_macos "util-linux"
   uses_from_macos "zlib"
 
   resource "serf" do

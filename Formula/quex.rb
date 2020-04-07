@@ -13,10 +13,6 @@ class Quex < Formula
     sha256 "ef42df0a4413a021056ceb695796065a083651c29f89f9a2f78e707ae3a1b823" => :x86_64_linux
   end
 
-  # Migration to Python 3 has started, see for example:
-  # https://sourceforge.net/p/quex/git/ci/e0d9de092751dc0b61e0c7fa2777fdc49ea1d13e/
-  uses_from_macos "python@2" # Does not support Python 3
-
   def install
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"

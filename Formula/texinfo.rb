@@ -21,10 +21,7 @@ class Texinfo < Formula
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
-  keg_only :provided_by_macos, <<~EOS
-    software that uses TeX, such as lilypond and octave, require a newer
-    version of these files
-  EOS
+  keg_only :provided_by_macos
 
   def install
     system "./configure", "--disable-dependency-tracking",

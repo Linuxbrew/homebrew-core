@@ -3,20 +3,19 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.33.0.tar.gz"
-    sha256 "88f08685f172e98f01f93f1a83fc3548c6d28df19a39c91859b167a796730289"
+    url "https://github.com/crystal-lang/crystal/archive/0.34.0.tar.gz"
+    sha256 "973293ffbcfa4fb073f6a2f833b0ce5b82b72f7899427f39d7e5610ffc9029c8"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
-      sha256 "75c74ab6acf2d5c59f61a7efd3bbc3c4b1d65217f910340cb818ebf5233207a5"
+      url "https://github.com/crystal-lang/shards/archive/v0.10.0.tar.gz"
+      sha256 "3aea420df959552d1866d473c878ab1ed0b58489c4c9881ef40a170cfb775459"
     end
   end
 
   bottle do
-    sha256 "3ee8d5d0e6c6e96e0f54b4a7e0d5795e3c450a346ac208b0b6f1208e34bf1567" => :catalina
-    sha256 "8102e213251723389bab813719ec7a7a54abb5730983ae7d2b47d6f2cfed1463" => :mojave
-    sha256 "1acff2894744122bebae34438a3a32fd0fe79be82e024b62e1cfdda995e96c6a" => :high_sierra
-    sha256 "978dbc2cf538cd70c725108a92cb245aba68b5c42046256ddef987fd9b531482" => :x86_64_linux
+    sha256 "7f6f09fefecbeab7ff11bcd35b501339f99aa2b4409c8612e1eae2c4ad0a206c" => :catalina
+    sha256 "a2a5055a9abe2db444e2a165133703a1c203d692f66c0e1fb326c97a28c8ef80" => :mojave
+    sha256 "c37811acb4753d689d8d7455b0ddfd64bf9530c430240563608e05b6bed8cedd" => :high_sierra
   end
 
   head do
@@ -53,14 +52,13 @@ class Crystal < Formula
   end
 
   resource "boot" do
+    version "0.33.0-1"
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.32.1/crystal-0.32.1-1-darwin-x86_64.tar.gz"
-      version "0.32.1-1"
-      sha256 "2901e8709da36a12ce0a94464741c1db8e5b5080f216fb8c1f7016667370bc94"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.33.0/crystal-0.33.0-1-darwin-x86_64.tar.gz"
+      sha256 "edb48d4d8276fc5e689fb95c5dc669d115ad3d1bf22485dad77d44a370e585fd"
     else
-      url "https://github.com/crystal-lang/crystal/releases/download/0.32.1/crystal-0.32.1-1-linux-x86_64.tar.gz"
-      version "0.32.1-1"
-      sha256 "0c31fd8813e453b6aef77c5c5e502933d94bd8937878ae69d39b841e0fca97d7"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.33.0/crystal-0.33.0-1-linux-x86_64.tar.gz"
+      sha256 "9b9e078e9ba24fb97ee591d5f0a57c88cd018bd85ed6bdde9a30e5834b158128"
     end
   end
 
@@ -97,6 +95,9 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
+      system buildpath/"boot/embedded/bin/shards", "install",
+                                                   "--production"
+
       system buildpath/"bin/crystal", "build",
                                       "-o", buildpath/".build/shards",
                                       "src/shards.cr",

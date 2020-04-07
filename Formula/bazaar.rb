@@ -15,7 +15,6 @@ class Bazaar < Formula
   end
 
   depends_on :macos # Due to Python 2
-  uses_from_macos "python@2"
 
   # CVE-2017-14176
   # https://bugs.launchpad.net/brz/+bug/1710979

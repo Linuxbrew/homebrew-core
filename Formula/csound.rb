@@ -38,7 +38,6 @@ class Csound < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "python@2"
   uses_from_macos "zlib"
 
   conflicts_with "libextractor", :because => "both install `extract` binaries"

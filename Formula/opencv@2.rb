@@ -25,7 +25,6 @@ class OpencvAT2 < Formula
   depends_on "numpy@1.16"
   depends_on "openexr"
   depends_on "glib" unless OS.mac?
-  uses_from_macos "python@2"
 
   def install
     ENV.cxx11

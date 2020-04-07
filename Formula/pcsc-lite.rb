@@ -12,8 +12,7 @@ class PcscLite < Formula
     sha256 "d0d64233bb4499e14f46822412247f322df6594a982691dede07ee9242af7686" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos,
-    "pcsc-lite interferes with detection of macOS's PCSC.framework"
+  keg_only :shadowed_by_macos, "macOS provides PCSC.framework"
 
   unless OS.mac?
     depends_on "pkg-config" => :build

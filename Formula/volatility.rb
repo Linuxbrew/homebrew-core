@@ -16,14 +16,13 @@ class Volatility < Formula
     sha256 "9073e767ec257b55bcb3e9cf62ffe713e8852dd5e090f620729a1b29a8dd3c02" => :x86_64_linux
   end
 
+  # Python 3 support will come with volatility 3
+  # https://github.com/volatilityfoundation/volatility3
   depends_on :macos # Due to Python 2
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "yara"
-  uses_from_macos "gmp" # for pycrypto
-  # Python 3 support will come with volatility 3
-  # https://github.com/volatilityfoundation/volatility3
-  uses_from_macos "python@2"
+  depends_on "gmp" unless OS.mac? # for pycrypto
 
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/2c/e3/84a3a99904c368daa1de5e85a6e9cc07189e7f66cb1338a9ebf93fa051bd/distorm3-3.4.1.tar.gz"

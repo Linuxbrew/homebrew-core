@@ -25,8 +25,6 @@ class Bic < Formula
 
   depends_on "gmp"
 
-  uses_from_macos "readline"
-
   def install
     system "autoreconf", "-fi" if build.head?
     system "./configure", "--disable-debug",

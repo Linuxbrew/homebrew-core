@@ -21,7 +21,6 @@ class GitRemoteHg < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "python@2" # does not support Python 3
 
   conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"
 

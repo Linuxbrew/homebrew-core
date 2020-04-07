@@ -19,7 +19,6 @@ class Blastem < Formula
   depends_on "pkg-config" => :build
   depends_on "glew"
   depends_on "sdl2"
-  uses_from_macos "python@2"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"

@@ -15,10 +15,7 @@ class Binutils < Formula
     sha256 "c2500eb69208e13f94dff91ee34f982db40b26f14c8a84a52eb513b8d35f5f26" => :x86_64_linux
   end
 
-  if OS.mac?
-    keg_only :provided_by_macos,
-             "because Apple provides the same tools and binutils is poorly supported on macOS"
-  end
+  keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
   uses_from_macos "zlib"
 

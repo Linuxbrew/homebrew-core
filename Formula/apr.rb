@@ -14,7 +14,7 @@ class Apr < Formula
     sha256 "55aa3f0c5dcb612e8c201e0ddc63ef52db99f314a14ae0aab4b6f7d6b4f365d3" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos, "Apple's CLT package contains apr"
+  keg_only :provided_by_macos, "Apple's CLT provides apr"
 
   depends_on "util-linux" # for libuuid
 

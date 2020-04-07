@@ -3,15 +3,14 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.0.6.tar.gz"
-  sha256 "f7fc0cd494ed9cf14f3845b5b36b41d7a7469e2baf484331f68cc45ac0d66bd4"
+  url "https://github.com/aws/aws-cli/archive/2.0.7.tar.gz"
+  sha256 "037c06e2c9058ea8d63886645f8a3b40f45309dc45d301248fa297f48e04028b"
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
-    sha256 "6f118d818eb7d0b07cbe8bb9245c5ab33d2e2db09b1292c1fb5a0cc8a5329287" => :catalina
-    sha256 "33ea1167f7df3d920e4562abada36ed309289ebddcca718ef35867dd21bcf30a" => :mojave
-    sha256 "027b7946e7e61818eac9a81e80e7fd717908d3b1b90d04dc5306c2396b85f583" => :high_sierra
-    sha256 "2a6637c98e3d8a05d264c1d0519dad3b1aabee87f3dfd2b1c6e41a787b783f18" => :x86_64_linux
+    sha256 "925885df0b2bb6e76c8a3d2ed0764c4f981392e3227c599f5e7a57a7618c5813" => :catalina
+    sha256 "6683a1928200bc6e9d8e1211de913387770eb1df2f7cc030d15884d32595bca9" => :mojave
+    sha256 "e58b5fd9ca92fa48040c9182c2dde293d4dcf5474b7d1164b46f7f3c171aec35" => :high_sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
@@ -19,7 +18,6 @@ class Awscli < Formula
   depends_on "python@3.8"
 
   uses_from_macos "groff"
-  uses_from_macos "libyaml"
 
   def install
     venv = virtualenv_create(libexec, "python3")

@@ -34,7 +34,6 @@ class Rust < Formula
   depends_on "openssl@1.1"
   depends_on "pkg-config"
 
-  uses_from_macos "binutils"
   uses_from_macos "curl"
   uses_from_macos "zlib"
 

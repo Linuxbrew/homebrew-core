@@ -25,7 +25,7 @@ class Flex < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_macos, "some formulae require a newer version of flex"
+  keg_only :provided_by_macos
 
   depends_on "help2man" => :build
   depends_on "gettext"

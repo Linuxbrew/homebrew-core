@@ -1,15 +1,14 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/v2.2.1.tar.gz"
-  sha256 "bdd012c8341267a92345561bd48a4b3f246bf59aab50a14e5648c4b8974f6995"
+  url "https://github.com/Y2Z/monolith/archive/v2.2.2.tar.gz"
+  sha256 "224ef6cc7fbde12b3d0d6f0b6758ada40848423e707af0a0b943bac3834a4754"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "014f6beb6e0c389dd4f1b5c9239aceb9f3206e49ceb923d9fa4ebbf86c1f6828" => :catalina
-    sha256 "da09746b2475fe5cc05bf7a4808e7b099788a1c733fa6828bb401b06a8f6d56f" => :mojave
-    sha256 "92fc3b582c7a8eabeda3e21c204ab41d25219902f51fb7b07e7b2bf788aa39c5" => :high_sierra
-    sha256 "85670a178ffcbd57059c41cedbd30829a388a7eca9cdccb6cd86446de89c2752" => :x86_64_linux
+    sha256 "a45ecb8df55622afe4755ca0faf16ffe8ecc5af9fc71bcf06038576623a94061" => :catalina
+    sha256 "3ea483a54a5c9196ee7a96efea8e80b57208875818d5a83f78ea4d53fff52f8d" => :mojave
+    sha256 "11fb69e1ffbe3b1dd7e4b6054cf9bdcaf6583b9183db51edb845fdd3bdc573db" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

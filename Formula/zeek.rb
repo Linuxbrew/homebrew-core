@@ -22,7 +22,6 @@ class Zeek < Formula
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
-  uses_from_macos "python@2" # See https://github.com/zeek/zeek/issues/706
 
   def install
     mkdir "build" do

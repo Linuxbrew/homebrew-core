@@ -5,14 +5,13 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
   mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
   sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
-  revision 4
+  revision 5
   head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
-    sha256 "5ccf532a1260e3e92076544bc9482265f916e24a7ffc248265c71c61ffd286ea" => :catalina
-    sha256 "6b151e0b74403ed1be064bb6b797cfaa55041e654a6cf35156575b9643b1a26c" => :mojave
-    sha256 "6ed13ba35599043fb4fbcd7fac1074a5534a938136f09ea9d513c7e835df8295" => :high_sierra
-    sha256 "a88ee080f3acdea72973e354cb3b328ed6eaaed66e42d9f00bbee03f746ead21" => :x86_64_linux
+    sha256 "f8e134ad99467310df0ff266de2f38ee85b388904c98d93a5048f94eb2bdbb27" => :catalina
+    sha256 "924ba9e120f694c66421a1ef0c07c55af2eb12e6247e93ab39e7ed61e3f486ca" => :mojave
+    sha256 "f17ad3ed1e2e38987e430376fb448faf32a80c95cf0c42bb952e6d1063f34ef2" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -47,6 +46,13 @@ class Gmt < Formula
     patch do
       url "https://github.com/GenericMappingTools/gmt/commit/daf64655.diff?full_index=1"
       sha256 "f2b5b0d5c4d6f568f453365f857c09429f2e29f9e72b220ca17a81128db75d37"
+    end
+
+    # netcdf 4.7.4 compatibility
+    # Remove with GMT 6.0.1.
+    patch do
+      url "https://github.com/GenericMappingTools/gmt/commit/53800c1f8206e9988dff88a71915cda7e7bff6e3.patch?full_index=1"
+      sha256 "8f9c072a394467853f8a44aa8af436ae9b1db7c7305985cb8018bb061cd5188c"
     end
   end
 

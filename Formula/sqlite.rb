@@ -13,7 +13,7 @@ class Sqlite < Formula
     sha256 "f06e85d798fd43b5b1b50c8fbd59e4bff7339a086ef129f27a86ba97c402c3cf" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos, "macOS provides an older sqlite3"
+  keg_only :provided_by_macos
 
   depends_on "readline"
 

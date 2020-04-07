@@ -16,8 +16,6 @@ class NumpyAT116 < Formula
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
 
-  uses_from_macos "python@2"
-
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
     sha256 "60d859e1efa5cc80436d58aecd3718ff2e74b987db0518376046adedba97ac30"

@@ -3,12 +3,12 @@ class Eccodes < Formula
   homepage "https://confluence.ecmwf.int/display/ECC"
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.17.0-Source.tar.gz"
   sha256 "762d6b71993b54f65369d508f88e4c99e27d2c639c57a5978c284c49133cc335"
+  revision 1
 
   bottle do
-    sha256 "bde5f768114c38b8d5e574a8698cd0389ed39353434ee5603baf236c88d8135c" => :catalina
-    sha256 "63492c62b1efd61f676e971286ceb1cf511e28b14e41b39ab45214e450e1a02e" => :mojave
-    sha256 "2e4b2ace8b0b151da83876f2ec4089b8643920faa5c3b2082393917a8b97d4f1" => :high_sierra
-    sha256 "667cb0063f609966414a1754a2101ed069fe5629eee0658c2de878c69abf4896" => :x86_64_linux
+    sha256 "4e6dbef0ba2bac100a7b7da2e13085156910d3502d39c55cc09cfe1f6a6c966a" => :catalina
+    sha256 "09b210f83213b211be709e91c9c208b2881a57e0155dc3a5708b95d930141d8a" => :mojave
+    sha256 "e9d09fbe285c1e85e2481e992a2a494d814030c8346e9eb8ab3080420a7d6b8c" => :high_sierra
   end
 
   depends_on "cmake" => :build

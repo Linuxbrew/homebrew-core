@@ -14,7 +14,7 @@ class AprUtil < Formula
     sha256 "9dc4b219ba6d14635c978cc2d9eaa2bd1362d38ba5148d1c3241653ebd182714" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos, "Apple's CLT package contains apr"
+  keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"
 
   depends_on "apr"
   depends_on "openssl@1.1"

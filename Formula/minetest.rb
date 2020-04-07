@@ -3,19 +3,19 @@ class Minetest < Formula
   homepage "https://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.1.1.tar.gz"
-    sha256 "65d483bce244827de174edcb30f7e453b06a7590da6cdeb7a2237ff6180c090b"
+    url "https://github.com/minetest/minetest/archive/5.2.0.tar.gz"
+    sha256 "4996c7c50a6600d0c7140680d4bd995cb9aae910f216b46373953b49d6b13a5d"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.1.1.tar.gz"
-      sha256 "89dbb7cad2a1cec1ca0cdaa0f0eafc5699676bcd6880891c7720a10dfe7f6af9"
+      url "https://github.com/minetest/minetest_game/archive/5.2.0.tar.gz"
+      sha256 "0c49fd6e310de1aba2e8cb8ae72efe0e06bb6bc8d7c5efea23bc201b6a80ce94"
     end
   end
 
   bottle do
-    sha256 "6c6d62a96e916fd3640206508547e326e1d39e97a51c3abb36c7a921ed1c2e56" => :catalina
-    sha256 "bf3ca399f4349eaefdf0435577c747e5adf10aaf881797d9eba5837dee80a92c" => :mojave
-    sha256 "a79e3ee2648769f1d14b5f1c88e2f98154e3ea58355682018c8b6467c171d68b" => :high_sierra
+    sha256 "ef42a92c6aac3639392dece9de7e465bea986deac1e3af95c532beaf1e679a65" => :catalina
+    sha256 "fb9f521a5d2df6e4d888c35c5e1b9dd067403429e926872db421c16e6819d103" => :mojave
+    sha256 "13aa90c2642b7a8946657d5b2e804bdd8feb4288dca8242e4af509f14e03c674" => :high_sierra
   end
 
   head do

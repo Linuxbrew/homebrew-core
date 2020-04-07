@@ -17,7 +17,6 @@ class CassandraAT22 < Formula
   depends_on :macos # Due to Python 2
   depends_on "cython" => :build
   depends_on :java => ["1.8+", :test] unless OS.mac?
-  uses_from_macos "python@2" # does not support Python 3.7
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do

@@ -14,8 +14,7 @@ class TclTk < Formula
     sha256 "0de2a7527b765b2cc4de33d8c9ee8676b33116bbda67eeb40bbcfce9d96e35c1" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos,
-    "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
+  keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
   unless OS.mac?

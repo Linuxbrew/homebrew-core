@@ -12,7 +12,7 @@ class Bison < Formula
     sha256 "ec3482fa40bca3d0dec0e128bdae1ee1d191930b35d0779cf00c98db927db1d8" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos, "some formulae require a newer version of bison"
+  keg_only :provided_by_macos
 
   uses_from_macos "m4"
 

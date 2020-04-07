@@ -12,7 +12,7 @@ class Heimdal < Formula
     sha256 "1ac3c2582de7d1562ecfd685893e599bee38f774b52ba568ea8e0925889fb63f" => :sierra
   end
 
-  keg_only :provided_by_macos
+  keg_only :shadowed_by_macos
 
   depends_on "openssl@1.1"
 

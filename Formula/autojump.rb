@@ -15,7 +15,6 @@ class Autojump < Formula
   end
 
   depends_on :macos # Due to Python 2
-  uses_from_macos "python@2"
 
   def install
     system "./install.py", "-d", prefix, "-z", zsh_completion

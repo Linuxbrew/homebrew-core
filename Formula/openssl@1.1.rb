@@ -15,8 +15,7 @@ class OpensslAT11 < Formula
   end
 
   if OS.mac?
-    keg_only :provided_by_macos,
-      "openssl/libressl is provided by macOS so don't link an incompatible version"
+    keg_only :shadowed_by_macos, "macOS provides LibreSSL"
   else
     keg_only :versioned_formula
   end

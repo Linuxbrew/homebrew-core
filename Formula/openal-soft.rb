@@ -13,7 +13,7 @@ class OpenalSoft < Formula
     sha256 "078bd103e43fd7378671d0b8c332d5798cdf3bc562813d74e6e485f2447cd56b" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos, "macOS provides OpenAL.framework"
+  keg_only :shadowed_by_macos, "macOS provides OpenAL.framework"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
