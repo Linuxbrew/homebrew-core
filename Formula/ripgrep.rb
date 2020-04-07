@@ -12,8 +12,11 @@ class Ripgrep < Formula
     sha256 "7a0ff676fe9bfc33f3c4279856c45238e3cc61a396cbd5e266d23796a5003e72" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "docbook-xsl" => :build
+  # Dependencies for man page
+  if OS.mac?
+    depends_on "asciidoc" => :build
+    depends_on "docbook-xsl" => :build
+  end
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "pcre2"
