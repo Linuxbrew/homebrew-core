@@ -17,7 +17,8 @@ class Librdkafka < Formula
   depends_on "lzlib"
   depends_on "openssl@1.1"
   depends_on "zstd"
-  uses_from_macos "python"
+
+  depends_on "python" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
