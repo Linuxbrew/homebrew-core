@@ -96,11 +96,13 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"boot/embedded/bin/shards", "install",
-                                                   "--production"
+      shard = OS.mac? ? buildpath/"boot/embedded/bin/shards" : buildpath/"boot/bin/shards"
+      system shard, "install", "--production"
 
       system buildpath/"bin/crystal", "build",
-                                      "-o", buildpath/".build/shards",
+                                      "-o",
+                                      ("--threads=1" unless ENV["CI"]),
+                                      buildpath/".build/shards",
                                       "src/shards.cr",
                                       "--release", "--no-debug"
 
