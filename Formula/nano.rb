@@ -14,7 +14,7 @@ class Nano < Formula
   depends_on "gettext"
   depends_on "ncurses"
 
-  uses_from_macos "libmagic"
+  depends_on "libmagic" unless OS.mac?
 
   def install
     system "./configure", "--disable-debug",
