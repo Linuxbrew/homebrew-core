@@ -1,3 +1,4 @@
+# build
 class Healpix < Formula
   desc "Hierarchical Equal Area isoLatitude Pixelization of a sphere"
   homepage "https://healpix.jpl.nasa.gov"
