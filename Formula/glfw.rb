@@ -14,6 +14,16 @@ class Glfw < Formula
 
   depends_on "cmake" => :build
 
+  unless OS.mac?
+    depends_on "freeglut"
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxcursor"
+    depends_on "linuxbrew/xorg/libxi"
+    depends_on "linuxbrew/xorg/libxinerama"
+    depends_on "linuxbrew/xorg/libxrandr"
+    depends_on "linuxbrew/xorg/mesa"
+  end
+
   def install
     args = std_cmake_args + %w[
       -DGLFW_USE_CHDIR=TRUE
@@ -26,6 +36,9 @@ class Glfw < Formula
   end
 
   test do
+    # glfw doesn't work in headless mode
+    return if !OS.mac? && ENV["CI"]
+
     (testpath/"test.c").write <<~EOS
       #define GLFW_INCLUDE_GLU
       #include <GLFW/glfw3.h>
