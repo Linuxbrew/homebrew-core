@@ -21,8 +21,12 @@ class Dnsviz < Formula
   depends_on "libsodium"
   depends_on "openssl@1.1"
   depends_on "python@3.8"
-  # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
-  depends_on "swig" unless OS.mac?
+
+  unless OS.mac?
+    # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
+    depends_on "swig"
+    depends_on "linuxbrew/xorg/libx11"
+  end
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
@@ -37,6 +41,11 @@ class Dnsviz < Formula
   resource "M2Crypto" do
     url "https://files.pythonhosted.org/packages/74/18/3beedd4ac48b52d1a4d12f2a8c5cf0ae342ce974859fba838cbbc1580249/M2Crypto-0.35.2.tar.gz"
     sha256 "4c6ad45ffb88670c590233683074f2440d96aaccb05b831371869fc387cbd127"
+
+    patch do
+      url "https://gitlab.com/m2crypto/m2crypto/-/merge_requests/243.patch"
+      sha256 "31ec71c1231783799a6eefed35bb4971dffa8745e55c565338773e97dae174ef"
+    end
   end
 
   resource "pygraphviz" do
