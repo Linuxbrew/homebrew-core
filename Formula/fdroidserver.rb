@@ -340,20 +340,23 @@ class Fdroidserver < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
+        zlib = Formula["zlib"].opt_prefix
+        jpeg = Formula["jpeg"].opt_prefix
+        freetype = Formula["freetype"].opt_prefix
         if OS.mac?
           sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : "" if OS.mac?
           s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
         else
-          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
+          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{zlib}/lib', '#{zlib}/include')"
         end
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{jpeg}/lib', '#{jpeg}/include')"
+        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{freetype}/lib', '#{freetype}/include')"
       end
 
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
       ENV.delete "SDKROOT"
-      unless !OS.mac? && MacOS::CLT.installed?
+      if OS.mac? && !MacOS::CLT.installed?
         ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
       venv.pip_install Pathname.pwd
