@@ -158,7 +158,7 @@ class MagicWormhole < Formula
     if OS.mac?
       virtualenv_install_with_resources
     else
-      # Fix Error: Will not overwrite /home/linuxbrew/.linuxbrew/Cellar/magic-wormhole/0.10.5_4/libexec/lib/python3.7/site-packages/homebrew_deps.pth
+      # Fix Error: Will not overwrite .../libexec/lib/python3.7/site-packages/homebrew_deps.pth
       venv.pip_install resources
       venv.pip_install_and_link buildpath
     end
