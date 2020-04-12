@@ -18,9 +18,14 @@ class Libfido2 < Formula
   depends_on "libcbor"
   depends_on "openssl@1.1"
 
+  depends_on "systemd" unless OS.mac? # for libudev
+
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake",
+             "..",
+             ("-DUDEV_RULES_DIR=#{lib}/udev/rules.d" unless OS.mac?),
+             *std_cmake_args
       system "make"
       system "make", "man_symlink_html"
       system "make", "man_symlink"
@@ -42,9 +47,8 @@ class Libfido2 < Formula
         return 1;
       size_t found_devices = 0;
       int error;
-      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) != FIDO_OK)
-        return 1;
-      printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
+      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) == FIDO_OK)
+        printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF
