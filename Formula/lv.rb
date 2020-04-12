@@ -16,10 +16,14 @@ class Lv < Formula
     sha256 "6e1894088a741aba921e77a4935d6ad2d11f06f03a4ff775c45e4256728511a4" => :mavericks
   end
 
+  depends_on "gzip" unless OS.mac?
+
+  uses_from_macos "ncurses"
+
   def install
     # zcat doesn't handle gzip'd data on OSX.
     # Reported upstream to nrt@ff.iij4u.or.jp
-    inreplace "src/stream.c", 'gz_filter = "zcat"', 'gz_filter = "gzcat"'
+    inreplace "src/stream.c", 'gz_filter = "zcat"', 'gz_filter = "gzcat"' if OS.mac?
 
     cd "build" do
       system "../src/configure", "--prefix=#{prefix}"
