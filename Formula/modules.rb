@@ -45,10 +45,10 @@ class Modules < Formula
 
   test do
     assert_match "restore", shell_output("#{bin}/envml --help")
-    if OS.mac?
-      output = shell_output("zsh -c 'source #{prefix}/init/zsh; module' 2>&1")
+    output = if OS.mac?
+      shell_output("zsh -c 'source #{prefix}/init/zsh; module' 2>&1")
     else
-      output = shell_output("sh -c '. #{prefix}/init/sh; module' 2>&1")
+      shell_output("sh -c '. #{prefix}/init/sh; module' 2>&1")
     end
     assert_match version.to_s, output
   end
