@@ -42,7 +42,7 @@ class Sundials < Formula
 
   test do
     cp Dir[prefix/"examples/nvector/serial/*"], testpath
-    args = %w[
+    args = %W[
       -I#{include}
       test_nvector.c
       sundials_nvector.c
