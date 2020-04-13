@@ -16,9 +16,6 @@ class Volatility < Formula
     sha256 "9073e767ec257b55bcb3e9cf62ffe713e8852dd5e090f620729a1b29a8dd3c02" => :x86_64_linux
   end
 
-  # Python 3 support will come with volatility 3
-  # https://github.com/volatilityfoundation/volatility3
-  depends_on :macos # Due to Python 2
   depends_on "freetype"
   depends_on "jpeg"
   depends_on :macos # Due to Python 2 (Python 3 support will come with volatility 3)
