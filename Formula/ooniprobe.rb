@@ -14,8 +14,6 @@ class Ooniprobe < Formula
     sha256 "3e13549c0175e9f3167f24526ed0c45bd7096b84c0360042654be9b4dff980f7" => :high_sierra
   end
 
-  # Will be replaced by https://github.com/ooni/probe-cli once out of pre-release)
-  depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
