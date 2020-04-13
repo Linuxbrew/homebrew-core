@@ -12,6 +12,12 @@ class Softhsm < Formula
 
   depends_on "openssl@1.1"
 
+  unless OS.mac?
+    fails_with :gcc => "5"
+    fails_with :gcc => "6"
+    depends_on "gcc@7"
+  end
+
   # Fix macOS compile.
   # Remove with the next release.
   patch do
