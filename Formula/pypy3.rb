@@ -70,9 +70,7 @@ class Pypy3 < Formula
       ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
     end
     # Work around "dyld: Symbol not found: _utimensat"
-    if OS.mac? && MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT") if OS.mac? && MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
 
     # Fix build on High Sierra
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
