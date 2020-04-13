@@ -13,16 +13,11 @@ class Rethinkdb < Formula
     sha256 "28cc039c31b7c360f5032048a725ca9067b4c7c16feb1a40c282ca2fbe729cea" => :x86_64_linux
   end
 
-  # Does not support python 3, as stated in the readme
-  # v8 and gyp fail to build: https://github.com/Homebrew/linuxbrew-core/pull/19614
-  # See also https://github.com/rethinkdb/rethinkdb/pull/6401
-  depends_on :macos # Due to Python 2
   depends_on "boost" => :build
   depends_on :macos # Due to Python 2 (v8 and gyp fail to build)
   # https://github.com/Homebrew/linuxbrew-core/pull/19614
   # https://github.com/rethinkdb/rethinkdb/pull/6401
   depends_on "openssl@1.1"
-  depends_on "python@2" => :build unless OS.mac?
 
   uses_from_macos "curl"
 
