@@ -14,6 +14,8 @@ class Mono < Formula
   depends_on "pkg-config" => :build
   depends_on :macos # Due to Python 2
 
+  depends_on "unzip" => :build unless OS.mac?
+
   conflicts_with "xsd", :because => "both install `xsd` binaries"
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -26,12 +28,6 @@ class Mono < Formula
   link_overwrite "bin/fssrgen"
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
-
-  depends_on :macos # Due to Python 2
-  unless OS.mac?
-    depends_on "python@2" => :build
-    depends_on "unzip" => :build
-  end
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
