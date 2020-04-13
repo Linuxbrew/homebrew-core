@@ -11,7 +11,6 @@ class Libtcod < Formula
     sha256 "8b92b6d780acbdf957141cc30f76f967949bd15519b060a163133a55888c20f1" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -19,8 +18,8 @@ class Libtcod < Formula
   depends_on "python" => :build
   depends_on :macos # Due to Python 2
   depends_on "sdl2"
+
   unless OS.mac?
-    depends_on "python@2" => :build
     depends_on "zlib"
     depends_on "linuxbrew/xorg/xorg"
   end
