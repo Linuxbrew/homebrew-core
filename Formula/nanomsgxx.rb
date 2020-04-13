@@ -14,11 +14,9 @@ class Nanomsgxx < Formula
     sha256 "26a441978b63f4024b00f9efd092f11ba6a10e9fc1b27735114adbb96cccd7b9" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on :macos # Due to Python 2
   depends_on "nanomsg"
-  depends_on "python@2" => :build unless OS.mac?
 
   def install
     args = %W[
