@@ -17,11 +17,7 @@ class Kibana < Formula
   depends_on :macos # Due to Python 2
   depends_on "node@10"
 
-  depends_on :macos # Due to Python 2
-  unless OS.mac?
-    depends_on "python@2" => :build
-    depends_on "linuxbrew/xorg/libx11"
-  end
+  depends_on "linuxbrew/xorg/libx11" unless OS.mac?
 
   def install
     # remove non open source files
