@@ -16,17 +16,14 @@ class Asciidoc < Formula
     sha256 "48664a68c1b66f373538bad9db4a62f54dc368377e7758a1a36cf865e4a8ddcf" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python@2, will never support Python 3
-  # https://github.com/asciidoc/asciidoc/issues/83
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
-  depends_on :macos # Due to Python 2 (will never support Python 3)
+  depends_on :macos # Due to Python@2, will never support Python 3
+  # https://github.com/asciidoc/asciidoc/issues/83
   depends_on "source-highlight"
-  unless OS.mac?
-    depends_on "xmlto" => :build
-    depends_on "python@2"
-  end
+
+  depends_on "xmlto" => :build unless OS.mac?
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build
