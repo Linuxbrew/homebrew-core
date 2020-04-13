@@ -14,8 +14,6 @@ class PdfRedactTools < Formula
     sha256 "412188c047811c99761394d7923c209efe43c7ed8c436296a26e580b9993757e" => :x86_64_linux
   end
 
-  # https://github.com/firstlookmedia/pdf-redact-tools/pull/34
-  depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "exiftool"
   depends_on "ghostscript"
   depends_on "imagemagick"
