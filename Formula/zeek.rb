@@ -12,8 +12,6 @@ class Zeek < Formula
     sha256 "0cbd50046531824910c501d10d9cbc7137f31c4f1657fd2c0882260ec2fb4845" => :high_sierra
   end
 
-  # See https://github.com/zeek/zeek/issues/706
-  depends_on :macos # Due to Python 2
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build
