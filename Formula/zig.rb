@@ -1,3 +1,4 @@
+# Rebuild
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
