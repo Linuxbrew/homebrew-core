@@ -12,6 +12,7 @@ class Bento4 < Formula
     sha256 "d874fe1f7f65ff3a48c09b63f0dcbe5eb9a77d182165370772861d219cdbd0d2" => :high_sierra
   end
 
+  depends_on "cmake" => :build if OS.linux?
   depends_on :xcode => :build if OS.mac?
   depends_on "python"
 
@@ -20,15 +21,26 @@ class Bento4 < Formula
     :because => "both install `mp4extract` and `mp4info` binaries"
 
   def install
-    cd "Build/Targets/universal-apple-macosx" do
-      xcodebuild "-target", "All", "-configuration", "Release", "SYMROOT=build"
-      programs = Dir["build/Release/*"].select do |f|
-        next if f.end_with? ".dylib"
-        next if f.end_with? "Test"
+    if OS.mac?
+      cd "Build/Targets/universal-apple-macosx" do
+        xcodebuild "-target", "All", "-configuration", "Release", "SYMROOT=build"
+        programs = Dir["build/Release/*"].select do |f|
+          next if f.end_with? ".dylib"
+          next if f.end_with? "Test"
 
-        File.file?(f) && File.executable?(f)
+          File.file?(f) && File.executable?(f)
+        end
+        bin.install programs
       end
-      bin.install programs
+    elsif OS.linux?
+      mkdir "cmakebuild" do
+        system "cmake", "..", *std_cmake_args
+        system "make"
+        programs = Dir["./*"].select do |f|
+          File.file?(f) && File.executable?(f)
+        end
+        bin.install programs
+      end
     end
 
     rm Dir["Source/Python/wrappers/*.bat"]
