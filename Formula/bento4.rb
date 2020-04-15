@@ -12,7 +12,7 @@ class Bento4 < Formula
     sha256 "d874fe1f7f65ff3a48c09b63f0dcbe5eb9a77d182165370772861d219cdbd0d2" => :high_sierra
   end
 
-  depends_on "cmake" => :build if OS.linux?
+  depends_on "cmake" => :build unless OS.mac?
   depends_on :xcode => :build if OS.mac?
   depends_on "python"
 
@@ -32,7 +32,7 @@ class Bento4 < Formula
         end
         bin.install programs
       end
-    elsif OS.linux?
+    else
       mkdir "cmakebuild" do
         system "cmake", "..", *std_cmake_args
         system "make"
