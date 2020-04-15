@@ -3,13 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.xz"
   sha256 "b224f9844646cc92765df8288a46838511c1cec5b550d8874bd4686a904fcee7"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
-    sha256 "c9ee36823a8dfe2686c6d7a3faf5061a032ed0b8e08d484f3ff2cda72d210a08" => :catalina
-    sha256 "d597bee751f9419ea7b40d8125e4f58b2c1eb675b929fe85d8463a6e008b2250" => :mojave
-    sha256 "345677b922e40e7324bbab0d68593a2bbef7aa3e8f636fd850295f3414758ed7" => :high_sierra
-    sha256 "38e6a6c6886ea35072600878b4eab5fd8b7d9dd0005fef24c1baa30246a9fa1f" => :x86_64_linux
+    sha256 "7f5ed2afb15b25f9616b617ecca2ee376eb67cf6c105790df22221b7be9c1ef9" => :catalina
+    sha256 "cc995a06e761acc8a807b040d8e7fe301902a4fc63d2beaaae40e04c710e7338" => :mojave
+    sha256 "2605ad1636e40d747878a8df7d1ef51a15e58e70ce03510b9ea582c02a448e26" => :high_sierra
   end
 
   head do
@@ -17,7 +16,7 @@ class Ruby < Formula
     depends_on "autoconf" => :build
   end
 
-  keg_only :provided_by_macos if OS.mac?
+  keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
@@ -39,11 +38,7 @@ class Ruby < Formula
   end
 
   def rubygems_bindir
-    if OS.mac?
-      HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
-    else
-      HOMEBREW_PREFIX/"bin"
-    end
+    HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
   def install
