@@ -44,6 +44,8 @@ class GobjectIntrospection < Formula
       -Dpython=#{Formula["python@3.8"].opt_bin}/python3
     ]
 
+    args << "--libdir=#{lib}" unless OS.mac?
+
     mkdir "build" do
       system "meson", *args, ".."
       Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
