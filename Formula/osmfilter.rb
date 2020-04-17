@@ -18,10 +18,13 @@ class Osmfilter < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "zlib" => :build unless OS.mac?
+
+  uses_from_macos "zlib"
 
   resource "pbf" do
     url "https://download.gisgraphy.com/openstreetmap/pbf/AD.tar.bz2"
-    sha256 "403d74dd62f7cc59c044965c52e0e0cb8dcf2c01faa205a668e94d7258d89ad1"
+    sha256 "f8decd915758139e8bff2fdae6102efa0dc695b9d1d64cc89a090a91576efda9"
   end
 
   def install
