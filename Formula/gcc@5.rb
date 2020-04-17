@@ -159,12 +159,12 @@ class GccAT5 < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
+
+      # Avoid reference to sed shim
+      args << "SED=/usr/bin/sed"
     else
       args << "--disable-multilib"
     end
-
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
