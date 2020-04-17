@@ -133,15 +133,17 @@ class Gcc < Formula
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if OS.linux? || DevelopmentTools.clang_build_version >= 1000
 
-    # System headers may not be in /usr/include
-    sdk = MacOS.sdk_path_if_needed
-    if sdk
-      args << "--with-native-system-header-dir=/usr/include"
-      args << "--with-sysroot=#{sdk}"
-    end
+    if OS.mac?
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
 
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
+      # Avoid reference to sed shim
+      args << "SED=/usr/bin/sed"
+    end
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
