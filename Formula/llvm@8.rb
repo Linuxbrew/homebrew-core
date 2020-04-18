@@ -46,7 +46,7 @@ class LlvmAT8 < Formula
 
     unless OS.mac?
       patch do
-        url "https://gist.githubusercontent.com/iMichka/https://gist.githubusercontent.com/iMichka/a5d88f6bbe1f62fc43dc040282234452/raw/430616d646260e47360d9cba0901ac2876007350/clang8?full_index=1"
+        url "https://gist.githubusercontent.com/iMichka/a5d88f6bbe1f62fc43dc040282234452/raw/430616d646260e47360d9cba0901ac2876007350/clang8?full_index=1"
         sha256 "a7403c5a3ea2edddb7c1cb70274396f4c31d6b7c37aa1e4e4edaca3d1b78300f"
       end
     end
