@@ -16,6 +16,10 @@ class Ecl < Formula
   depends_on "gmp"
   depends_on "libffi"
 
+  # Fixes: ffi.d:136:28: error: FFI_SYSV undeclared here (not in a function)
+  # https://gitlab.com/kiandru/nixpkgs/-/commit/00c3761322ec4d2aa85e66f1c55452ded3f9e681
+  patch :p1, :DATA
+
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}",
@@ -33,3 +37,21 @@ class Ecl < Formula
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp
   end
 end
+
+__END__
+diff --git a/src/c/ffi.d b/src/c/ffi.d
+index 8174977a..caa69f39 100644
+--- a/src/c/ffi.d
++++ b/src/c/ffi.d
+@@ -133,8 +133,8 @@ static struct {
+ #elif defined(X86_WIN64)
+   {@':win64', FFI_WIN64},
+ #elif defined(X86_ANY) || defined(X86) || defined(X86_64)
+-  {@':cdecl', FFI_SYSV},
+-  {@':sysv', FFI_SYSV},
++  {@':cdecl', FFI_UNIX64},
++  {@':sysv', FFI_UNIX64},
+   {@':unix64', FFI_UNIX64},
+ #endif
+ };
+
