@@ -18,6 +18,17 @@ class SagittariusScheme < Formula
   depends_on "openssl@1.1"
   depends_on "unixodbc"
 
+  uses_from_macos "zlib"
+
+  # Remove with next release
+  # https://bitbucket.org/ktakashi/sagittarius-scheme/issues/271/sagittarius-socketso-not-found-by
+  unless OS.mac?
+    patch do
+      url "https://bitbucket.org/ktakashi/sagittarius-scheme/commits/d0d29a50b3f5022cec7dc49811f4532291970d7d/raw"
+      sha256 "4cf027942873a4e2a96ac5b1875e018aba9369d9c9eef7bc5a9fad0b897443fd"
+    end
+  end
+
   def install
     system "cmake", ".", *std_cmake_args, "-DODBC_LIBRARIES=odbc"
     system "make", "install"
