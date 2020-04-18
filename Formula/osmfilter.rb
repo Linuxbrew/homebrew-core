@@ -7,12 +7,12 @@ class Osmfilter < Formula
   head "https://gitlab.com/osm-c-tools/osmctools.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "5e2b755a970b7432fb076d787cb1777df18861832d0e4d45132fd84e4d7aea20" => :catalina
     sha256 "470532603de299b9073f5511b8be798558d430f86ba4f37b330a497ec9fdae48" => :mojave
     sha256 "b2e2d4190462b0b0e473da4a50ab5e25da007aca21db898d2d359e9e9eb2cde7" => :high_sierra
     sha256 "d7a8285fe18af71d0093b89e9b5613a4fe30ceb4978e07f61ad1974e734d7f50" => :sierra
     sha256 "6a0fd608e0bc8094f08edb6f86a51b45745506d3ef84e0454ef1498dd77f61b0" => :el_capitan
-    sha256 "6cdb4f66cebaa32ea579a0f7d3e2b22ad1d95cd30988bd617ad006d9bc32037a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
