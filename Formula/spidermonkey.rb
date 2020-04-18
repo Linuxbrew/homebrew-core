@@ -20,7 +20,6 @@ class Spidermonkey < Formula
   # Readline support is disabled; fails with:
   # No rule to make target '-lreadline', needed by 'js'.  Stop.
   depends_on "readline" if OS.mac?
-  depends_on "nspr"
   unless OS.mac?
     depends_on "python" => :build
     depends_on "zip" => :build
