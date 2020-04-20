@@ -5,13 +5,13 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v1.3.0.tar.gz"
   sha256 "9b531a527bc7908fa23f81ecb449ad8351791342a9bd5b1d09b15acd78dc8840"
+  revision 1 unless OS.mac?
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     sha256 "38243c78fb44fa4abfd195a7c70534871e99892e64db4f2afea359cb3540a76d" => :catalina
     sha256 "a52a86e2ccffa02c7afdcb708a2332062137f9fbdc71720268c51b316f272a7d" => :mojave
     sha256 "b3b9ed1555e3e5dffb9e9de1262498c6a5a04f17d00524eb1b4a68421efcbaf0" => :high_sierra
-    sha256 "d3be7a99992b36319b52bc31ea8ab7fa21594c3526f1d8c36df01fe8fb63a310" => :x86_64_linux
   end
 
   depends_on "augeas"
@@ -21,6 +21,14 @@ class Certbot < Formula
   depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "libffi"
+
+  unless OS.mac?
+    # https://github.com/pypa/setuptools/issues/2017#issuecomment-605354361
+    resource "setuptools" do
+      url "https://files.pythonhosted.org/packages/fd/76/3c7f726ed5c582019937f178d7478ce62716b7e8263344f1684cbe11ab3e/setuptools-45.0.0.zip"
+      sha256 "c46d9c8f2289535457d36c676b541ca78f7dcb736b97d02f50d17f7f15b583cc"
+    end
+  end
 
   resource "acme" do
     url "https://files.pythonhosted.org/packages/37/6c/fbf55777f813eed9db446182c5adad51a1f56cdb5a10c454590c35551b07/acme-1.3.0.tar.gz"
