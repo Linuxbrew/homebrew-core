@@ -3,15 +3,14 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://mycli.net/"
-  url "https://files.pythonhosted.org/packages/9d/a7/edcd1ad13b406eb18e14d842aef92c4261fcf8910a0667e6a0a36f28b0c0/mycli-1.21.0.tar.gz"
-  sha256 "a3cf7940384941eb59267a58e6e346ef4e3d131b10535d4f104850417cd3b964"
+  url "https://files.pythonhosted.org/packages/dc/b4/4a252eb2ba8343a419b468655a8d1570c146db3e4ab3bc96fb1cd60acdba/mycli-1.21.1.tar.gz"
+  sha256 "8f630a0847243fbed2eeead05b0952963916e1b60a11a065bffbb234a30737e1"
 
   bottle do
     cellar :any
-    sha256 "0cecf495630c612d43a5a17fb30717fd530eb4e961315abbd053c729ec78602a" => :catalina
-    sha256 "c72f5700f90431ea40bd0b33ef34c8f184ad5cc52a5b6c1acdd0d4f53b0c4652" => :mojave
-    sha256 "7be5dfde114cf7d62b03b023cd942cd73327fa77bd90eaf86b0f3e943faf2cd4" => :high_sierra
-    sha256 "b4bc0e7e29a9a00767173933242d7078bdcd86ad35c7ee2c6116d6a629785672" => :x86_64_linux
+    sha256 "2754cde5c61c591c521dc89584717f35d8dd1463fbe9791034245e0c1d9c5164" => :catalina
+    sha256 "5c1cc0dd09e092145a2493f920183d3542b80b0f5ed9f947c41522d8a8d2c866" => :mojave
+    sha256 "6f9ddc6aecb867a5610c4ce093ce3afa6a5dfcc33215abb9c3ee83d3e363628c" => :high_sierra
   end
 
   depends_on "openssl@1.1"
