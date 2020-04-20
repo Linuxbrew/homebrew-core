@@ -3,13 +3,13 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.7/Python-3.7.7.tar.xz"
   sha256 "06a0a9f1bf0d8cd1e4121194d666c4e28ddae4dd54346de6c343206599f02136"
+  revision 1 unless OS.mac?
   head "https://github.com/python/cpython.git"
 
   bottle do
     sha256 "acd595852aecc2bfa46c57d86db716e64d57bb2753c45ff7f745b46c7655dd65" => :catalina
     sha256 "cc8177d823b39d099e1f1a6f2e0fccb16e531508b59580f1fd44f659b54eeb84" => :mojave
     sha256 "079ace2d46b98d9931f14fbb6e02d883fedf0333faabcbaf552b12553325f4b6" => :high_sierra
-    sha256 "516b51be04229e300474e303bf6738ef0d8e5afbdb2984a40dc98e67ee720525" => :x86_64_linux
   end
 
   # setuptools remembers the build flags python is built with and uses them to
