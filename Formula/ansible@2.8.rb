@@ -5,13 +5,13 @@ class AnsibleAT28 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.10.tar.gz"
   sha256 "72449a3dde4142c79ef607dc6a2a02995b1c96f75d0ef5beffd00f3dfa6f93a6"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "327cbc15e590f5bd821984519884e7c15e01c38447c59b5cf2a74650b25373f3" => :catalina
     sha256 "4d688c006dffb4caac94b0c429fb4a568cfe964c2b175db6d1b152bb34ec4f14" => :mojave
     sha256 "1959b1243a52f08c8b482162263b5afde7651db75c4ed6b240a87fb2a72b8a9f" => :high_sierra
-    sha256 "4b95cbf47a5a329e2551657b45cb059480c2445a642a27fc4596e287e95adaad" => :x86_64_linux
   end
 
   keg_only :versioned_formula
