@@ -5,15 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.9.6.tar.gz"
   sha256 "59cf3a0781f89992d1dae5205b07e802dff1db205eebd238de9e503b62b8cbc9"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 3 : 4
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "86d918ef1997025c4cb193d39104806b369c483ea3ad513545cc2ba7dfc8168f" => :catalina
-    sha256 "150245afed1b56f98f2a6c7fa4497a37f3f773f5a63a7fe98e44505f5adb6f5a" => :mojave
-    sha256 "f9d2f6aa389f5018a7d7be03dd4411d35e5716f8ffb12a5c448a4df20553d4c1" => :high_sierra
-    sha256 "7c771dffc9be5067a92840f5f531fb0251aa018bd37db0e7bb55db3c8e10f1c7" => :x86_64_linux
+    sha256 "b76e038508624855fafe643fe653225ededc5342897257103b0ad964f86948d6" => :catalina
+    sha256 "a1c1df59b27472842c7720fd0d90078064fb0b05641d0efe93ad36b982f5c156" => :mojave
+    sha256 "8a7774e173b77bb2ff12578bd609ab8005e85a528c9202a77b6b88cd3dc8fe20" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

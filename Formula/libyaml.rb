@@ -1,15 +1,14 @@
 class Libyaml < Formula
   desc "YAML Parser"
   homepage "https://github.com/yaml/libyaml"
-  url "https://github.com/yaml/libyaml/archive/0.2.3.tar.gz"
-  sha256 "e36ec947f89725e90e062eca39a8a8c88fdce4f83315ab942aa896627236421e"
+  url "https://github.com/yaml/libyaml/archive/0.2.4.tar.gz"
+  sha256 "02265e0229675aea3a413164b43004045617174bdb2c92bf6782f618f8796b55"
 
   bottle do
     cellar :any
-    sha256 "ef608bb9aca1f1ea62a17b677792756fb4e7d00c58630343f3104f76857bd329" => :catalina
-    sha256 "78f6be95d9fb51354384daa626d9c6b04e018ecad09ba8c4e7f9d245808d38c8" => :mojave
-    sha256 "3b889799f48267e17944f31c73d20baf43a71c4d8901b57ba3401c7c845bf091" => :high_sierra
-    sha256 "0428519aa68ec459bc326d9fad185c39e31ad163f45e2f9c4189b9da41ab735d" => :x86_64_linux
+    sha256 "7807fe7e391bdf454d02269d67cf5691734f2f005005e7dc10078fbb0f3f23be" => :catalina
+    sha256 "b3443925fba4f35223ffd7d447711db6aeeb8ae209c94412ae0c74bc7bd4b2bb" => :mojave
+    sha256 "a357840146dba6b819eaf287317f421cc9b1cd3d00f455bb4d0c5ff105e10b7c" => :high_sierra
   end
 
   depends_on "autoconf" => :build

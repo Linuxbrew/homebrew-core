@@ -1,15 +1,14 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.3.1.tar.gz"
-  sha256 "ba35e22016b60c1e4be66dff3cd6a60c1fe4bfa0d91ec0b89ca9da25ebeaaf41"
-  revision 2
+  url "https://github.com/Yubico/libfido2/archive/1.4.0.tar.gz"
+  sha256 "ad921fbe7d4bb70e4a971e564cd01f341daf9b5ed5d69b3cbab94a8a811d2a6c"
 
   bottle do
     cellar :any
-    sha256 "a3a2b62e68a6d019f5bd559340b8d3c80b3e5e0ddb2c6548a31f6a29deef7af2" => :catalina
-    sha256 "c3d5fb46875ece1182f3ee86fc361f7bd8b01b41d8d9284819b0d7c0c011bd1b" => :mojave
-    sha256 "7f2637a63ae1ecd87280103505f3671d2d9759bb4fb0ddee28984437ae016a95" => :high_sierra
+    sha256 "05a2921d34a126b66182c395b4ef8b27dbcfedebdeb0071dda16afac1020545f" => :catalina
+    sha256 "d2a8202b550a1d2f66d6c166d6cbc74ec0d922c1c03a8b7e74841a01d314af3f" => :mojave
+    sha256 "fe0c917aa89e682627dc649e3bad9f615174adcdbd4e43922b22c9767a7be2db" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -26,7 +25,6 @@ class Libfido2 < Formula
       system "make", "man_symlink"
       system "make", "install"
     end
-    mv prefix/"man", share/"man"
   end
 
   test do
