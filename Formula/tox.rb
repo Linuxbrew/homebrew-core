@@ -5,13 +5,13 @@ class Tox < Formula
   homepage "https://tox.readthedocs.org/"
   url "https://files.pythonhosted.org/packages/c0/7f/46ff5bae3cef87400719e65de5f6b488699687a2e8a3a02f91c89c775aeb/tox-3.14.6.tar.gz"
   sha256 "a4a6689045d93c208d77230853b28058b7513f5123647b67bf012f82fa168303"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "5d87c680cd5a3201480c28fa3703275564ce75f17e5859c5867ead3e04fa8be5" => :catalina
     sha256 "3660909850f58c4a48ff8c271c2425c8be9949536a3fcc61c182268f4af6fa1f" => :mojave
     sha256 "13e5972d0aaefed0b4abc5279c7ff745f6278394e77e713ce74d6e6c5235e55c" => :high_sierra
-    sha256 "fccc7c7630e86cbb79d0c3a18c5b4d49a7b34d5ad26d87e6df91aa0f5f56ee03" => :x86_64_linux
   end
 
   depends_on "python@3.8"
