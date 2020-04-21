@@ -5,6 +5,7 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/bc/ca/d8c47fad7a6ce01ddd2b7093673433dbfae414015f971ea7ffda56da125f/shyaml-0.6.1.tar.gz"
   sha256 "3a57e380f66043c661d417106a0f101f8068c80caa2afef57c90447b88526c3d"
+  revision 1 unless OS.mac?
   head "https://github.com/0k/shyaml.git"
 
   bottle do
@@ -13,7 +14,6 @@ class Shyaml < Formula
     sha256 "6aa2db7ebec7ea9a269c90e6c63491bad0f419570790b717ce4e6db3e382ea74" => :mojave
     sha256 "a985968768985ec82d27b9b2e4d409fe965a1b610e12f31086175417eafa8ffb" => :high_sierra
     sha256 "82bf65013962514ea7e9f9decadfc063f528902a0cea281e7dbf3f3a30c42515" => :sierra
-    sha256 "56adb634dcc23ce1ca88d888a7a99ac23a763237fb0696bbbf57d9f9c90f6d66" => :x86_64_linux
   end
 
   depends_on "libyaml"

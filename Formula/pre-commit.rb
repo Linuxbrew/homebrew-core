@@ -5,13 +5,13 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v2.2.0.tar.gz"
   sha256 "53a5d39e8b2063a004ecdabd4b459ae826cfe47eca449720e4fdde06a7d43cc0"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "1a7f0335e863020359410ccffc9c4272751b041b99017c3b870ee24c57b05fae" => :catalina
     sha256 "7c00f08c4571d9b956f192b974c5a64ce458636a80c6723b0f6af354c6db9f8c" => :mojave
     sha256 "ed68993f6703cccc5766c87a346a40131f429a55a4f1587c3acee1c7a6c07ab1" => :high_sierra
-    sha256 "506cdd0acbe61d6e41b3a24d289ce8d2fbc3f3d74ccf453f09a2513ba38263e0" => :x86_64_linux
   end
 
   # To avoid breaking existing git hooks when we update Python,

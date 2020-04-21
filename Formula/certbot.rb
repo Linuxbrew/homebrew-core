@@ -5,14 +5,13 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v1.3.0.tar.gz"
   sha256 "9b531a527bc7908fa23f81ecb449ad8351791342a9bd5b1d09b15acd78dc8840"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     sha256 "38243c78fb44fa4abfd195a7c70534871e99892e64db4f2afea359cb3540a76d" => :catalina
     sha256 "a52a86e2ccffa02c7afdcb708a2332062137f9fbdc71720268c51b316f272a7d" => :mojave
     sha256 "b3b9ed1555e3e5dffb9e9de1262498c6a5a04f17d00524eb1b4a68421efcbaf0" => :high_sierra
-    sha256 "5dc0e9c3baa36e0b6404b44638efa072f7cbe6f7c6ca18fc1829f1a02b56761f" => :x86_64_linux
   end
 
   depends_on "augeas"

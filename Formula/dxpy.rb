@@ -5,13 +5,13 @@ class Dxpy < Formula
   homepage "https://github.com/dnanexus/dx-toolkit"
   url "https://files.pythonhosted.org/packages/ce/9e/83d2fcc826cf78a7df0072a957b3321b57f87f753769f9d1f4472854316c/dxpy-0.292.0.tar.gz"
   sha256 "3b5dbb150c7b917a252f514146758058780dfa2d82143314417cdccc5456ff8b"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "e187dbcaf01869a399c74636004b94790f8d59c6982876774da734e42437c01f" => :catalina
     sha256 "adf3b1d5ed5151315b950dce6055288ee38946e6c81c18e5c3beb30144b0ac8f" => :mojave
     sha256 "6844389f4cb3c9d17a2657076498e8dc872a2f4171aa9d13a8f4269414d1bff8" => :high_sierra
-    sha256 "b0cd49bd59becb9b93ee45c3ce75b201c88f5ccfec346da6c31d425658896206" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -5,14 +5,13 @@ class Jupyterlab < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/5c/fa/ae6b7623234710b6df9610787f2fb32e0a1a5a4f94772bf544aeb3d8849e/jupyterlab-2.1.0.tar.gz"
   sha256 "8c239aababf5baa0b3d36e375fddeb9fd96f3a9a24a8cda098d6a414f5bbdc81"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
     sha256 "ef99028d5f2ebc4f879e67405042702ba80fbad15df6ab35f0caf3faf16adf2a" => :catalina
     sha256 "f28d7e518a6a8d6fb88805e43d928e2fd134f6db8920f949dac73f4d855e064b" => :mojave
     sha256 "e900cd7c3b653dbe8254e2901ddb83ced9d327ef6fb0e4e74597365253616e91" => :high_sierra
-    sha256 "055057cef1bc707baa555b1aa23b58e3fd387d58f51e35316dd0002ac2dc5758" => :x86_64_linux
   end
 
   depends_on "ipython"

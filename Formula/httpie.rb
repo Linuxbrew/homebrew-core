@@ -5,6 +5,7 @@ class Httpie < Formula
   homepage "https://httpie.org/"
   url "https://files.pythonhosted.org/packages/e2/79/da6aec7b4356e8b325561b987c940e5b1e4de1200a5c3db7c57a97d61ca1/httpie-2.1.0.tar.gz"
   sha256 "a76f1c72e83bd03cde3478c5f345d5570fdb2967ed19d68d09518088640b9e8e"
+  revision 1 unless OS.mac?
   head "https://github.com/jakubroztocil/httpie.git"
 
   bottle do
@@ -12,7 +13,6 @@ class Httpie < Formula
     sha256 "25f0e58f81a2cdd9cba772f07d67591533b4b31a2b970a356701aa046d4d9638" => :catalina
     sha256 "be158ebb4cfd327ebea02f7b8b8d63d093e474cd303eafff4a2b56b0611983a2" => :mojave
     sha256 "f331edb94183bfc5fa9de4b4abf148cc91a3a8b3c0e24cc1f5e6b0a4172dd34d" => :high_sierra
-    sha256 "93b002e541f2a1b81bb7f536b5cb3bc26ebaeb86bbf23ff20cb9808d506d5982" => :x86_64_linux
   end
 
   depends_on "python@3.8"

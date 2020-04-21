@@ -6,6 +6,7 @@ class Khal < Formula
   url "https://github.com/pimutils/khal.git",
       :tag      => "v0.10.1",
       :revision => "a6d7d62388d33459e85dfb5cf57a31c46f120769"
+  revision 1 unless OS.mac?
   head "https://github.com/pimutils/khal.git"
 
   bottle do
@@ -14,7 +15,6 @@ class Khal < Formula
     sha256 "65c0e242110629b9aba6fc3fb7dcdd0b48c256465cbf8e4bdce6eca10ef791b0" => :mojave
     sha256 "e64129f4743de673ab7ecadf45943cf920e1f263a943e13f4bb2c138cc542855" => :high_sierra
     sha256 "f3fc8e90d8d5e5f452a56954563d2c5e40f17cbda7f1552ad9ad2bd5e8bda30a" => :sierra
-    sha256 "06d842f2e2c2e5c7226c41bf354b69622d50f7af87d3d3d55137bd01b0b1a5aa" => :x86_64_linux
   end
 
   depends_on "python"

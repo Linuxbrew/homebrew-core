@@ -5,13 +5,13 @@ class Autopep8 < Formula
   homepage "https://github.com/hhatto/autopep8"
   url "https://files.pythonhosted.org/packages/ca/d3/bb1c5781415b2a4f7d48bcd4c62e735d5ebf40d4f8c325d654870bedb7a6/autopep8-1.5.1.tar.gz"
   sha256 "cc6be1dfd46f2c7fa00e84a357f1a269683985b09eaffb47654ed551194399eb"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "2f1564bd116ad939ed8fd2a497865c416fbfa939cf94242cec47f1dd15cd0a06" => :catalina
     sha256 "7b3e36fcfef4a1475727845753b1f2a512fc1b982527cb5d0dba08b7fdd007df" => :mojave
     sha256 "9178c1e4b633eaad87163a18b55a7818969b3464569d6bb87ceba0e2d1fbb8b4" => :high_sierra
-    sha256 "78af23e0021dfd5fc516ca380ae38fb79167794984fa7d616c2099699acc0d5c" => :x86_64_linux
   end
 
   depends_on "python"

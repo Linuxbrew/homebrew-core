@@ -5,14 +5,13 @@ class Streamlink < Formula
   homepage "https://streamlink.github.io/"
   url "https://github.com/streamlink/streamlink/releases/download/1.3.1/streamlink-1.3.1.tar.gz"
   sha256 "dee047f688dc31429842ad29870ab19e63b292d73e79d709adcdbca1f278d432"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
     sha256 "83a7a42ffc99436daf495cb9bbcfe09a483cb31e0f76c0ba11212cf58155ad0d" => :catalina
     sha256 "5e8aadebb77954be29c1cf97e9e66763c01667e27c87270b740f77ce96a4c80b" => :mojave
     sha256 "9c9f19cbc7352c0a4f31b3d86dd26740f863ae2761263947c23340dbe20840b3" => :high_sierra
-    sha256 "51bf46c22144143e5ee5c1ec8f5d0ba4b6549b3a8b1b5ac01e16043a138c6b7c" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -6,6 +6,7 @@ class Vdirsyncer < Formula
   url "https://github.com/pimutils/vdirsyncer.git",
       :tag      => "0.16.7",
       :revision => "dcf5f701b7b5c21a8f4e8c80243db3e0baff1313"
+  revision 1 unless OS.mac?
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
@@ -15,7 +16,6 @@ class Vdirsyncer < Formula
     sha256 "89f7e1832a262681843b223527d96c5f6a587ded3b2884df9a87204c463f1911" => :high_sierra
     sha256 "57510d02d159de632f3fdb98d7de88aba5ea01d375b4f096d6d367c976e355bc" => :sierra
     sha256 "81eaa19b3cbc91007a0a5cfe9979cca1f207b2ac2a72b87aabca41ae019838f7" => :el_capitan
-    sha256 "fd3719119ae0a64f8b8a34cf44cd11cf31e7f2368cdd7391d840dba43baadbf2" => :x86_64_linux
   end
 
   depends_on "python"

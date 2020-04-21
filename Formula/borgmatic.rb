@@ -5,14 +5,13 @@ class Borgmatic < Formula
   homepage "https://torsion.org/borgmatic/"
   url "https://github.com/witten/borgmatic/archive/1.5.1.tar.gz"
   sha256 "cf06f1b5a7de8f8ef696dc6ba7d67ad30cdbdabf8c9d240ae871efd36885e2a9"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
     sha256 "b7557655c62bb016538aba61fdbd0df649b5015194254bd3e753e41fdbdc7f84" => :catalina
     sha256 "58a738e0d23163f811b1f03eddb7cc67d1abc6ec5864d6daa9f6fcee53b2a2cb" => :mojave
     sha256 "e054383b7c5a584cf60d6124d45a228522e5caabc0a9b1dd5cadbf7e51a9fda8" => :high_sierra
-    sha256 "979f516c769e8fd35662fdd740d11b67046d2b8d62727a748d2eccafead4c1be" => :x86_64_linux
   end
 
   depends_on "libyaml"

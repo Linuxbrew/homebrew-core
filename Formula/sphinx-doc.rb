@@ -5,13 +5,13 @@ class SphinxDoc < Formula
   homepage "https://www.sphinx-doc.org/"
   url "https://files.pythonhosted.org/packages/d5/75/e2a582a0ce014dce99cab62f251c179712cb6c4377705deb7c9b474e4f35/Sphinx-2.4.4.tar.gz"
   sha256 "b4c750d546ab6d7e05bdff6ac24db8ae3e8b8253a3569b754e445110a0a12b66"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "3ef56ca6ddedc283aa7aa6db351114842843301fb3bca3a5503e06a533bb39d6" => :catalina
     sha256 "52b050ce3eb8feae8f83e0bfcadb2e92bd7c857d191fe73fce2021bfee75ba56" => :mojave
     sha256 "08059e33f0cbbba2c2b54982eaec7da4fec8a73891a0f5399468025968c8de88" => :high_sierra
-    sha256 "6faa4384f06065c779ff60624651df527b21affd385546aa09e5275c04471963" => :x86_64_linux
   end
 
   keg_only <<~EOS

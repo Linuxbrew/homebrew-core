@@ -5,13 +5,13 @@ class AwsElasticbeanstalk < Formula
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
   url "https://files.pythonhosted.org/packages/6b/3e/4141fb952d335fcd8243412a62e2a717d50d1de1d7e4b6a8fe485aa9ff5b/awsebcli-3.18.0.tar.gz"
   sha256 "26b419b5a5c6b971a1c19f1b8e1ccc01c76b799d14ad1ecd1dc482e757401d59"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "6be846688b67cf050fdd3314683886474f6266e734d7c4524271cd4802a631d0" => :catalina
     sha256 "62dfe29cfb8ead9039605b74389884ee70923d247d14a1defa414779099715c3" => :mojave
     sha256 "be6ca4d25170c228bf86ea134461cb634ab96e6b49f1b6aec81dd9094b5eabf7" => :high_sierra
-    sha256 "d6a5f1a29c04073e1dfd61cb2a97b506dad89ea68511fdc17b104af407680981" => :x86_64_linux
   end
 
   depends_on "python@3.8"

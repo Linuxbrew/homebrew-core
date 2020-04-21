@@ -5,7 +5,7 @@ class Ipython < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/76/d4/13001e8671e8b012ec25acb9a695d3271ceed2dc6aa8f94103a6dd0c4577/ipython-7.13.0.tar.gz"
   sha256 "ca478e52ae1f88da0102360e57e528b92f3ae4316aabac80a2cd7f7ab2efb48a"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Ipython < Formula
     sha256 "ebabba5b81a7815cae12a0a7390cf0c2ff44b2be396d319e33c023b0e4821835" => :catalina
     sha256 "507b48a0d3198cc5507c5bdc2442162c514888373decafdade0a597f22ddee58" => :mojave
     sha256 "cddcb624c7910a4e8d9d1cbd4db7f9c49d613580620247b247c99c7bcbd992bb" => :high_sierra
-    sha256 "ee5e1e75c0797ae4e57be5a9b53ae374e4a36617efd43863932644a006f9367f" => :x86_64_linux
   end
 
   depends_on "python@3.8"

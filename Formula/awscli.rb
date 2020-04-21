@@ -5,14 +5,13 @@ class Awscli < Formula
   homepage "https://aws.amazon.com/cli/"
   url "https://github.com/aws/aws-cli/archive/2.0.8.tar.gz"
   sha256 "16bc81eae154d2151b3e699e5377983a0032591256ea8d6a8cf217642dfd54b4"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
     sha256 "333cb2cf92892bed6c8299c5520607549852960a2743bfb34f1ca8da0d4d16e6" => :catalina
     sha256 "409c666c23debee15e32f9f7ae44903ee775e0aa5047fde59e393b6b907b32bd" => :mojave
     sha256 "160fcc90be2f90880c8422ca4ebabf70339c6c1a3e99817b3e5e05a5f43ddc9f" => :high_sierra
-    sha256 "0d04240396e3141b1f37c19a309c1b498965af877c67d13fca69a3c26248d5b3" => :x86_64_linux
   end
 
   depends_on "libyaml" unless OS.mac?

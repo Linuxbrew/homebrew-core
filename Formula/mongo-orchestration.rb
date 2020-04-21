@@ -5,7 +5,7 @@ class MongoOrchestration < Formula
   homepage "https://github.com/10gen/mongo-orchestration"
   url "https://files.pythonhosted.org/packages/6d/b5/624a02d5f6cbfa8eb3c6554f5387c4739ad283bac7efb27ee99434a4d314/mongo-orchestration-0.6.11.tar.gz"
   sha256 "7a09706d36e94ae767e90646fed98a52b426a4d14b0f4f724b185e292ac8f425"
-  revision 3
+  revision OS.mac? ? 3 : 4
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
@@ -13,7 +13,6 @@ class MongoOrchestration < Formula
     sha256 "ca2f1aa5e42d7034892714d40e880b55c2c600c41340469a0c7920f5745ee318" => :catalina
     sha256 "74f0f48ec48f2e52b4ce7787ba03b4dd67673bc434f90ab0f209eea1cae05a57" => :mojave
     sha256 "fbb1f7ae46b230e912072383e54150c2a48ded086fa25f3f5a4c030dd92458d4" => :high_sierra
-    sha256 "81c2c81a5a70985bd4efa521af5486963fc2b786310eba80b8b91766bdc358dc" => :x86_64_linux
   end
 
   depends_on "python@3.8"

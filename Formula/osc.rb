@@ -5,6 +5,7 @@ class Osc < Formula
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.168.2.tar.gz"
   sha256 "070637e052ad18416cf27b49b53685f802addac8da9f9a36ac8069dcdb1757c4"
+  revision 1 unless OS.mac?
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -12,7 +13,6 @@ class Osc < Formula
     sha256 "d3904d858e171e390e66557cac6adfcb4088763cfc3d9d20d4db230a18a29325" => :catalina
     sha256 "3fa16b437b3b85f672f35b4ca47c588edd5dcdd04a088b9e198abeb65c1cff33" => :mojave
     sha256 "f140234da093e1ed0a0cc586e6972a690131991e5667cee4147ea5eed1c0a2d1" => :high_sierra
-    sha256 "70fc94c4d8635f6e759a75dea786123fd96b72ac0add5fc14e4c21f1465f33bc" => :x86_64_linux
   end
 
   depends_on "swig" => :build

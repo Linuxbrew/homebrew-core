@@ -5,7 +5,7 @@ class Termius < Formula
   homepage "https://termius.com"
   url "https://github.com/Crystalnix/termius-cli/archive/v1.2.12.tar.gz"
   sha256 "89be6d35e5c4918c0d9e3f2410620d3a84c7108e52c2c87cfa6166c5612e08ee"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "master"
 
   bottle do
@@ -14,7 +14,6 @@ class Termius < Formula
     sha256 "1cead2d7979a518cc70f85b4b36bc76d63a829acdecea8ea0cc6ecd2061a6435" => :catalina
     sha256 "b9e728620fef8cdddc7eb7da4b1f065fa47d7fd4322fa45c8fd27753d37dfbae" => :mojave
     sha256 "c4dbd02697de6f8cdee9fac085e170c83c66002b369804967c5c667eae580752" => :high_sierra
-    sha256 "cde0035528f2e3d2028c84b4be06564c1033f3175353cc9a10ef321fb58c7646" => :x86_64_linux
   end
 
   depends_on "bash-completion"

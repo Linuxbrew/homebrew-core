@@ -5,7 +5,7 @@ class AnimeDownloader < Formula
   homepage "https://github.com/vn-ki/anime-downloader"
   url "https://files.pythonhosted.org/packages/9a/41/a4afd6d8f2473280210f24d5f9b1d24b20f4f3e78681196094aa8f631f32/anime-downloader-4.1.0.tar.gz"
   sha256 "0f14194488586e996824da80a7a29f7996790d524f04920e737366eff36f13b6"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
   head "https://github.com/vn-ki/anime-downloader.git"
 
   bottle do
@@ -13,7 +13,6 @@ class AnimeDownloader < Formula
     sha256 "3f9913242b8b7b207f9f0692a65fca83d0eb098f59c30c8f9107e87c839092b6" => :catalina
     sha256 "35b6918882546d04a134f00c9bdc0f5b665298d8d74bdc4c890616dfc416e44d" => :mojave
     sha256 "bef0a11d15bb29a3a7685164cdaa23fb7f2f63c5191ac62ee4c107248f10e1e3" => :high_sierra
-    sha256 "ae2f55a87b00b84e24b4e0b476ed5e4c487d331ee7e4bbf093ac879b3c187861" => :x86_64_linux
   end
 
   depends_on "aria2"

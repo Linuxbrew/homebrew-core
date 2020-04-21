@@ -5,7 +5,7 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/presslabs/gitfs/archive/0.5.2.tar.gz"
   sha256 "921e24311e3b8ea3a5448d698a11a747618ee8dd62d5d43a85801de0b111cbf3"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
   head "https://github.com/presslabs/gitfs.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Gitfs < Formula
     sha256 "01205b29c991e751cf6be6964df1f9398860606e3c284257c60d25fd13ec360f" => :catalina
     sha256 "d9ff9a6216fa90698e730e0a3b3603e1a58726c6f603fb83e7ee5b5d6d9b7ae0" => :mojave
     sha256 "cf5b89f294c252fea0862b1f5b14420a7077d3f02eecc21eda8e02f701ddf4a3" => :high_sierra
-    sha256 "3520d321dd9a743344ee3e3a0df1f3e33d55728b6913fce5d7818266950ec532" => :x86_64_linux
   end
 
   depends_on "libgit2"

@@ -5,7 +5,7 @@ class Salt < Formula
   homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/28/63/ad60e60c982810d55e23012e2359c96f92694842a476708f44e5d671a9b6/salt-3000.tar.gz"
   sha256 "04fbc64933b375cbbefc9576bcc65167b74d5eec7f58e64d096d67529ea66500"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -13,7 +13,6 @@ class Salt < Formula
     sha256 "ea459c7202a91afdd6a46b3ef76c0845a11f81ed07ae03a80d5f407a2d11cd45" => :catalina
     sha256 "06e1bc585b3703784b097b92a82698e81bc0a35f38840bba290aa4f6d696e945" => :mojave
     sha256 "22690a3800658bff62eac37e0634a445b8634bfc56789aa432d2ff1f282cc310" => :high_sierra
-    sha256 "74164486f5250f18b6e619ae0f76e91ac82afecd68b73aeeec012d59bf38cbb5" => :x86_64_linux
   end
 
   depends_on "swig" => :build

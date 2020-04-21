@@ -5,14 +5,13 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/d4/62/5e4a86f7c4b111e016577f1b304063ebe604f430db15465ac58b13993608/magic-wormhole-0.12.0.tar.gz"
   sha256 "1b0fd8a334da978f3dd96b620fa9b9348cabedf26a87f74baac7a37052928160"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "2a7df1e4f3f866733c53a8dc8c6656eeb4634d57386ba8f75d49656582891225" => :catalina
     sha256 "8dc8d54c2e161693d905b51710f8111c8d4469c597010f43412f6a169b1318d8" => :mojave
     sha256 "3e836c232597424b884bd7cc218bbf0e9c844d13518a3a3af8e3ae190feb788c" => :high_sierra
-    sha256 "6a32239a183a8198654ecc03d2eb395d310f6fdc30fdc4c87a431b404ca77421" => :x86_64_linux
   end
 
   depends_on "libsodium"

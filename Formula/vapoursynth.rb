@@ -5,6 +5,7 @@ class Vapoursynth < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R49.tar.gz"
   sha256 "126d1e68d3a3e80d1e215c8a2a5dc8773f5fcac70a6c22dadc837bccb603bccd"
+  revision 1 unless OS.mac?
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -12,7 +13,6 @@ class Vapoursynth < Formula
     sha256 "637f66fa28dbcc23ff37c044451d6d395379c4cbce1c6e34048c85e1deb81893" => :catalina
     sha256 "4cece74f6d7757ab3c92b99504c88d971b3a22be586ea22fd9e41a25b6eee22d" => :mojave
     sha256 "de060f7f483aaa67b062f6b36259e93a836d28cc8a6ef0d8a042c6ce6467642c" => :high_sierra
-    sha256 "40deede422bf24a4492099de9a9688ccd7a2536c10afb047e5675768be390262" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build

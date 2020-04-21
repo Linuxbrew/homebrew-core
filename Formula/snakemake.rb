@@ -5,6 +5,7 @@ class Snakemake < Formula
   homepage "https://snakemake.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/eb/b2/5c53a630d1ac9acb551f2157d5cf8fad44d4d4a07090b3d602790a3da956/snakemake-5.14.0.tar.gz"
   sha256 "b11b7ac30808f573883d5db79595ac62db6d1416b24fd71e1a27dc7b3e5678e8"
+  revision 1 unless OS.mac?
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do
@@ -12,7 +13,6 @@ class Snakemake < Formula
     sha256 "b479ee3bd1bb25b9874dce61d0a65784f741c90fe53f5496eb610d5b9153d0bb" => :catalina
     sha256 "b4596d35e99cb957a1f459702379e3ef6a6bbdfd52a72c4a942340e33518430d" => :mojave
     sha256 "08b25796c3eb18dfbe476914ae5c42c15f11171d8db729a3e823907a51f0d44b" => :high_sierra
-    sha256 "79f2be814d103bfd9f68dd56383579fb6dce7beb313692bab93a8b0780bb0c1c" => :x86_64_linux
   end
 
   depends_on "python"

@@ -5,14 +5,13 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.6.9.tar.gz"
   sha256 "b5ebba187d27b3474b36acd715df015b198c0e5df8aefb32200ba4f3f3de17f4"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
 
   bottle do
     cellar :any
     sha256 "e9e7df0108dd3be03a9391a95befbbfa66950bbbb48ae8fd28f4855ae6c69932" => :catalina
     sha256 "dc221c6071b5a37760a530da1981a96a1f404fa461d44fee7a217897e9a01077" => :mojave
     sha256 "b20ebbe1aa0c30c713e58c03ac167196f7c3b5635f95c1ce8687e6bfad9a0294" => :high_sierra
-    sha256 "5ef33ee994f32d7e0455c04716f3a0caedc6a3a88b8bbe393f6bec48874f7ecd" => :x86_64_linux
   end
 
   depends_on "awscli"

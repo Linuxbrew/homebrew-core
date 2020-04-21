@@ -5,13 +5,13 @@ class Diffoscope < Formula
   homepage "https://diffoscope.org"
   url "https://files.pythonhosted.org/packages/70/fc/13ed6aa8d4abc809e33619eef9b9eff4d52cc0e38b1066a7bdb66584a673/diffoscope-141.tar.gz"
   sha256 "66a8d066f8f5ac18d02aa5148ada7c6f4ab094cd64d29e72b319c5e7df151fc0"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b79ad9e020a41fff89ea5539e032bd002f94cca487f63848ef4dd125229a27ad" => :catalina
     sha256 "c6f4fbadca83bc67e526301592a022d7febc93b27f6db2cfa1fa58e945c480ff" => :mojave
     sha256 "673d7f7e2fc98662e8431f910239da716954b98d3206286c25a0b40c2ef20e66" => :high_sierra
-    sha256 "f54267d421d69c5668f0a38a57485e17b723164eca838f7af4061153bf5e7a68" => :x86_64_linux
   end
 
   depends_on "gnu-tar"

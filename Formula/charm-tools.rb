@@ -5,13 +5,13 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/3e/0c/6f4b8a7e907a426985bbd5314bd7a5bfcbbd62d225c1b97d449a83de1cfa/charm-tools-2.7.3.tar.gz"
   sha256 "6105a2807a100f56a0ca05c989b3f77cdffcc2eef02913e20e0255b652096bb5"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "c284dc36c8de6c6039b9d16e2b3a0d735f8997ac350bec99bebd1644de9dc47a" => :catalina
     sha256 "118ff4b6125920c24da95468fd86d1296e2762c9725e6716205113772b359184" => :mojave
     sha256 "94558890e5674e2452282d60f4ca88486f096a981abce10c14c3d4883b9c84a6" => :high_sierra
-    sha256 "d52ceeee7c7dcde2075318df184188c8358b58228dfaeba1d8b3484e9ed4a39e" => :x86_64_linux
   end
 
   depends_on "charm"

@@ -5,7 +5,7 @@ class Subliminal < Formula
   homepage "https://subliminal.readthedocs.org"
   url "https://files.pythonhosted.org/packages/f0/84/8cddb13aa4142e85546cd7c0d0546d2c1a25f0876000a3ec37151dfd8eb9/subliminal-2.0.5.tar.gz"
   sha256 "147aa54f54de62d6fcafa213bb9ea89319600c133dab1a5532ff7126352bfbb7"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/Diaoul/subliminal.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Subliminal < Formula
     sha256 "5ed1e341a5c814b25e18461ed108c5085f9e2553c86183bc5bf3905b234acd66" => :catalina
     sha256 "de941a422e12c8ed0f70284c9ec2ae9e2c48d14f7f9d78112bbbfcbd8fcb12b6" => :mojave
     sha256 "de941a422e12c8ed0f70284c9ec2ae9e2c48d14f7f9d78112bbbfcbd8fcb12b6" => :high_sierra
-    sha256 "a14df3e5c58228d21e12ec50dfd391eff1efadb2b33c69d0f4ff2b7e93de7693" => :x86_64_linux
   end
 
   depends_on :macos # Due to Python 2

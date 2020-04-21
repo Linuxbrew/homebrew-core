@@ -5,14 +5,13 @@ class MpsYoutube < Formula
   homepage "https://github.com/mps-youtube/mps-youtube"
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.8.tar.gz"
   sha256 "d5f2c4bc1f57f0566242c4a0a721a5ceaa6d6d407f9d6dd29009a714a0abec74"
-  revision 9
+  revision OS.mac? ? 9 : 10
 
   bottle do
     cellar :any_skip_relocation
     sha256 "4bd9882d37990b6248a1c66e2a5a811ec56623137bce402349f6d3f0b26b266e" => :catalina
     sha256 "010336617d49531753133de6b438ff69d3e34d49b72caaa356e9c7e5260db814" => :mojave
     sha256 "bbb8c699b6bab92ac2cef47608a8d5dc5bd110a04e842d5720620b0c9793c060" => :high_sierra
-    sha256 "e70118a1a07196e872225aabcd759a0f7c5c2b6fb2edf286b3bee465aafbec85" => :x86_64_linux
   end
 
   depends_on "mplayer"

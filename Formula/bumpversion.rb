@@ -13,7 +13,6 @@ class Bumpversion < Formula
     sha256 "a379a5aa089128d51f39a585e3465520b4a109a7b98e0237dc5b4478ce050001" => :catalina
     sha256 "dea282fd874f598a1099885ee821f1f45662844724e9650362848de637e421d0" => :mojave
     sha256 "0ef3a9a86d8504dc510d4ccff21d71b832335abb7d7c739b5e514ef654b3900c" => :high_sierra
-    sha256 "30cc80e0ac173aa3847782be0d57f46716cb785f01398c5c819f4ab1a064e575" => :x86_64_linux
   end
 
   depends_on "python@3.8"

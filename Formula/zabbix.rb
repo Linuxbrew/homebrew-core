@@ -3,12 +3,12 @@ class Zabbix < Formula
   homepage "https://www.zabbix.com/"
   url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.4.7/zabbix-4.4.7.tar.gz"
   sha256 "497b8fe7905576d4d450c6fa486693c10d42915b6b55564f111957edcb9fec8d"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "1a203e1675c77976ff2c164d1b38279d37fa31ea0bd70087939d265be80f5f99" => :catalina
     sha256 "6d346a086dc6938e37bcb41eebc9343a7730b012696125cfe309c4d90f7a04a1" => :mojave
     sha256 "056f1fb839febcbb0c4fa2f76f627676184ecb5254c13489753ea08283aaccc5" => :high_sierra
-    sha256 "f46b3569d819924b278f1c77127ba5a1a48cd902c0cb0eabe24736dfca28c6cd" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"

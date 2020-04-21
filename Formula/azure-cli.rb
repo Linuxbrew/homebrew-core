@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/40c60984b9a220c729fe9f525649931fc623a61a"
   version "2.3.1"
   sha256 "05b7c868afd2c95aa8362252336a9477aa88ccd0de91131ff9a1f1a46c2619f1"
+  revision 1 unless OS.mac?
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -13,7 +14,6 @@ class AzureCli < Formula
     sha256 "130fe5aebe5c7771877b31248813054c55a29ddbe9389812bde0c41452a28548" => :catalina
     sha256 "436f07e44ad20b6f6e67b06355c8ae653ad8a0b82b8b33339c52ef7210b2bbb8" => :mojave
     sha256 "cfbbdfc33121355b579dd478cc080628c5114bf0f9be7f077591dcdda4799f5a" => :high_sierra
-    sha256 "ef83ec1fec598c1be4c79745bfa8e1fff791880e66b7b4c34a160c4581c17f80" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
