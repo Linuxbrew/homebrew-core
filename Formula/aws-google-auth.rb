@@ -161,8 +161,8 @@ class AwsGoogleAuth < Formula
     end
 
     resource "jeepney" do
-      url "https://files.pythonhosted.org/packages/3a/b6/28c665d48e48b5b7e6a26853d6b4595c4031de7798a6c4985b14492ebd14/jeepney-0.4.1.tar.gz#sha256=13806f91a96e9b2623fd2a81b950d763ee471454aafd9eb6d75dbe7afce428fb"
-      sha256 "13806f91a96e9b2623fd2a81b950d763ee471454aafd9eb6d75dbe7afce428fb"
+      url "https://files.pythonhosted.org/packages/74/24/9b720cc6b2a73c908896a0ed64cb49780dcfbf4964e23a725aa6323f4452/jeepney-0.4.3.tar.gz#sha256=3479b861cc2b6407de5188695fa1a8d57e5072d7059322469b62628869b8e36e"
+      sha256 "3479b861cc2b6407de5188695fa1a8d57e5072d7059322469b62628869b8e36e"
     end
 
     resource "secretstorage" do
