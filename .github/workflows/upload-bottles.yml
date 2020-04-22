@@ -60,13 +60,14 @@ jobs:
           cd $(brew --repo ${{github.repository}})
           git commit --amend --no-edit
           git show --pretty=fuller
-          for try in $(seq 5); do
+          for try in $(seq 20); do
             git fetch
             git rebase origin/master
             if git push https://x-access-token:${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@github.com/${{github.repository}} master; then
               exit 0
             else
-              sleep $(shuf -i 3-10 -n 1)
+              max=$(( $try + 10 ))
+              sleep $(shuf -i 3-$max -n 1)
             fi
           done
           exit 1
