@@ -20,11 +20,6 @@ class Osmfilter < Formula
 
   uses_from_macos "zlib"
 
-  resource "pbf" do
-    url "https://download.gisgraphy.com/openstreetmap/pbf/AD.tar.bz2"
-    sha256 "f8decd915758139e8bff2fdae6102efa0dc695b9d1d64cc89a090a91576efda9"
-  end
-
   def install
     system "autoreconf", "-v", "-i"
     system "./configure", "--prefix=#{prefix}"
@@ -32,10 +27,6 @@ class Osmfilter < Formula
   end
 
   test do
-    resource("pbf").stage do
-      system bin/"osmconvert", "AD", "-o=test.o5m"
-      system bin/"osmfilter", "test.o5m",
-        "--drop-relations", "--drop-ways", "--drop-nodes"
-    end
+    system bin/"osmconvert", "-h"
   end
 end
