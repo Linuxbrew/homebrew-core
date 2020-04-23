@@ -72,6 +72,12 @@ class PostgresqlAT11 < Formula
                                     "pkgincludedir=#{include}",
                                     "includedir_server=#{include}/server",
                                     "includedir_internal=#{include}/internal"
+
+    unless OS.mac?
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
+    end
   end
 
   def post_install
