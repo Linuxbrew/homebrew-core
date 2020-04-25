@@ -13,6 +13,7 @@ class Tmx < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "libxml2"
 
   def install
