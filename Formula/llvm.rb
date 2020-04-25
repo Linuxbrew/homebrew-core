@@ -114,7 +114,7 @@ class Llvm < Formula
 
   unless OS.mac?
     depends_on "pkg-config" => :build
-    depends_on "gcc" # needed for libstdc++
+    depends_on "gcc@9" # needed for libstdc++
     depends_on "glibc" if Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
     depends_on "binutils" # needed for gold and strip
     depends_on "libelf" # openmp requires <gelf.h>
