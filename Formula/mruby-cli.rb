@@ -16,6 +16,7 @@ class MrubyCli < Formula
   end
 
   uses_from_macos "bison" => :build
+  uses_from_macos "ruby" => :build
 
   def install
     ENV["MRUBY_CLI_LOCAL"] = "true"
