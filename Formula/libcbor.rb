@@ -14,10 +14,6 @@ class Libcbor < Formula
   depends_on "cmake" => :build
 
   def install
-    # Hack around libcbor forcing LTO for Release builds
-    # https://github.com/PJK/libcbor/issues/140
-    inreplace "CMakeLists.txt", "-flto", "" unless OS.mac?
-
     mkdir "build" do
       system "cmake", "..", "-DWITH_EXAMPLES=OFF", *std_cmake_args
       system "make"
