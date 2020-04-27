@@ -10,13 +10,12 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 4
+  revision OS.mac? ? 4 : 5
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
     sha256 "7fc31bed73398ba401db3107151a3b0ae301ddc60e017a45bd3d69ac1b400235" => :high_sierra
-    sha256 "c2083636a45129a71c8ba9aba51f7536e976aa8a031eb899ec396c310dc6ec43" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -32,19 +31,22 @@ class GccAT5 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "zlib"
+
   unless OS.mac?
-    depends_on "isl@0.18"
-    depends_on "zlib"
     depends_on "binutils"
+    depends_on "isl@0.18"
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  resource "isl" do
-    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
-    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
-    sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
+  if OS.mac?
+    resource "isl" do
+      url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
+      mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
+      sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
+    end
   end
 
   # Fix build with Xcode 9
@@ -103,6 +105,8 @@ class GccAT5 < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-system-zlib",
+      "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
@@ -112,28 +116,10 @@ class GccAT5 < Formula
       "--disable-werror",
       "--disable-nls",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
     ]
 
-    unless OS.mac?
-      args += [
-        "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
-        "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues",
-        # Fix cc1: error while loading shared libraries: libisl.so.15
-        "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}",
-      ]
-
-      # Change the default directory name for 64-bit libraries to `lib`
-      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
-
-      # Set the search path for glibc libraries and objects, using the system's glibc
-      # Fix the error: ld: cannot find crti.o: No such file or directory
-      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=crti.o")).parent
-    end
-
-    # Fix Linux error: gnu/stubs-32.h: No such file or directory.
     if OS.mac?
-      args << "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues"
       args << "--enable-multilib"
       args << "--build=x86_64-apple-darwin#{osmajor}"
 
@@ -147,14 +133,32 @@ class GccAT5 < Formula
       # Avoid reference to sed shim
       args << "SED=/usr/bin/sed"
     else
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+
+      # Fix cc1: error while loading shared libraries: libisl.so.15
+      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
+
+      # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
+
+      args << "--with-isl=#{Formula["isl@0.18"].opt_prefix}"
+
+      # Fix for system gccs that do not support -static-libstdc++
+      # gengenrtl: error while loading shared libraries: libstdc++.so.6
+      mkdir_p lib
+      ln_s Utils.popen_read("/usr/bin/cc", "-print-file-name=libstdc++.so.6").strip, lib
+      ln_s Utils.popen_read("/usr/bin/cc", "-print-file-name=libgcc_s.so.1").strip, lib
+
+      # Set the search path for glibc libraries and objects, using the system's glibc
+      # Fix the error: ld: cannot find crti.o: No such file or directory
+      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
     end
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    if OS.mac?
-      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
-    end
+    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
       system "../configure", *args
@@ -163,6 +167,15 @@ class GccAT5 < Formula
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.
       system "make", OS.mac? ? "install" : "install-strip"
+
+      unless OS.mac?
+        bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+
+        # Create cpp, gcc and g++ symlinks
+        bin.install_symlink "cpp-#{version_suffix}" => "cpp"
+        bin.install_symlink "gcc-#{version_suffix}" => "gcc"
+        bin.install_symlink "g++-#{version_suffix}" => "g++"
+      end
     end
 
     # Handle conflicts between GCC formulae.
@@ -170,6 +183,12 @@ class GccAT5 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
+
+    # Remove symlinks that where added above to help the build with
+    # system gccs that do not support -static-libstdc++. These files
+    # are not needed anymore
+    rm lib/"libstdc++.so.6"
+    rm lib/"libgcc_s.so.1"
   end
 
   def add_suffix(file, suffix)
@@ -180,75 +199,80 @@ class GccAT5 < Formula
   end
 
   def post_install
-    unless OS.mac?
-      gcc = bin/"gcc-5"
-      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
+    return if OS.mac?
 
-      glibc = Formula["glibc"]
-      glibc_installed = glibc.any_version_installed?
+    # Create cc and c++ symlinks, unless they already exist
+    homebrew_bin = Pathname.new "#{HOMEBREW_PREFIX}/bin"
+    homebrew_bin.install_symlink "gcc" => "cc" unless (homebrew_bin/"cc").exist?
+    homebrew_bin.install_symlink "g++" => "c++" unless (homebrew_bin/"c++").exist?
 
-      # Symlink crt1.o and friends where gcc can find it.
-      crtdir = if glibc_installed
-        glibc.opt_lib
-      else
-        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
-      end
-      ln_sf Dir[crtdir/"*crt?.o"], libgcc
+    version_suffix = version.to_s.slice(/\d/)
+    gcc = "#{bin}/gcc-#{version_suffix}"
+    libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
+    raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
-      # Create the GCC specs file
-      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
+    glibc = Formula["glibc"]
+    glibc_installed = glibc.any_version_installed?
 
-      # Locate the specs file
-      specs = libgcc/"specs"
-      ohai "Creating the GCC specs file: #{specs}"
-      specs_orig = Pathname.new("#{specs}.orig")
-      rm_f [specs_orig, specs]
-
-      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
-
-      # Locate the native system header dirs if user uses system glibc
-      unless glibc_installed
-        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
-        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
-
-        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
-      end
-
-      # Save a backup of the default specs file
-      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
-
-      specs_orig.write specs_string
-
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc}` instructs gcc to use brewed glibc
-      #     if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/5"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
+    # Symlink crt1.o and friends where gcc can find it.
+    crtdir = if glibc_installed
+      glibc.opt_lib
+    else
+      Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
     end
+    ln_sf Dir[crtdir/"*crt?.o"], libgcc
+
+    # Create the GCC specs file
+    # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
+
+    # Locate the specs file
+    specs = libgcc/"specs"
+    ohai "Creating the GCC specs file: #{specs}"
+    specs_orig = Pathname.new("#{specs}.orig")
+    rm_f [specs_orig, specs]
+
+    system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
+
+    # Locate the native system header dirs if user uses system glibc
+    unless glibc_installed
+      target = Utils.popen_read(gcc, "-print-multiarch").chomp
+      raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
+
+      system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
+    end
+
+    # Save a backup of the default specs file
+    specs_string = Utils.popen_read(gcc, "-dumpspecs")
+    raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
+
+    specs_orig.write specs_string
+
+    # Set the library search path
+    # For include path:
+    #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
+    #     system header files.
+    #   * `-idirafter <dir>` instructs gcc to search system header
+    #     files after gcc internal header files.
+    # For libraries:
+    #   * `-nostdlib -L#{libgcc}` instructs gcc to use brewed glibc
+    #     if applied.
+    #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
+    #     brew libraries.
+    specs.write specs_string + <<~EOS
+      *cpp_unique_options:
+      + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
+
+      *link_libgcc:
+      #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{HOMEBREW_PREFIX}/lib
+
+      *link:
+      + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{HOMEBREW_PREFIX}/lib
+
+    EOS
+
+    # Symlink ligcc_s.so.1 where glibc can find it.
+    # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+    ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc_installed
   end
 
   test do
