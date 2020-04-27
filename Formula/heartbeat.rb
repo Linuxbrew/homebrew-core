@@ -109,7 +109,7 @@ class Heartbeat < Formula
     sleep 5
 
     begin
-      assert_match "hello", pipe_output("nc -c -l #{port}", "goodbye\n", 0)
+      assert_match "hello", pipe_output("nc #{OS.mac? ? "-c" : "-C"} -l #{port}", "goodbye\n", 0)
       sleep 5
       assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
     ensure
