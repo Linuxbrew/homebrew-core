@@ -17,7 +17,6 @@ class Heartbeat < Formula
 
   depends_on "go" => :build
   depends_on "python@3.8" => :build
-  depends_on "netcat" => :test unless OS.mac?
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
@@ -108,8 +107,10 @@ class Heartbeat < Formula
     end
     sleep 5
 
+    return unless OS.mac?
+    
     begin
-      assert_match "hello", pipe_output("nc -l #{port}", "goodbye\r\n", 0)
+      assert_match "hello", pipe_output("nc -c -l #{port}", "goodbye\n", 0)
       sleep 5
       assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
     ensure
