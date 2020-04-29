@@ -1,0 +1,75 @@
+name: GitHub Actions CI
+on:
+  push:
+    branches: master
+  pull_request: []
+jobs:
+  tap_syntax:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@v2
+
+      - name: Set up tap
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+
+      - name: Install taps
+        run: |
+          # Install taps needed for 'brew tests' and 'brew man'
+          export HOMEBREW_NO_AUTO_UPDATE=1
+          cd "$(brew --repo)"
+          brew tap homebrew/test-bot
+          brew update-reset Library/Taps/homebrew/homebrew-test-bot
+
+      - name: Run brew test-bot --only-tap-syntax
+        run: brew test-bot --only-tap-syntax
+
+  tests:
+    needs: tap_syntax
+    if: github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, 'Merge') == false
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@v2
+
+      - name: Set up tap
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+
+      - name: Run brew test-bot --only-setup
+        run: brew test-bot --only-setup
+
+      - name: Run brew test-bot --only-formulae
+        run: |
+          mkdir bottles
+          cd bottles
+          brew test-bot --only-formulae --keep-old
+
+      - name: Output brew test-bot --only-formulae failures
+        if: always()
+        run: |
+          cat bottles/steps_output.txt
+          rm bottles/steps_output.txt
+
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+
+      - name: Upload bottles
+        if: always() && steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@v1
+        with:
+          name: bottles
+          path: bottles
