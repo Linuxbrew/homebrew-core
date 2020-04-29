@@ -30,8 +30,13 @@ class DatetimeFortran < Formula
   end
 
   test do
-    system "gfortran", "-o", "test", "-I#{include}", "-L#{lib}", "-ldatetime",
-                       pkgshare/"test/datetime_tests.f90"
+    if OS.mac?
+      system "gfortran", "-o", "test", "-I#{include}", "-L#{lib}", "-ldatetime",
+                         pkgshare/"test/datetime_tests.f90"
+    else
+      system "gfortran", "-I#{include}", pkgshare/"test/datetime_tests.f90",
+                         "-L#{lib}", "-ldatetime", "-o", "test"
+    end
     system "./test"
   end
 end
