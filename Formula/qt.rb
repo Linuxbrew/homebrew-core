@@ -19,13 +19,12 @@ class Qt < Formula
 
   keg_only "Qt 5 has CMake issues when linked"
 
-  disable! if ENV["CI"]
-
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if OS.mac?
   depends_on :macos => :sierra if OS.mac?
 
   unless OS.mac?
+    depends_on "at-spi2-core"
     depends_on "fontconfig"
     depends_on "glib"
     depends_on "gperf"
@@ -44,7 +43,7 @@ class Qt < Formula
     depends_on "linuxbrew/xorg/xcb-util-wm"
     depends_on "mesa"
     depends_on "pulseaudio"
-    depends_on "python"
+    depends_on "python@3.8"
     depends_on "systemd"
     depends_on "zstd"
   end
@@ -86,7 +85,6 @@ class Qt < Formula
       args << "-no-rpath"
       args << "-system-zlib"
     elsif OS.linux?
-      args << "-system-xcb"
       args << "-R#{lib}"
       # https://bugreports.qt.io/browse/QTBUG-71564
       args << "-no-avx2"
