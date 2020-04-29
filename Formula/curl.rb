@@ -5,7 +5,6 @@ class Curl < Formula
   sha256 "032f43f2674008c761af19bf536374128c16241fb234699a55f9fb603fcfbae7"
 
   bottle do
-    cellar :any
     sha256 "bafc3e44ec798a160b690d0cf3d3e321faedf8fef56a08ca90f975f5a47e2034" => :catalina
     sha256 "d7e22f7455fcb6f7ab20b0867940db23cf0c22b6bd6bc85d069787b5fbea5ce2" => :mojave
     sha256 "41b6cd0f010ee6fecd8be06033115f8e8027aecc2144876c84d70ea1e1902cbf" => :high_sierra
