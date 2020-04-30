@@ -3,7 +3,7 @@ class Systemd < Formula
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
   url "https://github.com/systemd/systemd/archive/v244.tar.gz"
   sha256 "2207ceece44108a04bdd5459aa74413d765a829848109da6f5f836c25aa393aa"
-  revision 2
+  revision 3
   head "https://github.com/systemd/systemd.git"
 
   bottle do
@@ -22,6 +22,7 @@ class Systemd < Formula
   depends_on "libcap"
   depends_on :linux
   depends_on "lz4"
+  depends_on "openssl@1.1"
   depends_on "util-linux" # for libmount
   depends_on "xz"
 
