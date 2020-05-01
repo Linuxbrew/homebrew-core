@@ -1,15 +1,24 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.3.tar.gz"
-  sha256 "8faf3fc25317b1d15166205bf64c1b4aed55a8a6959dcabaa64dbad197e47add"
   version_scheme 1
 
+  stable do
+    url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.0.tar.gz"
+    sha256 "9aabd13a8018b708ab3c822de2326c19d0a52ed59f50a6b0f9318c07e2a6d93b"
+
+    # Fix compile on macOS.
+    # Remove with the next release.
+    patch do
+      url "https://gitlab.com/graphviz/graphviz/-/commit/4b9079d9fc8634961d146609a420d674225dbe95.diff"
+      sha256 "689b54eda5b19e92cd51322c874116b46aa76c5f1b43cf9869fd7c5a2b771f0f"
+    end
+  end
+
   bottle do
-    sha256 "ad22bb28b684c6fb9c51e32000ada1df8cc2f6f2711f8e85c4599fbb5e213e7e" => :catalina
-    sha256 "7f11871b1618a4e005a38462522b251bda2c97701aaa944b77a82e212d928ba7" => :mojave
-    sha256 "9b7c8b58ae0ab87ab5af31f6d72c61e9840f3fbb24029156a937bb1d3d75310b" => :high_sierra
-    sha256 "4b81d16082887c9d5cbfdcc4131058784249e0d8dddad0fa5f1200a81086e6e0" => :x86_64_linux
+    sha256 "b7622910804f75702b6124ed0a376f7d4f1c8aaa8dde38601549bb4c9a84589b" => :catalina
+    sha256 "cadbefa8657abfbc63d66827ca1492226d10fc6fdba9276f41e62be3b9434ba2" => :mojave
+    sha256 "c3b0269db2fb418c0e1b7413f10e0bec2d4f69485cfda484e8acf99cb1b86a54" => :high_sierra
   end
 
   head do
@@ -25,6 +34,7 @@ class Graphviz < Formula
   depends_on "gts"
   depends_on "libpng"
   depends_on "libtool"
+  depends_on "pango"
   depends_on "byacc" => :build unless OS.mac?
 
   uses_from_macos "flex" => :build
