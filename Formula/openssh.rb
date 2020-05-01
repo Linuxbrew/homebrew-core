@@ -81,6 +81,12 @@ class Openssh < Formula
   end
 
   test do
+    if ENV["CI"]
+      # Fixes "Starting sshd: Privilege separation user sshd does not exist FAILED" in docker
+      system "groupadd", "-g", "133", "sshd"
+      system "useradd", "-u", "133", "-g", "133", "-c", "sshd", "-d", "/", "sshd"
+    end
+
     assert_match "OpenSSH_", shell_output("#{bin}/ssh -V 2>&1")
 
     port = free_port
