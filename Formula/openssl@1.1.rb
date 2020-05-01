@@ -28,6 +28,11 @@ class OpensslAT11 < Formula
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
       sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
     end
+
+    resource "Test::More" do
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
+      sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
+    end
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
@@ -54,6 +59,12 @@ class OpensslAT11 < Formula
         system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
         system "make", "install"
       end
+
+      resource("Test::More").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+        system "make", "install"
+      end    
     end
 
     # This could interfere with how we expect OpenSSL to build.
