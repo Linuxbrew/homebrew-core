@@ -4,13 +4,13 @@ class OpenBabel < Formula
   url "https://github.com/openbabel/openbabel/archive/openbabel-3-0-0.tar.gz"
   version "3.0.0"
   sha256 "5c630c4145abae9bb4ab6c56a940985acb6dadf3a8c3a8073d750512c0220f30"
+  revision 1
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do
-    sha256 "6ec66d0aaa1e1e16bd551a6a2f9e147a207770f800ff15938a6c9547299bb4c9" => :catalina
-    sha256 "a3c4902398ed67b093d5f88b03872a0fa07eba615a6d51fc998644d09f748486" => :mojave
-    sha256 "f3c05baedaa87da66362fb942d248973728e1336277f885b6aa513e7a8c20b53" => :high_sierra
-    sha256 "1dc48575c1fdc4e33749175a38a62a8165d0c9035a70031016aacb0de5008be9" => :x86_64_linux
+    sha256 "7584694b0de308bfb6aa6cebd66e49bb6905942078051441164b2541e6f91b60" => :catalina
+    sha256 "2f410442f5b6e43250b5d89e26bc2ca5d22103dcb74d70bc2b90a1ec568528e7" => :mojave
+    sha256 "84a7ec2b7bf945d7baa10faeecabc627ac089cfef3b8493408012e1d17b0dc39" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -19,13 +19,13 @@ class OpenBabel < Formula
   depends_on "swig" => :build
   depends_on "cairo"
   depends_on "eigen"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     args = std_cmake_args + %W[
       -DRUN_SWIG=ON
       -DPYTHON_BINDINGS=ON
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
     ]
 
     mkdir "build" do
