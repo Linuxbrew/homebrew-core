@@ -22,7 +22,7 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "libiconv"
+  depends_on "libiconv" if OS.mac?
   depends_on "openssl@1.1"
   depends_on "pcre2"
   depends_on "yara"
