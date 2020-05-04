@@ -1,3 +1,4 @@
+# BUILD
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
@@ -96,7 +97,7 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"boot/embedded/bin/shards", "install",
+      system buildpath/"boot/#{OS.mac? ? "embedded/" : ""}bin/shards", "install",
                                                    "--production"
 
       system buildpath/"bin/crystal", "build",
