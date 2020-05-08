@@ -129,6 +129,12 @@ class Crystal < Formula
   end
 
   test do
+    unless OS.mac?
+      ENV["CXX"] = "clang++"
+      ENV["CC"] = "clang"
+      ENV["EXPORT_CC"] = "CC='clang -fuse-ld=lld'"
+    end
+
     assert_match "1", shell_output("#{bin}/crystal eval puts 1")
   end
 end
