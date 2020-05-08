@@ -9,7 +9,6 @@ class Bench < Formula
   sha256 "a6376f4741588201ab6e5195efb1e9921bc0a899f77a5d9ac84a5db32f3ec9eb"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
     sha256 "a1e643d10bcde9bd745eba1b515488c65493cf7d9879cbd7a58bd3661bb6bbdc" => :catalina
     sha256 "ea2a40fb086803f1b7f6a35a9f34aa89509bbbc010a37228fa83ed4ccd1139be" => :mojave
@@ -18,6 +17,8 @@ class Bench < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build
+
+  uses_from_macos "zlib"
 
   # Compatibility with GHC 8.8. Remove with the next release.
   patch do
