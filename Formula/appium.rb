@@ -26,7 +26,7 @@ class Appium < Formula
     assert_match version.to_str, output
 
     # Test stays stuck forever on Linux CI
-    return if env["CI"]
+    return if ENV["CI"]
 
     port = free_port
     begin
