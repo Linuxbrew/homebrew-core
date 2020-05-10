@@ -3,16 +3,14 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://code.launchpad.net/duplicity/0.8-series/0.8.12/+download/duplicity-0.8.12.1612.tar.gz"
-  sha256 "074cf847b273644459c840253bc39f5ed3d0a7f8545339d98b6e9a87f945c51a"
-  revision OS.mac? ? 2 : 3
+  url "https://code.launchpad.net/duplicity/0.8-series/0.8.13/+download/duplicity-0.8.13.tar.gz"
+  sha256 "46f515848427e809509b98102cc28b8339a23e14dec07a3f4e9c60e25578d451"
 
   bottle do
     cellar :any
-    sha256 "ff8b388186caa864dc76736b3d132641d8220e38ebe01427ab2d4685de4490d1" => :catalina
-    sha256 "c3ac7c9d01751845068def59a943425d64c85209c7204c85fada52703711c1b2" => :mojave
-    sha256 "0b8a5a44381d5e86899c14f88fc0c48e694bf4e269145671b5a51def2150c941" => :high_sierra
-    sha256 "e3aae0da198cf064caf765eb331a03a68ad20305da9c692628862104bd1f65e2" => :x86_64_linux
+    sha256 "0d756f0ecb780738749b81b2690410e46cae206274f6eafa10fa9e02091159e7" => :catalina
+    sha256 "289a00438f22f232182fdc74f8e96786fc256144b2cf38d148c2a3173548522a" => :mojave
+    sha256 "808f67ed7d51d07ca5b8f0811c60ce6edf841318cb3bbd2138c10f5ed12c5197" => :high_sierra
   end
 
   depends_on "gnupg"
@@ -47,8 +45,8 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ac/78/407b51ebc5fbace8b8f33db182619af554a8a109db384993f3c638e12083/boto3-1.12.31.tar.gz"
-    sha256 "913fc7bbb9df147ed6fa0bd2b391469652ee8cad3e26ca2355e6ff774d9516fb"
+    url "https://files.pythonhosted.org/packages/e9/98/5991f792f96e475da864cc3782e2cdb21d92b2bc943522eaf886539c1d48/boto3-1.13.6.tar.gz"
+    sha256 "f1ac7eb23ff8b1d7e314123668ff1e93b874dd396ac5424adc443d68bd8a6fbf"
   end
 
   resource "botocore" do
@@ -87,8 +85,8 @@ class Duplicity < Formula
   end
 
   resource "dropbox" do
-    url "https://files.pythonhosted.org/packages/20/6c/e48d2ee92514240ce8b779985f108cad3833f2ef7a1b004af575e279220e/dropbox-9.5.0.tar.gz"
-    sha256 "118a0c376cb9e7db63b2dbf560ba5c966cf1f0bfef7b67d4842ce123c383e947"
+    url "https://files.pythonhosted.org/packages/27/50/604faf78df15d4b8111a700129e77316baf858845e9360939a05da290bde/dropbox-10.1.2.tar.gz"
+    sha256 "1d0bb2a919da26c46bbd1ba936ae44165385e08f22be64fb634a952a751b4f04"
   end
 
   resource "fasteners" do
@@ -229,6 +227,11 @@ class Duplicity < Formula
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/50/de/2b688c062107942486c81a739383b1432a72717d9a85a6a1a692f003c70c/s3transfer-0.3.3.tar.gz"
     sha256 "921a37e2aefc64145e7b73d50c71bb4f26f46e4c9f414dc648c6245ff92cf7db"
+  end
+
+  resource "setuptools_scm" do
+    url "https://files.pythonhosted.org/packages/b2/f7/60a645aae001a2e06cf4b8db2fba9d9f36b8fd378f10647e3e218b61b74b/setuptools_scm-3.5.0.tar.gz"
+    sha256 "5bdf21a05792903cafe7ae0c9501182ab52497614fa6b1750d9dbae7b60c1a87"
   end
 
   resource "six" do

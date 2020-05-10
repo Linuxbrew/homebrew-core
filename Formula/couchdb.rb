@@ -1,16 +1,15 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.0.0/apache-couchdb-3.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/3.0.0/apache-couchdb-3.0.0.tar.gz"
-  sha256 "d109bb1a70fe746c04a9bf79a2bb1096cb949c750c29dbd196e9c2efd4167fd9"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.1.0/apache-couchdb-3.1.0.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/3.1.0/apache-couchdb-3.1.0.tar.gz"
+  sha256 "4867c796a1ff6f0794b7bd3863089ea6397bd5c47544f9b97db8cdacff90f8ed"
 
   bottle do
     cellar :any
-    sha256 "a53ceab715538dbcb04fc2960efd6025bd0a675551698c6e3ed983afae28ebe3" => :catalina
-    sha256 "0fb43095ec5c917ae5667357f2521e576a2fd2bb10f92d96a5de7076b8c76613" => :mojave
-    sha256 "a07db6595766307225597133a98ddb3d58f24e921b93bb676b1d59bd6143feca" => :high_sierra
+    sha256 "1d87da5d87d1b6974a84fe8730a104ddf1b23013dbbc58c48790199a1bc42a6c" => :catalina
+    sha256 "97719efd45a9d4032ec6fbd17491a158b83b3cd77e0958ef46dd5299d212e72e" => :mojave
+    sha256 "e0fc45f4626a1b8684f5bd564dff20ee66e864d11922a9ed86a612938aa51660" => :high_sierra
   end
 
   depends_on "autoconf" => :build
