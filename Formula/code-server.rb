@@ -15,6 +15,13 @@ class CodeServer < Formula
   depends_on "yarn" => :build
   depends_on "node"
 
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "libsecret"
+    depends_on "linuxbrew/xorg/libxkbfile"
+    depends_on "linuxbrew/xorg/libx11"
+  end
+
   def install
     system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
