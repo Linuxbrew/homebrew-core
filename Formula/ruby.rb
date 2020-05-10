@@ -73,6 +73,10 @@ class Ruby < Formula
     else
       "MJIT_CC=/usr/bin/gcc"
     end
+  
+    args << if ENV["HOMEBREW_FORCE_VENDOR_RUBY"].present? and ENV["HOMEBREW_RUBY_PATH"].present?
+      "--with-baseruby=#{ENV["HOMEBREW_RUBY_PATH"]}"
+    end
 
     system "./configure", *args
 
