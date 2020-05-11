@@ -2,15 +2,15 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.26.1.tar.xz"
-  sha256 "888228408f254634330234df3cece734d190ef6381063821f31ec020538f0368"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.26.2.tar.xz"
+  sha256 "6d65132471df9e531807cb2746f8be317e22a343b9385bbe11c9ce7f0d2fc848"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "8760f61f38f7fbf798b45af291edbe634380ad0fcd565fa595e244ee7627e560" => :catalina
-    sha256 "bf46a2d1d37c26a79933882f65b445ae71a3c47f5d37c953a231b9b30441e94e" => :mojave
-    sha256 "62a4d883f327361bd447d9bde20bc015eaa087e765d172ef761424f4283bf801" => :high_sierra
-    sha256 "6008ba092540924f62e6769e9a70e94a70959d33322e7dbf1af96b1b481afd98" => :x86_64_linux
+    sha256 "74d378f6530877383f38b6d1a923e85fcb8b724ab02c49a6857f92ecc1a0b88f" => :catalina
+    sha256 "24c59ff8304d769971f3ed812245b80e8e8b07e0564dd702d141038636b35592" => :mojave
+    sha256 "a2dbc7b901424f621f8832a0848f9ded2079a3f98640814c0784676724dbb86a" => :high_sierra
+    sha256 "65c21c14a6aacc53fd7557da2e533210cc135ccd1b863567c3ef49adb5124243" => :x86_64_linux
   end
 
   depends_on "gettext"
@@ -25,18 +25,27 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.26.1.tar.xz"
-    sha256 "e857bfef9f7f63b2a553564226500ccca8da40b71e1009fcc4fab84ad951b1b0"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.26.2.tar.xz"
+    sha256 "763c2ab83b980edb210d45d9ad25337afd3610ac3749f4124964f86bbdbb201e"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.26.1.tar.xz"
-    sha256 "a93cb7f45dab1fc45a9a4a6cfc32f1a8edd0894c0441e163951c323c7a184048"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.26.2.tar.xz"
+    sha256 "433de104f74a855b7074d88a27e77bf6f0764074e449ffc863f987c124716465"
   end
 
   resource "Net::SMTP::SSL" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
     sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
+  end
+
+  # Fixes a bug where fast-forwarding via `git rebase` doesn't work with rebase.abbreviateCommands.
+  # This bug broke `brew update` for some users.
+  # **Please verify the bug is fixed before removing this patch.**
+  # https://github.com/Homebrew/brew/issues/7374
+  patch do
+    url "https://github.com/agrn/git/commit/058d9c128c63b0a4849b384b358cca9bb19c56db.patch?full_index=1"
+    sha256 "40a243ccc566721bc4df6d9300772fdd367cb9e35a1652f888b89f3f32823227"
   end
 
   def install

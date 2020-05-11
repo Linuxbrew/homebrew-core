@@ -1,14 +1,14 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.3.5.tar.gz"
-  sha256 "0e4cc52a82bf708567d592db07f17e1866eb8146381fc2904ebf075115d91ef8"
+  url "https://github.com/lightvector/KataGo/archive/v1.4.1.tar.gz"
+  sha256 "b408086c7c973ddc6144e16156907556ae5f42921b9f29dc13e6909a9e9a4787"
 
   bottle do
     cellar :any
-    sha256 "3ec9bc71c7582ea9b02762b01a6f2efcd93fe16a25fcaa4e1cef01323cc6da75" => :catalina
-    sha256 "cdb08d3ef47abb440cf6b01cf30897825d14d7c644cd57efa26406070a0ddae1" => :mojave
-    sha256 "0509f19c581105d01a756341901add9126c3c16259248d843a0d21a8761536c9" => :high_sierra
+    sha256 "74b33afb60945ce4660e74d9f2cc93624fc7c34339dd08ff0452755b0550fc3c" => :catalina
+    sha256 "d4ebb68a0dd14bd3e758ae076f758357b5e1e13774e40b4025f4fbe4ea6b6e38" => :mojave
+    sha256 "6d161c4cfe4821b3d0e3550d475f55ceb74916bc8b1e7fb93e8074270df8ea2b" => :high_sierra
   end
 
   depends_on "cmake" => :build

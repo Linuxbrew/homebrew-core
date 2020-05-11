@@ -18,8 +18,8 @@ class Mplayershell < Formula
 
   depends_on :xcode => :build
 
-  depends_on "mplayer"
   depends_on :macos
+  depends_on "mplayer"
 
   def install
     xcodebuild "-project",

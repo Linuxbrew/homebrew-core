@@ -3,11 +3,11 @@ class Systemd < Formula
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
   url "https://github.com/systemd/systemd/archive/v244.tar.gz"
   sha256 "2207ceece44108a04bdd5459aa74413d765a829848109da6f5f836c25aa393aa"
-  revision 1
+  revision 3
   head "https://github.com/systemd/systemd.git"
 
   bottle do
-    sha256 "da95450181a9824a810a6ad6a06e691c69327f15c1c2d1f6df13366cfe9cf8b9" => :x86_64_linux
+    sha256 "ae26fdbe001f77a7b3c5f764bd7ad1571073ab5b0ba6743596e2438d92348f57" => :x86_64_linux
   end
 
   depends_on "coreutils" => :build
@@ -23,6 +23,7 @@ class Systemd < Formula
   depends_on "libcap"
   depends_on :linux
   depends_on "lz4"
+  depends_on "openssl@1.1"
   depends_on "util-linux" # for libmount
   depends_on "xz"
 
@@ -31,6 +32,8 @@ class Systemd < Formula
   uses_from_macos "expat"
 
   def install
+    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
+
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # Needed by intltool (xml::parser)

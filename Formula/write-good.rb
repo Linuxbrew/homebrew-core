@@ -3,18 +3,15 @@ require "language/node"
 class WriteGood < Formula
   desc "Naive linter for English prose"
   homepage "https://github.com/btford/write-good"
-  url "https://github.com/btford/write-good/archive/v0.10.0.tar.gz"
-  sha256 "1800b456b8838b98045192aed1fe51255282007786a211141de4db7f70d5e13c"
+  url "https://registry.npmjs.org/write-good/-/write-good-1.0.2.tgz"
+  sha256 "7a69215e1fcf1f5cb376086e6e56c3e5e6113b34ccb2747157b2d84e4a53b35e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42f6749a00f73e664eac44c6385fe5022947ef5c2156dfd762fb3ecb5c2eb284" => :catalina
-    sha256 "c9793f3718f3fb1e3ff668427e62356825b60c263dd4a8db60b3e437bcb8cdde" => :mojave
-    sha256 "9f8ad372e5eeb289fdb436c64c17cf69b360f18a0442c1eec3a6c01672f413ee" => :high_sierra
-    sha256 "24e7a9e9bd36b2b42760876bfacd3eb1a963291cf8ec19a4f4569358bba3c578" => :sierra
-    sha256 "5e184f772e79b219537e6bb327c73b2e64506754a1fa7b64f19cca1695dcdd41" => :el_capitan
-    sha256 "37d206e7ac96493aa2cfb2424dc62f75765ae509f66fac44b6472e74ee02f4e7" => :yosemite
-    sha256 "4197d38760813f7f443bb7517ab5e7031961e66832a75bc16955206614994d33" => :x86_64_linux
+    sha256 "e0a5d6df3a160e8c24ef47754fe05f88e369fc7140c45af5f6b1228beb52de0d" => :catalina
+    sha256 "35c6923bda9539fa5704c7f9255b6590029503dcdf7b4d29090dc62a38aa1452" => :mojave
+    sha256 "7b0bb14228cf6054bfad6d22a9df86e67b893bf49682a3706606e3fab1f7f40a" => :high_sierra
+    sha256 "bf02d88c0dd1baff29a1fb3cd8dd3ae9172a031369cee05b33edd960a2387a24" => :x86_64_linux
   end
 
   depends_on "node"

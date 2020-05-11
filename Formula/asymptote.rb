@@ -5,15 +5,16 @@ class Asymptote < Formula
   sha256 "15e3d71a0c492c9f2142dd86a7390bcbf59c944ec8b86970833599ff37c59844"
 
   bottle do
-    sha256 "32021c9290cd44731d37dcd61c96d51d0f319ebd3175f5356b54d2f976a4426a" => :catalina
-    sha256 "dc0ad1abac3a55fb3932c6c8a7d97c24d67a8073f6e283b61fc97bf664e1229e" => :mojave
-    sha256 "ddf5e782e6bfc87998ebf3b90ab7b0f125d2665b1dd4f8cebb7a4477bae33523" => :high_sierra
-    sha256 "8fff214721386cfa74db162eb657e28e37aa09a8a9de924fc072f13f13ffd13f" => :x86_64_linux
+    rebuild 1
+    sha256 "6ca74cb50ce6bc7523fd8a36c14f9732722c0b3e2cb7b32e8b951b9ee0ee1c4e" => :catalina
+    sha256 "b98bacf73a3bc568f492f76e999e598a6a32d53a5830b6e756cb853eaf4ea436" => :mojave
+    sha256 "2404ace2bb76465726c7297a228032c883de1a2ba71aa93557a4ecc93dba0a90" => :high_sierra
+    sha256 "d4551c4232485a1295c3ad0d21b8fcc7976565e99925d8e29e71c8984d640b4c" => :x86_64_linux
   end
 
+  depends_on "glm" => :build
   depends_on "fftw"
   depends_on "ghostscript"
-  depends_on "glm"
   depends_on "gsl"
 
   resource "manual" do

@@ -1,15 +1,19 @@
+require "language/perl"
+
 class SqlTranslator < Formula
+  include Language::Perl::Shebang
+
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
-  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-1.60.tar.gz"
-  sha256 "6bb0cb32ca25da69df65e5de71f679f3ca90044064526fa336cabd342f220e87"
+  url "https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Translator-1.61.tar.gz"
+  sha256 "840e3c77cd48b47e1343c79ae8ef4fca46d036356d143d33528900740416dfe8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c32a4d89ab652bf3c56459c9f8c5d73d602aefea3f8e9a9970153cedeca8c5e" => :catalina
-    sha256 "5b56cd85c30deb2c7852d0090c55f2d168ec9420c0c25d9c5513a8fb89aac711" => :mojave
-    sha256 "b3af3df936b1c03d50a9d9209e8aef974e59449179e11a2b5bc78e1f59338114" => :high_sierra
-    sha256 "24603ebe2500dd0b49e92496eaa0b6e37b904cdb0d195d11d60f75c7bb85794c" => :x86_64_linux
+    sha256 "cf06c23d417650d888cf49edd10ae3697e92cb7c0dc33ef07c530d33493155aa" => :catalina
+    sha256 "d581943f0e91e5623b1ab053e212b6351513c81e04a77bc32b9626929f4e4667" => :mojave
+    sha256 "185ef1f4c9feb68f4b8f65a9cda078cdc8a9600163ba67caf60f91d3dc62ce76" => :high_sierra
+    sha256 "9d57ce2f3b593d5f147ab38eb9cecde4dac9e2650162358362d021c4bdc44395" => :x86_64_linux
   end
 
   uses_from_macos "perl"
@@ -102,7 +106,7 @@ class SqlTranslator < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    inreplace Dir["#{bin}/*"], "#!/usr/bin/env perl", "#!/usr/bin/perl" if OS.mac?
+    bin.find { |f| rewrite_shebang detected_perl_shebang, f } if OS.mac?
 
     bin.env_script_all_files libexec/"bin", :PERL5LIB => ENV["PERL5LIB"]
   end

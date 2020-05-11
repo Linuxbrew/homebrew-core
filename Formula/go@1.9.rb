@@ -6,15 +6,16 @@ class GoAT19 < Formula
   sha256 "582814fa45e8ecb0859a208e517b48aa0ad951e3b36c7fff203d834e0ef27722"
 
   bottle do
-    rebuild 1
-    sha256 "6820e19509cbcdd77f30cb8c16a4ca9e67aa3e9eb6e4c2da33c9f9a7dc223840" => :catalina
-    sha256 "74df95ba98388a1617c604e3a439b61c785ac74dc653d2d06da8be2b88e77084" => :mojave
-    sha256 "02584ef8cae5f91f3c4fda26a946c09de1635854782e1c1f1201f35b680df61b" => :high_sierra
-    sha256 "2f837e2b6745a970e4d3bd9b3f5ea0ed1ebb827ade2cfa38793f0b9a5232ed9e" => :sierra
-    sha256 "073e733ede43f788a18f675299510fb9f3d85d1c76a8262d6a1ca4a3c80428ce" => :x86_64_linux
+    rebuild 2
+    sha256 "c34c669ba94287eb0485513ad03416d531f0d4fb58908df4984ed85fd2c41b1e" => :catalina
+    sha256 "358e06f98931f9f9f2238e59c9ec40a4cc8526e518b8828c8b72543f6d40d9b0" => :mojave
+    sha256 "be1bd13af09e6bf2ee698f98d80fbd99ac86858337d90fce6e2e86ecfd67b19f" => :high_sierra
+    sha256 "455f710d0d7476169aba974c0d097394b6e95b2bd1abeb11d8a47b98f61295d2" => :x86_64_linux
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "August 4, 2018"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",

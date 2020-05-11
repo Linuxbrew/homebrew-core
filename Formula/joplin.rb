@@ -5,12 +5,13 @@ class Joplin < Formula
   homepage "https://joplin.cozic.net/"
   url "https://registry.npmjs.org/joplin/-/joplin-1.0.163.tgz"
   sha256 "226a28c3180c6ab7fc721e04250dccd88fe32bc9f645d3ba7e663e89abf09103"
+  revision 1
 
   bottle do
-    sha256 "0857e6f3a84e04689c89e4037fecd068ef8ddc3b127bc5cb1e0a138d3416fdfd" => :catalina
-    sha256 "0e9e986dfea2eaf4c8953fbc057edbe577f3b005eb40ee8f2ea9f23c31d5fcc7" => :mojave
-    sha256 "edaeb39d901c22d87dc26c3bd99901f42d2e2a88e20a581e6bd81f52f01d591d" => :high_sierra
-    sha256 "447e134f90ed3364dcf73d36afff53424cdbea224fa43828ab3ab5d6c402b342" => :x86_64_linux
+    sha256 "e7793913f82e802305a08749d56b793d90e80a6a9065c0d179954cf8479cfde6" => :catalina
+    sha256 "7eb55cd103cabbb1d013109e5d3dd4cd30dc00fe8530454de2b35f31febf1d2d" => :mojave
+    sha256 "6a0aee47b956af864f16f7714d0659b88218b3d2e7cda05af67b102d0deb44f8" => :high_sierra
+    sha256 "fc24d1ad863a4fdea118ced98ef66675f3aa31060ac04d576efba0270fe437b7" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

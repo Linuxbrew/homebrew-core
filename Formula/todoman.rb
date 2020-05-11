@@ -5,7 +5,7 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/42/5a/b11c0df8bb9bfd4404d596a9ed1966aece1510a07b89499074080334297c/todoman-3.7.0.tar.gz"
   sha256 "1eb65c05ec82db501065d1a90d885a4352d92958121b1b9dab6a970abfe07999"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Todoman < Formula
     sha256 "e9d8d359bb2660250a0d0f6f3b34963d6968f048d59d9a96d392bf3b8d85d427" => :catalina
     sha256 "b3376663c5e13b7ac84d71c6c65f2b725ac430034100401bf9172109df309dda" => :mojave
     sha256 "2e0974ab0353f8bd10c19dd19ec7ca9e807997a1f3cbd2ac8d15ca5de548f936" => :high_sierra
-    sha256 "cda5641e06549d7d5143e29bf4bd599bfebdf3c06f4bc2fa72e77c442676cf18" => :x86_64_linux
+    sha256 "3cf858ab28a5fddcc6e78c1ba2bdebcf2c880b4ad6afce5dd70c03fab748c235" => :x86_64_linux
   end
 
   depends_on "python@3.8"

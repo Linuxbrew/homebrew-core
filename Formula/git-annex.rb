@@ -5,16 +5,16 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-8.20200330/git-annex-8.20200330.tar.gz"
-  sha256 "5b9306bda8d89a8f8942a2763686640d985ce8cffb7bf2086d8e913c4fa3c077"
+  url "https://hackage.haskell.org/package/git-annex-8.20200501/git-annex-8.20200501.tar.gz"
+  sha256 "5412fc38536b87096869cca9400bfe50c4c65fb482666183c9c7e35dbd7a2fa7"
   head "git://git-annex.branchable.com/"
 
   bottle do
     cellar :any
-    sha256 "edb21f1c5e3c38e5a8b907ce36b17d55033474372b0002c1de634f0d18262f37" => :catalina
-    sha256 "532fe05076844624cb53fc530b0ff9ed2247e37b54459485175744b100553b1d" => :mojave
-    sha256 "fbde6164df122d9c4d1e16c0d7085f089a194a67c2c00aebe7aae4767438896a" => :high_sierra
-    sha256 "938fafd63d31191e894b7c58be0b78e58815420302cf9644812ddb3c0b925d53" => :x86_64_linux
+    sha256 "6a8fab5036ec341602d8a64c94247ccbc2b8f9afeb67bed5958e71713be06083" => :catalina
+    sha256 "3d4a6e2582d0c6f23269ce8b3e4b18471de75c45bce1f775ae55109841fbff08" => :mojave
+    sha256 "2e12b4d8dbefef73f2c16eb306fd22525d049eff4e2588d7ba95bd9e4c4d56d5" => :high_sierra
+    sha256 "31f48cd46ffe8391f866ec7f3f6cce80ad7c5d43646f14f55e6cd6a3372d13d6" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
@@ -23,7 +23,6 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
-  depends_on "xdot"
 
   def install
     install_cabal_package "--constraint", "http-conduit>=2.3",

@@ -5,14 +5,14 @@ class EyeD3 < Formula
   homepage "https://eyed3.nicfit.net/"
   url "https://eyed3.nicfit.net/releases/eyeD3-0.9.5.tar.gz"
   sha256 "faf5806197f2093e82c2830d41f2378f07b3a9da07a16fafb14fc6fbdebac50a"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
     sha256 "e6e2679d03c1f68674d39a5ba1b590432f1a8e7ea5660b8c40c7da18bc3d6621" => :catalina
     sha256 "d5c1f8bf92732fc14a16b94ae62f97dda8ee5b74251842a12f85be97712a0463" => :mojave
     sha256 "643842f3f4a5d4f2598765ad8b4ec44180ecd530d9f91f606c9dc182ca264116" => :high_sierra
-    sha256 "edcb8df78bb2100677749b41ffab57dc56eb1b9aa3cb7025dfb08bce6663b3f6" => :x86_64_linux
+    sha256 "7ecc7c75556c2ec7a4aa113a3275a1a3fbc7ac4c9e92d14522ff2996ed865ab0" => :x86_64_linux
   end
 
   depends_on "python@3.8"

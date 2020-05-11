@@ -5,6 +5,7 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://files.pythonhosted.org/packages/a2/98/8becf6a4ead798c1a517715fddfb73a8867ac58d833179a30f0dfc3dadf0/remarshal-0.12.0.tar.gz"
   sha256 "1df0016b3ad47e78e0d4d016a0e0cc7ad5cd6a60232e8dcbc89af4ccc42eb172"
+  revision 1 unless OS.mac?
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Remarshal < Formula
     sha256 "ff34ba0168dc79cb1d3c060817d8bd13be31061f3883a2ba5d4ea0098c5a9f76" => :catalina
     sha256 "5d09769f8c950743b049109c9f375746ead3d943c54eb4448ead95d1c8cbd76c" => :mojave
     sha256 "6e5ebcde81702cb6616be074402cae0e7609c78e3c3fe2eb7357339d73c7924e" => :high_sierra
-    sha256 "32ff05a4747a588b92cbc8b951b7c5e8f18e19a05d475448c3bffd9fb2d5018e" => :x86_64_linux
+    sha256 "e42c1b4ef6bf4b947e304d033d8c0fec46fafaa20cceffb9622578b131917d5e" => :x86_64_linux
   end
 
   depends_on "python@3.8"

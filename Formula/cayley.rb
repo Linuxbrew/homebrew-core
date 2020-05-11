@@ -7,9 +7,10 @@ class Cayley < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e647be34623b1a8d635df7508f09111dfd8eb6f368a6979f9c5619b016beda8c" => :mojave
-    sha256 "4177fdcb60422d484f1377e5367844ebcc9be471fffc76e717d8ad90e49ee99c" => :high_sierra
-    sha256 "7cc50d6842b1a9a55915780540c0c21ab35a3863f766c1ce741877db5f5ffaf2" => :x86_64_linux
+    rebuild 1
+    sha256 "de8d93ba5a00e4ebe718da6f3886488c3e0dfcd532725d7382c0901f9b17d019" => :catalina
+    sha256 "d7981f2af823da8ad9f0553fa11349a25b241500a8cb29e1758040f0c01c41ef" => :mojave
+    sha256 "4fc00116b7b447a52111cc021c65f70770b4c4543365d49b7acde11ee13c5a70" => :high_sierra
   end
 
   depends_on "bazaar" => :build
@@ -17,12 +18,13 @@ class Cayley < Formula
   depends_on "mercurial" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
     dir = buildpath/"src/github.com/cayleygraph/cayley"
     dir.install buildpath.children
 
     cd dir do
+      # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
+      system "go", "run", "github.com/gobuffalo/packr/v2/packr2"
+
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
 
       ldflags = %W[
@@ -31,7 +33,8 @@ class Cayley < Formula
         -X github.com/cayleygraph/cayley/version.GitHash=#{commit}
       ]
 
-      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags.join(" "), ".../cmd/cayley"
+      # Build the binary
+      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags.join(" "), "./cmd/cayley"
 
       inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
       etc.install "cayley_example.yml" => "cayley.yml"
@@ -87,5 +90,13 @@ class Cayley < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cayley version")
+
+    http_port = free_port
+    fork do
+      exec "#{bin}/cayley", "http", "--host=127.0.0.1:#{http_port}"
+    end
+    sleep 3
+    response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
+    assert_match "HTTP\/1.1 200 OK", response
   end
 end

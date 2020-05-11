@@ -9,6 +9,8 @@ class ElasticsearchAT24 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! :date => "February 28, 2018"
+
   depends_on :java => "1.8"
 
   def cluster_name

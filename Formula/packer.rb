@@ -2,29 +2,22 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.5.5",
-      :revision => "0b7dd740db78245c30ca4fb82477c405bd35e5d3"
+      :tag      => "v1.5.6",
+      :revision => "c88190a9562be9566efdc5e1cd79f4e82c9396dc"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80885f9b2105ad75a3b4b90144a89ef02325cba49ff41231e4cbfd8d1c7f37e1" => :catalina
-    sha256 "3ae35016b7cf7d553a4841bc81cc90cad52aca170d706e404b0a1dcbe6f3d945" => :mojave
-    sha256 "0bf8facca9faa5a5aea6caf4150b5771184ce0e0106f5495d945196c55fec3a5" => :high_sierra
-    sha256 "6beb8be818bc239d48059596b139b435ffbaefc41b4edd69df7fdf599b8e85f3" => :x86_64_linux
+    sha256 "d2e5f5bbfe0bc350e2f5a165d02ceca56e8d5288a0bf5b5f71a0b823ecb94327" => :catalina
+    sha256 "8de671da80da8c7a261f485b5c927cf6fcc2031b44a7e72c0c18cfa44f855ae3" => :mojave
+    sha256 "5e600a27f5a28fe63765e986895800bd9393dbca5eb2e06d8c0fb05a9379cbf7" => :high_sierra
+    sha256 "03d58a0553538cddcfcd208fe88141048c427011955539e5a75b87d04d1ada16" => :x86_64_linux
   end
 
-  depends_on "coreutils" => :build
   depends_on "go" => :build
 
   def install
-    (buildpath/"bin").mkpath
-    if build.head?
-      system "make", "bin"
-    else
-      system "make", "releasebin"
-    end
-    bin.install buildpath/"bin/packer"
+    system "go", "build", *std_go_args
     zsh_completion.install "contrib/zsh-completion/_packer"
     prefix.install_metafiles
   end

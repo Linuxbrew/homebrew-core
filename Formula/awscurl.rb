@@ -5,7 +5,7 @@ class Awscurl < Formula
   homepage "https://github.com/okigan/awscurl"
   url "https://github.com/okigan/awscurl/archive/v0.20.tar.gz"
   sha256 "3ce06d105067b42398cf0bb6696742b790258e16487d5e5afa025b7c3ca983e4"
-  revision 1
+  revision OS.mac? ? 1 : 3
   head "https://github.com/okigan/awscurl.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Awscurl < Formula
     sha256 "b6eb9274da3699bce4675068f5476e63c900b9e1aaecaaf3a7d80845143ff919" => :catalina
     sha256 "2de296f8d1c89e5532526017faba23cdb36ec34bae668308c671d4a56a252995" => :mojave
     sha256 "38ad9e69f5e0d14d4c8007d059b8faf61cec1f6a6ec9f61cf2e25fc19ba3d005" => :high_sierra
-    sha256 "91a50ff333bed1014f5214f9dbc8c2fbabb82ac2b0e855bda8940dff13f7d6f0" => :x86_64_linux
+    sha256 "5f8b9cde81a30e26ee995aef8bf6efaac5366cae1a0ddf900cb116f4fce78dc5" => :x86_64_linux
   end
 
   depends_on "python@3.8"

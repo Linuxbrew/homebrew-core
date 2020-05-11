@@ -4,15 +4,14 @@ class Gettext < Formula
   url "https://ftp.gnu.org/gnu/gettext/gettext-0.20.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gettext/gettext-0.20.2.tar.xz"
   sha256 "b22b818e644c37f6e3d1643a1943c32c3a9bff726d601e53047d2682019ceaba"
+  revision 1
 
   bottle do
-    sha256 "90adf1ef48f8ba71c73b03db871551b5ff3e9704ce6fe5d6532df0056223de80" => :catalina
-    sha256 "f79ca95c2216e5b599d57f96fe99081af8780c31bd013f60c296bc7d3800845a" => :mojave
-    sha256 "f6248b134438427eec73cbe099fb19dc20dbce1119d02b23ec7a0c8f0f34da7e" => :high_sierra
-    sha256 "6ccfea69264fce672585e28e7837c03db4a1acbebb0c9de4356a70d6bd237389" => :x86_64_linux
+    sha256 "71f4ded03e8258b5e6896eebb00d26ed48307fbebece1a884b17ca3fb40e3121" => :catalina
+    sha256 "52067198cab528f05fdc0b06f7b9711f7614f60a7361f1e764c4f46d3342ff22" => :mojave
+    sha256 "4a999c75dcc53cbc711e3ac6545db69ab3aeca6c29c1cb6b21c353f237342457" => :high_sierra
+    sha256 "ac517401cf31345f810e16b902a4c1aecce4028bfcfc4cf66e811da253d531aa" => :x86_64_linux
   end
-
-  keg_only :shadowed_by_macos, "macOS provides BSD gettext"
 
   uses_from_macos "ncurses"
 

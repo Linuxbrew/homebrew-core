@@ -13,10 +13,6 @@ class Unicorn < Formula
     sha256 "c44cbb02b8073ca0e70f13cf16272964ab52a8b19a20da07dcfd76c6f15585dd" => :high_sierra
     sha256 "8c134f4b88d63da3908d419dd29118d6ada4489091cd53e81cc9a72f28a9760b" => :sierra
   end
-  
-  # See https://github.com/Homebrew/linuxbrew-core/pull/19728
-  # Might work with Python 3 starting with next release (1.0.2)
-  depends_on :macos # Due to Python 2
 
   depends_on "pkg-config" => :build
   depends_on :macos # Due to Python 2 (Might work with Python 3 with next release (1.0.2)

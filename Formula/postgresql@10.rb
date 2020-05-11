@@ -3,13 +3,13 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.12/postgresql-10.12.tar.bz2"
   sha256 "388f7f888c4fbcbdf424ec2bce52535195b426010b720af7bea767e23e594ae7"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "9a9b2e7042b470c6d3644169d8382b8ea610e9776faf2c1d7c05068f126ed352" => :catalina
-    sha256 "1add0b291125613116dca760e71049b658f74b534b2ebaf9bea634b3822727f9" => :mojave
-    sha256 "7daa0f7ba7f93cc769792327b5ba5f717a83514200682cede189fa33019ec4ec" => :high_sierra
-    sha256 "fc7bca057ff15b8c7cf4e6d97847e5af5f85e6098f8d765b1bc67bac749f69d9" => :x86_64_linux
+    sha256 "c840ef62b81473eba5aa76ed93105a44e311b0fbc95c3a69398bc116aaf3b3aa" => :catalina
+    sha256 "91b135218bc991faff6497dddd827af085fa9ca5845b2c91514dc8ddf7962ea5" => :mojave
+    sha256 "6c3c8da0af13a3c95c1ff8645185320622b79985399b2ddc89d2db299472922a" => :high_sierra
+    sha256 "123f76ed71f11973c3344cc3847e0c7424b284b8c367ed08f229bf5415d55466" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -89,6 +89,12 @@ class PostgresqlAT10 < Formula
       system "make", "install", "all", *dirs
     else
       system "make", "install-world", *dirs
+    end
+
+    unless OS.mac?
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
     end
   end
 

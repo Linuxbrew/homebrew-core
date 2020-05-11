@@ -25,8 +25,4 @@ class DeviceMapper < Formula
     system "make", "device-mapper"
     system "make", "install_device-mapper"
   end
-
-  test do
-    # TODO
-  end
 end

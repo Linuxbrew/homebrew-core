@@ -18,18 +18,12 @@ class Libtool < Formula
     sha256 "1efb2596f487af0e666e0a3d236ee8ac83db17d9e8e94066802e000f75b4b045" => :x86_64_linux # glibc 2.19
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
   uses_from_macos "m4" => :build
 
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
-    if OS.linux? && build.bottle?
+    if OS.linux?
       # prevent libtool from hardcoding GCC 4.8
       ENV["CC"] = "cc"
       ENV["CXX"] = "c++"
@@ -37,11 +31,11 @@ class Libtool < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          ("--program-prefix=g" if build.without? "default-names"),
+                          ("--program-prefix=g" if OS.mac?),
                           "--enable-ltdl-install"
     system "make", "install"
 
-    if build.with? "default-names"
+    if OS.mac?
       bin.install_symlink "libtool" => "glibtool"
       bin.install_symlink "libtoolize" => "glibtoolize"
     end

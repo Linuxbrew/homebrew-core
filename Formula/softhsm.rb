@@ -1,14 +1,14 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.6.0.tar.gz"
-  sha256 "19c2500f22c547b69d314fda55a91c40b0d2a9c269496a5da5d32ae1b835d6d1"
+  url "https://dist.opendnssec.org/source/softhsm-2.6.1.tar.gz"
+  sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
 
   bottle do
-    sha256 "6191b8427b45b0d497df2442326a1ef771d780528a1af630283921314631d7f5" => :catalina
-    sha256 "b3df4c2a1b79e2f741a364be111653d49cf096335ce81597a1fed376368c19ee" => :mojave
-    sha256 "a6b0ca9197123c0e13bbcf8e29e42a2b8bb6b3288b8b953be244ce9d3d0cb920" => :high_sierra
-    sha256 "f4392ff6abefa9387bb0cf778113db2d36edca764dd1b3fd1bb15c06d4569fb5" => :x86_64_linux
+    sha256 "69963f95aad110c6dcadab15613ee928f1358b714d71f4e7252da9b885eac7cd" => :catalina
+    sha256 "4a17c51934b0adc317cfc49069d52b3fa2fcb9a852808a7b0dfe2de28cf4b3b3" => :mojave
+    sha256 "cd17fa2e8538ca99b5963d60074578c91839740e7f87cc292b9b8f4f67dd99d8" => :high_sierra
+    sha256 "b392f3f3fc407a66f0a96667d599b404da900cef32bb4debfc84e884122068d9" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
@@ -17,13 +17,6 @@ class Softhsm < Formula
     fails_with :gcc => "5"
     fails_with :gcc => "6"
     depends_on "gcc@7"
-  end
-
-  # Fix macOS compile.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/opendnssec/SoftHSMv2/commit/0601e4014dc2c1296b25d4868f8d7a50c0e31e75.patch?full_index=1"
-    sha256 "e860d142e8e6aa757b381789d8aad0bae09f93caed3ae37c3fc67dcefea18099"
   end
 
   def install

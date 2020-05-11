@@ -5,7 +5,7 @@ class Pyinvoke < Formula
   homepage "https://www.pyinvoke.org/"
   url "https://github.com/pyinvoke/invoke/archive/1.4.1.tar.gz"
   sha256 "ac5880fb5d21f06cc1b29f89736cb8a43b85abea9204b4bb4277458ae025d0b7"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Pyinvoke < Formula
     sha256 "6e576690387b7433b3795c926672cebc76f51c1a78d64798db3a9b4fba2a584e" => :catalina
     sha256 "576bd35748ea63fcc0a8bd6f42e68755e34c3736b5233adb0f86293dcaf912f3" => :mojave
     sha256 "44224c0c6d1c175ddccf9bc20dcc6a0b3c48bd7ab72a30fde8f40db055406eee" => :high_sierra
-    sha256 "65eeac9dd7107cc772257bbb02efe8e3ac1d7d831e07afbf3938298a3e5b4b78" => :x86_64_linux
+    sha256 "93182e5165ee2968b405abf916991d59645c92b770506648af25374ffe26792d" => :x86_64_linux
   end
 
   depends_on "python@3.8"

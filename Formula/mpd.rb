@@ -1,16 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.22.tar.xz"
-  sha256 "565687d1899b585350cd66b603e46e5b79affc0a0e36d96d8953c6ccc6f69ba2"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.23.tar.xz"
+  sha256 "439f522ca9800f375e4fb459ec31e61b3d824fc5c0580ff06dac48b5d21207a3"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    sha256 "2a2fc9e525628a4719a3b6cb14effecace05ca102551d47b8355d6ee62c1efbb" => :catalina
-    sha256 "ee4983a8a9b0fb11576399d14d4cfb3dc6402cfe78c0a4c943f036ea5f76bae9" => :mojave
-    sha256 "86e5cbf64759f2eefa461351909f901fa8fd99605a31130016967bbd76a7432e" => :high_sierra
-    sha256 "efe6c210df987376f88168e183a60b5c6bdbc15ab78a9faf79b1a6104ec2413e" => :x86_64_linux
+    sha256 "a23fab9584321aeb90354c9f221a31e17a912a198cb9ec6437c87ede8120de6d" => :catalina
+    sha256 "31c5f6acf2e7fcec454bc0a52cee053836d178a40e3d6fa1d16809a687556988" => :mojave
+    sha256 "299e9cf5b5ea05c35c18f570f3c2134c6c5f1f8f01660b07c8aca47765fb17e8" => :high_sierra
+    sha256 "daacc265005a55708015cef8e7d5ccee3e16326126c02fff6785d4d8fbf6bdae" => :x86_64_linux
   end
 
   depends_on "boost" => :build
@@ -49,8 +48,7 @@ class Mpd < Formula
     ENV.libcxx if OS.mac?
     ENV.cxx11 unless OS.mac?
 
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %W[
       --sysconfdir=#{etc}
       -Dlibwrap=disabled
       -Dmad=disabled

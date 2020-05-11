@@ -1,26 +1,24 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.3.5.tar.gz"
-  sha256 "a3ab705fc75b48cba9ac18d10cb4012416714cc8edaeb151a85c46ac3a65033b"
+  url "https://github.com/golang/protobuf/archive/v1.4.1.tar.gz"
+  sha256 "f0185157c9042484f7014836b5b0e8e37409aecef83108779ec15bc510e93c8a"
   head "https://github.com/golang/protobuf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f294fc2731f7068038f435d20a995efb55b5887a1330623f9eca092b46f152c6" => :catalina
-    sha256 "a7c861710913754302eaccd62b3fc1b506f31a2d3a1bd98dc809e5ca7adcc4b5" => :mojave
-    sha256 "bb8d5634d39418a315e8410b734b77b59706a4e96cfb267bf187193f73dbad23" => :high_sierra
-    sha256 "f18733c19e85deac1f0ec80dc9667c1937dfb35ed352f76449f673ce71d60dbb" => :x86_64_linux
+    sha256 "7a77d2921b6830e214b8c82684dd37578574490f4438e7a61cb5e6ac6bf689b5" => :catalina
+    sha256 "7a77d2921b6830e214b8c82684dd37578574490f4438e7a61cb5e6ac6bf689b5" => :mojave
+    sha256 "7a77d2921b6830e214b8c82684dd37578574490f4438e7a61cb5e6ac6bf689b5" => :high_sierra
+    sha256 "1311f265aa77cef3faac3df1e3c0beab3eeacd0c35685eace8a4a6e6194d9de7" => :x86_64_linux
   end
 
   depends_on "go" => :build
   depends_on "protobuf"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/golang/protobuf").install buildpath.children
-    system "go", "install", "github.com/golang/protobuf/protoc-gen-go"
-    bin.install buildpath/"bin/protoc-gen-go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./protoc-gen-go"
+    prefix.install_metafiles
   end
 
   test do

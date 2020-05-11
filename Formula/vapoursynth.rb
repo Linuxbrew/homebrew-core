@@ -3,16 +3,16 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R49.tar.gz"
-  sha256 "126d1e68d3a3e80d1e215c8a2a5dc8773f5fcac70a6c22dadc837bccb603bccd"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
+  sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "637f66fa28dbcc23ff37c044451d6d395379c4cbce1c6e34048c85e1deb81893" => :catalina
-    sha256 "4cece74f6d7757ab3c92b99504c88d971b3a22be586ea22fd9e41a25b6eee22d" => :mojave
-    sha256 "de060f7f483aaa67b062f6b36259e93a836d28cc8a6ef0d8a042c6ce6467642c" => :high_sierra
-    sha256 "40deede422bf24a4492099de9a9688ccd7a2536c10afb047e5675768be390262" => :x86_64_linux
+    sha256 "1ec7b431eb7330f55b6faec6db47bc46a8dca4e7ccac155c6dcd8e114928d548" => :catalina
+    sha256 "1c1ac3d53af915f9f437f9686ce2d1946987a15b930564dbe6e587ec400364f0" => :mojave
+    sha256 "6138f5a2e56576dde5ddf38e9bc196c4f69c9e908cec5b8ec9a5b58103b19c33" => :high_sierra
+    sha256 "53a4316d07d52799e779bbbc629aa7477859bc1dafa510b6057a6dc100af6eb4" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -21,16 +21,16 @@ class Vapoursynth < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan # due to zimg dependency
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "zimg"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
-    sha256 "60d859e1efa5cc80436d58aecd3718ff2e74b987db0518376046adedba97ac30"
+    url "https://files.pythonhosted.org/packages/99/36/a3dc962cc6d08749aa4b9d85af08b6e354d09c5468a3e0edc610f44c856b/Cython-0.29.17.tar.gz"
+    sha256 "6361588cb1d82875bcfbad83d7dd66c442099759f895cf547995f00601f9caf2"
   end
 
   def install
-    venv = virtualenv_create(buildpath/"cython", "python3")
+    venv = virtualenv_create(buildpath/"cython", Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install "Cython"
     system "./autogen.sh"
     inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
@@ -69,9 +69,9 @@ class Vapoursynth < Formula
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "import vapoursynth"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end

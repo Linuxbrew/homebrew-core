@@ -1,13 +1,13 @@
 class Libgr < Formula
   desc "GR framework: a graphics library for visualisation applications"
   homepage "https://gr-framework.org/"
-  url "https://github.com/sciapp/gr/archive/v0.48.0.tar.gz"
-  sha256 "05c45dc79f5089268fd524925d5a7950cc95f86f05b2c13e66ebe65e5ae53c51"
+  url "https://github.com/sciapp/gr/archive/v0.49.0.tar.gz"
+  sha256 "3adf0ec3b2d5db1dfe5b3b05f16da684825f4328deed8d392215f45d70bc523b"
 
   bottle do
-    sha256 "007cfa90b2680c0cf8d33c20203b60605c0c832247301028ccfb75b98ddfa525" => :catalina
-    sha256 "17d7971225ff673c89a59f09bca3ce453e10982371c99b1e2a267486db6df4a4" => :mojave
-    sha256 "666b0a38c38adb0ea17f0d81c89f0dc92efd97b641854b1a0f98f1e35b017925" => :high_sierra
+    sha256 "c5514cd51fc461a7bf9ca59faf8f9bfc2bed198abc9549d651ee48ff3f572796" => :catalina
+    sha256 "51d01ce8827bbacae43709542ac9442d753b6692a93ee039fc64a3a776ac7d71" => :mojave
+    sha256 "667708557f1aed7e055548426c890921053e54646a022a087980dd3c2e41db73" => :high_sierra
   end
 
   depends_on :xcode => :build

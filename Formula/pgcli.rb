@@ -5,13 +5,14 @@ class Pgcli < Formula
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/33/d0/646dcdd819f6313c5b534bb41e2970968a1cbccba39e5f969a65858d0bb4/pgcli-3.0.0.tar.gz"
   sha256 "4920225838e8004ae6d2ec42f566e0a8b99c4bd42bc2c876d0de8501da0a4082"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "33762e29fe9be52d07d9500b3bb497afca3494ba73b7729e82047f531fe347ca" => :catalina
     sha256 "dfc4edc73356fb8059808ae8a502fccf3df013caec1a39e18e6766b39a42ae5c" => :mojave
     sha256 "42814524bbec67d415d06d991c17c0decd429c9a072d86c122d92bdf56affa5a" => :high_sierra
-    sha256 "e9fbcb591da8a419f256ed7906d6614a3c258b939b23bec0e1e27c1833d99d66" => :x86_64_linux
+    sha256 "578fb2ce60ec6d90060bcafcc33dd1b8531caa847a0ff8548d6605d79bbf2c55" => :x86_64_linux
   end
 
   depends_on "libpq"

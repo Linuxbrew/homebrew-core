@@ -1,14 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.2/sbcl-2.0.2-source.tar.bz2"
-  sha256 "4864046e3b8bc0d0af7523491cf0e2be6155518864e63cf2e6f8326865fbfe1e"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.4/sbcl-2.0.4-source.tar.bz2"
+  sha256 "122b4641766be8fde87ea4464cf706ddc161a1c05f48dbebf2cdcd80318982d1"
 
   bottle do
-    sha256 "6a149417139c1362d10c67ae9c2e7d291ceabe34396c0f2c257f8f1835f58124" => :catalina
-    sha256 "19a197ed405cae8f2e960b53bf5de11a36a85dba390788f33d4d07e6b6801ad2" => :mojave
-    sha256 "b75c6c62b12ff6a8daaaee8115ddece7ff5a4c7827ac2688b598b246f1b2c043" => :high_sierra
-    sha256 "983de807a504c816b22aa2fab8e0b16bdfdeee0d0880680495ffa2f843e0a96b" => :x86_64_linux
+    sha256 "e5585739ecf2cdf98988013cfbfa1a77fa72f93706938f4503a2d2d69f069336" => :catalina
+    sha256 "2be9e6eebd0ab1c8c64f89b70ed2c39c0c54fe986efc3cccd6f2b99fd9b496f8" => :mojave
+    sha256 "8acdfa7f8aac2cedf77d16a179c18a423420196d35b781fed8f83842b4888a67" => :high_sierra
+    sha256 "76909e8b88b2c7ff86db71e7df5fa52cd4eb1dfcd0841154bc42a010a0029358" => :x86_64_linux
   end
 
   uses_from_macos "zlib"
@@ -25,7 +25,7 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb1118ce0c125c42ab396fa244a7aa01f863/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
   end
 
@@ -60,7 +60,9 @@ class Sbcl < Formula
     system "sh", "install.sh"
 
     # Install sources
-    bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
+    bin.env_script_all_files libexec/"bin",
+                             :SBCL_SOURCE_ROOT => pkgshare/"src",
+                             :SBCL_HOME        => lib/"sbcl"
     pkgshare.install %w[contrib src]
     (lib/"sbcl/sbclrc").write <<~EOS
       (setf (logical-pathname-translations "SYS")

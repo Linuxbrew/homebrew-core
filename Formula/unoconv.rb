@@ -3,17 +3,18 @@ class Unoconv < Formula
   homepage "http://dag.wiee.rs/home-made/unoconv/"
   url "https://files.pythonhosted.org/packages/ab/40/b4cab1140087f3f07b2f6d7cb9ca1c14b9bdbb525d2d83a3b29c924fe9ae/unoconv-0.9.0.tar.gz"
   sha256 "308ebfd98e67d898834876348b27caf41470cd853fbe2681cc7dacd8fd5e6031"
+  revision 1
   head "https://github.com/dagwieers/unoconv.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "080b156c88fd409534a862fb82fb98813f5aa342c17b10897c30186b6014ad15" => :catalina
-    sha256 "080b156c88fd409534a862fb82fb98813f5aa342c17b10897c30186b6014ad15" => :mojave
-    sha256 "080b156c88fd409534a862fb82fb98813f5aa342c17b10897c30186b6014ad15" => :high_sierra
-    sha256 "549109927f5cd55f85da9e083dd37a624ed9f6e5d1d4ed8986cef568f72240b8" => :x86_64_linux
+    sha256 "b8926bf449026133df038d3f6fa221803173193765a1de2de70da7b1e9ea4c7a" => :catalina
+    sha256 "b8926bf449026133df038d3f6fa221803173193765a1de2de70da7b1e9ea4c7a" => :mojave
+    sha256 "b8926bf449026133df038d3f6fa221803173193765a1de2de70da7b1e9ea4c7a" => :high_sierra
+    sha256 "1baebd24b729f0f3c87570995d31572ee230a2fbde9526056231f64deb21a6e0" => :x86_64_linux
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     # /usr/bin/env: 'python': No such file or directory

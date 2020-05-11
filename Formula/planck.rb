@@ -3,13 +3,14 @@ class Planck < Formula
   homepage "https://planck-repl.org/"
   url "https://github.com/planck-repl/planck/archive/2.25.0.tar.gz"
   sha256 "58a3f9b0e3d776bc4e28f1e78a8ce6ab1d98149bebeb5c5328cc14345b925a1f"
+  revision 1
   head "https://github.com/planck-repl/planck.git"
 
   bottle do
     cellar :any
-    sha256 "63e3d9501671560c3e5c00020f0c9b4f2c1d8b8a23982684a1c8c7cba2118b92" => :catalina
-    sha256 "293709653ba184a8aacfbe28ad6dd59d5343f126bc9ff20661ae310e689ec350" => :mojave
-    sha256 "1b1b15662a1a5f49c5b721d560778bb79831b7cbe9d249fae20dbc0cd8aa152c" => :high_sierra
+    sha256 "dabaf824617821988990f0bcc0a6936183d979781418a4ebec27dccd2b860337" => :catalina
+    sha256 "bce9b5ee6cb8c2a2c48724748c1320eb430875be1dfb69c8a4a2194e9cefc8e1" => :mojave
+    sha256 "670344b5e5f0fb52f94cb04d8ed8c2d725eb9c80797411b72c36ae426a3f24d4" => :high_sierra
   end
 
   depends_on "clojure" => :build

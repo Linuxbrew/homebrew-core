@@ -5,13 +5,14 @@ class Nbdime < Formula
   homepage "https://nbdime.readthedocs.io"
   url "https://files.pythonhosted.org/packages/92/84/6358505bef11c164fce3b747b4193ec9d9617cb2db9bb6c60c9f6d30109c/nbdime-2.0.0.tar.gz"
   sha256 "896f79a23557f190b73a3981fdceb128a2d24454701daef74d82aac2aa10715d"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "bc9d3b4ad550bd9f907b54e13a7879661da04102cd689abe87dc8f7e4a31b93b" => :catalina
     sha256 "2f73b31f7e365e8680cc146bbd53445e0c24996127e7d3c3d1fe9d945ea52959" => :mojave
     sha256 "3d5a18f4e22e1d704d23a3dbafed19261d2b0bc74036443fff65c6038b7c3dc9" => :high_sierra
-    sha256 "b3ee0951f5061a5466c526ff60d42e0b7d8f6a71ffcc1da4b2851b2b7cf60d86" => :x86_64_linux
+    sha256 "fc1cf3a3b36ee0878ff3ef886a86ba842b8be9316383c16672da33a016276f48" => :x86_64_linux
   end
 
   depends_on "python@3.8"

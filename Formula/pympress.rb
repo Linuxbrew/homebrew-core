@@ -3,17 +3,17 @@ class Pympress < Formula
 
   desc "Simple and powerful dual-screen PDF reader designed for presentations"
   homepage "https://github.com/Cimbali/pympress/"
-  url "https://files.pythonhosted.org/packages/d1/cf/a81c579fa9b65daa7b159220038adaaeb144d21616dc83868ed7c42589d9/pympress-1.5.2.tar.gz"
-  sha256 "3f19236897ba7b3106b0b8ccd04ca32aee42fe3a604ea1d7ced305abcceeecf2"
-  revision 2
+  url "https://files.pythonhosted.org/packages/92/80/c63ad7748e877dfeb5d7d756c1bdd4c2657e5a857814b4d6edf96d44678c/pympress-1.5.3.tar.gz"
+  sha256 "d8c10c286d1de2210c19a3e752542b61c8bcc592c48553f7c7043e943a87d05d"
+  revision 1 unless OS.mac?
   head "https://github.com/Cimbali/pympress.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24540ab0f775af92de2f95429dec877d5a97dc1ef61bb9aded8fa4ad356c2e99" => :catalina
-    sha256 "fc7a914b18e0b2be1ecef5a05ef60299b70c09b77774aa4cdf5410c6fb0bebb5" => :mojave
-    sha256 "7af17f84c899bc000d09c62a4a5658c943a13c0cf56a07a512ab96eaae76b8bf" => :high_sierra
-    sha256 "81ced877990676c56b0511f2938f9a3b5ae5817f67b2750fbfcc755adced389e" => :x86_64_linux
+    sha256 "0882199094438644ae2af8e60ea55f02272990cca88b4ae0cbcfbabc9a68465b" => :catalina
+    sha256 "7594889ecb2cf373356f01c1eb4e56573ba26bd50fd5ed0de5ece83d75f1adca" => :mojave
+    sha256 "e6634bc9a8213054574d6be0814ef0b8faf6209e20aafb721753418a718f68af" => :high_sierra
+    sha256 "5c4dce71c0b81f835664e2205137da0f4bc8b158dc45feefa39c6009fc1419d8" => :x86_64_linux
   end
 
   depends_on "gobject-introspection"

@@ -3,22 +3,18 @@ class Movgrab < Formula
   homepage "https://sites.google.com/site/columscode/home/movgrab"
   url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
   sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "957654b8124f982a4cb8001f1ade80de1f145af16b49982267e2867573633cbd" => :catalina
-    sha256 "4ee0f911dfa7c740de7299ec27f3015bb8543a70bba6cc2ebe5bc8a500b5932b" => :mojave
-    sha256 "b93b158f7774abed4d3ba760afb185798782bf10b257ffbf09954f131387137b" => :high_sierra
-    sha256 "0ba428d0362651c65554fa6a9169fa65a2b7e560de248c39212a7d2320400567" => :x86_64_linux
+    sha256 "b3032648e55b090ca256192c989683f3b0a26942f38f0460dce9457548c14fe0" => :catalina
+    sha256 "b0e5153f5147c8d256685dfa8be4ac67bc863bb472afcaf769caa133fb94b889" => :mojave
+    sha256 "7702b7817fc398f4901014bd6162578294da414a18b1ae4e5f10ef8cf05a678c" => :high_sierra
+    sha256 "a213c5acfd106131fb89a7488d4a9bf54150116f4cdc5f56aaf56665b65a3075" => :x86_64_linux
   end
 
-  if OS.mac?
-    depends_on "libressl"
-  else
-    depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
-  end
+  depends_on "pkg-config" => :build
+  depends_on "openssl@1.1"
 
   # Fixes an incompatibility between Linux's getxattr and macOS's.
   # Reported upstream; half of this is already committed, and there's

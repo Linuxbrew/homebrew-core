@@ -1,13 +1,13 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.org/"
-  url "https://github.com/bareos/bareos/archive/Release/19.2.6.tar.gz"
-  sha256 "688505f8bc45b919dfd1c8bdcd448b4bdbe1ea2d1755358a94d702e9aff8482b"
+  url "https://github.com/bareos/bareos/archive/Release/19.2.7.tar.gz"
+  sha256 "283c1fa9cb6a96b1f09b402cd507ecd8bf798458bafcbfad867da08d33d12653"
 
   bottle do
-    sha256 "afd57cdc34b88e67673ca416ca95bd10490a51ed4158ac503e41d42130eb4964" => :catalina
-    sha256 "da9c6752912285c42f35ef5cc75fc51cf51326dd80fe8eafb454fda5a522e585" => :mojave
-    sha256 "a3cc09799454c9387eef89150a48d6dabfa6f095f2b72b59094f0e5a0a4da4f1" => :high_sierra
+    sha256 "c398b94b0cd74715b26a53369d6b8fdabe6c4c9cf876c27bbf3394801d2d1fb6" => :catalina
+    sha256 "91276e1c2e1e35c2ee7c00b8c7b4b56647c15290e4ae402ca42557a675cc14aa" => :mojave
+    sha256 "95c59dc77b15fed9cc99aa41328d745192b7b03a3b77f1d343f81cd724ecd65a" => :high_sierra
   end
 
   depends_on "cmake" => :build

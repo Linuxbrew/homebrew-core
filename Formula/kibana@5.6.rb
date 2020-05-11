@@ -9,13 +9,15 @@ class KibanaAT56 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74a4ff8c4b94acf7b9e6b07a7eb597c922d29bbaa11d92e36e38ab243070afa7" => :catalina
-    sha256 "5718b742a4505d7b5844dac7ae74c8909830a8acf92b9904d26efa177de63a52" => :mojave
-    sha256 "f6f111399387e6d22169f8a9f527fc12c709cd86f2282b919a54433b5a8461c6" => :high_sierra
-    sha256 "0d7822349fe000d31c07d04eb19eb7d2f2038fd1e63f46dcdd6d4ea45a0453c4" => :sierra
+    rebuild 1
+    sha256 "f451a8784dc52182670152d040f6533d4dc2f1b251ef3797eed6c6ff565db8af" => :catalina
+    sha256 "9e10c72574cde3b0ab08d668f6f4c3ecbe626da70648c1682bf0974196f198cb" => :mojave
+    sha256 "49b180f5e405662651596a97c603e79653852205a9002853775c21e23787bf5a" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "March 11, 2019"
 
   resource "node" do
     url "https://nodejs.org/dist/v6.17.0/node-v6.17.0.tar.xz"

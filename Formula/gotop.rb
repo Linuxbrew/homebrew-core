@@ -1,21 +1,21 @@
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
-  homepage "https://github.com/cjbassi/gotop"
-  url "https://github.com/cjbassi/gotop/archive/3.0.0.tar.gz"
-  sha256 "d5147080bb6057f0bf0900b38438e89aa066959c845bdd4c84a9c9fe478b176f"
+  homepage "https://github.com/xxxserxxx/gotop"
+  url "https://github.com/xxxserxxx/gotop/archive/v3.5.2.tar.gz"
+  sha256 "d175d370491c1d1b98c8cd1015674f5cfc04d3dbe6ea4a528b641698f0fafb34"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e92acc3b1327317f9a5a6a09fe841d4cdf116ebeb3b225fa73d28b10a21d0170" => :catalina
-    sha256 "fbf79c06ef6ef84bd3f3f28fba3e49308e295f816facd0f6b7f696d6789e69a9" => :mojave
-    sha256 "58606da95a9fc75bfca7646e32e1f14e90fca4600b2bffddf5a7c14fbe3f3268" => :high_sierra
-    sha256 "a77840647aab6f333136491a6398613736146aba35432648e223a33b2cde610a" => :x86_64_linux
+    sha256 "64c1dbdac093d37353e400b5ee47a9e2bb2268bf26a11c1853c331da349c230e" => :catalina
+    sha256 "dcca12e1f88c8f8b835257839b38930203fa9d6df475b672ad1a65f99bf34855" => :mojave
+    sha256 "20a37aeed1acf7a6a99c2ec63783a65e1813c92811e042c21ddea3d5dd18b132" => :high_sierra
+    sha256 "95c6a9e0ffdeb9d16b5fa104306789570f35b550d53e1005caa04bbc6ea96267" => :x86_64_linux
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", "-ldflags", "-s -w", "-trimpath", "-o", bin/name
+    system "go", "build", *std_go_args, "./cmd/gotop"
   end
 
   test do

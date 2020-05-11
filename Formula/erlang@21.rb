@@ -2,15 +2,15 @@ class ErlangAT21 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.3.8.14.tar.gz"
-  sha256 "036583f8e6aa539c89db2a32b8524366446c7f6f99b11999bb9eea69a7ce80fd"
+  url "https://github.com/erlang/otp/archive/OTP-21.3.8.15.tar.gz"
+  sha256 "7004876880504323eda7a1ed9de89697ec5810936f0224af05e798bd57878b09"
 
   bottle do
     cellar :any
-    sha256 "61006bbda1f61e0bf6abc867fb375a1d440da7e283ed670050e1583a3eaf3001" => :catalina
-    sha256 "cb1e924832a81ff1c485e7d985d9d2158c671f5ed9923ffbe0fbece2bfe51be7" => :mojave
-    sha256 "94e3ca78d8f7c3ebe7598be11bc983e27f426b05470d3cce404467cf357a465d" => :high_sierra
-    sha256 "1f7f83ee72aea6f3de6c8d8aeb05f84bc24ccfa4b4aacc823001488b1c26d23a" => :x86_64_linux
+    sha256 "9ef4ec821e375aaf79d2685b4ff13bd7dae4881ba2aea84f7a072b095321cd2e" => :catalina
+    sha256 "f287a5f9b7470ebdcc3c34350784303e1832bf0319802e7a1a5ede8722112ca0" => :mojave
+    sha256 "2bce901574361de20ccf248a307d51d73646ccf45e089fde82b8f65c1c910c72" => :high_sierra
+    sha256 "f5afcd1135e500b0e54803f945e4aa18559de5376d5a066a940c6976a00e4f4d" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -33,6 +33,12 @@ class ErlangAT21 < Formula
     url "https://www.erlang.org/download/otp_doc_html_21.3.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_html_21.3.tar.gz"
     sha256 "258b1e0ed1d07abbf08938f62c845450e90a32ec542e94455e5d5b7c333da362"
+  end
+
+  # Fix build on Xcode 11.4
+  patch do
+    url "https://github.com/erlang/otp/commit/3edba0dad391431cbadad44a8bd15c75254fc239.patch?full_index=1"
+    sha256 "0c82d9f3bdb668ba78025988c9447bebe91a2f6bb00daa7f0ae7bd1916cd9bfd"
   end
 
   def install

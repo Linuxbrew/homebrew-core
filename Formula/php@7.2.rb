@@ -2,17 +2,21 @@ class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.2.29.tar.xz"
-  sha256 "b117de74136bf4b439d663be9cf0c8e06a260c1f340f6b75ccadb609153a7fe8"
+  url "https://www.php.net/distributions/php-7.2.30.tar.xz"
+  sha256 "aa93df27b58a45d6c9800ac813245dfdca03490a918ebe515b3a70189b1bf8c3"
+  revision 1
 
   bottle do
-    sha256 "1af2da199898a98788f89bcf0f83fce354bda950bec306504d294406dfec9129" => :catalina
-    sha256 "33c0b62d6d2fdcf8d0d7931901e28dc01a22b5742f21c680e1a9d4946ed2525d" => :mojave
-    sha256 "1d4b566b54212cf0257d14c9e228e3854a1946971b126ddaa0dc322c2c6d93ad" => :high_sierra
-    sha256 "a5dc3cfcde4d0a5f50f0d18569c7fa5f4a5fb34f9b30160c96f5750be26859b9" => :x86_64_linux
+    rebuild 1
+    sha256 "9710bbecc30f659e1bc696af177df38bd1d8640a546e0e049e09108c31ac056c" => :catalina
+    sha256 "8216f088059472a45020bc34f7a5c6c30733b19511f58972257cded4b7a9bf49" => :mojave
+    sha256 "759ba4894c971d69b2b4d36c2f54863e1081f347a9a088f70e6e1aeb9d5e7f80" => :high_sierra
+    sha256 "912b89079d5055d3aa23f597e422da823a7de16d9acd41680940f2c96faa3567" => :x86_64_linux
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "November 30, 2020"
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -204,10 +208,11 @@ class PhpAT72 < Formula
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     # Use OpenSSL cert bundle
+    openssl = Formula["openssl@1.1"]
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
+      "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+      "openssl.capath = \"#{openssl.pkgetc}/certs\""
 
     config_files = {
       "php.ini-development"   => "php.ini",

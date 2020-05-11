@@ -1,15 +1,15 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.16.2/node-v12.16.2.tar.xz"
-  sha256 "555c47ca0a40e5526d9ab7b2e9c18f9dbd1d956cbdc013fd2223bb11a069be78"
+  url "https://nodejs.org/dist/v12.16.3/node-v12.16.3.tar.xz"
+  sha256 "f0559b0829c7f2ac10bf5b3e157e498227e95e26cdb6af814969c49f367359a3"
 
   bottle do
     cellar :any
-    sha256 "2fa5ade50ce58a7b881a3f175b0a0b01a8af8c5f6fd851c06dfa490da1d2acdf" => :catalina
-    sha256 "006029e3bc4e0cf1700054995beef7e2e3b294b1f00bb846d4a18e6b0ed49e36" => :mojave
-    sha256 "3c823b2028194e6be1775ba27fb6c93bd5cbda9bda6fd6d96e1603bbb00d5a8b" => :high_sierra
-    sha256 "97fbfc9c7b2e0618e53173c5599b755bbee0d8c7721add2016966c37bbfd2081" => :x86_64_linux
+    sha256 "e978c9077bf8ca7bb38cf0542859026a8444520d4ce19fd3f10acb93cd631368" => :catalina
+    sha256 "a76180ed93325866e5383b05a32125b021c3698d92b828539e00f4df71adae6b" => :mojave
+    sha256 "7117a3d812f285cebad6a9c3a125d8f56d057e6970c8c937dc19a51cec9d8bfe" => :high_sierra
+    sha256 "6c9f76d9b51c495c7abbec3a750fe6ba722a7b2811fce6c0441a77a73d88ea5f" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -49,8 +49,10 @@ class NodeAT12 < Formula
     assert_predicate bin/"npm", :exist?, "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-    system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "bufferutil"
+    system "#{bin}/npm", *npm_args, "install", ("--unsafe-perm" if Process.uid.zero?), "npm@latest"
+    unless head?
+      system "#{bin}/npm", *npm_args, "install", ("--unsafe-perm" if Process.uid.zero?), "bufferutil"
+    end
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

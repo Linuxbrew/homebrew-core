@@ -4,12 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.13.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
   sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision OS.mac? ? 4 : 5
+  revision 5
 
   bottle do
-    sha256 "1af68c125bb42f92ba447bb12bf42dee0f5c1d043a26e1967d29f4a360376ed8" => :catalina
-    sha256 "e1ea4e67840c6674db386f61844677e148f5b5fb1adfae5c2f8a5e99b6fc8c90" => :mojave
-    sha256 "709026fd81810af681e30974b2a35d4ab7b884afecf646a0e22b382babff3998" => :high_sierra
+    sha256 "0c131c339c9d452563aeda9dffc0acbe2f75be6d4ab3f8eda3ffdab7b0e06a67" => :catalina
+    sha256 "a19ac8763a4d06dd030d6f41cb5b64e15bae68f33b95ebb677040e58d4a1f9f1" => :mojave
+    sha256 "a901ee429676a52297443213f234d4b30e21a7c25a660fed21d767bc2fd0a5e1" => :high_sierra
     sha256 "2898a45955cc9120b9b82ad4906bb09f4ac1545dde6c78918e35108a0e3eeb01" => :x86_64_linux
   end
 
@@ -32,9 +32,12 @@ class Subversion < Formula
   # gettext, lz4, perl, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
+  depends_on :macos if OS.mac? # Due to Python 2
+  # See https://github.com/Homebrew/homebrew-core/issues/53193#issue-600482673
+  # Will work with Python 3.8 in subversion 1.14
   depends_on "openssl@1.1" # For Serf
   depends_on "perl"
-  depends_on "python@3.8"
+  depends_on "python@3.8" unless OS.mac?
   depends_on "sqlite"
   depends_on "utf8proc"
 
@@ -60,6 +63,7 @@ class Subversion < Formula
     ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     serf_prefix = OS.mac? ? libexec/"serf" : prefix
+
     resource("serf").stage do
       unless OS.mac?
         inreplace "SConstruct" do |s|
@@ -138,7 +142,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415

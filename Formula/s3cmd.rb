@@ -5,6 +5,7 @@ class S3cmd < Formula
   homepage "https://s3tools.org/s3cmd"
   url "https://files.pythonhosted.org/packages/c7/eb/5143fe1884af2303cb7b23f453e5c9f337af46c2281581fc40ab5322dee4/s3cmd-2.1.0.tar.gz"
   sha256 "966b0a494a916fc3b4324de38f089c86c70ee90e8e1cae6d59102103a4c0cc03"
+  revision 1 unless OS.mac?
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
@@ -12,7 +13,7 @@ class S3cmd < Formula
     sha256 "ea18ab2445955c20de54537447b5930de60cf8e927fe291f662760d50c0df8db" => :catalina
     sha256 "737880ee8c7e9d73848eec50d87b1b7da7762a8b8d6172fd1f4be173888e18fe" => :mojave
     sha256 "4d2c498462eba573c43413ec16f4681a8e604b67ff6739351900e500e2be5923" => :high_sierra
-    sha256 "a78138f65ef83c86195fd270dfba5cf419aa45e7e6a141630306b85defebc91a" => :x86_64_linux
+    sha256 "d3fef12558ac96314fd0c28670b6c73e9a3877d92bfe89659ef0425f5edaa01f" => :x86_64_linux
   end
 
   depends_on "python@3.8"

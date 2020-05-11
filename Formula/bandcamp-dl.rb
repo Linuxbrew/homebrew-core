@@ -6,7 +6,7 @@ class BandcampDl < Formula
   url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
   version "0.0.8-12"
   sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
-  revision 3
+  revision OS.mac? ? 3 : 4
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
@@ -14,7 +14,7 @@ class BandcampDl < Formula
     sha256 "7906dfa2016495c4e0aeca69d9aa2b7e9bcc2ac4742ba2900f3e4b6a942a3053" => :catalina
     sha256 "5bce4baa9ae47a78a43206aad853a0a202395dc335d41756050af358967f035f" => :mojave
     sha256 "9c8c311b18dad230648661c3b981583ece5e647285239c6024efa2f2598f439e" => :high_sierra
-    sha256 "8f002aeb9ce59229d6e90ca9ac9044543f3a9a9c3b294ea76fe2581e3712855f" => :x86_64_linux
+    sha256 "4cf828c7fff6676f90bcea676952e38575fd0b22b80e5248a5218dcbd0ebbb7e" => :x86_64_linux
   end
 
   depends_on "python@3.8"

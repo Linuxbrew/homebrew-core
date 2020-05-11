@@ -9,13 +9,14 @@ class Rhash < Formula
     sha256 "fc4f0d1311c5481c4b53bd1a05644531a986eb501aa1e853131125573cbd0d6a" => :catalina
     sha256 "cb70f24905e35fca8812456e91f34d24aa71c54f05bb72c04c4b94610564ab37" => :mojave
     sha256 "557acccf2751cbfdd83e6e8e2ec2c6cf5f87a90f0c7a0be9b3d99de0d2f0f6b6" => :high_sierra
+    sha256 "42c909851ec896cb1c833b298cff514400c45c7333f9e83b5dc4fd97a2f6b327" => :x86_64_linux
   end
 
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    lib.install "librhash/librhash.dylib"
+    lib.install "librhash/librhash.#{OS.mac? ? "dylib" : "so"}"
     system "make", "-C", "librhash", "install-lib-headers"
   end
 

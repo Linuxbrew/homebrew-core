@@ -5,14 +5,14 @@ class DockerSquash < Formula
   homepage "https://github.com/goldmann/docker-squash"
   url "https://files.pythonhosted.org/packages/8c/b4/429be44bdb8ad42bbca4ab4a813f771ef517b00a8d733feb6d62716c4209/docker-squash-1.0.8.tar.gz"
   sha256 "f677bc9129d1156516454b0b334cdc2642f7b9a3328dca3a7477c43ac5ee23a9"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
     sha256 "acf125fff4af17093f168aa89c5e1d5842970435f1016749e4250d37d5653552" => :catalina
     sha256 "cdeaa159137369db885656b13f7f893b0ebff19898eabb3577d3fcac567b5f8d" => :mojave
     sha256 "afdfce8a93406db973df50f90527e4554769207e0c3b0b5de323fe2b0de1a419" => :high_sierra
-    sha256 "b2f0a92c9aac412de61e99875ef772cef49faa1214408bf36d21301141b90d9d" => :x86_64_linux
+    sha256 "4a352212c85831f34d47a3d709124d83176654abaf40d60c790f6454ee15b002" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -1,15 +1,15 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.16.0%20%28Stable%29/asio-1.16.0.tar.bz2"
-  sha256 "14a8bfbe55410cbfff6fd97c81c760ce1a4e6cee45b49a7f293e1d7d79d17c0d"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.16.1%20%28Stable%29/asio-1.16.1.tar.bz2"
+  sha256 "e271db76dbbcda9835ed1c9c94deb2ba3f4589c3ebcaa71d99ac694b8d62638c"
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
     cellar :any
-    sha256 "c2acd9065313cabbcebaf9915c28f3fc60b023fe64ade2960dfde58dbcb65bb4" => :catalina
-    sha256 "ef23f2d090ea992df866715be297c3a6c9447a4a0f0aa228b025427e3975265b" => :mojave
-    sha256 "717e4f0a317635e60a4b289dbc71e2c74b75c9b99880728baa4220c3d51e3f03" => :high_sierra
+    sha256 "1c2a224aa3c62fdf4d6f80b54c3297e38992c53a25f977b2492c4de37848c34f" => :catalina
+    sha256 "aac238cdd1c834dace440c7dd42cd410bfc1908a62b0710ec54ef4e3b1100a40" => :mojave
+    sha256 "a25de24a946f9e0a28a4ed33271bb577a356997052ece5eaa46036f7f5863c1a" => :high_sierra
   end
 
   depends_on "autoconf" => :build

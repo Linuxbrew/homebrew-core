@@ -5,14 +5,14 @@ class Goolabs < Formula
   homepage "https://pypi.python.org/pypi/goolabs"
   url "https://files.pythonhosted.org/packages/ce/86/2d3b5bd85311ee3a7ae7a661b3619095431503cd0cae03048c646b700cad/goolabs-0.4.0.tar.gz"
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
     sha256 "c784f76b536c01324365eae262d9fb1b6feff9eeb39173f5ea0269eae3b3d73c" => :catalina
     sha256 "1b1fe110089fe56dbb9db0d11eb28dbe57629462c8274eb33a2fe7f9198b482d" => :mojave
     sha256 "1705b23fe27ee59062383dc353dbf34770d1aef2378a3740e77b02c71724f001" => :high_sierra
-    sha256 "a75a8396bfbf53b6db4aa1e6b02d38d8026287b09b3d7c0d49234c02911f0ed2" => :x86_64_linux
+    sha256 "1885cbe04d2751d2e20df30154127768ce5682c39033e2859552e66c533120aa" => :x86_64_linux
   end
 
   depends_on "python@3.8"

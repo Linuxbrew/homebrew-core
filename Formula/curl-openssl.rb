@@ -1,14 +1,14 @@
 class CurlOpenssl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.69.1.tar.bz2"
-  sha256 "2ff5e5bd507adf6aa88ff4bbafd4c7af464867ffb688be93b9930717a56c4de8"
+  url "https://curl.haxx.se/download/curl-7.70.0.tar.xz"
+  sha256 "032f43f2674008c761af19bf536374128c16241fb234699a55f9fb603fcfbae7"
 
   bottle do
-    sha256 "c64c399d3fa8c7963c3d1881bd20467382fe91020b976e0e04e44e37cf8b992b" => :catalina
-    sha256 "7ffe9b70aff89a02e532d584c5dbf95720899f7df2e033ae294c46b52fb9984a" => :mojave
-    sha256 "da8add26e84654daeb797404c335563e7e932d5e64af6d4d85090b68bf628e3f" => :high_sierra
-    sha256 "6efef5a8e23e91229daa5db29995e3ffa3e4c913fecfa1c67970a89b26e06a34" => :x86_64_linux
+    sha256 "734a899fd8b639b876c781e416a2f4ebdb45a02cf81e7f33f38993798831cf4d" => :catalina
+    sha256 "e5b1c91159e5a5a72a12e5d5cf3881871f5d610e780e21a4d43e1194c05a52af" => :mojave
+    sha256 "716b806b016469c364078fd25b8c0fef88873a01c2074fa24b54ba388b548ee2" => :high_sierra
+    sha256 "fe00212ccf897edb4a450fbbd097a1e8d3e78b1269b867ec0a8ae618c7625e56" => :x86_64_linux
   end
 
   head do
@@ -20,7 +20,7 @@ class CurlOpenssl < Formula
   end
 
   if OS.mac?
-    keg_only :provided_by_macos
+    keg_only :shadowed_by_macos, "macOS provides curl"
   else
     keg_only "it conflicts with curl"
   end
@@ -39,20 +39,21 @@ class CurlOpenssl < Formula
   def install
     system "./buildconf" if build.head?
 
+    openssl = Formula["openssl@1.1"]
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-ares=#{Formula["c-ares"].opt_prefix}
-      --with-ca-bundle=#{etc}/openssl@1.1/cert.pem
-      --with-ca-path=#{etc}/openssl@1.1/certs
+      --with-ca-bundle=#{openssl.pkgetc}/cert.pem
+      --with-ca-path=#{openssl.pkgetc}/certs
       --with-gssapi
       --with-libidn2
       --with-libmetalink
       --with-librtmp
       --with-libssh2
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{openssl.opt_prefix}
       --without-libpsl
     ]
 

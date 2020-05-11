@@ -1,32 +1,32 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
-  url "https://github.com/EasyRPG/liblcf/archive/0.6.1.tar.gz"
-  sha256 "224068ede007098d8fad45348da3b47f00a33d5e8a4a693514d5c9290ab1883f"
+  url "https://easyrpg.org/downloads/player/0.6.2/liblcf-0.6.2.tar.xz"
+  sha256 "c48b4f29ee0c115339a6886fc435b54f17799c97ae134432201e994b1d3e0d34"
   head "https://github.com/EasyRPG/liblcf.git"
 
   bottle do
     cellar :any
-    sha256 "a66e048d476e54e3358ac0dae6bf2f8c86ef62596be798b03cc6b05adcbffdcc" => :catalina
-    sha256 "af1b2189ec52ff85cd7bbf53aee54c988bf933bb36333194831ffeb873a2d514" => :mojave
-    sha256 "400b4d459f287f0c935233a25298cbe3d4ca6b2d2a6f09bb75fd95b917fff811" => :high_sierra
-    sha256 "c27dea64d039f5dc4ed3d57f17c85035b95a3426bbc687edf35aba2d03801bf1" => :sierra
-    sha256 "ff2cb6767159f92ab37e887fa507f730c3fc4377b57c3e0a0a923e892cae954e" => :x86_64_linux
+    sha256 "2e9d41df9271f2aff0121b88f1d2fa4257a0c4dd3baeb5ee516e90ae67c884eb" => :catalina
+    sha256 "f4518edc8ebea5c1022e505e57dee8d0f9e2be481108171089e069867e2e5139" => :mojave
+    sha256 "ee900d1f90e33cd831a1e8e215813cd31daa8d6e90d08423bb78484f5176728d" => :high_sierra
+    sha256 "07ae479f1c38ef37cf612f887762c29c3d45848c3e17e4a0d51ded2cfaf286bf" => :x86_64_linux
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "expat"
   depends_on "icu4c"
 
+  if MacOS.version < :el_capitan
+    depends_on "expat"
+  else
+    uses_from_macos "expat"
+  end
+
   def install
-    system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make", "check"
+    system "make"
     system "make", "install"
   end
 

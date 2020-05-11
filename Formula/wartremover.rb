@@ -1,16 +1,16 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
-  url "https://github.com/wartremover/wartremover/archive/v2.4.5.tar.gz"
-  sha256 "83f86654e245f10b0d2666675250559cfb3ef9a98b09a11739334762d7b889f4"
+  url "https://github.com/wartremover/wartremover/archive/v2.4.8.tar.gz"
+  sha256 "1ae10c6203e7461ec3d971ddbd19d20f8ca73a38e169c2b0bfbc62115544bacd"
   head "https://github.com/wartremover/wartremover.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ac3bc25e5234c527c546bfab1fc29df52da43952204c7fae60ed6dec0321d8ba" => :catalina
-    sha256 "56ecdad938589a0664837a7dc48b6d90adc5e24c4481ee1046b22c384bab013b" => :mojave
-    sha256 "bb2a05744eaea5b65952c50f1e7fed70c9755ed268fe07618aa842e16e61aac7" => :high_sierra
-    sha256 "99481e1ed402efa392e68017cd1ce431ac281cce58a15a99cde4586ce7b48ec0" => :x86_64_linux
+    sha256 "4768dff77c54a336e206eb22b2c86d58cec941af9f07f2f0c172187edc9a84e9" => :catalina
+    sha256 "4099aeba976a9063b6c50d8bf019e649425a6921f658fbc901ac619f59c6f843" => :mojave
+    sha256 "465e0d8d288697c9a72f3d1122720d97856c892f5d8cc3e830ea81336441de43" => :high_sierra
+    sha256 "1e30820adc1c735f285663470ce8ea87f189cf49aaf36a23acc49b557d8d3fd9" => :x86_64_linux
   end
 
   depends_on "sbt" => :build

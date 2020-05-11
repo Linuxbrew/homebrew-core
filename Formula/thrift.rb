@@ -7,10 +7,11 @@ class Thrift < Formula
 
   bottle do
     cellar :any
-    sha256 "3a6dccee60ca25d75f99245cc46a7d84351c87c654b77837c3370c5247c80c49" => :catalina
-    sha256 "385c454b28a354be187de75d67c0133bca17cd1341f1e1abd10cba368e29a80d" => :mojave
-    sha256 "cb82d3f651ae5cb00a37713a050127a746358320e579d2fe55e08c4b9cd139bd" => :high_sierra
-    sha256 "e50023ab05171856aaccb3a820a4a3482a7e31e00e988565c86a9f2f486229d3" => :x86_64_linux
+    rebuild 1
+    sha256 "9fff4084e59bf612da35f7e731c82f5a1d714aec8ba860a2521c0ca1d73731d4" => :catalina
+    sha256 "840fbc8db938bc1b8e50d16f733bcd22a8918efee276cbf969fc79f779380b5d" => :mojave
+    sha256 "bec0a20279bf36bcd960c71b9e417e41a53479e8a575034bef426994e7ecc546" => :high_sierra
+    sha256 "4120ac01e7b84804261f75fd878cccc53ef87f11a8fc2b4305b680160e731c08" => :x86_64_linux
   end
 
   head do
@@ -23,7 +24,7 @@ class Thrift < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "boost"
+  depends_on "boost" => [:build, :test]
   depends_on "openssl@1.1"
 
   def install
@@ -60,6 +61,17 @@ class Thrift < Formula
   end
 
   test do
-    system "#{bin}/thrift", "--version"
+    (testpath/"test.thrift").write <<~'EOS'
+      service MultiplicationService {
+        i32 multiply(1:i32 x, 2:i32 y),
+      }
+    EOS
+
+    system "#{bin}/thrift", "-r", "--gen", "cpp", "test.thrift"
+
+    system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
+      "gen-cpp/MultiplicationService_server.skeleton.cpp",
+      "-I#{include}/include",
+      "-L#{lib}", "-lthrift"
   end
 end

@@ -6,13 +6,14 @@ class Hledger < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "efa65738e6fb73e580c96223b3eec811919f488be09781deaf9c037d1c24decf" => :catalina
-    sha256 "d5e1df6689b97b47591fb741cf47ea100acbdb12f69b0938a35d7745c13ddacc" => :mojave
-    sha256 "25441f756ef6cccf285cd437416999502c0fe9387f44c6be66a7a2bf56db5ec1" => :high_sierra
-    sha256 "d83b7cb4d0cc3e14c1b71bc27316ce1058d63c639802705512a5db84cac5cdb9" => :x86_64_linux
+    rebuild 1
+    sha256 "caa8cfd28bddaa3bc00745e552724e2c1086e4819976c1ef405e08d0d58f87aa" => :catalina
+    sha256 "020080275f37fea9056f4cdf1258f93bfaca3ae9e7dc2f055064aad7916212c5" => :mojave
+    sha256 "beb4d93eb15db9884bea31d78b729030be3d19864b7048d7baf11c12f34e40f8" => :high_sierra
+    sha256 "fa625c0ac6438a25773a3f7300ab3159378187525ffbc368d0b3be2e2ad4b95b" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"

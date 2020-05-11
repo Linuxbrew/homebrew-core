@@ -5,7 +5,7 @@ class Watson < Formula
   homepage "https://tailordev.github.io/Watson/"
   url "https://files.pythonhosted.org/packages/b2/ab/64c9eac8eb2032ce7bc51c41aa44c41bdbabf96d8f850aae2fcb28a67795/td-watson-1.8.0.tar.gz"
   sha256 "161870b9e398f2a25a08f0aed7b176676f503d7f16aead026f2e62b6a034e6c6"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Watson < Formula
     sha256 "9c9cd611721cff1d748e7b2bcddf12a0557e6254028633f8b66fa68a4f3ad74e" => :catalina
     sha256 "218620ce1032be731400fde457475bf115826f0d5ba256151db12f676ca88856" => :mojave
     sha256 "c1c59a05d2f41111afcd8f9607d200357d14a20eafb6fbfc1c2c056baff0bdb8" => :high_sierra
-    sha256 "b98957650b0e8eefea1173180954623c33787f0864c1c60462e0c4632a6ad064" => :x86_64_linux
+    sha256 "d09e7cb954fdca3bac8c3fdbdd54be454c8c677740fba024b2b9d6dca39d6b40" => :x86_64_linux
   end
 
   depends_on "python@3.8"

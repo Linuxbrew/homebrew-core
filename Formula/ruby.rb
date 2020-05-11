@@ -3,13 +3,13 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.xz"
   sha256 "b224f9844646cc92765df8288a46838511c1cec5b550d8874bd4686a904fcee7"
-  revision 1
+  revision OS.mac? ? 2 : 3
 
   bottle do
-    sha256 "6eb292b04eff387c224ad7325c8b1b17d849af611e67a3dfae9af6e50551668b" => :catalina
-    sha256 "1ddc699cc9630468dc21bcd56f326c18981eaf435c73a844dd7b4c059e7f05f0" => :mojave
-    sha256 "db64bf12f44269864d5f26f75528306361fda314ec9de8a2c76b9b6d47a2baae" => :high_sierra
-    sha256 "d9646b7390be8fe6d2809867bee8ed835708ea3ba06e15c53729ed1fb186e9ff" => :x86_64_linux
+    sha256 "7f5ed2afb15b25f9616b617ecca2ee376eb67cf6c105790df22221b7be9c1ef9" => :catalina
+    sha256 "cc995a06e761acc8a807b040d8e7fe301902a4fc63d2beaaae40e04c710e7338" => :mojave
+    sha256 "2605ad1636e40d747878a8df7d1ef51a15e58e70ce03510b9ea582c02a448e26" => :high_sierra
+    sha256 "ff621c4d7d5024f9fa342c329b9c5063ab4194cf6bb22ca62ff6a224a6f05327" => :x86_64_linux
   end
 
   head do
@@ -17,7 +17,7 @@ class Ruby < Formula
     depends_on "autoconf" => :build
   end
 
-  keg_only :provided_by_macos if OS.mac?
+  keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
@@ -39,11 +39,7 @@ class Ruby < Formula
   end
 
   def rubygems_bindir
-    if OS.mac?
-      HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
-    else
-      HOMEBREW_PREFIX/"bin"
-    end
+    HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
   def install
@@ -72,10 +68,10 @@ class Ruby < Formula
     args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     # Correct MJIT_CC to not use superenv shim
-    if OS.mac?
-      args << "MJIT_CC=/usr/bin/clang"
+    args << if OS.mac?
+      "MJIT_CC=/usr/bin/clang"
     else
-      args << "MJIT_CC=/usr/bin/gcc"
+      "MJIT_CC=/usr/bin/gcc"
     end
 
     system "./configure", *args
@@ -107,7 +103,8 @@ class Ruby < Formula
       system "#{bin}/ruby", "setup.rb", "--prefix=#{buildpath}/vendor_gem"
       rg_in = lib/"ruby/#{api_version}"
 
-      # Remove bundled Rubygem version.
+      # Remove bundled Rubygem and Bundler
+      rm_rf rg_in/"bundler"
       rm_rf rg_in/"rubygems"
       rm_f rg_in/"rubygems.rb"
       rm_f rg_in/"ubygems.rb"
@@ -236,6 +233,7 @@ class Ruby < Formula
       source 'https://rubygems.org'
       gem 'gemoji'
     EOS
+    system bin/"bundle", "exec", "ls" # https://github.com/Homebrew/homebrew-core/issues/53247
     system bin/"bundle", "install", "--binstubs=#{testpath}/bin"
     assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
   end

@@ -11,15 +11,14 @@ class HighlightingKate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c18bdbf697786c576810b4fc188afa8f7b973a75bdfad762e24c544d544baef7" => :mojave
-    sha256 "5bc082453692f0d95f5e09fdcc85732b987da5a1ce33be520389e957bc2f5393" => :high_sierra
-    sha256 "29ad60e21820b116e4f91c8000e2c890c081f08c4ccfc02340ca44ae9892084b" => :sierra
-    sha256 "bce28e772d40cc270aa78c376a1d6fed78eaba841ca7b90e4290daad0f72d058" => :el_capitan
+    rebuild 2
+    sha256 "9d58f8af6b9ad778cb5a0b606bfabf540c2ce103c91b8b5f90e919d5a3f5814d" => :catalina
+    sha256 "4ddc9cf7855dadffd1a72c17b3e30f9ff5854cbff797947289154be03923d3cd" => :mojave
+    sha256 "9625f315c60972e02a84dd42bcdbc237c30079e9e7d8808cd376b17bfd3abb4d" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
 
   def install
     install_cabal_package "-f", "executable"

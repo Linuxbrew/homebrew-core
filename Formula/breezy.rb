@@ -5,14 +5,14 @@ class Breezy < Formula
   homepage "https://www.breezy-vcs.org"
   url "https://files.pythonhosted.org/packages/6b/81/ae2ddb07ef93d62689a98b6b711394bfbe3e35c719253b18e6b84221d500/breezy-3.0.2.tar.gz"
   sha256 "50f16bc7faf299f98fe58573da55b0664078f94b1a0e7f0ce9e1e6a0d47e68e0"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
     sha256 "db4650b8d106f2b8f5f09d5cedb950e6c6956c32169d59e5132523cdde59b848" => :catalina
     sha256 "10855340b0adf9467386e45466e039801d5a25561894e6e42d1e83ba230d40fc" => :mojave
     sha256 "bb807fed61ea5ec609bd3e36644f35b618b190e49f728906231b83b1a0d86aa2" => :high_sierra
-    sha256 "e9465b18b400904bedd5583300bc102168daf2253113ac1c1701eeb919278f6d" => :x86_64_linux
+    sha256 "3044a1013ec765ac4d217b4f1a65323abb3833e3b886772f0b158fdbf826a83d" => :x86_64_linux
   end
 
   depends_on "cython" => :build

@@ -1,18 +1,17 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
-  homepage "https://www.wolfssl.com/wolfSSL/Home.html"
+  homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      :tag      => "v4.3.0-stable",
-      :revision => "3f13b49fa318fbd3216d7da36d942e7c276d3413"
-  sha256 "4e15f494604e41725499f8b708798f8ddc2fcaa8f39b4369bcd000b3cab482d8"
+      :tag      => "v4.4.0-stable",
+      :revision => "e116c89a58af750421d82ece13f80516d2bde02e"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
     cellar :any
-    sha256 "640adc750bb5f9bbb83c4750255a8451f3800911feb29f4b40bc9c05d6496a87" => :catalina
-    sha256 "45cb9c47a12a04ba87b263063b0c9d5ef41df63c23b9e0c2c71fefdc6419ce67" => :mojave
-    sha256 "d517858cb06ac4acfb74cf89957a51f3bfc80ffa49eba97406e81b7030f3190e" => :high_sierra
-    sha256 "bdc072d1078c43a109a5c26257d5ac24ca925eaec1ad7e45b23a039c69fc5dd0" => :x86_64_linux
+    sha256 "0be0aa725d9cd9d9a127d574a3e63548ad7176d03613913e714175af1a91eae9" => :catalina
+    sha256 "44add33b67e8f1d4e48f5130e9f0c73cbeda7277f8c43aa5fddbd8e9dccba657" => :mojave
+    sha256 "e3220ea7176729c24f817900a45002a8502defeba7ef4a1001cff1b342b3c487" => :high_sierra
+    sha256 "a4f55cd5f44fecd9c09459942cb43f12816b7b2e8727214b0fb18ecbaad5add9" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -20,10 +19,6 @@ class Wolfssl < Formula
   depends_on "libtool" => :build
 
   def install
-    # https://github.com/Homebrew/homebrew-core/pull/1046
-    # https://github.com/Homebrew/brew/pull/251
-    ENV.delete("SDKROOT")
-
     args = %W[
       --disable-silent-rules
       --disable-dependency-tracking
@@ -79,11 +74,9 @@ class Wolfssl < Formula
     ]
 
     # Extra flag is stated as a needed for the Mac platform.
-    # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
+    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
     # Also, only applies if fastmath is enabled.
-    if OS.mac?
-      ENV.append_to_cflags "-mdynamic-no-pic"
-    end
+    ENV.append_to_cflags "-mdynamic-no-pic" if OS.mac?
 
     system "./autogen.sh"
     system "./configure", *args

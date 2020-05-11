@@ -5,13 +5,14 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/5e/55/a4b34562af0f604b703fde449e18d4b452205daa303aeff832b6387f8849/khard-0.16.1.tar.gz"
   sha256 "0d9f67a575ac945365c7748cf71f39d3b2281462977254d2e325ceff0ac4e439"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "077ace786816be18db01618f82524bcaa63713f769588cdec5c3a7db7dc5db98" => :catalina
     sha256 "ccfb049a7e5887d37f3c7359b700ac36769422afe56f6422e326adf214dcda89" => :mojave
     sha256 "0b9d4ed54176ca9340d9605fdb9eb5fa19a96c461de05d6767ebe7fdf342c535" => :high_sierra
-    sha256 "c83704544427e456610183b9e7efb01420d1469c65fa1b3efb69ac546fb6289d" => :x86_64_linux
+    sha256 "ff5c2cf61c9e09454af1ce5cb448305940614f9b4e568e3f41e29e8b607e4c03" => :x86_64_linux
   end
 
   depends_on "python@3.8"

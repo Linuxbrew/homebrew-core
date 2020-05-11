@@ -6,14 +6,14 @@ class Cxxtest < Formula
   url "https://github.com/CxxTest/cxxtest/releases/download/4.4/cxxtest-4.4.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
     sha256 "90b9ca9996eb575a2e8665223f38731979a38630f5462fd3c2babf81ce7ceee4" => :catalina
     sha256 "d6f91fba5743dc04e2c929036f59a34cd7833e5a75a6ebf6785209f8fabca4f1" => :mojave
     sha256 "99b1ea9c495bf4ee03b88aadb33a5ae964741bcd387d678c6dcc5a18c925ad12" => :high_sierra
-    sha256 "f93f0a25e47ae16d95774d9485f274d6690abeeeb949f3c6ada314f9b9e32493" => :x86_64_linux
+    sha256 "0b7b7422a6733c4916039f16e9dac10d703b2c68bfa8aadf99d3166bdc6fdc96" => :x86_64_linux
   end
 
   depends_on "python@3.8"

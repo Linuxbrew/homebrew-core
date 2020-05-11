@@ -3,13 +3,12 @@ class Gdal < Formula
   homepage "https://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.4.4/gdal-2.4.4.tar.xz"
   sha256 "a383bd3cf555d6e1169666b01b5b3025b2722ed39e834f1b65090f604405dcd8"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "d6fbd6dc124a0fd525a2092cf87b3d0bd5d1c5158b0bd992a0baf54189878dab" => :catalina
-    sha256 "1f00cb503f4a55a364546f2eebc43967c897eca4cae701df81263494f9113d6a" => :mojave
-    sha256 "839651423916249f5efa41c36d998970448605cf23dbd2b891dc667663fe817a" => :high_sierra
-    sha256 "e331d3c3adbf389b11c75209d68cf003a29bb257967309e5914acdc89d6c7394" => :x86_64_linux
+    sha256 "972cfcc9bed122b16d4bbd9c77ecaa87dee32973e9083f0d97f7135f6d36bba6" => :catalina
+    sha256 "b86252d85296db5b0723df6382e6d104c14e60163d03af952cbcf0ebaee30782" => :mojave
+    sha256 "115163fd5205878efe6f3f82128a8fdb0bbe3106cccca3d40a3a57b0aea93585" => :high_sierra
   end
 
   head do
@@ -54,11 +53,10 @@ class Gdal < Formula
 
   conflicts_with "cpl", :because => "both install cpl_error.h"
 
-  # Fix for "too many arguments to function 'void setErrorCallback(ErrorCallback)'"
-  # Remove in next release
+  # Patch for Poppler v0.85 and above
   patch :p2 do
-    url "https://github.com/OSGeo/gdal/commit/d587c2b056cd37a9bf51bf8afa1b740e16c7ba2b.patch?full_index=1"
-    sha256 "fed8fb8137c8366cc146e6df26dba6636cf75c3bb7b7ae40725600fa885f3ed0"
+    url "https://github.com/OSGeo/gdal/commit/d587c2b0.diff?full_index=1"
+    sha256 "9a6f473751e4e940f499b09fa0113a69c9977ef13f9a619f654142d4388ae568"
   end
 
   def install

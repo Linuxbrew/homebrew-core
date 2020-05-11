@@ -4,15 +4,19 @@ class PhpAT73 < Formula
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.3.17.tar.xz"
   sha256 "6a30304c27f7e7a94538f5ffec599f600ee93aedbbecad8aa4f8bec539b10ad8"
+  revision 1
 
   bottle do
-    sha256 "4f0daa294193f5bd716eb7b1376ade65da5d863f7be1894e1338a48500efe807" => :catalina
-    sha256 "42605e2c96f9297b751a9b170e05453fb2c639f03481bb9017b17b31464a4ac3" => :mojave
-    sha256 "64b6efed5f5cb136808f6c0e65312786405003f84e695ba9c649c19384b28088" => :high_sierra
-    sha256 "eaecdbd5400cf0b4534ebabe098123306221f2ee23e5c044eeea291a2f5ce47c" => :x86_64_linux
+    rebuild 1
+    sha256 "613132f6091eac848e9efcead35ca945322e5c12c805ab2c2a165068f25a0044" => :catalina
+    sha256 "941a25cd0e19b5e4563960be8c1085eede982460c835c144617d569574e2beac" => :mojave
+    sha256 "2615fa2ab8a81067f0234b38fdd6477ae70df1ee516bb7be5773eee400b05b76" => :high_sierra
+    sha256 "c809da69dfc380a15f85054d7d509b0705cfa3c82c300d0d9b45a5da6e819c38" => :x86_64_linux
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "December 6, 2021"
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -202,10 +206,11 @@ class PhpAT73 < Formula
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     # Use OpenSSL cert bundle
+    openssl = Formula["openssl@1.1"]
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
+      "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+      "openssl.capath = \"#{openssl.pkgetc}/certs\""
 
     # php 7.3 known bug
     # SO discussion: https://stackoverflow.com/a/53709484/791609

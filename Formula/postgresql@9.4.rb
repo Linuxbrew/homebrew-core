@@ -5,14 +5,16 @@ class PostgresqlAT94 < Formula
   sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
 
   bottle do
-    rebuild 1
-    sha256 "3c32ebc27f39fa609d19bdc1369a9bac3c4836908ae2456e44a53d3a368d0157" => :catalina
-    sha256 "ee5a9ae06d5324bac569d515ea3de348bb97010044075f791d089352c1a0c967" => :mojave
-    sha256 "03efe44c1c036c9dde08bed7932e34365be47365da98d85f30fc0f0aa2a08da7" => :high_sierra
-    sha256 "73310ee532b8255b43b33970d6432a7187ddbf6d5ba90d2b0550d316ea22b44c" => :x86_64_linux
+    rebuild 2
+    sha256 "86d9c75e0454e8285764827fb24b96dc0cc75e07dfe7bb808fa3682629467aa6" => :catalina
+    sha256 "e90c1fd44cd76e40b5326fe7692466c4e21e2380e9856dea816ad8fc1a89ee5c" => :mojave
+    sha256 "0900dd52dda6b761f64e553274c2d3da33fefd38bfa0e06ed7e6df1636642d28" => :high_sierra
+    sha256 "1b7e9a7c8ac9f1081357575be8924ae7477443b62cb21243bdfe42f183012d62" => :x86_64_linux
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "February 13, 2020"
 
   depends_on "openssl@1.1"
   depends_on "readline"

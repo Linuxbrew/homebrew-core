@@ -21,8 +21,8 @@ class Ponyc < Formula
     satisfy { !OS.mac? || DevelopmentTools.clang_build_version >= 800 }
   end
 
-  depends_on :macos => :yosemite if OS.mac?
   depends_on "llvm@7"
+  depends_on :macos => :yosemite if OS.mac?
   depends_on "pcre2"
 
   def install

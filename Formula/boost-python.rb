@@ -14,7 +14,6 @@ class BoostPython < Formula
     sha256 "a1216a35ca5e7ef9b116263756d5c8c546cf16f4626284403b94388ec6f05e82" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "boost"
   depends_on :macos # Due to Python 2
 

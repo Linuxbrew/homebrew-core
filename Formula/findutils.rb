@@ -80,8 +80,6 @@ class Findutils < Formula
       assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
     end
 
-    unless OS.mac?
-      assert_match "HOMEBREW", shell_output("#{bin}/find .")
-    end
+    assert_match "HOMEBREW", shell_output("#{bin}/find .") unless OS.mac?
   end
 end

@@ -14,8 +14,8 @@ class IosSim < Formula
     sha256 "ddbe9d541710ab4dd219db3f766e878ff8698dcd88c25a247e5c44e165ea2773" => :high_sierra
   end
 
-  depends_on "node"
   depends_on :macos
+  depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)

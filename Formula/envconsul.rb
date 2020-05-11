@@ -2,22 +2,22 @@ class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul.git",
-    :tag      => "v0.9.2",
-    :revision => "e00ce74043ac1204566ece60f12919c8b56467f3"
+    :tag      => "v0.9.3",
+    :revision => "1729aafafcc96929db40400eaf10bc0d70840480"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c6124368ea055ecca7e5b75484ed0da40b3de0c86c43e9188c0b00447e9b52b" => :catalina
-    sha256 "a0488492fac09bc1f89a224264602505e3fa7fda8747614ba8a40df5566cd77a" => :mojave
-    sha256 "418b4cc14d268c77074fb118cafe2165a1d4eab9b74489647328328b97d5327d" => :high_sierra
-    sha256 "8201ad4860c6f47e094ddda3d21f0c956523331b846dd1df229e7d147600cac8" => :x86_64_linux
+    sha256 "54aca2b7ad236dfadfe9b2c8db6df755ba16de8c458f74dd71e994f6aab976ca" => :catalina
+    sha256 "a27ce0e1775134b40891dc746ff36c2f046a96e3ab57a6aed20f805ba7d88db2" => :mojave
+    sha256 "f92ba9326c7ac451e91b35bc692ffb461691ade89df336afb1ef1931d4de644f" => :high_sierra
+    sha256 "8d4c66734fdd1a925f1f4f8d1b442beee74ba6983ef500520a12ad73cd7d8441" => :x86_64_linux
   end
 
   depends_on "go" => :build
   depends_on "consul" => :test
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"envconsul"
+    system "go", "build", "-ldflags", "-s -w", *std_go_args
     prefix.install_metafiles
   end
 

@@ -20,7 +20,6 @@ class ShadowsocksLibev < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
   depends_on "c-ares"

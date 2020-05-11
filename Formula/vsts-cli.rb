@@ -5,14 +5,14 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
   sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
-  revision 2
+  revision OS.mac? ? 2 : 4
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b37f51f73b543f2c9403e0a982aa1ae625f170b971a75b1ab07a23a62aa01949" => :catalina
     sha256 "27a52ac2afc49b4392804ce47984f8ea1986dde0a221d599d2f3afa0e93ca6b3" => :mojave
     sha256 "59d1ccaa24e3356771bd998de79c226803957811170765933d5ca03f3547f99a" => :high_sierra
-    sha256 "c8571423a8d3b04779ff91840e5567a5d578d4eaa23ebdcdabf48ff8607fbcc5" => :x86_64_linux
+    sha256 "fb811b5fdcfcd5e86766bd0c509365813d19ac27ed670bfe4b5b05a161fe2322" => :x86_64_linux
   end
 
   depends_on "python@3.8"

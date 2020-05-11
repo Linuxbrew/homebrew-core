@@ -2,22 +2,22 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-7.2.5.32097.tar.gz"
-  sha256 "920b142e31358392f6da977296a11a1763da5ffb9fe251a1e71024a4a09d8896"
+  url "https://dist.duck.sh/duck-src-7.3.1.32784.tar.gz"
+  sha256 "e208a320f873e49b6addc8bf57da76fcb13ed10df66085d8335db0cee7333b09"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
     cellar :any
-    sha256 "9b829920bb87cce68d43f703b6a86c052ab0670228909ff7672d5b1f648c930c" => :catalina
-    sha256 "03b20c6cefe1d9fc09a86d3dbf6ec52fd1ea84be79d39d8ecbe8d60fa8085447" => :mojave
-    sha256 "8ef7bc9c83ebd11b137e57c2f03ea1c5bfc45d33da45845c8b41c264fc564314" => :high_sierra
+    sha256 "30f62bc3f7a9290d345a7cca1fd6a66f71d3c209e60427e900f98b355b10c383" => :catalina
+    sha256 "d822e53151ca1832ebb4a3c4a5993ecf32fd084040c23c6ecb03edbc995ee48a" => :mojave
+    sha256 "c34f2ea8580b1f928bf98913914b4c29b32c5b36c04ec1d6edd2ef6625db5840" => :high_sierra
   end
 
   depends_on "ant" => :build
   depends_on :java => ["1.8", :build]
-  depends_on :macos
   depends_on "maven" => :build
   depends_on :xcode => :build
+  depends_on :macos
 
   def install
     xcconfig = buildpath/"Overrides.xcconfig"

@@ -14,6 +14,7 @@ class Fossil < Formula
   end
 
   depends_on "openssl@1.1"
+
   uses_from_macos "zlib"
 
   def install
@@ -25,10 +26,10 @@ class Fossil < Formula
       "--disable-fusefs",
     ]
 
-    if OS.mac? && MacOS.sdk_path_if_needed
-      args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+    args << if OS.mac? && MacOS.sdk_path_if_needed
+      "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     else
-      args << "--with-tcl-stubs"
+      "--with-tcl-stubs"
     end
 
     system "./configure", *args

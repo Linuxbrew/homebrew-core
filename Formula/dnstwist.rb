@@ -3,15 +3,14 @@ class Dnstwist < Formula
 
   desc "Test domains for typo squatting, phishing and corporate espionage"
   homepage "https://github.com/elceef/dnstwist"
-  url "https://github.com/elceef/dnstwist/archive/20190706.tar.gz"
-  sha256 "d1192a3aca209b537f54274471398ad4cd8b040551eb0469011d0231ee53520a"
-  revision 2
+  url "https://github.com/elceef/dnstwist/archive/20200429.tar.gz"
+  sha256 "f7287bf6bffdb4469ea58bedad1e9985896e613b4114512039aaea8ba1273bbc"
 
   bottle do
     cellar :any
-    sha256 "7adf204f16c099413c513a188074902b03b89b61b68566919d8f4d12d0fa2bad" => :catalina
-    sha256 "bb3daae30fb8252f595a3c109a256a255d5f0bfa6e8d981cd16ccae056314b83" => :mojave
-    sha256 "6073245f3f905e5407cc6add74392525e44bbc6a9565ff7701fbc600f565aed4" => :high_sierra
+    sha256 "5eff30ef9d44bdcb71aa604088210ea0ea7df45922512ef896381b0ead025ad2" => :catalina
+    sha256 "5857fb558bcc0c37221e907d144f75f9d672215cc786fc335cf774415467e9d1" => :mojave
+    sha256 "055c602881f8bcb5d0d31997723c37a889681286b0a152bd16c1a542da6642f5" => :high_sierra
   end
 
   depends_on "geoip"
@@ -70,14 +69,19 @@ class Dnstwist < Formula
     sha256 "1b5510716bc495a2b18300ea837fcf944552a1cc678bb74e384bce251d99a85f"
   end
 
+  resource "tld" do
+    url "https://files.pythonhosted.org/packages/fb/e9/1b2ec69441b58455f033facfd0a0540aedc0e10c3c0dd301994d3eedb878/tld-0.12.tar.gz"
+    sha256 "6549aba3be08206eecc552cd2119d8f51525714e98c09848715b2ec4cc99e3d5"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   resource "whois" do
-    url "https://files.pythonhosted.org/packages/c3/7c/c67420840b1873ddae02e42e8be34a1a8d6a0973a59f65d4f46fb8aa5b64/whois-0.9.6.tar.gz"
-    sha256 "8a6f0b2cc3a8ef599d88cc9259e8c2616b25861b26d69bfdeddc8ccfae690b66"
+    url "https://files.pythonhosted.org/packages/40/f0/d2e038bd54a8c95a4240a322682accd4cb2a1d5f298c40aed9e881d63641/whois-0.9.7.tar.gz"
+    sha256 "1e0348c6cc763e1a7c87d32ce877e2531096928e477fdb2e100aa3783e2b4279"
   end
 
   def install
@@ -87,12 +91,11 @@ class Dnstwist < Formula
     venv.pip_install resources
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
-    (libexec/"bin/database").install "database/GeoIP.dat", "database/effective_tld_names.dat"
     (bin/"dnstwist").write_env_script libexec/"bin/dnstwist", :PATH => "#{libexec}/bin:$PATH"
   end
 
   test do
-    output = shell_output("#{bin}/dnstwist -grsw brew.sh")
+    output = shell_output("#{bin}/dnstwist -rsw brew.sh")
 
     assert_match version.to_s, output
     assert_match /Processing \d+ domain variants/, output

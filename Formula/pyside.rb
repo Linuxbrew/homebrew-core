@@ -1,13 +1,13 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.13.2-src/pyside-setup-opensource-src-5.13.2.tar.xz"
-  sha256 "3e255d64df08880d0281ebe86009d5ea45f24332b308954d967c33995f75e543"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.14.2.1-src/pyside-setup-opensource-src-5.14.2.1.tar.xz"
+  sha256 "11f48956208a487dabf6f531e60fb88ad0e48f2979cfc9e79c1c986387c491fa"
 
   bottle do
-    sha256 "fea86f39d15b29aac8ed23fda31d69eb46a63f76b8a70da89b64f4398a97f32a" => :catalina
-    sha256 "0a121ff7a1f1cdf1801f327fbedbf520939e73d417adba0e077513d0660a9148" => :mojave
-    sha256 "df3df6b24b051d6132a87cdb09b5a40e6aee86248665c9c35ecdf71af1432ce6" => :high_sierra
+    sha256 "d1b3b419b1346e3990cbc17de64acc68b28456ce299ca8859ae35506aa1908a9" => :catalina
+    sha256 "27e6837fc74c63d56b1694fff75186142237dfc57c82f8a67dc9b0cbe9947a43" => :mojave
+    sha256 "d989a79733b4578065300d36908be9debef8e6b504f46896f42cff3c324a9d82" => :high_sierra
   end
 
   depends_on "cmake" => :build

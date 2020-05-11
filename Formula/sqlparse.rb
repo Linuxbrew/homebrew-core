@@ -5,13 +5,14 @@ class Sqlparse < Formula
   homepage "https://github.com/andialbrecht/sqlparse"
   url "https://files.pythonhosted.org/packages/67/4b/253b6902c1526885af6d361ca8c6b1400292e649f0e9c95ee0d2e8ec8681/sqlparse-0.3.1.tar.gz"
   sha256 "e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "a886da74810f4112ac16b08840eac4ebd3ccd3daf5b7219ba1ad84d2981b8478" => :catalina
     sha256 "cbd26ba6872f20f79ccb9545f2329697e3f2611c124040502cd751fa4efd5432" => :mojave
     sha256 "c3e7934f912db3b38d16bd6adb86a496568040bcbd66f646822679b233d3d193" => :high_sierra
-    sha256 "594cc6f6bb9f0dc24f1e42431689adbad81610f0daeea5371d9111fa4f821759" => :x86_64_linux
+    sha256 "d8bea310442e23fcb9fbe3fbb068efde0ac31b1fe2de4252710ccc1854c46d15" => :x86_64_linux
   end
 
   depends_on "python@3.8"

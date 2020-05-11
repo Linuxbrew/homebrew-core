@@ -3,22 +3,22 @@ class Tvnamer < Formula
   homepage "https://github.com/dbr/tvnamer"
   url "https://files.pythonhosted.org/packages/ed/93/f8fbe119844c79ea488332b9ff43702be674332672ea84e9361321985fbd/tvnamer-2.5.tar.gz"
   sha256 "75e38454757c77060ad3782bd071682d6d316de86f9aec1c2042d236f93aec7b"
+  revision 1
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "396199028f01f60d88de32606846eb14f25e5cdd111dc38903bc65ba87aac008" => :catalina
-    sha256 "814a6e99cf86b86f340bf7333633de96105ba2bccb32c1024268ddf06b7fd106" => :mojave
-    sha256 "c7da87bc4aa276737a8eab77838c6c170ac3cf556ab87405ee2c12e3658fa26a" => :high_sierra
-    sha256 "d23c45235d0015e646c77d5d46ef6f43dbe73ebccfb5f822c2de740c6974d5f8" => :sierra
-    sha256 "7a541aa29c1ee5a056254e572257f43a0245e4608c15fae33a5708caf779d999" => :x86_64_linux
+    sha256 "9b9541c042a3aac8992c011e2d5b14ea0a7100e6e04ac60f5e9fa5304eb2aebb" => :catalina
+    sha256 "9b9541c042a3aac8992c011e2d5b14ea0a7100e6e04ac60f5e9fa5304eb2aebb" => :mojave
+    sha256 "9b9541c042a3aac8992c011e2d5b14ea0a7100e6e04ac60f5e9fa5304eb2aebb" => :high_sierra
+    sha256 "b15a18df2e9a3ba1c6f28af7379ca6f4831c6a871bcec4cd8d6d4c534c1ff7e3" => :x86_64_linux
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
+    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
   end
 
   resource "chardet" do
@@ -27,18 +27,18 @@ class Tvnamer < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
+    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
   end
 
   resource "requests-cache" do
-    url "https://files.pythonhosted.org/packages/ce/de/2b0cd21915d7c266793cd8bf652c9015f6cb31a8baa5c0f3a8b852596dbf/requests-cache-0.5.0.tar.gz"
-    sha256 "6822f788c5ee248995c4bfbd725de2002ad710182ba26a666e85b64981866060"
+    url "https://files.pythonhosted.org/packages/0c/d4/bdc22aad6979ceeea2638297f213108aeb5e25c7b103fa02e4acbe43992e/requests-cache-0.5.2.tar.gz"
+    sha256 "813023269686045f8e01e2289cc1e7e9ae5ab22ddd1e2849a9093ab3ab7270eb"
   end
 
   resource "tvdb_api" do
@@ -47,8 +47,8 @@ class Tvnamer < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   def install

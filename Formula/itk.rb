@@ -53,11 +53,11 @@ class Itk < Formula
       -DModule_ITKVtkGlue=ON
     ]
 
-    if OS.mac?
-      args << "-DITK_USE_GPU=ON"
+    # Requires OpenCL on Linux which is not available in Homebrew
+    args << if OS.mac?
+      "-DITK_USE_GPU=ON"
     else
-      # Requires OpenCL on Linux which is not available in Homebrew
-      args << "-DITK_USE_GPU=OFF"
+      "-DITK_USE_GPU=OFF"
     end
 
     mkdir "build" do

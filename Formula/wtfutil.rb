@@ -2,15 +2,15 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.28.0",
-    :revision => "e396cf15336bc15c60ffc29a1e45fbc499f1851e"
+    :tag      => "v0.30.0",
+    :revision => "13b421b08e550637b3d77fde0ff8894fd3a127d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b46b6f7f5e3c4034acbed440078e2684ee27860df432e7f896aff8f89ae34c17" => :catalina
-    sha256 "25a20623b4d102aaaf2db6ed29aee281e6b76ecebfa0852ea6166cea96f97a8f" => :mojave
-    sha256 "668321f79d40201ba2807ba178d7fe10984ecca5f60e7dbdb79ce6454645259e" => :high_sierra
-    sha256 "41e31db97708a1128ecae847d027175a30f525dd8f29de804d508e019a6a0838" => :x86_64_linux
+    sha256 "0a3e0b78d2e9c8a8b26b0c9d3c735fa2663ce7f5f8ff64c26258f6bef8ba53d5" => :catalina
+    sha256 "581b230dc16070ba799fe1a706441015633033fb3f3bdc83a8e6fa149ba0c1fd" => :mojave
+    sha256 "3fa6f304088016d47cba5b2d96f1d1806483cdae23eb01ba7f9bee3dafe3da56" => :high_sierra
+    sha256 "211170fe6a4d6f34bce0731a37c248d9bf6e0c3ee642a1ea83bd726491b1d8a8" => :x86_64_linux
   end
 
   depends_on "go" => :build

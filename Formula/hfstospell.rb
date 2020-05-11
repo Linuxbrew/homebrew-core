@@ -3,13 +3,14 @@ class Hfstospell < Formula
   homepage "https://hfst.github.io/"
   url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.1/hfstospell-0.5.1.tar.gz"
   sha256 "ccf5f3b06bcdc5636365e753b9f7fad9c11dfe483272061700a905b3d65ac750"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "eb7c707acd7379a1649e4a0a2f13a2851236b48f1779d2d5032a00a11ccd564b" => :catalina
-    sha256 "0936c926d43a6be2fa7e083342eef56790b405fccd0f2686b49300f10239ec93" => :mojave
-    sha256 "5862d60e06b3c1830515d689a4e28d6685ffd3beaf31ea58dc93ba4509212c1e" => :high_sierra
-    sha256 "f4d8f04bfb03a009c3c659a7588fb4b1e722c6418b38edc81c10857eff322cfa" => :x86_64_linux
+    sha256 "080d7ec2bee989e5af8dc7923da5c0d9b9756a32d5e56c279068ee7702afbad7" => :catalina
+    sha256 "a2f8c52c1dea2796d522a2272d58a250005e89ba89381990a6a2fc5b2d69ca6b" => :mojave
+    sha256 "b952fd1e7bc1aa35cb83a8030905973c6e1e141879a5481f2e8936fd32562016" => :high_sierra
+    sha256 "2fb0c075d0e263fb44049ae1cf468133c2bba0f871742ba2d126efda81491f53" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

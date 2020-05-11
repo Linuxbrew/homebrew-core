@@ -3,12 +3,13 @@ class NodeAT10 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v10.20.1/node-v10.20.1.tar.xz"
   sha256 "ee1f88a04c608aeda1299bbcb0895eebb6394e901f03398c377236905d95f492"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a321451d66c4758f0a1835a6763a10c7ed16d31e38348e6a4bea84db3e6255cf" => :catalina
-    sha256 "8bb6365e39db531e9441ab2de52c274d61c728cf7bcbe145d76d4381221167dd" => :mojave
-    sha256 "858bd41aa3ff4b057719a29a4b94fc1dbf4e9a891abcc5bce8112c031f85d459" => :high_sierra
+    sha256 "2d38510d712485965ac6bfc5189c6045fee477f894bde2fa8f67fe7cf4e681fc" => :catalina
+    sha256 "f4e8b50e62af76611efaf430a0dbc9f8af53591520ac951e1e52d4671c57cd8c" => :mojave
+    sha256 "fb1c20c3173c361d45755b028c5a22dd58bb9f9a1d7d78e62f817b0c75d16a28" => :high_sierra
   end
 
   keg_only :versioned_formula

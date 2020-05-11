@@ -3,13 +3,14 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz"
   sha256 "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0f588122505c74f1201a423c5880eb62b5626de92ac0d0641316ae3e365c1737" => :catalina
-    sha256 "ff66a226b939d9ad9b2329b46363b55e394aa0d3069c1341b89e5136db07d338" => :mojave
-    sha256 "d62b32231c68fa135096236a415303073001c281ae94574c44801b124711b4de" => :high_sierra
-    sha256 "1019fea44ce8e0c5f07b87b5b1d8b39ebdcadad529ca67519007d93a10568b3b" => :x86_64_linux
+    sha256 "722f35635d5416d3693489414eb011c37c04c27e6aa5e45512faa420d6be4164" => :catalina
+    sha256 "a2b8c02f731cf67c1724a5bfe7c024ed1f0d73b046f14150afe7396c2e1fefa0" => :mojave
+    sha256 "b0926d82f10c6f521085f32f31c0d7ae4c6fc851198ae16111a20dc87b0fca6b" => :high_sierra
+    sha256 "07c3be237c831ab4aa78578f1f4f5a52d5680e7fb5079f3b3d3f7db7881688bc" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

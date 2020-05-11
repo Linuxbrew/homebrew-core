@@ -4,12 +4,13 @@ class Clamav < Formula
   url "https://www.clamav.net/downloads/production/clamav-0.102.2.tar.gz"
   mirror "https://fossies.org/linux/misc/clamav-0.102.2.tar.gz"
   sha256 "89fcdcc0eba329ca84d270df09d2bb89ae55f5024b0c3bddb817512fb2c907d3"
+  revision 2
 
   bottle do
-    sha256 "544f511ddd1c68b88a93f017617c968a4e5d34fc6a010af15e047a76c5b16a9f" => :catalina
-    sha256 "a92959f8a348642739db5e023e4302809c8272da1bea75336635267e449aacdf" => :mojave
-    sha256 "252446ee2509c9653fc9ab160811232d228f9995fcd7d4e9378c128bccd5ecaa" => :high_sierra
-    sha256 "4683e675d64c78b3011decebed003611292523e47815fa017bb5897f1120cf30" => :x86_64_linux
+    sha256 "03315a351ef099050af0c00a8989dd6d9ce522729f648faacb9960e0436d65aa" => :catalina
+    sha256 "7d00d36a11a8edbc643c92757a7206598db4e629d9cd379be8fdaad106da61d7" => :mojave
+    sha256 "0bdd0b6b44fedbb2e1bea8fdccc49b5e5d5b6c00d6dcd6c7440eb10537c648d1" => :high_sierra
+    sha256 "4afca19fe09a1bafd4ce8fa31eb45e5ecb2c4c6533a1bdd74abecb3797f835a8" => :x86_64_linux
   end
 
   head do
@@ -22,11 +23,14 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "libiconv" if OS.mac?
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "yara"
 
+  uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   skip_clean "share/clamav"
@@ -39,16 +43,22 @@ class Clamav < Formula
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
       --disable-zlib-vcheck
-      --enable-llvm=no
-      --with-libjson=#{Formula["json-c"].opt_prefix}
+      --with-llvm=no
+      --with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}
+      --with-iconv=#{Formula["libiconv"].opt_prefix}
+      --with-libjson-static=#{Formula["json-c"].opt_prefix}/lib/libjson-c.a
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --with-pcre=#{Formula["pcre"].opt_prefix}
+      --with-pcre=#{Formula["pcre2"].opt_prefix}
     ]
 
     if OS.mac?
       args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-xml=#{MacOS.sdk_path_if_needed}/usr"
     else
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      args << "--with-libbz2-prefix=#{Formula["bzip2"].opt_prefix}"
+      args << "--with-xml=#{Formula["libxml2"].opt_prefix}"
       args << "--with-libcurl=#{Formula["curl"].opt_prefix}"
     end
 

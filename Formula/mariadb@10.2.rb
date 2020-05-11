@@ -1,13 +1,13 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.30/source/mariadb-10.2.30.tar.gz"
-  sha256 "9bcc7556dfc5d77d78551e2f9a719f45545609f14f8acdf129b99f577e041b38"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.31/source/mariadb-10.2.31.tar.gz"
+  sha256 "321f744c322ecbc06feddd290d5ee0bf7c68e92cb61fd93c9450eb9c05683151"
 
   bottle do
-    sha256 "eefdfe8c3153a3aa6fbc58f5a9f001560d84b237fff251651db1261c45217d25" => :catalina
-    sha256 "d39bb7facc5c6a5ae8bf4de465581839412d51c8601d618a31891ccd5db8cb9f" => :mojave
-    sha256 "2550afb05fac6702cb77aef53e79b011bd0c626ae201f7d7b2c2a85a221bd12c" => :high_sierra
+    sha256 "84dc4b5ca329130b383c5cca99b614928a47632c6b31eff10ebecb0b2e431e56" => :catalina
+    sha256 "a7a41a0e0a94f2cf738b2ecc939ed8dafc08b6a409ae32879d03ee3ca38bfc47" => :mojave
+    sha256 "04da9a5269deece7466776839afdbd896fd8e7afffccf9806818b43904e8ad28" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -16,6 +16,12 @@ class MariadbAT102 < Formula
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+
+  # Fix for https://jira.mariadb.org/browse/MDEV-21592
+  patch do
+    url "https://github.com/MariaDB/server/commit/42b29d41335d2f6991b8c9f110fe1e1476764ace.patch?full_index=1"
+    sha256 "7f61bf5dde90a80f6af6f37e27fbce67f853dace98483a030a3dce9b1c1481f0"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

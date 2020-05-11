@@ -6,14 +6,16 @@ class GoAT111 < Formula
   sha256 "5032095fd3f641cafcce164f551e5ae873785ce7b07ca7c143aecd18f7ba4076"
 
   bottle do
-    sha256 "54190931138cfffd1581a40e1cf6d13038fd8a5b277728824fc98c2fa5f6eb88" => :catalina
-    sha256 "100e91a2d1c1533f24399a5730c7705c831604ab134cd889cf74e07bbd069dcc" => :mojave
-    sha256 "118b70c5b092c9374dccc87165d2b88c32c5dcea1fc9b7c0d3b6d30116f4990d" => :high_sierra
-    sha256 "5b5e2452501f5b3c7c25a8e4ba42ea9c20cb483250bc027046d3ef961c15b526" => :sierra
-    sha256 "a83d37389f98d1580fb37d8ae41c12c7c549e11fb253c9e17438bda90d9f69dc" => :x86_64_linux
+    rebuild 1
+    sha256 "077ca87532424c95f5072fa0d6cb0aa316fb6c6309ba9ad8d158556ddf264792" => :catalina
+    sha256 "8f9794052cd1e44eedd34c5a28fd7614cb21e1c67d54a8c4b5733115f04978c8" => :mojave
+    sha256 "c42368b27f9f70e02a858a3bbf07f73e41295512191d8b7b524a474b8157e91a" => :high_sierra
+    sha256 "54304544009d7e38589e94cfde1a301a165e2e39d1839f27dd65c100d720a5ad" => :x86_64_linux
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "September 3, 2019"
 
   depends_on :macos => :yosemite
 

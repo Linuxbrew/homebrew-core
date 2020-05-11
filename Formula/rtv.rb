@@ -5,7 +5,7 @@ class Rtv < Formula
   homepage "https://github.com/michael-lazar/rtv"
   url "https://github.com/michael-lazar/rtv/archive/v1.27.0.tar.gz"
   sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Rtv < Formula
     sha256 "bcb3e97de9fc2df6b3903b0286dfd47b4599c7bbfe3e557561884b84fe1dd83b" => :catalina
     sha256 "a3c02e3552df47986bc5a0f3a92e7317fd873167b2aac429f188646994c71b9d" => :mojave
     sha256 "a12678c3f7c95c3d45c2e631fda28d1da29fd6768f8dcce235b3599f580e264b" => :high_sierra
-    sha256 "6196ebcc7460f3ee630711518fe57bf40ee5819ccbd9f7643086f4adfb658956" => :x86_64_linux
+    sha256 "bfafe71bc00b9841f6b8f65a13e077b7c4f1915278e31506143d4e4fac4b142f" => :x86_64_linux
   end
 
   depends_on "python@3.8"

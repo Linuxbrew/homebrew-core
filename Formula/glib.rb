@@ -3,12 +3,13 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.2.tar.xz"
   sha256 "9a2f21ed8f13b9303399de13a0252b7cbcede593d26971378ec6cb90e87f2277"
+  revision 1
 
   bottle do
-    sha256 "bd5f7582b25b04e593f633c89823881466785b557074b5e791ef408104037a50" => :catalina
-    sha256 "b4b5969bb271182d18652a3c2062eb5970b2558258d44b1a8998a31baff4ce75" => :mojave
-    sha256 "27aa18379e7d253099322c01d2f488dcac2344ac27b2c736e3f82c76148f8394" => :high_sierra
-    sha256 "d1a378f4c153506127644ca1d4d4cd6e1735b42b955f920b174a68e74d15eae2" => :x86_64_linux
+    sha256 "b8e8a0f1229f7094233832516f5aad725c1447a74cc1ca342b69da9b7a5aed9f" => :catalina
+    sha256 "4ac9833acd0b2e6f8aa81bc426db78bcf2f4783f4788006d329d65c29b1bc561" => :mojave
+    sha256 "b01fb6863b96a8b865ce5c60f18d3d9bdaeb1faa6ee499910f6f51b733c41c24" => :high_sierra
+    sha256 "2ecc489904cfa0804a8828e45ff353345ac7a3595c8fc8023196ff37524d5215" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -36,7 +37,7 @@ class Glib < Formula
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
-    args = %W[
+    args = std_meson_args + %W[
       -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
@@ -48,7 +49,7 @@ class Glib < Formula
     args << "--libdir=#{lib}" unless OS.mac?
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", *args, ".."
+      system "meson", *args, ".."
       system "ninja", "-v"
       # Some files have been generated with a Python shebang, rewrite these too
       Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")

@@ -2,15 +2,15 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.8.7",
-      :revision => "64089136f7faf8a9ec40a65279a512ffd92b427e"
+      :tag      => "v6.8.8",
+      :revision => "dc91d17ffcdc72efa4fe5944ac5abd22f9a8620d"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2eddac2302247eaae7b5aa97cc752836750c87bee31fa94c2bf639fa06a20ae1" => :catalina
-    sha256 "32fef553a46b67acee00ca5660d1e6da971d876cd7df5487dc1a4c5c99c01653" => :mojave
-    sha256 "f71b40f6dd6215d107bc5893c9953737f8c149ac617338e2859327fd31808b24" => :high_sierra
+    sha256 "14d034d6c8c98eb7f0cb7b9c5b3edf06748d66fdce2edff4b8c7bd2189854c36" => :catalina
+    sha256 "f3d350517136582a75e5f457cf2a363b51021e71f7ff514ffa05dadc49569e21" => :mojave
+    sha256 "21d01f2b1a4e462b0cf48443eb2334bea56f9ea8c4d5302202279924fa8499f4" => :high_sierra
   end
 
   depends_on "yarn" => :build
@@ -30,6 +30,7 @@ class Kibana < Formula
       s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
     end
 
+    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
     system "yarn", "kbn", "bootstrap"
     system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 

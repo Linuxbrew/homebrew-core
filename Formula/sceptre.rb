@@ -5,13 +5,14 @@ class Sceptre < Formula
   homepage "https://sceptre.cloudreach.com"
   url "https://files.pythonhosted.org/packages/97/8d/0072863a61ad36d386e934fc8580c0f7f63bfd49c3cf8754a601fa77df39/sceptre-2.3.0.tar.gz"
   sha256 "349e51e3bdc96f4f4aea214427f354f738c7658dc9eaa9dd1ffc5120a70a237d"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "ef4f2e26d77e3bd069878477a87c95f8985b7a736971f46ab7ca65e386df8fa9" => :catalina
     sha256 "3e22726f0e63bd9425e65ddf4a46a727f8cc63311c048de564e3131ce48e54b2" => :mojave
     sha256 "1878a124ddbc98577fe7be58ec80c46ed114142abe3082d44a4a59720cf3672a" => :high_sierra
-    sha256 "1a6943f7db3966d41168107a216c10ed2c7d9d6b72256de9c7e1a6bee22bb103" => :x86_64_linux
+    sha256 "c494e660aa8fe00a4e3edaadb0e4d4b7b6586b44c537130d85368ef0b851250a" => :x86_64_linux
   end
 
   depends_on "python@3.8"

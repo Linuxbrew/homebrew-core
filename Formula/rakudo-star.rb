@@ -3,12 +3,13 @@ class RakudoStar < Formula
   homepage "https://rakudo.org/"
   url "https://rakudo.org/dl/star/rakudo-star-2020.01.tar.gz"
   sha256 "f1696577670d4ff5b464e572b1b0b8c390e6571e1fb8471cbf369fa39712c668"
+  revision 1
 
   bottle do
-    sha256 "62c80b5c001ffede84e442a8b0f8cb8526e2b8ee2e5b15b6637d7c39c8164d04" => :catalina
-    sha256 "b338c7b0d69b5c058d8e8b826b36afb12c5452ee1b2a1b727cdcbca50015068a" => :mojave
-    sha256 "af8a220b91c21a5ce55d92a8015c81f575f257bee8e5b5a6877edc5b3f352f4b" => :high_sierra
-    sha256 "844d5ca42f4926eac5715be0a3d4432574f9a3cac6085458d052e05afeb3912d" => :x86_64_linux
+    sha256 "3a2d22c17772726872aefb5afbf216f6640c0bcb441c98a9e27aab73b0edaeff" => :catalina
+    sha256 "b53dab6ef44c73ea480ce74577a6b4f1593e124d2e5e502d3e134a6e81d7c054" => :mojave
+    sha256 "e4ecc1142965f84eb7197d8388390d8968f5e7505628bed3b8e2c41a98c324f7" => :high_sierra
+    sha256 "576f85b0f20581ac0ca3bf96e443c12284e9f7498eede1b907a3cf8cb0fd62ec" => :x86_64_linux
   end
 
   depends_on "gmp"

@@ -5,14 +5,14 @@ class LlvmAT8 < Formula
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 3 : 4
 
   bottle do
     cellar :any
-    sha256 "0180eb097783edfefe0670935facf912b9044934cd2c8a087bdcc1229130a4ee" => :catalina
-    sha256 "92105eeabbeafff55733385ea82b8e1e5dae89e8a8050a0de31a8e30367164c6" => :mojave
-    sha256 "30efcbdc61cd36e3fbd03c7f2ff411be5638c8540de9d491ed77a30d5ab2e3c9" => :high_sierra
-    sha256 "7f2f2db70b20e532c5a330ae538a16caa6804fcb9e28468b9132b3a44bd32b3a" => :x86_64_linux
+    sha256 "ab099d84e5f0a58ea37172fd85753336d855fc25e9459ceff12ddc2dbb56ef71" => :catalina
+    sha256 "ee795cbebce64f79bbcf7c42526093df7bd2e5e986a721197bca5cf6c822e87a" => :mojave
+    sha256 "3f80b7119307b128b1e3ae8a2fea97a9878afb5a7436a7d35615b1e743bc7622" => :high_sierra
+    sha256 "f8d4d3f94d03df55400c31c7ba9f81fc25dfa3cf0ad67c172e04328109a56c4a" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -47,7 +47,7 @@ class LlvmAT8 < Formula
 
     unless OS.mac?
       patch do
-        url "https://gist.githubusercontent.com/iMichka/https://gist.githubusercontent.com/iMichka/a5d88f6bbe1f62fc43dc040282234452/raw/430616d646260e47360d9cba0901ac2876007350/clang8?full_index=1"
+        url "https://gist.githubusercontent.com/iMichka/a5d88f6bbe1f62fc43dc040282234452/raw/430616d646260e47360d9cba0901ac2876007350/clang8?full_index=1"
         sha256 "a7403c5a3ea2edddb7c1cb70274396f4c31d6b7c37aa1e4e4edaca3d1b78300f"
       end
     end
@@ -138,6 +138,7 @@ class LlvmAT8 < Formula
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_RTTI=ON
+      -DCLANG_ANALYZER_ENABLE_Z3_SOLVER=OFF
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON

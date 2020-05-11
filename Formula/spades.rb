@@ -1,17 +1,16 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
-  url "https://github.com/ablab/spades/releases/download/v3.14.0/SPAdes-3.14.0.tar.gz"
-  mirror "http://cab.spbu.ru/files/release3.14.0/SPAdes-3.14.0.tar.gz"
-  sha256 "18988dd51762863a16009aebb6e873c1fbca92328b0e6a5af0773e2b1ad7ddb9"
+  url "https://github.com/ablab/spades/releases/download/v3.14.1/SPAdes-3.14.1.tar.gz"
+  mirror "http://cab.spbu.ru/files/release3.14.1/SPAdes-3.14.1.tar.gz"
+  sha256 "d71ce756daa0a889b8881bd129a761200a0bb971e6fd2bed1384a1df9b585d1b"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4f619fb90d37233f7fadbba8c9fa30b039145fc93a453a1381dc6386b0e4b2d3" => :catalina
-    sha256 "e48a5ee1e9836f3185985e074891a485a14096148babadee818354d0b34a2bdf" => :mojave
-    sha256 "b7ab0e7eeaf9f1e48e2b3c54150bea4bfc1322badaf41237bdfc49e8d435e5d7" => :high_sierra
-    sha256 "5334d4fb4ff8c5fc9c7bf362c7a33d8ef60ce19f2e0d063e50118931a4b95f91" => :x86_64_linux
+    sha256 "c2a3bcd1c2b83517676f45d3381b72e4644beeb98af2add918d8b30271eb8012" => :catalina
+    sha256 "a3074628545245497991275ef869a42fa30b465f523fc63c69c37fecdc5e4349" => :mojave
+    sha256 "c6d252bcbfe704a634cfbd929d87c003f1c2023abab767db6cd04e2c778c227b" => :high_sierra
+    sha256 "f37448145ebe732de8b6359fb4184895fd1aa2eae5e4732ce5bb98f8ada1adc6" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -31,20 +30,8 @@ class Spades < Formula
   def install
     Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
 
-    # Use libomp due to issues with headers in GCC.
-    args = std_cmake_args
-    if OS.mac?
-      libomp = Formula["libomp"]
-      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-      args << "-DOpenMP_CXX_LIB_NAMES=omp"
-      args << "-DOpenMP_C_LIB_NAMES=omp"
-      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-      args << "-DAPPLE_OUTPUT_DYLIB=ON"
-    end
-
     mkdir "src/build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end

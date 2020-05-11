@@ -1,18 +1,16 @@
 class Wxmac < Formula
   desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2"
-  sha256 "96157f988d261b7368e5340afa1a0cad943768f35929c22841f62c25b17bf7f0"
-  revision 2
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5/wxWidgets-3.0.5.tar.bz2"
+  sha256 "8aacd56b462f42fb6e33b4d8f5d40be5abc3d3b41348ea968aa515cc8285d813"
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
     cellar :any
-    sha256 "763d404a9adfadf2fa2099df378e6fb360b2b862c86e7e79413df9ed6e0da7a4" => :catalina
-    sha256 "d5dec67eb11005f6eea84a94a9caea3dc20ed23e3295950b4dc3b137c6eccdd3" => :mojave
-    sha256 "ed69e867fa97042726a9434488da30381fb3b4f68f4dc7e4499e7bf0edf6eaaa" => :high_sierra
-    sha256 "691e2e49b33f78d1189386cf969bfe1f292d3644dbfdf67b92a795656e50870a" => :sierra
-    sha256 "90cbbef99585e881b4386f9cf469285c5e2b0865b2e106cfdfd72ff23d216e67" => :x86_64_linux
+    sha256 "de27c768e8b52cbe84cb683a487f2fd2dce115aef7f5fb1f5f59c7362da4b5ca" => :catalina
+    sha256 "fe7ac4ce6c1ef5c0654fc60b749300d1188fbbc2a55bee35bfd668b6ed7e0dac" => :mojave
+    sha256 "7dfdfdc1d5cf44b3ebf12cd4d28f14b04c0677b2639561f3e0707a75026d53ee" => :high_sierra
+    sha256 "7aa152528413dc24fc98fa0b8ffa079564897d16d8045a1de4070504fea3589a" => :x86_64_linux
   end
 
   depends_on "jpeg"
@@ -25,11 +23,6 @@ class Wxmac < Formula
     depends_on "linuxbrew/xorg/glu"
     depends_on "linuxbrew/xorg/libsm"
   end
-
-  # Adjust assertion which fails for wxGLCanvas due to changes in macOS 10.14.
-  # Patch taken from upstream WX_3_0_BRANCH:
-  # https://github.com/wxWidgets/wxWidgets/commit/531fdbcb64b265e6f24f1f0cc7469f308b9fb697
-  patch :DATA if OS.mac?
 
   def install
     args = [
@@ -69,29 +62,3 @@ class Wxmac < Formula
     system bin/"wx-config", "--libs"
   end
 end
-
-__END__
---- a/src/osx/carbon/dcclient.cpp
-+++ b/src/osx/carbon/dcclient.cpp
-@@ -189,10 +189,20 @@ wxPaintDCImpl::wxPaintDCImpl( wxDC *owner )
- {
- }
-
-+#if wxDEBUG_LEVEL
-+static bool IsGLCanvas( wxWindow * window )
-+{
-+    // If the wx gl library isn't loaded then ciGLCanvas will be NULL.
-+    static const wxClassInfo* const ciGLCanvas = wxClassInfo::FindClass("wxGLCanvas");
-+    return ciGLCanvas && window->IsKindOf(ciGLCanvas);
-+}
-+#endif
-+
- wxPaintDCImpl::wxPaintDCImpl( wxDC *owner, wxWindow *window ) :
-     wxWindowDCImpl( owner, window )
- {
--    wxASSERT_MSG( window->MacGetCGContextRef() != NULL, wxT("using wxPaintDC without being in a native paint event") );
-+    // With macOS 10.14, wxGLCanvas windows have a NULL CGContextRef.
-+    wxASSERT_MSG( window->MacGetCGContextRef() != NULL || IsGLCanvas(window), wxT("using wxPaintDC without being in a native paint event") );
-     wxPoint origin = window->GetClientAreaOrigin() ;
-     m_window->GetClientSize( &m_width , &m_height);
-     SetDeviceOrigin( origin.x, origin.y );

@@ -8,10 +8,10 @@ class Libav < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7cdb84c6fc90873040d71b19dbe1eb618d0f8dcec9a886500f983b7faaa163d0" => :mojave
-    sha256 "a366d17a48d20315e20dc391357f4936c9f5ec80c3dba94da417b64d8d7e7d0d" => :high_sierra
-    sha256 "7625aeaf88043a02112a90c26a0813fc3e3104aa29862fddb2e52caadf97046b" => :sierra
+    rebuild 2
+    sha256 "7f3a3cae29f6c8348d57b101865a5904dc0490e8864cd19de6b0a7f9b8524ba1" => :catalina
+    sha256 "d6e35dd5a833e5063badfbc698cde4864ea2d2ac44aa2b2f04024689839977ff" => :mojave
+    sha256 "a6010c03f0c787196e9a0f68b78ccae7d4b0f4cf537cc302d235c0d668dc9791" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -48,6 +48,10 @@ class Libav < Formula
     url "https://github.com/libav/libav/commit/141c960e21d2860e354f9b90df136184dd00a9a8.patch?full_index=1"
     sha256 "7081183fed875f71d53cce1e71f6b58fb5d5eee9f30462d35f9367ec2210507b"
   end
+
+  # Fix for image formats removed from libvpx
+  # https://github.com/shirkdog/hardenedbsd-ports/blob/master/multimedia/libav/files/patch-libavcodec_libvpx.c
+  patch :DATA
 
   def install
     args = %W[
@@ -88,3 +92,51 @@ class Libav < Formula
     assert_predicate testpath/"video.mp4", :exist?
   end
 end
+
+__END__
+--- a/libavcodec/libvpx.c
++++ b/libavcodec/libvpx.c
+@@ -25,6 +25,7 @@
+ enum AVPixelFormat ff_vpx_imgfmt_to_pixfmt(vpx_img_fmt_t img)
+ {
+     switch (img) {
++#if VPX_IMAGE_ABI_VERSION < 5
+     case VPX_IMG_FMT_RGB24:     return AV_PIX_FMT_RGB24;
+     case VPX_IMG_FMT_RGB565:    return AV_PIX_FMT_RGB565BE;
+     case VPX_IMG_FMT_RGB555:    return AV_PIX_FMT_RGB555BE;
+@@ -36,10 +37,13 @@ enum AVPixelFormat ff_vpx_imgfmt_to_pixfmt(vpx_img_fmt
+     case VPX_IMG_FMT_ARGB_LE:   return AV_PIX_FMT_BGRA;
+     case VPX_IMG_FMT_RGB565_LE: return AV_PIX_FMT_RGB565LE;
+     case VPX_IMG_FMT_RGB555_LE: return AV_PIX_FMT_RGB555LE;
++#endif
+     case VPX_IMG_FMT_I420:      return AV_PIX_FMT_YUV420P;
+     case VPX_IMG_FMT_I422:      return AV_PIX_FMT_YUV422P;
+     case VPX_IMG_FMT_I444:      return AV_PIX_FMT_YUV444P;
++#if VPX_IMAGE_ABI_VERSION < 5
+     case VPX_IMG_FMT_444A:      return AV_PIX_FMT_YUVA444P;
++#endif
+ #if VPX_IMAGE_ABI_VERSION >= 3
+     case VPX_IMG_FMT_I440:      return AV_PIX_FMT_YUV440P;
+     case VPX_IMG_FMT_I42016:    return AV_PIX_FMT_YUV420P16BE;
+@@ -53,6 +57,7 @@ enum AVPixelFormat ff_vpx_imgfmt_to_pixfmt(vpx_img_fmt
+ vpx_img_fmt_t ff_vpx_pixfmt_to_imgfmt(enum AVPixelFormat pix)
+ {
+     switch (pix) {
++#if VPX_IMAGE_ABI_VERSION < 5
+     case AV_PIX_FMT_RGB24:        return VPX_IMG_FMT_RGB24;
+     case AV_PIX_FMT_RGB565BE:     return VPX_IMG_FMT_RGB565;
+     case AV_PIX_FMT_RGB555BE:     return VPX_IMG_FMT_RGB555;
+@@ -64,10 +69,13 @@ vpx_img_fmt_t ff_vpx_pixfmt_to_imgfmt(enum AVPixelForm
+     case AV_PIX_FMT_BGRA:         return VPX_IMG_FMT_ARGB_LE;
+     case AV_PIX_FMT_RGB565LE:     return VPX_IMG_FMT_RGB565_LE;
+     case AV_PIX_FMT_RGB555LE:     return VPX_IMG_FMT_RGB555_LE;
++#endif
+     case AV_PIX_FMT_YUV420P:      return VPX_IMG_FMT_I420;
+     case AV_PIX_FMT_YUV422P:      return VPX_IMG_FMT_I422;
+     case AV_PIX_FMT_YUV444P:      return VPX_IMG_FMT_I444;
++#if VPX_IMAGE_ABI_VERSION < 5
+     case AV_PIX_FMT_YUVA444P:     return VPX_IMG_FMT_444A;
++#endif
+ #if VPX_IMAGE_ABI_VERSION >= 3
+     case AV_PIX_FMT_YUV440P:      return VPX_IMG_FMT_I440;
+     case AV_PIX_FMT_YUV420P16BE:  return VPX_IMG_FMT_I42016;

@@ -12,7 +12,6 @@ class NumpyAT116 < Formula
     sha256 "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "gcc" => :build # for gfortran
   depends_on :macos # Due to Python 2
   depends_on "openblas"

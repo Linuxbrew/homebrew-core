@@ -46,10 +46,10 @@ class RubyAT26 < Formula
     args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     # Correct MJIT_CC to not use superenv shim
-    if OS.mac?
-      args << "MJIT_CC=/usr/bin/clang"
+    args << if OS.mac?
+      "MJIT_CC=/usr/bin/clang"
     else
-      args << "MJIT_CC=/usr/bin/gcc"
+      "MJIT_CC=/usr/bin/gcc"
     end
 
     system "./configure", *args

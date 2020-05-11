@@ -3,19 +3,24 @@ class Zig < Formula
   homepage "https://ziglang.org/"
   url "https://ziglang.org/download/0.6.0/zig-0.6.0.tar.xz"
   sha256 "5d167dc19354282dd35dd17b38e99e1763713b9be8a4ba9e9e69284e059e7204"
+  revision 1
   head "https://github.com/ziglang/zig.git"
 
   bottle do
-    sha256 "0520a4469bb408ad4300e4711f7c50fcd970bb37d7f2343a02c5be964fbbeb6a" => :catalina
-    sha256 "8a537f9c6091dcf2817201a4bd7dc09f718ded5f88431f7823d301e4eedd0139" => :mojave
-    sha256 "0ab8d31b6563b943b54758a3f4d5292db5dc1340e1854fe27c8c4f85941d1e68" => :high_sierra
+    sha256 "56d061f373c70fe00ae0d38f1aace3d719123219d211ff50d613aa7d7d34c7f9" => :catalina
+    sha256 "dd0354fc2c222ca360577701e554fe2acc6c6a6884906ec721c6602b98e9d2bf" => :mojave
+    sha256 "10bca4e34e31a22c30ba447ecf999b32fd7b186e8083051458ee5694ffd493f8" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
 
+  # Fix linking issues
+  # https://github.com/Homebrew/homebrew-core/issues/53198
+  patch :DATA
+
   def install
-    system "cmake", ".", *std_cmake_args, "-DZIG_PREFER_CLANG_CPP_DYLIB=ON"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
@@ -31,3 +36,15 @@ class Zig < Formula
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
+
+__END__
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -384,6 +384,9 @@ target_link_libraries(zig_cpp LINK_PUBLIC
+     ${CLANG_LIBRARIES}
+     ${LLD_LIBRARIES}
+     ${LLVM_LIBRARIES}
++    "-Wl,/usr/local/opt/llvm/lib/libPolly.a"
++    "-Wl,/usr/local/opt/llvm/lib/libPollyPPCG.a"
++    "-Wl,/usr/local/opt/llvm/lib/libPollyISL.a"
+ )

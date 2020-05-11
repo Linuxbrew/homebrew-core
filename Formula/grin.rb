@@ -6,14 +6,18 @@ class Grin < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3ec3abac01516abb1d4660f6acf7b4dcf47bd223d8f287d62f39e322f1defef" => :catalina
-    sha256 "f4a0fae541bf677b2e2dd9fd431855ee7855816677be44d6155c6c6822bb0281" => :mojave
-    sha256 "cba0fed4f35a80bbc1d9de9c9efe2aa549f8b3eb5b018826e70965f9a3bf3a63" => :high_sierra
+    rebuild 1
+    sha256 "4d4dbea6ca09df962c0d5773631d0c9ca2eea33968a453b7743e40cc8d16fbff" => :catalina
+    sha256 "e7454e67d40ec10672c036a51d86affc67812d801597233d242d4893b41ea121" => :mojave
+    sha256 "b9aa14bd8c6f7bdb5e5189888bf563f1c3d64be4944ac1fe843ed84c5ed99ebf" => :high_sierra
   end
 
+  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 

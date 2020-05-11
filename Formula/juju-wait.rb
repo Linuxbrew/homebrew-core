@@ -5,14 +5,14 @@ class JujuWait < Formula
   homepage "https://launchpad.net/juju-wait"
   url "https://files.pythonhosted.org/packages/d6/01/381cc24aabf820ff306b738a01b11aed5ac365a6438d46792f9fee2fe5f8/juju-wait-2.7.0.tar.gz"
   sha256 "1e00cb75934defa50a2cc404574d4b633049f1fa011a197dfac33e3071840e98"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
     sha256 "a969b35744d3fad4f45802d53bf1dd5da96eed56ae01e0ba6d246ea4b4a89a32" => :catalina
     sha256 "88d585b8cf738d97549f138d0fc49195d78e55ce4eaa4e2596e8e7af19827e68" => :mojave
     sha256 "d7b4c5a6f83f55f5f5084d6a2c58d8119923ee203f2770fb4affa3cebeefe96e" => :high_sierra
-    sha256 "cd24cec9170498a3d02adf28f1dad927467de7f24f698bf9f037a106d78deab6" => :x86_64_linux
+    sha256 "d240aab65582f21d11c1c2848092944ec66ed277470d826b4db8a5d26c0f25b4" => :x86_64_linux
   end
 
   depends_on "juju"

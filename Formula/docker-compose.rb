@@ -5,6 +5,7 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
   url "https://github.com/docker/compose/archive/1.25.5.tar.gz"
   sha256 "c04d4858b456f5806618fe7a49fadd3f1ccb8f10cf6e499bcf7fdee80a93c21a"
+  revision 2 unless OS.mac?
   head "https://github.com/docker/compose.git"
 
   bottle do
@@ -12,7 +13,7 @@ class DockerCompose < Formula
     sha256 "a44fef29184213b0c514a619d08783eb98d0843c64271db970df2cecdd670962" => :catalina
     sha256 "41389cc6707d1ac99ed3d226951ea165d773c0ebc3c5081a24c54187a9c8c192" => :mojave
     sha256 "4ef95bb3cf0b36c006e5074f82ad74a63e70f3f400133b1a25f3772bc70f79d7" => :high_sierra
-    sha256 "302ab187547cc446a0a6dd76802beefe23be4ff2564e0c5d35f464da2c562040" => :x86_64_linux
+    sha256 "c80b9cf009b663c00ef68dcd4748dc088a616e71f17ede34e71972c20bd20442" => :x86_64_linux
   end
 
   depends_on "libyaml"

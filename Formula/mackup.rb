@@ -5,7 +5,7 @@ class Mackup < Formula
   homepage "https://github.com/lra/mackup"
   url "https://github.com/lra/mackup/archive/0.8.28.tar.gz"
   sha256 "b4a586d12460df00a8322e0ffc8454fe0816630bd97640cd08b87fa0de6c1ba6"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/lra/mackup.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Mackup < Formula
     sha256 "dbc5ac8b84c362ff421aff6b75819145c9033b72cb1f819dc182964e59b8221e" => :catalina
     sha256 "dcd2364073468374ed2d60f921546db1948ca14efc5e7f0751873b7d89b5c8ba" => :mojave
     sha256 "3af5af899b13058a5887831beffbeada93ceb76a0c2598cbd9675cf11162d8c1" => :high_sierra
-    sha256 "160c2f0af8c400ebe0e875d036411e533e1c4a396ecff04a9ff00d7bd3c42107" => :x86_64_linux
+    sha256 "cfbc601c7c03b703edf0607ae9936e80aeedfb2ff5115a64f528afcd3761769f" => :x86_64_linux
   end
 
   depends_on "python@3.8"

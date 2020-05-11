@@ -5,6 +5,7 @@ class Awsume < Formula
   homepage "https://www.trek10.com/blog/awsume-aws-assume-made-awesome"
   url "https://github.com/trek10inc/awsume/archive/4.4.1.tar.gz"
   sha256 "66d698b4716a1dc7c927778a8fe124a6ac2d99334aff2be5dac6b13598b4e08f"
+  revision 1 unless OS.mac?
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Awsume < Formula
     sha256 "10a7525ee5a63f2c2f749183e9ce7149c7191e0d5a73818643e6a6f7fbd0ed6d" => :catalina
     sha256 "def0ed36226dac045def2c385d1c46c5afaf631c40e9239699f7c5a3bdf3bf7d" => :mojave
     sha256 "287a877bad427382131f05a11bee3b49a188f3eab1c393838fc7d5a4c0b4d196" => :high_sierra
-    sha256 "fefc24c24f2937fd772fa155b0e0eceb84c8fd29a4cdf3291b210df44eab8738" => :x86_64_linux
+    sha256 "8bff84d258c5e9114e27daa1bd2eb059ec8aae0b760885bd2a93616b290f1a10" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"

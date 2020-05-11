@@ -35,7 +35,10 @@ class Valabind < Formula
       # patchlevel. This snippet modifies the Makefile to point to Vala's
       # `opt_prefix` instead.
       vala = Formula["vala"]
-      inreplace "Makefile", /^VALA_PKGLIBDIR=(.*$)/, "VALA_PKGLIBDIR_=\\1\nVALA_PKGLIBDIR=$(subst #{vala.prefix(vala.version)},#{vala.opt_prefix},$(VALA_PKGLIBDIR_))"
+      pre_ver = vala.prefix(vala.version)
+      inreplace "Makefile",
+                /^VALA_PKGLIBDIR=(.*$)/,
+                "VALA_PKGLIBDIR_=\\1\nVALA_PKGLIBDIR=$(subst #{pre_ver},#{vala.opt_prefix},$(VALA_PKGLIBDIR_))"
     end
 
     system "make"

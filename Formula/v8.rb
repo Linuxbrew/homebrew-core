@@ -2,14 +2,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/8.1.307.28.tar.gz"
-  sha256 "09665555e7f9bcc5beedac12843b6d9467efcb2d25946b62b3ba21c2165a0a50"
+  url "https://github.com/v8/v8/archive/8.1.307.32.tar.gz"
+  sha256 "d83df73c0555a98660891948284abe10c64bea35e896121f38af04111ca7d0f4"
 
   bottle do
     cellar :any
-    sha256 "9187839914a55710702fa4d95d81ca26edb20db5430e40b7d64b9b64c86e2524" => :catalina
-    sha256 "05562e821143f1197f273e8706ecdee9ab5ecb76fe72555c530545f275e9921f" => :mojave
-    sha256 "9686c45c2ef9fd787faa7414fbf7f2fdd105bf1d4987dbb93231ebecb4a097a4" => :high_sierra
+    sha256 "d4bd0dd4fe5724fdc3f2a6c300c1a3887ee17b2e8c08aabd90596a759c4173b2" => :catalina
+    sha256 "7378129a5201be9eb44d1f4cdd8142a31a2d1a54eaf5f3885affdd23df6635a3" => :mojave
+    sha256 "688b75b529eed24d0921924ef1ea5ce740a8d042ba4538515052cf972ad0df27" => :high_sierra
   end
 
   depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100

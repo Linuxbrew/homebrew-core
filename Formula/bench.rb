@@ -9,16 +9,17 @@ class Bench < Formula
   sha256 "a6376f4741588201ab6e5195efb1e9921bc0a899f77a5d9ac84a5db32f3ec9eb"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cd770017ec21cd829d97013812172c21dc6ce8b00426029a692f5dd5d82dc0fe" => :mojave
-    sha256 "c6cfcfc380c022f98a32a061268dca710f109600aa6d52c5b5e541855889ea14" => :high_sierra
-    sha256 "54eb5c88dc8c8d8fa43a16fa5439b2592f0fac57bf1eeb895b181de6b2d56f94" => :sierra
-    sha256 "7081e2d83fb8dee4d72fa203e0d6751eb70e1d38d64c5366f1f04cdd72fec90b" => :el_capitan
-    sha256 "71b639858b5455d928b5d241a5b6dc48f1c79f60e9226369a2ee419139913003" => :x86_64_linux
+    rebuild 1
+    sha256 "a1e643d10bcde9bd745eba1b515488c65493cf7d9879cbd7a58bd3661bb6bbdc" => :catalina
+    sha256 "ea2a40fb086803f1b7f6a35a9f34aa89509bbbc010a37228fa83ed4ccd1139be" => :mojave
+    sha256 "2263dbeca7bcff6a01109ea94a3d27fd4aed15b8c0fe27be5f78f86919c631d4" => :high_sierra
+    sha256 "d9dbd94296661e7d9e24a927ecd08600fe67e6676e80a6d61395559f874694f2" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
+
+  uses_from_macos "zlib"
 
   # Compatibility with GHC 8.8. Remove with the next release.
   patch do

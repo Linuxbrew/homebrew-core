@@ -1,15 +1,15 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.3/src/tarantool-2.3.1.1.tar.gz"
-  sha256 "5ea7e5dba6300cdcc0769b0cd7ce46848dc398187159a24ffaea5057bea73aa2"
+  url "https://download.tarantool.org/tarantool/2.3/src/tarantool-2.3.2.1.tar.gz"
+  sha256 "03f3b839926bd40f9bd98d3573040ac7ff430cd90384dbe34a1aa5ff29c5e3f3"
   head "https://github.com/tarantool/tarantool.git", :branch => "2.3", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "5a0606dea3b83bea8f39644a3d4562d1f1286f29ba3a4e66be25259b84de0b58" => :catalina
-    sha256 "d73e46173f0ddf6b7e2782d153599d2e9f07027889a2fc59f0479644190291f7" => :mojave
-    sha256 "f2921e158f4204f535440bf1ad8d7e8d42c07b3964092851d0efeb888aa59293" => :high_sierra
+    sha256 "24004d96104ff131553bd4913827cd3124df32a0a91c6ae740774ea4822cb7c4" => :catalina
+    sha256 "6ae890fce09e272eb9cc077a1d0557fa4049ba4d9f53fde9f71b8777a9df8e8f" => :mojave
+    sha256 "c13f335351b42035ddfa20117b2c9f2a415122a3a1f3334858319c590f074a78" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +25,11 @@ class Tarantool < Formula
 
     # Necessary for luajit to build on macOS Mojave (see luajit formula)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Avoid keeping references to Homebrew's clang/clang++ shims
+    inreplace "src/trivia/config.h.cmake",
+              "#define COMPILER_INFO \"@CMAKE_C_COMPILER@ @CMAKE_CXX_COMPILER@\"",
+              "#define COMPILER_INFO \"/usr/bin/clang /usr/bin/clang++\""
 
     args = std_cmake_args
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"

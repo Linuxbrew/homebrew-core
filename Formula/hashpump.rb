@@ -3,19 +3,18 @@ class Hashpump < Formula
   homepage "https://github.com/bwall/HashPump"
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "5137114b347ef2c2cd42ce982c0b8d6fa261d6b7105b4735a6e8e8c5c6154448" => :catalina
-    sha256 "ddd00b7f11649d0ad36bdc9bfa724daee15e135687a1d71c5f043aa758b15399" => :mojave
-    sha256 "dd22c32a8a2c4ade6b45e573b61d09d91f56c60a74c7fd9265fb75e8dc60be5f" => :high_sierra
-    sha256 "91dd089a608636170ad9ba63f5095f254773d510e0eaf48735aa35c3cf6d9bf2" => :sierra
-    sha256 "036bfe38ba41e8e29e85f84c034c66dafb6e0e3952d9ba2bbdfadb9def3c396f" => :x86_64_linux
+    sha256 "117ca0966fcc664caacd251d564dbebde369b0a5b6c9a35242c898f5b12f232e" => :catalina
+    sha256 "71b04dff8cc052944d44566bd79385236db3af53fea647381e587d13503bb148" => :mojave
+    sha256 "e7dc1492f0177f7e186deebccb47428861cd2525bbb352959a2b69608f86de3f" => :high_sierra
+    sha256 "8603d8275f16d90df42b9402970cf2a1605494684c27a951eb533f4eb29d7049" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   # Remove on next release
   patch do

@@ -3,18 +3,18 @@ class Xapian < Formula
   homepage "https://xapian.org/"
   url "https://oligarchy.co.uk/xapian/1.4.15/xapian-core-1.4.15.tar.xz"
   sha256 "b168e95918a01e014fb6a6cbce26e535f80da4d4791bfa5a0e0051fcb6f950ea"
+  revision 1
   version_scheme 1
 
   bottle do
     cellar :any
-    sha256 "67094f9ab78c20e0a129746a94752da7539e6cfa120082b5f834f78f777b794d" => :catalina
-    sha256 "d3941ae6074eff5a7813291cbb4c384ac1c391ca4b452db198ca9a84a2c395f7" => :mojave
-    sha256 "21a4b8ad45725b79136b67377063016cf3a60738db31933088c7a337cd3cb7cc" => :high_sierra
-    sha256 "790c4f13d5eb6c3c420100ffac545dcc182c18a2587b00778ee8b170e91426e0" => :x86_64_linux
+    sha256 "805a00d6553c550fe560eeef68e3f4a7aae6e8d2b22078076f5e9ad3f70872f8" => :catalina
+    sha256 "fecab9b32680b8df85e42387b4e01ee8a366ec9ed1cd1aef42f161d387e00d8d" => :mojave
+    sha256 "9807db08b140e2b033ea22b32a15755c2fc85329e63d4eb72ea0b711e1ca28d6" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "python"
+  depends_on "python@3.8"
   unless OS.mac?
     depends_on "util-linux" # for libuuid
     depends_on "zlib"
@@ -28,6 +28,9 @@ class Xapian < Formula
   end
 
   def install
+    python = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = python
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -35,10 +38,12 @@ class Xapian < Formula
 
     resource("bindings").stage do
       ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
-      ENV.prepend_create_path "PYTHON3_LIB", lib/"python3.7/site-packages"
 
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.7/site-packages"
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python3.7/site-packages"
+      xy = Language::Python.major_minor_version python
+      ENV.prepend_create_path "PYTHON3_LIB", lib/"python#{xy}/site-packages"
+
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python#{xy}/site-packages"
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
 
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
@@ -50,6 +55,6 @@ class Xapian < Formula
 
   test do
     system bin/"xapian-config", "--libs"
-    system "python3", "-c", "import xapian"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import xapian"
   end
 end

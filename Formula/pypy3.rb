@@ -3,14 +3,15 @@ class Pypy3 < Formula
   homepage "https://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.3.1-src.tar.bz2"
   sha256 "0c2cc3229da36c6984baee128c8ff8bb4516d69df1d73275dc4622bf249afa83"
+  revision 1
   head "https://foss.heptapod.net/pypy/pypy", :using => :hg, :branch => "py3.7"
 
   bottle do
     cellar :any
-    sha256 "4e209092c894d4b3ad07f6b3cf65b504be0c113799b735bb6c9a3c7bb3534d77" => :catalina
-    sha256 "9d1d3ce7ba2c05718e0389eb66ef817d62a008fd71775738ec98d3ca9738bfa2" => :mojave
-    sha256 "7f78541fc9eceb7196cfad89f95626a09cfe0b8876b90c70a9296a8d23d0c156" => :high_sierra
-    sha256 "adaf19677a4297e97c90fbf31ca9b172e31161aa895ac5680b2c3f99a789fb07" => :x86_64_linux
+    sha256 "384b960848c433008154103f8cdf57c77b8ee805115818cae4cb502e5485f043" => :catalina
+    sha256 "de50ccf32775b38c4d1e2324fe7b9c0e23856fbe34eaf6ebd7b23e7d6d8f6459" => :mojave
+    sha256 "ea4031fc8f85001fea131cc880108416f0d9bbac400655a7d8337ad8cb8f1547" => :high_sierra
+    sha256 "6eb2eaee59434b131729dddaf5dd2a31578128463c84afe4f5f111435c5023b0" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

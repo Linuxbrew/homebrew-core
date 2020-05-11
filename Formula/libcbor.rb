@@ -1,24 +1,20 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "http://libcbor.org/"
-  url "https://github.com/PJK/libcbor/archive/v0.6.1.tar.gz"
-  sha256 "2f805f5fa2790c4fdd16046287f5814703229547da2b83009dd32357623aa182"
+  url "https://github.com/PJK/libcbor/archive/v0.7.0.tar.gz"
+  sha256 "fb731afe0a9980581d85e4b8d4ef128b175f782d92e0cd898935f3d26dd3dde7"
 
   bottle do
     cellar :any
-    sha256 "9500d9ae8eb7c2048779c7be7c8be643f0f374ca131192c39f6f8ce4c4158173" => :catalina
-    sha256 "8a1800894384b8c4a0a2f2190141754dfbdfb2cd56940ae87a7fb6ed704b06a2" => :mojave
-    sha256 "6b42f6b810aa4e0cb0d5141491fa5b989413e518ed0134fd39677637999365e4" => :high_sierra
-    sha256 "fc572e035aabf30caccdeb7a8b3cc33a8e769f693ee9b65f712aa20bd11098cb" => :x86_64_linux
+    sha256 "592a8fe5ad2efd8111f016631ab251162e821e2a1560e42cd6285d60525b3813" => :catalina
+    sha256 "104f1676b69dbcbbedb00c9059d1b08cf05f9003379fee323b9fba7728bb51fa" => :mojave
+    sha256 "7f6b69a84c6c7ec111e7c0a8c2d086e5933a44268d1af20c5dd28eb5af60eccc" => :high_sierra
+    sha256 "9b4bc53dd064b2e362ff0d38c32f4e7b1c655ccdee79450a6848116bf1b2fae5" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
 
   def install
-    # Hack around libcbor forcing LTO for Release builds
-    # https://github.com/PJK/libcbor/issues/140
-    inreplace "CMakeLists.txt", "-flto", "" unless OS.mac?
-
     mkdir "build" do
       system "cmake", "..", "-DWITH_EXAMPLES=OFF", *std_cmake_args
       system "make"

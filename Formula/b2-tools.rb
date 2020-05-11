@@ -5,14 +5,14 @@ class B2Tools < Formula
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
   url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.4.2.tar.gz"
   sha256 "2d6382b94af59dcaa44dd546252807e0364d1b61f169584829ebbf82458e7078"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
     sha256 "359dc46390fbfc8b78ee10a1ca122b3bae6164030be4db88bfa5458c9bd25306" => :catalina
     sha256 "53b316d86ae2a7611cf1640d7216f2b4b19656e7d400ec09d991fece6ff5ac4f" => :mojave
     sha256 "46ffa1e56c42f5593dc594b85cd0bd9aa2e7e6b418887469236cab8d6faadebb" => :high_sierra
-    sha256 "f1b2d0f67227d60d71e8216cca34bb00d48ab66a5505217c581dfec05688b256" => :x86_64_linux
+    sha256 "d57fefd13c017d62ae2cc39b114fc548bef07e0ada00732f523fb3b79fcd1a0d" => :x86_64_linux
   end
 
   depends_on "python@3.8"

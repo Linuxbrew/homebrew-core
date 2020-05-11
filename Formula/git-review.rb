@@ -5,7 +5,7 @@ class GitReview < Formula
   homepage "https://opendev.org/opendev/git-review"
   url "https://files.pythonhosted.org/packages/2c/e6/e4f1b999af2493a5cc5e050f0869b29f30914f94016abf48c77c6307745b/git-review-1.28.0.tar.gz"
   sha256 "8e3aabb7b9484063e49c2504d137609401e32ad5128ff2a5cf43e98d5d3dc15a"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://opendev.org/opendev/git-review.git"
 
   bottle do
@@ -13,7 +13,7 @@ class GitReview < Formula
     sha256 "8bb267cb74c37af45200381f60f84dc49af52a0d2eed65c23db6e582d0d407b9" => :catalina
     sha256 "acd209ffed9affc75582b7ef94e3232abc0f2ab6490b634fc9abcb53a2e0f08d" => :mojave
     sha256 "cb9721c5b767816de394884dbb83a7274b43fcb495015d445253d3820ac07b32" => :high_sierra
-    sha256 "5229b3b4c99c5438ae17e889af7d8fe93c9caaefa279a7066dfdc628f0bed28b" => :x86_64_linux
+    sha256 "75cb10f326d9793dfec06077b141a65f68e780b4c845fec6a5c9fb86c5a3ce49" => :x86_64_linux
   end
 
   depends_on "python@3.8"

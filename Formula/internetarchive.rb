@@ -5,13 +5,14 @@ class Internetarchive < Formula
   homepage "https://github.com/jjjake/internetarchive"
   url "https://files.pythonhosted.org/packages/0c/b0/4026175cc310b35e15e1447ab8ca13742e98960f14bde087b069dc760e44/internetarchive-1.9.3.tar.gz"
   sha256 "bad1c4152fb6286ce7c77737a853bb4e45bcefb89ca5834d75607419f08cb6fe"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "5257165feb9cacde3acc1100a118f1208474b4ce85100821644f29726c50fcd7" => :catalina
     sha256 "1dd15e09892bcf1e56a46642c3f23b1fa9fdb95020097688c8c8fd98b4eb187c" => :mojave
     sha256 "28d816f22b80c5578963a99338489f58ad658657c09b4203e3f095c9e0f18020" => :high_sierra
-    sha256 "f9468a656d56bf2e798f13cb50d7ee0753a4ba6423ae972ed3db93096714ae8a" => :x86_64_linux
+    sha256 "f20adce2df1e10162db430e1f3082170450275316caa976c98b481718434bbc3" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -5,6 +5,7 @@ class YouGet < Formula
   homepage "https://you-get.org/"
   url "https://github.com/soimort/you-get/archive/v0.4.1432.tar.gz"
   sha256 "c35ebe75a2904f0dfcf75222109ee02e59aa45ade1105bdc15879cc1a0ae9264"
+  revision 1 unless OS.mac?
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
@@ -12,7 +13,7 @@ class YouGet < Formula
     sha256 "00978ff19ead4913f71581da459eedc79c51d51b3e3c2482db80cdba29e2bf3f" => :catalina
     sha256 "2baed6bb0c7bdba492eab79e19f267dae5a9c00d40ccdafcb230b2fa1b471cda" => :mojave
     sha256 "7e57020149ef1a994005275b9a09594d368f9ae59261fd4bb86a9386ba8e2ddd" => :high_sierra
-    sha256 "cd6a00db74b04fc97ef1d336b5bcdc44b9dbb63fb3a3c8a3273cb0b56d15063e" => :x86_64_linux
+    sha256 "9aebc5129f603b3faa2b504357a5254b1e2c932c7ea4689493117e6ce62ac68b" => :x86_64_linux
   end
 
   depends_on "python@3.8"

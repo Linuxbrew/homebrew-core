@@ -5,14 +5,14 @@ class Buku < Formula
   homepage "https://github.com/jarun/buku"
   url "https://github.com/jarun/buku/archive/v4.3.tar.gz"
   sha256 "4c91cb0ac83164153c65705f46af29aaede78a2ed48d836cd2269b0fc71fed7a"
-  revision 1
+  revision OS.mac? ? 1 : 3
 
   bottle do
     cellar :any
     sha256 "5892324d89aaf45871266ea4ba5c7d21840335f19c2f3ded5426d53ad15a93e1" => :catalina
     sha256 "ec54a771384b9dbb56588d498ca979b7d5132c94e5f593e97bfac864c3a46be4" => :mojave
     sha256 "89a77e63b156f72a22dec8201fdbb6176ba6a90c4520639168a0ac537f3b3157" => :high_sierra
-    sha256 "592fb8c5114964f91352030aaf02f65b8a66e5fb695d032e276aabff45d7bb71" => :x86_64_linux
+    sha256 "1d99176576b0747f8c968e7a80df0a78c7a146e3927d96359c20cad0e4a20620" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"

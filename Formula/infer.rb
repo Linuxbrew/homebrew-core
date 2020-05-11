@@ -13,8 +13,6 @@ class Infer < Formula
     sha256 "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6" => :high_sierra
   end
 
-  # Python2 dependency will be removed in https://github.com/facebook/infer/issues/934
-  depends_on :macos # Due to Python 2
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build

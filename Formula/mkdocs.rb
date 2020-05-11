@@ -5,13 +5,14 @@ class Mkdocs < Formula
   homepage "https://www.mkdocs.org/"
   url "https://files.pythonhosted.org/packages/07/7f/07d0f92c9debe9ffe621c9a8f5de351a3c47614c93c3ba3c0344def4ea2d/mkdocs-1.1.tar.gz"
   sha256 "9243291392f59e20b655e4e46210233453faf97787c2cf72176510e868143174"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b65a09b5522567f318a750443f1470b8859cf2dc693615b8b32a0c555801af63" => :catalina
     sha256 "f967c60bc8154dc0e28475891c6148e50e6dc6f37b1a99f7778aa2733b73d02f" => :mojave
     sha256 "80196ec89ffe059a03f03c05d5f1401e6a8514d7b314c7d24f1838e26d8d1975" => :high_sierra
-    sha256 "2d647e17662dd296c08175873695f95d6eedb8a410bd873bbf20f05c51ef5419" => :x86_64_linux
+    sha256 "37be2070b3d2ded3afc898a3572adb08fee8241de9cfe7e7f1904e5cdaf481ea" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -1,16 +1,15 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_5/libtorrent-rasterbar-1.2.5.tar.gz"
-  sha256 "84b79f85ffa4e4a5f434bf5c53b0d5a63dfea17b7623143caaa695faf61b2d1b"
-  revision 1
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_6/libtorrent-rasterbar-1.2.6.tar.gz"
+  sha256 "8f69befe449f7211afc665726d24fde62f019800b060b5c6c9804793929a4407"
 
   bottle do
     cellar :any
-    sha256 "62ce916aaaca18fa746e14dabf7bdb9744aa7df6954f6f8a55b44bee3945f3fe" => :catalina
-    sha256 "882db0bd9fd5be7a49591d8ad9a43400b3b4fbbe70146462d0e0a532cc45bdf0" => :mojave
-    sha256 "caf6acf012e18d956206e5ea881d7c6772c2d463b9f167d07d6601944df0a98f" => :high_sierra
-    sha256 "06f88d5c1771f168e119c8e67d6d657af8d5c6fc9f78f011219bd6a67647820e" => :x86_64_linux
+    sha256 "607246a5ff355aa8dd2c9774923235dacb5b7aa973325f1a1eaf92e8763bb182" => :catalina
+    sha256 "4b67da54a4a7df152e7c8e2d19bc46ff4a2530a42097f936c40c1fc5bb9e41ff" => :mojave
+    sha256 "87449b6764ea679130f0b3be8913277fd36d122fb766e738b7bafba17bac117b" => :high_sierra
+    sha256 "1163e5df43acde02195869bf36d8d6033b9e22ea4b7c403ab18af969478a940a" => :x86_64_linux
   end
 
   head do
@@ -49,6 +48,8 @@ class LibtorrentRasterbar < Formula
     end
 
     system "make", "install"
+
+    rm Dir["examples/Makefile*"]
     libexec.install "examples"
   end
 

@@ -1,15 +1,15 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R49.tar.gz"
-  sha256 "126d1e68d3a3e80d1e215c8a2a5dc8773f5fcac70a6c22dadc837bccb603bccd"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
+  sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "0d2b5826704cf1a4f59ff2a0b2d2cc77a10dc8ebe658dbf1772b50e93b17a626" => :catalina
-    sha256 "25d2429cd6f7e7707c6a2a2b3b636723eacfcf1bb358c016b047482afb086f47" => :mojave
-    sha256 "f856378f6f18b8d89bdd9b52ed141e5d502dce31a2a2b8688731c4f015d535da" => :high_sierra
+    sha256 "9e248fad2cf15145bd14e1b3f5ec48e34752aa328d461b649ec3ae99c5554945" => :catalina
+    sha256 "22a8a42bbb525994646d8bb6de85928de00c8073abfbd8a2400c04bbc51fd3c4" => :mojave
+    sha256 "f3d5420ef8f88c51684b0b0ca8325713ce3ea11f4b04145b497934832a0be5ed" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -39,8 +39,8 @@ class VapoursynthSub < Formula
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "from vapoursynth import core; core.sub"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
   end
 end

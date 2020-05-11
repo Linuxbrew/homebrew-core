@@ -58,5 +58,10 @@ class Skopeo < Formula
     cmd = "#{bin}/skopeo --override-os linux inspect docker://busybox"
     output = shell_output(cmd)
     assert_match "docker.io/library/busybox", output
+
+    # https://github.com/Homebrew/homebrew-core/pull/47766
+    # https://github.com/Homebrew/homebrew-core/pull/45834
+    assert_match /Invalid destination name test: Invalid image name .+, expected colon-separated transport:reference/,
+                 shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1)
   end
 end

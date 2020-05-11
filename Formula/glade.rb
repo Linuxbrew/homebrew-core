@@ -1,19 +1,19 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.2.tar.xz"
-  sha256 "edefa6eb24b4d15bd52589121dc109bc08c286157c41288deb74dd9cc3f26a21"
+  url "https://download.gnome.org/sources/glade/3.36/glade-3.36.0.tar.xz"
+  sha256 "19b546b527cc46213ccfc8022d49ec57e618fe2caa9aa51db2d2862233ea6f08"
 
   bottle do
-    sha256 "27f88ef0f2e6d8eb6a0431786f8a3b314a3ecfdeee7fe760d9257827f1c1fdc5" => :catalina
-    sha256 "91a3f27f611b2571469b7876f28f6ece6c73df75c801075b2da431966218ec1d" => :mojave
-    sha256 "3a49959c858a0a041014aa51311fb2152acfd75fb3f27c005709bc56f2bc40ec" => :high_sierra
+    sha256 "864bfad92694725723aaf2f128a8d0f67052bc60737c3224a1b91581276fc467" => :catalina
+    sha256 "7a2ea170b3f09787fd59511ec656ada64ec32123fdf923e9a2e361a6c2ddc38f" => :mojave
+    sha256 "40ba1031ec89c17e255825f8040c1ad1a6b94c20fc03e3f73a552603df9ebe10" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gettext"
@@ -21,24 +21,26 @@ class Glade < Formula
   depends_on "gtk-mac-integration" if OS.mac?
   depends_on "hicolor-icon-theme"
   depends_on "libxml2"
-  depends_on "libxslt" => :build
 
   def install
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    # Disable icon-cache update
+    ENV["DESTDIR"] = "/"
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-gladeui",
                           "--enable-introspection"
-    # objective-c is needed for glade-registration.c.
-    # unfortunately build fails if -x objective-c is added to global CFLAGS.
-    # Bugreport Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=768032
-    inreplace "src/Makefile", "-c -o glade-glade-registration.o", "-x objective-c -c -o glade-glade-registration.o"
 
     system "make" # separate steps required
     system "make", "install"
+  end
+
+  def post_install
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

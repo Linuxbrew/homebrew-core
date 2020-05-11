@@ -5,7 +5,7 @@ class Awslogs < Formula
   homepage "https://github.com/jorgebastida/awslogs"
   url "https://github.com/jorgebastida/awslogs/archive/0.11.0.tar.gz"
   sha256 "6258a121629cb872ee61fe78bf112753c8782c971524f0943a0e21f74d5e28bd"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
   head "https://github.com/jorgebastida/awslogs.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Awslogs < Formula
     sha256 "7918feeb3d8bd6ff0944c55afae7864eaf5cea516029b33647aa2ce87288ce86" => :catalina
     sha256 "5079a8ee7893316f2febeb41caf7afe6a0a2efad9f553f04dcfb80be9109e1d0" => :mojave
     sha256 "04e319b2b99b8c62ce50d8c4cce6804aac585d063ac4da9ec8459dc9a8719512" => :high_sierra
-    sha256 "d101fb9cdc5fd445135be02e92f602f661017b0a83af8987dde73cf00eb059ac" => :x86_64_linux
+    sha256 "2e9fcaa48890e8f0434a65297339882ee2b9be428b539ec936e2c1a58a4d51d0" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -14,8 +14,6 @@ class AppscaleTools < Formula
     sha256 "3ce6279fcd352c2a934db1c656884c625164eb4b89b82fe28bde58cb4bc3d014" => :x86_64_linux
   end
 
-  # Uses SOAPPy, which does not support Python 3
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)

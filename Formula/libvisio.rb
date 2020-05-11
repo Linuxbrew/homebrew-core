@@ -3,13 +3,13 @@ class Libvisio < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "2eb8a748fa58bcd991bcf433d78895d54082f1634999b51b8eef0a6c7108509e" => :catalina
-    sha256 "eceb874ef98ff8e83b1459b946c4a5d2da805107555e31c4b9b6421fa6afcfa5" => :mojave
-    sha256 "21bf0ad3a0c856356491eec3eed8ed9daf739089597ce4649183bd0be4255266" => :high_sierra
-    sha256 "12f6114e5d146f54b3faba8015ac5d85b94a72b52898b975145d410aa7bb49db" => :sierra
+    sha256 "6b8a940fc5c5a3c3ed2982ff254732b807f26446e34dd5668dbf626c26a1e19d" => :catalina
+    sha256 "648592e9cedbcec5f4250497e22495133cf8ee7ff4944ff28e15c7654f99cc1b" => :mojave
+    sha256 "4ec8f527f10a7220aea4e4dbfb6ea599a3b8f8910109378dbf6359d29085f2b8" => :high_sierra
   end
 
   depends_on "cppunit" => :build

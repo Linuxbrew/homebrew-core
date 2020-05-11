@@ -50,8 +50,6 @@ class GnuUnits < Formula
       assert_equal "* 18288", shell_output("#{opt_libexec}/gnubin/units '600 feet' 'cm' -1").strip
     end
 
-    unless OS.mac?
-      assert_equal "* 18288", shell_output("#{bin}/units '600 feet' 'cm' -1").strip
-    end
+    assert_equal "* 18288", shell_output("#{bin}/units '600 feet' 'cm' -1").strip unless OS.mac?
   end
 end

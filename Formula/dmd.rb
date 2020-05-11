@@ -3,30 +3,30 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.091.0.tar.gz"
-    sha256 "bcca38f4b80b51ae0a1955dc29e6cbfaa4d01d94869ddfcacf9292898c34343a"
+    url "https://github.com/dlang/dmd/archive/v2.091.1.tar.gz"
+    sha256 "cd6700104ad25416e7928ae0bb0ba36d056f1d3f2553b2a40c8b1a34ed3cfa8b"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.091.0.tar.gz"
-      sha256 "cc8ba196b08cca04488d97d0e35c878f7351b7d8128aec90eaa312d2bd9a6af2"
+      url "https://github.com/dlang/druntime/archive/v2.091.1.tar.gz"
+      sha256 "a9ecfc9836debdc374108a141ef465df70d8bcd11e60e394706f08d9ada2ec35"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.091.0.tar.gz"
-      sha256 "df9f81eecda4366adc5ca9ed31a0b4474c248544b120ff6fa3f6cb45917d8769"
+      url "https://github.com/dlang/phobos/archive/v2.091.1.tar.gz"
+      sha256 "75b0cb8ca8651d2e7ffbf1cb621995b87f1bba19675afc44aab8d119019cfbe0"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.091.0.tar.gz"
-      sha256 "e5a6a67fbb60a3e3228cd9966cf5b04fcc46f3c1d82ecde67009e3d8cbbd26c6"
+      url "https://github.com/dlang/tools/archive/v2.091.1.tar.gz"
+      sha256 "15d385c04e46860d2fb8bbe736c9a9f4b2fcd9fdf0a6daf6f801177125660c68"
     end
   end
 
   bottle do
-    sha256 "6d8991b6f9f4098b6f82e42db2b37520be57a1cf974e134690549de42738dbbe" => :catalina
-    sha256 "a17eb5a2ebfeff82981c2a6d1df540a979a125047c2255eb2514b25a648e0cbe" => :mojave
-    sha256 "0e77e70cb888814b2edf536a5f547f4938a4c43794b6c9b7dcb2811bca2204c7" => :high_sierra
-    sha256 "1e50652d296b240985f0f5427754e4107eaf2c62b9e9645c165645ce7a13418c" => :x86_64_linux
+    sha256 "d04ac18818eb2bfcd8fb29d4f45f9117fc16dbac28506d48c5adb35ad9583c8a" => :catalina
+    sha256 "c0d86df59135dd14c30d35b70d5c8255920a181c3f6d2c016cbd9dc9f7aa283b" => :mojave
+    sha256 "8840bbca564001feee5495aa9d0752e3cd40b3725c675b6c4d3f3e2cf2edd138" => :high_sierra
+    sha256 "697713600833c09ccf820e640ef81401fa7621d93c5362877890868422421529" => :x86_64_linux
   end
 
   head do

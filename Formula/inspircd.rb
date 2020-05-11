@@ -1,13 +1,13 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/v3.5.0.tar.gz"
-  sha256 "c7e61d02bf6bde873bdf4696bf1b695e09d2d396fcaa05ff37942290d1b75c63"
+  url "https://github.com/inspircd/inspircd/archive/v3.6.0.tar.gz"
+  sha256 "f9a80ddfd8354163e0935ec65ea2c596c93152560ebb56dbeb5f8b3e1b53eb1e"
 
   bottle do
-    sha256 "fcd59b63a412cb4ff05f40c7357c2c2d8f08992ccd79de78fe2f33f9f356d437" => :catalina
-    sha256 "7c573a0e50d44e6985af26e0db832e4d7ced2dc5b0d78ada29db1d0aa44a8067" => :mojave
-    sha256 "ceccb3d1b8e180436cd2f68251ce06fab3ec6f0e976075eb8ff84752b8c500fb" => :high_sierra
+    sha256 "5ffffc7ee1d4a804d3bea62c0daacbc37113504cd540b107c7845c001613ea91" => :catalina
+    sha256 "72807c0b16c0a71fc272a67dc0ab0678f8978443e37d2492bf758263d1a29526" => :mojave
+    sha256 "10773bb68411503c25a83bf09b6ba3bbdb7ba0f40ff10bc5afe4b07c9b0e81e3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

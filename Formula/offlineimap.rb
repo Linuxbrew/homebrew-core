@@ -12,11 +12,11 @@ class Offlineimap < Formula
     sha256 "ff922fc76e1e5571628d7ecb4bd436180895352768979c2cd9bcfee048b5d0f4" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2 (Will never support Python 3)
-  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
+  depends_on :macos # Due to Python 2 (Will never support Python 3)
+  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

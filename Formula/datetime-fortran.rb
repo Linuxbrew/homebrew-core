@@ -1,16 +1,15 @@
 class DatetimeFortran < Formula
   desc "Fortran time and date manipulation library"
   homepage "https://github.com/wavebitscientific/datetime-fortran"
-  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.6.1/datetime-fortran-1.6.1.tar.gz"
-  sha256 "a503319209c6b9abe2fd0dc46f3b0d096154ac6edad9a106270f82aef6d248c0"
+  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.6.2/datetime-fortran-1.6.2.tar.gz"
+  sha256 "765f4ea77e9057f099612f66e52f92162f9f6325a8d219e67cb9d5ebaa41b67e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "590d12115f8204c0d8de5300ea910bcfc30801645edb7b7fd3502202c85e933e" => :catalina
-    sha256 "160cac6100d26f5e09387daac49d16c40aedd38a44dc5aa0da950a62fc4f601b" => :mojave
-    sha256 "2b3663b87374f2aff2bbe1ddc6436a2e387cb0f158149fcc11f46b73aa530e89" => :high_sierra
-    sha256 "16073e773f18e30155af5805975b085fbd9c715cf0dcfe006cd1091de97c2cc5" => :sierra
-    sha256 "d89c6c6fd8e1f4be546f9d20f94926489ada7e32446869fa6dcdd9cbaa74efd5" => :x86_64_linux
+    sha256 "73f230fd02a4dcc810e5dff0b6c91fd652d71d205aabad40b781fb5cc4b85ce3" => :catalina
+    sha256 "53b0711bb7bae0a6ceab81d1c81475ab7d9b4a3faf9293ef5ef425d9f008cd51" => :mojave
+    sha256 "4da37b7d4a520168a526cc63ed413c1bea31f769b02a7a471de1cf854623a379" => :high_sierra
+    sha256 "2ed43e360daeafb83a44c0694c7f41ccbdca610a09ccda2c4d61e2743c27fa5a" => :x86_64_linux
   end
 
   head do
@@ -32,8 +31,13 @@ class DatetimeFortran < Formula
   end
 
   test do
-    system "gfortran", "-o", "test", "-I#{include}", "-L#{lib}", "-ldatetime",
-                       pkgshare/"test/datetime_tests.f90"
+    if OS.mac?
+      system "gfortran", "-o", "test", "-I#{include}", "-L#{lib}", "-ldatetime",
+                         pkgshare/"test/datetime_tests.f90"
+    else
+      system "gfortran", "-I#{include}", pkgshare/"test/datetime_tests.f90",
+                         "-L#{lib}", "-ldatetime", "-o", "test"
+    end
     system "./test"
   end
 end

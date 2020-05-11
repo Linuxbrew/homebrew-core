@@ -1,8 +1,8 @@
 class Osmosis < Formula
   desc "Command-line OpenStreetMap data processor"
   homepage "https://wiki.openstreetmap.org/wiki/Osmosis"
-  url "https://github.com/openstreetmap/osmosis/releases/download/0.47.4/osmosis-0.47.4.tgz"
-  sha256 "5344a9c038ba9cd776d5484b267c9e4ee6b98901292f37c3de9e60d6127d1dee"
+  url "https://github.com/openstreetmap/osmosis/releases/download/0.48.0/osmosis-0.48.0.tgz"
+  sha256 "0690c0685b8f1db23a9bbf4ee54e145333d16fde68dd2bee955634dab8f0fbb5"
 
   bottle :unneeded
 

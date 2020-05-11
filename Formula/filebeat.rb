@@ -5,20 +5,19 @@ class Filebeat < Formula
   # See: https://github.com/Homebrew/homebrew-core/pull/28995
   url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
   sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f851504b92be5efb4b22c8368f5fa93e362a92936ac13591dc3bf4964e245b1a" => :catalina
-    sha256 "3e8ba2861a929174fe1fec21c8c957842ba64f75451984f5619f3d5956cecaf7" => :mojave
-    sha256 "16df33929b7bed4480a78d6e7907f9e8eb3b35f90a1da8b8b88217e041da361f" => :high_sierra
-    sha256 "c0887cf5e4842173b9bc286657755f19f03f4c025934f632efb6d90d24626a27" => :sierra
-    sha256 "7a1c623fbbea0848a3ddb42232f0092285cc2044077ffed853cd392506dc0552" => :x86_64_linux
+    sha256 "023e3266e45682c7f5c769aa97985087670f56ab23e43b394c33633eb7fc898a" => :catalina
+    sha256 "5ca74218971b90453e387152ca39aeb8f59ecfaadf8e6e35ccd44df92fd56520" => :mojave
+    sha256 "12755e28f4384e9168e55a8a0a2a077f6e4973a22dd7a6e258a888f20cf74fab" => :high_sierra
+    sha256 "45686bc428aa357aae79799f7be91cacbf71e736bf229edb4408b77f1bc8263f" => :x86_64_linux
   end
 
   depends_on "go" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "rsync" => :build unless OS.mac?
 
   resource "virtualenv" do

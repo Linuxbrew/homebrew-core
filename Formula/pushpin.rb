@@ -17,7 +17,6 @@ class Pushpin < Formula
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
-  depends_on "python@3.8"
 
   def install
     system "./configure", "--prefix=#{prefix}",

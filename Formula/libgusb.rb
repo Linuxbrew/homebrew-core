@@ -14,7 +14,7 @@ class Libgusb < Formula
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libusb"
@@ -32,7 +32,7 @@ class Libgusb < Formula
   def install
     (share/"hwdata/").install resource("usb.ids")
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Ddocs=false", "-Dusb_ids=#{share}/hwdata/usb.ids", ".."
+      system "meson", *std_meson_args, "-Ddocs=false", "-Dusb_ids=#{share}/hwdata/usb.ids", ".."
       system "ninja"
       system "ninja", "install"
     end

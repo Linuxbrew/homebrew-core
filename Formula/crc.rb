@@ -2,16 +2,16 @@ class Crc < Formula
   desc "OpenShift 4 cluster on your local machine"
   homepage "https://code-ready.github.io/crc/"
   url "https://github.com/code-ready/crc.git",
-      :tag      => "1.8.0",
-      :revision => "0a318dc9335a1e7cc24c5b19b5aa383ec619f9c4"
+      :tag      => "1.10.0",
+      :revision => "9025021f545acab4c3e3016bed0172490ce53c72"
   head "https://github.com/code-ready/crc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bbc8ef9d3568b5a7699b80e840e1f452fed74c8464f58c3b79d3d59e12aaf043" => :catalina
-    sha256 "bf3198a7432c86a22c2bc12620ede993d4c3dc2e15a1ee8e435d1662d8d5c7c9" => :mojave
-    sha256 "fa9c98481bd8cda4a6ee990fc62388304c9ae34ac60c8d3d4ea02ba8b5c7dae5" => :high_sierra
-    sha256 "0427f19d7e7273aa7c8770c335131b1b167b34dc299dc8a7fc2bc18094cbdb64" => :x86_64_linux
+    sha256 "14180b123d70eb87176d98d4953b3a6f9965ffaf789be18643bbeaed9dd26a0e" => :catalina
+    sha256 "8dfd8898768fef9aa17d6d3348aefad034a678ed7c3f0d162ebae696041c920b" => :mojave
+    sha256 "cd8bc4a64283ed6e3dd0a52d35f196d9f690f555671390de00a4fe0c95dbf767" => :high_sierra
+    sha256 "655e5a5582c3e7a694856aec6c2ccaf899216f63167571bc41f85f3ceaa0b375" => :x86_64_linux
   end
 
   depends_on "go" => :build

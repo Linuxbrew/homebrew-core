@@ -17,9 +17,9 @@ class Hardlink < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "attr" if OS.linux?
   depends_on "gnu-getopt"
   depends_on "pcre"
-  depends_on "attr" if OS.linux?
 
   def install
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "BINDIR=#{bin}", "install"

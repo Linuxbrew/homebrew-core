@@ -14,8 +14,8 @@ class Bup < Formula
     sha256 "e2986e9fb102aed935d76b8e75d181ef44611f245ad8ebf4a46b7f43e2e2436b" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pandoc" => :build
+  depends_on :macos # Due to Python 2
   depends_on :macos # Due to Python 2
 
   resource "certifi" do

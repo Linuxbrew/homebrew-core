@@ -3,23 +3,35 @@ class SagittariusScheme < Formula
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
   url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.6.tar.gz"
   sha256 "b946b168fca70f84d922bcfa2125e2e64ad5fb8cf67e4204deb43dd2dcdedb0e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a361faf84c92724338658d2bfe40ae6a35e9654628bb2386e83d1cbf13f4ede8" => :catalina
-    sha256 "e260d068e0494dfc4a6e02bdf24731fe1c8b0d6391958413a276a38d81a9bf01" => :mojave
-    sha256 "1b1890495faa84c7e3d7fb8aa664963a46efa14f70adbe3fdb1c36b114e91b59" => :high_sierra
-    sha256 "a2c30e62b8ed18be2db099222966f71efbb54eed1e901716df76edd3d4edd8a2" => :sierra
-    sha256 "d3da859a90794c9ad8fe5a1740155406d8650b1fcfbac0e1a8a1e613923684b1" => :x86_64_linux
+    sha256 "83845fdb59150a6c1bdd0e7f4fae012cf61179d66bb4187ab02cf8916230adbb" => :catalina
+    sha256 "c49cdba71567af4f9ba0a65abd81cd60f7913afc614d5f2495fb5f10961c8a53" => :mojave
+    sha256 "5c49ae9b83d175b6d65dab8ce262b4fd3a99d6bc6b8306da963054ade9f5ff3e" => :high_sierra
+    sha256 "f8e3ad0085c9a0f5102ad07bf38113becf36facc1503bf2b7b9327a45926a19d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "bdw-gc"
   depends_on "libffi"
   depends_on "openssl@1.1"
+  depends_on "unixodbc"
+
+  uses_from_macos "zlib"
+
+  # Remove with next release
+  # https://bitbucket.org/ktakashi/sagittarius-scheme/issues/271/sagittarius-socketso-not-found-by
+  unless OS.mac?
+    patch do
+      url "https://bitbucket.org/ktakashi/sagittarius-scheme/commits/d0d29a50b3f5022cec7dc49811f4532291970d7d/raw"
+      sha256 "4cf027942873a4e2a96ac5b1875e018aba9369d9c9eef7bc5a9fad0b897443fd"
+    end
+  end
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DODBC_LIBRARIES=odbc"
     system "make", "install"
   end
 

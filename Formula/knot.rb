@@ -1,14 +1,14 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.9.3.tar.xz"
-  sha256 "f2adf137d70955a4a20df90c5409e10be8e1127204a98b27d626ac090531a07e"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.9.4.tar.xz"
+  sha256 "57f3c93a1b40dfa0431508203f559b7ea257afab79078c38bcddf960d5a4a501"
 
   bottle do
-    sha256 "c5de8c5074e1f09b4b4deadfc9510c673d556c98a6cb637be71e8d44f7171e9e" => :catalina
-    sha256 "76ce20dd866c1189fbd660e48c498c7119fdc90b8c7bbc3282da579d52396d2b" => :mojave
-    sha256 "94113b40854b70f3ffd33077b6585ee78aa90666a05a1f281b5ef15f2a6c39ce" => :high_sierra
-    sha256 "2cdec12325455e499293634287067c68757b2d7b29c67dfa3adba080d4a206c1" => :x86_64_linux
+    sha256 "c7f4f8047095b2b7d8f4535ad4568b62192efa90b5363b45446e00f2d460cbed" => :catalina
+    sha256 "f720d636bffb78fcda41575f928bf47f8a4bc0d2b6a24b14dfdcf214009d0eb0" => :mojave
+    sha256 "93c6b7975bb9cb6d49052e1960bdd97751344ee2072c832445bb4b5b380baa65" => :high_sierra
+    sha256 "8a2542c430f724c446ff8f7dd8d39275ea5797c199639f923773dc53bedc1b1b" => :x86_64_linux
   end
 
   head do
@@ -27,6 +27,7 @@ class Knot < Formula
   depends_on :macos => :yosemite if OS.mac? # due to AT_REMOVEDIR
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
+
   uses_from_macos "libedit"
 
   def install

@@ -1,14 +1,14 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.30/ircd-hybrid-8.2.30.tgz"
-  sha256 "f92d837306b11621b25eb449b341207c80ba634280bd7c29b2b7be3019b259f1"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.31/ircd-hybrid-8.2.31.tgz"
+  sha256 "ab8dbd2152cb9c7f228d1efa9f9f1c1e3fc545959c9a9df0dc3ebb1e087d708f"
 
   bottle do
-    sha256 "4f9af65b03a153f6f6ff92f96b6fe7a14784f8dce6852656cc0f130c88b2eebc" => :catalina
-    sha256 "68d2fafdf7448feee3fb0e04ff613205ddbee4e8beb45b179b526e44397d4de7" => :mojave
-    sha256 "c352eba478cec35087af2da77fe3408626c1634621a4be30db75ca48382a9873" => :high_sierra
-    sha256 "9a508954dd40372f68a3ec7db1c4a6008c1ababa33dbb439584bc57aa3796046" => :x86_64_linux
+    sha256 "547457f864424055dca2cea8503012e2b9847aebbc1ee21fda02100d357cef3e" => :catalina
+    sha256 "abce429d77cb8c9949cd25f1c3560642eadf264906d05340779acea9e92c35dd" => :mojave
+    sha256 "444b6c2610188e971e583200ed8f243ce1609682690cd8e1775b9b98321f2f48" => :high_sierra
+    sha256 "bcca11eea4897b4e45d6066b003881a4e89fa3b1926ffd5e61c8f1525a9f961e" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
@@ -17,11 +17,6 @@ class IrcdHybrid < Formula
 
   # ircd-hybrid needs the .la files
   skip_clean :la
-
-  patch do
-    url "https://github.com/ircd-hybrid/ircd-hybrid/commit/f2428b2cc215b2227f10840ba63a85b2a812f585.patch?full_index=1"
-    sha256 "7073595aba16ff77484a94617b507552bf146032e4e1cbfff4675d83015360e3"
-  end
 
   def install
     ENV.deparallelize # build system trips over itself

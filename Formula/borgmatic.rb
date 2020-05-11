@@ -3,16 +3,15 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.5.1.tar.gz"
-  sha256 "cf06f1b5a7de8f8ef696dc6ba7d67ad30cdbdabf8c9d240ae871efd36885e2a9"
-  revision 1
+  url "https://github.com/witten/borgmatic/archive/1.5.2.tar.gz"
+  sha256 "8ea05b07343d3ee7f3f8e5135935a27749885781585d6c793ce5425bfe2afc29"
 
   bottle do
     cellar :any
-    sha256 "b7557655c62bb016538aba61fdbd0df649b5015194254bd3e753e41fdbdc7f84" => :catalina
-    sha256 "58a738e0d23163f811b1f03eddb7cc67d1abc6ec5864d6daa9f6fcee53b2a2cb" => :mojave
-    sha256 "e054383b7c5a584cf60d6124d45a228522e5caabc0a9b1dd5cadbf7e51a9fda8" => :high_sierra
-    sha256 "979f516c769e8fd35662fdd740d11b67046d2b8d62727a748d2eccafead4c1be" => :x86_64_linux
+    sha256 "8993eb91e4e3f181d48d86802b13aa60e5a7f4f2badf2b5fb99b10870e1f99df" => :catalina
+    sha256 "018c7476e47170b78ea39a64fc08baf216eb6466d03556c75197038a997e151e" => :mojave
+    sha256 "5035244c385b48c52ad9d0c393e245c4d16ae04d2ddeb8097c174e77c1a3f6d8" => :high_sierra
+    sha256 "eaa55525788abb3e9263e1ec45ea03f4d0b03e49b484e73538cf5870ac3e33db" => :x86_64_linux
   end
 
   depends_on "libyaml"
@@ -79,8 +78,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   def install

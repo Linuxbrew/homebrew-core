@@ -1,14 +1,14 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-6.2.0.tar.xz"
-  sha256 "aec8881f236917c4f8064918df546ed3aacd0bb8a2f312f4d37485721cce0fb1"
+  url "https://libvirt.org/sources/libvirt-6.3.0.tar.xz"
+  sha256 "74069438d34082336e99a88146349e21130552b96efc3b7c562f6878127996f5"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "75ce933506b78a0e3364e9ac65c3cacf143a1c539460a7f4440d909e13090e14" => :catalina
-    sha256 "56af96f7d154639afc19087d5b0450fa746311d30772736300e9a0f760856546" => :mojave
-    sha256 "60d2df2cd9d6050c07b1cfe4bd9857c32c9de2f001fae82c22c42595ff26e385" => :high_sierra
+    sha256 "fb27c175162a8a56ff682bc24e9c7f7273ff2ab483f3de0bd6dc2eb83c92e70a" => :catalina
+    sha256 "233a3222b3178fcf7a46cd642597fa910ec3cf48f4ccb90c508aa1324947aead" => :mojave
+    sha256 "08e87edcf8fa92c16ac9f99a7e8ebdcdeb2c203abe97ed7e8cc3f0b25065ba2d" => :high_sierra
   end
 
   depends_on "docutils" => :build
@@ -46,19 +46,13 @@ class Libvirt < Formula
     # Work around a gnulib issue with macOS Catalina
     args << "gl_cv_func_ftello_works=yes"
 
-    system "./autogen.sh" if build.head?
     mkdir "build" do
+      system "../autogen.sh" if build.head?
       system "../configure", *args
 
       # Compilation of docs doesn't get done if we jump straight to "make install"
       system "make"
       system "make", "install"
-    end
-
-    # Update the libvirt daemon config file to reflect the Homebrew prefix
-    inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
-      s.gsub! "/etc/", "#{etc}/"
-      s.gsub! "/var/", "#{var}/"
     end
   end
 
@@ -80,6 +74,8 @@ class Libvirt < Formula
           <key>ProgramArguments</key>
           <array>
             <string>#{sbin}/libvirtd</string>
+            <string>-f</string>
+            <string>#{etc}/libvirt/libvirtd.conf</string>
           </array>
           <key>KeepAlive</key>
           <true/>

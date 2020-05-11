@@ -3,17 +3,18 @@ class NanopbGenerator < Formula
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.1.tar.gz"
   sha256 "bae4202983c39d7546a0a464ada00faf9263ac186d8426f0497fefab0abb5eea"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "328a292499b7158cbd899ca2499563e6c2126c55f497ced7bd5e805938a7a208" => :catalina
-    sha256 "328a292499b7158cbd899ca2499563e6c2126c55f497ced7bd5e805938a7a208" => :mojave
-    sha256 "328a292499b7158cbd899ca2499563e6c2126c55f497ced7bd5e805938a7a208" => :high_sierra
-    sha256 "2ac3c1f0960f9f5cc8e34bff9ddd39c51403e24bba2ad34c97e28fa8f209984a" => :x86_64_linux
+    sha256 "02d2278130af5411ae369f4ca9ce72ef052108d8e6cfebd3f83c53e90f12d57b" => :catalina
+    sha256 "02d2278130af5411ae369f4ca9ce72ef052108d8e6cfebd3f83c53e90f12d57b" => :mojave
+    sha256 "02d2278130af5411ae369f4ca9ce72ef052108d8e6cfebd3f83c53e90f12d57b" => :high_sierra
+    sha256 "ccec7fa1a5dc0f97c6426fcc7a5315490bafa52f6929ec74ba0e5025856b3525" => :x86_64_linux
   end
 
   depends_on "protobuf"
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "mesos",
     :because => "they depend on an incompatible version of protobuf"
@@ -22,7 +23,7 @@ class NanopbGenerator < Formula
     cd "generator" do
       system "make", "-C", "proto"
       inreplace "nanopb_generator.py", %r{^#!/usr/bin/env python$},
-                                       "#!/usr/bin/env python3"
+                                       "#!/usr/bin/env #{Formula["python@3.8"].opt_bin}/python3"
       libexec.install "nanopb_generator.py", "protoc-gen-nanopb", "proto"
       bin.install_symlink libexec/"protoc-gen-nanopb", libexec/"nanopb_generator.py"
     end

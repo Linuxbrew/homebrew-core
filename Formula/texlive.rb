@@ -34,17 +34,18 @@ class Texlive < Formula
     bin.install_symlink Dir[libexec/"bin/*/*"]
   end
 
-  def caveats; <<~EOS
-    The small (~500 MB) distribution (scheme-small) is installed by default.
-    You may install a larger (medium or full) scheme using one of:
+  def caveats
+    <<~EOS
+      The small (~500 MB) distribution (scheme-small) is installed by default.
+      You may install a larger (medium or full) scheme using one of:
 
-        tlmgr install scheme-medium # 1.5 GB
-        tlmgr install scheme-full # 6 GB
+          tlmgr install scheme-medium # 1.5 GB
+          tlmgr install scheme-full # 6 GB
 
-    For additional information use command:
+      For additional information use command:
 
-        tlmgr info schemes
-  EOS
+          tlmgr info schemes
+    EOS
   end
 
   test do

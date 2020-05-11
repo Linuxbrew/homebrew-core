@@ -1,17 +1,17 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1f.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1f.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1f.tar.gz"
-  sha256 "186c6bfe6ecfba7a5b48c47f8a1673d0f3b0e5ba2e25602dd23b629975da3f35"
+  url "https://www.openssl.org/source/openssl-1.1.1g.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1g.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1g.tar.gz"
+  sha256 "ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46"
   version_scheme 1
 
   bottle do
-    sha256 "724cd97c269952cdc28e24798e350fcf520a32c5985aeb26053ce006a09d8179" => :catalina
-    sha256 "25ab844d2f14fc85c7f52958b4b89bdd2965bbd9c557445829eff6473f238744" => :mojave
-    sha256 "27f26e2442222ac0565193fe0b86d8719559d776bcdd070d6113c16bb13accf6" => :high_sierra
-    sha256 "08346b05efb1da0432ec1e9b197c920ff110aa7eb3fd49bd603603c6f10d6273" => :x86_64_linux
+    sha256 "1926679569c6af5337de812d86f4dad2b21ff883ad3a5d2cd9e8836ac5ac7ffe" => :catalina
+    sha256 "5c9d113393ff3efc95e5509175305fc9304fba35390a61915ed2864941c423f2" => :mojave
+    sha256 "eebad96faa46489dc8bf8502b16ec0192f5ff9d803794c9744ad50352bfca0f7" => :high_sierra
+    sha256 "6487415cb2902e5837927427a6b93a579bf5481652e526422d73f687bef41d3e" => :x86_64_linux
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -22,6 +22,16 @@ class OpensslAT11 < Formula
       url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
       mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
       sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
+    end
+
+    resource "Test::Harness" do
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
+      sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
+    end
+
+    resource "Test::More" do
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
+      sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
     end
   end
 
@@ -42,6 +52,21 @@ class OpensslAT11 < Formula
   end
 
   def install
+    unless OS.mac?
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resource("Test::Harness").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+        system "make", "install"
+      end
+
+      resource("Test::More").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+        system "make", "install"
+      end
+    end
+
     # This could interfere with how we expect OpenSSL to build.
     ENV.delete("OPENSSL_LOCAL_CONFIG_DIR")
 
@@ -120,7 +145,7 @@ class OpensslAT11 < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert_predicate HOMEBREW_PREFIX/"etc/openssl@1.1/openssl.cnf", :exist?,
+    assert_predicate pkgetc/"openssl.cnf", :exist?,
             "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.

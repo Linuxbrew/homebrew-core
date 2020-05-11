@@ -12,7 +12,6 @@ class Blastem < Formula
     sha256 "841dc46c59d53256aeb619279b4bd8e4997810dc2832ee86fed9a41e056196b5" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "freetype" => :build
   depends_on "jpeg" => :build
   depends_on "libpng" => :build # for xcftools

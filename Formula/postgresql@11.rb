@@ -3,13 +3,13 @@ class PostgresqlAT11 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v11.7/postgresql-11.7.tar.bz2"
   sha256 "324ae93a8846fbb6a25d562d271bc441ffa8794654c5b2839384834de220a313"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "c12eff2a53b44e15ced27e8d63a53a648bd89ba63b52c6893d14c80cb1d2bcea" => :catalina
-    sha256 "290dced7cbf937c3b8fe38ea70857509cb2580044cee9ce687011e44c2a140d4" => :mojave
-    sha256 "e7304315a0c5b591118b6568699cb86fb504db2ff6beeb9bc00c96ed48f85ba6" => :high_sierra
-    sha256 "b0cd1914f591e980ed24422f2ba60de97530264fe0f6bf0ed2af10b4bb99e0e5" => :x86_64_linux
+    sha256 "679f29325fc0bb5c3c284d80be67910aa5348989bd02a7f067ab9ce1f0f3b9ff" => :catalina
+    sha256 "2abf40f4c5bf3439612c75776743dcae5c0c45941fe62c677244dd2f871f6c35" => :mojave
+    sha256 "4968889bdd56928b790ffead56b038e1d9176b406bcd121c7523b227ce373d71" => :high_sierra
+    sha256 "b5927bd1f6cd24851b90199e9921629563b7ea5cac3ecdff9dd3082eb28cab2b" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -73,6 +73,12 @@ class PostgresqlAT11 < Formula
                                     "pkgincludedir=#{include}",
                                     "includedir_server=#{include}/server",
                                     "includedir_internal=#{include}/internal"
+
+    unless OS.mac?
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
+    end
   end
 
   def post_install

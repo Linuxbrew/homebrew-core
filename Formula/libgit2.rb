@@ -1,16 +1,16 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.99.0.tar.gz"
-  sha256 "174024310c1563097a6613a0d3f7539d11a9a86517cd67ce533849065de08a11"
+  url "https://github.com/libgit2/libgit2/archive/v1.0.0.tar.gz"
+  sha256 "6a1fa16a7f6335ce8b2630fbdbb5e57c4027929ebc56fcd1ac55edb141b409b4"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
     cellar :any
-    sha256 "552d880dbedf2fbf50015664ae9618586e455043c26b2656474d267556122293" => :catalina
-    sha256 "f3157437e1027cf076470c96891930210fca71746eebea354261b98a0cfd4876" => :mojave
-    sha256 "0d22a3a929f3fd82f96ed52813ec0ed3b88c2a266eb233ead6c5241f4df3167c" => :high_sierra
-    sha256 "45488c41ad7e0229a36af4f8b410b8dea991c6b2c0a6478893dc235c29d9527b" => :x86_64_linux
+    sha256 "d9468719e8d981a91efea6ad25f83dd0d72300aef3f99c593844fbf440596de9" => :catalina
+    sha256 "aa852c2192e21ccff73cee2b8819c5362083746e5cfbba06b6c38e3a5102b818" => :mojave
+    sha256 "7f8ba85e6a7eff267eb1e750a85fc5d440858329ea9e2d674ec8900dd82ba3be" => :high_sierra
+    sha256 "d1ef4d753f554e99daa796a28a7162d3507b540ae95e510b15fb992538964b60" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

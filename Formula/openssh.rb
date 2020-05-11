@@ -11,6 +11,7 @@ class Openssh < Formula
     sha256 "e1fed635b6186348398bab423cad7526553098aeca633c7f8e4cb5cef6ce8339" => :catalina
     sha256 "4993404b540da5831d8ba8abfe6b3b17db683f428bd616b1ce7a1f7876aec68b" => :mojave
     sha256 "014fecadf9d869036d63e8b52d9c9c11fe30697e2a38dee793420d41991d558b" => :high_sierra
+    sha256 "b88f722fb7202517466119cd1ac071495c0dd3b1f4d4291d42b0ceccb1e51c2b" => :x86_64_linux
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -81,6 +82,12 @@ class Openssh < Formula
   end
 
   test do
+    if ENV["CI"]
+      # Fixes "Starting sshd: Privilege separation user sshd does not exist FAILED" in docker
+      system "groupadd", "-g", "133", "sshd"
+      system "useradd", "-u", "133", "-g", "133", "-c", "sshd", "-d", "/", "sshd"
+    end
+
     assert_match "OpenSSH_", shell_output("#{bin}/ssh -V 2>&1")
 
     port = free_port

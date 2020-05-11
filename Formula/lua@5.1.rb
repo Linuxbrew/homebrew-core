@@ -64,7 +64,12 @@ class LuaAT51 < Formula
 
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1", *("TO_LIB=liblua.so.5.1 liblua.so.5.1.5" unless OS.mac?)
+    system "make",
+           "install",
+           "INSTALL_TOP=#{prefix}",
+           "INSTALL_MAN=#{man1}",
+           "INSTALL_INC=#{include}/lua-5.1",
+           *("TO_LIB=liblua.so.5.1 liblua.so.5.1.5" unless OS.mac?)
 
     (lib/"pkgconfig").install "etc/lua.pc"
 

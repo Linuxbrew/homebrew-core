@@ -1,15 +1,16 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.3.1.tar.gz"
-  sha256 "ba35e22016b60c1e4be66dff3cd6a60c1fe4bfa0d91ec0b89ca9da25ebeaaf41"
-  revision 2
+  url "https://github.com/Yubico/libfido2/archive/1.4.0.tar.gz"
+  sha256 "ad921fbe7d4bb70e4a971e564cd01f341daf9b5ed5d69b3cbab94a8a811d2a6c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a3a2b62e68a6d019f5bd559340b8d3c80b3e5e0ddb2c6548a31f6a29deef7af2" => :catalina
-    sha256 "c3d5fb46875ece1182f3ee86fc361f7bd8b01b41d8d9284819b0d7c0c011bd1b" => :mojave
-    sha256 "7f2637a63ae1ecd87280103505f3671d2d9759bb4fb0ddee28984437ae016a95" => :high_sierra
+    sha256 "6504b4c299a18efaf59ef75d993670bbb350442629019f833aead5922237b5b5" => :catalina
+    sha256 "14fd4103cfde7d38d14899f0e198c3f835f3929e82ca7c5be563ad7d84acd71b" => :mojave
+    sha256 "338dcc7e2ae58aa239f558c86e569e26c94dbc40570994607b858ddc69967ea3" => :high_sierra
+    sha256 "848a9b25997b1b7e9c199c114dee9fe63e9fb8c9c4faae33c075db6817d9c559" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -18,15 +19,19 @@ class Libfido2 < Formula
   depends_on "libcbor"
   depends_on "openssl@1.1"
 
+  depends_on "systemd" unless OS.mac? # for libudev
+
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake",
+             "..",
+             ("-DUDEV_RULES_DIR=#{lib}/udev/rules.d" unless OS.mac?),
+             *std_cmake_args
       system "make"
       system "make", "man_symlink_html"
       system "make", "man_symlink"
       system "make", "install"
     end
-    mv prefix/"man", share/"man"
   end
 
   test do
@@ -43,9 +48,8 @@ class Libfido2 < Formula
         return 1;
       size_t found_devices = 0;
       int error;
-      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) != FIDO_OK)
-        return 1;
-      printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
+      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) == FIDO_OK)
+        printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF

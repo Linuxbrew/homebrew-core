@@ -5,6 +5,7 @@ class Credstash < Formula
   homepage "https://github.com/fugue/credstash"
   url "https://github.com/fugue/credstash/releases/download/v1.17.1/credstash-1.17.1.tar.gz"
   sha256 "6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120"
+  revision 2 unless OS.mac?
   head "https://github.com/fugue/credstash.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Credstash < Formula
     sha256 "1a3850180efec6b674ec067a0368fb02e4d6e4c24c3b47102be54d4c23e7c1c7" => :catalina
     sha256 "be020fc56818a3f17b978b50d666107cfbd67e1f91140fdc1bf800e4a25be785" => :mojave
     sha256 "a36fac918c07dd8551a33c276b172bedab2df1953d0bb6d4c696710cdbccae74" => :high_sierra
-    sha256 "c28585bcdc692944a8920b0d5b00c690e3f6c5b2850e844e6a7beaa415e480ca" => :x86_64_linux
+    sha256 "46edaba0a0c0f0353434969f414e6a82e6b160b8033492264adf07a7945cfe4c" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"

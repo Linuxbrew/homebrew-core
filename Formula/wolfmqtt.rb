@@ -1,22 +1,25 @@
 class Wolfmqtt < Formula
   desc "Small, fast, portable MQTT client C implementation"
   homepage "https://github.com/wolfSSL/wolfMQTT"
-  url "https://github.com/wolfSSL/wolfMQTT.git",
-      :tag      => "v1.4",
-      :revision => "af3d2926773b2c97f5e3a86ea2562e339a91b747"
-  head "https://github.com/wolfSSL/wolfMQTT.git"
+  url "https://github.com/wolfSSL/wolfMQTT/releases/download/v1.6/wolfmqtt-1.6.0.tar.gz"
+  sha256 "ddd61f977714ed56c7a1c8dbe061408a9f38e206e28162934d3f40bd07c18879"
 
   bottle do
     cellar :any
-    sha256 "bd879bda38386592a87d1672c7cb5af944cd6290cff62a1249cfc8ad095a0cd3" => :catalina
-    sha256 "01cf2379343cd396f3bfa3136732a4861cdc7454fe30e0e201153d08453d8c4c" => :mojave
-    sha256 "0ea25c4930469b196fd97e76ef1b4b0e9977dccb9a7147d7f457e1604b7b54d9" => :high_sierra
-    sha256 "52338f37b8f3100e6b5472cc7fa108de97e557199cf886dd45163ed476fcf90d" => :x86_64_linux
+    sha256 "69cad59befccc596b031061ae8d43f06395e92b9a870f79d3c326abd63aab801" => :catalina
+    sha256 "d87c755ee5f7b7502f188abaf3f8ddcd88b394fe056f5912edfa9c98db3718e0" => :mojave
+    sha256 "7cd884e7105e3522b767bafce562730e8279c511be71a0ef223f16c2120b03b4" => :high_sierra
+    sha256 "467d8b9a444da11ff5b2e3460de80c1759e57a2aed663782c4cb435e954fc355" => :x86_64_linux
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/wolfSSL/wolfMQTT.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "wolfssl"
 
   def install
@@ -34,7 +37,7 @@ class Wolfmqtt < Formula
       --enable-sn
     ]
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
     system "make", "install"

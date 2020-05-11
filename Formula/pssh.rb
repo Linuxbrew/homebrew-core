@@ -4,14 +4,14 @@ class Pssh < Formula
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
     sha256 "62460d1e1e69472684b09842c05d80e9b6da5f9510815b6d40b527a452067c3c" => :catalina
     sha256 "5b456c61d419a842c5c979a41494c5e2d7c4beb71190a621635a89c9c603c772" => :mojave
     sha256 "c06b726eead0f61a02e2c0a8f6fcdf8cf78f437deb841112b08447829b828e90" => :high_sierra
-    sha256 "5e1350d5018ee7b8385ff8d1382c3ab212462b8ddbf768532b1ece951bd2a286" => :x86_64_linux
+    sha256 "8621fa933a33000ebe4694d18799b0eb4f1cc7c63c5506698013d4eb144efa81" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -3,15 +3,15 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.8.2.tar.gz"
-  sha256 "cfa8006fe0fc56083b53006f94963549f574cb61a623644f039e981144a19617"
+  url "https://github.com/influxdata/chronograf/archive/1.8.4.tar.gz"
+  sha256 "9f3564d382abe96077e4f819702d43b2152ff2891899278605f2bb7897417b8c"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0ce63c15dbc1f0b1e8c98a73f80ffaad51e60169b752324dea24b0479f146a1a" => :catalina
-    sha256 "df8e6274b193e2f04385d3c9659141dcfae3ed9502808e1946e9dcc74a45bcbe" => :mojave
-    sha256 "7ed386bd51753ee5ca9999809c4a0bba47cd7efee1885df66a39fd1d2790630a" => :high_sierra
+    sha256 "4654acdc79fc0eea217d211596837ad09344e3d8f4a7c7cc067c8a3f6f5b9c8c" => :catalina
+    sha256 "d90537bac52677fc6db80fc6edca507fabb3c6567b1fd77deef1abfad0d002a7" => :mojave
+    sha256 "ddb8244fbcce89c5fc1977eb2701d829cc9b523cfe3a8b98e81580f047f70eb8" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -29,8 +29,8 @@ class Chronograf < Formula
     chronograf_path.install buildpath.children
 
     cd chronograf_path do
-      cd "ui" do # fix node 12 compatibility
-        system "yarn", "upgrade", "parcel@1.11.0", "node-sass@4.12.0"
+      cd "ui" do # fix compatibility with the latest node
+        system "yarn", "upgrade", "parcel@1.11.0"
       end
       system "make", "dep"
       system "make", ".jssrc"

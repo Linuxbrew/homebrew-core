@@ -19,8 +19,7 @@ class Gtksourceview4 < Formula
   depends_on "gtk+3"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dgir=true
       -Dvapi=true
     ]
@@ -93,10 +92,10 @@ class Gtksourceview4 < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    if OS.mac?
-      flags << "-lintl -lgtksourceview-4.0"
+    flags << if OS.mac?
+      "-lintl -lgtksourceview-4.0"
     else
-      flags << "-lgtksourceview-4"
+      "-lgtksourceview-4"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

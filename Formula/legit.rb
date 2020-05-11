@@ -6,6 +6,7 @@ class Legit < Formula
   url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
   version "1.2.0.post0"
   sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
+  revision 1 unless OS.mac?
   head "https://github.com/frostming/legit.git", :branch => "master"
 
   bottle do
@@ -13,7 +14,7 @@ class Legit < Formula
     sha256 "f8e751f24ec29945d19282e2ba4ebbde289f29365c62e2083792bae79b1be7b9" => :catalina
     sha256 "3cf90c6383f7a7f0be82aeef8605775de297b3911484d2472970562031d2d008" => :mojave
     sha256 "cec24c2e497d9b8c162a06fb867778da3ecb08fe8ff7299a386c8abf1a03f895" => :high_sierra
-    sha256 "d35d4c552caa15f079202732a6483d618738f583751498ad808109b6ba8e9f59" => :x86_64_linux
+    sha256 "1db0f0a420fb2dd6579ad3affb839705815188e6c2abd446568abb7c54738664" => :x86_64_linux
   end
 
   depends_on "python@3.8"

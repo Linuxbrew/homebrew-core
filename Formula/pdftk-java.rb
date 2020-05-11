@@ -1,17 +1,16 @@
 class PdftkJava < Formula
   desc "Port of pdftk in java"
   homepage "https://gitlab.com/pdftk-java/pdftk"
-  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.0.9/pdftk-v3.0.9.tar.gz"
-  sha256 "8210167286849552eff08199e7734223c6ae9b7f1875e4e2b5b6e7996514dd10"
+  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.1.1/pdftk-v3.1.1.tar.gz"
+  sha256 "7538772dfc9a8b7a969d13f4a61ce693e77026043fb205a4839db92a9a7b8f51"
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3162c6a5dfc854143c476838c31e671cf02163bb8475b3a046552c1c47fb54ef" => :catalina
-    sha256 "bbbadd1e4476c47832c87ca1c8b786a3e50bb4dc8856fb421ba349d874d68b74" => :mojave
-    sha256 "9167487c4fa0180827b361089f7e5cac58b3b359c71e6f283172910fcb80952f" => :high_sierra
-    sha256 "0a3efa6565500b9fb85613b8e66853790061ce133bb759bc01c54ecaf25f13a6" => :x86_64_linux
+    sha256 "ae6790bdcf8eb9d44defd8cf082f09a97aed55f9ddfbf250b655d50e88985eb2" => :catalina
+    sha256 "e4bbfd10d2c57095fcdb0d85217a2fe28ac14dff4d74c2b857751df56b050689" => :mojave
+    sha256 "c9c8962a32595706de8a7f57fa490dd92b6ad49aa7b09aca23f3dce4bafadd79" => :high_sierra
+    sha256 "aaedca89289b3384fb11778e1972683c632e8c26fa811c9e7f1d9782fb797edc" => :x86_64_linux
   end
 
   depends_on "gradle" => :build

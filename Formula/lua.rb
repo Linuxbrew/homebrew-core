@@ -56,7 +56,12 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}", *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.5" unless OS.mac?)
+    system "make",
+           "install",
+           "INSTALL_TOP=#{prefix}",
+           "INSTALL_INC=#{include}/lua",
+           "INSTALL_MAN=#{man1}",
+           *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.5" unless OS.mac?)
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.

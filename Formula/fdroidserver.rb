@@ -5,14 +5,14 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/e0/47/9e78f8d1072c684639b3f44c44e00f1efedc855cb57921dc1a27bef746a8/fdroidserver-1.1.6.tar.gz"
   sha256 "7a368c9224cefee7a3306c5a4e4cd81e50e7219373f325f5cf9505493e4d8001"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any
     sha256 "284aba769d0122a70d5dd1b9b64f0e3f618c3b47eb0edd8916b50c786f331e83" => :catalina
     sha256 "aa4585bec62a0f78d76d57f7d0360c8042413a9c7df37281ed21c73bba481445" => :mojave
     sha256 "6190ae9486640bf927f32724316728235264f32d69ea07eb6fa3f972878daab3" => :high_sierra
-    sha256 "51868bad21fd54759ddda2750c0c72bde80761db4151b8b5db78bd702ede182f" => :x86_64_linux
+    sha256 "f02924d2fb21fd3c8bb2eca9d4e448a47371350cc62ea7ef29e0195f2b77d8bd" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

@@ -52,8 +52,6 @@ class GnuWhich < Formula
       system "#{opt_libexec}/gnubin/which", "gcc"
     end
 
-    unless OS.mac?
-      system "#{bin}/which", "gcc"
-    end
+    system "#{bin}/which", "gcc" unless OS.mac?
   end
 end

@@ -1,17 +1,16 @@
 class Jlog < Formula
   desc "Pure C message queue with subscribers and publishers for logs"
   homepage "https://labs.omniti.com/labs/jlog"
-  url "https://github.com/omniti-labs/jlog/archive/2.4.0.tar.gz"
-  sha256 "3843c48ca5c0debe22ea2d2f7de5c1a17a046699e628fd0a0a41ada14b0fece7"
+  url "https://github.com/omniti-labs/jlog/archive/2.5.0.tar.gz"
+  sha256 "776855a212cb95b70f5a18d46e4f68932b8a28a52d47db78665220d38907d45e"
   head "https://github.com/omniti-labs/jlog.git"
 
   bottle do
     cellar :any
-    sha256 "1510fc25b9c815257ec72fdc4fd1b9e1bb62820e01227b35d24cb625ac20b1c5" => :catalina
-    sha256 "a150cb591f0a5a1c2feea38a6f541923b29f4d0bf75312c7b630c676c0239906" => :mojave
-    sha256 "731b28fcdc22a3c8241bc5c3979ce3b661b6eb958af1654a76c3e19eb0ef7b5d" => :high_sierra
-    sha256 "0525a5fbb6c25e606356e79dc43ea6996d99b8474d74686330be06c6d1c08749" => :sierra
-    sha256 "47a9b28453a2912623a3f8d0e6a18677ac5c5d9ab01d33afc98e25d140c7e79e" => :x86_64_linux
+    sha256 "0035c0b7b0c788a3f7ec3d4b58f6f655d2c63074d25bc3bbf95c0705f21f7b06" => :catalina
+    sha256 "de25cec1a194a729f38708115666b22f74831705d6935e91351b0dd03ff7418f" => :mojave
+    sha256 "cde88254fbdb4a138ce85946825c024e46b9dac01d3a4c4418fd99caac07fb58" => :high_sierra
+    sha256 "4ab046817ed42a50309ee9c8a3c04dd9e2573d93246eaf3811009c760acd320f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build

@@ -60,16 +60,22 @@ class Wxpython < Formula
         end
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
         if OS.mac?
-          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
         else
-          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
         end
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        s.gsub! "JPEG_ROOT = None",
+                "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        freetype = Formula["freetype"].opt_prefix
+        s.gsub! "FREETYPE_ROOT = None",
+                "FREETYPE_ROOT = ('#{freetype}/lib', '#{freetype}/include')"
       end
 
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" if OS.mac? && MacOS::CLT.installed?
+      header_path = "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+      ENV.append "CFLAGS", header_path if OS.mac? && MacOS::CLT.installed?
       venv.pip_install Pathname.pwd
     end
 

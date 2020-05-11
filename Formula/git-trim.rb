@@ -1,15 +1,15 @@
 class GitTrim < Formula
   desc "Trim your git remote tracking branches that are merged or gone"
   homepage "https://github.com/foriequal0/git-trim"
-  url "https://github.com/foriequal0/git-trim/archive/v0.3.1.tar.gz"
-  sha256 "e8363a4123f39d2dc1aa99cc0030c012adb8057563cb880a7b69fc634edb0f74"
+  url "https://github.com/foriequal0/git-trim/archive/v0.3.2.tar.gz"
+  sha256 "08c65f0e821b12f5e512034df22723be9289e42102d478dae759f57905554f25"
 
   bottle do
     cellar :any
-    sha256 "299010c734f65b31c9114a5c3f59603910ba9d54a3e754e54549c1d059a3af3c" => :catalina
-    sha256 "8c6410e3846f5ae8cc7f45213484611bf6e980f0c18a21e1679be50379029101" => :mojave
-    sha256 "a38597f8f12b97c20b080ee67589cdf3c6d1e391d3420cfe8c9af307d326bd5b" => :high_sierra
-    sha256 "08beb08459e10c5dae50637d9058272fd5cc356c574e6e9f7f24ba2e8c2e22e3" => :x86_64_linux
+    sha256 "291284c8fc2191487bcc55ea41a0de621e705b3ae141f91226cb843b5be408af" => :catalina
+    sha256 "a41fdd1acd98185e906be41cb1ca658e50e32fc3461a9d5ef5d10a1aed9c7e11" => :mojave
+    sha256 "e0c2c87d6d4aad24751f3dded41c6e8f68300eaef2a9721eea92508bb9ccc32c" => :high_sierra
+    sha256 "d850eb8d5a7b14ab154dbd313339c81dc9c4b00e7705d443ac25b44b1778b13c" => :x86_64_linux
   end
 
   depends_on "rust" => :build

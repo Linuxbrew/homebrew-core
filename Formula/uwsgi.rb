@@ -1,7 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  revision 2
+  revision 3
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -17,16 +17,16 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "a918ea316ed8408dae9257ee12ad3df6db84996be08a2e657efab291a688d702" => :catalina
-    sha256 "d7d6455c84e3a0f02ba2843f2a0c05a8433ce12042b54024048fb30457f24035" => :mojave
-    sha256 "5064635530307154b9d08a912ed246b1c0049f9a8bcf1e7e9b9994160be09069" => :high_sierra
-    sha256 "d4f37baa159e1d821230a7effd76711f2d440d134f04dcb9e3d7e1fa87b4a6c6" => :x86_64_linux
+    sha256 "1c0228a98f75a54bf14bc03dda672efa947cdc24ce2debac2ba3274dfb37cf9d" => :catalina
+    sha256 "d3a356f00c4be9c39dede8cf7fe3129e28a8a32f3d4e648b01519250b72a7943" => :mojave
+    sha256 "0bdf8c3b958d2766009d223edfc282f94ef8844d54b77878e22dc4f10318206f" => :high_sierra
+    sha256 "468825c6dbf93c8c930f124cd6a638e4b552e2806d41c5bb1f319121d0470050" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "yajl"
 
   uses_from_macos "curl"
@@ -39,9 +39,7 @@ class Uwsgi < Formula
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    if OS.mac? && (MacOS.version == :sierra || MacOS.version == :el_capitan)
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && (MacOS.version == :sierra || MacOS.version == :el_capitan)
 
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}" if OS.mac?
     openssl = Formula["openssl@1.1"]
@@ -77,9 +75,7 @@ class Uwsgi < Formula
                  transformation_chunked transformation_gzip
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
-    if OS.mac?
-      plugins << "alarm_speech"
-    end
+    plugins << "alarm_speech" if OS.mac?
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|

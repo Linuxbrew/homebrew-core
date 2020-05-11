@@ -1,20 +1,22 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.4.tar.gz"
-  sha256 "db24b1e07aa7164bee2cf73cc936dc2fb75aa4d062b3b70dccd5f85e6d580e34"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.1.tar.gz"
+  sha256 "a2c8428d239a6e869da516cecee3ac64db47ba1f1932317eb397b1afd698ee09"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b4ae8a2bde4b3ca809b8ef0d017b4b7cfe8f9e3f0d81f5bd22c9e48cede8100" => :catalina
-    sha256 "aafc33584c60390e9dc7b29c1a74a6dc55e9235d9827bbb99c067a9b8e7eadd9" => :mojave
-    sha256 "1b4ae8a2bde4b3ca809b8ef0d017b4b7cfe8f9e3f0d81f5bd22c9e48cede8100" => :high_sierra
-    sha256 "3e1c5eca9750a614036c6647a36749cfaea53f70109156737d1a0357d2debe1b" => :x86_64_linux
+    sha256 "fcc792f9e1fabe3929f4d2a0b88122d29c429eab0d6434ec6ed0cddbceb14fdb" => :catalina
+    sha256 "d18e3a7480fa572c8945a6b029a0dd5015556c701c39cfcb1e697eeb6d89e364" => :mojave
+    sha256 "62fc87ed0bd20aac6a3d3867ba999358daf7e0a1316996187a9e1961a39c7a2a" => :high_sierra
+    sha256 "3921337491777a22a30b2a71d65007a25a25e6936a493019a36a2034bb580d53" => :x86_64_linux
   end
 
   depends_on "ruby"
   depends_on "tmux"
+
+  conflicts_with "tmuxinator-completion", :because => "the tmuxinator formula includes completion"
 
   resource "erubis" do
     url "https://rubygems.org/downloads/erubis-2.7.0.gem"
@@ -53,10 +55,10 @@ class Tmuxinator < Formula
     version_output = shell_output("#{bin}/tmuxinator version")
     assert_match "tmuxinator #{version}", version_output
 
-    if OS.mac?
-      cmd = "source #{bash_completion}/tmuxinator && complete -p tmuxinator"
+    cmd = if OS.mac?
+      "source #{bash_completion}/tmuxinator && complete -p tmuxinator"
     else
-      cmd = "bash -c \"source #{bash_completion}/tmuxinator && complete -p tmuxinator\""
+      "bash -c \"source #{bash_completion}/tmuxinator && complete -p tmuxinator\""
     end
 
     completion = shell_output(cmd)

@@ -4,13 +4,13 @@ class Monero < Formula
   url "https://github.com/monero-project/monero.git",
       :tag      => "v0.15.0.5",
       :revision => "17ec003c06eb95207c91f0e9186889f83266e461"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "63eef31d7620c537af5d86fd5452590ed8f02f6f05ca2ca5d32b426feaba45e8" => :catalina
-    sha256 "9713c7654554bc4324c757c02847155750aadf978b3e34cba397911406b61adc" => :mojave
-    sha256 "43c9cd3c6c27e50046d062ab215181ffd18b05d1b11a2c95abc48ed163c7a322" => :high_sierra
+    sha256 "89f2636ce93b34782bf562007985843a1fdd7c686f1481093d2020f0aa3a19d6" => :catalina
+    sha256 "7154adef3d2fa559007724f5c776c5f861528d4c9857c8beec6b4f1272384842" => :mojave
+    sha256 "ace984eaaa22a37c3665e335c92090b23ca44de761cea3b5436d05e8a4d25dac" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -27,6 +27,10 @@ class Monero < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    # Fix conflict with miniupnpc.
+    # This has been reported at https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
   end
 
   plist_options :manual => "monerod"

@@ -10,14 +10,15 @@ class Taskell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98306d1b63e79984e6d4329cfa83cef8e648cb9a6245113946612fea85ff9af5" => :catalina
-    sha256 "42f5e2adb3bd30b4477ec40bba2e26cff5192ad43bc8e9341abf909c925a8713" => :mojave
-    sha256 "93e7c89aafc04ab9e0b99d28b951ae30403e349fe986f323cdc07d9eac3baada" => :high_sierra
-    sha256 "04e23d88e46aed2c1d22b651ed2e522897e5242e28f442d8c15a3e963d9f7d84" => :x86_64_linux
+    rebuild 1
+    sha256 "2f049bf834c2ab324f6413c8ab99e10fb4c83fd2aa26ef22ace2014e40c653b9" => :catalina
+    sha256 "68b52580165c2f43647a7208b9c1c005ad1c349d6de8c7d2f81f8aee3ec5244f" => :mojave
+    sha256 "cd5af708aa5738e8e7fe85250f3490a8f8f552d9a385c30b885d6e77795b3cc1" => :high_sierra
+    sha256 "6c2734a0d98761259a41e99482c987ed71d482d737e964f5e7661905d2d9f8a3" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "hpack" => :build
 
   uses_from_macos "ncurses"

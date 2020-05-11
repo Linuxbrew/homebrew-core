@@ -5,13 +5,14 @@ class GimmeAwsCreds < Formula
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
   url "https://files.pythonhosted.org/packages/e2/a7/53d5f021a1b41a680d5c558c683e37e3000085c1a4132695e3378e4b477d/gimme%20aws%20creds-2.3.3.tar.gz"
   sha256 "b7bc10cd09faf995e44063bb6125b910ee85cf2f3e95ddb2908afade4bbd3973"
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "39c425c5154301eaa51798245adcd223abee150249b09d4da49fa655b3d60119" => :catalina
     sha256 "5789360170f0ae9e5dc213c19483facb08b028cf1d8794d04dda847650758506" => :mojave
     sha256 "3dede56e3653d34088e14852ca7ed76be11c5639b801cbb0f70597c6c4b5772e" => :high_sierra
-    sha256 "4ee310a37bba0abbb3bc091e57a248e069a443d62aba97fc7cfd479169a5286f" => :x86_64_linux
+    sha256 "880f9b06e029eda8692257c8e532abdb090cf9690dbd6c06a2f9483ab534c620" => :x86_64_linux
   end
 
   depends_on "python@3.8"

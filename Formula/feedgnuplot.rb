@@ -1,14 +1,14 @@
 class Feedgnuplot < Formula
   desc "Tool to plot realtime and stored data from the command-line"
   homepage "https://github.com/dkogan/feedgnuplot"
-  url "https://github.com/dkogan/feedgnuplot/archive/v1.53.tar.gz"
-  sha256 "8f4a77afa64d0e110fa92d58fcda8b723aa7dcff69a29d5c3eed8b4f2bf1274e"
+  url "https://github.com/dkogan/feedgnuplot/archive/v1.54.tar.gz"
+  sha256 "5549e97d53a813e87938d73339df0dc858072ae5dff388541428741c9becb512"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8c2ef5f61e56fb69ae6c52517d89854997d410966e9d926e24e6d4c08d119da" => :catalina
-    sha256 "eb7c2f3bb715c28eb1430bdc73d1ab29bfc806bc44809b4b3e94449aa4e4c403" => :mojave
-    sha256 "0f980cf28bb61fd225c365d898d127e445abcf7da6d383f4f5b7b7e2b04c4eaa" => :high_sierra
+    sha256 "5eba2428fbc21bf870022fd74b6fe979e41361e64f431e32ab0e29251fa4e670" => :catalina
+    sha256 "ba2cbad0fe17092c8b12e09ad75bac84ed1ddd993df13e9b3d987419b96da2de" => :mojave
+    sha256 "afdaaf444f096114e8eda179351a0569167c2920b746e27faabfcf6beaabe8d0" => :high_sierra
   end
 
   depends_on "gnuplot"

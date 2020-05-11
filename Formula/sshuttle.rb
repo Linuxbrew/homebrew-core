@@ -6,7 +6,7 @@ class Sshuttle < Formula
   url "https://github.com/sshuttle/sshuttle.git",
       :tag      => "v0.78.5",
       :revision => "752a95310198886515577463a4a7e36d7f218018"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Sshuttle < Formula
     sha256 "a28c54b3fa4e1c98b4d94e04366841e031e55a85ee0f161cdea37e17dd145830" => :catalina
     sha256 "ca553c22200e1c4a502750d2d50efcfbd689546ae2abca5fc80653bc9916d103" => :mojave
     sha256 "ca1764f22635b38fa2b66a3aae9677c42ce896d0b58a88be82c2f24e4b1ef592" => :high_sierra
-    sha256 "da8f0843eb0d02f879ad4e0009991e1221940a57d0bb29cd166e1b3df5d9bd5e" => :x86_64_linux
+    sha256 "ab8ee5b2add32b3bfc7a5968f17cdd1d43ae5617af82bffdae5b692a2df7b3f9" => :x86_64_linux
   end
 
   depends_on "python@3.8"

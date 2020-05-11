@@ -18,9 +18,10 @@ class Cedille < Formula
   end
 
   bottle do
-    sha256 "af1b087e82b262424780239acd95518da9619ff369ed516a5960ddb2a0aca521" => :catalina
-    sha256 "4725ad14b9f90f69c5a311f858e759eeb640182cfb3181e8f8e8dcdb2d6245a4" => :mojave
-    sha256 "b86f90724908cc565b544980180ec294417f3d2e0b70fd9301fecd17697b1504" => :high_sierra
+    rebuild 1
+    sha256 "04fab3020135237fa6d0a72b764c2112ddaad2ca7374f30538c2d980a3a3cde6" => :catalina
+    sha256 "54beaa319a1be8a508d1ed7b87bb0a95f5000d630b588866232a7d3af9654782" => :mojave
+    sha256 "cf1adb7d3c89396d3e54877054019846a9313e59768c9e25fc0516fce525e037" => :high_sierra
   end
 
   head do
@@ -33,7 +34,14 @@ class Cedille < Formula
 
   depends_on "agda" => :build
   depends_on "cabal-install" => :build
-  depends_on "ghc"
+  depends_on "ghc@8.8"
+
+  # needed to build with agda 2.6.1
+  # taken from https://github.com/cedille/cedille/pull/144/files
+  # but added at the bottom to apply cleanly on v1.1.2
+  # remove once this is merged into cedille, AND formula updated to
+  # a release that contains it
+  patch :DATA
 
   def install
     resource("ial").stage buildpath/"ial"
@@ -122,3 +130,21 @@ class Cedille < Formula
     system bin/"cedille", cedilletest
   end
 end
+__END__
+diff --git a/src/to-string.agda b/src/to-string.agda
+index 2505942..051a2da 100644
+--- a/src/to-string.agda
++++ b/src/to-string.agda
+@@ -100,9 +100,9 @@ no-parens {TK} _ _ _ = tt
+ no-parens {QUALIF} _ _ _ = tt
+ no-parens {ARG} _ _ _ = tt
+ 
+-pattern ced-ops-drop-spine = cedille-options.options.mk-options _ _ _ _ ff _ _ _ ff _
+-pattern ced-ops-conv-arr = cedille-options.options.mk-options _ _ _ _ _ _ _ _ ff _
+-pattern ced-ops-conv-abs = cedille-options.options.mk-options _ _ _ _ _ _ _ _ tt _
++pattern ced-ops-drop-spine = cedille-options.mk-options _ _ _ _ ff _ _ _ ff _
++pattern ced-ops-conv-arr = cedille-options.mk-options _ _ _ _ _ _ _ _ ff _
++pattern ced-ops-conv-abs = cedille-options.mk-options _ _ _ _ _ _ _ _ tt _
+ 
+ drop-spine : cedille-options.options → {ed : exprd} → ctxt → ⟦ ed ⟧ → ⟦ ed ⟧
+ drop-spine ops @ ced-ops-drop-spine = h

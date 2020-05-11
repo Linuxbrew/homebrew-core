@@ -1,14 +1,13 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://github.com/arangodb/arangodb/archive/v3.6.2.tar.gz"
-  sha256 "2bfc406e4985eb432a5f83f2f3ca1ebee61792dad972024183408c2f8b148dbe"
-  revision 1
+  url "https://download.arangodb.com/Source/ArangoDB-3.6.3-1.tar.gz"
+  sha256 "434a4ec6670008927a48c9a247d344639d0355feb4f58c1aa60397ca5d2711c2"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
-    sha256 "fb38b29106260f79903967a18c775912ee0cb14024c691975e00dd0db556d063" => :catalina
-    sha256 "0727b80f9d27bd6590bd955bf77696d0a5fb2f1c91d751956a228e40db1af374" => :mojave
+    sha256 "cceff2641fda5f515d7a2bebadf86515cb90c7cda0badbb20d1be6c5c8b2e826" => :catalina
+    sha256 "253600e9ae0b4f6fc7efef29ce890c4251ef32063828e97b748ba70166c8ce80" => :mojave
   end
 
   depends_on "ccache" => :build
@@ -41,6 +40,7 @@ class Arangodb < Formula
     end
 
     mkdir "build" do
+      openssl = Formula["openssl@1.1"]
       args = std_cmake_args + %W[
         -DHOMEBREW=ON
         -DCMAKE_BUILD_TYPE=RelWithDebInfo
@@ -48,8 +48,8 @@ class Arangodb < Formula
         -DUSE_JEMALLOC=Off
         -DCMAKE_SKIP_RPATH=On
         -DOPENSSL_USE_STATIC_LIBS=On
-        -DCMAKE_LIBRARY_PATH=#{prefix}/opt/openssl@1.1/lib
-        -DOPENSSL_ROOT_DIR=#{prefix}/opt/openssl@1.1/lib
+        -DCMAKE_LIBRARY_PATH=#{openssl.opt_lib}
+        -DOPENSSL_ROOT_DIR=#{openssl.opt_lib}
         -DTARGET_ARCHITECTURE=nehalem
         -DUSE_CATCH_TESTS=Off
         -DUSE_GOOGLE_TESTS=Off
@@ -58,9 +58,7 @@ class Arangodb < Formula
 
       args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
 
-      if ENV.compiler == "gcc-6"
-        ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks"
-      end
+      ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
       system "cmake", "..", *args
       system "make", "install"

@@ -5,7 +5,7 @@ class Binwalk < Formula
   homepage "https://github.com/ReFirmLabs/binwalk"
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
   sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Binwalk < Formula
     sha256 "80415911a04d2464b53a0000ccf62e8989690bed23277bebc91b83ff3fc13033" => :catalina
     sha256 "ff30030e127b5f3bc0292665d8d10d0783e6692198e86d05c48fcae1988df157" => :mojave
     sha256 "b3287fdb9563882a35f6a4bf62f1a5ca10fcdd0ca95614fd9452dbbe594a9f10" => :high_sierra
-    sha256 "09a76600ce0240f0fe4e24fb4f72457b1ad4519213db20805795c660a0d2808f" => :x86_64_linux
+    sha256 "18ff778c5c9313bd42d1f93d202d636c745df0a5361c82166d158a7aa5b22165" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

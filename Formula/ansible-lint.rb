@@ -5,14 +5,14 @@ class AnsibleLint < Formula
   homepage "https://github.com/ansible/ansible-lint/"
   url "https://files.pythonhosted.org/packages/fc/e6/e3cf96cb73b1920584cdcc8579164a70b7e8aab276b198f2130a7939efcc/ansible-lint-4.2.0.tar.gz"
   sha256 "eb925d8682d70563ccb80e2aca7b3edf84fb0b768cea3edc6846aac7abdc414a"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any
     sha256 "3426e9ec96b4e938f4f0004d1323db89737f1f526fecee081771cf30e1689dd7" => :catalina
     sha256 "6558f69553bf09ebdef982f05a57492c9fd14a9a0baaed61151d8d054e652e73" => :mojave
     sha256 "83a905c6fedaabb38d7a53692d892ea9e2bd429d5a39b1c338dc2e26ea0d352f" => :high_sierra
-    sha256 "efc4cd6cee61e43580d0410f6f338907f1d9d82c8a20b4a3e0b26c37626b949d" => :x86_64_linux
+    sha256 "961caf6c87b73c351975597381b4a1363ec753d25d3b328ed25b5d8913a73218" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

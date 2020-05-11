@@ -5,7 +5,7 @@ class Volatility < Formula
   homepage "https://github.com/volatilityfoundation/volatility"
   url "https://github.com/volatilityfoundation/volatility/archive/2.6.1.tar.gz"
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Volatility < Formula
     sha256 "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50" => :catalina
     sha256 "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781" => :mojave
     sha256 "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d" => :high_sierra
-    sha256 "9073e767ec257b55bcb3e9cf62ffe713e8852dd5e090f620729a1b29a8dd3c02" => :x86_64_linux
   end
 
   depends_on "freetype"

@@ -5,6 +5,7 @@ class Thefuck < Formula
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/46/ed/11176f81a85876f4016c18907d6e085862df464a76628b91b3e91f080c7e/thefuck-3.30.tar.gz"
   sha256 "32b41db4360a810d8e761e80fe09868ce634476ee1829e26869d49484b7a95cc"
+  revision 1 unless OS.mac?
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Thefuck < Formula
     sha256 "9101f88f96d66615970b00405f06430176fb827922363530abb33f3d22341ff3" => :catalina
     sha256 "fde50d03f97cf18dbdf89d86469f7c7c2794d40e639ad3c2c926466b98e455ee" => :mojave
     sha256 "272cc963d34074daf27ca24dcb16f7f2a47aaafe955ff0e259dd38191274d1d1" => :high_sierra
-    sha256 "410bb395abb59678e4cdfd0376e5782ace6d4e0857c5dc6a946f21d5a967c743" => :x86_64_linux
+    sha256 "56abac8e520f4e3608ba77cb3e230a9aae4cb9429864fe46deb1ce8ae401d462" => :x86_64_linux
   end
 
   depends_on "python@3.8"

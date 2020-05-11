@@ -3,18 +3,17 @@ class Honcho < Formula
   homepage "https://github.com/nickstenning/honcho"
   url "https://github.com/nickstenning/honcho/archive/v1.0.1.tar.gz"
   sha256 "3271f986ff7c4732cfd390383078bfce68c46f9ad74f1804c1b0fc6283b13f7e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "37a860eebf914c1fd376d28d1199172c78c303b3386388e573f1824e50644045" => :catalina
-    sha256 "8bc883894e8b6f07ab526e862500f40b7c47101a0f0ee66540cc5451b00b807e" => :mojave
-    sha256 "41492a0296ea50b9b93f83e11d2b50bf7bc2a1361cf1da82bf61023f04f1e782" => :high_sierra
-    sha256 "41492a0296ea50b9b93f83e11d2b50bf7bc2a1361cf1da82bf61023f04f1e782" => :sierra
-    sha256 "b772e90d13694ffd5d359d4a1a75642cc7b0bd2c3d1824c0212d0b3efb8fbca9" => :x86_64_linux
+    sha256 "986c98221b9bb025b0c8fa8c1f4ca150ee1853488f6060b603c54aa7e02c8be1" => :catalina
+    sha256 "986c98221b9bb025b0c8fa8c1f4ca150ee1853488f6060b603c54aa7e02c8be1" => :mojave
+    sha256 "986c98221b9bb025b0c8fa8c1f4ca150ee1853488f6060b603c54aa7e02c8be1" => :high_sierra
+    sha256 "ba51fe77254a7d8bdef58fb819c8a659c2d7db9afcd26bb165288a08925a2380" => :x86_64_linux
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     xy = Language::Python.major_minor_version "python3"

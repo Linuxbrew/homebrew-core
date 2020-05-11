@@ -42,9 +42,8 @@ class Gdb < Formula
       --with-python=#{Formula["python@3.8"].opt_bin}/python3
       --disable-binutils
     ]
-    unless OS.mac?
-      ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}"
-    end
+
+    ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}" unless OS.mac?
 
     mkdir "build" do
       system "../configure", *args

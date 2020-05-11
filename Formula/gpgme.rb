@@ -3,25 +3,25 @@ class Gpgme < Formula
   homepage "https://www.gnupg.org/related_software/gpgme/"
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.1.tar.bz2"
   sha256 "c4e30b227682374c23cddc7fdb9324a99694d907e79242a25a4deeedb393be46"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "81b33b4c78fa21c135798a5eb12f50506613eb329e7a381b7b83a9066db11542" => :catalina
-    sha256 "2a771556a334f9ad4603e83db53cbfacf53d80dc53420f244f0e3bd73afd576b" => :mojave
-    sha256 "af1c3963c888a5ee9abfe38acc31039e3da2f2d2ceded165cc6d92374ec6a794" => :high_sierra
-    sha256 "11c95397d0da8b17414876c65a8085cf0ea826939c202d7f677c93bc7efba20b" => :sierra
-    sha256 "ef7aa454cf305a9ece9d62ac252702f8bda4ec78ed7d9aabb015a3635f7c1998" => :x86_64_linux
+    sha256 "85e3bca3de90a091853a056a40fc22778d3a75abb4297064edae1fc07eaefdee" => :catalina
+    sha256 "b49b55062ab1ba7a6994ac8506aeec65ba5acd512fabfa696148dd7b08acb1d9" => :mojave
+    sha256 "c4bc2011b6afe87a0f3d76c43c50c117c1640eaa848c7a4f7be0f92e261017a7" => :high_sierra
+    sha256 "28fc72e730fb3e23b6feb79470e21a1564db4ed45aa21de90394fa0a8ec15717" => :x86_64_linux
   end
 
-  depends_on "python" => [:build, :test]
+  depends_on "python@3.8" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
   def install
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -35,6 +35,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system "python3", "-c", "import gpg; print(gpg.version.versionstr)"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end

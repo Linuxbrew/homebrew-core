@@ -3,19 +3,17 @@ class Ponysay < Formula
   homepage "https://github.com/erkin/ponysay/"
   url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"
   sha256 "c382d7f299fa63667d1a4469e1ffbf10b6813dcd29e861de6be55e56dc52b28a"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "356bbadfe629d492f5966462874a3535d63d568393c5917bc32795fc80864974" => :catalina
-    sha256 "9aaf7cdbe355ecc5f41ed2ab753ef18b848a36a5e475b9bda38e4551af886203" => :mojave
-    sha256 "481d6431bc586203d237787eaceafc116d9eccbf8d11489e1197a6eb0e034710" => :high_sierra
-    sha256 "e51c96a3bf6997b73150b75eb758eb8359ca89a27a5b171b50eba3628192a31c" => :sierra
-    sha256 "594b78b627cad84edef6de6dba32879cf5547215b33e7946bb3ee44c73e49214" => :el_capitan
+    sha256 "1a6657b674719935d9ff4114119e2521ff967eb1ae13f72185d20e760949ee5b" => :catalina
+    sha256 "f0a79ed95066b8ee79f4e117ae4344ac516c32a73e30e8f036abca646e7f3c56" => :mojave
+    sha256 "a502ed3340bc2c7591788c8747c8175e0ac7902bfbfdf73454aef09d39a0db16" => :high_sierra
   end
 
   depends_on "coreutils"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "./setup.py",
@@ -23,6 +21,7 @@ class Ponysay < Formula
            "--prefix=#{prefix}",
            "--cache-dir=#{prefix}/var/cache",
            "--sysconf-dir=#{prefix}/etc",
+           "--with-custom-env-python=#{Formula["python@3.8"].opt_bin}/python3",
            "install"
   end
 

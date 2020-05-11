@@ -5,13 +5,14 @@ class Pyvim < Formula
   homepage "https://github.com/jonathanslenders/pyvim"
   url "https://files.pythonhosted.org/packages/7b/7c/4c44b77642e866bbbe391584433c11977aef5d1dc05da879d3e8476cab10/pyvim-3.0.2.tar.gz"
   sha256 "da94f7a8e8c4b2b4611196987c3ca2840b0011cc399618793e551f7149f26c6a"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "00673aa2851bbd2112035bf5fcb7e4ee5a7a594f5b43c0cf14a27f3727058902" => :catalina
     sha256 "3526d256cf5ab2be293f7b3a0d80ef648b9847780456de3b21992ec79bb58af6" => :mojave
     sha256 "b2c764a4186e90c37d43af45fe31432f74ea12566af67a7a9a1103d388fd168c" => :high_sierra
-    sha256 "d344b668eba152476715a84f7b2dda6f0422f208b21b8d62545dd872ab53dc6f" => :x86_64_linux
+    sha256 "9f378efc39fa4d2eb5627963bb057420eaf26ad66820ee71c675c0d451e75ac8" => :x86_64_linux
   end
 
   depends_on "python@3.8"

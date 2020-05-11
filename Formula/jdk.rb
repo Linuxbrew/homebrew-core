@@ -20,11 +20,12 @@ class Jdk < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<~EOS
-    By installing and using JDK you agree to the
-    Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
-    http://www.oracle.com/technetwork/java/javase/terms/license/index.html
-  EOS
+  def caveats
+    <<~EOS
+      By installing and using JDK you agree to the
+      Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX
+      http://www.oracle.com/technetwork/java/javase/terms/license/index.html
+    EOS
   end
 
   test do

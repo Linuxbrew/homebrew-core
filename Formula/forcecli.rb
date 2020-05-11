@@ -1,16 +1,16 @@
 class Forcecli < Formula
   desc "Command-line interface to Force.com"
   homepage "https://force-cli.herokuapp.com/"
-  url "https://github.com/ForceCLI/force/archive/v0.27.1.tar.gz"
-  sha256 "8009e57788dd7fe528d8e41b8fafc1d209b8d02119f4556b6921f1b665c1e285"
+  url "https://github.com/ForceCLI/force/archive/v0.28.0.tar.gz"
+  sha256 "96e2b3c30cbd576f3bf55ee523103029ca43d96d8b08418d797531ebc5dc6de8"
   head "https://github.com/ForceCLI/force.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5269c8ab9fccba75efe3f822abe3d41a9dd59769ed3eab204f875730ad72ee35" => :catalina
-    sha256 "37fb8cbf2d4824cb5e5d6d7a25c2403ca10eeadeb2a71f6c593698748349bb98" => :mojave
-    sha256 "19ee5f0d7a3a08734303fc565ce2a42b10e71eb8aaf7cdaa8735fdaef711ac4f" => :high_sierra
-    sha256 "5f2de82ec3a4e63c9313d06ef38c76bb8f8218779df8c009c65e659fef49c783" => :x86_64_linux
+    sha256 "105f254bfdca41b245d460591535c51cd8bdd1ffa72ec699085541f91deb9e60" => :catalina
+    sha256 "ebd7fabbe0844a821e50bc76ccf29bde7c6fffe14c1fc6fde7546d18d4828ac8" => :mojave
+    sha256 "60c1ad2bb51a2576d4a9927754ab5fc290de56138eda881832aa501615d5e654" => :high_sierra
+    sha256 "c33a38a02abf8a9108aabcd2957d843bf0e9dd93df64751176f1bf7c318cf770" => :x86_64_linux
   end
 
   depends_on "go" => :build

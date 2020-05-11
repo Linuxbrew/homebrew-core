@@ -31,7 +31,6 @@ class Acmetool < Formula
         -X github.com/hlandau/acme/responder.StandardWebrootPath=#{var}/run/acmetool/acme-challenge
         #{Utils.popen_read("#{buildpath}/src/github.com/hlandau/buildinfo/gen")}
       ]
-      system "go", "get", "-d"
       system "go", "build", "-o", bin/"acmetool", "-ldflags", ldflags.join(" ")
     end
 

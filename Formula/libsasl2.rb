@@ -28,7 +28,9 @@ class Libsasl2 < Formula
       }
     EOS
 
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-I#{Formula["libsasl2"].include}/sasl", "-lsasl2", "-o", "test", "test.cpp"
+    system ENV.cxx, "-I#{include}", "-L#{lib}",
+           "-I#{Formula["libsasl2"].include}/sasl",
+           "-lsasl2", "-o", "test", "test.cpp"
     system "./test"
   end
 end

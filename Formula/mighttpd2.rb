@@ -9,14 +9,15 @@ class Mighttpd2 < Formula
   sha256 "fe14264ea0e45281591c86030cad2b349480f16540ad1d9e3a29657ddf62e471"
 
   bottle do
-    sha256 "84414d7f04843f9e5a27346b57e8a32a0cbe1a1ef26c2ebd2155ef58a53723dd" => :mojave
-    sha256 "16d63c6d28b2928b970e1096ed7c4b695e03eecbaff1c7f37277f790f51d10c5" => :high_sierra
-    sha256 "85a39b421f5806695db43f0b7009eaaf79fb5a25c943d8d3786ad45ac6923a2f" => :sierra
-    sha256 "3acaca48c90411e6a22fb23ede1027d7af502a3adbc6cc42a6d4a02a3f729347" => :x86_64_linux
+    rebuild 1
+    sha256 "3deac246044c856f3b85c98ad7de72f3da58078a4a8fb1f8b621a3d0ac4ddf93" => :catalina
+    sha256 "c0ead6b222cc7564253a15ce33a4db37e4b08a3e65d9a035e901c76484b2f8f3" => :mojave
+    sha256 "e583e8b97857ae8cd8c545355e4f2f257584ada8c678a534096277b3ac323de4" => :high_sierra
+    sha256 "92ceeab85d461b14aa77035c00402160dd394e7ae68d8b91059733c307e581c7" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
 
   uses_from_macos "zlib"
 

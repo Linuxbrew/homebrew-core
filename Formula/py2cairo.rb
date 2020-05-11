@@ -13,7 +13,6 @@ class Py2cairo < Formula
     sha256 "dfca1292bde3d42aac68bedc45e6feafa890222cec5d4483f8e109974401a0b4" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on :macos # Due to Python 2

@@ -5,6 +5,7 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.23.0.tar.gz"
   sha256 "6159066f486811e5773da318d6e8d1b1dd4c99ac140f1a3c660ef1c1f5e7124f"
+  revision 2 unless OS.mac?
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Statik < Formula
     sha256 "28905bc1096c08ebe04410557de4b7a0c1c6ef4b016d5ef636cf04a37313bc11" => :catalina
     sha256 "88b425b5e8fdb8f42bebed953096761034d21a6da5511be73384fd11a14c6d1b" => :mojave
     sha256 "45fa0c5eb8cc013f7637d0f319c3c2a7d19e2360572fcda47fd1873157d77b74" => :high_sierra
-    sha256 "a092df9ddc3492412b535b617d51ef0517fbec17210f8519c2a9e1b77e517b38" => :x86_64_linux
+    sha256 "b9d9ebb54a22828e23c85d75e7a25aa3ad13525c94c6e2bedf5b50d1644c3e9c" => :x86_64_linux
   end
 
   depends_on "libpq"

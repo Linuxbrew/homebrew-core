@@ -27,7 +27,7 @@ class Cdparanoia < Formula
 
   if OS.linux?
     patch do
-      url "https://raw.githubusercontent.com/drewc/guix/master/gnu/packages/patches/cdparanoia-fpic.patch"
+      url "https://gist.githubusercontent.com/iMichka/c6d0ed5adb5375a8117d7c06999ae1be/raw/1592803a16ede7d3e8e15aebeff56097d6615cdd/cdparanoia-fpic"
       sha256 "496f53d21dde7e23f4c9cf1cc28219efcbb5464fe2abbd5a073635279281c9c4"
     end
   end

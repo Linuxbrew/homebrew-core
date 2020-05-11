@@ -4,12 +4,13 @@ class Php < Formula
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.4.5.tar.xz"
   sha256 "d059fd7f55bdc4d2eada15a00a2976697010d3631ef6f83149cc5289e1f23c2c"
+  revision 2
 
   bottle do
-    sha256 "ecc5b99761bd6b6a69afce07909638999f08bc3e18585a992e675246e0548230" => :catalina
-    sha256 "2e0e7d9b1e2f5115262eb97511c903b8ba1ea1586a7c29ae1503f4e10cde1479" => :mojave
-    sha256 "f105dc25c94420589262df41b75075173087dcef2fa2dd08ca7022afed700a4c" => :high_sierra
-    sha256 "c6499ce55690290cb8bdb5446fd06e9f0321d43cf7f240eb3a005c4591fa5bdb" => :x86_64_linux
+    sha256 "12ee1750d72b4ab0be05c61c3e67485b2464f4e429b44f1808aaff0b48ce2e53" => :catalina
+    sha256 "1b313c50d4beaf0d0ef4459793a68ff0cb44a62b228e280829f38ee600d6b842" => :mojave
+    sha256 "92d45bd8a7247e3fe060ea34446c088747179a6d1715940f03f973f3f7ee2e98" => :high_sierra
+    sha256 "79f9b79b7d615d4a91ed0866af49e3c4aaeafb60955f5b7b772afb0bb539e4b7" => :x86_64_linux
   end
 
   head do
@@ -212,10 +213,11 @@ class Php < Formula
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     # Use OpenSSL cert bundle
+    openssl = Formula["openssl@1.1"]
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
+      "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+      "openssl.capath = \"#{openssl.pkgetc}/certs\""
 
     config_files = {
       "php.ini-development"   => "php.ini",

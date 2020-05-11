@@ -5,14 +5,14 @@ class Pygitup < Formula
   homepage "https://github.com/msiemens/PyGitUp"
   url "https://files.pythonhosted.org/packages/46/45/32dc0bf07c620644a8ed899e381309f4f25b50f20a91e555285522592833/git-up-1.6.1.tar.gz"
   sha256 "ea83441e7ab05011624e2e7333ef875c263124db5eed74507acd32b07c48473f"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
     sha256 "8dff3146af82b507e97ba0305f76d4aa6296b53b1a094e6cb3ed8b5cd8a4608c" => :catalina
     sha256 "bb4c2a88b4063544712c1f8a9704d7af97b11fb76d18ff9c6150a63d9bd59c5b" => :mojave
     sha256 "9ca0aeb55d9722c77c77616f2b95d8d53a8c685f5a9c515ddce380b2ae5ad672" => :high_sierra
-    sha256 "3ab80faa6df0afdca20553406f18b7333f75e4d4aee71637dcaef0d443bc3564" => :x86_64_linux
+    sha256 "8445ac5cbf21ea5197ab6d0f3f7f71b1e2057a2e12bfbb890e42f3e343f61e02" => :x86_64_linux
   end
 
   depends_on "python@3.8"

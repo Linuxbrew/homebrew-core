@@ -5,14 +5,14 @@ class Grip < Formula
   homepage "https://github.com/joeyespo/grip"
   url "https://files.pythonhosted.org/packages/3c/ea/2a475ed37e1b6476182e71223c98667f51704bdbc919608372b203c7ea04/grip-4.5.2.tar.gz"
   sha256 "048b7e5c738ed80bee345bd10840f27eb31687eb67132b40f2473dc1cf67aa0f"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
     sha256 "f3af5ab0c40d11f8fcbd2dec4dcbadca3b24d0eef5c3626484601ec8d98ddb20" => :catalina
     sha256 "4f3bef6a20d2693b4a816dba62d2bba912f8d92163a65b0aadbf68479627f040" => :mojave
     sha256 "820f10c78b49556e81eb7680fa9c0129b666a76bdc8316bbeab14f40a71601ca" => :high_sierra
-    sha256 "65746f81f555e6bb7e0420c353fe5e6a73b5bde324a4a501ec478e58ca55d887" => :x86_64_linux
+    sha256 "68f24ef16e0413184dd7b22318ff74091a28e68ef301b0721c4ef3b92e2cf9ea" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -1,28 +1,27 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  revision 1
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.39.12.tar.gz"
-    sha256 "b7e7c6918055a2a36c75ceeef27b507198ffbf590677cf82b6b3759c4e0c474d"
+    url "https://github.com/emscripten-core/emscripten/archive/1.39.15.tar.gz"
+    sha256 "e40f6ba8caca653d5fd5f2d25debec56a8ec48e0409f82dbf1fc677824de1dcd"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.12.tar.gz"
-      sha256 "af2bd0d606e081492c58289742fc29a41d0ea6daabfb80fbc01a804a447b3ef0"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.15.tar.gz"
+      sha256 "d220d1d2529ea26be65ad554233de63613f8e407f6177cd572c56cde44eab34e"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.12.tar.gz"
-      sha256 "c52b2ad9827cb92afe5f7b5d185420aa971b0e91b172fd1966a4f95f10b8a236"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.15.tar.gz"
+      sha256 "850ff41724a3594ab4eae1008c661b77887cfa06aef24f87667a65924ca22bad"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "aabbdf9174edeea7236cb1f375f9b91827d103da75a3706a84503fb59245de93" => :catalina
-    sha256 "e519415ddf59579e83203bcbad0f37e793c27ab616fe7c0eb966bb07e8dfb1b9" => :mojave
-    sha256 "f77c4cb09c821a89745778c7ad6487222e4d8a611f0b991f7378ca46d7e349d6" => :high_sierra
+    sha256 "3a34438c1343bf8fa6b6ca85eefe1ce18649d310728a355b86d024ef24675535" => :catalina
+    sha256 "1fea9da6e8b0efba0aea7c23231416ea2f5dcc32ad8493cf91133eb05db676f7" => :mojave
+    sha256 "e8d2b4b06e946cdf911825c60461d64096c3ce6ab1a44bf15e0471c07e0dd662" => :high_sierra
   end
 
   head do

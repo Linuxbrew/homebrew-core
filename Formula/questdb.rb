@@ -1,16 +1,14 @@
 class Questdb < Formula
   desc "Time Series Database"
-  homepage "https://www.questdb.org"
-  url "https://www.questdb.org/download/questdb-1.0.4-bin.tar.gz"
-  sha256 "a8d907d88c5bf67aeb465540c7e16ad45eccd13d152b34cdcf4e5056ad908739"
-  revision 1
+  homepage "https://www.questdb.io"
+  url "https://github.com/questdb/questdb/releases/download/4.2.1/questdb-4.2.1-bin.tar.gz"
+  sha256 "e617c8e703c27d95718a7a4d3083b50b5bd1cfd683a4359ec7f5f13722fbdc65"
 
   bottle :unneeded
 
   depends_on :java => "1.8"
 
   def install
-    inreplace "questdb.sh", "1.7+", "1.8"
     rm_rf "questdb.exe"
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/questdb.sh" => "questdb"
@@ -63,9 +61,9 @@ class Questdb < Formula
       fork do
         exec "#{bin}/questdb start -d  #{testpath}/data"
       end
-      sleep 2
+      sleep 4
       output = shell_output("curl -Is localhost:9000/js?q=x")
-      sleep 1
+      sleep 4
       assert_match /questDB/, output
     ensure
       system "#{bin}/questdb", "stop"

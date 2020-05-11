@@ -3,12 +3,13 @@ class GobjectIntrospection < Formula
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.64/gobject-introspection-1.64.1.tar.xz"
   sha256 "80beae6728c134521926affff9b2e97125749b38d38744dc901f4010ee3e7fa7"
+  revision 1
 
   bottle do
-    sha256 "c94afe88f2278130aa4142a848262ef84083f5576dce878910520868654a332d" => :catalina
-    sha256 "9c21f737558d7fae5a71e0c03f9dd2cc0dbaa9dda0f2edbfa826e4481b89898e" => :mojave
-    sha256 "18a53ebc0adbd59ffeb9c0440ce93c2173509a5c95ae6fa5a6a1f5de515d454f" => :high_sierra
-    sha256 "0654e283c79b5e27b7f2e4027cbd197d33c24cd7c04ff86d50bd109b545b9031" => :x86_64_linux
+    sha256 "243f6d51f2d9b91ba55a8011edd4a6033e2e60332176cab17c6697fedc5b32ab" => :catalina
+    sha256 "848dae21878e2178b8b93730b84633e41fd4fe3163cb51d1fb0c33dbc46511d4" => :mojave
+    sha256 "2f102d682211e523586cf519fe6d3be3a874f28942245df0f6ee3841756ea328" => :high_sierra
+    sha256 "80f567010238164de5834706d70f9d298fb3cdd8ae47ce28f18c2efd4bac7443" => :x86_64_linux
   end
 
   depends_on "bison" => :build
@@ -39,15 +40,9 @@ class GobjectIntrospection < Formula
       "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', join_paths(get_option('prefix'), get_option('libdir')))",
       "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', '#{HOMEBREW_PREFIX}/lib')"
 
-    args = %W[
-      --prefix=#{prefix}
-      -Dpython=#{Formula["python@3.8"].opt_bin}/python3
-    ]
-
-    args << "--libdir=#{lib}" unless OS.mac?
-
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *std_meson_args,
+        "-Dpython=#{Formula["python@3.8"].opt_bin}/python3", ".."
       Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
       system "ninja", "-v"
       system "ninja", "install", "-v"

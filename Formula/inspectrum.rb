@@ -28,6 +28,7 @@ class Inspectrum < Formula
 
   test do
     return if ENV["CI"]
+
     # This test requires X11.
     assert_match "-r, --rate <Hz>  Set sample rate.", shell_output("#{bin}/inspectrum -h").strip
   end

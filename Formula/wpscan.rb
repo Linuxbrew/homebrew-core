@@ -1,24 +1,31 @@
 class Wpscan < Formula
   desc "Black box WordPress vulnerability scanner"
   homepage "https://wpscan.org"
-  url "https://github.com/wpscanteam/wpscan/archive/v3.8.0.tar.gz"
-  sha256 "1b49db871177044101160a992ef739980e2898f11bf0afe820aad4eced3a80cf"
+  url "https://github.com/wpscanteam/wpscan/archive/v3.8.1.tar.gz"
+  sha256 "d2ba1e66a7c3421dfb756096cd048eacd78e4dcb5504e25153091dba2af047ee"
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
     cellar :any
-    sha256 "b8a2e657c932514056c7b7e2c221debd24afacfb23fb16ef9c2945c0829d5338" => :catalina
-    sha256 "ce663cdb242251990900aee44418458ad09ed4dafda66801b22ea29f7236a308" => :mojave
-    sha256 "40b791348bd997263372d71c28352e6776e94876ad1d667b35d15f2f3eb3878b" => :high_sierra
-    sha256 "afac6438e6d0e28eba3005aaf5bc65c2bd29df0945ea024a2420fa0d2c16faab" => :x86_64_linux
+    sha256 "6b52086c8d8dd9ad36a244bfbbaf1bc1018a193290e2fa05d16fdd353384bb3e" => :catalina
+    sha256 "39acc20f1a3e32e4894a37d61ebcdcc15231b555dc63a4933fa713328a049d66" => :mojave
+    sha256 "06ecabf210ad28c3f652b990e58c9772f487eccc0637b27a0d065a95448f52f3" => :high_sierra
+    sha256 "6530e37a288da3b46cb5fceff9ecc882ca855a4d2e4902cb7ad527cda1535876" => :x86_64_linux
   end
 
+  depends_on "pkg-config" => :build
   depends_on "ruby"
 
   uses_from_macos "curl"
   uses_from_macos "unzip"
   uses_from_macos "xz" # for liblzma
   uses_from_macos "zlib"
+
+  if MacOS.version < :catalina
+    depends_on "libffi"
+  else
+    uses_from_macos "libffi"
+  end
 
   # Fixes the --no-update commandline option
   # https://github.com/wpscanteam/wpscan/pull/1455

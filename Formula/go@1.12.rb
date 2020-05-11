@@ -6,13 +6,16 @@ class GoAT112 < Formula
   sha256 "de878218c43aa3c3bad54c1c52d95e3b0e5d336e1285c647383e775541a28b25"
 
   bottle do
-    sha256 "19cab1cbd29cdadebf0dfdc7a49b6c533af9ecc6f8848a9c337d36bce29b3596" => :catalina
-    sha256 "9ecdf1c764d97f5942f06ba536422b2ba72d60b8ce54b5ede1ae8fbe03b5c67b" => :mojave
-    sha256 "fe777755bed52483fc9e15cb7fbf75a16cc8f0b546d211de103de1f80979fdeb" => :high_sierra
-    sha256 "2f09dc1503cae805dbcb14b88f116ce7ad0cb43f87ee39857d099e5e3b637861" => :x86_64_linux
+    rebuild 1
+    sha256 "44d6c83a39c231cae86af05b3689cb2ec03be389562c1cc5e84a9f68ed09af80" => :catalina
+    sha256 "dc3b90a9ba13c31928c92227957d530656bab53d5ca3a35bfab02038118a964e" => :mojave
+    sha256 "e42c02a42a4d2df97cba11e80729e8439e7476745548bd7ee23d72858c22a3f1" => :high_sierra
+    sha256 "c7e6efda32a76006aa9caa222311d6926896b6fad320f0e7d33ffc3c1b51e347" => :x86_64_linux
   end
 
   keg_only :versioned_formula
+
+  deprecate! :date => "February 25, 2020"
 
   depends_on :macos => :yosemite
 

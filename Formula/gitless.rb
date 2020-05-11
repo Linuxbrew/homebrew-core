@@ -5,14 +5,14 @@ class Gitless < Formula
   homepage "https://gitless.com/"
   url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
   sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
-  revision 3
+  revision OS.mac? ? 4 : 6
 
   bottle do
     cellar :any
-    sha256 "b220d9334addd71c08152ed7b2975bc44293885f3ff81938d37eae728abe9a64" => :catalina
-    sha256 "713f9b5f089a318e6d3aecabd94ad4145293e6371c4e4874729cab02173b82a5" => :mojave
-    sha256 "7ffe8a5480d4f844273c678ab3f28b0da7928cca0015a1d0c9a61f0bfabf95e0" => :high_sierra
-    sha256 "feb91e0c8585a026c6efdbe4fe655d71a9e04d1203745308182e325f9ebdec82" => :x86_64_linux
+    sha256 "c0ffed9f5228aecb14175929167812114176ac2df5b9583161c4f3c0f7785da0" => :catalina
+    sha256 "f72efc4323f531adcb1a38c8d864a4bd464b4a7d67400623479f05d37a4332cd" => :mojave
+    sha256 "aa526af3aaa79be5c7d86d4265589194e331766ba138e5b74894ad8037224c5c" => :high_sierra
+    sha256 "a1bbe8d0dc0774668218689e89431c852f33cdbdf2bba73f565bf1e4c3dec973" => :x86_64_linux
   end
 
   depends_on "libgit2"

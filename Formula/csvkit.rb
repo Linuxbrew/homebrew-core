@@ -5,14 +5,14 @@ class Csvkit < Formula
   homepage "https://csvkit.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/95/c9/8dd118c0ea0114125a8bf50d552626b95f6478bcf29a252296e93d778855/csvkit-1.0.5.tar.gz"
   sha256 "7bd390f4d300e45dc9ed67a32af762a916bae7d9a85087a10fd4f64ce65fd5b9"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
     sha256 "1bb059e0420e7f4e117ad9bb0ad9ec2e281547c87ce3dec197dbcbcc2fbb3223" => :catalina
     sha256 "39eb13816f8ea1ff6e91d759450a1cb56edc558cdc997776eb60a1fbfeaf4881" => :mojave
     sha256 "2d7e167505bd1635d0fa97f525683c5a938cb6ebf7351299260822a4560cf513" => :high_sierra
-    sha256 "69389d8691776b065f0a822047574755ee9589360d0bf0cd3263c0e4e1bc3e54" => :x86_64_linux
+    sha256 "eca9d9a30535293a1d92b3c0ee728e0c0b6d905836dee067cf31659d86711310" => :x86_64_linux
   end
 
   depends_on "python@3.8"

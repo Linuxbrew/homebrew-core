@@ -1,15 +1,15 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.7.tar.xz"
-  sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.2.tar.xz"
+  sha256 "53c47d320533c80a3145adbd83e14bbe107c0441c18a8b214ff20849b28a9f8a"
 
   bottle do
-    sha256 "8832336a04f6571782ea0b36b655068ba97b4ea1e94934c8fca00a5ff855ad23" => :catalina
-    sha256 "18d1556fc704e536cfacabb46afc02c575ca04a26d177097cd60743596d43cc3" => :mojave
-    sha256 "650f5a5434b03ef01ee3eeca4ab1ae7999ca13029595e4dedbd66fb8cf56ec19" => :high_sierra
-    sha256 "cc927ac35ec177267a9c93270c99747a6019f62eab962acbc72e9e77f503729d" => :x86_64_linux
+    sha256 "2177e9ef48e8c0799f06ff8f0a79182da8e574f5024bd38fe89081905ed22616" => :catalina
+    sha256 "671957c077171576cc2d7598aae337492e2552bce75140e664dde11ac96c5096" => :mojave
+    sha256 "db9dd8dbb89b538da5d359f0ac17bd9df91102c92176525359e3fde279d66cd3" => :high_sierra
+    sha256 "4572e4f5381b4fabdbf7b2148455f702a3b2c172aa39b2b5b15ffad0aa1340a9" => :x86_64_linux
   end
 
   head do
@@ -36,6 +36,9 @@ class Guile < Formula
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
     ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
+    # Avoid superenv shim
+    inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -52,7 +55,7 @@ class Guile < Formula
     # --with-xyz-prefix= for libffi and bdw-gc or a solid argument for
     # Homebrew automatically removing Cellar paths from .pc files in favour
     # of opt_prefix usage everywhere.
-    inreplace lib/"pkgconfig/guile-2.2.pc" do |s|
+    inreplace lib/"pkgconfig/guile-3.0.pc" do |s|
       s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
       s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
     end

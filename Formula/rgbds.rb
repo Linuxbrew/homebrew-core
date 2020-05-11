@@ -10,10 +10,13 @@ class Rgbds < Formula
     sha256 "471290b03b60ce630234ba35fedd6108e77a212e9a87cb81998a7c64c9eeac0e" => :catalina
     sha256 "23c50475699f8699d083f39bdfc9ca4b60c703f0c818ba22e8112d05b71a70ae" => :mojave
     sha256 "4c719b61b59c50d80cae21b6ea5bc8d47d54a653d4ecf403650efefa30927c8f" => :high_sierra
+    sha256 "cfa82d9e685c02d330e4734f1c94da377ec7727709995f18b4ad0b9507c093db" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "libpng"
+
+  uses_from_macos "bison" => :build
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "mandir=#{man}"

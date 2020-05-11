@@ -3,18 +3,19 @@ class Otf2 < Formula
   homepage "https://www.vi-hps.org/projects/score-p/"
   url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
   sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
+  revision 1
 
   bottle do
-    sha256 "e3641f75553e24a7911b5e0128efdc2dd13ef805a121f66c3fe91fa0f97f4362" => :catalina
-    sha256 "5fb7225b511d644ce51efb6af3aad6c6f27734819dcd4bd7f279f5d55d438c4f" => :mojave
-    sha256 "78b7fbc8852274826fd0eb4eff03822c8d6c4dbe842cec29999b8bdc17935947" => :high_sierra
-    sha256 "5724718db57a55115fad5a27544fac8b4ed14fff8106f8d5547a3aa68ad565f5" => :x86_64_linux
+    sha256 "4c532e5cb9864669bc29b6ad5007669c92a6abb3e069d7904ab3b102169ec2bc" => :catalina
+    sha256 "ec63ae3bd66e7231b05f6bbd5ce8b0606126ad25e871f59d9e066fa62b9e26d8" => :mojave
+    sha256 "dbf4c3c761e51a184a675d369a54dea5247d25d96e78899ca3b268a04c629c48" => :high_sierra
+    sha256 "35035cfc34ece5e028b1dd3343610e2e9196f34a4c8cd042ea62ee6128ee5942" => :x86_64_linux
   end
 
   depends_on "sphinx-doc" => :build
   depends_on "gcc"
   depends_on "open-mpi"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
@@ -22,13 +23,14 @@ class Otf2 < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    python3 = Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("future").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system python3, *Language::Python.setup_install_args(libexec/"vendor")
     end
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = python3
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
     system "./configure", "--disable-debug",

@@ -5,7 +5,7 @@ class Gprof2dot < Formula
   homepage "https://github.com/jrfonseca/gprof2dot"
   url "https://files.pythonhosted.org/packages/fd/77/3158821acc45cc26d5815d4250275d03c254572ff53c0388af8df168ce78/gprof2dot-2019.11.30.tar.gz"
   sha256 "b43fe04ebb3dfe181a612bbfc69e90555b8957022ad6a466f0308ed9c7f22e99"
-  revision 1
+  revision OS.mac? ? 2 : 3
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Gprof2dot < Formula
     sha256 "974b8737cdc5d07b94c0292b27e015085ab8475757ea95b6cb42067fcafd5418" => :catalina
     sha256 "c7ff44d15b136ccc9618d0f1e2363a75983bc6587924826e00fb283099edf235" => :mojave
     sha256 "5626ffada5afc1e44178f1da5a4e041d733f6abe684e666de9679a791247d224" => :high_sierra
-    sha256 "4b136014f4cfca304368a7ab27ba01f013c0f6fa8522ddd98fc5324ff25b77b4" => :x86_64_linux
+    sha256 "c35ecf522c1c7d33980e2d1ca43f3b88b7635eafb506e308f7dd8ddea9e86830" => :x86_64_linux
   end
 
   depends_on "graphviz"

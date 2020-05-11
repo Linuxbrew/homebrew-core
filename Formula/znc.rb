@@ -1,15 +1,14 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.7.5.tar.gz"
-  sha256 "a8941e1385c8654287a4428018d93459482e9d5eeedf86bef7b020ddc5f24721"
-  revision 1 unless OS.mac?
+  url "https://znc.in/releases/archive/znc-1.8.0.tar.gz"
+  sha256 "94fdb227c1afa3abff468e0b7b1309120ad99d6aa64c4fd35bef02928171bd54"
 
   bottle do
-    sha256 "4bc43bf605d281484dbc34a779da628960df63ece897aa4d216ab6a7fc728b10" => :catalina
-    sha256 "a0f33bcd73035f1c117ce51bbc9f1fd528b615a48a6f4783b64a26f3a02738e5" => :mojave
-    sha256 "c708bb54d28e9780bfea6babc05f861b66fdbf1ac18e03ce9dfc19d9cc45052d" => :high_sierra
-    sha256 "24692cf84061a2ba384d8a0492c88e133665b208a18e3dee57656db5b6e26b1f" => :x86_64_linux
+    sha256 "709f3ab4bcf9e6a257d4033ff73cdeb44ec1c53b16a63a2c9135543cdc80dc82" => :catalina
+    sha256 "18facada926ae46774edc0250934813e27e2f41aedef1b0ad7d1604893f07aca" => :mojave
+    sha256 "623b6b791ca5e1ba8c2034e7ef1260e6ea849fe46a2d070ee925dfce758ed907" => :high_sierra
+    sha256 "2d92610c4d6e6c577772d81896403f701e707ea49660055f0e8d64f1d89114f7" => :x86_64_linux
   end
 
   head do
@@ -23,7 +22,7 @@ class Znc < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "zlib"
 

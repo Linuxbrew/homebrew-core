@@ -1,15 +1,15 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.19-src.tar.gz"
-  sha256 "7c3bd74ce64a9300e7d481b76b388ad95017a52480c698b755579aec62d4a21e"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.20-src.tar.gz"
+  sha256 "50eaebd1d59b5681b6959a8c5b95bdeeffd021db0f06264eb497706dbc5b39cb"
 
   bottle do
     cellar :any
-    sha256 "fbcc82091507f2c2afa293d37fd4555bad913658bc45cbc918eefdec51fbd851" => :catalina
-    sha256 "dc606f49cbc462260d7b6393516ca83fbc2ef5c27ef0c03eb07e1d1b87ebb410" => :mojave
-    sha256 "f40d21c435aa17de9c63d4759b40cc36fb7fcdd371f01f23f6755aebec6d956b" => :high_sierra
-    sha256 "70caff67b8eb228483d3c7d75a00e2af11d4f02cd30f93aed4cc3bccb473cff1" => :x86_64_linux
+    sha256 "d135296e51b3c7b0eb1a4735250fae125d08ee7367107b9fc71ec43810b009b7" => :catalina
+    sha256 "02a6351ad7a7be72463d65ead3b4fe23ad8322ca46a8516fefb7054cadddf29a" => :mojave
+    sha256 "093917f65031b2e8a0998b54854976bd5c7ae26ec0a63cfcf48a4906135756e2" => :high_sierra
+    sha256 "28566d040686af6266b449b86aab73fdcef2795c08c5488b13a285eb65e6c8d7" => :x86_64_linux
   end
 
   depends_on "boost" => :build

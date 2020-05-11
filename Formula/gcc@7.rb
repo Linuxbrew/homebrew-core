@@ -10,6 +10,7 @@ class GccAT7 < Formula
 
   # gcc is designed to be portable.
   bottle do
+    cellar :any
     sha256 "4dca3b07173bffba262e003b345970119626a4d60a25c167d6bc216c46f1d83e" => :catalina
     sha256 "5d4086421866078dc4d9bfe623a38160dbcf04ff88b4d0284dee9da66ff50f4c" => :mojave
     sha256 "3c2135fc0b1c7f0ce048c1f610d2131a237911bdbd66d8bff731bbf9c6d84bcc" => :high_sierra
@@ -30,8 +31,7 @@ class GccAT7 < Formula
 
   unless OS.mac?
     depends_on "zlib"
-    depends_on "binutils" if build.with? "glibc"
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "binutils"
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
@@ -74,26 +74,9 @@ class GccAT7 < Formula
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
 
-      if build.with? "glibc"
-        args += [
-          "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
-          # Pass the specs to ./configure so that gcc can pickup brewed glibc.
-          # This fixes the building failure if the building system uses brewed gcc
-          # and brewed glibc. Document on specs can be found at
-          # https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-          # Howerver, there is very limited document on `--with-specs` option,
-          # which has certain difference compared with regular spec file.
-          # But some relevant information can be found at https://stackoverflow.com/a/47911839
-          "--with-specs=%{!static:%x{--dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so} %x{-rpath=#{HOMEBREW_PREFIX}/lib}}",
-        ]
-        # Set the search path for glibc libraries and objects.
-        # Fix the error: ld: cannot find crti.o: No such file or directory
-        ENV["LIBRARY_PATH"] = Formula["glibc"].opt_lib
-      else
-        # Set the search path for glibc libraries and objects, using the system's glibc
-        # Fix the error: ld: cannot find crti.o: No such file or directory
-        ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
-      end
+      # Set the search path for glibc libraries and objects, using the system's glibc
+      # Fix the error: ld: cannot find crti.o: No such file or directory
+      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
     end
 
     args += [
@@ -128,7 +111,9 @@ class GccAT7 < Formula
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}" if OS.mac?
+    if OS.mac?
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    end
 
     mkdir "build" do
       system "../configure", *args
@@ -162,10 +147,10 @@ class GccAT7 < Formula
       glibc_installed = glibc.any_version_installed?
 
       # Symlink crt1.o and friends where gcc can find it.
-      if glibc_installed
-        crtdir = glibc.opt_lib
+      crtdir = if glibc_installed
+        glibc.opt_lib
       else
-        crtdir = Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
+        Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
       end
       ln_sf Dir[crtdir/"*crt?.o"], libgcc
 

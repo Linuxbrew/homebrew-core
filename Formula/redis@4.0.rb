@@ -6,13 +6,15 @@ class RedisAT40 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e9a2c7da7676cca21b9ece9ccdb8576d17060d7aa5e6829127407b4629f22e3" => :catalina
-    sha256 "afe26b0f773f004d2bb0a5fa60970d6f9143fe7aab0d604a2e2e453fbdf70d3f" => :mojave
-    sha256 "0fa9ceef9985e487714b8ec356c45d77ac1856e99d8a87cef405439ef4939cde" => :high_sierra
-    sha256 "537fe6969d900f34df0e072e7f90e43ca85c665f95952b7dea196691e3955592" => :sierra
+    rebuild 1
+    sha256 "1cb4eec013855da8a906bed731e12362d7aec2af55332e359d65973d6748c188" => :catalina
+    sha256 "8a839696d4e505f8b0ed087b36aef04283c19ca5fc26583162521a536b462603" => :mojave
+    sha256 "49243bf412bde70ec57e1bf3094c602e9b2c672e81431024f0c1474b24e90c54" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  deprecate!
 
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help

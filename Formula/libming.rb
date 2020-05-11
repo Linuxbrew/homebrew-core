@@ -13,7 +13,6 @@ class Libming < Formula
     sha256 "044092c7e26caf5808fcc10a34743289e2d87a406407cd8075ffb37029ab8964" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

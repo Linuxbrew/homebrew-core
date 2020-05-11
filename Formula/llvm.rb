@@ -3,7 +3,7 @@ require "os/linux/glibc"
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision OS.mac? ? 1 : 3
+  revision OS.mac? ? 3 : 5
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz"
@@ -73,10 +73,10 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    sha256 "6ab6a6b99c9d2858410c4e2370359fe6b7945b6ff67f1415aa51caaf8718dd65" => :catalina
-    sha256 "a335a23dc72ae2bf8110d10d87ea02b46bac610fbc47d2cd002ddabfcce83cc5" => :mojave
-    sha256 "09984c8ac3187fa43fa03f8e483c205e5024e650fa7952a6e69fcc23bf8b5e8d" => :high_sierra
-    sha256 "150d47a9e8f1ac9c23877ff255bbd97bd1ee461b6fe7cb025e87844736def92f" => :x86_64_linux
+    sha256 "ea9b9f579df49499d9ab0084e10edecc5350298d6c5db399a1dabc8694dab7db" => :catalina
+    sha256 "14f59a25e73e3a00fd36632f2106b41eda1b54aa1039b4b979bd957a8c041bf4" => :mojave
+    sha256 "6e09ca233790a58edae55bba453fd50179369b5514acb5f8b86156401227a75e" => :high_sierra
+    sha256 "ebcfa536b0ccb605be6966a8a44b133f347482cd91aa3a83a5e44fa062fe289a" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -183,6 +183,7 @@ class Llvm < Formula
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
+      -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include

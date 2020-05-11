@@ -1,15 +1,14 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.11/source/mariadb-10.4.11.tar.gz"
-  sha256 "4c076232b99433b09eb3c6d62f607192b3474d022703699b8f6aef4e79de3fb9"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.12/source/mariadb-10.4.12.tar.gz"
+  sha256 "fef1e1d38aa253dd8a51006bd15aad184912fce31c446bb69434fcde735aa208"
 
   bottle do
-    rebuild 1
-    sha256 "7b70bcd73699b29eed5a8b630dd671afaa282368fc327097fb442161af588a83" => :catalina
-    sha256 "ee2a568d42883f6b3e0366fc8c8f741736216dd64e2199de9aeed04566de241b" => :mojave
-    sha256 "16906503386e1e8cbfe510d5b3b890822a9c814a5a52381a67aea34474cedede" => :high_sierra
-    sha256 "d5fdfc065de5de5b0debb7e58aa4ecbbd13408b4e83dd47ee09233c9710650b6" => :x86_64_linux
+    sha256 "eaaf500f730bfed25cf8015e80ba224b9873be9706e6eca21d9ca53711c0bcd8" => :catalina
+    sha256 "5bd71c3904a522667fbe441b6bb1c3cf8544fb44fd321e4c5d6b511129a83f58" => :mojave
+    sha256 "17f341bec7258535a90747a3b79db8465deb5949589100c497e27d605c645782" => :high_sierra
+    sha256 "421b6cb18428c6270d2820267031ac987aa03f243be6c7fd994ed614b7bcfccc" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -36,6 +35,12 @@ class Mariadb < Formula
   fails_with :gcc => "4"
   fails_with :gcc => "5"
   fails_with :gcc => "6"
+
+  # Fix for https://jira.mariadb.org/browse/MDEV-21592
+  patch do
+    url "https://github.com/MariaDB/server/commit/42b29d41335d2f6991b8c9f110fe1e1476764ace.patch?full_index=1"
+    sha256 "7f61bf5dde90a80f6af6f37e27fbce67f853dace98483a030a3dce9b1c1481f0"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

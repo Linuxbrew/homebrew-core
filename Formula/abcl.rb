@@ -1,15 +1,15 @@
 class Abcl < Formula
   desc "Armed Bear Common Lisp: a full implementation of Common Lisp"
   homepage "https://abcl.org/"
-  url "https://abcl.org/releases/1.6.0/abcl-src-1.6.0.tar.gz"
-  sha256 "893fce815d3fc9a3aa250c78ff84ed2e51b702f71cb11e1befc2a2ec9c666b43"
+  url "https://abcl.org/releases/1.6.1/abcl-src-1.6.1.tar.gz"
+  sha256 "0ba1f785957ba6b9c4e5bd8df0a9881388694a00ab3651bd90718367d48abe12"
   head "https://abcl.org/svn/trunk/abcl/", :using => :svn
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "090d058ce408d836e45ea3e621c6aa1c516bcb160deb20ed56c2f31c663a87cd" => :catalina
-    sha256 "637f063db889930f65280639918cd515f45faf7898bcd8e05f91ea92b0ed8965" => :mojave
-    sha256 "9181e37966579df1a0554fde2be96a5de7143c6d9eaa57e45ad39d27c96704eb" => :high_sierra
+    sha256 "11ea744886f19eead8966564d1e47e2cebcca7776fe3f4ddb6ef20e682b434ce" => :catalina
+    sha256 "f04c52eb530e6d019eb937d1b96fe2de6aed506cbd195257e20ad3026427fd74" => :mojave
+    sha256 "475896d9ed59f8b5448a79fa3abd0df05f12643b5004791cafb6a27441b2ac96" => :high_sierra
   end
 
   depends_on "ant"

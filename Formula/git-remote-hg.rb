@@ -5,7 +5,7 @@ class GitRemoteHg < Formula
   homepage "https://github.com/felipec/git-remote-hg"
   url "https://github.com/felipec/git-remote-hg/archive/v0.4.tar.gz"
   sha256 "916072d134cde65b7ffa7d1da1acaabb0f29b65c017d0560e907e7a94063d1b1"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/felipec/git-remote-hg.git"
 
   bottle do
@@ -13,10 +13,8 @@ class GitRemoteHg < Formula
     sha256 "efcac93a209213486fcf837f83b364b6325adefba09493551e3e6017e669aa9f" => :catalina
     sha256 "3903ddefc5ed6142943aa33ba298ac51d054159f0c401bcde044934494202a19" => :mojave
     sha256 "1380e5053a25462f27d9be329840b6dda55b08e01b70ed6c581f3c625c7b332d" => :high_sierra
-    sha256 "3002a1399ffdbcfb086d8d0ed29822fe68107cf2cca283f1aecd4448a7d41168" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "asciidoc" => :build
   depends_on :macos # Due to Python 2
 

@@ -5,14 +5,14 @@ class Howdoi < Formula
   homepage "https://github.com/gleitz/howdoi"
   url "https://files.pythonhosted.org/packages/03/db/c9b5bb64adac16b0feab7924fb1134ce88bc38f7af4e74aca27c48de26df/howdoi-1.2.1.tar.gz"
   sha256 "3b322668606d29d8a841c3b28c0574851f512b55c33a7ceb982b6a98d82fa3e3"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b2a140c27beb5eb6cf0828112a4c90983014d36d50c66096a68773b0d47410a8" => :catalina
     sha256 "eba1481a04f930805a0033c3213ae837464c600d6bc4f7bf3a3db4d17e328ae2" => :mojave
     sha256 "bb5109a1450ea626cfaacae8001b086495ba7b33a14e7ea6b27dcb243f2421be" => :high_sierra
-    sha256 "8b8df5c969373ff1a34dd7f8cfdf9fa7122d3b333bf2317efe5b12e7cf68a4a4" => :x86_64_linux
+    sha256 "21c5f70f0b5e7e87a468f1873bbf5c97c3e5fcf9cf1df1d5ffbeb72f2c2ea1e4" => :x86_64_linux
   end
 
   depends_on "python@3.8"

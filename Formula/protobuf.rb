@@ -4,19 +4,20 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf.git",
       :tag      => "v3.11.4",
       :revision => "d0bfd5221182da1a7cc280f3337b5e41a89539cf"
+  revision 1
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    sha256 "b6eca888405b4998b1a5be7c7425d94f9ef2db76fcd9355ac920deaee3e2d15d" => :catalina
-    sha256 "809461047f541cfc72d836ea7c7af95ad18f0900ea9bd163f478abf53d3fafaf" => :mojave
-    sha256 "ae2dd1abf649a9a9c313caa958bd08d175b5a8a88828b44770526e29c83c807e" => :high_sierra
-    sha256 "e883669c1432e638c98a3a27f12443fa3d60cf3b9b38e565243295e7a828701d" => :x86_64_linux
+    sha256 "f7f2e25c0497a651a2d3ec875b67f7edc4824b9222ab4bfab103a579bb84c739" => :catalina
+    sha256 "60f74ef0b63faae49e74cdd7f23ae69b6cfaa6cc1a1d37dd0b5370e17fdffc9d" => :mojave
+    sha256 "aecccdd2411712a2e719b9438fe4b82f16c2db5807e9266f0c64aaf3875a7700" => :high_sierra
+    sha256 "fc670876707abb52bfd586dacb0d00e212eae0189aeb0a59322494db413940d2" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python" => [:build, :test]
+  depends_on "python@3.8" => [:build, :test]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
@@ -50,14 +51,14 @@ class Protobuf < Formula
     ENV.append_to_cflags "-L#{lib}"
 
     resource("six").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
     chdir "python" do
-      system "python3", *Language::Python.setup_install_args(libexec),
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
                         "--cpp_implementation"
     end
 
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     site_packages = "lib/python#{version}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
@@ -76,6 +77,6 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python3", "-c", "import google.protobuf"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import google.protobuf"
   end
 end

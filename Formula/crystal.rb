@@ -96,7 +96,7 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"boot/embedded/bin/shards", "install",
+      system buildpath/"boot/#{OS.mac? ? "embedded/" : ""}bin/shards", "install",
                                                    "--production"
 
       system buildpath/"bin/crystal", "build",
@@ -111,7 +111,7 @@ class Crystal < Formula
     bin.install ".build/shards"
     libexec.install ".build/crystal"
     (bin/"crystal").write_env_script libexec/"crystal",
-      :PKG_CONFIG_PATH => "${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl"].opt_lib/"pkgconfig"}"
+      :PKG_CONFIG_PATH => "${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl@1.1"].opt_lib/"pkgconfig"}"
 
     prefix.install "src"
     (prefix/"embedded/lib").install "#{buildpath/"gc"}/.libs/libgc.a"

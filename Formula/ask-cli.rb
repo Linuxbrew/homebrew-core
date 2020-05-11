@@ -3,15 +3,15 @@ require "language/node"
 class AskCli < Formula
   desc "CLI tool for Alexa Skill Kit"
   homepage "https://www.npmjs.com/package/ask-cli"
-  url "https://registry.npmjs.org/ask-cli/-/ask-cli-2.0.1.tgz"
-  sha256 "8be5a30551024a8e790f4a2bd42bd49a9346a448b5bd7db0870967b8710c22e0"
+  url "https://registry.npmjs.org/ask-cli/-/ask-cli-2.6.0.tgz"
+  sha256 "53d2f22cb9048b90be165860ebd4e925fe7b86094af717d8c13d3ca16bdf46f3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0527cd865281fa5c35a67ac79a0981356251dbbe4803ed7057d17cae1d79de26" => :catalina
-    sha256 "02a4d87a6f469db4339c76f3dde5f59a5ca8e511ea953a67b22a2745482f1d37" => :mojave
-    sha256 "4f984c1303aee9f3ee8032231100835550e2d6c980c37a4ca57c7912927d9980" => :high_sierra
-    sha256 "dc453aaddbd3eb7ac935a2963cde6ce600722e8d7512927c75efd21f4a953402" => :x86_64_linux
+    sha256 "3cf2959971e9f55a1eef0785e6b4088cb809b8ef4fa9e5fc87505a76c7d43ea6" => :catalina
+    sha256 "f03e8d98526e6d13250b83e9198f4ef5903369ba0f160a68af3ad9db6bb7208b" => :mojave
+    sha256 "5e2d1ffbc8ba316de0c928db1a1400ac076d1368d1a115ecd5520c2146cdbf72" => :high_sierra
+    sha256 "afceb5452d0649417caa8d8014d36d474361486a11314e6e5a4ff4e65e73cbdd" => :x86_64_linux
   end
 
   depends_on "node"
@@ -23,7 +23,7 @@ class AskCli < Formula
 
   test do
     output = shell_output("#{bin}/ask deploy 2>&1", 1)
-    assert_match "cli_config not exists", output
+    assert_match "no such file or directory, open '#{testpath}/.ask/cli_config'", output
     system "#{bin}/ask", "lambda", "--help"
   end
 end

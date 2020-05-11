@@ -1,14 +1,14 @@
 class Iblinter < Formula
   desc "Linter tool for Interface Builder"
   homepage "https://github.com/IBDecodable/IBLinter"
-  url "https://github.com/IBDecodable/IBLinter/archive/0.4.22.tar.gz"
-  sha256 "0f95b874c1a61fee5dc55da25429790490fcdd20667a3a9065dbd53641374971"
+  url "https://github.com/IBDecodable/IBLinter/archive/0.4.23.tar.gz"
+  sha256 "f39241980244cb97fccb11ef3aac6b6deb9c6cfbcf1253e1280f18499c43e739"
   head "https://github.com/IBDecodable/IBLinter.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ee99a2dd2bbce3b730fd000746ec47973c4dfbef780fc42405e670f7a3d0453" => :catalina
-    sha256 "7e9aef055cb5d110fe273e786dbdaceefb0cec1178368c1bacbf3db62739faf1" => :mojave
+    sha256 "317e711f65b4a62562f8d32834cbd1c7c0a20fca44c5d3f9cc34974848a5a1e2" => :catalina
+    sha256 "7bbba8112111c1923eb9a2e0234d0630aa20a0f9fa34944260e4951f291ff9ba" => :mojave
   end
 
   depends_on :xcode => ["10.2", :build]

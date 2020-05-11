@@ -3,13 +3,13 @@ class LlvmAT9 < Formula
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz"
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "590473c4e13bf8fe104bd04ca14b0ddd1057867c17491b85c33299c89dea0fba" => :catalina
-    sha256 "2e3934fcf9da3b6ade580d482ce1f2128e47b59a4784c664914778dfc1c4e93e" => :mojave
-    sha256 "f00037536bb600617572a49b95ea3816addf0e2010f0e2e99cc00f53c6f3d6f7" => :high_sierra
-    sha256 "424eaa4a7640e74db91125104e9e69a4076fbfdf7ef04de1dc46f2287b4c325f" => :x86_64_linux
+    sha256 "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01" => :catalina
+    sha256 "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8" => :mojave
+    sha256 "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -36,8 +36,6 @@ class LlvmAT9 < Formula
     depends_on "libxml2"
     depends_on "zlib"
     depends_on "python@3.8"
-
-    conflicts_with "clang-format", :because => "both install `clang-format` binaries"
   end
 
   resource "clang" do
@@ -132,6 +130,7 @@ class LlvmAT9 < Formula
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_RTTI=ON
+      -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON

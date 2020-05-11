@@ -14,7 +14,6 @@ class OpencvAT2 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "eigen"

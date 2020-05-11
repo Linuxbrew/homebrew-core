@@ -1,13 +1,13 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.64/gjs-1.64.1.tar.xz"
-  sha256 "55af83893e99ba2962eca46f47340a4cf8cba5b1966ab00a0f8b9c3034e9987c"
+  url "https://download.gnome.org/sources/gjs/1.64/gjs-1.64.2.tar.xz"
+  sha256 "15ff834d374df19595d955f03e6b60631a3bb14fabda36d00f81ab3eabd3997b"
 
   bottle do
-    sha256 "44435c559ec592e03cb5b29039c5cae9fdf935f3eea10ab4e2c2a60d24e126e0" => :catalina
-    sha256 "35a77106b673b6b615a9d56b48078e11a8e33960326f5a37e9c5fc3ecfdb3659" => :mojave
-    sha256 "62125121215aac4e71de2369723668b8b40e5426522f753ab68235fbe1e9c527" => :high_sierra
+    sha256 "8870634f27767fcf4d1461552b47bc80e19e2b24f2e5e7bc6dfe01a850ec4247" => :catalina
+    sha256 "e24a9fc55da9794a1c045dc3ffab0fefa63c6d3830738e72bb11901c75275e14" => :mojave
+    sha256 "e1b7ba4e1f464359b562eef72b24eca0b0315c9fbdb02d5ead4d0d57d3acc6b8" => :high_sierra
   end
 
   depends_on "autoconf@2.13" => :build
@@ -71,8 +71,7 @@ class Gjs < Formula
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
 
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dprofiler=disabled
       -Dinstalled_tests=false
       -Dbsymbolic_functions=false

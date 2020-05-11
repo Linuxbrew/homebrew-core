@@ -3,26 +3,27 @@ class StoneSoup < Formula
   homepage "https://crawl.develz.org/"
   url "https://crawl.develz.org/release/0.24/stone_soup-0.24.0.tar.xz"
   sha256 "eb069ae421d4246a3332d9081fb6e08b4bfaa71c407ffc17c194c5f9170d7561"
+  revision 1
 
   bottle do
-    sha256 "4a1647599ab29da11bc0bcb6f57f9554b3d1315e044637bfffe7a1518cab0e92" => :catalina
-    sha256 "0f8c131437b46bf836a852386ee2155f759ddee3ab5d672c68a3416fce409248" => :mojave
-    sha256 "ebdc756c9a25432d009c259e2e47b3c7e78b0ba579f29c4c67d475b10486bf76" => :high_sierra
+    sha256 "4e69f1d18080dda379fd029a52d1bbd0847f9233e99cd1197e0d5a3af2004030" => :catalina
+    sha256 "2c413dd1f10ab3efc5297dbf98ad4f3438a9ee465efeef6e5f20ad9411dbcd06" => :mojave
+    sha256 "404fb3e216b2b99ed046927508d6076624ab7b72e5915ea04eaf95eaf8ee54be" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
-    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 

@@ -3,13 +3,14 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.99/libgit2-glib-0.99.0.1.tar.xz"
   sha256 "e05a75c444d9c8d5991afc4a5a64cd97d731ce21aeb7c1c651ade1a3b465b9de"
+  revision 1
   head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
-    sha256 "5c25dc11f5ece68ba259cc2a7833a06448e9a760af2da879878da4331b7445d5" => :catalina
-    sha256 "ae7bdeaf32d9b2ad8750f334322c0259787d4e5a67bf1f408613320dac9e882f" => :mojave
-    sha256 "d814e394b79a6a34e8d36d9445d5ba3d28be87bbef079f09b2a5e45c798e5f33" => :high_sierra
-    sha256 "07f2a2829f617b44e30a7c64fd202607d41cbd655a9c384684739e6587f0d5eb" => :x86_64_linux
+    sha256 "a5297beb6c9ab0602847472ec08fbd2eddad7e91ca3c78db15f4a8175912feea" => :catalina
+    sha256 "ffff80b61a3dd453796abdd059803d887c6de603d501c65a153571a0c04be5ce" => :mojave
+    sha256 "74b08631fc92b096f3034c512ea9f62889edc92c49c6581043fbf56256306ad4" => :high_sierra
+    sha256 "72407e0360d74e297a46316c2c06680a4b50d95315ded51bb1993e5d7c6a9e58" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
@@ -23,7 +24,7 @@ class Libgit2Glib < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "-Dpython=false",
                       "-Dvapi=true",
                       ".."

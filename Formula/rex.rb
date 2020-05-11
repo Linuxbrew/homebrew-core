@@ -1,15 +1,15 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.9.0.tar.gz"
-  sha256 "8890d3ab6eabe15cd81640738b59fe696be8abd2a1bc71b43ce1ef88bdfafd30"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.10.0.tar.gz"
+  sha256 "120d450863cad3fb6215e394d1121912de69ac270dedb04173e024130a65b3f2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "012162bdc22ad9b8f3e78060cf82eeade24087e6570eb55addef541b8d39e96f" => :catalina
-    sha256 "43cd0e6967ebd932ac4b476bac7398eaff4116b67a8399d10cefaefff325e435" => :mojave
-    sha256 "c90108f0fb218e56d71a05ed236b8aa2efe1f908a92d2ed8c6f1bb3f043840b6" => :high_sierra
-    sha256 "dc6caeab63c19971269dfd84245fb9db5c5e864cabbcedd93a6754aa3018dc68" => :x86_64_linux
+    sha256 "3106c9bbd0e7b7599094456a6d46ebef26c31430665e80b66bb614d684fbffa7" => :catalina
+    sha256 "de97b78734f6d2bac015c58afdd9796bca833c7ffc0e0e2c083ecec66ebe0bcd" => :mojave
+    sha256 "1f80ccb11233f8621ca28a33bbc5a72768e5675ea4a6453ce3805cef2afbc6e3" => :high_sierra
+    sha256 "7bd36873fae336b6c8a78230f42f3f33c2ee30d50b7a5be61895317d23488d1b" => :x86_64_linux
   end
 
   uses_from_macos "perl"

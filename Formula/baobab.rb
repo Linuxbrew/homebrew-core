@@ -3,20 +3,20 @@ class Baobab < Formula
   homepage "https://wiki.gnome.org/Apps/Baobab"
   url "https://download.gnome.org/sources/baobab/3.34/baobab-3.34.0.tar.xz"
   sha256 "46ebd9466da6a68c340653e9095f1e905b6fac79305879a9e644634f7da98607"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "26429e535b510d1c75991c097d28190711b42f996d5b67b530278e82d712b1fe" => :catalina
-    sha256 "d9cc7ef952c0ac3195c7539b50a6d05550d93a7e155a4f662bd6fd1476c470a6" => :mojave
-    sha256 "52c91b6b0ecf10a220005c3c925feb2ba8cdc7412fdec46a18d9e40c59813ab8" => :high_sierra
-    sha256 "6d2bebf5562b97d2545510e525ac8cde71c62d17d6aa5249c87ee26f4148cf46" => :x86_64_linux
+    sha256 "3994419a1e326594308a62dc3e051f19c3bd611ad1b6b30b0f2098e2d5d9df6a" => :catalina
+    sha256 "b514904b1cbd48c875f9a3de57a376f8349b70cbda60a20de46948948fab7020" => :mojave
+    sha256 "8bdbbb883b2ea30b0585a168a69e3a6601bc8663076769f4af1f0d6c311e699f" => :high_sierra
+    sha256 "5fe3988fc3d8fd70313e2c39f664bcc66251694dc896dec25c7453101c00c091" => :x86_64_linux
   end
 
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
@@ -26,7 +26,7 @@ class Baobab < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

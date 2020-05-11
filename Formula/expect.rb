@@ -34,7 +34,8 @@ class Expect < Formula
 
     if OS.mac?
       args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-      ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+      ENV.prepend "CFLAGS",
+        "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
     else
       args << "--with-tcl=#{Formula["tcl-tk"].opt_lib}"
     end

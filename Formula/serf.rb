@@ -2,16 +2,16 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag      => "v0.9.0",
-      :revision => "cd08d5c62353f383882b630bf238a77b4d5ef73b"
+      :tag      => "v0.9.2",
+      :revision => "5642cc7572cebea332176ca3024bec4b3474a11a"
   head "https://github.com/hashicorp/serf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e305c7030488bdd5b875bfb0a1fe65297ed1571b85971249001e37971341f99c" => :catalina
-    sha256 "125b3e7bb154a472bbaf465b98a66f5a353473d22e41c0b1994ea262c901d8fc" => :mojave
-    sha256 "5aede7f9c0a33b1db1ab0ed80373474d96227d2b6db87bda0c2f680a016a3233" => :high_sierra
-    sha256 "010460c1de6d471a3fd20d414c1771e508c356d78afb4eef4292cfcf3729a893" => :x86_64_linux
+    sha256 "3bd356983857810d36a2ea7c3ae785a93068a502c3c371ccbf9b5db5b43c7a77" => :catalina
+    sha256 "8fc8a0b90605b7f45e55bbd3334aeedf02feec63f1b1e6d0de0ce473ad575be2" => :mojave
+    sha256 "1b0dbf9abeb34aae2e0b1634f274d46b7bd95a166dfff360fe54599de68415c6" => :high_sierra
+    sha256 "65fcc4de75f8b161da89a581e352c0d7206751548cfbe224181e354c86e929e2" => :x86_64_linux
   end
 
   depends_on "go" => :build

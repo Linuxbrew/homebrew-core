@@ -50,9 +50,7 @@ class Make < Formula
     if OS.mac?
       assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
       assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
-    end
-
-    unless OS.mac?
+    else
       assert_equal "Homebrew\n", shell_output("#{bin}/make")
     end
   end

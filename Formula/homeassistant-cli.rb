@@ -5,6 +5,7 @@ class HomeassistantCli < Formula
   homepage "https://github.com/home-assistant/home-assistant-cli"
   url "https://files.pythonhosted.org/packages/0a/41/830c8fe6f58583d316ed1e42b5a48f2705630401621170c1abb41cb3b996/homeassistant-cli-0.9.0.tar.gz"
   sha256 "3f35ad8b26b9e1ee010112db52ade7d0037f06d5867b4c8da6db5ad853c330ba"
+  revision 1 unless OS.mac?
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
   bottle do
@@ -12,7 +13,7 @@ class HomeassistantCli < Formula
     sha256 "a4aeb7fcb11960e5e2f6219eaa6263fc0ba42bcf35ef9294c54ce6ef29d64727" => :catalina
     sha256 "4e061bbea6075ef8af9d6f42e9d73460ff30cdf3d5b0ad7a0c7bb2866a5d7c19" => :mojave
     sha256 "d4408fbdea81343ffcaabbe38f7be4fd1ba8a23d3e33f9b7fa77d9195931f87a" => :high_sierra
-    sha256 "70723ed64f6ad4eb895bae886cc54fb1730b6d648ae9ca92f0c637906cb06e99" => :x86_64_linux
+    sha256 "e9138a3aee13bd1b581d29a0c30a07e08ee05dd657bf799de7146c7af57f1625" => :x86_64_linux
   end
 
   depends_on "python@3.8"

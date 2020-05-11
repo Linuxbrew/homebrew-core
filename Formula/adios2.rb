@@ -3,14 +3,14 @@ class Adios2 < Formula
   homepage "https://adios2.readthedocs.io"
   url "https://github.com/ornladios/ADIOS2/archive/v2.5.0.tar.gz"
   sha256 "7c8ff3bf5441dd662806df9650c56a669359cb0185ea232ecb3578de7b065329"
-  revision 1
+  revision 2
   head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
 
   bottle do
-    sha256 "971ce295562d8f85e1e38ca3bac385b9c52ec3439d4d0d2602f890d7821c25d9" => :catalina
-    sha256 "debd58d76b849e606db057cf48ed134d35a58a6d72c9c7129c5bdc8c885336b0" => :mojave
-    sha256 "13af65be2cf41a0a58359f032c59d97a1b34caad7589ec4bc4de6f0ab9c3a7f8" => :high_sierra
-    sha256 "feac11ed00a1a41f032c1aad8be47b82d68bfd4973009cccace87baec854ff46" => :x86_64_linux
+    sha256 "c317685a1b0aea372bf5c0ca50eb632ebe804fea5a4fbdc8a11ba8921c3853de" => :catalina
+    sha256 "98cbaa27c5fe28190836b0c7b8e8a521e36ae5c6c1f142f9f8167afd86e15122" => :mojave
+    sha256 "efd2cb19cdfe79c5306e4d15c5f553f6319b92c6f2183488b163801f31f158b7" => :high_sierra
+    sha256 "d61eb21c60cae2171ddf920251477ff54c24f04a6bdc289c6f39cc85bd937d4f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -23,6 +23,7 @@ class Adios2 < Formula
   depends_on "open-mpi"
   depends_on "python@3.8"
   depends_on "zeromq"
+
   uses_from_macos "bzip2"
 
   # HighSierra build issue with JSON support, fix already in post-2.5.0 master
@@ -33,6 +34,12 @@ class Adios2 < Formula
   end
 
   def install
+    # fix `include/adios2/common/ADIOSConfig.h` file audit failure
+    inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
+      s.gsub! ": @CMAKE_C_COMPILER@", ": /usr/bin/clang"
+      s.gsub! ": @CMAKE_CXX_COMPILER@", ": /usr/bin/clang++"
+    end
+
     args = std_cmake_args + %W[
       -DADIOS2_USE_Blosc=ON
       -DADIOS2_USE_BZip2=ON

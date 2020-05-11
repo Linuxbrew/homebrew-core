@@ -3,23 +3,26 @@ class Wordgrinder < Formula
   homepage "https://cowlark.com/wordgrinder"
   url "https://github.com/davidgiven/wordgrinder/archive/0.7.2.tar.gz"
   sha256 "4e1bc659403f98479fe8619655f901c8c03eb87743374548b4d20a41d31d1dff"
+  revision 1
   head "https://github.com/davidgiven/wordgrinder.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05750b2dadc537994d4701005d565782d2afdecfbe1bf1f118f76290255a3946" => :catalina
-    sha256 "572bd029f459c15af9a2d27a471e31594d1d9c2387b6ec66f9a890df1db13e55" => :mojave
-    sha256 "19855507ccd289049c30aad466a66de742b9d58a98247b9f9d223e140a81ff69" => :high_sierra
-    sha256 "25bb17042b0295e478ba8cc16c1f0c2446ab84d5dcbdc05a2f73e064a699ab03" => :x86_64_linux
+    sha256 "79fa0f89e7e123f7746ab934514834eaaecd35fa228a64e243d620825e508f7d" => :catalina
+    sha256 "daa17cb7ea4b7ad382352a18b359deaa7f1a9cd8b2c7c8949b2f6dca41f0674c" => :mojave
+    sha256 "735f8f1c7d405d11e0fd464d937d3f943c192c939126ca610a388f145da1a7da" => :high_sierra
+    sha256 "2b195e83a932435477e27724538db25c4e87ae391c697059fb0ed3cf9e6ecdc1" => :x86_64_linux
   end
 
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "lua"
-  depends_on "pkg-config" => :build unless OS.mac?
+  depends_on "ncurses"
 
   uses_from_macos "zlib"
 
   def install
+    ENV["CURSES_PACKAGE"] = "ncursesw"
     system "make", "OBJDIR=#{buildpath}/wg-build"
     bin.install "bin/wordgrinder-builtin-curses-release" => "wordgrinder"
     man1.install "bin/wordgrinder.1"

@@ -11,7 +11,6 @@ class Botan < Formula
     sha256 "a1476f2cb331dbca755c3edb274cafe50c6d7fd6e5504d1e1990a98905accda1" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on :macos # Due to Python 2
   depends_on "openssl@1.1"

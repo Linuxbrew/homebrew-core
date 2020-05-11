@@ -1,14 +1,14 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.12.1.tar.gz"
-  sha256 "7692664e1bd703421eb9659cc9956d9f0ac64eb14abddab7b2ade37625f0243d"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.13.tar.gz"
+  sha256 "6f65a22b495240358a56f84098edc48e9e396eab20b6130538088d96eb7e36f0"
 
   bottle do
-    sha256 "ed647f7c957cd996b62c395c2106be3e40d3dd0f8c84eb1bd1d2a212a174a565" => :catalina
-    sha256 "2ab289c10d23c6fb47bc9bd2ae1f04d6f7c9d35f41b14ee1b0f3b4ce8f0d1f48" => :mojave
-    sha256 "3a3f12e0c66d5b9e79096f3bc89480929703742f981209f734632e9aeda12166" => :high_sierra
-    sha256 "b82e1edf45387e9e8f2b27385bfad1ef9917180537597a30d4833e0a50508a47" => :x86_64_linux
+    sha256 "f49dfca378576348ece83c36f8d2e1ff139048e7acf9a308b999851716e55235" => :catalina
+    sha256 "e580fdf01cc5b8e9d41e25b427f111d45195cf9d8c50e5ce91b884c1564435ea" => :mojave
+    sha256 "579fdbf714424adfbea991d8e2f16216bf6b9c87b9e6daf4a192450ea859c227" => :high_sierra
+    sha256 "5b966fc17009f73c2d79bcf148c19e0643274c244ce486a031b49b3647e03ee2" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -18,8 +18,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.12.1/scrcpy-server-v1.12.1"
-    sha256 "63e569c8a1d0c1df31d48c4214871c479a601782945fed50c1e61167d78266ea"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.13/scrcpy-server-v1.13"
+    sha256 "5fee64ca1ccdc2f38550f31f5353c66de3de30c2e929a964e30fa2d005d5f885"
   end
 
   def install
@@ -28,7 +28,7 @@ class Scrcpy < Formula
     cp r.cached_download, buildpath/"prebuilt-server.jar"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
                       ".."

@@ -5,20 +5,20 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://github.com/snapcore/snapcraft/archive/3.11.tar.gz"
   sha256 "aa99eb6bf585eb8fa3b1bf8bf67ec6e5df3e0c045b9c6dab03f2a660634e0311"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8b09908c66ac206bd1ee6b9ff29b5ef3b5df0e52fa29723e218ba3f113b62496" => :catalina
-    sha256 "3cfcc5e21d8947e51e59165369fe5a2aaddd3a93c243ee922d9c419a7e5b28a1" => :mojave
-    sha256 "7c5dfd58bda9a380d83df3bd539b3996e1ca58b95a9417a1321a8b9998be547b" => :high_sierra
+    sha256 "a9c2d8e1d24b1b1016f30e4cc2bcc9e19f1614ba1bbfb170b738ad710ae5d4a8" => :catalina
+    sha256 "dc2c3434e60cfd5d71852a16a4c18e8220cab8facd0ad53a1d59cb2a7b2a2b7a" => :mojave
+    sha256 "794b11dc90f3ce4a89e7aa8a7df9c6a7394c3fe8bc832a0d05492ee142a91107" => :high_sierra
   end
-
-  depends_on :macos
 
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
-  depends_on "python"
+  depends_on :macos
+  depends_on "python@3.8"
   depends_on "squashfs"
   depends_on "xdelta"
 
@@ -233,8 +233,8 @@ class Snapcraft < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   resource "wadllib" do

@@ -14,7 +14,6 @@ class Blockhash < Formula
     sha256 "70ce9fc2106d1212a82e7bffdb856d5db873fb9a355bb32c8dff7100d84b2f99" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "imagemagick"
   depends_on :macos # Due to Python 2

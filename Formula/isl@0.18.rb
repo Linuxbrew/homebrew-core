@@ -8,7 +8,7 @@ class IslAT018 < Formula
   # result in isl_version() function returning "UNKNOWN" and hence break
   # package detection.
   url "http://isl.gforge.inria.fr/isl-0.18.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/isl/isl_0.18.orig.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/i/isl/isl_0.18.orig.tar.xz"
   sha256 "0f35051cc030b87c673ac1f187de40e386a1482a0cfdf2c552dd6031b307ddc4"
 
   bottle do
@@ -19,8 +19,6 @@ class IslAT018 < Formula
     sha256 "3ef95686496676a3c73c57db6eee32a9f039e9c2b7ccf173c3b1941124ef6f78" => :x86_64_linux
   end
 
-  keg_only :versioned_formula
-
   head do
     url "http://repo.or.cz/r/isl.git"
 
@@ -28,6 +26,8 @@ class IslAT018 < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  keg_only :versioned_formula
 
   depends_on "gmp"
   depends_on :linux

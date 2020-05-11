@@ -5,16 +5,16 @@ class Poetry < Formula
   homepage "https://python-poetry.org/"
   url "https://files.pythonhosted.org/packages/2c/79/7fc6e1ac5ebff02e39f24a17ddf56ef6370797a8371e6cfc5c7b56d3a1ea/poetry-1.0.5.tar.gz"
   sha256 "8e195ea8a4bce4f418a23fd828aa2f9ce06be7655720efd1d95beb0ee641030a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "956d9adc2bb2ce53ab91f07a95b4b428b19d417d9c60c2bbecc1a80e427a82a3" => :catalina
-    sha256 "a49ff6db739734ad61395f5fc13bd210acf25e85494e88a781a86123b61f6d15" => :mojave
-    sha256 "aff660f59f6b781e3d5556c6278c26742b42be8c70e9695907480a235d614c6e" => :high_sierra
+    sha256 "b081ec3078113af5a1bf669742a3bd2e298f26a3e1d1cf6a34b66f2d7a9dff84" => :catalina
+    sha256 "73e61326e2f5d555d3ef86a26febaa85f687d4e46bb4ee72d44eb789f464140a" => :mojave
+    sha256 "8c586cabadd254a343075a78116a706cd0ad0eec1a4c97f09e88683f208fa674" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
@@ -32,8 +32,8 @@ class Poetry < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
-    sha256 "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
+    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
+    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
   end
 
   resource "chardet" do
@@ -47,8 +47,8 @@ class Poetry < Formula
   end
 
   resource "clikit" do
-    url "https://files.pythonhosted.org/packages/17/c1/72bb34dcb120d32850543389e8d40b5bacba447152832569ba081113f003/clikit-0.4.2.tar.gz"
-    sha256 "f67336462800078e0896cf6ecfa3b460dfea4dfa01de659388a4ff0d83c8d6ca"
+    url "https://files.pythonhosted.org/packages/95/55/c9013126e2468e80a30f3aaec8fdb9b55772f4ab91f79ec8290f6426c60b/clikit-0.4.3.tar.gz"
+    sha256 "6e2d7e115e7c7b35bceb0209109935ab2f9ab50910e9ff2293f7fa0b7abf973e"
   end
 
   resource "html5lib" do
@@ -59,12 +59,6 @@ class Poetry < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
     sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
-  end
-
-  # importlib-metadata<1.2.0,>=1.1.3
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/e0/ab/591e1162057d42954114d87cd73ee29f7259535f3743f6618fc09ce681a9/importlib_metadata-1.1.3.tar.gz"
-    sha256 "7a99fb4084ffe6dae374961ba7a6521b79c1d07c658ab3a28aa264ee1d1b14e3"
   end
 
   resource "jsonschema" do
@@ -81,11 +75,6 @@ class Poetry < Formula
   resource "lockfile" do
     url "https://files.pythonhosted.org/packages/17/47/72cb04a58a35ec495f96984dddb48232b551aafb95bde614605b754fe6f7/lockfile-0.12.2.tar.gz"
     sha256 "6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799"
-  end
-
-  resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/a0/47/6ff6d07d84c67e3462c50fa33bf649cda859a8773b53dc73842e84455c05/more-itertools-8.2.0.tar.gz"
-    sha256 "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"
   end
 
   resource "msgpack" do
@@ -119,8 +108,8 @@ class Poetry < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz"
-    sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   # pyrsistent<0.15.0,>=0.14.2
@@ -157,8 +146,8 @@ class Poetry < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   resource "webencodings" do
@@ -166,28 +155,23 @@ class Poetry < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/78/08/d52f0ea643bc1068d6dc98b412f4966a9b63255d20911a23ac3220c033c4/zipp-1.2.0.tar.gz"
-    sha256 "c70410551488251b0fee67b460fb9a536af8d6f9f008ad10ac51f615b6a521b1"
-  end
-
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
 
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     site_packages = libexec/"lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", site_packages
-    system "python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
     (bin/"poetry").write <<~PYTHON
-      #!#{Formula["python"].opt_bin/"python3"}
+      #!#{Formula["python@3.8"].opt_bin/"python3"}
       import sys
 
       sys.path.insert(0, "#{site_packages}")
@@ -206,9 +190,9 @@ class Poetry < Formula
     assert_match "Created package", shell_output("#{bin}/poetry new homebrew")
 
     cd testpath/"homebrew" do
-      system "#{bin}/poetry", "config", "virtualenvs.in-project", "true"
-      system "#{bin}/poetry", "add", "requests"
-      system "#{bin}/poetry", "add", "boto3"
+      system bin/"poetry", "config", "virtualenvs.in-project", "true"
+      system bin/"poetry", "add", "requests"
+      system bin/"poetry", "add", "boto3"
     end
 
     assert_predicate testpath/"homebrew/pyproject.toml", :exist?

@@ -5,15 +5,15 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v1.17.5.tar.gz"
-  sha256 "385e5b5c6c5f962073764ceb2350326ce6effef5304135b20bea04427dccbe1c"
+  url "https://github.com/hadolint/hadolint/archive/v1.17.6.tar.gz"
+  sha256 "c2de395107f33948f383a0670cf11bf5a54f9aacbf8eea568bae807adf45463e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a878f0f34ce987a40bc2d5e7a7c4cb9afeebcaa657793eaaf15d9bc025b6f591" => :catalina
-    sha256 "ec4f7290b4a57dafdf8a66543b87a04e9dd9aac590e5810a82779888e396fec3" => :mojave
-    sha256 "2a7e7a9198c8220f0c8ea4a259606cddad3787e02bed7f05d5071394f40548b8" => :high_sierra
-    sha256 "042660292f0e2665aeee8cf10ce152ae7693e43b55f6cbafd6ef8897d646947d" => :x86_64_linux
+    sha256 "93f0d394892e8a508027e4d46e53c8df3b5e13c12d747a78ac8fd20e390a2fb6" => :catalina
+    sha256 "6087ee380c2b66cc7b7c2cf926402077c5d2deac7333237eecb7a4c82286b8b2" => :mojave
+    sha256 "397569db01cf56a8fa5693d70598d4bf48c361db11b3b51479a7887c7ed93cef" => :high_sierra
+    sha256 "6ebfddc1d63f10ebe68e2b9eff1efa1e6045b059c01897c92cf1de9148c0dfb5" => :x86_64_linux
   end
 
   depends_on "haskell-stack" => :build

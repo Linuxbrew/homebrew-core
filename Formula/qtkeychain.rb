@@ -35,7 +35,10 @@ class Qtkeychain < Formula
       args += ["-F#{Formula["qt"].opt_lib}", "-framework", "QtCore"]
     else
       # Fix error: You must build your code with position independent code if Qt was built with -reduce-relocations.
-      args += ["-fPIC", "-L#{Formula["qt"].opt_lib}", "-lQt5Core", "-Wl,-rpath=#{lib}/x86_64-linux-gnu:#{Formula["qt"].lib}"]
+      args += [
+        "-fPIC", "-L#{Formula["qt"].opt_lib}",
+        "-lQt5Core", "-Wl,-rpath=#{lib}/x86_64-linux-gnu:#{Formula["qt"].lib}"
+      ]
     end
     system ENV.cxx, *args
     system "./test"

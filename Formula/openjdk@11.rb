@@ -10,6 +10,7 @@ class OpenjdkAT11 < Formula
     sha256 "1cef37f5566ca7c60c03bad337c81516525459a7c4892519bc9badf90633a935" => :catalina
     sha256 "5bb229b65beda25d23ffee46f02bc8a921ad21c9312716e20ea4eba2cfb27901" => :mojave
     sha256 "2ee32dada456c7c8560ebda3d6b182a80a83b015cd91a30e82602ae0b5e4ce0a" => :high_sierra
+    sha256 "2fb2601acfe01331d503df321c6ea237f18326595115238dc44c36a3f498aff4" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -73,11 +74,10 @@ class OpenjdkAT11 < Formula
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
     else
-      jdk = "build/macosx-x86_64-normal-server-release/images/jdk-bundle/jdk-#{short_version}.jdk"
-      libexec.install jdk => "openjdk.jdk"
-      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
-      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
-      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+      libexec.install Dir["build/linux-x86_64-normal-server-release/images/jdk/*"]
+      bin.install_symlink Dir["#{libexec}/bin/*"]
+      include.install_symlink Dir["#{libexec}/include/*.h"]
+      include.install_symlink Dir["#{libexec}/include/linux/*.h"]
     end
   end
 

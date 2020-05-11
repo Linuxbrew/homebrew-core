@@ -4,18 +4,19 @@ class Bento4 < Formula
   url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-632.zip"
   version "1.6.0-632"
   sha256 "faa3a406dc24c3d34d29661bbbe94b42c7f7deee9a5c624696a055bb9b7da6ad"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f90b47d477917e0f567895dd96ce1f08ace1ac04719451f12cabd29f5e38aec8" => :catalina
-    sha256 "8e2127cf58ec07d5c6a735072f875c458c96115b9859161e46e1a632e59547d2" => :mojave
-    sha256 "d874fe1f7f65ff3a48c09b63f0dcbe5eb9a77d182165370772861d219cdbd0d2" => :high_sierra
-    sha256 "881568fae65753401ac9d52f144b96fe2c7a49912c182a7f9d2d1fdd03c375e8" => :x86_64_linux
+    sha256 "c2a563a7f037d33921334541e706a3f98ae0556ff08ba3e33992d4c26342de19" => :catalina
+    sha256 "f74dc8941419a6fffe52606dd40e2f612a8b8713ea6249fc6d20b6f3656e1859" => :mojave
+    sha256 "39cf05c54bc595fa014196b8f0fa0847e2d39d25e720bf9c6b581a578a77631b" => :high_sierra
+    sha256 "4e8f883c55edd2f50eb6886668b04ebbe48d82688be5a50b234db59b964390b6" => :x86_64_linux
   end
 
   depends_on "cmake" => :build unless OS.mac?
   depends_on :xcode => :build if OS.mac?
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
   conflicts_with "mp4v2",

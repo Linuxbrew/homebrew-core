@@ -7,18 +7,21 @@ class Hsd < Formula
   sha256 "e53689784d677e4f729dd723e753038b020e030522e7c43b5dd753b7079a05f7"
 
   bottle do
-    sha256 "db98049e6689a72c86b560b8a9bc5926114b1af9271ecfb51e23d591a3f4012a" => :catalina
-    sha256 "91622dc051c25648f5a533cd0c227670800be9718b47bb33b29181fb7151ecaf" => :mojave
-    sha256 "3efaa9f3ab569d428064329dbceff2426c65ffaa939a905a872a8b154c1f6a9f" => :high_sierra
+    rebuild 1
+    sha256 "dbd50284d8546d83bbe30663b99eeb5244fad4c0fedac0e673772b99300e0967" => :catalina
+    sha256 "051254fac8a90d4069a7da8a56e17b16b926083d74bf699b34ab71d0c815bd81" => :mojave
+    sha256 "0420b2d3785703c26a0c02f873d08463795e0bcee43a5f3bf871b28a7901ba40" => :high_sierra
   end
 
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "node@10"
   depends_on "unbound"
 
   def install
     system "#{Formula["node@10"].bin}/npm", "install", *Language::Node.std_npm_install_args(libexec)
     (bin/"hsd").write_env_script libexec/"bin/hsd", :PATH => "#{Formula["node@10"].opt_bin}:$PATH"
+    bin.install_symlink libexec/"bin/hsd-cli"
+    bin.install_symlink libexec/"bin/hsw-cli"
   end
 
   test do

@@ -1,14 +1,14 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.36/file-roller-3.36.1.tar.xz"
-  sha256 "70a5e551dd07c299df03fcda00c2251c5d1d3e239f3ed711b8bbaaa75897425c"
+  url "https://download.gnome.org/sources/file-roller/3.36/file-roller-3.36.2.tar.xz"
+  sha256 "268f7fdad8d2a78dfed5e82eb8710bad389c311b720666d6f07a04ed51056bd2"
 
   bottle do
-    sha256 "5fc1561ec2aa492049da91c0dd4b86ea9b4d1142d7e2ffdfb9091c6619b6aea1" => :catalina
-    sha256 "6499dc55f09537c26f7131b7268a42437fb995cb6e411633996bd6a07d976198" => :mojave
-    sha256 "770aeadb901a95ccfa2faa766e5f37e76ff00e246148d298422c41359ca01961" => :high_sierra
-    sha256 "7cb617aa7a79d3dccdb86170225651a444aa3b3f336a8069f7ef3355051a8df2" => :x86_64_linux
+    sha256 "f5e19d928a57a9682fa124ca664dfe124a971276232f1c84734aa8f8494ad054" => :catalina
+    sha256 "90f2d518d92a455680007b2883017a3e9d29b9a43ff254c051dcdce254fe4e8c" => :mojave
+    sha256 "57ee6029c10a30c8f802bfa38333a431c941682f3c5ab01aabb938a0a72b513c" => :high_sierra
+    sha256 "9e12d4eca14343b337e8d7b4d718f7468a469bfc95b37baf6ea802d561118da9" => :x86_64_linux
   end
 
   depends_on "itstool" => :build
@@ -30,7 +30,7 @@ class FileRoller < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = ""
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dpackagekit=false", ".."
+      system "meson", *std_meson_args, "-Dpackagekit=false", ".."
       system "ninja"
       system "ninja", "install"
     end

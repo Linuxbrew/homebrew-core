@@ -3,17 +3,16 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/76/d4/13001e8671e8b012ec25acb9a695d3271ceed2dc6aa8f94103a6dd0c4577/ipython-7.13.0.tar.gz"
-  sha256 "ca478e52ae1f88da0102360e57e528b92f3ae4316aabac80a2cd7f7ab2efb48a"
-  revision 1
+  url "https://files.pythonhosted.org/packages/cc/c8/500d15efe49f38c36d36ee2433dccc34fc47fc56f40fd38e194d47c142c8/ipython-7.14.0.tar.gz"
+  sha256 "f0126781d0f959da852fb3089e170ed807388e986a8dd4e6ac44855845b0fb1c"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
     cellar :any
-    sha256 "ebabba5b81a7815cae12a0a7390cf0c2ff44b2be396d319e33c023b0e4821835" => :catalina
-    sha256 "507b48a0d3198cc5507c5bdc2442162c514888373decafdade0a597f22ddee58" => :mojave
-    sha256 "cddcb624c7910a4e8d9d1cbd4db7f9c49d613580620247b247c99c7bcbd992bb" => :high_sierra
-    sha256 "ee5e1e75c0797ae4e57be5a9b53ae374e4a36617efd43863932644a006f9367f" => :x86_64_linux
+    sha256 "c40e96aaf4503d14502cb43260d47d30a71f1ea44149f530163542f4d5410c34" => :catalina
+    sha256 "a33734829766f475d7f16ac3374a72fb535542803cfb8bb14fe9e9816a470868" => :mojave
+    sha256 "4d44a99e08077c63dc121097eb74c9c1215bc11684dc5b548bf850aafa7964db" => :high_sierra
+    sha256 "9cca74a521a443d7ff620cf1dd597626f21a758ec79f36826f1f2cf14187c791" => :x86_64_linux
   end
 
   depends_on "python@3.8"

@@ -12,6 +12,7 @@ class GccAT49 < Formula
 
   # gcc is designed to be portable.
   bottle do
+    cellar :any
     sha256 "cb153d98245bcbe4809dc19adf688f642285154b19fe907c7de3cb71652b0ec6" => :high_sierra
     sha256 "9d6f97e68f4bf869afcdc773a5ddcc705e14bb6742e0f2932c5b2c3d4bdb5548" => :x86_64_linux
   end
@@ -197,10 +198,10 @@ class GccAT49 < Formula
       glibc_installed = glibc.any_version_installed?
 
       # Symlink crt1.o and friends where gcc can find it.
-      if glibc_installed
-        crtdir = glibc.opt_lib
+      crtdir = if glibc_installed
+        glibc.opt_lib
       else
-        crtdir = Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
+        Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
       end
       ln_sf Dir[crtdir/"*crt?.o"], libgcc
 

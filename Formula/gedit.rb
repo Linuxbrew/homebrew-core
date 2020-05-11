@@ -1,13 +1,13 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.36/gedit-3.36.1.tar.xz"
-  sha256 "6dc38eda227d1c368e039e9bff485d0bee9a49d5f9560c387ee08f5818a4e387"
+  url "https://download.gnome.org/sources/gedit/3.36/gedit-3.36.2.tar.xz"
+  sha256 "6887554643c5b1b3862ac364d97b7b50224bff95e6758aeaa08f4a482b554197"
 
   bottle do
-    sha256 "6c19428d04cc675a778f3fec056ca5275ebbf4efd3ff5fd3ed86bd22defe8585" => :catalina
-    sha256 "55192cacaac7d6bb990bd7d40c8182e9dc44b421e2ae4c562b8fe9c384e80597" => :mojave
-    sha256 "95fac8e5c87b702c88fba9f3d927b92faa349b903193c75b94b4b8e0d2280580" => :high_sierra
+    sha256 "3f62658cf0219af33b8a82b976cbd67ccd1c8d48443fb9353b57d58f6b7e6b1d" => :catalina
+    sha256 "aaa102d21d429ff56289cf1a379446932437925d346758281bbee7a12602aaf8" => :mojave
+    sha256 "5f6fedf5196f272f6b1f5b9314b4449e74432d7f277aa003bc54f134b9f88dd3" => :high_sierra
   end
 
   depends_on "itstool" => :build
@@ -36,7 +36,7 @@ class Gedit < Formula
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

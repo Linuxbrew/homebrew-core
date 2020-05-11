@@ -5,11 +5,12 @@ class Bcoin < Formula
   homepage "https://bcoin.io"
   url "https://github.com/bcoin-org/bcoin/archive/v2.0.0.tar.gz"
   sha256 "ff99b735d3b23624455d72eada0de7f7ba4207f4a4cc0cab963ca2036de254a3"
+  revision 1
 
   bottle do
-    sha256 "4213df6b695d8fef6991a6d8a911b23599b8539487d5a6f1897d95845a281efc" => :catalina
-    sha256 "c7f4e5ff082cc63eb342c1f6ec5f88480abc12bddcdd5d310c1514496904ea62" => :mojave
-    sha256 "3054378525f593ac70a13a139ef5be6f343c7c0e22cedffee2b98b44020e0cc6" => :high_sierra
+    sha256 "9a420ad427d4a90ab88db446476153cfdea523342be2f197fd819a864b96ce32" => :catalina
+    sha256 "2b3ca9fccab4a1bbcc965af840d0ed9c66e389fd142074ac8be68ecf187399e2" => :mojave
+    sha256 "110585863636021065b56cd48293c73cef80a9fb96d0a8de27a5cc548f429632" => :high_sierra
   end
 
   depends_on "python@3.8" => :build

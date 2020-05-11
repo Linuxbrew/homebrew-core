@@ -10,12 +10,13 @@ class Mpv < Formula
     sha256 "f54249d632d0e80a5bf8181a2e8a944f8a6e5b12fbbd2f86f1cd9a2e62c760bf" => :catalina
     sha256 "c3a6805d2e6a5140466f07a38add45866b45ac88d5792e1bde82269c8f152f55" => :mojave
     sha256 "bce5f886921c00fac8b731a0090d18b20a4c26b4fcd9550700d3ca6cbf3796f2" => :high_sierra
+    sha256 "04356214044146325200ba77688e22a22b946eba6116fdd9fee54f2c27aab6a3" => :x86_64_linux
   end
 
   depends_on "docutils" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   depends_on "ffmpeg"
   depends_on "jpeg"
