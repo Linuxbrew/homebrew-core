@@ -15,6 +15,7 @@ class Embree < Formula
   depends_on "cmake" => :build
   depends_on "ispc" => :build
   depends_on "tbb"
+  depends_on "gcc" unless OS.mac?
 
   def install
     max_isa = (!OS.mac? || MacOS.version.requires_sse42?) ? "SSE4.2" : "SSE2"
