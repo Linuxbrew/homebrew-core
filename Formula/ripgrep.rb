@@ -3,14 +3,13 @@ class Ripgrep < Formula
   homepage "https://github.com/BurntSushi/ripgrep"
   url "https://github.com/BurntSushi/ripgrep/archive/12.1.0.tar.gz"
   sha256 "ca2d11dd7b7346734d47ad8073468e9c409fbe85842a608d372b8d4fb36be291"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
     sha256 "2166ad007897bd17af541ee32a799cc022153712989bb054ab31c3b3ff187faf" => :catalina
     sha256 "a379bb5c1370d4680654ba7db02366f3f6773204bb26f32c23b11891db85b4c3" => :mojave
     sha256 "c275e581ab2f5ccf3a93c085f7915d1d8699df5b5aeec5d84b398651a2a836b0" => :high_sierra
-    sha256 "a2c3dc111d9f92640770224d24e6de509c95d8d25ca76fe6f82b6045af87da91" => :x86_64_linux
   end
 
   depends_on "asciidoctor" => :build
@@ -27,8 +26,7 @@ class Ripgrep < Formula
     # Completion scripts and manpage are generated in the crate's build
     # directory, which includes a fingerprint hash. Try to locate it first
     out_dir = Dir["target/release/build/ripgrep-*/out"].first
-    # No man page gets built on Linux:
-    man1.install "#{out_dir}/rg.1" if OS.mac?
+    man1.install "#{out_dir}/rg.1"
     bash_completion.install "#{out_dir}/rg.bash"
     fish_completion.install "#{out_dir}/rg.fish"
     zsh_completion.install "complete/_rg"
