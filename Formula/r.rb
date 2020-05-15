@@ -5,6 +5,12 @@ class R < Formula
   sha256 "06beb0291b569978484eb0dcb5d2339665ec745737bdfb4e873e7a5a75492940"
   revision 1
 
+  bottle do
+    sha256 "5905c138df0ad32f3bd822bb0913da1afb28a2b037ff466e8003065d94978414" => :catalina
+    sha256 "fa57206731acfdb0418e84e5bf1c7ef1fbbab8b15597b569039f71ee3337750a" => :mojave
+    sha256 "5e534f3435aa4a48b7874c3a65e1a12ba28fa71d726cc82fdbaa44e3973fb9e6" => :high_sierra
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gcc" # for gfortran
   depends_on "gettext"
