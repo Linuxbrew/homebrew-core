@@ -27,6 +27,7 @@ class R < Formula
     depends_on "curl"
     depends_on "pango"
     depends_on "linuxbrew/xorg/xorg"
+    depends_on "tcl-tk"
   end
 
   # needed to preserve executable permissions on files without shebangs
@@ -62,6 +63,11 @@ class R < Formula
       args << "--without-tcltk"
       args << "--without-x"
       args << "--with-aqua"
+    else
+      args << "--with-x"
+      args << "--with-tcltk"
+      args << "--with-tcl-config=#{HOMEBREW_PREFIX}/lib/tclConfig.sh"
+      args << "--with-tk-config=#{HOMEBREW_PREFIX}/lib/tkConfig.sh"
     end
 
     unless OS.mac?
