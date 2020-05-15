@@ -94,12 +94,20 @@ class Opencv < Formula
 
     mkdir "build" do
       system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      if OS.mac?
+        inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      else
+        inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+      end
       system "make"
       system "make", "install"
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      if OS.mac?
+        inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      else
+        inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+      end
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
