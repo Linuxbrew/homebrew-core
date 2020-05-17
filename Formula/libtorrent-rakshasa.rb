@@ -17,6 +17,8 @@ class LibtorrentRakshasa < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   conflicts_with "libtorrent-rasterbar",
     :because => "they both use the same libname"
 
