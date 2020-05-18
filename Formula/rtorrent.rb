@@ -19,9 +19,15 @@ class Rtorrent < Formula
   depends_on "xmlrpc-c"
 
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
 
   def install
+    unless OS.mac?
+      ENV.prepend_path "PATH", Formula["curl"].opt_bin
+      ENV.prepend_path "PATH", Formula["libxml2"].opt_bin
+    end
+
     args = ["--prefix=#{prefix}", "--with-xmlrpc-c",
             "--disable-debug", "--disable-dependency-tracking"]
 
