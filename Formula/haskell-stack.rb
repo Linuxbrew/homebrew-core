@@ -29,7 +29,7 @@ class HaskellStack < Formula
       sha256 "73eee7e5f24d11fd0af00cb05f16119e86be5d578c35083250e6b85ed1ca3621"
     else
       url "https://github.com/commercialhaskell/stack/releases/download/v2.3.1/stack-2.3.1-linux-x86_64.tar.gz"
-      sha256 "5fd2a71f87f62efc37bfaaf4f4019269523dfd486c689849c60176bb76bf68c9"
+      sha256 "b753cd21d446aea16a221326ec686e3acdf1b146c714a77b5d27fd855475554d"
     end
   end
 
