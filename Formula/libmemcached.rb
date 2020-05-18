@@ -60,11 +60,19 @@ class Libmemcached < Formula
           memcached_free(memc);
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmemcached", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-I#{include}", "-L#{lib}", "-lmemcached", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmemcached", "-o", "test"
+    end
 
     memcached = Formula["memcached"].bin/"memcached"
     # Assumes port 11211 is not already taken
-    io = IO.popen("#{memcached} --listen=localhost:11211")
+    io = if Process.uid.zero?
+      IO.popen("#{memcached} -u root --listen=localhost:22122")
+    else
+      IO.popen("#{memcached} --listen=localhost:11211")
+    end
     sleep 1
     system "./test"
     Process.kill "TERM", io.pid
