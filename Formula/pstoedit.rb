@@ -4,12 +4,12 @@ class Pstoedit < Formula
   url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.75/pstoedit-3.75.tar.gz"
   sha256 "b7b5d8510b40a5b148f7751268712fcfd0c1ed2bb46f359f655b6fcdc53364cf"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 "f048d902c088f0625c0c9e18d84b159493775b40e742812b040e7b517900260a" => :catalina
     sha256 "1f3ec91e58d95e08081694b43e031ed83f13a73cecff15c55c532268282b0ad1" => :mojave
     sha256 "22710dd8997d40cec3492c40960a9966b80b386bdbd3fed46515c66bb25053d7" => :high_sierra
-    sha256 "75adb28562720aab3b02a1cd11ffa1dd0aa39a8e0ff26f398bcf0831d6c44c90" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -23,7 +23,7 @@ class Pstoedit < Formula
     fails_with :gcc => "6"
     fails_with :gcc => "7"
     fails_with :gcc => "8"
-    depends_on "gcc@9" => :build
+    depends_on "gcc" => :build
   end
 
   def install
