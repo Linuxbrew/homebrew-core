@@ -14,6 +14,9 @@ class XmlrpcC < Formula
     sha256 "6fb643c4bc7e7fdef6c276f533eedafe77d325fd505218bdbd8244af5577db31" => :yosemite
   end
 
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+
   def install
     ENV.deparallelize
     # --enable-libxml2-backend to lose some weight and not statically link in expat
