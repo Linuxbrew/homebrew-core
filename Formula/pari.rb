@@ -12,6 +12,7 @@ class Pari < Formula
 
   depends_on "gmp"
   depends_on "readline"
+  depends_on "texlive" => :build unless OS.mac?
 
   def install
     readline = Formula["readline"].opt_prefix
@@ -25,7 +26,8 @@ class Pari < Formula
     system "make", "install"
 
     # Avoid references to Homebrew shims
-    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/", "/usr/bin/"
+    os = OS.mac? ? "mac" : "linux"
+    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/#{os}/super/", "/usr/bin/"
   end
 
   def caveats
