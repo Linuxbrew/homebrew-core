@@ -12,6 +12,10 @@ class Ffsend < Formula
   end
 
   depends_on "rust" => :build
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
+  end
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
