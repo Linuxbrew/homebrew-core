@@ -5,7 +5,6 @@ class Fontforge < Formula
   sha256 "ad0eb017379c6f7489aa8e2d7c160f19140d1ac6351f20df1d9857d9428efcf2"
 
   bottle do
-    cellar :any
     sha256 "f2a861d9e005be0529b4a9d18df5a0b71593f807c17b83aa079442b05a637cf9" => :catalina
     sha256 "9a1c7d709333b87451146f49e309f12126f8ae52036e2f459476d409b7ae7aca" => :mojave
     sha256 "5751d301e37649f5fb07cebd915be0a80a5443766ef23d70ef90dfe61bc1ff33" => :high_sierra
@@ -37,6 +36,13 @@ class Fontforge < Formula
   patch do
     url "https://github.com/fontforge/fontforge/pull/4258.patch?full_index=1"
     sha256 "3deed4d79a1fdf5fb6de2fca7da8ffe14301acbeb015441574a7a28e902561f5"
+  end
+
+  unless OS.mac?
+    patch do
+      url "https://github.com/fontforge/fontforge/commit/297ee9b5d6db5970ca17ebe5305189e79a1520a1.patch?full_index=1"
+      sha256 "36efb35aa54b4286ef05b2047e716c19027aac0633ef5284a614f76d43e48eec"
+    end
   end
 
   def install
