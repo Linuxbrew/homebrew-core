@@ -25,6 +25,8 @@ class GccAT5 < Formula
     satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
+  keg_only :versioned_formula
+
   depends_on :maximum_macos => [:high_sierra, :build]
 
   depends_on "gmp"
@@ -167,15 +169,6 @@ class GccAT5 < Formula
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.
       system "make", OS.mac? ? "install" : "install-strip"
-
-      unless OS.mac?
-        bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
-
-        # Create cpp, gcc and g++ symlinks
-        bin.install_symlink "cpp-#{version_suffix}" => "cpp"
-        bin.install_symlink "gcc-#{version_suffix}" => "gcc"
-        bin.install_symlink "g++-#{version_suffix}" => "g++"
-      end
     end
 
     # Handle conflicts between GCC formulae.
