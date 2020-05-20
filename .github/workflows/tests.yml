@@ -6,7 +6,7 @@ jobs:
   tap_syntax:
     runs-on: ubuntu-latest
     container:
-      image: homebrew/brew
+      image: homebrew/ubuntu16.04:master
     steps:
       - name: Check out tap
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
     if: github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, 'Merge') == false
     runs-on: ubuntu-latest
     container:
-      image: homebrew/brew
+      image: homebrew/ubuntu16.04:master
     steps:
       - name: Check out tap
         uses: actions/checkout@v2

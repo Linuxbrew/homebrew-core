@@ -12,7 +12,7 @@ jobs:
     if: startsWith(github.event.head_commit.message, 'Merge') == false && github.event.pusher.name != 'BrewTestBot'
     runs-on: ubuntu-latest
     container:
-      image: homebrew/brew
+      image: homebrew/ubuntu16.04:master
     steps:
       - name: Determine associated pull request
         uses: actions/github-script@0.9.0

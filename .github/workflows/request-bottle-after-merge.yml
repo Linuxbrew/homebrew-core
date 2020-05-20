@@ -12,7 +12,7 @@ jobs:
     if: startsWith(github.event.head_commit.message, 'Merge') == true && contains(github.event.head_commit.message, 'Conflicts') == true
     runs-on: ubuntu-latest
     container:
-      image: homebrew/brew
+      image: homebrew/ubuntu16.04:master
     steps:
       - name: Tap linux-dev
         run: |

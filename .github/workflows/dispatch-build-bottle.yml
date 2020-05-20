@@ -6,7 +6,7 @@ jobs:
   bottling:
     runs-on: ubuntu-latest
     container:
-      image: homebrew/brew
+      image: homebrew/ubuntu16.04:master
     steps:
         # Printing these details should always be the first step listed.
       - name: ${{github.event.client_payload.formula}}
