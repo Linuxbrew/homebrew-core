@@ -44,11 +44,11 @@ jobs:
       - name: Run brew test-bot --only-setup
         run: brew test-bot --only-setup
 
-      - name: Run brew test-bot --only-formulae
+      - name: Run brew test-bot --tap=homebrew/core --only-formulae --keep-old
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          brew test-bot --only-formulae --keep-old
+          brew test-bot --tap=homebrew/core --only-formulae --keep-old
 
       - name: Output brew test-bot --only-formulae failures
         if: always()
