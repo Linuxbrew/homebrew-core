@@ -15,10 +15,18 @@ class Ccfits < Formula
   depends_on "cfitsio"
 
   def install
-    system "./configure", "--disable-debug",
+    if OS.mac?
+      system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
+    else
+      system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "pfk_cxx_lib_path=/usr/bin/g++"
+    end
     system "make"
     system "make", "install"
   end
