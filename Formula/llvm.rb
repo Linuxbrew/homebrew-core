@@ -71,7 +71,7 @@ class Llvm < Formula
     end
 
     # Needed for crystal
-    patch :DATA
+    patch :p2, :DATA
   end
 
   bottle do
@@ -385,7 +385,7 @@ class Llvm < Formula
 end
 __END__
 diff --git a/llvm/include/llvm/BinaryFormat/Dwarf.h b/llvm/include/llvm/BinaryFormat/Dwarf.h
-index 3f3622149..2db3bfcc6 100644
+index 2ad201831..8bb9c6bed 100644
 --- a/llvm/include/llvm/BinaryFormat/Dwarf.h
 +++ b/llvm/include/llvm/BinaryFormat/Dwarf.h
 @@ -232,6 +232,8 @@ inline bool isCPlusPlus(SourceLanguage S) {
