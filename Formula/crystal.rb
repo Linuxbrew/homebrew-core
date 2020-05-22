@@ -113,7 +113,7 @@ class Crystal < Formula
     (bin/"crystal").write_env_script libexec/"crystal",
       :PKG_CONFIG_PATH => "${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl@1.1"].opt_lib/"pkgconfig"}"
 
-    inreplace bin/name, "\"$@\"", "--no-debug \"$@\"" unless OS.mac?
+    inreplace bin/name, "\"$@\"", "\"$@\" --no-debug" unless OS.mac?
 
     prefix.install "src"
     (prefix/"embedded/lib").install "#{buildpath/"gc"}/.libs/libgc.a"
