@@ -3,7 +3,7 @@ require "os/linux/glibc"
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision OS.mac? ? 3 : 5
+  revision OS.mac? ? 3 : 6
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz"
@@ -69,6 +69,9 @@ class Llvm < Formula
       url "https://github.com/llvm/llvm-project/commit/7f5fe30a150e7e87d3fbe4da4ab0e76ec38b40b9.patch?full_index=1"
       sha256 "9ed85d2b00d0b70c628a5d1256d87808d944532fe8c592516577a4f8906a042c"
     end
+
+    # Needed for crystal
+    patch :DATA
   end
 
   bottle do
@@ -76,7 +79,6 @@ class Llvm < Formula
     sha256 "ea9b9f579df49499d9ab0084e10edecc5350298d6c5db399a1dabc8694dab7db" => :catalina
     sha256 "14f59a25e73e3a00fd36632f2106b41eda1b54aa1039b4b979bd957a8c041bf4" => :mojave
     sha256 "6e09ca233790a58edae55bba453fd50179369b5514acb5f8b86156401227a75e" => :high_sierra
-    sha256 "ebcfa536b0ccb605be6966a8a44b133f347482cd91aa3a83a5e44fa062fe289a" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -381,3 +383,17 @@ class Llvm < Formula
     end
   end
 end
+__END__
+diff --git a/llvm/include/llvm/BinaryFormat/Dwarf.h b/llvm/include/llvm/BinaryFormat/Dwarf.h
+index 3f3622149..2db3bfcc6 100644
+--- a/llvm/include/llvm/BinaryFormat/Dwarf.h
++++ b/llvm/include/llvm/BinaryFormat/Dwarf.h
+@@ -232,6 +232,8 @@ inline bool isCPlusPlus(SourceLanguage S) {
+   case DW_LANG_hi_user:
+     return false;
+   }
++  if (S >= DW_LANG_lo_user && S <= DW_LANG_hi_user)
++    return false;
+   llvm_unreachable("Invalid source language");
+ }
+ 
