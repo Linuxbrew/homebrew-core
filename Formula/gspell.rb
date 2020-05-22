@@ -22,6 +22,8 @@ class Gspell < Formula
   depends_on "iso-codes"
   depends_on "vala"
 
+  uses_from_macos "libffi"
+
   patch :DATA
 
   def install
