@@ -5,7 +5,6 @@ class Libexif < Formula
   sha256 "5048f1c8fc509cc636c2f97f4b40c293338b6041a5652082d5ee2cf54b530c56"
 
   bottle do
-    cellar :any
     sha256 "7379f6990018006122bba69098864e8877e8e6e7be3af535f7e301d8ff097e98" => :catalina
     sha256 "c20d311fbd1846ce2603950ec9ad9b3b6e8202bf2f97e9aab328c05dc568fcfe" => :mojave
     sha256 "8b1c7cf6ec777090ce22ccf5c426867948a54da9378e0c9b91d85175eaea4f81" => :high_sierra
