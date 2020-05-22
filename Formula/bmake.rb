@@ -23,6 +23,9 @@ class Bmake < Formula
   end
 
   test do
+    # Fix bmake: no system rules (sys.mk) on Linux
+    ENV["MAKESYSPATH"] = Formula["bmake"].share/"mk" unless OS.mac?
+
     (testpath/"Makefile").write <<~EOS
       all: hello
 
