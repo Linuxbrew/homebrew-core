@@ -23,8 +23,8 @@ class Sundials < Formula
   def install
     blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
     args = std_cmake_args + %W[
-      -DCMAKE_C_COMPILER=/usr/bin/clang
-      -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+      -DCMAKE_C_COMPILER=#{OS.mac? ? "/usr/bin/clang" : "/usr/bin/gcc"}
+      -DCMAKE_CXX_COMPILER=#{OS.mac? ? "/usr/bin/clang++" : "/usr/bin/g++"}
       -DBUILD_SHARED_LIBS=ON
       -DKLU_ENABLE=ON
       -DKLU_LIBRARY_DIR=#{Formula["suite-sparse"].opt_lib}
