@@ -3,13 +3,13 @@ class Shadowenv < Formula
   homepage "https://shopify.github.io/shadowenv/"
   url "https://github.com/Shopify/shadowenv/archive/2.0.2.tar.gz"
   sha256 "cd84eae312073b7ff3d799b9f095d16c8d97edc4700a2af0c359a1db744714e6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
     sha256 "8392eac6bf8d09067b6688d6bc713d6ef36bbdf16111253f6da7f355164a6e24" => :catalina
     sha256 "65aa5ddb76b7ebb453f4aa138847d237616d5c36a41376e5349bb9b87e5f656c" => :mojave
     sha256 "000b9f2d6fb73be7d466fce5cf948eeba3df27261bc410f6d0064cd3a4d09e92" => :high_sierra
-    sha256 "4ac5a0ec3e32b01459a726add71a70ebcdb2b0c1904ce5d9f9461f28f7c8e064" => :x86_64_linux
   end
 
   depends_on "rust" => :build
