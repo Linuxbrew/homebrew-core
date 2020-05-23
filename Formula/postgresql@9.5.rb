@@ -3,13 +3,12 @@ class PostgresqlAT95 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.5.22/postgresql-9.5.22.tar.bz2"
   sha256 "48555470a17248cb204d25ab1ad4231ef16295db55161922f006b9942d69640f"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 "9ad944bf158f180a3a3c8771b6f3d179b96b099b9921069d47842126d9a41766" => :catalina
     sha256 "e26219b804f08bbadd8fda68d067d2cf06b50217745baf7929a437727379c5e5" => :mojave
     sha256 "3f64e3cd2e6c8506cc899e2647c059f0f217b1786458e7171ec0d2221a7812ea" => :high_sierra
-    sha256 "6a011b2bc8919c50a1dd4100b4a623870f38a5fe327e20474ce97297022a2e10" => :x86_64_linux
   end
 
   keg_only :versioned_formula
