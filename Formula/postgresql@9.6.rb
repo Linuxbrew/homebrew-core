@@ -3,13 +3,12 @@ class PostgresqlAT96 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.6.18/postgresql-9.6.18.tar.bz2"
   sha256 "517ec282b785e6d22f360c30ba0c5e2a506fca5ca07dcc545427511d94c89999"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 "f347514af589033fde29c8760afb57e319c1eee18b844a53973e0b9622ecad6d" => :catalina
     sha256 "f9375e4815818eb782d735bc230bbe66ec95d1aba2eff815733f5ab05ba86ff6" => :mojave
     sha256 "5f0a6602686eabd4c2303cc76265f4a1df0c8779f24dc201bb6531bfa5e06786" => :high_sierra
-    sha256 "a7ee391181a126475cf8de9df23ad4a299f58e99d857794808c6584fdfc5614c" => :x86_64_linux
   end
 
   keg_only :versioned_formula
