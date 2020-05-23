@@ -2,21 +2,29 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-    :tag      => "v3.4.8",
-    :revision => "0de2b1f8607a27a226204bd8a0ec01aa639f4c1d"
+    :tag      => "v3.4.9",
+    :revision => "54ba9589114fc3fa5cc36c313550b3c0c0938c91"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0fa3264ad50e23fec232baf9684e3a318d826c9b505f072a20f633b6f19c157e" => :catalina
-    sha256 "31bd356c2a7cc630e1dcabbe445420760b0cdbd0e9ce441eb995e9f8d5ce5b50" => :mojave
-    sha256 "fb9d8ac05222dcb6de45aa8d0da3d3dd81d89e5b7447941c12e9c62e0ec547f0" => :high_sierra
-    sha256 "4e17f6f9acce655f7101b0e9cf35d21f63b097409212280ceb536f87c9d075bc" => :x86_64_linux
+    sha256 "603a74caf79959bbd42d482f81822a83eee9a7fa4a1614c989515649972d7743" => :catalina
+    sha256 "d6d3304e5f3259a8299cbf79c369b86afe8a369ec293221611811dc716c4bca0" => :mojave
+    sha256 "cf18cb41e9ee41ec20d5598a14756d231a2013c447b5406d1995e31d18137742" => :high_sierra
   end
 
   depends_on "go" => :build
 
+  # remove in the next release
+  patch do
+    url "https://github.com/etcd-io/etcd/pull/11937.patch?full_index=1"
+    sha256 "90f44278806323ddb8cc8160cb0bd00dd892698d90f27db505dca57e3c773df2"
+  end
+
   def install
+    # Fix vendored deps issue (remove this in the next release)
+    system "go", "mod", "vendor"
+
     system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
       bin/"etcd"
     system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
