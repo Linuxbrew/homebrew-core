@@ -12,7 +12,6 @@ class Osmfilter < Formula
     sha256 "b2e2d4190462b0b0e473da4a50ab5e25da007aca21db898d2d359e9e9eb2cde7" => :high_sierra
     sha256 "d7a8285fe18af71d0093b89e9b5613a4fe30ceb4978e07f61ad1974e734d7f50" => :sierra
     sha256 "6a0fd608e0bc8094f08edb6f86a51b45745506d3ef84e0454ef1498dd77f61b0" => :el_capitan
-    sha256 "6cdb4f66cebaa32ea579a0f7d3e2b22ad1d95cd30988bd617ad006d9bc32037a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
