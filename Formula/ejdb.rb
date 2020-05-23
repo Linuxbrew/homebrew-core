@@ -3,6 +3,7 @@ class Ejdb < Formula
   homepage "https://ejdb.org"
   url "https://github.com/Softmotions/ejdb/archive/v2.0.49.tar.gz"
   sha256 "850ade8319a72caf5e361118e45de8de5fefcea8f7c27badb177e0eee648dcb6"
+  revision 1 unless OS.mac?
   head "https://github.com/Softmotions/ejdb.git"
 
   bottle do
@@ -10,7 +11,6 @@ class Ejdb < Formula
     sha256 "0a799daea926e40f36ae01a1543c5f217c51805e6a9b9663b7298485e74bedb0" => :catalina
     sha256 "4ca418200de1dedf6fd414a12ca61e60f4addd3ae1590e544728981c5b4e1132" => :mojave
     sha256 "b1e465d9b7c02c8f21e86b96cac5b6ba21c249f5fabce0fe1e35d1346014bb00" => :high_sierra
-    sha256 "db5908de316aca4777d34936b2341f8f97e3f1521a0e2b8971c115746d09c091" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
