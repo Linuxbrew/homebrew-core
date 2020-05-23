@@ -3,14 +3,13 @@ class Postgresql < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v12.3/postgresql-12.3.tar.bz2"
   sha256 "94ed64a6179048190695c86ec707cc25d016056ce10fc9d229267d9a8f1dcf41"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/postgres/postgres.git"
 
   bottle do
     sha256 "0b5cd2df2eca116eecd25166a5256b8ae4f0aa3798d98bff5031eb3e8fe81ad8" => :catalina
     sha256 "26c8924fb3d1dae70c7a8b11c69a214deba1c0e88eefbd5620a1460a5173dcc7" => :mojave
     sha256 "9f4aecff80078c188bf586fbedd3d7d9253986e6c084b8875536ae35c8cf3351" => :high_sierra
-    sha256 "53a710ab54496aaefb003569f9d1c21ee2da3e9513cdf48dc8d09080cc1b4219" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
