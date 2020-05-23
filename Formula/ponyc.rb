@@ -6,7 +6,6 @@ class Ponyc < Formula
       :revision => "579475721b14487e225e57a64ecd44781d244b33"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "398704cb374f8197b391d1abe79f6937b47907ac79bff429c3c7c5436b7baf82" => :catalina
     sha256 "32a740aba344f2f864dab4e95ed811ec5274a5dc0f72760bc0dc916b749d0b48" => :mojave
     sha256 "4bff26ba76aef06e7d0f5aee757729d7494b8c98605fc06f994ea4de0b2f99f2" => :high_sierra
@@ -14,8 +13,14 @@ class Ponyc < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zlib"
+
   def install
     ENV.cxx11
+
+    unless OS.mac?
+      inreplace "CMakeLists.txt", "PONY_COMPILER=\"${CMAKE_C_COMPILER}\"", "PONY_COMPILER=\"/usr/bin/gcc\""
+    end
 
     ENV["MAKEFLAGS"] = "build_flags=-j#{ENV.make_jobs}"
     system "make", "libs"
