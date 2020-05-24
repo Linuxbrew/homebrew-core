@@ -3,6 +3,7 @@ class Pachi < Formula
   homepage "https://pachi.or.cz/"
   url "https://github.com/pasky/pachi/archive/pachi-12.50.tar.gz"
   sha256 "62c8d44bd4610fe9534a1f21bb092da209c9fb8dcb8d39558d79adabe31e740a"
+  revision 1 unless OS.mac?
   head "https://github.com/pasky/pachi.git"
 
   bottle do
@@ -10,7 +11,6 @@ class Pachi < Formula
     sha256 "e1cac19564a176a50d27f08b4e395a53ff4144dc17fd93dcaa013adfc8cca83a" => :catalina
     sha256 "76edc1b521dfb93e8c6573b689c8bc5a01103888f2f7310fd46aa53d8b6ea0dc" => :mojave
     sha256 "476509041b907edfd0380bc91a3fd4fc41b359bae58524ab4ab8017df4f61fe0" => :high_sierra
-    sha256 "00166e67158925ae246d80895cc4594c341e58bfe57bfab3ca7652d9e2dcacbe" => :x86_64_linux
   end
 
   fails_with :clang if MacOS.version == :mavericks
