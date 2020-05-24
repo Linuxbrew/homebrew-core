@@ -17,6 +17,7 @@ class Binutils < Formula
 
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
+  depends_on "texinfo" => :build unless OS.mac?
   uses_from_macos "zlib"
 
   def install
