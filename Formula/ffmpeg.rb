@@ -3,13 +3,13 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.2.3.tar.xz"
   sha256 "9df6c90aed1337634c1fb026fb01c154c29c82a64ea71291ff2da9aacb9aad31"
+  revision 1 unless OS.mac?
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
     sha256 "ddb666ec5e4e1e6cdf0a2069388a2396935ee420ae5a5aa0cb3e196183c9a675" => :catalina
     sha256 "a1330763738e2d6474bd34bf8707a5b24721e9eb733e690855a3bf048dee4c33" => :mojave
     sha256 "9d895f4cde8d14d9dc781cf030c07b4263a7d7ce48fa0933d592f498b1934eb0" => :high_sierra
-    sha256 "e8ce56b8f48e01c12819952a4e40e993be7a9dbfe829c919ac3ab34d828ca729" => :x86_64_linux
   end
 
   depends_on "nasm" => :build
