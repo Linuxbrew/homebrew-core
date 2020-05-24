@@ -4,6 +4,7 @@ class Osmfilter < Formula
   url "https://gitlab.com/osm-c-tools/osmctools.git",
       :tag      => "0.9",
       :revision => "f341f5f237737594c1b024338f0a2fc04fabdff3"
+  revision 1 unless OS.mac?
   head "https://gitlab.com/osm-c-tools/osmctools.git"
 
   bottle do
@@ -16,7 +17,6 @@ class Osmfilter < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "zlib" => :build unless OS.mac?
 
   uses_from_macos "zlib"
 
