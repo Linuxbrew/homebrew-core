@@ -4,13 +4,13 @@ class Wireshark < Formula
   url "https://www.wireshark.org/download/src/all-versions/wireshark-3.2.4.tar.xz"
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.4.tar.xz"
   sha256 "d17d461e849e2d0b033431c45f71d8ee8ec3c8faa232a6ad63069a47927db8aa"
+  revision 1 unless OS.mac?
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
     sha256 "92ee317ff4290c3c93a6bbfda5de62095da7cca4f0cc881914632fbbdfc3528e" => :catalina
     sha256 "3efa164bfe9b96f82c54334fc9b665a781fa4bdacd14626f4c8433521e0105f8" => :mojave
     sha256 "b8c334c790c9ba8923d5ebccdc0199a120cb07f265dd70aad6e1faf6360233cc" => :high_sierra
-    sha256 "7555b9fba7911c6259ab7302a496850023d5c2ee1f41c83f91b94a3b198df123" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
