@@ -25,7 +25,8 @@ class Texlive < Formula
   def install
     ohai "Downloading and installing TeX Live. This will take a few minutes."
     ENV["TEXLIVE_INSTALL_PREFIX"] = libexec
-    system "./install-tl", "-scheme", "small", "-portable", "-profile", "/dev/null"
+    system "touch","zero.profile"
+    system "./install-tl", "-scheme", "small", "-portable", "-profile", "zero.profile"
 
     man1.install Dir[libexec/"texmf-dist/doc/man/man1/*"]
     man5.install Dir[libexec/"texmf-dist/doc/man/man5/*"]
