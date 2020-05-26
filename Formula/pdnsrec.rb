@@ -102,7 +102,7 @@ index 4bd9439a87..795e8ec855 100644
 +++ b/pdns/misc.hh
 @@ -607,3 +607,5 @@ bool isSettingThreadCPUAffinitySupported();
  int mapThreadToCPUList(pthread_t tid, const std::set<int>& cpus);
-
+ 
  std::vector<ComboAddress> getResolvers(const std::string& resolvConfPath);
 +
 +std::string getCarbonHostName();
@@ -130,7 +130,7 @@ index 4e0cedb00f..458a25d5ca 100644
 -    if(p) *p=0;
 -
 -    hostname=tmp;
--    boost::replace_all(hostname, ".", "_");
+-    boost::replace_all(hostname, ".", "_");    
    }
    if(instance_name.empty()) {
      instance_name="recursor";
