@@ -54,7 +54,11 @@ class Theora < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-ltheora", "test.c", "-o", "test"
+    if OS.mac?
+      system ENV.cc, "-L#{lib}", "-ltheora", "test.c", "-o", "test"
+    else
+      system ENV.cc, "test.c", "-L#{lib}", "-ltheora", "-o", "test"
+    end
     system "./test"
   end
 end
