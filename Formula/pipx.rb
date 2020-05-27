@@ -29,6 +29,13 @@ class Pipx < Formula
     sha256 "8f555126f137c08c576f73e6a9d7089ee394e9ba00a53a75c37f05439ca3cf51"
   end
 
+  unless OS.mac?
+    resource "distro" do
+      url "https://files.pythonhosted.org/packages/a6/a4/75064c334d8ae433445a20816b788700db1651f21bdb0af33db2aab142fe/distro-1.5.0.tar.gz"
+      sha256 "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"
+    end
+  end
+
   def install
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
