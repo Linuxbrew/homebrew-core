@@ -19,7 +19,8 @@ class Vault < Formula
 
   depends_on "go" => :build
   depends_on "gox" => :build
-  depends_on "node@10" => :build
+  depends_on "node@10" => :build if OS.mac?
+  depends_on "node" => :build unless OS.mac?
   depends_on "yarn" => :build
 
   def install
