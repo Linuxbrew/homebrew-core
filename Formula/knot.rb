@@ -19,6 +19,7 @@ class Knot < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.8" => :build unless OS.mac?
   depends_on "sphinx-doc" => :build
   depends_on "fstrm"
   depends_on "gnutls"
