@@ -5,14 +5,13 @@ class MesonInternal < Formula
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.46.1/meson-0.46.1.tar.gz"
   sha256 "19497a03e7e5b303d8d11f98789a79aba59b5ad4a81bd00f4d099be0212cee78"
-  revision OS.mac? ? 1 : 3
+  revision OS.mac? ? 1 : 4
 
   bottle do
     cellar :any_skip_relocation
     sha256 "2081b7b2d37614f170b2b55855d77bd2788922a02103da66f2d0d33952541a3f" => :catalina
     sha256 "c00f702a075153263b34ade26d43a9a3a98673b6b8d30ce7d17e36581b16f2bf" => :mojave
     sha256 "e5c4655a955250b17edc8fbd17a3bd56b5a99d1fc34db303f2bfa684a2c76167" => :high_sierra
-    sha256 "fcef6c588c1965b5e24a0b2fb98c2abe8c2901b33c514e3b04c72860ba6d535b" => :x86_64_linux
   end
 
   keg_only <<~EOS
