@@ -5,13 +5,13 @@ class Pipenv < Formula
   homepage "https://pipenv.pypa.io/"
   url "https://files.pythonhosted.org/packages/5f/0a/ef03dd42bed968f779eeaf9a98e32e875bfd18cf9ba61ede407364903c1e/pipenv-2020.5.28.tar.gz"
   sha256 "81862314929e3e532502e25bab3c6ba969c0cf67dcaa9d63c2c931ee2d61541c"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
     sha256 "ea010edf851e0ee91832442600b4ececb758bace313025ca6539c70075c565c6" => :catalina
     sha256 "56d542eeb4a6f380fb3970d70341400f3243a71cebe760034fc1199e83e624b5" => :mojave
     sha256 "e93154ac01d82e9e4e046c134727a866567db4f4112413360b5431bee09424eb" => :high_sierra
-    sha256 "1efb1693652bda22d32c0539f16a84d38c1fd9103573071be1ea68379be33d33" => :x86_64_linux
   end
 
   depends_on "python@3.8"
