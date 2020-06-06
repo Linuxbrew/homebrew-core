@@ -1,15 +1,14 @@
 class Annie < Formula
   desc "Fast, simple and clean video downloader"
   homepage "https://github.com/iawia002/annie"
-  url "https://github.com/iawia002/annie/archive/0.10.0.tar.gz"
-  sha256 "5be6dbee25397ec9942bdb8a7352952306ec33586b0fe4d54d54b6cb39a28b08"
+  url "https://github.com/iawia002/annie/archive/0.10.1.tar.gz"
+  sha256 "3ad04d789db82a139b1fe914889af5a75fef8eca1e55446b25dae682a43e23e0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "65fca7a2bc3fb3bf962f3a7b1e965b3509774bd0dd112dd5a30d780d47fc0cd7" => :catalina
-    sha256 "e48782e3a1e925bdc15ff9294d30e81e205f79b6d77f3314ed5d0bb3bba3b77d" => :mojave
-    sha256 "525db27d481218c6d32c64cda033315adcebd1dbe501fbb9f91ef0c4785c1fd1" => :high_sierra
-    sha256 "3cf5e5bf025aa53fbbd8bdefe76f89cf4e7ab2c186be248fde44c7aa693f2bd9" => :x86_64_linux
+    sha256 "79096f64aee8e433ecddcd4b8d139a4d71db50127eae9aad548b06e3ee8d7186" => :catalina
+    sha256 "f8efa9dd1d995885b6995409816b8cbb95ab5c0380c439350ae90ae3ce9c6eca" => :mojave
+    sha256 "4a102d4e8684a8ffbba3607831ca037821ea9558078d71c613a20338db0fa71e" => :high_sierra
   end
 
   depends_on "go" => :build
