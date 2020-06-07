@@ -20,6 +20,8 @@ class Emacs < Formula
     depends_on "texinfo" => :build
   end
 
+  disable! if ENV["CI"]
+
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "jpeg" unless OS.mac?
