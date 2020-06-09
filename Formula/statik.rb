@@ -5,9 +5,8 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.23.0.tar.gz"
   sha256 "6159066f486811e5773da318d6e8d1b1dd4c99ac140f1a3c660ef1c1f5e7124f"
-  revision 2 unless OS.mac?
+  revision if OS.mac? ? 2 : 3
   head "https://github.com/thanethomson/statik.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +17,6 @@ class Statik < Formula
 
   depends_on "libpq"
   depends_on "python@3.8"
-  depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "libffi"
 
