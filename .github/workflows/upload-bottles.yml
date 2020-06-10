@@ -9,7 +9,7 @@ on:
 
 jobs:
   upload-bottles:
-    if: startsWith(github.event.head_commit.message, 'Merge') == false && github.event.pusher.name != 'BrewTestBot'
+    if: startsWith(github.event.head_commit.message, 'Merge') == false && github.event.pusher.name != 'BrewTestBot' && github.repository == 'Homebrew/linuxbrew-core'
     runs-on: ubuntu-latest
     steps:
       - name: Update Homebrew
