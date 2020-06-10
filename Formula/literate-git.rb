@@ -15,7 +15,6 @@ class LiterateGit < Formula
     sha256 "11737a034e1247554453f6919450519892fb560a6ec635031dc267897afc8478" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build unless OS.mac?
   depends_on "libgit2"
   depends_on "python@3.8"
 
