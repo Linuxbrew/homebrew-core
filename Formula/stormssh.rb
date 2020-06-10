@@ -14,7 +14,6 @@ class Stormssh < Formula
   end
 
   depends_on "python@3.8"
-  depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "libffi"
 
