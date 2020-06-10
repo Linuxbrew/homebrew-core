@@ -18,7 +18,6 @@ class Libopendkim < Formula
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
   depends_on "unbound"
-  depends_on "pkg-config" => :build unless OS.mac?
 
   on_linux do
     depends_on "pkg-config" => :build
