@@ -19,14 +19,6 @@ class Libzip < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  unless OS.mac?
-    # Fix: zip.h:241:1: error: C++ style comments are not allowed in ISO C90
-    patch do
-      url "https://github.com/nih-at/libzip/commit/9bd28f945c383b9c014ac851d932ef3cb10c009f.patch?full_index=1"
-      sha256 "2c572ff9011fcd0bdaec5b3ec97593f23a9a15166339a8add1f792d39cf78baf"
-    end
-  end
-
   conflicts_with "libtcod", "minizip2",
     :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
