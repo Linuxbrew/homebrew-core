@@ -14,7 +14,6 @@ class CassandraCppDriver < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build unless OS.mac?
   depends_on "libuv"
   depends_on "openssl@1.1"
 
