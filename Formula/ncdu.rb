@@ -24,8 +24,6 @@ class Ncdu < Formula
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    # Older linuxes does not have this constant in /usr/include/linux/magic.h
-    inreplace "src/dir_scan.c", "CGROUP2_SUPER_MAGIC", "0x63677270" unless OS.mac?
     system "make", "install"
   end
 
