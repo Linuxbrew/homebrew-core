@@ -86,7 +86,6 @@ class Qt < Formula
       args << "-no-rpath"
       args << "-system-zlib"
     elsif OS.linux?
-      args << "-system-xcb"
       args << "-R#{lib}"
       # https://bugreports.qt.io/browse/QTBUG-71564
       args << "-no-avx2"
