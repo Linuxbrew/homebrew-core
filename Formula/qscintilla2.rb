@@ -1,15 +1,14 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.4/QScintilla-2.11.4.tar.gz"
-  sha256 "723f8f1d1686d9fc8f204cd855347e984322dd5cd727891d324d0d7d187bee20"
-  revision 1
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.5/QScintilla-2.11.5.tar.gz"
+  sha256 "9361e26fd7fb7b5819a7eb92c5c1880a18de9bd3ed9dd2eb008e57388696716b"
 
   bottle do
     cellar :any
-    sha256 "d6bae2002c7d20b9db3b9d22411db1d2ea5a7391baeb4231ccecb71e8f983b3c" => :catalina
-    sha256 "7ae90f4af154cdd22237db4f6679bf62165de120ca488594afd09902ff86bf38" => :mojave
-    sha256 "2ba039eea909559f93920e34719f176e3cbaf5a7456dd5d816c86dcbc6333f9f" => :high_sierra
+    sha256 "ad21b9c248d85d8c76c34c504d5c6e8a3cf0091034c50f916cb8c50e1ca83c28" => :catalina
+    sha256 "67b316a64f594a424c77ba50f31fc4724856fb8c8f247de60de98e5a311170ad" => :mojave
+    sha256 "ce35dfa9a500a78cd89bf7bade336304434c99e4de972af80ed4fbed1f6d7318" => :high_sierra
   end
 
   depends_on "pyqt"

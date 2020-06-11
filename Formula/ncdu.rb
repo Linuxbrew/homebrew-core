@@ -1,15 +1,14 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-1.15.tar.gz"
-  sha256 "4a593dc5cceb2492a9669f5f5d69d0e517de457a11036788ea4591f33c5297fb"
+  url "https://dev.yorhel.nl/download/ncdu-1.15.1.tar.gz"
+  sha256 "b02ddc4dbf1db139cc6fbbe2f54a282770380f0ca5c17089855eab52a9ea3fb0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df4662de39f18d84000aaea85626da50d6076281e8823b093cff48111aadf2ec" => :catalina
-    sha256 "f84f3f172a6949aff0a2a70f06a5b6e8fd05bd0a2ae18e1d6da7baf22378f0c6" => :mojave
-    sha256 "f5aced7c926a8523011d5e4f503721fcf2b67287fa4df0af4357b72211581f43" => :high_sierra
-    sha256 "f5d85e68f0a96952c45b5c9999bbbecb96377cc4f403bed7b31d2564ee97a6b9" => :x86_64_linux
+    sha256 "994f7f4e9624a0984ec7c37b5b15b9ae5c24663ebffaba19b0979f4e99919fee" => :catalina
+    sha256 "f7908eaf47c7842b15e56e17279583f4c938a9c920e1bae41f05d3e5506a99fb" => :mojave
+    sha256 "d094385dbfd71831c5f2b03f0817a06df9471a44f5437aaf577676d2723bc865" => :high_sierra
   end
 
   head do
@@ -25,8 +24,6 @@ class Ncdu < Formula
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    # Older linuxes does not have this constant in /usr/include/linux/magic.h
-    inreplace "src/dir_scan.c", "CGROUP2_SUPER_MAGIC", "0x63677270" unless OS.mac?
     system "make", "install"
   end
 

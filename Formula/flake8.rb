@@ -3,16 +3,15 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "https://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.8.2/flake8-3.8.2.tar.bz2"
-  sha256 "6185d7b5754dc3672f0ca5b380c5654b7511d4a6ae1439525608e0c3b2321d24"
+  url "https://gitlab.com/pycqa/flake8/-/archive/3.8.3/flake8-3.8.3.tar.bz2"
+  sha256 "eb8beddb4a94caa8284c8ac4370219f3887c67d1cf9ac722b4a03306fe03e2bc"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38a01e872bef609a26d213c04e17175b9538ca51fb88b80e53f99ed900cf24dd" => :catalina
-    sha256 "5960ac5f10ae4d51310b4c6b4596872e7ba9ed921507988602439c1fa710325b" => :mojave
-    sha256 "59b2d53c686beac8c075e467a92a2245956939767f47b17edca81a5d5ae13c3b" => :high_sierra
-    sha256 "0d3993520e43f197c3146b0b5146c10a99faaaafd777913251cc49a4a9136fc3" => :x86_64_linux
+    sha256 "c69d45f5fc4c8d4626968bb9df56ee0f3bdfe746b61e527f373952ee8225992e" => :catalina
+    sha256 "eb9d1de4ade2c8ba850b44bd8a3d8d02c04aa51b021737c61d8498a0d41c404f" => :mojave
+    sha256 "d6c5a8a1a2ea74a8d296777d4adb4d916bae7e5ce75852b22690fe3a7c14b894" => :high_sierra
   end
 
   depends_on "python@3.8"
