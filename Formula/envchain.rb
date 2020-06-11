@@ -5,7 +5,7 @@ class Envchain < Formula
   sha256 "09af1fe1cfba3719418f90d59c29c081e1f22b38249f0110305b657bd306e9ae"
   head "https://github.com/sorah/envchain.git"
 
-  unless OS.mac?
+  on_linux do
     depends_on "pkg-config" => :build
     depends_on "libsecret"
     depends_on "readline"
