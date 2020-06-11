@@ -1,7 +1,6 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1 unless OS.mac?
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.35.0.tar.gz"
@@ -60,7 +59,7 @@ class Crystal < Formula
     else
       url "https://github.com/crystal-lang/crystal/releases/download/0.34.0/crystal-0.34.0-1-linux-x86_64.tar.gz"
       version "0.34.0-1"
-      sha256 "f1235f92d65140edd4a51c198f3c221379af8188b06ae96b7377e0a80c99181a"
+      sha256 "268ace9073ad073b56c07ac10e3f29927423a8b170d91420b0ca393fb02acfb1"
     end
   end
 
