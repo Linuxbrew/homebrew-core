@@ -28,8 +28,12 @@ class Qt < Formula
   uses_from_macos "sqlite"
 
   # Fix build on Linux when the build system has AVX2
-  # Patch submitted at https://bugreports.qt.io/browse/QTBUG-84851
-  patch :DATA
+  # Patch submitted at https://codereview.qt-project.org/c/qt/qt3d/+/303993
+  patch do
+    url "https://codereview.qt-project.org/gitweb?p=qt/qt3d.git;a=patch;h=b456a7d47a36dc3429a5e7bac7665b12d257efea"
+    sha256 "e47071f5feb6f24958b3670d83071502fe87243456b29fdc731c6eba677d9a59"
+    directory "qt3d"
+  end
 
   def install
     args = %W[
@@ -115,45 +119,3 @@ class Qt < Formula
     system "./hello"
   end
 end
-
-__END__
---- a/qt3d/src/core/transforms/vector3d_sse.cpp	2020-03-03 14:10:30.000000000 +0100
-+++ b/qt3d/src/core/transforms/vector3d_sse.cpp	2020-06-09 11:12:36.660465360 +0200
-@@ -39,7 +39,7 @@
-
- #include <private/qsimd_p.h>
-
--#ifdef __AVX2__
-+#if defined(__AVX2__) && defined(QT_COMPILER_SUPPORTS_AVX2)
- #include "matrix4x4_avx2_p.h"
- #else
- #include "matrix4x4_sse_p.h"
-@@ -66,7 +66,7 @@
-     m_xyzw = _mm_mul_ps(v.m_xyzw, _mm_set_ps(0.0f, 1.0f, 1.0f, 1.0f));
- }
-
--#ifdef __AVX2__
-+#if defined(__AVX2__) && defined(QT_COMPILER_SUPPORTS_AVX2)
-
- Vector3D_SSE Vector3D_SSE::unproject(const Matrix4x4_AVX2 &modelView, const Matrix4x4_AVX2 &projection, const QRect &viewport) const
- {
---- a/qt3d/src/core/transforms/vector3d_sse_p.h	2020-03-03 14:10:30.000000000 +0100
-+++ b/qt3d/src/core/transforms/vector3d_sse_p.h	2020-06-09 11:12:30.405425659 +0200
-@@ -178,7 +178,7 @@
-         return ((_mm_movemask_ps(_mm_cmpeq_ps(m_xyzw, _mm_set_ps1(0.0f))) & 0x7) == 0x7);
-     }
-
--#ifdef __AVX2__
-+#if defined(__AVX2__) && defined(QT_COMPILER_SUPPORTS_AVX2)
-     Q_3DCORE_PRIVATE_EXPORT Vector3D_SSE unproject(const Matrix4x4_AVX2 &modelView, const Matrix4x4_AVX2 &projection, const QRect &viewport) const;
-     Q_3DCORE_PRIVATE_EXPORT Vector3D_SSE project(const Matrix4x4_AVX2 &modelView, const Matrix4x4_AVX2 &projection, const QRect &viewport) const;
- #else
-@@ -348,7 +348,7 @@
-
-     friend class Vector4D_SSE;
-
--#ifdef __AVX2__
-+#if defined(__AVX2__) && defined(QT_COMPILER_SUPPORTS_AVX2)
-     friend class Matrix4x4_AVX2;
-     friend Q_3DCORE_PRIVATE_EXPORT Vector3D_SSE operator*(const Vector3D_SSE &vector, const Matrix4x4_AVX2 &matrix);
-     friend Q_3DCORE_PRIVATE_EXPORT Vector3D_SSE operator*(const Matrix4x4_AVX2 &matrix, const Vector3D_SSE &vector);
