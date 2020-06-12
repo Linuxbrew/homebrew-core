@@ -100,8 +100,9 @@ class Crystal < Formula
     # Install shards
     resource("shards").stage do
       ENV["CRYSTAL_OPTS"] = "--release --no-debug"
+      shards = OS.mac? ? buildpath/"boot/embedded/bin/shards" : buildpath/"boot/bin/shards"
       system "make", "bin/shards", "CRYSTAL=#{buildpath/"bin/crystal"}",
-                                   "SHARDS=#{buildpath/"boot/embedded/bin/shards"}"
+                                   "SHARDS=#{shards}"
 
       # Install shards
       bin.install "bin/shards"
