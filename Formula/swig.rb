@@ -54,11 +54,16 @@ class Swig < Formula
       system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o", "test_wrap.o", "-o", "test.bundle"
       assert_equal "2", shell_output("/usr/bin/ruby run.rb").strip
     else
+      include_dir1 = "#{Formula["ruby"].opt_include}/ruby-2.7.0"
+      include_dir2 = "#{Formula["ruby"].opt_include}/ruby-2.7.0/x86_64-linux/"
+      args = Utils.safe_popen_read(
+        Formula["ruby"].opt_bin/"ruby", "-e", "'puts RbConfig::CONFIG[\"LIBRUBYARG\"]'"
+      ).chomp
       system ENV.cc, "-c", "-fPIC", "test.c"
       system ENV.cc, "-c", "-fPIC", "test_wrap.c",
-             "-I#{RbConfig::CONFIG["rubyhdrdir"]}", "-I#{RbConfig::CONFIG["rubyarchhdrdir"]}"
+             "-I#{include_dir1}", "-I#{include_dir2}"
       system ENV.cc, "-shared", "test.o", "test_wrap.o", "-o", "test.so",
-             *RbConfig::CONFIG["LIBRUBYARG"].delete("'").split
+             *args.delete("'").split
       assert_equal "2", shell_output("ruby run.rb").strip
     end
   end
