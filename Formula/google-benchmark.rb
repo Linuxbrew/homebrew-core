@@ -35,7 +35,7 @@ class GoogleBenchmark < Formula
              "-I#{include}",
              "-L#{lib}",
              "-lbenchmark",
-             *("-pthread" if ENV.compiler == :gcc)] + ENV.cflags.to_s.split
+             *("-pthread" unless OS.mac?)] + ENV.cflags.to_s.split
     system ENV.cxx, "-o", "test", "test.cpp", *flags
     system "./test"
   end
