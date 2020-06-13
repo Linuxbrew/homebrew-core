@@ -22,6 +22,7 @@ class Xmake < Formula
   end
 
   test do
+    ENV["XMAKE_ROOT"] = "y" unless OS.mac?
     system bin/"xmake", "create", "test"
     cd "test" do
       system bin/"xmake"
