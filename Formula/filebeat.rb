@@ -1,19 +1,16 @@
 class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  # Pinned at 6.2.x because of a licencing issue
-  # See: https://github.com/Homebrew/homebrew-core/pull/28995
-  url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
-  sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
-  revision 1
+  url "https://github.com/elastic/beats.git",
+      :tag      => "v7.7.1",
+      :revision => "932b273e8940575e15f10390882be205bad29e1f"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "023e3266e45682c7f5c769aa97985087670f56ab23e43b394c33633eb7fc898a" => :catalina
-    sha256 "5ca74218971b90453e387152ca39aeb8f59ecfaadf8e6e35ccd44df92fd56520" => :mojave
-    sha256 "12755e28f4384e9168e55a8a0a2a077f6e4973a22dd7a6e258a888f20cf74fab" => :high_sierra
-    sha256 "45686bc428aa357aae79799f7be91cacbf71e736bf229edb4408b77f1bc8263f" => :x86_64_linux
+    sha256 "aceffa042e0d33ff291cdd6eba649f4795aed9db2b264d334ea0baea9a117d1e" => :catalina
+    sha256 "397451896436d6421aae39f8e98f372d402d0d90ca24ad0ac841a344b39237c7" => :mojave
+    sha256 "244217725868a3fa1db97029bbbc2bc38c68df05f8a66f2465b20ea91fac936e" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -26,6 +23,9 @@ class Filebeat < Formula
   end
 
   def install
+    # remove non open source files
+    rm_rf "x-pack"
+
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
 
@@ -33,22 +33,28 @@ class Filebeat < Formula
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
     resource("virtualenv").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
-    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+    ENV.prepend_path "PATH", buildpath/"vendor/bin" # for virtualenv
+    ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
 
     cd "src/github.com/elastic/beats/filebeat" do
-      system "make"
+      # don't build docs because it would fail creating the combined OSS/x-pack
+      # docs and we aren't installing them anyway
+      inreplace "magefile.go", "mg.SerialDeps(Fields, Dashboards, Config, includeList, fieldDocs,",
+                               "mg.SerialDeps(Fields, Dashboards, Config, includeList,"
+
+      system "make", "mage"
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
-      system "make", "DEV_OS=darwin", "update"
-      system "make", "modules"
+      system "mage", "-v", "build"
+      system "mage", "-v", "update"
 
       (etc/"filebeat").install Dir["filebeat.*", "fields.yml", "modules.d"]
-      (etc/"filebeat"/"module").install Dir["_meta/module.generated/*"]
+      (etc/"filebeat"/"module").install Dir["build/package/modules/*"]
       (libexec/"bin").install "filebeat"
-      prefix.install "_meta/kibana"
+      prefix.install "build/kibana"
     end
 
     prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
@@ -90,7 +96,7 @@ class Filebeat < Formula
 
     (testpath/"filebeat.yml").write <<~EOS
       filebeat:
-        prospectors:
+        inputs:
           -
             paths:
               - #{log_file}
@@ -103,7 +109,7 @@ class Filebeat < Formula
     (testpath/"log").mkpath
     (testpath/"data").mkpath
 
-    filebeat_pid = fork do
+    fork do
       exec "#{bin}/filebeat", "-c", "#{testpath}/filebeat.yml",
            "-path.config", "#{testpath}/filebeat",
            "-path.home=#{testpath}",
@@ -111,14 +117,10 @@ class Filebeat < Formula
            "-path.data", testpath
     end
 
-    begin
-      sleep 1
-      log_file.append_lines "foo bar baz"
-      sleep 5
+    sleep 1
+    log_file.append_lines "foo bar baz"
+    sleep 5
 
-      assert_predicate testpath/"filebeat", :exist?
-    ensure
-      Process.kill("TERM", filebeat_pid)
-    end
+    assert_predicate testpath/"filebeat", :exist?
   end
 end

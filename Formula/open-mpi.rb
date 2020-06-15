@@ -1,14 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.bz2"
-  sha256 "1402feced8c3847b3ab8252165b90f7d1fa28c23b6b2ca4632b6e4971267fd03"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.bz2"
+  sha256 "47e24eb2223fe5d24438658958a313b6b7a55bb281563542e1afc9dec4a31ac4"
 
   bottle do
-    sha256 "3b143cf02a5345bb0d4df0777d3a34f806ff7fb66dc5d21993b8c4f218722ac7" => :catalina
-    sha256 "1600986b4774f6081191fe616cc70690d0174c4a32f4d7f280285ddc39970437" => :mojave
-    sha256 "71df1f5047b812b68f8b28f7a6c713f42389691b2269408c8d839f1922ab9e5c" => :high_sierra
-    sha256 "72c1c8062ae6ae2abbead1c69253369d9f131fddbf851fc401b26a031ae6f081" => :x86_64_linux
+    sha256 "b45ead03ae109edf9e21641c95936971bc26e73043f714bdafc8424ca48f80ab" => :catalina
+    sha256 "f989294546d32ccc440f91957518e306c5988070d71a55b85781735d599eaba0" => :mojave
+    sha256 "e6fc345d013a800ae875b65baa417e7fce9b1231bc14fc2257e82ce6f273cb4e" => :high_sierra
   end
 
   head do
@@ -30,6 +29,23 @@ class OpenMpi < Formula
 
     # otherwise libmpi_usempi_ignore_tkr gets built as a static library
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Avoid references to the Homebrew shims directory
+    %w[
+      ompi/tools/ompi_info/param.c
+      orte/tools/orte-info/param.c
+      oshmem/tools/oshmem_info/param.c
+      opal/mca/pmix/pmix3x/pmix/src/tools/pmix_info/support.c
+    ].each do |fname|
+      inreplace fname, /(OPAL|PMIX)_CC_ABSOLUTE/, "\"#{ENV.cc}\""
+    end
+
+    %w[
+      ompi/tools/ompi_info/param.c
+      oshmem/tools/oshmem_info/param.c
+    ].each do |fname|
+      inreplace fname, "OMPI_CXX_ABSOLUTE", "\"#{ENV.cxx}\""
+    end
 
     ENV.cxx11
 
