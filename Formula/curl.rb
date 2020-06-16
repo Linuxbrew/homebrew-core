@@ -28,7 +28,6 @@ class Curl < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1" unless OS.mac?
 
   uses_from_macos "zlib"
 
