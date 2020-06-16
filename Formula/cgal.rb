@@ -18,7 +18,6 @@ class Cgal < Formula
   depends_on "eigen"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "openssl@1.1" unless OS.mac?
 
   on_linux do
     depends_on "openssl@1.1"
