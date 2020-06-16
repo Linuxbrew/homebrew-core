@@ -24,7 +24,6 @@ class Bic < Formula
   end
 
   depends_on "gmp"
-  depends_on "readline" unless OS.mac?
 
   on_linux do
     depends_on "readline"
