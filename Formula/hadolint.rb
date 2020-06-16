@@ -17,8 +17,6 @@ class Hadolint < Formula
   end
 
   depends_on "haskell-stack" => :build
-  uses_from_macos "xz"
-  depends_on "gmp" unless OS.mac?
 
   uses_from_macos "xz"
 
