@@ -16,7 +16,6 @@ class Mosquitto < Formula
   depends_on "pkg-config" => :build
   depends_on "libwebsockets"
   depends_on "openssl@1.1"
-  depends_on "util-linux" unless OS.mac?
 
   on_linux do
     depends_on "util-linux"
