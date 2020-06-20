@@ -17,7 +17,6 @@ class Latexml < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
-  depends_on "pkg-config" unless OS.mac?
 
   on_linux do
     depends_on "pkg-config" => :build
