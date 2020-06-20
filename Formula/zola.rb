@@ -14,7 +14,6 @@ class Zola < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1" unless OS.mac?
 
   on_linux do
     depends_on "openssl@1.1"
