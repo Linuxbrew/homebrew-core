@@ -17,7 +17,6 @@ class Libpq < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
   depends_on "openssl@1.1"
-  depends_on "readline" unless OS.mac?
 
   uses_from_macos "zlib"
 
