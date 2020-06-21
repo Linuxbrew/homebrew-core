@@ -15,7 +15,6 @@ class GitCola < Formula
   depends_on "sphinx-doc" => :build
   depends_on "pyqt"
   depends_on "python@3.8"
-  depends_on "rsync" unless OS.mac?
 
   uses_from_macos "rsync"
 
