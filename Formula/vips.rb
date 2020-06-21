@@ -35,7 +35,6 @@ class Vips < Formula
   depends_on "pango"
   depends_on "poppler"
   depends_on "webp"
-  depends_on "gobject-introspection" unless OS.mac?
 
   on_linux do
     depends_on "gobject-introspection"
