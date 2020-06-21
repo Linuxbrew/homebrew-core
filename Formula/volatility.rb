@@ -20,7 +20,6 @@ class Volatility < Formula
   depends_on :macos # Due to Python 2 (Python 3 support will come with volatility 3)
   # https://github.com/volatilityfoundation/volatility3
   depends_on "yara"
-  depends_on "gmp" unless OS.mac? # for pycrypto
 
   on_linux do
     depends_on "gmp"
