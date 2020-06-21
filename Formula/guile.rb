@@ -30,7 +30,6 @@ class Guile < Formula
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
-  depends_on "gperf" unless OS.mac?
 
   on_linux do
     depends_on "gperf"
