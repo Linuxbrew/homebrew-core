@@ -16,7 +16,6 @@ class TranslateShell < Formula
   depends_on "fribidi"
   depends_on "gawk"
   depends_on "rlwrap"
-  depends_on "util-linux" unless OS.mac?
 
   on_linux do
     depends_on "util-linux"
