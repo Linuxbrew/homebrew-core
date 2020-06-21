@@ -13,8 +13,6 @@ class Gitui < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "libiconv"
-
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
