@@ -16,7 +16,6 @@ class Websocat < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1" unless OS.mac?
 
   on_linux do
     depends_on "openssl@1.1"
