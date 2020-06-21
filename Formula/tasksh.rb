@@ -18,7 +18,6 @@ class Tasksh < Formula
 
   depends_on "cmake" => :build
   depends_on "task"
-  depends_on "readline" unless OS.mac?
 
   on_linux do
     depends_on "readline"
