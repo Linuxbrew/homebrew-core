@@ -14,11 +14,6 @@ class Hub < Formula
   end
 
   depends_on "go" => :build
-  unless OS.mac?
-    depends_on "util-linux" => :build # for col
-    depends_on "groff" => :build
-    depends_on "ruby" => :build
-  end
 
   uses_from_macos "groff" => :build
   uses_from_macos "ruby" => :build
