@@ -19,10 +19,6 @@ class AnsibleLint < Formula
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.8"
-  unless OS.mac?
-    depends_on "libffi" # for cffi
-    depends_on "gmp" # for pycrypto
-  end
 
   uses_from_macos "libffi"
 
