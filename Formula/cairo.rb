@@ -26,8 +26,8 @@ class Cairo < Formula
   depends_on "libpng"
   depends_on "lzo"
   depends_on "pixman"
+
   unless OS.mac?
-    depends_on "zlib"
     depends_on "linuxbrew/xorg/libxext"
     depends_on "linuxbrew/xorg/libxrender"
   end
