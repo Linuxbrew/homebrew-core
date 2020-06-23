@@ -3,12 +3,12 @@ class Ghostscript < Formula
   homepage "https://www.ghostscript.com/"
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostpdl-9.52.tar.gz"
   sha256 "8f6e48325c106ae033bbae3e55e6c0b9ee5c6b57e54f7cd24fb80a716a93b06a"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "8cd0efa1e5525f849be3ee1e50e1635b99667cb4d1eb6c3002a45378346882f4" => :catalina
     sha256 "8906a4dbf2513963a4710f351e3426622c259bd888c760e4c08a9436860b4014" => :mojave
     sha256 "cd5e55d0429d7e88ba2d580e79934c157d5bd2981d71a7f40db4573abe79af67" => :high_sierra
-    sha256 "aaaf9ccc219b445e2a798656533596b8aa77e1eed69d1ee95882e22259561416" => :x86_64_linux
   end
 
   head do
@@ -22,10 +22,10 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtiff"
+
   unless OS.mac?
     depends_on "libidn"
     depends_on "fontconfig"
-    depends_on "linuxbrew/xorg/xorg"
   end
 
   # https://sourceforge.net/projects/gs-fonts/
