@@ -101,12 +101,12 @@ class Gcc < Formula
       # Fix for system gccs that do not support -static-libstdc++
       # gengenrtl: error while loading shared libraries: libstdc++.so.6
       mkdir_p lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
-      ln_s Utils.popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
+      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
+      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
 
       # Set the search path for glibc libraries and objects, using the system's glibc
       # Fix the error: ld: cannot find crti.o: No such file or directory
-      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
+      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=crti.o")).parent
     end
 
     # Fix cc1: error while loading shared libraries: libisl.so.15
@@ -177,7 +177,7 @@ class Gcc < Formula
       homebrew_bin.install_symlink "g++" => "c++" unless (homebrew_bin/"c++").exist?
 
       gcc = "#{bin}/gcc-#{version_suffix}"
-      libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
+      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
       glibc = Formula["glibc"]
@@ -187,7 +187,7 @@ class Gcc < Formula
       crtdir = if glibc_installed
         glibc.opt_lib
       else
-        Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
+        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
       end
       ln_sf Dir[crtdir/"*crt?.o"], libgcc
 
@@ -204,14 +204,14 @@ class Gcc < Formula
 
       # Locate the native system header dirs if user uses system glibc
       unless glibc_installed
-        target = Utils.popen_read(gcc, "-print-multiarch").chomp
+        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
         raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
 
         system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
       end
 
       # Save a backup of the default specs file
-      specs_string = Utils.popen_read(gcc, "-dumpspecs")
+      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
       raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
 
       specs_orig.write specs_string
