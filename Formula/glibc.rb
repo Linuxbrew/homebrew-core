@@ -39,7 +39,7 @@ class LinuxKernelRequirement < Requirement
   MINIMUM_LINUX_KERNEL_VERSION = "2.6.32".freeze
 
   def linux_kernel_version
-    @linux_kernel_version ||= Version.new Utils.popen_read("uname -r")
+    @linux_kernel_version ||= Version.new Utils.safe_popen_read("uname -r")
   end
 
   satisfy(:build_env => false) do
@@ -95,7 +95,7 @@ class Glibc < Formula
     end
     if gcc_keg
       # Use the original GCC specs file.
-      specs = Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=specs.orig").chomp)
+      specs = Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=specs.orig").chomp)
       raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
 
       ENV["LDFLAGS"] = "-specs=#{specs}"
