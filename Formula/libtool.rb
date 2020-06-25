@@ -31,7 +31,7 @@ class Libtool < Formula
 
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
-    if OS.linux?
+    unless OS.mac?
       # prevent libtool from hardcoding GCC 4.8
       ENV["CC"] = "cc"
       ENV["CXX"] = "c++"
@@ -46,6 +46,9 @@ class Libtool < Formula
     if OS.mac?
       bin.install_symlink "libtool" => "glibtool"
       bin.install_symlink "libtoolize" => "glibtoolize"
+    else
+      # Avoid references to the Homebrew shims directory
+      inreplace bin/"libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
     end
   end
 
@@ -57,14 +60,15 @@ class Libtool < Formula
   end
 
   test do
-    system "#{bin}/glibtool", "execute", File.executable?("/usr/bin/true") ? "/usr/bin/true" : "/bin/true"
+    prefix = OS.mac? ? "g" : ""
+    system "#{bin}/#{prefix}libtool", "execute", File.executable?("/usr/bin/true") ? "/usr/bin/true" : "/bin/true"
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() { puts("Hello, world!"); return 0; }
     EOS
-    system bin/"glibtool", "--mode=compile", "--tag=CC",
+    system bin/"#{prefix}libtool", "--mode=compile", "--tag=CC",
       ENV.cc, "-c", "hello.c", "-o", "hello.o"
-    system bin/"glibtool", "--mode=link", "--tag=CC",
+    system bin/"#{prefix}libtool", "--mode=link", "--tag=CC",
       ENV.cc, "hello.o", "-o", "hello"
     assert_match "Hello, world!", shell_output("./hello")
   end
