@@ -21,6 +21,10 @@ class Yara < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf-c"
 
+  on_linux do
+    depends_on "libtoolize" => :build
+  end
+
   def install
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules",
