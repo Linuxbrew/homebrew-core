@@ -47,6 +47,7 @@ class Hdf5Mpi < Formula
       F77=mpif77
       F90=mpif90
     ]
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"
