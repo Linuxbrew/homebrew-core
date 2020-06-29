@@ -21,6 +21,10 @@ class Ppsspp < Formula
   depends_on "sdl2"
   depends_on "snappy"
 
+  on_linux do
+    depends_on "mesa"
+  end
+
   def install
     args = std_cmake_args
     # Use brewed FFmpeg rather than precompiled binaries in the repo
