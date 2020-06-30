@@ -3,7 +3,7 @@ class Glew < Formula
   homepage "https://glew.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/glew/glew/2.1.0/glew-2.1.0.tgz"
   sha256 "04de91e7e6763039bc11940095cd9c7f880baba82196a7765f727ac05a993c95"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
   head "https://github.com/nigels-com/glew.git"
 
   bottle do
@@ -11,13 +11,13 @@ class Glew < Formula
     sha256 "590c10bf98e6263d8e573720e5521584d836f28c52f30f97840614e97c16ccfd" => :catalina
     sha256 "66638564b5b9d2d915b97841ef1cc117f701c7ec34707734fa1ce11919c28821" => :mojave
     sha256 "1d3b4e7938d3c1fc7e16f78a506163046da105b443498b7ca1a3cca78f232739" => :high_sierra
-    sha256 "776e4ec7562f544a6325890beeba1c059d028d2e7aab96e298c77955773e6114" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   unless OS.mac?
-    depends_on "mesa" => :build
     depends_on "freeglut" => :test
+    depends_on "linuxbrew/xorg/glu"
+    depends_on "mesa"
   end
 
   def install
