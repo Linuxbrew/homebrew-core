@@ -77,9 +77,7 @@ class Po4a < Formula
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    unless OS.mac?
-      inreplace "Po4aBuilder.pm", "PERL5LIB=lib", "PERL5LIB=lib:#{ENV["PERL5LIB"]}"
-    end
+    inreplace "Po4aBuilder.pm", "PERL5LIB=lib", "PERL5LIB=lib:#{ENV["PERL5LIB"]}" unless OS.mac?
 
     system "perl", "Build.PL", "--install_base", libexec
     system "./Build"
