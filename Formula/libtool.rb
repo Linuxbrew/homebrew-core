@@ -4,14 +4,13 @@ class Libtool < Formula
   url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
-  revision OS.linux? ? 3 : 2
+  revision OS.mac? ? 2 : 4
 
   bottle do
     cellar :any
     sha256 "af317b35d0a394b7ef55fba4950735b0392d9f31bececebf9c412261c23a01fc" => :catalina
     sha256 "77ca68934e7ed9b9b0b8ce17618d7f08fc5d5a95d7b845622bf57345ffb1c0d6" => :mojave
     sha256 "60c7d86f9364e166846f8d3fb2ba969e6ca157e7ecbbb42a1de259116618c2ba" => :high_sierra
-    sha256 "a7686472d80a6500cadacf654b93b99bfede8da318103f836fb9bb8a5478d4b2" => :x86_64_linux
   end
 
   uses_from_macos "m4" => :build
@@ -32,25 +31,17 @@ class Libtool < Formula
 
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
-    unless OS.mac?
-      # prevent libtool from hardcoding GCC 4.8
-      ENV["CC"] = "cc"
-      ENV["CXX"] = "c++"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           ("--program-prefix=g" if OS.mac?),
                           "--enable-ltdl-install"
     system "make", "install"
 
-    if OS.mac?
-      bin.install_symlink "libtool" => "glibtool"
-      bin.install_symlink "libtoolize" => "glibtoolize"
-    else
-      # Avoid references to the Homebrew shims directory
-      inreplace bin/"libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
-    end
+    bin.install_symlink "libtool" => "glibtool"
+    bin.install_symlink "libtoolize" => "glibtoolize"
+
+    # Avoid references to the Homebrew shims directory
+    inreplace bin/"libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/" unless OS.mac?
   end
 
   def caveats
@@ -61,15 +52,14 @@ class Libtool < Formula
   end
 
   test do
-    prefix = OS.mac? ? "g" : ""
-    system "#{bin}/#{prefix}libtool", "execute", File.executable?("/usr/bin/true") ? "/usr/bin/true" : "/bin/true"
+    system "#{bin}/glibtool", "execute", File.executable?("/usr/bin/true") ? "/usr/bin/true" : "/bin/true"
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() { puts("Hello, world!"); return 0; }
     EOS
-    system bin/"#{prefix}libtool", "--mode=compile", "--tag=CC",
+    system bin/"glibtool", "--mode=compile", "--tag=CC",
       ENV.cc, "-c", "hello.c", "-o", "hello.o"
-    system bin/"#{prefix}libtool", "--mode=link", "--tag=CC",
+    system bin/"glibtool", "--mode=link", "--tag=CC",
       ENV.cc, "hello.o", "-o", "hello"
     assert_match "Hello, world!", shell_output("./hello")
   end
