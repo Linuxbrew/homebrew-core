@@ -20,8 +20,8 @@ class Po4a < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
 
+  uses_from_macos "libxslt"
   uses_from_macos "perl"
-  uses_from_macos "xsltproc"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
