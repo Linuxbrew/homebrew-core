@@ -1,4 +1,3 @@
-# Build
 require "language/perl"
 
 class Po4a < Formula
