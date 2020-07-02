@@ -1,8 +1,9 @@
 class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
-  url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20200629"
+  url "https://www.texlive.info/tlnet-archive/2020/06/30/tlnet/install-tl-unx.tar.gz"
+  version "20200630"
+  head "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
   sha256 "6514c395626b8a33812797d54aad97dace82ff4d1002b5b4bf39edf9a43c43f2"
 
   depends_on "wget" => :build
