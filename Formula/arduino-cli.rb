@@ -4,14 +4,15 @@ class ArduinoCli < Formula
   url "https://github.com/arduino/arduino-cli.git",
      :tag      => "0.11.0",
      :revision => "0296f4df116385f868b67c5ffa7393936c3345c9"
+  revision 1
   head "https://github.com/arduino/arduino-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a8049eed8d57096c6fa53c9e2555f686a3f29b622de099433c85b2b24787637" => :catalina
-    sha256 "c215a2743e597c19c1252ea977f5bc0936964380544d69b0079473ba6a09d95b" => :mojave
-    sha256 "48ab865e380a27c8abc1e661969e1382d44be37bcec31409c5c0546d5e617637" => :high_sierra
-    sha256 "7b17d49521d41c1e1ebfd9ccbab371aa7d6422c0c33ae70a549331e713bfcc26" => :x86_64_linux
+    sha256 "3dd10065c03827d1cc0a508daaf2787c154eda4bfc5378d671b17d16672bd293" => :catalina
+    sha256 "4d176c41402ad7a3ceb8ad20ef4a621675c20bdb080b543193efddad07e7fc26" => :mojave
+    sha256 "d885f46abbb996e64a47d8566677263bca7ca2cacfe78d8bd825d5a4bba02f38" => :high_sierra
+    sha256 "2444faa21e3a470284d96cfef9667ff630fb39da7c7f619df21c6f0a68a671ac" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -23,7 +24,7 @@ class ArduinoCli < Formula
       -X github.com/arduino/arduino-cli/version.versionString=#{version}
       -X github.com/arduino/arduino-cli/version.commit=#{commit}
     ]
-    system "go", "build", *std_go_args, "-ldflags", ldflags
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
   end
 
   test do

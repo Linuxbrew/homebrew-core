@@ -3,15 +3,15 @@ require "language/node"
 class AwsCdk < Formula
   desc "AWS Cloud Development Kit - framework for defining AWS infra as code"
   homepage "https://github.com/aws/aws-cdk"
-  url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-1.47.0.tgz"
-  sha256 "454c9fa3a0661d3d3be80a6f9ab3556bb54aee4628f8708f76eee506c74ad903"
+  url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-1.47.1.tgz"
+  sha256 "0e407dcdeea0d90111af69f4e132f706495193d1aff8b171d3d329dc66b73cc0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f0f9dc2950c3ddaf6e69734185e392923432896c08eaa22df1f3b1a6c6d061e" => :catalina
-    sha256 "f33d0e0f9b2fc27175f135e750469d0e7abf5cb4870a516097baba247a2a7936" => :mojave
-    sha256 "86e61b10b182334701359fbe618388eadbadfec4b3f4e7cf2f9b43ac456bf91c" => :high_sierra
-    sha256 "7ba77e9e153c4b53fb32b14f327d027f4a7c1baf1769cae06c15ddb8e3c145df" => :x86_64_linux
+    sha256 "9d2f7cb20724118443f62dacfaf01e823ea0519b32916d1875ddb78370777fc3" => :catalina
+    sha256 "57bb09b8cab78eb4ba4f8cea26f19f5de75a06c7d73d0a1c2cd30718a92eee5b" => :mojave
+    sha256 "f421900eb939b2e0c592e7c41265ffc4066fa7c9c8ef8f8a4971114828ec2764" => :high_sierra
+    sha256 "fd1ac01ff3df989328007f366b62d973d75fc8f045161a680db28ed5bbd7e9a3" => :x86_64_linux
   end
 
   depends_on "node"

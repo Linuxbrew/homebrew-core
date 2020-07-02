@@ -6,10 +6,11 @@ class Libraqm < Formula
 
   bottle do
     cellar :any
-    sha256 "61857a8c4e5ffada95438c4b98d042c129ebf485b5141fc8cc1bbbb13052d2fc" => :catalina
-    sha256 "b46d537983abc24546765d3d37f7a77330f82371a2c8899ada29e96324fee760" => :mojave
-    sha256 "5599586ba85c892e36cfb5da6eb0bae54d8632b0c569bdcaa71b38b3ecab947f" => :high_sierra
-    sha256 "50a8fd4a61b9f26429f29fe15df8f5dd7c944b661f3ec5765d38ca56294174d2" => :x86_64_linux
+    rebuild 1
+    sha256 "c216caedf4a6709818f70525be9c1bbea6872d35b5ddd7e967de5e06fa48d626" => :catalina
+    sha256 "637d5a3258bb8928c537479687e82234ab0729650b23e00bcf5215fd3b6377b3" => :mojave
+    sha256 "a7bf34866571bbcb37fc95c13d985c18494625bb34d08325aa9970c22a330e91" => :high_sierra
+    sha256 "b2e547a12cef8dc1528e1627f96147a0be92c89625b58220cb7a05700295c5a4" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -24,9 +25,6 @@ class Libraqm < Formula
   def install
     ENV["LIBTOOL"] = Formula["libtool"].bin
     ENV["PKG_CONFIG"] = Formula["pkg-config"].bin/"pkg-config"
-
-    ENV["HARFBUZZ_CFLAGS"] = "-I#{Formula["harfbuzz"].include/"harfbuzz"}"
-    ENV["HARFBUZZ_LIBS"] = Formula["harfbuzz"].lib
 
     # for the docs
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

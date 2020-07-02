@@ -12,6 +12,7 @@ class Dpkg < Formula
     sha256 "1ea539c6582dfe53b7ea304bfe7cd35a13ba10bed3e8e8ae5e5811d38ede02a5" => :catalina
     sha256 "697ae45f87862d0db104c87895a80ff03068ed8a131479a36e461bbfb9c535f6" => :mojave
     sha256 "a7457962cce9de6a30804597648331f3327e9e1fdd0968e54967c843dc8d2771" => :high_sierra
+    sha256 "b1a7953dfac36ef7e9b2ce2075787a8a0f67bf506ef0bbd2cd74a7bfbfd586a8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
