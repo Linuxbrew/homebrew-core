@@ -6,6 +6,11 @@ class Texlive < Formula
   sha256 "6514c395626b8a33812797d54aad97dace82ff4d1002b5b4bf39edf9a43c43f2"
   head "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4e24715e406a78243cc4391aabc6dc7776390b43fd57d21315a002776ea8994a" => :x86_64_linux
+  end
+
   depends_on "wget" => :build
   depends_on "fontconfig"
   depends_on :linux
