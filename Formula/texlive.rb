@@ -22,16 +22,45 @@ class Texlive < Formula
   def install
     ohai "Downloading and installing TeX Live. This will take a few minutes."
     ENV["TEXLIVE_INSTALL_PREFIX"] = libexec
-    system "./install-tl", "-scheme", "small", "-portable", "-profile", "/dev/null"
-
-    man1.install Dir[libexec/"texmf-dist/doc/man/man1/*"]
-    man5.install Dir[libexec/"texmf-dist/doc/man/man5/*"]
-    rm Dir[libexec/"bin/*/man"]
-    bin.install_symlink Dir[libexec/"bin/*/*"]
+    File.write("texlive.profile", <<-END
+      selected_scheme scheme-small
+      TEXDIR #{prefix}/texlive
+      TEXMFCONFIG $TEXMFSYSCONFIG
+      TEXMFHOME $TEXMFLOCAL
+      TEXMFLOCAL $TEXDIR/texmf-local
+      TEXMFSYSCONFIG $TEXDIR/texmf-config
+      TEXMFSYSVAR $TEXDIR/texmf-var
+      TEXMFVAR $TEXMFSYSVAR
+      instopt_adjustpath 0
+      instopt_adjustrepo 1
+      instopt_letter 0
+      instopt_portable 1
+      instopt_write18_restricted 1
+      tlpdbopt_autobackup 1
+      tlpdbopt_backupdir tlpkg/backups
+      tlpdbopt_create_formats 1
+      tlpdbopt_desktop_integration 1
+      tlpdbopt_file_assocs 1
+      tlpdbopt_generate_updmap 0
+      tlpdbopt_install_docfiles 1
+      tlpdbopt_install_srcfiles 1
+      tlpdbopt_post_code 1
+      tlpdbopt_sys_bin $TEXDIR/bin
+      tlpdbopt_sys_info $TEXDIR/share/info
+      tlpdbopt_sys_man $TEXDIR/share/man
+      tlpdbopt_w32_multi_user 1
+    END
+    )
+    system "./install-tl", "-scheme", "small", "-portable", "-profile", "./texlive.profile"
+    man1.install Dir[prefix/"texlive/texmf-dist/doc/man/man1/*"]
+    man5.install Dir[prefix/"texlive/texmf-dist/doc/man/man5/*"]
+    rm Dir[prefix/"texlive/bin/*/man"]
+    Pathname.glob(prefix/"texlive/bin/*/*") { |f| chmod 0555, f.realpath }
+    bin.install_symlink Dir[prefix/"texlive/bin/*/*"]
   end
 
   def caveats
-    <<~EOS
+    <<-EOS
       The small (~500 MB) distribution (scheme-small) is installed by default.
       You may install a larger (medium or full) scheme using one of:
 
