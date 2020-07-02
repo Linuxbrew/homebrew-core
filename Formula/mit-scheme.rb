@@ -19,6 +19,7 @@ class MitScheme < Formula
 
   uses_from_macos "m4" => :build
   uses_from_macos "texinfo" => :build
+  uses_from_macos "ncurses"
 
   resource "bootstrap" do
     url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11-x86-64.tar.gz"
