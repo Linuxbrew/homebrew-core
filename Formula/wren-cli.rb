@@ -9,10 +9,11 @@ class WrenCli < Formula
     sha256 "c7f9b2cc6e9913517f802d8ef0142484fd86cb2b972ceb670f1b791b65144937" => :catalina
     sha256 "9bf6170802498342b99b6fb167a6ff9254601e911b5c7c74605145985909e6ff" => :mojave
     sha256 "074f4d9634a9e8e7fc33cd302778116121874851aa854830d41e3b73ba50500b" => :high_sierra
+    sha256 "ae62fdbf3751d4dc801df93482d01c4145655225c5015febd6bd0c547bf0d3e1" => :x86_64_linux
   end
 
   def install
-    system "make", "-C", "projects/make.mac"
+    system "make", "-C", "projects/make#{".mac" if OS.mac?}"
     bin.install "bin/wren_cli"
     pkgshare.install "example"
   end
