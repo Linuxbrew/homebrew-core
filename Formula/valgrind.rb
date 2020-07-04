@@ -4,8 +4,8 @@ class Valgrind < Formula
   revision 1 unless OS.mac?
 
   stable do
-    url "https://sourceware.org/pub/valgrind/valgrind-3.16.0.tar.bz2"
-    sha256 "582d5127ba56dfeaab4c6ced92a742b2921148e28a5d55055aedd8f75f1cf633"
+    url "https://sourceware.org/pub/valgrind/valgrind-3.16.1.tar.bz2"
+    sha256 "c91f3a2f7b02db0f3bc99479861656154d241d2fdb265614ba918cc6720a33ca"
 
     depends_on :maximum_macos => :high_sierra if OS.mac?
   end
