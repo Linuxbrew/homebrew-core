@@ -19,7 +19,7 @@ class Scrollkeeper < Formula
   uses_from_macos "perl"
 
   conflicts_with "rarian",
-    :because => "scrollkeeper and rarian install the same binaries."
+    :because => "scrollkeeper and rarian install the same binaries"
 
   resource "XML::Parser" do
     url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
