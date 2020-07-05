@@ -18,7 +18,8 @@ class BashCompletion < Formula
     sha256 "d8e44d076970e70be1e5d910511f582857021c4e418db385f11be9d8ff354d1d" => :x86_64_linux
   end
 
-  conflicts_with "bash-completion@2", :because => "Differing version of same formula"
+  conflicts_with "bash-completion@2",
+    :because => "each are different versions of the same formula"
 
   # Backports the following upstream patch from 2.x:
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740971
