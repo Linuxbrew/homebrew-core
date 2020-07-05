@@ -29,8 +29,7 @@ class Mariadb < Formula
   conflicts_with "mysql", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", :because => "both install `mytop` binaries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+  conflicts_with "mariadb-connector-c", :because => "both install `mariadb_config`"
 
   fails_with :gcc => "4"
   fails_with :gcc => "5"
