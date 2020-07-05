@@ -27,7 +27,7 @@ class Openmotif < Formula
   end
 
   conflicts_with "lesstif",
-    :because => "Lesstif and Openmotif are complete replacements for each other"
+    :because => "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
     unless OS.mac?
