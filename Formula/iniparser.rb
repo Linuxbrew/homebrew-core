@@ -14,7 +14,7 @@ class Iniparser < Formula
     sha256 "0ad7f484c703d421dbe3b974c5a8a0c63132fc34b8b9c34f7306a7d802b32961" => :x86_64_linux
   end
 
-  conflicts_with "fastbit", :because => "Both install `include/dictionary.h`"
+  conflicts_with "fastbit", :because => "both install `include/dictionary.h`"
 
   def install
     # Only make the *.a file; the *.so target is useless (and fails).
