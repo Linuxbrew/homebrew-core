@@ -9,7 +9,6 @@ class GccAT9 < Formula
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
     sha256 "68aa5249f09a70b9c46bd403a46ae42b64f6ea6b3a2af00603852ecaf77c72ce" => :catalina
     sha256 "445cf4a6a4f8f3da61c7e1e6aceaf6fe919a08c475126b2b1e159eae829617a4" => :mojave
     sha256 "682244d252f68de9513ed43f45e3e9f80bcd582e58df1d4aaa16197f3fc88742" => :high_sierra
@@ -29,22 +28,18 @@ class GccAT9 < Formula
 
   uses_from_macos "zlib"
 
-  depends_on "binutils" unless OS.mac?
+  on_linux do
+    depends_on "binutils"
+  end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  def version_suffix
-    if build.head?
-      "HEAD"
-    else
-      version.to_s.slice(/\d/)
-    end
-  end
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+
+    version_suffix = version.to_s.slice(/\d/)
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -97,6 +92,18 @@ class GccAT9 < Formula
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
     ]
 
+    if OS.mac?
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
+
+      # Avoid reference to sed shim
+      args << "SED=/usr/bin/sed"
+    end
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     if OS.mac?
@@ -104,19 +111,12 @@ class GccAT9 < Formula
     end
 
     mkdir "build" do
-      if OS.mac? && !MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      end
-
       system "../configure", *args
 
       make_args = []
       # Use -headerpad_max_install_names in the build,
       # otherwise lto1 load commands cannot be edited on El Capitan
-      make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names" if MacOS.version == :el_capitan
+      make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names" if OS.mac?
 
       system "make", *make_args
       system "make", OS.mac? ? "install" : "install-strip"
@@ -139,7 +139,7 @@ class GccAT9 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = bin/"gcc-#{version_suffix}"
+      gcc = bin/"gcc-9"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -197,7 +197,7 @@ class GccAT9 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
+      libdir = HOMEBREW_PREFIX/"lib/gcc/9"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
