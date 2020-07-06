@@ -3,7 +3,7 @@ class Rubberband < Formula
   homepage "https://breakfastquay.com/rubberband/"
   url "https://breakfastquay.com/files/releases/rubberband-1.8.2.tar.bz2"
   sha256 "86bed06b7115b64441d32ae53634fcc0539a50b9b648ef87443f936782f6c3ca"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
   head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
 
   bottle do
@@ -12,17 +12,16 @@ class Rubberband < Formula
     sha256 "dcfa2c05cc251d0c5e810040646fb5f9511fda2d1cad20ccadce96544a1ad7e3" => :catalina
     sha256 "629837bd83bfcef1003bfb29759d15c29bb7c22740a70f6143bd4c16a5bd3362" => :mojave
     sha256 "f592baa6b5e82c542a92df87789a51b6603e7e8070dfa7f910349a388135b6da" => :high_sierra
-    sha256 "c625f9ddea3e31425331e05084ee2bc3d29c0aa4596107019c8152cdf04a5e06" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  unless OS.mac?
+  on_linux do
     depends_on "ladspa-sdk"
     depends_on "fftw"
     depends_on "vamp-plugin-sdk"
-    depends_on "adoptopenjdk"
+    depends_on "openjdk"
   end
 
   def install
@@ -33,7 +32,7 @@ class Rubberband < Formula
         "--disable-silent-rules",
         "--prefix=#{prefix}"
       system "make"
-      ENV["JAVA_HOME"] = Formula["adoptopenjdk"].opt_prefix
+      ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
       system "make", "jni"
       system "make", "install"
     end
