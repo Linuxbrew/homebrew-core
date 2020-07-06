@@ -1,5 +1,5 @@
 class K9s < Formula
-  desc "Kubernetes CLI To Manage Your Clusters In Style!"
+  desc "Kubernetes CLI to manage your clusters in style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
       :tag      => "v0.21.2",
