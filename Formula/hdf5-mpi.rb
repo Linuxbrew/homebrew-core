@@ -31,7 +31,11 @@ class Hdf5Mpi < Formula
               "settingsdir=$(libdir)",
               "settingsdir=#{pkgshare}"
 
-    system "./autogen.sh"
+    if OS.mac?
+      system "autoreconf", "-fiv"
+    else
+      system "./autogen.sh"
+    end
 
     args = %W[
       --disable-dependency-tracking
