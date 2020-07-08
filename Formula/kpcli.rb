@@ -69,6 +69,11 @@ class Kpcli < Formula
     sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
 
+  resource "Clone" do
+    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz"
+    sha256 "cbb6ee348afa95432e4878893b46752549e70dc68fe6d9e430d1d2e99079a9e6"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
@@ -82,7 +87,7 @@ class Kpcli < Formula
       "Clipboard",
       "Capture::Tiny",
     ]
-    resources << (OS.mac? ? "Mac::Pasteboard" : "Term::ReadKey")
+    resources += (OS.mac? ? ["Mac::Pasteboard"] : ["Term::ReadKey", "Clone"])
 
     resources.each do |r|
       resource(r).stage do
