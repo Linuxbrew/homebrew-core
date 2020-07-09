@@ -4,7 +4,6 @@ class Websocat < Formula
   url "https://github.com/vi/websocat/archive/v1.6.0.tar.gz"
   sha256 "3f7e5e99d766b387292af56c8e4b39ce9a7f0da54ff558a6080ddc1024a33896"
   license "MIT"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
