@@ -58,8 +58,14 @@ class Muparser < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lmuparser",
-           testpath/"test.cpp", "-o", testpath/"test"
+    if OS.mac?
+      system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lmuparser",
+             testpath/"test.cpp", "-o", testpath/"test"
+    else
+      system ENV.cxx, "-std=c++11", "-I#{include}",
+             testpath/"test.cpp", "-L#{lib}", "-lmuparser",
+             "-o", testpath/"test"
+    end
     system "./test"
   end
 end
