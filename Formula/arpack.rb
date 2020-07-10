@@ -36,7 +36,7 @@ class Arpack < Formula
 
     # Fix for GCC 10, remove with next version
     # https://github.com/opencollab/arpack-ng/commit/ad82dcbc
-    args << "FFLAGS=-fallow-argument-mismatch"
+    args << "FFLAGS=-fallow-argument-mismatch" if OS.mac?
 
     system "./bootstrap"
     system "./configure", *args
