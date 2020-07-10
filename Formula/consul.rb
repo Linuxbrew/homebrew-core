@@ -18,7 +18,6 @@ class Consul < Formula
 
   depends_on "go" => :build
   depends_on "gox" => :build
-  depends_on "zip" => :build unless OS.mac?
 
   uses_from_macos "zip" => :build
 
