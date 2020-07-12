@@ -35,6 +35,9 @@ class Graphviz < Formula
   patch :DATA
 
   def install
+    # Disable PDF manpage generation
+    ENV["PS2PDF"] = "/usr/bin/true" unless OS.mac?
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
