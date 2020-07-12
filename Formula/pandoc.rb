@@ -10,7 +10,6 @@ class Pandoc < Formula
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "be40069cb95d3de8fdf16e311998bb1e6315a635d7e93183ba771a12d3f548cd" => :catalina
     sha256 "b1f1dea0254517166a8575c5e2b2ee279ccbdb682578d62ba66a91011595fa78" => :mojave
     sha256 "98bc7e09e12d87d7c0cd372ab658bc767516c841d00502535e4dc05e0607565f" => :high_sierra
