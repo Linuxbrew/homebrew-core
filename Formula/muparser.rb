@@ -3,14 +3,16 @@ class Muparser < Formula
   homepage "https://beltoforion.de/en/muparser/"
   url "https://github.com/beltoforion/muparser/archive/v2.3.2.tar.gz"
   sha256 "b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301"
+  license "BSD-2-Clause"
+  revision 1
   head "https://github.com/beltoforion/muparser.git"
 
   bottle do
     cellar :any
-    sha256 "20da2f5a649d58f95eedc5a7aed844a818993efcf2fa9d54d46b2dc8e3822c12" => :catalina
-    sha256 "a6f9fa4ce3f683cc0799887200f1e38db042541a6efe45eaf991ba8b38d8b90e" => :mojave
-    sha256 "bdbf31b17693b892f6be038d84e0b06707d517562d9eac62158612162555aa4e" => :high_sierra
-    sha256 "0ecd9b0cdae74f2cf8f5e4ca066539e7a2898325d5652d180b459bd01d1e700f" => :x86_64_linux
+    sha256 "c99b69d002f22fa51ca8b53f2add5a094effc2e81dcbda20cfdf483be5f96619" => :catalina
+    sha256 "6b1ccfe8b7d30fff5de4eee181e878e285131365e8893bbb95d1838d255b808b" => :mojave
+    sha256 "b1e0e3e51369d70e3c69045e07977b14e2c06ad6f48cd31a9621204be99a64b7" => :high_sierra
+    sha256 "268014772fe700c4c6ecd8374f21710484ad763f8e7c64bb7bd35b81231fc581" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

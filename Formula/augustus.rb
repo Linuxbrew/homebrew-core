@@ -3,15 +3,15 @@ class Augustus < Formula
   homepage "https://bioinf.uni-greifswald.de/augustus/"
   url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
   sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
+  revision 1
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "14e2ca7f36d9f579c4c04e9cd50dd941abcafcb1d7195dcef4a299773aa199b6" => :catalina
-    sha256 "4525c482c78d272c6094e2689a3cfa2221c9a57f455d34e5f497015938a3550e" => :mojave
-    sha256 "217c1233a38cc11b261fa1481b41362b14afeeaaa16ec83f1afff04639961054" => :high_sierra
-    sha256 "2a1db11f97c9a1aaa3a55f1a182efb173f8fb8bbffc6fbc70974d6c834630181" => :x86_64_linux
+    sha256 "9e6fc1d57f48cf314fa418059a9d619a8451d7e65ed8234225e52f311673cf6d" => :catalina
+    sha256 "476eeca3de3f98c4e539cee89078a3f37f667ae7f47ef375115439154bc23e3c" => :mojave
+    sha256 "b5077e94d1ee68864ed0d89bfc892ad80dcd37b89e149b23733bd9280d54771b" => :high_sierra
+    sha256 "c7f621a5de75a1c1a7eed0a0e9e90fc8c0919504ceadbf62533274b4436e8ca4" => :x86_64_linux
   end
 
   depends_on "boost" => :build

@@ -4,14 +4,15 @@ class Netcdf < Formula
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.4.tar.gz"
   mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
   sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Unidata/netcdf-c.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7510a4fe72e43f11e642e5f08951ff136ab677579d1208c38471902df92b1cc" => :catalina
-    sha256 "3a4da525b304b8ade90ee27d476fff47ff00ed0a9c482e48f6cbc783a915c35e" => :mojave
-    sha256 "4860a333ac67dee3d27e44c1248ccf106e7e7607386c8d66033e0f16237f0c2f" => :high_sierra
-    sha256 "9b8f274acb9dbe13bb089550d5762f696e672f6d47435e10df3148fd9eced98a" => :x86_64_linux
+    sha256 "0ae7c27bd0ac68071faecbd09f67fb2ce91d86b030b92488dca64851e6d40de0" => :catalina
+    sha256 "db149e5597eab59a0a908c48efc35df09735ddc8bac006c94b6a02a644822814" => :mojave
+    sha256 "c1704dcf4cd4d59e48b5e71e752c44220cc098810e67d49aaa8985cc09b5724b" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -75,6 +76,10 @@ class Netcdf < Formula
 
     fortran_args = args.dup
     fortran_args << "-DENABLE_TESTS=OFF"
+
+    # Fix for netcdf-fortran with GCC 10, remove with next version
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
+
     resource("fortran").stage do
       mkdir "build-fortran" do
         system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *fortran_args

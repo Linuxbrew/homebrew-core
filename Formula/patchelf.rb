@@ -3,6 +3,7 @@ class Patchelf < Formula
   homepage "https://nixos.org/patchelf.html"
   url "https://nixos.org/releases/patchelf/patchelf-0.10/patchelf-0.10.tar.gz"
   sha256 "b2deabce05c34ce98558c0efb965f209de592197b2c88e930298d740ead09019"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

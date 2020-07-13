@@ -3,15 +3,15 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.0.27.tar.gz"
-  sha256 "510c833d34e720236302ff5c39c1c5e184fa4c4cde42770e747a3f0fc798e2b1"
+  url "https://github.com/aws/aws-cli/archive/2.0.29.tar.gz"
+  sha256 "3d073b97034070a218ccde4c6cd33b29f96f32344b535e75564ee0b52fa5fc2c"
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
-    sha256 "e78c56cc551a3f5e252aaa51b79b27a08eeb0f23fdbb541f2cff2f44cc5cc0da" => :catalina
-    sha256 "da6bfc03f073d766d0aa7ea4b488e1ea5be5fb10b7cf6180d99a2fcfc06174ec" => :mojave
-    sha256 "6d865fb7ef17e1ca4eb5759ac5c647fca9a6cacb238b042c0af893db4e32a2e8" => :high_sierra
-    sha256 "9cdec595d85460031977b991751648f0cbb25412f8adcfd59b3a93356945857e" => :x86_64_linux
+    sha256 "b38dab3562270529c5e57d34b151ac0b31da89aa1ca8316682da6e34ff243fc5" => :catalina
+    sha256 "50bfad8bd4a17d193a7c9e3de5143900842ce0193ff3e842f2d2f7a2a311ec29" => :mojave
+    sha256 "c11341c9f3500080869c4c5f4a31163d527da5bb90f8068a92403c1c543c7643" => :high_sierra
+    sha256 "cb627b5c480713f233a5092c7e0a1f35e4c62b76ed37ef3b7614ef3f244c039d" => :x86_64_linux
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
@@ -43,6 +43,8 @@ class Awscli < Formula
         if [[ -f $e ]]; then source $e; fi
       }
     EOS
+
+    system libexec/"bin/python3", "scripts/gen-ac-index", "--include-builtin-index"
   end
 
   def caveats
@@ -54,5 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
+    assert_include Dir["#{libexec}/lib/python3.8/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.8/site-packages/awscli/data/ac.index"
   end
 end

@@ -1,14 +1,14 @@
 class Tnftpd < Formula
   desc "NetBSD's FTP server"
   homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20190602.tar.gz"
-  sha256 "905519d239745ebec41c91e357af299f3bce04b59f84f2ba5f7654738439ac1c"
+  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20200704.tar.gz"
+  sha256 "92de915e1b4b7e4bd403daac5d89ce67fa73e49e8dda18e230fa86ee98e26ab7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "978a0f4a68060b3565a38e3dac5cae51970c63380b9d711cc0627fc22fa92e5c" => :catalina
-    sha256 "73c8ee8157c115bdb3460ed5d6e99026eb202ee92eb2b5e0fc8210f38b8cd0e1" => :mojave
-    sha256 "b57aef0f28f51866e63ee22df0c3068377bebb4a36c17e7d0f167e3a97f7591f" => :high_sierra
+    sha256 "cbc7f23e857584e25c7d2d043a3971841febe99f12830d82cf28fe47a2e9e254" => :catalina
+    sha256 "3e8848729081c09a247e0326ede175db12111360905f69cc339dea3ba0213e62" => :mojave
+    sha256 "18a15c1572f7f5b33b7678d9a322de20efcd0c1b1c5c98d8cb00e13a80bfa518" => :high_sierra
   end
 
   def install

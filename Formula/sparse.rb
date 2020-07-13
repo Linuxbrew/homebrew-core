@@ -3,13 +3,14 @@ class Sparse < Formula
   homepage "https://sparse.wiki.kernel.org/"
   url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.2.tar.xz"
   sha256 "519ca0de92c1c5dbb76494176c7e567ce4cc8f64a2ecd27b2fae32ce156421fc"
+  revision 1
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
 
   bottle do
-    sha256 "d2ef22c9e1333a70053230705caff9baf80075c4039a485e3a778abc0ca3b415" => :catalina
-    sha256 "cbd74528c1f37f44079f866fa8da5e6571929e35afd4102244cbfa103e5f2950" => :mojave
-    sha256 "c81ad2c94b22452119bcf5c6347ef6426ee245afbd750bf0c0f6c35f3c8c6b75" => :high_sierra
-    sha256 "d4e47a2015df16335510520873c4600cda7426acc133db509bb28a26773bca4c" => :x86_64_linux
+    sha256 "7b68cfced4d0ab9aa951900794eae5610ff9f6641b57a3fc6cd8a6d61b69f3f7" => :catalina
+    sha256 "6f9eb074c79700342aa36a6359079e8d853e5a6b9d6203459b62118b747e1210" => :mojave
+    sha256 "b74ccd0fe82e07b7d0552954634e1e7a8395ceaae09b8405d8460ce3b828e75d" => :high_sierra
+    sha256 "1e8ac45997eb8f805887db4afb868a3e236358592b56b9c0ec08df37bf290937" => :x86_64_linux
   end
 
   depends_on "gcc" if DevelopmentTools.clang_build_version < 1100

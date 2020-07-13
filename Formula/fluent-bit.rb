@@ -1,31 +1,33 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.4.5.tar.gz"
-  sha256 "5ce6a8269402d1800e79671fe30bea38926c959cbdf0e87ae7939da61f23f35e"
+  url "https://github.com/fluent/fluent-bit/archive/v1.4.6.tar.gz"
+  sha256 "3ff32b163eb57c6f82fa4a8e3d2797f1896a43a65667c6fffaf7b7f8f8f1e8ee"
+  license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
     cellar :any
-    sha256 "a7e1c21fca506273c4c55803069f356767c3a761f88b4e6aad31af50f338852c" => :catalina
-    sha256 "f1a7202594bce8b54583ad45972784d31fe6f076caa1dd3c14c74157def88198" => :mojave
-    sha256 "e1ade0ab0cca8cf718836fb0d1cd72bfed7a669e493b41b488c09816eafcc20c" => :high_sierra
-    sha256 "8f22ddafe7ee2957228fbeddc3cd4362d9ebf3c548f1610daf23d4ac8ecf7838" => :x86_64_linux
+    sha256 "d2ed76145fb4b004eadb4a57007238e48faa97e81f2bd37a62b26f7cab2ea8b5" => :catalina
+    sha256 "2573b4dd23cf4b578eb02eaa5509a2b2a9d87325e7c87cb4eeb34eb78c672224" => :mojave
+    sha256 "4588a0fb9ea77b998f3e36d23b6c2ce293e8015d6b5b51204e53b84ee0550983" => :x86_64_linux
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+  # bug report, https://github.com/fluent/fluent-bit/issues/2332
+  depends_on :macos => :mojave
 
-  conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries."
-  conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries."
+  conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries"
+  conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries"
 
   # Don't install service files
   patch :DATA unless OS.mac?
 
   def install
     # Work around Xcode 11 clang bug
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+    ENV.append_to_cflags "-fno-stack-check -fno-common" if DevelopmentTools.clang_build_version >= 1010
 
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.

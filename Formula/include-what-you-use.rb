@@ -1,22 +1,28 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.13.src.tar.gz"
-  sha256 "49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.14.src.tar.gz"
+  sha256 "43184397db57660c32e3298a6b1fd5ab82e808a1f5ab0591d6745f8d256200ef"
 
   bottle do
-    sha256 "94a1fa82e1a198f0e7548cb7b4895303b52432eb83836ce84896cc5af6bd3340" => :catalina
-    sha256 "0f91606b7d834d1969dea394674eafdd87c6ecbffb327a77c0d63c16574e89af" => :mojave
-    sha256 "b7dbc7e9f3504f1902b9f63de1c802812729c2ae395c4d85b0dab5a10835bd60" => :high_sierra
-    sha256 "7035186ff6884f4966322d02e1a1f07ff99a6dc0134159499593264f8feb1486" => :x86_64_linux
+    sha256 "045a0b40290cc8da9122eef0a51c8badbd972ae1a90a3bf101f9e26f90fb6b25" => :catalina
+    sha256 "4624e7bc1b0c8775db0ab2a48c6bdafcf51dea562e3e9f227940746db375c783" => :mojave
+    sha256 "8ae01240a58564995908d2ffae8a87cf678be65511b36ad29da804ba93509aa9" => :high_sierra
+    sha256 "e81f30f2dff4eab75b64600a6eb3e94aefcaef433083b047bc219c2567c7682b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" # include-what-you-use 0.13 is compatible with llvm 9.0
+  depends_on "llvm@9" # include-what-you-use 0.14 is compatible with llvm 9.0
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
   depends_on "gcc" => :build unless OS.mac? # libstdc++
+
+  # patch to make the build work with llvm9
+  patch do
+    url "https://github.com/include-what-you-use/include-what-you-use/pull/807.patch?full_index=1"
+    sha256 "afcc5bdf1377e36feacd699c194ef8e6645c8590d79f8cb15a57b43fa03c9102"
+  end
 
   def install
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
@@ -25,7 +31,7 @@ class IncludeWhatYouUse < Formula
     # and is not configurable, is also located under libexec.
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
-      -DCMAKE_PREFIX_PATH=#{Formula["llvm"].opt_lib}
+      -DCMAKE_PREFIX_PATH=#{Formula["llvm@9"].opt_lib}
     ]
 
     mkdir "build" do
@@ -43,11 +49,11 @@ class IncludeWhatYouUse < Formula
     # formula. This would be indicated by include-what-you-use failing to
     # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    mkdir_p libexec/"lib/clang/#{Formula["llvm"].version}"
-    cp_r Formula["llvm"].opt_lib/"clang/#{Formula["llvm"].version}/include",
-      libexec/"lib/clang/#{Formula["llvm"].version}"
+    mkdir_p libexec/"lib/clang/#{Formula["llvm@9"].version}"
+    cp_r Formula["llvm@9"].opt_lib/"clang/#{Formula["llvm@9"].version}/include",
+      libexec/"lib/clang/#{Formula["llvm@9"].version}"
     mkdir_p libexec/"include"
-    cp_r Formula[OS.mac? ? "llvm" : "gcc"].opt_include/"c++", libexec/"include"
+    cp_r Formula[OS.mac? ? "llvm@9" : "gcc"].opt_include/"c++", libexec/"include"
   end
 
   test do

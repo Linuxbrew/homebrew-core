@@ -3,14 +3,14 @@ class Cgns < Formula
   homepage "http://cgns.org/"
   url "https://github.com/CGNS/CGNS/archive/v4.1.1.tar.gz"
   sha256 "055d345c3569df3ae832fb2611cd7e0bc61d56da41b2be1533407e949581e226"
-  revision 1
+  revision 2
   head "https://github.com/CGNS/CGNS.git"
 
   bottle do
-    sha256 "bd68e99330428811196cf3ed189ea61b67d86a2e58af3f0971b6d5f20f1d8ec4" => :catalina
-    sha256 "f2f5d0c81b8adfcd2ef8d1a91c9b29f8e875fe6349badcac81e7e475caa4df89" => :mojave
-    sha256 "d81da89ddc8f36b947f476362e60be07f7b5c81c209b4dfa960a26b007d9d1c8" => :high_sierra
-    sha256 "4eaf1a8d3e02f932154dbab824505b465d0c59d7eefd53351bb5319fa792361e" => :x86_64_linux
+    sha256 "ac5ed0dcdfd12f7e07c483d355b26d46f8380cfadb069b60d7bee21c12f6d31a" => :catalina
+    sha256 "e9bcc9d1af96b8ebc5ecb0d5ba16165edf750f75e53b6b81997bb5078b718c68" => :mojave
+    sha256 "cd64974956ac61d5574db91ceba7bcf99e17981be478864ef7b368340e993025" => :high_sierra
+    sha256 "b222d357b5611ba61a8b9c16e981c63af7732e2b135f0599579e63401f2ba5a4" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

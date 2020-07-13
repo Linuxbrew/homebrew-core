@@ -1,15 +1,14 @@
 class X8664ElfGcc < Formula
   desc "The GNU compiler collection for x86_64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
-  sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gcc/gcc-10.1.0/gcc-10.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.1.0/gcc-10.1.0.tar.xz"
+  sha256 "b6898a23844b656f1b68691c5c012036c2e694ac4b53a8918d4712ad876e7ea2"
 
   bottle do
-    sha256 "80fa0ac420b2d2546c1945d76e1862028e8ca6e947749b566366ba06ec13d2e3" => :catalina
-    sha256 "09d040dbcbe9d6a86f38d10608bd3bcf50922fd03d0c4c04c87015528e1d3e73" => :mojave
-    sha256 "fbc05f274baf67649d16a39b77bfaecf971de84863de21c9aa67cf09e808c87a" => :high_sierra
+    sha256 "bb2b2a5e091f618b77a7900a8fdc6ea2d7a3591dc7245e417a53d15c9d102e73" => :catalina
+    sha256 "831ecfd46bd6537d894cfa9fc8aa3149e04c1fe9b8b0a7a60851cd87cf3608c2" => :mojave
+    sha256 "5eccdd282ba40dfc4089244dd576b56b5ddda35160021e542a49374487c34d18" => :high_sierra
   end
 
   depends_on "gmp"

@@ -3,6 +3,7 @@ class Confuse < Formula
   homepage "https://github.com/martinh/libconfuse"
   url "https://github.com/martinh/libconfuse/releases/download/v3.3/confuse-3.3.tar.xz"
   sha256 "1dd50a0320e135a55025b23fcdbb3f0a81913b6d0b0a9df8cc2fdf3b3dc67010"
+  license "ISC"
 
   bottle do
     sha256 "13ad01ca606e746ab7f6bcd42b0da08abdcc29ccaaa9e8106f9d28bfe96bffd7" => :catalina

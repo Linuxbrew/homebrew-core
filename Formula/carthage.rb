@@ -16,6 +16,13 @@ class Carthage < Formula
 
   depends_on :xcode => ["10.0", :build] if OS.mac?
 
+  patch do
+    # Fix erroneously re-throwing reduce (on Swift 5.3 pre-release)
+    # https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f
+    url "https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f.diff?full_index=1"
+    sha256 "75610a77cafbf447ea040d8dea1a4beb626944c577351ea5435ab5e8dda71b1c"
+  end
+
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}"
     bash_completion.install "Source/Scripts/carthage-bash-completion" => "carthage"

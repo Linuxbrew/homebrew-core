@@ -3,12 +3,14 @@ class Skopeo < Formula
   homepage "https://github.com/containers/skopeo"
   url "https://github.com/containers/skopeo/archive/v1.1.0.tar.gz"
   sha256 "3bd3acc614514fc2261b89dc0ea85ac7a4dba64fb7dcef8676ae61849e8faeb4"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "885d21169cea53b1cdd54de0d8c666b57c1d68b5139da59dfcb6db995c174e79" => :catalina
-    sha256 "d6fd2de27f126f86aefbb49b1cd6287a4f1f96ae16831b351db2b9a86f54709a" => :mojave
-    sha256 "09f7f5b5df8faf7db92b057c59eecc547bf1e685f7d1cd483ed2cc4cd01449d1" => :high_sierra
-    sha256 "bf7030505c0534ec36c5b30fd31d47c1d22960b4e06965057a47e938192974fa" => :x86_64_linux
+    rebuild 1
+    sha256 "753326edd62a8eef7b5e6fe41828d65f7515b9234865e050f76aca73520f1cd6" => :catalina
+    sha256 "c0573c720ad51ded6e76420d1e9939b6ed04fc2f2f2eaaed726285c7c0230db3" => :mojave
+    sha256 "76e3c0cb6daec487ffbbe50755faa297805bd287108eb7e3b9cd184842206b7b" => :high_sierra
+    sha256 "3189bb93a553c9320845c89882482ce505273fea71a9c7aabf5df1e6b405bddd" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -25,7 +27,7 @@ class Skopeo < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
     ENV.append "CGO_FLAGS", ENV.cppflags
-    ENV.append "CGO_FLAGS", Utils.safe_popen_read("#{Formula["gpgme"].bin}/gpgme-config --cflags")
+    ENV.append "CGO_FLAGS", Utils.safe_popen_read("#{Formula["gpgme"].bin}/gpgme-config", "--cflags")
 
     buildtags = [
       "containers_image_ostree_stub",

@@ -3,6 +3,7 @@ class MupdfTools < Formula
   homepage "https://mupdf.com/"
   url "https://mupdf.com/downloads/archive/mupdf-1.17.0-source.tar.xz"
   sha256 "c935fb2593d9a28d9b56b59dad6e3b0716a6790f8a257a68fa7dcb4430bc6086"
+  license "AGPL-3.0"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -14,7 +15,7 @@ class MupdfTools < Formula
   end
 
   conflicts_with "mupdf",
-    :because => "mupdf and mupdf-tools install the same binaries."
+    :because => "mupdf and mupdf-tools install the same binaries"
 
   def install
     # Work around Xcode 11 clang bug

@@ -1,15 +1,16 @@
 class Zenith < Formula
   desc "In terminal graphical metrics for your *nix system"
   homepage "https://github.com/bvaisvil/zenith/"
-  url "https://github.com/bvaisvil/zenith/archive/0.9.2.tar.gz"
-  sha256 "dbfcb76698201891b44b1178022e6fa480e8bfd6ded33af04031edcc6685d6de"
+  url "https://github.com/bvaisvil/zenith/archive/0.10.0.tar.gz"
+  sha256 "a232951928b813447fa89562c97fdbb87ac57f97c7633e1e20d7ebc8fa126505"
+  license "MIT"
   head "https://github.com/bvaisvil/zenith.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f1bdca3e08f8b57a52cd1db2a48bb0383a23f04c29f17358a1c5c40797119aa" => :catalina
-    sha256 "8fc0737c8421303c724826bd63d1fbf1078f47b226bde1c4130dcb4ecd35c77c" => :mojave
-    sha256 "b6b27f98ecd10f4028b421d026ba97b137de47ab5d799a89818703ecf059f6f4" => :high_sierra
+    sha256 "6bbe3db614e24831a888b82ebd52ab7f51f00320ee1d0372d8f19c042d8b0505" => :catalina
+    sha256 "764dc52d56fa24ff051e66f29a60f11be8e2e229592448662192f604e91f9d5e" => :mojave
+    sha256 "5850d5fe7b4ffebb904ea367a3f8d8361b48361e3e0dc9635304baddfebbe0db" => :high_sierra
   end
 
   depends_on "rust" => :build

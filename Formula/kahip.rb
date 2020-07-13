@@ -3,14 +3,14 @@ class Kahip < Formula
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
   url "https://algo2.iti.kit.edu/schulz/software_releases/KaHIP_2.12.tar.gz"
   sha256 "b91abdbf9420e2691ed73cea999630e38dfaf0e03157c7a690a998564c652aac"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "970a6dbb933e2fae1f04cf06f73cbad53ebcecbee8c2434e2045d46d5cecd82b" => :catalina
-    sha256 "3c59b856d2b908f55fe555621a1ad866a1e4e2cbc1e07d13bda116d33d9f1ddc" => :mojave
-    sha256 "5872593fdd32749fc4d11bff597808732428137b869840f5db65e7ef408e393c" => :high_sierra
-    sha256 "cb925202435f91a405717bd7f5f162d54bdab0bccbdb87eaa817324d331211b0" => :sierra
-    sha256 "283559695d4fb7c78a65123c34449f84460d5f23fdd4c050a3a3727605b5878b" => :x86_64_linux
+    sha256 "a05c9bfbd38225e3730e10756f1515d833f09f61eccd7745c55dd8b78690b790" => :catalina
+    sha256 "57e35f0a81e0d22f9d8d4438994efcc30295e54865525ba89236f58647f66174" => :mojave
+    sha256 "78fda0b177b22dc65d0d9b5116dc842aa023cb027afccd4c2f968f42ac55fada" => :high_sierra
+    sha256 "05033633bb34c3798b8b284177152f6adc35746031f34390ea600d88d5d41045" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

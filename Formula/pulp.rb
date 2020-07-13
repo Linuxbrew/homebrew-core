@@ -5,12 +5,14 @@ class Pulp < Formula
   homepage "https://github.com/bodil/pulp"
   url "https://registry.npmjs.org/pulp/-/pulp-15.0.0.tgz"
   sha256 "695da1581389d060810ed1a5962ab7e53696db8493b224fa7dc2358f255b8b53"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92e4348d79d02c037b00973449d383678acc9b186b0949ca326f3663306e11f1" => :catalina
-    sha256 "46186bc8b38d9a0c877b566b3e4a8af1495189deb546bf40a90613f8696f66ab" => :mojave
-    sha256 "68837e60c915d0d22619172eea9e490fb6437d8842d5ea563e8e4d6f40cf77f9" => :high_sierra
+    rebuild 1
+    sha256 "b8171d3e267d32cb7c785ee72fb8a1dbe96d7a66a7d5311a23b314a0e742156c" => :catalina
+    sha256 "9ee409ce24c46c02db3dade7b2942d8990708de840e03e0a80d5f2498a9bc46e" => :mojave
+    sha256 "56016abc98b66356ad0d58c0ea951de4da772abca1f12fd2c3635a7700e36c63" => :high_sierra
   end
 
   depends_on "bower"
@@ -25,7 +27,7 @@ class Pulp < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/pulp --version")
 
-    system("#{bin}/pulp init")
+    system("#{bin}/pulp", "init")
     assert_predicate testpath/".gitignore", :exist?
     assert_predicate testpath/"bower.json", :exist?
   end

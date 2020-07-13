@@ -3,13 +3,15 @@ class Passenger < Formula
   homepage "https://www.phusionpassenger.com/"
   url "https://github.com/phusion/passenger/releases/download/release-6.0.5/passenger-6.0.5.tar.gz"
   sha256 "94c25d5669c6cd1bc93854a020701c9869012eec621bce331bfe2d0c9c8c3532"
+  license "MIT"
+  revision 1
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
     cellar :any
-    sha256 "1be0ca82f0f6cfa53d26cea7e92eb484cfc63829f8f32d81be9f13c25aeea265" => :catalina
-    sha256 "0c751f5561066a361a0d73429d86ff5a74aa0d8fe166a12fbe5eaf5a31f0a87b" => :mojave
-    sha256 "7abd8306bd85d11d8c254945485c8003231b97fc38ee3ce44118f50077f6dc25" => :high_sierra
+    sha256 "1d784fa0b9f722a3409378bcd34fe63f3759e5640cd696da72b026b457a90b02" => :catalina
+    sha256 "0da4deae2720ad05a1fc543dc687319806778897f913c724464a03d0f5d24591" => :mojave
+    sha256 "417250b329d2f44f6f8c3626d9f86f1d402f9b9643fca274d027270e5b561537" => :high_sierra
   end
 
   # to build nginx module

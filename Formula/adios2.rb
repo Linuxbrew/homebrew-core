@@ -3,13 +3,14 @@ class Adios2 < Formula
   homepage "https://adios2.readthedocs.io"
   url "https://github.com/ornladios/ADIOS2/archive/v2.6.0.tar.gz"
   sha256 "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
 
   bottle do
-    sha256 "70af70aa0923bd141c545211bacad82c881959bd27fe5e6e1eab891e34dcf139" => :catalina
-    sha256 "2e8d20303fea3a882a2e121b0db5423886fccfae4cd02eedaa9321055b32e3fb" => :mojave
-    sha256 "f1f7bd1e46bf719fddca91bf9e805fdfa1a12f562f15a55e6c891489900288bf" => :high_sierra
-    sha256 "333f58824cddb0ea83c2b83548b339f347fcd5d3fbbe6f5e129c111113d2c0fe" => :x86_64_linux
+    sha256 "52714e697f707e1292d16d0ab1a2454d0e2ddb5640856fa717b2494cbaaedfc1" => :catalina
+    sha256 "623afa19d1733ce0c593277625b7ea07d8b970a6d824d37f3b7cbbea0cda1f6c" => :mojave
+    sha256 "48c44768666c1fb7b4e288dec85c5e6bd45911fb72e5d77d0c0ce3099d782dec" => :high_sierra
+    sha256 "73a0ad3a8a265dbb0298a4a1d77a7118ec960ac678136c8e089de3761ff8ae34" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

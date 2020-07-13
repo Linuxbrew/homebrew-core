@@ -1,16 +1,17 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v4.2.11.tar.gz"
-  sha256 "e0c8f0123fd2c87fccd5464abc1079a82f0097999efeed32059a01f6fab19616"
+  url "https://github.com/gravitational/teleport/archive/v4.3.0.tar.gz"
+  sha256 "dbc2cd029efdd3df5cc12a8105cb80358202878baed21ca65442d678c0f28f61"
+  license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "494b370c875f70c96850b7ca9cce61e123ea99f505d3ffa4727733662bb67af1" => :catalina
-    sha256 "3dee689ea167e7b0b90d9af37464165ec65d9f80bf16e3961f76828545d52b2c" => :mojave
-    sha256 "cf63c1ffaaccfde7c732aab770c328bc925360b0ff4a24cba7200f8cfb440ebb" => :high_sierra
-    sha256 "82a83a3c208eb2caa901b68d733009f9d62dd85eac1e18b574c7a6c99bf56a04" => :x86_64_linux
+    sha256 "5cc353435bf3c84f759cdf77bea38ca2510be51398b810b2381a3a27b44bac34" => :catalina
+    sha256 "64bae136e0cd999903a68af31f5bfb46eadfbeb826053a748818b171029c5b29" => :mojave
+    sha256 "6c701a0d953456385b454027bb69a1d974f2210ad9e209912abb931d6c27e055" => :high_sierra
+    sha256 "30e122b8750d39584b960d54d523e65c4700675279f45b810765cd214414909f" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -29,10 +30,16 @@ class Teleport < Formula
 
   conflicts_with "etsh", :because => "both install `tsh` binaries"
 
+  resource "webassets" do
+    url "https://github.com/gravitational/webassets/archive/72412062d6d55ec7faa9707abf500d703e7d09da.tar.gz"
+    sha256 "c84767bea0a723f406e3b6566a0a48892758b2e5f3a9e9b453d22171315fd29d"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOROOT"] = Formula["go"].opt_libexec
 
+    (buildpath/"webassets").install resource("webassets")
     (buildpath/"src/github.com/gravitational/teleport").install buildpath.children
     cd "src/github.com/gravitational/teleport" do
       ENV.deparallelize { system "make", "full" }

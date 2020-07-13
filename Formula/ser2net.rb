@@ -1,34 +1,54 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-3.5.1.tar.gz"
-  sha256 "02f5dd0abbef5a17b80836b0de1ef0588e257106fb5e269b86822bfd001dc862"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.0.tar.gz"
+  sha256 "1d895f005896e8c5bcff4fe573e2fec3611bf4feee1247857e476b74323d916c"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "212684df3012508da810e7cd273f1418debf734aacb39949b54aca7b592b1a76" => :catalina
-    sha256 "83435a03046d3e3db9461ae4dcf9357f6809290bf91560f2f3d722cac22ee6ce" => :mojave
-    sha256 "9be8a962e23275a1400a60f94b5e98fc311cf9c917320b5c03d13edcebe40f67" => :high_sierra
-    sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
-    sha256 "98d73255946b1d279a9ea4088b660339aedc7f29897573051b47e3ebe608dc81" => :x86_64_linux
+    sha256 "1f7cee8eefe4625bd2c75f48f3b1386dd61379b6b81b21b57c1792b0a246a8f1" => :catalina
+    sha256 "f8a9cc43919eeae9ebbbfc91a5b463f2f95fe0f312724cc1555038a4ef423f93" => :mojave
+    sha256 "32df43b370d1da50357d2890c65f57c228a9352272b2ca462728183801db917f" => :high_sierra
   end
 
+  depends_on "libyaml"
   depends_on :macos => :sierra # needs clock_gettime
 
+  resource "gensio" do
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.1.tar.gz"
+    sha256 "e81df2c55d8830ac4f3c28eda54c3f690c4b62e186ea3879815b101a4902a703"
+
+    # Pull request submitted upstream as https://github.com/cminyard/gensio/pull/19
+    patch do
+      url "https://github.com/cminyard/gensio/pull/19.patch?full_index=1"
+      sha256 "2513ebcaf0395e59d846834eb59a5f0bacc077a0070bf9d1239ad223f16e6735"
+    end
+  end
+
   def install
+    resource("gensio").stage do
+      system "./configure", "--with-python=no",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/gensio"
+      system "make", "install"
+    end
+
+    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/gensio/lib/pkgconfig"
+    ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
+    ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
 
-    # LIBS is set to "-lpthread -lrt" but librt doesn't exist on macOS
-    # https://github.com/cminyard/ser2net/issues/3
-    system "make", "install", "LIBS=-lpthread"
+    system "make", "install"
 
-    etc.install "ser2net.conf"
+    (etc/"ser2net").install "ser2net.yaml"
   end
 
   def caveats
     <<~EOS
-      To configure ser2net, edit the example configuration in #{etc}/ser2net.conf
+      To configure ser2net, edit the example configuration in #{etc}/ser2net/ser2net.yaml
     EOS
   end
 
@@ -58,6 +78,7 @@ class Ser2net < Formula
       </plist>
     EOS
   end
+
   test do
     assert_match version.to_s, shell_output("#{sbin}/ser2net -v")
   end

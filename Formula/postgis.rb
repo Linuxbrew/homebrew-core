@@ -3,13 +3,13 @@ class Postgis < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-3.0.1.tar.gz"
   sha256 "5a5432f95150d9bae9215c6d1c7bb354e060482a7c379daa9b8384e1d03e6353"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "3539d7a762060bbd8eaa7fb89c2cb7a6de53d5adffb632573b592bfc6d9301b3" => :catalina
-    sha256 "edab13b2a87853f509682947dfee099b29d57782fd8ad37fcb047685208c59d1" => :mojave
-    sha256 "d7775827298a4b6d34cb1481df9fb9c41ad045d0ed6cc80d36cdef9a67dc4d54" => :high_sierra
+    sha256 "185b59ee4d9bcd7ed6856a05fcf6833f2ad91c87e1240491d785ee573c9fc418" => :catalina
+    sha256 "cc8eee6692e663b13f5e66a5d8c6f9891fd99a42c5beaeefeca4b28bb8427fdc" => :mojave
+    sha256 "46b2eb2a7f002baaeffc49e14a0d1c2cf5d5c5d429b0dea5944e754cd00d8a44" => :high_sierra
   end
 
   head do

@@ -3,6 +3,7 @@ class Gmime < Formula
   homepage "https://spruce.sourceforge.io/gmime/"
   url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.7.tar.xz"
   sha256 "2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any_skip_relocation

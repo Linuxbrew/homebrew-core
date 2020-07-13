@@ -8,10 +8,11 @@ class Glew < Formula
 
   bottle do
     cellar :any
-    sha256 "590c10bf98e6263d8e573720e5521584d836f28c52f30f97840614e97c16ccfd" => :catalina
-    sha256 "66638564b5b9d2d915b97841ef1cc117f701c7ec34707734fa1ce11919c28821" => :mojave
-    sha256 "1d3b4e7938d3c1fc7e16f78a506163046da105b443498b7ca1a3cca78f232739" => :high_sierra
-    sha256 "238fc7acb38a8677e5a7aad6cd57e4934e4ee00289f6aefdc565846d21c22f80" => :x86_64_linux
+    rebuild 1
+    sha256 "3181853e5ec2d8e0b24842c06b2882fce2d3ff89d83f4647bfee755005e165ca" => :catalina
+    sha256 "04ad309f33a1355e3e29251cf60ad24058b53443352c74d30624ec470b0428a1" => :mojave
+    sha256 "1b5e8d521625cfabd6e429e4111d74cd68fdc4efbde826a6b5bbee1a7261e801" => :high_sierra
+    sha256 "03b8a51e5ccd941213af702f455a6a6bf5df5c46a76cbba43dfc33b4d1b01d85" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -20,6 +21,8 @@ class Glew < Formula
     depends_on "linuxbrew/xorg/glu"
     depends_on "mesa"
   end
+
+  conflicts_with "root", :because => "root ships its own copy of glew"
 
   def install
     cd "build" do

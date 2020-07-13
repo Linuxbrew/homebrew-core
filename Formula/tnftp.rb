@@ -1,15 +1,15 @@
 class Tnftp < Formula
   desc "NetBSD's FTP client"
   homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20151004.tar.gz"
-  sha256 "c94a8a49d3f4aec1965feea831d4d5bf6f90c65fd8381ee0863d11a5029a43a0"
+  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20200705.tar.gz"
+  sha256 "ba4a92b693d04179664524eef0801c8eed4447941c9855f377f98f119f221c03"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92c012e712577f8241e239849d4b73dd5dba36a74b6bd66db6b834488a8d82cf" => :catalina
-    sha256 "54e3a99702280bcc89879a9f520441113686869981ec534fa74db2df3fa7b774" => :mojave
-    sha256 "ba323276cf1be330ad3fccab6cd4339e11bb67428ead33128b809b7fdfd7bf80" => :high_sierra
-    sha256 "925083cf63f151a7f217b39e8e1f182c59c809f28ed393cc1adbdd326a5245e5" => :x86_64_linux
+    sha256 "1411f5fe465b0952891ff141431a5d09140c7d53bb3cf689054a2580bd1031fc" => :catalina
+    sha256 "ae4beaa65c5f258152fefeeaa196c9e2d70cf3bda2af4e387ddcf807476c7401" => :mojave
+    sha256 "900f2ece9b7a6a9edd0d96dc6c061ef6380c0fc99177119e73db65e5d8c012e0" => :high_sierra
+    sha256 "5e8cdb89a54a199c0ad192f5064f668c350e4d5291796343f5119c5f50520812" => :x86_64_linux
   end
 
   uses_from_macos "bison" => :build

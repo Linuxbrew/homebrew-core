@@ -3,6 +3,7 @@ class Iniparser < Formula
   homepage "http://ndevilla.free.fr/iniparser/"
   url "https://github.com/ndevilla/iniparser/archive/v4.1.tar.gz"
   sha256 "960daa800dd31d70ba1bacf3ea2d22e8ddfc2906534bf328319495966443f3ae"
+  license "MIT"
   head "https://github.com/ndevilla/iniparser.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Iniparser < Formula
     sha256 "0ad7f484c703d421dbe3b974c5a8a0c63132fc34b8b9c34f7306a7d802b32961" => :x86_64_linux
   end
 
-  conflicts_with "fastbit", :because => "Both install `include/dictionary.h`"
+  conflicts_with "fastbit", :because => "both install `include/dictionary.h`"
 
   def install
     # Only make the *.a file; the *.so target is useless (and fails).

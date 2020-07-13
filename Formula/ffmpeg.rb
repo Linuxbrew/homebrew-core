@@ -3,14 +3,14 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.3.tar.xz"
   sha256 "1d0ad06484f44bcb97eba5e93c40bcb893890f9f64aeb43e46cd9bb4cbd6795d"
-  revision 1
+  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "5dccea5f0d7ff92fc94e8564d8717f59766ee0db5b8df8a60996e27c57ef3dfc" => :catalina
-    sha256 "75b4d5c0639f24f4a49226e7d3d49be35f80ec3680a6d0fdd7d2da4544d366b2" => :mojave
-    sha256 "f4817a0d1cc8675d8785c13a5ea055ff296b241fb1d8a8a1eb301f6a075565b3" => :high_sierra
-    sha256 "9a7e9f13ade5aa1af448be25d5b60184d1b5ae7be1e0e27db579317e1726d4af" => :x86_64_linux
+    sha256 "1549c59856c9409b60b5b15b57cc2cc25f0c0e7be07e546a1bf65340bb42254b" => :catalina
+    sha256 "6ae57fae9541c578c17c7d3c3ec99d34ef24c40a05472d01e355731c8510790b" => :mojave
+    sha256 "348dce9307755763a9950f5fc7f08894179b4e63bb3df9ca79dc1a0e8d24ce41" => :high_sierra
+    sha256 "934d34c2c053c43895de10b3352334ee249aaa16c05f649a83773ee701ed8965" => :x86_64_linux
   end
 
   depends_on "nasm" => :build
@@ -49,6 +49,7 @@ class Ffmpeg < Formula
   depends_on "linuxbrew/xorg/libxv" unless OS.mac?
 
   uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def install
@@ -81,6 +82,7 @@ class Ffmpeg < Formula
       --enable-libwebp
       --enable-libx264
       --enable-libx265
+      --enable-libxml2
       --enable-libxvid
       --enable-lzma
       --enable-libfontconfig

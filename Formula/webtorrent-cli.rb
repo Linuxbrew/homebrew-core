@@ -5,6 +5,7 @@ class WebtorrentCli < Formula
   homepage "https://webtorrent.io/"
   url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.6.tgz"
   sha256 "0690fc5f02163edcb1f7175d30bc637a9252e210e02284e2162c7fb2b20044ec"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -67,15 +67,13 @@ class ElasticsearchAT56 < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       Data:    #{var}/elasticsearch/#{cluster_name}/
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{libexec}/plugins/
       Config:  #{etc}/elasticsearch/
       plugin script: #{libexec}/bin/elasticsearch-plugin
     EOS
-
-    s
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/elasticsearch@5.6/bin/elasticsearch"

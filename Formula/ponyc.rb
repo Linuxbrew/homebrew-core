@@ -4,6 +4,7 @@ class Ponyc < Formula
   url "https://github.com/ponylang/ponyc.git",
       :tag      => "0.35.1",
       :revision => "579475721b14487e225e57a64ecd44781d244b33"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 "398704cb374f8197b391d1abe79f6937b47907ac79bff429c3c7c5436b7baf82" => :catalina

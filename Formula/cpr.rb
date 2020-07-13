@@ -2,16 +2,17 @@ class Cpr < Formula
   desc "C++ Requests, a spiritual port of Python Requests"
   homepage "https://whoshuu.github.io/cpr/"
   url "https://github.com/whoshuu/cpr.git",
-      :tag      => "1.5.0",
-      :revision => "c8d33915dbd88ad6c92b258869b03aba06587ff9"
+      :tag      => "v1.5.1",
+      :revision => "5e87cb5f45ac99858f0286dc1c35a6cd27c3bcb9"
+  license "MIT"
   head "https://github.com/whoshuu/cpr.git"
 
   bottle do
     cellar :any
-    sha256 "74202966e61defa4ad315d34ebc29d8faad8585f90207b4a881beaf7c65de069" => :catalina
-    sha256 "3c77beee80978eb95c7f56e8ad524b164559f81ca0a3b632f2aee8f90b02925d" => :mojave
-    sha256 "a34a587114287f9cc031b31dc268301334ee145d3acd7adad077194c00576751" => :high_sierra
-    sha256 "11e74a24bbfb883216930d3239ca8917fe2e5905f8f5185b0344d107933d1da4" => :x86_64_linux
+    sha256 "3de3156e76c50a9c0177f2f6b7856f83d36a7687d070c467acc9424a986a43b1" => :catalina
+    sha256 "477db140c07296b4fb3969b26d136afd1b7106625082cb57dfd8c274dd53da23" => :mojave
+    sha256 "b0c9560ba7c1fe39dfdb316541526494ea685f7c34944882ed7823f769e1cda9" => :high_sierra
+    sha256 "a2e8122ac48b1b0ebc86ceb32e41a2016215f6a528c607bfd08f8a9b0d209fac" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

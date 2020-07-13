@@ -4,13 +4,15 @@ class Docker < Formula
   url "https://github.com/docker/docker-ce.git",
       :tag      => "v19.03.12",
       :revision => "48a66213fe1747e8873f849862ff3fb981899fc6"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e76b1ee2d9b079a727d17ffadb111658103f1fc00f18cc2a943d1d6542e60fa" => :catalina
-    sha256 "fb5823bc2477f1fd68e373a5bf5dc97f54a5f2295d77622539a8c604cd7cf692" => :mojave
-    sha256 "02b3b6ea3d7899408807c186742dd60339eaa0cdb80d03d494780924dfefdae3" => :high_sierra
-    sha256 "95d58575f76fd50dd6cc5eb9e38391ddebe04881f9a01bb3ba6c62c546373444" => :x86_64_linux
+    rebuild 1
+    sha256 "ce26e2a26692cd22ad6c37edbae304e2349f98682f51fc8e5c1ae074fa9573fc" => :catalina
+    sha256 "be8241ad433dd7c8a5c9b73344f4e24f0bc4b4808f4a33b99811ea403d0d0159" => :mojave
+    sha256 "ac92b86b4f792d61be6c0d90549a3633e071c4a6833d696b8a285b3be90962f7" => :high_sierra
+    sha256 "d618947c797274cdf3e309105410ad3a384e33ad33019d49730d7398deb1cfd7" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -21,7 +23,7 @@ class Docker < Formula
     dir = buildpath/"src/github.com/docker/cli"
     dir.install (buildpath/"components/cli").children
     cd dir do
-      commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
+      commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
       build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
       ldflags = ["-X \"github.com/docker/cli/cli/version.BuildTime=#{build_time}\"",
                  "-X github.com/docker/cli/cli/version.GitCommit=#{commit}",

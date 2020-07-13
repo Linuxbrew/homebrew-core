@@ -3,15 +3,17 @@ class Lc0 < Formula
   homepage "https://lczero.org/"
 
   url "https://github.com/LeelaChessZero/lc0.git",
-      :tag      => "v0.25.1",
-      :revision => "69105b4eb0a3cf4fbc76960d18d519a0bdd19838"
+      :tag      => "v0.26.0",
+      :revision => "09edc73cf177f5f1d00e54549b6fa491e0507b56"
+  license "GPL-3.0"
   revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c3132525ac506d872e8c1fd764d5c016932b5af2ab1bd0a600995204715b516" => :catalina
-    sha256 "03fed80ff4372247ec1232333e428641e911de06cbc3ce8b0179182372f0d302" => :mojave
-    sha256 "898cbce553086343f2e98a8edb3750a1f3a72582fec53cc19ec8386d5578252e" => :high_sierra
+    rebuild 1
+    sha256 "468c173bd7435f97d516b9b4fb1817402a807de7f918a1683747b03fd8885d8c" => :catalina
+    sha256 "c39b2e6a6c154e7a82c358faa46ff878ef6334e9e58638a550baef78a6fe0db1" => :mojave
+    sha256 "7db068bc2f8104a9fa487e91ff06add704d2c491b1894a343fa6d8bc39a8b0e6" => :high_sierra
   end
 
   depends_on "meson" => :build

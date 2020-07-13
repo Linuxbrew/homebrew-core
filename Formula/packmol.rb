@@ -3,14 +3,15 @@ class Packmol < Formula
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
   url "https://github.com/mcubeg/packmol/archive/20.010.tar.gz"
   sha256 "23285f2a9e2bef0e8253250d7eae2d4026a9535ddcc2b9b383f5ad45b19e123d"
+  revision 1
   head "https://github.com/mcubeg/packmol.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "30eaadfcb75cdfaeca7f10c9ae8b96c3f1a423420a1b1ee8e22bfa86a4f21d3d" => :catalina
-    sha256 "3c486c726d2e535fed629ab3db8c09424be37ec11f4f3e75883cb1e5ee315907" => :mojave
-    sha256 "2b9a34a4e1fa9cbc1d4b522b1d1cb591baf7e17d25fbb9ded02a636f95e982a3" => :high_sierra
-    sha256 "54c9ced2ad219ce619d7b7235cd7a5686c31fb9d30c0098f0f869015167f4867" => :x86_64_linux
+    sha256 "2de3ad79e6630d32fe68ac901ab113ba8ae3370e1976909390bcf4eb76a9a1d9" => :catalina
+    sha256 "2db13531577dfafcaa3d654a714e0c44503049b968ae3f6622baf3d53933afec" => :mojave
+    sha256 "ccdde7eab41ce8847bc3fcabdb482c68ea3f39c029abe0c146ec9ea370c97bfe" => :high_sierra
+    sha256 "145010afe93bf17333fc35b38baeab6f4d3bb85246ea4bf6e8094d301adec2e9" => :x86_64_linux
   end
 
   depends_on "gcc" # for gfortran

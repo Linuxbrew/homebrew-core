@@ -9,6 +9,7 @@ class MitScheme < Formula
     sha256 "5ae123ef4a76b34e2b927873991a823b0ab68a5518d1543f1e76bf9d3c36e589" => :catalina
     sha256 "7f74120df838cc2f4542c73f20b7f3e3473f23a775d249e2b8170e6acfd43ed1" => :mojave
     sha256 "cf0d2bf18da0dd0454f53f125bcb4d85632619cd8a79f3dd30ddb16a19c0d470" => :high_sierra
+    sha256 "91f09c9fbc4731da8933b9bbfb2f089ac4e7ec9a61298468903159b4eea3fdc8" => :x86_64_linux
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
@@ -16,6 +17,10 @@ class MitScheme < Formula
   # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
   depends_on :xcode => :build if OS.mac?
   depends_on "openssl@1.1"
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "ncurses"
 
   resource "bootstrap" do
     url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11-x86-64.tar.gz"
@@ -56,7 +61,7 @@ class MitScheme < Formula
       s.gsub! "/usr/local", prefix
       # Fixes "configure: error: No MacOSX SDK for version: 10.10"
       # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
-      s.gsub! /SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}"
+      s.gsub! /SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}" if OS.mac?
     end
 
     inreplace "edwin/compile.sh" do |s|

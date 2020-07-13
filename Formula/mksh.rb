@@ -1,15 +1,17 @@
 class Mksh < Formula
   desc "MirBSD Korn Shell"
   homepage "https://www.mirbsd.org/mksh.htm"
-  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R59.tgz"
-  sha256 "592a28ba67bea8a285f003d7a5d21b65e718546c8fcb375d7d696f3d5dd390ba"
+  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R59b.tgz"
+  mirror "https://pub.allbsd.org/MirOS/dist/mir/mksh/mksh-R59b.tgz"
+  version "59b"
+  sha256 "907ed1a9586e7f18bdefdd4a763aaa8397b755e15034aa54f4d753bfb272e0e6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f558d90c4feae917f31026ba75dd757d5dca170c819320a2a3595bec487a17a" => :catalina
-    sha256 "e957fc3249181ba27dc58a60835a7e08ac8de137c9e7addc7e5ffd845214083c" => :mojave
-    sha256 "09b3570614ce07378456c65ce5a9698cd92fbd794cfceab8b056f3d22bc9d577" => :high_sierra
-    sha256 "b30edfc71c5d60c269190f42d1af89bf3f5f250b42ea928a1d90396e9a21dd4e" => :x86_64_linux
+    sha256 "e6b59cb6a1bb326e97bbbad191d735e85e39f899726a68225c01e137ea88066f" => :catalina
+    sha256 "1360021d58dfbb2b4baedc74ad72890ee1aa4178865c4aa61e6142da58ba8c06" => :mojave
+    sha256 "249f6b7a2ea7d278fd5b21ec947d9f88eeb8d803f28c286e140aa293beaf301d" => :high_sierra
+    sha256 "7a02b91bc9f0c40b89e881f63aa01e002b4d17a0f198e3159b2a5ea50853a378" => :x86_64_linux
   end
 
   def install

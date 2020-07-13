@@ -3,12 +3,13 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.bz2"
   sha256 "47e24eb2223fe5d24438658958a313b6b7a55bb281563542e1afc9dec4a31ac4"
+  revision 1
 
   bottle do
-    sha256 "b45ead03ae109edf9e21641c95936971bc26e73043f714bdafc8424ca48f80ab" => :catalina
-    sha256 "f989294546d32ccc440f91957518e306c5988070d71a55b85781735d599eaba0" => :mojave
-    sha256 "e6fc345d013a800ae875b65baa417e7fce9b1231bc14fc2257e82ce6f273cb4e" => :high_sierra
-    sha256 "c18585be38f31d2bc5e951bfeb608a9bbcb1da0a55ac7383ee041c7b5e680448" => :x86_64_linux
+    sha256 "d0fff667ea8857e586804896e548941e21b164a6967ef5b5d4e6f19023e27370" => :catalina
+    sha256 "2a7c4fccb0807f159fa0f5b4021214385e7a38cd573a3f0ae8ea59aa96734e58" => :mojave
+    sha256 "6ca3b12ced550f1ecf9ba0440a86474d1415691cd14e84e949466c82732a72f2" => :high_sierra
+    sha256 "f99266a810e8edfb3713b8342eba5538f96a70121cd58007f5945f4d7082bcb4" => :x86_64_linux
   end
 
   head do

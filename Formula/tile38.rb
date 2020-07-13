@@ -4,13 +4,15 @@ class Tile38 < Formula
   url "https://github.com/tidwall/tile38.git",
     :tag      => "1.21.1",
     :revision => "c1ba2d86aa5c99532f08c368376077646ec742b0"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7d557f4881ecc7cd8a50fa3f516155e973e8cf88ab437d0dbd0714f99f6e764" => :catalina
-    sha256 "843f06a5b431814a4a7e8c96e4bcbf4f02c33acf3c3baacfca3ef06638fdf573" => :mojave
-    sha256 "c387f4bdff3facf50abb35fc06f52ff64d8a976de7c22d3075e7581b82df766c" => :high_sierra
-    sha256 "b63907cbbcc690b9eb6671dcc6269f1ba08be6ee64ebcd04ce59fed67c178687" => :x86_64_linux
+    rebuild 1
+    sha256 "d02b792146bd1954f8e3e55f4721e26b714fec93056e5f825867db8380318974" => :catalina
+    sha256 "09e8e25b464ff65e49b35dcb21b88de28396a47a22e416a814b6d05548c34580" => :mojave
+    sha256 "d63bb31ee2f614610d6164f50c9ff351959bb7dd25b33902dd76f97655a67203" => :high_sierra
+    sha256 "7b4aa4047f16af770176737a206ed8d9d9827531f0a9ab69d34cd5bf7c6501c7" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -20,7 +22,7 @@ class Tile38 < Formula
   end
 
   def install
-    commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
 
     ldflags = %W[
       -s -w

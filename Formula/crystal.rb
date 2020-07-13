@@ -1,6 +1,8 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
+  license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.35.1.tar.gz"
@@ -13,10 +15,11 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "30ff80e4ecf74d90f348b0d67f4d56a226011cc913eede7404f2aa85ad2dcf56" => :catalina
-    sha256 "3dbac82a2904c35628c7af5d55975fd15cfd5147b60c369875a7fc95ceacc88e" => :mojave
-    sha256 "997a4ea8263263d8aac54b25ec7d992b3190e328f84e03262e57cf18069dfe52" => :high_sierra
-    sha256 "32db3315537b6e799942f1a4fc881dd905f8cd9917892f79acd49e186f7aae60" => :x86_64_linux
+    rebuild 1
+    sha256 "1c5c42f3c9368d1f19111a04520cacaea05a4fa27c9f3f228566b9aa5d858d26" => :catalina
+    sha256 "a1b2259a727561bc6bc78002e12177a48386773709c23d89a9d5b8b2cca6652c" => :mojave
+    sha256 "4bc797cfed7e3d3bc2a04c232b086cf409c78da84be82d13f95df9d4d1406d06" => :high_sierra
+    sha256 "1be443af9ef381dd6a0ddf113d86a0ccc5d847f97b34f27a076c70fd4f91b049" => :x86_64_linux
   end
 
   head do
@@ -83,7 +86,8 @@ class Crystal < Formula
     crystal_build_opts << "FLAGS=--no-debug"
     crystal_build_opts << "CRYSTAL_CONFIG_LIBRARY_PATH="
     if build.head?
-      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.safe_popen_read("git rev-parse --short HEAD").strip}"
+      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.safe_popen_read("git", "rev-parse",
+                                                                                        "--short", "HEAD").strip}"
     end
     (buildpath/".build").mkpath
     system "make", "deps"
@@ -117,7 +121,7 @@ class Crystal < Formula
       #!/bin/bash
       EMBEDDED_CRYSTAL_PATH=$("#{libexec/"crystal"}" env CRYSTAL_PATH)
       export CRYSTAL_PATH="${CRYSTAL_PATH:-"$EMBEDDED_CRYSTAL_PATH:#{prefix/"src"}"}"
-      export CRYSTAL_LIBRARY_PATH="${CRYSTAL_LIBRARY_PATH:+$CRYSTAL_LIBRARY_PATH:}#{prefix/"embedded/lib"}:/usr/lib:/usr/local/lib"
+      export CRYSTAL_LIBRARY_PATH="${CRYSTAL_LIBRARY_PATH:+$CRYSTAL_LIBRARY_PATH:}#{prefix/"embedded/lib"}:/usr/local/lib"
       export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl"].opt_lib/"pkgconfig"}"
       exec "#{libexec/"crystal"}" "${@}"
     SH

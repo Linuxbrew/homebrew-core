@@ -1,16 +1,16 @@
 class Asuka < Formula
   desc "Gemini Project client written in Rust with NCurses"
   homepage "https://git.sr.ht/~julienxx/asuka"
-  url "https://git.sr.ht/~julienxx/asuka/archive/0.8.0.tar.gz"
-  sha256 "c06dc528b8588be4922a7b4357f8e9701b1646db0828ccfcad3a5be178d31582"
+  url "https://git.sr.ht/~julienxx/asuka/archive/0.8.1.tar.gz"
+  sha256 "06b03e9595b5b84e46e860ea2cf1103b244b3908fabf30337fcdf1db2a06281e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3ff6b3aa52148d1468bf6d59d63302c76069dbad963f8722f7e87e53342c40a4" => :catalina
-    sha256 "0042a8cf343f444996bcd95e6b279e891e360f309bea3901a02b983833f48dc8" => :mojave
-    sha256 "174f726dde72bd1ef2a31a0c4b49728338c60521b4ca2c8c3364ceb6f54a0b4d" => :high_sierra
-    sha256 "cc7f7a893757d692c6e7fd66508a8f83bbf218f158fc6887a50c8a115f0d6b59" => :x86_64_linux
+    sha256 "6c71e20910385795758563119bf66206b6507fc83a6ed70f39872e45acc47415" => :catalina
+    sha256 "8143fc7187b559648f9c7e1f8c53a6f6c9dcee316ba623480abbe1fa6ccef90d" => :mojave
+    sha256 "1b483ae24e861978bcc9487794ffb27a79edbbcb0a1821b24b9e62b5ee3c9c0e" => :high_sierra
+    sha256 "c03adc67c3707e0e0777ad6d5d302e098e8561e8ce2f4bbb5079407773602288" => :x86_64_linux
   end
 
   depends_on "rust" => :build

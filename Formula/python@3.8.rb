@@ -3,12 +3,13 @@ class PythonAT38 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tar.xz"
   sha256 "dfab5ec723c218082fe3d5d7ae17ecbdebffa9a1aea4d64aa3a2ecdd2e795864"
+  revision 2
 
   bottle do
-    sha256 "67cceb372f3b0f45ff90beb70d6e92ce1416fdd0b3df4df95643fa21451b4fec" => :catalina
-    sha256 "6173014910a8902f0601a1b9e1c55bea85d25193bd64180f363e9f37c2d23244" => :mojave
-    sha256 "d12c7edef5f2ab07ab7b685afb6cc083b42f45b71483311bc1a8198fef16b482" => :high_sierra
-    sha256 "4517039f539ca486cd95e1186fee57c424918230dd8a701887f7e5754e8f3cd0" => :x86_64_linux
+    sha256 "307604a075d3df682ba45afae0894df8c4952536bc75ddcc43e3bfa4a571f0ba" => :catalina
+    sha256 "8ef8c06b1e6a586ae860c628c8dba7d6dd24a2d18ecfda3521a665c770ba698e" => :mojave
+    sha256 "daca18eaff445a9a1ed6923a0ee7bf6053b42e911308335af231aa4e97381fc7" => :high_sierra
+    sha256 "716ff45dead915d69388cfa4382e9c642fc1a4b9620c74879a5f9180af694719" => :x86_64_linux
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -21,8 +22,6 @@ class PythonAT38 < Formula
     EOS
     satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
-
-  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
@@ -41,6 +40,20 @@ class PythonAT38 < Formula
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
              "bin/easy_install-3.7", "bin/easy_install-3.8"
+
+  link_overwrite "bin/2to3"
+  link_overwrite "bin/idle3"
+  link_overwrite "bin/pip3"
+  link_overwrite "bin/pydoc3"
+  link_overwrite "bin/python3"
+  link_overwrite "bin/python3-config"
+  link_overwrite "bin/wheel3"
+  link_overwrite "share/man/man1/python3.1"
+  link_overwrite "lib/pkgconfig/python3.pc"
+  link_overwrite "Frameworks/Python.framework/Headers"
+  link_overwrite "Frameworks/Python.framework/Python"
+  link_overwrite "Frameworks/Python.framework/Resources"
+  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/df/ed/bea598a87a8f7e21ac5bbf464102077c7102557c07db9ff4e207bd9f7806/setuptools-46.0.0.zip"
@@ -62,6 +75,27 @@ class PythonAT38 < Formula
   patch do
     url "https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
     sha256 "c47680c85f201f5830bf71741f09ece031b99386040f3c70b20190b4c47fb81d"
+  end
+
+  # Remove this block when upstream adds arm64 compatibility
+  if Hardware::CPU.arm?
+    # Upstream PR #21114, "Support `arm64` in Mac/Tools/pythonw"
+    patch do
+      url "https://github.com/python/cpython/pull/21114.patch?full_index=1"
+      sha256 "a50ddeb9f3a51277c935d681a4607f6e73c0817ec7a10c5e77bc8389814ccb19"
+    end
+
+    # Upstream PR #21224, "allow python to build for macosx-11.0-arm64"
+    patch do
+      url "https://github.com/python/cpython/pull/21224.patch?full_index=1"
+      sha256 "2a02ad3412a3f41cd67ae26a20f70ffd42dd15ef6791f8c8ef86129572e8f1d7"
+    end
+
+    # Upstream PR #21249, "ctypes fixes for arm64 Mac OS"
+    patch do
+      url "https://github.com/python/cpython/pull/21249.patch?full_index=1"
+      sha256 "11923d4a249da7b050cc2093bd9d4547dcdfbf61718b20896e8b6447e1967cb3"
+    end
   end
 
   def lib_cellar
@@ -285,7 +319,7 @@ class PythonAT38 < Formula
     end
 
     # post_install happens after link
-    %W[pip#{xy} easy_install-#{xy}].each do |e|
+    %W[pip3 pip#{xy} easy_install-#{xy} wheel3].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
@@ -349,12 +383,16 @@ class PythonAT38 < Formula
   def caveats
     <<~EOS
       Python has been installed as
-        #{opt_bin}/python3
+        #{HOMEBREW_PREFIX}/bin/python3
+
+      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+        #{opt_libexec}/bin
 
       You can install Python packages with
-        #{opt_bin}/pip3 install <package>
+        pip3 install <package>
       They will install into the site-package directory
-        #{site_packages_cellar}
+        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS

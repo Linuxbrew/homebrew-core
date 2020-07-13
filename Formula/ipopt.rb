@@ -3,15 +3,15 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
-  revision 7
+  license "EPL-1.0"
+  revision 8
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
     cellar :any
-    sha256 "56da0a54b5c1eb644e881a508886601674c73105a29451f1ca50ba9f9fa9d517" => :catalina
-    sha256 "b4c05741141600b85ee8b1ca5c075d8ffcd2c031804ef7830017f16fbb16fa26" => :mojave
-    sha256 "d7d32a074eafdcb5e1b4c50e1b4c0cd76cfb09718eaf5ae8f7e5cecbded70b91" => :high_sierra
-    sha256 "37c0b0481fc650c580c5e2ad933f5b5c4c3efbc3d5c70c763c63a9c5e22a8f3f" => :x86_64_linux
+    sha256 "a5817c890786d3585f85f718a95fdaec4e148d5e21ee6febb013410478a20ea3" => :catalina
+    sha256 "35760d1bf4676d2fcc54b8175754b2cdb7129f64739cac1a87755660c458ef66" => :mojave
+    sha256 "f5d21e4fdf87a1002a87d99954dc13b796187a0b5e8cf84177ad9ffa2d0e6f77" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]
@@ -46,6 +46,9 @@ class Ipopt < Formula
     resource("mumps").stage do
       cp "Make.inc/Makefile.inc.generic.SEQ", "Makefile.inc"
       inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
+
+      # Fix for GCC 10
+      inreplace "Makefile.inc", "OPTF    = -fPIC", "OPTF    = -fPIC -fallow-argument-mismatch"
 
       ENV.deparallelize { system "make", "d" }
 

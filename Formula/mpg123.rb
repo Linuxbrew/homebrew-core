@@ -1,14 +1,14 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.26.1/mpg123-1.26.1.tar.bz2"
-  sha256 "74d6629ab7f3dd9a588b0931528ba7ecfa989a2cad6bf53ffeef9de31b0fe032"
+  url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.26.2/mpg123-1.26.2.tar.bz2"
+  sha256 "00f7bf7ea64fcec2c9d07751d6ad8849343ee09c282ea3b0d5dd486e886e2ff3"
 
   bottle do
-    sha256 "b533cb51989dc62bdfab0a132d677a320eb28441b9a3e17719539dafac8cc626" => :catalina
-    sha256 "4f489969bb034741f240b3ff1d953ff125b7cc16114b66ca98afc62317a500e7" => :mojave
-    sha256 "518142bd7c08441d055bcefec0bb574ad1494c12f4f1178aa9006ac01f25bc5e" => :high_sierra
-    sha256 "fef6310b9443f3c97d51b13d6b7dc23071db8c2c757f3556ef1b592efd3c7d3b" => :x86_64_linux
+    sha256 "29e4e2b5e306f94d2ce0e900f8413b4751f5df28488a476558527119b09bf015" => :catalina
+    sha256 "9e80680b18a8b2e000d32aee02c5b5b03e95d617119d1a922a1ac48da4df66f6" => :mojave
+    sha256 "6a9d7414515325f52473be05e484faa1c314ffb65582588d9c312400d3e9d6bd" => :high_sierra
+    sha256 "a8eb277e23ef13085964964b28ef59da105b29268a224ab220696bc1cb1da530" => :x86_64_linux
   end
 
   def install

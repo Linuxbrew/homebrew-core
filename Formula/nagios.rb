@@ -3,11 +3,13 @@ class Nagios < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.6/nagios-4.4.6.tar.gz"
   sha256 "ab0d5a52caf01e6f4dcd84252c4eb5df5a24f90bb7f951f03875eef54f5ab0f4"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "2e905f7be7dcdc3e38379e090a136cb04c5be3ed67d1433f2a61a382731b5682" => :catalina
-    sha256 "ff0832e193f4f9221f86be421d11a02ee2ea174ced2cbce93ba95c8f54179c64" => :mojave
-    sha256 "f19cd777061c12e753def9c12036641d7f05778893d9bb1862d2954504fca905" => :high_sierra
+    rebuild 1
+    sha256 "a9c2c8baae137bfbfa46f67d62f7fb29a0fb4327b7a366cfe44a1502207d62fd" => :catalina
+    sha256 "c074419ad5ee9d3446410e7ff05b8454c840771f5cae1246a9de20e33775d4f0" => :mojave
+    sha256 "162b5d50061d7a2ef4bfa8a9899d7fad3558ccfea80e105c43a66061d1780cd9" => :high_sierra
   end
 
   depends_on "gd"
@@ -31,11 +33,11 @@ class Nagios < Formula
   end
 
   def user
-    Utils.safe_popen_read("id -un").chomp
+    Utils.safe_popen_read("id", "-un").chomp
   end
 
   def group
-    Utils.safe_popen_read("id -gn").chomp
+    Utils.safe_popen_read("id", "-gn").chomp
   end
 
   def install

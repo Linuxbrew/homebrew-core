@@ -3,17 +3,16 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/22/2b/49a79bcd466b50aa0ea12411fa752e74984935363bb93ed5931fd0449309/ipython-7.15.0.tar.gz"
-  sha256 "0ef1433879816a960cd3ae1ae1dc82c64732ca75cec8dab5a4e29783fb571d0e"
+  url "https://files.pythonhosted.org/packages/88/91/666a7fa24bab1396537fcd8e2b287a2d773605ad16020af81036c8c1438c/ipython-7.16.1.tar.gz"
+  sha256 "9f4fcb31d3b2c533333893b9172264e4821c1ac91839500f31bd43f2c59b3ccf"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3e12e1f941eed205b363b5e2626e2ca881ecacd73876a7351a2a5cc637b09a51" => :catalina
-    sha256 "f5cbc55fb480496e53fbdbf998ea6ddaa45b1fdeff7ed5413ee89b6aa7c13d4a" => :mojave
-    sha256 "10590a404f23ac8772eb48f77ab40e4156303bd5fc9d9ac9fa2dc797bf42662b" => :high_sierra
-    sha256 "15e377e325c8ddff6e92db9d1fcabb3a822d7127152b5fb3db809bdb59bffedf" => :x86_64_linux
+    sha256 "64952de0a43734998f64448e2f86a5a8fdc791e612ce48e36ab4f5da94af6bdf" => :catalina
+    sha256 "5efff9953522d63025fba1292624d8af65f0091324a72fbf460d284cca0a3877" => :mojave
+    sha256 "bde71aa9020abd0ab0500e30a2c25ca52a5987c912a268906f4eafec4c32df49" => :high_sierra
+    sha256 "e45873891ee3282a41702c59915e3a3e6092f571b629dd26911c55ee7ba70d46" => :x86_64_linux
   end
 
   depends_on "python@3.8"
@@ -47,8 +46,8 @@ class Ipython < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/e3/5b/65ff9c102d92bf719dfaeff57bc8074d68f26ea480005704a956da995799/jedi-0.17.0.tar.gz"
-    sha256 "df40c97641cb943661d2db4c33c2e1ff75d491189423249e989bcea4464f3030"
+    url "https://files.pythonhosted.org/packages/2e/86/3ea824e61de521b2abd9ada9a080375c01721e66266ccc8ba8b3576ad88a/jedi-0.17.1.tar.gz"
+    sha256 "807d5d4f96711a2bcfdd5dfa3b1ae6d09aa53832b182090b222b5efb81f52f63"
   end
 
   resource "jupyter-client" do
@@ -117,8 +116,8 @@ class Ipython < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/25/9d/0acbed6e4a4be4fc99148f275488580968f44ddb5e69b8ceb53fc9df55a0/wcwidth-0.1.9.tar.gz"
-    sha256 "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
+    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
+    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
   end
 
   def install

@@ -10,14 +10,15 @@ class Bind < Formula
 
   url "https://downloads.isc.org/isc/bind9/9.16.4/bind-9.16.4.tar.xz"
   sha256 "7522088d3daac8bcabaae37998178e09139ef5ccae6631cb1d8a625b770f370a"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "70241ad6d2f56111afb65d37c9f42af9800985a7d0b4be0f947bb7f345d0399e" => :catalina
-    sha256 "dd5dd34d8bea26779cab3bc19989ec2e697d05f334f7419038c914826a76fb0b" => :mojave
-    sha256 "c26d433c7becc138abf7e029fc3abe20ffcd1ed4184b69ad310c3d079dba5175" => :high_sierra
-    sha256 "2c3d280896e2d73c9e9c56d4ecad107eef9dc3f2753f4a8f1c01a2ad393196ee" => :x86_64_linux
+    sha256 "32c69f20da6f24f400e5b61898c1815aea58422590e5b4261a29778770359a80" => :catalina
+    sha256 "50b199ff7da9221a4bde549bff8e2ae736ebe857db5275b762c3dca2e909a4ff" => :mojave
+    sha256 "18de1ce65e54f8deb367a45f9c34c57a90bc1595c4e2268d59903ce178b028fe" => :high_sierra
+    sha256 "7938eec8fe1c2f84368f7f0e7c1da664eb559675fd49d33eed2cb257da5473ae" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

@@ -4,21 +4,23 @@ class ConsulTemplate < Formula
   url "https://github.com/hashicorp/consul-template.git",
       :tag      => "v0.25.0",
       :revision => "edf364d29c5e2ab565081cd902cb37cb7a53bf11"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77a1af87ecaca41eb729f51fd37eb6f4a77b24025f84cf1db131b867c839a273" => :catalina
-    sha256 "cee50257ce590058be3c5a0962d95d5c332d67f38982f5315ad78d67ffce2323" => :mojave
-    sha256 "5589f360ea103acdb601bcd3cd1552ec2d06418c175509cd762cd35a97c1f22e" => :high_sierra
-    sha256 "86a26e7598e83ed702c0b7b04204843c62c040ac713b30d65806bbdce0dddb9c" => :x86_64_linux
+    rebuild 1
+    sha256 "18f8279c9d16c47dcd19f6847bee1e5559729902a4ac43861c41a16ff9475860" => :catalina
+    sha256 "e6603f56f2d2bb333d8cd1eec11360aafacbd7dc7109b8f5dbf1233a5619779d" => :mojave
+    sha256 "02412d96e01e84ee47af28e8107ee386e4a1cef01ea8df45ce4a108aefd52f44" => :high_sierra
+    sha256 "4fba0f8ad21398e5844f207c36a9b2db71dacfd108a56d81766a0acb1ae2d928" => :x86_64_linux
   end
 
   depends_on "go" => :build
 
   def install
     project = "github.com/hashicorp/consul-template"
-    commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
     ldflags = %W[
       -s -w
       -X #{project}/version.Name=consul-template

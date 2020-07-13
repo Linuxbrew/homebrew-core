@@ -1,14 +1,13 @@
 class FfmpegAT28 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-2.8.16.tar.xz"
-  sha256 "6b895902f1ec0d738af40f514dfeac6caba143aa2d0a17af22397c2fc4ebc092"
-  revision 2
+  url "https://ffmpeg.org/releases/ffmpeg-2.8.17.tar.xz"
+  sha256 "d0734fec613fe12bee0b5a84f917779b854c1ede7882793f618490e6bbf0c148"
 
   bottle do
-    sha256 "7af71e99b242bb4639673a32c9da5a3b44f7447be052ce5ee64e6aeebf8bae8b" => :catalina
-    sha256 "b0710a7505c4dcad608b9e35b1f5005e6dc6c15bebb9f6a4360bcc42746367c3" => :mojave
-    sha256 "c243985592d3e1e00b60504db341a2a3573dade94610e7088b0d739ea34cda02" => :high_sierra
+    sha256 "f0d50cafeb730343feabdbe5226875104e1d11d31bb33d3e03ad5d05dcd8be2c" => :catalina
+    sha256 "65555478eb8b748324a2a37a079693d449bc15022c88a8ee4360c5de558d0a8c" => :mojave
+    sha256 "5323c85c6cab5c3e549ea62b42dabea2e54e39d00e7a0d497f0d181862742f02" => :high_sierra
   end
 
   keg_only :versioned_formula

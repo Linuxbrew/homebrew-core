@@ -3,15 +3,15 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/96/60/419ab33916dfa676dd6720d041a053432df552ca765554c31e361b47e0ce/dxpy-0.295.1.tar.gz"
-  sha256 "44eafadc4f82dc903e2ff90fed9d0c21dcb543840eced01fbe0cf1aed2334671"
+  url "https://files.pythonhosted.org/packages/ce/76/06ee35778ee3604ce1d873caee67a982effe31c2e9d534c3a95a5bb64806/dxpy-0.296.0.tar.gz"
+  sha256 "298f01a5a562537c087dc54c749c5d479040b28f463f2fef2aee6a2acbb9afd4"
 
   bottle do
     cellar :any
-    sha256 "091dff300142f23d040ba2710491b7e594a8d504c2be2a5a557daf21075bd43d" => :catalina
-    sha256 "148096c7298b8cff022fa36f564c17152f0e6462cec8f4f3ec4ec05c1be7cad9" => :mojave
-    sha256 "8f170d1267f1b0dde4cbf437eebf5d6bd1c59a73606826ea71553e189bfa493c" => :high_sierra
-    sha256 "3acd87851e7b78da2eb80f9f094800e6b63792ace6a80a8dcadf5adfa8e29f22" => :x86_64_linux
+    sha256 "ed6acd9ad7100e193b4560ecb116ced5f089556e7402827c75e3125f2834f0e1" => :catalina
+    sha256 "7cf77607be63ed0d68e6a788e2e894678c1c95c65180dda119df23f8231af9cd" => :mojave
+    sha256 "93eed5ed9ef0779201c0b9785c5c85b2db8a90fc0379ab6ac0229ee103d3e528" => :high_sierra
+    sha256 "7bacf765f3b19920226dd6955a6890601f9bb11655d41179b5750a1d2d33dc43" => :x86_64_linux
   end
 
   depends_on "python@3.8"
@@ -19,6 +19,10 @@ class Dxpy < Formula
     depends_on "libffi" # for cffi
     # pkg-config helps setuptools find libffi
     depends_on "pkg-config" => :build
+  end
+
+  on_macos do
+    depends_on "readline"
   end
 
   resource "argcomplete" do
@@ -37,8 +41,8 @@ class Dxpy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
-    sha256 "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "cffi" do
@@ -57,8 +61,8 @@ class Dxpy < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "psutil" do
@@ -82,13 +86,13 @@ class Dxpy < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
+    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "urllib3" do

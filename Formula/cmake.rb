@@ -13,14 +13,22 @@ class Cmake < Formula
       url "https://gitlab.kitware.com/cmake/cmake/-/commit/c841d43d70036830c9fe16a6dbf1f28acf49d7e3.diff"
       sha256 "87de737abaf5f8c071abc4a4ae2e9cccced6a9780f4066b32ce08a9bc5d8edd5"
     end
+
+    # Adds macOS 11.0 compatibility.
+    # Remove with 3.18.0.
+    patch do
+      url "https://gitlab.kitware.com/cmake/cmake/-/commit/a0c4c27443afe1c423c08063e2eaf96ffa2f54fb.diff"
+      sha256 "7b84bc0dbb71c620939fb1e354f671e1d0007c9c8060ed3f2afe54a11f5e578c"
+    end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "564519865874717cf13a1418e256722bf7b33ccafff19d3c28333e5f8f3a783e" => :catalina
-    sha256 "9ca139a61e79b6f4a274b7b3ac9b0d22d456b37362b4a3405641698bc9afc73c" => :mojave
-    sha256 "0a6f34d0b0a70d12ccdf4e3b134f240dc38e5391eebee24c63958081b970f5ae" => :high_sierra
-    sha256 "49f80bc58e28001339fd6d0e929249cb27dd96aa85141fc21642a27edf7214c2" => :x86_64_linux
+    rebuild 1
+    sha256 "8546864336108d217502a797033a72568b0325bf739495dff49c39d7f429fd07" => :catalina
+    sha256 "a4e96287fc974242d6399ba2e3e040cfc99e7c1f574873e95491c88244744306" => :mojave
+    sha256 "32321684bf5d7d4270db1a6c8fe2bb4c5f18e4a3a00fc7b3c628939c842301ff" => :high_sierra
+    sha256 "271d9d55b3b937bb306f46f0893ad5329cd96c5f0e11d81a13a0221bda867b72" => :x86_64_linux
   end
 
   depends_on "sphinx-doc" => :build

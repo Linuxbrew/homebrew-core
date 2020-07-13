@@ -1,25 +1,16 @@
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  revision 1
+  url "https://github.com/buger/goreplay.git",
+    :tag      => "v1.1.0",
+    :revision => "5cbb5ea85fcb33c40b314d8baf84cac65a623098"
   head "https://github.com/buger/goreplay.git"
-
-  stable do
-    url "https://github.com/buger/goreplay.git",
-      :tag      => "v1.0.0",
-      :revision => "a8cfaa75812ac176b253ffe1d11eb9bbc7be7522"
-
-    resource "gopacket" do
-      url "https://github.com/google/gopacket/archive/v1.1.17.tar.gz"
-      sha256 "12baa5a471f7eb586be2852b6d46350fe48b474fdf78524ec340638543a4912c"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1cc0f5704bffaefa783c86f00b93747bfc56d672456ab1500d976dc55820d13e" => :catalina
-    sha256 "cdc9aa443d7e1cd5408bd9bfd4b58a97bcb1bbde957191abaa41a5ecd372d475" => :mojave
-    sha256 "22acfc827f96ae4f9f7e7de5f3d3741f76871767f9656747e800a7ede3a076dd" => :high_sierra
+    sha256 "a36b70bcd45188693395cea5faec7fbc59641f2aac7918e16042560064d28ad0" => :catalina
+    sha256 "ad78a27ea91f8731573e633bcb3490a62fb8d1330292544da37876fb8d8805a5" => :mojave
+    sha256 "b8c6106bc0ef1b1defc163d9e3e477a8d0462ab65b9b3f409a8a79debf96ba85" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -27,16 +18,6 @@ class Gor < Formula
   uses_from_macos "libpcap"
 
   def install
-    if build.stable?
-      ENV["GOPATH"] = buildpath
-
-      # The vendored version of gopacket fails to build with Go 1.12+ due to the following issue, so replace
-      # it with a newer version: https://github.com/google/gopacket/issues/656
-      rm_rf "vendor/github.com/google/gopacket"
-      (buildpath/"src/github.com/buger/goreplay").install buildpath.children
-      resource("gopacket").stage buildpath/"src/github.com/buger/goreplay/vendor/github.com/google/gopacket"
-      cd "src/github.com/buger/goreplay"
-    end
     system "go", "build", "-ldflags", "-X main.VERSION=#{version}", *std_go_args
   end
 

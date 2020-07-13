@@ -5,13 +5,15 @@ class Kamel < Formula
   url "https://github.com/apache/camel-k.git",
     :tag      => "1.0.1",
     :revision => "21b88a3bfc07ae9fd9ff5f129ce3a22f1dfc5318"
+  license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1179ff945ce1b94dfb803c84f2085af89ea7938f79a78c2097941ac8c08dcff" => :catalina
-    sha256 "9629e063b3965d77b910b6fea258c357922416331f80cf5b5004b577d69cfa03" => :mojave
-    sha256 "e484a3a6241e35dc03a1ff089764ddaa6f405231d4636330d33e078974e3865c" => :high_sierra
+    rebuild 1
+    sha256 "01164390550da7b036a9cd497ad88586e27d5a3aaffb6fd334e4218316c02ea0" => :catalina
+    sha256 "34c301e095a815674dc5ef55a0c43a5b57b3d3d8d81cb10172c0099eb56a7431" => :mojave
+    sha256 "1c56fdfed7981d65a67690ebc188959b920c17acc31dcbabf484d576937a149c" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -23,10 +25,10 @@ class Kamel < Formula
 
     prefix.install_metafiles
 
-    output = Utils.safe_popen_read("#{bin}/kamel completion bash")
+    output = Utils.safe_popen_read("#{bin}/kamel", "completion", "bash")
     (bash_completion/"kamel").write output
 
-    output = Utils.safe_popen_read("#{bin}/kamel completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kamel", "completion", "zsh")
     (zsh_completion/"_kamel").write output
   end
 

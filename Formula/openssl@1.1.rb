@@ -85,6 +85,9 @@ class OpensslAT11 < Formula
         arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
       end
     end
+    # Remove `no-asm` workaround when upstream releases a fix
+    # See also: https://github.com/openssl/openssl/issues/12254
+    arch_args << "no-asm" if Hardware::CPU.arm?
 
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)

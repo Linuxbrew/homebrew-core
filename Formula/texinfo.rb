@@ -4,6 +4,7 @@ class Texinfo < Formula
   url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.7.tar.xz"
   sha256 "988403c1542d15ad044600b909997ba3079b10e03224c61188117f3676b02caa"
+  license "GPL-3.0"
 
   revision 1 unless OS.mac?
 

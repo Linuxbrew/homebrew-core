@@ -4,14 +4,16 @@ class KubernetesCli < Formula
   url "https://github.com/kubernetes/kubernetes.git",
       :tag      => "v1.18.5",
       :revision => "e6503f8d8f769ace2f338794c914a96fc335df0f"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "165285b970b2b3d2e4a6253f1a63b2e2c20afbb7cdef3f65597a8be4eb237cb3" => :catalina
-    sha256 "1417e6ae9bb0f6b698d7c1c7c60b446083df00eb7d4dc598e43b31ed39916d30" => :mojave
-    sha256 "842f1b9aaa4ad64adc3995c2b028d4756cf43bf25e867031d656f1cbf2db44ac" => :high_sierra
-    sha256 "7e357c8694b34fe8bbd0dce4584452f2d73cc455556a16c6307f9e1bb65366e5" => :x86_64_linux
+    rebuild 1
+    sha256 "23c3217506d45d24de95a35c5faf1ebbea2de5f0808b5f9188d4b0e8478b7193" => :catalina
+    sha256 "46294501a1e6a1a18869323b41b7982e8ca62f0b500ecfde7cfef2db181071d7" => :mojave
+    sha256 "2b76da4664aa250550fe1b1fc4c46f9faad7cbc8597ba43ec31c78bbec85afa7" => :high_sierra
+    sha256 "f455a2cc82b1fbc9fc3ca69f8524fb183fb6a02fc38d3c983ab37bee6b1e39d7" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -38,11 +40,11 @@ class KubernetesCli < Formula
       bin.install "_output/local/bin/#{os}/amd64/kubectl"
 
       # Install bash completion
-      output = Utils.safe_popen_read("#{bin}/kubectl completion bash")
+      output = Utils.safe_popen_read("#{bin}/kubectl", "completion", "bash")
       (bash_completion/"kubectl").write output
 
       # Install zsh completion
-      output = Utils.safe_popen_read("#{bin}/kubectl completion zsh")
+      output = Utils.safe_popen_read("#{bin}/kubectl", "completion", "zsh")
       (zsh_completion/"_kubectl").write output
 
       prefix.install_metafiles

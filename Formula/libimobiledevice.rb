@@ -1,7 +1,7 @@
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "https://www.libimobiledevice.org/"
-  url "https://www.libimobiledevice.org/downloads/libimobiledevice-1.3.0.tar.bz2"
+  url "https://github.com/libimobiledevice/libimobiledevice/releases/download/1.3.0/libimobiledevice-1.3.0.tar.bz2"
   sha256 "53f2640c6365cd9f302a6248f531822dc94a6cced3f17128d4479a77bd75b0f6"
 
   bottle do
@@ -17,7 +17,6 @@ class Libimobiledevice < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "libxml2"
   end
 
   depends_on "pkg-config" => :build

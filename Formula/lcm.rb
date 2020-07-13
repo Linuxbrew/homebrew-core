@@ -3,21 +3,22 @@ class Lcm < Formula
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
-  revision 3
-
+  license "LGPL-2.1"
+  revision 4
   head "https://github.com/lcm-proj/lcm.git"
 
   bottle do
     cellar :any
-    sha256 "70db20b2479715ceac73fd10d65dbdd9d0db2939a27006d824d508c998c4ba4f" => :catalina
-    sha256 "d17f35983d9b396339f527e2486d224b1d31e2342df26441c9ef2d694314ffc7" => :mojave
-    sha256 "cf6e8b17fca7a9d9d5b53970348e97b4ef5b61107531238d9acab4f5eead09bc" => :high_sierra
-    sha256 "09a112a27b077aaf56342964593a542e3a1a5dc70e0d973e743e607fa9ff3303" => :x86_64_linux
+    sha256 "aa4335f0aebe0e8cd91d939d682dbf04ee7f25461967b377ff75133717be9fd4" => :catalina
+    sha256 "8186cc599f880aa2028db0af661119beb7fa8a4422557d63837ab2937d265af5" => :mojave
+    sha256 "46c787c483e3f1c9cfb62b64c3ffab3b83688d00156046d67208071b9b048e8a" => :high_sierra
+    sha256 "a9d7910f5400cc5c6115e209f663dd6f87643c9190ecaac53d2c316f4a0f942c" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "lua"
   depends_on "openjdk"
   depends_on "python@3.8"
 

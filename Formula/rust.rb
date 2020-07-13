@@ -1,10 +1,11 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.44.0-src.tar.gz"
-    sha256 "bf2df62317e533e84167c5bc7d4351a99fdab1f9cd6e6ba09f51996ad8561100"
+    url "https://static.rust-lang.org/dist/rustc-1.44.1-src.tar.gz"
+    sha256 "7e2e64cb298dd5d5aea52eafe943ba0458fa82f2987fdcda1ff6f537b6f88473"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -14,10 +15,11 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "352e3e4b03c90419a139eca2cc2628e99e827e5ca4550268f88e8b76f2cf692e" => :catalina
-    sha256 "08a95ea4ccea36f0a18e24eeec71eed018be229b835c8c3ef959e6340f853842" => :mojave
-    sha256 "e7388208f60bc2bd2615b50f377c43647da1f952fa899bcdfdba7821543d2a76" => :high_sierra
-    sha256 "f38d279ae1a45c5d923edab68a1a3fa6ff678249b3000f1bfc0a588af9c0d402" => :x86_64_linux
+    rebuild 1
+    sha256 "5128f7d93695a04ba887284a8d6061202031524251053371b406f94d29738758" => :catalina
+    sha256 "4679c3c77c502d67097ec602860dae400c64ea90e6064a45cd4444f27971eabb" => :mojave
+    sha256 "0a2c02fe10827d361d888532adf4471de7df37edd509bd59c710358cb4e32494" => :high_sierra
+    sha256 "2241c56362b10230a7734ad61dfa2d4f7014650e19f4a1425d09bd01533a6324" => :x86_64_linux
   end
 
   head do
@@ -93,6 +95,9 @@ class Rust < Formula
       args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
       args -= %w[--features curl-sys/force-system-lib-on-osx] unless OS.mac?
       system "cargo", "install", *args
+      man1.install Dir["src/etc/man/*.1"]
+      bash_completion.install "src/etc/cargo.bashcomp.sh"
+      zsh_completion.install "src/etc/_cargo"
     end
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"

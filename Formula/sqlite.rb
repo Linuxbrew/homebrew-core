@@ -1,16 +1,16 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2020/sqlite-autoconf-3320100.tar.gz"
-  version "3.32.1"
-  sha256 "486748abfb16abd8af664e3a5f03b228e5f124682b0c942e157644bf6fff7d10"
+  url "https://sqlite.org/2020/sqlite-autoconf-3320300.tar.gz"
+  version "3.32.3"
+  sha256 "a31507123c1c2e3a210afec19525fd7b5bb1e19a6a34ae5b998fbd7302568b66"
 
   bottle do
     cellar :any
-    sha256 "faebdccaba17c8d4579a7f72cc1d1874fdd63b8a8d1d21d7c5a2c9585cc59cfa" => :catalina
-    sha256 "22e0a663417031dff9bf37b6aa68823c340b8ff688ce1c6c878db4cf5b544d74" => :mojave
-    sha256 "72c88000e2cc79db19cb130e031212114c4438729ef3986b0c4e222cbbcf3dbb" => :high_sierra
-    sha256 "0f8ab5b2efc799a0eaf6d58dc908569b2b6e93f4b05b42414a6359a2850705cb" => :x86_64_linux
+    sha256 "98f798c4a62c9db46cc6ac82c499a0a1b8016dfebdfaa54eb4bf5c95a90117b0" => :catalina
+    sha256 "b89dc46dace451b2adc7f7e1c7456788cb3b74b3250d6183b0b7396bc00d7ccb" => :mojave
+    sha256 "9e117bfa603411bd552142da715ed9db8bd951e524e3d4ee7987cfeffcdf7b9d" => :high_sierra
+    sha256 "cd363d856f554be2e2fc3b48d1299d86b1ef9448e15b94849f5628769d42b228" => :x86_64_linux
   end
 
   keg_only :provided_by_macos

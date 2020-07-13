@@ -3,6 +3,7 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
+  license "Apache-2.0"
   revision 12
 
   bottle do
@@ -18,7 +19,7 @@ class Zorba < Formula
 
   uses_from_macos "libxml2"
 
-  conflicts_with "xqilla", :because => "Both supply xqc.h"
+  conflicts_with "xqilla", :because => "both supply `xqc.h`"
 
   def install
     # icu4c 61.1 compatability

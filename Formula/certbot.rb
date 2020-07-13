@@ -3,15 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v1.5.0.tar.gz"
-  sha256 "a941e82a0cf4cf9a7fae87b1c501081a25e87372b84b4df87de48847a4681392"
+  url "https://github.com/certbot/certbot/archive/v1.6.0.tar.gz"
+  sha256 "257250d5b641e2dad602010cc7794820c85ac47caac2bcc9f14108096365fb44"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "51124f197ac71687d356136fbc026856bd84d23882feb1374b4c4e686f318478" => :catalina
-    sha256 "7c0ab82841234e68bedfabdce7186d07058e6ba00db871172e7a9115640ec77e" => :mojave
-    sha256 "319c9005e3d5c4c21e4c8f34589a10e89564563b955be5c599a1f13c2e7405f2" => :high_sierra
-    sha256 "70b9d03a3bbd95ea8de874265a4eae068c76be9d772cee16a2b329d93c0d14c9" => :x86_64_linux
+    sha256 "3fa2128cc2dedf227d7f5b16f45bdfb1c0d7d810340d2ceef4690ccb009b9a01" => :catalina
+    sha256 "bb08a636d54c72f4321768e736ccef60ee2684e4618f1fc47cffbe5f70b40ae0" => :mojave
+    sha256 "f1a09902fd01db1ee0d6a581c76910d3948b0d723c683664bf903c7c1da9cda1" => :high_sierra
+    sha256 "a33aed56ce00166b3407f82bbc9d868f414028a7881858e9358c835a05bde012" => :x86_64_linux
   end
 
   depends_on "augeas"

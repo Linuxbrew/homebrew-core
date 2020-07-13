@@ -7,10 +7,11 @@ class PhpAT73 < Formula
   sha256 "6402faa19b1a8c4317c7612632bce985684a5bbae0980a5779a4019439882422"
 
   bottle do
-    sha256 "93e0616d2e6dc4f651c94f24f223d0b396b4d6e5bac20ca5a2857dbb1156b5b2" => :catalina
-    sha256 "a2df45acba621e4f5ea402a130da3423e516de19616fa3bd499cc8d52ada578f" => :mojave
-    sha256 "d5f0acd387ab5cf4192abd09ae2727f7fb1fb37f4d42895b1be1ef731e0946a6" => :high_sierra
-    sha256 "ced2503a0b3321088b90aa49f2e0a1e79787381a9c281c4a40aa1038be5bd297" => :x86_64_linux
+    rebuild 1
+    sha256 "e7c2001ba13a28648af8402f768b152fab540b4225c2853f4c2be2ecc65980ab" => :catalina
+    sha256 "590f40c25fd1cd4153e7fec7763573263eb46f99cb98671e77e48f873a88e7f6" => :mojave
+    sha256 "8c70e4a66af0f6a9216389d221a18805337ab931283ec6c4a9c77d32bdded175" => :high_sierra
+    sha256 "b13e51f00156999a292a6af926206fe0187f96bc2e76ad2f6548674af8dd5438" => :x86_64_linux
   end
 
   keg_only :versioned_formula
@@ -198,7 +199,7 @@ class PhpAT73 < Formula
     system "make", "install"
 
     # Allow pecl to install outside of Cellar
-    extension_dir = Utils.safe_popen_read("#{bin}/php-config --extension-dir").chomp
+    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
     inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
@@ -255,7 +256,7 @@ class PhpAT73 < Formula
     # Custom location for extensions installed via pecl
     pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
-    extension_dir = Utils.safe_popen_read("#{bin}/php-config --extension-dir").chomp
+    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 

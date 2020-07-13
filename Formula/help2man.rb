@@ -1,16 +1,17 @@
 class Help2man < Formula
   desc "Automatically generate simple man pages"
   homepage "https://www.gnu.org/software/help2man/"
-  url "https://ftp.gnu.org/gnu/help2man/help2man-1.47.15.tar.xz"
-  mirror "https://ftpmirror.gnu.org/help2man/help2man-1.47.15.tar.xz"
-  sha256 "c25a35b30eceb315361484b0ff1f81c924e8ee5c8881576f1ee762f001dbcd1c"
+  url "https://ftp.gnu.org/gnu/help2man/help2man-1.47.16.tar.xz"
+  mirror "https://ftpmirror.gnu.org/help2man/help2man-1.47.16.tar.xz"
+  sha256 "3ef8580c5b86e32ca092ce8de43df204f5e6f714b0cd32bc6237e6cd0f34a8f4"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cba0670fe0e53aea5168c16650daf10871a3c0590341097d5a7ca18bedb4bcb8" => :catalina
-    sha256 "cba0670fe0e53aea5168c16650daf10871a3c0590341097d5a7ca18bedb4bcb8" => :mojave
-    sha256 "cba0670fe0e53aea5168c16650daf10871a3c0590341097d5a7ca18bedb4bcb8" => :high_sierra
-    sha256 "93f5c1d8f0d05ee6be19259f0af279bf7151eb4a50078030af0952c75c57af61" => :x86_64_linux
+    sha256 "457a2b1ce094f9997ac5555a843d025eb9bc2267a54be0a1f2292b67a038de72" => :catalina
+    sha256 "e06ed538e4c68bec3c3e759ef12961c42288238dd82cdb948e40d6c98733f07d" => :mojave
+    sha256 "457a2b1ce094f9997ac5555a843d025eb9bc2267a54be0a1f2292b67a038de72" => :high_sierra
+    sha256 "654de01624c9a047cc17ddd201370235944b0d13e0973792fe7110a1b9ca5db2" => :x86_64_linux
   end
 
   def install

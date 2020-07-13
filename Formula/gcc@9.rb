@@ -3,15 +3,16 @@ require "os/linux/glibc"
 class GccAT9 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
+  sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
-    sha256 "fe3b621da4b37c5b3982789f6dc24e7b535ccf3885e89e0e3233d8de3ef9fa52" => :x86_64_linux
+    sha256 "68aa5249f09a70b9c46bd403a46ae42b64f6ea6b3a2af00603852ecaf77c72ce" => :catalina
+    sha256 "445cf4a6a4f8f3da61c7e1e6aceaf6fe919a08c475126b2b1e159eae829617a4" => :mojave
+    sha256 "682244d252f68de9513ed43f45e3e9f80bcd582e58df1d4aaa16197f3fc88742" => :high_sierra
+    sha256 "f0541e9d52543d196ea29085cb36a27ea4c844f4cef9bfd678473da270060c28" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -24,28 +25,27 @@ class GccAT9 < Formula
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
-  depends_on :linux
   depends_on "mpfr"
 
-  unless OS.mac?
-    depends_on "zlib"
+  uses_from_macos "zlib"
+
+  on_linux do
     depends_on "binutils"
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  def version_suffix
-    if build.head?
-      "HEAD"
-    else
-      version.to_s.slice(/\d/)
-    end
-  end
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+
+    version_suffix = version.to_s.slice(/\d/)
+
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run so pretend we have an outdated makeinfo
+    # to prevent their build.
+    ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
     # We avoiding building:
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
@@ -93,6 +93,18 @@ class GccAT9 < Formula
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
     ]
 
+    if OS.mac?
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
+
+      # Avoid reference to sed shim
+      args << "SED=/usr/bin/sed"
+    end
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     if OS.mac?
@@ -100,19 +112,12 @@ class GccAT9 < Formula
     end
 
     mkdir "build" do
-      if OS.mac? && !MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      end
-
       system "../configure", *args
 
       make_args = []
       # Use -headerpad_max_install_names in the build,
       # otherwise lto1 load commands cannot be edited on El Capitan
-      make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names" if MacOS.version == :el_capitan
+      make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names" if OS.mac?
 
       system "make", *make_args
       system "make", OS.mac? ? "install" : "install-strip"
@@ -121,7 +126,7 @@ class GccAT9 < Formula
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
     # Rename man7.
-    Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    Dir.glob(man7/"*.7") { |file| add_suffix file, "9" }
     # Even when we disable building info pages some are still installed.
     info.rmtree
   end
@@ -135,7 +140,7 @@ class GccAT9 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = bin/"gcc-#{version_suffix}"
+      gcc = bin/"gcc-9"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -193,7 +198,7 @@ class GccAT9 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
+      libdir = HOMEBREW_PREFIX/"lib/gcc/9"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
@@ -217,7 +222,7 @@ class GccAT9 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version_suffix}", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-9", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -228,7 +233,7 @@ class GccAT9 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-9", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
@@ -242,7 +247,7 @@ class GccAT9 < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran-#{version_suffix}", "-o", "test", "test.f90"
+    system "#{bin}/gfortran-9", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
   end
 end

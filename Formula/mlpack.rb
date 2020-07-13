@@ -3,12 +3,14 @@ class Mlpack < Formula
   homepage "https://www.mlpack.org"
   url "https://mlpack.org/files/mlpack-3.3.2.tar.gz"
   sha256 "11904a39a7e34ee66028292fd054afb460eacd07ec5e6c63789aba117e4d854c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "27c59633a936fd31833c5c6f2043508472150c14ab7bc81861a6c3cec0da0c9f" => :catalina
-    sha256 "02258bb1646b2fc8aa99e1b4033b69b00b3fd70d34be55090d8c593191c8fb66" => :mojave
-    sha256 "eebd7bba90143afd6a23b44e1b158387c5b68191bcd1f94475f46c5e22a422dd" => :high_sierra
+    rebuild 1
+    sha256 "3b98834eb65f185a1b8d6c2d505995e51ee77443dad98da8c1f16b5ad5e665ee" => :catalina
+    sha256 "bee3717f1ce59530b51fed4f454fc0f56d459e15cf04cd262d9896ab98c3f0ac" => :mojave
+    sha256 "42fba9f2653c3deab2acec2de9276dd9787b09ce902ea5857d4bef9f10593ab1" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -40,6 +42,7 @@ class Mlpack < Formula
       -DPROFILE=OFF
       -DBUILD_TESTS=OFF
       -DDISABLE_DOWNLOADS=ON
+      -DUSE_OPENMP=OFF
       -DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}
       -DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}
       -DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.dylib

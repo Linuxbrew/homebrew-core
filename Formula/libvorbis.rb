@@ -1,16 +1,16 @@
 class Libvorbis < Formula
   desc "Vorbis General Audio Compression Codec"
   homepage "https://xiph.org/vorbis/"
-  url "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz"
-  sha256 "af00bb5a784e7c9e69f56823de4637c350643deedaf333d0fa86ecdba6fcb415"
+  url "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz"
+  sha256 "b33cc4934322bcbf6efcbacf49e3ca01aadbea4114ec9589d1b1e9d20f72954b"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "78dd589f9c2110c204e8762d3ee2899b209cded2bd372603be0fc8c748f52cd4" => :catalina
-    sha256 "2fdfb811a94b56091aa3175708e92f7371c59a961a798fe8dfb2a82d0241406e" => :mojave
-    sha256 "434729ebb5c161e3240dde60f752af6bbec324af3b7df87f802d48134db92afb" => :high_sierra
-    sha256 "39eef213df783ebcee233503664973a3d56719f28915aa0f392a86b2858ee6cd" => :x86_64_linux
+    sha256 "432eb21045d9dfac3ef879648d845d894cc828862f5498448fe98c0141ef5cd0" => :catalina
+    sha256 "59509a351e88352f01512b54cc5cb849c2551623f7d6dcd6679d38b5e96032ed" => :mojave
+    sha256 "3e6609520d0ffd7179f721c23c1291f2735b70384d56d1c1dd10185ae355c4b2" => :high_sierra
+    sha256 "b61fe377d1be6d7edd86f6c1e47fa655b2c0f960455cfd85f41f1a99c6e5ffee" => :x86_64_linux
   end
 
   head do

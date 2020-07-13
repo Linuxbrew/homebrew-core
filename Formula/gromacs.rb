@@ -3,11 +3,12 @@ class Gromacs < Formula
   homepage "http://www.gromacs.org/"
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.2.tar.gz"
   sha256 "7465e4cd616359d84489d919ec9e4b1aaf51f0a4296e693c249e83411b7bd2f3"
+  revision 1
 
   bottle do
-    sha256 "1d66612a7301aaf5ef4de6e75c3c3946795f08b2dc37007ac898ad1e9f22fc14" => :catalina
-    sha256 "0423b519282cdeb36dc7be9f7721534ac9f31c800fc8c425f054cb62611ddeb2" => :mojave
-    sha256 "eb63d5a06524bb0cce1ba1178b60030f8c61b50480104801c61bb6e2db5a5acb" => :high_sierra
+    sha256 "58dd207377d3cdaad5a162134e113be0bd2efa225c202089d7ef1863cef8f93b" => :catalina
+    sha256 "d3f15cda513906fd9a57832d15e8fecd0627b31e984b7f15981cb57d8f3e40b2" => :mojave
+    sha256 "3617784ee60e87999f305b2530cd5e83ad89db13049e947c597fa1927ab3eae9" => :high_sierra
   end
 
   depends_on "cmake" => :build

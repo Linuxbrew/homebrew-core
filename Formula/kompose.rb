@@ -3,13 +3,15 @@ class Kompose < Formula
   homepage "https://kompose.io/"
   url "https://github.com/kubernetes/kompose/archive/v1.21.0.tar.gz"
   sha256 "64bcb4705e8312c83faaefd8ff4399936e69413662344a683becc2c34d8679f6"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e769a37febb0d4bf08901f266dfcd6cdaba0cce741a44727371e2b5191c59039" => :catalina
-    sha256 "09c6779b612484a7320b5c47e2bcff25c1de9037a93ddb510e355f90f1a6c6e9" => :mojave
-    sha256 "e65c904bb6bd7029f08ecbe69fdbd368c49591b9acdd9bf48f2a473bee501415" => :high_sierra
-    sha256 "340671915dd81c4d37cd838eb489b72b341cbee0dd45b76022470e13b653c164" => :x86_64_linux
+    rebuild 1
+    sha256 "49e2f40f406d9de4c53a4cdfe4c5e33f2725521dd6e37b42fbe27ee2e004ac89" => :catalina
+    sha256 "90a31f44f8dfc99b19485f753c27150e693882f2e35f2f5baaadb7c0e367ebf9" => :mojave
+    sha256 "753239b64a99b54c4e808d628b6ecb697a5f3f91b7c2211b0a666254472c8a14" => :high_sierra
+    sha256 "2799a489ebdfae16fc6c0a2f2c61a59f4295dfd072f0caec52683c1d163e1275" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -21,10 +23,10 @@ class Kompose < Formula
     system "make", "bin"
     bin.install "kompose"
 
-    output = Utils.safe_popen_read("#{bin}/kompose completion bash")
+    output = Utils.safe_popen_read("#{bin}/kompose", "completion", "bash")
     (bash_completion/"kompose").write output
 
-    output = Utils.safe_popen_read("#{bin}/kompose completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kompose", "completion", "zsh")
     (zsh_completion/"_kompose").write output
   end
 

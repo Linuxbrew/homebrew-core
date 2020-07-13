@@ -13,7 +13,7 @@ class Pgtoolkit < Formula
 
   test do
     output = IO.popen("#{bin}/pgcompact --help")
-    matches = output.readlines.select { |line| line =~ /pgcompact - PostgreSQL bloat reducing tool/ }
+    matches = output.readlines.select { |line| line.include?("pgcompact - PostgreSQL bloat reducing tool") }
     !matches.empty?
   end
 end

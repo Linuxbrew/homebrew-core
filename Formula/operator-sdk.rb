@@ -4,13 +4,15 @@ class OperatorSdk < Formula
   url "https://github.com/operator-framework/operator-sdk.git",
       :tag      => "v0.18.2",
       :revision => "f059b5e17447b0bbcef50846859519340c17ffad"
+  license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
-    sha256 "e65f3924379136ae7e70bb127de617c1abe7c412ee0f76d68f2b30076a800e5a" => :catalina
-    sha256 "9e00bc50006c341b63a7e324ce08a184043adf686626ea2864246a44e0f12d73" => :mojave
-    sha256 "0220df7e671176dc8d8f7b3f017437db0d183701d8ae2fd1aa250e2965e1c23c" => :high_sierra
-    sha256 "e26faa310d66e3cd54fe0c8d79f1f90539613a5430d1b5bc2708e519adc701fd" => :x86_64_linux
+    rebuild 1
+    sha256 "5b645526d83936c9b13eb77bdc5be0a28d299ddd70b8024a88848cfc20fde94c" => :catalina
+    sha256 "04379c383bbb7bbe2bdc4517c7fedd865ff2fef97a95d5e70532a3f04f7d8545" => :mojave
+    sha256 "9fee5fc8872a25065bb32febe4e4cb7fd8130242833a7a37c123e7f05b529c4e" => :high_sierra
+    sha256 "6e89f9f693d90b42d2f2733210b2dee1e717acb58734c1a0ac3660593b5ce02b" => :x86_64_linux
   end
 
   depends_on "go"
@@ -30,11 +32,11 @@ class OperatorSdk < Formula
       bin.install buildpath/"bin/operator-sdk"
 
       # Install bash completion
-      output = Utils.safe_popen_read("#{bin}/operator-sdk completion bash")
+      output = Utils.safe_popen_read("#{bin}/operator-sdk", "completion", "bash")
       (bash_completion/"operator-sdk").write output
 
       # Install zsh completion
-      output = Utils.safe_popen_read("#{bin}/operator-sdk completion zsh")
+      output = Utils.safe_popen_read("#{bin}/operator-sdk", "completion", "zsh")
       (zsh_completion/"_operator-sdk").write output
 
       prefix.install_metafiles

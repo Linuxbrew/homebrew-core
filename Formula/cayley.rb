@@ -4,13 +4,14 @@ class Cayley < Formula
   url "https://github.com/cayleygraph/cayley.git",
     :tag      => "v0.7.7",
     :revision => "dcf764fef381f19ee49fad186b4e00024709f148"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "de8d93ba5a00e4ebe718da6f3886488c3e0dfcd532725d7382c0901f9b17d019" => :catalina
-    sha256 "d7981f2af823da8ad9f0553fa11349a25b241500a8cb29e1758040f0c01c41ef" => :mojave
-    sha256 "4fc00116b7b447a52111cc021c65f70770b4c4543365d49b7acde11ee13c5a70" => :high_sierra
+    rebuild 2
+    sha256 "7fe446d8eaa6ed43ae226027feec3878e437708d4a59c5aab761ab249bc9ba56" => :catalina
+    sha256 "7084bd5b3b7dc66c9c50266f2831951f995901f2a326905c760646ebe66a3b96" => :mojave
+    sha256 "0dc598decbc9c70660d22fc670f71581e7fec09e5c9d9bc13ccee4c88c758338" => :high_sierra
   end
 
   depends_on "bazaar" => :build
@@ -25,7 +26,7 @@ class Cayley < Formula
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
       system "go", "run", "github.com/gobuffalo/packr/v2/packr2"
 
-      commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
+      commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
 
       ldflags = %W[
         -s -w

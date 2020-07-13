@@ -3,12 +3,14 @@ class Openfast < Formula
   homepage "https://openfast.readthedocs.io"
   url "https://github.com/openfast/openfast/archive/v2.3.0.tar.gz"
   sha256 "2b368e8c8211ebed03e87fb3e89ef733b7e4be4848834da4034f8419d618446c"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "02cc91bd690154566ae162a68a3f4d5d542079cbf18b06e78b80177fe26e910e" => :catalina
-    sha256 "7d767a4d881fac401aa6b0c69a9994dcb642de2eca435e8feb2a7456302fc31c" => :mojave
-    sha256 "b0f97d241a3e936ec528b039eb4a9c377410f961ee1217a6f25d2b69d25c3ce6" => :high_sierra
+    sha256 "a3853476d60b961beb46c9dd2e6d57cfa82b566336630d7d761295f67a1eef39" => :catalina
+    sha256 "083887ac9bc3bff177b483423fbbe7dae850e70b81c481a2e48b5263fef48671" => :mojave
+    sha256 "e02a5cff1f9c007018873388a77a719a6db38da7e935e150a4b49a0f4feeb0ed" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -2,16 +2,18 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      :tag      => "v5.24",
-      :revision => "2aba70fdf7ba551b0c21019abd7da33f844ea61e"
+      :tag      => "v5.25.0",
+      :revision => "c81bdf8d687f76c5da0205f8f612dc7f48969ca0"
+  license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fcaa45d467dfe23b1416194abf9f925a2d0ba8f964ede6a9a5f3158e321261e8" => :catalina
-    sha256 "b26a63c5ff5f6b4c77cbfd9e8ea19b7891db87a3181771191062bb53a66e8286" => :mojave
-    sha256 "e7336db2804579040d3fb43e2afeecb1bcd3e4f500b7d3fe47a98612d96ffbde" => :high_sierra
-    sha256 "4ecfc9f88c81a40bffe06993807f92f79d16a9da87a9b9d3cfeb4ef0a033fa9b" => :x86_64_linux
+    rebuild 1
+    sha256 "415f9f7185ece2cade017d9e5ace6843d60e9d298cac1e3159f954bd8cdf7da6" => :catalina
+    sha256 "b9516986947dcbe5bb62707b68d8b831dd0423d722f01151bef3e31582edae47" => :mojave
+    sha256 "5ca91ee16f3a798b7c9b68f589d5dc76b5b89ef01035f77871c2c03f087783a5" => :high_sierra
+    sha256 "12411d66122631b29e557a1e19c6f048e7f2482ed5f2cb745e26316ebf15860a" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -19,16 +21,16 @@ class Mmctl < Formula
   def install
     ENV["GOBIN"] = buildpath/bin
     ENV["ADVANCED_VET"] = "FALSE"
-    ENV["BUILD_HASH"] = Utils.safe_popen_read("git rev-parse HEAD").chomp
+    ENV["BUILD_HASH"] = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     ENV["BUILD_VERSION"] = version.to_s
     (buildpath/"src/github.com/mattermost/mmctl").install buildpath.children
     cd "src/github.com/mattermost/mmctl" do
       system "make", "install"
 
       # Install the zsh and bash completions
-      output = Utils.safe_popen_read("#{bin}/mmctl completion bash")
+      output = Utils.safe_popen_read("#{bin}/mmctl", "completion", "bash")
       (bash_completion/"mmctl").write output
-      output = Utils.safe_popen_read("#{bin}/mmctl completion zsh")
+      output = Utils.safe_popen_read("#{bin}/mmctl", "completion", "zsh")
       (zsh_completion/"_mmctl").write output
     end
   end

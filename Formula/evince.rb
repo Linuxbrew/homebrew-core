@@ -1,14 +1,16 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.36/evince-3.36.6.tar.xz"
-  sha256 "95ce9b21c6fc7c837e12eb6e88777ea80dcc2ce6d84d000166a24a113a6d8db0"
+  url "https://download.gnome.org/sources/evince/3.36/evince-3.36.7.tar.xz"
+  sha256 "65d61a423e3fbbe07001f65e87422dfb7d2e42b9edf0ca6a1d427af9a04b8f32"
+  license "GPL-2.0"
   revision 1
 
   bottle do
-    sha256 "2b15b47271164a26004f019b6f32190e1de693c531039997902f36f199d12639" => :catalina
-    sha256 "0f5bf6c3da93c50643498e71f4ce7dfc10805be6c4d9cc3fd71b708f826e8148" => :mojave
-    sha256 "8ad24761dea1a25da1e9aefc10c7c58cc8572d3c212c97aec104be3c192c0de9" => :high_sierra
+    rebuild 1
+    sha256 "6b0be18965aa27c500abf52cd0e1c5092eb304e8f3eb981031b0c9a98ff4f2b2" => :catalina
+    sha256 "49f55d76c47e8bbe458d2a04a9721d550d71a7f4e74f4193e66af7d6b68b5232" => :mojave
+    sha256 "6fd094df345b9355d9f8e6824b1e0d1aa3237f456a781bf19c6f038ab9196699" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

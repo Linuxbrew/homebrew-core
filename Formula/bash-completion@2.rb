@@ -3,6 +3,7 @@ class BashCompletionAT2 < Formula
   homepage "https://github.com/scop/bash-completion"
   url "https://github.com/scop/bash-completion/releases/download/2.10/bash-completion-2.10.tar.xz"
   sha256 "123c17998e34b937ce57bb1b111cd817bc369309e9a8047c0bcf06ead4a3ec92"
+  license "GPL-2.0"
   revision 1
 
   bottle do
@@ -22,7 +23,8 @@ class BashCompletionAT2 < Formula
 
   depends_on "bash"
 
-  conflicts_with "bash-completion", :because => "Differing version of same formula"
+  conflicts_with "bash-completion",
+    :because => "each are different versions of the same formula"
 
   def install
     inreplace "bash_completion" do |s|

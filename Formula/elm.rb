@@ -7,6 +7,7 @@ class Elm < Formula
   homepage "https://elm-lang.org"
   url "https://github.com/elm/compiler/archive/0.19.1.tar.gz"
   sha256 "aa161caca775cef1bbb04bcdeb4471d3aabcf87b6d9d9d5b0d62d3052e8250b1"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "e1bbfe4ff7deba3ed60eb55b81b86b6d3346325bea584802ca1212369f0fa0bb" => :catalina

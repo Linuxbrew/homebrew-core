@@ -4,6 +4,7 @@ class Consul < Formula
   url "https://github.com/hashicorp/consul.git",
       :tag      => "v1.8.0",
       :revision => "3111cb8c7df8545abaa0c96347996b5341ff625d"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
@@ -37,7 +38,7 @@ class Consul < Formula
     end
   end
 
-  plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
+  plist_options :manual => "consul agent -dev -bind 127.0.0.1"
 
   def plist
     <<~EOS
@@ -56,7 +57,8 @@ class Consul < Formula
           <array>
             <string>#{opt_bin}/consul</string>
             <string>agent</string>
-            <string>-advertise</string>
+            <string>-dev</string>
+            <string>-bind</string>
             <string>127.0.0.1</string>
           </array>
           <key>RunAtLoad</key>
@@ -73,10 +75,29 @@ class Consul < Formula
   end
 
   test do
+    http_port = free_port
     fork do
-      exec "#{bin}/consul", "agent", *("-bind" unless OS.mac?), *("127.0.0.1" unless OS.mac?), "-data-dir", "."
+      # most ports must be free, but are irrelevant to this test
+      system(
+        "#{bin}/consul",
+        "agent",
+        "-dev",
+        "-bind", "127.0.0.1",
+        "-dns-port", "-1",
+        "-grpc-port", "-1",
+        "-http-port", http_port,
+        "-serf-lan-port", free_port,
+        "-serf-wan-port", free_port,
+        "-server-port", free_port
+      )
     end
+
+    # wait for startup
     sleep 3
-    system "#{bin}/consul", "leave"
+
+    k = "brew-formula-test"
+    v = "value"
+    system "#{bin}/consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
+    assert_equal v, shell_output("#{bin}/consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
   end
 end

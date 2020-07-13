@@ -5,9 +5,10 @@ class Monetdb < Formula
   sha256 "8496c9cb3a5e8d5493060f173ad92f773e804d6ba03b0e0f6fa607b57642b447"
 
   bottle do
-    sha256 "e5182b41a9272283bf4b60e3ba8089e45ec3a4d03962f93437acf69fddf116fb" => :catalina
-    sha256 "f347e8be9160164414b050afbc703ceca8c76acb693839464488b5bfb0237085" => :mojave
-    sha256 "35e8c854759ebcd3abd073d820f3ce92e2c5aa5a64dfa2f28211f19b23d37650" => :high_sierra
+    rebuild 1
+    sha256 "a3c41056e62e92756366845ea2c8edd548a55a5b29887f310e668ab6cd749ffd" => :catalina
+    sha256 "8d50a624839fff2dea6424b18549e0893e028b0233b64ee18a3bbdfe5523aca2" => :mojave
+    sha256 "d5d9aba84c98e71d848532723c74fbdfb616306d39ba696f89001e88b6837b3e" => :high_sierra
   end
 
   head do
@@ -43,7 +44,7 @@ class Monetdb < Formula
 
   test do
     # assert_match "Usage", shell_output("#{bin}/mclient --help 2>&1")
-    system("#{bin}/monetdbd create #{testpath}/dbfarm")
+    system("#{bin}/monetdbd", "create", "#{testpath}/dbfarm")
     assert_predicate testpath/"dbfarm", :exist?
   end
 end

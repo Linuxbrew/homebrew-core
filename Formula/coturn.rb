@@ -1,15 +1,14 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "http://turnserver.open-sys.org/downloads/v4.5.1.2/turnserver-4.5.1.2.tar.gz"
-  sha256 "5f34ded2c2871c74d498712c3fbfce8a418f8ea8e6508adc07cfe5e152881455"
-  revision 1
+  url "http://turnserver.open-sys.org/downloads/v4.5.1.3/turnserver-4.5.1.3.tar.gz"
+  sha256 "408bf7fde455d641bb2a23ba2df992ea0ae87b328de74e66e167ef58d8e9713a"
 
   bottle do
-    sha256 "9f00d9739c200fad1363e0290ea1c07320da8c960fab8c93e1a299c58ba52242" => :catalina
-    sha256 "b8021791ebdd945f3d5aa6c2e31d4a55a24137b5759c6cd64b7da569843a05f3" => :mojave
-    sha256 "35f3504a39e5c58c3cc81c0f1d544f5a2e28c6c651281c54b8a98f096b0332aa" => :high_sierra
-    sha256 "f8897cac2b0e57f33d000e717f25c12c4fe4b917f7325d6200906d89af6c628e" => :x86_64_linux
+    sha256 "027e54c623df2dca0cb5b281123a01b5ab4625d277d7a1f7ac2bd998df790b01" => :catalina
+    sha256 "f5d4351c3ae9d4b8949012379f6b7cb680f4f0fdb6b01c55ff84bd735bd3a490" => :mojave
+    sha256 "4bfb3e74a8d467f7935ccb316097a70b3b14018b31316bccf7c758e65f2479e8" => :high_sierra
+    sha256 "ca4817bef85bbd8fdd8848933ccf546cae829ffb2fc7913cbb93e251ffb8158f" => :x86_64_linux
   end
 
   depends_on "hiredis"

@@ -4,14 +4,16 @@ class Goofys < Formula
   url "https://github.com/kahing/goofys.git",
       :tag      => "v0.24.0",
       :revision => "45b8d78375af1b24604439d2e60c567654bcdf88"
+  license "Apache-2.0"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b7ebc820dd0ee1cb37195baf2c6b7774c22e4dac29f7ec049a025400c4b0f35" => :catalina
-    sha256 "fc40b7665dc7f0f7c1c990995027913bdac95d12255e8ed25183e42eee14c966" => :mojave
-    sha256 "0ca4cbb28a7dc528cc58f0d64ea4bb64d732d83448f4db6b3dfa9d1ade6ac100" => :high_sierra
-    sha256 "4c2632f197a131139ce7a35e75853089b87cf3dfa9c7329fb7aa28ecf7c92ed4" => :x86_64_linux
+    rebuild 1
+    sha256 "da054592343f7423d91a3abadbe4d601295b1f74b3a404c36fdb4deb94f7019b" => :catalina
+    sha256 "cee50248f9ac4d33ef8ca585ad94e3c9e6226fc464dfad86de2b7f9497b9f2b7" => :mojave
+    sha256 "eb0a3cfe49104292c16d76dce71db34000b1a7214f660b3cff3a39e4b3ba7a44" => :high_sierra
+    sha256 "50aa904c2158d48a4dac55c47de1511f6530592f489aab0b982f32a7d12f6bdb" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -29,7 +31,7 @@ class Goofys < Formula
     ENV["GOPATH"] = gopath
 
     cd gopath/"src/github.com/kahing/goofys" do
-      commit = Utils.safe_popen_read("git rev-parse HEAD").chomp
+      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-o", "goofys", "-ldflags",
              "-X main.Version=#{commit}"
       bin.install "goofys"

@@ -1,15 +1,15 @@
 class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/asymptote/2.65/asymptote-2.65.src.tgz"
-  sha256 "15e3d71a0c492c9f2142dd86a7390bcbf59c944ec8b86970833599ff37c59844"
+  url "https://downloads.sourceforge.net/project/asymptote/2.66/asymptote-2.66.src.tgz"
+  sha256 "a2605bdec8cbf3f87b84f51860abeb7e5c1073572a54f5489d124b8786d84cd0"
+  license "GPL-3.0"
 
   bottle do
-    rebuild 1
-    sha256 "6ca74cb50ce6bc7523fd8a36c14f9732722c0b3e2cb7b32e8b951b9ee0ee1c4e" => :catalina
-    sha256 "b98bacf73a3bc568f492f76e999e598a6a32d53a5830b6e756cb853eaf4ea436" => :mojave
-    sha256 "2404ace2bb76465726c7297a228032c883de1a2ba71aa93557a4ecc93dba0a90" => :high_sierra
-    sha256 "d4551c4232485a1295c3ad0d21b8fcc7976565e99925d8e29e71c8984d640b4c" => :x86_64_linux
+    sha256 "dc6d4f13df8030bb0cd0040cd6372af6f0bd7b94cb369821b73d5cb3d996b91f" => :catalina
+    sha256 "1c2d88dfbe123512db773d1499a8e21d4c759ce72099ce02c30f7f46be8a3b41" => :mojave
+    sha256 "2314a6f120bdeef1e01083c501edc4d5519cf6e0e4ebe805bb3dc6f17bc7c66c" => :high_sierra
+    sha256 "e7002008a066f4b64a585c6e9716a764cf453e21fe47ee2e696417604d01ca2b" => :x86_64_linux
   end
 
   depends_on "glm" => :build

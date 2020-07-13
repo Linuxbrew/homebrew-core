@@ -19,7 +19,7 @@ class Wdiff < Formula
   uses_from_macos "texinfo" => :build
   uses_from_macos "ncurses"
 
-  conflicts_with "montage", :because => "Both install an mdiff executable"
+  conflicts_with "montage", :because => "both install an `mdiff` executable"
 
   def install
     system "./configure", "--disable-dependency-tracking",

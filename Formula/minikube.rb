@@ -4,14 +4,16 @@ class Minikube < Formula
   url "https://github.com/kubernetes/minikube.git",
       :tag      => "v1.11.0",
       :revision => "57e2f55f47effe9ce396cea42a1e0eb4f611ebbd"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/minikube.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "458c030e48c868ac3499c8d321656c67ac4b10637d1549f9e2921c5eab4d0963" => :catalina
-    sha256 "79f7f401711c9c3c2519c93c5b0bb22e7491c4a2b44b06ed8e6a362b25885cd5" => :mojave
-    sha256 "b68b609f8165cccd4f418a5a2f4dff9baa1ed13fb16b98f1d6dcf121c6d4495e" => :high_sierra
-    sha256 "64bd1a5ad26b08aba441e59c87c680f7ab649b4626e772efceec5da0d539ccab" => :x86_64_linux
+    rebuild 1
+    sha256 "b1725719ff2a2973f20e5583021584302bb29d9dd23448709e016a19c101ba4f" => :catalina
+    sha256 "6d825680b695c127d29ad63a50ad3d8dd1c129d35fa90ce623f878eb7fe7dd32" => :mojave
+    sha256 "7ff75886b7fb884af278652c63e715afadeb940e1a66d491637a59aa95980165" => :high_sierra
+    sha256 "a38869c0b436ae0d89f79cb8d14892a50da4eba54a5b2885c56008acf1003923" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -22,10 +24,10 @@ class Minikube < Formula
     system "make"
     bin.install "out/minikube"
 
-    output = Utils.safe_popen_read("#{bin}/minikube completion bash")
+    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "bash")
     (bash_completion/"minikube").write output
 
-    output = Utils.safe_popen_read("#{bin}/minikube completion zsh")
+    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "zsh")
     (zsh_completion/"_minikube").write output
   end
 

@@ -3,14 +3,14 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://github.com/Gallopsled/pwntools"
-  url "https://files.pythonhosted.org/packages/39/d2/37c5cdb9f19b346bfd22daf5c1c49106c7277ac3f317853093bf71e3ae6a/pwntools-4.1.5.tar.gz"
-  sha256 "c0d48b468ab505eefce2d3fc1ee3479d0d42e1fbb792b87d4af1167ee2ef910c"
+  url "https://files.pythonhosted.org/packages/69/af/6d39a4aa24319f1de0c7901f25f230d0be08ec88f0e656ffaceaca871f9e/pwntools-4.2.0.tar.gz"
+  sha256 "7051bcdb786fddda77a1140af6ac91ba4e184484353b9ebf7889d5ff26ff3580"
 
   bottle do
     cellar :any
-    sha256 "816782aff25f3ae858104ab5fb45db10f1a52957f1142a4da8ce009e7142b809" => :catalina
-    sha256 "2aed0e44fd564068fc5c46a59685c6245b7886529296bb1cf7980d817bc91848" => :mojave
-    sha256 "f006deb61fe6b14d0cc6d672f7a3feda98c56fce4013f5a6f802706b6a012bda" => :high_sierra
+    sha256 "1e321095a0b71b2ad00537ad40403715e8d4c0538e5b9f282bf1162537d4b882" => :catalina
+    sha256 "9e3e40dd62130f52bf16fd9c67d38cad5879bb8e14022d116d81d6f3233797b5" => :mojave
+    sha256 "41243a83a989df960102f639edc42fb050bd562211b738b5555621c4d0f6648a" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -22,7 +22,7 @@ class Pwntools < Formula
     depends_on "pkg-config" => :build
   end
 
-  conflicts_with "moreutils", :because => "Both install `errno` binaries"
+  conflicts_with "moreutils", :because => "both install an `errno` executable"
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"

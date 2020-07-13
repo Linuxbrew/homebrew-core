@@ -3,14 +3,15 @@ class Liblwgeom < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.5.4.tar.gz"
   sha256 "146d59351cf830e2a2a72fa14e700cd5eab6c18ad3e7c644f57c4cee7ed98bbe"
+  revision 1
   head "https://git.osgeo.org/gitea/postgis/postgis"
 
   bottle do
     cellar :any
-    sha256 "f3b78efd42b006412552ed9ee5ba052a6ab830d26f4076ea9dfe8213a267e54f" => :catalina
-    sha256 "a103205f3d0034886edca7d456f56184fb209b2878ff5f31351172d7dae6b77c" => :mojave
-    sha256 "fb2c01c298317d9705c3a81b223ebef6c391351135c66359fe7a97f6868d7fa5" => :high_sierra
-    sha256 "cfddb3b87269820362db2bd7b8bd1cd9cf2116dbacec96a78c45edfbeb5c6fa4" => :x86_64_linux
+    sha256 "3b3992a15950249f302da1a43243e68c1a67d7e6e2c0643bb32b5a0c6bcff62d" => :catalina
+    sha256 "56ff43b6ab2f188069d3c4bf17a38e976dbbbeb9f041275adc2389516c33ca33" => :mojave
+    sha256 "daa95483a59170f27fc06112f72e5abdf3a3bd09526896703061dd7e7bae99e6" => :high_sierra
+    sha256 "d928841d232f668bbdce54052c94cc807ee32160f2734453efef7298f8771d7b" => :x86_64_linux
   end
 
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"

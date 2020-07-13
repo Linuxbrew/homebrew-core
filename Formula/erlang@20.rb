@@ -4,6 +4,7 @@ class ErlangAT20 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-20.3.8.26.tar.gz"
   sha256 "dce78b60938a48b887317e5222cff946fd4af36666153ab2f0f022aa91755813"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
@@ -12,6 +13,9 @@ class ErlangAT20 < Formula
     sha256 "a401feb22927ecc0e649f3f2f7aeba331725b6390985f826ed5639d59732ee6a" => :high_sierra
     sha256 "97ecb6ce73d469360e859be66f428b9aacba41403fb8e3214bf6a031d694f96e" => :x86_64_linux
   end
+
+  # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
+  deprecate! :date => "2020-05-13"
 
   keg_only :versioned_formula
 

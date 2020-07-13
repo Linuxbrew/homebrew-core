@@ -1,23 +1,23 @@
 class Scons < Formula
+  include Language::Python::Shebang
+
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
   url "https://downloads.sourceforge.net/project/scons/scons/3.1.2/scons-3.1.2.tar.gz"
   sha256 "7801f3f62f654528e272df780be10c0e9337e897650b62ddcee9f39fde13f8fb"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :catalina
-    sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :mojave
-    sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :high_sierra
-    sha256 "e2a7b71e6a79f285b8376ccc76c055f507e3f4bfb4b4ad760d6509efa25b2f3a" => :x86_64_linux
+    sha256 "55f68a02463998b22e267af3089f00adfc3964b49d4c5f24dece2d1b08a92d99" => :catalina
+    sha256 "55f68a02463998b22e267af3089f00adfc3964b49d4c5f24dece2d1b08a92d99" => :mojave
+    sha256 "55f68a02463998b22e267af3089f00adfc3964b49d4c5f24dece2d1b08a92d99" => :high_sierra
+    sha256 "7c5778e74eba8394cb5bf04ad9037308d873b8bc74ab2fc59b94df81ff5fa6fb" => :x86_64_linux
   end
 
   depends_on "python@3.8"
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
     system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install",
              "--prefix=#{prefix}",
@@ -29,6 +29,7 @@ class Scons < Formula
              "--install-data=#{libexec}",
              "--no-version-script", "--no-install-man"
 
+    bin.find { |f| rewrite_shebang detected_python_shebang, f }
     # Re-root scripts to libexec so they can import SCons and symlink back into
     # bin. Similar tactics are used in the duplicity formula.
     bin.children.each do |p|

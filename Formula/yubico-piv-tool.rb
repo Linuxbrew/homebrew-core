@@ -1,25 +1,31 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.0.0.tar.gz"
-  sha256 "dae510ea88922720019029c7f0296ddc74bb30573e40d9bc18fc155023859488"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.1.0.tar.gz"
+  sha256 "ae6a51cc20c5aa92c3ff2d18411edc49512564cb824ce28e533755cea16287f5"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "f85cee9151108f2ca5e6e067d846123c1d55044d26ec8c7c3a29a3b7ba4e81f8" => :catalina
-    sha256 "b4d327cc5524b7cbbbb4bf241b59f5d19556484bd5c3109964d070a7586578a2" => :mojave
-    sha256 "1e5c8cc9a64bdfbae6d16b27029e24d9290d2f449f7ef6e90b7c47ea29cf2b3f" => :high_sierra
+    sha256 "11cdcfe2fe335c75e79d00b3b47e0e7970f491b5b6021dc1e53b99cb799359e9" => :catalina
+    sha256 "aec7c7f3cca7e869700ebc5b9a175b0ee48c76079e1f6d29c81431b4b2f9c17e" => :mojave
+    sha256 "87938ef20245216c4b5abef4142fc160e6ef52551406c39c01e533b6be07ca1d" => :high_sierra
   end
 
   depends_on "check" => :build
+  depends_on "cmake" => :build
+  depends_on "gengetopt" => :build
+  depends_on "help2man" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "check"
   depends_on "openssl@1.1"
+  depends_on "pcsc-lite"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_C_FLAGS=-I#{Formula["pcsc-lite"].opt_include}/PCSC"
+      system "make", "install"
+    end
   end
 
   test do

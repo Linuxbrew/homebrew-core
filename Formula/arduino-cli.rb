@@ -4,15 +4,15 @@ class ArduinoCli < Formula
   url "https://github.com/arduino/arduino-cli.git",
      :tag      => "0.11.0",
      :revision => "0296f4df116385f868b67c5ffa7393936c3345c9"
-  revision 1
+  revision 2
   head "https://github.com/arduino/arduino-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3dd10065c03827d1cc0a508daaf2787c154eda4bfc5378d671b17d16672bd293" => :catalina
-    sha256 "4d176c41402ad7a3ceb8ad20ef4a621675c20bdb080b543193efddad07e7fc26" => :mojave
-    sha256 "d885f46abbb996e64a47d8566677263bca7ca2cacfe78d8bd825d5a4bba02f38" => :high_sierra
-    sha256 "2444faa21e3a470284d96cfef9667ff630fb39da7c7f619df21c6f0a68a671ac" => :x86_64_linux
+    sha256 "7d6e6a081632c6cb89e60636c3a7e6989375d10f8ab0f350927f68ea8957ed42" => :catalina
+    sha256 "878390cd1048b3370de84200bf37e718b37252ae9daa437cac543635ba3bf482" => :mojave
+    sha256 "b84292063439746cbaf314a60172e94659f90a6b80eaaab8f138b2ec4c128c43" => :high_sierra
+    sha256 "51d1d81c3d0dfb123278da4b4416250d4d348ac43ed9fd7f7720e34a8e89c283" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -25,10 +25,22 @@ class ArduinoCli < Formula
       -X github.com/arduino/arduino-cli/version.commit=#{commit}
     ]
     system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
+
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/arduino-cli", "completion", "bash")
+    (bash_completion/"arduino-cli").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/arduino-cli", "completion", "zsh")
+    (zsh_completion/"_arduino-cli").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/arduino-cli", "completion", "fish")
+    (fish_completion/"arduino-cli.fish").write output
   end
 
   test do
     system "#{bin}/arduino-cli", "sketch", "new", "test_sketch"
     assert File.directory?("#{testpath}/test_sketch")
+
+    version_output = shell_output("#{bin}/arduino-cli version 2>&1")
+    assert_match "arduino-cli Version: #{version}", version_output
   end
 end

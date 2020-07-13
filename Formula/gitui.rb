@@ -1,14 +1,15 @@
 class Gitui < Formula
   desc "Blazing fast terminal-ui for git written in rust"
   homepage "https://github.com/extrawurst/gitui"
-  url "https://github.com/extrawurst/gitui/archive/v0.7.0.tar.gz"
-  sha256 "3491730ddbbc886940f20e6cf419c689de3e196f678127807ef69c4de479742e"
+  url "https://github.com/extrawurst/gitui/archive/v0.8.1.tar.gz"
+  sha256 "41662bb14ae89b9f25c2a956571a2855f977273261228f1ceba856fc8b7f2eca"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7024c52191c49e1cbda891aa747faaed10a3d3f28810ce914d363d1d1203e90" => :catalina
-    sha256 "b85f069e2f076145bc19805069059d8ef7e07dd524a6835db02359837da895c3" => :mojave
-    sha256 "caac1ddfbc743230a3b1ad6610c6637077264f517ea68804d0d15cc8eec89ca0" => :high_sierra
+    sha256 "b94f377f1976908862b4c0a7245066882b12b22c30917ce8c4cc200820fbdf9c" => :catalina
+    sha256 "91dc87cfe10bec502b3a3b8085164fcfc23061c1f0c5a3f6fe8f459bb69e3191" => :mojave
+    sha256 "dacd4f58f87566bf594b8985c4a03446a9523607b05505b177f8823a9ab3084c" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -37,6 +38,10 @@ class Gitui < Formula
 
     screenlog = (testpath/"screenlog.ansi").read
     # remove ANSI colors
+    screenlog.encode!("UTF-8", "binary",
+      :invalid => :replace,
+      :undef   => :replace,
+      :replace => "")
     screenlog.gsub! /\e\[([;\d]+)?m/, ""
     assert_match "Author: Stephan Dilly", screenlog
     assert_match "Date: 2020-06-15", screenlog

@@ -1,15 +1,14 @@
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
-  url "https://github.com/ncbi/sra-tools/archive/2.10.0.tar.gz"
-  sha256 "6d2b02bad674cde6b9677a522f62da092da5471d23738976abce8eae5710fa0c"
+  url "https://github.com/ncbi/sra-tools/archive/2.10.8.tar.gz"
+  sha256 "4adb969a9a998f6a50020f99aa66f6ae27916f7dc83ddf6722fc0fea4a3a4d17"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
-    sha256 "5666b45a693e675a145503ee348aa9be199b6dd53d8e3582e6a2af2f4f647b94" => :catalina
-    sha256 "8d9a22d8cc446e66d66b44e8d8e2bbdf60faaa9cc8166e9c7cad1dd5e98abf8b" => :mojave
-    sha256 "3dc2db39ac207dc8ba786ba808105cba4128cc9cb5573a02c28e9a71208886c9" => :high_sierra
-    sha256 "a197279f37e61683a000e951b0ec25a8fa5b95e7fe29b394dddf2c3387663b1f" => :x86_64_linux
+    sha256 "2f5dba15de1efbf19142a6c89e8c3c1c8cb4e081ba3375d66536b1af3381645f" => :catalina
+    sha256 "49c589cf081c862f544b346b1e6878c5ab6d9a01b8a8582b054d61b153136199" => :mojave
+    sha256 "0e8fd8c3dca32ab66080dccc7050d1fefff0802809217b695cb888b79f5b2312" => :high_sierra
   end
 
   depends_on "hdf5"
@@ -23,13 +22,13 @@ class Sratoolkit < Formula
   end
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/2.10.0.tar.gz"
-    sha256 "4139adff83af213d7880bc80d1c0f5ee9b00c6c4e615d00aa47aaa267e40ed25"
+    url "https://github.com/ncbi/ngs/archive/2.10.8.tar.gz"
+    sha256 "f20fae21439b69b6a3573c864a175e0f9aa47ca6dd12bea15e429b7c5a9b81b5"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.0.tar.gz"
-    sha256 "a6cc88e8d12f536dc96d5f60698d0ef4cf2f63e31d3d12d23da39b1de39563e1"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.8.tar.gz"
+    sha256 "7a593aa22584db9443bb56ac01409707bca01b8f9601fe530dac81b73f1a44df"
   end
 
   unless OS.mac?
@@ -150,6 +149,12 @@ class Sratoolkit < Formula
   end
 
   test do
+    # For testing purposes, generate a sample config noninteractively in lieu of running vdb-config --interactive
+    # See upstream issue: https://github.com/ncbi/sra-tools/issues/291
+    require "securerandom"
+    mkdir ".ncbi"
+    (testpath/".ncbi/user-settings.mkfg").write "/LIBS/GUID = \"#{SecureRandom.uuid}\"\n"
+
     assert_match "Read 1 spots for SRR000001", shell_output("#{bin}/fastq-dump -N 1 -X 1 SRR000001")
     assert_match "@SRR000001.1 EM7LVYS02FOYNU length=284", File.read("SRR000001.fastq")
   end

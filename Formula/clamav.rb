@@ -4,12 +4,12 @@ class Clamav < Formula
   url "https://www.clamav.net/downloads/production/clamav-0.102.3.tar.gz"
   mirror "https://fossies.org/linux/misc/clamav-0.102.3.tar.gz"
   sha256 "ed3050c4569989ee7ab54c7b87246b41ed808259632849be0706467442dc0693"
+  revision 1
 
   bottle do
-    sha256 "14f69086a768c2a4a30fd5c4316201363b5265eb4a303159fd7773bc44d42e05" => :catalina
-    sha256 "1de7b34afbff07514302deb8ea6f3fb79095509911be98e3ab4f5d674f0f8ef2" => :mojave
-    sha256 "7d2140eef1f3af64ec2dc22c78d4a8f1778f56eb9ae84ee3a38fa1814d70d98a" => :high_sierra
-    sha256 "6d2ecc40f914ceae36567a29a58fb63d71bf5a65d67b76c8ffb9c2884d22e0c5" => :x86_64_linux
+    sha256 "2bb5ea7de66e798672e5f9a6bb49bb2d0f3f723a655fe365a5f12322567c6ef3" => :catalina
+    sha256 "c5dc15e28ffab603fea38b1e22fda3023384ae654544554f40d75038b7cb4318" => :mojave
+    sha256 "fd1d05cd3c62e0af9ee1a7b9b875d0f8ce776d4a4022c0fb3b184a806669abb0" => :high_sierra
   end
 
   head do
@@ -45,7 +45,7 @@ class Clamav < Formula
       --with-llvm=no
       --with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}
       --with-iconv=#{Formula["libiconv"].opt_prefix}
-      --with-libjson-static=#{Formula["json-c"].opt_prefix}/lib/libjson-c.a
+      --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre2"].opt_prefix}
     ]

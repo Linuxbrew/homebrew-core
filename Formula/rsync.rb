@@ -1,17 +1,17 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.1.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.1.tar.gz"
-  sha256 "95f2dd62979b500a99b34c1a6453a0787ada0330e4bec7fcffad37b9062d58d3"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.2.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.2.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.2.tar.gz"
+  sha256 "644bd3841779507665211fd7db8359c8a10670c57e305b4aab61b4e40037afa8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21895f23aed9113a620917e2eb1245a0b0391a5ac60c015961244a32d87af9b5" => :catalina
-    sha256 "be472ad40b805c49164e72f8afaf08de36687431879549d107c8e9e8dc550ddc" => :mojave
-    sha256 "6cc76004fca133f99d8eb7818d827ea5ac7fac6485bade98d9b7a3b0e3443fd3" => :high_sierra
-    sha256 "2c2f6827fbef0ffbdaed41d6feaa2275fb2415f4a034dd2f710b4334c4d0e986" => :x86_64_linux
+    sha256 "59d1aa1da62690c00e1aef7d608fcbecc814e875692c8ed0196f43aa58317510" => :catalina
+    sha256 "5d06d2f36dfee165d1f5487a6bfb1bc0522214cb36b05c1f5fe79570b03973fc" => :mojave
+    sha256 "daf1a3c8d3ecf743f605f1c0a4066b6e71910493b161504260b1d0841c00adfb" => :high_sierra
+    sha256 "4334604c04d86bb488a6278e32ba03fe7db122bdaf516a9a1f55d28515adbafc" => :x86_64_linux
   end
 
   depends_on "lz4"
@@ -23,11 +23,11 @@ class Rsync < Formula
   uses_from_macos "zlib"
 
   # hfs-compression.diff has been marked by upstream as broken since 3.1.3
-  # and has not been reported fixed as of 3.2.1
+  # and has not been reported fixed as of 3.2.2
   patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.1.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.1.tar.gz"
-    sha256 "6e0233a3c2381bff36b91d791d0c16a9c362856c6baf70dbaa1c43049992e336"
+    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.2.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.2.tar.gz"
+    sha256 "eeccf4c7f178c936e451b679e64b670f707b989b7a40e2d22286407f8987ae9a"
     apply "patches/fileflags.diff",
           "patches/crtimes.diff"
   end

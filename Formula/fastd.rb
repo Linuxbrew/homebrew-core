@@ -3,13 +3,14 @@ class Fastd < Formula
   homepage "https://github.com/NeoRaider/fastd"
   url "https://github.com/NeoRaider/fastd/releases/download/v19/fastd-19.tar.xz"
   sha256 "6054608e2103b634c9d19ecd1ae058d4ec694747047130719db180578729783a"
+  revision 1
   head "https://github.com/NeoRaider/fastd.git"
 
   bottle do
     cellar :any
-    sha256 "fea38ac2d1095bd0ec97fa55b3cadaea3e80c8f2ab3617f2af4b6e3066fc557e" => :catalina
-    sha256 "abade335b936258e80d713d939b1b0067000cc9b1ae7d3b94be97cd1775bfc19" => :mojave
-    sha256 "d4b19c43e7ad0b84282de0255b7b03ca124f1df7ad7eb1b8b39fb3f87f3dacd0" => :high_sierra
+    sha256 "37f5ce56da71775cec3a8d1441a13d5f9ee8c3e903a3605867f46ca6452c8900" => :catalina
+    sha256 "94eb461f5c5cbbadf1a3eec6c647ca34e9bf7897efe37c22c8f4c4eb045311e9" => :mojave
+    sha256 "ec6bf6837faa5900e5e13380ea47b22d1ed317b0c4b7e7282d4c9b467ec1a125" => :high_sierra
   end
 
   depends_on "bison" => :build # fastd requires bison >= 2.5

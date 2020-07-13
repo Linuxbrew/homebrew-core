@@ -3,6 +3,7 @@ class Lesstif < Formula
   homepage "https://lesstif.sourceforge.io"
   url "https://downloads.sourceforge.net/project/lesstif/lesstif/0.95.2/lesstif-0.95.2.tar.bz2"
   sha256 "eb4aa38858c29a4a3bcf605cfe7d91ca41f4522d78d770f69721e6e3a4ecf7e3"
+  license "GPL-2.0"
 
   bottle do
     rebuild 2
@@ -15,7 +16,7 @@ class Lesstif < Formula
   depends_on :x11
 
   conflicts_with "openmotif",
-    :because => "Lesstif and Openmotif are complete replacements for each other"
+    :because => "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
     # LessTif does naughty, naughty, things by assuming we want autoconf macros

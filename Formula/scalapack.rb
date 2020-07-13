@@ -3,20 +3,26 @@ class Scalapack < Formula
   homepage "https://www.netlib.org/scalapack/"
   url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
   sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "697f1d928914df0d879813afd717597a2939dfa87f3828dd6014011ab3da0b06" => :catalina
-    sha256 "a994dfe2b4d48861f4fa406266fe00a4c29039bd37b5e58f71893e3180b045bd" => :mojave
-    sha256 "770b58ffe8486edf0fe5bdfa788f9f4612e0859af683393b170bfda37fcd7c82" => :high_sierra
-    sha256 "3c74a8a8549212277bba5189ce6466ad19bb1eccb514ee36620fabeb5d222262" => :x86_64_linux
+    sha256 "281e3d5317f1616e8d5a6a3b9c37fbe6ee29a03b2abe14055854902a6c009a87" => :catalina
+    sha256 "b222f27ffed17605ffca2d1b0b4804f4c66ec916c9d2b5f2dd085ad2427fa791" => :mojave
+    sha256 "ea92d3247883a9e0de28483a34d1ca064d395d28c8a622fbac571f4cd6d0e64d" => :high_sierra
+    sha256 "cd8013efd72936bdf7ff55b35659abda6a4f6476bef0884bbf7f989070b9c22d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
+
+  # Patch for compatibility with GCC 10
+  patch do
+    url "https://github.com/Reference-ScaLAPACK/scalapack/pull/23.diff?full_index=1"
+    sha256 "6e97008a0dd8624a63718a0882aa870f31883ec00d7bfac49e9e901979359039"
+  end
 
   def install
     mkdir "build" do

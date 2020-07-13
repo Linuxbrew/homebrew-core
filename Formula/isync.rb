@@ -1,24 +1,16 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  revision 1
+  url "https://downloads.sourceforge.net/project/isync/isync/1.3.2/isync-1.3.2.tar.gz"
+  sha256 "9106d1428c912f421a659a22c3c4dbe9fe110f3f4da1498038e6ebf8d284e805"
   head "https://git.code.sf.net/p/isync/isync.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/isync/isync/1.3.1/isync-1.3.1.tar.gz"
-    sha256 "68cb4643d58152097f01c9b3abead7d7d4c9563183d72f3c2a31d22bc168f0ea"
-    # Patch to fix detection of OpenSSL 1.1
-    # https://sourceforge.net/p/isync/bugs/51/
-    patch :DATA
-  end
 
   bottle do
     cellar :any
-    sha256 "d4ea3fd276458ae669596cc955beee0d2cb38ab217fc51c5c6c2acb6c73de260" => :catalina
-    sha256 "7863e1861cc119853fadc35ff6afe7f13bf1e420f22b70e77d0bb32997943329" => :mojave
-    sha256 "2da1bd2fef7c6eb9af331a0536e02df8dd0bc9b0fc42eb534ec8499a87f8c197" => :high_sierra
-    sha256 "a19f503aa9490146a19a4197e8e0190cffad685c7fdba0582544c44ee96f1fe5" => :sierra
-    sha256 "970bc89bc0e2bf3d0c0eda0b9aad32ce370a67abeb826c54c601c9421cc5e05a" => :x86_64_linux
+    sha256 "a962b44d6115447a76213e3671710a087c962301c5e238ef9ed942fa9b1ebb59" => :catalina
+    sha256 "c29fd93d72cd3edc638949433305b3298ebdd125ad1a87a4cb7d8fb6344e10e8" => :mojave
+    sha256 "469834994c352a202afd451688c5475328910dfce811c88c6e0f0dadbf3e8e09" => :high_sierra
+    sha256 "88d4304ca01204ba22640734224a07f16e3106e8f8c557a026c0d85fefd50746" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -85,16 +77,3 @@ class Isync < Formula
     system bin/"mbsync-get-cert", "duckduckgo.com:443"
   end
 end
-__END__
-diff -pur isync-1.3.1/configure.ac isync-1.3.1-fixed/configure.ac
---- isync-1.3.1/configure.ac	2019-05-28 15:44:13.000000000 +0200
-+++ isync-1.3.1-fixed/configure.ac	2019-09-07 15:39:55.000000000 +0200
-@@ -94,7 +94,7 @@ if test "x$ob_cv_with_ssl" != xno; then
-     sav_LDFLAGS=$LDFLAGS
-     LDFLAGS="$LDFLAGS $SSL_LDFLAGS"
-     AC_CHECK_LIB(dl, dlopen, [LIBDL=-ldl])
--    AC_CHECK_LIB(crypto, CRYPTO_lock, [LIBCRYPTO=-lcrypto])
-+    AC_CHECK_LIB(crypto, HMAC_Update, [LIBCRYPTO=-lcrypto])
-     AC_CHECK_LIB(ssl, SSL_connect,
-                  [SSL_LIBS="-lssl $LIBCRYPTO $LIBDL" have_ssl_paths=yes])
-     LDFLAGS=$sav_LDFLAGS

@@ -3,14 +3,16 @@ class Cassowary < Formula
   homepage "https://github.com/rogerwelin/cassowary"
   url "https://github.com/rogerwelin/cassowary/archive/v0.11.0.tar.gz"
   sha256 "60d1bc68b75a59bc5511fd33eb77b14acd735887c74af1bbc4ea68badd271606"
+  license "MIT"
   head "https://github.com/rogerwelin/cassowary.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b8f7d3def722987e81c22df1ea898ed28973476fc309988756c573f0372b381a" => :catalina
-    sha256 "10de18f2c186dffe62c5407365f5201379b0f3da3bc37eb9e0b60fd465959c19" => :mojave
-    sha256 "2eb13fb3ce1f657d59791152266497761fc5c6a562c49f96ec6b7cf81c3099aa" => :high_sierra
-    sha256 "38691ea7460a2f2228f145f210c3f9f7608e50d6f989a13507e9b073be10dae6" => :x86_64_linux
+    rebuild 1
+    sha256 "3a6e5b9679a3c5da70142d98eddb6825cb51ba69581e21a485a16c09f56de5f4" => :catalina
+    sha256 "e8ee2d0e616f89a395ed1e6b881a4c7f29529ebccd1524af9bb3ba2a23364106" => :mojave
+    sha256 "2b723e48851feba06f504d2c5ddd51314c619509df0a380cdd286e439ff35c07" => :high_sierra
+    sha256 "211c1ec577bb59173da2238f913649b71a27e83d5523f3a6c53dea82287552e7" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -20,7 +22,7 @@ class Cassowary < Formula
   end
 
   test do
-    system("#{bin}/cassowary run -u http://www.example.com -c 10 -n 100 --json-metrics")
+    system("#{bin}/cassowary", "run", "-u", "http://www.example.com", "-c", "10", "-n", "100", "--json-metrics")
     assert_match "\"base_url\":\"http://www.example.com\"", File.read("#{testpath}/out.json")
 
     assert_match version.to_s, shell_output("#{bin}/cassowary --version")

@@ -1,15 +1,16 @@
 class Mdbook < Formula
   desc "Create modern online books from Markdown files"
   homepage "https://rust-lang.github.io/mdBook/"
-  url "https://github.com/rust-lang-nursery/mdBook/archive/v0.4.0.tar.gz"
-  sha256 "402439a3ce61415bb84f0bf7681e15c96a9ce627c9e2c08647ec8c557c1a9b1a"
+  url "https://github.com/rust-lang/mdBook/archive/v0.4.1.tar.gz"
+  sha256 "48ee2d7102b440dbdb5ecb0849e82368a57777b03f3d6750ac7c47157b1da7ac"
+  head "https://github.com/rust-lang/mdBook.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a822942e2647a25e1068e1df41db825e87855fefc8ee252877e6246ac6e48c3" => :catalina
-    sha256 "569f3329feb1626abf44d3cc714ef44f0e5645edfe08b9de01d85ea299883384" => :mojave
-    sha256 "801437766049bdce1aa45cc5dc1f3d24949020dd83168b109b0407533dade2fd" => :high_sierra
-    sha256 "a32aa7701aab9cd016feaea2b90de97760a26e4cb9deaa068e466f9fd16e6ada" => :x86_64_linux
+    sha256 "80e2274cd77ad98d5e3a4b131d3c8b2b190cb1a2711334989413f9c54c2afad8" => :catalina
+    sha256 "1ccf1f4096e69ee5775c4e9874ae9189784d590d81faa1ace5160c9eda00a646" => :mojave
+    sha256 "d521821171b2bd636edbdd75b3bb921b68435ca556e335955a32f412329d3264" => :high_sierra
+    sha256 "3bc719e287a1c7495e5890306740dc1c4cc46f1ad08925804d48912e356869bb" => :x86_64_linux
   end
 
   depends_on "rust" => :build

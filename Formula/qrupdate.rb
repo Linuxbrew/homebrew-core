@@ -3,14 +3,14 @@ class Qrupdate < Formula
   homepage "https://sourceforge.net/projects/qrupdate/"
   url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 12
+  revision 13
 
   bottle do
     cellar :any
-    sha256 "a889b3e1cc1687c9c66d4a211af53eca5b8e2df93f83bdd8d7f0e93d03181921" => :catalina
-    sha256 "9777925cc61c2c29a9d0bae3681ac3afaa00de667c34b5fc2f37f4872acd1016" => :mojave
-    sha256 "67079bff23bf70ed8688b65d18096f55f9f19eb405b1ef4e2b297072e4ea3c91" => :high_sierra
-    sha256 "39dc6b48d5fac1d54c9a4b569bb959522d120f6a55fa1a2d407b2c243ff733ca" => :x86_64_linux
+    sha256 "2b2464b06d3f39c68826319d7cf6f860e7fb4a90377ab5a70609e87c9706ffba" => :catalina
+    sha256 "f8979b51f613030bbafd0241c918457d26b4f7074ad4e43d50668d20b0ca87be" => :mojave
+    sha256 "85065f6d6e3362e53fd66118e11a4727faad0cbf01e5c2e8985bee2382123295" => :high_sierra
+    sha256 "53f9da30f160910981db2256ffb7e8cfd9fc5b1b05c25832008b97b0b8633fdd" => :x86_64_linux
   end
 
   depends_on "gcc" # for gfortran
@@ -38,6 +38,7 @@ class Qrupdate < Formula
 
   test do
     system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+                       "-fallow-argument-mismatch",
                        "-L#{lib}", "-lqrupdate",
                        "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     assert_match "PASSED   4     FAILED   0", shell_output("./test")

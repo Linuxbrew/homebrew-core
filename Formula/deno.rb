@@ -1,14 +1,16 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.1.2/deno_src.tar.gz"
-  sha256 "b225d6490ad07a89d9510d4de4689894aa6c37b6805f3a417cc27fb0e421b21a"
+  url "https://github.com/denoland/deno/releases/download/v1.1.3/deno_src.tar.gz"
+  sha256 "f953919aceb86d5ebce070267106d2ced07a9b1741c1b01f0a0778c9f9e61e98"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a746c06ddaa23f0ef5ce915cdd147eff3e93898a693f4afaf65b745d9af7317c" => :catalina
-    sha256 "93fbfb5977aa5d60fd345ea88e75e4d2014f31063764929ad73c26bae2d5eedc" => :mojave
-    sha256 "17eef238da86b2154654527344bdc7122be6b84f4ab52267f6184900e22803f2" => :high_sierra
+    rebuild 1
+    sha256 "ec98829f0fd012242845099236bd6d51d86638bff237b669a60d6f64c4f6b3fe" => :catalina
+    sha256 "33086b7a5100ab2a6ee9fcefb006e2421610bd49edd5186c1619f35bf81bd0c2" => :mojave
+    sha256 "fbeaa845d6d96efa4a096d56b34499197887932e3809ff3e8bce43421641e99e" => :high_sierra
   end
 
   depends_on "llvm" => :build
@@ -49,9 +51,9 @@ class Deno < Formula
     end
 
     # Install bash and zsh completion
-    output = Utils.safe_popen_read("#{bin}/deno completions bash")
+    output = Utils.safe_popen_read("#{bin}/deno", "completions", "bash")
     (bash_completion/"deno").write output
-    output = Utils.safe_popen_read("#{bin}/deno completions zsh")
+    output = Utils.safe_popen_read("#{bin}/deno", "completions", "zsh")
     (zsh_completion/"_deno").write output
   end
 

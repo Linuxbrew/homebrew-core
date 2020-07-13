@@ -1,19 +1,20 @@
 class Fastlane < Formula
   desc "Easiest way to build and release mobile apps"
   homepage "https://fastlane.tools"
-  url "https://github.com/fastlane/fastlane/archive/2.149.1.tar.gz"
-  sha256 "6ac9884947c1885f0f4aaee1c5e9c4a7eb5c04d10164f316f9ccd9b987078882"
+  url "https://github.com/fastlane/fastlane/archive/2.151.2.tar.gz"
+  sha256 "476b03ba4245c8ab2b2589fdc2ac92d8437b9fe8fa4f70f42a549063035eae8c"
+  license "MIT"
   head "https://github.com/fastlane/fastlane.git"
 
   bottle do
     cellar :any
-    sha256 "4bddf85fb7ccec66eaa235990df2fee36ea95cfcf409b74fd03d4361ff237f58" => :catalina
-    sha256 "11adcc526b8488c0f9f94f043617ab27cf02caf32e81da261c9ba2a65a378063" => :mojave
-    sha256 "38fcd34fbe5497c1ddd350536ce06371a15a40eade20d5e82a9716b8acd2bb04" => :high_sierra
-    sha256 "4ba4cceb43f507ef241bb541523fbdc45934ec9cfbce5793a25a87510102989c" => :x86_64_linux
+    sha256 "fab151ea0f22501e428653cdac142c974aa491d248ca3f03d4b30c4895b5745b" => :catalina
+    sha256 "6994e03e29c8297d9732b6ab46ecac7360b8768bf125f45cd995083468baabdf" => :mojave
+    sha256 "2ccec1500993cd6c72a4c6c2628e08dfa6b6b42b89ff7613a0e285a0dd250f95" => :high_sierra
+    sha256 "cc92231ae392922dd10b836596d22d6e3f819a0918630ba60fa183e41f02f437" => :x86_64_linux
   end
 
-  depends_on "ruby@2.5"
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -24,7 +25,7 @@ class Fastlane < Formula
 
     (bin/"fastlane").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["ruby@2.5"].opt_bin}:#{libexec}/bin:$PATH"
+      export PATH="#{Formula["ruby"].opt_bin}:#{libexec}/bin:$PATH"
       GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
         exec "#{libexec}/bin/fastlane" "$@"
     EOS
