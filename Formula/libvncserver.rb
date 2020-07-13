@@ -21,7 +21,7 @@ class Libvncserver < Formula
   def install
     args = std_cmake_args + %W[
       -DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}
-      -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib}/libjpeg.so
+      -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib}/libjpeg#{OS.mac? ? ".dylib": ".so"}
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
