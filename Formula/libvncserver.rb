@@ -44,8 +44,13 @@ class Libvncserver < Formula
       }
     EOS
 
-    system ENV.cc, "server.cpp", "-I#{include}", "-L#{lib}",
-                   "-lvncserver", "-lc++", "-o", "server"
+    if OS.mac?
+      system ENV.cc, "server.cpp", "-I#{include}", "-L#{lib}",
+                     "-lvncserver", "-lc++", "-o", "server"
+    else
+      system ENV.cc, "server.cpp", "-I#{include}", "-L#{lib}",
+                     "-lvncserver", "-o", "server"
+    end
     system "./server"
   end
 end
