@@ -16,9 +16,6 @@ class Meson < Formula
   depends_on "ninja"
   depends_on "python@3.8"
 
-  # https://github.com/mesonbuild/meson/issues/2567#issuecomment-504581379
-  patch :DATA
-
   def install
     version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
     ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
@@ -46,20 +43,3 @@ class Meson < Formula
     end
   end
 end
-__END__
---- meson-0.47.2.orig/mesonbuild/minstall.py
-+++ meson-0.47.2/mesonbuild/minstall.py
-@@ -486,8 +486,11 @@ class Installer:
-                         printed_symlink_error = True
-             if os.path.isfile(outname):
-                 try:
--                    depfixer.fix_rpath(outname, install_rpath, final_path,
--                                       install_name_mappings, verbose=False)
-+                    if install_rpath:
-+                        depfixer.fix_rpath(outname, install_rpath, final_path,
-+                                           install_name_mappings, verbose=False)
-+                    else:
-+                        print("RPATH changes at install time disabled")
-                 except SystemExit as e:
-                     if isinstance(e.code, int) and e.code == 0:
-                         pass
