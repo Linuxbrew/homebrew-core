@@ -9,9 +9,10 @@ class Gdbgui < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b4dc81ae5aa3bb3d8758d38b3ab9cd89d14f85c8ada1229b8381dfef87f2777" => :catalina
-    sha256 "d4b788d85f71166160b4e302a751dc78fba34c613b6440a55415b60def0b1fc4" => :mojave
-    sha256 "c8b67848de98e9d29eda6cef4e493afdc40afa4b4301c34b1545add045677c68" => :high_sierra
+    rebuild 1
+    sha256 "202b310379aa92ff27f6c989b246a76d526d675f08523008ba030fbe784d215d" => :catalina
+    sha256 "b574ad12943074ef2bb2fa27274aba8fa56238d95e57e0655a3c58563dfa6008" => :mojave
+    sha256 "dc232d02d999c0d3365ce84dc6e98ba95ea98711a7c70ac73a62cb89559c4ba7" => :high_sierra
   end
 
   depends_on "gdb"
@@ -99,12 +100,13 @@ class Gdbgui < Formula
 
   test do
     assert_equal version.to_s, shell_output("#{bin}/gdbgui -v").strip
+    port = free_port
 
     fork do
-      exec bin/"gdbgui", "-n"
+      exec bin/"gdbgui", "-n", "-p", port.to_s
     end
     sleep 3
 
-    assert_match "gdbgui - gdb in a browser", shell_output("curl -s 127.0.0.1:5000")
+    assert_match "gdbgui - gdb in a browser", shell_output("curl -s 127.0.0.1:#{port}")
   end
 end

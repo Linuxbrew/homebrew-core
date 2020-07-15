@@ -3,16 +3,15 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/5c/db/a6650399a451c21d5adb2d029ae634445decb5b39ea451b9a5fff9053003/molecule-3.0.5.tar.gz"
-  sha256 "11a77db3c066294e4d968ee1dc8c5a2b5e4955a6448060edd5161652e04e366d"
+  url "https://files.pythonhosted.org/packages/af/dc/4c2cbece71e480d09b8e8f6fd6c6c8849e7b65a591a7cd7a3e66085630d1/molecule-3.0.6.tar.gz"
+  sha256 "b83d73b3e34ad9bc7cc62f1869a2c9e4c4cc5e5c5a2d9de963e838d5f37fb47b"
   license "MIT"
 
   bottle do
     cellar :any
-    sha256 "b58efe5f7a4b10554fd030c0cd53efed56334902ff59a01fd50f604fa5fd289b" => :catalina
-    sha256 "4d06021725aefa27ddcbb75730fc1ca130851bd0e9decd9416f6d11a0f9d7439" => :mojave
-    sha256 "2a6b26928d40988854b85c62cc04a57f11433a5e8dd5b58978041c46fdf051d6" => :high_sierra
-    sha256 "854b3d078987d79019f97b60238a9dccaf3d0763d0ec28e6f275ab2001781938" => :x86_64_linux
+    sha256 "b6c65c0f96dff7e40135b91bb53d6b826e5c76967bbef4dc28c59e0596a42bdc" => :catalina
+    sha256 "4055d246222d6cea9ec361adfbddbd98b549a8e8ad1294ab155ccd155bf504c8" => :mojave
+    sha256 "c0f30c16b15671bf4f0471ddfbe7e7321937e82e079002762c4352b9f0915c7a" => :high_sierra
   end
 
   depends_on "ansible"
