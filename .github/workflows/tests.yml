@@ -77,6 +77,9 @@ jobs:
     env:
       HOMEBREW_PATCHELF_RB: 1
     steps:
+      - name: test
+        run: cat /proc/1/cgroup
+        
       - name: Update Homebrew
         run: brew update-reset
 
