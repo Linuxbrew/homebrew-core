@@ -1,9 +1,9 @@
 class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
-  url "https://www.texlive.info/tlnet-archive/2020/06/30/tlnet/install-tl-unx.tar.gz"
-  version "20200630"
-  sha256 "6514c395626b8a33812797d54aad97dace82ff4d1002b5b4bf39edf9a43c43f2"
+  url "https://www.texlive.info/tlnet-archive/2020/07/15/tlnet/install-tl-unx.tar.gz"
+  version "20200715"
+  sha256 "517058e56756521c3ab1b1939e5e95659adc715ba27babdff41b96bd299e3d20"
   head "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 
   bottle do
@@ -26,20 +26,24 @@ class Texlive < Formula
 
   def install
     ohai "Downloading and installing TeX Live. This will take a few minutes."
+
     ENV["TEXLIVE_INSTALL_PREFIX"] = libexec
+
     File.write("texlive.profile", <<-END
       selected_scheme scheme-small
       TEXDIR #{prefix}/texlive
       TEXMFCONFIG $TEXMFSYSCONFIG
       TEXMFHOME $TEXMFLOCAL
-      TEXMFLOCAL $TEXDIR/texmf-local
-      TEXMFSYSCONFIG $TEXDIR/texmf-config
-      TEXMFSYSVAR $TEXDIR/texmf-var
+      TEXMFLOCAL #{prefix}/texlive/texmf-local
+      TEXMFSYSCONFIG #{prefix}/texlive/texmf-config
+      TEXMFSYSVAR #{prefix}/texlive/texmf-var
       TEXMFVAR $TEXMFSYSVAR
-      instopt_adjustpath 0
+      collection-bibtexextra 1
+      collection-binextra 1
+      instopt_adjustpath 1
       instopt_adjustrepo 1
       instopt_letter 0
-      instopt_portable 1
+      instopt_portable 0
       instopt_write18_restricted 1
       tlpdbopt_autobackup 1
       tlpdbopt_backupdir tlpkg/backups
@@ -50,31 +54,42 @@ class Texlive < Formula
       tlpdbopt_install_docfiles 1
       tlpdbopt_install_srcfiles 1
       tlpdbopt_post_code 1
-      tlpdbopt_sys_bin $TEXDIR/bin
-      tlpdbopt_sys_info $TEXDIR/share/info
-      tlpdbopt_sys_man $TEXDIR/share/man
+      tlpdbopt_sys_bin #{bin}
+      tlpdbopt_sys_info #{info}
+      tlpdbopt_sys_man #{man}
       tlpdbopt_w32_multi_user 1
     END
     )
-    system "./install-tl", "-scheme", "small", "-portable", "-profile", "./texlive.profile"
-    man1.install Dir[prefix/"texlive/texmf-dist/doc/man/man1/*"]
-    man5.install Dir[prefix/"texlive/texmf-dist/doc/man/man5/*"]
-    rm Dir[prefix/"texlive/bin/*/man"]
-    Pathname.glob(prefix/"texlive/bin/*/*") { |f| chmod 0555, f.realpath }
-    bin.install_symlink Dir[prefix/"texlive/bin/*/*"]
+
+    system "./install-tl", "-profile", "./texlive.profile"
+    Pathname.glob(bin/"*") { |f| chmod 0555, f.realpath }
+
+    # add the backup directory otherwise any tlmgr package update will fail
+    # complaining that the backup dir does not exist.
+    mkdir prefix/"texlive/tlpkg/backups"
+    touch prefix/"texlive/tlpkg/backups/.keep"
   end
 
   def caveats
     <<-EOS
-      The small (~500 MB) distribution (scheme-small) is installed by default.
+      The small (~500 MB) distribution (scheme-small) with the addition of the
+      bibtexextra and binextra collections is installed by default.
+
       You may install a larger (medium or full) scheme using one of:
 
-          tlmgr install scheme-medium # 1.5 GB
-          tlmgr install scheme-full # 6 GB
+          > tlmgr install scheme-medium # 1.5 GB
+          > tlmgr install scheme-full # 6 GB
 
-      For additional information use command:
+      After any additional package installation, if you would like to update
+      the symlinks do:
 
-          tlmgr info schemes
+          > tlmgr path add
+          > brew unlink texlive && brew link texlive
+
+      For additional information on how to manage texlive packages:
+
+          > tlmgr --help
+
     EOS
   end
 
