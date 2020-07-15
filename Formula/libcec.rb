@@ -1,15 +1,15 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "http://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/libcec-5.0.0.tar.gz"
-  sha256 "7c6ef02f39918ac88a3dac8ea35021f6c4b4b695df9204b3ac9faca673c706cc"
+  url "https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz"
+  sha256 "090696d7a4fb772d7acebbb06f91ab92e025531c7c91824046b9e4e71ecb3377"
 
   bottle do
     cellar :any
-    sha256 "fcca0daf72607150ca1468ec90312807c74ebf75971f394e5db86a08f1f36d61" => :catalina
-    sha256 "92da05c25aaaa1af81909bbfda5455622dae620d2dcff095600597a06547c8f5" => :mojave
-    sha256 "5b4d87d43f65d172f737fd8d88e2a0b6f5e1220109dc5745ca5daacb5aeee0ba" => :high_sierra
-    sha256 "3a63b53a119bcf9f1ab6b8390336d9eabcd14fc4a6951e0fe2f54e93124b3cf9" => :x86_64_linux
+    sha256 "eef61bc6c5647a5b26f8949b53973e02ec44640d82ceff633183da7b20eac212" => :catalina
+    sha256 "c64dda68a5e5d00d6867aff92b576a71b8550d7250bbe7f86d0c1a9b1b861613" => :mojave
+    sha256 "2d7d295151c68aeaea3a269d66156b2d29f08a619d60079e79386d100c0adc1c" => :high_sierra
+    sha256 "835284584ef9fbb13a5576cffd132fca2ed77c23efcb980f5d0f2cfe7b1e0466" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

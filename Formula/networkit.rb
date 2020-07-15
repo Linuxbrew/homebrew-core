@@ -6,6 +6,7 @@ class Networkit < Formula
   url "https://github.com/networkit/networkit.git",
       :tag      => "7.0",
       :revision => "d8e952f1e4d5e2758e4744e7c6ea7429a59c7cdf"
+  license "MIT"
 
   bottle do
     sha256 "6c31d49396ef373700c7c852fb9a0df5793fedb882b8b32fb5149bfc8c4bcffe" => :catalina

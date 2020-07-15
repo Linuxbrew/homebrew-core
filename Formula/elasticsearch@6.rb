@@ -1,4 +1,4 @@
-class ElasticsearchAT68 < Formula
+class ElasticsearchAT6 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.8.tar.gz"
@@ -7,9 +7,9 @@ class ElasticsearchAT68 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "151ca735f37ec4456a1dd03e0280d940278d8543c98226f561386b169e7c03ee" => :catalina
-    sha256 "151ca735f37ec4456a1dd03e0280d940278d8543c98226f561386b169e7c03ee" => :mojave
-    sha256 "151ca735f37ec4456a1dd03e0280d940278d8543c98226f561386b169e7c03ee" => :high_sierra
+    sha256 "5c0ede4d4fe23d8d370bc86623637eae600081ebeeb3c25a8582d8dfc976ef96" => :catalina
+    sha256 "5c0ede4d4fe23d8d370bc86623637eae600081ebeeb3c25a8582d8dfc976ef96" => :mojave
+    sha256 "5c0ede4d4fe23d8d370bc86623637eae600081ebeeb3c25a8582d8dfc976ef96" => :high_sierra
   end
 
   keg_only :versioned_formula

@@ -4,6 +4,7 @@ class Heksa < Formula
   url "https://github.com/raspi/heksa.git",
       :tag      => "v1.12.1",
       :revision => "54a68a2910a87b8b9cfcda28b8693e18dd9e2463"
+  license "Apache-2.0"
   head "https://github.com/raspi/heksa.git"
 
   bottle do

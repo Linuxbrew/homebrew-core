@@ -1,23 +1,29 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.9.3.tar.gz"
-  sha256 "98cc1e58ebe0d71fede73ae6c7699f1b9b944650d57a220e576bc95a3185b846"
+  url "https://github.com/technomancy/leiningen/archive/2.9.4.tar.gz"
+  sha256 "be1b1e43c5376f2fdc8666aeb671df16c19776d5cfe64339292a3d35ce3a7faa"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70a6ab2365ebf7efd3d2d84fd89d88b59c6417df9225562784f8b6184653a49b" => :catalina
-    sha256 "70a6ab2365ebf7efd3d2d84fd89d88b59c6417df9225562784f8b6184653a49b" => :mojave
-    sha256 "70a6ab2365ebf7efd3d2d84fd89d88b59c6417df9225562784f8b6184653a49b" => :high_sierra
-    sha256 "6fa271929c010e0e7bb307bc9c320eca60b483cd40b44f6380f1e1addb59223c" => :x86_64_linux
+    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :catalina
+    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :mojave
+    sha256 "3e65cbf112fe60434c3b6f748342de048feeaa63f10da2e26721ce9e83dea081" => :high_sierra
+    sha256 "7adcc3b2f9cfe160696ad3bc1ecf24c58ffa665cc045545145b7ff3c302545bc" => :x86_64_linux
   end
 
   depends_on :java => :test unless OS.mac?
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.3/leiningen-2.9.3-standalone.zip", :using => :nounzip
-    sha256 "23e1df18bc97226d570f47335a8d543e1b759ea303544ea57d5309be3dedcbbb"
+    url "https://github.com/technomancy/leiningen/releases/download/2.9.4/leiningen-2.9.4-standalone.zip", :using => :nounzip
+    sha256 "0e3c339480347df0445317d329accbd4a578ebbd8d91e568e661feb1b388706c"
+  end
+
+  # Remove patch when updated to next release
+  patch do
+    url "https://github.com/technomancy/leiningen/commit/7677dabea40a2d17a42a718ca8c7e450b09e153c.patch?full_index=1"
+    sha256 "91260bb1ce6974fe0134dfa46548a6083c0ae347c2acf8ef7e57b0adef8e8df2"
   end
 
   def install

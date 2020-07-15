@@ -1,16 +1,18 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://github.com/elastic/elasticsearch/archive/v7.6.2.tar.gz"
-  sha256 "6ff4871dcae6954e13680aefc196da574a59a36418d06a7e095550ce81a370f8"
+  url "https://github.com/elastic/elasticsearch/archive/v7.8.0.tar.gz"
+  sha256 "6a04dac8da32755f53962a34b85b7dac7593b2a544f5bccb50344b2b345b3944"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "52c9b1cd71e07cc9fe341175128832f1f721a8fd49ea63cca59ab54e1bad3f62" => :catalina
-    sha256 "50843eb82cd4f93392a09ad979d97618f2d8144cf8639c85c47ef69cd29d5e34" => :mojave
-    sha256 "6de2a2724524563fa9c9e01a189c19ec16586c712c7c1519c5f80e60410649da" => :high_sierra
+    sha256 "e23f3b95c96d5e7c7083a6ba965e8c9b8de0e38877d4abcfe4ffe8c1405b89d1" => :catalina
+    sha256 "e5e879df1a857eb538405290629e011d82494db7f1d1ceb708ac6a8ee1658305" => :mojave
+    sha256 "d6a8ba7dae3118ee6d4269f266c496c6004b753f6236c7eae11812ab1c18c829" => :high_sierra
   end
 
+  depends_on "gradle" => :build
   depends_on "openjdk"
 
   def cluster_name
@@ -18,8 +20,7 @@ class Elasticsearch < Formula
   end
 
   def install
-    # Doesn't support brewed gradle
-    system "./gradlew", ":distribution:archives:oss-no-jdk-darwin-tar:assemble"
+    system "gradle", ":distribution:archives:oss-no-jdk-darwin-tar:assemble"
 
     mkdir "tar" do
       # Extract the package to the tar directory
@@ -110,12 +111,14 @@ class Elasticsearch < Formula
 
   test do
     port = free_port
-    pid = testpath/"pid"
-    system bin/"elasticsearch", "-d", "-p", pid,
-                                "-Ehttp.port=#{port}",
+    (testpath/"data").mkdir
+    (testpath/"logs").mkdir
+    fork do
+      exec bin/"elasticsearch", "-Ehttp.port=#{port}",
                                 "-Epath.data=#{testpath}/data",
                                 "-Epath.logs=#{testpath}/logs"
-    sleep 10
+    end
+    sleep 20
     output = shell_output("curl -s -XGET localhost:#{port}/")
     assert_equal "oss", JSON.parse(output)["version"]["build_flavor"]
 

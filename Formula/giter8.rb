@@ -3,6 +3,7 @@ class Giter8 < Formula
   homepage "https://github.com/foundweekends/giter8"
   url "https://search.maven.org/remotecontent?filepath=org/foundweekends/giter8/giter8-bootstrap_2.12/0.13.1/giter8-bootstrap_2.12-0.13.1.sh"
   sha256 "f3465f6b69a68c4cc67086446e6f583af3a243b2541e64dc32122a94999d29e0"
+  license "Apache-2.0"
 
   bottle :unneeded
 

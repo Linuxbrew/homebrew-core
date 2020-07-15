@@ -3,6 +3,7 @@ class Crowdin < Formula
   homepage "https://support.crowdin.com/cli-tool/"
   url "https://github.com/crowdin/crowdin-cli/releases/download/3.2.0/crowdin-cli.zip"
   sha256 "560ed771fc97b903e8480b52867b11d326046491a05ef48109f93ce0222b3581"
+  license "MIT"
 
   bottle :unneeded
 

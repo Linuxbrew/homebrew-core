@@ -5,15 +5,15 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.9.2.1/pandoc-2.9.2.1.tar.gz"
-  sha256 "c26d35372cf8b7d53062c9c495c0bca2ee370891c2349d3798a44f9ca33bdf57"
+  url "https://hackage.haskell.org/package/pandoc-2.10/pandoc-2.10.tar.gz"
+  sha256 "41162a292f90a96ace8ef9394337a170cc756a20a63bb60a2a6bd0b5fa255286"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "040eafbe1ebb8fe4c2b27425d7d3e566770c8c531eee7fdec2c96e01f4bf32a4" => :catalina
-    sha256 "61493929e5168952bc5bc64149bf67f8bec818313950aee764273b146b126442" => :mojave
-    sha256 "0fa6bfa3d880c8dcc41a469bd60ae74202094fb16bf6ca7ed48bf1cba11aea0b" => :high_sierra
-    sha256 "aba2b308fb0009e016cdf7a3c7174b19d4ae25465329ef31c5245fcd674e8580" => :x86_64_linux
+    sha256 "be40069cb95d3de8fdf16e311998bb1e6315a635d7e93183ba771a12d3f548cd" => :catalina
+    sha256 "b1f1dea0254517166a8575c5e2b2ee279ccbdb682578d62ba66a91011595fa78" => :mojave
+    sha256 "98bc7e09e12d87d7c0cd372ab658bc767516c841d00502535e4dc05e0607565f" => :high_sierra
+    sha256 "eba62091ba8754a6de7b3cadc5f0cc7109931b4e68318f21a2a7aad62df65c74" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build

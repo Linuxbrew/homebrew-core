@@ -3,6 +3,7 @@ class TreCommand < Formula
   homepage "https://github.com/dduan/tre"
   url "https://github.com/dduan/tre/archive/v0.3.1.tar.gz"
   sha256 "3d7a7784ed85dd5301f350a3d05eca839f24846997eb0a44b749467f0f4dd032"
+  license "MIT"
   head "https://github.com/dduan/tre.git"
 
   bottle do

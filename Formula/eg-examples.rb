@@ -5,6 +5,7 @@ class EgExamples < Formula
   homepage "https://github.com/srsudar/eg"
   url "https://files.pythonhosted.org/packages/59/06/7281154a4cd961f56302d9cac300cc8fc965b16d04ce797ed622a2f53586/eg-1.2.0.tar.gz"
   sha256 "ac9827824c2c9aee0fd0a54ca57440021a0a87868b503b215c2c273a035bef59"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

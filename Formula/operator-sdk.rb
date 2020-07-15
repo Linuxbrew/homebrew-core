@@ -2,17 +2,16 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      :tag      => "v0.18.2",
-      :revision => "f059b5e17447b0bbcef50846859519340c17ffad"
+      :tag      => "v0.19.0",
+      :revision => "8e28aca60994c5cb1aec0251b85f0116cc4c9427"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
-    rebuild 1
-    sha256 "5b645526d83936c9b13eb77bdc5be0a28d299ddd70b8024a88848cfc20fde94c" => :catalina
-    sha256 "04379c383bbb7bbe2bdc4517c7fedd865ff2fef97a95d5e70532a3f04f7d8545" => :mojave
-    sha256 "9fee5fc8872a25065bb32febe4e4cb7fd8130242833a7a37c123e7f05b529c4e" => :high_sierra
-    sha256 "6e89f9f693d90b42d2f2733210b2dee1e717acb58734c1a0ac3660593b5ce02b" => :x86_64_linux
+    sha256 "e2ed290dd01c18068bf0bb44ae4eb442bea434131d8674d2fb60273e795e0252" => :catalina
+    sha256 "3ac96997fd98ba180d0da26c06cfd26a4b3bb7163043eb50a8c74f0e1affed93" => :mojave
+    sha256 "e457bcb3b637b66c0e7ffbd07f232775faa58bdc50a6a7cfd6f099799b8745e0" => :high_sierra
+    sha256 "8dae1325b2676efae81be8ac20f85901a0de4aaba7154dc1f9f5033c0e42dce6" => :x86_64_linux
   end
 
   depends_on "go"
@@ -54,13 +53,10 @@ class OperatorSdk < Formula
       assert_match stable.specs[:revision], version_output
     end
 
-    # Create a new, blank operator
-    system "#{bin}/operator-sdk", "new", "test", "--repo=github.com/example-inc/app-operator"
-
-    cd "test" do
-      # Add an example API resource. This exercises most of the various pieces
-      # of generation logic.
-      system "#{bin}/operator-sdk", "add", "api", "--api-version=app.example.com/v1alpha1", "--kind=AppService"
-    end
+    # Create an example AppService operator. This exercises most of the various pieces
+    # of generation logic.
+    args = ["--type=ansible", "--api-version=app.example.com/v1alpha1", "--kind=AppService"]
+    system "#{bin}/operator-sdk", "new", "test", *args
+    assert_predicate testpath/"test/requirements.yml", :exist?
   end
 end

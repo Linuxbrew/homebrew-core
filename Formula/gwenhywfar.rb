@@ -1,13 +1,13 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/319/gwenhywfar-5.3.0.tar.gz"
-  sha256 "3aec5982f5e136761863f4b6b12bbb4cd26b8ffb5f7553b58a48f72b6a4344a9"
+  url "https://www.aquamaniac.de/rdm/attachments/download/331/gwenhywfar-5.4.0.tar.gz"
+  sha256 "e59fed9873c0e4880f5cf43748498df9ff4ff67cb5061157d21a55d16bb97489"
 
   bottle do
-    sha256 "d353d4792d28b57e1fad274293cd4d5952186554571b1efb91169e98c4722a13" => :catalina
-    sha256 "a162c646051357271a51b779a885041dcef5b92824d566c290ec0234d450f837" => :mojave
-    sha256 "a9a9db801484a06000f75c642cad6d3897e9cd5afbf8bce3e49e7528656b8ba3" => :high_sierra
+    sha256 "5bef8974fffb05b11aa019bc1a541753e60f6d9ffb385ccaf73a655ee105e325" => :catalina
+    sha256 "1cdd978aa9a8be025d4cea29b7e8ed1a619718c1707419c0e847c575811c68eb" => :mojave
+    sha256 "c683f99d5a7082b155717c0f77ee4f9d384a140f589d1dc0e8cac6af64a99f58" => :high_sierra
   end
 
   depends_on "gettext"

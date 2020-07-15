@@ -4,6 +4,7 @@ class Uptoc < Formula
   url "https://github.com/saltbo/uptoc.git",
       :tag      => "v1.4.3",
       :revision => "30266b490379c816fc08ca3670fd96808214b24c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

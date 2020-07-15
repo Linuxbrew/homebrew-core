@@ -3,6 +3,7 @@ class Xtensor < Formula
   homepage "https://xtensor.readthedocs.io/en/latest/"
   url "https://github.com/QuantStack/xtensor/archive/0.21.5.tar.gz"
   sha256 "30cb896b6686683ddaefb12c98bf1109fdfe666136dd027aba1a1e9aa825c241"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

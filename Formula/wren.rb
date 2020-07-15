@@ -3,6 +3,7 @@ class Wren < Formula
   homepage "https://wren.io"
   url "https://github.com/wren-lang/wren/archive/0.3.0.tar.gz"
   sha256 "c566422b52a18693f57b15ae4c9459604e426ea64eddb5fbf2844d8781aa4eb7"
+  license "MIT"
 
   bottle do
     cellar :any

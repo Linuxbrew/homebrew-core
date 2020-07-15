@@ -2,16 +2,15 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.19.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.3.19.tar.xz"
-  sha256 "6402faa19b1a8c4317c7612632bce985684a5bbae0980a5779a4019439882422"
+  url "https://www.php.net/distributions/php-7.3.20.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.20.tar.xz"
+  sha256 "43292046f6684eb13acb637276d4aa1dd9f66b0b7045e6f1493bc90db389b888"
 
   bottle do
-    rebuild 1
-    sha256 "e7c2001ba13a28648af8402f768b152fab540b4225c2853f4c2be2ecc65980ab" => :catalina
-    sha256 "590f40c25fd1cd4153e7fec7763573263eb46f99cb98671e77e48f873a88e7f6" => :mojave
-    sha256 "8c70e4a66af0f6a9216389d221a18805337ab931283ec6c4a9c77d32bdded175" => :high_sierra
-    sha256 "b13e51f00156999a292a6af926206fe0187f96bc2e76ad2f6548674af8dd5438" => :x86_64_linux
+    sha256 "cc1ad9e9b7d3f0a51849a1b9a28415bed3f592fe70bfb0d429e1efa5ddeb80e4" => :catalina
+    sha256 "8f1ab87a3e6c1b776792f9e8e5fdd763362d8ae2fb8fdebe2411fc575e3debaa" => :mojave
+    sha256 "7272926cf0c1ead42efd7789bb36533babff024baf9d9944040fa8ea6747ec7b" => :high_sierra
+    sha256 "83f8dd778722f87aad9f50a627956f3dca852950a71b5ec91f81af8c6f3638be" => :x86_64_linux
   end
 
   keg_only :versioned_formula

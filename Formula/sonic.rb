@@ -3,6 +3,7 @@ class Sonic < Formula
   homepage "https://github.com/valeriansaliou/sonic"
   url "https://github.com/valeriansaliou/sonic/archive/v1.3.0.tar.gz"
   sha256 "6f8c1a8779f71bb57978f0baaf65ca65493f4d8a030895b74f579ce2b4e1fa5e"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

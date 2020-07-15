@@ -3,6 +3,7 @@ class GitTown < Formula
   homepage "https://www.git-town.com/"
   url "https://github.com/git-town/git-town/archive/v7.4.0.tar.gz"
   sha256 "f9ff00839fde70bc9b5024bae9a51d8b00e0bb309c3542ed65be50bb8a13e6a5"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

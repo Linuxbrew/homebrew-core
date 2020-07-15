@@ -1,15 +1,17 @@
 class Glib < Formula
+  include Language::Python::Shebang
+
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.64/glib-2.64.3.tar.xz"
-  sha256 "fe9cbc97925d14c804935f067a3ad77ef55c0bbe9befe68962318f5a767ceb22"
+  url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
+  sha256 "f7e0b325b272281f0462e0f7fff25a833820cac19911ff677251daf6d87bce50"
   license "LGPL-2.1"
 
   bottle do
-    sha256 "c7259832a3bf3fe8093962473718a2ca030a94c54f21cbdc46369974d6e80be8" => :catalina
-    sha256 "47d4a4666df88be5c56def3cb5d8e7c0e3ee6baf431584c40783d98a063fb943" => :mojave
-    sha256 "1e5fadb54980899f293ea99796c33f25109c72ad745b9bc5583a1f86f02bee06" => :high_sierra
-    sha256 "6a7412f10251d67ad3671a64b659bd971f9789856532f335c7e306233baeea56" => :x86_64_linux
+    sha256 "4ddc126dde12d96499950c64ca5bd38a199ad636573a05b871cd355d7b09a077" => :catalina
+    sha256 "70e9afe4b735e858e15a5f958b572afb1a3811b8f9f70f83acc817b6b95d5f1b" => :mojave
+    sha256 "cf116ff6a983e16de79b4a2837a51d24ebd42b7fb69df191198391a7f7bf0d1c" => :high_sierra
+    sha256 "5e77ac71c142b6b9a6897177f90c5fb5b519358da4bd4a4631c23366b61bfde8" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -33,8 +35,6 @@ class Glib < Formula
   end
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
@@ -53,9 +53,8 @@ class Glib < Formula
     mkdir "build" do
       system "meson", *args, ".."
       system "ninja", "-v"
-      # Some files have been generated with a Python shebang, rewrite these too
-      Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
       system "ninja", "install", "-v"
+      bin.find { |f| rewrite_shebang detected_python_shebang, f }
     end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
@@ -70,10 +69,10 @@ class Glib < Formula
     gettext = Formula["gettext"].opt_prefix
     lintl = OS.mac? ? " -lintl": ""
     inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-      s.gsub! "Libs:#{lintl} -L${libdir} -lglib-2.0",
+      s.gsub! "Libs: -L${libdir} -lglib-2.0#{lintl}",
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib#{lintl}"
-      s.gsub! "Cflags:-I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
-              "Cflags:-I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+      s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
+              "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
     end
 
     # `pkg-config --print-requires-private gobject-2.0` includes libffi,

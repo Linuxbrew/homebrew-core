@@ -2,17 +2,17 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2020-06-26T19-56-55Z",
-      :revision => "bb3c0d45f2e64eab2b83e7f5376e1b621f0821a9"
-  version "20200626195655"
+      :tag      => "RELEASE.2020-07-11T05-18-52Z",
+      :revision => "1513d76ca9d3a2cddda40d0e6e50be164b894889"
+  version "20200711051852"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3e9d880b26de8185b686342ec11066769a8b8d96ddeb8c12679f01a644bea97" => :catalina
-    sha256 "36f68fb6f0e4e068cce1df13f1e4b3b0360e47ec01d1af4219f442c9f28723db" => :mojave
-    sha256 "b3e3584fe6a7bded08a5ec2f4795b81f4d0f254599e5b36052502a0836c32e13" => :high_sierra
-    sha256 "f88e729e1d8806c6ef600cbf5c19dc21d7f75f2aea04a06659df2a7ccdd5621d" => :x86_64_linux
+    sha256 "90a2778d25e46550bce6118d8a9eb322c5cfce8cbbef43eb7bd677b84359a229" => :catalina
+    sha256 "cf3ee2ffbc976df8fa698bc726a13c9940873afea43a53637573fe7e3b152afd" => :mojave
+    sha256 "45c7620f6cf8933139966b01a4a0a01cbf821cdeaae25364d40facc449a63fe1" => :high_sierra
+    sha256 "decf6d2f7a6c03c992f783ba1084faf919f7cf25144bd9c71df37b8c1e56d2bb" => :x86_64_linux
   end
 
   depends_on "go" => :build

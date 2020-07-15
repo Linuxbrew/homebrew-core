@@ -4,6 +4,7 @@ class Tbb < Formula
   url "https://github.com/intel/tbb/archive/v2020.2.tar.gz"
   version "2020_U2"
   sha256 "4804320e1e6cbe3a5421997b52199e3c1a3829b2ecb6489641da4b8e32faf500"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
@@ -17,6 +18,13 @@ class Tbb < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "python@3.8"
+
+  # Remove when upstream fix is released
+  # https://github.com/oneapi-src/oneTBB/pull/258
+  patch do
+    url "https://github.com/oneapi-src/oneTBB/commit/86f6dcdc17a8f5ef2382faaef860cfa5243984fe.diff?full_index=1"
+    sha256 "94d11e17f32efe6c3ffd1c610811b6d160c619e2a5da7debc5fd8eaca418d9aa"
+  end
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"

@@ -3,6 +3,7 @@ class Gleam < Formula
   homepage "https://gleam.run"
   url "https://github.com/lpil/gleam/archive/v0.10.0.tar.gz"
   sha256 "f909fc7c89c950f7a8fffc943733dc4bac3b0b88eb7d7760eb04732347459ba1"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

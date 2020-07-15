@@ -3,6 +3,7 @@ class Opencolorio < Formula
   homepage "https://opencolorio.org/"
   url "https://github.com/imageworks/OpenColorIO/archive/v1.1.1.tar.gz"
   sha256 "c9b5b9def907e1dafb29e37336b702fff22cc6306d445a13b1621b8a754c14c8"
+  license "BSD-3-Clause"
   revision 2
   head "https://github.com/imageworks/OpenColorIO.git"
 

@@ -3,6 +3,7 @@ class S2n < Formula
   homepage "https://github.com/awslabs/s2n"
   url "https://github.com/awslabs/s2n/archive/v0.10.0.tar.gz"
   sha256 "ace34f0546f50551ee2124d25f8de3b7b435ddb1b4fbf640ea0dcb0f1c677451"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

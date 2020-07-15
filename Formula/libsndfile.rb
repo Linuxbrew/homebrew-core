@@ -1,19 +1,18 @@
 class Libsndfile < Formula
   desc "C library for files containing sampled sound"
   homepage "http://www.mega-nerd.com/libsndfile/"
-  url "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz"
-  sha256 "1ff33929f042fa333aed1e8923aa628c3ee9e1eb85512686c55092d1e5a9dfa9"
+  # Change back to stable when upstream releases > 1.0.28
+  # Fixes several security vulnerabilities
+  url "http://www.mega-nerd.com/libsndfile/files/1.0.29pre2/libsndfile-1.0.29pre2.tar.bz2"
+  sha256 "ffe2d6bff622bc66e6f96059ada79cfcdc43b3e8bc9cc4f45dbc567dccbfae75"
   license "LGPL-2.1"
 
   bottle do
     cellar :any
-    sha256 "6399523ef99f5c9ea4adcb8ce4af9406c32673deab4beba7114b32162a9b3c54" => :catalina
-    sha256 "e7cb1a29d931a1637ec84a5ba6b71d37801dc0bb4eab38051df19755cb048667" => :mojave
-    sha256 "d06bf0bf936cde67857ac3d3599944d2050ea8dc6237bad8b4c27ef86ac2eb3c" => :high_sierra
-    sha256 "4e4bde6464cfbefcf7f2a9001af0ea34c6273b466ffa71ac953b2bb41eb619ec" => :sierra
-    sha256 "49d17fa55815680936b529b7bbb8e5cf180c98722c7f8b45d763bfe2d1f0a5de" => :el_capitan
-    sha256 "9df59790751d64c7f61682233a733030de9e6406682f3a15e30e708103930038" => :yosemite
-    sha256 "c68c5c4eb7176e632a84c72ebd0f9a7269d4a3272dd852356fed0e5da33fa6b6" => :x86_64_linux # glibc 2.19
+    sha256 "8e8f467cb9efe8ae6a5c174444c4829d4625c2314fb32a7edb4e53947d6fb035" => :catalina
+    sha256 "87699449cdb6d6d1ca03598fccbcfdbfb1db3da6ff83af6de353a0badb01b889" => :mojave
+    sha256 "ac676c5d492f2daaefdbedb046c256a2929f4287db2e3eed01d0af394e769a41" => :high_sierra
+    sha256 "52cf1bccda10fb26467667f5a9d95dbb0248e8f44d9929bd0ed06ff25dc69cfb" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build

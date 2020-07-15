@@ -5,6 +5,7 @@ class GimmeAwsCreds < Formula
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
   url "https://files.pythonhosted.org/packages/bc/44/306b41996e0cf62082c4ff5bc4863cc488d8475ae7d8c6ce5db8b26137c5/gimme%20aws%20creds-2.3.4.tar.gz"
   sha256 "a9cf1c816c9d0f8401832bca7f1ae05061edc0632a37853f3de9d942ad5d60d6"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

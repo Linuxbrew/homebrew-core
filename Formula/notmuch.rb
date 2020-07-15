@@ -1,17 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.29.3.tar.xz"
-  sha256 "d5f704b9a72395e43303de9b1f4d8e14dd27bf3646fdbb374bb3dbb7d150dc35"
-  revision 1
+  url "https://notmuchmail.org/releases/notmuch-0.30.tar.xz"
+  sha256 "5e3baa6fe11d65c67e26ae488be11b320bae04e336acc9c64621f7e3449096fa"
   head "https://git.notmuchmail.org/git/notmuch", :using => :git
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "789d748a2d59bd2df69de4f0f3d5e42fb6fa7e7e739ca2b86fd8a85408088b99" => :catalina
-    sha256 "f3fb3267ac22265010553b2f72c1fb1c2b997a31759859a8e68a93cadf3bf9c1" => :mojave
-    sha256 "7f2d8203b81fd29dde272a18f98235e31b43c28fc6e847906a79a0fa72219f6b" => :high_sierra
+    sha256 "5a49517024f99e8c7a76cacf5a3ea51f1c565aa3fa97cd1844345431173aa009" => :catalina
+    sha256 "82ea94e5bd97640dc1b5fe8aacf69f2a2bfce2127d76551e6344961ca698ebdb" => :mojave
+    sha256 "680188d9c38ceb1f571ec4166d9d47b558797fac156de1f89f6296c469bb1311" => :high_sierra
   end
 
   depends_on "doxygen" => :build

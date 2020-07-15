@@ -3,6 +3,7 @@ class Saltwater < Formula
   homepage "https://github.com/jyn514/saltwater"
   url "https://github.com/jyn514/saltwater/archive/0.10.0.tar.gz"
   sha256 "1aac48c8ff787022238806a6c33dab4cc82553285a247581c10051e966544031"
+  license "BSD-3-Clause"
   head "https://github.com/jyn514/saltwater.git"
 
   bottle do

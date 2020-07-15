@@ -3,6 +3,7 @@ class Ccm < Formula
   homepage "https://github.com/pcmanus/ccm"
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
+  license "Apache-2.0"
   head "https://github.com/pcmanus/ccm.git"
 
   bottle do

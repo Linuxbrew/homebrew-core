@@ -34,8 +34,9 @@ class Kubeless < Formula
         socket = server.accept
         request = socket.gets
         request_path = request.split(" ")[1]
-        if request_path == "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
-          response = '{
+        response = case request_path
+        when "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
+          '{
             "kind": "ConfigMap",
             "apiVersion": "v1",
             "metadata": { "name": "kubeless-config", "namespace": "kubeless" },
@@ -50,20 +51,20 @@ class Kubeless < Formula
                 '}]"
               }
             }'
-        elsif request_path == "/apis/kubeless.io/v1beta1/namespaces/default/functions"
-          response = '{
+        when "/apis/kubeless.io/v1beta1/namespaces/default/functions"
+          '{
             "apiVersion": "kubeless.io/v1beta1",
             "kind": "Function",
             "metadata": { "name": "get-python", "namespace": "default" }
             }'
-        elsif request_path == "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
-          response = '{
+        when "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
+          '{
             "apiVersion": "apiextensions.k8s.io/v1beta1",
             "kind": "CustomResourceDefinition",
             "metadata": { "name": "functions.kubeless.io" }
             }'
         else
-          response = "OK"
+          "OK"
         end
         socket.print "HTTP/1.1 200 OK\r\n" \
                     "Content-Length: #{response.bytesize}\r\n" \

@@ -3,6 +3,7 @@ class RestShell < Formula
   homepage "https://github.com/spring-projects/rest-shell"
   url "http://download.gopivotal.com/rest-shell/1.2.1/rest-shell-1.2.1.RELEASE.tar.gz"
   sha256 "0ecfa67d005cc0d51e7a3a26c4dacc53aa12012f0e757332a2fa40c5e780c2d6"
+  license "Apache-2.0"
 
   bottle :unneeded
 

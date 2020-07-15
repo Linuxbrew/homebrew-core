@@ -1,20 +1,21 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://tls.mbed.org/download/mbedtls-2.16.6-apache.tgz"
-  sha256 "66455e23a6190a30142cdc1113f7418158839331a9d8e6b0778631d077281770"
+  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.23.0.tar.gz"
+  sha256 "5c8998217402aa1fc734f4afaeac38fad2421470fac4b3abc112bd46391054fe"
   license "Apache-2.0"
   head "https://github.com/ARMmbed/mbedtls.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "eda862a92461ba28c8b122dca7264bc81e487735de652b7f15a227de3b7eaa86" => :catalina
-    sha256 "efb7c341a158a90fce32f24f13d93e0e5b40dbbc6d68f328418f8117005b2b7b" => :mojave
-    sha256 "dd6c1d8ca7d4156b9c4ac7f39c2f50cb99ce09a64db37d0b4b0341c93d4def49" => :high_sierra
-    sha256 "4bcf708dbf5c7524da9726f0c41cee8215557a4814699e7c8e8054064a1773c8" => :x86_64_linux
+    sha256 "3b1d3f3b161a1cd7d570281baaec5412adf9ae1b2bf5eb842e04571f3bf17c4b" => :catalina
+    sha256 "6a061c88f257cce7187aa50bb1406f517ff49e9279f917e2eceae1ff446fc792" => :mojave
+    sha256 "57ffbd38b650a3850c5bca98840dd2c9b3b9a000af499b5237d68e73f5f088d3" => :high_sierra
+    sha256 "8ceee07530b956a40e9970ebcfadaf6eb52367fb2a6588c65d1bac33185c296d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8" => :build
 
   def install
     inreplace "include/mbedtls/config.h" do |s|

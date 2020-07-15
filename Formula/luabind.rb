@@ -49,9 +49,10 @@ class Luabind < Formula
     ENV["LUA_PATH"] = Formula["lua@5.1"].opt_prefix
 
     args = %w[release install]
-    if ENV.compiler == :clang
+    case ENV.compiler
+    when :clang
       args << "--toolset=clang"
-    elsif ENV.compiler == :gcc
+    when :gcc
       args << "--toolset=darwin"
     end
     args << "--prefix=#{prefix}"

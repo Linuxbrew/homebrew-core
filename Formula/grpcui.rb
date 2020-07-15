@@ -3,6 +3,7 @@ class Grpcui < Formula
   homepage "https://github.com/fullstorydev/grpcui"
   url "https://github.com/fullstorydev/grpcui/archive/v1.0.0.tar.gz"
   sha256 "2169f72d23a5e4caceee3b863220bf6a4b4a15f7d88d5bb0de909ca4299a92df"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

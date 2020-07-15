@@ -3,6 +3,7 @@ class Src < Formula
   homepage "http://www.catb.org/~esr/src/"
   url "http://www.catb.org/~esr/src/src-1.28.tar.gz"
   sha256 "ee448f17e0de07eed749188bf2b977211fc609314b079ebe6c23485ac72f79ba"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

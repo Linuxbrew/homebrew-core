@@ -3,6 +3,7 @@ class MacosTrash < Formula
   homepage "https://github.com/sindresorhus/macos-trash"
   url "https://github.com/sindresorhus/macos-trash/archive/1.1.0.tar.gz"
   sha256 "31c09d385bb50b0f76818a1fe2c850cf56b9575c9fa27ea963cba38dfaba7d04"
+  license "MIT"
   head "https://github.com/sindresorhus/macos-trash.git"
 
   bottle do

@@ -3,14 +3,14 @@ class Cbmc < Formula
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
       :using    => :git,
-      :tag      => "cbmc-5.12.2",
-      :revision => "7405bfb6d6971ab53e430e553910b940522213ed"
+      :tag      => "cbmc-5.12.3",
+      :revision => "354b2c1b7532cf62c9e4e78031282c0471fccca8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd44770d72509e90122d012d175fa7c0d4a96c306c2ce83da16b4289c628a1fb" => :catalina
-    sha256 "076ff439d06a93e350aa5cc1c9e18d34af12ba2caa5df716e68103328b509346" => :mojave
-    sha256 "0cc700306db145c37019af3b178285751c9af4450e55d22cc78ed2506e7390ab" => :high_sierra
+    sha256 "255236150a3002399fe095c55a5df9ae60dede5f28c0dc4be17c473cbf56becb" => :catalina
+    sha256 "c40fa97d0b4ddeb8d28fa8e962fbd74a5d2f6b6bfd9fe7bbbec617c80c1b7e77" => :mojave
+    sha256 "68c680e2456620a0ee7bd331cb7cf77ec26ac37ab2b93a0f47bcd382a17450d5" => :high_sierra
   end
 
   depends_on "cmake" => :build

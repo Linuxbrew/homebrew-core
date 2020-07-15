@@ -3,6 +3,7 @@ class Tbox < Formula
   homepage "https://tboox.org/"
   url "https://github.com/waruqi/tbox/archive/v1.6.5.tar.gz"
   sha256 "076599f8699a21934f633f1732977d0df9181891ca982fd23ba172047d2cf4ab"
+  license "Apache-2.0"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do

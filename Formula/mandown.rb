@@ -3,6 +3,7 @@ class Mandown < Formula
   homepage "https://github.com/Titor8115/mandown"
   url "https://github.com/Titor8115/mandown/archive/v1.0.1.tar.gz"
   sha256 "b014a44b27f921c12505ba4d8dba15487ca2b442764da645cd6d0fd607ef068c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

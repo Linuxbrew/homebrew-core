@@ -3,6 +3,7 @@ class Conserver < Formula
   homepage "https://www.conserver.com/"
   url "https://github.com/conserver/conserver/releases/download/v8.2.5/conserver-8.2.5.tar.gz"
   sha256 "7db192f304126d7e5c15421c4c83cd5c08039f2f2b3c61b2998e71881ae47eea"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

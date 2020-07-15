@@ -3,6 +3,7 @@ class Gluon < Formula
   homepage "https://gluon-lang.org"
   url "https://github.com/gluon-lang/gluon/archive/v0.15.1.tar.gz"
   sha256 "9e05b157337804a4cf111ee8a1854250970c460e9a32d3b662fc90ebf5b91638"
+  license "MIT"
   head "https://github.com/gluon-lang/gluon.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Jerryscript < Formula
   homepage "https://jerryscript.net"
   url "https://github.com/jerryscript-project/jerryscript/archive/v2.3.0.tar.gz"
   sha256 "75f039f2e7eb55e3ce5d48fd6f9c4e8ec643a94654070125a6d76a906218e0fa"
+  license "Apache-2.0"
   head "https://github.com/jerryscript-project/jerryscript.git"
 
   bottle do

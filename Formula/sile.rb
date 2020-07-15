@@ -115,14 +115,15 @@ class Sile < Formula
 
     resources.each do |r|
       r.stage do
-        if r.name == "lua-zlib"
+        case r.name
+        when "lua-zlib"
           # https://github.com/brimworks/lua-zlib/commit/08d6251700965
           mv "lua-zlib-1.1-0.rockspec", "lua-zlib-1.2-0.rockspec"
           system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}",
                              "ZLIB_DIR=#{Formula["zlib"].opt_prefix}"
-        elsif r.name == "luaexpat"
+        when "luaexpat"
           system "luarocks", "build", r.name, "--tree=#{luapath}", "EXPAT_DIR=#{Formula["expat"].opt_prefix}"
-        elsif r.name == "luasec"
+        when "luasec"
           system "luarocks", "build", r.name, "--tree=#{luapath}", "OPENSSL_DIR=#{Formula["openssl@1.1"].opt_prefix}"
         else
           system "luarocks", "build", r.name, "--tree=#{luapath}"

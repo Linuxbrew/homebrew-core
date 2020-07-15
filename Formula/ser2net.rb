@@ -4,25 +4,22 @@ class Ser2net < Formula
   url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.0.tar.gz"
   sha256 "1d895f005896e8c5bcff4fe573e2fec3611bf4feee1247857e476b74323d916c"
   license "GPL-2.0"
+  revision 1
 
   bottle do
-    sha256 "1f7cee8eefe4625bd2c75f48f3b1386dd61379b6b81b21b57c1792b0a246a8f1" => :catalina
-    sha256 "f8a9cc43919eeae9ebbbfc91a5b463f2f95fe0f312724cc1555038a4ef423f93" => :mojave
-    sha256 "32df43b370d1da50357d2890c65f57c228a9352272b2ca462728183801db917f" => :high_sierra
+    cellar :any
+    sha256 "1f72aa5bda0313aab823ee8afbb91ea46a39d021b5e38872864481e2b5555a7a" => :catalina
+    sha256 "33e6a1c897ab0af156af1554be2391fdfbb3a9bd3cc29fc8be34ab44e2de8595" => :mojave
+    sha256 "217b9ded1b3e0a8566db9cf67e15112f5aebffbe74b429f75b22581f19046fa8" => :high_sierra
+    sha256 "ff25977b4d5dbff338d6f7c52fe08116d29b55d3b088b7eb167fe210aa9a56ee" => :x86_64_linux
   end
 
   depends_on "libyaml"
   depends_on :macos => :sierra # needs clock_gettime
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.1.tar.gz"
-    sha256 "e81df2c55d8830ac4f3c28eda54c3f690c4b62e186ea3879815b101a4902a703"
-
-    # Pull request submitted upstream as https://github.com/cminyard/gensio/pull/19
-    patch do
-      url "https://github.com/cminyard/gensio/pull/19.patch?full_index=1"
-      sha256 "2513ebcaf0395e59d846834eb59a5f0bacc077a0070bf9d1239ad223f16e6735"
-    end
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.2.tar.gz"
+    sha256 "4b84c81376bcc557818d771a995fc0dddf77f146365a836c70c3d4c55f503dbc"
   end
 
   def install

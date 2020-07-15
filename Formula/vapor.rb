@@ -1,13 +1,14 @@
 class Vapor < Formula
   desc "Command-line tool for Vapor (Server-side Swift web framework)"
   homepage "https://vapor.codes"
-  url "https://github.com/vapor/toolbox/archive/18.0.0.tar.gz"
-  sha256 "1d1b72d92dfb4e417dbbfe8486149f64a92cbfcf86db5209686fdd926b43c74c"
+  url "https://github.com/vapor/toolbox/archive/18.1.0.tar.gz"
+  sha256 "cf10549f7c6a86ca35171f48e7bb7a3a4864703599347660b5276fa233c233f0"
+  license "MIT"
   head "https://github.com/vapor/toolbox.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d7762239037cff59e33be03863b68cccc19580db9414b1f4bdb012f16df0d2fb" => :catalina
+    sha256 "76947aef964a7324e313cf5cdfbfcdd8bf8a28be52d427fe7c7f2aebde5f06c0" => :catalina
   end
 
   depends_on :xcode => "11.4"

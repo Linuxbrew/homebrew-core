@@ -3,6 +3,7 @@ class Flank < Formula
   homepage "https://github.com/Flank/flank"
   url "https://github.com/Flank/flank/releases/download/v20.06.2/flank.jar"
   sha256 "2aa7e5e5fc83396fa95a2f41341a39d07ee289289e67bdfea874fd5e521777b9"
+  license "Apache-2.0"
 
   bottle :unneeded
 

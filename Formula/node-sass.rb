@@ -5,6 +5,7 @@ class NodeSass < Formula
   homepage "https://github.com/sass/dart-sass"
   url "https://registry.npmjs.org/sass/-/sass-1.26.10.tgz"
   sha256 "c4eaec5fce24d37920d9b537df3e699fcf356981193695eb000115b03f56be5f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

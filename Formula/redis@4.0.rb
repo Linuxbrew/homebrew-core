@@ -3,6 +3,7 @@ class RedisAT40 < Formula
   homepage "https://redis.io/"
   url "https://github.com/antirez/redis/archive/4.0.14.tar.gz"
   sha256 "3b8c6ea4c9db944fe6ec427c1b11d912ca6c5c5e17ee4cfaea98bbda90724752"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do

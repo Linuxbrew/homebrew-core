@@ -3,6 +3,7 @@ class Onednn < Formula
   homepage "https://01.org/oneDNN"
   url "https://github.com/oneapi-src/onednn/archive/v1.5.1.tar.gz"
   sha256 "aef4d2a726f76f5b98902491a1a4ac69954039aa8e5a1d67ef6ce58ed00e23a6"
+  license "Apache-2.0"
   head "https://github.com/oneapi-src/onednn.git"
 
   bottle do

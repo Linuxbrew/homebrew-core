@@ -1,15 +1,15 @@
 class So < Formula
   desc "Terminal interface for StackOverflow"
   homepage "https://github.com/samtay/so"
-  url "https://github.com/samtay/so/archive/v0.3.6.tar.gz"
-  sha256 "6d2f541bb00dceb9163faf4cc44ff1bd39e07b46c35d6532e24b47d7ad6d47da"
+  url "https://github.com/samtay/so/archive/v0.4.2.tar.gz"
+  sha256 "402d3a07283375d92892802544481a417f9d017b5e80733183ccbce3a810ef84"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2f6017640c81a6cb40364b8ef4e11ca3b688d69413f08652fa44989e3fbf73d" => :catalina
-    sha256 "6f4aa633f76cf93b7e69a7ebc10583a3849452a5d647ee3cd58c2f410cdb38ab" => :mojave
-    sha256 "6b021d14682f24f76b815d7730c52fa334ed7beedfcd1491ae29474891d29adb" => :high_sierra
+    sha256 "5bf7f63a206b7ab5b64f102d493db409a3fb068a76326aa0eaa68582ea779638" => :catalina
+    sha256 "13beb97e318c3655cf2a6ecb537f776c5973a7a944c14c212455a359b419b872" => :mojave
+    sha256 "cfc2bf938aacca1db66b6a072dca9cc9f346e21a9ae1a7534d3e1124810e0c2b" => :high_sierra
   end
 
   depends_on "rust" => :build

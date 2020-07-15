@@ -3,6 +3,7 @@ class Rethinkdb < Formula
   homepage "https://rethinkdb.com/"
   url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.0.tgz"
   sha256 "bfb0708710595c6762f42e25613adec692cf568201cd61da74c254f49fa9ee4c"
+  license "Apache-2.0"
   head "https://github.com/rethinkdb/rethinkdb.git", :branch => "next"
 
   bottle do

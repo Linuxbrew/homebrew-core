@@ -4,13 +4,14 @@ class Haxe < Formula
   url "https://github.com/HaxeFoundation/haxe.git",
       :tag      => "4.1.2",
       :revision => "74ee129d6856c8fca8e375b795363eb64a14240e"
+  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "b2cba26b2261e9678e535d29b1232f7033db8b96b35bcd471f057099bb936f97" => :catalina
-    sha256 "218a30f066c2e56c4f4a1d7290124db7cf7715f54e0218c8e37ccd52b36bb747" => :mojave
-    sha256 "59bd36a2799b9e13064f25124f4d3d18d991d50142d6063c25bcc5452e1c5ed4" => :high_sierra
+    sha256 "58e9b7b73f79c5bed1ef707e98f89f84eec270e07dc04a78afed2e93c4a5167f" => :catalina
+    sha256 "803f81f5a31bacd362eddc17965afed4fc2602ed6675684664cffe1106ff525b" => :mojave
+    sha256 "f059682fe20e23e924a870366dd3a5aed85ff33ed3b000d104fb099e0b088a68" => :high_sierra
   end
 
   depends_on "cmake" => :build

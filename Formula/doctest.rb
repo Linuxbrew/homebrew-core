@@ -3,6 +3,7 @@ class Doctest < Formula
   homepage "https://github.com/onqtam/doctest"
   url "https://github.com/onqtam/doctest/archive/2.4.0.tar.gz"
   sha256 "f689f48e92c088928d88d8481e769c8e804f0a608b484ab8ef3d6ab6045b5444"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

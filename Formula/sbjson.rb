@@ -3,6 +3,7 @@ class Sbjson < Formula
   homepage "https://github.com/stig/json-framework"
   url "https://github.com/stig/json-framework/archive/v5.0.3.tar.gz"
   sha256 "9a03f6643b42a82300f4aefcfb6baf46cc2c519f1bb7db3028f338d6d1c56f1b"
+  license "BSD-3-Clause"
   head "https://github.com/stig/json-framework.git"
 
   bottle do

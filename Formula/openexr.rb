@@ -3,6 +3,7 @@ class Openexr < Formula
   homepage "https://www.openexr.com/"
   url "https://github.com/openexr/openexr/archive/v2.5.2.tar.gz"
   sha256 "5da8dff448d0c4a529e52c97daf238a461d01cd233944f75095668d6d7528761"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "cd7b32d91f6e70711a4010f2027be140189d8fc92f5fcdb12331228a9e762817" => :catalina

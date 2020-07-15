@@ -11,6 +11,7 @@ class Arpack < Formula
     sha256 "c4d53dfa06e56a05dfe6c53020a8c5d867b6cf9d0cc37de9b6debc80d1af0d44" => :catalina
     sha256 "a5b2d5d34b7c9650d54b7985a4edf979e9c43ddc29830676f042c112f4025967" => :mojave
     sha256 "152d4a439d8309460a8d2da947eb611aa5c6dd9fa77bba9afa2db60c09f807f4" => :high_sierra
+    sha256 "94289dd15dca3cc977a70a2a473a98b8374978ee1ce59c31bed1ca843a04e2b0" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -36,7 +37,7 @@ class Arpack < Formula
 
     # Fix for GCC 10, remove with next version
     # https://github.com/opencollab/arpack-ng/commit/ad82dcbc
-    args << "FFLAGS=-fallow-argument-mismatch"
+    args << "FFLAGS=-fallow-argument-mismatch" if OS.mac?
 
     system "./bootstrap"
     system "./configure", *args

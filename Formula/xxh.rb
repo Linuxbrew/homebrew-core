@@ -5,6 +5,7 @@ class Xxh < Formula
   homepage "https://github.com/xxh/xxh"
   url "https://files.pythonhosted.org/packages/c6/fb/76429ae5970e334996276075338533043bfbef6f96d7e9340ef433662834/xxh-xxh-0.8.3.tar.gz"
   sha256 "2ba8bbb5d75c77095580b3f2f5570b1700834a42f50e1caaf50a97de925d51bf"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

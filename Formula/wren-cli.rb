@@ -3,6 +3,7 @@ class WrenCli < Formula
   homepage "https://github.com/wren-lang/wren-cli"
   url "https://github.com/wren-lang/wren-cli/archive/0.3.0.tar.gz"
   sha256 "a498d2ccb9a723e7163b4530efbaec389cc13e6baaf935e16cbd052a739b7265"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

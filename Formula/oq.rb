@@ -3,6 +3,7 @@ class Oq < Formula
   homepage "https://blacksmoke16.github.io/oq"
   url "https://github.com/Blacksmoke16/oq/archive/v1.1.2.tar.gz"
   sha256 "1bd940a72af556a4e685086ca0d3a363d71e3cfedeffb36f865f38d44386f94a"
+  license "MIT"
 
   bottle do
     cellar :any

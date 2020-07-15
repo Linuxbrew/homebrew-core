@@ -2,16 +2,15 @@ class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.2.31.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.2.31.tar.xz"
-  sha256 "8beaa634bb878a96af9bc8643811ea46973f5f41ad2bfb6ab4cfd290e5a39806"
-  revision 1
+  url "https://www.php.net/distributions/php-7.2.32.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.2.32.tar.xz"
+  sha256 "050fc16ca56d8d2365d980998220a4eb06439da71dfd38de49b42fea72310ef1"
 
   bottle do
-    sha256 "88e7932c8403e83c4b7ce1a5a5a704e2b45d0618f79ab568b0e92dc795b896d4" => :catalina
-    sha256 "2d601cec4b57cefa451e9bd4892df9c8f406de09c1aaafbf7d3a9a88ab540e67" => :mojave
-    sha256 "d1383e513d27510e4e8974460756cbef14a59c1fcbcd35c9dbeb6624689ea22f" => :high_sierra
-    sha256 "21cd67547b0abaf6e1b9a471d25a148ac4e28a9c879e8e342a258670c1cfec12" => :x86_64_linux
+    sha256 "d88487a605a9236e1ecf87143838668191365d4a706f1f8afcddd7e8c83fc930" => :catalina
+    sha256 "28ef550709f3388855a0a60cc52f9a53cac0f8b886efcd8397f789185a8410d4" => :mojave
+    sha256 "08f6ed5c81d872074c070900ed998ec1bfca630a143e3c9098bc0ecbb1ac1da9" => :high_sierra
+    sha256 "b97b6d61ecd945e5e60973a49840e7177b6a21ad930ab70e4956b80f6af26c2f" => :x86_64_linux
   end
 
   keg_only :versioned_formula

@@ -5,6 +5,7 @@ class FaunaShell < Formula
   homepage "https://fauna.com/"
   url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.11.4.tgz"
   sha256 "9593dba01597c7e8f84b36c79a2b99305a7e8777aa63b575e0e873860033b33f"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

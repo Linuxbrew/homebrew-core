@@ -5,6 +5,7 @@ class Twarc < Formula
   homepage "https://github.com/DocNow/twarc"
   url "https://files.pythonhosted.org/packages/48/0f/b0491173d98d7c0093d3ad912b281f6fefccfcd59b268b2e67581ca08434/twarc-1.10.1.tar.gz"
   sha256 "db8d6f5fc4d786d9af3f9ca622e4e83175a34e93bda756923e5d6c546bca6c3e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

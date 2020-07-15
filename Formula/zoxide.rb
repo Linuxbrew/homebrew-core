@@ -3,6 +3,7 @@ class Zoxide < Formula
   homepage "https://github.com/ajeetdsouza/zoxide"
   url "https://github.com/ajeetdsouza/zoxide/archive/v0.4.3.tar.gz"
   sha256 "cfcbbe7b73a2a149e2b38ac6dd4bd4a6c1bdd6cf6f2a2bab49f6aeec3c705357"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

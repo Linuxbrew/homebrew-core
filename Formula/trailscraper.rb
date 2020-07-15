@@ -3,28 +3,28 @@ class Trailscraper < Formula
 
   desc "Tool to get valuable information out of AWS CloudTrail"
   homepage "https://github.com/flosell/trailscraper"
-  url "https://github.com/flosell/trailscraper/archive/0.6.1.tar.gz"
-  sha256 "9ca2535d397282ffc09e5ca05af19bc36dd3da02235df963c3016b9f2dc4d151"
+  url "https://github.com/flosell/trailscraper/archive/0.6.4.tar.gz"
+  sha256 "4cc20f257c8167ca0f48aab3f0f2e29e60bd8ab5316d3f16e88a35e5eab039cc"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d91cab0673155227938faa11a4eb961bcd13c20ffc96b013ae7873c1a5a2435" => :catalina
-    sha256 "19e452793c27d450ae9b010ae44bab6221e993e86c824883908fcda6007e0d90" => :mojave
-    sha256 "df511d725019e58f9d3e6945fe4cac6c6b54a665028ca64c337fc461397720ff" => :high_sierra
-    sha256 "95bf01ca261bedd978c5bc7cc2d2be00d7f3d86e9283e98ac1472baaf1e37483" => :x86_64_linux
+    sha256 "41aad6155d9d4b2dcba4d53ed476b332bd49bca7a12de90275860aa02a65ad92" => :catalina
+    sha256 "6d4cfca0f6bacecde59b6371e5226ff4b464fcf1995698cf93e64a8fc90e2b7e" => :mojave
+    sha256 "51d3136645481a1692b49bbc3f1c428d55e52e7fc6fe54e1e3006dcdaa821d31" => :high_sierra
+    sha256 "007bfee133dc85d0746107ccb68926150a275c3f594c49643cb63fcfdd20c5b7" => :x86_64_linux
   end
 
   depends_on "python@3.8"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/29/7f/5f76466f99177245e8fc405d6604b206ef85872817bed429a846d34d12d0/boto3-1.13.19.tar.gz"
-    sha256 "c774003dc13d6de74b5e19d2b84d625da4456e64bd97f44baa1fcf40d808d29a"
+    url "https://files.pythonhosted.org/packages/2b/56/09a936e798a8b6b8ba1006f14b438dc1ec5791d7780e46a5a0749c7fc198/boto3-1.14.14.tar.gz"
+    sha256 "87beffba2360b8077413f2d473cb828d0a5bda513bd1d6fb7b137c57b686aeb6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/94/23/dddd1e62449b0c3669632079ecb8fd4d8c3c628480b6619b57234f4aabe1/botocore-1.16.22.tar.gz"
-    sha256 "eb077e2da1654558c9d97888a2e0710b92cc3162a6641959545451e1a21eea8a"
+    url "https://files.pythonhosted.org/packages/98/89/388651fcd98d8b9be63c44e356e28c24f742259cea507c13f501e623a4fc/botocore-1.17.20.tar.gz"
+    sha256 "d1bf8c2085719221683edf54913c6155c68705f26ab4a72c45e4de5176a8cf7b"
   end
 
   resource "click" do
@@ -33,8 +33,8 @@ class Trailscraper < Formula
   end
 
   resource "dateparser" do
-    url "https://files.pythonhosted.org/packages/e2/da/c58ecd3b4183849b7373e6bbe140fdc0e0cc4640b960a1ddb5f550c2b283/dateparser-0.7.4.tar.gz"
-    sha256 "fb5bfde4795fa4b179fe05c2c25b3981f785de26bec37e247dee1079c63d5689"
+    url "https://files.pythonhosted.org/packages/86/6e/9a47cf3841bcfd1dd07a20b2aca42d4e02822ea7121aeb022869855b8d2f/dateparser-0.7.6.tar.gz"
+    sha256 "e875efd8c57c85c2d02b238239878db59ff1971f5a823457fcc69e493bf6ebfa"
   end
 
   resource "docutils" do
@@ -58,8 +58,8 @@ class Trailscraper < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/14/8d/d44863d358e9dba3bdfb06099bbbeddbac8fb360773ba73250a849af4b01/regex-2020.5.14.tar.gz"
-    sha256 "ce450ffbfec93821ab1fea94779a8440e10cf63819be6e176eb1973a6017aff5"
+    url "https://files.pythonhosted.org/packages/b8/7b/01510a6229c2176425bda54d15fba05a4b3df169b87265b008480261d2f9/regex-2020.6.8.tar.gz"
+    sha256 "e9b64e609d37438f7d6e68c2546d2cb8062f3adb27e6336bc129b51be20773ac"
   end
 
   resource "ruamel.yaml" do

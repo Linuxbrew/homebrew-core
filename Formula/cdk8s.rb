@@ -5,6 +5,7 @@ class Cdk8s < Formula
   homepage "https://github.com/awslabs/cdk8s"
   url "https://registry.npmjs.org/cdk8s-cli/-/cdk8s-cli-0.26.0.tgz"
   sha256 "d4cd0eca893011420765bea1aed6a198a1f21b09d9650223dac33c17ed5eb4fa"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

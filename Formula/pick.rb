@@ -3,6 +3,7 @@ class Pick < Formula
   homepage "https://github.com/mptre/pick"
   url "https://github.com/mptre/pick/releases/download/v4.0.0/pick-4.0.0.tar.gz"
   sha256 "de768fd566fd4c7f7b630144c8120b779a61a8cd35898f0db42ba8af5131edca"
+  license "MIT"
   head "https://github.com/mptre/pick.git"
 
   bottle do

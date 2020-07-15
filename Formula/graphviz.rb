@@ -1,36 +1,21 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
+  url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz"
+  sha256 "8e1b34763254935243ccdb83c6ce108f531876d7a5dfd443f255e6418b8ea313"
   license "EPL-1.0"
   version_scheme 1
-
-  stable do
-    url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.0.tar.gz"
-    sha256 "9aabd13a8018b708ab3c822de2326c19d0a52ed59f50a6b0f9318c07e2a6d93b"
-
-    # Fix compile on macOS.
-    # Remove with the next release.
-    patch do
-      url "https://gitlab.com/graphviz/graphviz/-/commit/4b9079d9fc8634961d146609a420d674225dbe95.diff"
-      sha256 "689b54eda5b19e92cd51322c874116b46aa76c5f1b43cf9869fd7c5a2b771f0f"
-    end
-  end
+  head "https://gitlab.com/graphviz/graphviz.git"
 
   bottle do
-    sha256 "b7622910804f75702b6124ed0a376f7d4f1c8aaa8dde38601549bb4c9a84589b" => :catalina
-    sha256 "cadbefa8657abfbc63d66827ca1492226d10fc6fdba9276f41e62be3b9434ba2" => :mojave
-    sha256 "c3b0269db2fb418c0e1b7413f10e0bec2d4f69485cfda484e8acf99cb1b86a54" => :high_sierra
-    sha256 "37b26f831a8f521febf0f575a1acdbadcbbb0820d5e75fce84084fac5f462cda" => :x86_64_linux
+    sha256 "e1cc69e09c92ac1507e461e374de9a0b2d7b01d15e29bf43808f8f458303c67f" => :catalina
+    sha256 "facbce9f3c97e2ad4b0ebf7344da4937722d6ae03c2091853c0bdd4f0e313e08" => :mojave
+    sha256 "86d0bb5111d0f97f4de3b1542280815f0b11cfda64bdbea09ba6ea2764205b8a" => :high_sierra
   end
 
-  head do
-    url "https://gitlab.com/graphviz/graphviz.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "gts"
@@ -40,6 +25,14 @@ class Graphviz < Formula
   depends_on "byacc" => :build unless OS.mac?
 
   uses_from_macos "flex" => :build
+
+  # See https://github.com/Homebrew/homebrew-core/pull/57132
+  # Fixes:
+  # groff -Tps -man cdt.3 >cdt.3.ps
+  #   CCLD     libcdt.la
+  #   CCLD     libcdt_C.la
+  # false cdt.3.ps cdt.3.pdf
+  patch :DATA
 
   def install
     args = %W[
@@ -55,11 +48,8 @@ class Graphviz < Formula
       --with-gts
     ]
 
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "autoreconf", "-fiv"
+    system "./configure", *args
     system "make", "install"
 
     (bin/"gvmap.sh").unlink
@@ -75,3 +65,18 @@ class Graphviz < Formula
     system "#{bin}/dot", "-Tpng", "-o", "sample.png", "sample.dot"
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index cf42504..68db027 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -284,8 +284,7 @@ AC_CHECK_PROGS(SORT,gsort sort,false)
+
+ AC_CHECK_PROG(EGREP,egrep,egrep,false)
+ AC_CHECK_PROG(GROFF,groff,groff,false)
+-AC_CHECK_PROG(PS2PDF,ps2pdf,ps2pdf,false)
+-AC_CHECK_PROG(PS2PDF,pstopdf,pstopdf,false)
++AC_CHECK_PROGS(PS2PDF,ps2pdf pstopdf,false)
+
+ PKG_PROG_PKG_CONFIG

@@ -4,6 +4,7 @@ class Fluxctl < Formula
   url "https://github.com/weaveworks/flux.git",
       :tag      => "1.20.0",
       :revision => "04e9e50311c3bf407629b0a9d75996ead187e952"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -10,7 +10,7 @@ class Bash < Formula
     mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0.tar.gz"
     sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
-    version "5.0.17"
+    version "5.0.18"
 
     %w[
       001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
@@ -30,6 +30,7 @@ class Bash < Formula
       015 a517df2dda93b26d5cbf00effefea93e3a4ccd6652f152f4109170544ebfa05e
       016 ffd1d7a54a99fa7f5b1825e4f7e95d8c8876bc2ca151f150e751d429c650b06d
       017 4cf3b9fafb8a66d411dd5fc9120032533a4012df1dc6ee024c7833373e2ddc31
+      018 7c314e375a105a6642e8ed44f3808b9def89d15f7492fe2029a21ba9c0de81d3
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
@@ -42,10 +43,10 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "ce9312721ce3700e3b95d3e2f663ee51c16423cea9e54a867ad17a1f9676aa68" => :catalina
-    sha256 "0a002b85e82af9ada464528e5e34180897cde3f26f77b04944cc45d4f6bff9d8" => :mojave
-    sha256 "7711a176d742d4df6c92930da1b56e45b44075ab6839f5e7ea8eefa4227701d4" => :high_sierra
-    sha256 "f6b02b59a35899899de7240d7a536e5cee02793e7e57b1cecc90dfd72429401e" => :x86_64_linux
+    sha256 "c6e7b7a521a1cfb21f2872bde253bfd40150bd4ba36ada62c05fcdb73ae094c6" => :catalina
+    sha256 "ba0617f6d3f4e691f9863e2f73596da94671f4c0ca21a95b99f19eced315f2d4" => :mojave
+    sha256 "46023d0bafe68b838ada45ff6a66e63f7eac814eeb84e15a09d4b84a790ef49d" => :high_sierra
+    sha256 "ca07ed480b79dd94e2c24f7a6ddc7ed9ff0ddf1591b8feeed9f38e1a54f2e78b" => :x86_64_linux
   end
 
   def install
