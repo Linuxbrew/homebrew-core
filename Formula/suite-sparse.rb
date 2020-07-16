@@ -1,14 +1,14 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
-  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.8.0.tar.gz"
-  sha256 "94a9b7134eb4dd82b97f1a22a6b464feb81e73af2dcdf683c6f252285191df1d"
+  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.8.1.tar.gz"
+  sha256 "06726e471fbaa55f792578f9b4ab282ea9d008cf39ddcc3b42b73400acddef40"
 
   bottle do
-    sha256 "071121481c6eca597812a7b41a4bdf11d334e5d5a3d400b30f685425fb3d3889" => :catalina
-    sha256 "28ab445631aec4a86e477a9664c1610e49146add9fc673cfb9528f0c4c1d11a3" => :mojave
-    sha256 "161c178cdb17f0ac05e8376756262d8c8e0bd4092b99bac0b45f15d187bd6cd7" => :high_sierra
-    sha256 "e7f66050ef485b95683be7d21e38cdad9b3bb27ce6fa9be6d352c52fae7a941e" => :x86_64_linux
+    sha256 "0a451d3abea1c06bb2fe629acb97ac970512d4ff583d39ff1264ece13a09a5f4" => :catalina
+    sha256 "37a4786b80ef0e2f2ace0b3699ef7a79100ab7f916f5a5b47a558f3e23b6c3de" => :mojave
+    sha256 "37d5c3a7863a6f94e087749b97d72a3b0b76f16e0c8ed1d5e71d23b21fec5cc7" => :high_sierra
+    sha256 "3501b6aae9c947a387c213800ba842a8403558bc812d5b3ddfc27da3e58c9132" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

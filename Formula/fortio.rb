@@ -2,29 +2,22 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      :tag      => "v1.4.2",
-      :revision => "ae7b1a10a2fd4e08f6284e4da8f576b9d9d42e72"
+      :tag      => "v1.4.4",
+      :revision => "5840a17ec92d01f2969f354cabf9615339eb8286"
   license "Apache-2.0"
 
   bottle do
-    sha256 "fe0ec862f45d86697b4fc0ac4bf8eb300cd067518dd9e4637b8f74d53489a118" => :catalina
-    sha256 "cd2976a94de5c937a0c4fd2c071fb60eb0e045c98e0ef20c718220bb46b82908" => :mojave
-    sha256 "ef7a2dc8a0a67c8a731c5388e9431df82e7517b3f5392510b6649076602363e9" => :high_sierra
-    sha256 "b5935f878c02286c61485d043d2ef71f5c442006a703ac637eb2da2b061bfb6a" => :x86_64_linux
+    sha256 "eb7ad27d0985ad822d615b43bf5aa11793973484907c1b2936f2d36b60a4eb9a" => :catalina
+    sha256 "749448105b97a48b1843f0bb425673832421dbb0c8d8d67705e6b96fe844ba3f" => :mojave
+    sha256 "af1a3261b9773c7744db0bcb2add09e2fffe515ece1fc441f04e1ce0a4a7be60" => :high_sierra
+    sha256 "f46f6dcced35813be668e40d9f7b0aad8d50433acea05c8feb38eb0e3c540446" => :x86_64_linux
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/fortio.org/fortio").install buildpath.children
-    cd "src/fortio.org/fortio" do
-      system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
-             "LIB_DIR=#{lib}"
-      lib.install "ui/static", "ui/templates"
-      prefix.install_metafiles
-    end
+    system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio", "LIB_DIR=#{lib}"
+    lib.install "ui/static", "ui/templates"
   end
 
   test do

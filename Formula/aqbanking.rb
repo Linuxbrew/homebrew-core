@@ -1,13 +1,13 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/328/aqbanking-6.2.1.tar.gz"
-  sha256 "bab601bf7c3402912438aa2919cd84d498a65749238214fcf881d2a2cfea1fd4"
+  url "https://www.aquamaniac.de/rdm/attachments/download/334/aqbanking-6.2.2.tar.gz"
+  sha256 "b14c2ec8069854226f8ced273c91948b8722b0e52e83c88b99df541fef2f40fd"
 
   bottle do
-    sha256 "c5579a6f5aada2c6738e09338c5cededdeacbc0d3dd0cc3a3e0fd4c8f71d8678" => :catalina
-    sha256 "3127e76e64ce70f7ceb4a42b125afe38f7176ab58a539ace3689152fa50fbf6e" => :mojave
-    sha256 "f6e3e9685094ba9e507c5947825579f092a2c1b0d2f46b09d479bf59afe362a8" => :high_sierra
+    sha256 "957a2955f2cae1257863b5ec837f34d5ee2fb2be46db0c498159182e26e9358f" => :catalina
+    sha256 "20110cbda1de863ddc72ef8b5d6d5b0d5c3fb59f24280851383f61f063f30d41" => :mojave
+    sha256 "e348e6783b24c081c0357dd1c4f30fd74a4ee15303f5951b968cb9bea81b5b1d" => :high_sierra
   end
 
   head do

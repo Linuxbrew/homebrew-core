@@ -2,14 +2,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/8.3.110.13.tar.gz"
-  sha256 "5655eef3de81beba0346496edaa57993af651c5b6e2ea2fcb898f93c13c2bbd4"
+  url "https://github.com/v8/v8/archive/8.4.371.19.tar.gz"
+  sha256 "cef6d0383a8ee8278e9c67fbd79c16141ce079693744b295c2040763089c9dd0"
 
   bottle do
     cellar :any
-    sha256 "f5f3fb95eb0eb740baadd893ead09b3308e80882e44577f67ad0d3697df4eb0b" => :catalina
-    sha256 "648acfd7aacc480843107ac209acb689869e9aba105356f0bb8c77f42012a17c" => :mojave
-    sha256 "135f1489463e1bbb626effb562cca84118b437093f0d48abf80c9b98c39e872b" => :high_sierra
+    sha256 "bb755bd7dd8e5e8ad08a535179ddc42fec3c84eb62363e76a892c5e0a5f82150" => :catalina
+    sha256 "36c8c76d89021ab33a42408042b4a8ef333baa5ee7b576b3e1a15edcf703de2d" => :mojave
+    sha256 "e6ce28c8b4fec5488d938a7d406f07a2d45ca5d8bea25d20daf7bea5acbf9f9d" => :high_sierra
   end
 
   depends_on "llvm" => :build
@@ -27,7 +27,7 @@ class V8 < Formula
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "26e9d485d01d6e0eb9dadd21df767a63494c8fea"
+      :revision => "1b904cc30093c25d5fd48389bd58e3f7409bcf80"
 
     # revert usage of unsuported libtool option -D (fixes High Sierra support)
     patch do
@@ -38,7 +38,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "d7aff76cf6bb0fbef3afa6c07718f78a80a70f8f"
+      :revision => "f2223961702f00a8833874b0560d615a2cc42738"
   end
 
   resource "v8/base/trace_event/common" do
@@ -48,12 +48,12 @@ class V8 < Formula
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "10b1902d893ea8cc43c69541d70868f91af3646b"
+      :revision => "a09ea700d32bab83325aff9ff34d0582e50e3997"
   end
 
   resource "v8/third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-      :revision => "b41863e42637544c2941b574c7877d3e1f663e25"
+      :revision => "3f90fa05c85718505e28c9c3426c1ba52843b9b7"
   end
 
   resource "v8/third_party/markupsafe" do
@@ -63,7 +63,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-      :revision => "156be8c52f80cde343088b4a69a80579101b6e67"
+      :revision => "90fc47e6eed7bd1a59ad1603761303ef24705593"
   end
 
   def install
