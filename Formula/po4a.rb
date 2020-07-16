@@ -5,17 +5,17 @@ class Po4a < Formula
 
   desc "Documentation translation maintenance tool"
   homepage "https://po4a.org"
-  url "https://github.com/mquinson/po4a/releases/download/v0.59.1/po4a-v0.59.1.tar.gz"
-  sha256 "a906fd82a6cc3a8898c1fe55d14076f3376fa6879ce9b1828b8b125e2dbe495b"
+  url "https://github.com/mquinson/po4a/releases/download/v0.60/po4a-0.60.tar.gz"
+  sha256 "c8d9c28758fa007e8e2989b5820c55910a6533dab581208d0c8acf4d43027b59"
   license "GPL-2.0"
   head "https://github.com/mquinson/po4a.git"
 
   bottle do
     cellar :any
-    sha256 "62cd7a07c3f5bf0560672bafa0727c5b858f1b9ddfc3ee32a3cb72b6abb8a008" => :catalina
-    sha256 "56ddf8fef92fcc1ec039a0cdd2bd5c7b748e11b34fdcc265af0a20094cd99309" => :mojave
-    sha256 "3f77c12ae326c81ad64a5a1cdba22822abc551aaaa3bdc19338e706f7d40224b" => :high_sierra
-    sha256 "f8c8da962e5e3526c2da0c064114d40ee32fd70991cfdadc98fa0f105fb1cc6c" => :x86_64_linux
+    sha256 "fe8645bfd68b3e34315c40d9bd7732d7caa7d162e12292d72dddbbb2adf98d95" => :catalina
+    sha256 "b331e16c4e4f9168c2b1c6a6be42d30c08afb8cf1a687cb4eb377f385ea367c4" => :mojave
+    sha256 "187a7f7321b5dc404383b9000bf001d055face32d4464606e9c1b458306de84d" => :high_sierra
+    sha256 "443b2faf9eee42a02c6af144f8748aae57eddd9e23740b8be2f5ece4b2004a21" => :x86_64_linux
   end
 
   depends_on "docbook-xsl" => :build

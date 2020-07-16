@@ -4,19 +4,34 @@ class UtilLinux < Formula
   url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.35/util-linux-2.35.2.tar.xz"
   sha256 "21b7431e82f6bcd9441a01beeec3d57ed33ee948f8a5b41da577073c372eb58a"
   license "GPL-2.0"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
-    sha256 "8f9f0592f1135621eb61133f986c9372e6fa718d4137dfdaa63f2c212d729564" => :catalina
-    sha256 "10530ca9de44cb341b50114f3c740b58b7daaf030568662ac2a174feb1c25e49" => :mojave
-    sha256 "458ece9b1190f761a6fc42bf66484eec1e67cafb5ef44d6ccd40ee9a0b05cc7c" => :high_sierra
-    sha256 "1b15b7f9207ea4f5f7f93beaa391783ca0fcf78d6e40452b38880b2b845e2b87" => :x86_64_linux
+    sha256 "415a5e3671b1f64bbd23a056ec338c539d54d7f6010f28498bede2af6c039df4" => :catalina
+    sha256 "32bd744a8adbfbaa6d7c3bd2eef1b8ee752e74f2e53b4f3d7dd355ce59a7719c" => :mojave
+    sha256 "8bcf4fbc8f58f8e0d7ecb77bfec6686ee2150b3c2509fa5006417f395803f467" => :high_sierra
+    sha256 "8dcbea57bc04b390ef3b64380eee9f0fe4e83e8c49d67797d63895c8d0030d83" => :x86_64_linux
   end
 
   keg_only "macOS provides the uuid.h header" if OS.mac?
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  # These binaries are already available in macOS
+  def system_bins
+    %w[
+      cal col colcrt colrm
+      getopt
+      hexdump
+      logger look
+      mesg more
+      nologin
+      renice rev
+      ul
+      whereis
+    ]
+  end
 
   def install
     args = [
@@ -50,7 +65,7 @@ class UtilLinux < Formula
 
     if OS.mac?
       # Remove binaries already shipped by macOS
-      %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
+      system_bins.each do |prog|
         rm_f bin/prog
         rm_f sbin/prog
         rm_f man1/"#{prog}.1"
@@ -72,6 +87,36 @@ class UtilLinux < Formula
         bash_completion.install prog
       end
     end
+  end
+
+  def caveats
+    linux_only_bins = %w[
+      addpart agetty
+      blkdiscard blkzone blockdev
+      chcpu chmem choom chrt ctrlaltdel
+      delpart dmesg
+      eject
+      fallocate fdformat fincore findmnt fsck fsfreeze fstrim
+      hwclock
+      ionice ipcrm ipcs
+      kill
+      last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
+      mount mountpoint
+      nsenter
+      partx pivot_root prlimit
+      raw readprofile resizepart rfkill rtcwake
+      script scriptlive setarch setterm sulogin swapoff swapon switch_root
+      taskset
+      umount unshare utmpdump uuidd
+      wall wdctl
+      zramctl
+    ]
+    <<~EOS
+      The following tools are not supported under macOS, and are therefore not included:
+      #{Formatter.wrap(Formatter.columns(linux_only_bins), 80)}
+      The following tools are already shipped by macOS, and are therefore not included:
+      #{Formatter.wrap(Formatter.columns(system_bins), 80)}
+    EOS
   end
 
   test do

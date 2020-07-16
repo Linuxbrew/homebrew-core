@@ -3,15 +3,15 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v2.0.0.tar.gz"
-  sha256 "c7ebc5650e7d5d8945fc004056bffea06e8278e54053b3dacd2d2daaac242565"
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v2.0.2.tar.gz"
+  sha256 "1ac04158c73fa40734e8f206757aced0b1668c8f3433975361fa9d100ea85e68"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12f9cb755703e43d3cd9a0cb0fe180f523957f938a9ad2230ce4b331055ef131" => :catalina
-    sha256 "eb1b00f5b35be71648ba4ad3c5aac6d4e784e198995a2fc2b0f65541e249a3d7" => :mojave
-    sha256 "7ecf4f59a02475ac05c13a3d2354c1253ca09367d4d007b639b06640a432dc79" => :high_sierra
-    sha256 "034ecabc38126d84ed98f1ee375ac4aac4ba0b0e6f910fee8962825b05711e6f" => :x86_64_linux
+    sha256 "44a0e9dd53f7711359859cf75fcadfd741cb15f413929589923770a7c5094358" => :catalina
+    sha256 "6153a57ec789a18a9566d692213d814199b9239019f63a3edcb5fe8ccaa05a1d" => :mojave
+    sha256 "50f86e78975ab3401e41ddcc6259e94eced3782df36c978b4b4ef7c169fc83dc" => :high_sierra
+    sha256 "a40a83006162aadb98633fb57df0f764dd2e2794f40c089918ef540552e21444" => :x86_64_linux
   end
 
   depends_on "python@3.8"
