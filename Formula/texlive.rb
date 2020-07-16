@@ -4,12 +4,10 @@ class Texlive < Formula
   url "https://www.texlive.info/tlnet-archive/2020/07/15/tlnet/install-tl-unx.tar.gz"
   version "20200715"
   sha256 "517058e56756521c3ab1b1939e5e95659adc715ba27babdff41b96bd299e3d20"
-  revision 1
   head "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e24715e406a78243cc4391aabc6dc7776390b43fd57d21315a002776ea8994a" => :x86_64_linux
   end
 
   depends_on "wget" => :build
