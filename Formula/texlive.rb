@@ -69,8 +69,7 @@ class Texlive < Formula
 
   def caveats
     <<-EOS
-      The small (~500 MB) distribution (scheme-small) with the addition of the
-      bibtexextra and binextra collections is installed by default.
+      The small (~500 MB) distribution (scheme-small) by default.
 
       You may install a larger (medium or full) scheme using one of:
 
