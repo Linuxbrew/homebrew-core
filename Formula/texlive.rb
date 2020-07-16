@@ -37,8 +37,6 @@ class Texlive < Formula
       TEXMFSYSCONFIG #{prefix}/texlive/texmf-config
       TEXMFSYSVAR #{prefix}/texlive/texmf-var
       TEXMFVAR $TEXMFSYSVAR
-      collection-bibtexextra 1
-      collection-binextra 1
       instopt_adjustpath 1
       instopt_adjustrepo 1
       instopt_letter 0
