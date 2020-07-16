@@ -5,6 +5,7 @@ class Texlive < Formula
   version "20200715"
   sha256 "517058e56756521c3ab1b1939e5e95659adc715ba27babdff41b96bd299e3d20"
   head "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
