@@ -19,7 +19,7 @@ class Serverless < Formula
   depends_on "node"
 
   on_linux do
-    depends_on "python"
+    depends_on "python@3.8"
   end
 
   def install
