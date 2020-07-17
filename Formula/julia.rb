@@ -13,7 +13,7 @@ class Julia < Formula
   test do
     system "#{bin}/julia", "--help"
     File.write("test.jl", <<-END
-      1+1 
+      1+1
       println("Hello, brew!")
     END
     )
