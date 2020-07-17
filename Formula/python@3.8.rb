@@ -71,22 +71,10 @@ class PythonAT38 < Formula
 
   # Remove this block when upstream adds arm64 compatibility
   if Hardware::CPU.arm?
-    # Upstream PR #21114, "Support `arm64` in Mac/Tools/pythonw"
+    # Upstream PRs #20171, #21114, #21224 and #21249
     patch do
-      url "https://github.com/python/cpython/pull/21114.patch?full_index=1"
-      sha256 "a50ddeb9f3a51277c935d681a4607f6e73c0817ec7a10c5e77bc8389814ccb19"
-    end
-
-    # Upstream PR #21224, "allow python to build for macosx-11.0-arm64"
-    patch do
-      url "https://github.com/python/cpython/pull/21224.patch?full_index=1"
-      sha256 "2a02ad3412a3f41cd67ae26a20f70ffd42dd15ef6791f8c8ef86129572e8f1d7"
-    end
-
-    # Upstream PR #21249, "ctypes fixes for arm64 Mac OS"
-    patch do
-      url "https://github.com/python/cpython/pull/21249.patch?full_index=1"
-      sha256 "11923d4a249da7b050cc2093bd9d4547dcdfbf61718b20896e8b6447e1967cb3"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/113aa84/python/3.8.3.patch"
+      sha256 "9c0d7c28c33c6036860457bd9c5a03026c71bd034907b77fbf861ff5fe216ed0"
     end
   end
 

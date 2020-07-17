@@ -1,16 +1,15 @@
 class Opentsdb < Formula
   desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
-  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.1/opentsdb-2.3.1.tar.gz"
-  sha256 "4dba914a19cf0a56b1d0cc22b4748ebd0d0136e633eb4514a5518790ad7fc1d1"
+  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.4.0/opentsdb-2.4.0.tar.gz"
+  sha256 "a2d6a34369612b3f91bf81bfab24ec573ab4118127dc1c0f0ed6fc57318d102c"
   license "LGPL-2.1"
-  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7a7848d2299118c202814b09e6ca78e06633b37466b13fe345bd0473195331a" => :catalina
-    sha256 "11f786340e681f624b8377062449c2d71c6e2aaaec7c286acdac6d5d761c25d6" => :mojave
-    sha256 "61eb190b7e44b4cfad0c1aceb09bd56525195ae5ec87bf6c63108f4e373d5dcc" => :high_sierra
+    sha256 "31e57ba38c568eb7a41a6129a55aac5a9b443301578475702cdab5fb891faaa2" => :catalina
+    sha256 "ec077c13211eac9912661ff0e3e1165162f251c3408fdf36b709e0e98af34aa2" => :mojave
+    sha256 "5bcdc828069e124c16e1e6c8b2eb6732d0ef88533c27f60fcbb0bec369aca375" => :high_sierra
   end
 
   depends_on "gnuplot"
@@ -112,6 +111,7 @@ class Opentsdb < Formula
       s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
     end
 
+    ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}/tmp"
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
     ENV["HBASE_CONF_DIR"] = testpath/"conf"
     ENV["HBASE_PID_DIR"]  = testpath/"pid"

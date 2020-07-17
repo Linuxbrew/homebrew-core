@@ -6,13 +6,14 @@ class Libsndfile < Formula
   url "http://www.mega-nerd.com/libsndfile/files/1.0.29pre2/libsndfile-1.0.29pre2.tar.bz2"
   sha256 "ffe2d6bff622bc66e6f96059ada79cfcdc43b3e8bc9cc4f45dbc567dccbfae75"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8e8f467cb9efe8ae6a5c174444c4829d4625c2314fb32a7edb4e53947d6fb035" => :catalina
-    sha256 "87699449cdb6d6d1ca03598fccbcfdbfb1db3da6ff83af6de353a0badb01b889" => :mojave
-    sha256 "ac676c5d492f2daaefdbedb046c256a2929f4287db2e3eed01d0af394e769a41" => :high_sierra
-    sha256 "52cf1bccda10fb26467667f5a9d95dbb0248e8f44d9929bd0ed06ff25dc69cfb" => :x86_64_linux
+    sha256 "8e192a4b76ad637395dfce818e2eec62e3a90722b33759fefcd4af389498bb9c" => :catalina
+    sha256 "1784457959d0c8ca513223f12e6f884f0dafe74ea0e9511e8c7d1b2557cfbb91" => :mojave
+    sha256 "3ae061cb03f627870e9fe98cd65f538547f109f472d20d235103ab4625d22b94" => :high_sierra
+    sha256 "d4fa8d6ac15d2efd496533f64eea1f7555cef87a5cbe2812ed445c06d5a09e8d" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +23,7 @@ class Libsndfile < Formula
   depends_on "flac"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "opus"
 
   def install
     system "autoreconf", "-fvi"
