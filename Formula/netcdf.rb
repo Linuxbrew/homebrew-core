@@ -78,7 +78,7 @@ class Netcdf < Formula
     fortran_args << "-DENABLE_TESTS=OFF"
 
     # Fix for netcdf-fortran with GCC 10, remove with next version
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch" if OS.mac?
 
     resource("fortran").stage do
       mkdir "build-fortran" do
