@@ -5,14 +5,13 @@ class GhcAT88 < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.8.3/ghc-8.8.3-src.tar.xz"
-  sha256 "e0dcc0aaf3e234c5978f29e6df62947e97720ab404ec0158343df211c5480f89"
+  url "https://downloads.haskell.org/~ghc/8.8.4/ghc-8.8.4-src.tar.xz"
+  sha256 "f0505e38b2235ff9f1090b51f44d6c8efd371068e5a6bb42a2a6d8b67b5ffc2d"
 
   bottle do
-    sha256 "7968d8e75b49c4b4177aeec21bc09dc62dd039d973cfe5be6432ad54bd44ee38" => :catalina
-    sha256 "25ea38aa4d2e3089518f52af08083f7715843fdfda2637f92f478e3b4cc5540d" => :mojave
-    sha256 "de3fad18e3656100e3e57411281bedd903d1aae583b046c6b2916b2d29800acc" => :high_sierra
-    sha256 "6a7c493e0d9df4e43c8623a3b10bd32613bc7baaa27af03520c89d6f5149e4a6" => :x86_64_linux
+    sha256 "04b5d947271af5cc9a6dda589fa29f28d53b34af20545e3d43ded0744a0daa79" => :catalina
+    sha256 "3d56505086642c2d5b4e3ba552395f051798ed11afe291d75f5ee25444f86564" => :mojave
+    sha256 "a37c6990bcadc028c5acc23115a1700a7f7daa71fbd28cc733a43197feb3df46" => :high_sierra
   end
 
   keg_only :versioned_formula

@@ -27,9 +27,13 @@ class Nettle < Formula
                                           "get_pc_thunk|(_*chkstk_darwin)"
     end
 
+    args = []
+    args << "--build=aarch64-apple-darwin#{`uname -r`.chomp}" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-shared"
+                          "--enable-shared",
+                          *args
     system "make"
     system "make", "install"
     system "make", "check"

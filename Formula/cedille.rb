@@ -6,7 +6,7 @@ class Cedille < Formula
   desc "Language based on the Calculus of Dependent Lambda Eliminations"
   homepage "https://cedille.github.io/"
   license "MIT"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/cedille/cedille/archive/v1.1.2.tar.gz"
@@ -19,10 +19,9 @@ class Cedille < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "04fab3020135237fa6d0a72b764c2112ddaad2ca7374f30538c2d980a3a3cde6" => :catalina
-    sha256 "54beaa319a1be8a508d1ed7b87bb0a95f5000d630b588866232a7d3af9654782" => :mojave
-    sha256 "cf1adb7d3c89396d3e54877054019846a9313e59768c9e25fc0516fce525e037" => :high_sierra
+    sha256 "f35c0eb5cfe557eea19c757244345a8761354ab34b59cba492f40b997b246ffa" => :catalina
+    sha256 "31cbfd570e8ec6a98991f5fe66b2b3b5865f1fbfcffa7cf6ba7d8509fc904eee" => :mojave
+    sha256 "fdffd4669a910e9435e09c7dbef6c85694cbd107e07c945c808ff2bdef3eee3b" => :high_sierra
   end
 
   head do

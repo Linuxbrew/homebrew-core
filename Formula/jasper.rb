@@ -1,17 +1,14 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://github.com/mdadams/jasper/archive/version-2.0.16.tar.gz"
-  sha256 "f1d8b90f231184d99968f361884e2054a1714fdbbd9944ba1ae4ebdcc9bbfdb1"
-  revision 1
+  url "https://github.com/mdadams/jasper/archive/version-2.0.17.tar.gz"
+  sha256 "b1af30be0e92a7382f184c891be1241c848d8df9c15b5dea12df2e5d702db8bc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eb5d0888be36aa8afb0eccc43957eeda99ded64ec5a5531240a4ec99450ba183" => :catalina
-    sha256 "ed0856ff9b2429852401e658f4045c9e39cd05fa77b5ea7a6a3c2e21b4d8c460" => :mojave
-    sha256 "630b86c544fda0a769815637e37b34e587a6d070b26d642b0d50401f609c744f" => :high_sierra
-    sha256 "15ccd9ba448e5de3468d6be07c41106ed77e45d65adbea74a524c042e8791b06" => :sierra
-    sha256 "1d57491d2065e57574f3d0ca205d9a303bc8eb99c6a1dd7d5f22f75f05978b85" => :x86_64_linux
+    sha256 "c4757635256d384f701271d00e5bfd868c4e5dd55b22c3577da74f15fd46f63e" => :catalina
+    sha256 "a71be5bd479b1b094f1afaca23e0ff36227427fe98a6229d6cb070efa2eab571" => :mojave
+    sha256 "cc78383e32b4c1c7da27d1ab08da9d779e6752ba9696f0b20069541ce69f70f9" => :high_sierra
   end
 
   depends_on "cmake" => :build

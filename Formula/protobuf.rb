@@ -1,21 +1,16 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.12.3",
-      :revision => "31ebe2ac71400344a5db91ffc13c4ddfb7589f92"
-  head "https://github.com/protocolbuffers/protobuf.git"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protobuf-all-3.12.3.tar.gz"
+  sha256 "1a83f0525e5c8096b7b812181865da3c8637de88f9777056cefbf51a1eb0b83f"
+  revision 1
 
   bottle do
-    sha256 "3ced83651f35574357814e547e6d83356464065a40a660be13b69154e6fd98be" => :catalina
-    sha256 "b418f7e29dfff62eca17debe37dff8574295e480dc8607ec9c8591690478cd14" => :mojave
-    sha256 "ffc0bc6e68a6c48774854de177443ca852c107fe4e6e470486fa9d497334c28f" => :high_sierra
-    sha256 "f7049702947f19f414cedfb04f68aa58016fec31515ee2711b03c889944fc03a" => :x86_64_linux
+    sha256 "73c3c25ebcdbec0d91e414ca8760e5a025d3506a416b9fc252384257a8aa180e" => :catalina
+    sha256 "bfee101eeff52eb1c8a12dd3ffc7e005bafa4297c92a142cb84e9ff7d21b5c83" => :mojave
+    sha256 "d1437b5112a4947f373a7160bae2403ae9a99b8b8c15b5b9dfcfca4ba395a687" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "python@3.8" => [:build, :test]
 
   resource "six" do
@@ -36,7 +31,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"

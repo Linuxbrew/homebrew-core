@@ -1,16 +1,15 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v0.10.1.tar.gz"
-  sha256 "5265f9594cca6c4c2f0d573c810f4ddb16e3baed0c18b18a353529506fc41297"
+  url "https://github.com/cli/cli/archive/v0.11.0.tar.gz"
+  sha256 "e2137491f269df179ded7066f641ae7879a40870be53170a0388310e904158b0"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "210cce26348d4b91860f6fd9cf2037d6f316474bd318ecf58bc2923037c9b456" => :catalina
-    sha256 "1b56352a37dc5e336a93602cd0db37c58b8a8dfdec3e56d5bce8f4ff435f4ad4" => :mojave
-    sha256 "fcaab84b4e5a4e08d045348b42bd431412a169d6d117ed7af76f483970b2ebc2" => :high_sierra
-    sha256 "5c9839ffe6003613b08e5a12e2143414584497a347d33ffba1f0a01a8b61f98e" => :x86_64_linux
+    sha256 "ee4b879f06935d40035318d4189d5c057e53c38c53e5d4e28ec6b458bd98ce22" => :catalina
+    sha256 "85cc073f44cbb43bd87e171fa505a770822e4655b5c92c2424d7aeac73fae727" => :mojave
+    sha256 "34074c761bd6200fd5d5a61e23434836e487febc0bee3336c93e8a1c4864715a" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -21,7 +20,7 @@ class Gh < Formula
       -X github.com/cli/cli/command.BuildDate=#{Date.today}
       -s -w
     ]
-    system "make", "bin/gh", "manpages", "LDFLAGS=#{ldflags.join(" ")}"
+    system "make", "bin/gh", "manpages", "GO_LDFLAGS=#{ldflags.join(" ")}"
     bin.install "bin/gh"
     man1.install Dir["share/man/man1/gh*.1"]
     (bash_completion/"gh").write `#{bin}/gh completion -s bash`
