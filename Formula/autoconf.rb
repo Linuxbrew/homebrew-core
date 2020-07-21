@@ -18,7 +18,6 @@ class Autoconf < Formula
     sha256 "daf70656aa9ff8b2fb612324222aa6b5e900e2705c9f555198bcd8cd798d7dd0" => :yosemite
     sha256 "d153b3318754731ff5e91b45b2518c75880993fa9d1f312a03696e2c1de0c9d5" => :mavericks
     sha256 "37e77a2e7ca6d479f0a471d5f5d828efff621bd051c1884ff1363d77c5c4675e" => :mountain_lion
-    sha256 "d8a7ca62ed0f84bbdb3c6206fc3d0b7b1222e28dcfffff2a0c7a91193204ccce" => :x86_64_linux
   end
 
   uses_from_macos "m4"
