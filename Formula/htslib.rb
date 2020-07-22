@@ -11,14 +11,14 @@ class Htslib < Formula
     sha256 "507db470fc6cb7d97b06f0efff270fe2063d25143bdc09623135c4876474b3c3" => :high_sierra
     sha256 "e23b394cd0384d8827932c8074a0d5d3a144c0204fd5fbe8a67303b429376821" => :x86_64_linux
   end
-  patch :DATA
-
 
   depends_on "xz"
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  patch :DATA
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
