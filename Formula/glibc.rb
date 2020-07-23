@@ -143,7 +143,7 @@ class Glibc < Formula
 
     # Compile locale definition files
     mkdir_p lib/"locale"
-    locales = ENV.map { |k, v| v if k[/^LANG$|^LC_/] && v != "C" }.compact
+    locales = ENV.map { |k, v| v if k[/^LANG$|^LC_/] && v != "C" && !v.start_with?("C.") }.compact
     # en_US.UTF-8 is required by gawk make check
     locales = (locales + ["en_US.UTF-8"]).sort.uniq
     ohai "Installing locale data for #{locales.join(" ")}"
