@@ -30,6 +30,8 @@ class OpenjdkAT11 < Formula
     depends_on "linuxbrew/xorg/libxtst"
   end
 
+  ignore_missing_libraries "libjvm.so"
+
   on_linux do
     depends_on "pkg-config" => :build
   end
@@ -71,14 +73,14 @@ class OpenjdkAT11 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    jdk = Dir["build/*/images/jdk-bundle/*"].first
-    libexec.install jdk => "openjdk.jdk"
-
     if OS.mac?
+      jdk = Dir["build/*/images/jdk-bundle/*"].first
+      libexec.install jdk => "openjdk.jdk"
       bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
     else
+      libexec.install Dir["build/linux-x86_64-normal-server-release/images/jdk/*"]
       bin.install_symlink Dir["#{libexec}/bin/*"]
       include.install_symlink Dir["#{libexec}/include/*.h"]
       include.install_symlink Dir["#{libexec}/include/linux/*.h"]
