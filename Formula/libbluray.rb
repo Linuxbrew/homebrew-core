@@ -25,7 +25,7 @@ class Libbluray < Formula
   if OS.mac?
     depends_on :java => ["1.8", :build]
   else
-    depends_on :java
+    depends_on "openjdk"
   end
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
@@ -43,7 +43,7 @@ class Libbluray < Formula
       # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
       ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
     else
-      ENV["JAVA_HOME"] = Formula["adoptopenjdk"].opt_prefix
+      ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     end
 
     # Work around Xcode 11 clang bug
