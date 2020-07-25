@@ -19,8 +19,10 @@ class Awscli < Formula
   depends_on "python@3.8"
 
   uses_from_macos "groff"
+  uses_from_macos "zlib"
 
   on_linux do
+    depends_on "pkg-config" => :build
     depends_on "libyaml"
   end
 
