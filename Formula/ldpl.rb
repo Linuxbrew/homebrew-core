@@ -12,7 +12,9 @@ class Ldpl < Formula
     sha256 "01f2a987ba4b74d1b50374c7a9a616703a2a8ad479aaad8b80ed8e936af91d80" => :high_sierra
   end
 
-  depends_on "man-db" unless OS.mac?
+  on_linux do
+    depends_on "man-db"
+  end
 
   def install
     cd "src" do
