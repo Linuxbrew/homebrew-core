@@ -8,7 +8,7 @@ jobs:
     container:
       image: homebrew/ubuntu16.04:master
     env:
-      HOMEBREW_PATCHELF_RB: 1
+      HOMEBREW_NO_PATCHELF_RB: 1
     steps:
         # Printing these details should always be the first step listed.
       - name: ${{github.event.client_payload.formula}}
