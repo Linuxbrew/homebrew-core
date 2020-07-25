@@ -69,7 +69,6 @@ class Mesa < Formula
 
     mkdir "build" do
       args = %w[
-        -Dbuildtype=plain
         -Db_ndebug=true
       ]
 
