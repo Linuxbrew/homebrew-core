@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Pandoc < Formula
-  include Language::Haskell::Cabal
-
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
   url "https://hackage.haskell.org/package/pandoc-2.10.1/pandoc-2.10.1.tar.gz"
@@ -10,9 +6,10 @@ class Pandoc < Formula
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "01d0e8db1abba83f3d15037b086366540f056e570f26a0d24c682fc050ee0792" => :catalina
-    sha256 "4f7a07818eca3a4efcbcc952ea23f50236f0354c821a145a7324aebee890eb01" => :mojave
-    sha256 "38286fccde0f3d8afa8aa59b8a6365837581c1e83074c13bb98ed66b14a6d79e" => :high_sierra
+    rebuild 1
+    sha256 "720d055d2bdafbe818f50e186e710f7a8178719b56cfafa1d1948af16df7d7ea" => :catalina
+    sha256 "7174b62811cd4d4116bcb5edcfb55793f733e39ad79d8e8914a8b5e2c71f2b78" => :mojave
+    sha256 "ef823fe9876a5a6c3fe25db6b8dbca7b372320f7e6f5c5b224a7696acf5c397b" => :high_sierra
   end
 
   depends_on "cabal-install" => :build

@@ -1,17 +1,16 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6d.tar.gz"
-  mirror "https://fossies.org/linux/misc/proftpd-1.3.6d.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6d.tar.gz"
-  sha256 "c338e2e25d1b6f51d397af154a0124fc42eee6b7ff99a2d976777d6b2f97c096"
+  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.7a.tar.gz"
+  mirror "https://fossies.org/linux/misc/proftpd-1.3.7a.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.7a.tar.gz"
+  sha256 "8b7bbf9757988935352d9dec5ebf96b6a1e6b63a6cdac2e93202ac6c42c4cd96"
   license "GPL-2.0"
 
   bottle do
-    sha256 "64921070d5fec1b23e70f1f94083278005c3075e60064e2bb6842837a5f47f70" => :catalina
-    sha256 "c1152fa9b77042914ba1c3d80cc365058d0c497ff817d5f3028e4b61ee7fd5aa" => :mojave
-    sha256 "1168e663193462a081b1f19cf9813ee007b80ed22187f2b81e3c8eaa84536d42" => :high_sierra
-    sha256 "97df072be1d39f7af8422b41ee6be5cfb3787fc72671ed87670960ce095c7181" => :x86_64_linux
+    sha256 "b30ef0c9ea4f2642cb98e863c51ef8b337605ca5d9a3df8d2d9995ac00c6e9be" => :catalina
+    sha256 "2f529091ef2c1e07ca1db9ec0a974f639530cca275e2f3ebbd910b42a3cb5f12" => :mojave
+    sha256 "af399e07592ed468d356963c8a2b27318476dd422499ba0148d1579e4d80cd69" => :high_sierra
   end
 
   def install

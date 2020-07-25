@@ -133,24 +133,24 @@ class Llvm < Formula
       clang-tools-extra
       lld
       lldb
-      openmp
       polly
     ]
+    # OpenMP currently fails to build on ARM
+    # https://github.com/Homebrew/brew/issues/7857#issuecomment-661484670
+    projects << "openmp" unless Hardware::CPU.arm?
     runtimes = %w[
       compiler-rt
       libunwind
     ]
     args << "libcxx" if OS.mac?
+    # Can likely be added to the base runtimes array when 11.0.0 is released.
+    runtimes << "libcxxabi" if build.head?
 
     llvmpath = buildpath/"llvm"
     unless build.head?
       llvmpath.install buildpath.children - [buildpath/".brew_home"]
       (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
     end
-
-    # Needed until https://reviews.llvm.org/D63883 lands again.
-    # Use system libcxxabi.
-    rm_r "libcxxabi" if build.head?
 
     py_ver = "3.8"
 

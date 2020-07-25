@@ -6,26 +6,25 @@ class ClangFormat < Formula
   version_scheme 1
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz"
-    sha256 "df83a44b3a9a71029049ec101fb0077ecbbdf5fe41e395215025779099a98fdf"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/llvm-10.0.1.src.tar.xz"
+    sha256 "c5d8e30b57cbded7128d78e5e8dad811bff97a8d471896812f57fa99ee82cdf3"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang-10.0.0.src.tar.xz"
-      sha256 "885b062b00e903df72631c5f98b9579ed1ed2790f74e5646b4234fa084eacb21"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/clang-10.0.1.src.tar.xz"
+      sha256 "f99afc382b88e622c689b6d96cadfa6241ef55dca90e87fc170352e12ddb2b24"
     end
 
     resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/libcxx-10.0.0.src.tar.xz"
-      sha256 "270f8a3f176f1981b0f6ab8aa556720988872ec2b48ed3b605d0ced8d09156c7"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.1/libcxx-10.0.1.src.tar.xz"
+      sha256 "def674535f22f83131353b3c382ccebfef4ba6a35c488bdb76f10b68b25be86c"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a2d877df6d298cba78b2ea3e543b5a874cf7af853538d9e1ae4b74b5f69bb65" => :catalina
-    sha256 "91e010b88d1779626bd693c6df0da1e10156887bc5bc2d3ed6500965ea66ec96" => :mojave
-    sha256 "dc9b3fe7f1b043286fb5554d26a70defabf0aa668b2861624451005c9593eca3" => :high_sierra
-    sha256 "0d8f5ada639dfdcd66d7dd6d8eca52b859d7d9a4fc09aad30759db6868dad94b" => :x86_64_linux
+    sha256 "65667bcca091df96d9f27b56a7726a41c9998ebbcd3b10bc2eb2d43aa871c216" => :catalina
+    sha256 "9b711f49db65634cb1dca8149804040f337ce3e68e66eeba7270c2aec66b90e0" => :mojave
+    sha256 "9bbc58f9d5afb228c2aeda8ea03d305d7912860f27941933d0824bee505752bd" => :high_sierra
   end
 
   head do

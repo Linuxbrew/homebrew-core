@@ -1,16 +1,14 @@
 class X8664ElfBinutils < Formula
   desc "GNU Binutils for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
-  sha256 "53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3"
-  revision 1
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.tar.gz"
+  sha256 "a3ac62bae4f339855b5449cfa9b49df90c635adbd67ecb8a0e7f3ae86a058da6"
 
   bottle do
-    sha256 "1d80291a30992f7d7cdbb8b057fa8dbf945425c89592b2b7ceeb02612269e3f0" => :catalina
-    sha256 "c09647bc99180ed5ee504e7282ba8cb453c85ed9473458d3a4ebcdfe84fd43f8" => :mojave
-    sha256 "68415da4e030aca55b4d077c134d23ca56820fd01b07c4eb9f67ed22decf1e41" => :high_sierra
-    sha256 "abf2f30364b4c4df6837a8f155fc3fc8e335654c4c70fba5b23587808a76f9b2" => :x86_64_linux
+    sha256 "4aa6103fb091ca890f96fc4bd32ede47ea00180190ce7af74c3ef6d2a33efd01" => :catalina
+    sha256 "3fbbd0397080012c98d274499dcaf3ca6c510f9d18adc9040d725ec82c7ab31c" => :mojave
+    sha256 "000600460decf639019762f1eafaf6c353b6974b2bca17a42786361014aff54e" => :high_sierra
   end
 
   uses_from_macos "texinfo"

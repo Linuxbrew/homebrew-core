@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Hadolint < Formula
-  include Language::Haskell::Cabal
-
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
   url "https://github.com/hadolint/hadolint/archive/v1.18.0.tar.gz"
@@ -11,10 +7,10 @@ class Hadolint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "63418b66810e1792249522adb0ec5a4b952e4bef34a5425525ca2d7eccbc69ee" => :catalina
-    sha256 "519d3abecbff0d2cc2aaead01027d18e3b061c45dd63de429c4baab0c677b1ed" => :mojave
-    sha256 "bc87517a3a30252c0477e4862146ac33604b355a8c900f566bfaa1f404a284ad" => :high_sierra
-    sha256 "a868185b4115999f81aa072623e67a81b8bd08dfc0b42ed4f5e12eeaa39a11e8" => :x86_64_linux
+    rebuild 1
+    sha256 "ae5b6cfc174f50b883fd7907774d5d43250a18a2774b3f80d806122ed8da9c5a" => :catalina
+    sha256 "ce882dfa51e5ca6025362a499ff280af2c676fad485ca5157ad4c9ceca8934e0" => :mojave
+    sha256 "9c8ea84c521ab94e4f78d73b67593738760cb437e6e050e0e6f81be62c944440" => :high_sierra
   end
 
   depends_on "haskell-stack" => :build

@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Futhark < Formula
-  include Language::Haskell::Cabal
-
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
   url "https://github.com/diku-dk/futhark/archive/v0.16.2.tar.gz"
@@ -12,9 +8,10 @@ class Futhark < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dfcb4213a0a1ad66190471a090492352de2a083b99535243b6113e680ec5abf4" => :catalina
-    sha256 "9773f89549451d4b281aa6304a84517d743fbcccf31d3177fb9e5cb5e0e0e274" => :mojave
-    sha256 "8fc9b0b1304422732c635a002fafd6f494591b23d888a13e04e4a8074b2034aa" => :high_sierra
+    rebuild 1
+    sha256 "1c504ad71048442e75a65f77eb468b3e1435ff338ba684d2a1d7901b9a87df9b" => :catalina
+    sha256 "9d31eb9c3146794fe12d6b7dfe906758f5d04f3d5fde852e2421e56e09ae9c38" => :mojave
+    sha256 "500a598d2ddac21cbc64063e25c320b23825d46006931bc3cce602424bf7b56e" => :high_sierra
   end
 
   depends_on "cabal-install" => :build

@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Hlint < Formula
-  include Language::Haskell::Cabal
-
   desc "Haskell source code suggestions"
   homepage "https://github.com/ndmitchell/hlint"
   url "https://hackage.haskell.org/package/hlint-3.1.6/hlint-3.1.6.tar.gz"
@@ -11,10 +7,10 @@ class Hlint < Formula
   head "https://github.com/ndmitchell/hlint.git"
 
   bottle do
-    sha256 "a385bc86bdad4e1e59180e844b1f6371577ca05e17039094988d2c404ba9b769" => :catalina
-    sha256 "3e395a8ccaded15d81e5e970b4347a2484669e9cdd5ab27373f224297af090aa" => :mojave
-    sha256 "cba025cfb5157f42fec2fdb4e3ef6fb798f44e9daca5e1a860a722931a5c5f6b" => :high_sierra
-    sha256 "981a226def5994936407d59ebde3fd92a27d31c09191c5943ad220df88786940" => :x86_64_linux
+    rebuild 1
+    sha256 "f276a6a6880e8bd6496f6390c337b9175acfcc16a1c4cee56655fa25858e5d20" => :catalina
+    sha256 "3c6ce1c19c2d13593ce62fe077678c5901a4456eb1d0f3521f6d55df15f48fb4" => :mojave
+    sha256 "0bbdd97f8227feb367c81857012d5df4b0eabb895dea7585b029bf99c05e5756" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
