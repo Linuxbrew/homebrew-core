@@ -42,6 +42,13 @@ class Widelands < Formula
   end
 
   test do
+    # Unable to start Widelands, because we were unable to add the home directory:
+    # RealFSImpl::make_directory: No such file or directory: /tmp/widelands-test/.local/share/widelands
+    if OS.linux?
+      mkdir_p ".local/share/widelands"
+      mkdir_p ".config/widelands"
+    end
+
     system bin/"widelands", "--version"
   end
 end
