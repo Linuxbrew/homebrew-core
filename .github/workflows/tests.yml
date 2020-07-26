@@ -75,7 +75,7 @@ jobs:
     container:
       image: homebrew/ubuntu16.04:master
     env:
-      HOMEBREW_NO_PATCHELF_RB: 1
+      HOMEBREW_PATCHELF_RB: 1
     steps:
       - name: Update Homebrew
         run: brew update-reset
