@@ -7,9 +7,10 @@ class Pacvim < Formula
   head "https://github.com/jmoon018/PacVim.git"
 
   # Use ncurses.h instead of cursesw.h which is not installed by brew
+  # https://github.com/jmoon018/PacVim/pull/31
   unless OS.mac?
     patch do
-      url "https://github.com/jmoon018/PacVim/pull/31.patch?full_index=1"
+      url "https://github.com/jmoon018/PacVim/commit/2f95ef4d312d760b8a3aae463e959646b27e774a.patch?full_index=1"
       sha256 "e5b753de87937c0853a1adbab31eb1ec938add4ceb0df26eafef5b4f613bc3e6"
     end
   end
