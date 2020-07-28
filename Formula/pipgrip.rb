@@ -5,6 +5,7 @@ class Pipgrip < Formula
   homepage "https://github.com/ddelange/pipgrip"
   url "https://files.pythonhosted.org/packages/3f/d4/8abe6a21a78ed5ac2bcbb0afa52085912c74a0b5c635340875f8eca99159/pipgrip-0.5.1.tar.gz"
   sha256 "78a97a5552e4a513f566c8118d8e1e1a52630603d4c93d9ded85536c8072d0b0"
+  revision 1 unless OS.mac?
   license "BSD-3-Clause"
 
   bottle do
@@ -12,7 +13,6 @@ class Pipgrip < Formula
     sha256 "1d8ecc0e925f2262c99654110658b3e406f4587001c050f7f41ddcd485a8d57f" => :catalina
     sha256 "70feb6d401e6dbc1c35b47e5bcf7a43cc5c14b8254b7b0e4fc545808e7976600" => :mojave
     sha256 "835b91fd72ee87d4949cb3a1690fea974edca4b44d8a39d4605b406b0752a6ce" => :high_sierra
-    sha256 "a890b0560f6e6db12f049ff77b12a9e1f622fbbf4061fbd4805b43a3333f633e" => :x86_64_linux
   end
 
   depends_on "python@3.8"
