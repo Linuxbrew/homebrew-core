@@ -17,10 +17,6 @@ class Doxygen < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  unless OS.mac?
-    depends_on "bison"
-    depends_on "flex"
-  end
 
   uses_from_macos "flex" => :build
 
