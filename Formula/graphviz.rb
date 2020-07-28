@@ -27,8 +27,10 @@ class Graphviz < Formula
   depends_on "libtool"
   depends_on "pango"
   depends_on "byacc" => :build unless OS.mac?
+  depends_on "ghostscript" => :build unless OS.mac? # for ps2pdf
 
   uses_from_macos "flex" => :build
+  uses_from_macos "groff" => :build
 
   on_linux do
     depends_on "byacc" => :build
