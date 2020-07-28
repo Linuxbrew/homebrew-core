@@ -5,6 +5,7 @@ class GitGui < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.28.0.tar.xz"
   sha256 "dfa5d1a253aa451465478fe45c6a40ab8605b340fdb4c4e80b16d7f87708439d"
   license "GPL-2.0"
+  revision 1 unless OS.mac?
   head "https://github.com/git/git.git", shallow: false
 
   bottle do
@@ -12,7 +13,6 @@ class GitGui < Formula
     sha256 "8cb98030e7d73a57d5584d67e7dabcf349ab188ad754bee2f04671ce5dc1ca5d" => :catalina
     sha256 "904291f8245394daad2a2bd875d377939d45503237db2ddc0edbf81c2a63d039" => :mojave
     sha256 "904291f8245394daad2a2bd875d377939d45503237db2ddc0edbf81c2a63d039" => :high_sierra
-    sha256 "023dcf914d69c05f73d6b5a7ece848ebe387319391666b5a16a460f406e32486" => :x86_64_linux
   end
 
   depends_on "tcl-tk"
