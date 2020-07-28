@@ -5,14 +5,13 @@ class LlvmAT9 < Formula
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     cellar :any
     sha256 "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01" => :catalina
     sha256 "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8" => :mojave
     sha256 "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825" => :high_sierra
-    sha256 "343bb51cbc2d856230edc72d1126e9f7e52a7071a88bd0728365eff85a9da003" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
