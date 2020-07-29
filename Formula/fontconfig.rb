@@ -33,12 +33,6 @@ class Fontconfig < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  unless OS.mac?
-    depends_on "gperf" => :build
-    depends_on "gettext" => :build
-    depends_on "json-c" => :build
-    depends_on "util-linux" # for libuuid
-  end
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
