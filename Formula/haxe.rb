@@ -20,10 +20,6 @@ class Haxe < Formula
   depends_on "mbedtls"
   depends_on "neko"
   depends_on "pcre"
-  unless OS.mac?
-    depends_on "m4"
-    depends_on "unzip"
-  end
 
   uses_from_macos "m4" => :build
   uses_from_macos "unzip" => :build
