@@ -139,7 +139,7 @@ class Glibc < Formula
 
     # Symlink ligcc_s.so.1 where glibc can find it.
     # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
-    ln_sf Formula["gcc"].opt_lib/"libgcc_s.so.1", lib if Formula["gcc"].installed?
+    ln_sf Formula["gcc"].opt_lib/"libgcc_s.so.1", lib if Formula["gcc"].latest_version_installed?
 
     # Compile locale definition files
     mkdir_p lib/"locale"
