@@ -18,7 +18,6 @@ class Filebeat < Formula
 
   depends_on "go" => :build
   depends_on "python@3.8" => :build
-  depends_on "rsync" => :build unless OS.mac?
 
   uses_from_macos "rsync" => :build
 
