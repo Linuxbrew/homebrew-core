@@ -19,7 +19,6 @@ class Goad < Formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
-  depends_on "zip" => :build unless OS.mac?
 
   uses_from_macos "zip" => :build
 
