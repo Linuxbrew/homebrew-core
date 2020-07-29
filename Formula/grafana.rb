@@ -16,11 +16,6 @@ class Grafana < Formula
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-  unless OS.mac?
-    depends_on "fontconfig"
-    depends_on "freetype"
-    depends_on "zlib"
-  end
 
   uses_from_macos "zlib"
 
