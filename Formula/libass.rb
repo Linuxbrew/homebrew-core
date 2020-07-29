@@ -29,7 +29,6 @@ class Libass < Formula
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "harfbuzz"
-  depends_on "fontconfig" unless OS.mac?
 
   on_linux do
     depends_on "fontconfig"
