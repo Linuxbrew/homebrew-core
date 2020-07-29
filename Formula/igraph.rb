@@ -15,7 +15,6 @@ class Igraph < Formula
 
   depends_on "glpk"
   depends_on "gmp"
-  depends_on "openblas" unless OS.mac?
 
   uses_from_macos "libxml2"
 
