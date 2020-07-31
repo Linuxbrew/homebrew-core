@@ -1,5 +1,39 @@
 require "os/linux/glibc"
 
+class GlibcRequirement < Requirement
+  def message
+    tool = self.class::TOOL
+    version = self.class::VERSION
+    <<~EOS
+      #{[tool, version].join(" ").strip} is required to build glibc.
+      Install #{tool} with your host package manager if you have sudo access:
+        sudo apt-get install #{tool}
+        sudo yum install #{tool}
+    EOS
+  end
+end
+
+class GawkRequirement < GlibcRequirement
+  fatal true
+  satisfy(build_env: false) { which(TOOL).present? }
+  TOOL = "gawk".freeze
+  VERSION = "3.1.2 (or later)".freeze
+end
+
+class MakeRequirement < GlibcRequirement
+  fatal true
+  satisfy(build_env: false) { which(TOOL).present? }
+  TOOL = "make".freeze
+  VERSION = "3.79 (or later)".freeze
+end
+
+class SedRequirement < GlibcRequirement
+  fatal true
+  satisfy(build_env: false) { which(TOOL).present? }
+  TOOL = "sed".freeze
+  VERSION = "".freeze
+end
+
 class BrewedGlibcNotOlderRequirement < Requirement
   fatal true
 
@@ -11,28 +45,6 @@ class BrewedGlibcNotOlderRequirement < Requirement
     <<~EOS
       Your system's glibc version is #{OS::Linux::Glibc.system_version}, and Homebrew's glibc version is #{Glibc.version}.
       Installing a version of glibc that is older than your system's can break formulae installed from source.
-    EOS
-  end
-end
-
-class GawkRequirement < Requirement
-  fatal true
-
-  satisfy(build_env: false) do
-    # Returning which("gawk") causes a cyclic dependency.
-    which("gawk").present?
-  end
-
-  def message
-    self.class.message_template(tool: "gawk", nice_name: "GNU Awk", min_version: "3.1.2")
-  end
-
-  def self.message_template(tool: "", nice_name: "", min_version: "")
-    <<~EOS
-      #{nice_name} #{min_version.present? ? min_version + " or later " : ""}is required to build glibc.
-      Install #{tool} with your host package manager if you have sudo access.
-        sudo apt-get install #{tool}
-        sudo yum install #{tool}
     EOS
   end
 end
@@ -55,30 +67,6 @@ class LinuxKernelRequirement < Requirement
       Linux kernel version #{MINIMUM_LINUX_KERNEL_VERSION} or later is required by glibc.
       Your system has Linux kernel version #{linux_kernel_version}.
     EOS
-  end
-end
-
-class MakeRequirement < Requirement
-  fatal true
-
-  satisfy(build_env: false) do
-    which("make").present?
-  end
-
-  def message
-    GawkRequirement.message_template(tool: "make", nice_name: "GNU Make", min_version: "3.79")
-  end
-end
-
-class SedRequirement < Requirement
-  fatal true
-
-  satisfy(build_env: false) do
-    which("sed").present?
-  end
-
-  def message
-    GawkRequirement.message_template(tool: "sed", nice_name: "Sed")
   end
 end
 
