@@ -57,6 +57,12 @@ class PostgresqlAT94 < Formula
 
     system "./configure", *args
     system "make", "install-world"
+
+    unless OS.mac?
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
+    end
   end
 
   def post_install
