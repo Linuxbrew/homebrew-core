@@ -28,9 +28,12 @@ class Vapoursynth < Formula
     system "./autogen.sh"
     inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
     system "./configure", "--prefix=#{prefix}",
+                          "--disable-silent-rules",
+                          "--disable-dependency-tracking",
                           "--with-cython=#{Formula["cython"].bin}/cython",
                           "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth"
-    system "make", 'LIBS="$(python3-config --ldflags --embed)"'
+    pyflags = `python3-config --ldflags --embed`.chomp
+    system "make", "LIBS=#{pyflags}"
     system "make", "install"
     %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
       rm prefix/"vapoursynth/lib#{filter}.la"
