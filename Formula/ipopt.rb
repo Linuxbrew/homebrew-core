@@ -48,7 +48,7 @@ class Ipopt < Formula
       inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
 
       # Fix for GCC 10
-      inreplace "Makefile.inc", "OPTF    = -fPIC", "OPTF    = -fPIC -fallow-argument-mismatch"
+      inreplace "Makefile.inc", "OPTF    = -fPIC", "OPTF    = -fPIC -fallow-argument-mismatch" if OS.mac?
 
       ENV.deparallelize { system "make", "d" }
 
