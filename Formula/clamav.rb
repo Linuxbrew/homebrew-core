@@ -23,7 +23,6 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "libiconv"
   depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "pcre2"
@@ -33,6 +32,10 @@ class Clamav < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libiconv"
+  end
 
   skip_clean "share/clamav"
 
