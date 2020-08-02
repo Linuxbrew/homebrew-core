@@ -21,6 +21,7 @@ class Cryptol < Formula
   depends_on "z3"
 
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     install_cabal_package using: ["alex", "happy"]
