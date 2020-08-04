@@ -3,7 +3,6 @@ class Fmdiff < Formula
   homepage "https://www.defraine.net/~brunod/fmdiff/"
   url "https://github.com/brunodefraine/fmscripts/archive/20150915.tar.gz"
   sha256 "45ead0c972aa8ff5b3f9cf1bcefbc069931fd8218b2e28ff76958437a3fabf96"
-  license "Unlicense"
   head "https://github.com/brunodefraine/fmscripts.git"
 
   bottle do
@@ -17,10 +16,6 @@ class Fmdiff < Formula
     sha256 "59d9c9d8a8759531a2f715619cfb2bce404fc7378235cf416ea5a426eb8d967f" => :yosemite
   end
 
-  # Does not have a valid open-source license
-  disable!
-
-  depends_on :macos
   # Needs FileMerge.app, which is part of Xcode.
   depends_on :xcode
 

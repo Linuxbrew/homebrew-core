@@ -13,9 +13,6 @@ class Duti < Formula
     sha256 "e495d02894655b516f79fa10671f5d768cae04c5b73c1aa077f8b0c573584cbf" => :high_sierra
   end
 
-  # Does not have a valid open-source license
-  disable!
-
   depends_on "autoconf" => :build
   depends_on :macos
 
