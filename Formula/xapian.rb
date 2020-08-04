@@ -15,10 +15,6 @@ class Xapian < Formula
 
   depends_on "sphinx-doc" => :build
   depends_on "python@3.8"
-  unless OS.mac?
-    depends_on "util-linux" # for libuuid
-    depends_on "zlib"
-  end
 
   uses_from_macos "zlib"
 
