@@ -15,11 +15,6 @@ class Teleport < Formula
   end
 
   depends_on "go" => :build
-  unless OS.mac?
-    depends_on "zip"
-    depends_on "curl" => :test
-    depends_on "netcat" => :test
-  end
 
   uses_from_macos "curl" => :test
   uses_from_macos "zip"
