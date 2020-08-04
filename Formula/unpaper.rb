@@ -21,10 +21,6 @@ class Unpaper < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
-  unless OS.mac?
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
 
   uses_from_macos "libxslt"
 
