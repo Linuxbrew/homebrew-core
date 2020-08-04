@@ -13,11 +13,6 @@ class Tippecanoe < Formula
     sha256 "fa3e3b3dd39fb914d1059bb1ad8338275e08f84be675a78a33ad1d1cf9c8382d" => :x86_64_linux
   end
 
-  unless OS.mac?
-    depends_on "sqlite"
-    depends_on "zlib"
-  end
-
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
