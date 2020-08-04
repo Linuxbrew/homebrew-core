@@ -21,11 +21,6 @@ class Ykman < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
   depends_on "ykpers"
-  unless OS.mac?
-    depends_on "pkg-config" => :build
-    depends_on "libffi"
-    depends_on "pcsc-lite"
-  end
 
   uses_from_macos "libffi"
 
