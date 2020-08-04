@@ -14,8 +14,6 @@ class Vifm < Formula
   uses_from_macos "groff" => :build
   uses_from_macos "ncurses"
 
-  depends_on "groff" => :build unless OS.mac?
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
