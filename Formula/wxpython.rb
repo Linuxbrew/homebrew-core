@@ -21,11 +21,6 @@ class Wxpython < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "python@3.8"
-  unless OS.mac?
-    depends_on "pkg-config" => :build
-    depends_on "gtk+3"
-    depends_on "zlib"
-  end
 
   uses_from_macos "zlib"
 
