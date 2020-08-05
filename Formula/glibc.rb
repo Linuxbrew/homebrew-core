@@ -5,7 +5,7 @@ class GlibcRequirement < Requirement
     tool = self.class::TOOL
     version = self.class::VERSION
     <<~EOS
-      #{[tool, version].join(" ").strip} is required to build glibc.
+      #{[tool, version].compact.join(" ")} is required to build glibc.
       Install #{tool} with your host package manager if you have sudo access:
         sudo apt-get install #{tool}
         sudo yum install #{tool}
@@ -31,7 +31,7 @@ class SedRequirement < GlibcRequirement
   fatal true
   satisfy(build_env: false) { which(TOOL).present? }
   TOOL = "sed".freeze
-  VERSION = "".freeze
+  VERSION = nil
 end
 
 class BrewedGlibcNotOlderRequirement < Requirement
