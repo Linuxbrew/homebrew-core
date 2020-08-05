@@ -1,39 +1,5 @@
 require "os/linux/glibc"
 
-class GlibcRequirement < Requirement
-  def message
-    tool = self.class::TOOL
-    version = self.class::VERSION
-    <<~EOS
-      #{[tool, version].compact.join(" ")} is required to build glibc.
-      Install #{tool} with your host package manager if you have sudo access:
-        sudo apt-get install #{tool}
-        sudo yum install #{tool}
-    EOS
-  end
-end
-
-class GawkRequirement < GlibcRequirement
-  fatal true
-  satisfy(build_env: false) { which(TOOL).present? }
-  TOOL = "gawk".freeze
-  VERSION = "3.1.2 (or later)".freeze
-end
-
-class MakeRequirement < GlibcRequirement
-  fatal true
-  satisfy(build_env: false) { which(TOOL).present? }
-  TOOL = "make".freeze
-  VERSION = "3.79 (or later)".freeze
-end
-
-class SedRequirement < GlibcRequirement
-  fatal true
-  satisfy(build_env: false) { which(TOOL).present? }
-  TOOL = "sed".freeze
-  VERSION = nil
-end
-
 class BrewedGlibcNotOlderRequirement < Requirement
   fatal true
 
@@ -47,6 +13,40 @@ class BrewedGlibcNotOlderRequirement < Requirement
       Installing a version of glibc that is older than your system's can break formulae installed from source.
     EOS
   end
+end
+
+class GlibcBaseRequirement < Requirement
+  def message
+    tool = self.class::TOOL
+    version = self.class::VERSION
+    <<~EOS
+      #{[tool, version].compact.join(" ")} is required to build glibc.
+      Install #{tool} with your host package manager if you have sudo access:
+        sudo apt-get install #{tool}
+        sudo yum install #{tool}
+    EOS
+  end
+end
+
+class GawkRequirement < GlibcBaseRequirement
+  fatal true
+  satisfy(build_env: false) { which(TOOL).present? }
+  TOOL = "gawk".freeze
+  VERSION = "3.1.2 (or later)".freeze
+end
+
+class MakeRequirement < GlibcBaseRequirement
+  fatal true
+  satisfy(build_env: false) { which(TOOL).present? }
+  TOOL = "make".freeze
+  VERSION = "3.79 (or later)".freeze
+end
+
+class SedRequirement < GlibcBaseRequirement
+  fatal true
+  satisfy(build_env: false) { which(TOOL).present? }
+  TOOL = "sed".freeze
+  VERSION = nil
 end
 
 class LinuxKernelRequirement < Requirement
