@@ -16,9 +16,6 @@ class Serf < Formula
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
-  depends_on "gox" => :build
-  depends_on "zip" => :build unless OS.mac?
 
   uses_from_macos "zip" => :build
 
