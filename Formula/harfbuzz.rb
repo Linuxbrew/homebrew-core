@@ -35,6 +35,10 @@ class Harfbuzz < Formula
     sha256 "4d60b681918c2b911da9a84e37386ed1fa48794d5c943ff9a7bd50eb3a255969"
   end
 
+  # Silence a warning that prevents building on Linux
+  # https://github.com/harfbuzz/harfbuzz/issues/2555
+  patch :DATA
+
   def install
     args = %w[
       --default-library=both
@@ -62,3 +66,29 @@ class Harfbuzz < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/hb-gobject-enums.cc.tmpl b/src/hb-gobject-enums.cc.tmpl
+index 2ffd1c9d..26954ed2 100644
+--- a/src/hb-gobject-enums.cc.tmpl
++++ b/src/hb-gobject-enums.cc.tmpl
+@@ -30,6 +30,7 @@
+ #ifdef HAVE_GOBJECT
+
+ /* g++ didn't like older gtype.h gcc-only code path. */
++#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+ #include <glib.h>
+ #if !GLIB_CHECK_VERSION(2,29,16)
+ #undef __GNUC__
+diff --git a/src/hb-gobject-structs.cc b/src/hb-gobject-structs.cc
+index 7c46e264..a64913a9 100644
+--- a/src/hb-gobject-structs.cc
++++ b/src/hb-gobject-structs.cc
+@@ -50,6 +50,7 @@
+
+
+ /* g++ didn't like older gtype.h gcc-only code path. */
++#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+ #include <glib.h>
+ #if !GLIB_CHECK_VERSION(2,29,16)
+ #undef __GNUC__
