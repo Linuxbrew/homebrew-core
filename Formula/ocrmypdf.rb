@@ -32,6 +32,11 @@ class Ocrmypdf < Formula
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    depends_on "gcc@6" => :build
+  end
+
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
     sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
