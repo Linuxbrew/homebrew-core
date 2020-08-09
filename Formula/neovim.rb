@@ -69,10 +69,17 @@ class Neovim < Formula
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
     lua_path = "--lua-dir=#{Formula["luajit"].opt_prefix}"
 
-    cmake_compiler_args = %w[
-      -DCMAKE_C_COMPILER=/usr/bin/clang
-      -DCMAKE_CXX_COMPILER=/usr/bin/clang++
-    ]
+    cmake_compiler_args = if OS.mac?
+      %w[
+        -DCMAKE_C_COMPILER=/usr/bin/clang
+        -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+      ]
+    else
+      %w[
+        -DCMAKE_C_COMPILER=/usr/bin/gcc
+        -DCMAKE_CXX_COMPILER=/usr/bin/g++
+      ]
+    end
 
     cd "deps-build" do
       %w[
