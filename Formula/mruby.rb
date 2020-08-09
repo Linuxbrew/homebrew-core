@@ -5,7 +5,6 @@ class Mruby < Formula
   sha256 "4dc0017e36d15e81dc85953afb2a643ba2571574748db0d8ede002cefbba053b"
   license "MIT"
   head "https://github.com/mruby/mruby.git"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
