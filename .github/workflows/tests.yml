@@ -12,68 +12,23 @@ jobs:
     if: github.repository == 'Homebrew/linuxbrew-core'
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        run: |
-          if which brew &>/dev/null; then
-            HOMEBREW_PREFIX="$(brew --prefix)"
-            HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
-            brew update-reset "$HOMEBREW_REPOSITORY"
-            HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-            git -C "$HOMEBREW_CORE_REPOSITORY" remote set-url origin "https://github.com/$GITHUB_REPOSITORY"
-          else
-            HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
-            HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
-            sudo mkdir -p "$HOMEBREW_PREFIX"
-            sudo git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY"
-            HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-            sudo mkdir -p "$HOMEBREW_CORE_REPOSITORY"
-            git -C "$HOMEBREW_CORE_REPOSITORY" init
-            git -C "$HOMEBREW_CORE_REPOSITORY" remote add origin "https://github.com/$GITHUB_REPOSITORY"
-            cd "$HOMEBREW_PREFIX"
-            sudo mkdir -p bin etc include lib opt sbin share var/homebrew/linked Cellar
-            sudo ln -sf ../Homebrew/bin/brew "$HOMEBREW_PREFIX/bin/"
-            cd -
-          fi
-          export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-          echo "::add-path::$HOMEBREW_PREFIX/bin"
-          GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/ruby/"
-          echo "::set-output name=gems-path::$GEMS_PATH"
-          GEMS_HASH=$(shasum -a 256 "$HOMEBREW_REPOSITORY/Library/Homebrew/Gemfile.lock" | cut -f1 -d' ')
-          echo "::set-output name=gems-hash::$GEMS_HASH"
-          cd "$HOMEBREW_CORE_REPOSITORY"
-          rm -rf "$GITHUB_WORKSPACE"
-          ln -s "$HOMEBREW_CORE_REPOSITORY" "$GITHUB_WORKSPACE"
-          git fetch origin "${{github.sha}}"
-          git checkout --force -B master FETCH_HEAD
-          cd -
-          if [ "$RUNNER_OS" = "macOS" ]; then
-            # don't care about `brew audit` here.
-            brew untap mongodb/brew
-          else
-            sudo chown -R "$USER" "$HOMEBREW_PREFIX"
-            sudo chmod -R g-w,o-w "$HOMEBREW_CORE_REPOSITORY"
-          fi
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Cache Bundler RubyGems
-        id: cache
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ runner.os }}-rubygems-
+    - name: Cache Bundler RubyGems
+      id: cache
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+        key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+        restore-keys: ${{ runner.os }}-rubygems-
 
-      - name: Install Bundler RubyGems
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: brew install-bundler-gems
+    - name: Install Bundler RubyGems
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: brew install-bundler-gems
 
-      - name: Install taps
-        run: |
-          export HOMEBREW_NO_AUTO_UPDATE=1
-          brew tap homebrew/test-bot
-
-      - name: Run brew test-bot --only-tap-syntax
-        run: brew test-bot --only-tap-syntax
+    - run: brew test-bot --only-tap-syntax
 
   tests:
     needs: tap_syntax
@@ -94,9 +49,8 @@ jobs:
 
       - name: Run brew test-bot --only-formulae
         run: |
-          rm -rf ~/bottles
-          mkdir ~/bottles
-          cd ~/bottles
+          mkdir bottles
+          cd bottles
           brew test-bot --only-formulae --keep-old
 
       - name: Output brew test-bot --only-formulae failures
@@ -122,14 +76,10 @@ jobs:
         id: bottles
         if: always()
         run: |
-          cd ~/bottles
+          cd bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
           echo "::set-output name=count::$count"
-
-      - name: Move bottles
-        if: always() && steps.bottles.outputs.count > 0
-        run: mv ~/bottles $GITHUB_WORKSPACE
 
       - name: Upload bottles
         if: always() && steps.bottles.outputs.count > 0
