@@ -18,6 +18,8 @@ class Pyinstaller < Formula
 
   depends_on "python@3.8"
 
+  uses_from_macos "zlib"
+
   resource "altgraph" do
     url "https://files.pythonhosted.org/packages/22/5a/ac50b52581bbf0d8f6fd50ad77d20faac19a2263b43c60e7f3af8d1ec880/altgraph-0.17.tar.gz"
     sha256 "1f05a47122542f97028caf78775a095fbe6a2699b5089de8477eb583167d69aa"
