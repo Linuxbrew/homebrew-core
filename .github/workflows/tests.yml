@@ -1,8 +1,13 @@
 name: GitHub Actions CI
 on:
   push:
-    branches: master
-  pull_request: []
+    paths:
+      - "Formula/patchelf.rb"
+      - "Formula/binutils.rb"
+  pull_request:
+    paths:
+      - "Formula/patchelf.rb"
+      - "Formula/binutils.rb"
 env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
