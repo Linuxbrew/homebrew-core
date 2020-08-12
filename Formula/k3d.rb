@@ -4,7 +4,6 @@ class K3d < Formula
   url "https://github.com/rancher/k3d/archive/v3.0.0.tar.gz"
   sha256 "939fae09600ae7edb5e92ecab5c25ac2adec5be432c8a7ee34a14e01a0245b11"
   license "MIT"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
