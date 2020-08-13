@@ -70,18 +70,6 @@ class Neovim < Formula
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
     lua_path = "--lua-dir=#{Formula["luajit"].opt_prefix}"
 
-    cmake_compiler_args = if OS.mac?
-      %w[
-        -DCMAKE_C_COMPILER=/usr/bin/clang
-        -DCMAKE_CXX_COMPILER=/usr/bin/clang++
-      ]
-    else
-      %w[
-        -DCMAKE_C_COMPILER=/usr/bin/gcc
-        -DCMAKE_CXX_COMPILER=/usr/bin/g++
-      ]
-    end
-
     cd "deps-build" do
       %w[
         mpack/mpack-1.0.8-0.rockspec
@@ -100,7 +88,6 @@ class Neovim < Formula
 
       cd "build/src/luv" do
         cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-        cmake_args += cmake_compiler_args
         cmake_args += %W[
           -DCMAKE_INSTALL_PREFIX=#{buildpath}/deps-build
           -DLUA_BUILD_TYPE=System
@@ -116,7 +103,6 @@ class Neovim < Formula
 
     mkdir "build" do
       cmake_args = std_cmake_args
-      cmake_args += cmake_compiler_args
       cmake_args += %W[
         -DLIBLUV_INCLUDE_DIR=#{buildpath}/deps-build/include
         -DLIBLUV_LIBRARY=#{buildpath}/deps-build/lib/libluv.a
