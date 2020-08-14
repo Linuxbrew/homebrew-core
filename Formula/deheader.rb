@@ -1,4 +1,6 @@
 class Deheader < Formula
+  include Language::Python::Shebang
+
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader"
   url "http://www.catb.org/~esr/deheader/deheader-1.7.tar.gz"
@@ -14,6 +16,7 @@ class Deheader < Formula
   end
 
   depends_on "xmlto" => :build
+  depends_on "python@3.8"
 
   on_linux do
     depends_on "libarchive" => :build
@@ -25,6 +28,8 @@ class Deheader < Formula
     system "make"
     bin.install "deheader"
     man1.install "deheader.1"
+
+    rewrite_shebang detected_python_shebang, bin/"deheader"
   end
 
   test do
