@@ -76,10 +76,7 @@ class Neovim < Formula
         -DCMAKE_CXX_COMPILER=/usr/bin/clang++
       ]
     else
-      %w[
-        -DCMAKE_C_COMPILER=/usr/bin/gcc
-        -DCMAKE_CXX_COMPILER=/usr/bin/g++
-      ]
+      []
     end
 
     cd "deps-build" do
