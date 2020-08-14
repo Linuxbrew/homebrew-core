@@ -16,6 +16,10 @@ class Gifski < Formula
   depends_on "rust" => :build
   depends_on "ffmpeg"
 
+  on_linux do
+    depends_on "llvm" => :build
+  end
+
   def install
     system "cargo", "install", "--features=video", *std_cargo_args
   end
