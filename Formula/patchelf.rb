@@ -4,6 +4,7 @@ class Patchelf < Formula
   url "https://nixos.org/releases/patchelf/patchelf-0.11/patchelf-0.11.tar.gz"
   sha256 "e52378cc2f9379c6e84a04ac100a3589145533a7b0cd26ef23c79dfd8a9038f9"
   license "GPL-3.0"
+  head "https://github.com/NixOS/patchelf.git"
 
   bottle do
     cellar :any_skip_relocation
