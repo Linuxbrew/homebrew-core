@@ -168,6 +168,7 @@ class Glibc < Formula
     locales.each do |locale|
       lang, charmap = locale.split(".", 2)
       if charmap.present?
+        charmap = "UTF-8" if charmap == "utf8"
         system bin/"localedef", "-i", lang, "-f", charmap, locale
       else
         system bin/"localedef", "-i", lang, locale
