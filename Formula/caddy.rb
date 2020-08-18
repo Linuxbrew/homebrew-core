@@ -76,9 +76,10 @@ class Caddy < Formula
     fork do
       exec bin/"caddy", "run", "--config", testpath/"Caddyfile"
     end
-    sleep 2
 
     return unless OS.mac?
+
+    sleep 2
 
     assert_match "\":#{port2}\"",
       shell_output("curl -s http://127.0.0.1:#{port1}/config/apps/http/servers/srv0/listen/0")
