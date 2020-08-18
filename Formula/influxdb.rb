@@ -1,47 +1,32 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb.git",
-      tag:      "v1.8.1",
-      revision: "af0237819ab9c5997c1c0144862dc762b9d8fc25"
+  url "https://github.com/influxdata/influxdb/archive/v1.8.2.tar.gz"
+  sha256 "59ee1d3bc591d932acad918f3a46b07207beed9c0e717ee28da8c9565e646eda"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d50e7041e46022550eba06f94b7e74cbe4e3588b949fdd2c6f5176031fa48ad5" => :catalina
-    sha256 "587e60b562d2c0a259819b6f1e6a34a6f81a8f309dede1342c76c974b7d68437" => :mojave
-    sha256 "dde76db5fcdf733eb7ad2359b49d6db631e2d8d543d688f676e781d0478ca7f2" => :high_sierra
-    sha256 "b8fc8c36e865f34a1c5f51b1835f17c3e8d802d510d20f7e6313520be84f5775" => :x86_64_linux
+    sha256 "85487c01ca5b011374652ddb0dd4396d7f60cbc0227c8acef71caefea59d49d0" => :catalina
+    sha256 "84de2bb9137efe42a18464023160dbc620053aa43bfb7dc03aa5234a7d337bd3" => :mojave
+    sha256 "791fb60441f7ff352f0e4e929d02b7d472af56b200630ff90d42c195865fec5a" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    influxdb_path = buildpath/"src/github.com/influxdata/influxdb"
-    influxdb_path.install Dir["*"]
-    revision = `git rev-parse HEAD`.strip
-    version = `git describe --tags`.strip
+    ENV["GOBIN"] = buildpath
 
-    cd influxdb_path do
-      system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master-1.x",
-             "./..."
-    end
+    system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
+    bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
 
-    inreplace influxdb_path/"etc/config.sample.toml" do |s|
+    etc.install "etc/config.sample.toml" => "influxdb.conf"
+    inreplace etc/"influxdb.conf" do |s|
       s.gsub! "/var/lib/influxdb/data", "#{var}/influxdb/data"
       s.gsub! "/var/lib/influxdb/meta", "#{var}/influxdb/meta"
       s.gsub! "/var/lib/influxdb/wal", "#{var}/influxdb/wal"
     end
-
-    bin.install "bin/influxd"
-    bin.install "bin/influx"
-    bin.install "bin/influx_tsm"
-    bin.install "bin/influx_stress"
-    bin.install "bin/influx_inspect"
-    etc.install influxdb_path/"etc/config.sample.toml" => "influxdb.conf"
 
     (var/"influxdb/data").mkpath
     (var/"influxdb/meta").mkpath

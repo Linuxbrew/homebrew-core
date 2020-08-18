@@ -3,12 +3,14 @@ class Fpc < Formula
   homepage "https://www.freepascal.org/"
   url "https://downloads.sourceforge.net/project/freepascal/Source/3.2.0/fpc-3.2.0.source.tar.gz"
   sha256 "d595b72de7ed9e53299694ee15534e5046a62efa57908314efa02d5cc3b1cf75"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
-    sha256 "67c263ba003c8b7c5632d2417c9431a8ebb4ff5760f3e495f326f1879d2a7670" => :catalina
-    sha256 "614bb9d30094edd2f7704989c890178c19f8b6aab568b59cbe3711788699ba95" => :mojave
-    sha256 "096629c7be18cd01c278f60c6a1ec0530c52c217637e32a6c7ff38405720336c" => :high_sierra
+    rebuild 1
+    sha256 "2a17877832cf7554835fd5c35d27931c4197604f9ea8161411bfa49746e8ad60" => :catalina
+    sha256 "84a01f7ad8382fab6aa36bad5378009be66d1d0cd8870fe235b2f5d22102c4fd" => :mojave
+    sha256 "96603ce0f998b1eb7c5b0e15b4ad49bbcca2b9943276ddf46d224f844f04582d" => :high_sierra
   end
 
   resource "bootstrap" do
