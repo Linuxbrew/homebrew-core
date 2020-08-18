@@ -78,6 +78,8 @@ class Caddy < Formula
     end
     sleep 2
 
+    return unless OS.mac?
+
     assert_match "\":#{port2}\"",
       shell_output("curl -s http://127.0.0.1:#{port1}/config/apps/http/servers/srv0/listen/0")
     assert_match "Hello, Caddy!", shell_output("curl -s http://127.0.0.1:#{port2}")
