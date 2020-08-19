@@ -70,14 +70,14 @@ class Caddy < Formula
 
       http://127.0.0.1:#{port2} {
         respond "Hello, Caddy!"
-      }
+    
     EOS
 
-    pid = fork do
+    fork do
       exec bin/"caddy", "run", "--config", testpath/"Caddyfile"
     end
-    Process.detach pid
-    sleep 2
+
+    sleep 1
 
     assert_match "\":#{port2}\"",
       shell_output("curl -s http://127.0.0.1:#{port1}/config/apps/http/servers/srv0/listen/0")
