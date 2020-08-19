@@ -70,7 +70,7 @@ class Caddy < Formula
 
       http://127.0.0.1:#{port2} {
         respond "Hello, Caddy!"
-    
+      }
     EOS
 
     fork do
