@@ -18,9 +18,16 @@ class Borgbackup < Formula
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@1.1"
-  depends_on :osxfuse
   depends_on "python@3.8"
   depends_on "zstd"
+
+  on_macos do
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   resource "llfuse" do
     url "https://files.pythonhosted.org/packages/75/b4/5248459ec0e7e1608814915479cb13e5baf89034b572e3d74d5c9219dd31/llfuse-1.3.6.tar.bz2"
@@ -28,6 +35,8 @@ class Borgbackup < Formula
   end
 
   def install
+    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix unless OS.mac?
+
     virtualenv_install_with_resources
   end
 
