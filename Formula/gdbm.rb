@@ -14,6 +14,10 @@ class Gdbm < Formula
     sha256 "dd00a26fa20413f81477af032587de19bb620eef352a6d8dd3d9c3a176f6bd5a" => :x86_64_linux
   end
 
+  fails_with gcc: "10" do
+    cause "multiple definition of parseopt_program_doc"
+  end
+
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
   #   https://www.gnu.org.ua/software/gdbm/manual/html_chapter/gdbm_19.html
   # Use --without-readline because readline detection is broken in 1.13
