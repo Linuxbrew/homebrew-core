@@ -37,7 +37,7 @@ class Ldc < Formula
     on_linux do
       url "https://github.com/ldc-developers/ldc/releases/download/v1.23.0/ldc2-1.23.0-linux-x86_64.tar.xz"
       version "1.23.0"
-      sha256 ""
+      sha256 "385d9385c1841da96cbd244177a992a8b185e8ee59d4af1b6edb607d8f43789f"
     end
   end
 
