@@ -4,12 +4,13 @@ class Hyperkit < Formula
   url "https://github.com/moby/hyperkit/archive/v0.20200224.tar.gz"
   sha256 "c0f9e0eb4cd9efdfa099a8cb5b35483b64688d6d1fc0c7a01e591abd4cf76413"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba8679cca5d4532aa1afd0f5e6558b38f673e66c48b274dbf73228c632478c3c" => :catalina
-    sha256 "6e658f44e70586cd209fee359e1f303e3f4c8ed24f2ae1f53d845557fa420ee2" => :mojave
-    sha256 "e9d9fda51a2c05a37d0d872a80b6dbf26f56b5842c5dc03ad7be13fd1224d5c1" => :high_sierra
+    sha256 "5999f564cf34669e9b0e6b986acfd27c4e52f8d4173cd85cb711588592b3885f" => :catalina
+    sha256 "994d58d20cfa0367767365fa36611fa092cfc5494e1a5ac953c0ad9cbd07f716" => :mojave
+    sha256 "058490fce1af49d3ba6ad457b297418be3ccf2a1fc572523d7c85e928e5f9f92" => :high_sierra
   end
 
   depends_on "aspcud" => :build

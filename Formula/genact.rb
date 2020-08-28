@@ -1,16 +1,15 @@
 class Genact < Formula
   desc "Nonsense activity generator"
   homepage "https://github.com/svenstaro/genact"
-  url "https://github.com/svenstaro/genact/archive/v0.9.0.tar.gz"
-  sha256 "f606db6efb5d471df8e52b7cb17aec991936a6dcc1afaa2659aeca9ee1774d44"
+  url "https://github.com/svenstaro/genact/archive/v0.10.0.tar.gz"
+  sha256 "c8db67ba56e7c327540cb5a883abcb0ab682378e9dacef79056502f32ad3c759"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "814b886307623c9a1eded2f6e774f06d6827dd491b23dc3cc3dd1e839adb48be" => :catalina
-    sha256 "867c8a47b87062e03a14b0e88503333a73050be8b1ef7db41ff0eed124a1d03c" => :mojave
-    sha256 "194eda0bcb43dcbad2214c1f0736c53c7bf5a7e2281ec025c019aae0f9accae9" => :high_sierra
-    sha256 "d9b567f2bf0161262080ade8774f41cafc385ae39a361b56a70693e19cbc2f3f" => :x86_64_linux
+    sha256 "cda834ea05c4403ebf7555ff32233141eda5d6e1c05cf88c2c601e88d72e27f9" => :catalina
+    sha256 "a8e61aa9d3683aaedd59154030f154a8bfbfcc8fceec399a1b51b03ae37091d3" => :mojave
+    sha256 "d52830ec3b3744074df6193d3c714f9572472969bc610236813441ea257a8de6" => :high_sierra
   end
 
   depends_on "rust" => :build

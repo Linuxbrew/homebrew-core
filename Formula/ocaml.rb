@@ -13,23 +13,22 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.09/ocaml-4.09.0.tar.xz"
-  sha256 "f2fb91dfe86bae00a33fc5ba51685e95a68564274f5277f787c31931b22a7fec"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.0.tar.xz"
+  sha256 "30734db17b609fdd1609c39a05912325c299023968a2c783e5955dd5163dfeb7"
   license "LGPL-2.1"
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   bottle do
     cellar :any
-    sha256 "d3661fa949c06ce4132df11fb82bca7f0a58b3ba555700e54fafc264b621af0b" => :catalina
-    sha256 "39551915056e6652aa10579c926e43ff2a0d744202be2ba89dd4107f1d4346cf" => :mojave
-    sha256 "4e96119913768af5be322c05efe1ddb5716d389bedfaa582fd8cb5eee1abfed1" => :high_sierra
-    sha256 "2a5bb8d8fac93037dc18af6df160c07e4c22eb0222469cfea7f9100589ca244a" => :x86_64_linux
+    sha256 "0870fc3042b3725fb2c6f131c4d6f78aec9f19d553e054ba4890773ef69e45a7" => :catalina
+    sha256 "b43a7247e3d3848d5f20d2432d4996e41049e79c738762f1026f4376ec7e80d3" => :mojave
+    sha256 "a534347814298cc8e66e321384f16eac85f2a59aaa2f536e542fb4870386bc2b" => :high_sierra
   end
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
     # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    default_prefix = OS.linux? ? "/home/linuxbrew/.linuxbrew" : "/usr/local"
+    default_prefix = OS.mac? ? "/usr/local" : "/home/linuxbrew/.linuxbrew"
     reason "The bottle needs to be installed into #{default_prefix}."
     satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
   end
