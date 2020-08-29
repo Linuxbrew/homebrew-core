@@ -1,5 +1,5 @@
 class DeviceMapper < Formula
-  desc "Device mapper userspace library and tools"
+  desc "Userspace library and tools for logical volume management"
   homepage "https://sourceware.org/dm"
   url "https://sourceware.org/git/lvm2.git",
     :tag      => "v2_02_186",
