@@ -1,5 +1,5 @@
 class Texlive < Formula
-  desc "TeX Live is a free software distribution for the TeX typesetting system"
+  desc "Free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "https://www.texlive.info/tlnet-archive/2020/07/15/tlnet/install-tl-unx.tar.gz"
   version "20200715"
