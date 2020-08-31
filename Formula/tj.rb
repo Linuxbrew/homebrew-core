@@ -14,9 +14,8 @@ class Tj < Formula
     sha256 "c7486821bd35ae016c533c2b8a49839ede4754bf2405e5f192a431dc8b50fa99" => :x86_64_linux
   end
 
-  # Does not have any license
   # https://github.com/sgreben/tj/issues/5
-  disable!
+  disable! because: "has no license"
 
   depends_on "go" => :build
 
