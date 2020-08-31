@@ -18,9 +18,8 @@ class TerraformProvisionerAnsible < Formula
     sha256 "e63f913481d372db46d923d90b2b45553e015df1f6407610a5dd26b850d3ad5c" => :x86_64_linux
   end
 
-  # Does not have any license
   # https://github.com/jonmorehouse/terraform-provisioner-ansible/issues/41
-  disable!
+  disable! because: "has no license"
 
   depends_on "go" => :build
   depends_on "terraform"
