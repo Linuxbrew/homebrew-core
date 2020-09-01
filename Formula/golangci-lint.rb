@@ -1,3 +1,4 @@
+# golangci-lint: Build a bottle for Linux
 class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci.com"
