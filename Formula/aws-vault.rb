@@ -20,8 +20,8 @@ class AwsVault < Formula
     system "go", "build", "-ldflags=#{flags}"
     bin.install "aws-vault"
 
-    zsh_completion.install "completions/zsh/_aws-vault"
-    bash_completion.install "completions/bash/aws-vault"
+    zsh_completion.install "contrib/completions/zsh/aws-vault.zsh"
+    bash_completion.install "contrib/completions/bash/aws-vault.bash"
   end
 
   test do
