@@ -1,8 +1,8 @@
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://github.com/NixOS/patchelf"
-  url "https://github.com/NixOS/patchelf/archive/0.11.tar.gz"
-  sha256 "e9dc4dbed842e475176ef60531c2805ed37a71c34cc6dc5d1b9ad68d889aeb6b"
+  url "https://github.com/NixOS/patchelf/archive/0.12.tar.gz"
+  sha256 "3dca33fb862213b3541350e1da262249959595903f559eae0fbc68966e9c3f56"
   license "GPL-3.0-or-later"
   head "https://github.com/NixOS/patchelf.git"
 
@@ -16,7 +16,6 @@ class Patchelf < Formula
     sha256 "bca91d5be894ea5ebc1c7b0af93027e7669c460b7f792455470e78e73fc16d52" => :catalina
     sha256 "d4d4b739c36108e8f794b19a76a44efeed42baeeb4f5dcd61002c7ba29105dfd" => :mojave
     sha256 "d7c841a08ca1f9e4cc24fa6378e14f82f46dac6124d860777fb53161ac82a426" => :high_sierra
-    sha256 "7396e6cf5dbe62fae0e7fcba57f88586359561824df9cfe1127b4d88dd6f2a5a" => :x86_64_linux
   end
 
   resource "helloworld" do
@@ -32,6 +31,7 @@ class Patchelf < Formula
       ENV["HOMEBREW_RPATH_PATHS"] = nil
     end
 
+    system "./bootstrap.sh"
     system "./configure", "--prefix=#{prefix}",
       "CXXFLAGS=-static-libgcc -static-libstdc++",
       "--disable-debug",
