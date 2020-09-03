@@ -1,10 +1,9 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-2.9.0/cryptol-2.9.0.tar.gz"
-  sha256 "2bcbf4ad6c1679a17f47467bf6eab250deea8e5125c53535c44afa4af525bd2f"
+  url "https://hackage.haskell.org/package/cryptol-2.9.1/cryptol-2.9.1.tar.gz"
+  sha256 "b430d59d9391ddc0506117b08b952412291a142856d8d2cf912f26a4e8258830"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/GaloisInc/cryptol.git"
 
   livecheck do
@@ -12,10 +11,9 @@ class Cryptol < Formula
   end
 
   bottle do
-    sha256 "de12794d8334f69f857bb269a0e9dc4368e7f6a2968284d70854bad8e1247707" => :catalina
-    sha256 "89a27a902bac68fb5e22b542cc9513d5a2035782d9dd060957e5eb85f772666b" => :mojave
-    sha256 "5df9e6a56e9555948e2bdb058ce87b50bf2885a85ff97c1bf5f7879c27ab22ac" => :high_sierra
-    sha256 "81e702445f482f5537efa55c0b41369630f4a94d5c397df4010705554ad75e99" => :x86_64_linux
+    sha256 "360d274aa0f54cb0f5645e6df403bfb354b2c8b8fcd38a84de752b31c0f333f1" => :catalina
+    sha256 "ac8b4bbf496c2be8affdae694bcb162cbdf2f0539e9616a9c4291d09e6247a66" => :mojave
+    sha256 "11052ebd61ac8398f0ccf79e9e5bc5ba94df7423805546e9b318a543e8c0606a" => :high_sierra
   end
 
   depends_on "cabal-install" => :build

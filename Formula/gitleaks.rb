@@ -16,12 +16,13 @@ class Gitleaks < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X github.com/zricethezav/gitleaks/version.Version=#{version}",
+    system "go", "build", "-ldflags", "-X github.com/zricethezav/gitleaks/v#{version.major}/version.Version=#{version}",
                  *std_go_args
   end
 
   test do
     assert_match "remote repository is empty",
       shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git", 2)
+    assert_equal version, shell_output("#{bin}/gitleaks --version")
   end
 end

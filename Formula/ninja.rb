@@ -4,6 +4,7 @@ class Ninja < Formula
   url "https://github.com/ninja-build/ninja/archive/v1.10.1.tar.gz"
   sha256 "a6b6f7ac360d4aabd54e299cc1d8fa7b234cd81b9401693da21221c62569a23e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ninja-build/ninja.git"
 
   livecheck do
@@ -13,27 +14,38 @@ class Ninja < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d43c3811eef40b2ed82f7629a3cb8acab313f8459778e506de39d95b3cd0e5e3" => :catalina
-    sha256 "b8a22ed5d7a0138d04e29d616e11c55d85733b7062911a8f0d9e1c4405cc4f61" => :mojave
-    sha256 "8070023444b46cc29d7e52b71cdda279c4734d96d29c7785302ae0ffe27b1245" => :high_sierra
-    sha256 "5f39f3d8ed3b572582989baab029d8f481d56200290745ea69f12278bf91f683" => :x86_64_linux
+    sha256 "3269729bfc2139757eba003ac7caa7664c355ddb6856c0b0b94fe1d05918da3c" => :catalina
+    sha256 "643b9539ddec245f960156a4ddc54c82bb0cf46c2cfc94065737481ec61a705a" => :mojave
+    sha256 "5c9a9675b27740d6d4b895a4b5462341593e11f8d2c1ec783e75b956052d7f82" => :high_sierra
   end
+
+  depends_on "cmake" => :build
+  depends_on "re2c"
 
   on_linux do
     depends_on "python@3.8" => :build
   end
 
+  # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
+  on_linux do
+    depends_on "python@3.8" => :build
+  end
+
+  patch do
+    url "https://github.com/ninja-build/ninja/commit/2f3e5275e2ea67cb634488957adbb997c2ff685f.diff?full_index=1"
+    sha256 "aee7a3e862c8ded377e4a948390519bc7ff17cae69ae779d3c5172562d9559f2"
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin" unless OS.mac?
 
-    system "python", "configure.py", "--bootstrap"
+    system "cmake", "-Bbuild-cmake", "-H.", *std_cmake_args
+    system "cmake", "--build", "build-cmake"
 
     # Quickly test the build
-    system "./configure.py"
-    system "./ninja", "ninja_test"
-    system "./ninja_test", "--gtest_filter=-SubprocessTest.SetWithLots"
+    system "./build-cmake/ninja_test"
 
-    bin.install "ninja"
+    bin.install "build-cmake/ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
   end
@@ -48,5 +60,11 @@ class Ninja < Formula
       build foo.o: cc foo.c
     EOS
     system bin/"ninja", "-t", "targets"
+    port = free_port
+    fork do
+      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--no-browser", "foo.o"
+    end
+    sleep 2
+    assert_match "foo.c", shell_output("curl -s http://localhost:#{port}?foo.o")
   end
 end

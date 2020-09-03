@@ -2,15 +2,15 @@ class GatewayGo < Formula
   desc "GateWay Client for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub"
   url "https://github.com/OpenIoTHub/gateway-go.git",
-      tag:      "v0.1.86",
-      revision: "41021108b389f47646a74379439853ee4447797c"
+      tag:      "v0.1.87",
+      revision: "471662da313928f475ff6836e5b78227fbec1050"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b352aca114d535e64227a6b860e228a44c811e3d5fc9cc91d684d9d2e46680f" => :catalina
-    sha256 "1586ce54282f3cd2861ca1509b8313cb3b927a30dedecead6963f2653f1f6e1a" => :mojave
-    sha256 "7aed612144587fa557e1918529cbf152dd6710c505fa00be596cc53458833477" => :high_sierra
+    sha256 "5263c644db3dec3a9163ffcc71b1f99c75730ba1275a8a9bc2affcb6ef479f59" => :catalina
+    sha256 "74351f8be7f640eba1a1742938539db1d8be37b9f2e63dae58a55e7d387a7e9b" => :mojave
+    sha256 "6038aee8b37e90dc5582c000d8fa1845ccab252190c22cbf6af8a472fb55a14d" => :high_sierra
   end
 
   depends_on "go" => :build
