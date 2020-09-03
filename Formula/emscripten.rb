@@ -29,9 +29,10 @@ class Emscripten < Formula
 
   bottle do
     cellar :any
-    sha256 "ac8892b0aba032f395821b0141c58ca952499df9b05902ec64dacfd4b4be8831" => :catalina
-    sha256 "4915b3e0d93807bf0cbe42dfd9ddf6b6df93441c7560fd7857515e3bb8948fc0" => :mojave
-    sha256 "e6b1f5a22fa597b045cdd52bf16a49892c227a27a84a0f16adfa4745b662ac6a" => :high_sierra
+    rebuild 1
+    sha256 "8b21f38d1065a89301c3cce79c0bce448089d536280ae6d1cbe97ee3a98b183d" => :catalina
+    sha256 "476a8b8a00f535d160cbb8a08f82c5256d46a434703ecd86d2ed10ec5cea36fe" => :mojave
+    sha256 "09ad53bb82328357f106bbb01b06caa9a02c3daedc9d3ea4f7419badbaa66e17" => :high_sierra
   end
 
   head do
@@ -92,18 +93,28 @@ class Emscripten < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      Manually set LLVM_ROOT to
-        #{opt_libexec}/llvm/bin
-      and BINARYEN_ROOT to
-        #{Formula["binaryen"].opt_prefix}
-      in ~/.emscripten after running `emcc` for the first time.
-    EOS
+  def post_install
+    system bin/"emcc"
+    inreplace "#{libexec}/.emscripten" do |s|
+      s.gsub! /^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{opt_libexec}/llvm/bin\"\\2"
+      s.gsub! /^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{Formula["binaryen"].opt_prefix}\"\\2"
+    end
   end
 
   test do
-    system bin/"emcc"
-    assert_predicate testpath/".emscripten", :exist?, "Failed to create sample config"
+    # Fixes "Unsupported architecture" Xcode prepocessor error
+    ENV.delete "CPATH"
+
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      int main()
+      {
+        printf("Hello World!");
+        return 0;
+      }
+    EOS
+
+    system bin/"emcc", "test.c", "-o", "test.js", "-s", "NO_EXIT_RUNTIME=0"
+    assert_equal "Hello World!", shell_output("node test.js").chomp
   end
 end

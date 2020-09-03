@@ -7,10 +7,10 @@ class Nim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aaf875cdb7455b97b0584423bc89f13a7fb2f03db4b6eff90c4a1450272701ab" => :catalina
-    sha256 "75b50a98e4c5346c384ded525e0b24fc3c88cabcacd2aedc0a883acf6b3c004d" => :mojave
-    sha256 "ca9e1c7d809861ee7b8d250803cb7340afe91cf139a87cdd595c74e2e07a2d60" => :high_sierra
-    sha256 "afc00fc4e5400ce52fd76fd3ec453727d265c6f285b7967b13a9999ba7c0b74b" => :x86_64_linux
+    rebuild 1
+    sha256 "6e05e9295d4fcde5dfd166b042be425d21538bb307a3f3deeb3b9c13faa1d5eb" => :catalina
+    sha256 "6abb369c6954938d780ba11bbb1dd4adbf60e65829c1d2eb8dcfa409815d084b" => :mojave
+    sha256 "00eb986f798a638aff7abcc0dde85c337fcff85eee58fc70985040b7a9f43381" => :high_sierra
   end
 
   head do
@@ -19,6 +19,8 @@ class Nim < Formula
       url "https://github.com/nim-lang/csources.git"
     end
   end
+
+  depends_on "help2man" => :build
 
   def install
     if build.head?
@@ -38,10 +40,15 @@ class Nim < Formula
     system "./koch", "geninstall"
     system "/bin/sh", "install.sh", prefix
 
+    system "help2man", "bin/nim", "-o", "nim.1", "-N"
+    man1.install "nim.1"
+
     target = prefix/"nim/bin"
     bin.install_symlink target/"nim"
     tools = %w[nimble nimgrep nimpretty nimsuggest]
     tools.each do |t|
+      system "help2man", buildpath/"bin"/t, "-o", "#{t}.1", "-N"
+      man1.install "#{t}.1"
       target.install buildpath/"bin"/t
       bin.install_symlink target/t
     end

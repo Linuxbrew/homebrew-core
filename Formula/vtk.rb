@@ -1,7 +1,8 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  revision OS.mac? ? 10 : 11
+  license "BSD-3-Clause"
+  revision OS.mac? ? 11 : 12
   head "https://github.com/Kitware/VTK.git"
 
   stable do
@@ -19,12 +20,18 @@ class Vtk < Formula
       url "https://gitlab.kitware.com/vtk/vtk/commit/257b9d7b18d5f3db3fe099dc18f230e23f7dfbab.diff"
       sha256 "572c06a4ba279a133bfdcf0190fec2eff5f330fa85ad6a2a0b0f6dfdea01ca69"
     end
+
+    # Qt 5.15 support
+    patch do
+      url "https://gitlab.kitware.com/vtk/vtk/-/commit/797f28697d5ba50c1fa2bc5596af626a3c277826.diff"
+      sha256 "cb3b3a0e6978889a9cb95be35f3d4a6928397d3b843ab72ecaaf96554c6d4fc7"
+    end
   end
 
   bottle do
-    sha256 "37a13865cbf0c68db548b85f9577242b95a14c148db1c81548d82aac578fbf25" => :catalina
-    sha256 "4dee6ecbb7543786a57b9624df0b7bbe3bfe9686746a33d24c9233bfd7463d72" => :mojave
-    sha256 "d238bb0dbe69516d187cd31295d86c070ade51f4efae7c9bc41bdbe6f2e4d99b" => :high_sierra
+    sha256 "8eb01d3ba874398a6a8d1a920df4bfd0ae759aa1c608e141b8136b72c57c357b" => :catalina
+    sha256 "e39960ed536681ea158fbe2d10da875e8fb52a1354b37c97a631d4d84b4216bf" => :mojave
+    sha256 "335502476de20a9780fc2bcc3257cce3aebffcc3f7fdc57e322ac94e7e0c8f3b" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -50,6 +57,9 @@ class Vtk < Formula
   end
 
   def install
+    # Do not record compiler path because it references the shim directory
+    inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", "clang++"
+
     pyver = Language::Python.major_minor_version "python3"
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
@@ -89,6 +99,13 @@ class Vtk < Formula
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
               Formula["hdf5"].prefix.realpath,
               Formula["hdf5"].opt_prefix
+    # get rid of bad include paths on 10.14+
+    if MacOS.version >= :mojave
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtklibxml2.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkexpat.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkzlib.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+      inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkpng.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
+    end
   end
 
   test do

@@ -3,7 +3,7 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
   sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -11,9 +11,9 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 "2a55095a34c32590a766b11f47a750671cf1c058cdf8bd6e04b8b28a21bc8af5" => :catalina
-    sha256 "9a699785f7953b29c7d194f1516db2150ba038463c6bd934a1dee9834ef7353d" => :mojave
-    sha256 "75fc159fded2e0613dbaa134efae40e167289493a3b1025ac4efcd19b56ac897" => :high_sierra
+    sha256 "045218ae6a15e6819e6ed76ec06f200631d503d05b5f7e54fe2bba49a436d428" => :catalina
+    sha256 "2c5c3aa49874d5eac59c57f45babe3c5bbdf122a6195347c882d149f741e1f7c" => :mojave
+    sha256 "cecfc1f471509dbe57e89e58ea6d37307a543df8f9397b976300c064b9c3c1f6" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -26,6 +26,12 @@ class Visp < Formula
   depends_on "opencv"
   depends_on "pcl"
   depends_on "zbar"
+
+  # from first commit at https://github.com/lagadic/visp/pull/768 - remove in next release
+  patch do
+    url "https://github.com/lagadic/visp/commit/61c8beb8442f9e0fe7df8966e2e874929af02344.patch?full_index=1"
+    sha256 "429bf02498fc03fff7bc2a2ad065dea6d8a8bfbde6bb1adb516fa821b1e5c96f"
+  end
 
   # Fixes build on OpenCV >= 4.4.0
   # Extracted from https://github.com/lagadic/visp/pull/795
