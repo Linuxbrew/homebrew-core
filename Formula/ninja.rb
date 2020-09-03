@@ -13,7 +13,6 @@ class Ninja < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
     sha256 "573d01508893add0fadf069f53d6ccc968e93943d1a3e40bf65b4d8ac8ed0a1f" => :catalina
     sha256 "d431b62893122706a8feb184e61c0d5836189e1e2614764540a356ae0a665ed3" => :mojave
@@ -21,6 +20,8 @@ class Ninja < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8"
+  depends_on "re2c"
 
   # from https://github.com/ninja-build/ninja/pull/1836, remove in next release
   patch do
@@ -29,6 +30,8 @@ class Ninja < Formula
   end
 
   def install
+    inreplace "CMakeLists.txt", 'NINJA_PYTHON="python"', "NINJA_PYTHON=\"#{Formula["python@3.8"].opt_bin}/python3\""
+
     system "cmake", "-Bbuild-cmake", "-H.", *std_cmake_args
     system "cmake", "--build", "build-cmake"
 
