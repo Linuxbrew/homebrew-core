@@ -3,8 +3,8 @@ class Pnpm < Formula
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.js.org"
-  url "https://registry.npmjs.org/pnpm/-/pnpm-5.5.9.tgz"
-  sha256 "3381a893fbfdb08f53050342a4664f1fe9f9044e06236e415d32af508e2a4595"
+  url "https://registry.npmjs.org/pnpm/-/pnpm-5.5.10.tgz"
+  sha256 "72388c33cc12f79be14872307dd84d992cd1489848f11afbea21675800dcba61"
   license "MIT"
 
   livecheck do
@@ -13,10 +13,9 @@ class Pnpm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9444dbfe9a5fd4bd6a6b0e182bf54eea4c8b340076e2ffa8dd8ee9df4f8d4149" => :catalina
-    sha256 "be80eff2ce150e33218b22eee8ec8f6b7fa0a88ed0672bcfff40a7f5617b2f2d" => :mojave
-    sha256 "977843cdc2050d185c0b9ccb43fc1e41331bf5b8e569127d6dee9161fd36b9ea" => :high_sierra
-    sha256 "6d0c788d21fef97200e32fee471c0db293023ffe656e4f7b85cd7a1adeb625d4" => :x86_64_linux
+    sha256 "a351e25a0ec90d6452dc5b33aa10548f88f392ff836c27175eeaf635b080c926" => :catalina
+    sha256 "f6b26de9731395ddb759fbd9fe457888e128f35960f49ee6949e965dc4becda7" => :mojave
+    sha256 "749ee1a3f71450f7948aa42101c459efe6309de48060c1e4727ca092360aa0fc" => :high_sierra
   end
 
   depends_on "node"

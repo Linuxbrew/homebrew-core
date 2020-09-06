@@ -4,6 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.1.2/gdal-3.1.2.tar.xz"
   sha256 "767c8d0dfa20ba3283de05d23a1d1c03a7e805d0ce2936beaff0bb7d11450641"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -11,9 +12,9 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 "b781dd4174e448f161d1e3f38fa898fea35ea16cb9fa6212cbcd0cffd6951e81" => :catalina
-    sha256 "5a517fafd975da2c073cbca3946b481683f88e832432efdc6c3951c8aac325d3" => :mojave
-    sha256 "d3e3b959e7c6f80ff748a345ba26c1876568de7f0edffe69ae6ed40959ddeee9" => :high_sierra
+    sha256 "dfd3110ca155a7201308c9b40b2d398c79b42343912851150e5a75f77e5d039b" => :catalina
+    sha256 "4fee4dc5dd479157b13f22d10920d76499ba0eb090a002f83fa2201faf321bed" => :mojave
+    sha256 "bdd41511474301e6eeb8b820668973d4eaab96b08d0f72a959dd4066d80904aa" => :high_sierra
   end
 
   head do
@@ -58,6 +59,27 @@ class Gdal < Formula
   end
 
   conflicts_with "cpl", because: "both install cpl_error.h"
+
+  # Fix detection of Poppler version.
+  # Remove on next release.
+  # https://github.com/OSGeo/gdal/pull/2825
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/2b863dbabdc2a7d724f9fdf3e6ff20a142b619f6.patch?full_index=1"
+    sha256 "f07af74558040e5a6c84139fdd384df039fbd8f15121d203db39e3bd98b3e433"
+  end
+
+  # Fix build with Jasper.
+  # Remove on next release.
+  # https://github.com/OSGeo/gdal/issues/2844
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/ab72c4893e6d14d488dfed25745d79f11bee45b9.patch?full_index=1"
+    sha256 "54e10575646666f31fb2a87b7fc5b2831282fe2fa08642231e94fdee1fee8374"
+  end
+
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/e236eeaed1be45a4af457565085e3db1f2fc489f.patch?full_index=1"
+    sha256 "5b582258a556d96712761932bf94dbd3343a7a0ac61bb53c6c83a7ba4c962fe5"
+  end
 
   def install
     # Fixes: error: inlining failed in call to always_inline __m128i _mm_shuffle_epi8

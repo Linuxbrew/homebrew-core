@@ -3,8 +3,8 @@ require "language/node"
 class Whistle < Formula
   desc "HTTP, HTTP2, HTTPS, Websocket debugging proxy"
   homepage "https://github.com/avwo/whistle"
-  url "https://registry.npmjs.org/whistle/-/whistle-2.5.19.tgz"
-  sha256 "a8e4e92732467347cf365fe9954b2b2afd9dd795ffb356f9ff234e8cf68acd9e"
+  url "https://registry.npmjs.org/whistle/-/whistle-2.5.20.tgz"
+  sha256 "4aeb36e857e2dde8c4b2ce98f5de7ec92efce87fd7f9f05dfd6128652027a92a"
   license "MIT"
 
   livecheck do
@@ -13,10 +13,9 @@ class Whistle < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07922996a0a0333b0f8088da27225761d32d75f6942f0b1a126863f6f520641c" => :catalina
-    sha256 "529c4b61301866180dbd77fa616ef8a2a291fb4bde42422455b8e7b42d376272" => :mojave
-    sha256 "2bbfac5596860e5b3178bee52e4bfb364c682806a631b43fb66ca3a87c10cf8e" => :high_sierra
-    sha256 "b9ba26b53db2ab7fbf1de581c923cfcbadd08e0522624c82e48c2acd0f18ca49" => :x86_64_linux
+    sha256 "a9341187c1eb5b5628e4511a8be707ddce3ae570f12571adbc16b65ff612a6fe" => :catalina
+    sha256 "2f41af30cd3729a7559fe4bb62b83a7ab809ee5a41699187d71a284c58fa26fb" => :mojave
+    sha256 "bce1034e2b8add7e3be0d6d4411cfcd801336ccad49fda5f4dc852635f9acf98" => :high_sierra
   end
 
   depends_on "node"

@@ -1,16 +1,15 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v6.1.1.tar.gz"
-  sha256 "e6c1da674b38a082a7c49c202380148b934eb60229d336a5049efc2ac859385a"
+  url "https://github.com/zricethezav/gitleaks/archive/v6.1.2.tar.gz"
+  sha256 "43d53ed0fa716d47074f4640d1916af0d3dc635a77ce66ebb3167b47b88fb767"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4e9ba6eb9d38902153159d95b4f70fb764a3c5e96cb97d3e096040087c7da2c" => :catalina
-    sha256 "ebdc61c6027b0eb94da4b1e1d509b192b098a4c2419692047f7f455042200773" => :mojave
-    sha256 "126cbb63de4d2ece3cd93804525aad9f6db8f8a5bb41688d43c2c41b6f04a8b8" => :high_sierra
-    sha256 "2f04f6fe12068d12ef433cd3ea5c38773cf6aa8c3adac70baa12d5c0ac59dc25" => :x86_64_linux
+    sha256 "98c0f659469c1a38dedd53d9748935f365e0a4e108d2ca7e3eab22bd34bb2059" => :catalina
+    sha256 "543be8f08244fc11c4a544b641122983f0fa4fc76891a47015dd56d2245a4dbb" => :mojave
+    sha256 "841c21bdd898d7e996be93cc9830ccce2c46f40db194a0d443391558539cbcf9" => :high_sierra
   end
 
   depends_on "go" => :build
