@@ -20,12 +20,6 @@ class Libfido2 < Formula
 
   depends_on "systemd" unless OS.mac? # for libudev
 
-  # Apply fix for https://github.com/Yubico/libfido2/issues/166 (also https://github.com/Yubico/libfido2/issues/179)
-  patch do
-    url "https://github.com/Yubico/libfido2/commit/39544a2c342b0438a8f341b4a4ff20f650f701a3.diff?full_index=1"
-    sha256 "664a95d68502a266835839002d32149ae391aef5b902d33a990c00539a68fe32"
-  end
-
   def install
     mkdir "build" do
       system "cmake",
