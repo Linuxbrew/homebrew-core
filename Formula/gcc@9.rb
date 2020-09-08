@@ -61,8 +61,8 @@ class GccAT9 < Formula
     args = []
 
     if OS.mac?
-      osmajor = `uname -r`.chomp
       args += [
+        "--build=x86_64-apple-darwin#{OS.kernel_version.major}",
         "--build=x86_64-apple-darwin#{osmajor}",
         "--with-system-zlib",
         "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",

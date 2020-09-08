@@ -70,10 +70,8 @@ class GccAT6 < Formula
     args = []
 
     if OS.mac?
-      osmajor = `uname -r`.chomp
-      arch = MacOS.prefer_64_bit? ? "x86_64" : "i686"
       args += [
-        "--build=#{arch}-apple-darwin#{osmajor}",
+        "--build=x86_64-apple-darwin#{OS.kernel_version}",
         "--with-system-zlib",
         "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
       ]
