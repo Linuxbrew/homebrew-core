@@ -22,7 +22,7 @@ class Bmake < Formula
 
     # -DWITHOUT_PROG_LINK means "don't symlink as bmake-VERSION."
     args = ["--prefix=#{prefix}", "-DWITHOUT_PROG_LINK", "--install"]
-    system "sh", "boot-strap", *args
+    system "./boot-strap", *args
 
     chmod "u+w", man1/"bmake.1"
     man1.install "bmake.1"
