@@ -1,11 +1,10 @@
 class Avahi < Formula
   desc "Service Discovery for Linux using mDNS/DNS-SD"
   homepage "https://avahi.org"
-  url "https://github.com/lathiat/avahi/archive/v0.7.tar.gz"
-  sha256 "fd45480cef0559b3eab965ea3ad4fe2d7a8f27db32c851a032ee0b487c378329"
+  url "https://github.com/lathiat/avahi/archive/v0.8.tar.gz"
+  sha256 "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
 
   bottle do
-    sha256 "48295b3c720629ae91ce5f6c663b49497d6e55fde9d2e605c9c0e9bbb38a6b4c" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -33,10 +32,11 @@ class Avahi < Formula
                              "--disable-mono",
                              "--disable-monodoc",
                              "--disable-python",
-                             "--disable-qt3",
                              "--disable-qt4",
+                             "--disable-qt5",
                              "--disable-gtk",
                              "--disable-gtk3",
+                             "--disable-libevent",
                              "--with-distro=none",
                              "--with-systemdsystemunitdir=no"
     system "make", "install"
