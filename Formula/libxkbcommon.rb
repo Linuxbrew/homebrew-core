@@ -7,7 +7,6 @@ class Libxkbcommon < Formula
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
-    cellar :any
     sha256 "9b9a3ca86b9a7319a3cef8b1edb6c17e5dc6199a83bf61877975f16065d8fa82" => :catalina
     sha256 "10e46156eb6eece206f22f25e7662722490d56268cc54d34db1dab02aba8a3ca" => :mojave
     sha256 "b38bfdf4dba9b991117087b0276ffa7d1221bafbefc6247cc504c79c2cbb3a91" => :high_sierra
@@ -18,6 +17,8 @@ class Libxkbcommon < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on :x11 if OS.mac?
+
+  uses_from_macos "libxml2" => :build
 
   unless OS.mac?
     depends_on "linuxbrew/xorg/xkeyboardconfig"
