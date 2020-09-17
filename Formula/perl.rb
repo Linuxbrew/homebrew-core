@@ -71,6 +71,16 @@ class Perl < Formula
 
   def post_install
     unless OS.mac?
+      perl_core = Pathname.new(`#{bin/"perl"} -MConfig -e 'print $Config{archlib}'`)+"CORE"
+      if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&
+         (OS::Linux::Glibc.system_version >= "2.26" ||
+         (Formula["glibc"].any_version_installed? && Formula["glibc"].version >= "2.26"))
+        # Glibc does not provide the xlocale.h file since version 2.26
+        # Patch the perl.h file to be able to use perl on newer versions.
+        # locale.h includes xlocale.h if the latter one exists
+        inreplace "#{perl_core}/perl.h", "include <xlocale.h>", "include <locale.h>"
+      end
+
       # CPAN modules installed via the system package manager will not be visible to
       # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
       # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
