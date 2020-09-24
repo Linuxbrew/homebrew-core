@@ -31,8 +31,6 @@ class Systemd < Formula
   uses_from_macos "expat"
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # Needed by intltool (xml::parser)
