@@ -102,10 +102,6 @@ class Qt < Formula
       args -= ["-proprietary-codecs"]
     end
 
-    inreplace %w[qtdeclarative/qtdeclarative.pro qtdeclarative/src/3rdparty/masm/masm.pri] do |s|
-      s.gsub! "python ", "python3 "
-    end
-
     system "./configure", *args
 
     # Remove reference to shims directory
