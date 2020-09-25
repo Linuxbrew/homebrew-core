@@ -107,7 +107,7 @@ class GhcAT88 < Formula
 
     resource("binary").stage do
       # Change the dynamic linker and RPATH of the binary executables.
-      if OS.linux? && Formula["glibc"].installed?
+      if OS.linux? && Formula["glibc"].any_version_installed?
         keg = Keg.new(prefix)
         ["ghc/stage2/build/tmp/ghc-stage2"].concat(Dir["libraries/*/dist-install/build/*.so",
             "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"]).each do |s|
