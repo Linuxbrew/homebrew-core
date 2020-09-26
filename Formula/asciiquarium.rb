@@ -57,6 +57,8 @@ class Asciiquarium < Formula
   end
 
   test do
+    return if ENV["CI"] && !OS.mac?
+
     # This is difficult to test because:
     # - There are no command line switches that make the process exit
     # - The output is a constant stream of terminal control codes
