@@ -21,6 +21,7 @@ class Asciiquarium < Formula
     sha256 "6b20abf264f40c7123e40f0f34cfc11f0c12a03b1a74a324e3f3a7ae75e94f3f" => :yosemite
   end
 
+  uses_from_macos "ncurses"
   uses_from_macos "perl"
 
   resource "Curses" do
