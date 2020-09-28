@@ -20,7 +20,6 @@ class DiffPdf < Formula
   depends_on "poppler"
   depends_on "wxmac"
   depends_on :x11 if OS.mac?
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
