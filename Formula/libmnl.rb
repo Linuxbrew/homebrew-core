@@ -1,22 +1,18 @@
 class Libmnl < Formula
   desc "Minimalistic user-space library oriented to Netlink developers"
   homepage "https://www.netfilter.org/projects/libmnl"
-  url "git://git.netfilter.org/libmnl",
-    tag:      "libmnl-1.0.4",
-    revision: "0930a63252958f40bb0f9d09de86985c25cea039"
+  url "https://www.netfilter.org/projects/libmnl/files/libmnl-1.0.4.tar.bz2"
+  sha256 "171f89699f286a5854b72b91d06e8f8e3683064c5901fb09d954a9ab6f551f81"
+  license "LGPL-2.1-or-later"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b2ea8cee83f8849eb17544ebe72cd17316433cdbf18f9401dab2382bdcf41091" => :x86_64_linux
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on :linux
 
   def install
-    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
