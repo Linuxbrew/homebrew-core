@@ -1,25 +1,21 @@
 class LibnetfilterQueue < Formula
   desc "Userspace API to packets queued by the kernel packet filter"
   homepage "https://www.netfilter.org/projects/libnetfilter_queue"
-  url "git://git.netfilter.org/libnetfilter_queue",
-    tag:      "libnetfilter_queue-1.0.5",
-    revision: "2ff321690b8dafeca99ee8e9cafac71e36f292b9"
+  url "https://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-1.0.5.tar.bz2"
+  sha256 "f9ff3c11305d6e03d81405957bdc11aea18e0d315c3e3f48da53a24ba251b9f5"
+  license "LGPL-2.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "3e3aa6338ec45a13632db538ae9e98dcfd521ac621f7556a197f070defd50da5" => :x86_64_linux
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libmnl"
   depends_on "libnfnetlink"
   depends_on :linux
 
   def install
-    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
