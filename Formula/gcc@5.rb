@@ -15,7 +15,6 @@ class GccAT5 < Formula
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
     sha256 "dcc9059b725fd7c87842287bbedf60a28745417652d42a300dcd944e15986f36" => :high_sierra
   end
 
@@ -35,35 +34,9 @@ class GccAT5 < Formula
 
   uses_from_macos "zlib"
 
-  on_macos do
-    # Fix build with Xcode 9
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
-    if DevelopmentTools.clang_build_version >= 900
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/078797f1b9/gcc%405/xcode9.patch"
-        sha256 "e1546823630c516679371856338abcbab381efaf9bd99511ceedcce3cf7c0199"
-      end
-    end
-
-    # Fix Apple headers, otherwise they trigger a build failure in libsanitizer
-    # GCC bug report: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=83531
-    # Apple radar 36176941
-    if MacOS.version == :high_sierra
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/413cfac6/gcc%405/10.13_headers.patch"
-        sha256 "94aaec20c8c7bfd3c41ef8fb7725bd524b1c0392d11a411742303a3465d18d09"
-      end
-    end
-
-    # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
-    # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
-    # but this patch is a work around committed to GCC trunk
-    if MacOS::Xcode.version >= "10.2"
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/91d57ebe88e17255965fa88b53541335ef16f64a/gcc%405/gcc5-xcode10.2.patch"
-        sha256 "6834bec30c54ab1cae645679e908713102f376ea0fc2ee993b3c19995832fe56"
-      end
-    end
+  on_linux do
+    depends_on "binutils"
+    depends_on "glibc" if OS::Linux::Glibc.system_version < Formula["glibc"].version
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
@@ -133,19 +106,23 @@ class GccAT5 < Formula
       "--disable-werror",
       "--disable-nls",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
     ]
 
     unless OS.mac?
-      args += [
-        "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
-        "--with-bugurl=https://github.com/Homebrew/linuxbrew-core/issues",
-        # Fix cc1: error while loading shared libraries: libisl.so.15
-        "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}",
-      ]
+      # Fix cc1: error while loading shared libraries: libisl.so.15
+      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
+      args << "--disable-multilib"
 
       # Change the default directory name for 64-bit libraries to `lib`
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+
+      # Fix for system gccs that do not support -static-libstdc++
+      # gengenrtl: error while loading shared libraries: libstdc++.so.6
+      mkdir_p lib
+      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
+      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
 
       # Set the search path for glibc libraries and objects, using the system's glibc
       # Fix the error: ld: cannot find crti.o: No such file or directory
@@ -154,9 +131,8 @@ class GccAT5 < Formula
 
     # Fix Linux error: gnu/stubs-32.h: No such file or directory.
     if OS.mac?
-      args << "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues"
-      args << "--enable-multilib"
       args << "--build=x86_64-apple-darwin#{OS.kernel_version}"
+      args << "--enable-multilib"
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
@@ -167,13 +143,9 @@ class GccAT5 < Formula
 
       # Avoid reference to sed shim
       args << "SED=/usr/bin/sed"
-    else
-      args << "--disable-multilib"
-    end
 
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    if OS.mac?
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
@@ -202,7 +174,7 @@ class GccAT5 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = bin/"gcc-5"
+      gcc = "#{bin}/gcc-#{version.major}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -257,7 +229,7 @@ class GccAT5 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/5"
+      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version.major}"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
@@ -269,6 +241,10 @@ class GccAT5 < Formula
         + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
 
       EOS
+
+      # Symlink ligcc_s.so.1 where glibc can find it.
+      # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+      ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc_installed
     end
   end
 
