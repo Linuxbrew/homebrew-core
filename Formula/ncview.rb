@@ -4,7 +4,7 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
   sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
-  revision 3
+  revision OS.mac? ? 3 : 4
 
   # The stable archive in the formula is fetched over FTP and the website for
   # the software hasn't been updated to list the latest release (it has been
@@ -19,14 +19,21 @@ class Ncview < Formula
     sha256 "0a1594bb793189d1359cbd800e44d830cc9cf39b713d71128d41323b284e687a" => :catalina
     sha256 "d0b8e9fb871edf26633325c7309269689d0b4bd858f16a45527230dc16533abf" => :mojave
     sha256 "5511d243f73fd1a7867bb4dd0263afe215dd0e4e29ef77199efee5db08c2d207" => :high_sierra
-    sha256 "972f7559569d1ef6a1ad44f186514214857e0916e7fcff60aa401013e37d2d5d" => :x86_64_linux
   end
 
   depends_on "libpng"
   depends_on "netcdf"
   depends_on "udunits"
   depends_on :x11 if OS.mac?
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/libxaw"
+    depends_on "linuxbrew/xorg/libxt"
+    depends_on "linuxbrew/xorg/libxext"
+    depends_on "linuxbrew/xorg/libice"
+    depends_on "linuxbrew/xorg/libsm"
+    depends_on "linuxbrew/xorg/libx11"
+  end
 
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
