@@ -4,7 +4,7 @@ class Imlib2 < Formula
   url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.7.0/imlib2-1.7.0.tar.bz2"
   sha256 "1976ca3db48cbae79cd0fc737dabe39cc81494fc2560e1d22821e7dc9c22b37d"
   license "Imlib2"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   livecheck do
     url :stable
@@ -14,7 +14,6 @@ class Imlib2 < Formula
     sha256 "3b036ab0c372688bdd116674d463f85b7a1fc900dcb71deddbfa5aa28fca0be1" => :catalina
     sha256 "ab1f7ef9cd4c1b7eced2f47f20bed71d724d09c48907675e4144ae039a10d297" => :mojave
     sha256 "153ebc859ca8a20b20b9d24db87667b8d338fd0e571f01f8400262e3d5700f86" => :high_sierra
-    sha256 "1f4f904fe178b3b02035b01d234270d0056adcdf0ef368c74e26ef1b83ab2a45" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -28,8 +27,9 @@ class Imlib2 < Formula
     depends_on :x11
   end
 
-  on_linux do
-    depends_on "linuxbrew/xorg/xorg"
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxext"
   end
 
   def install
