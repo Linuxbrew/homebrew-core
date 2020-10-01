@@ -4,7 +4,7 @@ class Ddd < Formula
   url "https://ftp.gnu.org/gnu/ddd/ddd-3.3.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/ddd/ddd-3.3.12.tar.gz"
   sha256 "3ad6cd67d7f4b1d6b2d38537261564a0d26aaed077bf25c51efc1474d0e8b65c"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url :stable
@@ -17,15 +17,10 @@ class Ddd < Formula
     sha256 "381ae07c96a67534b05a03ca72741d99aa3437a01c0fef603336ea218c470df9" => :high_sierra
     sha256 "af12e95b5b4326906236559a40f6715e896d164d5c18d9448384e0e22d089abf" => :sierra
     sha256 "68864faf1967b400bc5df5809ab9ee03a0d632f3736071131dd5469be715c58f" => :el_capitan
-    sha256 "c1345dc1802ab1a6ac44e15310d37a5d1052f41c806d847c7c1d47ece4313386" => :x86_64_linux
   end
 
   depends_on "openmotif"
-  if OS.mac?
-    depends_on :x11
-  else
-    depends_on "linuxbrew/xorg/xorg"
-  end
+  depends_on :x11 if OS.mac?
 
   # Needed for OSX 10.9 DP6 build failure:
   # https://savannah.gnu.org/patch/?8178
