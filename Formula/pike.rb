@@ -3,7 +3,7 @@ class Pike < Formula
   homepage "https://pike.lysator.liu.se/"
   url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.702.tar.gz"
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -15,7 +15,6 @@ class Pike < Formula
     sha256 "ae20ba3c7fd69c026892555798559bd2da90d53dc3cf07eb5d7423af505082d5" => :catalina
     sha256 "ff1e2f11d0beec51cc41d9eb566a80cbf53b51933158c6083054e3b91dfa251c" => :mojave
     sha256 "10eb373d72d3c178dc1f560a7e1c35f8b6dc51412d7eb4f4cf4f751109d4fd9d" => :high_sierra
-    sha256 "c8376f39d81c14629b0acd51b3e9e1d6ceadd351b0185ee456ca624836c29292" => :x86_64_linux
   end
 
   depends_on "gmp"
@@ -23,10 +22,7 @@ class Pike < Formula
   depends_on "nettle"
   depends_on "pcre"
 
-  unless OS.mac?
-    depends_on "jpeg"
-    depends_on "linuxbrew/xorg/xorg"
-  end
+  depends_on "jpeg" unless OS.mac?
 
   def install
     ENV.append "CFLAGS", "-m64"
