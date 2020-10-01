@@ -4,7 +4,7 @@ class Fltk < Formula
   url "https://www.fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.5.tar.gz"
   sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -16,13 +16,18 @@ class Fltk < Formula
     sha256 "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b" => :mojave
     sha256 "6edac0b91f19783376ec95c84819405a6f029d7d2bf8ac636d421682fc064e34" => :high_sierra
     sha256 "e2bd28a348c8fbf948f2400d3df29ba786a2ca9cc3f87b3727477fb49ebf57f0" => :sierra
-    sha256 "583f088d721b39ddb7fb790aaf64e705f9148488e65a4ee6ff120c4acd9c0ac9" => :x86_64_linux
   end
 
   depends_on "jpeg"
   depends_on "libpng"
+
   unless OS.mac?
-    depends_on "linuxbrew/xorg/xorg"
+    depends_on "pkg-config" => :build
+    depends_on "linuxbrew/xorg/glu"
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxext"
+    depends_on "linuxbrew/xorg/libxft"
+    depends_on "linuxbrew/xorg/libxt"
     depends_on "mesa"
   end
 
