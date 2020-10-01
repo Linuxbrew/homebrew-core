@@ -4,6 +4,7 @@ class Links < Formula
   url "http://links.twibright.com/download/links-2.21.tar.bz2"
   sha256 "285eed8591c7781ec26213df82786665aaa1b9286782e8a7a1a7e2a6e1630d63"
   license "GPL-2.0"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "http://links.twibright.com/download.php"
@@ -15,7 +16,6 @@ class Links < Formula
     sha256 "c43cf180508872a2e5461af4c3c80a58d2d8824d1bb8b0c1a7d0f890aa12ef49" => :catalina
     sha256 "aef8fa60ec4bdc8adca1cab129a2a8fd0a44888d867e7b468a1ed7672f7c7550" => :mojave
     sha256 "6660756b8d9ac4a433212c44067fd1627e96c3bcf7996f4a51da1affe39e29e5" => :high_sierra
-    sha256 "b45660a49f7090e448408eed55386a65c8cb8b5daf68e6c14fe2bf1d7b66dfe1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -23,7 +23,6 @@ class Links < Formula
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "openssl@1.1"
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     args = %W[
