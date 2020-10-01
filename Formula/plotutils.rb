@@ -4,7 +4,7 @@ class Plotutils < Formula
   url "https://ftp.gnu.org/gnu/plotutils/plotutils-2.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/plotutils/plotutils-2.6.tar.gz"
   sha256 "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
-  revision OS.mac? ? 1 : 3
+  revision OS.mac? ? 1 : 4
 
   livecheck do
     url :stable
@@ -20,11 +20,19 @@ class Plotutils < Formula
     sha256 "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9" => :el_capitan
     sha256 "fae89f252628820ac83a0896fa022b1c08cacca6e6234b2fb23c10554f424fd3" => :yosemite
     sha256 "e51b4b5c367e8f9ec533f54e20c9df0b887818ee35c4cde19ba8feb73d4d2ff2" => :mavericks
-    sha256 "40c9a61e453068bca346cf164ce3464c77a7b884a123a960f306d7fd08e69b81" => :x86_64_linux
   end
 
   depends_on "libpng"
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/libice"
+    depends_on "linuxbrew/xorg/libsm"
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxaw"
+    depends_on "linuxbrew/xorg/libxext"
+    depends_on "linuxbrew/xorg/libxmu"
+    depends_on "linuxbrew/xorg/libxt"
+  end
 
   def install
     # Fix usage of libpng to be 1.5 compatible
