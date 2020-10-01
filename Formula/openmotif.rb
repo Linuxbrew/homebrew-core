@@ -4,6 +4,7 @@ class Openmotif < Formula
   url "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz"
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
   license "LGPL-2.1"
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -15,7 +16,6 @@ class Openmotif < Formula
     sha256 "ca0c7a96b098ed5efc2dace2cb1b9bc2447c8f1cf0780e882bfee691160466e0" => :high_sierra
     sha256 "21120a7b3aab57d5660c480ab5f1924cbfb31e8625674bf02704971f103616f9" => :sierra
     sha256 "bef02966fb2d72ac23235c8038cdf864cefe47d1cb905fac08a9194d7c9ed554" => :el_capitan
-    sha256 "72fd978916fbba47139e0e2402d4f0fb15adcfe88881229714fd3857d276901d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -23,12 +23,15 @@ class Openmotif < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libpng"
-  if OS.mac?
-    depends_on :x11
-  else
-    depends_on "linuxbrew/xorg/xorg"
-    depends_on "linuxbrew/xorg/xbitmaps"
+  depends_on :x11 if OS.mac?
+
+  unless OS.mac?
     depends_on "flex" => :build
+    depends_on "linuxbrew/xorg/libsm"
+    depends_on "linuxbrew/xorg/libxext"
+    depends_on "linuxbrew/xorg/libxft"
+    depends_on "linuxbrew/xorg/libxt"
+    depends_on "linuxbrew/xorg/xbitmaps"
   end
 
   conflicts_with "lesstif",
