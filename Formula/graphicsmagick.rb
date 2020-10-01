@@ -3,6 +3,7 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.35/GraphicsMagick-1.3.35.tar.xz"
   sha256 "188a8d6108fea87a0208723e8d206ec1d4d7299022be8ce5d0a9720509250250"
+  revision 1 unless OS.mac?
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   livecheck do
@@ -13,7 +14,6 @@ class Graphicsmagick < Formula
     sha256 "e5517b416b979debeafdf4fc7a408e09f77c2a8f93b76051d6707f2a6750d0c2" => :catalina
     sha256 "26ba769c14c9ab3b4de02afcb3735b4f1256f23e822166934152c68939508245" => :mojave
     sha256 "8d27e0e2ee2ce56c77a65d691ae893b1ac4ec38e62ee78111964023800756ac5" => :high_sierra
-    sha256 "cd37d2f3fa038958b2d09f03a730227b3ece95df338c415f1e56054665d8ee37" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -25,7 +25,6 @@ class Graphicsmagick < Formula
   depends_on "libtool"
   depends_on "little-cms2"
   depends_on "webp"
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
