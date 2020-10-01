@@ -4,7 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.0.2.tar.gz"
   sha256 "d3bceab364da0876625e4097808b42512395fdf41292f4915ab1fd257c1bbe75"
   license "GPL-2.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -15,7 +15,6 @@ class R < Formula
     sha256 "4d2073c7d93e1117cc35fcc375f6eb112f16c311cc4400d703a805d57f0de71a" => :catalina
     sha256 "e337fd3411cd1dffc9be88c1e116d87acac55021b3a5c70af0feba1b1a2c7259" => :mojave
     sha256 "9040c02a85ac2c37007f066cb3c388c41ea5f4e9e7cfde864f249999b0ce4026" => :high_sierra
-    sha256 "d9f895a1093b1be9b5e55a3dc5ea7a866e7cd51b533eb3d0140e5dccab6c3df8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -32,7 +31,9 @@ class R < Formula
     depends_on "cairo"
     depends_on "curl"
     depends_on "pango"
-    depends_on "linuxbrew/xorg/xorg"
+    depends_on "linuxbrew/xorg/libice"
+    depends_on "linuxbrew/xorg/libx11"
+    depends_on "linuxbrew/xorg/libxt"
   end
 
   # needed to preserve executable permissions on files without shebangs
