@@ -21,11 +21,6 @@ class Libtcod < Formula
   depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
-  unless OS.mac?
-    depends_on "zlib"
-    depends_on "linuxbrew/xorg/xorg"
-  end
-
   def install
     cd "buildsys/autotools" do
       system "autoreconf", "-fiv"
