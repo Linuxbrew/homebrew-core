@@ -3,6 +3,7 @@ class Gromacs < Formula
   homepage "http://www.gromacs.org/"
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.3.tar.gz"
   sha256 "903183691132db14e55b011305db4b6f4901cc4912d2c56c131edfef18cc92a9"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -20,7 +21,6 @@ class Gromacs < Formula
   depends_on "gcc"
   depends_on "gsl" # for OpenMP
   depends_on "openblas"
-  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
