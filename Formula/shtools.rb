@@ -37,7 +37,7 @@ class Shtools < Formula
                    "LIBPATH=#{HOMEBREW_PREFIX}/lib",
                    "LIBNAME=SHTOOLS",
                    "FFTW=-L #{HOMEBREW_PREFIX}/lib -lfftw3 -lm",
-                   "LAPACK=-framework accelerate",
+                   *("LAPACK=-framework accelerate" if OS.mac?),
                    "BLAS="
   end
 end
