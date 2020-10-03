@@ -4,7 +4,7 @@ class Plotutils < Formula
   url "https://ftp.gnu.org/gnu/plotutils/plotutils-2.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/plotutils/plotutils-2.6.tar.gz"
   sha256 "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
-  revision OS.mac? ? 1 : 4
+  revision OS.mac? ? 1 : 5
 
   livecheck do
     url :stable
@@ -19,20 +19,19 @@ class Plotutils < Formula
     sha256 "b63f4f051452f8fd9b5ddb50f9d574122c2277c9778e1a56c3f2d59e55c3da73" => :sierra
     sha256 "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9" => :el_capitan
     sha256 "fae89f252628820ac83a0896fa022b1c08cacca6e6234b2fb23c10554f424fd3" => :yosemite
-    sha256 "74b654b20028a09a09f12da377e94762e8cabcf3ede0f31635ebe93cdacef1a1" => :x86_64_linux
     sha256 "e51b4b5c367e8f9ec533f54e20c9df0b887818ee35c4cde19ba8feb73d4d2ff2" => :mavericks
   end
 
   depends_on "libpng"
 
   unless OS.mac?
-    depends_on "linuxbrew/xorg/libice"
-    depends_on "linuxbrew/xorg/libsm"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxaw"
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libxmu"
-    depends_on "linuxbrew/xorg/libxt"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libx11"
+    depends_on "libxaw"
+    depends_on "libxext"
+    depends_on "libxmu"
+    depends_on "libxt"
   end
 
   def install
