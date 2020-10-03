@@ -4,6 +4,7 @@ class JsonFortran < Formula
   url "https://github.com/jacobwilliams/json-fortran/archive/8.2.0.tar.gz"
   sha256 "df9986c4ecad996f3be3d6855397141e63721207fe90e1500ae0df587d46481f"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
@@ -18,7 +19,7 @@ class JsonFortran < Formula
   depends_on "gcc" # for gfortran
 
   on_linux do
-    depends_on "linuxbrew/xorg/libx11"
+    depends_on "libx11"
   end
 
   def install
