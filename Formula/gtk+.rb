@@ -1,7 +1,7 @@
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
-  revision 3
+  revision OS.mac? ? 3 : 4
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
@@ -19,7 +19,6 @@ class Gtkx < Formula
     sha256 "cec64106c085533a58f8d436f029b2d7199a14cd15af9ece086814396ba48b0e" => :mojave
     sha256 "30ce8d0a4062200196f8d802ae75769d8e05d530c338619d290704c46a7d317b" => :high_sierra
     sha256 "a1324b85f6749111c3eb598c6d3ed231eaa8281b60fc2eb13d48a5f342da3efc" => :sierra
-    sha256 "c3af1c4b634e6fbcf019f632b93a1b795a661be72a46473b0783afa24b3c3f7a" => :x86_64_linux
   end
 
   head do
@@ -37,14 +36,15 @@ class Gtkx < Formula
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
   depends_on "pango"
+
   unless OS.mac?
     depends_on "cairo"
-    depends_on "linuxbrew/xorg/libxinerama"
-    depends_on "linuxbrew/xorg/libxcomposite"
-    depends_on "linuxbrew/xorg/libxcursor"
-    depends_on "linuxbrew/xorg/libxdamage"
-    depends_on "linuxbrew/xorg/libxfixes"
-    depends_on "linuxbrew/xorg/libxrandr"
+    depends_on "libxinerama"
+    depends_on "libxcomposite"
+    depends_on "libxcursor"
+    depends_on "libxdamage"
+    depends_on "libxfixes"
+    depends_on "libxrandr"
   end
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
