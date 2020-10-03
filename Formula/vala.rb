@@ -4,6 +4,7 @@ class Vala < Formula
   url "https://download.gnome.org/sources/vala/0.48/vala-0.48.11.tar.xz"
   sha256 "54fd1bb356d69824009691955c885bae357eec4eaced6c2e2d038180322e306a"
   license "LGPL-2.1-or-later"
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Vala < Formula
   uses_from_macos "flex" => :build
 
   on_linux do
-    depends_on "linuxbrew/xorg/libx11"
+    depends_on "libx11"
   end
 
   def install
