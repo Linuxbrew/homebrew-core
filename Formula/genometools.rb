@@ -5,7 +5,7 @@ class Genometools < Formula
   url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
   sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
   license "ISC"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/genometools/genometools.git"
 
   bottle do
@@ -13,14 +13,14 @@ class Genometools < Formula
     sha256 "2c49e8ae31d2e3d26e90c174bb4fb1e8e007f36bd9b9508220ff321ca3520d05" => :catalina
     sha256 "c6509a3719aaa5e946f2e395c1ddcbe73c36ca8e1e965edb76136b00a3565c71" => :mojave
     sha256 "89448e5e80e60f6d62ad7cc30892ae6d67fbc7af83e8ee7ce71e232884fe6721" => :high_sierra
-    sha256 "498ffb5e06a3146339e6323c4a362bc8ae9b6b4ce1ca178d8486c84b60b0c477" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
   depends_on "python@3.8"
-  depends_on "linuxbrew/xorg/libpthread-stubs" => :build unless OS.mac?
+
+  depends_on "libpthread-stubs" => :build unless OS.mac?
 
   conflicts_with "libslax", because: "both install `bin/gt`"
 
