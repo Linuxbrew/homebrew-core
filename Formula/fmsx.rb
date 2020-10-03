@@ -4,7 +4,7 @@ class Fmsx < Formula
   url "https://fms.komkon.org/fMSX/fMSX54.zip"
   version "5.4"
   sha256 "bd3ac4fd87586912bfe973c4e286ba9c30fee051a02afd5ea2b9fd6fec310825"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
@@ -13,16 +13,15 @@ class Fmsx < Formula
     sha256 "888f28e2d549ffcd8507c126c18047c64f36670a0d6d86d9469bceb47245c0e3" => :high_sierra
     sha256 "dd7617947a4e85063cc5d41fc82eabdd54a3d456475533ad65431d1f2fd6338a" => :sierra
     sha256 "f17025b7856d7e9fc17d58361a8686bd6d27b4182e28632b0e9d797d0fcf22f9" => :el_capitan
-    sha256 "ddf0c35eefe1a9c49fe675bb1d1bf0d35538894ac1b9717f5a32fa04a2ee618c" => :x86_64_linux
   end
 
   depends_on "pulseaudio"
   depends_on :x11 if OS.mac?
 
   unless OS.mac?
-    depends_on "linuxbrew/xorg/libpthread-stubs"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxext"
+    depends_on "libpthread-stubs"
+    depends_on "libx11"
+    depends_on "libxext"
   end
 
   resource "msx-rom" do
