@@ -4,7 +4,7 @@ class Cairo < Formula
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
   license "LGPL-2.1"
-  revision 3
+  revision OS.mac? ? 3 : 4
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
@@ -15,7 +15,6 @@ class Cairo < Formula
     sha256 "6a23a68837269a8410a54950fdc8883feda091f221118370f1bfd3adbf5ee89c" => :catalina
     sha256 "0984045234fb22fa3e54a337137e9e43a1bf997f5d77692ed02249dfdee2b1bf" => :mojave
     sha256 "5c383ad4625fb1bd15e44e99fba1201490fa478b26178abaca5abb0fdb51510e" => :high_sierra
-    sha256 "2ff97b7c8abbb95791c1dc1e28b42e8f007adaf4f649cb46732c8140ad19dfd1" => :x86_64_linux
   end
 
   head do
@@ -33,12 +32,12 @@ class Cairo < Formula
   depends_on "lzo"
   depends_on "pixman"
 
-  unless OS.mac?
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libxrender"
-  end
-
   uses_from_macos "zlib"
+
+  unless OS.mac?
+    depends_on "libxext"
+    depends_on "libxrender"
+  end
 
   def install
     args = %W[
