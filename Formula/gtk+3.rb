@@ -4,6 +4,7 @@ class Gtkx3 < Formula
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz"
   sha256 "5d864d248357a2251545b3387b35942de5f66e4c66013f0962eb5cb6f8dae2b1"
   license "LGPL-2.0-or-later"
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -14,7 +15,6 @@ class Gtkx3 < Formula
     sha256 "94b7fbbd4b2557e511b7971998d46b9e96a050b9b5468f8df6410c4b1f28ba18" => :catalina
     sha256 "ea959fea33bb7ebc455249f782372f1f7f89aa6f19113f2f8a16c8539b6f0ea2" => :mojave
     sha256 "c5ec8329feaa8a798714bea712ba07836014aa04d28d42a9b63bd5e0adc4e659" => :high_sierra
-    sha256 "e132955fcb2a0ea9dcf3aac5e3a5c90a9a93c3529a51f7c6243f639be8c49392" => :x86_64_linux
   end
 
   depends_on "docbook" => :build
@@ -30,14 +30,15 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
+
   unless OS.mac?
     depends_on "cmake"
     depends_on "at-spi2-atk"
     depends_on "cairo"
     depends_on "iso-codes"
     depends_on "libxkbcommon"
+    depends_on "xorgproto"
     depends_on "linuxbrew/xorg/wayland-protocols"
-    depends_on "linuxbrew/xorg/xorgproto"
   end
 
   uses_from_macos "libxslt" => :build # for xsltproc
