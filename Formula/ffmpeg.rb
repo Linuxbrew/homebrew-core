@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   livecheck do
@@ -18,7 +18,6 @@ class Ffmpeg < Formula
     sha256 "c6c0e23c31d58dca7f43c6569370cad265042192a35d1cc531f58c006e250a6c" => :catalina
     sha256 "e057176e9169390040367e1431dead835ac93025b1a86d7d40fbcc7e15d89b5c" => :mojave
     sha256 "8bd7f692b12049a7a073c00e3201b2e8460a2f4817bc3b5cc47cb5d12d3bfa91" => :high_sierra
-    sha256 "5add6e2b8a5acf980ce0b9c47d73269cb5c229575a48aec8bff2d210e64bf4a7" => :x86_64_linux
   end
 
   depends_on "nasm" => :build
@@ -53,11 +52,12 @@ class Ffmpeg < Formula
   depends_on "x265"
   depends_on "xvid"
   depends_on "xz"
-  depends_on "linuxbrew/xorg/libxv" unless OS.mac?
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  depends_on "libxv" unless OS.mac?
 
   def install
     args = %W[
