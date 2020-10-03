@@ -5,6 +5,7 @@ class Kibana < Formula
       tag:      "v7.8.1",
       revision: "5db9c677ea993ff3df503df03d03f5657fcea42e"
   license "Apache-2.0"
+  revision 1 unless OS.mac?
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Kibana < Formula
   depends_on "yarn" => :build
   depends_on "node@10"
 
-  depends_on "linuxbrew/xorg/libx11" unless OS.mac?
+  depends_on "libx11" unless OS.mac?
 
   def install
     # remove non open source files
