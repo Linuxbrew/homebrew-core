@@ -21,7 +21,6 @@ class Qt < Formula
     sha256 "98b58f82856c44dd6d675db01bcbbf05bf371c62d63be8c32b1a2facb17145bb" => :catalina
     sha256 "b9e96e6ae3d37a9d3c56369ab4dfa329361d83c2b632da53037feaf26d0362b5" => :mojave
     sha256 "75f2dda074131afb9423cff66d38f20815f61955b192a4834b169947a4ebf8e4" => :high_sierra
-    sha256 "8ddc4d723629dd8c702450523c98ae23de2735abade39dbcdee3cedc87cbc790" => :x86_64_linux
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -38,10 +37,10 @@ class Qt < Formula
     depends_on "icu4c"
     depends_on "libproxy"
     depends_on "libxkbcommon"
-    depends_on "linuxbrew/xorg/libdrm"
-    depends_on "linuxbrew/xorg/libice"
-    depends_on "linuxbrew/xorg/libsm"
-    depends_on "linuxbrew/xorg/libxcomposite"
+    depends_on "libdrm"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxcomposite"
     depends_on "linuxbrew/xorg/wayland"
     depends_on "linuxbrew/xorg/xcb-util"
     depends_on "linuxbrew/xorg/xcb-util-image"
