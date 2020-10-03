@@ -4,7 +4,7 @@ class Glfw < Formula
   url "https://github.com/glfw/glfw/archive/3.3.2.tar.gz"
   sha256 "98768e12e615fbe9f3386f5bbfeb91b5a3b45a8c4c77159cef06b1f6ff749537"
   license "Zlib"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
   head "https://github.com/glfw/glfw.git"
 
   bottle do
@@ -12,18 +12,17 @@ class Glfw < Formula
     sha256 "deaf1b20e9fc336d5f0c9a927bc07f2c509fc63538c39e4ab3a024ca7c6170d8" => :catalina
     sha256 "0c0de277c23273346d703004279d92d17a8962f4d62bf01f76021beea3c3f20a" => :mojave
     sha256 "c6a198383ef979823c1e0071e65771ed9059626071390f2dc5b84b218dc565c3" => :high_sierra
-    sha256 "e773566038a5c495c49a93c128984eaeb29111ff8af7a2a3d7df0a478caff85a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
 
   unless OS.mac?
     depends_on "freeglut"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxcursor"
-    depends_on "linuxbrew/xorg/libxi"
-    depends_on "linuxbrew/xorg/libxinerama"
-    depends_on "linuxbrew/xorg/libxrandr"
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
     depends_on "mesa"
   end
 
