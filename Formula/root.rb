@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.22.02.source.tar.gz"
   sha256 "89784afa9c9047e9da25afa72a724f32fa8aa646df267b7731e4527cc8a0c340"
   license "LGPL-2.1-or-later"
+  revision 1 unless OS.mac?
   head "https://github.com/root-project/root.git"
 
   livecheck do
@@ -51,11 +52,12 @@ class Root < Formula
   depends_on "xrootd"
   depends_on "xz" # for LZMA
   depends_on "zstd"
+
   unless OS.mac?
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libxft"
-    depends_on "linuxbrew/xorg/libxpm"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxft"
+    depends_on "libxpm"
   end
 
   conflicts_with "glew", because: "root ships its own copy of glew"
