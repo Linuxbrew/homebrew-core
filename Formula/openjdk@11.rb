@@ -4,31 +4,30 @@ class OpenjdkAT11 < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.8-ga.tar.bz2"
   sha256 "0c10838f708a5987d2980aee56c5c50c02637e21387215f3e13358b93d107192"
   license "GPL-2.0"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "5cf17a69c7f88b8f721959391d89eafcf1dc6ebcbe5f1496b99448ac9fce0c1d" => :catalina
     sha256 "a575ebd198211a770bf0fce657c2393c19064d13621dfc88fc6104cadb205250" => :mojave
     sha256 "ebbda44a7ef9c6d4af36185b8fbdbc16f403c9705696b49b2bd477110d7900ad" => :high_sierra
-    sha256 "6bd466e1b314cee3a92371a5c4d42b919a3aa6ca40a44ab0e34886711589a3c6" => :x86_64_linux
   end
 
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
+
   unless OS.mac?
-    depends_on "pkg-config" => :build
-    depends_on "alsa-lib"
     depends_on "cups"
     depends_on "fontconfig"
     depends_on "unzip"
     depends_on "zip"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libxrandr"
-    depends_on "linuxbrew/xorg/libxrender"
-    depends_on "linuxbrew/xorg/libxt"
-    depends_on "linuxbrew/xorg/libxtst"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
   end
 
   ignore_missing_libraries "libjvm.so" if OS.linux?
