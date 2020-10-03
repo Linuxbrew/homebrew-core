@@ -4,24 +4,24 @@ class Texlive < Formula
   url "https://www.texlive.info/tlnet-archive/2020/07/15/tlnet/install-tl-unx.tar.gz"
   version "20200715"
   sha256 "517058e56756521c3ab1b1939e5e95659adc715ba27babdff41b96bd299e3d20"
+  revision 1
   head "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "53d58aaace0a687dee16f6ab6966299514e1d30c3a79e7470dcab169a96d59b7" => :x86_64_linux
   end
 
   depends_on "wget" => :build
   depends_on "fontconfig"
   depends_on :linux
-  depends_on "linuxbrew/xorg/libice"
-  depends_on "linuxbrew/xorg/libsm"
-  depends_on "linuxbrew/xorg/libx11"
-  depends_on "linuxbrew/xorg/libxaw"
-  depends_on "linuxbrew/xorg/libxext"
-  depends_on "linuxbrew/xorg/libxmu"
-  depends_on "linuxbrew/xorg/libxpm"
-  depends_on "linuxbrew/xorg/libxt"
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxaw"
+  depends_on "libxext"
+  depends_on "libxmu"
+  depends_on "libxpm"
+  depends_on "libxt"
   depends_on "perl"
 
   def install
