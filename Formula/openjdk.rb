@@ -3,31 +3,30 @@ class Openjdk < Formula
   homepage "https://openjdk.java.net/"
   url "https://hg.openjdk.java.net/jdk-updates/jdk14u/archive/jdk-14.0.1-ga.tar.bz2"
   sha256 "f9c4a55ac858f858222bc5fe6e4b890f9b4a3f942fd0211575b0418aec5c14d6"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
     sha256 "d44db8c5b212a36d73f1102468106124e5f5e2f20600768a9d8cecc172df4601" => :catalina
     sha256 "4549644dc93f35362c65fe12543bd77d580944673d836f71108f4bcaabf7c206" => :mojave
     sha256 "b72286cb7187fa0682761f70ea5e6f6922667ceac4de4ac3ebd855786358c773" => :high_sierra
-    sha256 "d21b70bab022636fdd824569cd1f94f99a7549052e583f1e6172715ab571e789" => :x86_64_linux
   end
 
   keg_only "it shadows the macOS `java` wrapper"
 
   depends_on "autoconf" => :build
+
   unless OS.mac?
-    depends_on "pkg-config" => :build
-    depends_on "alsa-lib"
     depends_on "cups"
     depends_on "fontconfig"
     depends_on "unzip"
     depends_on "zip"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libxrandr"
-    depends_on "linuxbrew/xorg/libxrender"
-    depends_on "linuxbrew/xorg/libxt"
-    depends_on "linuxbrew/xorg/libxtst"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
   end
 
   on_linux do
