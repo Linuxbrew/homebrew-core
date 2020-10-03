@@ -5,7 +5,7 @@ class TclTk < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.10-src.tar.gz"
   sha256 "5196dbf6638e3df8d5c87b5815c8c2b758496eb6f0e41446596c9a4e638d87ed"
   license "TCL"
-  revision 2 unless OS.mac?
+  revision 3 unless OS.mac?
 
   livecheck do
     url :stable
@@ -17,7 +17,6 @@ class TclTk < Formula
     sha256 "4740b30b97f0308ecc59c1308945c38ddca5d3da528d779f38199a2dad905fa1" => :catalina
     sha256 "1851fee12a3ee44648845d8663a192712ce6827ef8fe167301d2638ac9ddb96c" => :mojave
     sha256 "d1d689cc3e9cf08b2a42d487db3c4142e7ee4ff322bef22d6187fc67a5b776b7" => :high_sierra
-    sha256 "b2ce423805ab33fc6fe752533458b22e802723170db97728e891c6869c8fa47d" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
@@ -30,8 +29,8 @@ class TclTk < Formula
 
   unless OS.mac?
     depends_on "zlib"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxext"
+    depends_on "libx11"
+    depends_on "libxext"
   end
 
   resource "critcl" do
