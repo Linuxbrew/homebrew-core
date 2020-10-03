@@ -4,6 +4,7 @@ class CodeServer < Formula
   url "https://registry.npmjs.org/code-server/-/code-server-3.5.0.tgz"
   sha256 "070c59c9fd955f68441e12ac7adf39e4a96e7a287ab2c092ed39f864abc795d5"
   license "MIT"
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -14,7 +15,6 @@ class CodeServer < Formula
     sha256 "79ec8cadf71c1b23a92b552888a971b8cc6055a6bd25b34b74e1ab90509fd08f" => :catalina
     sha256 "437c96b5ab795a11341025a3d0640b289636ae2ef6f382c7d91cb4112d6f168c" => :mojave
     sha256 "02d2d1c07b5650a4a7786d09f75a7c988a51dd20dd3bec49f0bb4a6ba6cfa9f7" => :high_sierra
-    sha256 "da52c88c53178cf4d2eef99dee49eddf99a4451c2e7db23e94981db7466b5c9d" => :x86_64_linux
   end
 
   depends_on "python@3.8" => :build
@@ -27,8 +27,8 @@ class CodeServer < Formula
   end
 
   unless OS.mac?
-    depends_on "linuxbrew/xorg/libxkbfile"
-    depends_on "linuxbrew/xorg/libx11"
+    depends_on "libxkbfile"
+    depends_on "libx11"
   end
 
   def install
