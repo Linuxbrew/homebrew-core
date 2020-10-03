@@ -4,7 +4,7 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
   sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
-  revision OS.mac? ? 3 : 4
+  revision OS.mac? ? 3 : 5
 
   # The stable archive in the formula is fetched over FTP and the website for
   # the software hasn't been updated to list the latest release (it has been
@@ -19,7 +19,6 @@ class Ncview < Formula
     sha256 "0a1594bb793189d1359cbd800e44d830cc9cf39b713d71128d41323b284e687a" => :catalina
     sha256 "d0b8e9fb871edf26633325c7309269689d0b4bd858f16a45527230dc16533abf" => :mojave
     sha256 "5511d243f73fd1a7867bb4dd0263afe215dd0e4e29ef77199efee5db08c2d207" => :high_sierra
-    sha256 "c7f9593b877c12e06b08614439ef9e7a163fc7d1e4fb48edd6d96376be2c7492" => :x86_64_linux
   end
 
   depends_on "libpng"
@@ -28,12 +27,12 @@ class Ncview < Formula
   depends_on :x11 if OS.mac?
 
   unless OS.mac?
-    depends_on "linuxbrew/xorg/libxaw"
-    depends_on "linuxbrew/xorg/libxt"
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libice"
-    depends_on "linuxbrew/xorg/libsm"
-    depends_on "linuxbrew/xorg/libx11"
+    depends_on "libx11"
+    depends_on "libxaw"
+    depends_on "libxext"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxt"
   end
 
   def install
