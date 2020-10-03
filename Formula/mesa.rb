@@ -6,6 +6,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-20.2.0.tar.xz"
   sha256 "63f0359575d558ef98dd78adffc0df4c66b76964ebf603b778b7004964191d30"
   license "MIT"
+  revision 1 unless OS.mac?
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   livecheck do
@@ -16,7 +17,6 @@ class Mesa < Formula
     sha256 "80f2a41eb9de16114eb1ca1d9635d5ca2d22b9651bbdafb621b3b3ff35998d00" => :catalina
     sha256 "3b5251d783c51d20fe2f72067d8b060267d522e285b2eb67f215a737396ec6c1" => :mojave
     sha256 "3e7f48cbb9e932c7be02a100db4986ddc2fd3780a199be668f15e049b021666b" => :high_sierra
-    sha256 "f305f01ea9a73fd53fa505c2b80f70ab59c264ebc8036a87b85582aa9bd2cacf" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -34,24 +34,24 @@ class Mesa < Formula
 
   on_linux do
     depends_on "llvm"
+    depends_on "lm-sensors"
+    depends_on "libx11"
     depends_on "libelf"
+    depends_on "libxcb"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
+    depends_on "libxrandr"
+    depends_on "libxshmfence"
+    depends_on "libxv"
+    depends_on "libxvmc"
+    depends_on "libxxf86vm"
     depends_on "linuxbrew/xorg/libdrm"
     depends_on "linuxbrew/xorg/libomxil-bellagio"
     depends_on "linuxbrew/xorg/libva-internal"
     depends_on "linuxbrew/xorg/libvdpau"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxcb"
-    depends_on "linuxbrew/xorg/libxdamage"
-    depends_on "linuxbrew/xorg/libxext"
-    depends_on "linuxbrew/xorg/libxfixes"
-    depends_on "linuxbrew/xorg/libxrandr"
-    depends_on "linuxbrew/xorg/libxshmfence"
-    depends_on "linuxbrew/xorg/libxv"
-    depends_on "linuxbrew/xorg/libxvmc"
-    depends_on "linuxbrew/xorg/libxxf86vm"
     depends_on "linuxbrew/xorg/wayland"
     depends_on "linuxbrew/xorg/wayland-protocols"
-    depends_on "lm-sensors"
   end
 
   resource "Mako" do
