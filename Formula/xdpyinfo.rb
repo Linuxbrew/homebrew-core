@@ -32,6 +32,8 @@ class Xdpyinfo < Formula
   end
 
   test do
+    return unless OS.mac?
+
     assert_match /version number:\s+11.0/, shell_output("xdpyinfo")
   end
 end
