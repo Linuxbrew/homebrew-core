@@ -4,6 +4,7 @@ class Libxkbcommon < Formula
   url "https://xkbcommon.org/download/libxkbcommon-1.0.1.tar.xz"
   sha256 "ab68b25341c99f2218d7cf3dad459c1827f411219901ade05bbccbdb856b6c8d"
   license "MIT"
+  revision 1 unless OS.mac?
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Libxkbcommon < Formula
   depends_on "pkg-config" => :build
   depends_on :x11 if OS.mac?
 
-  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxml2"
 
   unless OS.mac?
     depends_on "libxcb"
