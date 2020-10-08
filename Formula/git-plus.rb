@@ -6,7 +6,7 @@ class GitPlus < Formula
   url "https://files.pythonhosted.org/packages/73/b5/6cf7f0513fd1ef42b5a3ac0e342b3c4176551f60ad17fc5dbe52329f2b58/git-plus-v0.4.6.tar.gz"
   sha256 "bcf3a83a2730e8b6f5bc106db00b7b6be5df534cb9543ba7ecc506c535c5158b"
   license "Apache-2.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/tkrajina/git-plus.git"
 
   livecheck do
@@ -18,7 +18,6 @@ class GitPlus < Formula
     sha256 "77a2c33cfbcaa7eeebf0599197ef9865821df0a513c60f768586049c78795709" => :catalina
     sha256 "de4043e1cd948c93b60ba863ddc3ed42528e733263efb54f4e4c608cc6fcb148" => :mojave
     sha256 "774bf600193c1446a6097675f995ec808eada8f45d9b78f735121de23cd3d56c" => :high_sierra
-    sha256 "b5c6ef117808599fd47206635484683547e65bb6bc70bf925786e2213937b9be" => :x86_64_linux
   end
 
   depends_on "python@3.9"
