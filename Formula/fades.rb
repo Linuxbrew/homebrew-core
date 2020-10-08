@@ -4,7 +4,7 @@ class Fades < Formula
   url "https://files.pythonhosted.org/packages/cd/b0/381b14139b36dcbd317349ce7c2bd2e2a66bfc772d13e568d71f3d98d977/fades-9.0.tar.gz"
   sha256 "77192b76efbd08dfabce65fe6012805a2383ec1b893c12091efe35fbfd9677f6"
   license "GPL-3.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/PyAr/fades.git"
 
   livecheck do
@@ -16,7 +16,6 @@ class Fades < Formula
     sha256 "78532c867a5ab35381edeb565f094fff1d2d269c169f903e10bde65a2ee2b3c7" => :catalina
     sha256 "bc2264df647adc84ef4f5321258ee9030da3269a66d4f50ed5faf0cc3185bd83" => :mojave
     sha256 "bdf1c47688725b9335adaca1dae977fba9aa534d44f4c65b4a1a684d6fc7930e" => :high_sierra
-    sha256 "5df8f5d1a8e16c264ed22af1821bfd04bb4b3b022e08c539c1873d84dea11edf" => :x86_64_linux
   end
 
   depends_on "python@3.9"
