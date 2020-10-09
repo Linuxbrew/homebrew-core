@@ -70,7 +70,8 @@ class Openjdk < Formula
                           "--with-jvm-variants=server",
                           ("--with-x=#{HOMEBREW_PREFIX}" unless OS.mac?),
                           ("--with-cups=#{HOMEBREW_PREFIX}" unless OS.mac?),
-                          ("--with-fontconfig=#{HOMEBREW_PREFIX}" unless OS.mac?)
+                          ("--with-fontconfig=#{HOMEBREW_PREFIX}" unless OS.mac?),
+                          ("--with-libjpeg=#{HOMEBREW_PREFIX}" unless OS.mac?)
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
