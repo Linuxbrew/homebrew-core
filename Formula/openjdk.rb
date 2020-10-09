@@ -52,7 +52,6 @@ class Openjdk < Formula
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = OS.mac? ? boot_jdk_dir/"Contents/Home" : boot_jdk_dir
     java_options = ENV.delete("_JAVA_OPTIONS")
-    ENV["CPPFLAGS"] = 
 
     _, _, build = version.to_s.rpartition("+")
 
