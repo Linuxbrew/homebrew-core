@@ -30,6 +30,8 @@ class Openjdk < Formula
     depends_on "zip"
   end
 
+  ignore_missing_libraries "libjvm.so" if OS.linux?
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
