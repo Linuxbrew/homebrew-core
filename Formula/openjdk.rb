@@ -19,7 +19,6 @@ class Openjdk < Formula
   unless OS.mac?
     depends_on "cups"
     depends_on "fontconfig"
-    depends_on "jpeg"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
@@ -53,6 +52,7 @@ class Openjdk < Formula
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = OS.mac? ? boot_jdk_dir/"Contents/Home" : boot_jdk_dir
     java_options = ENV.delete("_JAVA_OPTIONS")
+    ENV["CPPFLAGS"] = 
 
     _, _, build = version.to_s.rpartition("+")
 
@@ -70,11 +70,9 @@ class Openjdk < Formula
                           "--with-jvm-variants=server",
                           ("--with-x=#{HOMEBREW_PREFIX}" unless OS.mac?),
                           ("--with-cups=#{HOMEBREW_PREFIX}" unless OS.mac?),
-                          ("--with-fontconfig=#{HOMEBREW_PREFIX}" unless OS.mac?),
-                          ("--with-libjpeg=system" unless OS.mac?)
-
-    ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
-    system "make", "images"
+                          ("--with-fontconfig=#{HOMEBREW_PREFIX}" unless OS.mac?)
+    
+    ENV.deparallelize { system "make", "images" }
 
     if OS.mac?
       jdk = Dir["build/*/images/jdk-bundle/*"].first
