@@ -13,7 +13,7 @@ class Libxshmfence < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "xorgproto" => :build
+  depends_on "xorgproto" => [:build, :test]
 
   def install
     args = %W[
@@ -38,7 +38,7 @@ class Libxshmfence < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["xorgproto"].include}", "-L#{lib}", "-lLibxshmfence"
+    system ENV.cc, "test.c"
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
