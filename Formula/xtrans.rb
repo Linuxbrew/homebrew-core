@@ -14,7 +14,7 @@ class Xtrans < Formula
 
   depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
-  depends_on "xorgproto"
+  depends_on "xorgproto" => :test
 
   def install
     args = %W[
@@ -42,7 +42,7 @@ class Xtrans < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{Formula["xorgproto"].include}", "-I#{include}", "-L#{lib}", "-lXtrans"
+    system ENV.cc, "test.c"
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
