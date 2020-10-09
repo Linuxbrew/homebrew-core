@@ -19,14 +19,15 @@ class Openjdk < Formula
   unless OS.mac?
     depends_on "cups"
     depends_on "fontconfig"
-    depends_on "unzip"
-    depends_on "zip"
+    depends_on "jpeg"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "unzip"
+    depends_on "zip"
   end
 
   on_linux do
