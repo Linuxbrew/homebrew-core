@@ -1,9 +1,3 @@
-class ZshRequirement < Requirement
-  fatal true
-  # formula "zsh"
-  satisfy { which "zsh" }
-end
-
 class Antigen < Formula
   desc "Plugin manager for zsh, inspired by oh-my-zsh and vundle"
   homepage "https://antigen.sharats.me/"
@@ -14,10 +8,7 @@ class Antigen < Formula
 
   bottle :unneeded
 
-  unless OS.mac?
-    depends_on ZshRequirement unless ENV["CI"]
-    depends_on "zsh" unless which "zsh"
-  end
+  uses_from_macos "zsh"
 
   def install
     pkgshare.install "bin/antigen.zsh"
