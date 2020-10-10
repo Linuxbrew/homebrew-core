@@ -14,6 +14,14 @@ class Bazel < Formula
 
   depends_on "python@3.8" => :build
   depends_on "openjdk@11"
+  
+  on_linux do
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    depends_on "gcc@9"
+  end
 
   uses_from_macos "zip"
 
@@ -22,15 +30,24 @@ class Bazel < Formula
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
     # Force Bazel to use openjdk@11
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix/"."
-    ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
+    
+    ENV["JAVA_HOME"] = if OS.mac?
+      Formula["openjdk@11"].opt_libexec/"openjdk.jdk/Contents/Home"
+    else
+      Formula["openjdk@11"].opt_prefix
+    end
+
+    ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk --verbose_failures"
+    ENV["VERBOSE"] = "yes"
 
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
-      system "./compile.sh"
+      system "./compile.sh",
+             "--env=std"
       system "./output/bazel",
              "--output_user_root",
+             *("--cxxopt=-std=c++11" unless OS.mac?),
              buildpath/"output_user_root",
              "build",
              "scripts:bash_completion"
@@ -38,8 +55,7 @@ class Bazel < Formula
       bin.install "scripts/packages/bazel.sh" => "bazel"
       ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
-      bin.env_script_all_files(libexec/"bin",
-        JAVA_HOME: Formula["openjdk@11"].opt_prefix/".")
+      bin.env_script_all_files(libexec/"bin", JAVA_HOME: ENV["JAVA_HOME"])
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
       zsh_completion.install "scripts/zsh_completion/_bazel"
