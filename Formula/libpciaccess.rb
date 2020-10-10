@@ -9,6 +9,9 @@ class Libpciaccess < Formula
   depends_on "util-macros" => :build
   depends_on :linux
 
+  bottle do
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
