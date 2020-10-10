@@ -15,7 +15,6 @@ class Graphite2 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "freetype" => :build unless OS.mac?
 
   on_linux do
     depends_on "freetype" => :build
