@@ -27,19 +27,15 @@ class Bazel < Formula
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
-    # Force Bazel to use openjdk@11
-    
+    # Force Bazel to use openjdk@11 
     ENV["JAVA_HOME"] = if OS.mac?
       Formula["openjdk@11"].opt_libexec/"openjdk.jdk/Contents/Home"
     else
       Formula["openjdk@11"].opt_prefix
     end
-
     ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk --verbose_failures"
     ENV["VERBOSE"] = "yes"
-
     (buildpath/"sources").install buildpath.children
-
     cd "sources" do
       system "./compile.sh",
              "--env=std"
@@ -49,7 +45,6 @@ class Bazel < Formula
              buildpath/"output_user_root",
              "build",
              "scripts:bash_completion"
-
       bin.install "scripts/packages/bazel.sh" => "bazel"
       ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
