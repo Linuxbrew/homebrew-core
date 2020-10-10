@@ -14,6 +14,8 @@ class Bazel < Formula
 
   depends_on "python@3.8" => :build
   depends_on "openjdk@11"
+ 
+  uses_from_macos "zip"
   
   on_linux do
     fails_with gcc: "5"
@@ -22,8 +24,6 @@ class Bazel < Formula
     fails_with gcc: "8"
     depends_on "gcc@9"
   end
-
-  uses_from_macos "zip"
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
