@@ -41,7 +41,7 @@ class Bazel < Formula
              "--env=std"
       system "./output/bazel",
              "--output_user_root",
-             *("--cxxopt=-std=c++11" unless OS.mac?),
+             "--cxxopt=-std=c++11",
              buildpath/"output_user_root",
              "build",
              "scripts:bash_completion"
