@@ -70,7 +70,7 @@ class Openjdk < Formula
                           ("--with-x=#{HOMEBREW_PREFIX}" unless OS.mac?),
                           ("--with-cups=#{HOMEBREW_PREFIX}" unless OS.mac?),
                           ("--with-fontconfig=#{HOMEBREW_PREFIX}" unless OS.mac?)
-    
+
     ENV.deparallelize { system "make", "images" }
 
     if OS.mac?
