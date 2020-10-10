@@ -27,7 +27,7 @@ class Bazel < Formula
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
-    # Force Bazel to use openjdk@11 
+    # Force Bazel to use openjdk@11
     ENV["JAVA_HOME"] = if OS.mac?
       Formula["openjdk@11"].opt_libexec/"openjdk.jdk/Contents/Home"
     else
