@@ -32,7 +32,6 @@ class Gegl < Formula
   depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
-  depends_on "cairo" unless OS.mac?
 
   on_linux do
     depends_on "cairo"
