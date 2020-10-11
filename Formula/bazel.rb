@@ -14,10 +14,13 @@ class Bazel < Formula
 
   depends_on "python@3.8" => :build
   depends_on "openjdk@11"
+
   uses_from_macos "zip"
+
   on_linux do
     depends_on "gcc@9"
   end
+
   fails_with gcc: "5"
   fails_with gcc: "6"
   fails_with gcc: "7"
@@ -37,7 +40,7 @@ class Bazel < Formula
     ENV["VERBOSE"] = "yes"
     (buildpath/"sources").install buildpath.children
     cd "sources" do
-      system "./compile.sh",
+      system "./compile.sh"
       system "./output/bazel",
              "--output_user_root",
              "--cxxopt=-std=c++11",
