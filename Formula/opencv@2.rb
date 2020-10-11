@@ -28,11 +28,8 @@ class OpencvAT2 < Formula
   depends_on "numpy@1.16"
   depends_on "openexr"
 
-  depends_on "glib" unless OS.mac?
-
   def install
     ENV.cxx11
-    dylib = OS.mac? ? "dylib" : "so"
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[
@@ -56,14 +53,17 @@ class OpencvAT2 < Formula
       -DWITH_OPENGL=ON
       -DWITH_TBB=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
-      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
+      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
       -DENABLE_SSSE3=ON
     ]
 
     py_prefix = `python-config --prefix`.chomp
     py_lib = "#{py_prefix}/lib"
-    args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
+    args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
     args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
+
+    # Make sure find_program locates system Python
+    # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
     args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" if MacOS.version.requires_sse42?
