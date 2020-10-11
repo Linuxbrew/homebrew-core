@@ -38,7 +38,7 @@ class Bazel < Formula
     (buildpath/"sources").install buildpath.children
     cd "sources" do
       system "./compile.sh",
-             "--env=std"
+             "--cxxopt=-std=c++11"
       system "./output/bazel",
              "--output_user_root",
              "--cxxopt=-std=c++11",
