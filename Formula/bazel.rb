@@ -38,12 +38,11 @@ class Bazel < Formula
     (buildpath/"sources").install buildpath.children
     cd "sources" do
       system "./compile.sh",
-             "--cxxopt=-std=c++11"
       system "./output/bazel",
              "--output_user_root",
              "--cxxopt=-std=c++11",
              buildpath/"output_user_root",
-             "build --cxxopt=-std=c++11",
+             "build",
              "scripts:bash_completion"
       bin.install "scripts/packages/bazel.sh" => "bazel"
       ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
@@ -77,7 +76,7 @@ class Bazel < Formula
     EOS
 
     system bin/"bazel",
-           "build --cxxopt=-std=c++11",
+           "build",
            "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
 
