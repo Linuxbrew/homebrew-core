@@ -4,6 +4,7 @@ class XercesC < Formula
   url "https://www.apache.org/dyn/closer.lua?path=xerces/c/3/sources/xerces-c-3.2.3.tar.gz"
   mirror "https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-3.2.3.tar.gz"
   sha256 "fb96fc49b1fb892d1e64e53a6ada8accf6f0e6d30ce0937956ec68d39bd72c7e"
+  revision 1 unless OS.mac?
   license "Apache-2.0"
 
   livecheck do
@@ -15,12 +16,6 @@ class XercesC < Formula
     sha256 "8bcfddab9276b6f09c9af5bd8be60d500cd5107795c25495b53ef5e0734ae617" => :catalina
     sha256 "502d34b51931ead6b1db27ca1a71eed465ecd4da5dbdeaa51c0ae77e77dc25ea" => :mojave
     sha256 "8b30ad6819fc3628b706a18193d45b96c13749e7d1e27f5392cf91e48fe7d63b" => :high_sierra
-    sha256 "a30bc66ae894454e16e3f0d7aa7b5c0a76bb4f50585dd26cf29d93b8918e503e" => :x86_64_linux
-  end
-
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   depends_on "cmake" => :build
