@@ -14,7 +14,7 @@ class Xctool < Formula
   end
 
   depends_on :macos
-  depends_on xcode: "7.0" if OS.mac?
+  depends_on xcode: "7.0"
 
   def install
     xcodebuild "-workspace", "xctool.xcworkspace",
