@@ -13,7 +13,7 @@ class Yacas < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   def install
     cmake_args = std_cmake_args + [
