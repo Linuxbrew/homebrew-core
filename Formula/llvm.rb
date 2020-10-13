@@ -175,7 +175,7 @@ class Llvm < Formula
     ]
     args << "libcxx" if OS.mac?
     # Can likely be added to the base runtimes array when 11.0.0 is released.
-    ecuntimes << "libcxxabi" if build.head?
+    runtimes << "libcxxabi" if build.head?
 
     llvmpath = buildpath/"llvm"
     unless build.head?
