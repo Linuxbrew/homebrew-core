@@ -20,9 +20,9 @@ class Jasper < Formula
         # Make sure macOS's GLUT.framework is used, not XQuartz or freeglut
         # Reported to CMake upstream 4 Apr 2016 https://gitlab.kitware.com/cmake/cmake/issues/16045
         glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework" if OS.mac?
-        os_cmake_args = ("-DGLUT_glut_LIBRARY=#{glut_lib}")
+        os_cmake_args = ["-DGLUT_glut_LIBRARY=#{glut_lib}"]
       else
-        os_cmake_args = ("-DJAS_ENABLE_OPENGL=false")
+        os_cmake_args = ["-DJAS_ENABLE_OPENGL=false"]
       end
 
       system "cmake", "..",
