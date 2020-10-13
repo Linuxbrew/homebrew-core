@@ -18,7 +18,6 @@ class Sn0int < Formula
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
   depends_on "libsodium"
-  depends_on "libseccomp" unless OS.mac?
 
   uses_from_macos "sqlite"
 
