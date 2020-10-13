@@ -44,10 +44,6 @@ class PhpAT72 < Formula
   depends_on "tidy-html5"
   depends_on "unixodbc"
   depends_on "webp"
-  unless OS.mac?
-    depends_on "xz" => :build
-    depends_on "libedit"
-  end
 
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
