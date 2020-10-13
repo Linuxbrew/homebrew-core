@@ -18,8 +18,6 @@ class Libice < Formula
   depends_on "libx11"=> :test
   depends_on "xorgproto"
 
-  depends_on "libx11"=> :test unless OS.mac?
-
   def install
     args = %W[
       --prefix=#{prefix}
