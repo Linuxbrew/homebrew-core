@@ -49,7 +49,6 @@ class Audacious < Formula
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on :macos # Due to Python 2
-  depends_on :macos # Due to Python 2
   depends_on "mpg123"
   depends_on "neon"
   depends_on "qt"

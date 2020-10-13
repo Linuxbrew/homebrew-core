@@ -19,7 +19,6 @@ class Mono < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on :macos # Due to Python 2
-  depends_on "unzip" => :build unless OS.mac?
 
   uses_from_macos "unzip" => :build
 
