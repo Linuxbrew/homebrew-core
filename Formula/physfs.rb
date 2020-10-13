@@ -20,10 +20,6 @@ class Physfs < Formula
   end
 
   depends_on "cmake" => :build
-  unless OS.mac?
-    depends_on "readline"
-    depends_on "zip" => :test
-  end
 
   uses_from_macos "zip" => :test
 
