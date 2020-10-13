@@ -15,7 +15,6 @@ class Sniffglue < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "libseccomp" unless OS.mac?
 
   uses_from_macos "libpcap"
 
