@@ -19,11 +19,6 @@ class Mitmproxy < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "python@3.8"
-  unless OS.mac?
-    depends_on "libffi"
-    # pkg-config helps setuptools find libffi
-    depends_on "pkg-config" => :build
-  end
 
   uses_from_macos "libffi"
 
