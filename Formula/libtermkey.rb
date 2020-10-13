@@ -22,7 +22,6 @@ class Libtermkey < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "unibilium"
-  depends_on "glib" => :build unless OS.mac?
 
   uses_from_macos "ncurses"
 
