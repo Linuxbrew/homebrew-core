@@ -28,11 +28,6 @@ class CodeServer < Formula
     depends_on "libxkbfile"
   end
 
-  unless OS.mac?
-    depends_on "libxkbfile"
-    depends_on "libx11"
-  end
-
   def install
     system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
