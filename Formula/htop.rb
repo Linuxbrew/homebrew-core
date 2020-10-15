@@ -4,6 +4,7 @@ class Htop < Formula
   url "https://github.com/htop-dev/htop/archive/3.0.2.tar.gz"
   sha256 "b4744a3bea279f2a3725ed8e5e35ffd9cb10d66673bf07c8fe21feb3c4661305"
   license "GPL-2.0-or-later"
+  revision 1 unless OS.mac?
   head "https://github.com/htop-dev/htop.git"
 
   livecheck do
@@ -12,7 +13,6 @@ class Htop < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     cellar :any
     sha256 "5bfd853dd4f051eb9a53c85ccdf21f66691f1a839036f5cff6c20a1f0ab05967" => :catalina
     sha256 "8b577984d03fd78706384024e579dc68df3a96013fc35d251534281ff3ec7ae4" => :mojave
@@ -24,10 +24,10 @@ class Htop < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "ncurses" # enables mouse scroll
-  depends_on "python@3.8" => :build unless OS.mac?
+  depends_on "python@3.9" => :build unless OS.mac?
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin" unless OS.mac?
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" unless OS.mac?
 
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
