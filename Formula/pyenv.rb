@@ -5,6 +5,7 @@ class Pyenv < Formula
   sha256 "a36f11a9e35bb3354e820fe2e9d258208624703506878fc6b7466d646b59d782"
   license "MIT"
   version_scheme 1
+  revision 1 unless OS.mac?
   head "https://github.com/pyenv/pyenv.git"
 
   livecheck do
@@ -17,14 +18,13 @@ class Pyenv < Formula
     sha256 "2f4c78fd8cce10de8e9fb48a43c7cd51003e7a87c3cba9e4c3942d72f331df58" => :catalina
     sha256 "a3f8395adbc0644940fa03f41807fac246b997d10ae990f549e016699a2b7e51" => :mojave
     sha256 "d4a573a9116ee1f474e4a77517af5c9dfaefe5ebb9cf7f26d2cc9ac872fe1155" => :high_sierra
-    sha256 "8d6415989eafa27a8c665534bb257ebeedd8adee8be4b8776bc7ecbec8fbfb43" => :x86_64_linux
   end
 
   depends_on "autoconf"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "readline"
-  depends_on "python@3.8" unless OS.mac?
+  depends_on "python@3.9" unless OS.mac?
 
   uses_from_macos "bzip2"
   uses_from_macos "libffi"
