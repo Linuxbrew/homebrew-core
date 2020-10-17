@@ -4,6 +4,7 @@ class Libdrm < Formula
   url "https://dri.freedesktop.org/libdrm/libdrm-2.4.102.tar.xz"
   sha256 "8bcbf9336c28e393d76c1f16d7e79e394a7fce8a2e929d52d3ad7ad8525ba05b"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://dri.freedesktop.org/libdrm/"
@@ -29,10 +30,11 @@ class Libdrm < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include "libdrm_lists.h"
-
+      #include <stdint.h>
+      #include <stdlib.h>
+      #include <libdrm/drm.h>
       int main(int argc, char* argv[]) {
-        struct drmMMListHead *listHead;
+        struct drm_gem_open open;
         return 0;
       }
     EOS
