@@ -25,7 +25,7 @@ class Eccodes < Formula
   def install
     # Fix for GCC 10, remove with next version
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch" if OS.mac?
 
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
