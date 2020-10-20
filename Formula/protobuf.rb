@@ -4,6 +4,7 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.13.0.tar.gz"
   sha256 "465fd9367992a9b9c4fba34a549773735da200903678b81b25f367982e8df376"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://github.com/protocolbuffers/protobuf/releases/latest"
@@ -14,7 +15,6 @@ class Protobuf < Formula
     sha256 "af2990ba0a6e5588ef2afbe2ea3378d3ef0ccb287bca040607b40b5628801113" => :catalina
     sha256 "0a5b436cc6be687df3767294952475adc81744c241595ec55b32efbfdd3d1f38" => :mojave
     sha256 "ca05568f7d2e45bab389b1e6024f38c79f86fa90fc66371453fd4e89bc62da1d" => :high_sierra
-    sha256 "7adc6b2ba8bc67bd2ddd0acbed8c577f3b3cea7d474a9e1a356516b4b6c39ee9" => :x86_64_linux
   end
 
   head do
@@ -35,7 +35,7 @@ class Protobuf < Formula
   unless OS.mac?
     fails_with gcc: "4"
     fails_with gcc: "5"
-    depends_on "gcc@6"
+    depends_on "gcc@6" => :build
   end
 
   def install
