@@ -17,11 +17,7 @@ class GdkPixbuf < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  if OS.mac?
-    depends_on "meson" => :build
-  else
-    depends_on "meson-internal" => :build
-  end
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -64,11 +60,7 @@ class GdkPixbuf < Formula
 
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      if OS.mac?
-        system "meson", *args, ".."
-      else
-        system "#{Formula["meson-internal"].bin}/meson", *args, ".."
-      end
+      system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install"
     end
