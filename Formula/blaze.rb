@@ -14,6 +14,9 @@ class Blaze < Formula
   end
 
   depends_on "cmake" => :build
+  on_linux do
+    depends_on "openblas"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
