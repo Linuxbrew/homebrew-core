@@ -6,7 +6,6 @@ class Osslsigncode < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any
     sha256 "964162e471801ec6335e1cb88fa7d71145a09acd7507f71d049af1edc6375f9e" => :catalina
     sha256 "6ce5ae481bea9b92e4baaf795dfbdaf6cb29d574189978012f641857ffe39113" => :mojave
     sha256 "2a70933b296047d0042df4e1c1361cab8d588ff70c36ef44f63ac01105ce32f6" => :high_sierra
