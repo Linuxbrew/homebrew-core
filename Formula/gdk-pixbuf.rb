@@ -3,7 +3,7 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.40/gdk-pixbuf-2.40.0.tar.xz"
   sha256 "1582595099537ca8ff3b99c6804350b4c058bb8ad67411bbaae024ee7cead4e6"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url :stable
@@ -13,7 +13,6 @@ class GdkPixbuf < Formula
     sha256 "d70823971bb0c34d1ca997233471c9727dc7fe487ffbda050fad35a873a2b909" => :catalina
     sha256 "e2599d42eb2cdf08f3784575778ea782e9bd5dfefbf15f7aea5408d8f653a6be" => :mojave
     sha256 "3e95bd4ea1b357022809c86a104e0e971a264ffc69888026f261d74507abea00" => :high_sierra
-    sha256 "15afae31f494840b402e13da981a6a9ed272f9e969e1df85a0a934bc1b131f73" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
