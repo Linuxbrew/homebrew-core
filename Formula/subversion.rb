@@ -27,7 +27,7 @@ class Subversion < Formula
 
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python@3.9" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
   depends_on "apr"
@@ -39,7 +39,6 @@ class Subversion < Formula
   depends_on "lz4"
   depends_on "openssl@1.1" # For Serf
   depends_on "perl"
-  depends_on "python@3.8" unless OS.mac?
   depends_on "sqlite"
   depends_on "utf8proc"
 
