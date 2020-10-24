@@ -5,12 +5,6 @@ class YoutubeDl < Formula
   sha256 "67fb9bfa30f5b8f06227c478a8a6ed04af1f97ad4e81dd7e2ce518df3e275391"
   license "Unlicense"
 
-  #HEAD is disabled as https://github.com/ytdl-org/youtube-dl/ is taken down due to DMCA takedown notice by RIAA (https://github.com/github/dmca/blob/master/2020/10/2020-10-23-RIAA.md).
-  #head do
-  #  url "https://github.com/ytdl-org/youtube-dl.git"
-  #  depends_on "pandoc" => :build
-  #end
-
   bottle :unneeded
 
   def install
