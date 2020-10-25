@@ -67,22 +67,12 @@ class OpensslAT11 < Formula
     unless OS.mac?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-      resource("ExtUtils::MakeMaker").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
-        system "make", "install"
-      end
-
-      resource("Test::Harness").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
-        system "make", "install"
-      end
-
-      resource("Test::More").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
-        system "make", "install"
+      %w[ExtUtils::MakeMaker Test::Harness Test::More].each do |r|
+        resource(r).stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+          system "make", "install"
+        end
       end
     end
 
