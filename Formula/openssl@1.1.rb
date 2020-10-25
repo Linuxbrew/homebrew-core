@@ -39,6 +39,12 @@ class OpensslAT11 < Formula
       url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
       sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
     end
+
+    resource "ExtUtils::MakeMaker" do
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
+      sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
+    end
+
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
@@ -60,6 +66,13 @@ class OpensslAT11 < Formula
   def install
     unless OS.mac?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+      resource("ExtUtils::MakeMaker").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+        system "make", "install"
+      end
+
       resource("Test::Harness").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
