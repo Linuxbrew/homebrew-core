@@ -29,7 +29,6 @@ class Wget < Formula
   depends_on "pkg-config" => :build
   depends_on "libidn2"
   depends_on "openssl@1.1"
-  depends_on "util-linux" if OS.linux? # for libuuid
 
   on_linux do
     depends_on "util-linux"
