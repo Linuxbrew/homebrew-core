@@ -24,7 +24,11 @@ class Zookeeper < Formula
   depends_on "libtool" => :build
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
-  depends_on "openjdk"
+
+  unless OS.mac?
+    depends_on "openjdk"
+    depends_on "openssl@1.1"
+  end
 
   def shim_script(target)
     <<~EOS
@@ -38,7 +42,6 @@ class Zookeeper < Formula
   def default_zk_env
     <<~EOS
       [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
-      [ -z "$JAVA_HOME" ] && export JAVA_HOME=#{Formula["openjdk"].opt_libexec}
     EOS
   end
 
@@ -81,6 +84,12 @@ class Zookeeper < Formula
 
     defaults = etc/"zookeeper/defaults"
     defaults.write(default_zk_env) unless defaults.exist?
+    # set default JAVA_HOME for scripts on Linux so they can find the right java binary
+    unless OS.mac?
+      defaults.append_lines <<~EOS
+        [ -z "$JAVA_HOME" ] && export JAVA_HOME="#{Formula["openjdk"].opt_libexec}"
+      EOS
+    end
 
     log4j_properties = etc/"zookeeper/log4j.properties"
     log4j_properties.write(default_log4j_properties) unless log4j_properties.exist?
