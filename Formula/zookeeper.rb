@@ -24,6 +24,7 @@ class Zookeeper < Formula
   depends_on "libtool" => :build
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
+  depends_on "openjdk"
 
   def shim_script(target)
     <<~EOS
@@ -37,6 +38,7 @@ class Zookeeper < Formula
   def default_zk_env
     <<~EOS
       [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
+      [ -z "$JAVA_HOME" ] && export JAVA_HOME=#{Formula["openjdk"].opt_libexec}
     EOS
   end
 
