@@ -3,7 +3,7 @@ class Portmidi < Formula
   homepage "https://sourceforge.net/projects/portmedia/"
   url "https://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip"
   sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
-  revision OS.mac? ? 2 : 3
+  revision 2
 
   livecheck do
     url :stable
