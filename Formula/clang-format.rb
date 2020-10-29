@@ -67,11 +67,11 @@ class ClangFormat < Formula
 
   def install
     if build.head?
-      ln_s buildpath/"libcxx", buildpath/"llvm/projects/libcxx" if OS.mac?
+      ln_s buildpath/"libcxx", buildpath/"llvm/projects/libcxx"
       ln_s buildpath/"libcxxabi", buildpath/"llvm/tools/libcxxabi"
       ln_s buildpath/"clang", buildpath/"llvm/tools/clang"
     else
-      (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
+      (buildpath/"projects/libcxx").install resource("libcxx")
       (buildpath/"projects/libcxxabi").install resource("libcxxabi")
       (buildpath/"tools/clang").install resource("clang")
     end
@@ -80,12 +80,9 @@ class ClangFormat < Formula
 
     mkdir llvmpath/"build" do
       args = std_cmake_args
-      args << "-DLLVM_ENABLE_LIBCXX=ON" if OS.mac?
-      args << "-DLLVM_ENABLE_LIBCXX=OFF" unless OS.mac?
       args << "-DLLVM_ENABLE_LIBCXX=ON"
-      args << "-DLLVM_EXTERNAL_PROJECTS=\"clang;libcxx;libcxxabi\"" if OS.mac?
-      args << "-DLLVM_EXTERNAL_PROJECTS=\"clang;libcxxabi\"" unless OS.mac?
-      args << "-DLLVM_EXTERNAL_LIBCXX_SOURCE_DIR=\"#{(buildpath/"projects/libcxx")}\"" if OS.mac?
+      args << "-DLLVM_EXTERNAL_PROJECTS=\"clang;libcxx;libcxxabi\""
+      args << "-DLLVM_EXTERNAL_LIBCXX_SOURCE_DIR=\"#{(buildpath/"projects/libcxx")}\""
       args << "-DCMAKE_BUILD_TYPE=Release"
       args << ".."
       system "cmake", "-G", "Ninja", *args
