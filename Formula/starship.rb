@@ -17,6 +17,7 @@ class Starship < Formula
   depends_on "rust" => :build
   unless OS.mac?
     depends_on "pkg-config" => :build
+    depends_on "dbus"
     depends_on "openssl@1.1"
   end
 
