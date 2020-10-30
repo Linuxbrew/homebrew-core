@@ -43,9 +43,9 @@ class Bazel < Formula
       system "./compile.sh"
       system "./output/bazel",
              "--output_user_root",
-             "--cxxopt=-std=c++11",
              buildpath/"output_user_root",
              "build",
+             "--cxxopt=-std=c++11",
              "scripts:bash_completion"
       bin.install "scripts/packages/bazel.sh" => "bazel"
       ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
