@@ -3,18 +3,15 @@ class Attr < Formula
   homepage "https://savannah.nongnu.org/projects/attr"
   url "https://mirror.csclub.uwaterloo.ca/nongnu/attr/attr-2.4.48.tar.gz"
   sha256 "5ead72b358ec709ed00bbf7a9eaef1654baad937c001c044fe8b74c57f5324e7"
+  revision 1
 
   bottle do
-    sha256 "3b9b66637bfe43449338f3c00e2cd44d597f8cc2f94d439fb2d61845096cc1ba" => :x86_64_linux
   end
 
   depends_on "gettext" => :build
   depends_on :linux
 
   def install
-    # Fix No rule to make target `../libattr/libattr.la', needed by `attr'
-    ENV.deparallelize
-
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
@@ -24,6 +21,9 @@ class Attr < Formula
   end
 
   test do
-    system bin/"attr", "-l", "/bin/sh"
+    (testpath/"test.txt").write("Hello World!\n")
+    system bin/"attr", "-s", "name", "test.txt"
+    assert_match 'Attribute "name" has a 0 byte value for test.txt',
+                 shell_output(bin/"attr -l test.txt")
   end
 end
