@@ -96,7 +96,7 @@ class Openjdk < Formula
                           "--with-boot-jdk-jvmargs=#{java_options}",
                           "--with-debug-level=release",
                           "--with-native-debug-symbols=none",
-                          "--enable-dtrace",
+                          ("--enable-dtrace" if OS.mac?),
                           "--with-jvm-variants=server",
                           ("--with-x=#{HOMEBREW_PREFIX}" unless OS.mac?),
                           ("--with-cups=#{HOMEBREW_PREFIX}" unless OS.mac?),
