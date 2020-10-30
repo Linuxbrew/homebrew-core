@@ -26,7 +26,11 @@ class OpenshiftCli < Formula
   depends_on "go" => :build
   depends_on "heimdal" => :build
   depends_on "socat"
-  depends_on "krb5" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "texinfo" => :build
+    depends_on "krb5"
+  end
 
   def install
     ENV.O0 unless OS.mac? # See https://github.com/golang/go/issues/26487
