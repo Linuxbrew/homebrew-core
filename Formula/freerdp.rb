@@ -14,7 +14,7 @@ class Freerdp < Formula
 
   head do
     url "https://github.com/FreeRDP/FreeRDP.git"
-    depends_on xcode: :build if OS.mac?
+    depends_on xcode: :build
   end
 
   depends_on "cmake" => :build
