@@ -17,7 +17,7 @@ class Chuck < Formula
     sha256 "bf6caf2f7ecd22b43afca372f0fd7e26fab5145aee922725ddbb237039cd1883" => :high_sierra
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   def install
     system "make", "-C", "src", "osx"
