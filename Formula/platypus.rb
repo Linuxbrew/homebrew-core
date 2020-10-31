@@ -14,7 +14,7 @@ class Platypus < Formula
     sha256 "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55" => :sierra
   end
 
-  depends_on xcode: ["8.0", :build] if OS.mac?
+  depends_on xcode: ["8.0", :build]
 
   def install
     xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
