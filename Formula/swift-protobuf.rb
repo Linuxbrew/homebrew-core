@@ -13,7 +13,7 @@ class SwiftProtobuf < Formula
     sha256 "d52bc630a57e4cac6eee86bdcf4b7f1c4af166f468e9ab79e8298bc008d6ddbc" => :high_sierra
   end
 
-  depends_on xcode: ["8.3", :build] if OS.mac?
+  depends_on xcode: ["8.3", :build]
   depends_on "protobuf"
 
   conflicts_with "protobuf-swift",
