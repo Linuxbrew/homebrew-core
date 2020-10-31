@@ -13,7 +13,7 @@ class Dshb < Formula
     sha256 "e0aa0f64ac02e9244fc59773a966d1ac5755dc4a4c91c0dbcd92633c4330f14b" => :el_capitan
   end
 
-  depends_on xcode: ["8.0", :build] if OS.mac?
+  depends_on xcode: ["8.0", :build]
   depends_on :macos
 
   def install
