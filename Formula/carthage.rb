@@ -15,7 +15,7 @@ class Carthage < Formula
     sha256 "962d60c36c3bd904cdd7b1ae0c7199b3de617b84ba7cfee7fdc91e46a413ccb9" => :high_sierra
   end
 
-  depends_on xcode: ["10.0", :build] if OS.mac?
+  depends_on xcode: ["10.0", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}"
