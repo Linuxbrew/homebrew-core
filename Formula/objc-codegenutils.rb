@@ -16,7 +16,7 @@ class ObjcCodegenutils < Formula
     sha256 "46d389e6ec12462dfbdd97822ce7c6e8156bbe9fac7a3baf04c20cb1991d9f75" => :mavericks
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   def install
     xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen",
