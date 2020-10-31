@@ -17,7 +17,7 @@ class PinentryMac < Formula
     sha256 "c2538b57edce2eb7ccc10a32e16ccfbbbe8e61c384c4db8d5a62b04d3815c0ed" => :mavericks
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   patch do
     # patch header locations for macOS 10.14
