@@ -17,7 +17,7 @@ class Planck < Formula
   depends_on "clojure" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
   depends_on "icu4c"
   depends_on "libzip"
 
