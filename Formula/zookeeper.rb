@@ -25,7 +25,7 @@ class Zookeeper < Formula
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
 
-  unless OS.mac?
+  on_linux do
     depends_on "openjdk"
     depends_on "openssl@1.1"
   end
