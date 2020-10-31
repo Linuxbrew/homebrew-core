@@ -12,7 +12,7 @@ class Bartycrouch < Formula
     sha256 "aa2777a08e4d1a12340638678c4652b4ab5d5aa6f7db2917e7c907550d524119" => :catalina
   end
 
-  depends_on xcode: ["12.0", :build] if OS.mac?
+  depends_on xcode: ["12.0", :build]
   depends_on :macos
 
   def install
