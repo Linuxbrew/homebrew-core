@@ -12,7 +12,7 @@ class Configen < Formula
     sha256 "befb8801be997ff110c9ca0b817fed82b4e233842f5afe05e7ae372a10c4007f" => :mojave
   end
 
-  depends_on xcode: ["10.2", :build] if OS.mac?
+  depends_on xcode: ["10.2", :build]
 
   def install
     xcodebuild "SYMROOT=build"
