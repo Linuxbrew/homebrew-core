@@ -12,7 +12,7 @@ class Webarchiver < Formula
     sha256 "fe85ee50f8a3da76dcbcd8bb24c1bea05bde33525055c4d471c8b07fccadfa65" => :high_sierra
   end
 
-  depends_on xcode: ["6.0.1", :build] if OS.mac?
+  depends_on xcode: ["6.0.1", :build]
 
   def install
     # Force 64 bit-only build, otherwise it fails on Mojave
