@@ -13,7 +13,7 @@ class Swiftformat < Formula
     sha256 "2dfddc61bfe3491a677794119d43992b7b2709d63e540a28ac4ab59d19b0a98e" => :high_sierra
   end
 
-  depends_on xcode: ["10.1", :build] if OS.mac?
+  depends_on xcode: ["10.1", :build]
   depends_on :macos
 
   def install
