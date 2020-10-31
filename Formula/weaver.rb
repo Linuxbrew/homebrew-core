@@ -11,7 +11,7 @@ class Weaver < Formula
     sha256 "3db8730a06cb3ddd12a35097239afd85ea365c3e291a73422f37f23955230007" => :mojave
   end
 
-  depends_on xcode: ["11.2", :build] if OS.mac?
+  depends_on xcode: ["11.2", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
