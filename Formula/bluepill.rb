@@ -18,7 +18,7 @@ class Bluepill < Formula
     sha256 "c99867b72bcaeb0198a69b7c957979b30ba0a6e4d9ca3b72dfa3ea27b50f2387" => :mojave
   end
 
-  depends_on xcode: ["11.2", :build] if OS.mac?
+  depends_on xcode: ["11.2", :build]
   depends_on :macos
 
   def install
