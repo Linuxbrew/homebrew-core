@@ -11,7 +11,7 @@ class Mint < Formula
     sha256 "f70e96558839243a845c67f15defbd8718ad5a9e094ae1c1b998ac9faf4399b0" => :mojave
   end
 
-  depends_on xcode: ["10.2", :build] if OS.mac?
+  depends_on xcode: ["10.2", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
