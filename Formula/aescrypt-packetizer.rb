@@ -26,7 +26,7 @@ class AescryptPacketizer < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   def install
     if build.head?
