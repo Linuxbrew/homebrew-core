@@ -17,7 +17,7 @@ class Telnet < Formula
     sha256 "af38f3c6dd4ff5eda2248671958e66595b39e74cdeecca52af4efb495bc659a7" => :high_sierra
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   conflicts_with "inetutils", because: "both install 'telnet' binaries"
 
