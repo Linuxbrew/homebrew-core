@@ -12,7 +12,7 @@ class ChooseGui < Formula
     sha256 "327a21c741b66cc4484dfba8dcdf3cdd1c4d6f30b8f9e15cd4dbd59b87501e66" => :high_sierra
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   conflicts_with "choose", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"
