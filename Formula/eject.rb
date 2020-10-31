@@ -13,7 +13,7 @@ class Eject < Formula
     sha256 "37fd3d134428952fda16239392f4960428852c1f83eb942bd0b45da2e76dcc3b" => :el_capitan
   end
 
-  depends_on xcode: ["8.0", :build] if OS.mac?
+  depends_on xcode: ["8.0", :build]
 
   def install
     xcodebuild "SYMROOT=build"
