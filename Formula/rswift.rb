@@ -12,7 +12,7 @@ class Rswift < Formula
     sha256 "a344a394d9edece2c4737eec24ed2ed087719e0b95dfd269aae80b6b90040b44" => :mojave
   end
 
-  depends_on xcode: "10.2" if OS.mac?
+  depends_on xcode: "10.2"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
