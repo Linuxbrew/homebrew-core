@@ -15,7 +15,7 @@ class Macvim < Formula
     sha256 "b1cafc8cea7e9f3c3a1692b0c4b33c3f9347626a78bc7171e9013c54494a9994" => :high_sierra
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
   depends_on "cscope"
   depends_on "gettext"
   depends_on "lua"
