@@ -20,7 +20,7 @@ class Launch < Formula
     sha256 "9905b0dd99460cd88d48a1cf4c230ec03db380262001fa7a2ba54cbcbb84fad0" => :el_capitan
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
   # hard dependency on macOS API's
   depends_on :macos
 
