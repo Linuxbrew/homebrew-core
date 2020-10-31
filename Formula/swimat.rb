@@ -12,7 +12,7 @@ class Swimat < Formula
     sha256 "197ba3d1db2bfbee29a10e4735925b4fdac3035c486b7899bc564cea5f019839" => :mojave
   end
 
-  depends_on xcode: ["10.2", :build] if OS.mac?
+  depends_on xcode: ["10.2", :build]
   depends_on :macos
 
   def install
