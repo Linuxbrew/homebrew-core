@@ -14,7 +14,7 @@ class Corsixth < Formula
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "lua"
