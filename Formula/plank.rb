@@ -17,7 +17,7 @@ class Plank < Formula
     sha256 "04d2dddb094914fa219304fea8f6e5aa3315c2e51b63ef4077fcf25a54c8b268" => :mojave
   end
 
-  depends_on xcode: ["11.3", :build] if OS.mac?
+  depends_on xcode: ["11.3", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
