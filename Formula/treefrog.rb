@@ -12,7 +12,7 @@ class Treefrog < Formula
     sha256 "0c31aaf7a5199f8b409288fc3e5fd5d4e154b23e8be83354e1ed8e0fd4bb13ec" => :high_sierra
   end
 
-  depends_on xcode: ["8.0", :build] if OS.mac?
+  depends_on xcode: ["8.0", :build]
   depends_on macos: :el_capitan if OS.mac?
   depends_on "mongo-c-driver"
   depends_on "qt"
