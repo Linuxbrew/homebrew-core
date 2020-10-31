@@ -18,7 +18,7 @@ class Unar < Formula
     sha256 "311cdc91d8897b3ebe20ea6b9e62bb2e4bc4bc15c9d2f321567cd010031df78a" => :high_sierra
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
 
   # Fix build for Xcode 10 but remove libstdc++.6.dylib and linking libc++.dylib instead
   patch do
