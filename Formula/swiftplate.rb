@@ -14,7 +14,7 @@ class Swiftplate < Formula
     sha256 "73c1b35ad98f1d4872bc467b1a027dad41815e336c0c86aebb0d09d9562ddde5" => :el_capitan
   end
 
-  depends_on xcode: "8.2" if OS.mac?
+  depends_on xcode: "8.2"
 
   def install
     xcodebuild "-project",
