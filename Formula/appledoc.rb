@@ -13,7 +13,7 @@ class Appledoc < Formula
     sha256 "ccae984913f4bcd3c0ff8f9d527a3330445c432af0bf98da315edbea83ccd0a5" => :high_sierra
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
   depends_on :macos
 
   def install
