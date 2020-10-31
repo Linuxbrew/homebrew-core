@@ -15,7 +15,7 @@ class ChromeCli < Formula
     sha256 "e1d04616371d4c7147f884886d2e61df3bdea48c388dc50a684434f89b417792" => :el_capitan
   end
 
-  depends_on xcode: :build if OS.mac?
+  depends_on xcode: :build
   depends_on :macos
 
   def install
