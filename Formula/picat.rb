@@ -13,6 +13,7 @@ class Picat < Formula
   end
 
   def install
+    ENV.cxx11 unless OS.mac?
     makefile = OS.mac? ? "Makefile.mac64" : "Makefile.linux64"
     system "make", "-C", "emu", "-f", makefile
     bin.install "emu/picat" => "picat"
