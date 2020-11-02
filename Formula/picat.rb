@@ -13,7 +13,8 @@ class Picat < Formula
   end
 
   def install
-    system "make", "-C", "emu", "-f", "Makefile.mac64"
+    makefile = OS.mac? ? "Makefile.mac64" : "Makefile.linux64"
+    system "make", "-C", "emu", "-f", makefile
     bin.install "emu/picat" => "picat"
     prefix.install "lib" => "pi_lib"
     doc.install Dir["doc/*"]
