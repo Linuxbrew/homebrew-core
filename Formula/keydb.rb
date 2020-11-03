@@ -13,6 +13,7 @@ class Keydb < Formula
   end
 
   on_linux do
+    depends_on "curl"
     depends_on "util-linux"
   end
 
