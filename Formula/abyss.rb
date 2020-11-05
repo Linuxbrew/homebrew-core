@@ -4,6 +4,7 @@ class Abyss < Formula
   url "https://github.com/bcgsc/abyss/releases/download/2.2.5/abyss-2.2.5.tar.gz"
   sha256 "38e886f455074c76b32dd549e94cc345f46cb1d33ab11ad3e8e1f5214fc65521"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -16,7 +17,6 @@ class Abyss < Formula
     sha256 cellar: :any, catalina:      "521a584ab5f11e69de3b4b2362bdcf89cf3b541b32694c30eec6e71d334c8232"
     sha256 cellar: :any, mojave:        "8c473ad4f6d9c3b786069c1d933d1ee8e72fb117f1ddbef65b0696163cf34292"
     sha256 cellar: :any, high_sierra:   "7fbea49ff3c1cdf2867ceac467be40d16a37cf104ef7fcd478faf0cfdd726eea"
-    sha256 cellar: :any, x86_64_linux:  "86f2a2babc051b6105c0bdb3f2d4d37c727a315668d2c3e996a5c57b1dc6606a"
   end
 
   head do
