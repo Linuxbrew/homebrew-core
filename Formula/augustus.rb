@@ -4,7 +4,7 @@ class Augustus < Formula
   url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
   sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
   license "Artistic-1.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   livecheck do
@@ -18,17 +18,11 @@ class Augustus < Formula
     sha256 cellar: :any, catalina:      "9e6fc1d57f48cf314fa418059a9d619a8451d7e65ed8234225e52f311673cf6d"
     sha256 cellar: :any, mojave:        "476eeca3de3f98c4e539cee89078a3f37f667ae7f47ef375115439154bc23e3c"
     sha256 cellar: :any, high_sierra:   "b5077e94d1ee68864ed0d89bfc892ad80dcd37b89e149b23733bd9280d54771b"
-    sha256 cellar: :any, x86_64_linux:  "c7f621a5de75a1c1a7eed0a0e9e90fc8c0919504ceadbf62533274b4436e8ca4"
   end
 
   depends_on "boost" => :build
   depends_on "bamtools"
-
-  if OS.mac?
-    depends_on "gcc"
-  else
-    depends_on "zlib"
-  end
+  depends_on "gcc" if OS.mac?
 
   uses_from_macos "zlib"
 
@@ -54,8 +48,12 @@ class Augustus < Formula
     # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
     # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
+      if OS.mac?
+        gcc_major_ver = Formula["gcc"].any_installed_version.major
+        with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
+          system "make"
+        end
+      else
         system "make"
       end
     end
