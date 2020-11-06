@@ -3,7 +3,7 @@ class Hdf5Mpi < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "483dd167599e83c428e8dd159fa2bbf44a217edf85c61978e2bfd19bda025a39"
@@ -11,7 +11,6 @@ class Hdf5Mpi < Formula
     sha256 cellar: :any, catalina:      "ba61a9e5993f15c7b339a17afa405422abf89a908f890cd60aead67d2114f310"
     sha256 cellar: :any, mojave:        "f39b0f908ba1cb1c74aff7a36cb54cf04bc417defd5641752dffb2902866bd0c"
     sha256 cellar: :any, high_sierra:   "7be5d7e51464129cd531f124efec310affc716d2e810a224d238bba1659aea53"
-    sha256 cellar: :any, x86_64_linux:  "aa123d32e7ac35ecbf4d735c1a97c25576e4b41647e59d917fa1d6453f7a7500"
   end
 
   depends_on "autoconf" => :build
