@@ -4,7 +4,7 @@ class Libxc < Formula
   url "https://gitlab.com/libxc/libxc/-/archive/4.3.4/libxc-4.3.4.tar.bz2"
   sha256 "0efe8b33d151de8787e33c4ba8e2161ffb9da978753f3bd12c5c0a018e7d3ef5"
   license "MPL-2.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     rebuild 1
@@ -13,13 +13,14 @@ class Libxc < Formula
     sha256 cellar: :any, catalina:      "77bb1192676ef031b3254e36f443b48163c2e6926afc959feaa84b4952a5b642"
     sha256 cellar: :any, mojave:        "069042e1d8511e2025e289cb3daec98728304df3a7521aced7103581686d74c8"
     sha256 cellar: :any, high_sierra:   "e84708fbaa5746ef8d25b57d34a5127501096ffacaa448b17d5b87ad4e81ae0b"
-    sha256 cellar: :any, x86_64_linux:  "f9e5c616096829e7d3b07efc3187d6bbd7ac167d9cdb6b890c656ac66197f1fe"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
+
+  depends_on "libffi" unless OS.mac?
 
   def install
     system "autoreconf", "-fiv"
