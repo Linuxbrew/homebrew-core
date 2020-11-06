@@ -4,15 +4,14 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/16/48/ff7026d26dfd92520f00b109333e22c05a235f0c9115a5a2d7679cdf39ef/scipy-1.6.0.tar.gz"
   sha256 "cb6dc9f82dfd95f6b9032a8d7ea70efeeb15d5b5fd6ed4e8537bb3c673580566"
   license "BSD-3-Clause"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "88893c0dfed2be91261f2f133cf54b3e47f2b409efd7c4b07b9a56047e448a52"
-    sha256 cellar: :any, big_sur:       "e455afa09ec8c0043b0a33bb78a6d4bb4ae352272c873e99b86a152d17b35bb5"
-    sha256 cellar: :any, catalina:      "90b72946faca9ca20e391b69f23b0911525890eb55efe4dfd931bd23c52324a5"
-    sha256 cellar: :any, mojave:        "88c5ab1d7695971d20d788db4b661b0e8ead1dffda01970296df26b1bcd18713"
-    sha256               x86_64_linux:  "b52741faafc94f3941b72a8dfc1969c965819433f84369cc5ce96d213173e46b"
+    sha256 arm64_big_sur: "96ad6a2766163fc391c7732a7c4e1b0ed101a8950ca4ddc308f1f58a299d50de"
+    sha256 big_sur:       "f6a771cfaca9b1a33ba7ba01e961ea1d22bc3d0b62ce756b2f6ae1b5c820d6f8"
+    sha256 catalina:      "22c5e9f85c11e58e5ec990ab9a8aa8e5a3564b1bec3df80a445fe116a75f2d1e"
+    sha256 mojave:        "05c95144b014c46f94c587688e8380bcb7fe2f4b8dbbceb1f229ade501e20981"
   end
 
   depends_on "swig" => :build
@@ -23,6 +22,15 @@ class Scipy < Formula
   depends_on "python@3.9"
 
   cxxstdlib_check :skip
+
+  unless OS.mac?
+    depends_on "gcc" # Fix error with avx512, use gcc10
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
+  end
 
   def install
     # Fix for current GCC on Big Sur, which does not like 11 as version value
