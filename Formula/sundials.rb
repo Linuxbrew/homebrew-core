@@ -4,6 +4,7 @@ class Sundials < Formula
   url "https://computing.llnl.gov/projects/sundials/download/sundials-5.7.0.tar.gz"
   sha256 "8d6dd094feccbb8d6ecc41340ec16a65fabac82ed4415023f6d7c1c2390ea2f3"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://computing.llnl.gov/projects/sundials/sundials-software"
@@ -15,7 +16,6 @@ class Sundials < Formula
     sha256                               big_sur:       "eca818ac9876c5f784483f49eaeb6b8bb2a4a7950520f13e7dd99f43ad06d223"
     sha256                               catalina:      "bacddf8c38b9c1236cd0aa2dc85273f7ffff6726418781f5a0e223bf132e3e07"
     sha256                               mojave:        "9ad76e3dbc09c9d9cb4af9e600376fcae287c63128a100959871ddfe8dba438e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc6d10e4e4cd65e1a7fe679377c59ba8d6f3a94dd5c3b0f16d5eae52b90d2004"
   end
 
   depends_on "cmake" => :build
