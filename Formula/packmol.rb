@@ -4,7 +4,7 @@ class Packmol < Formula
   url "https://github.com/mcubeg/packmol/archive/20.010.tar.gz"
   sha256 "23285f2a9e2bef0e8253250d7eae2d4026a9535ddcc2b9b383f5ad45b19e123d"
   license "MIT"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/mcubeg/packmol.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Packmol < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "2de3ad79e6630d32fe68ac901ab113ba8ae3370e1976909390bcf4eb76a9a1d9"
     sha256 cellar: :any_skip_relocation, mojave:        "2db13531577dfafcaa3d654a714e0c44503049b968ae3f6622baf3d53933afec"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ccdde7eab41ce8847bc3fcabdb482c68ea3f39c029abe0c146ec9ea370c97bfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "145010afe93bf17333fc35b38baeab6f4d3bb85246ea4bf6e8094d301adec2e9"
   end
 
   depends_on "gcc" # for gfortran
