@@ -3,7 +3,7 @@ class Qrupdate < Formula
   homepage "https://sourceforge.net/projects/qrupdate/"
   url "https://downloads.sourceforge.net/project/qrupdate/qrupdate/1.2/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 13
+  revision OS.mac? ? 13 : 14
 
   livecheck do
     url :stable
@@ -16,7 +16,6 @@ class Qrupdate < Formula
     sha256 cellar: :any, catalina:      "2b2464b06d3f39c68826319d7cf6f860e7fb4a90377ab5a70609e87c9706ffba"
     sha256 cellar: :any, mojave:        "f8979b51f613030bbafd0241c918457d26b4f7074ad4e43d50668d20b0ca87be"
     sha256 cellar: :any, high_sierra:   "85065f6d6e3362e53fd66118e11a4727faad0cbf01e5c2e8985bee2382123295"
-    sha256 cellar: :any, x86_64_linux:  "53f9da30f160910981db2256ffb7e8cfd9fc5b1b05c25832008b97b0b8633fdd"
   end
 
   depends_on "gcc" # for gfortran
