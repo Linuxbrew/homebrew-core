@@ -3,7 +3,7 @@ class Reprepro < Formula
   homepage "https://salsa.debian.org/brlink/reprepro"
   url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.0.orig.tar.gz"
   sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     rebuild 1
@@ -11,11 +11,10 @@ class Reprepro < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9f87049de8d9c70a38429e5fc56173cf41e598621a6de661fdc1465bf28b8819"
     sha256 cellar: :any_skip_relocation, catalina:      "ce81080f227223229a9cc85126c5189d7bb8a0b12f928e5a1b71c48a0f0e4f88"
     sha256 cellar: :any_skip_relocation, mojave:        "4c69c6b440e77633069009ec48bb72739402052e4b4fff03504ab09bfcb88a56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a17ce1c3f2d87722fa28e6650dc2ffe1f3ae343ab2be4b0ca716aa2abea14089"
   end
 
   depends_on "berkeley-db@4"
-  depends_on "gcc"
+  depends_on "gcc" if OS.mac?
   depends_on "gpgme"
   depends_on "libarchive"
   depends_on "xz"
