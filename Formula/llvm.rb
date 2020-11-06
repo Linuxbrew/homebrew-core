@@ -5,6 +5,7 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1 unless OS.mac?
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
@@ -46,11 +47,10 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "6024181e8252d3300a44d989f0716cec5a6d92b66a439290232c7dbeed3a50dc"
-    sha256 cellar: :any,                 big_sur:       "0f26bad97402fd22555367e8d6f20511b24912dcc56d202b7960b41a8462d6b2"
-    sha256 cellar: :any,                 catalina:      "c1260c9b53f3bd098650f0bafea11d284b8c48c812dca34c50828239f559737b"
-    sha256 cellar: :any,                 mojave:        "2f9f6bb43e7743a71426358d2666647e6ff563c00cc14c1404ea43c3f504041d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5613eab9905b598268927eae013ff83157e7db33ee9f7bb6572a3084e8c3fc19"
+    sha256 cellar: :any, arm64_big_sur: "644ff14be8dc41dceacda9b7c5a34a009e54cab1940ebcadf7dda4930cbe7150"
+    sha256 cellar: :any, big_sur:       "15e243c9ff162f36d481f44f05862b95552d53020a6363d3a56fc73083348ca5"
+    sha256 cellar: :any, catalina:      "5021a582f220802886c6029ed173e3bed4466c1151d6ef3ef6de377a7396371f"
+    sha256 cellar: :any, mojave:        "ae3bb00ea8d53f0594a8e174c9f327eecb531a3846287b80d6f3933e2b47ff07"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -75,10 +75,15 @@ class Llvm < Formula
 
   unless OS.mac?
     depends_on "pkg-config" => :build
-    depends_on "gcc" # needed for libstdc++
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
+    depends_on "gcc" # for libstdc++
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libelf" # openmp requires <gelf.h>
   end
@@ -111,17 +116,6 @@ class Llvm < Formula
     # limited to compiler-rt. llvm makes this somewhat easier because compiler-rt
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
-
-    unless OS.mac?
-      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
-      # Basically, the stage1 clang will try to locate a gcc toolchain and often
-      # get the default from /usr/local, which might contains an old version of
-      # gcc that can't build compiler-rt. This fixes the problem and, unlike
-      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
-      # hardcoding the gcc path into the binary
-      inreplace "compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
-        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
-    end
 
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
