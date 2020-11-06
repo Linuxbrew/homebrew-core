@@ -3,6 +3,7 @@ class Gromacs < Formula
   homepage "https://www.gromacs.org/"
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.tar.gz"
   sha256 "efa78ab8409b0f5bf0fbca174fb8fbcf012815326b5c71a9d7c385cde9a8f87b"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -18,9 +19,14 @@ class Gromacs < Formula
 
   depends_on "cmake" => :build
   depends_on "fftw"
-  depends_on "gcc"
+  depends_on "gcc" if OS.mac?
   depends_on "gsl" # for OpenMP
   depends_on "openblas"
+
+  unless OS.mac?
+    depends_on "libedit"
+    depends_on "libffi"
+  end
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
@@ -31,11 +37,14 @@ class Gromacs < Formula
     inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
                                                              "/usr/bin/ld"
 
-    gcc_major_ver = Formula["gcc"].any_installed_version.major
-    args = std_cmake_args + %W[
-      -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
-      -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
-    ]
+    if OS.mac?
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      cc_args = %W[
+        -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
+        -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
+      ]
+    end
+    args = std_cmake_args + cc_args
 
     mkdir "build" do
       system "cmake", "..", *args
