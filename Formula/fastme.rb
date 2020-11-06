@@ -3,7 +3,7 @@ class Fastme < Formula
   homepage "http://www.atgc-montpellier.fr/fastme/"
   url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.1/tarball/fastme-2.1.6.1.tar.gz"
   sha256 "ac05853bc246ccb3d88b8bc075709a82cfe096331b0f4682b639f37df2b30974"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "833dd8f14112444ba2131ea4d2213a4ebff23842882460139ae46e75ce6ce778"
@@ -11,10 +11,9 @@ class Fastme < Formula
     sha256 cellar: :any, catalina:      "ef8226e09481486fa3e047ee5145cfc0dc370fceaa702095b835ad701eebf9fe"
     sha256 cellar: :any, mojave:        "517b3f8d0fe9b403b9de35ebca8af530f859a66ae788ee779e21b9d62e9c5c6f"
     sha256 cellar: :any, high_sierra:   "25cf8eb54ef7416842036f83c99eebb5a5881267d642f4a2c84c94fb5892a511"
-    sha256 cellar: :any, x86_64_linux:  "f515a415ec4700d7746c5ffe9c6492ebba9bbf4f08c340a20b676c0e7fc9226a"
   end
 
-  depends_on "gcc"
+  depends_on "gcc" if OS.mac?
 
   fails_with :clang # no OpenMP support
 
