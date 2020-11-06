@@ -4,7 +4,7 @@ class Scalapack < Formula
   url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
   sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
   license "BSD-3-Clause"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   livecheck do
     url :homepage
@@ -17,7 +17,6 @@ class Scalapack < Formula
     sha256 cellar: :any, catalina:      "281e3d5317f1616e8d5a6a3b9c37fbe6ee29a03b2abe14055854902a6c009a87"
     sha256 cellar: :any, mojave:        "b222f27ffed17605ffca2d1b0b4804f4c66ec916c9d2b5f2dd085ad2427fa791"
     sha256 cellar: :any, high_sierra:   "ea92d3247883a9e0de28483a34d1ca064d395d28c8a622fbac571f4cd6d0e64d"
-    sha256 cellar: :any, x86_64_linux:  "cd8013efd72936bdf7ff55b35659abda6a4f6476bef0884bbf7f989070b9c22d"
   end
 
   depends_on "cmake" => :build
