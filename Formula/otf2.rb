@@ -3,7 +3,7 @@ class Otf2 < Formula
   homepage "https://www.vi-hps.org/projects/score-p/"
   url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
   sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     sha256 arm64_big_sur: "8c8c0f0f92d88b2439cdcb808ba2318a3cd54b7c929a6743a473105fd177fe38"
@@ -11,11 +11,10 @@ class Otf2 < Formula
     sha256 catalina:      "9bbb9997272253be31bcefb9b398b6d46725ff18bc6d5097c16e59fab6fece0f"
     sha256 mojave:        "befb628ab3134837d2d6f442ac9b12da47d813adb5b13f8839c66993c0b0e6cf"
     sha256 high_sierra:   "5866bf0afb7c3fb48e718d209019f1ac3574c221c862b2e35ea9ea907ed91008"
-    sha256 x86_64_linux:  "524f6c27be82858e5009c5b05eb630da747364e55bb65a007296fca540c8573f"
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "python@3.9"
 
