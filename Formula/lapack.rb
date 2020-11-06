@@ -4,7 +4,7 @@ class Lapack < Formula
   url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
   sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
   license "BSD-3-Clause"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Lapack < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "be00d33447ab0bb47a05f89517640c984cafb7723fd6fff9749de773c304f2df"
     sha256 cellar: :any_skip_relocation, mojave:        "ad84de82af78dc5ee4b305c76a79a3fc18420beeac2be72d1c262936d5a9110e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "fd360d9073e8a483e88a0bca6c8dc96a8159488fa3a6009bb8cbe03747f20f4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bd41e8172ef0fbd62663a20aaf7204448058ae9333a6cf67eb9667730ffe284"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LAPACK in Accelerate.framework"
