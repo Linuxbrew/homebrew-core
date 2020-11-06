@@ -4,6 +4,7 @@ class Numpy < Formula
   url "https://files.pythonhosted.org/packages/d2/48/f445be426ccd9b2fb64155ac6730c7212358882e589cd3717477d739d9ff/numpy-1.20.1.zip"
   sha256 "3bc63486a870294683980d76ec1e3efc786295ae00128f9ea38e2c6e74d5a60a"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
   head "https://github.com/numpy/numpy.git"
 
   bottle do
@@ -11,7 +12,6 @@ class Numpy < Formula
     sha256 cellar: :any, big_sur:       "1b118062f2a8ac2e5afd49837bac5f1f94d316893f046cfd395fa942ef175231"
     sha256 cellar: :any, catalina:      "a85ea3768ec1065e7b65b40c4f150b444502d572ddc5bac99f23a19d9416b17f"
     sha256 cellar: :any, mojave:        "cf62fa86e5ada65ee6400159c45d5ab7dec3f5bed40c20f6b94c1dbcd886a0ae"
-    sha256               x86_64_linux:  "0ae183ca341c339f1005db27f3e6b16709f2fefc2bdd7d8c65a9a43832d747e9"
   end
 
   depends_on "cython" => :build
@@ -19,10 +19,23 @@ class Numpy < Formula
   depends_on "openblas"
   depends_on "python@3.9"
 
+  unless OS.mac?
+    depends_on "gcc" # Fix error with avx512, use gcc10
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
+  end
+
   def install
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
-    ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
+    if OS.mac?
+      ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
+    else
+      ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.so"
+    end
 
     config = <<~EOS
       [openblas]
