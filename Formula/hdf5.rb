@@ -51,6 +51,9 @@ class Hdf5 < Formula
     ]
     on_linux do
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      # necessary to avoid compiler paths that include shims directory being used
+      ENV["CC"] = "/usr/bin/cc"
+      ENV["CXX"] = "/usr/bin/c++"
     end
 
     system "./configure", *args
@@ -60,11 +63,8 @@ class Hdf5 < Formula
       inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
     end
     on_linux do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-#{gcc_major_ver}",
-                                        Formula["gcc"].opt_bin/"g++"
-      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-#{gcc_major_ver}",
-                                        Formula["gcc"].opt_bin/"gcc"
+      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-5", "/usr/bin/c++"
+      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-5", "/usr/bin/cc"
     end
     system "make", "install"
   end
