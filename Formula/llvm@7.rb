@@ -4,13 +4,12 @@ class LlvmAT7 < Formula
   url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
   sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
   license "NCSA"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
 
   bottle do
     sha256 cellar: :any, catalina:     "400bb0bb43849d1f118d93a1647de6e9636934e941c43a6f4866258f764f42b3"
     sha256 cellar: :any, mojave:       "564f25a86c519b737a795de441da6c6c14e9f026813a73149b7939c986241ba6"
     sha256 cellar: :any, high_sierra:  "4170d8e522ce8aea22450c818bb68b6142671f4239262395d8f09d82621ee343"
-    sha256 cellar: :any, x86_64_linux: "e41ddcf009f8654bb6786977a28147340fc48bce9b24e271e372a1b128c41aa4"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -28,10 +27,15 @@ class LlvmAT7 < Formula
   depends_on "libffi"
 
   unless OS.mac?
-    depends_on "gcc" # needed for libstdc++
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
+    depends_on "gcc" # for libstdc++
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -108,17 +112,6 @@ class LlvmAT7 < Formula
     # limited to compiler-rt. llvm makes this somewhat easier because compiler-rt
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
-
-    unless OS.mac?
-      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
-      # Basically, the stage1 clang will try to locate a gcc toolchain and often
-      # get the default from /usr/local, which might contains an old version of
-      # gcc that can't build compiler-rt. This fixes the problem and, unlike
-      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
-      # hardcoding the gcc path into the binary
-      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
-        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
-    end
 
     args = %W[
       -DLIBOMP_ARCH=x86_64
