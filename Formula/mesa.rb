@@ -120,8 +120,9 @@ class Mesa < Formula
       -L#{Formula["libxext"].lib}
       -lGL
       -lX11
-      -lxext
+      -lXext
     ]
+    flags << "-lm" unless OS.mac?
     system ENV.cc, "glxgears.c", "-o", "gears", *flags
   end
 end
