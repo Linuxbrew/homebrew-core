@@ -27,7 +27,7 @@ class Linkerd < Formula
     os = if OS.mac?
       "darwin"
     else
-      "linux"
+      "linux-amd64"
     end
 
     system "bin/build-cli-bin"
