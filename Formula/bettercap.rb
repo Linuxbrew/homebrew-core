@@ -17,15 +17,14 @@ class Bettercap < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
-  depends_on "libnetfilter-queue" unless OS.mac?
 
   uses_from_macos "libpcap"
 
+  on_linux do
+    depends_on "libnetfilter-queue"
+  end
+
   def install
-    unless OS.mac?
-      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libpcap"].opt_lib/"pkgconfig"
-      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libnetfilter-queue"].opt_lib/"pkgconfig"
-    end
     system "make", "build"
     bin.install "bettercap"
   end
