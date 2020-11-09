@@ -6,6 +6,7 @@ class Ansible < Formula
   url "https://releases.ansible.com/ansible/ansible-2.9.15.tar.gz"
   sha256 "736a19fa6d608b4df2d6b48d31fec057b3f95abf62b7fda69ffa4a743e2f55b6"
   license "GPL-3.0-or-later"
+  revision 1 unless OS.mac?
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   livecheck do
@@ -18,7 +19,6 @@ class Ansible < Formula
     sha256 "61bac44c5ad225f9d507016517904b29f67cc7e62adcb2148c14da1013acf471" => :catalina
     sha256 "fe8b051d6d82169978464be3c91449906895c3d88a9e7dc0be6f37aef7df99c1" => :mojave
     sha256 "047026725fd12c752b2572f5f22755983da0839ebf8261ba221984e428b7b48a" => :high_sierra
-    sha256 "ccb2cc546c58d4251d0d725978c952300190ab874662645f2d170209c8670836" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -26,6 +26,7 @@ class Ansible < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
+  uses_from_macos "krb5"
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
@@ -292,11 +293,9 @@ class Ansible < Formula
     sha256 "612c1575d8a87026dea096bb75acec7302dd69040fa23d9116e71e30d5e0839e"
   end
 
-  if OS.mac?
-    resource "kerberos" do
-      url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
-      sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
-    end
+  resource "kerberos" do
+    url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
+    sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
   end
 
   resource "keystoneauth1" do
