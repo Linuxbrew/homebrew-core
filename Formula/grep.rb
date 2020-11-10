@@ -1,9 +1,9 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.5.tar.xz"
-  sha256 "b82ac77707c2ab945520c8404c9fa9f890f7791a62cf2103cf6238acad87a44a"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.6.tar.xz"
+  sha256 "667e15e8afe189e93f9f21a7cd3a7b3f776202f417330b248c2ad4f997d9373e"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,10 +12,9 @@ class Grep < Formula
 
   bottle do
     cellar :any
-    sha256 "9d3347c001171d788a12d0113de23d347722a0587ae27540aa01afb32d95aa3a" => :catalina
-    sha256 "6c8b53ccc62d1dc82c07f4758909d74be944f2f2770fd3a147660a70a78b95e7" => :mojave
-    sha256 "62f85b85c25c50ac0899a16fc83945f4361db6e4c8beae0e44d4a9f748291622" => :high_sierra
-    sha256 "4a8d34b8d638c4cef55188d6cc05ccfd2f4dc390bd21d2c653b8f1d3b8636c98" => :x86_64_linux
+    sha256 "78c2b965ced34a99ac47d3058a3971b9696a6157215c82edd16562d6ec6fc689" => :catalina
+    sha256 "80a62eaefb57437bcb3aeb1d8489b9bf062ec77184624249da27afc578be1315" => :mojave
+    sha256 "ae3cfbe66d6391edd32153f9b02e3da1286482dd196a18da017903a0bd4e7cf7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

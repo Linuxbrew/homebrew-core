@@ -3,6 +3,7 @@ class Softhsm < Formula
   homepage "https://www.opendnssec.org/softhsm/"
   url "https://dist.opendnssec.org/source/softhsm-2.6.1.tar.gz"
   sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
+  license "BSD-2-Clause"
 
   # We check the GitHub repo tags instead of https://dist.opendnssec.org/source/
   # since the aforementioned first-party URL has a tendency to lead to an
@@ -13,10 +14,19 @@ class Softhsm < Formula
   end
 
   bottle do
-    sha256 "69963f95aad110c6dcadab15613ee928f1358b714d71f4e7252da9b885eac7cd" => :catalina
-    sha256 "4a17c51934b0adc317cfc49069d52b3fa2fcb9a852808a7b0dfe2de28cf4b3b3" => :mojave
-    sha256 "cd17fa2e8538ca99b5963d60074578c91839740e7f87cc292b9b8f4f67dd99d8" => :high_sierra
-    sha256 "b392f3f3fc407a66f0a96667d599b404da900cef32bb4debfc84e884122068d9" => :x86_64_linux
+    rebuild 1
+    sha256 "6da111cdadbcf0127882e2bec5b3844454fd9b4e00a08d1fa49aa2f389b7062c" => :catalina
+    sha256 "b7abd86dfec3d10f5e5cde00f2bcd5e0e19e2d9674c50a431db1195c4655dfec" => :mojave
+    sha256 "73c40f26209dbf29280c16aefdfb492c749d8e14e4cbf83dc2a5b566c22f6bc9" => :high_sierra
+  end
+
+  head do
+    url "https://github.com/opendnssec/SoftHSMv2.git", branch: "develop"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
   end
 
   depends_on "openssl@1.1"
@@ -28,6 +38,7 @@ class Softhsm < Formula
   end
 
   def install
+    system "sh", "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",

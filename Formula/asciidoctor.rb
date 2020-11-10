@@ -1,18 +1,17 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.11.tar.gz"
-  sha256 "ac0e5bf85476b77c3e3c3be126e13e8a8a5c519bdf9a80069031a4eeef589342"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.12.tar.gz"
+  sha256 "cd98047c68bf1074a7058b174c93a64f2bd39c2f33941398f6889c562ed5bce8"
   license "MIT"
 
   depends_on "ruby" if MacOS.version <= :sierra
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36f5353774bbadce2a0ca7fff32cb2ed3d2aee1e71f7a16e113a6af6eeebc254" => :catalina
-    sha256 "061c5a1b466a915974c92ec315aa686c2615fa311926eca72590a398cdd4bf67" => :mojave
-    sha256 "c085727e1a6aeabbe2b5431359ec60a1b8a09d9209ff5d1e0229ddee9e37723d" => :high_sierra
-    sha256 "3f5e82717a3150d1d5a285af30c17029815c4e3be5cf7e95f1ca42ff2fb9f325" => :x86_64_linux
+    sha256 "b6d75bed00d6ab5586634823bee006e5f0bb3c57f9f46317b675c33b28eb7552" => :catalina
+    sha256 "8ce4eb3ad0b311775a31f15d32939df21f3eefbac6dc39ac76f2d2573920b5af" => :mojave
+    sha256 "d4fa41fc1f142f4d8ad25c2063ed79dd04091386d87c7996c17c9adcb10be301" => :high_sierra
   end
 
   resource "concurrent-ruby" do
