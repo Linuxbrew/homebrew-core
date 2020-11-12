@@ -1,7 +1,5 @@
-name: GitHub Actions CI
+name: GitHub Actions CI (self-hosted)
 on:
-  push:
-    branches: master
   pull_request:
     paths-ignore:
       - "Formula/patchelf.rb"
@@ -10,9 +8,10 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
 jobs:
   tap_syntax:
-    if: github.repository == 'Homebrew/linuxbrew-core' && ! contains(github.event.pull_request.labels.*.name, 'self-hosted-ci')
+    if: github.repository == 'Homebrew/linuxbrew-core' && contains(github.event.pull_request.labels.*.name, 'self-hosted-ci')
     runs-on: ubuntu-latest
     env:
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
@@ -33,10 +32,17 @@ jobs:
 
     - run: brew test-bot --only-tap-syntax
 
-  tests:
+  cleanup:
     needs: tap_syntax
     if: github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, 'Merge') == false
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    steps:
+      - name: Cleanup
+        run: sudo rm -rf "${{ github.workspace }}"
+
+  tests:
+    needs: cleanup
+    runs-on: self-hosted
     container:
       image: homebrew/ubuntu16.04:master
     env:
