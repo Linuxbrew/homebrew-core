@@ -4,7 +4,7 @@ class Fltk < Formula
   url "https://www.fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.5.tar.gz"
   sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
-  revision 2 unless OS.mac?
+  revision 3 unless OS.mac?
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -27,8 +27,8 @@ class Fltk < Formula
     depends_on "libxext"
     depends_on "libxft"
     depends_on "libxt"
-    depends_on "linuxbrew/xorg/glu"
     depends_on "mesa"
+    depends_on "mesa-glu"
   end
 
   def install
