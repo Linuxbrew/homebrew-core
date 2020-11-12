@@ -4,7 +4,7 @@ class Mednafen < Formula
   url "https://mednafen.github.io/releases/files/mednafen-1.24.3.tar.xz"
   sha256 "3dea853f784364557fa59e9ba11a17eb2674fc0fb93205f33bdbdaba1da3f70f"
   license "GPL-2.0"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   livecheck do
     url "https://mednafen.github.io/releases/"
@@ -15,7 +15,6 @@ class Mednafen < Formula
     sha256 "b0d899239eba87b09c5a14c3cd8b539a8ae251304b5cccefbc192947fb299a19" => :catalina
     sha256 "43ad97110859253ce5dde1a3c2d0f947a16afb3f893852d15f055133dd8609e1" => :mojave
     sha256 "87a76e8115dbf4f4a4d7b4515e7b3d184f9a34ac916228fc98ac8cd5e1f090c8" => :high_sierra
-    sha256 "8dd52bb07f627673628c689df26327eaf49e5b26a33c2fff1455dd7f06df7dc4" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -27,8 +26,8 @@ class Mednafen < Formula
   uses_from_macos "zlib"
 
   unless OS.mac?
-    depends_on "linuxbrew/xorg/glu"
     depends_on "mesa"
+    depends_on "mesa-glu"
   end
 
   def install
