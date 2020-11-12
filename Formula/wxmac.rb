@@ -4,7 +4,7 @@ class Wxmac < Formula
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5.1/wxWidgets-3.0.5.1.tar.bz2"
   sha256 "440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807"
   license "wxWindows"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   livecheck do
@@ -17,7 +17,6 @@ class Wxmac < Formula
     sha256 "110aa0b2134d8bff1647de0cd8500f160133794b347f789bba3e1894b991b788" => :catalina
     sha256 "5f703423fc3f1e36d647a2d8be2d271a92f5d60f49ceba8e3478391bbd4f5303" => :mojave
     sha256 "1de8aa03e1c50af387888ffa51cfa4e0c99d158f25edb0acbf312e10c629a31d" => :high_sierra
-    sha256 "19539144f3685ddad3f799b74c8f35b04209d5d22805b54383b6ae55a3163cbc" => :x86_64_linux
   end
 
   depends_on "jpeg"
@@ -31,7 +30,7 @@ class Wxmac < Formula
   unless OS.mac?
     depends_on "gtk+"
     depends_on "libsm"
-    depends_on "linuxbrew/xorg/glu"
+    depends_on "mesa-glu"
   end
 
   def install
