@@ -22,13 +22,25 @@ class Flux < Formula
   depends_on "go" => :build
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "llvm" => :build
+    depends_on "pkg-config" => :build
+    depends_on "ragel" => :build
+  end
+
   def install
     system "make", "build"
     system "go", "build", "./cmd/flux"
     bin.install %w[flux]
     include.install "libflux/include/influxdata"
-    lib.install "libflux/target/x86_64-apple-darwin/release/libflux.dylib"
-    lib.install "libflux/target/x86_64-apple-darwin/release/libflux.a"
+    on_macos do
+      lib.install "libflux/target/x86_64-apple-darwin/release/libflux.dylib"
+      lib.install "libflux/target/x86_64-apple-darwin/release/libflux.a"
+    end
+    on_linux do
+      lib.install "libflux/target/x86_64-unknown-linux-gnu/release/libflux.so"
+      lib.install "libflux/target/x86_64-unknown-linux-gnu/release/libflux.a"
+    end
   end
 
   test do
