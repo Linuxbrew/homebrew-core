@@ -1,7 +1,7 @@
 # Linuxbrew Core
 Core formulae for the Homebrew package manager.
 
-[![Join us on https://discourse.brew.sh](https://img.shields.io/badge/Discourse-forum-blue.svg)](https://discourse.brew.sh)
+[Homebrew/discussions (forum)](https://github.com/homebrew/discussions/discussions)
 
 ## How do I install these formulae?
 
