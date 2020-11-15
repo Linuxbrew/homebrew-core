@@ -1,15 +1,14 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2020-09-06.tar.xz"
-  sha256 "0021a3e8cdc6b61e225411d05e2841d2437e1ccf4b4cabb9a5f7685ebfb57717"
+  url "https://bellard.org/quickjs/quickjs-2020-11-08.tar.xz"
+  sha256 "2e9d63dab390a95ed365238f21d8e9069187f7ed195782027f0ab311bb64187b"
   license "MIT"
 
   bottle do
-    sha256 "a1f998b9825902b58cbc9fff5dfbb3b7fa3cff70bdb00d5518c124c7fb241dda" => :catalina
-    sha256 "bd0b90ea85294d55896f668c2079112606052c6695e8b419b874d98198b5d69c" => :mojave
-    sha256 "d21f88599b0f002f71b477be73f48a5ca9faaa32f3696faf647d1ce416a2fcec" => :high_sierra
-    sha256 "9a8caf1c6211a15968d04f5c7089f8a817b2b9924e2f038ccce47ca2eb4923bd" => :x86_64_linux
+    sha256 "b88f53813926176757beb784b812e17e53522de98e078ae97c385d349a13818c" => :catalina
+    sha256 "93f6dc2c5dfd6ac8250b5595a242a5d2892a6a09b4f5999c029ce5bf0e1bb951" => :mojave
+    sha256 "dfdee7a1285ce8648695c388f8fce766e2113bcd6b11ebd5ba4f21baf988c0fd" => :high_sierra
   end
 
   def install

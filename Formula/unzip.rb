@@ -14,6 +14,7 @@ class Unzip < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "2debed84387df5fd3430165b2e37046c73c141b2a7aedecfb3eb2ed06561556e" => :big_sur
     sha256 "1fac8de0e83c5a91feb1fa6e007397be17918761345f900c0244ade19fea806c" => :catalina
     sha256 "908d05001d2692e21753508aae8cca95d588dcebc4f852f3a42e0b0b1e2df9d4" => :mojave
     sha256 "96e47f47a3c6b10d59d69f614b7c63ae0aeea1e553018ee398b1b5405d22a7f5" => :high_sierra

@@ -12,6 +12,7 @@ class Libmemcached < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a478771c8936747ea8cbc56a2a7d38ed7db959de035b090710dadc30d187fc91" => :big_sur
     sha256 "24c7d9597b28d79f50f86777aa506b1955737d9e3298e1d79c3ad95b74fb66f8" => :catalina
     sha256 "203121f43d48b8245a1bb963eded3d56aa44ec921176b9819004e62b12acdc48" => :mojave
     sha256 "59032bd9e04061aaa7ffafdda12e66535f2e73da25571da0cede2dc21bc62f22" => :high_sierra

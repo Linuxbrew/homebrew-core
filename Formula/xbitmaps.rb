@@ -7,6 +7,7 @@ class Xbitmaps < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "956bf2491fe98f2a798c8f871e0db64af5a2b749829798f23de023a09d33e313" => :big_sur
     sha256 "1f2ba4ed5d9c1347ae66b5721a0fc91fd63332a1602b6e6fd0899491e5e33bb9" => :catalina
     sha256 "012d091ea559b0d3fae3449d1f18b2ea05beb3ac2363b3bd67d5b27bc3b4567e" => :mojave
     sha256 "2f3a3dbeeca8256a15c7902b5028791706cc999d9d7e1e080a940aa68c0622b9" => :high_sierra

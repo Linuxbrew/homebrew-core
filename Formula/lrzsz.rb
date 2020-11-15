@@ -13,6 +13,7 @@ class Lrzsz < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8030d909e2c336ada4563b4bb7e052f8ab382e3ea1325599bcf52b14a35fcbd0" => :big_sur
     sha256 "e8d2badf80013a07d43d89b2a2e2f99c2feb3abd2b6eeb579a52f01b39a9dd49" => :catalina
     sha256 "c828fb5694c30334ccd6dd68da5136e2d6c9d53d2e8ac558ef3ba246a7824ef8" => :mojave
     sha256 "c23cc0b0c9a0a7fae5a2e3d69ba01a7e6d09ad5e5a7d06c76620b72773ffebed" => :high_sierra

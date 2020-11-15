@@ -10,6 +10,7 @@ class JsonrpcGlib < Formula
   end
 
   bottle do
+    sha256 "922f8e0d4df5ea8c43e188ca633694d0665046c2a364c62348c32e22309f2b5b" => :big_sur
     sha256 "5dcab8d9974c1bd60c225d8ce2976fd20c0cedcaf2d537a57f42fe80aec20ece" => :catalina
     sha256 "3a7318d1a9d0bee9a6b234494236778205d9dcbfb20622dbbda6c3007b3f8858" => :mojave
     sha256 "fc193951d9001132ec4fe5ee59fccae34ee8249bf51b386a52924056a0d2f333" => :high_sierra

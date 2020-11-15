@@ -7,6 +7,7 @@ class Libccd < Formula
 
   bottle do
     cellar :any
+    sha256 "03e307babffd73dba35ca5c02063654b5c985f3d61eb51e600800d88abeb5632" => :big_sur
     sha256 "d243743b0d6962d55961bdda60fe8ea32bb738dea0509930d5d4114db2d52013" => :catalina
     sha256 "05c8005ed028e5d5ca250aba9f3c69ece3af5766d91c68fa50fbcf78d139849d" => :mojave
     sha256 "3b0a74f46d98cc57ddbff8c4f37227e8c5f528905037f346bf17104ba17b71f7" => :high_sierra

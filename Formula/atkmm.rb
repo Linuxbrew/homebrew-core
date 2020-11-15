@@ -11,6 +11,7 @@ class Atkmm < Formula
 
   bottle do
     cellar :any
+    sha256 "299011b76d8471172bd8c6739e61f87165a249a9fbb44ee161177aa788a89aa5" => :big_sur
     sha256 "65dca5000702ffcabc191ed84c33cef365056f4c853c8630a094c6e917b5e6c7" => :catalina
     sha256 "41fa55c1a359635acac27990de9ef7d4c84c6e45f43b54b4fecd0c85010d5ed0" => :mojave
     sha256 "cc4325eb5abdb8248ea4d4ec36f5ab37abfce03459034c700b92cfaa757392e8" => :high_sierra
