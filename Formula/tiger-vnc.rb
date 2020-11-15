@@ -30,6 +30,7 @@ class TigerVnc < Formula
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxtst"
+    depends_on "linux-pam"
   end
 
   def install
