@@ -13,6 +13,7 @@ class Mafft < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c77a7f7d15ad593abfb323f568cd2a940b16e6e5c8fb4d9fd63a824967117505" => :big_sur
     sha256 "47030809ef8372782fbf5770b2b95057f31bcbf81ead53cb06cb09e2ecbd2f87" => :catalina
     sha256 "f7820f8386beaa0b0bfcfccc75bea1563d3b5947e32a0aba5051edb621491026" => :mojave
     sha256 "a194f9f065024b846417688c2da31c22c058598880c4fb8ef5369e10299ecf2f" => :high_sierra

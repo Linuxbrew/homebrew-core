@@ -6,6 +6,8 @@ class Rclone < Formula
   license "MIT"
   head "https://github.com/rclone/rclone.git"
 
+  deprecate! because: "requires FUSE"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "3b50cc675b356f43b62f4f5a8acef082a56163ddf1dfdf03a4f360ee6969cdfe" => :catalina

@@ -8,6 +8,7 @@ class Tmuxinator < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c57d9e47b03552d52d480ad94123e9530db0e81c9e660bb516795dbf107eaf09" => :big_sur
     sha256 "afce6d81dd916ad941dc78336f249330279970d3dbcf40c41a4153ed17189bd1" => :catalina
     sha256 "651de3698fd15d6088e7c60d75c2c0d5fe07304f015585b618e9b6db2db1295a" => :mojave
     sha256 "59ae8d30dd41a1404d0da34d94efa6cf2146efe7a1c1cc69e72745770324f66c" => :high_sierra

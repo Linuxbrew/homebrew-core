@@ -14,6 +14,7 @@ class Pass < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "57fb3a87752b1c26bd0bba8710787a1b522f0feeb445d02241aefce9df4f2965" => :big_sur
     sha256 "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3" => :catalina
     sha256 "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3" => :mojave
     sha256 "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3" => :high_sierra

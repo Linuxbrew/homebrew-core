@@ -13,6 +13,7 @@ class Rgbds < Formula
 
   bottle do
     cellar :any
+    sha256 "1e6c364d0a654e124aa5cae514bb5f64e69af66f63254a272a473de7db3077c9" => :big_sur
     sha256 "8adee69ec949c97750ea1aa84fb7ccabe219598902744f06cae3b49b4cbe6a08" => :catalina
     sha256 "22b389095a057f515398cfa7981339fb37f93cf12417c1c9ff3fac9bc31cc71c" => :mojave
     sha256 "a791dd97949a7aec4d02197bfdd44ee6bd84472c93a50d6b762b5a3a2f2c5117" => :high_sierra

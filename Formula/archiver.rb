@@ -8,6 +8,7 @@ class Archiver < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6bfb5db8669181ff5e16202ae62154973505ff2ee57a67c53aac97409b98e8f0" => :big_sur
     sha256 "a61d7f77c7e3a291af4afa1edc6a6059c3f48c4c9828303c805e51e69902caf0" => :catalina
     sha256 "eb27d3455b2ef6e30317f9be5d54e3c15196b8736209ebc5cc8ac95f3058d1ee" => :mojave
     sha256 "50d359a1201e04663c8a42b3736c11c9d0f046a814d3ec5af00d0326822474ff" => :high_sierra

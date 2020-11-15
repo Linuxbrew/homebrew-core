@@ -9,6 +9,7 @@ class Mmseqs2 < Formula
 
   bottle do
     cellar :any
+    sha256 "791977eec2f261f8b895d84baab2d8bbd4721c487515257ce1e9b929fa2eb52e" => :big_sur
     sha256 "19e991c528466e6443a0772d6ea2c373b5323f3b6d919adde3ec2cd6958c6e04" => :catalina
     sha256 "f31e32a418bb6a407be63e5d60c4bcc10497c3412b07fe270ac523851fbeeea7" => :mojave
     sha256 "6a92a84f48542cac881e7bf4de5c7946d8038e8da1c799c98fe0992ed3f4d1a0" => :high_sierra

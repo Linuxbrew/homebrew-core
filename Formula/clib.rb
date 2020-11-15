@@ -13,6 +13,7 @@ class Clib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b3ce0068a31ec45750ad6c1e6e6ca0a4dff2806bbffa37bf60ae9a34f53b3802" => :big_sur
     sha256 "50ff2470931e566aee66cbf67bc18bd7912af9ac7ce98bbe22b15f491e05310a" => :catalina
     sha256 "65757d988620552ed9d906d5d5b092618d61fc89b5f9feee8095f960cb0768f2" => :mojave
     sha256 "a623ed010d9a701cfbce18360486fe96c5cfea54ffbdad53a31c66959bdf9da6" => :high_sierra
