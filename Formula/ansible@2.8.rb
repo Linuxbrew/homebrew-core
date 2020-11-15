@@ -27,6 +27,7 @@ class AnsibleAT28 < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "libffi"
+  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
   # Collect requirements from:
@@ -278,11 +279,9 @@ class AnsibleAT28 < Formula
     sha256 "fb04cfd54d8d7e4cc533108750047e9ccf43139c3c0220f8a082274b19564e98"
   end
 
-  if OS.mac?
-    resource "kerberos" do
-      url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
-      sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
-    end
+  resource "kerberos" do
+    url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
+    sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
   end
 
   resource "keystoneauth1" do
