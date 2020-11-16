@@ -56,7 +56,11 @@ class Hdf5 < Formula
       inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
     end
     on_linux do
-      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/cc", "/usr/bin/cc"
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-#{gcc_major_ver}",
+                                        Formula["gcc"].opt_bin/"g++"
+      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-#{gcc_major_ver}",
+                                        Formula["gcc"].opt_bin/"gcc"
     end
     system "make", "install"
   end
