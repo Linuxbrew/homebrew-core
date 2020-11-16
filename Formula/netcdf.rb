@@ -110,12 +110,27 @@ class Netcdf < Formula
     end
 
     # Remove some shims path
-    inreplace [
-      bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
-      lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
-      lib/"cmake/netCDF/netCDFConfig.cmake",
-      lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
-    ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    on_macos do
+      inreplace [
+        bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
+        lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
+        lib/"cmake/netCDF/netCDFConfig.cmake",
+        lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
+      ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    end
+    on_linux do
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      inreplace [
+        bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
+        lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
+        lib/"cmake/netCDF/netCDFConfig.cmake",
+        lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
+      ], HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-#{gcc_major_ver}",
+         Formula["gcc"].opt_bin/"gcc"
+      inreplace bin/"ncxx4-config",
+                HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-#{gcc_major_ver}",
+                Formula["gcc"].opt_bin/"g++"
+    end
 
     if OS.mac?
       # SIP causes system Python not to play nicely with @rpath

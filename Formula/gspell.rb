@@ -23,11 +23,14 @@ class Gspell < Formula
   depends_on "pkg-config" => :build
   depends_on "enchant"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration" if OS.mac?
   depends_on "iso-codes"
   depends_on "vala"
 
   uses_from_macos "libffi"
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   patch :DATA
 
