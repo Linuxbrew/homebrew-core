@@ -11,6 +11,7 @@ class Z80asm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ca1a1ffc5104cdbb1914469122c38ecc13ebe60222bab9a3b57d926cf1c68743" => :big_sur
     sha256 "0e7b29aa5927fcf70d1f704cdc4d0b73477c39d2f624fff4264ab08a6675959d" => :catalina
     sha256 "564990d37a17d2fe91472212de5f0cff30990e47275a29e69f1061177c2b1fea" => :mojave
     sha256 "183abd9c47e5050aa9a3fb4f9ddbd8806f0154aedcc239e2d2b716e234e91ce5" => :high_sierra

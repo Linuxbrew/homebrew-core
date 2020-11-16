@@ -7,6 +7,7 @@ class Rubyfmt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bcdd675a98a38a40e6fa8a7bbb780524665c863bd3fefda5e222d952363630a2" => :big_sur
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :catalina
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :mojave
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :high_sierra

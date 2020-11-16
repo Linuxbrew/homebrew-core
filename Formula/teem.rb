@@ -10,6 +10,7 @@ class Teem < Formula
   end
 
   bottle do
+    sha256 "c7c9999dbb12db2cfd64815a3df772be7222278bb22e857b72d0db0101d498af" => :big_sur
     sha256 "105f54c1cb830584bcf694756ab18eab2a7d9a67e3226699272c4449cc2f816e" => :catalina
     sha256 "439d02dd7f54d7f307b5984d00448a4e77309660e8f1c52e998ef9ea40fdcaa1" => :mojave
     sha256 "4cb2692b42e79880161879605c3990cd5d0c4fbb171c7ccd003bb9d6bb0fee09" => :high_sierra

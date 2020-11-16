@@ -14,6 +14,7 @@ class Eleventy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "64da97482a293690e92c421891298f82c6c97a3fa3a96ef2c0b40b1a320d5593" => :big_sur
     sha256 "48934e50a9eee9eb34e6011eeb829c9995c102a5bd7d1c02eb041d0ba119ee52" => :catalina
     sha256 "0d259029be276276315bfa3cef874a0af1cbe4553ad5a6d5e09794ad70a7a6fb" => :mojave
     sha256 "bd861131b89565c4637c60f11d7e2dfdb76220517005ab22bb8ef4f52720ed5c" => :high_sierra

@@ -14,6 +14,7 @@ class Puzzles < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4da306f66d6c8cfba1b0454dc82d23c3614236703e5155ddfb2b9a7f6e2a07a1" => :big_sur
     sha256 "ceafdd23c80d3b19927950e42b87589c577842e0617771cf3cda4696215ad201" => :catalina
     sha256 "0aefe3d23e5dc7a2a8ef7414b81f5ebc12566b0b712d67c7328f7ceec67bb6cb" => :mojave
     sha256 "e70e7726c99542aa47fd5ff918a121ca0967c3ef5ab4e69d026eefb63141d8ff" => :high_sierra
