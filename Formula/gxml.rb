@@ -62,12 +62,7 @@ class Gxml < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      <<<<<<< HEAD
-      -lgxml-0.18
-      =======
       -lgxml-0.20
-      -lintl
-      >>>>>>> e73b97e318a
       -lxml2
     ]
     flags << "-lintl" if OS.mac?
