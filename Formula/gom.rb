@@ -59,7 +59,9 @@ class Gom < Formula
       -lgobject-2.0
       -lgom-1.0
     ]
-    flags << "-lintl" if OS.mac?
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

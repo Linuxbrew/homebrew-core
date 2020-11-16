@@ -12,6 +12,7 @@ class Moarvm < Formula
   end
 
   bottle do
+    sha256 "de33bc641ebbb24d5b74737afc5b9fb2f22254cf9d146782fc97ca6b834a984f" => :big_sur
     sha256 "9e3146b60581d3f77792baf04ba3bfd521ac03c75d64f43cd60d2bf776ad2c85" => :catalina
     sha256 "48ab812e389f573f85f334ed21067518ee88df8143c968ff1c9268f8959cf326" => :mojave
     sha256 "0d93427bbe00240c7146228aedd6c5dbf7d0b987b1397aeb2be8ee0627aad556" => :high_sierra

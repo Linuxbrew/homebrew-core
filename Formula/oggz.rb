@@ -7,6 +7,7 @@ class Oggz < Formula
 
   bottle do
     cellar :any
+    sha256 "e9f424566678f728990a41c130ae2682069b608d642aecdab827440fc56ef363" => :big_sur
     sha256 "6a107479a443028d27afcfa51b68899449120637dcbe8e6987ce0e5191b1ee59" => :catalina
     sha256 "21ee59402b2854a91629c96c0e3540a1e97e9661984800d4d80d650069fcf0be" => :mojave
     sha256 "f444304f94866179ffcbe6322d6f25193b4fcd2dc49ad71f9c9527b0d85934de" => :high_sierra

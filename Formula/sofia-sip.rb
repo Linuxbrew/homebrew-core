@@ -11,6 +11,7 @@ class SofiaSip < Formula
 
   bottle do
     cellar :any
+    sha256 "4f581160ed9d9e1c478aca087b53483b493fd747afd480ad18fa2bc6ce5931b2" => :big_sur
     sha256 "ab14de67ceb92a79d8095b94d3e76680765185088773fe4c5b014574ef32a892" => :catalina
     sha256 "5f9a402b196aa592405fb10ddca2bd8f3736d62cfd8f2709d52fb18d9402af8f" => :mojave
     sha256 "7729020836b875104c6044afd0a72cf8755619978216430d89a585cf9783c8b0" => :high_sierra

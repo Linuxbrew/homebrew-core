@@ -12,6 +12,7 @@ class LibvoAacenc < Formula
 
   bottle do
     cellar :any
+    sha256 "4776106dbfb4f81523750d6540847a16c74c4e97ed8271bb9e5ab592386310b9" => :big_sur
     sha256 "144e0c345d0567a74aba09cfec49fba8f409e2db5abcee96b598127cc5d722ad" => :catalina
     sha256 "099ac7d191241c476ab4ba7375dd05e2d965adc6a7638cc616a99a243cbd077b" => :mojave
     sha256 "761ecbbaaa2a944d077040692fc62fe2e929ec788ca7e23b3fb25e6ee1b88d3a" => :high_sierra
