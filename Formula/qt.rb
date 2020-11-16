@@ -8,7 +8,7 @@ class Qt < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.1/single/qt-everywhere-src-5.15.1.tar.xz"
   sha256 "44da876057e21e1be42de31facd99be7d5f9f07893e1ea762359bcee0ef64ee9"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
@@ -22,7 +22,6 @@ class Qt < Formula
     sha256 "98b58f82856c44dd6d675db01bcbbf05bf371c62d63be8c32b1a2facb17145bb" => :catalina
     sha256 "b9e96e6ae3d37a9d3c56369ab4dfa329361d83c2b632da53037feaf26d0362b5" => :mojave
     sha256 "75f2dda074131afb9423cff66d38f20815f61955b192a4834b169947a4ebf8e4" => :high_sierra
-    sha256 "555a0e067b609970e4329ec94bd5b20f6aa9c30e426ebd564e5c7f4ee77d5af4" => :x86_64_linux
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -44,7 +43,6 @@ class Qt < Formula
     depends_on "libxcomposite"
     depends_on "libdrm"
     depends_on "linuxbrew/xorg/wayland"
-    depends_on "linuxbrew/xorg/xcb-util"
     depends_on "linuxbrew/xorg/xcb-util-image"
     depends_on "linuxbrew/xorg/xcb-util-keysyms"
     depends_on "linuxbrew/xorg/xcb-util-renderutil"
@@ -53,6 +51,7 @@ class Qt < Formula
     depends_on "pulseaudio"
     depends_on "python@3.8"
     depends_on "systemd"
+    depends_on "xcb-util"
     depends_on "zstd"
   end
 
