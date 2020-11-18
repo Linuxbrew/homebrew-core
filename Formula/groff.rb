@@ -25,8 +25,12 @@ class Groff < Formula
   depends_on "psutils"
   depends_on "uchardet"
 
-  uses_from_macos "libiconv"
+  uses_from_macos "bison" => :build # for yacc
   uses_from_macos "perl"
+
+  on_linux do
+    depends_on "glib"
+  end
 
   # See https://savannah.gnu.org/bugs/index.php?59276
   # Fixed in 1.23.0
