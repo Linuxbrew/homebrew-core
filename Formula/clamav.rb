@@ -28,7 +28,6 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "libiconv"
   depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "pcre2"
@@ -38,6 +37,14 @@ class Clamav < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libiconv"
+  end
+
+  on_linux do
+    depends_on "glib"
+  end
 
   skip_clean "share/clamav"
 
@@ -50,8 +57,6 @@ class Clamav < Formula
       --sysconfdir=#{etc}/clamav
       --disable-zlib-vcheck
       --with-llvm=no
-      --with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}
-      --with-iconv=#{Formula["libiconv"].opt_prefix}
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre2"].opt_prefix}
@@ -61,12 +66,16 @@ class Clamav < Formula
       args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
       args << "--with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr"
       args << "--with-xml=#{MacOS.sdk_path_if_needed}/usr"
+      args << "--with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}"
+      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
     end
     on_linux do
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
       args << "--with-libbz2-prefix=#{Formula["bzip2"].opt_prefix}"
       args << "--with-xml=#{Formula["libxml2"].opt_prefix}"
       args << "--with-libcurl=#{Formula["curl"].opt_prefix}"
+      args << "--with-libiconv-prefix=#{Formula["glib"].opt_prefix}"
+      args << "--with-iconv=#{Formula["glib"].opt_prefix}"
     end
 
     pkgshare.mkpath
@@ -83,6 +92,14 @@ class Clamav < Formula
   end
 
   test do
+    unless OS.mac?
+      # Fix can't get information about user clamav
+      system "adduser", "--system", "--no-create-home",
+             "--disabled-password", "--disabled-login",
+             "--shell", "/bin/false", "--group",
+             "--home", "/var/lib/clamav", "clamav"
+    end
+
     system "#{bin}/clamav-config", "--version"
     (testpath/"freshclam.conf").write <<~EOS
       DNSDatabaseInfo current.cvd.clamav.net
