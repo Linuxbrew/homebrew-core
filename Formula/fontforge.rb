@@ -31,13 +31,6 @@ class Fontforge < Formula
 
   uses_from_macos "libxml2"
 
-  on_linux do
-    patch do
-      url "https://github.com/fontforge/fontforge/commit/297ee9b5d6db5970ca17ebe5305189e79a1520a1.patch?full_index=1"
-      sha256 "36efb35aa54b4286ef05b2047e716c19027aac0633ef5284a614f76d43e48eec"
-    end
-  end
-
   def install
     mkdir "build" do
       system "cmake", "..",
