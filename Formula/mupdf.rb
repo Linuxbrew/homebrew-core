@@ -4,7 +4,7 @@ class Mupdf < Formula
   url "https://mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.xz"
   sha256 "592d4f6c0fba41bb954eb1a41616661b62b134d5b383e33bd45a081af5d4a59a"
   license "AGPL-3.0-or-later"
-  revision OS.mac? ? 1 : 3
+  revision OS.mac? ? 1 : 4
   head "https://git.ghostscript.com/mupdf.git"
 
   livecheck do
@@ -18,7 +18,6 @@ class Mupdf < Formula
     sha256 "b656ec4a7c2cbb3b55b52678e5129bbeb27215c793cd6e3876d40a51d293bd84" => :catalina
     sha256 "5b06c1203b68608f64d082b83db659a46d98a849d79530bfa83f28adb970e17e" => :mojave
     sha256 "32dc7277f5dce0762c695ecf15f3ec745ec7767afec09f6acefc4aea86386873" => :high_sierra
-    sha256 "a12207d117fd782a4af784f5863af70c39633cab54a964332c4111cfab2c775a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -28,7 +27,7 @@ class Mupdf < Formula
 
   unless OS.mac?
     depends_on "mesa-glu"
-    depends_on "linuxbrew/xorg/xinput"
+    depends_on "xinput"
   end
 
   conflicts_with "mupdf-tools",
