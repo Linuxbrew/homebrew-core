@@ -4,7 +4,7 @@ class Freeglut < Formula
   url "https://downloads.sourceforge.net/project/freeglut/freeglut/3.2.1/freeglut-3.2.1.tar.gz"
   sha256 "d4000e02102acaf259998c870e25214739d1f16f67f99cb35e4f46841399da68"
   license "MIT"
-  revision OS.mac? ? 1 : 4
+  revision OS.mac? ? 1 : 5
 
   livecheck do
     url :stable
@@ -16,7 +16,6 @@ class Freeglut < Formula
     sha256 "21e92d3aa8a1615937c6776292dd823912220d272a4a437f66917d1e6dd0b655" => :catalina
     sha256 "8d71afe59334afe060d513d68e8c76b3fc0927cf05d61b146dd1444c66d5db35" => :mojave
     sha256 "0a30955c90e594481f1ebf4dd218065768386704e2fdcdc0aae45055171dfd2d" => :high_sierra
-    sha256 "77feb14967d7943422202ee72f244dc6290984788996e3c96a49a011fac9e7a0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -29,7 +28,7 @@ class Freeglut < Formula
 
   unless OS.mac?
     depends_on "mesa-glu"
-    depends_on "linuxbrew/xorg/xinput"
+    depends_on "xinput"
   end
 
   resource "init_error_func.c" do
