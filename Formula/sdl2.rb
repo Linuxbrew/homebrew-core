@@ -2,7 +2,7 @@ class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
   license "Zlib"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   stable do
     url "https://libsdl.org/release/SDL2-2.0.12.tar.gz"
@@ -28,7 +28,6 @@ class Sdl2 < Formula
     sha256 "4a074d422e597b6f68c61cff5ee7d212264f3392b1c40a185a01cf180fe34516" => :catalina
     sha256 "7d757169bb95da1477e01a4704e8ad204fccfb1cabb3292cee3449885e14e6b8" => :mojave
     sha256 "5c7aa312b1a5d7fb8fe3fcd2112a8a74250bb84954024794333b465acafbee4f" => :high_sierra
-    sha256 "a00ff5d341355661fdacf093e140f52288f64d2d7781aa86b4ae91680729f1fd" => :x86_64_linux
   end
 
   head do
@@ -48,7 +47,7 @@ class Sdl2 < Formula
     depends_on "libxcursor"
     depends_on "libxscrnsaver"
     depends_on "libxxf86vm"
-    depends_on "linuxbrew/xorg/xinput"
+    depends_on "xinput"
     depends_on "pulseaudio"
   end
 
