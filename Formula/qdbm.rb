@@ -18,6 +18,8 @@ class Qdbm < Formula
     sha256 "bf5c5c1a087e22f9f06d29e2e139e55f6866ac1826ef725733d108ace6cf4d67" => :mavericks
   end
 
+  uses_from_macos "bzip2"
+
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
