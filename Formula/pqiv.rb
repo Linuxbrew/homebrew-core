@@ -22,7 +22,6 @@ class Pqiv < Formula
   depends_on "libspectre"
   depends_on "poppler"
   depends_on "webp"
-  depends_on "libtiff" unless OS.mac?
 
   on_linux do
     depends_on "libtiff"
