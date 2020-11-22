@@ -1,3 +1,4 @@
+# Build
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://github.com/NixOS/patchelf"
