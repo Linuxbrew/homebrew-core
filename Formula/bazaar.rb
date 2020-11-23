@@ -3,7 +3,7 @@ class Bazaar < Formula
   homepage "https://bazaar.canonical.com/"
   url "https://launchpad.net/bzr/2.7/2.7.0/+download/bzr-2.7.0.tar.gz"
   sha256 "0d451227b705a0dd21d8408353fe7e44d3a5069e6c4c26e5f146f1314b8fdab3"
-  revision OS.mac? ? 1 : 3
+  revision 1
 
   livecheck do
     url :stable
@@ -16,7 +16,6 @@ class Bazaar < Formula
     sha256 "c9ab575e1e27fe8e550690c760464c37890ca5c1fa8ea111c74d0172d0fa1453" => :catalina
     sha256 "32411a9e28eb27b3637bc915150581524897a18ba223313e5bc2f776785aae9b" => :mojave
     sha256 "cb1c0c8b5f19abef4043195d8cbd19f363a78581596de1ddcc763621964335b3" => :high_sierra
-    sha256 "79b5e97e1039d9bc01f9aede661104531f9abcf8c12aace2aeeab3855b41d5a0" => :x86_64_linux
   end
 
   depends_on :macos # Due to Python 2
@@ -40,7 +39,7 @@ class Bazaar < Formula
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/Current/bin"
 
     system "make"
-    inreplace "bzr", "#! /usr/bin/env python", "#!/usr/bin/python" if OS.mac?
+    inreplace "bzr", "#! /usr/bin/env python", "#!/usr/bin/python"
     libexec.install "bzr", "bzrlib"
 
     (bin/"bzr").write_env_script(libexec/"bzr", BZR_PLUGIN_PATH: "+user:#{HOMEBREW_PREFIX}/share/bazaar/plugins")
