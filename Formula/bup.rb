@@ -45,13 +45,8 @@ class Bup < Formula
       end
     end
 
-    if OS.mac?
-      # set AC_CPP_PROG due to Mojave issue, see https://github.com/Homebrew/brew/issues/5153
-      system "make", "AC_CPP_PROG=xcrun cpp"
-    else
-      system "./configure"
-      system "make"
-    end
+    # set AC_CPP_PROG due to Mojave issue, see https://github.com/Homebrew/brew/issues/5153
+    system "make", "AC_CPP_PROG=xcrun cpp"
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX="
 
     mv bin/"bup", libexec/"bup.py"
