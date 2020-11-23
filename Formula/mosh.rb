@@ -35,6 +35,7 @@ class Mosh < Formula
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@1.1"
