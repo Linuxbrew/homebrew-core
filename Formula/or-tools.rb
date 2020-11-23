@@ -4,6 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/v8.0.tar.gz"
   sha256 "ac01d7ebde157daaeb0e21ce54923a48e4f1d21faebd0b08a54979f150f909ee"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google/or-tools.git"
 
   livecheck do
@@ -13,10 +14,9 @@ class OrTools < Formula
 
   bottle do
     cellar :any
-    sha256 "3238dd9fc07890918971cd0579f88b461f3d6c24a4ee1a6b812d42f23dda57e2" => :big_sur
-    sha256 "7a119a20186b34d80b7a36e3cd18f2e7bc6561cd70e52ea05231422a38fdcd1f" => :catalina
-    sha256 "61e99ba40756cdc5d4fd5cbff6efc8ed3bf82ea187396895f0e310946105591a" => :mojave
-    sha256 "f5b9f71179930075b58dcc26f0ebe69a4ae34e7f528347f685116690cc23089d" => :high_sierra
+    sha256 "07a181c96be3b85baae0733608951628fcfc6d3e4aa7d867a54d2eb0d7e5bf0c" => :big_sur
+    sha256 "228404a86e3474bc2db1ab8c30344385d2f25e147ce5dbeabd7f8b3d4c80630c" => :catalina
+    sha256 "e2fd75040b662a648b7b38003f8bd3e275ad8ac0aab8d8bbdcef34f0e9e90316" => :mojave
   end
 
   depends_on "cmake" => :build

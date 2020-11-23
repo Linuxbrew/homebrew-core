@@ -4,17 +4,13 @@ class OsmPbf < Formula
   url "https://github.com/scrosby/OSM-binary/archive/v1.3.3.tar.gz"
   sha256 "a109f338ce6a8438a8faae4627cd08599d0403b8977c185499de5c17b92d0798"
   license "LGPL-3.0"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d306a05c09f8e994b436ca6e4e32fa5304d9087ebe5b10dddfc9f51a16c9955c" => :big_sur
-    sha256 "db4cb3b0e482ef14c640c0b0bad82b0a766a6552d165920af671c04ba5b4af4f" => :catalina
-    sha256 "3199cc807995df84916d63c216d0a2793ed8af5513bed9488d397e4efcf745c2" => :mojave
-    sha256 "68e5bf0c9924719525b0522da2656ae43a7cdb11bcdf3a6c05e481c3f5b242ec" => :high_sierra
-    sha256 "c4f104fa72861e982b9071e656675a3ed3c4bf2d37fddeab3c5eb952d7864d9b" => :sierra
-    sha256 "6e6902ebcdb50d95ab0aeeb9fcc086956eb768110f1646839dba876b1f31c643" => :el_capitan
-    sha256 "dc911231a19612f1ba74825fe8c2d15610c57875e86714eb24bd726aee55c5ec" => :x86_64_linux
+    sha256 "bb6525bab64e792c04a42dc14f4c282357a1ca810528291c708ad4bb675850ef" => :big_sur
+    sha256 "848d0ffd20470d7988d5bb9f4a93e5b58f799646a4c551732c271d4d57b5a1f8" => :catalina
+    sha256 "324c716503518b77533db927144643db877d3cf3297234333c056ae45f85d911" => :mojave
   end
 
   depends_on "protobuf"

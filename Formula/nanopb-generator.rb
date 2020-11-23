@@ -4,7 +4,7 @@ class NanopbGenerator < Formula
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.3.tar.gz"
   sha256 "91b4be33691dc1532d94b56f308743b8a07d209126b7fe21f98f8fdadd8edb95"
   license "Zlib"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://jpa.kapsi.fi/nanopb/download/"
@@ -13,11 +13,9 @@ class NanopbGenerator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aea5aeaa6e7ec61d875cbb88cedceffa479b3246d087b92393e21014af4f932c" => :big_sur
-    sha256 "bb5fdfea277280c189f98dbbd39d644e110a6a62bd11584d2e3bea174857cdf1" => :catalina
-    sha256 "ec63479e9cf31542c7bb34d2b1b17ae674412e1052a78957831200d5160b088a" => :mojave
-    sha256 "92184e5d0af8a845db7b7633d4db5967d201b7efd8af5615c31867fea38cd2df" => :high_sierra
-    sha256 "f4b108d9b1dc3e5917b89e6b577cbcb8c473362667e0df9052467ab9ef1a786d" => :x86_64_linux
+    sha256 "c6b1966c15e3106215f753e2c6e0868522ca3292ea725cd059fab61aa83e2f3a" => :big_sur
+    sha256 "2a04a6f7da0972ce4776e49efa581b96c63b2d45c5ac52d80e20af95b722427e" => :catalina
+    sha256 "b318e0f0b96e554cb287cdebe2381e5eaa1198b9e228e07e55fdadc7bf36c5d3" => :mojave
   end
 
   depends_on "protobuf"

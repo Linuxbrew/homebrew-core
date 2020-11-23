@@ -5,13 +5,13 @@ class Monero < Formula
       tag:      "v0.17.1.3",
       revision: "f690e4984d74c6ff1ef503f4b4524f91d811374d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b40510d1ade8901379f2c59e0d39a10a087288232f504a26ffca7ae5a9e57002" => :big_sur
-    sha256 "9422e1b805d1bcdd09f8903ed707162a5a66fdf550177139cfbf7cdd26c24ab6" => :catalina
-    sha256 "eae644a6b9c675dcdf6ed6947b929f9e30204d2b94b9991b4fc8511c11e8c3e6" => :mojave
-    sha256 "dc6754c5700377b65748b9103acdd676b9a1fc03bb0ee4c57458fb7c0c4f2577" => :high_sierra
+    sha256 "974dfea5ebc07adf056136cd7c36a6a6fee4115b4b7171a65f1254df68f9752a" => :big_sur
+    sha256 "f38dbe6c439a09271c947df2fe194c60b4f3d63e701a69287c49bc4abfc3600b" => :catalina
+    sha256 "9a6a3484da3bd0015a3df31815091e11af2b3afb1675f64e86277eee894e416c" => :mojave
   end
 
   depends_on "cmake" => :build

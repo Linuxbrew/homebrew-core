@@ -6,15 +6,14 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v5.3.0.tar.gz"
   sha256 "e4a3de2fdc2c169f0e9c3a04c39de14d2650edf46b3157645339e4920b3a8e26"
   license "MIT"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "ed7577703400bb3cc253441dd110003bcbda8495e6e00f019a99fd1e5f00f6e3" => :big_sur
-    sha256 "45c718f0e861ae430f1937d9afa73675b3c7820982f8cb72fe93547f3aa351ca" => :catalina
-    sha256 "a5578756028b4b4f189b193cde0f6aad04ef2d05da8772868ef8d07672a8a420" => :mojave
-    sha256 "0a4ae7428a8aaba66b4329ad0cc29d3ab6938e0389e78c25b9899c6d751d4cf5" => :high_sierra
-    sha256 "527c69bb46de088d43b78fe28b22f15b29b3c48122c60edde7298529af490153" => :x86_64_linux
+    sha256 "e57218bd5a1f33c1a5200a2585ac763a15b9432afb9e56e737be48c9206fc0b9" => :big_sur
+    sha256 "f7d046fdd398dc6407b4d9253844259054cc2ac67411cb0948624eacc4568d35" => :catalina
+    sha256 "62b4c30625c6e012df12389782f55c142ab537438361ab1a57e1f499b84ab23f" => :mojave
   end
 
   depends_on "openssl@1.1"

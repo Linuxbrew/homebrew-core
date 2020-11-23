@@ -4,15 +4,14 @@ class ProtocGenGogo < Formula
   url "https://github.com/gogo/protobuf/archive/v1.3.1.tar.gz"
   sha256 "5184f06decd681fcc82f6583976111faf87189c0c2f8063b34ac2ea9ed997236"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gogo/protobuf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7c5114649ef231ce2a4e58038a0b7bd9551996ee58d20e27a2fbc26f5db22e3d" => :big_sur
-    sha256 "9be4c48be2450104703311eadf0457869f0a933602c18918c794cd4f17430349" => :catalina
-    sha256 "bce62f3a9c17de2c649863d5416bbb1a4ba2ded03804b79e1de1515f716a86aa" => :mojave
-    sha256 "334e9a6d6e8dea847e217326944503a154614134e6c74a522cccdb9ef4051478" => :high_sierra
-    sha256 "d3bdea2539eb23090275a3cac4cc7a6a467731efcf8e706b66207fa8c6b5707f" => :x86_64_linux
+    sha256 "7d66d0581956943a2d3ee73f881a0d455466c4f0c94d080685afb5ca2b6951b6" => :big_sur
+    sha256 "11c3555306af5dcfbaf85953c96fb386c4b864da16d91f45d99435fd55ee3615" => :catalina
+    sha256 "5767e5448ae3e8a70d961cca120aa12c8491db0d498bafe1abb3d935c208bf8f" => :mojave
   end
 
   depends_on "go" => :build
