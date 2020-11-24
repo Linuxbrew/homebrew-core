@@ -2,7 +2,7 @@ class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
   url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
-  sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
+  sha256 "37336531b4b275cd6b29ebc67240db8e5de9d468fcebe91d8cb35f33e9a2e891"
   license "Apache-2.0"
   revision 1
   head "https://github.com/shyiko/jabba.git"
@@ -10,10 +10,10 @@ class Jabba < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
-    sha256 "7eddb409c7bb2784db21756e624a18b19977bb4df53ab547eaedd8abe876651e" => :catalina
-    sha256 "3101ea25ce49c3ed96b3c8595a5441fec3aeb536b56eca21c1dea56f6c1fd86b" => :mojave
-    sha256 "8454f5aa9b8832908b1c889531118ea058b2e675ef7f7f37eeb282f454aeec1e" => :high_sierra
-    sha256 "237bab11bbcc4434a0b48c8d03a6f8634d12ec011f9357f26d8965f523fedad2" => :x86_64_linux
+    sha256 "95379695228c4f280886748df49bd54ad9075b36a18cc4371edb069e9c92e7d2" => :amd64_linux
+    sha256 "f8f2aa2900431e37e3907f240cd7707598d1e2862c1b30e173749810005877f0" => :i386_linux
+    sha256 "8b3662c33b2d338850a775727df76f96c47ca636362c498df6bbde270cc8e83a" => :arm_linux
+    sha256 "2fbde40e00bade78a0b47eb3d2091f3519bfcb62ea03f4dee7853f63838a6385" => :arm64_linux
   end
 
   depends_on "glide" => :build
