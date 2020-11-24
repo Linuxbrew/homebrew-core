@@ -45,6 +45,6 @@ class Jabba < Formula
     jdk_path = shell_output("#{bin}/jabba which openjdk@1.14.0").strip
     assert_match 'openjdk version "14',
     shell_output("#{jdk_path}#{OS.mac? ? "/Contents/Home/" : "/"}bin/java -version 2>&1")
-    assert_match "$HOME/.jabba", shell_output("which jabba")
+    assert_match "/home/linuxbrew/.linuxbrew/bin/jabba", shell_output("which jabba")
   end
 end
