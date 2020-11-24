@@ -2,6 +2,7 @@ class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
   url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
+  version "0.11.2"
   sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
   license "Apache-2.0"
   head "https://github.com/shyiko/jabba.git"
@@ -9,11 +10,16 @@ class Jabba < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
-    sha256 "a730868e347cb89b50393f96062b2c076f1d501b137ead1a795aa39e54ad4611" => :big_sur
     sha256 "7eddb409c7bb2784db21756e624a18b19977bb4df53ab547eaedd8abe876651e" => :catalina
     sha256 "3101ea25ce49c3ed96b3c8595a5441fec3aeb536b56eca21c1dea56f6c1fd86b" => :mojave
     sha256 "8454f5aa9b8832908b1c889531118ea058b2e675ef7f7f37eeb282f454aeec1e" => :high_sierra
     sha256 "237bab11bbcc4434a0b48c8d03a6f8634d12ec011f9357f26d8965f523fedad2" => :x86_64_linux
+  end
+
+  livecheck do
+    skip "Not maintained"
+    url "https://github.com/shyiko/jabba/releases"
+    regex /jabba-\d(\.\d+)+\.tar\.gz/
   end
 
   depends_on "glide" => :build
@@ -30,6 +36,7 @@ class Jabba < Formula
       system "go", "build", "-ldflags", ldflags, "-o", bin/"jabba"
       prefix.install_metafiles
     end
+    ENV["JABBA_HOME"] = "$HOME/.jabba"
   end
 
   test do
@@ -37,6 +44,9 @@ class Jabba < Formula
     system bin/"jabba", "install", "openjdk@1.14.0"
     jdk_path = shell_output("#{bin}/jabba which openjdk@1.14.0").strip
     assert_match 'openjdk version "14',
-      shell_output("#{jdk_path}#{OS.mac? ? "/Contents/Home/" : "/"}bin/java -version 2>&1")
+    shell_output("#{jdk_path}#{OS.mac? ? "/Contents/Home/" : "/"}bin/java -version 2>&1")
+    resource(ENV["JABBA_HOME"]).stage do
+      assert_match "$HOME/.jabba", shell_output("which jabba")
+    end
   end
 end
