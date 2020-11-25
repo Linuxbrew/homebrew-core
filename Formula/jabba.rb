@@ -31,7 +31,7 @@ class Jabba < Formula
       prefix.install_metafiles
     end
     mkdir("$HOME/.jabba")
-    cp("#{dir}/jabba.sh", "$HOME/.jabba/")
+    cp("#{dir}/install.sh", "$HOME/.jabba/")
   end
 
   test do
