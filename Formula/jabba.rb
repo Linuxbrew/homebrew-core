@@ -30,8 +30,8 @@ class Jabba < Formula
       system "go", "build", "-ldflags", ldflags, "-o", bin/"jabba"
       prefix.install_metafiles
     end
-    system "mkdir", "-p $HOME/.jabba"
-    system "cp", "#{dir}/jabba.sh", "$HOME/.jabba/"
+    mkdir("$HOME/.jabba")
+    cp("#{dir}/jabba.sh", "$HOME/.jabba/")
   end
 
   test do
