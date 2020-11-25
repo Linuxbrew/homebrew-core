@@ -10,10 +10,10 @@ class Jabba < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
-    sha256 "95379695228c4f280886748df49bd54ad9075b36a18cc4371edb069e9c92e7d2" => :amd64_linux
-    sha256 "f8f2aa2900431e37e3907f240cd7707598d1e2862c1b30e173749810005877f0" => :i386_linux
-    sha256 "8b3662c33b2d338850a775727df76f96c47ca636362c498df6bbde270cc8e83a" => :arm_linux
-    sha256 "2fbde40e00bade78a0b47eb3d2091f3519bfcb62ea03f4dee7853f63838a6385" => :arm64_linux
+    sha256 "9a971099c0ab85804166dbf96b99653f37cc8095749df982d346ee397c8f9cd5" => :amd64_linux
+    sha256 "9aa39804489c31c10f4975b06ad0527f7889f2909e5434b220635aea85137d85" => :i386_linux
+    sha256 "9c2c3b36853b67fb0820c6085520a4e45a6d3116b47d4d8e8babf46b6a267a04" => :arm_linux
+    sha256 "e0d490c98a5252e12a20560c39b8320cf567f4c980ee80f127f2dd02ecbb01e1" => :arm64_linux
   end
 
   depends_on "glide" => :build
