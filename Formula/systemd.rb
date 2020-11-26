@@ -41,6 +41,7 @@ class Systemd < Formula
 
     args = %W[
       --prefix=#{prefix}
+      --libdir=lib
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       -Drootprefix=#{prefix}
