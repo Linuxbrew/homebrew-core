@@ -12,6 +12,7 @@ class LinuxPam < Formula
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
   depends_on "libprelude"
+  depends_on "libtirpc"
   depends_on :linux
 
   skip_clean :la, "etc"
@@ -21,6 +22,7 @@ class LinuxPam < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-selinux
       --prefix=#{prefix}
       --includedir=#{include}/security
       --oldincludedir=#{include}
