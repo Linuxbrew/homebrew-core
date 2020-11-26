@@ -42,6 +42,7 @@ class Gdal < Formula
   depends_on "libxml2"
   depends_on "netcdf"
   depends_on "numpy"
+  depends_on "openexr"
   depends_on "openjpeg"
   depends_on "pcre"
   depends_on "poppler"
