@@ -48,6 +48,7 @@ class Emacs < Formula
       --without-x
       --with-xml2
       --without-dbus
+      --without-selinux
       --with-modules
       --without-ns
       --without-imagemagick
