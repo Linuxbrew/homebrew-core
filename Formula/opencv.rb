@@ -25,6 +25,7 @@ class Opencv < Formula
   depends_on "glog"
   depends_on "harfbuzz"
   depends_on "jpeg"
+  depends_on "libglvnd"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
@@ -35,6 +36,7 @@ class Opencv < Formula
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
+  depends_on "zlib"
   depends_on "openblas" unless OS.mac?
 
   resource "contrib" do
@@ -54,6 +56,15 @@ class Opencv < Formula
     ENV.delete("PYTHONPATH")
 
     args = std_cmake_args + %W[
+      -DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so
+      -DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so
+      -DJPEG_LIBRARY=#{Formula["libjpeg"].opt_lib}/libjpeg.so
+      -DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so
+      -DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so
+      -DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so
+      -DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so
+      -DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["ilmbase"].opt_lib}/libIlmThread.so
+      -DCMAKE_INSTALL_LIBDIR=lib
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
@@ -83,6 +94,7 @@ class Opencv < Formula
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
       -DWITH_TBB=ON
+      -DWITH_V4L=OFF
       -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
