@@ -58,7 +58,6 @@ class Mariadb < Formula
     # -DINSTALL_* are relative to prefix
     args = %W[
       -DMYSQL_DATADIR=#{var}/mysql
-      -DENABLE_DTRACE=NO
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
       -DINSTALL_DOCDIR=share/doc/#{name}
@@ -73,6 +72,8 @@ class Mariadb < Formula
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
+
+    args << "-DENABLE_DTRACE=NO" unless OS.mac?
 
     unless OS.mac?
       args << "-DWITH_NUMA=OFF"
