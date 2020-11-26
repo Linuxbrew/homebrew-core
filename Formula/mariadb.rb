@@ -21,6 +21,7 @@ class Mariadb < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
+  depends_on "openjdk"
   depends_on "openssl@1.1"
   unless OS.mac?
     depends_on "gcc@7" => :build
@@ -57,6 +58,7 @@ class Mariadb < Formula
     # -DINSTALL_* are relative to prefix
     args = %W[
       -DMYSQL_DATADIR=#{var}/mysql
+      -DENABLE_DTRACE=NO
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
       -DINSTALL_DOCDIR=share/doc/#{name}
