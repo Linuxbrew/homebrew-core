@@ -23,6 +23,7 @@ class Vtk < Formula
   depends_on "hdf5"
   depends_on "jpeg"
   depends_on "jsoncpp"
+  depends_on "linuxbrew/xorg/libglvnd"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -53,6 +54,7 @@ class Vtk < Formula
     inreplace "Common/Core/vtkConfigure.h.in", "@CMAKE_CXX_COMPILER@", "clang++"
 
     args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_LIBDIR=lib
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
