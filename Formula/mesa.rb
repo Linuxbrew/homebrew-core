@@ -29,6 +29,7 @@ class Mesa < Formula
   depends_on "libxcb"
   depends_on "libxdamage"
   depends_on "libxext"
+  depends_on "valgrind"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
