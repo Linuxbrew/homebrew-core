@@ -49,7 +49,6 @@ class Poppler < Formula
     ENV.cxx11
 
     args = std_cmake_args + %w[
-      -DCMAKE_INSTALL_LIBDIR=lib
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
