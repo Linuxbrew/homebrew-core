@@ -26,7 +26,7 @@ class Openexr < Formula
 
   def install
     cd "OpenEXR" do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_LIBDIR=lib"
       system "make", "install"
     end
   end
