@@ -22,6 +22,7 @@ class Cups < Formula
                           "--with-components=core",
                           "--without-bundledir",
                           "--prefix=#{prefix}",
+                          "--libdir=#{lib}",
                           *("--disable-gssapi" unless OS.mac?)
     system "make", "install"
   end
