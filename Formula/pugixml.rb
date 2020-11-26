@@ -18,6 +18,8 @@ class Pugixml < Formula
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF",
+                         "-DCMAKE_INSTALL_LIBDIR=lib",
+                         "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                          "-DBUILD_PKGCONFIG=ON", *std_cmake_args
     system "make", "install"
   end
