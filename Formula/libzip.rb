@@ -31,7 +31,7 @@ class Libzip < Formula
     because: "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_LIBDIR=lib"
     system "make", "install"
   end
 
