@@ -55,8 +55,9 @@ class Coreutils < Formula
       --prefix=#{prefix}
       --program-prefix=g
       --without-gmp
-      --without-selinux
     ]
+
+    args << "--without-selinux" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"
