@@ -17,7 +17,7 @@ class Ilmbase < Formula
 
   def install
     cd "IlmBase" do
-      system "cmake", ".", *std_cmake_args, "-DBUILD_TESTING=OFF"
+      system "cmake", ".", *std_cmake_args, "-DBUILD_TESTING=OFF", "-DCMAKE_INSTALL_LIBDIR=lib"
       system "make", "install"
     end
   end
