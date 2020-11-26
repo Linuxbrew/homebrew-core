@@ -265,15 +265,17 @@ class Llvm < Formula
       }
     EOS
 
-    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
+    if OS.mac?
+      system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
 
-    # Testing default toolchain and SDK location.
-    system "#{bin}/clang++", "-v",
-           "-std=c++11", "test.cpp", "-o", "test++"
-    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib"
-    assert_equal "Hello World!", shell_output("./test++").chomp
-    system "#{bin}/clang", "-v", "test.c", "-o", "test"
-    assert_equal "Hello World!", shell_output("./test").chomp
+      # Testing default toolchain and SDK location.
+      system "#{bin}/clang++", "-v",
+             "-std=c++11", "test.cpp", "-o", "test++"
+      assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test++").chomp
+      system "#{bin}/clang", "-v", "test.c", "-o", "test"
+      assert_equal "Hello World!", shell_output("./test").chomp
+    end
 
     # Testing Command Line Tools
     if OS.mac? && MacOS::CLT.installed?
