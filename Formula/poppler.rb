@@ -26,6 +26,7 @@ class Poppler < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "gperf"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -48,6 +49,7 @@ class Poppler < Formula
     ENV.cxx11
 
     args = std_cmake_args + %w[
+      -DCMAKE_INSTALL_LIBDIR=lib
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
