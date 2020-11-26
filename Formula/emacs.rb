@@ -48,11 +48,12 @@ class Emacs < Formula
       --without-x
       --with-xml2
       --without-dbus
-      --without-selinux
       --with-modules
       --without-ns
       --without-imagemagick
     ]
+
+    args << "--without-selinux" unless OS.mac?
 
     if build.head?
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
