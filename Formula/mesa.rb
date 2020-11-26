@@ -29,7 +29,6 @@ class Mesa < Formula
   depends_on "libxcb"
   depends_on "libxdamage"
   depends_on "libxext"
-  depends_on "valgrind"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -95,6 +94,7 @@ class Mesa < Formula
         args << "-Dgles1=true"
         args << "-Dgles2=true"
         args << "-Dxvmc=true"
+        args << "-Dvalgrind=false"
         args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
       end
 
