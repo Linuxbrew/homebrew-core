@@ -35,7 +35,7 @@ class Poppler < Formula
   depends_on "qt"
 
   uses_from_macos "curl"
-  
+
   on_linux do
     depends_on "gperf"
   end
