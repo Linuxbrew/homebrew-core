@@ -27,7 +27,6 @@ class Opencv < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "linuxbrew/xorg/libglvnd"
   depends_on "numpy"
   depends_on "openblas"
   depends_on "openexr"
@@ -38,6 +37,10 @@ class Opencv < Formula
   depends_on "webp"
   depends_on "zlib"
   depends_on "openblas" unless OS.mac?
+
+  on_linux do
+    depends_on "linuxbrew/xorg/libglvnd" 
+  end
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.0.tar.gz"
@@ -64,7 +67,6 @@ class Opencv < Formula
       -DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so
       -DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so
       -DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["ilmbase"].opt_lib}/libIlmThread.so
-      -DCMAKE_INSTALL_LIBDIR=lib
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
