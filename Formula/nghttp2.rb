@@ -28,6 +28,7 @@ class Nghttp2 < Formula
   depends_on "jemalloc"
   depends_on "libev"
   depends_on "libevent"
+  depends_on "libxml2"
   depends_on "openssl@1.1"
 
   uses_from_macos "zlib"
