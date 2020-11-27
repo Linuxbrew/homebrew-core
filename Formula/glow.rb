@@ -1,17 +1,15 @@
 class Glow < Formula
   desc "Render markdown on the CLI"
   homepage "https://github.com/charmbracelet/glow"
-  url "https://github.com/charmbracelet/glow/archive/v1.2.0.tar.gz"
-  sha256 "75d80dcd3258569e187d189f96f79de544332b72d635cc20b5111453d03c3a2d"
+  url "https://github.com/charmbracelet/glow/archive/v1.2.1.tar.gz"
+  sha256 "ceb9369e2f93412abf914fd4cdc2e1a7e70cf48e2b2607c1e10847223c4a1b68"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c36ed9de017a0f0c0f5a70f7c33fd5387b6f3ccdee14399f1c7b445a3ca9d3fa" => :big_sur
-    sha256 "64bcae8e6372b6db077687eabdfb358e7393403fc7229d430941e352d6151df9" => :catalina
-    sha256 "a5e7dddbdde2fa4dd35db661559eef21cfc8eaf98234912605cd91cbfb1f3671" => :mojave
-    sha256 "d5c28e3f66cdfcbc7da6ab30388c7cafa5e3fbaea673ebcae2f78e8241daf31d" => :x86_64_linux
+    sha256 "bec804d3c8ff8ff3dbd7d265ad39a213cb90173dead7d81d15f8f606ed03e15d" => :big_sur
+    sha256 "f55176ddc5b1f40503ad9b2599c5474e58a8e806dc2a33c7bd54375f110ad865" => :catalina
+    sha256 "bec57a12c75182f65427aceabed7be270be7890e37794429780791f80ac7fd85" => :mojave
   end
 
   depends_on "go" => :build

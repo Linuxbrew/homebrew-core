@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/41/2a/9f4ad0894166b581000b4389021955960f7d7ad90ba855be4bf92de46318/pre_commit-2.9.1.tar.gz"
-  sha256 "bf1da4848f2b7f51fd0b5e5bf0131095d7d3c121e8efaaeea5c957e05c365c4e"
+  url "https://files.pythonhosted.org/packages/68/48/a9e83e69632ef71ba108b96252f415cf248fb189563b61df528838e41ae5/pre_commit-2.9.2.tar.gz"
+  sha256 "e31c04bc23741194a7c0b983fe512801e151a0638c6001c49f2bd034f8a664a1"
   license "MIT"
 
   bottle do
-    sha256 "9cd70fc49010e8fd13171d8eb3a6fb6b5bff41db22a660d9aec0d3791bce1b10" => :big_sur
-    sha256 "171e14fd87dc5475b9f13a75f828fb1490a15a664d953db0abdcddf3a458b863" => :catalina
-    sha256 "2dd53792dca4edc20f77b0c87c9b2a3c0f086f1e6bb367a02e30f63028e0ed39" => :mojave
+    sha256 "0a29e802042256d365d346c24e11a8077e2589e512ced7c6c78ba91025f4798a" => :big_sur
+    sha256 "1f5b8f36ad2e4b17968280dd0eaf2010e476d28bf99d8dce42905c48a123926d" => :catalina
+    sha256 "e0ac4ae7653109be1d2a5a2cbdddca683105967eff598e0a9d009ad6bf3aa318" => :mojave
   end
 
   depends_on "libyaml"

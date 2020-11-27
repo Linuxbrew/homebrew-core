@@ -1,17 +1,15 @@
 class Bombadillo < Formula
   desc "Non-web browser, designed for a growing list of protocols"
   homepage "https://bombadillo.colorfield.space/"
-  url "https://tildegit.org/sloum/bombadillo/archive/2.3.1.tar.gz"
-  sha256 "e8076493e924bd5860d3e17884b0675ea514eea75e7b4e96da1c79ab9805731f"
-  license "GPL-3.0"
+  url "https://tildegit.org/sloum/bombadillo/archive/2.3.3.tar.gz"
+  sha256 "2d4ec15cac6d3324f13a4039cca86fecf3141503f556a6fa48bdbafb86325f1c"
+  license "GPL-3.0-or-later"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f17f909fa5202ac56fa978fdff15ad2d30bfd5d7386ae223fa63a5b1857b7c5a" => :big_sur
-    sha256 "d4cb984fc96583b1bf71dc482125b54d6dac9b46c47c6b0134183cc501cfb8b8" => :catalina
-    sha256 "a2ae947fb7d64598be63f1e54ea66cc5325fd135efed9c16f1fc2220f362a056" => :mojave
-    sha256 "685062637b7a2d279bcd9b002edd87e16cff4ce400bcb3c739899e95a652c809" => :high_sierra
+    sha256 "c03e55627ed6afed8053bd7b008a7097acc3cabe631c72aa37779c1a1bed4671" => :big_sur
+    sha256 "3de46b1bf2270bbc62922a26cd95e5096f8ff145538e2a648309d1e09a5c9ff9" => :catalina
+    sha256 "2aa718cebff527b3ecac75022b1c9ecf602cf5f516ca09dac2a2c67df22a435c" => :mojave
   end
 
   depends_on "go" => :build

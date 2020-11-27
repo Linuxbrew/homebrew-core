@@ -2,18 +2,15 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v2.0.0",
-      revision: "bb35ba9148543f22ba7d8642e4fbd29ae301f5dc"
+      tag:      "v2.0.1",
+      revision: "b52ee6d44adaef8a08f6984390de050d64df9faa"
   license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a8e7c5f46fa775fa055c5c906dcc0919cc8336bbba9f5babb146b1d3351e17d7" => :big_sur
-    sha256 "c4a83e9bc36bc1fe6633d8a4fef10436e5c79e825352e6562d776dcff6dbcd08" => :catalina
-    sha256 "96537ef620ea5035ffbb643db83edc9fc7e7995fbcd08ebd16fef74d5e17b411" => :mojave
-    sha256 "39d14687b9a45a50f921a19e23b935799d052686854bb247ed59235bcc28c59d" => :high_sierra
-    sha256 "551e1c9081ce8db2715a021c4c6d4478d599cfc0351a3edfd31b8b4d95159a8c" => :x86_64_linux
+    sha256 "c03472a3e8dd38972fe30ee245dade96626c7927f511b7c39eb5b1b6f789e34b" => :big_sur
+    sha256 "ebac8d7473e89b82ad00046243ef47207c0823e410c4d3c40483a81324ad2a4c" => :catalina
+    sha256 "99912d7dfc789ce059c33ea739f736930c40ea59ce58a70a6ee2478199b4363b" => :mojave
   end
 
   depends_on "cmake" => :build

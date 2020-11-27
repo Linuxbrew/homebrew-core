@@ -1,9 +1,9 @@
 class Inxi < Formula
   desc "Full featured CLI system information tool"
   homepage "https://smxi.org/docs/inxi.htm"
-  url "https://github.com/smxi/inxi/archive/3.1.05-2.tar.gz"
-  version "3.1.05"
-  sha256 "76dcb54b64269f61d0a8e23018ecda7a3a58b9c687eb587f93bd5b3bfa20b62a"
+  url "https://github.com/smxi/inxi/archive/3.1.09-1.tar.gz"
+  version "3.1.09"
+  sha256 "2212ad21238b60238b00c8826e2659f4283198c154ebcf24f0d5174fffcd6949"
   license "GPL-3.0"
   head "https://github.com/smxi/inxi.git"
 
