@@ -42,6 +42,7 @@ class Vtk < Formula
   unless OS.mac?
     depends_on "expat"
     depends_on "libxml2"
+    depends_on "linuxbrew/xorg/libglvnd"
     depends_on "szip"
     depends_on "zlib"
     depends_on "tcl-tk"
