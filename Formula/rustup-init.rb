@@ -13,10 +13,12 @@ class RustupInit < Formula
   end
 
   depends_on "rust" => :build
+
   unless OS.mac?
+    depends_on "pkg-config" => :build
     depends_on "curl"
     depends_on "openssl@1.1"
-    depends_on "pkg-config" => :build
+    depends_on "xz"
   end
 
   def install
