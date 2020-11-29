@@ -1,18 +1,17 @@
 class Libprelude < Formula
   desc "Universal Security Information & Event Management (SIEM) system"
   homepage "https://www.prelude-siem.org/"
-  url "https://www.prelude-siem.org/attachments/download/1172/libprelude-5.1.0.tar.gz"
-  sha256 "a5fa3ca1e428291afe4bb5095f01c05fd0d9ebd517a0ce3d07ca9977abcf41fa"
+  url "https://www.prelude-siem.org/attachments/download/1395/libprelude-5.2.0.tar.gz"
+  sha256 "187e025a5d51219810123575b32aa0b40037709a073a775bc3e5a65aa6d6a66e"
 
   bottle do
-    sha256 "1ba7de08e4e1bae22f2df8dac21cb6d6966e6f9f32962940c70655582fcd3f6b" => :x86_64_linux
   end
 
   depends_on "libtool" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
-  depends_on "ruby" => :build
+  depends_on "ruby@2.6" => :build
   depends_on "swig" => :build
   depends_on "valgrind" => :build
   depends_on "gnutls"
@@ -29,6 +28,7 @@ class Libprelude < Formula
       --disable-rpath
       --with-pic
       --with-python3
+      --without-python2
       --with-valgrind
       --with-lua
       --with-ruby
