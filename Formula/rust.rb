@@ -57,6 +57,21 @@ class Rust < Formula
     end
   end
 
+  # Only download rustc and rust-std if we are on Linux and using brewed glibc
+  if OS.linux? && Formula["glibc"].any_version_installed?
+    resource "rustc" do
+      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2020-08-27/rustc-1.46.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "4c0c740cfb86047ae8131019597f26382a9b8c289eab2f21069f74a5a4976a26"
+    end
+
+    resource "rust-std" do
+      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2020-08-27/rust-std-1.46.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "ac04aef80423f612c0079829b504902de27a6997214eb58ab0765d02f7ec1dbc"
+    end
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
@@ -75,7 +90,34 @@ class Rust < Formula
     # expected ';' after top level declarator" among other errors on 10.12
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
-    args = ["--prefix=#{prefix}"]
+    # If we are on Linux and using brewed glibc, install stage0 binaries to #{buildpath}/localrust
+    if OS.linux? && Formula["glibc"].any_version_installed?
+      resource("rustc").stage do
+        system "./install.sh", "--prefix=#{buildpath}/localrust"
+      end
+
+      resource("rust-std").stage do
+        system "./install.sh", "--prefix=#{buildpath}/localrust"
+      end
+
+      resource("cargobootstrap").stage do
+        system "./install.sh", "--prefix=#{buildpath}/localrust"
+      end
+
+      # Patch stage0 binaries to use Linuxbrew RPATH and interpreter
+      keg = Keg.new(prefix)
+      ["#{buildpath}/localrust/bin/rustc", "#{buildpath}/localrust/bin/rustdoc",
+       "#{buildpath}/localrust/bin/cargo"].concat(Dir["#{buildpath}/localrust/lib/*.so"]).each do |s|
+        file = Pathname.new(s)
+        keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.dynamic_elf?
+      end
+
+      # Tell the configure script to use the patched local rust install
+      args = ["--prefix=#{prefix}", "--enable-local-rust", "--local-rust-root=#{buildpath}/localrust"]
+    else
+      args = ["--prefix=#{prefix}"]
+    end
+
     if build.head?
       args << "--disable-rpath"
       args << "--release-channel=nightly"
