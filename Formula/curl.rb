@@ -43,6 +43,8 @@ class Curl < Formula
   def install
     system "./buildconf" if build.head?
 
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl@1.1"].opt_lib}/pkgconfig" unless OS.mac?
+
     openssl = Formula["openssl@1.1"]
     args = %W[
       --disable-debug
