@@ -27,6 +27,7 @@ class TclTk < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "freetype"   => :build
   end
 
   unless OS.mac?
