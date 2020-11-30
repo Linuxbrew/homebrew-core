@@ -72,13 +72,12 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
-    args << "-DENABLE_DTRACE=NO" unless OS.mac?
-    args << "-DCONNECT_WITH_JDBC=OFF" unless OS.mac?
-
     unless OS.mac?
       args << "-DWITH_NUMA=OFF"
       args << "-DPLUGIN_ROCKSDB=NO"
       args << "-DPLUGIN_MROONGA=NO"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
     end
 
     # disable TokuDB, which is currently not supported on macOS
