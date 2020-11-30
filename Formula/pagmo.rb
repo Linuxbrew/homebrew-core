@@ -18,6 +18,12 @@ class Pagmo < Formula
   depends_on "nlopt"
   depends_on "tbb"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    depends_on "gcc@7"
+  end
+
   def install
     system "cmake", ".", "-DPAGMO_WITH_EIGEN3=ON", "-DPAGMO_WITH_NLOPT=ON",
                          *std_cmake_args,
