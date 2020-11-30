@@ -21,7 +21,6 @@ class Mariadb < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "openjdk"
   depends_on "openssl@1.1"
   unless OS.mac?
     depends_on "gcc@7" => :build
@@ -74,6 +73,7 @@ class Mariadb < Formula
     ]
 
     args << "-DENABLE_DTRACE=NO" unless OS.mac?
+    args << "-DCONNECT_WITH_JDBC=OFF" unless OS.mac?
 
     unless OS.mac?
       args << "-DWITH_NUMA=OFF"
