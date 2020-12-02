@@ -51,6 +51,7 @@ class Qt < Formula
     depends_on "mesa"
     depends_on "pulseaudio"
     depends_on "python@3.8"
+    depends_on "sdl2"
     depends_on "systemd"
     depends_on "xcb-util"
     depends_on "zstd"
@@ -101,6 +102,8 @@ class Qt < Formula
       # https://codereview.qt-project.org/c/qt/qtwebengine/+/191880
       args += %w[-skip qtwebengine]
       args -= ["-proprietary-codecs"]
+      args << "-qt-zlib"
+      args << "-no-sql-mysql"
     end
 
     system "./configure", *args
