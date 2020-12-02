@@ -1,7 +1,7 @@
 class Libsasl2 < Formula
   desc "Simple Authentication and Security Layer"
   homepage "https://www.cyrusimap.org/sasl/"
-  url "https://www.cyrusimap.org/releases/cyrus-sasl-2.1.27.tar.gz"
+  url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz"
   sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
 
   bottle do
