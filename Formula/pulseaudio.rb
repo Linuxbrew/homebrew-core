@@ -34,6 +34,7 @@ class Pulseaudio < Formula
   depends_on "openssl@1.1"
   depends_on "speexdsp"
   unless OS.mac?
+    depends_on "dbus"
     depends_on "glib"
     depends_on "libcap"
   end
@@ -73,6 +74,8 @@ class Pulseaudio < Formula
       --disable-nls
       --disable-x11
     ]
+
+    args << "--with-udev-rules-dir=#{lib}/udev/rules.d" if OS.linux?
 
     if OS.mac?
       args << "--with-mac-sysroot=#{MacOS.sdk_path})"
