@@ -17,6 +17,8 @@ class Luarocks < Formula
   depends_on "lua@5.1" => :test
   depends_on "lua"
 
+  uses_from_macos "unzip"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
