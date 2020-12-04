@@ -82,7 +82,7 @@ class Mesa < Formula
       ]
 
       unless OS.mac?
-        args << "-Dplatforms=x11,wayland,drm,surfaceless"
+        args << "-Dplatforms=x11,wayland"
         args << "-Dglx=auto"
         args << "-Ddri3=true"
         args << "-Ddri-drivers=auto"
