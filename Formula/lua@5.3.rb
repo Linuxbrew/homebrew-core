@@ -21,20 +21,35 @@ class LuaAT53 < Formula
 
   uses_from_macos "unzip" => :build
 
-  on_linux do
-    depends_on "readline"
+  on_macos do
+    # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
+    # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
+    # ***Update me with each version bump!***
+    patch :DATA
   end
 
-  # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
-  # ***Update me with each version bump!***
-  patch :DATA
+  on_linux do
+    depends_on "readline"
+
+    # Add shared library for linux
+    # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
+    # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    patch do
+      url "https://gist.githubusercontent.com/dawidd6/2f0af33d33bacb1f173a45eb0e0d08f5/raw/462d997e0620f5849353c1753c89f0c2c78e9812/lua-5.3.6.patch"
+      sha256 "b9bba9d10ed5d34335c831972a02ec48471ca1dbf95230edc13fe5f575d5542c"
+    end
+  end
 
   def install
+    # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+    # when making a shared object; recompile with -fPIC
+    # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    ENV.append_to_cflags "-fPIC" unless OS.mac?
+
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      s.gsub! "@LUA_PREFIX@", prefix
+      s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -44,8 +59,14 @@ class LuaAT53 < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
+    arch = OS.mac? ? "macosx" : "linux"
+    system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
+    system "make",
+           "install",
+           "INSTALL_TOP=#{prefix}",
+           "INSTALL_INC=#{include}/lua",
+           "INSTALL_MAN=#{man1}",
+           *("TO_LIB=liblua.a liblua.so liblua.so.#{version.major_minor} liblua.so.#{version}" unless OS.mac?)
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -78,7 +99,7 @@ class LuaAT53 < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua -lm
+      Libs: -L${libdir} -llua -lm #{"-ldl" unless OS.mac?}
       Cflags: -I${includedir}
     EOS
   end
