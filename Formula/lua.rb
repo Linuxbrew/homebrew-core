@@ -33,8 +33,8 @@ class Lua < Formula
     # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
     # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     patch do
-      url "https://gist.githubusercontent.com/iMichka/dfc8617c85c1a6c21ca22240d4f5407b/raw/0dfef35c31fa41de0bface13e9c9f6ea09bd89fa/lua-5.3.5.patch"
-      sha256 "e74a6ada94e4340e664b35065392ebe5060d5d329b3d8d3e5603df0a8238a961"
+      url "https://gist.githubusercontent.com/dawidd6/fbec1d0179f8b8f7d026ed48c2f177a6/raw/a03a2dc572287314861db3c5f761427c30691c29/lua-5.4.patch"
+      sha256 "6549934065eb131a13713dca7fd5143b9d90e3f0654be49294cf56bc4bb5cc0f"
     end
   end
 
@@ -64,7 +64,7 @@ class Lua < Formula
            "INSTALL_TOP=#{prefix}",
            "INSTALL_INC=#{include}/lua",
            "INSTALL_MAN=#{man1}",
-           *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.5" unless OS.mac?)
+           *("TO_LIB=liblua.a liblua.so liblua.so.#{version.major_minor} liblua.so.#{version}" unless OS.mac?)
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -97,7 +97,7 @@ class Lua < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua -lm #{"-ldl" if OS.linux?}
+      Libs: -L${libdir} -llua -lm #{"-ldl" unless OS.mac?}
       Cflags: -I${includedir}
     EOS
   end
