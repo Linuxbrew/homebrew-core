@@ -4,18 +4,19 @@ class Ghc < Formula
   url "https://downloads.haskell.org/~ghc/8.10.1/ghc-8.10.1-src.tar.xz"
   sha256 "4e3b07f83a266b3198310f19f71e371ebce97c769b14f0d688f4cbf2a2a1edf5"
   license "BSD-3-Clause"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   livecheck do
     url :stable
   end
 
+  # Cellar should be :any_skip_relocation on Linux
   bottle do
+    cellar :any_skip_relocation
     sha256 "36daf8d12bf15ea04e12e9df4dc8a21de5ed01b39a3fd32ef3663ddb44a459fc" => :big_sur
     sha256 "1fc15705e5b9a24ca773d2df745345e75496ec3f227ea518d9945d6e1add6e18" => :catalina
     sha256 "cf8e2755d55d2a6479e4cebbee041ff63bece9bbae7d514c0b7601f6542b8081" => :mojave
     sha256 "40e2b31e3390cf784dedcd4357362bee577b6a5c1d911f5c072828fe01f42e8f" => :high_sierra
-    sha256 "98d149359e56a7570c97f0722838851534275da7998d96d32bcf1baad5428d50" => :x86_64_linux
   end
 
   head do
@@ -105,22 +106,22 @@ class Ghc < Formula
     end
 
     resource("binary").stage do
-      # Change the dynamic linker and RPATH of the binary executables.
-      if OS.linux? && Formula["glibc"].any_version_installed?
-        keg = Keg.new(prefix)
-        ["ghc/stage2/build/tmp/ghc-stage2"].concat(Dir["libraries/*/dist-install/build/*.so",
-            "rts/dist/build/*.so*", "utils/*/dist*/build/tmp/*"]).each do |s|
-          file = Pathname.new(s)
-          keg.change_rpath(file, Keg::PREFIX_PLACEHOLDER, HOMEBREW_PREFIX.to_s) if file.dynamic_elf?
-        end
-      end
-
       binary = buildpath/"binary"
 
       system "./configure", "--prefix=#{binary}", *args
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
+    end
+
+    unless OS.mac?
+      # Explicitly disable NUMA
+      args << "--enable-numa=no"
+
+      # Disable PDF document generation
+      (buildpath/"mk/build.mk").write <<-EOS
+        BUILD_SPHINX_PDF = NO
+      EOS
     end
 
     system "./configure", "--prefix=#{prefix}", *args
