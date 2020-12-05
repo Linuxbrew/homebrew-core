@@ -45,6 +45,7 @@ class Bazel < Formula
              "--output_user_root",
              buildpath/"output_user_root",
              "build",
+             "--action_env=#{std_cmake_args}",
              "--cxxopt=-std=c++11",
              "scripts:bash_completion"
       bin.install "scripts/packages/bazel.sh" => "bazel"
