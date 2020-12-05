@@ -81,6 +81,8 @@ class Bazel < Formula
 
     system bin/"bazel",
            "build",
+           "--action_env=#{std_cmake_args}",
+           "--cxxopt=-std=c++11",
            "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
 
