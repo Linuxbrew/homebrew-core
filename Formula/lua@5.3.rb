@@ -84,29 +84,25 @@ class LuaAT53 < Formula
 
   def pc_file
     <<~EOS
-                  V= #{version.major_minor}
-                  R= #{version}
-                  prefix=#{opt_prefix}
-                  INSTALL_BIN= ${prefix}/bin
-                  INSTALL_INC= ${prefix}/include/lua
-                  INSTALL_LIB= ${prefix}/lib
-                  INSTALL_MAN= ${prefix}/share/man/man1
-                  INSTALL_LMOD= ${prefix}/share/lua/${V}
-                  INSTALL_CMOD= ${prefix}/lib/lua/${V}
-                  exec_prefix=${prefix}
-                  libdir=${exec_prefix}/lib
-                  includedir=${prefix}/include/lua
-      #{"      "}
-                  Name: Lua
-                  Description: An Extensible Extension Language
-                  Version: #{version}
-                  Requires:
-            <<<<<<< HEAD
-                  Libs: -L${libdir} -llua -lm #{"-ldl" unless OS.mac?}
-            =======
-                  Libs: -L${libdir} -llua.#{version.major_minor} -lm
-            >>>>>>> cc60bcab602
-                  Cflags: -I${includedir}
+      V= #{version.major_minor}
+      R= #{version}
+      prefix=#{opt_prefix}
+      INSTALL_BIN= ${prefix}/bin
+      INSTALL_INC= ${prefix}/include/lua
+      INSTALL_LIB= ${prefix}/lib
+      INSTALL_MAN= ${prefix}/share/man/man1
+      INSTALL_LMOD= ${prefix}/share/lua/${V}
+      INSTALL_CMOD= ${prefix}/lib/lua/${V}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include/lua
+
+      Name: Lua
+      Description: An Extensible Extension Language
+      Version: #{version}
+      Requires:
+      Libs: -L${libdir} -llua.#{version.major_minor} -lm #{"-ldl" unless OS.mac?}
+      Cflags: -I${includedir}
     EOS
   end
 
