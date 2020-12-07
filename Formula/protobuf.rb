@@ -11,7 +11,6 @@ class Protobuf < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
     sha256 "b06e8c4247465d7773a359eeeaa39385e564fefab77dbbb245ac928eea334ce9" => :big_sur
     sha256 "8d53111626404e2b4f27718127a313dceea600a74a4d38ffe0870812d8f57eb4" => :catalina
