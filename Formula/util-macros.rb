@@ -8,6 +8,7 @@ class UtilMacros < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "dca6b81cec458f1d2fe9d367d91e9dc5f2459246b9e94fd77ed8ccf26c902c5d" => :big_sur
+    sha256 "2b1b06dd52f85a6c0368639b54b2fb2a48b1b0d4d88caca69410ee20d2a263f9" => :arm64_big_sur
     sha256 "298dfa88698206b08ce19e5daf66903da4a94e561ec639487c17b55c3d09ee3f" => :catalina
     sha256 "bd71cb44913a35fb4f8e63a0fd90229d8912d7af40f02c78b056cf72eb88b684" => :mojave
     sha256 "38d6cb7e6c900a555c5602af513224d346166e109b7226cc5b86cb51b9b55fe4" => :high_sierra

@@ -9,6 +9,7 @@ class Liblzf < Formula
     cellar :any_skip_relocation
     rebuild 1
     sha256 "1eb80ac962ecb5b94ba1ed3dc86d2baa8a13f231d113a77428879e0a8423ebaf" => :big_sur
+    sha256 "59c5aaacccbb1a67545502dbfea96bffa268ee39fd9912fccb8a6bd0d32b9062" => :arm64_big_sur
     sha256 "9aa8a1495947fe1fd6249abe33de7245f9ae4a58dcf900276253b013f7f148e8" => :catalina
     sha256 "62c558b1b9562038c49c1e83b73dfb08d8fca8b924eb36428a5c0bb566408f9d" => :mojave
     sha256 "66c9ec26bce56b59ffb317d5a415e6358e8246588a3f247c33b8a8d24e714570" => :high_sierra

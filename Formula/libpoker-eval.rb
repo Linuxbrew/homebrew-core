@@ -10,6 +10,7 @@ class LibpokerEval < Formula
     cellar :any
     rebuild 1
     sha256 "08b9a0817303ed87c19ce2345e92ccf6d1698d3b48f1d8ed7332663bb16dc227" => :big_sur
+    sha256 "d63fc9a9414fc306e2e94a074cf34538fb3574f671fd19186bf21098509670de" => :arm64_big_sur
     sha256 "803f48db07d845ec9784792ed0fe5cdc86cb67e6632ed9f72dde75619481bf83" => :catalina
     sha256 "313ff85dd7ec513a95ee8846c657819fdadbebccf0bdce228f180305ee56a716" => :mojave
     sha256 "415934c921d4ccced5426f9aa807b0cf11da031cb2c973e17d506a9f740ac645" => :high_sierra

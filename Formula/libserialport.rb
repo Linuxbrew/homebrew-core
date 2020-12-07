@@ -8,6 +8,7 @@ class Libserialport < Formula
   bottle do
     cellar :any
     sha256 "67613224a8f626829329285c5dc904fb25b6dfcbf17e24e35aaeb9fbf33b0f26" => :big_sur
+    sha256 "70d324a8ba623298ef7ea666443f3897a6548c28c61998805408d525ccb23868" => :arm64_big_sur
     sha256 "e53b9056ea9adb40aa55ec99c3a3dc1bef6cc442c1e83e0ece688b597277cebc" => :catalina
     sha256 "abe07f2865be280c550e14a3db11cf5c99e1cd469409379f045b8280831926d6" => :mojave
     sha256 "36dd828a2eba76bf82a3cd9c2c9ed9b684753c3a38aea33269f82f699762422b" => :high_sierra

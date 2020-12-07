@@ -9,6 +9,7 @@ class Libdshconfig < Formula
     cellar :any
     rebuild 1
     sha256 "aa368b8f973143fb64cb762956449fc29d978517519bc12c219351adaf0b9346" => :big_sur
+    sha256 "903a56de95d1a35df9e3a885375c4a4aed277e34ee50218c61789ca1d1a5a07d" => :arm64_big_sur
     sha256 "eb5fb662035498062529345467af13234be5d022ccec9d2b3e2ad3437ff96e04" => :catalina
     sha256 "7e2632a44dad0f9eedc38577c8dcb8c11856e036f05ba444a814f8bd93dd47ea" => :mojave
     sha256 "2000ae2106bb3b10a77b91b75a40dbb6ec60a8aad8de220aa2af69e1a41b905f" => :high_sierra

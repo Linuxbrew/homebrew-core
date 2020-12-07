@@ -10,6 +10,7 @@ class Libtextcat < Formula
     cellar :any
     rebuild 1
     sha256 "894a917a9328865a92e965cb1bb4e5d74d8073299c501aba30e443a5451c5718" => :big_sur
+    sha256 "3f8c157e7c44f15189d7c0f16937002cf13d22dd7dd61f4a6ea33af509604491" => :arm64_big_sur
     sha256 "9e178bd2a1479fb8d7be57c03b0bad722fbb94221d50b4b807bd6c89126492f2" => :catalina
     sha256 "02d7f744996abfda8bd85b4580c5a92a8bd89ad6cc06e2848caa9b3b0e858144" => :mojave
     sha256 "7997ea512b672f165e1e53e941147e9a520a9ab5d71b8b22e4a71622690e7cdb" => :high_sierra

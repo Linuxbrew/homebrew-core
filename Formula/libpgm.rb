@@ -9,6 +9,7 @@ class Libpgm < Formula
     cellar :any
     rebuild 1
     sha256 "27381fca9259e51fafa0515c5b21a6642ebba34b6e55a0f78e5b9b39be7cd0ba" => :big_sur
+    sha256 "8015f44469696d87e442dbbc18ff2977640bd457bec8fa486f5e86be242a961a" => :arm64_big_sur
     sha256 "416f7e3ff857e0c20f20c7c4774403059bbd540d003f0a0a546e122c603f7be6" => :catalina
     sha256 "0adcd6a17bbd37e11d0858c9ec7174b51932f33eb19a727c931acf1d719ab292" => :mojave
     sha256 "cccc90b754683842714480dc0a099abd303426ab2b47fd9fd8d0172717d9bc17" => :high_sierra

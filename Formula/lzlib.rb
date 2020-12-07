@@ -12,6 +12,7 @@ class Lzlib < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "3123446096a5f2ddc9375ff536ed3bb2add4ff2529910033f7e4b6a30a0e76b9" => :big_sur
+    sha256 "c271d1f78cd756b11d2042424ff7466db0a3887b5e4145d96d8ce016ce5e1222" => :arm64_big_sur
     sha256 "8d43e434cb121e5fd9c1be9adfc0ff6c8afa8f51c786a5b855117eb6f3e9e2dd" => :catalina
     sha256 "3c28dea3721b03227d660c7c453673d3cb40f00f41e2e4ba3f163a7171926da0" => :mojave
     sha256 "a49b8dfcf257d31c46841a733f1925020dd49493554d049a479467e602e3e796" => :high_sierra

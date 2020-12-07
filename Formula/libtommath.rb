@@ -10,6 +10,7 @@ class Libtommath < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "fde5371efe622e6a4f425e8294e742879b57aa355e2b1a593ff18cac2cb29840" => :big_sur
+    sha256 "350c68d767e5efa843105f7c196970b799f748da57ac384b170b7fa3c026cdd6" => :arm64_big_sur
     sha256 "700d1c4dfecd1016215158de7436d02452a149c5882ba3fda1201a72d6c3d5ea" => :catalina
     sha256 "9832ceb97e387a519d6ae9b66bb3a7066c1d112d947667527a5edfcc692e4983" => :mojave
     sha256 "26e39af069485ef58c3517fb765db3a5e8dba0f253aac3d0d5968ff2a35e595b" => :high_sierra

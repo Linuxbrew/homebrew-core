@@ -13,6 +13,7 @@ class Make < Formula
   bottle do
     rebuild 1
     sha256 "2019ba646e4471d42e09c28a0992c59dd82e292bf8275b0b3bfcce3220ef9c1b" => :big_sur
+    sha256 "dab4fc7da503bb357f735e2af821edefb48a714db012ab2a18e739f8df71e3c0" => :arm64_big_sur
     sha256 "39fc5ebff5ff708c2e3eea597b9f2eb79b910a122d30c3ac9bb93ebe313f030c" => :catalina
     sha256 "0c0a08eef68bcd78b0345f5f57a6efffcc7be877bcb3b803f39ac8916b882477" => :mojave
     sha256 "429177235322c3209e1657bea36364cd84222075b636939f6ed93a1cd04aeb21" => :high_sierra

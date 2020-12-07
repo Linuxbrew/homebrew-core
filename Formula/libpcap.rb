@@ -14,6 +14,7 @@ class Libpcap < Formula
   bottle do
     cellar :any
     sha256 "72a38b8e85b06f8415672be7add4df263cb5aee7f7c5e585f0c470283d425344" => :big_sur
+    sha256 "bb86b0d4df175bf57510420bd35bbe027a786327a7f4d02b97ed04c15be774b6" => :arm64_big_sur
     sha256 "3a85693ff5d241ccdc689af9fa1281434ddf6ae3d0887cd679d07bbc1730ec29" => :catalina
     sha256 "57ec7b7a786335d818c7eaca81a834c5ca9f4865a91df78b621d6b5d586cf859" => :mojave
     sha256 "26028b66ea5395a0eee75ebd5790e9d3a688e83698631aec328224bb7baa6037" => :high_sierra

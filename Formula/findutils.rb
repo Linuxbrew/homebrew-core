@@ -13,6 +13,7 @@ class Findutils < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "fae48a197e0a386fd330d8c48b375b5bb289f5d7105f0d007d94c53f7edc060f" => :big_sur
+    sha256 "d83aedbb4442ee44b3ad72bb3cdbbfe1ef891cb67013dcc81d4d4af1a20d7729" => :arm64_big_sur
     sha256 "f9ba06f4d48275e8cab659450b05e77873e909f31104df450201a83d465ed1ca" => :catalina
     sha256 "3c609b729a1dc859459282a856ff6c164cd8388e531dad4e58c8d4c7acb670fb" => :mojave
     sha256 "996a9fe2b1829fdf7b7257bead0ef0c4315832e9ba21b149779abeb59dcbde30" => :high_sierra

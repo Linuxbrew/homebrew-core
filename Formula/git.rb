@@ -14,6 +14,7 @@ class Git < Formula
 
   bottle do
     sha256 "99ffa981e42bfb6ed77fc1a9f4d1dc07681b2ba532ffc122d02b75eb002047e1" => :big_sur
+    sha256 "e45b6f22ea0b4d83f8fe57068f6ace169ea278d218b4bdef1479d5286b7c9b89" => :arm64_big_sur
     sha256 "47cffc0d84e2a273cc6088802633e1d4d1fc8afe67633ed8487b497cd78c54f8" => :catalina
     sha256 "97cd781a7060f6c1dc456d36e6d17d68ec78470affe3fc0b1d8ff46402be6fcf" => :mojave
     sha256 "b0ad755307e1f83e0c844aeef94774e499ebb85f1e36934966ac9bb31618da61" => :high_sierra

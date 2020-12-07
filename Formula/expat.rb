@@ -13,6 +13,7 @@ class Expat < Formula
   bottle do
     cellar :any
     sha256 "bdc39dc9c66e5efa771a59842102be8f35e8bab1f11f2b2353af0d986df95ec0" => :big_sur
+    sha256 "a483eeaaf485411244cdd546a3dc0cf26e4c7048748ce66ae014daae87e46dc2" => :arm64_big_sur
     sha256 "1a8b10b3ce11187fbc9d26013ac5939d69f53ad7e0768ecb3d026ae6007005ac" => :catalina
     sha256 "0715be3a1c1f7472cb662c640b263ed8c78da9cc20ebadb3f8df40e2300a87a8" => :mojave
     sha256 "f1d65a87a4535918db8fb7cae639335e70e0a0ac780a000f5ddb4685a47526e2" => :high_sierra

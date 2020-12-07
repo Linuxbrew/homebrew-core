@@ -13,6 +13,7 @@ class Libmpc < Formula
   bottle do
     cellar :any
     sha256 "754667644cc287cd9691fd3215df260aa971562b5a7b6ca65e29b2e15ea1e656" => :big_sur
+    sha256 "d8cf8b3d5ade169bc30ec7e61ace56eadf0bd1a9e0bc18bda5547dcde5948b2d" => :arm64_big_sur
     sha256 "8c037df4b551058d00351676dc2c5ec395bd69c88545fac9ccfd0749dadb8ee2" => :catalina
     sha256 "c229b6def61f4acc41b4b159d93dbc63a5c77f87f61623c9f7c5399da440cc4f" => :mojave
     sha256 "939f0ad01d809356e33bdc70a8a8483eb1b021fd5f3723d0e61a2698af00f01b" => :high_sierra

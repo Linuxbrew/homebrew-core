@@ -11,6 +11,7 @@ class Libdsk < Formula
 
   bottle do
     sha256 "19a28a828ba163c5bbb988cfc22e5c0a4d7a7c1f6e9cd479323c345e2175c017" => :big_sur
+    sha256 "506b425f49432f3a527592d2e8c88046f76c9a4e32bcc71bd52913870997c7bc" => :arm64_big_sur
     sha256 "f444a8f81a4767668f4cbffa2ef09268279d23780e92b7d4bc2d6ed44c9cd675" => :catalina
     sha256 "47485db7001965531b700308a3d464a616703ddd8fdca64c8a7d2b5049481eb5" => :mojave
     sha256 "b4fa361c1800fd348c804873fd03f8663f7324eed228c3ba2e2d809a58fbbb97" => :high_sierra

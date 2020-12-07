@@ -12,6 +12,7 @@ class Libbinio < Formula
   bottle do
     cellar :any
     sha256 "892d24b5664bb470d0b90f714b4d2f9d8bc9bc62f857f003b4736bd5efd9a5f2" => :big_sur
+    sha256 "fcc1e7e02748a9d44f64e6225aff754816c59a2a1fd2e4871c5e2eb45b329a71" => :arm64_big_sur
     sha256 "9557b784c8c13985e1cbdf62fec7b49fd85766c82c2a3b01a4ce4596f36249ef" => :catalina
     sha256 "09c61e01936f68d4f64648fa195150c8c7d82e0fa636e9f159687a293d5feab4" => :mojave
     sha256 "176f0a11a333240770e59ada053e1656081a324debb64b96afa942a86e18f28a" => :high_sierra

@@ -9,6 +9,7 @@ class Libresample < Formula
     cellar :any_skip_relocation
     rebuild 2
     sha256 "623df9f095f427ee794211cd657ad1d1ff5e89f383aa304c9c94d7a27cac36a3" => :big_sur
+    sha256 "7cad700494c7cd0d7c35941ebba2542fd81c3565df9907ca5856ba9bc4606d24" => :arm64_big_sur
     sha256 "779b21b26d28a7318e67e0444b74ee5782715b523c1f79ba9bdff41c334cd312" => :catalina
     sha256 "7973809674c5ca9dceaf822abaf482c2a8126928140fa056168644b1196005c2" => :mojave
     sha256 "42b971ed75ad6ba1bd6879c2b7cb5fb416706ed184291d12983e46ab6c90a20c" => :high_sierra

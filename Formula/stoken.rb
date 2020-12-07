@@ -12,6 +12,7 @@ class Stoken < Formula
   bottle do
     cellar :any
     sha256 "701102c6cb8138920a8ccf7aae6d89ea247d259d17f7f4ce3e4af46cad516802" => :big_sur
+    sha256 "532f99421b3bc7f5a15944a9a4d85c78e7c109b2339ea270bc214833adc78d18" => :arm64_big_sur
     sha256 "423dbce4e76710fe932fc4d86fa25b39ced8f138d781fcccbc3982ce83136216" => :catalina
     sha256 "59ee230b63a707bf9c1fd966ec003c14ca16c7e61a331b765e31a1ba4b7db867" => :mojave
     sha256 "6c6b704e5f9830e0192383c53717f64b0af48119d6f0d96d78de521820a6c84b" => :high_sierra

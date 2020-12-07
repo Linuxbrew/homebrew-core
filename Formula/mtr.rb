@@ -9,6 +9,7 @@ class Mtr < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "3625ac3eeb2409adfb156194c8bda385b98ebb7afa59229e302e9e61bb897004" => :big_sur
+    sha256 "45e6fb23b490905b32e5cb36bc4f5ca7006a19db9c12104e8195d9957d9d7a52" => :arm64_big_sur
     sha256 "6ec962809c1c2381b7723647e16c2283dbef8042ae04af14ad675fa63c38a859" => :catalina
     sha256 "6a768b9cd07026aec0276742fd3fb6723c0f545a8498dff1ab3bb5b9e23e85e0" => :mojave
     sha256 "9c9a9c995360d16581ef42b0a729a5d3c152e7195bcc88910cda9bd9315c3299" => :high_sierra

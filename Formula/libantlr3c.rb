@@ -9,6 +9,7 @@ class Libantlr3c < Formula
   bottle do
     cellar :any
     sha256 "3e442dfcc1083a693b77995703d2a2bb5100d13dfbae8cf174816fd112e90cb5" => :big_sur
+    sha256 "56d57385f8c4d8b429274775a3de28c003c33c0c86c0102a5be16ead7230bdf7" => :arm64_big_sur
     sha256 "53bc5810ecd6cc4be26da750839d53981ebba6ad931e13005661e599cfd69501" => :catalina
     sha256 "c4df9f53203a7e21abc1fb22bf74256017f646e9177606c7da6c222db16dd3cb" => :mojave
     sha256 "2de7942e4bc89830c0d92bfda55e60a4ad82723430bcc7477abb5d1b1ade7f86" => :high_sierra

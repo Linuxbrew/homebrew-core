@@ -12,6 +12,7 @@ class LibgpgError < Formula
 
   bottle do
     sha256 "d01d066dbc2b58d856f14b9bfaa2a0f2bdfa9fab1425b24caf47239022beb365" => :big_sur
+    sha256 "5d957c871ce023562b20c12e1d6322fa198fc792c863c89d83f6e91d2e061b87" => :arm64_big_sur
     sha256 "192fb153fd3471c6491a444de03aac3b65479675ffa3d830330106676f309a3f" => :catalina
     sha256 "1f6be0800675342ed83ab22fc85a3335d14514bbb7d718a8082147fdf6594249" => :mojave
     sha256 "4a973d0829eea76e5e792afd22411f730c88676c6dda7060e56e111a8fd8351c" => :high_sierra

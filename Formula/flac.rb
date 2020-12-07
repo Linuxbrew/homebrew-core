@@ -13,6 +13,7 @@ class Flac < Formula
     cellar :any
     rebuild 1
     sha256 "2fd6b2eac2d88c39022752992baf18f4fa0deb43c1b27c57dc9d2349562c9514" => :big_sur
+    sha256 "30cabb32d080d7c11814bb036f0cc013f3397e5782bea14fefe281cc61cad7ae" => :arm64_big_sur
     sha256 "3d33119f1e513ad58f20722e41498fc23315d756a834d8b346cee6842f45fea1" => :catalina
     sha256 "ffadc5a1825acd43aee92ea2523a1b46b3c63820f5cf59f61ee2972571454755" => :mojave
     sha256 "53562e93cd58b45d15fb5303938b1718298d69101a53612fd53075e881cbfc95" => :high_sierra

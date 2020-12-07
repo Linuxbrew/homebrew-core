@@ -14,6 +14,7 @@ class Libusb < Formula
     cellar :any
     rebuild 1
     sha256 "6ed842c2a0f70a27dd6b65e71e09e66294da8377d1cc06dfec118e31e7f96a0b" => :big_sur
+    sha256 "b391d781007dc39673446985af041711975607840bd8a71400c575118ec7c224" => :arm64_big_sur
     sha256 "cbfd8044e5e595fcee3cbf62edac4b626a8c623be53ed76e7111fa235ff97668" => :catalina
     sha256 "6dd71c1bc0bbe67ee8f76fb01d33d805bde20b7182695e338e080c9d443029a6" => :mojave
     sha256 "312ca96b255aa045cd2c87150c58e020f49d50e7f354219d944a37de8ec0278c" => :high_sierra

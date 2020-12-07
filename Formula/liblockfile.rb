@@ -6,6 +6,7 @@ class Liblockfile < Formula
 
   bottle do
     sha256 "c22eb6cb53066f5a9b16a60cf77a1b4980ad28b4f71f89a9e3c6bc5674c62b51" => :big_sur
+    sha256 "bf27b71ce399f290368492c6e3656dae97d08f2ae353148e711facf7d378f89a" => :arm64_big_sur
     sha256 "e5991a3eac0b5cd41f2850d73643607c33bb41b7014105f0ed80b75c5e7ef866" => :catalina
     sha256 "18663ff713cb46c514546f5a73026deb4e3df5b701b082b5cd68275581b05ba8" => :mojave
     sha256 "bc532693f97e4d14ac59974b80f5a31b121b5cc404efb2aacda1c1607f4bcf5b" => :high_sierra

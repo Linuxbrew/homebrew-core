@@ -13,6 +13,7 @@ class Libmodplug < Formula
     cellar :any
     rebuild 1
     sha256 "64f182f657535f24a6f6a9fe6a351eced9f56a99bc0c0aef2f494079de6c2211" => :big_sur
+    sha256 "56844963830a01d60ec8c62aa492d92cde11b7fdf548b5f41f576e0d548e7728" => :arm64_big_sur
     sha256 "62cb39e81cea4111f72a3f594ac78557f6f6992ae964321632fda16a16c97bd2" => :catalina
     sha256 "67ea2db6931cc6f60ed71f09cfab02cb22d2781d2e5bbb96ff0ef6a22ebb1c83" => :mojave
     sha256 "3f46eca3704d441ba8133d71bd283e8d24cff61e8b903fff720b78932185f9bf" => :high_sierra

@@ -4,13 +4,12 @@ class Nghttp2 < Formula
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.42.0/nghttp2-1.42.0.tar.xz"
   sha256 "c5a7f09020f31247d0d1609078a75efadeccb7e5b86fc2e4389189b1b431fe63"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "caef493f1b11fb991abc2f3802d221b0d7de8941cb74fee1678cbdd739172b37" => :big_sur
-    sha256 "48259656881f1604ecb9c6b95d60ea1e95e62e44407fe641df5129ec9aab9d64" => :catalina
-    sha256 "d0e538dc1cf2b150354a3603aab81bfbcdca2f996741c37b1f34dfb181589307" => :mojave
-    sha256 "12c7bdf2bac9c61df742d4005fe633099a0d37a7002124e4a1a5b3023866e007" => :x86_64_linux
+    sha256 "3d0437a63bcc51ec17d456847bcc0a624be2e00755ecc96b8445bc15020ff413" => :big_sur
+    sha256 "ddc63177feae52a5d07ec0f5793a8dcb5a344f0bdd4f4ba0633dacfd8249b0be" => :catalina
+    sha256 "e7a509ec209f20e204f82009b2dec7667e6a28958d018d8f1ee0fefbe4b73999" => :mojave
   end
 
   head do
@@ -21,14 +20,10 @@ class Nghttp2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "cunit" => :build
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "c-ares"
-  depends_on "jansson"
   depends_on "jemalloc"
   depends_on "libev"
-  depends_on "libevent"
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
@@ -45,12 +40,16 @@ class Nghttp2 < Formula
   end
 
   def install
-    ENV.cxx11
+    # fix for clang not following C++14 behaviour
+    # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
+    inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --enable-app
+      --disable-examples
+      --disable-hpack-tools
       --disable-python-bindings
       --without-systemd
     ]
@@ -58,8 +57,6 @@ class Nghttp2 < Formula
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
     system "make"
-    # Fails on Linux:
-    system "make", "check" if OS.mac?
     system "make", "install"
   end
 

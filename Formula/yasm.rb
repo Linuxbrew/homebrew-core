@@ -10,6 +10,7 @@ class Yasm < Formula
     cellar :any_skip_relocation
     rebuild 1
     sha256 "ca95cb3c02508796ff4e60d54146b03016b93e80837916359912ebf737a37562" => :big_sur
+    sha256 "0eac94b60093266b44d12bdc53b4c828e0967c20a1d7d6005aa1dce8514b9f9b" => :arm64_big_sur
     sha256 "9aa61930f25fe305dc5364e72f539b0a225702b5f1dc222a9dde1216e901f7ab" => :catalina
     sha256 "0dc797b72ee3bad9c6a52276c871ac745207b5626722e805fa642d7a872847fc" => :mojave
     sha256 "7f31deeff91c5929f2cd52eca6b636669f9c8966f6d4777e89fa4b04e541ad85" => :high_sierra

@@ -15,6 +15,7 @@ class Exiftool < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "63ec4f485ba5c8e96fdd1814da833cedb7f9707c654c4167cb4d22b3205414b6" => :big_sur
+    sha256 "d4e43dfae91ab284f7352c3a79e2c2c76bc6ed02fcbbd223ba03d18fd84ab60a" => :arm64_big_sur
     sha256 "94e6bea5ede141fec762e7c7e06e1434d84b90695388cf269787ae77ece01cda" => :catalina
     sha256 "94e6bea5ede141fec762e7c7e06e1434d84b90695388cf269787ae77ece01cda" => :mojave
     sha256 "b7aa0c2aa1d2e0e1d2eab87c16c180153f62715e780f31a83f2f081d8f91b620" => :high_sierra

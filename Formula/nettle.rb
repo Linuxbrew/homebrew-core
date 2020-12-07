@@ -13,6 +13,7 @@ class Nettle < Formula
   bottle do
     cellar :any
     sha256 "5119f665e058b08045462a2ddfe8371cf20e1e2a7256e97df1c6741af7289b1c" => :big_sur
+    sha256 "f642cbad8fad64a66e88c2133e46ae388a488d72e1f274ba0ab0c3357cfb772a" => :arm64_big_sur
     sha256 "7ac7677ba653dbef81dd83ed8cde3dfcb7b464d04442886c396179932f4f9faa" => :catalina
     sha256 "d378b026725d8d449ca6497ce2158b93c991a0e0326921a5f914bc4847da3a92" => :mojave
     sha256 "07c65cb4d172b05065dcceb702b41ca3408b31b6154690c7a4cfa430b2de074d" => :high_sierra

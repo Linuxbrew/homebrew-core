@@ -8,6 +8,7 @@ class Libde265 < Formula
   bottle do
     cellar :any
     sha256 "6c809d037d6fe6c99a4c1492882c1e4ba720c9ead911b587da26dcb352fc5524" => :big_sur
+    sha256 "1e6bd1563a0b99d3566c417d1570dda9eeca73c03f45dc014eab35805a1628e8" => :arm64_big_sur
     sha256 "774fe5c9c849784aa10648fe3fae971c7d702a47807b6954c8a8763368bce9fc" => :catalina
     sha256 "344e3a6eab4addecd812a51ef0d6e0db5e894c26a455603a6b4f4972757a5994" => :mojave
     sha256 "bcb11c6ab6f03a76ae39a1972ed5a8779e785fdc6a62591823bdf8e2ac102890" => :high_sierra

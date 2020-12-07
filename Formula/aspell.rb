@@ -13,6 +13,7 @@ class Aspell < Formula
   bottle do
     rebuild 1
     sha256 "abf04f9f474e21d070e22667204cd122e7e099e90e60110dc7639fdaa5f5a66f" => :big_sur
+    sha256 "98ad3c845245d322aa295fddaf3996e4fff988d4e53ce0e74467a476c7d383cd" => :arm64_big_sur
     sha256 "86b7d31eff12742ccb73464c088c8313998bd4c1e37f108754f936d51b6f49dd" => :catalina
     sha256 "aeded9b9861145353ad13bbf85772f23e556fe6dc0b263beebd555cf19762197" => :mojave
     sha256 "0eb65942c158b661b7dd257f390455a6eecf87e2b1550b1a2c4c8fd92564a2ff" => :x86_64_linux

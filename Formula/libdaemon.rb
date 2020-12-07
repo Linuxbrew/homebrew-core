@@ -14,6 +14,7 @@ class Libdaemon < Formula
     cellar :any_skip_relocation
     rebuild 2
     sha256 "e33a72add1413b788a607ae16413c3434da9d2faca96b9201504121b03a7ff73" => :big_sur
+    sha256 "7fbd26affa08eb07faf7aa06d756c0216bff56e3c86e478f72b0301b95a85f26" => :arm64_big_sur
     sha256 "ad96f0b0e09c3e0c178d3e903659d65ae34fea18365197924a4911c291d02531" => :catalina
     sha256 "1fe52d810eca4471b4d285de02a09ea9e4b78d762f1a2a292d6da1eb10e9626d" => :mojave
     sha256 "0933bb1dde0237f4079fefcd228ea644be36fbf814aa96762ebbae3537886558" => :high_sierra

@@ -12,6 +12,7 @@ class Faac < Formula
   bottle do
     cellar :any
     sha256 "15eb46101d9d0e50c8b87977f8b87dceafa4e9c0c165a2ff9a41fd94afe73b66" => :big_sur
+    sha256 "edb329a8b6d3fbeade7233533aa0bf315ef6029a4bfedef0557953683e458d1c" => :arm64_big_sur
     sha256 "5687b72d43334c52e8b4daa4eda547d9541812807bf7b89d63be9a1e487ae78f" => :catalina
     sha256 "27f7a5da217b0cb75caa8fd33bd19dc5a1f741b290f30b0c5491bc3a84aed38c" => :mojave
     sha256 "73e02bf58df497bf2c35e8374c000fc8ed989c167b559b9efe2f5874687fe849" => :high_sierra

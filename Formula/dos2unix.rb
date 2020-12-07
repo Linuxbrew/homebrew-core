@@ -14,6 +14,7 @@ class Dos2unix < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "7a4b0e40724b8721ff76a36cb74fd6c9816ce0e9b518c3abf0e2ec5bab5b0cce" => :big_sur
+    sha256 "ca095cbc3b63cf2b2176da2485a5402ae4bc4bb57bc19c9f674907857ac1d99f" => :arm64_big_sur
     sha256 "eb14b6db2fbf8fa0f52b69aa33101e1eb04bf3d4ef5dae7234754046e4cd54a6" => :catalina
     sha256 "7a23d283d81cad13690d788c61117cbfe091282503077ad56bde83f026dd5097" => :mojave
     sha256 "98858938fe95e2453056d80c03c35396913a5c6902b2df00b618c884a4b51521" => :high_sierra

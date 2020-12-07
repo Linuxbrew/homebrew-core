@@ -8,6 +8,7 @@ class Fribidi < Formula
   bottle do
     cellar :any
     sha256 "edc35b607a4be54edba895c367f4f7df356d863fd9abaf34323206ac46fe5655" => :big_sur
+    sha256 "c875562fafa26da62752eef2b0991d45cc91979d5dcceb8affff6b891d7ca8ea" => :arm64_big_sur
     sha256 "c3799c193fb513a5c66a6e9fa950c1bdd15c12f931b9421dbf8e1c8e994f41e3" => :catalina
     sha256 "a53aef8adec171a839a2ea0f7d90655f385215d4a6c45c0ffc2a97c75a297fb5" => :mojave
     sha256 "83253b57bd1621e9340bfdb86ba147ff0a095e006ef53ad0c5421107557475a0" => :high_sierra
