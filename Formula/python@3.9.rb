@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz"
   sha256 "9c73e63c99855709b9be0b3cc9e5b072cb60f37311e8c4e50f15576a0bf82854"
   license "Python-2.0"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -15,7 +15,6 @@ class PythonAT39 < Formula
     sha256 "5171d1c3c5c65ce6148f2ce5a048dd0a77389f652ee88045b024d685dc18c34f" => :big_sur
     sha256 "468e4c6d9139777bbdf025c0dd330263e51cb536cffcbcabe19e53b485cd32c7" => :catalina
     sha256 "3c91d5f5f9e5f7d7db787bdd9f473f2e6d4dd7ec4b713c85411406dd17185e7a" => :mojave
-    sha256 "c0ff2168ceba09d84447270861ffeaf35388e8fa393190d27d9c42e959aea8da" => :x86_64_linux
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -161,11 +160,6 @@ class PythonAT39 < Formula
     # paths for the dependencies of the compiled extension modules.
     # See Linuxbrew/linuxbrew#420, Linuxbrew/linuxbrew#460, and Linuxbrew/linuxbrew#875
     unless OS.mac?
-      if build.bottle?
-        # Configure Python to use cc and c++ to build extension modules.
-        ENV["CC"] = "cc"
-        ENV["CXX"] = "c++"
-      end
       cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
       ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
     end
