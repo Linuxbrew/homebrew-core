@@ -4,12 +4,13 @@ class Lmod < Formula
   url "https://github.com/TACC/Lmod/archive/8.4.16.tar.gz"
   sha256 "e026edb2895447b968b28c6080bd6c6226373b8ee3f5b7c996cca7d0a84f5f6d"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb20d1db75945e33908c40e05d8ce61178ecd244321321fbe053b2707acce8bb" => :big_sur
-    sha256 "ee4c79bc7deafdb38c12c7ea8af3e598b3b7e92bc9f589e23bc75f2c170205b4" => :catalina
-    sha256 "7f216e701f7a8233c3750e725f66ef8699fae6e0b06395f583778f1d58bcaa5f" => :mojave
+    sha256 "73c971748da6e22150dfeb413c9d1b82f0f20f8b37192d9c24d15737e4fe966d" => :big_sur
+    sha256 "a9916655066113943944e2a52f2365fc3b3b54d6c96cc1a9de8a13f98bc5925f" => :catalina
+    sha256 "0fe43403b10484ab1d88a7b1d53d6f967d4d8bd369d704b673f8d90dff6e4e75" => :mojave
   end
 
   depends_on "luarocks" => :build
@@ -27,11 +28,12 @@ class Lmod < Formula
   end
 
   def install
+    luaversion = Formula["lua"].version.major_minor
     luapath = libexec/"vendor"
     ENV["LUA_PATH"] = "?.lua;" \
-                      "#{luapath}/share/lua/5.3/?.lua;" \
-                      "#{luapath}/share/lua/5.3/?/init.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
+                      "#{luapath}/share/lua/#{luaversion}/?.lua;" \
+                      "#{luapath}/share/lua/#{luaversion}/?/init.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{luaversion}/?.so"
 
     resources.each do |r|
       r.stage do
@@ -56,7 +58,17 @@ class Lmod < Formula
   end
 
   test do
-    system "#{prefix}/init/sh"
+    sh_init = "#{prefix}/init/sh"
+
+    (testpath/"lmodtest.sh").write <<~EOS
+      #!/bin/sh
+      source #{sh_init}
+      module list
+    EOS
+
+    assert_match "No modules loaded", shell_output("sh #{testpath}/lmodtest.sh 2>&1")
+
+    system sh_init
     output = shell_output("#{prefix}/libexec/spider #{prefix}/modulefiles/Core/")
     assert_match "lmod", output
     assert_match "settarg", output

@@ -4,12 +4,13 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20201127.tar.gz"
   sha256 "29ac51a5ac5b4524dfdbb5ac78b59a1cc28c1090c541fb3da7bc86f838ab64cd"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
-    sha256 "76c9f219dd1f8be9a4fbe40d36715052e53bb90b0fcfb10da2c01f4846f4e0d0" => :big_sur
-    sha256 "e3f851ed976608c203faf45e0986164151d43ed4337ab6e624c13b5bfce580cd" => :catalina
-    sha256 "549494de04024944f598577502dfdbe5292e4bcf452305d5e04a8a3a47735766" => :mojave
+    sha256 "02c44bd0160b8c4118ee6c8c96569b8907b6bf9caa2b4f5de6091eb2a820a896" => :big_sur
+    sha256 "291d157a3ca06df36d33f772c5c7e34cf9e30b468d9d7abb9bb232aaad53d415" => :catalina
+    sha256 "7e7f2b4645d82958e8ff7f068b50312622a7db16c10e142a25162ad519e1f61b" => :mojave
   end
 
   depends_on "docbook-xsl" => :build

@@ -53,7 +53,7 @@ class MinimalRacket < Formula
         raco pkg install --auto drracket
 
       The full Racket distribution is available as a cask:
-        brew cask install racket
+        brew install --cask racket
     EOS
   end
 

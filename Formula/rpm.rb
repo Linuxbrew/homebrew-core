@@ -4,7 +4,7 @@ class Rpm < Formula
   url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.1.tar.bz2"
   mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.15.x/rpm-4.15.1.tar.bz2"
   sha256 "ddef45f9601cd12042edfc9b6e37efcca32814e1e0f4bb8682d08144a3e2d230"
-  revision 1
+  revision 2
   version_scheme 1
 
   livecheck do
@@ -13,10 +13,9 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 "29179e00af067eb16545dd8928b59abbd7d986e962fcc67268cd53f16ecd7fe1" => :big_sur
-    sha256 "e5d398daca37da278add441d2cb0825c019fed8bcfb33bd4abb01dad3dce42e0" => :catalina
-    sha256 "0b5556d33614062b0b9d39cc8d3f4046d562cbaa9b03498cf4b11c57debb38fe" => :mojave
-    sha256 "a59870c437fe72ce7438726f79a44111d8352dbe50b7f6cf9d147210034a764b" => :high_sierra
+    sha256 "0ab53d077ad1a661161e45dc2af8c7a3767808d3efa14e736346d2001d8bd002" => :big_sur
+    sha256 "b8ff31d0e3a8404442c6ab8cab9d6970f53960cb58002a812e1fde9fc0bdc47c" => :catalina
+    sha256 "84f9e5185d8aa8a711ec5065380fab393eb6288b470d0f8af68affc9727304c0" => :mojave
   end
 
   depends_on "berkeley-db"

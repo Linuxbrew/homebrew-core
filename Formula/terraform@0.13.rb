@@ -1,27 +1,20 @@
-class Terraform < Formula
+class TerraformAT013 < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.14.0.tar.gz"
-  sha256 "3f50b6c5aed44746e42ebbf00375717d352128f49f8eb16903acd95cd64750d0"
+  url "https://github.com/hashicorp/terraform/archive/v0.13.5.tar.gz"
+  sha256 "c4bdb9e636550795862f13e0ae667a1d381bf2f6cd30c4dde54411afdd07aeab"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/terraform.git"
-
-  livecheck do
-    url "https://releases.hashicorp.com/terraform/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e15d5f003503198fa74785cbcec621f7d908062682f23df4ca5a9a52d9380d11" => :big_sur
-    sha256 "4aae2c8a57eeceabb349d5536d0ab407d5415d1b010b224894234918b8f6be1a" => :catalina
-    sha256 "c983880342ee77ee142f0a0c9bf7b8a4f0c9b783d1a7bf5dfb0ed6217f62cf80" => :mojave
-    sha256 "c4afc44de2b8c9225659c12799cdc3352fe35133ff7d5bf4bc12fec9ecd56849" => :x86_64_linux
+    sha256 "0ec5412c1760c74a03116027f695c59c174a43ca443e1dbbfcfc74d444f0d02d" => :big_sur
+    sha256 "2eb194afe33fccd297800339ddc7ab46c536ad65d15b3149941d12c17e8388c8" => :catalina
+    sha256 "ba1565728f8ad9627b1ec549eb6ef1793699ba6bb5b4e9191467de1b5ab8f82e" => :mojave
   end
 
-  depends_on "go" => :build
+  keg_only :versioned_formula
 
-  conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
+  depends_on "go@1.14" => :build
 
   def install
     # v0.6.12 - source contains tests which fail if these environment variables are set locally.
@@ -32,7 +25,8 @@ class Terraform < Formula
     # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
     ENV["CGO_ENABLED"] = "1"
 
-    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    system "go", "build", *std_go_args,
+      "-ldflags", "-s -w", "-mod=vendor", "-o", bin/"terraform"
   end
 
   test do

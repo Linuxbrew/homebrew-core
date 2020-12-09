@@ -16,6 +16,7 @@ class Gdbm < Formula
     sha256 "f7b5ab7363961fa6defcb66b4ffdf5365264fcb97d35bc413e754f173a3b1912" => :catalina
     sha256 "0f65874bcd50d31aaf8b2e6c8ef414cb65a8d8b9eb6d1fa4ef179c6e0a94983c" => :mojave
     sha256 "4a644af2fcc2781c3a161209deff7b62d760058bc1bac7c4f91a5ce5738f0798" => :high_sierra
+    sha256 "090ec5647502d8a23d813f7e6aea328b77547f78b2bf69b76a817656ecb09e97" => :arm64_big_sur
     sha256 "dd00a26fa20413f81477af032587de19bb620eef352a6d8dd3d9c3a176f6bd5a" => :x86_64_linux
   end
 

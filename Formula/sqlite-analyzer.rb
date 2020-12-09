@@ -1,9 +1,9 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2020/sqlite-src-3330000.zip"
-  version "3.33.0"
-  sha256 "90bf7604a5aa26deece551af7a665fd4ce3d854ea809899c0e4bb19a69d609b8"
+  url "https://www.sqlite.org/2020/sqlite-src-3340000.zip"
+  version "3.34.0"
+  sha256 "a5c2000ece56d2de13c474658b9cdba6b7f2608a4d711e245518ea02a2a2333e"
   license "blessing"
 
   livecheck do
@@ -13,10 +13,9 @@ class SqliteAnalyzer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8952ea9c9a00569abbcfd7692c88c70e0db3e98fbc7b8fe6000b7548a668aca0" => :big_sur
-    sha256 "9e59b093b696037bde52e57a1993961dde8233fbb7305157da8be0e54a986804" => :catalina
-    sha256 "c76502517f95848e816532390f2b9a49b0a49b304da4b534bf299161a94d60ce" => :mojave
-    sha256 "b43f737792c6eaaa3cb36af271d37bbb50e8f1232614ae38c314b84411616bc1" => :high_sierra
+    sha256 "94fcffd969fb353677861b33e1d1cbf4d06c267711d7ec7f15d96b6e8d7707cf" => :big_sur
+    sha256 "07b188e4a46c429622a1b89d4fba852bd337fc9c522278c6ef8d8137cf99f199" => :catalina
+    sha256 "ae6550708b62b3c03d3ef760294fc9271e0b469286324bcdb01d99458d282fd5" => :mojave
   end
 
   def install

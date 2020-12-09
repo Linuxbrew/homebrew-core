@@ -2,7 +2,7 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
-  revision 2
+  revision 3
   head "https://github.com/signalwire/freeswitch.git"
 
   stable do
@@ -44,10 +44,9 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 "fcb517b506a3bf57f3c8330ce900b37d82130aa450e183e2020e6cc880aa58cb" => :big_sur
-    sha256 "98b7f70806d0fc0db8b68fb1f4bc60b20c8f5e651e783fca9b603acaec4612b8" => :catalina
-    sha256 "3ce8827fb84989cfeb54faafbd91ef1fe4f0271a85190c7352826fee93022f08" => :mojave
-    sha256 "ffc4904104a0dbba2cd9d10ea4e6485d77f41618b9311950e7f31d0d762e89cc" => :high_sierra
+    sha256 "19e0a370f2fe60614b445320390d5ebe50394888656504b3f1e880ff25c86ba5" => :big_sur
+    sha256 "fa3a8be21c9e496242bdb03328bc00c082482e23fab48dad194b2c4fa73e5936" => :catalina
+    sha256 "a0be2b29eda5a4343b3dc7f244af901ddfa7e6f790da6a49d16ea4ac056c1cc9" => :mojave
   end
 
   depends_on "autoconf" => :build

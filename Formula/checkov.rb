@@ -4,15 +4,15 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/ab/9f/cc4a2c4efa56213102e2bb6a6c0848aa3fb78d2d00be6dcae3bb1e89efcc/checkov-1.0.645.tar.gz"
-  sha256 "7a9eb5bccb85720088123c3fc6afd386cf4d528818c7fecaf5c081b0e5ac272f"
+  url "https://files.pythonhosted.org/packages/04/01/398e75345665f9eab97c4ee5f193d2472305446f866f6ba8fdb97a8d4d78/checkov-1.0.660.tar.gz"
+  sha256 "d767ad29642342f238bec9f1002e5f815e4a93f96bc76994abdcdefb9841ec43"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dec42a7d6ab7df727325a97df88df01a45188bdac13a7bf13856f160514a311c" => :big_sur
-    sha256 "ae1de183452c92260eacd267e384ac09ecc78c425d13c341a2ca5e28e5659c56" => :catalina
-    sha256 "0e4f275f259e9db1641d4d1e7f876409d5c92bb96acf9043fe2d0f857544e581" => :mojave
+    sha256 "12072345e17af704afd9663d9e57924f1d1d9cf878b4a0eda7f9d176cc7770aa" => :big_sur
+    sha256 "2f952f87256e7b227b052fce1342d0d72803b29561cd143f1ee8a4eeead1c008" => :catalina
+    sha256 "e59d05f5292422fed9d50bb9b05e6a76e852b9ae737fd2d6ce4a222343f3594c" => :mojave
   end
 
   depends_on "python@3.9"

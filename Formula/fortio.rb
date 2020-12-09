@@ -2,15 +2,15 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      tag:      "v1.11.3",
-      revision: "611806aadbdd1a27ba00a4adfee10e5868991e80"
+      tag:      "v1.11.4",
+      revision: "6dd1b178adba1a28da7e20e8a0be4dc32ea7a048"
   license "Apache-2.0"
 
   bottle do
-    sha256 "bcf9a1c21d97a374f7a4f71ada268dff41082ce4a13b72dc51e6eaffaae3019d" => :big_sur
-    sha256 "a947f37d61ddc59b0d92ba631e738ea91c1c61cec4dc3216cf3d6bcc32ca7ae9" => :catalina
-    sha256 "d722fb8e5c705150cf3733a4920140a55f1ec31451a17f69f28d15198345cd67" => :mojave
-    sha256 "75fd8c08866ff674cef062f700707493cd29aa6618d449152674057362f8155f" => :x86_64_linux
+    sha256 "dc3dcac1c7007b2b21dd9105c55505cb1b6f86149be1242ac413baa0a361feb4" => :big_sur
+    sha256 "41a9b9b4ddb5729ee114dfb42e305f558260c055d786bd1b17cc837344bff1d0" => :catalina
+    sha256 "eb37c04b1d2bcdf1237fdf75fcbf0c83a274f4027b532b2eb6a9e62fe63f39d7" => :mojave
+    sha256 "7de326ef437edb7b5a701b472e3ab2622f29c680470478f27fe36f0bfaf8d869" => :x86_64_linux
   end
 
   depends_on "go" => :build

@@ -3,14 +3,13 @@ class Vis < Formula
   homepage "https://github.com/martanne/vis"
   url "https://github.com/martanne/vis/archive/v0.6.tar.gz"
   sha256 "9ab4a3f1c5953475130b3c286af272fe5cfdf7cbb7f9fbebd31e9ea4f34e487d"
+  revision 1
   head "https://github.com/martanne/vis.git"
 
   bottle do
-    sha256 "2b8b931513083a3e75eef52a0a69dd23166fd7c87278d75f7870ef666a6a9e12" => :big_sur
-    sha256 "370791e6f8c70327d9afc8049fe8f8ff16a9e843835efe9f606dbdef6c2319f3" => :catalina
-    sha256 "3f39518139d63c87a5a499a3ae53829bde4ed1b1eecbc5344d1bfe883ea16b7c" => :mojave
-    sha256 "166b64aad19e64712cfbf1f3da60cebf1fb6351b3f32921aa10060081cbcef3a" => :high_sierra
-    sha256 "283bddc7847fbed054f3d63c613bc61be37337b9386e1506246fc43e7d5b00d1" => :x86_64_linux
+    sha256 "67949704251f825447617f673f7e0c0844d446cb335129c9de2d5a8a6c9aa79a" => :big_sur
+    sha256 "3ad4eb021d3b4aef3119c72b47e3597dc33984b1a0ca0b72df4375f22a6b7804" => :catalina
+    sha256 "06a6d71ac80299ce9dfa8a6bc7c69039b6fcb838e8842ff955cd425a089c2c18" => :mojave
   end
 
   depends_on "luarocks" => :build
@@ -23,10 +22,21 @@ class Vis < Formula
     sha256 "149be31e0155c4694f77ea7264d9b398dd134eca0d00ff03358d91a6cfb2ea9d"
   end
 
+  # Upstream patch for lua5.4 compatibility:
+  # https://github.com/martanne/vis/pull/844
+  # Remove me at the next version bump
+  patch do
+    url "https://github.com/martanne/vis/commit/603ee4688ca0da05840bbc15241ee53b02d0987d.patch?full_index=1"
+    sha256 "69a3e466bdbc0695213cc5f9f61a0d3819b861c872bdfcee441558f46799b4fa"
+  end
+
   def install
+    # Make sure I point to the right version!
+    lua = Formula["lua"]
+
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/#{lua.version.major_minor}/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{lua.version.major_minor}/?.so"
 
     resource("lpeg").stage do
       system "luarocks", "build", "lpeg", "--tree=#{luapath}"

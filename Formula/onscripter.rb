@@ -4,13 +4,13 @@ class Onscripter < Formula
   url "https://onscripter.osdn.jp/onscripter-20200722.tar.gz"
   sha256 "12e5f4ac336ae3da46bf166ff1d439840be6336b19401a76c7d788994a9cd35e"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d7f53c83fbbc4cbfb321d535d44d5d8600b43f48eddac8d07eee07b93ea32a74" => :big_sur
-    sha256 "d886def76e269ded54ad9b5c128d6c8d6b40d26814ef7c3a1e46113101e61088" => :catalina
-    sha256 "67ad8935801c205450775f3abb6f8ae318da8110835fa10bf984538b1ef963b3" => :mojave
-    sha256 "27471aca0f4b1bc08721ef8ee650a4fb2b42085c0eba7ecf7d281fa050f64b65" => :high_sierra
+    sha256 "444a199a064d388e2fdcdc2e0bde6b33b55c61423484269af44e203db2badd49" => :big_sur
+    sha256 "6d28e84b6fce1f2b9bbba114b325835cd03250706d510719a5291d370d6d148f" => :catalina
+    sha256 "72be2f1701d8a25edd139c7beeccf563b73e4f802b1c74708e6102f6f6fd8557" => :mojave
   end
 
   depends_on "pkg-config" => :build

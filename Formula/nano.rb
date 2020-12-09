@@ -1,8 +1,8 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v5/nano-5.3.tar.xz"
-  sha256 "c5c1cbcf622d9a96b6030d66409ed12b204e8bc01ef5e6554ebbe6fb1d734352"
+  url "https://www.nano-editor.org/dist/v5/nano-5.4.tar.xz"
+  sha256 "fe993408b22286355809ce48ebecc4444d19af8203ed4959d269969112ed86e9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,11 +11,10 @@ class Nano < Formula
   end
 
   bottle do
-    sha256 "28dc57a07bcbb80f6f4b372ee8b9c5cd27e9b96bfb33f90a15393ce33cc8c417" => :big_sur
-    sha256 "a4a34983c9f7c81fda1ced912f0af688c44c2a34d3f623c81348baec63d5b056" => :catalina
-    sha256 "4a4d2a058b98ed80a600fc5c5e4b7fb09f1b2109fee637f38c992db6c875324e" => :mojave
-    sha256 "486b3ca40ba07df98354f622df6b7efbd3b3b1a0e9decd043875a9e415c9a107" => :high_sierra
-    sha256 "ce693802cc9f385f010416f16e9f522ceacb5290c5dcdb7ce162086c54d3432a" => :x86_64_linux
+    sha256 "ac9aba47448b4561e8c2fecc2fbc9504952e3e3c39506dba7844b2c61ffbb149" => :big_sur
+    sha256 "2f7dab76ce57ceba10c3c8527ea68e5f060b5b8871128a170585175899a0eb87" => :catalina
+    sha256 "ed3c326161300b01b3f83f44a51749e665fc129eae8bbf2bc150bee10bc1ec05" => :mojave
+    sha256 "442db14af0dc91c976efbf82019126b4feb8476a71bc563cac1b8cb7d31fc71c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

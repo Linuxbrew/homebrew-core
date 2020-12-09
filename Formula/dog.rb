@@ -12,11 +12,17 @@ class Dog < Formula
     sha256 "21f901c6abb536f0a7bc00d97df6e561aec1acff1759a96a5f69bd51eac1da98" => :catalina
     sha256 "095b6dbb23b96504a6f0e0a292a7157c78e900825e92f4c140cc29643a294e29" => :mojave
     sha256 "fef7ea4d925e230ba9e75cb051a888263c2bc10fcf26a96899cea2cc8891a302" => :high_sierra
+    sha256 "be1886badafae20525508c36536fa9926d673506f45e8943469008a2311240a2" => :x86_64_linux
   end
 
   depends_on "just" => :build
   depends_on "pandoc" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

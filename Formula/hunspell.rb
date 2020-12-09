@@ -8,11 +8,11 @@ class Hunspell < Formula
 
   bottle do
     cellar :any
-    sha256 "3b7a02908774fa50dafee913969963ce223a09de100b62269fdb0fd71cd09115" => :catalina
-    sha256 "30927ed74597ba96c52ec0c1e9380aaaadee2adadf2e17414e1b494bfd8066b3" => :mojave
-    sha256 "4ada0a39e041b9e6676b4cd68e95c6523725043088f3555d1cac1216c8f91944" => :high_sierra
-    sha256 "65b1d0fc54a0de1fc7e8520aaee4dbe192a2f441757002c7b305b0fb93e3e341" => :sierra
-    sha256 "cdb73dcb8fe32f97beb7201c7ae7fc4884e15327804dc70cee7b3a3fa165f018" => :x86_64_linux
+    rebuild 1
+    sha256 "20b0f5dc7973a4cca3a8c3ea5778938d169bde2d183210f64526df8bca9512f7" => :big_sur
+    sha256 "d5144178eba9ff325c297a5a0ae05f1caa9b1d567803250d5dbd86876e0718a3" => :catalina
+    sha256 "eaabf6b66c21a94a7f6810287ff84e83fdef0ed6d3db635c8ad2c810d9f84d46" => :mojave
+    sha256 "f0cd2d26f84b1efcb75328e565175563c9f1fe524f6f86c96bdf9d7b358b783a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -32,8 +32,6 @@ class Hunspell < Formula
     system "make"
     system "make", "check"
     system "make", "install"
-
-    pkgshare.install "tests"
   end
 
   def caveats

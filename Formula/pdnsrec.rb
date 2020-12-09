@@ -4,6 +4,7 @@ class Pdnsrec < Formula
   url "https://downloads.powerdns.com/releases/pdns-recursor-4.4.1.tar.bz2"
   sha256 "f97fa34635d42c68acee5d4da9db0e5ff619fd49e62acace7b4bdb7ee3675698"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -11,10 +12,10 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 "cc0c48157bb2e39fcd9fe29ca33e35e580b4bd9046c20e7e1357fdc4154dbeca" => :big_sur
-    sha256 "c8c1e5a526b6588cd95d02e3bf6c7c14dd9f8ea4ff3ec0601855c5df2d0ccf68" => :catalina
-    sha256 "4c389f453d543f51becd243a370a239bcd228187e9f0f5bebc45e94de078d749" => :mojave
-    sha256 "4e58f914e19df433db0e4d3127d60a1a0238367175fc153357cc84ffdcf88eb5" => :x86_64_linux
+    sha256 "0f080e316dd2d20e656f7ae48dbb881fc9824a5ca35b468dd9fd153c9e2a3c22" => :big_sur
+    sha256 "f38be52b2d55015172cc0e89dac5a29eadffdd12e8f7b21c4247050237ffc246" => :catalina
+    sha256 "f1e89927a21f517c6e96668149735b838fa1f9e96e36878fbbddc52d61253900" => :mojave
+    sha256 "d457c35465a16903cf3e55c8812c24ee62a72e460f128cdef68357cf95bbb1c2" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build

@@ -32,6 +32,10 @@ class Coreutils < Formula
     depends_on "gperf" => :build unless OS.mac?
   end
 
+  on_linux do
+    depends_on "attr"
+  end
+
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "b2sum", because: "both install `b2sum` binaries"
   conflicts_with "ganglia", because: "both install `gstat` binaries"
@@ -52,6 +56,8 @@ class Coreutils < Formula
       --program-prefix=g
       --without-gmp
     ]
+
+    args << "--without-selinux" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"

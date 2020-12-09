@@ -17,6 +17,7 @@ class Pcre < Formula
     sha256 "f8ac266e04f984fa55091a43f0fdc39a40d57c2489d289a186c88ccedaba7eeb" => :catalina
     sha256 "ed9b483538da7bc6559d2e63dd36659736fab9510681661d970d707a18731de4" => :mojave
     sha256 "aeea1351e1439847d00c3cee54bd28639493e686f809568cf42fea7bb28da2a5" => :high_sierra
+    sha256 "494cc4805564a4c138bf2de3807fb2233413be2f4c9bb3ffb58b48fb47569d7b" => :arm64_big_sur
     sha256 "e09f36059975d108b0e42fa9d69b9ed25bc81bc25371dcee58134ad7416a6a61" => :x86_64_linux
   end
 

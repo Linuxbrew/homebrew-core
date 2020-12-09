@@ -2,15 +2,22 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/0.1.30.tar.gz"
-  sha256 "5f2be9765e7ec6fb79286b973d319359377dcf78a0470652048a261d77a6ae14"
+  url "https://github.com/vlang/v/archive/weekly.2020.48.2.tar.gz"
+  version "0.1.30"
+  sha256 "15921991779262dfcf01cc3399ceccd831588ce313b99a46dcb7bed9dbabcc2c"
   license "MIT"
+  revision 1
+
+  livecheck do
+    url "https://raw.githubusercontent.com/vlang/v/master/CHANGELOG.md"
+    regex(/## v?\s?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e3d0af15fbd9cfd98157e468e6479f04666c7ffda7bb092c356228867579a03" => :big_sur
-    sha256 "c9f90f6472af2dc0367fc2b36176730cc8ee37d022da550d532044dbf77d23db" => :catalina
-    sha256 "e6b819f3d96b3c41590a0248483067e88664efffff55a95d18475e2fa63f83ab" => :mojave
+    sha256 "c23cedc60c6004cb453fefeba70473fd56b5d856da6dd4c7ae8f57c92d8ca95b" => :big_sur
+    sha256 "c1cd351872627566b1da7fd2d2759dd255aa99021a57d8b4e950ac7b96e7c175" => :catalina
+    sha256 "d12d4bd7226aa06f7be1632455db6c85b20b996d85fc9f913645381607ba37e8" => :mojave
   end
 
   resource "vc" do

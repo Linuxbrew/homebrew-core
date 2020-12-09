@@ -1,10 +1,9 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.12.0.tar.gz"
-  sha256 "5b9253a97812f24419bf2e6b3ad28c69287261cf8c8fa79e3e9f6d3bf7ef5835"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.13.0.tar.gz"
+  sha256 "a954043a95b0326ca4037e50dace1f3a207a0a19e9a4a22f4c6718fc623db2a1"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/NLnetLabs/unbound.git"
 
   # We check the GitHub repo tags instead of
@@ -16,10 +15,10 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 "93024a8982fe47e46d6c7b772d634202504a5c06f5ba07cbff6b06d387f52229" => :big_sur
-    sha256 "a4a23f579f3f75907a3b55c135cf372ef85c90cbb07e227fa5067aec59c9721c" => :catalina
-    sha256 "fc3a5cdbe4ba68fcdddc22f5fddd737c4581bf56fae9e4c5454a585da10b7b0e" => :mojave
-    sha256 "222762a5ec11ec10682c7a32c211520a81da0b928ae2aec1b26718555d6cdce6" => :x86_64_linux
+    sha256 "cef5d9843ecaabaa0a4cb9b89e04bc3d370ce143e4ff2e0f6711aa6572b1ad3a" => :big_sur
+    sha256 "132e7387adde0939a0f50d125ef5b6bdfa0186bae6dd9628668e9813813f4a9a" => :catalina
+    sha256 "a1941e3c48de236e9310547620b1fdf71ec5c07ff8cb6dadc9e9433d02dfa1a7" => :mojave
+    sha256 "d56628ab4a9be7bb17f1f23d6b842fb26772661857851e512df63fbb9a568350" => :x86_64_linux
   end
 
   depends_on "libevent"

@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz"
   sha256 "9c73e63c99855709b9be0b3cc9e5b072cb60f37311e8c4e50f15576a0bf82854"
   license "Python-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,10 +12,11 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 "9e3b87708ad72996720f37ce28728ebef4c7001d342ed5129149192dcedd19e7" => :big_sur
-    sha256 "4f47c66a09683ff5b4b5e5a18630c7036cb69f78c7b5ba2f2c1b55fecbce3416" => :catalina
-    sha256 "5e2da6939948506de863544a98247c9464d89e9b4a1e1dcdbf11c5baefc7d9a5" => :mojave
-    sha256 "4eb66e5ad6e5715d51c0285c631fcfb23c3074f154ebbb9fc829783d02f26f98" => :x86_64_linux
+    rebuild 1
+    sha256 "3f2f71818ed66492dcd574d9cdc0f048feae1201b6c1b5d30e3bdb2ed74d04c6" => :big_sur
+    sha256 "933ca658fbb4f1a5f63c28c4857e0071e4c759a9dd449f35a7cc3e8e04cf92dd" => :catalina
+    sha256 "bd8b7b4f75180082a186bf0a1438ee629b1cc82cf8d58ca919240a590aa97adc" => :mojave
+    sha256 "a3ba317369a3761a4241147fc542255d03fd00f157abfe991d2fc9333cc22042" => :x86_64_linux
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -67,13 +68,13 @@ class PythonAT39 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/03/41/6da553f689d530bc2c337d2c496a40dc9c0fdc6481e5df1f3ee3b8574479/pip-20.3.tar.gz"
-    sha256 "9ae7ca6656eac22d2a9b49d024fc24e00f68f4c4d4db673d2d9b525c3dea6e0e"
+    url "https://files.pythonhosted.org/packages/cb/5f/ae1eb8bda1cde4952bd12e468ab8a254c345a0189402bf1421457577f4f3/pip-20.3.1.tar.gz"
+    sha256 "43f7d3811f05db95809d39515a5111dd05994965d870178a4fe10d5482f9d2e2"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/83/72/611c121b6bd15479cb62f1a425b2e3372e121b324228df28e64cc28b01c2/wheel-0.35.1.tar.gz"
-    sha256 "99a22d87add3f634ff917310a3d87e499f19e663413a52eb9232c447aa646c9f"
+    url "https://files.pythonhosted.org/packages/57/73/1911bfa69482de2a6327db4ca5eda87ae7599160018910007d6d6a1d3ada/wheel-0.36.0.tar.gz"
+    sha256 "e17f05e14282d0e666327f800ef43123b40f3dbc13a86193b604f2ebfae0dabc"
   end
 
   # Remove this block when upstream adds arm64 and Big Sur compatibility
@@ -88,8 +89,8 @@ class PythonAT39 < Formula
     # Further patch for Big Sur, remove in 3.9.2
     # https://github.com/python/cpython/pull/23556
     patch do
-      url "https://github.com/fxcoudert/cpython/commit/cd26ccbb.patch?full_index=1"
-      sha256 "59c98f991f839d610d53ca5c4af1464a99adf6c85e807f8a676b3e41c5dbe0a2"
+      url "https://github.com/fxcoudert/cpython/commit/6511bf56.patch?full_index=1"
+      sha256 "3a34fea8a133305bc337d67acfacc36dc8f9d47a808dd592f5b0cd8c9c9384d2"
     end
   end
 

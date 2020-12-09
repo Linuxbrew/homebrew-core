@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.2.3.tar.xz"
-  sha256 "ae1b240e11531df528d14dc214d2dc4d2b4f2e835c6230ba0b492b171eceb82b"
+  url "https://mesa.freedesktop.org/archive/mesa-20.3.0.tar.xz"
+  sha256 "2999738e888731531cd62b27519fa37566cc0ea2cd7d4d97f46abaa3e949c630"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
@@ -13,10 +13,10 @@ class Mesa < Formula
   end
 
   bottle do
-    sha256 "720e6d4add9b764ca0cc24273155aa82a45abc4e76097a320b20f790088ba633" => :big_sur
-    sha256 "510f0333a74b3e6380fba132fd0efe51f484b1d196edb40cb1aa2dc803441e4d" => :catalina
-    sha256 "5f4052c90534a9de1ba5ffbe8724b9dce553cda3f616350edba6113959b71bc7" => :mojave
-    sha256 "52c52ab5718dde1bbf9e2c8a38ca539c5c648191bc480f57fd66c64a8483fdd5" => :x86_64_linux
+    sha256 "17102cdc4cb95cfbfdc154a5d0412863c22688caa4978cb1c75c02c1be66d0cc" => :big_sur
+    sha256 "083ebe4e77c62675367764e71cb372eda5d03c09960acd3a56b7dbc1fd5ec5d6" => :catalina
+    sha256 "e32052ed6993ee7fd970122ca2c97b9379e616fe4e74cd9987737f30811ebe3b" => :mojave
+    sha256 "a4e51e1e45f38d51ed77a996a9ba4f83d2a2f95848971f15e30dabfd4b1f3e83" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -83,7 +83,7 @@ class Mesa < Formula
       ]
 
       unless OS.mac?
-        args << "-Dplatforms=x11,wayland,drm,surfaceless"
+        args << "-Dplatforms=x11,wayland"
         args << "-Dglx=auto"
         args << "-Ddri3=true"
         args << "-Ddri-drivers=auto"

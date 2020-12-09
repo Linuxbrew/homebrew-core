@@ -1,32 +1,28 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "http://liblouis.org"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.16.1/liblouis-3.16.1.tar.gz"
+  sha256 "7ca90c52c1fb04b22cd976495b2325700c7d0135c929a42707fab7bab03658e9"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
-  stable do
-    url "https://github.com/liblouis/liblouis/releases/download/v3.16.0/liblouis-3.16.0.tar.gz"
-    sha256 "88cda9ad95ce7fdd5a28d75b0a8ed7097fb24aa0112ebce110c505fd200080aa"
-    depends_on "help2man" => :build
-    depends_on "pkg-config" => :build
-    depends_on "python@3.9"
-  end
-
   bottle do
-    sha256 "97393f8dad734bf5f465927f049f72ffeca581df96848b941757420a9a2cc1d9" => :big_sur
-    sha256 "b830d1eb331f3e077e98bd04785d8554d3e367fed0b5bdd72aeb57c6987de19f" => :catalina
-    sha256 "e430aa275c583c9eb8d5885acde93ccbb0ed154ef82c136c32902a634efa3b33" => :mojave
-    sha256 "ac1860f7510e9a52217413ef97a8b83bdac97da2644c227c0997c7f6471d1888" => :x86_64_linux
+    sha256 "8c670c32218b3905855ae5c5c40186013f4ad5dea16a2207d3ae56e2ac91a352" => :big_sur
+    sha256 "ca3b445707462217ea870829f457ca043de82ecb02f2b99302811f8b6831ee31" => :catalina
+    sha256 "0334ee43e9a3e443cdd8531a5923535618353cf2e798641bc200b20db6e8efd4" => :mojave
+    sha256 "91c8e235efd83fc749555871da522b44f3fe38d3e52555d565428ce396b90ef2" => :x86_64_linux
   end
 
   head do
     url "https://github.com/liblouis/liblouis.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "help2man" => :build
     depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-    depends_on "python@3.9"
   end
+
+  depends_on "help2man" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.9"
 
   def install
     system "./autogen.sh" if build.head?

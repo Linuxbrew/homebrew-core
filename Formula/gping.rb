@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/v1.0.1.tar.gz"
-  sha256 "8275c02c903e49d3d6bf30b3d3a279d00a8c3ef4ac9e13e406f19a81356ec5af"
+  url "https://github.com/orf/gping/archive/v1.1.0.tar.gz"
+  sha256 "a0c6a276d1e2527b11138b0b9c2591762ca4943843ae66d6ce6505e60b22bca0"
   license "MIT"
   head "https://github.com/orf/gping.git"
 
@@ -12,9 +12,9 @@ class Gping < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e6198d7fb3672bdb10ecea486f23079509e24c004353bfbae99a5f3eef58ba9" => :big_sur
-    sha256 "bc93f9061547e8c527150b71e534fba354ed361aa464ef01b574af9a0b634e73" => :catalina
-    sha256 "5fd58669e8798a148cda01087c9b4beb957751320ac0207de12ecbe69c4d9164" => :mojave
+    sha256 "a89239b8418fbed36c48615ef509ef0f3cd11e600d68c623ff6094f95694e4ac" => :big_sur
+    sha256 "12ad9db825834264cf54abe9f94a5c9da4bec17f9ff46fb4d1cfe7546027fdb1" => :catalina
+    sha256 "9a2792ff20f09bbdbd0505498eb1d331bd333757e72c0374f7ac62556efbcc85" => :mojave
   end
 
   depends_on "rust" => :build

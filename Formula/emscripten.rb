@@ -3,12 +3,15 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/2.0.7.tar.gz"
-  sha256 "ffe4a1e6b6cb223bfcb2f8ca28d39b23c4ae7102b36f69f40669739762d91445"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.10.tar.gz"
+  sha256 "e37d625c2cdf5cfcccaaa58ec1a4e60b126b9d738fafc1caa7effd4c22fde136"
   # Emscripten is available under 2 licenses, the MIT license and the
   # University of Illinois/NCSA Open Source License.
-  license "MIT"
-  revision 1
+  license all_of: [
+    "MIT",
+    "Apache-2.0", # binaryen
+    "Apache-2.0" => { with: "LLVM-exception" }, # llvm
+  ]
   head "https://github.com/emscripten-core/emscripten.git"
 
   livecheck do
@@ -18,17 +21,22 @@ class Emscripten < Formula
 
   bottle do
     cellar :any
-    sha256 "d077e1f2e023bf6980d0f55f26198a00ce29e88d4c80d238f4d86f6d05bcfac4" => :big_sur
-    sha256 "f70681816b8053a117bf59d4b7633cac115dcfdc48efece032de72eb51ba1d79" => :catalina
-    sha256 "d76d9d6dce49138b9b7c2e97ddc4d65f8eab54e2cb814e591f2c42e935660de4" => :mojave
+    sha256 "8454a6bd16ac955b8df864732772647a3373b903abbcad2e2fadb7ccdae2e927" => :big_sur
+    sha256 "a1f7968002991f42576553fd61a211433add47d1f93eac142b7c7c7505a5551d" => :catalina
+    sha256 "805f7ffbbcac64d2add8dc58349c14b06d7d59d3339ca997aa105898d1a64623" => :mojave
   end
 
   depends_on "cmake" => :build
-  depends_on "binaryen"
-  # error "fatal error: '__config' file not found" when building llvm 12 on High Sierra
   depends_on "node"
   depends_on "python@3.9"
   depends_on "yuicompressor"
+
+  # Use emscripten's recommended binaryen revision to avoid build failures.
+  # See llvm resource below for instructions on how to update this.
+  resource "binaryen" do
+    url "https://github.com/WebAssembly/binaryen.git",
+      revision: "bd9872ddf850bf177298a5274a15807e6227cd3d"
+  end
 
   # emscripten needs argument '-fignore-exceptions', which is only available in llvm >= 12
   # To find the correct llvm revision, find a corresponding commit at:
@@ -38,7 +46,7 @@ class Emscripten < Formula
   # Then use the listed llvm_project_revision for the resource below.
   resource "llvm" do
     url "https://github.com/llvm/llvm-project.git",
-        revision: "25a8881b724abf7251a9278e72224af7e82cb9c2"
+        revision: "445289aa63e1b82b9eea6497fb2d0443813a9d4e"
   end
 
   def install
@@ -49,17 +57,17 @@ class Emscripten < Formula
     # repository.
     libexec.install Dir["*"]
 
+    # emscripten needs an llvm build with the following executables:
+    # https://github.com/emscripten-core/emscripten/blob/#{version}/docs/packaging.md#dependencies
     resource("llvm").stage do
       projects = %w[
         clang
         lld
       ]
 
-      runtimes = %w[
-        compiler-rt
-        libcxx
-        libcxxabi
-        libunwind
+      targets = %w[
+        host
+        WebAssembly
       ]
 
       llvmpath = Pathname.pwd/"llvm"
@@ -77,29 +85,12 @@ class Emscripten < Formula
       args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
         -DCMAKE_INSTALL_PREFIX=#{libexec}/llvm
         -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
-        -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
-        -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
+        -DLLVM_TARGETS_TO_BUILD=#{targets.join(";")}
         -DLLVM_LINK_LLVM_DYLIB=ON
-        -DLLVM_BUILD_LLVM_C_DYLIB=ON
-        -DLLVM_ENABLE_EH=ON
-        -DLLVM_ENABLE_FFI=ON
-        -DLLVM_ENABLE_LIBCXX=ON
-        -DLLVM_ENABLE_RTTI=ON
-        -DLLVM_INCLUDE_DOCS=OFF
+        -DLLVM_BUILD_LLVM_DYLIB=ON
+        -DLLVM_INCLUDE_EXAMPLES=OFF
         -DLLVM_INCLUDE_TESTS=OFF
-        -DLLVM_INSTALL_UTILS=ON
-        -DLLVM_ENABLE_Z3_SOLVER=OFF
-        -DLLVM_OPTIMIZED_TABLEGEN=ON
-        -DLLVM_TARGETS_TO_BUILD=host;WebAssembly
-        -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
-        -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-        -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
-        -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-        -DLLDB_ENABLE_PYTHON=OFF
-        -DLLDB_ENABLE_LUA=OFF
-        -DLLDB_ENABLE_LZMA=OFF
-        -DLIBOMP_INSTALL_ALIASES=OFF
-        -DCLANG_INCLUDE_TESTS=OFF
+        -DLLVM_INSTALL_UTILS=OFF
       ]
 
       sdk = MacOS.sdk_path_if_needed
@@ -112,11 +103,21 @@ class Emscripten < Formula
       end
 
       mkdir llvmpath/"build" do
+        # We can use `make` and `make install` here, but prefer these commands
+        # for consistency with the llvm formula.
         system "cmake", "-G", "Unix Makefiles", "..", *args
-        system "make"
-        system "make", "install"
-        system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
+        system "cmake", "--build", "."
+        system "cmake", "--build", ".", "--target", "install"
       end
+    end
+
+    resource("binaryen").stage do
+      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
+        -DCMAKE_INSTALL_PREFIX=#{libexec}/binaryen
+      ]
+
+      system "cmake", ".", *args
+      system "make", "install"
     end
 
     cd libexec do
@@ -134,7 +135,7 @@ class Emscripten < Formula
     system bin/"emcc"
     inreplace "#{libexec}/.emscripten" do |s|
       s.gsub! /^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{opt_libexec}/llvm/bin\"\\2"
-      s.gsub! /^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{Formula["binaryen"].opt_prefix}\"\\2"
+      s.gsub! /^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{opt_libexec}/binaryen\"\\2"
     end
   end
 

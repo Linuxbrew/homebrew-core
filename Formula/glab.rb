@@ -1,16 +1,16 @@
 class Glab < Formula
   desc "Open-source GitLab command-line tool"
   homepage "https://glab.readthedocs.io/"
-  url "https://github.com/profclems/glab/archive/v1.12.0.tar.gz"
-  sha256 "b95ea6fb00014c5970650203cad1243ab277f7f6ee84950d3a036c1ee6cefc8c"
+  url "https://github.com/profclems/glab/archive/v1.12.1.tar.gz"
+  sha256 "ba7c186de70cad22178bca9fac5933a99546365c249ab957251f03188e31ee03"
   license "MIT"
   head "https://github.com/profclems/glab.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92f48790c9d68ba28fe78f63c80b6273504170353daa091d4ce50def9f32e158" => :big_sur
-    sha256 "24e4ed57e81155fa8368719aec2b737484c534da8550c2440039fd75fb9b6d99" => :catalina
-    sha256 "c7db9dc9f231f36c13a3791dd70fbebfddbf7817dc8d6cefdd65563dfed0f0cb" => :mojave
+    sha256 "067a8bb9cfaa93259199eccd5a547305c24580de4d379c35ce530d6431342c9f" => :big_sur
+    sha256 "8772f1729514811539f8f52bb42101205e1a1bcb1fa3afc49f0196476c4ed3b7" => :catalina
+    sha256 "e3a24235b21b7f5e929aee5125ba571a84452233337eda85ff03393b82947cf1" => :mojave
   end
 
   depends_on "go" => :build

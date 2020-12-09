@@ -1,16 +1,16 @@
 class RustupInit < Formula
   desc "Rust toolchain installer"
-  homepage "https://github.com/rust-lang/rustup.rs"
-  url "https://github.com/rust-lang/rustup.rs/archive/1.23.0.tar.gz"
-  sha256 "b11e9a639377d7be783af5d1aef1ea79c4c7b52f2ad0969538c3cb94df8f2c25"
+  homepage "https://github.com/rust-lang/rustup"
+  url "https://github.com/rust-lang/rustup/archive/1.23.1.tar.gz"
+  sha256 "0203231bfe405ee1c7d5e7e1c013b9b8a2dc87fbd8474e77f500331d8c26365f"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aa448a74f8b43d8ae9c5efaca38dcdc2a52424d08997efc84b2687578edb94f8" => :big_sur
-    sha256 "38058277d2a6f4c96b6162a17423cb24efcffe60ca8f6a7eb714d0063526e9e7" => :catalina
-    sha256 "7f5ce27fbe561ab4536dd0414918ae66c8adf67fbf49f8d36ce757ea296ff3a5" => :mojave
-    sha256 "e6a3e0ed8a0f90b78ed468a4c22a667707a8e8a7cff6c3331014690f8c3e6471" => :x86_64_linux
+    sha256 "3ca4f2a444efa1b2304799b1f2ccc4d835f30b422e1281381d0ef417eecd57ce" => :big_sur
+    sha256 "bdde9b0a17227a4dbc37c52b66a921f95ac9c760c133c4b401f0abc42c05b1aa" => :catalina
+    sha256 "f8501b29816fb534524bd36dc46a679456361a7a0b35e6ebc6f5b0dd75083c00" => :mojave
+    sha256 "62c37e47998cfc03eaa36254487904a97b284f8666e3cb78b3982b0f52dbc0a0" => :x86_64_linux
   end
 
   depends_on "rust" => :build

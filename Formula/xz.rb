@@ -17,6 +17,7 @@ class Xz < Formula
     sha256 "2dcc8e0121c934d1e34ffdb37fcd70f0f7b5c2f4755f2f7cbcf360e9e54cb43b" => :catalina
     sha256 "44483961b5d2b535b0ece1936c9d40b4bc7d9c7281646cca0fb476291ab9d4dc" => :mojave
     sha256 "1491b2b20c40c3cb0b990f520768d7e876e4ab4a7dc1da9994d0150da34ba5c6" => :high_sierra
+    sha256 "03f10f46ede69b94e279f5f4ddc065c05b8c4dc93ede846df3511ae5e924a5df" => :arm64_big_sur
     sha256 "676b0e178b3e7644f86385cb2497ac5ec490e2222ba3d0147e28bd85aff365cf" => :x86_64_linux
   end
 

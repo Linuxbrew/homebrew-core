@@ -6,18 +6,21 @@ class TranslateToolkit < Formula
   url "https://github.com/translate/translate/archive/3.2.0.tar.gz"
   sha256 "f55afa52e24f0327f8dfd53ae139d6123b4bfef89630d17517272c96f187b29c"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/translate/translate.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7b9245779bb5fc9ecfbf639111ff9f0f98e2c38461ebbb42267e6220a96d0d11" => :big_sur
-    sha256 "2bfc71450029d20c2cdd741345bdd2489a924513428627f4dbfcf20c45443531" => :catalina
-    sha256 "e6a94e8d4174a0d173b514d379addcbb4cd55840c430a399d95499c7dd24d516" => :mojave
-    sha256 "e7629fa6dfa08615d6463a8a2fb901ca0fe01e3d3ad1ed5c078c0242305cf43f" => :high_sierra
-    sha256 "bb5e47999a0cacb55bc3071096fec77b4ce1e592fe46a177226b60c47f213a9a" => :x86_64_linux
+    sha256 "2a8e4095b7fdbee98080753726057fad9647f147a78aacf1b3c04796fab5971a" => :big_sur
+    sha256 "aee1cb11f4814f2842ffecc3569586b235d8badb633493eb93e4ef34c2225109" => :catalina
+    sha256 "01c3d700b2ef9b1dd2b01946a314d1cab2910340a810f21462047098eabd7a36" => :mojave
+    sha256 "c202745005ba36f8f38f5da269e3b4ce24e74389fa839db1df8fecb87a5303b6" => :x86_64_linux
   end
 
   depends_on "python@3.9"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
@@ -27,6 +30,11 @@ class TranslateToolkit < Formula
   resource "diff-match-patch" do
     url "https://files.pythonhosted.org/packages/f0/2a/5ba07def0e9107d935aba62cf632afbd0f7c723a98af47ccbcab753d2452/diff-match-patch-20181111.tar.gz"
     sha256 "a809a996d0f09b9bbd59e9bbd0b71eed8c807922512910e05cbd3f9480712ddb"
+  end
+
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
+    sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
   end
 
   resource "Python-Levenshtein" do
@@ -45,5 +53,6 @@ class TranslateToolkit < Formula
 
   test do
     system bin/"pretranslate", "-h"
+    system bin/"podebug", "-h"
   end
 end

@@ -14,6 +14,7 @@ class Krb5 < Formula
     sha256 "ce41211e7264912be6fc05d8e5ed3bbc141679b0ab6c9b4099a36da811077a9f" => :big_sur
     sha256 "f50ff30a8268899f65150363f294ddcbd1969759f8700efac874caa181bca75d" => :catalina
     sha256 "4e5751f16b7e6d9f27968a9efb1ba5f702292c7fefdb25a32c940ef71f81b7cd" => :mojave
+    sha256 "ea5ca1833bfe4969c6c1551d6c7215c3115a945ab2cdc3f190333d93ed438f22" => :arm64_big_sur
     sha256 "a9cf11bc57869b2379fc9a7f2a51f135c91d0ca452028cc5e8a22c38db2c13cd" => :x86_64_linux
   end
 

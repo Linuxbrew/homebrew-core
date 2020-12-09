@@ -3,8 +3,8 @@ require "language/node"
 class ApolloCli < Formula
   desc "Command-line tool for Apollo GraphQL"
   homepage "https://apollographql.com"
-  url "https://registry.npmjs.org/apollo/-/apollo-2.31.1.tgz"
-  sha256 "43a5874b72b9365889162dd4e1916879b052e2845bdb8e3b8568d5da08ce3354"
+  url "https://registry.npmjs.org/apollo/-/apollo-2.31.2.tgz"
+  sha256 "8616b5b3b2a30c9b54465cebb569dee8bbd34e654c70a3a71e6c73f2b86a1d77"
   license "MIT"
 
   livecheck do
@@ -13,11 +13,10 @@ class ApolloCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "769c274612448b31d93687efba8a63061025aecdbf88a44b873ea03fdc0cb1df" => :big_sur
-    sha256 "12c1d57b6126e1c2206c0d1d05a2bbbfddece90fb17d3998405e863870e2b494" => :catalina
-    sha256 "7e8bae8c3b8c50852148a055e09a4adfcf9ebdaeabb4d2e46685c17fb6462c23" => :mojave
-    sha256 "e00e9cc67ae1dfd0365a813acfdbe067fde6ae86130b8a027b64ef2d50df71b4" => :high_sierra
-    sha256 "cc8f91899f86fd737f160b61c3febaebe99dd41e0466a8955bb11e3e2d694dec" => :x86_64_linux
+    sha256 "763b7d1f2009f4a0400cbeea4e721ac34bbd9ed92cbbe25956eaba4f7c6907c8" => :big_sur
+    sha256 "5c5854263b540dd7b26fc8029a6d9e1c73f4816d08aefa0b07ab227c3288c1eb" => :catalina
+    sha256 "217e217336d8512d21aeb8b3ccc5e4b994c237af663d03a4c08ff1684afff3be" => :mojave
+    sha256 "4f9cb6b9a8cd171a55da1123e22862a9d16c2257ddc62937c582fa1565cbdf73" => :x86_64_linux
   end
 
   depends_on "node"

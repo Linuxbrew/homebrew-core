@@ -4,14 +4,14 @@ class Highlight < Formula
   url "http://www.andre-simon.de/zip/highlight-3.59.tar.bz2"
   sha256 "85926ca8e08e69b497fa4a0c93bec595e15c1ca18c4ee494ea3f1c9a78c249a2"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.com/saalen/highlight.git"
 
   bottle do
-    sha256 "67843a8aa6d820f309ae03678db88cc1c515f84d01a2c3db3003c37190bb3bbe" => :big_sur
-    sha256 "6ebc0f20fa97135b27033bf086de0f7847f451587a34e9f7f2f0a72ae8529688" => :catalina
-    sha256 "8af8c75e2b1463383d79826a70141017db9eca6f78ec2634069d91a601ce6cb7" => :mojave
-    sha256 "e68f5df12c9b8365b04226c424960ed252f01a86c429a93f5589b92833c5e752" => :high_sierra
-    sha256 "aca381344b719f48ebc6484f631f2f16221e6066b27fe2ac30d0c26232d0a237" => :x86_64_linux
+    sha256 "efb65db7b5870241ff19c71d1d6dc4a85c60f8690cfe8f468f0320b1b58b3c4a" => :big_sur
+    sha256 "b22c1b722fae83da1833f8163b4714048b99d580c1a8593e873174e74433cecc" => :catalina
+    sha256 "325b04e55f31cbc7e05101911eb915f7fd4919544d1753bcd875ab0c25b1086d" => :mojave
+    sha256 "adc7c962d1d46b607e47c050fe2dcc2c21e76350b27ca8da5ca46279c80a6ab1" => :x86_64_linux
   end
 
   depends_on "boost" => :build

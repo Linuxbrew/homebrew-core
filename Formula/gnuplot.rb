@@ -4,15 +4,16 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.1/gnuplot-5.4.1.tar.gz"
   sha256 "6b690485567eaeb938c26936e5e0681cf70c856d273cc2c45fabf64d8bc6590e"
   license "gnuplot"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 "48dfc995b542fc510eeacaa50ff2d178440e66cb9fd80fccbf760bdef02d5522" => :big_sur
-    sha256 "a672db045bd69db5da78aa59c373d26bb38ed2058db9739af76660301031ddec" => :catalina
-    sha256 "035a3b09b2a7dd73605dc7339246b9b69e8665ddb56f890cea31f2a7787859d8" => :mojave
+    sha256 "796d40d70299b5528aaa962506a000b9c7287a7185730bf5a04a9021868bbe06" => :big_sur
+    sha256 "820888da02746b6c31747ba1244b9b668e757d28445e12b2f6e56ca72ae07e2b" => :catalina
+    sha256 "a0089a7ae448a0f387cf70b69f0e8d9ffe4adc5c5ae40ee1026e66db34769d8c" => :mojave
   end
 
   head do

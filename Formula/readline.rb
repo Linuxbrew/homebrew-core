@@ -31,6 +31,7 @@ class Readline < Formula
     sha256 "6ae1c8e7c783f32bd22c6085caa4d838fed7fb386da7e40ca47b87ec9b1237d6" => :catalina
     sha256 "29f7102a730ab39c8312cad1e7e439f6da2a67c452ce2b3380581eb185a5d8e8" => :mojave
     sha256 "896a3d50ce8962ba56e853bdd590fadeabc00ab36475d143d6c2bea5cc15bb28" => :high_sierra
+    sha256 "82b47cf9c7526e890cf2de5ad68a3b7e03ad4fe10614ffc2c8e0af05a6cd955c" => :arm64_big_sur
     sha256 "46da47db3da04b2f248e3cf2d6d14c55aa543555d1134f6cbbf07787a5bf0bd6" => :x86_64_linux
   end
 

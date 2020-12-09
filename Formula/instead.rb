@@ -4,33 +4,37 @@ class Instead < Formula
   url "https://github.com/instead-hub/instead/archive/3.3.2.tar.gz"
   sha256 "bdb827f36e693dc7b443e69d4678d24f1ccc20dc093c22f58b8d78192da15f2e"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 "4279441d1a315d876f9646a284ac3beefd109e7fa7c4ebce2fb8549bf0947d94" => :big_sur
-    sha256 "e447bee8716c692d07e6d58b337639a64334dfa921326810c5ae0d64b14fe72e" => :catalina
-    sha256 "128a389655c4361f48dd8ee81344682a3d4433485cf91569a71961bed0885e06" => :mojave
-    sha256 "e9029b89e6133d0f233a679a684e64d0195b283aabb6c55640f8a95ed1297f50" => :high_sierra
-    sha256 "0a6913b90f9c3d01b83d37cc3f467470c5e9982c5bffd9a7076ab6287aa44157" => :x86_64_linux
+    sha256 "71af1e349e6da503d572dbe2b0cd969a33020fa9101bbe9692c56c85e02e676c" => :big_sur
+    sha256 "a2f65af64781e9b45d363bdf589ab614286cf5342d585699527f63af6cf5d008" => :catalina
+    sha256 "d3fb0b0cb48c58ee904d783df541cd71eac200a58ba9a4e9e7a8bffe7c9800b1" => :mojave
+    sha256 "9e7f5231f4c41aa1ef393b8ba64509a778cf1eb7cc7c0ab7824523186be469ca" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
-  depends_on "lua"
+
+  # Possible patch for lua 5.4 support:
+  # https://github.com/instead-hub/instead/commit/ea4f0e81c6859b0aadde582f47ffd7850f54a264
+  # Alternatively, this dependency may be replaced with luajit, which is the
+  # package's preferred version of lua:
+  # https://github.com/instead-hub/instead/blob/master/INSTALL
+  depends_on "lua@5.3"
+
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
   def install
-    libext = if OS.mac?
-      "dylib"
-    else
-      "so"
-    end
+    # Make sure I point to the correct lua version!
+    lua = Formula["lua@5.3"]
 
     mkdir "build" do
       system "cmake", "..", "-DWITH_GTK2=OFF",
-                            "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua",
-                            "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.#{libext}",
+                            "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua",
+                            "-DLUA_LIBRARY=#{lua.opt_lib}/#{shared_library("liblua")}",
                             *std_cmake_args
       system "make", "install"
     end

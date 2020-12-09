@@ -4,16 +4,15 @@ class Lcm < Formula
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
   license "LGPL-2.1"
-  revision 5
+  revision 6
   head "https://github.com/lcm-proj/lcm.git"
 
   bottle do
     cellar :any
-    sha256 "28d85d3e3f95b63178093c7032ded0e3ce2d057365bb92ab0e16901b58fc60a2" => :big_sur
-    sha256 "a19a78d14fcab20e29c3a8e8e4e285918ea2ebec2141b9f517f819aaf5c97096" => :catalina
-    sha256 "997c8ace421b510f5f7094ca651aceba9929390e5885e2cbe992fe62df7cc7f9" => :mojave
-    sha256 "aeaad1129d679ee067c8270e62e86fd2a32c7bee3b110a8f84b9753a42fdb612" => :high_sierra
-    sha256 "fcaeca94edab1dc687594246da5bf8352d622f04a9c6cd5ff04ba4682a6cb1c7" => :x86_64_linux
+    sha256 "8ae12270c1b2ba9c0c02b22a32bb96326a4694aee2e0c65e694d71ef7e1a4c05" => :big_sur
+    sha256 "13a51b7c5ca3ffa82d366ae898ab98dcafa725af2a6f8319bcbf16225b0dba4f" => :catalina
+    sha256 "437bc1978078c4ad00696efb00cf4add0afa7666c1e8b7a8b6080974bed3eae4" => :mojave
+    sha256 "e326b3c44a82b190d09bc82c3fd118629f3ffd36d77425ceaf83753195242c19" => :x86_64_linux
   end
 
   depends_on "cmake" => :build

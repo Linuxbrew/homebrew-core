@@ -11,6 +11,7 @@ class GnuGetopt < Formula
     sha256 "5b79b3c5e0792ef471e8a45e7be1c6b53cfc82b06dc702269404bc2105c801e1" => :catalina
     sha256 "be850eb3ab001ca8ef8f34fbe7fed93b784462a9b88c68011854a977cf492b06" => :mojave
     sha256 "94ec5fdb67ca588ae797498c9a3a5b53aa8fea773cb6350d0d611f1248ab693a" => :high_sierra
+    sha256 "9721ed0b3f0c2220ec8401ff0c54a5138bb84aed086e0dcd50701bbebe7656ab" => :arm64_big_sur
     sha256 "9b5d9cc06fb12cc9eb0e7288889fb434c3decfb083776082d56e490b161d7773" => :x86_64_linux
   end
 

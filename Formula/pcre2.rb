@@ -1,8 +1,8 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre2-10.35.tar.bz2"
-  sha256 "9ccba8e02b0ce78046cdfb52e5c177f0f445e421059e43becca4359c669d4613"
+  url "https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2"
+  sha256 "a9ef39278113542968c7c73a31cfcb81aca1faa64690f400b907e8ab6b4a665c"
   license "BSD-3-Clause"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
@@ -13,11 +13,11 @@ class Pcre2 < Formula
 
   bottle do
     cellar :any
-    sha256 "89748e9a1bab61ba11a63e63fa47e060bc45173d4188fbcc2cf0414ee03f1642" => :big_sur
-    sha256 "6a1e59a5db23d684f92d2bf695601d1b466f3e9d5407f704ba4679d885d13cef" => :catalina
-    sha256 "d7be9b0193654484e40bc30dd330711cc1e72fa9bf29f854dd50458f6a827d1b" => :mojave
-    sha256 "69c4fb400d19d1910df33376974b274362ed715ab7d67ee480b5211156174784" => :high_sierra
-    sha256 "e91b8af68acd7073f19487e3479d131c36f140c8d6d7db7187238210aaf1436d" => :x86_64_linux
+    sha256 "b2edbffaf229fc490843e83b43c4e12feab906fc34270d928c59cac74c6f4536" => :big_sur
+    sha256 "d14484c7e5d4a74112474288bb2b2edff55be51a42fd65dd02d046d24ebb6cd7" => :catalina
+    sha256 "2b16cf051af3ba797d12818e209ddbcafcd007e9af6474c0a642d388e299be90" => :mojave
+    sha256 "5f9d32224189298d99a994c7844daad4802b28c0f6f521d5b73cd8ca4a96ed1d" => :arm64_big_sur
+    sha256 "007ed1174fb49a9a74740ba89a0a6d4306139fff907108dfa6dea43666d3d9d0" => :x86_64_linux
   end
 
   uses_from_macos "bzip2"

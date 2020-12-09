@@ -1,17 +1,16 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v6.2.0.tar.gz"
-  sha256 "7f2d96baba62325e208d11ff34f4bcf349be702f76dbf23faabb6e880e7f9665"
+  url "https://github.com/zricethezav/gitleaks/archive/v7.0.2.tar.gz"
+  sha256 "b57cb5d1d97c42f3d02aff1c3f174b91f0839f8d4d6b47a1f43f3f4fb7054065"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb6ab29d2d9beebc5fc37326d389d6078052b4f490960a50e2f3e602a881511a" => :big_sur
-    sha256 "038438f9856f5c9e24d5cf22ce5530344d83497bf77436bdb1e8127bdeef138e" => :catalina
-    sha256 "4b518371d187541f5fd08e9e9a7749c6e3058b42e1b9f6cd30701741ef5ea531" => :mojave
-    sha256 "f7611a12cda9e3fee060612b7818bfe1bf07ce757dadb1f26770607c3e0d5c44" => :high_sierra
-    sha256 "8a5ad2abdaeb1927861f13426524b40cd1a6db4cfdda31487bdf3a3857f7ead8" => :x86_64_linux
+    sha256 "42f1979982c63212f724f97ae22cb59c88040efed7cfff4ebe76a78f3252dd61" => :big_sur
+    sha256 "6d7ad52564bd62e9b69b7a12385fc58890a8a060d44cbb200ea5d2d719585f23" => :catalina
+    sha256 "f9d255b5943d4ed8435344766cc40558b830e9bd48988bdff71f74c109f0f640" => :mojave
+    sha256 "b9edc2324da89a559adc924e6953ed11e51207fe1e62e21e3b5b167983bc4c82" => :x86_64_linux
   end
 
   depends_on "go" => :build
@@ -22,8 +21,10 @@ class Gitleaks < Formula
   end
 
   test do
-    assert_match "remote repository is empty",
-      shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git", 2)
+    output = shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git 2>&1", 1)
+    assert_match "level=info msg=\"cloning... https://github.com/gitleakstest/emptyrepo.git\"", output
+    assert_match "level=error msg=\"remote repository is empty\"", output
+
     assert_equal version, shell_output("#{bin}/gitleaks --version")
   end
 end

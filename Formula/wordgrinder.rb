@@ -3,19 +3,20 @@ class Wordgrinder < Formula
   homepage "https://cowlark.com/wordgrinder"
   url "https://github.com/davidgiven/wordgrinder/archive/0.8.tar.gz"
   sha256 "856cbed2b4ccd5127f61c4997a30e642d414247970f69932f25b4b5a81b18d3f"
+  license "MIT"
+  revision 1
   head "https://github.com/davidgiven/wordgrinder.git"
 
   bottle do
-    sha256 "cbb4777f6f4851a305e0aa4bddc1f83cfd452d521c5845db7202ec8179c5c972" => :big_sur
-    sha256 "34217b351fac13fc71bdcf99757e27547d31b028720ede8cff75dd8df98d731b" => :catalina
-    sha256 "044ee7c9874894b65e2b407e38fef047dae2277f8bb4ad85e927f038612cfa82" => :mojave
-    sha256 "7fe55fe2030606991d37ca2d0541674e3761e17dc02192ab62e54e8fceaec3f0" => :high_sierra
-    sha256 "d5accae25d2dd4228247f3ebd29c55d0a47a1901b2dfb0bdcb714a8b7c3a7fe0" => :x86_64_linux
+    sha256 "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b" => :big_sur
+    sha256 "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17" => :catalina
+    sha256 "143c53429552e244089211458fc42bcdbb79171d5f98ae17db9c7175208c8ae4" => :mojave
+    sha256 "1100676d184382d055bde51f6c733bbf9690d56a42a8d4478cbd14ff6b15dbd3" => :x86_64_linux
   end
 
+  depends_on "lua" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "lua"
   depends_on "ncurses"
 
   uses_from_macos "zlib"

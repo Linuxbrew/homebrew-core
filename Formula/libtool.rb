@@ -17,6 +17,7 @@ class Libtool < Formula
     sha256 "af317b35d0a394b7ef55fba4950735b0392d9f31bececebf9c412261c23a01fc" => :catalina
     sha256 "77ca68934e7ed9b9b0b8ce17618d7f08fc5d5a95d7b845622bf57345ffb1c0d6" => :mojave
     sha256 "60c7d86f9364e166846f8d3fb2ba969e6ca157e7ecbbb42a1de259116618c2ba" => :high_sierra
+    sha256 "c6b1afba9e734f4386d618a34fe6e6180a763e47eade1c262595a3ea548f48f0" => :arm64_big_sur
     sha256 "a0789f8180632aff54aaf7cc276d7c4fe4e7b10f18a949256b87b111c1d8ee26" => :x86_64_linux
   end
 

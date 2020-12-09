@@ -16,6 +16,7 @@ class Mariadb < Formula
     sha256 "6c4ab91c7eadee170806cf2d95d5690a6b00a35e3811298f9906f2da79f1c11f" => :catalina
     sha256 "b22a037c88a4327dea62f83cc60c0ad70855c1e078625d7eb7c483bf3f7d3e30" => :mojave
     sha256 "d370191e26c5940cfd5ab0ff28dedeed21957b6a7675ffcbac69dacf3ae797e9" => :high_sierra
+    sha256 "65a7757f8992ee760857a71ff119acf00418cd5b5ac6115da6ed8764041015fd" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
@@ -76,6 +77,8 @@ class Mariadb < Formula
       args << "-DWITH_NUMA=OFF"
       args << "-DPLUGIN_ROCKSDB=NO"
       args << "-DPLUGIN_MROONGA=NO"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
     end
 
     # disable TokuDB, which is currently not supported on macOS

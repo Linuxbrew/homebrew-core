@@ -4,6 +4,7 @@ class Libsndfile < Formula
   url "https://github.com/erikd/libsndfile/releases/download/v1.0.30/libsndfile-1.0.30.tar.bz2"
   sha256 "9df273302c4fa160567f412e10cc4f76666b66281e7ba48370fb544e87e4611a"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/erikd/libsndfile/releases/latest"
@@ -12,12 +13,10 @@ class Libsndfile < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5f5f3336e19849c21cf00531cd2a04c92f4cd724c9fce2449335a684c195c62c" => :big_sur
-    sha256 "5f5f4ad1f22b2893b115fdf972c1f8f30a4919719f12fe0f3d186f879eae3051" => :catalina
-    sha256 "5e0f78600b00ca0ebdbafe83e0a0a0a4833810233d714300acac13babb7553bf" => :mojave
-    sha256 "83fe3a19e7c679b07ed791dafeb2e942540092ae714f7c73ae7168ba2115179b" => :high_sierra
-    sha256 "f73e8372081ec14e8c078242b8ee90fa67c38cfb6da65543130cfa26650b3470" => :x86_64_linux
+    sha256 "ee9bc99bab89708e8f371173efc13c71c82d63cd46de50c4dd6ca89f4e2bd1f9" => :big_sur
+    sha256 "8777b541acc126315428bcee3f3453a240157dcdca48d2e51609158ad3539284" => :catalina
+    sha256 "eaa0e886d88536970a5618557f1fb4e7a06d0c1429bf8bcb874cd90e31e05e0a" => :mojave
+    sha256 "9390dbd9f25fe118ee94f21493bbcdf1c993e74301c7cc89196f2985f516c9b0" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
@@ -28,6 +27,14 @@ class Libsndfile < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "opus"
+
+  # Upstream commit to fix autotools configure on macOS, fixes
+  # https://github.com/libsndfile/libsndfile/issues/642
+  # Upstream fix is expected in release v1.0.31
+  patch do
+    url "https://github.com/libsndfile/libsndfile/commit/ecd63961.patch?full_index=1"
+    sha256 "419aad070487685157a515adf4c6de25ffbd34adb0ab52b6df0f7c1ed0644893"
+  end
 
   def install
     system "autoreconf", "-fvi"

@@ -266,9 +266,9 @@ class Llvm < Formula
       }
     EOS
 
-    if OS.mac?
-      system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
+    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
 
+    if OS.mac?
       # Testing default toolchain and SDK location.
       system "#{bin}/clang++", "-v",
              "-std=c++11", "test.cpp", "-o", "test++"

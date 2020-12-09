@@ -11,19 +11,17 @@ class Sha2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "e57b7c4a197f313d7bcca145529b408ce259b2cfbde55826d61b0596c7203da2" => :catalina
-    sha256 "2091072f27778b0a921e7f4a937e90745f75186f7e532db1170847458275aea7" => :mojave
-    sha256 "ae8fb4e03f1272bd6d323669b311ddffd021a945e0beba52ae288f1fa7d4639b" => :high_sierra
-    sha256 "133588f831b1848abef49c88fd7587052990ad4b7133dc300a5c6aed806b1801" => :sierra
-    sha256 "84ce281185ba415257d8507e9b16ba8dc3189ec8b8414d21a6421d5979a025d2" => :el_capitan
-    sha256 "da63b7e9be95c91bcdc3290e3c6caee12016c5d59960144ea26f8c6438dfe680" => :yosemite
-    sha256 "34650fbb427aa57f452acc23a338696756792907bd7e127d7b495a7fd7e4573a" => :mavericks
-    sha256 "ae16045e57636f43a922640a66d76b7a291c7064cb088f9ce53b4a501519c069" => :x86_64_linux
+    rebuild 4
+    sha256 "b7710c8b0af7a9c0c319b2e417a63d59e7978a6a7be560e172719a8e4a9b56dc" => :big_sur
+    sha256 "dbcf9483f299affb674b45e9a5d6e3dbb13cc5e18d22b7fbdc6a80c22b6e4c9b" => :catalina
+    sha256 "cc85a50ddee16d85b3e1412ad8ce420bddc4fb70af97152f3328e208030823a5" => :mojave
+    sha256 "61dcb8167985f042d839b8eba145a0422181c13a95aa561dcf3c2d549fe135b5" => :x86_64_linux
   end
 
   def install
-    system ENV.cc, "-o", "sha2", "sha2prog.c", "sha2.c"
+    # Xcode 12 made -Wimplicit-function-declaration an error by default so we need to
+    # disable that warning to successfully compile:
+    system ENV.cc, "-o", "sha2", "-Wno-implicit-function-declaration", "sha2prog.c", "sha2.c"
     system "perl", "sha2test.pl"
     bin.install "sha2"
   end

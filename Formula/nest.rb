@@ -1,16 +1,14 @@
 class Nest < Formula
   desc "Neural Simulation Tool (NEST) with Python3 bindings (PyNEST)"
   homepage "https://www.nest-simulator.org/"
-  url "https://github.com/nest/nest-simulator/archive/v2.20.0.tar.gz"
-  sha256 "40e33187c22d6e843d80095b221fa7fd5ebe4dbc0116765a91fc5c425dd0eca4"
-  license "GPL-2.0"
-  revision 2
+  url "https://github.com/nest/nest-simulator/archive/v2.20.1.tar.gz"
+  sha256 "df3d32b5899d5d444f708037b290f889ac6ff8eae6b7be9e9faee2c0d660d8e5"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "e90e5350135e68e68a3f8eda5d382d4e207401181fd0c4c1e2a185faa30ef6a3" => :big_sur
-    sha256 "17c51c09b753b6b225d13ba3140cd34ec10c37705d2a4845e04d4b78c56941c4" => :catalina
-    sha256 "4bb26ec955b2b73cd713e3e450cb670f9c7e553815469b53a5b64adade5aec7b" => :mojave
-    sha256 "b77bdca98e15931f91b9bb851efe90234b59b2d7b65f214698f67c6748f800f6" => :high_sierra
+    sha256 "7d8a027b82bb889b0fbb4ebb9764d55b136aa1378129a801ccda28f362656833" => :big_sur
+    sha256 "6a7ef1003d86dd0767bc181820beaafb8a1c062e1fc0dd8d44b3c53c313f4740" => :catalina
+    sha256 "de90974238ea1e5435da633c834c39f927f969271b45b3b00ed315cb6797e013" => :mojave
   end
 
   depends_on "cmake" => :build

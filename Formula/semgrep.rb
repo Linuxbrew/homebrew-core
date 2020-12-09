@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.32.0",
-    revision: "772c46ba5ac5850705b3a3580d9bc71343ab037b"
+    tag:      "v0.33.0",
+    revision: "89af0791f91c738b1bbf36696e34ceaacd317a60"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -16,9 +16,9 @@ class Semgrep < Formula
 
   bottle do
     cellar :any
-    sha256 "f8a7e70d4b2ffbcd03466e34b49c23fbd5f76769d5905266a9630f1c42da608d" => :big_sur
-    sha256 "05f0161a99e1fbef0d4ead7a9acda081dcdd321299a7f089c16dbcec5c71c777" => :catalina
-    sha256 "a305bdcd803c7b82ea181175f725d574c3098008d6f95006f76be4f0a20fb809" => :mojave
+    sha256 "06b20cfc5c10c714209184047030c881021f756f7e164ee6f215f361baef32f1" => :big_sur
+    sha256 "0c4dac686d36fb780fcd9c26e2fc5e693a5ef140257e08772bf1cab5b870a2a3" => :catalina
+    sha256 "a0c3e6ec7ad1a8413f285f17802a931d5c7980a7d438f3524d20be1c58cfc70d" => :mojave
   end
 
   depends_on "cmake" => :build

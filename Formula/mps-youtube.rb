@@ -43,7 +43,7 @@ class MpsYoutube < Formula
   def caveats
     <<~EOS
       Install the optional mpv app with Homebrew Cask:
-        brew cask install mpv
+        brew install --cask mpv
     EOS
   end
 

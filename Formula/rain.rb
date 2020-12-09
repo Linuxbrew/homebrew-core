@@ -1,15 +1,15 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/v1.1.0.tar.gz"
-  sha256 "a255a1e76569a2cbe3f9a876a27f49d56d87e7569d737517917334c4277d2c0a"
+  url "https://github.com/aws-cloudformation/rain/archive/v1.1.1.tar.gz"
+  sha256 "5faf25a87a6fc0fde19edcf2fe6f26c81990da91d13fbf3858b1eb33711b0ebd"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "237a1279d22b5ec71a2486ee5e2d22593c4bdee13799f90fce2e0f997f8699d8" => :big_sur
-    sha256 "58a41b1f55e10383f88a6fad0b3e56f09790300dca99f708c4d4938cd71122f4" => :catalina
-    sha256 "ca22007322e318dc109b541bd54dd2994d3c1f1a50ac4211e1d6503781478ee7" => :mojave
+    sha256 "55f486e76dc98d428be0c746d8dff11e337911fb97236a09a41b9e25d6dfc0b7" => :big_sur
+    sha256 "f3ef06e12e92b1e196bdd77d9b1de8c9568494883ba1c6a24d3201151576920c" => :catalina
+    sha256 "f9ecd6ae894e0f4d8ce92c017fd17c7d6bc1346e9142c34b81bf4ac3b04d54fc" => :mojave
   end
 
   depends_on "go" => :build

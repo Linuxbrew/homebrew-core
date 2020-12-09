@@ -4,6 +4,7 @@ class Pdns < Formula
   url "https://downloads.powerdns.com/releases/pdns-4.3.1.tar.bz2"
   sha256 "d5146c04098ee94b9377ee491ebb3fd5eb061d7b24262f4a8e1a89f2ed3fc245"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -11,11 +12,10 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 "42b5af5d9882ad21a4b0105fc30f4d263695aaecb4f155bfab56ca87c4fef176" => :big_sur
-    sha256 "a2157c837b834c7d428066e64d375636917066ea37c48935afec632c2fe539d9" => :catalina
-    sha256 "3221d27d70b3d023b0bf7ab053f269e3ae0ae31f3b7697e7a495687dba252ec9" => :mojave
-    sha256 "26266299abce6649649c05949369f11139b418bc0bbca23ffb65fa1dbf1640db" => :high_sierra
-    sha256 "f3bbfbc370698d5ecb0d0985ac7eda06807245d3e7bc59d8871b6a39ec9a960e" => :x86_64_linux
+    sha256 "fe13a92880a716f80c06d30aeb6bb74d8a99792cbc22544e14dd667698a9b6f9" => :big_sur
+    sha256 "f1d62a9eb590c0b762004f120d62cb721583da29ceea61c3a397b8ffa0033f90" => :catalina
+    sha256 "7a93c7a53c5ee245a6d86da5ba18cad02700d61c4e524cb380d3ff48a660cc88" => :mojave
+    sha256 "47486b77024a9af77743b285939533bb26906fba5881c9358ba9d28ec11f343d" => :x86_64_linux
   end
 
   head do

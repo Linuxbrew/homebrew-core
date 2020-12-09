@@ -4,7 +4,7 @@ class Clingo < Formula
   url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
   sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://github.com/potassco/clingo/releases/latest"
@@ -12,11 +12,10 @@ class Clingo < Formula
   end
 
   bottle do
-    sha256 "121cad12ba1639552342b60600b59ba02706de9c8cc149f07973af52b9791c31" => :big_sur
-    sha256 "5e3cead6d5fde6357e4a9bfda2f7e1d4096682b83194906e011b0d04a0fe58cf" => :catalina
-    sha256 "348efd367746175aef195ba411274d772af37bcdb320df395c19897fb56b1b22" => :mojave
-    sha256 "e2f27e0830e735740f66646c50527e4601cae561a2e1c9e27ab12a36d88a0145" => :high_sierra
-    sha256 "26aadbeea985bc72245550fea90f64557ad6dc50b1160c546c48793a0b8b4f24" => :x86_64_linux
+    sha256 "9a02b6ced933810e4cff55143989e37ef08d22bcf6a945a9682d3d73a0accedb" => :big_sur
+    sha256 "5c6dd1f45a2cfe48e4616c6e4bcc45a8b9b5ab050016ad8db6c38bd810129985" => :catalina
+    sha256 "55a5d161667e66004aa6d56f92ab00ccefb6863094fd2ba3c113b6d20d741968" => :mojave
+    sha256 "2db78b7065d110737da783b19a5d75a2dd049d99cab1e033688b1ec6cc138a0a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
