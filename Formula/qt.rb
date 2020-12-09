@@ -102,7 +102,6 @@ class Qt < Formula
       # https://codereview.qt-project.org/c/qt/qtwebengine/+/191880
       args += %w[-skip qtwebengine]
       args -= ["-proprietary-codecs"]
-      args << "-qt-zlib"
       args << "-no-sql-mysql"
     end
 
