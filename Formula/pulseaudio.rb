@@ -75,21 +75,25 @@ class Pulseaudio < Formula
       --disable-x11
     ]
 
-    args << "--with-udev-rules-dir=#{lib}/udev/rules.d" if OS.linux?
-
     if OS.mac?
       args << "--with-mac-sysroot=#{MacOS.sdk_path})"
       args << "--with-mac-version-min=#{MacOS.version}"
     end
 
-    # Perl depends on gdbm.
-    # If the dependency of pulseaudio on perl is build-time only,
-    # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
-    # Thus, we have to
-    #  - specify not to use gdbm, or
-    #  - add a dependency on gdbm if gdbm is wanted (not implemented).
-    # See Linuxbrew/homebrew-core#8148
-    args << "--with-database=simple" unless OS.mac?
+    unless OS.mac?
+      # Perl depends on gdbm.
+      # If the dependency of pulseaudio on perl is build-time only,
+      # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
+      # Thus, we have to
+      #  - specify not to use gdbm, or
+      #  - add a dependency on gdbm if gdbm is wanted (not implemented).
+      # See Linuxbrew/homebrew-core#8148
+      args << "--with-database=simple"
+
+      # Tell pulseaudio to use the brewed udev rules dir instead of the system one,
+      # which it does not have permission to modify
+      args << "--with-udev-rules-dir=#{lib}/udev/rules.d"
+    end
 
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure
