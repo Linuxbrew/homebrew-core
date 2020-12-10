@@ -27,6 +27,21 @@ class MariadbAT102 < Formula
   depends_on "groonga"
   depends_on "openssl@1.1"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc@7" => :build
+    depends_on "libcsv"
+    depends_on "linux-pam"
+  end
+
+  fails_with gcc: "4"
+  fails_with gcc: "5"
+  fails_with gcc: "6"
+
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
@@ -56,6 +71,14 @@ class MariadbAT102 < Formula
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
+
+    on_linux do
+      args << "-DWITH_NUMA=OFF"
+      args << "-DPLUGIN_ROCKSDB=NO"
+      args << "-DPLUGIN_MROONGA=NO"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
