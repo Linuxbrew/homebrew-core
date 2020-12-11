@@ -2,17 +2,16 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      tag:      "v2.15.4",
-      revision: "d804b7d99c476134480e723c93d53c4454891293"
+      tag:      "v2.15.5",
+      revision: "93e621aef686e6e50b912af22a86090063f9554f"
   license "Apache-2.0"
   head "https://github.com/pulumi/pulumi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f56996a56fc691c393faa9a8402d98bbf15eba4b7b155d647b08d0bf35f5ef92" => :big_sur
-    sha256 "51d8bd3bc059c0c9be5d1e7441d026d6bf2a569d74291956a1676665f57fe434" => :catalina
-    sha256 "0169b96b1258b7d54f9f90f1e5adcb0acae918718055c3154c66727e33fd1e64" => :mojave
-    sha256 "e040d1716b3b0373327f6d41e50bffdd8c393dc2a12ac82b955336e4e8862626" => :x86_64_linux
+    sha256 "ba2640786db34a57fef9dee1131f086d45390ebeefd2bf6f00edcbffa16b2ba3" => :big_sur
+    sha256 "1e76c53adc3e7746a1791bc74cad629967bbc0b08a0ceea8a01da972055974a5" => :catalina
+    sha256 "6936d475fd39c1bfd9524d507c25be5e0b614faafc45204e6b62bcd0a144fa07" => :mojave
   end
 
   depends_on "go" => :build
