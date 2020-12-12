@@ -25,7 +25,9 @@ class Pike < Formula
   depends_on "nettle"
   depends_on "pcre"
 
-  depends_on "jpeg" unless OS.mac?
+  on_linux do
+    depends_on "jpeg"
+  end
 
   def install
     ENV.append "CFLAGS", "-m64"

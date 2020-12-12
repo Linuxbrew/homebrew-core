@@ -63,6 +63,15 @@ class Libxml2 < Formula
     sha256 "c3fa874b78d76b8de8afbbca9f83dc94e9a0da285eaf6ee1f6976ed4cd41e367"
   end
 
+  def sdk_include
+    on_macos do
+      return MacOS.sdk_path/"usr/include"
+    end
+    on_linux do
+      return HOMEBREW_PREFIX/"include"
+    end
+  end
+
   def install
     system "autoreconf", "-fiv" if build.head?
 
@@ -76,7 +85,7 @@ class Libxml2 < Formula
     cd "python" do
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
-        "includes_dir = ['#{include}', '#{OS.mac? ? MacOS.sdk_path/"usr" : HOMEBREW_PREFIX}/include',"
+                            "includes_dir = ['#{include}', '#{sdk_include}',"
       system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end

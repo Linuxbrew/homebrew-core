@@ -1,8 +1,8 @@
 class Dopewars < Formula
   desc 'Free rewrite of a game originally based on "Drug Wars"'
   homepage "https://dopewars.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.0/dopewars-1.6.0.tar.gz"
-  sha256 "f8543d6cb73074a63c75409a60e8c739bc6cf121328f939f99ac86df2fe89d3d"
+  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.1/dopewars-1.6.1.tar.gz"
+  sha256 "83127903a61d81cda251a022f9df150d11e27bdd040e858c09c57927cc0edea6"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -10,10 +10,10 @@ class Dopewars < Formula
   end
 
   bottle do
-    sha256 "8d9aa3ab6faa85c24e9fa3046191b611295785a68f08de5e2d84aa59cdd55713" => :big_sur
-    sha256 "0e20a6168f15c6c1245818efc5d5986b77d90d51f184a8e6b06538579d2b8461" => :catalina
-    sha256 "85744f87e4866796bf4b06ad280f57542d951ec9498ebf814251448f93e24881" => :mojave
-    sha256 "ab39063c757603a74c505c7d5adade8cafa568a74f60e04c215b39985b7b1927" => :x86_64_linux
+    sha256 "390ce7a719041ebf745d790ea872db927cb587cfc91ddab183472fe2ceecec43" => :big_sur
+    sha256 "85d6516b31e2bd45f92d2e2c18f773ec2b2990b25da82155454274e8c65eaa3d" => :catalina
+    sha256 "abe0910c15903b12be25d3b00f4544f39d10b894c5b773468b7b52e3c403893b" => :mojave
+    sha256 "97c20d070dace0f2718d7d3bd7e7e36624b9cdbfea8a553ce4bce26cffcf261d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
