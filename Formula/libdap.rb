@@ -26,9 +26,6 @@ class Libdap < Formula
     depends_on "libtool" => :build
   end
 
-  # error: 'max_align_t' has a previous declaration when using gcc 4.8
-  fails_with gcc: "4.8" unless OS.mac?
-
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libxml2"
