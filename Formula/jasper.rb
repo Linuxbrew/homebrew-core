@@ -27,8 +27,11 @@ class Jasper < Formula
         os_cmake_args.push "-DGLUT_glut_LIBRARY=#{glut_lib}"
       end
 
+      os_cmake_args << "-DJAS_ENABLE_DOC=OFF"
+
       system "cmake", "..",
         "-DJAS_ENABLE_AUTOMATIC_DEPENDENCIES=false",
+        "-DJAS_ENABLE_SHARED=ON",
         *os_cmake_args,
         *std_cmake_args
       system "make"
