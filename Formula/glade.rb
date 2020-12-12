@@ -25,9 +25,12 @@ class Glade < Formula
   depends_on "adwaita-icon-theme"
   depends_on "gettext"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration" if OS.mac?
   depends_on "hicolor-icon-theme"
   depends_on "libxml2"
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   def install
     # Find our docbook catalog
@@ -116,7 +119,9 @@ class Glade < Formula
       -lpangocairo-1.0
       -lxml2
     ]
-    flags << "-lintl" if OS.mac?
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
