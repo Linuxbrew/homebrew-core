@@ -3,7 +3,10 @@ class AtSpi2Core < Formula
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2"
   url "https://download.gnome.org/sources/at-spi2-core/2.36/at-spi2-core-2.36.1.tar.xz"
   sha256 "97417b909dbbf000e7b21062a13b2f1fd52a336f5a53925bb26d27b65ace6c54"
-  revision 1
+  revision 2
+
+  bottle do
+  end
 
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
@@ -21,6 +24,7 @@ class AtSpi2Core < Formula
 
   def install
     ENV.refurbish_args
+    ENV.append "LDFLAGS", "-lintl"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", "--libdir=#{lib}", ".."
