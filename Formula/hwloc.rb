@@ -28,6 +28,7 @@ class Hwloc < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--disable-cairo",
                           "--enable-shared",
                           "--enable-static",
                           "--prefix=#{prefix}",
