@@ -37,7 +37,7 @@ class GnuTar < Formula
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
     # Fix configure: error: you should not run configure as root
-    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" unless ENV["CI"]
+    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" unless OS.mac? && ENV["CI"]
 
     args = %W[
       --prefix=#{prefix}
@@ -46,6 +46,9 @@ class GnuTar < Formula
 
     on_macos do
       args << "--program-prefix=g"
+    end
+    on_linux do
+      args << "--without-selinux"
     end
     system "./bootstrap" if build.head?
     system "./configure", *args
