@@ -20,6 +20,12 @@ class Dive < Formula
   depends_on "pkg-config" => :build
   depends_on "device-mapper" unless OS.mac?
 
+  on_linux do
+    depends_on "gpgme" => :build
+    depends_on "pkg-config" => :build
+    depends_on "device-mapper"
+  end
+
   def install
     system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"dive"
     prefix.install_metafiles

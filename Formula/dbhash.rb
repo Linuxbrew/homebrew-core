@@ -26,9 +26,8 @@ class Dbhash < Formula
   test do
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
-    sqlite = OS.mac? ? "/usr/bin/sqlite3" : Formula["sqlite"].bin/"sqlite3"
     sqlpath.write "create table test (name text);"
-    system "#{sqlite} #{dbpath} < #{sqlpath}"
+    system "sqlite3 #{dbpath} < #{sqlpath}"
     assert_equal "b6113e0ce62c5f5ca5c9f229393345ce812b7309",
                  shell_output("#{bin}/dbhash #{dbpath}").strip.split.first
   end
