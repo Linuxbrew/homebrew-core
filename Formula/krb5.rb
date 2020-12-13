@@ -4,6 +4,7 @@ class Krb5 < Formula
   url "https://kerberos.org/dist/krb5/1.18/krb5-1.18.3.tar.gz"
   sha256 "e61783c292b5efd9afb45c555a80dd267ac67eebabca42185362bee6c4fbd719"
   license :cannot_represent
+  revision 1 unless OS.mac?
 
   livecheck do
     url :homepage
@@ -15,7 +16,6 @@ class Krb5 < Formula
     sha256 "9bcf67f6ca1757dd425a7fd4c0fcd2d42273c01b303f4219b16714793c89fd0d" => :arm64_big_sur
     sha256 "f50ff30a8268899f65150363f294ddcbd1969759f8700efac874caa181bca75d" => :catalina
     sha256 "4e5751f16b7e6d9f27968a9efb1ba5f702292c7fefdb25a32c940ef71f81b7cd" => :mojave
-    sha256 "a9cf11bc57869b2379fc9a7f2a51f135c91d0ca452028cc5e8a22c38db2c13cd" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
@@ -24,7 +24,13 @@ class Krb5 < Formula
 
   uses_from_macos "bison"
 
+  on_linux do
+    depends_on "gettext"
+  end
+
   def install
+    ENV.append "LIBS", "-lintl" unless OS.mac?
+
     cd "src" do
       # Newer versions of clang are very picky about missing includes.
       # One configure test fails because it doesn't #include the header needed
