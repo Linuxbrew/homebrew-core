@@ -26,13 +26,6 @@ class Libid3tag < Formula
 
   on_linux do
     depends_on "gperf"
-
-    # fix build with gperf
-    # https://bugs.gentoo.org/show_bug.cgi?id=605158
-    patch do
-      url "https://gist.githubusercontent.com/iMichka/c23ea881388319b38838183754349bba/raw/4829ff0702a511f96026369676a11edd9a79ab30/libid3tag.diff"
-      sha256 "00f04427c6b3bab2bb8595f6df0ebc774b60031ee60428241801ccf6337d4c5d"
-    end
   end
 
   # patch for utf-16 (memory leaks), see https://bugs.launchpad.net/mixxx/+bug/403586
