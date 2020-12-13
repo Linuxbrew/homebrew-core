@@ -33,6 +33,8 @@ class Glade < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-lintl" unless OS.mac?
+
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
