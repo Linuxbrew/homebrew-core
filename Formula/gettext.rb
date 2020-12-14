@@ -5,7 +5,7 @@ class Gettext < Formula
   mirror "https://ftpmirror.gnu.org/gettext/gettext-0.21.tar.xz"
   sha256 "d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192"
   license "GPL-3.0-or-later"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   livecheck do
     url :stable
@@ -17,7 +17,6 @@ class Gettext < Formula
     sha256 "cdea54f52b7c36ebcb5fe26a1cf736d7cd6fd5f2fd016dd8357a8624ffd6b5f8" => :catalina
     sha256 "99707d4dcc731faf980333365a694e9500f2f012f84c0bcb6d8cb5d620c2ce08" => :mojave
     sha256 "5ac5783e31205b92907b46bfaaa142620aea7ee3fc4d996876b0913fd2315695" => :high_sierra
-    sha256 "3cf89684a259d1a9a9262e4209b2eda5e16949cee17f21502db6a80f6552fd3f" => :x86_64_linux
   end
 
   uses_from_macos "libxml2"
@@ -29,7 +28,6 @@ class Gettext < Formula
       "--disable-silent-rules",
       "--disable-debug",
       "--prefix=#{prefix}",
-      "--with-included-gettext",
       "--with-included-glib",
       "--with-included-libcroco",
       "--with-included-libunistring",
@@ -43,6 +41,14 @@ class Gettext < Formula
       "--without-cvs",
       "--without-xz",
     ]
+    on_macos do
+      # Ship libintl.h. Disabled on linux as libintl.h is provided by glibc
+      # https://gcc-help.gcc.gnu.narkive.com/CYebbZqg/cc1-undefined-reference-to-libintl-textdomain
+      # There should never be a need to install gettext's libintl.h on
+      # GNU/Linux systems using glibc. If you have it installed you've borked
+      # your system somehow.
+      args << "--with-included-gettext"
+    end
     on_linux do
       args << "--with-libxml2-prefix=#{Formula["libxml2"].opt_prefix}"
     end
