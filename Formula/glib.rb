@@ -6,7 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.66/glib-2.66.2.tar.xz"
   sha256 "ec390bed4e8dd0f89e918f385e8d4cfd7470b1ef7c1ce93ec5c4fc6e3c6a17c4"
   license "LGPL-2.1-or-later"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   if OS.mac?
     livecheck do
@@ -20,7 +20,6 @@ class Glib < Formula
     sha256 "55989b3ad3b8da0314749ab1abf699beecfa19479a4bbbc47e981aa282840fe1" => :catalina
     sha256 "0715e8debe9a6a1e1f8223759a29c300eccb151c2fd5e4c376f8f71636501e0d" => :mojave
     sha256 "f7c78253be38a52794ff424dcf493d60bd9a2534e49043b88ff2e75906bc17c6" => :high_sierra
-    sha256 "71ea17f5460ab60088301df1f7d83ee85edbbfd628a66f68afc5a25b52c67390" => :x86_64_linux
   end
 
   depends_on "meson" => :build
@@ -44,8 +43,6 @@ class Glib < Formula
   end
 
   def install
-    ENV.append "LDFLAGS", "-lintl" unless OS.mac?
-
     inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
