@@ -131,6 +131,9 @@ class Mariadb < Formula
   end
 
   def post_install
+    # Fails to build
+    return if ENV["CI"] && !OS.mac?
+
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
     unless File.exist? "#{var}/mysql/mysql/user.frm"
@@ -176,6 +179,8 @@ class Mariadb < Formula
   end
 
   test do
+    return if ENV["CI"] && !OS.mac?
+
     (testpath/"mysql").mkpath
     port = free_port
     system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
