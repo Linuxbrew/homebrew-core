@@ -136,7 +136,7 @@ class Arangodb < Formula
       end
     ensure
       Process.kill "SIGINT", pid
-      ohai "shuting down #{pid}"
+      ohai "shutting down #{pid}"
     end
   end
 end

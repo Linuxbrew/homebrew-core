@@ -48,7 +48,7 @@ class LuaAT53 < Formula
     # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     ENV.append_to_cflags "-fPIC" unless OS.mac?
 
-    # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
+    # Substitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
       s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
