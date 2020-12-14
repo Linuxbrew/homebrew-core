@@ -3,10 +3,13 @@ class LinuxPam < Formula
   homepage "http://www.linux-pam.org"
   url "https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz"
   sha256 "cd6d928c51e64139be3bdb38692c68183a509b83d4f2c221024ccd4bcddfd034"
+  revision 1
   head "https://github.com/linux-pam/linux-pam.git"
 
   bottle do
-    sha256 "16524aa3066317ae40de425d46be07a67ebd7c3d031c3c3e826aeebf7a8b80ce" => :x86_64_linux
+    sha256 "8a27f4ff10628a7366f0a63480433fa1138c547fbd49343258abb47cd4908e67" => :big_sur
+    sha256 "4b32c4d13a178a568d7a8668f0d42c40a02d161fac8ea7b10f5c2e468cbca4a6" => :catalina
+    sha256 "c52e7c5c5a92e4e5faf2ab5aa6cb66eeabc943869161bf5c8853b37dbd6a49a3" => :mojave
   end
 
   depends_on "pkg-config" => :build
