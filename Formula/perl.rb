@@ -5,6 +5,7 @@ class Perl < Formula
   sha256 "6f436b447cf56d22464f980fac1916e707a040e96d52172984c5d184c09b859b"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl/perl5.git", branch: "blead"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://www.cpan.org/src/"
@@ -17,12 +18,12 @@ class Perl < Formula
     sha256 "bc6c97521b6edf723c8ee0742aebb1954b5c8fec81bf2d96861c3f8bcc4e404d" => :catalina
     sha256 "f09b3fefe2175b36e590ee13e7aa84d28ebcbce3ef8e252e24a0aebb752405ab" => :mojave
     sha256 "718a54da6e3b02c33d5230776aaa54eaaac710c09cf412078014c9c50dd0ac51" => :high_sierra
-    sha256 "82ccac650bfefacad6b1ce088d3b612c16ae3677cb0d3c3ea52a2d4f786a1cd8" => :x86_64_linux
   end
 
   uses_from_macos "expat"
 
   unless OS.mac?
+    depends_on "gettext"
     depends_on "gdbm"
     depends_on "berkeley-db"
   end
@@ -38,6 +39,8 @@ class Perl < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-lintl" unless OS.mac?
+
     args = %W[
       -des
       -Dprefix=#{prefix}
