@@ -2,6 +2,7 @@ class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "https://www.valgrind.org/"
   license "GPL-2.0"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://sourceware.org/pub/valgrind/valgrind-3.16.1.tar.bz2"
@@ -36,6 +37,7 @@ class Valgrind < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --without-mpicc
     ]
 
     args << "--enable-only64bit"
