@@ -39,6 +39,7 @@ jobs:
           brew test-bot \
             --only-formulae \
             --keep-old \
+            --skip-recursive-dependents \
             ${{github.event.client_payload.formula}}
 
       - name: Copy bottles
