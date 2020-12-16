@@ -4,6 +4,7 @@ class Curl < Formula
   url "https://curl.haxx.se/download/curl-7.74.0.tar.bz2"
   sha256 "0f4d63e6681636539dc88fa8e929f934cd3a840c46e0bf28c73be11e521b77a5"
   license "curl"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://curl.haxx.se/download/"
@@ -17,7 +18,6 @@ class Curl < Formula
     sha256 "2727fbadda487785e7e7033b045196f6e5f65670d3984366d535f4e7f01dad3d" => :arm64_big_sur
     sha256 "f3d93b2c3ba69e5c7afd8bb2ff2b2daf67ddc9c5b0a5184a2fa565d9a05b26b2" => :catalina
     sha256 "c305611273c90a9b973df642e60f31b931ba1276294406d3a910d36472ad45ba" => :mojave
-    sha256 "f0af64490eba094f00c50b478f747135c2db1698c39daf1b6e3a04a327f837e7" => :x86_64_linux
   end
 
   head do
@@ -41,6 +41,7 @@ class Curl < Formula
   depends_on "rtmpdump"
   depends_on "zstd"
 
+  uses_from_macos "krb5"
   uses_from_macos "zlib"
 
   def install
@@ -57,13 +58,18 @@ class Curl < Formula
       --with-ca-fallback
       --with-secure-transport
       --with-default-ssl-backend=openssl
-      --with-gssapi
       --with-libidn2
       --with-libmetalink
       --with-librtmp
       --with-libssh2
       --without-libpsl
     ]
+
+    args << if OS.mac?
+      "--with-gssapi"
+    else
+      "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+    end
 
     system "./configure", *args
     system "make", "install"
