@@ -4,7 +4,7 @@ class Pike < Formula
   url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.702.tar.gz"
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 3 : 4
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -16,11 +16,9 @@ class Pike < Formula
     sha256 "3c0bea5143c0630461de47b17cf4fc3511c234b0041d430bbbe235f254ba864f" => :big_sur
     sha256 "5757d1aa50ab2cea5a849c0175c5f7e7d9474be370488be306e67caa2edb7389" => :catalina
     sha256 "fbecbf5e9013c9ed5bfdd2d0c81b6f6df929b99b3e4e8aa2d9a11dc25f78ac4a" => :mojave
-    sha256 "87b4f7fbfed81dd56f88e50ba8931f40ff3223debd94f3c9492a0ef80e0e2cb0" => :x86_64_linux
   end
 
   depends_on "gmp"
-  depends_on "librsvg"
   depends_on "libtiff"
   depends_on "nettle"
   depends_on "pcre"
