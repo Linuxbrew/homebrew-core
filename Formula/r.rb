@@ -4,7 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.0.3.tar.gz"
   sha256 "09983a8a78d5fb6bc45d27b1c55f9ba5265f78fa54a55c13ae691f87c5bb9e0d"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -35,6 +35,7 @@ class R < Formula
     depends_on "libice"
     depends_on "libx11"
     depends_on "libxt"
+    depends_on "libtirpc"
   end
 
   # needed to preserve executable permissions on files without shebangs
@@ -82,6 +83,11 @@ class R < Formula
 
     # Avoid references to homebrew shims
     args << "LD=ld" unless OS.mac?
+
+    unless OS.mac?
+      ENV.append "CPPFLAGS", "-I#{Formula["libtirpc"].opt_include}/tirpc"
+      ENV.append "LDFLAGS", "-L#{Formula["libtirpc"].opt_lib}"
+    end
 
     system "./configure", *args
     system "make"
