@@ -21,6 +21,13 @@ class Gdb < Formula
   depends_on "python@3.9"
   depends_on "xz" # required for lzma support
 
+  unless OS.mac?
+    fails_with gcc: "4"
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    depends_on "gcc@7"
+  end
+
   uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
   uses_from_macos "ncurses"
@@ -53,6 +60,7 @@ class Gdb < Formula
     ]
 
     ENV.append "CPPFLAGS", "-I#{Formula["python@3.9"].opt_libexec}" unless OS.mac?
+    ENV.append "LDFLAGS", "-L#{Formula["gcc@7"].opt_lib}/gcc/7" unless OS.mac?
 
     mkdir "build" do
       system "../configure", *args
