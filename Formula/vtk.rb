@@ -47,6 +47,7 @@ class Vtk < Formula
     depends_on "zlib"
     depends_on "tcl-tk"
     depends_on "mesa"
+    depends_on "mesa-glu"
   end
 
   def install
@@ -89,6 +90,7 @@ class Vtk < Formula
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
     ]
     args << "-DVTK_USE_COCOA=" + (OS.mac? ? "ON" : "OFF")
+    args << "-DOpenGL_GL_PREFERENCE=LEGACY" unless OS.mac?
 
     mkdir "build" do
       system "cmake", "..", *args
