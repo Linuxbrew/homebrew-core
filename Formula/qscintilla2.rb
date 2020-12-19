@@ -23,8 +23,11 @@ class Qscintilla2 < Formula
   depends_on "sip"
 
   def install
-    spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
-    args = %W[-config release -spec #{spec}]
+    # Only add compiler spec on macOS
+    if OS.mac?
+      spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+      args = ["-config release", "-spec #{spec}"]
+    end
 
     cd "Qt4Qt5" do
       inreplace "qscintilla.pro" do |s|
@@ -40,7 +43,11 @@ class Qscintilla2 < Formula
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
       end
 
-      system "qmake", "qscintilla.pro", *args
+      if OS.mac?
+        system "qmake", "qscintilla.pro", *args
+      else
+        system "qmake", "qscintilla.pro"
+      end
       system "make"
       system "make", "install"
     end
@@ -52,18 +59,23 @@ class Qscintilla2 < Formula
       (share/"sip").mkpath
       version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
       pydir = "#{lib}/python#{version}/site-packages/PyQt5"
-      system Formula["python@3.9"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include,
-                        "--apidir=#{prefix}/qsci",
-                        "--destdir=#{pydir}",
-                        "--stubsdir=#{pydir}",
-                        "--qsci-sipdir=#{share}/sip",
-                        "--qsci-incdir=#{include}",
-                        "--qsci-libdir=#{lib}",
-                        "--pyqt=PyQt5",
-                        "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
-                        "--sip-incdir=#{Formula["sip"].opt_include}",
-                        "--spec=#{spec}",
-                        "--no-dist-info"
+
+      args = ["--apidir=#{prefix}/qsci",
+              "--destdir=#{pydir}",
+              "--stubsdir=#{pydir}",
+              "--qsci-sipdir=#{share}/sip",
+              "--qsci-incdir=#{include}",
+              "--qsci-libdir=#{lib}",
+              "--pyqt=PyQt5",
+              "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
+              "--sip-incdir=#{Formula["sip"].opt_include}",
+              "--no-dist-info"]
+
+      # Only add compiler spec on macOS
+      args << "--spec=#{spec}" if OS.mac?
+
+      system Formula["python@3.9"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include, *args
+
       system "make"
       system "make", "install"
       system "make", "clean"
