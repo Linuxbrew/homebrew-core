@@ -18,45 +18,6 @@ class Sratoolkit < Formula
   uses_from_macos "libxml2"
   uses_from_macos "perl"
 
-  on_linux do
-    depends_on "pkg-config" => :build
-
-    resource "which" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
-      sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
-    end
-
-    resource "build" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.92.tar.gz"
-      sha256 "cd95173a72e988bdd7270a22699e6c9764b6aed6e6c4c022c623b1ce72040a79"
-    end
-
-    resource "tiny" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz"
-      sha256 "3c49482be2b3eb7ddd7e73a5b90cff648393f5d5de334ff126ce7a3632723ff5"
-    end
-
-    resource "chdir" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz"
-      sha256 "efc121f40bd7a0f62f8ec9b8bc70f7f5409d81cd705e37008596c8efc4452b01"
-    end
-
-    resource "capture" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
-      sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
-    end
-
-    resource "libxml2" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.11.tar.gz"
-      sha256 "aa583d8e7677f944476bd595e3a25a99935ba15ca0b6a50927951e2ab8415ff3"
-    end
-
-    resource "libxml" do
-      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz"
-      sha256 "e008700732502b3f1f0890696ec6e2dc70abf526cd710efd9ab7675cae199bc2"
-    end
-  end
-
   resource "ngs-sdk" do
     url "https://github.com/ncbi/ngs/archive/2.10.9.tar.gz"
     sha256 "1372695af5ac2599c9dad0b8cdce857c95c7827ff831a6709343276a29438b1e"
@@ -67,49 +28,7 @@ class Sratoolkit < Formula
     sha256 "3707f81412dbf6ce2b29d3e65e364116c86acc534543e5a084cf8a666b81960d"
   end
 
-  unless OS.mac?
-    resource "which" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
-      sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
-    end
-
-    resource "build" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.92.tar.gz"
-      sha256 "cd95173a72e988bdd7270a22699e6c9764b6aed6e6c4c022c623b1ce72040a79"
-    end
-
-    resource "tiny" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz"
-      sha256 "3c49482be2b3eb7ddd7e73a5b90cff648393f5d5de334ff126ce7a3632723ff5"
-    end
-
-    resource "chdir" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz"
-      sha256 "efc121f40bd7a0f62f8ec9b8bc70f7f5409d81cd705e37008596c8efc4452b01"
-    end
-
-    resource "capture" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
-      sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
-    end
-
-    resource "libxml2" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.11.tar.gz"
-      sha256 "aa583d8e7677f944476bd595e3a25a99935ba15ca0b6a50927951e2ab8415ff3"
-    end
-
-    resource "libxml" do
-      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz"
-      sha256 "e008700732502b3f1f0890696ec6e2dc70abf526cd710efd9ab7675cae199bc2"
-    end
-  end
-
   def install
-    # sratoolkit seems to have race conditions during the build and exhibit
-    # during pacbio util builds
-    # Issue: https://github.com/Linuxbrew/homebrew-core/issues/5323
-    ENV.deparallelize unless OS.mac?
-
     ngs_sdk_prefix = buildpath/"ngs-sdk-prefix"
     resource("ngs-sdk").stage do
       cd "ngs-sdk" do
@@ -136,10 +55,6 @@ class Sratoolkit < Formula
     # Upstream PR: https://github.com/ncbi/sra-tools/pull/105
     inreplace "tools/copycat/Makefile", "-smagic-static", "-smagic"
 
-    # Fix the error: undefined reference to `SZ_encoder_enabled'
-    # Issue: https://github.com/Linuxbrew/homebrew-core/issues/5323
-    inreplace "tools/pacbio-load/Makefile", "-shdf5 ", "-shdf5 -ssz " unless OS.mac?
-
     system "./configure",
       "--prefix=#{prefix}",
       "--with-ngs-sdk-prefix=#{ngs_sdk_prefix}",
@@ -151,37 +66,6 @@ class Sratoolkit < Formula
 
     # Remove non-executable files.
     rm_rf [bin/"magic", bin/"ncbi"]
-
-    unless OS.mac?
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-      ENV.prepend_path "PERL5LIB", libexec/"lib"
-
-      %w[
-        which
-        build
-        tiny
-        chdir
-        capture
-        libxml2
-        libxml
-      ].each do |r|
-        resource(r).stage do
-          if File.exist?("Makefile.PL")
-            system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-            system "make"
-            system "make", "install"
-          elsif File.exist?("Build.PL")
-            system "perl", "Build.PL", "--install_base", libexec
-            system "./Build"
-            system "./Build", "install"
-          else
-            raise "UNKNOWN BUILD SYSTEM"
-          end
-        end
-      end
-
-      bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
-    end
   end
 
   test do
