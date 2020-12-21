@@ -22,16 +22,17 @@ class Mariadb < Formula
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "gcc@7" => :build
-    depends_on "libcsv"
-    depends_on "linux-pam"
-  end
 
   uses_from_macos "bison" => :build
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc@7" => :build
+    depends_on "libcsv"
+    depends_on "linux-pam"
+  end
 
   conflicts_with "mysql", "percona-server",
     because: "mariadb, mysql, and percona install the same binaries"
@@ -72,7 +73,7 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
-    unless OS.mac?
+    on_linux do
       args << "-DWITH_NUMA=OFF"
       args << "-DPLUGIN_ROCKSDB=NO"
       args << "-DPLUGIN_MROONGA=NO"
@@ -133,7 +134,7 @@ class Mariadb < Formula
 
   def post_install
     # Fails to build
-    return if ENV["CI"] && !OS.mac?
+    return if ENV["CI"]
 
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
@@ -180,8 +181,6 @@ class Mariadb < Formula
   end
 
   test do
-    return if ENV["CI"] && !OS.mac?
-
     (testpath/"mysql").mkpath
     (testpath/"tmp").mkpath
     system bin/"mysql_install_db", "--no-defaults", "--user=#{ENV["USER"]}",
