@@ -22,7 +22,9 @@ class Genometools < Formula
   depends_on "pango"
   depends_on "python@3.9"
 
-  depends_on "libpthread-stubs" => :build unless OS.mac?
+  on_linux do
+    depends_on "libpthread-stubs" => :build
+  end
 
   conflicts_with "libslax", because: "both install `bin/gt`"
 

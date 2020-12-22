@@ -12,6 +12,7 @@ class Libdap < Formula
 
   bottle do
     sha256 "bc3f88998c1d144671ea9ab590e5bb618236d33bcd33c7350fb9e3dfae041a84" => :big_sur
+    sha256 "5472e20b0bc6f66cceaea0ef615acef981330cdb18629618a83192128bd881c8" => :arm64_big_sur
     sha256 "6a0bbd25fd0b5e873d34a46045c6ba72161007b9937d7957790bfc16bf5b05c3" => :catalina
     sha256 "ce373bf6fbe4f5b28825fcf243633ae7a807d35b1627e985cc231bc722010793" => :mojave
     sha256 "fbaa33ce89105a9cab0a7d8b22755524a93f39fb2a8e6d3c5a0459c2ded3bdf5" => :high_sierra

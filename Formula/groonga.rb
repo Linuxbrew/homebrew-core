@@ -12,6 +12,7 @@ class Groonga < Formula
 
   bottle do
     sha256 "8a535b9c85660c8efa56049ade5de9316c0a893bbc44c14410e469bbcf77de50" => :big_sur
+    sha256 "d6c84a01765a25be383cb05710ecf7a0a0e64798c76a2322cc8a304a4b19b8ee" => :arm64_big_sur
     sha256 "4794a5af4bba7ab5e81bde545bd3f9b2f6bd7b496052d0b5ec318371ed6f0101" => :catalina
     sha256 "a6ea4629bac56b603aeff04517edce52d2cfe5720da6fea5b1437ec8715ff3ff" => :mojave
     sha256 "bb2f188f793a430ad2cdfe1594e1e8d3547f0ae5358ac42c8541ec1af8f1d190" => :x86_64_linux

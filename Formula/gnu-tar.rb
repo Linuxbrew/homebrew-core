@@ -13,6 +13,7 @@ class GnuTar < Formula
   bottle do
     rebuild 1
     sha256 "952e5c4dd04ddab0c2678edf97f24c02f6dfde9f5d031a98fc269064197a0872" => :big_sur
+    sha256 "8f452aa6fe50b5af78c9ecb0290051af2ae2f08f89d0634eac0f2e1d7eaa64b5" => :arm64_big_sur
     sha256 "158cb67ea9e02435d671013b4d0d7369822758d9f7ff400ce2512a03f2f7f4e4" => :catalina
     sha256 "1034894e78bb22b0fcf0c8114666d4dc3eb82345a5ca83797ca3bda367d998ac" => :mojave
     sha256 "3771cead286229786d9d92a7697bc6e0de576ec9cae1f881017884ceb3e24f17" => :high_sierra

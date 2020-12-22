@@ -22,6 +22,7 @@ class Psutils < Formula
     cellar :any_skip_relocation
     rebuild 1
     sha256 "229bde3f399638b21570063c1586fce976f4498475901f28bce30546a4e60220" => :big_sur
+    sha256 "02cd6e56f1a40d01069ee8d59ceafdab15e0c9ec6c75873f845f2588df87d31c" => :arm64_big_sur
     sha256 "c2aed2811e263c3e3abcf66eb27d6fdd1b622ca033fa2e3bf4e8095c733df08a" => :catalina
     sha256 "d2ba48c88116be774d989d71c791ef97f8eac3723e63a0924e08ea48f4b3ab39" => :mojave
     sha256 "d9408c8f70db105a621195339f357107d6f234c75be581b1ca8365d0e82e62c2" => :high_sierra

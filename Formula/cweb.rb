@@ -7,6 +7,7 @@ class Cweb < Formula
 
   bottle do
     sha256 "2f85582d6fc749f9341029f816b40ee3cf9950413c17009beeb38f6343e50e00" => :big_sur
+    sha256 "a6a3f34240c03c9d98ef32c800528a78acf835ea89b24630628bad53e4bdcac2" => :arm64_big_sur
     sha256 "3fdde2a4883a27e1ed296a89458821c848bcbac7daa7df5ab33160131f0e38e8" => :catalina
     sha256 "77291255506b068cd1856498a048708baf94d29a60267fe5ab221e46cd1a383f" => :mojave
     sha256 "e6888449565ebd6620ebc6851dbef48765a0654b3e5d429cfffb617ca33e2479" => :high_sierra

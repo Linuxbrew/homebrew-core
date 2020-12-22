@@ -1,6 +1,6 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
-  homepage "https://developer.mozilla.org/docs/NSS"
+  homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
   url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_60_RTM/src/nss-3.60.tar.gz"
   sha256 "84abd5575ab874c53ae511bd461e5d0868d1a1b384ee40753154cdd1d590fe3d"
   license "MPL-2.0"
@@ -13,6 +13,7 @@ class Nss < Formula
   bottle do
     cellar :any
     sha256 "857cc5e93f9731f72d7b337504d445186ea96abc205a6409cfce0e78d4765ce4" => :big_sur
+    sha256 "7f939b4bb9c345afc36ec4ca2e84c022d85cd8a7ed1de4f0ad5ee8aadf1a8c35" => :arm64_big_sur
     sha256 "719c567c2db3c6e4e432d043a1388d38d544d40bd3fa6bb15d18f4aae5994b11" => :catalina
     sha256 "832b3dfe2c604475f77fb54d69e5b9a9b876ad7bf3e12b8b2699169820cf32a1" => :mojave
     sha256 "93bb0f6da231e8464c49f5b534366f16becb6180197d6017449250ae17ba068c" => :x86_64_linux

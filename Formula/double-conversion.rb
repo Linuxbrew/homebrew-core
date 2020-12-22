@@ -10,6 +10,7 @@ class DoubleConversion < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "0f7c08daace9fc854f8526a7699102f40de9898fa1e6b05a0199b5da3c9e1a7d" => :big_sur
+    sha256 "928fbd4a31967ec090b4b292b1a212fec7eb75f27443493d0c175ca8bb56a9dc" => :arm64_big_sur
     sha256 "20b93e20891d48912ffbfbdf3ef470f7305684df2381ef93056a11cedd95c65f" => :catalina
     sha256 "ec700c89a4f1794170b4466f5a0a100b6eafee7cb0a794e55ea53de18114a1d3" => :mojave
     sha256 "9b54153b09683b8fa40160588792385e04f6be56ba355c5a530a2209b9f0526d" => :high_sierra
