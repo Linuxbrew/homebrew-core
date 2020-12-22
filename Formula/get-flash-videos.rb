@@ -69,23 +69,6 @@ class GetFlashVideos < Formula
     sha256 "cd7209a6dfe0a3dc8caffe1aa2233b0e6effec7572d76a7a93feefffe636214e"
   end
 
-  unless OS.mac?
-    resource "Module::Find" do
-      url "https://cpan.metacpan.org/authors/id/C/CR/CRENZ/Module-Find-0.13.tar.gz"
-      sha256 "4a47862072ca4962fa69796907476049dc60176003e946cf4b68a6b669f18568"
-    end
-
-    resource "Try::Tiny" do
-      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
-      sha256 "f1d166be8aa19942c4504c9111dade7aacb981bc5b3a2a5c5f6019646db8c146"
-    end
-
-    resource "XML::Simple" do
-      url "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz"
-      sha256 "9a14819fd17c75fbb90adcec0446ceab356cab0ccaff870f2e1659205dc2424f"
-    end
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     resources.each do |r|
