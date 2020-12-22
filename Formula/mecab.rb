@@ -22,7 +22,15 @@ class Mecab < Formula
     sha256 "4cff10addb8895df884fca8d81cd4d4c7530efdac45896299d85ab707a80cf4f" => :x86_64_linux
   end
 
+  on_linux do
+    depends_on "gcc@7"
+  end
+
   conflicts_with "mecab-ko", because: "both install mecab binaries"
+
+  fails_with gcc: "4"
+  fails_with gcc: "5"
+  fails_with gcc: "6"
 
   def install
     system "./configure", "--disable-dependency-tracking",
