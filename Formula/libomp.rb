@@ -22,6 +22,8 @@ class Libomp < Formula
 
   depends_on "cmake" => :build
 
+  keg_only "provided by LLVM, which is not keg-only on Linux" unless OS.mac?
+
   # Upstream patch for ARM, accepted, remove in next version
   # https://reviews.llvm.org/D91002
   # https://bugs.llvm.org/show_bug.cgi?id=47609
