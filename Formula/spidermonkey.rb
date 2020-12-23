@@ -26,7 +26,7 @@ class Spidermonkey < Formula
   # No rule to make target '-lreadline', needed by 'js'.  Stop.
   depends_on "readline" if OS.mac?
   unless OS.mac?
-    depends_on "python" => :build
+    depends_on "python@3.9" => :build
     depends_on "zip" => :build
   end
 
