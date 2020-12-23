@@ -30,7 +30,7 @@ class Folly < Formula
   depends_on "zstd"
   unless OS.mac?
     depends_on "jemalloc"
-    depends_on "python"
+    depends_on "python@3.9"
   end
 
   def install
