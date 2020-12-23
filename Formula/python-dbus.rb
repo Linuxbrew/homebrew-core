@@ -13,10 +13,10 @@ class PythonDbus < Formula
   depends_on "dbus"
   depends_on "dbus-glib"
   depends_on :linux
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -25,6 +25,6 @@ class PythonDbus < Formula
   end
 
   test do
-    system Formula["python"].opt_bin/"python3", "-c", "import dbus"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import dbus"
   end
 end
