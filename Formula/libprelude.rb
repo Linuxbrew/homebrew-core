@@ -11,7 +11,7 @@ class Libprelude < Formula
   depends_on "libtool" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
   depends_on "ruby@2.6" => :build
   depends_on "swig" => :build
   depends_on "valgrind" => :build
