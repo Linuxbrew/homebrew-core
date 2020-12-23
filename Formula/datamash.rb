@@ -11,6 +11,7 @@ class Datamash < Formula
   end
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "50590b93f6f3a25e3e2724ddad696e6ed8a168f840fafe887be423f5020ce86c" => :big_sur
     sha256 "d808354a764a06427e4768aa451493e111c5324e36fde94fbbab4d7fb41f2055" => :arm64_big_sur
     sha256 "f592c4bda737ef924fb4c1642fb381db54c9ce246eb51d03a145dd28a8391406" => :catalina

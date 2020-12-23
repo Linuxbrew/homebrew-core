@@ -8,6 +8,7 @@ class OperatorSdk < Formula
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "085720eb4fb2bfafd0475119ed704cadc62390e63829ea86337b4e5e763999f2" => :big_sur
     sha256 "1f5b6fc68245da7464e5ba868ec8e907a362def193c0339b2e44388c44fa3dc2" => :arm64_big_sur
     sha256 "8f65a0a7cb191314734b0eee3188e90d5c9f0f6441c7b103acbca01c51b67402" => :catalina

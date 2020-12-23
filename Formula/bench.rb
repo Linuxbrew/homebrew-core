@@ -21,6 +21,7 @@ class Bench < Formula
   end
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "c9ee5713f0c97785f37506da9e34f4cda353beaad06a5209fce27aeb93e3f770" => :big_sur
     sha256 "b1eccbf77a04e4de1a59a0eed5c0f6e2d8b6b191736ee9ad4fdea9a173010651" => :catalina
     sha256 "493de8888b6fe1745a887cda10a421448a08943496124b1cb49cc02453002638" => :mojave

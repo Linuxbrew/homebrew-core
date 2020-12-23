@@ -6,6 +6,7 @@ class Ssed < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 2
     sha256 "8ead33fc5954cd35bdff6291cec76e4ee2d6011d0f4d7025e832c9fa2514c31b" => :big_sur
     sha256 "2b6c860af3e99b067b867a53b1b7135918cf1ff10e27b744a4157c2134b866f5" => :arm64_big_sur

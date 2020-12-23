@@ -11,6 +11,7 @@ class GnuSed < Formula
   end
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "3846b361699dd0260a616085b2a1678c874a2fcce8ce70e704a018dce3b4a882" => :big_sur
     sha256 "72bc2b8cf7c7e18d106d79c7db382f7160408aafa8fb765b084cbe965e92db9b" => :arm64_big_sur
     sha256 "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099" => :catalina

@@ -7,6 +7,7 @@ class Shellcheck < Formula
   head "https://github.com/koalaman/shellcheck.git"
 
   bottle do
+    cellar :any_skip_relocation
     rebuild 1
     sha256 "c7bd19ca5bc623c8a958c4cb56b77ab89e652c20a1a66dfbbc0c5d8832b60ada" => :big_sur
     sha256 "0cd635d2172d5e6617be8cdfb2723b6aa6feb2aa22e36cb3172d8b6fa012f4a0" => :catalina
