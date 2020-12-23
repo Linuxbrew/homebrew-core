@@ -16,11 +16,11 @@ class GccAT8 < Formula
   # gcc is designed to be portable.
   # reminder: always add 'cellar :any'
   bottle do
+    cellar :any
     sha256 "2b1ad3c27b2df7c7f888de7c977a22a5b7d5bf1b79d163d9a54186f634f7a672" => :big_sur
     sha256 "55525171b1a90425dab69799f3730492cd3f04b2755242340472925794104962" => :catalina
     sha256 "3321d929ae429e3ccf8b4c4e265e20e6302d361d5c444f4b7a5217771b8d0b01" => :mojave
     sha256 "80b73e0a1679e7ca9e098de1e82e19e312d159098b3355607b76a3673b80c2ee" => :high_sierra
-    sha256 "75adcf873c1cc4ad95a9d417eec1a1490546a500775b11c0750f8d6a69ce842b" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
