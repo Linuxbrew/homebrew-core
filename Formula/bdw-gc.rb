@@ -4,7 +4,7 @@ class BdwGc < Formula
   url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
   sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,7 +12,6 @@ class BdwGc < Formula
     sha256 "bb94ab58bc20b01662c432d21920c9a2e644aad92208b640658d3fd9fb530636" => :big_sur
     sha256 "31634ad61ce92329e34154feb1ad14e4786592555ef9a14259a09ea0648d5af7" => :catalina
     sha256 "898aa902c343deda1046532d36351a9d0a08d619dda393f4e50dbc78c674a580" => :mojave
-    sha256 "1311eb50347fb5c53ff0b40bad70a3724463801fbb6538270235a256d902570a" => :x86_64_linux
   end
 
   head do
@@ -24,6 +23,8 @@ class BdwGc < Formula
 
   depends_on "libatomic_ops" => :build
   depends_on "pkg-config" => :build
+
+  depends_on "gcc"=> :test unless OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
