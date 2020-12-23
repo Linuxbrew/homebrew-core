@@ -10,6 +10,7 @@ class Libdazzle < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "fa2282bdb8556341d8fdb814ced63d41a5936b7c2905c8e6f0f3e98c4d0b54da" => :big_sur
     sha256 "ef5f9dca4635b3347a8fda8285b55bd63b274ed51e6df5320ed3d61780b3bbab" => :arm64_big_sur
     sha256 "889b2107f7efceabc760c6e96f1a55c00765cf67a7d5d54a821f1d33e5b0db01" => :catalina

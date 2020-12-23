@@ -7,6 +7,7 @@ class Multitail < Formula
   head "https://github.com/flok99/multitail.git"
 
   bottle do
+    cellar :any
     sha256 "bcba02065b68527b6e4826a42e8577d380b862c02c747a7de81b1aa40ef59dca" => :big_sur
     sha256 "931b37ad30df49390ef2e7c2d191821a735202d38b9fbb85f5ab9b00ed248eea" => :arm64_big_sur
     sha256 "6d0d74b45d02adc52fa6a5f666484c62941457da3cb10e50d65f5d772cc59c02" => :catalina

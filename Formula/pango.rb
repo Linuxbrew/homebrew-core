@@ -11,6 +11,7 @@ class Pango < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "48d12081cc6415724e0b6f73fef7ac2df3d5c523a408d65c5105f7c83e4a2f40" => :big_sur
     sha256 "70e12652d4cb07296576f8f096e6a04fe51658a09ea4d904f4c1049400f45f1b" => :arm64_big_sur
     sha256 "8efc7e43fabedde9160927212857a7fa950a0ee4768374a5f36fc7b7a4e79c44" => :catalina

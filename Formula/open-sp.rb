@@ -9,6 +9,7 @@ class OpenSp < Formula
   end
 
   bottle do
+    cellar :any
     rebuild 5
     sha256 "50109cdb514313693454259ba30f90f550618d48a1cc71df55ed04343d0cf641" => :big_sur
     sha256 "032676f1cd5c4bc0c1368cdf08bfe9a8b6df8f2c26ee4367c4a1285ab4fadc3a" => :arm64_big_sur

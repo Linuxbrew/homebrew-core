@@ -9,6 +9,7 @@ class Graphene < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "0e6af428f089a813408d7edc7a5196372a1ee8dd3ed13f7edbf4acfb1f62407a" => :big_sur
     sha256 "ed93a2b7f3830d38f82bece133afa43636e1cb90b3342c222909229260e63716" => :arm64_big_sur
     sha256 "d8519d2811ee796969121cd0b087fb7a5e96c2952c69bb2dfe206f3efc299e31" => :catalina

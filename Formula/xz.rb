@@ -13,6 +13,7 @@ class Xz < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "4fbd4a9e3eb49c27e83bd125b0e76d386c0e12ae1139d4dc9e31841fb8880a35" => :big_sur
     sha256 "c84206005787304416ed81094bd3a0cdd2ae8eb62649db5a3a44fa14b276d09f" => :arm64_big_sur
     sha256 "2dcc8e0121c934d1e34ffdb37fcd70f0f7b5c2f4755f2f7cbcf360e9e54cb43b" => :catalina

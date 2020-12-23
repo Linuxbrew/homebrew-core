@@ -12,6 +12,7 @@ class Jrnl < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "f9ca8bca15329ef3d89d3a2b8a5532ae7cceac1886d602042925f85880d63041" => :big_sur
     sha256 "d8b8f4d8b72fa13db0c6c233819684144f0f4a509354a9e7a3444dbd55bcea4a" => :arm64_big_sur
     sha256 "0b6415a27a1ae8295c766fe06a9eb0de676382ae46b27374e153e7d24d2528bf" => :catalina

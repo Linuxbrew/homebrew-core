@@ -10,6 +10,7 @@ class Mpi4py < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "3b761d6032292468252ff3c8aa01c61f4e71cf945235a88e18eebd97d9bfd957" => :big_sur
     sha256 "0f4729ca14721e02e752fa831f91c0463d32163e86c7097896843c553d0b8f30" => :arm64_big_sur
     sha256 "c6163dd690053dc5adcca25c63c54c5feb34d46248685e3d448ef673e907de36" => :catalina

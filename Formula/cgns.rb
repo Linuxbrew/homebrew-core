@@ -12,6 +12,7 @@ class Cgns < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "e2e5eb665f0f5c94c7782f0aed3708124705792ff5a7adf945a537369db6d724" => :big_sur
     sha256 "abc3326bddbf58509b5ffb3834d68836ad803abf83f9958ae6a012870e7e9f85" => :arm64_big_sur
     sha256 "4371c695cad1aa0bccbaaf0deccb9a8f5ddf7271dcbbddf6307b8d0bc254cec5" => :catalina

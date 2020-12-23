@@ -8,6 +8,7 @@ class Wordgrinder < Formula
   head "https://github.com/davidgiven/wordgrinder.git"
 
   bottle do
+    cellar :any
     sha256 "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b" => :big_sur
     sha256 "370093b3705f72a5d6b87bacd2e64e229f3d6ac82e52e92fe147c037d65f210b" => :arm64_big_sur
     sha256 "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17" => :catalina

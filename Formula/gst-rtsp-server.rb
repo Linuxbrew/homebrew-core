@@ -11,6 +11,7 @@ class GstRtspServer < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "b4317689acd1ab2242fbf79485c6e41d3f7b6022f655cc5a1c0051a0e83fa58f" => :big_sur
     sha256 "ad3491746d607e87f9d3c413f993e95deea5f9cb1838fbd3155a241a8ec78886" => :arm64_big_sur
     sha256 "6de0097ebaf534fd685c904cea67866f038bfecf37c81f18b002746194d3a73c" => :catalina

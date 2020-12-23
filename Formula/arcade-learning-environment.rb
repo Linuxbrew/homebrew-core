@@ -8,6 +8,7 @@ class ArcadeLearningEnvironment < Formula
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
+    cellar :any
     sha256 "0cd35bdc93604828c1c9afc56f47f827ad27f735315a001a04c6864778daf03c" => :big_sur
     sha256 "ac79a55da2582b1750e695bbe66943cd3e79111708b0692edad3fdefb870d291" => :arm64_big_sur
     sha256 "86f7ee81ae0de6f7eebd78bf21dbc79b8230689c275ba812b6ef772b9774118f" => :catalina

@@ -13,6 +13,7 @@ class Infer < Formula
   end
 
   bottle do
+    cellar :any
     rebuild 1
     sha256 "1dc9c75c759611c8fe0efa8f63d7e55bbaa35d8dc2863f7a527069b11759f244" => :catalina
     sha256 "74b2dddff2bea362066395e28a797078d33514774511cc64771d0f89eea2466d" => :mojave

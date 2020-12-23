@@ -15,6 +15,7 @@ class Grpc < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "3e731c3e9d4c6d24f5293db3b93efc0d277f12f03679b6f35af9e0cea67e613c" => :big_sur
     sha256 "56d08703d69bc715c72b93a28c848ddaac63f1c2fbad09ebf39b271ff658fe8a" => :catalina
     sha256 "71b413ceeae0da5f236ef71fe9ea5168849df37462ba70a2ac9d99e1f5bf18c5" => :mojave

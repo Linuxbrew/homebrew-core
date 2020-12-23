@@ -10,6 +10,7 @@ class Ode < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "333320201f493ecb42eb9754a8c73d8490aa8d0155129865384fe2faf2706482" => :big_sur
     sha256 "3b69d29b04c4c733c4689be24f1ab4b49f646485650a6a55c10f2721de44e53b" => :arm64_big_sur
     sha256 "b033d3a8ddb92602728fbe921f5f421fed220c1d5293333d43801bf259a16cd5" => :catalina

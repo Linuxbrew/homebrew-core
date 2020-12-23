@@ -14,6 +14,7 @@ class UtilLinux < Formula
   ]
 
   bottle do
+    cellar :any
     rebuild 2
     sha256 "fc3327a2f46d034d163710b29b6b04fb44cabcb31102a2b099d9dbd73e302bce" => :big_sur
     sha256 "91a76aecae9e1fcdbd44614439c6eb379dcaf1c2e388403eb33d698b986cc587" => :arm64_big_sur

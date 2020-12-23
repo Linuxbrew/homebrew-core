@@ -12,6 +12,7 @@ class Stormssh < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "79e330e941213f27be8570d069e752ac8062a3956a84a7f62ba8965584011e54" => :big_sur
     sha256 "e79afe5b92e065a4700562f0c440ca31ca10942bf3d7bd53676e9db0fe76765e" => :catalina
     sha256 "63e97d8df81a1e56544fc231f404693cf0ce0263ea2a375d97b6a2c6608e72a2" => :mojave

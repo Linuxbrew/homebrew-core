@@ -7,6 +7,7 @@ class Zig < Formula
   head "https://github.com/ziglang/zig.git"
 
   bottle do
+    cellar :any
     sha256 "f088607533abf8e77c38ad57b5c068b7c975d31d3558eda5ff9ef23221278650" => :big_sur
     sha256 "f1168c13a73d6677a8d6eb04ecd0d67e93038bd33218bafadd9aac9a23045e7d" => :catalina
     sha256 "eb2e0de16f666b740fb67529910712c517fed8ae3fd6e14d27acbbf19a41018a" => :mojave

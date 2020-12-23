@@ -6,6 +6,7 @@ class Fswatch < Formula
   license "GPL-3.0"
 
   bottle do
+    cellar :any
     sha256 "f0e4988d417dc53f21f03a82358900a31be9f2962b067bddc49c9d786189d5e4" => :big_sur
     sha256 "12f1acafc38cc38fddb8a221897ace28a95b6927b1708c52cd764b0aa56472dd" => :arm64_big_sur
     sha256 "77233b7d6c11644f14682862d613ed37a5eda86ba1ec5a6ea3c18b75ccafe906" => :catalina

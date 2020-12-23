@@ -7,6 +7,7 @@ class Aria2 < Formula
   revision 1 unless OS.mac?
 
   bottle do
+    cellar :any
     sha256 "05ea0971d6834d9dc50df6a6ca62978ce0f8bf324758225f9d3df091b60fc875" => :big_sur
     sha256 "3db6c6a53e4bfd72eec10dc53179c424f2e72f1321c3f96b1b1b0e8740790af1" => :arm64_big_sur
     sha256 "9cc5e04be8b0a58d1f2b60b8abfc636168edbf23e7018003c40f1dd6952aab0c" => :catalina

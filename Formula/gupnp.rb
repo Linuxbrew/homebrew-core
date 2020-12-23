@@ -13,6 +13,7 @@ class Gupnp < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "40c8a74e84cbf2826c098c04e888989166cbe27a9f387754c69b046b3761e6e9" => :big_sur
     sha256 "0cb0e21dccf7a4cd8105303569e1f11409f46be63893eea7523d59eeff5b2398" => :catalina
     sha256 "24070ef84b5cad5ed79d0349b4f1bb41a1097aa20f0c401ab80b1c5646bdd153" => :mojave

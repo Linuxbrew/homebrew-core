@@ -12,6 +12,7 @@ class AwsElasticbeanstalk < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "49497cfc82e4f7077a892545ad614413d6e987def058543240617efeeab39974" => :big_sur
     sha256 "09c2375ad6e5af51cc9bf164dbc24c959482e4817d3124d52ad65accdf45735b" => :catalina
     sha256 "de5a139b9a021fcbdb19ad4b706b1f6a82d5cb0532653619b3f016efb968d761" => :mojave

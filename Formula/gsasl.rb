@@ -11,6 +11,7 @@ class Gsasl < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "028f7609a7ca21f52e8341cf4c62a019297e0d156c8e3a6526ca68702d6da866" => :big_sur
     sha256 "83b752a80d1e1ebf8fc39b0fe64ffb53baa7fe0aad0c42df69a14bd3624158a7" => :arm64_big_sur
     sha256 "964ad480f7fafd04051fe76a288b5f109766ae39e4329b00f1a268b5082b316e" => :catalina

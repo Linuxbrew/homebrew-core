@@ -11,6 +11,7 @@ class Ncmpc < Formula
   end
 
   bottle do
+    cellar :any
     rebuild 1
     sha256 "dcaf0d0af1cff22c8e2913fd55fef28a0205ca0ef88d38955e7dabaa06e3e241" => :big_sur
     sha256 "812169b73cb47055ee1574ff7278afa59ea92b70cafead63992052e7b193f4c0" => :arm64_big_sur

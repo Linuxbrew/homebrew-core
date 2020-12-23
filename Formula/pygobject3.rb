@@ -11,6 +11,7 @@ class Pygobject3 < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "d9eb35a72a4970c2c6c537b7b8938f9147390a2cd4027d33bb119417c5693aa1" => :big_sur
     sha256 "7b65e09a52672b0b31ebeb73308d25adae46baf3d0a7d544da0c3a50617d90c4" => :arm64_big_sur
     sha256 "e4e592579b949b2b7df8cbd3b3956d3ee285054a4c1e3ecfbc9647a4e9bcf24e" => :catalina

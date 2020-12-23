@@ -11,6 +11,7 @@ class SharedMimeInfo < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "a89243613f2b5108a735abbe0a65ee02dcc39b5246a8f8b284c28cc9d8b86014" => :big_sur
     sha256 "bc94b21215784d4c26772de6b88ef5d1a4efa497f5c8479033e0d523f115c4e7" => :arm64_big_sur
     sha256 "5aefdc7964e569188cb67a49f4a428c64130f7c048ffd55106c656eb0c6caa25" => :catalina

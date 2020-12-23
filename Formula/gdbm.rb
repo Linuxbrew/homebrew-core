@@ -12,6 +12,7 @@ class Gdbm < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "36b492f1b0910367dd394cbdcffe1606f64ab41ec6701210becfb591a8557dee" => :big_sur
     sha256 "801b2bf95118871ee206de507131325613a1aa59ab7809032bb456f1b5f01a89" => :arm64_big_sur
     sha256 "f7b5ab7363961fa6defcb66b4ffdf5365264fcb97d35bc413e754f173a3b1912" => :catalina

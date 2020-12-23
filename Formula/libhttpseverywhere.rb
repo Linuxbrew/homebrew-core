@@ -11,6 +11,7 @@ class Libhttpseverywhere < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "459d83997d7d69966ddee1e7a94e8583b4de8570ee1a796273a64a3d7845b8cd" => :big_sur
     sha256 "006bf3748d65067509e5b2e6d506f3b0a9a52c5eaab54780850b70b7f82ff249" => :arm64_big_sur
     sha256 "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728" => :catalina

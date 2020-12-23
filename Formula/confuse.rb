@@ -6,6 +6,7 @@ class Confuse < Formula
   license "ISC"
 
   bottle do
+    cellar :any
     sha256 "370cd5df07249d44cbf0a848001be19d41341f404d229dcdcb3b5ae6ead4300c" => :big_sur
     sha256 "1eeec2cb7b54cf11c1e13448f191ed97d4f2477c215130b6402256678019f36e" => :arm64_big_sur
     sha256 "13ad01ca606e746ab7f6bcd42b0da08abdcc29ccaaa9e8106f9d28bfe96bffd7" => :catalina

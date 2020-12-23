@@ -10,6 +10,7 @@ class Gom < Formula
   end
 
   bottle do
+    cellar :any
     sha256 "b8c298e1d442d15dd630bfe6b1edfeb11b77326b730237ffc4c6b3c607c48192" => :big_sur
     sha256 "ff2ac0dfef03bd08c7f03f13595af2e1476c396163e57066726c92e06cbe4fba" => :arm64_big_sur
     sha256 "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892" => :catalina
