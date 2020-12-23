@@ -80,7 +80,6 @@ class BoostPython < Formula
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",
-                    ("-fPIC" unless OS.mac?),
                     *pyincludes, *pylib
 
     output = <<~EOS
