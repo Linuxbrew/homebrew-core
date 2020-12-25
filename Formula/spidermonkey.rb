@@ -33,6 +33,8 @@ class Spidermonkey < Formula
   conflicts_with "narwhal", because: "both install a js binary"
 
   def install
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3" unless OS.mac?
+
     cd "js/src" do
       # Remove the broken *(for anyone but FF) install_name
       inreplace "config/rules.mk",
