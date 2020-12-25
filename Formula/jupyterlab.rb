@@ -26,14 +26,16 @@ class Jupyterlab < Formula
 
   uses_from_macos "expect" => :test
 
+  on_macos do
+    resource "appnope" do
+      url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
+      sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
+    end
+  end
+
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/db/7c/c25052956b882c226adcad815197f32dde4eb9dfbbd19041b291811b1032/anyio-2.0.2.tar.gz"
     sha256 "35075abd32cf20fd7e0be2fee3614e80b92d5392eba257c8d2f33de3df7ca237"
-  end
-
-  resource "appnope" do
-    url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
-    sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
   end
 
   resource "argon2-cffi" do
