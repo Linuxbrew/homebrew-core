@@ -28,7 +28,6 @@ class PostgresqlAT12 < Formula
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
-
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -53,18 +52,22 @@ class PostgresqlAT12 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
-      --with-gssapi
       --with-icu
-      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
-      --with-pam
       --with-perl
-      --with-tcl
       --with-uuid=e2fs
     ]
+    if OS.mac?
+      args += %w[
+        --with-bonjour
+        --with-gssapi
+        --with-ldap
+        --with-pam
+        --with-tcl
+      ]
+    end
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
@@ -84,6 +87,11 @@ class PostgresqlAT12 < Formula
                                     "pkgincludedir=#{include}/postgresql",
                                     "includedir_server=#{include}/postgresql/server",
                                     "includedir_internal=#{include}/postgresql/internal"
+
+    # Remove shim references
+    if !OS.mac? && File.readlines("#{lib}/postgresql/pgxs/src/Makefile.global").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
+      inreplace lib/"postgresql/pgxs/src/Makefile.global", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+    end
   end
 
   def post_install
