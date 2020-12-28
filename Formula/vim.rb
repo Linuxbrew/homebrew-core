@@ -31,7 +31,7 @@ class Vim < Formula
 
   def install
     # Fix error: '__declspec' attributes are not enabled
-    ENV.append_to_cflags "-fdeclspec"
+    ENV.append_to_cflags "-fdeclspec" if ENV.compiler == :clang
 
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
