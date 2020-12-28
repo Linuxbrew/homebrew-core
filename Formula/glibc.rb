@@ -13,6 +13,10 @@ class BrewedGlibcNotOlderRequirement < Requirement
       Installing a version of glibc that is older than your system's can break formulae installed from source.
     EOS
   end
+
+  def display_s
+    "System glibc < #{Glibc.version}"
+  end
 end
 
 class GlibcBaseRequirement < Requirement
@@ -25,6 +29,10 @@ class GlibcBaseRequirement < Requirement
         sudo apt-get install #{tool}
         sudo yum install #{tool}
     EOS
+  end
+
+  def display_s
+    "#{self.class::TOOL} #{self.class::VERSION}".strip
   end
 end
 
@@ -67,6 +75,10 @@ class LinuxKernelRequirement < Requirement
       Linux kernel version #{MINIMUM_LINUX_KERNEL_VERSION} or later is required by glibc.
       Your system has Linux kernel version #{linux_kernel_version}.
     EOS
+  end
+
+  def display_s
+    "Linux kernel #{MINIMUM_LINUX_KERNEL_VERSION} (or later)"
   end
 end
 
