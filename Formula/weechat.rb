@@ -41,7 +41,7 @@ class Weechat < Formula
     ]
 
     # Fix error: '__declspec' attributes are not enabled
-    args << "-DCMAKE_C_FLAGS=-fdeclspec"
+    args << "-DCMAKE_C_FLAGS=-fdeclspec" if ENV.compiler == :clang
 
     # Fix system gem on Mojave
     ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
