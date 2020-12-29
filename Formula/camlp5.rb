@@ -1,9 +1,9 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel713.tar.gz"
-  version "7.13"
-  sha256 "bc73a8810552fbd0c905364aba34dba46e3cadae483f89e7e39fa7f7d3be720c"
+  url "https://github.com/camlp5/camlp5/archive/rel714.tar.gz"
+  version "7.14"
+  sha256 "6e84b9bc04e03b05bd1ec15500f0b8f4ef4ea81576a1aa7037ef01c84cf76da5"
   license "BSD-3-Clause"
   head "https://github.com/camlp5/camlp5.git"
 
@@ -13,11 +13,9 @@ class Camlp5 < Formula
   end
 
   bottle do
-    sha256 "4c764d0d4fe553d8ad8594288a90c1ee0c59a918beedb7793c3d00f7ccfe521d" => :big_sur
-    sha256 "42db6069ff94f56ae402349dd6cfb2dd11dcf82bb8976eec981c8c1d4a1bebbc" => :catalina
-    sha256 "27fbf9131d73480ad618b586ea34a54b2487d8a0b0265707a40bc1bc32f5f4a4" => :mojave
-    sha256 "09d7960df4487c5bd0034ca7945d13957341c2053ed618313aed99f293734528" => :high_sierra
-    sha256 "df26f968a9871a9ee85d1a523884e90ba1d7e3d4317dd6dee88efa9bcccc81e4" => :x86_64_linux
+    sha256 "3d9f6ac5cf435fafbbeda6c5501b9739c392ae10f323b6f5ba6d3239f0071e59" => :big_sur
+    sha256 "c1be8fb086af12081aa3d87cf5612c3a9cb8a0b4fef5b87b57616070189d2e72" => :catalina
+    sha256 "4ee98efce126090d985a37c15e1f3a16fecc2b8fbbb247ed7cf202ec2220e058" => :mojave
   end
 
   depends_on "ocaml"

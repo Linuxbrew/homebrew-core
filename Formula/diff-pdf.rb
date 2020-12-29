@@ -9,6 +9,7 @@ class DiffPdf < Formula
   bottle do
     cellar :any
     sha256 "4674469aa1ae2b8d69ca18c68c48c5d498b61d3281bd993619aef4a92d0374d2" => :big_sur
+    sha256 "d4fa7e1f8a275e267966f42fdbbd375c1585189ab956e39ee94bc28affee7c92" => :arm64_big_sur
     sha256 "319eae3538250786dd5eb7f20a65bbdd5b63f457f6faa6ef567f3429a0392c34" => :catalina
     sha256 "b527158c00c42fd70d1019927cc6bedbca7585a4de2369dd7d7d44a6f795482d" => :mojave
     sha256 "ff70399bac883e630fd26f1642663cdc9be51d347b8d6108b5cd068a62eee9b6" => :x86_64_linux

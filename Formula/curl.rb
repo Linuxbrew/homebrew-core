@@ -13,12 +13,11 @@ class Curl < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c6ab851e1535ebea16d0af34a620ca3bf37d2b1b9571ab7a1f4403f859129c10" => :big_sur
-    sha256 "2727fbadda487785e7e7033b045196f6e5f65670d3984366d535f4e7f01dad3d" => :arm64_big_sur
-    sha256 "f3d93b2c3ba69e5c7afd8bb2ff2b2daf67ddc9c5b0a5184a2fa565d9a05b26b2" => :catalina
-    sha256 "c305611273c90a9b973df642e60f31b931ba1276294406d3a910d36472ad45ba" => :mojave
-    sha256 "5f23c22af5f799a399d994b85e46d6e56a89358052660c82a4d3b46f686bba72" => :x86_64_linux
+    rebuild 2
+    sha256 "8189929ebd121b28fc04b5c93503cd7af1e3d5755ccfea080d47056e6068f86f" => :big_sur
+    sha256 "0c9ae84590dcd9d4700fc2fe47badb20cdb6c948c1e351a8a588b23b11087556" => :arm64_big_sur
+    sha256 "18e818ff24895ffd9355c34f79dd92aaf220e16d71ffdef6e2a07c0a6ddb4637" => :catalina
+    sha256 "eb84c59697457a6162f7275f0eff0eefc6ec03de13e467e550d35a496ca19425" => :mojave
   end
 
   head do
@@ -66,10 +65,12 @@ class Curl < Formula
       --without-libpsl
     ]
 
-    args << if OS.mac?
-      "--with-gssapi"
-    else
-      "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+    on_macos do
+      args << "--with-gssapi"
+    end
+
+    on_linux do
+      args << "--with-gssapi=#{Formula["krb5"].opt_prefix}"
     end
 
     system "./configure", *args

@@ -13,11 +13,11 @@ class Poetry < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "231e27ede1813a9465f0100d42b41a729f26a61b031aa7fc516172c4cf82deb5" => :big_sur
-    sha256 "e2f625230fe59cf066cee167d76cdd6713a7b21e5046332ef899ecca9e6e4ca6" => :arm64_big_sur
-    sha256 "548aa4c097e7cc9825fcaa5e3f430e660d1424bbd11bbdb313759b417ce4c83e" => :catalina
-    sha256 "91830c6a9c88cca53bb04d351aa76eba0f37ba259d807be14b6ba0754eb0d48a" => :mojave
-    sha256 "5d5e2b671e9595975c13cc7c91534a0da1915db6500c9023b3255bd4a3c876b8" => :high_sierra
+    rebuild 1
+    sha256 "5bed2df1069a4af8088e65aac9ed18ad6fb3887a2bf5c1681d40ab84ff3bf3ab" => :big_sur
+    sha256 "27c76026e47e0a8fc572fdaea9cde45b0dab4613bdf4d583b91c1561e640ee3f" => :arm64_big_sur
+    sha256 "8266e0c42f1da8180bc22fa150eb9a31b2d776d594ebbc6f9095c54f7beb0f51" => :catalina
+    sha256 "fcd488237a0e10f9d661f26bf22e69b90f179d380970b8aed333b73dc98c2608" => :mojave
   end
 
   depends_on "python@3.9"
@@ -204,6 +204,11 @@ class Poetry < Formula
           from poetry.console import main
           main()
     PYTHON
+
+    # Install shell completions
+    (bash_completion/"poetry").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "bash")
+    (fish_completion/"poetry.fish").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "fish")
+    (zsh_completion/"_poetry").write Utils.safe_popen_read("#{libexec}/bin/poetry", "completions", "zsh")
   end
 
   test do
