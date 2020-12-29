@@ -61,6 +61,7 @@ class Graphviz < Formula
       --without-gdk
       --without-gdk-pixbuf
       --without-gtk
+      --without-poppler
       --without-qt
       --without-x
       --with-gts
