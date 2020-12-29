@@ -16,10 +16,42 @@ class GetFlashVideos < Formula
 
   depends_on "rtmpdump"
 
+  uses_from_macos "perl"
+
   on_linux do
+    resource "Path::Class" do
+      url "https://cpan.metacpan.org/authors/id/K/KW/KWILLIAMS/Path-Class-0.37.tar.gz"
+      sha256 "654781948602386f2cb2e4473a739f17dc6953d92aabc2498a4ca2561bc248ce"
+    end
+
+    resource "Html::Form" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Form-6.07.tar.gz"
+      sha256 "7daa8c7eaff4005501c3431c8bf478d58bbee7b836f863581aa14afe1b4b6227"
+    end
+
+    resource "IO::Socket::SSL" do
+      url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.068.tar.gz"
+      sha256 "4420fc0056f1827b4dd1245eacca0da56e2182b4ef6fc078f107dc43c3fb8ff9"
+    end
+
+    resource "inc::IO::Interactive::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/D/DM/DMUEY/IO-Interactive-Tiny-0.2.tar.gz"
+      sha256 "45c0696505c7e4347845f5cd2512b7b1bc78fbce4cbed2b58008283fc95ea5f9"
+    end
+
+    resource "LWP::Protocol::https" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz"
+      sha256 "cecfc31fe2d4fc854cac47fce13d3a502e8fdfe60c5bc1c09535743185f2a86c"
+    end
+
     resource "Module::Find" do
       url "https://cpan.metacpan.org/authors/id/C/CR/CRENZ/Module-Find-0.13.tar.gz"
       sha256 "4a47862072ca4962fa69796907476049dc60176003e946cf4b68a6b669f18568"
+    end
+
+    resource "Net::SSL" do
+      url "https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz"
+      sha256 "f5d34f813677829857cf8a0458623db45b4d9c2311daaebe446f9e01afa9ffe8"
     end
 
     resource "Try::Tiny" do
