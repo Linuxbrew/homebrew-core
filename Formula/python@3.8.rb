@@ -386,7 +386,7 @@ class PythonAT38 < Formula
 
     # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
     # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
-    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
+    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac? && MacOS.full_version < "11.1"
 
     system bin/"pip3", "list", "--format=columns"
   end
