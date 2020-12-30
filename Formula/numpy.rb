@@ -12,7 +12,6 @@ class Numpy < Formula
   end
 
   bottle do
-    cellar :any
     sha256 "fb2e87332b99e24056b915e28a78e17a33c1a13547e2cc144760646421aee01d" => :big_sur
     sha256 "a32c273bf47a9304a415ea8c58b801e255eb69f3fbc1c3054c03ecdba0e0da13" => :arm64_big_sur
     sha256 "ed781d5ce1f7c7a8495860b27b577cc83fd4eb056ad2f7f2c630a17141ccd0e8" => :catalina
