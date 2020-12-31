@@ -55,6 +55,12 @@ class Pypy < Formula
   end
 
   def install
+    unless OS.mac?
+      ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
+      ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
+      ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
+    end
+
     # Fix Xcode 12 implicit function declaration errors.
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if OS.mac?
 
