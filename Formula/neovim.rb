@@ -31,7 +31,6 @@ class Neovim < Formula
   depends_on "unibilium"
   unless OS.mac?
     depends_on "unzip" => :build
-    depends_on "gperf"
     depends_on "libnsl"
   end
 
