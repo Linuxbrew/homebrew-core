@@ -23,10 +23,6 @@ class Neomutt < Formula
   depends_on "notmuch"
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
-  unless OS.mac?
-    depends_on "krb5"
-    depends_on "libsasl2"
-  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
