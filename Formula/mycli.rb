@@ -22,7 +22,6 @@ class Mycli < Formula
 
   depends_on "openssl@1.1"
   depends_on "python@3.9"
-  depends_on "libffi" unless OS.mac?
 
   on_linux do
     depends_on "pkg-config" => :build
