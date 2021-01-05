@@ -4,6 +4,7 @@ class Libxkbcommon < Formula
   url "https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz"
   sha256 "a2202f851e072b84e64a395212cbd976ee18a8ee602008b0bad02a13247dbc52"
   license "MIT"
+  revision 1
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
@@ -11,7 +12,6 @@ class Libxkbcommon < Formula
     sha256 "cc43be6e1d1abb749ea93f341e31831364c5ea3f04e2db7ea32f7d448f4a8901" => :arm64_big_sur
     sha256 "5b76e52807e849d2ca9932ed7c0f7c6e73679bdd58d64315e5ce5e1c91c281a6" => :catalina
     sha256 "2a29cadcc1919e3b4d2775574d971ac45954b5c335194332c039b075aa42da5d" => :mojave
-    sha256 "44606fc2b106ab7aa4541418e31dfe9088953dc1769b8a75c40578f3f76273ab" => :x86_64_linux
   end
 
   depends_on "bison" => :build
@@ -29,7 +29,7 @@ class Libxkbcommon < Formula
       -Denable-wayland=false
       -Denable-docs=false
       -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
-      -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/locale
+      -Dx-locale-root=#{HOMEBREW_PREFIX}/share/X11/locale
     ]
     mkdir "build" do
       system "meson", *std_meson_args, *args, ".."
