@@ -16,13 +16,13 @@ class OpenjdkAT8 < Formula
 
   keg_only :versioned_formula
 
-  ignore_missing_libraries %w[libjvm.so libawt_xawt.so] if OS.linux?
+  ignore_missing_libraries %w[libjvm.so libawt_xawt.so] unless OS.mac?
 
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
-  on_linux do
+  unless OS.mac?
     depends_on "alsa-lib"
     depends_on "cups"
     depends_on "fontconfig"
