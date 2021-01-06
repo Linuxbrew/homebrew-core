@@ -21,8 +21,6 @@ class Fcgi < Formula
   depends_on "libtool" => :build
 
   def install
-    ENV.deparallelize unless OS.mac?
-
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
