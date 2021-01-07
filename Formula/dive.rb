@@ -19,7 +19,6 @@ class Dive < Formula
   depends_on "go" => :build
   depends_on "gpgme" => :build
   depends_on "pkg-config" => :build
-  depends_on "device-mapper" unless OS.mac?
 
   on_linux do
     depends_on "gpgme" => :build
