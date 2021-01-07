@@ -19,6 +19,10 @@ class Libproxy < Formula
 
   uses_from_macos "perl"
 
+  on_linux do
+    depends_on "dbus"
+  end
+
   unless OS.mac?
     fails_with gcc: "5"
     fails_with gcc: "6"
