@@ -92,8 +92,10 @@ class MingwW64 < Formula
         --disable-nls
         --enable-threads=posix
       ]
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
+      on_macos do
+        # Avoid reference to sed shim
+        args << "SED=/usr/bin/sed"
+      end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
@@ -151,14 +153,6 @@ class MingwW64 < Formula
       # Symlinks all binaries into place
       mkdir_p bin
       Dir["#{arch_dir}/bin/*"].each { |f| ln_s f, bin }
-    end
-
-    # Strip ELF files to reduce their size.
-    unless OS.mac?
-      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
-        f = Pathname.new(f)
-        f.file? && f.elf?
-      end)
     end
   end
 
