@@ -26,11 +26,6 @@ class Task < Formula
 
   depends_on "cmake" => :build
   depends_on "gnutls"
-  unless OS.mac?
-    depends_on "util-linux" # for libuuid
-    depends_on "linux-headers"
-    depends_on "readline"
-  end
 
   on_linux do
     depends_on "linux-headers"
