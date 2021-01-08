@@ -11,7 +11,6 @@ class GnuTar < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "14c85bf6742a4055f0a6d3444993af7866d4963cd264eb2f2419bfe07cafda74" => :big_sur
     sha256 "992da32921e3033679cc2323a34f21e0c847661aedf0d8c59e04c2d6a47fed45" => :arm64_big_sur
     sha256 "f99e9b8b33b9fd07a04bf6661cbc3e56267f2b682f2ffd12d3775c7838795381" => :catalina
