@@ -25,12 +25,17 @@ class Jupyterlab < Formula
   depends_on "zeromq"
 
   uses_from_macos "expect" => :test
+  uses_from_macos "libffi"
 
   on_macos do
     resource "appnope" do
       url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
       sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
     end
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
   end
 
   resource "anyio" do
