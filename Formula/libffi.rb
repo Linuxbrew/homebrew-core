@@ -6,7 +6,7 @@ class Libffi < Formula
   mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
   sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
   license "MIT"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any
@@ -14,7 +14,6 @@ class Libffi < Formula
     sha256 "a152fa7616e05f95c0b4309ea40c84815bdf6973a684d4494956727ea70cac9b" => :arm64_big_sur
     sha256 "ebe0ab83adc6d1141296e9f1645e21bef62805e7d067249c057c937988a5999b" => :catalina
     sha256 "a8bfa1ff95aa296ca25bc522267665f04516603e668829d72dbc22ea8f9c21b3" => :mojave
-    sha256 "85e4947dcffab00884e69c0ff01ab97283becb0a2cf88a94917018e36a3a88c7" => :x86_64_linux
   end
 
   head do
@@ -26,10 +25,12 @@ class Libffi < Formula
 
   keg_only :provided_by_macos
 
-  # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4a91e61/libffi/libffi-3.3-arm64.patch"
-    sha256 "ee084f76f69df29ed0fa1bc8957052cadc3bbd8cd11ce13b81ea80323f9cb4a3"
+  on_macos do
+    # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4a91e61/libffi/libffi-3.3-arm64.patch"
+      sha256 "ee084f76f69df29ed0fa1bc8957052cadc3bbd8cd11ce13b81ea80323f9cb4a3"
+    end
   end
 
   def install
