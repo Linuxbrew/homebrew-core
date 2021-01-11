@@ -21,6 +21,7 @@ class Profanity < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build unless OS.mac?
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gpgme"
@@ -37,6 +38,8 @@ class Profanity < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" unless OS.mac?
+
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
