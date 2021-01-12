@@ -4,11 +4,10 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.5.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.5.tar.xz"
-  sha256 "f2f23f3197957d89e54b87cf8fc42ab00e1b74f3a32090efe9acd08443f3e0dd"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.7.1.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.7.1.tar.xz"
+  sha256 "0aad2de687f797ef8ebdabc7bafd16dc1497f1ce23bd9146f9aa73f396a5636f"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/dpkg/"
@@ -16,10 +15,9 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 "3d26c34cebe35d59aa12bf67d5402a6b1e233951a548e852362c15b943c5968a" => :big_sur
-    sha256 "38c63631f4feda8dd19380fefdfcfb5d3853c42755fff3a1026f81c1e8d37851" => :catalina
-    sha256 "b5208a55481fa889d0fdd14b918b74cea2b6670728b2f613515f2cd0be23ccc6" => :mojave
-    sha256 "e478d3d6576bdc8a401a56e2c891ea96f054939fe44a4af200251fad5836c99b" => :x86_64_linux
+    sha256 "98559763f10864c5abc70a89c611c02fa96388096d273fbb70082a74dd5dcea5" => :big_sur
+    sha256 "ed00b85c2d82dbe87ceb6c61d1af774544186d7d46a6b4229c234ce53984fcc4" => :catalina
+    sha256 "0ba7f0d1822ecd02c8f334cbe9c43fb9ebc0df6ee701641fcb0155ad7b093559" => :mojave
   end
 
   depends_on "pkg-config" => :build

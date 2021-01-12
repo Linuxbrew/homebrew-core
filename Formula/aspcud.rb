@@ -1,26 +1,21 @@
 class Aspcud < Formula
   desc "Package dependency solver"
   homepage "https://potassco.org/aspcud/"
-  url "https://github.com/potassco/aspcud/archive/v1.9.4.tar.gz"
-  sha256 "3645f08b079e1cc80e24cd2d7ae5172a52476d84e3ec5e6a6c0034492a6ea885"
+  url "https://github.com/potassco/aspcud/archive/v1.9.5.tar.gz"
+  sha256 "9cd3a9490d377163d87b16fa1a10cc7254bc2dbb9f60e846961ac8233f3835cf"
   license "MIT"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "5696aa5e1520bbdb4d6c279944325ab6b2bc0e0b109e648037bbec0aad880938" => :big_sur
-    sha256 "3271ff048eea3fb3bbf5b22b8f59bce767362cf2b5e15935be0b407fba8914fd" => :catalina
-    sha256 "3363c5cfa7f9ad4dd35ddb172c5eb878a504000bae59a477e5ea9246fe27680a" => :mojave
+    sha256 "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036" => :big_sur
+    sha256 "c984eb4cfd2892c3cca7df260064546275a82fa02c01996ee65ecdf8973f27cb" => :arm64_big_sur
+    sha256 "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a" => :catalina
+    sha256 "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add" => :mojave
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "re2c" => :build
   depends_on "clingo"
-
-  # Fix for compatibility with Boost >= 1.74
-  # https://github.com/potassco/aspcud/issues/7
-  patch :DATA
 
   def install
     args = std_cmake_args
@@ -44,16 +39,3 @@ class Aspcud < Formula
     system "#{bin}/aspcud", "in.cudf", "out.cudf"
   end
 end
-__END__
-diff -pur aspcud-1.9.4-old/libcudf/src/dependency.cpp aspcud-1.9.4/libcudf/src/dependency.cpp
---- aspcud-1.9.4-old/libcudf/src/dependency.cpp	2017-09-19 12:48:41.000000000 +0200
-+++ aspcud-1.9.4/libcudf/src/dependency.cpp	2020-11-17 15:39:33.000000000 +0100
-@@ -473,7 +473,7 @@ void ConflictGraph::cliques_(bool verbos
-         }
-         else {
-             PackageList candidates = component, next;
--            boost::sort(candidates, boost::bind(&ConflictGraph::edgeSort, this, _1, _2));
-+            boost::sort(candidates, boost::bind(&ConflictGraph::edgeSort, this, boost::placeholders::_1, boost::placeholders::_2));
-             // TODO: sort by out-going edges
-             do {
-                 cliques.push_back(PackageList());

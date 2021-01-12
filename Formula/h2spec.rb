@@ -19,7 +19,7 @@ class H2spec < Formula
   depends_on "go" => :build
 
   def install
-    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
+    commit = Utils.git_short_head(buildpath)
     ldflags = %W[
       -s -w
       -X main.VERSION=#{version}
