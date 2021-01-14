@@ -6,7 +6,6 @@ class Gleam < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     sha256 "216a1d09710c5878220146453ae52ee6e5011c5a96de4f70fa7c86938d929ea0" => :big_sur
     sha256 "52530d8d876d7558a890bf6ee3b19ebab23f23b0cdd56f623474904fc11b639b" => :arm64_big_sur
     sha256 "131b2d2529b51116ac5e08c7d31ce20b8a95b7847e4366c56765fbbd0c45bebb" => :catalina
