@@ -4,6 +4,7 @@ class Jasper < Formula
   url "https://github.com/jasper-software/jasper/archive/version-2.0.24.tar.gz"
   sha256 "d2d28e115968d38499163cf8086179503668ce0d71b90dd33855b3de96a1ca1d"
   license "JasPer-2.0"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 "d3ec3a84be1bd061d7c64ef8434f126d1e6d6f086d177405b2e8e9c7651dcc79" => :big_sur
