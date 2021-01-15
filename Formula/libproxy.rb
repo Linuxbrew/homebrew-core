@@ -4,6 +4,7 @@ class Libproxy < Formula
   url "https://github.com/libproxy/libproxy/archive/0.4.17.tar.gz"
   sha256 "88c624711412665515e2800a7e564aabb5b3ee781b9820eca9168035b0de60a9"
   license "LGPL-2.1-or-later"
+  revision 1 unless OS.mac?
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
@@ -19,13 +20,10 @@ class Libproxy < Formula
 
   uses_from_macos "perl"
 
-  on_linux do
-    depends_on "dbus"
-  end
-
   unless OS.mac?
     fails_with gcc: "5"
     fails_with gcc: "6"
+    depends_on "dbus"
     depends_on "gcc@7"
     depends_on "glib"
   end
