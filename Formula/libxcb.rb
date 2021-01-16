@@ -4,6 +4,7 @@ class Libxcb < Formula
   url "https://xcb.freedesktop.org/dist/libxcb-1.14.tar.gz"
   sha256 "2c7fcddd1da34d9b238c9caeda20d3bd7486456fc50b3cc6567185dbd5b0ad02"
   license "MIT"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
@@ -12,11 +13,10 @@ class Libxcb < Formula
     sha256 "8775b3a19f927b57ca4077211b25898c6481318ff1cddb3098c61903ae832b1f" => :catalina
     sha256 "8a13efa25000a0695280f5465186f7511e9083685a49560d0dc5d7cc837a1cfa" => :mojave
     sha256 "e56b657f223ac78f4f600fe057dd8ab12303be5f4f0f5b61eb94443d10fb4cf4" => :high_sierra
-    sha256 "fd4179c3ce85bc3e3821271053e963f7c9823b189cc67b0f9482ada58f0a5598" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.8" => :build
   depends_on "xcb-proto" => :build
   depends_on "libpthread-stubs"
   depends_on "libxau"
