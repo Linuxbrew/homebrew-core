@@ -4,7 +4,7 @@ class XcbProto < Formula
   url "https://xcb.freedesktop.org/dist/xcb-proto-1.14.tar.gz"
   sha256 "1c3fa23d091fb5e4f1e9bf145a902161cec00d260fabf880a7a248b02ab27031"
   license "MIT"
-  revision OS.mac? ? 1 : 4
+  revision OS.mac? ? 1 : 5
 
   bottle do
     cellar :any_skip_relocation
@@ -12,11 +12,10 @@ class XcbProto < Formula
     sha256 "b517e748dd151eae431d41c7f245a06df71a36f9be201e3b53560df5746bada6" => :arm64_big_sur
     sha256 "ffa4de426e5779c26533a004ea07f4806af7b2c6c258cbb1099ef328f7a44658" => :catalina
     sha256 "ea079de49278e1432c77933a08cbdccab4c0d5d5cccd681c09ea9384b9459a3a" => :mojave
-    sha256 "89855a4e63062fb1ab45c36d1feacbafdbb101faa048acc2d8fa818eab1fdb3d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.9" => :build
+  depends_on "python@3.8" => :build
 
   # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
   # fractions.gcd() has been deprecated since Python 3.5.
