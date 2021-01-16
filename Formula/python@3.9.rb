@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz"
   sha256 "991c3f8ac97992f3d308fefeb03a64db462574eadbff34ce8bc5bb583d9903ff"
   license "Python-2.0"
-  revision 6
+  revision OS.mac? ? 6 : 7
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -16,7 +16,6 @@ class PythonAT39 < Formula
     sha256 "7f82ca7930bbb463ae58bec9f40443c7f1b369c54c68bc2b56c7e73c59f46a29" => :arm64_big_sur
     sha256 "34f5d1a82cb72accee802e949eb30d37545a12290d0b9ed8e13ba9ad00f7836a" => :catalina
     sha256 "931abae2981e2390b1a478195c377637ad90e91ac70792fa0ae475e123c9036e" => :mojave
-    sha256 "a5714fbbb5d1c1561818f62e4ca73248374c0bfdd5e0cb733cf1631e0da7d6c4" => :x86_64_linux
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -37,7 +36,7 @@ class PythonAT39 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
-  depends_on "tcl-tk" if OS.mac?
+  depends_on "tcl-tk"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -138,10 +137,8 @@ class PythonAT39 < Formula
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
 
-    if OS.mac?
-      args << "--with-tcltk-includes=-I#{Formula["tcl-tk"].opt_include}"
-      args << "--with-tcltk-libs=-L#{Formula["tcl-tk"].opt_lib} -ltcl8.6 -ltk8.6"
-    end
+    args << "--with-tcltk-includes=-I#{Formula["tcl-tk"].opt_include}"
+    args << "--with-tcltk-libs=-L#{Formula["tcl-tk"].opt_lib} -ltcl8.6 -ltk8.6"
 
     # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
@@ -329,19 +326,11 @@ class PythonAT39 < Formula
       s.gsub! /_PIP_VERSION = .*/, "_PIP_VERSION = \"#{pip_version}\""
     end
 
-    if OS.mac?
-      # Help distutils find brewed stuff when building extensions
-      include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
-                      Formula["sqlite"].opt_include, Formula["tcl-tk"].opt_include]
-      library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
-                      Formula["sqlite"].opt_lib, Formula["tcl-tk"].opt_lib]
-    else
-      # Help distutils find brewed stuff when building extensions
-      include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
-                      Formula["sqlite"].opt_include]
-      library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
-                      Formula["sqlite"].opt_lib]
-    end
+    # Help distutils find brewed stuff when building extensions
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
+                    Formula["sqlite"].opt_include, Formula["tcl-tk"].opt_include]
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
+                    Formula["sqlite"].opt_lib, Formula["tcl-tk"].opt_lib]
 
     cfg = lib_cellar/"distutils/distutils.cfg"
 
@@ -416,8 +405,13 @@ class PythonAT39 < Formula
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
+    system "#{bin}/python#{version.major_minor}", "-c", "import tkinter"
     on_macos do
       system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
+    end
+    on_linux do
+      # Fails with: no display name and no $DISPLAY environment variable on CI
+      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()" unless ENV["CI"]
     end
 
     # Verify that the selected DBM interface works
