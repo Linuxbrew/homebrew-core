@@ -70,7 +70,7 @@ class Openjdk < Formula
     end
   end
 
-  unless Hardware::CPU.arm?
+  if OS.mac? && !Hardware::CPU.arm?
     # Fix build on Xcode 12
     # https://bugs.openjdk.java.net/browse/JDK-8253375
     patch do
@@ -87,11 +87,13 @@ class Openjdk < Formula
   end
 
   def install
-    # Path to dual-arch JavaNativeFoundation.framework from Xcode
-    framework_path = File.expand_path(
-      "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-      MacOS::Xcode.prefix,
-    )
+    if OS.mac?
+      # Path to dual-arch JavaNativeFoundation.framework from Xcode
+      framework_path = File.expand_path(
+        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
+        MacOS::Xcode.prefix,
+      )
+    end
 
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
