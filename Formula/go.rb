@@ -72,9 +72,11 @@ class Go < Formula
 
     cd "src" do
       on_linux do
+        ENV["HOMEBREW_GO_CC"] = "gcc"
+        ENV["HOMEBREW_GO_CXX"] = "g++"
         inreplace "cmd/dist/build.go" do |s|
-          s.gsub! "CC", "HOMEBREW_CC"
-          s.gsub! "CXX", "HOMEBREW_CXX"
+          s.gsub! "CC", "HOMEBREW_GO_CC"
+          s.gsub! "CXX", "HOMEBREW_GO_CXX"
         end
       end
       ENV["GOROOT_FINAL"] = libexec
