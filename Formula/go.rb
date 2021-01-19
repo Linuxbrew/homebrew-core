@@ -2,6 +2,7 @@ class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
 
   stable do
     if Hardware::CPU.arm?
@@ -31,7 +32,6 @@ class Go < Formula
     sha256 "c2bd24b5a24c19bfdf97a8904aaa76c4db2a8f59096aade83310fee7af4b186c" => :arm64_big_sur
     sha256 "9dac57ef268c5fee434ac7896fc77f16f16f34462822e216c9973ade6a768e0b" => :catalina
     sha256 "af0b8702944cde293206a5847bea8fb5aed66babed82fb202aff696ac5211691" => :mojave
-    sha256 "1f9fe5de75650da3e328b763ffc7a3c807c271b1029cab6859b1d291036c73fd" => :x86_64_linux
   end
 
   head do
@@ -72,7 +72,15 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      system "./make.bash", "--no-clean"
+      on_macos do
+        system "./make.bash", "--no-clean"
+      end
+      on_linux do
+        env = {
+          "CC" => "gcc",
+        }
+        system env, "./make.bash", "--no-clean"
+      end
     end
 
     (buildpath/"pkg/obj").rmtree
