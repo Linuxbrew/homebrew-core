@@ -71,16 +71,14 @@ class Go < Formula
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
-      ENV["GOROOT_FINAL"] = libexec
-      on_macos do
-        system "./make.bash", "--no-clean"
-      end
       on_linux do
-        env = {
-          "CC" => "gcc",
-        }
-        system env, "./make.bash", "--no-clean"
+        inreplace "cmd/dist/build.go" do |s|
+          s.gsub! "CC", "HOMEBREW_CC"
+          s.gsub! "CXX", "HOMEBREW_CXX"
+        end
       end
+      ENV["GOROOT_FINAL"] = libexec
+      system "./make.bash", "--no-clean"
     end
 
     (buildpath/"pkg/obj").rmtree
