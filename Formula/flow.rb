@@ -20,6 +20,12 @@ class Flow < Formula
   uses_from_macos "rsync" => :build
   uses_from_macos "unzip" => :build
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    depends_on "gcc@7"
+  end
+
   def install
     system "make", "all-homebrew"
 
