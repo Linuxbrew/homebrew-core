@@ -22,7 +22,7 @@ class Ahcpd < Formula
   patch :DATA
 
   def install
-    system "make", "LDLIBS=''" if OS.mac?
+    system "make", "LDLIBS=''"
     system "make", "install", "PREFIX=", "TARGET=#{prefix}"
   end
 
