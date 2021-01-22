@@ -7,6 +7,7 @@ class GccAT10 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
   sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   license "GPL-3.0"
+  revision 1 unless OS.mac?
 
   # gcc is designed to be portable.
   # always add cellar :any
@@ -14,7 +15,6 @@ class GccAT10 < Formula
     sha256 cellar: :any, catalina:     "8dbccea194c20b1037b7e8180986e98a8ee3e37eaac12c7d223c89be3deaac6a"
     sha256 cellar: :any, mojave:       "79d2293ce912dc46af961f30927b31eb06844292927be497015496f79ac41557"
     sha256 cellar: :any, high_sierra:  "5ed870a39571614dc5d83be26d73a4164911f4356b80d9345258a4c1dc3f1b70"
-    sha256 cellar: :any, x86_64_linux: "e9e51cd64087aacc4cb30ed4fb4a5007275aaff0d41f0ca6546d81bd26fc4d34"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
