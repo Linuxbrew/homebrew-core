@@ -20,6 +20,7 @@ class Faust < Formula
   depends_on "llvm"
 
   def install
+    ENV.cxx11 unless OS.mac?
     system "make", "world"
     system "make", "install", "PREFIX=#{prefix}"
   end
