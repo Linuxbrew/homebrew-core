@@ -10,7 +10,6 @@ class Mcrypt < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 4
     sha256 "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7" => :big_sur
     sha256 "849ffa4e23dff9bff130c10d8ace02994034120b7d97ad36e9d7f6e8c048f97a" => :arm64_big_sur
