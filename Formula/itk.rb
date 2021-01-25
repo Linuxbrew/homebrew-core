@@ -31,8 +31,6 @@ class Itk < Formula
     depends_on "unixodbc"
   end
 
-  depends_on "glibc" unless OS.mac?
-
   def install
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
@@ -56,14 +54,8 @@ class Itk < Formula
       -DITK_LEGACY_REMOVE=ON
       -DModule_ITKReview=ON
       -DModule_ITKVtkGlue=ON
+      -DITK_USE_GPU=ON
     ]
-
-    # Requires OpenCL on Linux which is not available in Homebrew
-    args << if OS.mac?
-      "-DITK_USE_GPU=ON"
-    else
-      "-DITK_USE_GPU=OFF"
-    end
 
     # Avoid references to the Homebrew shims directory
     inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
@@ -98,15 +90,14 @@ class Itk < Formula
     EOS
 
     v = version.major_minor
-    suffix = OS.mac? ? "#{v}.1.dylib" : "#{v}.so.1"
     # Build step
     system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test",
-                    "#{lib}/libITKCommon-#{suffix}",
-                    "#{lib}/libITKVNLInstantiation-#{suffix}",
-                    "#{lib}/libitkvnl_algo-#{suffix}",
-                    "#{lib}/libitkvnl-#{suffix}"
+                    "#{lib}/libITKCommon-#{v}.1.dylib",
+                    "#{lib}/libITKVNLInstantiation-#{v}.1.dylib",
+                    "#{lib}/libitkvnl_algo-#{v}.1.dylib",
+                    "#{lib}/libitkvnl-#{v}.1.dylib"
     system "./test"
   end
 end
