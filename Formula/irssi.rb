@@ -47,7 +47,6 @@ class Irssi < Formula
       --with-bot
       --with-proxy
       --enable-true-color
-      --with-ncurses=#{OS.mac? ? MacOS.sdk_path/"usr" : Formula["ncurses"].prefix}
       --with-socks=no
       --with-perl=yes
       --with-perl-lib=#{lib}/perl5/site_perl
