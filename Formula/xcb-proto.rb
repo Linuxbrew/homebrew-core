@@ -1,6 +1,6 @@
 class Python3Requirement < Requirement
   fatal true
-  satisfy { which "python3" }
+  satisfy(build_env: false) { which "python3" }
   def message
     <<~EOS
       An existing Python 3 installation is required in order to avoid cyclic
@@ -15,20 +15,19 @@ class XcbProto < Formula
   url "https://xcb.freedesktop.org/dist/xcb-proto-1.14.tar.gz"
   sha256 "1c3fa23d091fb5e4f1e9bf145a902161cec00d260fabf880a7a248b02ab27031"
   license "MIT"
-  revision OS.mac? ? 2 : 5
+  revision OS.mac? ? 2 : 6
 
   bottle do
     cellar :any_skip_relocation
     sha256 "295206b2f973ca7957c5a83e396cf3039ea5ba05ba89c7ffb522a5de7d46f2a4" => :big_sur
     sha256 "1f13d33d3ab624a21045627ce965de2017099acfe47b977f69b86c76816f9eee" => :arm64_big_sur
     sha256 "eed4f1429bd7e504075db32c1ca1c93bc9623efc8a5ca624047fba7d866e99f8" => :catalina
-    sha256 "5ebb42d57c95c12448e53231b050c5cbeba53b3b089f07a45116b8a944d0f757" => :x86_64_linux
   end
 
   depends_on "pkg-config" => [:build, :test]
   # Use Python 3, to avoid a cyclic dependency on Linux:
   # python3 -> tcl-tk -> libx11 -> libxcb -> xcb-proto -> python3
-  depends_on "python@3.9" => :build
+  depends_on Python3Requirement => :build
 
   # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
   # fractions.gcd() has been deprecated since Python 3.5.
