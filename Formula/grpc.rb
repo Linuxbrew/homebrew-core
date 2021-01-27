@@ -38,7 +38,8 @@ class Grpc < Formula
   unless OS.mac?
     fails_with gcc: "4"
     fails_with gcc: "5"
-    depends_on "gcc@6" => :build
+    fails_with gcc: "6"
+    depends_on "gcc@7" => :build
   end
 
   def install
