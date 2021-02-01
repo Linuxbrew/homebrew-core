@@ -4,6 +4,7 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20200923.3.tar.gz"
   sha256 "ebe2ad1480d27383e4bf4211e2ca2ef312d5e6a09eba869fd2e8a5c5d553ded2"
   license "Apache-2.0"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -11,10 +12,16 @@ class Abseil < Formula
     sha256 "0b4448de8c7a176da27c895da37c7edbadabd304a2d5ddb76c7d134f7b130e4d" => :arm64_big_sur
     sha256 "648a6091da13e90637b3579249ae8821292ca96efb95cd1d4a5a649d553c6ef6" => :catalina
     sha256 "0879e0af3745923b219e99af5355100a4a8e4c944167414e038633a6779736d0" => :mojave
-    sha256 "915ad9fffb1a0424cefa70423a20ccd73b7bc84e7bec469c25cd0e2e0a6e2758" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
+
+  unless OS.mac?
+    fails_with gcc: "4"
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    depends_on "gcc@7" => :build
+  end
 
   def install
     mkdir "build" do
