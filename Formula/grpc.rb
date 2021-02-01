@@ -53,7 +53,7 @@ class Grpc < Formula
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
-        -DgRPC_ABSL_PROVIDER=package
+        -DgRPC_ABSL_PROVIDER=module
         -DgRPC_CARES_PROVIDER=package
         -DgRPC_PROTOBUF_PROVIDER=package
         -DgRPC_SSL_PROVIDER=package
