@@ -16,12 +16,18 @@ class Abseil < Formula
 
   depends_on "cmake" => :build
 
+  unless OS.mac?
+    fails_with :gcc "5"
+    fails_with :gcc "6"
+    depends_on "gcc@7" => :build
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..",
                       *std_cmake_args,
                       "-DCMAKE_INSTALL_RPATH=#{lib}",
-                      "-DABSL_CXX_STANDARD=17",
+                      "-DCMAKE_CXX_STANDARD=17",
                       "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
