@@ -39,7 +39,7 @@ class Grpc < Formula
     fails_with gcc: "4"
     fails_with gcc: "5"
     fails_with gcc: "6"
-    depends_on "gcc@7" => :build
+    depends_on "gcc@7" => [:build, :test]
   end
 
   def install
