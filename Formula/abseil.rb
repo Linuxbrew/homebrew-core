@@ -21,7 +21,7 @@ class Abseil < Formula
       system "cmake", "..",
                       *std_cmake_args,
                       "-DCMAKE_INSTALL_RPATH=#{lib}",
-                      "-DCMAKE_CXX_STANDARD=17",
+                      "-DABSL_CXX_STANDARD=17",
                       "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
