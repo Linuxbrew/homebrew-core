@@ -4,7 +4,7 @@ class Libarchive < Formula
   url "https://www.libarchive.org/downloads/libarchive-3.5.1.tar.xz"
   sha256 "0e17d3a8d0b206018693b27f08029b598f6ef03600c2b5d10c94ce58692e299b"
   license "BSD-2-Clause"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://libarchive.org/downloads/"
@@ -16,7 +16,6 @@ class Libarchive < Formula
     sha256 cellar: :any, big_sur:       "1c23bc3fa56221b24bf500672f2f2934cf3d5846d7a3dabda169f424955344a9"
     sha256 cellar: :any, catalina:      "7af1a019eb165fd3ca3ba1e6b09f2d1b44dc99d14a5d5b148462a8cd6b1d73b6"
     sha256 cellar: :any, mojave:        "b0bd53d1118459d5acdc4a22c77ba5d273cb8249b5cdbbaf2800d633debfa415"
-    sha256 cellar: :any, x86_64_linux:  "5bdfb9b8bae7b9ff040d08a70690071ef796baf50bc57134d2e2a6ee47c13c58"
   end
 
   keg_only :provided_by_macos
@@ -41,13 +40,11 @@ class Libarchive < Formula
 
     system "make", "install"
 
-    if OS.mac?
-      # Just as apple does it.
-      ln_s bin/"bsdtar", bin/"tar"
-      ln_s bin/"bsdcpio", bin/"cpio"
-      ln_s man1/"bsdtar.1", man1/"tar.1"
-      ln_s man1/"bsdcpio.1", man1/"cpio.1"
-    end
+    # Just as apple does it.
+    ln_s bin/"bsdtar", bin/"tar"
+    ln_s bin/"bsdcpio", bin/"cpio"
+    ln_s man1/"bsdtar.1", man1/"tar.1"
+    ln_s man1/"bsdcpio.1", man1/"cpio.1"
   end
 
   test do
