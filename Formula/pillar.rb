@@ -7,12 +7,11 @@ class Pillar < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4edab61108a48ddf41f90c46872bbced08a6fb600ed84b8faa2a270be2d4eea4" => :big_sur
-    sha256 "8aac25711310b56913c1838c9d6b4ef72af78ade7b20ca0f5b8519805854e285" => :catalina
-    sha256 "935f68b739a2d86174a045032b5606fffb8c1fa4f7ef74fd0aabc6608dfe068a" => :mojave
-    sha256 "74bd2dde375b70f3a6ad14c7c55bc511d372998d4901daebd627f0ca5200c6bd" => :high_sierra
-    sha256 "a7dc340ce3aa41a63e5fbebefd53fa9f255618f914f02649720b7bd7121cba4a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "4edab61108a48ddf41f90c46872bbced08a6fb600ed84b8faa2a270be2d4eea4"
+    sha256 cellar: :any_skip_relocation, catalina:     "8aac25711310b56913c1838c9d6b4ef72af78ade7b20ca0f5b8519805854e285"
+    sha256 cellar: :any_skip_relocation, mojave:       "935f68b739a2d86174a045032b5606fffb8c1fa4f7ef74fd0aabc6608dfe068a"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "74bd2dde375b70f3a6ad14c7c55bc511d372998d4901daebd627f0ca5200c6bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a7dc340ce3aa41a63e5fbebefd53fa9f255618f914f02649720b7bd7121cba4a"
   end
 
   depends_on "sbt" => :build

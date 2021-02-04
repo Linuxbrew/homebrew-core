@@ -6,13 +6,12 @@ class Xorgproto < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "544326e121b491df07548620fd34df91c127b041e5f2f633f12e01738ea349a7" => :big_sur
-    sha256 "a9fc28b855d68d640fdd985de0dd67f2a6aff09c12cef16e85adbd13aaef75da" => :arm64_big_sur
-    sha256 "b50060e1137a990a6cb6c873c4f2bf8383af62285fdb229445d2d160f84d0736" => :catalina
-    sha256 "0809cb3a8941d8e3994a9f940e181b465fb67db49e8dc2e434fbd53d10f04e3c" => :mojave
-    sha256 "11537fb587e7d0e539a60850f62327ded423b635969e846865dbdded481d24c8" => :high_sierra
-    sha256 "74828e2ef34f78e2716e93a71ef8f3610093808c17f9e3a880d76bac597cbec0" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9fc28b855d68d640fdd985de0dd67f2a6aff09c12cef16e85adbd13aaef75da"
+    sha256 cellar: :any_skip_relocation, big_sur:       "544326e121b491df07548620fd34df91c127b041e5f2f633f12e01738ea349a7"
+    sha256 cellar: :any_skip_relocation, catalina:      "b50060e1137a990a6cb6c873c4f2bf8383af62285fdb229445d2d160f84d0736"
+    sha256 cellar: :any_skip_relocation, mojave:        "0809cb3a8941d8e3994a9f940e181b465fb67db49e8dc2e434fbd53d10f04e3c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "11537fb587e7d0e539a60850f62327ded423b635969e846865dbdded481d24c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74828e2ef34f78e2716e93a71ef8f3610093808c17f9e3a880d76bac597cbec0"
   end
 
   depends_on "pkg-config" => [:build, :test]

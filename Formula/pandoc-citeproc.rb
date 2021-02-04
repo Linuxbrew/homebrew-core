@@ -7,10 +7,10 @@ class PandocCiteproc < Formula
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "518ed9646d3a165b413a4222d87d5148130891fc2505f2e71e20e05507131992" => :catalina
-    sha256 "fbbe846a5843e8e0de7d7bafa3ff3af2600c4fbb8ee2e50a05286ac02de52f6e" => :mojave
-    sha256 "dfd25614701ee6cfdbe4ec0d6e67a9e54f6c08ded7f8b3de65f1db621fdc72dc" => :high_sierra
-    sha256 "7d4e2e8e38dfb5b3598dc02d14bf4b72d21d6f4ab5e15074059e9a8ddd8e8b62" => :x86_64_linux
+    sha256 catalina:     "518ed9646d3a165b413a4222d87d5148130891fc2505f2e71e20e05507131992"
+    sha256 mojave:       "fbbe846a5843e8e0de7d7bafa3ff3af2600c4fbb8ee2e50a05286ac02de52f6e"
+    sha256 high_sierra:  "dfd25614701ee6cfdbe4ec0d6e67a9e54f6c08ded7f8b3de65f1db621fdc72dc"
+    sha256 x86_64_linux: "7d4e2e8e38dfb5b3598dc02d14bf4b72d21d6f4ab5e15074059e9a8ddd8e8b62"
   end
 
   # https://github.com/jgm/pandoc-citeproc/commit/473378e588c40a6c3cb3b24330431b89cf4f81b4

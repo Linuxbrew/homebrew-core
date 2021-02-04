@@ -13,12 +13,11 @@ class Buku < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "ac5450196f6df19e734b6072aa9b6fd315520ffd87de0e58bfc3bd88523a73c9" => :big_sur
-    sha256 "754323aacff4caa8fe20fab1aca7f33131375493ca7d906aa909be037dae723b" => :arm64_big_sur
-    sha256 "4989cb77e5bc410ad664f5e8904b7815916d334bbfa807992a42dd617f01731e" => :catalina
-    sha256 "ada22914af378002d0815a8c09cc13ed6068a62c3f8742156753b2cd2be84c22" => :mojave
-    sha256 "5afb9ef653e54f100b1d4989ba6eb3cd0d94b62eb8c93ce3db63bf73fb3b9bb4" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "754323aacff4caa8fe20fab1aca7f33131375493ca7d906aa909be037dae723b"
+    sha256 cellar: :any, big_sur:       "ac5450196f6df19e734b6072aa9b6fd315520ffd87de0e58bfc3bd88523a73c9"
+    sha256 cellar: :any, catalina:      "4989cb77e5bc410ad664f5e8904b7815916d334bbfa807992a42dd617f01731e"
+    sha256 cellar: :any, mojave:        "ada22914af378002d0815a8c09cc13ed6068a62c3f8742156753b2cd2be84c22"
+    sha256 cellar: :any, x86_64_linux:  "5afb9ef653e54f100b1d4989ba6eb3cd0d94b62eb8c93ce3db63bf73fb3b9bb4"
   end
 
   depends_on "openssl@1.1"

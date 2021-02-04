@@ -12,12 +12,12 @@ class Sword < Formula
 
   bottle do
     rebuild 1
-    sha256 "85fd915531e0d5afa3ca380be523b09dd6c7ef4085ac4c7e26fc09e81c945228" => :big_sur
-    sha256 "aa8af3684bf4475f2c4f193ce2eee82751525f99dfc718b49495ba58f1866662" => :arm64_big_sur
-    sha256 "65d2da4bfbc5517b4fba2d4da6a4b57ff2429126041c59ee83ad29886df71d70" => :catalina
-    sha256 "84420513bcd1215cfcee1737022551b86d80059a0dfb1de6fc82dcec050280a2" => :mojave
-    sha256 "42b2dfd8162cd7b96efeba4da340df7dafae5f581be6c6bbb47f37a07bd9f66a" => :high_sierra
-    sha256 "aac335148a7b35a5c53b27acb0744ab778cb33fccfc85f55223c8dabd5f60385" => :x86_64_linux
+    sha256 arm64_big_sur: "aa8af3684bf4475f2c4f193ce2eee82751525f99dfc718b49495ba58f1866662"
+    sha256 big_sur:       "85fd915531e0d5afa3ca380be523b09dd6c7ef4085ac4c7e26fc09e81c945228"
+    sha256 catalina:      "65d2da4bfbc5517b4fba2d4da6a4b57ff2429126041c59ee83ad29886df71d70"
+    sha256 mojave:        "84420513bcd1215cfcee1737022551b86d80059a0dfb1de6fc82dcec050280a2"
+    sha256 high_sierra:   "42b2dfd8162cd7b96efeba4da340df7dafae5f581be6c6bbb47f37a07bd9f66a"
+    sha256 x86_64_linux:  "aac335148a7b35a5c53b27acb0744ab778cb33fccfc85f55223c8dabd5f60385"
   end
 
   uses_from_macos "zlib"

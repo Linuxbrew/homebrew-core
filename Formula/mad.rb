@@ -11,13 +11,12 @@ class Mad < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "0ad06329f73d5dc15cba262feca6e1c582e10ad3b9ca0476e46c37e6d878d0ab" => :big_sur
-    sha256 "ee9a37f6202a784c1564ac92613821e9bfd0f75fca8ef24262e444e5ec424ca6" => :arm64_big_sur
-    sha256 "5416172dc7ccd3c5a5065b3f7dc18c00e83a7e20dfc6b09e0586afc4a76c5722" => :catalina
-    sha256 "5baadb23763805521d306268861ff82fe2055da1eb7976aaa7c78f83d3c2f43a" => :mojave
-    sha256 "695b3347205276a26967bc850649784825eb7868c810cc3297c6a3049ddea710" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "ee9a37f6202a784c1564ac92613821e9bfd0f75fca8ef24262e444e5ec424ca6"
+    sha256 cellar: :any, big_sur:       "0ad06329f73d5dc15cba262feca6e1c582e10ad3b9ca0476e46c37e6d878d0ab"
+    sha256 cellar: :any, catalina:      "5416172dc7ccd3c5a5065b3f7dc18c00e83a7e20dfc6b09e0586afc4a76c5722"
+    sha256 cellar: :any, mojave:        "5baadb23763805521d306268861ff82fe2055da1eb7976aaa7c78f83d3c2f43a"
+    sha256 cellar: :any, x86_64_linux:  "695b3347205276a26967bc850649784825eb7868c810cc3297c6a3049ddea710"
   end
 
   depends_on "autoconf" => :build

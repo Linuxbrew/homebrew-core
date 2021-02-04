@@ -14,13 +14,12 @@ class Trailscraper < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "5fd16ca0386356df5caf782b3f25a33447f1887e654f612587ff2bef17b716a0" => :big_sur
-    sha256 "8ebb97f86a9ef08e5fbd763ac922910e457c9ee3691a15cd280284a89a543c8f" => :arm64_big_sur
-    sha256 "50ff3c4f3d6c4b832530230b75b16dcb01e871abac30dd732e655b2850356d8a" => :catalina
-    sha256 "4ee380a299a7c96115c1cf9f89812d16243853fc2f02e9f84c2ab69fd6e89b90" => :mojave
-    sha256 "a041ff5d5cce8064b3fcfbd50fc0b12e39e87efb10a5dc9960c5c215f22c276c" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ebb97f86a9ef08e5fbd763ac922910e457c9ee3691a15cd280284a89a543c8f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5fd16ca0386356df5caf782b3f25a33447f1887e654f612587ff2bef17b716a0"
+    sha256 cellar: :any_skip_relocation, catalina:      "50ff3c4f3d6c4b832530230b75b16dcb01e871abac30dd732e655b2850356d8a"
+    sha256 cellar: :any_skip_relocation, mojave:        "4ee380a299a7c96115c1cf9f89812d16243853fc2f02e9f84c2ab69fd6e89b90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a041ff5d5cce8064b3fcfbd50fc0b12e39e87efb10a5dc9960c5c215f22c276c"
   end
 
   depends_on "python@3.9"

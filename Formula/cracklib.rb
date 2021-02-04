@@ -12,14 +12,13 @@ class Cracklib < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "308feca305163e5333e84e3fbbfa497c0b483b13f99ed62971e1d503dd137150" => :big_sur
-    sha256 "ffc09f71e17accfb3b76513b8fe6220aa683bfce4132e182eaa8e47993f9d3df" => :arm64_big_sur
-    sha256 "6b22a44df4e1602edc9d248bd1ef58a638c1d04cfdfcbc745f331d05ea91d8ac" => :catalina
-    sha256 "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be" => :mojave
-    sha256 "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78" => :high_sierra
-    sha256 "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef" => :sierra
-    sha256 "da217b61f4dab75cc43b8ea8e4fd5238176ce19c555f247652522e8dad2bd582" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ffc09f71e17accfb3b76513b8fe6220aa683bfce4132e182eaa8e47993f9d3df"
+    sha256 cellar: :any_skip_relocation, big_sur:       "308feca305163e5333e84e3fbbfa497c0b483b13f99ed62971e1d503dd137150"
+    sha256 cellar: :any_skip_relocation, catalina:      "6b22a44df4e1602edc9d248bd1ef58a638c1d04cfdfcbc745f331d05ea91d8ac"
+    sha256 cellar: :any_skip_relocation, mojave:        "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78"
+    sha256 cellar: :any_skip_relocation, sierra:        "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da217b61f4dab75cc43b8ea8e4fd5238176ce19c555f247652522e8dad2bd582"
   end
 
   depends_on "gettext"

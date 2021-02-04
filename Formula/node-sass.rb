@@ -12,11 +12,11 @@ class NodeSass < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "5891229fce7328eb619b57b8ca4c04430159a1491b824a9ee427387ea599e6b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "28f61babd03feda0d39d66a5801d76123bd67e28feec6df95e10f2c739690af3"
-    sha256 cellar: :any_skip_relocation, catalina: "11a7d824ad2bbbf9800e20ef7755f009b7e68ee823975fe37e325b1f85bb7a42"
-    sha256 cellar: :any_skip_relocation, mojave: "31b5ea620e157eb11db0f86aac65deb2ed055a4be0def6cf1a627f51fe884c77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d5942008b5e837506771f9a3bab0e1770e28b1fb043f7942b84cb4fdd290c65d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5891229fce7328eb619b57b8ca4c04430159a1491b824a9ee427387ea599e6b4"
+    sha256 cellar: :any_skip_relocation, catalina:      "11a7d824ad2bbbf9800e20ef7755f009b7e68ee823975fe37e325b1f85bb7a42"
+    sha256 cellar: :any_skip_relocation, mojave:        "31b5ea620e157eb11db0f86aac65deb2ed055a4be0def6cf1a627f51fe884c77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5942008b5e837506771f9a3bab0e1770e28b1fb043f7942b84cb4fdd290c65d"
   end
 
   depends_on "node"

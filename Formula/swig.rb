@@ -10,12 +10,12 @@ class Swig < Formula
   end
 
   bottle do
-    sha256 "f198353656b61cb35b5c28ed6c9cb10689d2a0fc69529cfbcbc0fbd75a027e27" => :big_sur
-    sha256 "918c070202e0138b64b2e27f262aae3a72ab9f273f14842802d1fbe9169e66fc" => :arm64_big_sur
-    sha256 "530e80b7e7dcd28469b52fc3b668683a97b72642ebf2b6d4e6708d14f05e7286" => :catalina
-    sha256 "50afb5930cb37af2e400f0369f6da15b1d4922c1f72f45d13e7e3f8bd9d6d27b" => :mojave
-    sha256 "8bab440005b048ce454a3dd50ba608e1f85391edd73e9e40510269e923cad238" => :high_sierra
-    sha256 "39c044d1f12dfc0fd0f6cb02eb4a7a3830f91f252c09fe82fe3c03379f3635d1" => :x86_64_linux
+    sha256 arm64_big_sur: "918c070202e0138b64b2e27f262aae3a72ab9f273f14842802d1fbe9169e66fc"
+    sha256 big_sur:       "f198353656b61cb35b5c28ed6c9cb10689d2a0fc69529cfbcbc0fbd75a027e27"
+    sha256 catalina:      "530e80b7e7dcd28469b52fc3b668683a97b72642ebf2b6d4e6708d14f05e7286"
+    sha256 mojave:        "50afb5930cb37af2e400f0369f6da15b1d4922c1f72f45d13e7e3f8bd9d6d27b"
+    sha256 high_sierra:   "8bab440005b048ce454a3dd50ba608e1f85391edd73e9e40510269e923cad238"
+    sha256 x86_64_linux:  "39c044d1f12dfc0fd0f6cb02eb4a7a3830f91f252c09fe82fe3c03379f3635d1"
   end
 
   head do

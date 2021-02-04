@@ -12,12 +12,11 @@ class PandocIncludeCode < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136" => :big_sur
-    sha256 "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849" => :catalina
-    sha256 "707af9306e01c8f183bad3232797c9220583a9cdba3baf7d99d77add6faccd87" => :mojave
-    sha256 "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991" => :high_sierra
-    sha256 "2c1dd797f39369bfcd034336922dacf2036e3d52340571b162202b8f477543c0" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136"
+    sha256 cellar: :any_skip_relocation, catalina:     "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849"
+    sha256 cellar: :any_skip_relocation, mojave:       "707af9306e01c8f183bad3232797c9220583a9cdba3baf7d99d77add6faccd87"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2c1dd797f39369bfcd034336922dacf2036e3d52340571b162202b8f477543c0"
   end
 
   depends_on "cabal-install" => :build

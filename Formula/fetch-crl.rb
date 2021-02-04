@@ -11,13 +11,12 @@ class FetchCrl < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a4c9b13b21861b5d6f591234a814e7fafcf83622aa2aefa4d11d64352538d017" => :big_sur
-    sha256 "96804f5b491baeb338b76d851e8f7f3b06c509e6105abb7c9b826060c0c83980" => :arm64_big_sur
-    sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :catalina
-    sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :mojave
-    sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :high_sierra
-    sha256 "a78a25752c9674989dfb237cd291422a30d115e7f21f7945600d5807de0a6e87" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "96804f5b491baeb338b76d851e8f7f3b06c509e6105abb7c9b826060c0c83980"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a4c9b13b21861b5d6f591234a814e7fafcf83622aa2aefa4d11d64352538d017"
+    sha256 cellar: :any_skip_relocation, catalina:      "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a78a25752c9674989dfb237cd291422a30d115e7f21f7945600d5807de0a6e87"
   end
 
   resource "LWP" do

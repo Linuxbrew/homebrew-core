@@ -11,11 +11,10 @@ class Pandoc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2bdbf3d2f77426ffc5c3af071c2063db4082475837f479499412ef187a4dfb1a" => :big_sur
-    sha256 "29e30b1de3a6462a669b2a78043d3f240a4d5d3c6f8cac07997a2f7d2f77991f" => :catalina
-    sha256 "7cdbea784987ad599c69fa8f83f0d6b093957bba848eb3d52e859ab977345fa6" => :mojave
-    sha256 "74b8464e1c278ed7d5486687e89f341a0215527614c20be84e4813eb9dc884e7" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "2bdbf3d2f77426ffc5c3af071c2063db4082475837f479499412ef187a4dfb1a"
+    sha256 cellar: :any_skip_relocation, catalina:     "29e30b1de3a6462a669b2a78043d3f240a4d5d3c6f8cac07997a2f7d2f77991f"
+    sha256 cellar: :any_skip_relocation, mojave:       "7cdbea784987ad599c69fa8f83f0d6b093957bba848eb3d52e859ab977345fa6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "74b8464e1c278ed7d5486687e89f341a0215527614c20be84e4813eb9dc884e7"
   end
 
   depends_on "cabal-install" => :build

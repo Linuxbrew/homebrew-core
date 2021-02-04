@@ -6,12 +6,11 @@ class Zlog < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "07b323ff8ba13c92bf8c720b6fd0a760a776b5e9d6f46356700066ef2b3643a6" => :big_sur
-    sha256 "31352f21933854c635450c9cc5c00f1dc1370a62a331a691879bea2eaba45582" => :catalina
-    sha256 "170ffd446913b23c344d82160c19bfb1c8325c07dc31490a636e72345abe1c7b" => :mojave
-    sha256 "332ed23525b10970bd5bc81052bae67755aee5f2651fdaafed5dd036da470239" => :high_sierra
-    sha256 "3c638b658f77c6ca08523e6aac391daddf8a8ad7a08b2e62fe4a442cd1412143" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "07b323ff8ba13c92bf8c720b6fd0a760a776b5e9d6f46356700066ef2b3643a6"
+    sha256 cellar: :any, catalina:     "31352f21933854c635450c9cc5c00f1dc1370a62a331a691879bea2eaba45582"
+    sha256 cellar: :any, mojave:       "170ffd446913b23c344d82160c19bfb1c8325c07dc31490a636e72345abe1c7b"
+    sha256 cellar: :any, high_sierra:  "332ed23525b10970bd5bc81052bae67755aee5f2651fdaafed5dd036da470239"
+    sha256 cellar: :any, x86_64_linux: "3c638b658f77c6ca08523e6aac391daddf8a8ad7a08b2e62fe4a442cd1412143"
   end
 
   def install

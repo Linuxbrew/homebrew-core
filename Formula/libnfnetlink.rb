@@ -6,8 +6,7 @@ class Libnfnetlink < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6935ad517877f2c838d8d44b87519b0862b586bf5344785e0da55d1460de7417" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6935ad517877f2c838d8d44b87519b0862b586bf5344785e0da55d1460de7417"
   end
 
   depends_on "autoconf" => :build

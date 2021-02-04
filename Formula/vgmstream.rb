@@ -17,12 +17,11 @@ class Vgmstream < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a8b9e590e143c8a5820562376a4d8d6455b4aa3719d69134182ccdbe6e2bc940" => :big_sur
-    sha256 "f344401ea028c6fced781b98573acc97648380cbb3da37fccb614543528d58b3" => :arm64_big_sur
-    sha256 "ea5a421a93602621a8bf2a62b2eca9affa50790f16d7153bd3f901ef3edd9d9a" => :catalina
-    sha256 "1641ceee1b1849446b3aa2c1ccd07241c1641c9546fff3f785ae5f842b695fcc" => :mojave
-    sha256 "2df44ac21efd85d3bec303e8128499abe3bd88f63a1cea1b7fbcc2ff5e247eed" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "f344401ea028c6fced781b98573acc97648380cbb3da37fccb614543528d58b3"
+    sha256 cellar: :any, big_sur:       "a8b9e590e143c8a5820562376a4d8d6455b4aa3719d69134182ccdbe6e2bc940"
+    sha256 cellar: :any, catalina:      "ea5a421a93602621a8bf2a62b2eca9affa50790f16d7153bd3f901ef3edd9d9a"
+    sha256 cellar: :any, mojave:        "1641ceee1b1849446b3aa2c1ccd07241c1641c9546fff3f785ae5f842b695fcc"
+    sha256 cellar: :any, x86_64_linux:  "2df44ac21efd85d3bec303e8128499abe3bd88f63a1cea1b7fbcc2ff5e247eed"
   end
 
   depends_on "cmake" => :build

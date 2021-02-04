@@ -6,12 +6,11 @@ class Sn0int < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c9b3cf070d01ecc5ad921e5654f5a7765e90a294e4e2bfd941a995308a4a5bad" => :big_sur
-    sha256 "cc24878380598597022557113c8355f9d97cffa69665022521cbde65886a26b5" => :arm64_big_sur
-    sha256 "9689b81c3e4e2a04cf05d150422949b87a7f24d219817716e2b82b58eb2191c5" => :catalina
-    sha256 "d2c817bf73cb79a88c208cb22bcb7e9cc24d4d37448d3cdc1bfec7b8efbab9cd" => :mojave
-    sha256 "5e3ed198d04a58cded0500054d102ed2e355a6c417b675460d5040c72d0dad17" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc24878380598597022557113c8355f9d97cffa69665022521cbde65886a26b5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9b3cf070d01ecc5ad921e5654f5a7765e90a294e4e2bfd941a995308a4a5bad"
+    sha256 cellar: :any_skip_relocation, catalina:      "9689b81c3e4e2a04cf05d150422949b87a7f24d219817716e2b82b58eb2191c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "d2c817bf73cb79a88c208cb22bcb7e9cc24d4d37448d3cdc1bfec7b8efbab9cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e3ed198d04a58cded0500054d102ed2e355a6c417b675460d5040c72d0dad17"
   end
 
   depends_on "pkg-config" => :build

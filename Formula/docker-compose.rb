@@ -13,12 +13,11 @@ class DockerCompose < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "08525974a3404b234d7de572fea0f6095c3e6749df9fc192d571b1f815f00f3d" => :big_sur
-    sha256 "f147a50464261bd34bd8af04390584badc4241e9d37ca54332fe7dac07e1d570" => :arm64_big_sur
-    sha256 "94142a948bb19d5f80bf22d7c3aab0778ef48a0900ba1d8fd454fa070de31844" => :catalina
-    sha256 "8cb911e8ce3f82f81c7fde523269118c9986d2524fb7f6b45137636c7b9c418c" => :mojave
-    sha256 "9ad576bf02a89e06d8c0c301b555f31e88977be563837618d006e1c44f035b3e" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f147a50464261bd34bd8af04390584badc4241e9d37ca54332fe7dac07e1d570"
+    sha256 cellar: :any_skip_relocation, big_sur:       "08525974a3404b234d7de572fea0f6095c3e6749df9fc192d571b1f815f00f3d"
+    sha256 cellar: :any_skip_relocation, catalina:      "94142a948bb19d5f80bf22d7c3aab0778ef48a0900ba1d8fd454fa070de31844"
+    sha256 cellar: :any_skip_relocation, mojave:        "8cb911e8ce3f82f81c7fde523269118c9986d2524fb7f6b45137636c7b9c418c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ad576bf02a89e06d8c0c301b555f31e88977be563837618d006e1c44f035b3e"
   end
 
   depends_on "libyaml"

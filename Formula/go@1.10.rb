@@ -8,11 +8,11 @@ class GoAT110 < Formula
 
   bottle do
     rebuild 2
-    sha256 "b61ba9c56d4064290af620c92e23ce5f5428c8a4a9964c787d62e0f20a142d57" => :big_sur
-    sha256 "fa6f1fcd01302191009869886cf56208a42224ad86e201ebd98be6346f72f4a3" => :catalina
-    sha256 "b00703a47e9352ee299c81d269c66209edca69605d06b2ce031b9754b8da56e6" => :mojave
-    sha256 "395dcfc97f048bf95efedcf084206d730dba4ba59391075869b6cbae8d4ad0c1" => :high_sierra
-    sha256 "08fa6cf0d981eae70c386a19c4928fc3cda16d3efa6e111cf6b5a460a06b3ae7" => :x86_64_linux
+    sha256 big_sur:      "b61ba9c56d4064290af620c92e23ce5f5428c8a4a9964c787d62e0f20a142d57"
+    sha256 catalina:     "fa6f1fcd01302191009869886cf56208a42224ad86e201ebd98be6346f72f4a3"
+    sha256 mojave:       "b00703a47e9352ee299c81d269c66209edca69605d06b2ce031b9754b8da56e6"
+    sha256 high_sierra:  "395dcfc97f048bf95efedcf084206d730dba4ba59391075869b6cbae8d4ad0c1"
+    sha256 x86_64_linux: "08fa6cf0d981eae70c386a19c4928fc3cda16d3efa6e111cf6b5a460a06b3ae7"
   end
 
   keg_only :versioned_formula

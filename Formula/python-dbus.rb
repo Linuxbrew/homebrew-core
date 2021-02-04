@@ -5,8 +5,7 @@ class PythonDbus < Formula
   sha256 "b10206ba3dd641e4e46411ab91471c88e0eec1749860e4285193ee68df84ac31"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c20d0729e24a65d7f202377775e92401df849d1bb203785b688e57263aaaba4a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c20d0729e24a65d7f202377775e92401df849d1bb203785b688e57263aaaba4a"
   end
 
   depends_on "pkg-config" => :build

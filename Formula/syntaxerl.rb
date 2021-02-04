@@ -6,13 +6,12 @@ class Syntaxerl < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ba352469157bac0b0645fc0a2cfc1ec738487e2fbf3f6e9c5842c8ce9d4e5a0c" => :big_sur
-    sha256 "ab2fde926ac270aa052a969bef6b5a41deed043b9ca49255c77f6d4ec94d9041" => :arm64_big_sur
-    sha256 "1d83b5507f1a4f1ac6ae3a09ae41056ab6588caab3d0737ac3707384faa45770" => :catalina
-    sha256 "b2b5d4afd0e7f5e4feb748dc7cc738f65612cb06e4f09a59f7b8f3fdcbb4c424" => :mojave
-    sha256 "81bba7402fee8403b05bef71b2552e65303b0a4399c7465d5c653fdab659fb9a" => :high_sierra
-    sha256 "c07f9cc9bf8006a4112f12b55b7f3a24bf7665ceca0c7fb45603c55bee6436c6" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab2fde926ac270aa052a969bef6b5a41deed043b9ca49255c77f6d4ec94d9041"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba352469157bac0b0645fc0a2cfc1ec738487e2fbf3f6e9c5842c8ce9d4e5a0c"
+    sha256 cellar: :any_skip_relocation, catalina:      "1d83b5507f1a4f1ac6ae3a09ae41056ab6588caab3d0737ac3707384faa45770"
+    sha256 cellar: :any_skip_relocation, mojave:        "b2b5d4afd0e7f5e4feb748dc7cc738f65612cb06e4f09a59f7b8f3fdcbb4c424"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "81bba7402fee8403b05bef71b2552e65303b0a4399c7465d5c653fdab659fb9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c07f9cc9bf8006a4112f12b55b7f3a24bf7665ceca0c7fb45603c55bee6436c6"
   end
 
   depends_on "erlang"

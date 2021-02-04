@@ -12,13 +12,12 @@ class Ykpers < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "31b2bafcc829e3cc6e85f5e1021075088a909ba4db51ec8f20b23db93f59d802" => :big_sur
-    sha256 "512484b795857fd09d61e2fb5c186ff771295c90b809bdcc82fdcf76835b71a0" => :arm64_big_sur
-    sha256 "8c5ed1924d1059265589a221b8e2bb26a2bcd59f91ede210e3a1267412867f47" => :catalina
-    sha256 "c2e6089348f9cc4f9c887eeb5975378749c42ea386ef12d7f84a3285b718dc45" => :mojave
-    sha256 "79c240a018183c2f62eae6e7c22f631598b167d321a715f0983ff4653c1c2eee" => :high_sierra
-    sha256 "2631355966e48ac591a794c67eb6df29a97230380af1ac4d8c2010923268bd41" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "512484b795857fd09d61e2fb5c186ff771295c90b809bdcc82fdcf76835b71a0"
+    sha256 cellar: :any, big_sur:       "31b2bafcc829e3cc6e85f5e1021075088a909ba4db51ec8f20b23db93f59d802"
+    sha256 cellar: :any, catalina:      "8c5ed1924d1059265589a221b8e2bb26a2bcd59f91ede210e3a1267412867f47"
+    sha256 cellar: :any, mojave:        "c2e6089348f9cc4f9c887eeb5975378749c42ea386ef12d7f84a3285b718dc45"
+    sha256 cellar: :any, high_sierra:   "79c240a018183c2f62eae6e7c22f631598b167d321a715f0983ff4653c1c2eee"
+    sha256 cellar: :any, x86_64_linux:  "2631355966e48ac591a794c67eb6df29a97230380af1ac4d8c2010923268bd41"
   end
 
   depends_on "pkg-config" => :build

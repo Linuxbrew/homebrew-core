@@ -6,15 +6,14 @@ class Drip < Formula
   license "EPL-1.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "11c4a909bf8a51be3923be6647126524769f8580898d6b6035fe4a9e95d5c415" => :catalina
-    sha256 "fae4ea200256b46fea345cc1ac3c2b312fc235b6f6988a7d078145e44ebe7331" => :mojave
-    sha256 "6fe1110fb43b5e32e16c9053675313468ca0fbdf92d3ec9f0c9d5be105e4c409" => :high_sierra
-    sha256 "5d84f90eae53dbd9055e429d42981933cf5f3a2f213862ba7892643c5289e9df" => :sierra
-    sha256 "69a071055da45949c56df74c4959336f9511f863f447aed941a66547169f2c88" => :el_capitan
-    sha256 "14711be9325c0b2df465197156b4b78bed673bf441011d0ce29d48a0c2ee0045" => :yosemite
-    sha256 "69207c24aa1f8e6ba406e6cc3f811cd7000ee14c713cc32b49d72f2c76a702bc" => :mavericks
-    sha256 "048944c8240d219b4777e4f35bb7d456062042385e6b2a375f2d00d1b9d517f9" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, catalina:     "11c4a909bf8a51be3923be6647126524769f8580898d6b6035fe4a9e95d5c415"
+    sha256 cellar: :any_skip_relocation, mojave:       "fae4ea200256b46fea345cc1ac3c2b312fc235b6f6988a7d078145e44ebe7331"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "6fe1110fb43b5e32e16c9053675313468ca0fbdf92d3ec9f0c9d5be105e4c409"
+    sha256 cellar: :any_skip_relocation, sierra:       "5d84f90eae53dbd9055e429d42981933cf5f3a2f213862ba7892643c5289e9df"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "69a071055da45949c56df74c4959336f9511f863f447aed941a66547169f2c88"
+    sha256 cellar: :any_skip_relocation, yosemite:     "14711be9325c0b2df465197156b4b78bed673bf441011d0ce29d48a0c2ee0045"
+    sha256 cellar: :any_skip_relocation, mavericks:    "69207c24aa1f8e6ba406e6cc3f811cd7000ee14c713cc32b49d72f2c76a702bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "048944c8240d219b4777e4f35bb7d456062042385e6b2a375f2d00d1b9d517f9"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

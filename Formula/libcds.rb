@@ -6,13 +6,12 @@ class Libcds < Formula
   license "BSL-1.0"
 
   bottle do
-    cellar :any
-    sha256 "8933bb8f315e15e385985ba2ddd4b1ebecbcce970fa434afb8648d1d95b34e5d" => :big_sur
-    sha256 "d2ac7fe9c424707b1a2698fabed2a81645bb4f79f9fb943a279aee1cfc5d38d9" => :catalina
-    sha256 "ed2baad62fe26da2891255221ee90a8d69f84214431dce923dd7c55aafa39668" => :mojave
-    sha256 "9723b22f7a6e84ef208226241ed3b19dd02b4c9aed9c01284f55bd9b825e216e" => :high_sierra
-    sha256 "fdc30046c9f96c04d7c52d43e948d2e238fb93eee5514101a0dd0ca4de3f2b32" => :sierra
-    sha256 "b5a0a5736b8e861007eafef586e64429d476593bf7d7336fde6918fc1c27e689" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "8933bb8f315e15e385985ba2ddd4b1ebecbcce970fa434afb8648d1d95b34e5d"
+    sha256 cellar: :any, catalina:     "d2ac7fe9c424707b1a2698fabed2a81645bb4f79f9fb943a279aee1cfc5d38d9"
+    sha256 cellar: :any, mojave:       "ed2baad62fe26da2891255221ee90a8d69f84214431dce923dd7c55aafa39668"
+    sha256 cellar: :any, high_sierra:  "9723b22f7a6e84ef208226241ed3b19dd02b4c9aed9c01284f55bd9b825e216e"
+    sha256 cellar: :any, sierra:       "fdc30046c9f96c04d7c52d43e948d2e238fb93eee5514101a0dd0ca4de3f2b32"
+    sha256 cellar: :any, x86_64_linux: "b5a0a5736b8e861007eafef586e64429d476593bf7d7336fde6918fc1c27e689"
   end
 
   depends_on "cmake" => :build

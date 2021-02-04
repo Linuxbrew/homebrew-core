@@ -5,8 +5,7 @@ class AtSpi2Atk < Formula
   sha256 "901323cee0eef05c01ec4dee06c701aeeca81a314a7d60216fa363005e27f4f0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dfd83f6ff7daa444a32de826f09c86d976e84958aa93c8e615ecbcff41e30207" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dfd83f6ff7daa444a32de826f09c86d976e84958aa93c8e615ecbcff41e30207"
   end
 
   depends_on "meson" => :build

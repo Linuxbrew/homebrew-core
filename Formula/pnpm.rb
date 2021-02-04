@@ -12,12 +12,11 @@ class Pnpm < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dcd4fff98abe6003bf78452c67e85b91e080922204a703147fb6b82931d4e20b" => :big_sur
-    sha256 "4f5b57b3adea427c661869c8007da845dcd03056e56e2dc3afa1ac853c9297c0" => :arm64_big_sur
-    sha256 "9f3dcfa8356e778fff7c11288ae8ff9e2c9cc3a8c7696a4f70ce2653015537b9" => :catalina
-    sha256 "490740369b91b01358d6f29cc119e807a452e0e71cf4eca5cc088c3c5ab5916d" => :mojave
-    sha256 "2af764503df86ccd25f0ce97a8197b1c84874c290adeaae4c7a645539b459f03" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f5b57b3adea427c661869c8007da845dcd03056e56e2dc3afa1ac853c9297c0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dcd4fff98abe6003bf78452c67e85b91e080922204a703147fb6b82931d4e20b"
+    sha256 cellar: :any_skip_relocation, catalina:      "9f3dcfa8356e778fff7c11288ae8ff9e2c9cc3a8c7696a4f70ce2653015537b9"
+    sha256 cellar: :any_skip_relocation, mojave:        "490740369b91b01358d6f29cc119e807a452e0e71cf4eca5cc088c3c5ab5916d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2af764503df86ccd25f0ce97a8197b1c84874c290adeaae4c7a645539b459f03"
   end
 
   depends_on "node"

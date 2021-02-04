@@ -7,13 +7,12 @@ class OneMl < Formula
   revision 2
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "bc39abea38a72c696d33bc62d13f21c2ed32cd45ee8a6ab66f78d2a9b654961e" => :big_sur
-    sha256 "309111ca64b6c6fa02f1a93dcdc83858d74bc4d7e6a1bcb898443b72e2fa62fc" => :catalina
-    sha256 "ddd62944bea4f0182b771d405d2255c1d5cdd9e217a2bc00891018de9458b7c2" => :mojave
-    sha256 "d377a804f2f05d9f48869a6822bb42070be94b225d1d24ee0f4a3e23019532c8" => :high_sierra
-    sha256 "996fb0696832552a0966140341d733f487d817182774a035c7159807975cd562" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "bc39abea38a72c696d33bc62d13f21c2ed32cd45ee8a6ab66f78d2a9b654961e"
+    sha256 cellar: :any_skip_relocation, catalina:     "309111ca64b6c6fa02f1a93dcdc83858d74bc4d7e6a1bcb898443b72e2fa62fc"
+    sha256 cellar: :any_skip_relocation, mojave:       "ddd62944bea4f0182b771d405d2255c1d5cdd9e217a2bc00891018de9458b7c2"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "d377a804f2f05d9f48869a6822bb42070be94b225d1d24ee0f4a3e23019532c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "996fb0696832552a0966140341d733f487d817182774a035c7159807975cd562"
   end
 
   depends_on "ocaml" => :build

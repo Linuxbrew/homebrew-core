@@ -11,13 +11,12 @@ class Ats2Postiats < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2e7267a095f51b3cdc898bb3dd5c051613383a7b79019b291c1586b3d8fe2ec0" => :big_sur
-    sha256 "938b458e7e8701d45fdc90ce46157b9e75017efee8cb20b089d5964419bb4922" => :arm64_big_sur
-    sha256 "19ea3eb93cc5ba40ce3c1bdc48666edd4a8cd00027fbb4531392a0f15ecc7a94" => :catalina
-    sha256 "9e0b2824b0ea3d67e22c6690d3608c5d09d9855075e9811ad71b5f2703be9304" => :mojave
-    sha256 "91d683a9f1c94daff0e9b089cc7a5ceda949eb4b5aa7d286c554d9506ee6d49c" => :high_sierra
-    sha256 "d45b4bd6084761b9f298904cbf2e37fd9885a5052cc4472ed01a1f9dce5ccf91" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "938b458e7e8701d45fdc90ce46157b9e75017efee8cb20b089d5964419bb4922"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2e7267a095f51b3cdc898bb3dd5c051613383a7b79019b291c1586b3d8fe2ec0"
+    sha256 cellar: :any_skip_relocation, catalina:      "19ea3eb93cc5ba40ce3c1bdc48666edd4a8cd00027fbb4531392a0f15ecc7a94"
+    sha256 cellar: :any_skip_relocation, mojave:        "9e0b2824b0ea3d67e22c6690d3608c5d09d9855075e9811ad71b5f2703be9304"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "91d683a9f1c94daff0e9b089cc7a5ceda949eb4b5aa7d286c554d9506ee6d49c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45b4bd6084761b9f298904cbf2e37fd9885a5052cc4472ed01a1f9dce5ccf91"
   end
 
   depends_on "gmp"

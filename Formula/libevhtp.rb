@@ -7,12 +7,11 @@ class Libevhtp < Formula
   revision 3
 
   bottle do
-    cellar :any
-    sha256 "12b7dadd090f1b53ac313baf685f7bb73640aa6dc8bb34566cddf8ebdaf438f6" => :arm64_big_sur
-    sha256 "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871" => :catalina
-    sha256 "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c" => :mojave
-    sha256 "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50" => :high_sierra
-    sha256 "29167d6282f7ac44301220daeeec91f0dac8ffac348b361002d933aed56fd558" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "12b7dadd090f1b53ac313baf685f7bb73640aa6dc8bb34566cddf8ebdaf438f6"
+    sha256 cellar: :any, catalina:      "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871"
+    sha256 cellar: :any, mojave:        "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c"
+    sha256 cellar: :any, high_sierra:   "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50"
+    sha256 cellar: :any, x86_64_linux:  "29167d6282f7ac44301220daeeec91f0dac8ffac348b361002d933aed56fd558"
   end
 
   depends_on "cmake" => :build

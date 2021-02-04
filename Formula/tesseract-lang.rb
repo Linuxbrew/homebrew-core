@@ -6,14 +6,13 @@ class TesseractLang < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3dacd0c9b5cfe25a31ba32de2dd316149d7e0a0fe490f231591863af89ab59fc" => :big_sur
-    sha256 "5ff2ce72fff2b70c59eba17a8b0f687d84ceddb1ba775ceabe37aefac73f72c4" => :arm64_big_sur
-    sha256 "5cfe25847d5eaa4983c7b5ae2b6973bd036ce7363b4332cc66e1ab1b8d41a0d5" => :catalina
-    sha256 "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414" => :mojave
-    sha256 "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414" => :high_sierra
-    sha256 "4c69eedd24721f0e47a645ae20a08bf8c8083f805615c7b46a73406a9f593cb1" => :sierra
-    sha256 "b47317ba23b98ed8c7e8eb32c78d274f4833d2c183035ba30a1b689c3ef99c15" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5ff2ce72fff2b70c59eba17a8b0f687d84ceddb1ba775ceabe37aefac73f72c4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3dacd0c9b5cfe25a31ba32de2dd316149d7e0a0fe490f231591863af89ab59fc"
+    sha256 cellar: :any_skip_relocation, catalina:      "5cfe25847d5eaa4983c7b5ae2b6973bd036ce7363b4332cc66e1ab1b8d41a0d5"
+    sha256 cellar: :any_skip_relocation, mojave:        "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414"
+    sha256 cellar: :any_skip_relocation, sierra:        "4c69eedd24721f0e47a645ae20a08bf8c8083f805615c7b46a73406a9f593cb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b47317ba23b98ed8c7e8eb32c78d274f4833d2c183035ba30a1b689c3ef99c15"
   end
 
   depends_on "tesseract"

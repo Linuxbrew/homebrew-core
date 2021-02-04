@@ -6,8 +6,7 @@ class Libcap < Formula
   license all_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ceb5ceec04cc07d29ac5c2d8a37db74a491d5177ef92c4e1c172b9eb2a6dc6e4" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ceb5ceec04cc07d29ac5c2d8a37db74a491d5177ef92c4e1c172b9eb2a6dc6e4"
   end
 
   depends_on :linux

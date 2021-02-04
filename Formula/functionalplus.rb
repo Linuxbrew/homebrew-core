@@ -8,12 +8,11 @@ class Functionalplus < Formula
   head "https://github.com/Dobiasd/FunctionalPlus.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "244d54ac6b458a8f170a5eba497817b5b22b374e834d65537d674ab9e39c666c" => :big_sur
-    sha256 "f924c8c83fcdc4d22a32166a3b0c29a213951ff5f27e139bdc6eb3c26d795714" => :arm64_big_sur
-    sha256 "73e1e7337735aefb7deed60dd5a2fa21f6e08852c3ed2b030e599196c7af2328" => :catalina
-    sha256 "7c71a5c706e7b89288b9f9897eaee2a22f4b375ef710c68d94fe131b012daa6d" => :mojave
-    sha256 "c7259c9f83e0959dcf4e1051778f01de7e8bc993917c575814f74d59cb2f580c" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f924c8c83fcdc4d22a32166a3b0c29a213951ff5f27e139bdc6eb3c26d795714"
+    sha256 cellar: :any_skip_relocation, big_sur:       "244d54ac6b458a8f170a5eba497817b5b22b374e834d65537d674ab9e39c666c"
+    sha256 cellar: :any_skip_relocation, catalina:      "73e1e7337735aefb7deed60dd5a2fa21f6e08852c3ed2b030e599196c7af2328"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c71a5c706e7b89288b9f9897eaee2a22f4b375ef710c68d94fe131b012daa6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7259c9f83e0959dcf4e1051778f01de7e8bc993917c575814f74d59cb2f580c"
   end
 
   depends_on "cmake" => :build

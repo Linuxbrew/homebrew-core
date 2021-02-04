@@ -6,13 +6,12 @@ class Celero < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "44e93e011f791c595575165d04ea08a75f3f4ad569f487acf2ee3448f6f36ffe" => :big_sur
-    sha256 "da7e7fdaeb24274249335d357f45edb45f793bf9e57a5f128f4a72c1de9719e8" => :arm64_big_sur
-    sha256 "50180fabca883914fd2b120cee3258ef4a58015287babb1883274c03d5be0fa6" => :catalina
-    sha256 "2ae8505c1415e5a9ca3b9d2d80a4f28516f311c755a0cbe809bc45b521a0169b" => :mojave
-    sha256 "c73b3bcf8fc8dfcb1df8367febe579c11b60067550500a5e94ec1ef7f279882c" => :high_sierra
-    sha256 "7b6c149c6ad85d5e22bcb18a22f1cea31ca1c27a2dbf0d9b2747c9ad59fbd918" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "da7e7fdaeb24274249335d357f45edb45f793bf9e57a5f128f4a72c1de9719e8"
+    sha256 cellar: :any, big_sur:       "44e93e011f791c595575165d04ea08a75f3f4ad569f487acf2ee3448f6f36ffe"
+    sha256 cellar: :any, catalina:      "50180fabca883914fd2b120cee3258ef4a58015287babb1883274c03d5be0fa6"
+    sha256 cellar: :any, mojave:        "2ae8505c1415e5a9ca3b9d2d80a4f28516f311c755a0cbe809bc45b521a0169b"
+    sha256 cellar: :any, high_sierra:   "c73b3bcf8fc8dfcb1df8367febe579c11b60067550500a5e94ec1ef7f279882c"
+    sha256 cellar: :any, x86_64_linux:  "7b6c149c6ad85d5e22bcb18a22f1cea31ca1c27a2dbf0d9b2747c9ad59fbd918"
   end
 
   depends_on "cmake" => :build

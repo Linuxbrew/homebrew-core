@@ -13,12 +13,11 @@ class Pike < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "15805f34b5fa27d32c8a86cb69459d03300b11b2ec491597264823899f77568f" => :big_sur
-    sha256 "66bef9efce57896b13bfaac552d145d35534e44ab8fe4e3367b8334c10509b34" => :arm64_big_sur
-    sha256 "b34252e2bd9dfea5ffc5e56e10523658ff44ecc5686eabda34ce2c19a22faabc" => :catalina
-    sha256 "1eacafb5514b416f75a39a50bdfc697123f66be10a892be1906fa674580f9298" => :mojave
-    sha256 "3f861a7afd0148f58189325de42bbf34cebdce49fd6952355c2055748bfb768c" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "66bef9efce57896b13bfaac552d145d35534e44ab8fe4e3367b8334c10509b34"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15805f34b5fa27d32c8a86cb69459d03300b11b2ec491597264823899f77568f"
+    sha256 cellar: :any_skip_relocation, catalina:      "b34252e2bd9dfea5ffc5e56e10523658ff44ecc5686eabda34ce2c19a22faabc"
+    sha256 cellar: :any_skip_relocation, mojave:        "1eacafb5514b416f75a39a50bdfc697123f66be10a892be1906fa674580f9298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f861a7afd0148f58189325de42bbf34cebdce49fd6952355c2055748bfb768c"
   end
 
   depends_on "gmp"

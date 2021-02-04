@@ -7,11 +7,10 @@ class Cpl < Formula
   revision 6
 
   bottle do
-    cellar :any
-    sha256 "4585413a3561eea4a3443b1214dd1759e82853ca5273929e202a2c38ad526add" => :catalina
-    sha256 "d9410e5fc7b4e1466f88233e8e5e925133257d3f33953a8ce91aee780d53db33" => :mojave
-    sha256 "7a810f03ee554b573832fd30285a2fad70be6b9ad6b0e9936300130396f151cd" => :high_sierra
-    sha256 "64dd8bc9b8cdd2bfa8377617dea0f781e4b93173d7f43761fc6efa51cb2ac542" => :x86_64_linux
+    sha256 cellar: :any, catalina:     "4585413a3561eea4a3443b1214dd1759e82853ca5273929e202a2c38ad526add"
+    sha256 cellar: :any, mojave:       "d9410e5fc7b4e1466f88233e8e5e925133257d3f33953a8ce91aee780d53db33"
+    sha256 cellar: :any, high_sierra:  "7a810f03ee554b573832fd30285a2fad70be6b9ad6b0e9936300130396f151cd"
+    sha256 cellar: :any, x86_64_linux: "64dd8bc9b8cdd2bfa8377617dea0f781e4b93173d7f43761fc6efa51cb2ac542"
   end
 
   depends_on "cfitsio"

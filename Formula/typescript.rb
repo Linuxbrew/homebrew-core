@@ -13,12 +13,11 @@ class Typescript < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "221b4f01eff3ac25750ac019c95380cf9136ab71d9885c99d0a17f9f1521af95" => :big_sur
-    sha256 "e07a4be146fef8a1edc015fd84635d2ee0a8d1ec7358258a6fc21444554a05c0" => :arm64_big_sur
-    sha256 "21fbdafc6132436663714241829b4b58eba7c714ca741beb2b1bf918fa9b75dc" => :catalina
-    sha256 "a5927aa302e6bcef5fd359d0bef1be2928c26f013e9730bfb9f82798b1f6290f" => :mojave
-    sha256 "7cd5c8aa47ca0725409cc2d4a7cebe05fc8720a86770e20a068fb4e8fbe61367" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e07a4be146fef8a1edc015fd84635d2ee0a8d1ec7358258a6fc21444554a05c0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "221b4f01eff3ac25750ac019c95380cf9136ab71d9885c99d0a17f9f1521af95"
+    sha256 cellar: :any_skip_relocation, catalina:      "21fbdafc6132436663714241829b4b58eba7c714ca741beb2b1bf918fa9b75dc"
+    sha256 cellar: :any_skip_relocation, mojave:        "a5927aa302e6bcef5fd359d0bef1be2928c26f013e9730bfb9f82798b1f6290f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cd5c8aa47ca0725409cc2d4a7cebe05fc8720a86770e20a068fb4e8fbe61367"
   end
 
   depends_on "node"

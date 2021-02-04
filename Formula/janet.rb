@@ -7,12 +7,11 @@ class Janet < Formula
   head "https://github.com/janet-lang/janet.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "831ee848dfaf6e45611274dbaefd5f0debc1202936369b79daf7c55e927de3a4" => :big_sur
-    sha256 "46ae27b110fdef6d333d44d10632fead02c88da4bfbbb7a3b625a5b263acba15" => :arm64_big_sur
-    sha256 "9b020b08ab6756c1c33f980d850fd9eee05c917edce2d6ccf28e87f30db899dd" => :catalina
-    sha256 "91c5ad4566064f72604943b2268fd0434790525324ccf073048519c07da42fd5" => :mojave
-    sha256 "b1217124aaf92111f86874a68f42e8d4bb7ca4781168e6d8d32b8ea01f9555cb" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "46ae27b110fdef6d333d44d10632fead02c88da4bfbbb7a3b625a5b263acba15"
+    sha256 cellar: :any_skip_relocation, big_sur:       "831ee848dfaf6e45611274dbaefd5f0debc1202936369b79daf7c55e927de3a4"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b020b08ab6756c1c33f980d850fd9eee05c917edce2d6ccf28e87f30db899dd"
+    sha256 cellar: :any_skip_relocation, mojave:        "91c5ad4566064f72604943b2268fd0434790525324ccf073048519c07da42fd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1217124aaf92111f86874a68f42e8d4bb7ca4781168e6d8d32b8ea01f9555cb"
   end
 
   depends_on "meson" => :build

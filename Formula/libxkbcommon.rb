@@ -8,11 +8,11 @@ class Libxkbcommon < Formula
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
-    sha256 "64680f75763d17483d95ab7e60beb5190a04aa9c7586a938b35b4a15bbee479d" => :big_sur
-    sha256 "0641f9d91a998367985625f2ab546db32dbb66f4e1a08ce04a317a1d8398182f" => :arm64_big_sur
-    sha256 "e2c1dfba1e87800617b98cb440e15ca8d20fdec63c3591719ea8f74f8723727f" => :catalina
-    sha256 "c341c13c34ded7f977c5c93e723abb647845f86f18e1880252a958854c375b4e" => :mojave
-    sha256 "3ddb477e32f3ba23f0bf7ce47645c9811ae877a7a0a9a20548e3005e0c1ba433" => :x86_64_linux
+    sha256 arm64_big_sur: "0641f9d91a998367985625f2ab546db32dbb66f4e1a08ce04a317a1d8398182f"
+    sha256 big_sur:       "64680f75763d17483d95ab7e60beb5190a04aa9c7586a938b35b4a15bbee479d"
+    sha256 catalina:      "e2c1dfba1e87800617b98cb440e15ca8d20fdec63c3591719ea8f74f8723727f"
+    sha256 mojave:        "c341c13c34ded7f977c5c93e723abb647845f86f18e1880252a958854c375b4e"
+    sha256 x86_64_linux:  "3ddb477e32f3ba23f0bf7ce47645c9811ae877a7a0a9a20548e3005e0c1ba433"
   end
 
   depends_on "bison" => :build

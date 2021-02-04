@@ -7,12 +7,11 @@ class Fd < Formula
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "378bf3b71edf7c09a80cd8815bd068f6c2b8abaf2df149fc23f33f52acecc817" => :big_sur
-    sha256 "b50a503fc0bddc9c82d6ebc42198071160426ee6247c122f8fb81b1f9ecc4aeb" => :arm64_big_sur
-    sha256 "1fef32a7cd0c80f62343b4caf6a0979f89bacfa7434ed54ffede6adb85ace329" => :catalina
-    sha256 "160cdfc22b5d0ac9694ce8dd95f7e22a7bdc95f6d376344d15f924f9ef67149b" => :mojave
-    sha256 "ee51f7f61ee4e4792bd8ed756982a7595b348d30a98f497e0570234045134de9" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b50a503fc0bddc9c82d6ebc42198071160426ee6247c122f8fb81b1f9ecc4aeb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "378bf3b71edf7c09a80cd8815bd068f6c2b8abaf2df149fc23f33f52acecc817"
+    sha256 cellar: :any_skip_relocation, catalina:      "1fef32a7cd0c80f62343b4caf6a0979f89bacfa7434ed54ffede6adb85ace329"
+    sha256 cellar: :any_skip_relocation, mojave:        "160cdfc22b5d0ac9694ce8dd95f7e22a7bdc95f6d376344d15f924f9ef67149b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee51f7f61ee4e4792bd8ed756982a7595b348d30a98f497e0570234045134de9"
   end
 
   depends_on "rust" => :build

@@ -6,14 +6,13 @@ class MsgpackTools < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "570a72e93de0677f94a586cb49e04ac1fe68655e451860d45a250702fc6e0383" => :big_sur
-    sha256 "775db49a7259ddf909dd2a05a529e7e308cc2ac376ad116c1668bb659bd34a1c" => :arm64_big_sur
-    sha256 "901f0f7dadb40b70b20de05a699e5cd9ca37095f3ce9bb277aff3e4421219290" => :catalina
-    sha256 "30f69cfbcfe93c148fec339d86775357cc804f50c58c42594708f7ae9abad226" => :mojave
-    sha256 "9c12c496640b2913caa23147bdacffed803115e68607c56975bdab106b4b83b0" => :high_sierra
-    sha256 "c576acc7e6078360a79bf7270336e0f3dc9012161e860681cbfe7f2de1313857" => :sierra
-    sha256 "ad7365beeb052efa6efe766cfcf0c64fb0bb0a49c454d477f9b713e35da23320" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "775db49a7259ddf909dd2a05a529e7e308cc2ac376ad116c1668bb659bd34a1c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "570a72e93de0677f94a586cb49e04ac1fe68655e451860d45a250702fc6e0383"
+    sha256 cellar: :any_skip_relocation, catalina:      "901f0f7dadb40b70b20de05a699e5cd9ca37095f3ce9bb277aff3e4421219290"
+    sha256 cellar: :any_skip_relocation, mojave:        "30f69cfbcfe93c148fec339d86775357cc804f50c58c42594708f7ae9abad226"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "9c12c496640b2913caa23147bdacffed803115e68607c56975bdab106b4b83b0"
+    sha256 cellar: :any_skip_relocation, sierra:        "c576acc7e6078360a79bf7270336e0f3dc9012161e860681cbfe7f2de1313857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad7365beeb052efa6efe766cfcf0c64fb0bb0a49c454d477f9b713e35da23320"
   end
 
   depends_on "cmake" => :build

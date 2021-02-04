@@ -13,12 +13,11 @@ class Snakemake < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4115bdd503a5481502974b540b7270bdc4bc7161711f652dc97d4fe26345ef9b" => :big_sur
-    sha256 "d0bcb9a2f9d299bd55731b46cff980afaf58a6769c0b14251078069408659b42" => :arm64_big_sur
-    sha256 "f7e6fc4408e917d78746ffc53dcd0b2f9f37e5c1b295f358be5d41a25e7d60de" => :catalina
-    sha256 "3e21ecc1441c7c5a18acf827a4aeaf808b2a6c1ff915c868c34947d1c9086775" => :mojave
-    sha256 "c640e35ef442786c557184aa9ea0258080f89a4d253997b627634d3907e86cb6" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0bcb9a2f9d299bd55731b46cff980afaf58a6769c0b14251078069408659b42"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4115bdd503a5481502974b540b7270bdc4bc7161711f652dc97d4fe26345ef9b"
+    sha256 cellar: :any_skip_relocation, catalina:      "f7e6fc4408e917d78746ffc53dcd0b2f9f37e5c1b295f358be5d41a25e7d60de"
+    sha256 cellar: :any_skip_relocation, mojave:        "3e21ecc1441c7c5a18acf827a4aeaf808b2a6c1ff915c868c34947d1c9086775"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c640e35ef442786c557184aa9ea0258080f89a4d253997b627634d3907e86cb6"
   end
 
   depends_on "cbc"

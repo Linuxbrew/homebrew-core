@@ -11,10 +11,10 @@ class Global < Formula
   end
 
   bottle do
-    sha256 "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013" => :catalina
-    sha256 "848b4e78c1f507bc4356b285164368641125194e730accf46c540af5806a600f" => :mojave
-    sha256 "ba9cdd8c988ca4aff95538b8d30cb9f97c99dd6f5e91e296db121c8b53459cf0" => :high_sierra
-    sha256 "35fb50e301ca735d1ba3fe2322b0f973b7c3001ffb868500fcced65da65eeb79" => :x86_64_linux
+    sha256 catalina:     "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013"
+    sha256 mojave:       "848b4e78c1f507bc4356b285164368641125194e730accf46c540af5806a600f"
+    sha256 high_sierra:  "ba9cdd8c988ca4aff95538b8d30cb9f97c99dd6f5e91e296db121c8b53459cf0"
+    sha256 x86_64_linux: "35fb50e301ca735d1ba3fe2322b0f973b7c3001ffb868500fcced65da65eeb79"
   end
 
   head do

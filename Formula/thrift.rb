@@ -11,14 +11,13 @@ class Thrift < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "5f5280ff34d8e814e52cddf28d84b6e519cf29cc8d56f4712421a78da8e265e8" => :big_sur
-    sha256 "ef547715c618d3a3cd8586f9678e1b5d09e970680ca44e3a184a106142ff0537" => :arm64_big_sur
-    sha256 "9fff4084e59bf612da35f7e731c82f5a1d714aec8ba860a2521c0ca1d73731d4" => :catalina
-    sha256 "840fbc8db938bc1b8e50d16f733bcd22a8918efee276cbf969fc79f779380b5d" => :mojave
-    sha256 "bec0a20279bf36bcd960c71b9e417e41a53479e8a575034bef426994e7ecc546" => :high_sierra
-    sha256 "4120ac01e7b84804261f75fd878cccc53ef87f11a8fc2b4305b680160e731c08" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "ef547715c618d3a3cd8586f9678e1b5d09e970680ca44e3a184a106142ff0537"
+    sha256 cellar: :any, big_sur:       "5f5280ff34d8e814e52cddf28d84b6e519cf29cc8d56f4712421a78da8e265e8"
+    sha256 cellar: :any, catalina:      "9fff4084e59bf612da35f7e731c82f5a1d714aec8ba860a2521c0ca1d73731d4"
+    sha256 cellar: :any, mojave:        "840fbc8db938bc1b8e50d16f733bcd22a8918efee276cbf969fc79f779380b5d"
+    sha256 cellar: :any, high_sierra:   "bec0a20279bf36bcd960c71b9e417e41a53479e8a575034bef426994e7ecc546"
+    sha256 cellar: :any, x86_64_linux:  "4120ac01e7b84804261f75fd878cccc53ef87f11a8fc2b4305b680160e731c08"
   end
 
   head do

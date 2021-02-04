@@ -7,13 +7,12 @@ class Crc32c < Formula
   head "https://github.com/google/crc32c.git"
 
   bottle do
-    cellar :any
-    sha256 "a37c7daabc55476ee3828211b32a63f052af9feeff1430fe53be9cef2038a069" => :big_sur
-    sha256 "82e70741895a3e29dc0f8e48b0dd10e13e8cd380012457c1bf984ace3fd6dd03" => :arm64_big_sur
-    sha256 "8ac4299583c3155c0410e246277214110bbbe453df5cc6b67694c67ba722bfbc" => :catalina
-    sha256 "f5e232ed8a57eea6b226f4596f94281ea4ea5467c626e83a1576e74aee32711e" => :mojave
-    sha256 "a8f21980c0fee7ffb9911b1eaa1bf7641940b4bb798a7dbd508ae60a6c1a46a8" => :high_sierra
-    sha256 "fade39ba2de89b5f331d458f132ae09f52049648b6c5567ab3eac727142d8f53" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "82e70741895a3e29dc0f8e48b0dd10e13e8cd380012457c1bf984ace3fd6dd03"
+    sha256 cellar: :any, big_sur:       "a37c7daabc55476ee3828211b32a63f052af9feeff1430fe53be9cef2038a069"
+    sha256 cellar: :any, catalina:      "8ac4299583c3155c0410e246277214110bbbe453df5cc6b67694c67ba722bfbc"
+    sha256 cellar: :any, mojave:        "f5e232ed8a57eea6b226f4596f94281ea4ea5467c626e83a1576e74aee32711e"
+    sha256 cellar: :any, high_sierra:   "a8f21980c0fee7ffb9911b1eaa1bf7641940b4bb798a7dbd508ae60a6c1a46a8"
+    sha256 cellar: :any, x86_64_linux:  "fade39ba2de89b5f331d458f132ae09f52049648b6c5567ab3eac727142d8f53"
   end
 
   depends_on "cmake" => :build

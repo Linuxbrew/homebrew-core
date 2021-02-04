@@ -5,8 +5,7 @@ class Bsdmainutils < Formula
   sha256 "4d3d01e1793a35b1122d0dd00933002c383532d5708916d55594a3a1e9ea0723"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c23758259ad84246b38d9c162d3ae05023460eb8ff755ecf55619202e25202bd" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c23758259ad84246b38d9c162d3ae05023460eb8ff755ecf55619202e25202bd"
   end
 
   depends_on "libbsd"

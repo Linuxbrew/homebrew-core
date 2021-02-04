@@ -14,13 +14,12 @@ class Ldns < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "998f245038aacbe7e2a953bd4ede86f0175c3c00ea71e3b9a14a134c1d2ca4cd" => :big_sur
-    sha256 "72df9927c731028f56fbbe9962c6effeec5f8581ede570ea22c2d1c702bd7b5a" => :arm64_big_sur
-    sha256 "9143a6b86f643e5d63cf00774619622abaf0f3ee7e7f071f4aab924f15e163ff" => :catalina
-    sha256 "51a0ab78e1788d5a13bc0e14d476a0f9d98b565915b04507df88c8b81c64963d" => :mojave
-    sha256 "86c7687436d1ddb2b41392ee6c5e8f235ffe478d7b7b0d912feaa7a89217e8d5" => :high_sierra
-    sha256 "00cfbc009d954b2ecc5d0f3c7f58fc7ee140c37cc597f646d1db95330f0bf6a9" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "72df9927c731028f56fbbe9962c6effeec5f8581ede570ea22c2d1c702bd7b5a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "998f245038aacbe7e2a953bd4ede86f0175c3c00ea71e3b9a14a134c1d2ca4cd"
+    sha256 cellar: :any_skip_relocation, catalina:      "9143a6b86f643e5d63cf00774619622abaf0f3ee7e7f071f4aab924f15e163ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "51a0ab78e1788d5a13bc0e14d476a0f9d98b565915b04507df88c8b81c64963d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "86c7687436d1ddb2b41392ee6c5e8f235ffe478d7b7b0d912feaa7a89217e8d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00cfbc009d954b2ecc5d0f3c7f58fc7ee140c37cc597f646d1db95330f0bf6a9"
   end
 
   depends_on "swig" => :build

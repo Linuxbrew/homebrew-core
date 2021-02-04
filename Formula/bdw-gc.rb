@@ -7,13 +7,12 @@ class BdwGc < Formula
   revision 2
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "bb94ab58bc20b01662c432d21920c9a2e644aad92208b640658d3fd9fb530636" => :big_sur
-    sha256 "928805b89e3de74d9d45043077ee9e64de15079ae9730216a604603afb17b810" => :arm64_big_sur
-    sha256 "31634ad61ce92329e34154feb1ad14e4786592555ef9a14259a09ea0648d5af7" => :catalina
-    sha256 "898aa902c343deda1046532d36351a9d0a08d619dda393f4e50dbc78c674a580" => :mojave
-    sha256 "5953cd08c52a9dbae1dac9c0d50cf95dd854140bd2cf4d60ed9913271241c984" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "928805b89e3de74d9d45043077ee9e64de15079ae9730216a604603afb17b810"
+    sha256 cellar: :any, big_sur:       "bb94ab58bc20b01662c432d21920c9a2e644aad92208b640658d3fd9fb530636"
+    sha256 cellar: :any, catalina:      "31634ad61ce92329e34154feb1ad14e4786592555ef9a14259a09ea0648d5af7"
+    sha256 cellar: :any, mojave:        "898aa902c343deda1046532d36351a9d0a08d619dda393f4e50dbc78c674a580"
+    sha256 cellar: :any, x86_64_linux:  "5953cd08c52a9dbae1dac9c0d50cf95dd854140bd2cf4d60ed9913271241c984"
   end
 
   head do

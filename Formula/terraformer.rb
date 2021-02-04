@@ -7,12 +7,11 @@ class Terraformer < Formula
   head "https://github.com/GoogleCloudPlatform/terraformer.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ceace1a3c90353281ba125f08dbf856b3432c3ad53b451f4ce44f7403391a48a" => :big_sur
-    sha256 "8085eba94b70c7ff060955579506bc2a78d8bc8d09c9a321116962f119282936" => :arm64_big_sur
-    sha256 "edd0bab50df8cb29b97413468318add8f44f09ad1a762725100f7db167c44fab" => :catalina
-    sha256 "f0ba34a3a112418298bd25e9e4011b32a7b5fedd7e6b489a44635341c619b04a" => :mojave
-    sha256 "8e3a5861b911d622582adeee940ba63054e2417b6259f1453a40a5f6e0e570d9" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8085eba94b70c7ff060955579506bc2a78d8bc8d09c9a321116962f119282936"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ceace1a3c90353281ba125f08dbf856b3432c3ad53b451f4ce44f7403391a48a"
+    sha256 cellar: :any_skip_relocation, catalina:      "edd0bab50df8cb29b97413468318add8f44f09ad1a762725100f7db167c44fab"
+    sha256 cellar: :any_skip_relocation, mojave:        "f0ba34a3a112418298bd25e9e4011b32a7b5fedd7e6b489a44635341c619b04a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e3a5861b911d622582adeee940ba63054e2417b6259f1453a40a5f6e0e570d9"
   end
 
   depends_on "go" => :build

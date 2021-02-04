@@ -7,9 +7,9 @@ class Opencolorio < Formula
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
-    sha256 cellar: :any, big_sur: "71158ec7ad5d639725b0fff7c959c917ef487b57a5ab86a50be513f37bc2de27"
-    sha256 cellar: :any, catalina: "ed6222a9cd879320f401346aef14e0c2bf32f530c7deb6738376923d98474e10"
-    sha256 cellar: :any, mojave: "d4168fbcacc162d72f1ed558d3e0aa19efdd93ffd49b24078d6f9abb998a545e"
+    sha256 cellar: :any,                 big_sur:      "71158ec7ad5d639725b0fff7c959c917ef487b57a5ab86a50be513f37bc2de27"
+    sha256 cellar: :any,                 catalina:     "ed6222a9cd879320f401346aef14e0c2bf32f530c7deb6738376923d98474e10"
+    sha256 cellar: :any,                 mojave:       "d4168fbcacc162d72f1ed558d3e0aa19efdd93ffd49b24078d6f9abb998a545e"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "22731599937a83a01d0f01f4ff8441e07d45b5712303e1a666919952105ba638"
   end
 

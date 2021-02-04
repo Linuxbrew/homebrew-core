@@ -6,7 +6,7 @@ class LmSensors < Formula
   sha256 "0591f9fa0339f0d15e75326d0365871c2d4e2ed8aa1ff759b3a55d3734b7d197"
 
   bottle do
-    sha256 "bf3fea16c4ebf78f4234e9c7d00088fb4990433d135e5bb958a1c107dcbf63cd" => :x86_64_linux
+    sha256 x86_64_linux: "bf3fea16c4ebf78f4234e9c7d00088fb4990433d135e5bb958a1c107dcbf63cd"
   end
 
   depends_on "bison" => :build

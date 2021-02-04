@@ -13,13 +13,12 @@ class IslAT018 < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4d22193093ee43ec29988ecadd20b01359291475c78a43d9053e00b78991fc7f" => :big_sur
-    sha256 "44fe4a7f5ed00ff3b3ba06a37d3b6d4633e7532c841d4e02fa1cb2678afc018c" => :arm64_big_sur
-    sha256 "728e3b1ab4e7c7cf6298e80c398dfdb8012c1b5c77fb54261d618d094bd9a1bb" => :catalina
-    sha256 "efcde3c18baf1ee3e76312758ab5a95cb4df68267d7273003d519abce2ad6c87" => :mojave
-    sha256 "0525751dc4fd778bf8be05f743d798d9229e9955999d06a1cfbecee33d737a38" => :high_sierra
-    sha256 "3ef95686496676a3c73c57db6eee32a9f039e9c2b7ccf173c3b1941124ef6f78" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "44fe4a7f5ed00ff3b3ba06a37d3b6d4633e7532c841d4e02fa1cb2678afc018c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d22193093ee43ec29988ecadd20b01359291475c78a43d9053e00b78991fc7f"
+    sha256 cellar: :any_skip_relocation, catalina:      "728e3b1ab4e7c7cf6298e80c398dfdb8012c1b5c77fb54261d618d094bd9a1bb"
+    sha256 cellar: :any_skip_relocation, mojave:        "efcde3c18baf1ee3e76312758ab5a95cb4df68267d7273003d519abce2ad6c87"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0525751dc4fd778bf8be05f743d798d9229e9955999d06a1cfbecee33d737a38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef95686496676a3c73c57db6eee32a9f039e9c2b7ccf173c3b1941124ef6f78"
   end
 
   keg_only :versioned_formula

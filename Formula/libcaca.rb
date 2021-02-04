@@ -20,12 +20,11 @@ class Libcaca < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "fca71650e2702ac497560f86779bbc77acb5fd8cf09c8219c2381be20af6d11e" => :big_sur
-    sha256 "49547bb139e2ed778c36c881a73d0ec51d3c0b978873db0587b3936b87c55d0b" => :arm64_big_sur
-    sha256 "3d2d080e206d0d7d9720687aadfce949e78588df510b9039ff1b8f4277015d6d" => :catalina
-    sha256 "38488f0e4363948a80d60201da73c6c67856525ff0b67cfd53dc3caa16de602e" => :mojave
-    sha256 "0680052b0e6fcdf09a2f83b83d3abab7b234720e5b18557ede50c192b181468c" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "49547bb139e2ed778c36c881a73d0ec51d3c0b978873db0587b3936b87c55d0b"
+    sha256 cellar: :any, big_sur:       "fca71650e2702ac497560f86779bbc77acb5fd8cf09c8219c2381be20af6d11e"
+    sha256 cellar: :any, catalina:      "3d2d080e206d0d7d9720687aadfce949e78588df510b9039ff1b8f4277015d6d"
+    sha256 cellar: :any, mojave:        "38488f0e4363948a80d60201da73c6c67856525ff0b67cfd53dc3caa16de602e"
+    sha256 cellar: :any, x86_64_linux:  "0680052b0e6fcdf09a2f83b83d3abab7b234720e5b18557ede50c192b181468c"
   end
 
   head do

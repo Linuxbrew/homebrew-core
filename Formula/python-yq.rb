@@ -11,13 +11,12 @@ class PythonYq < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f5d014ddb9d16c8cb902eed5adaf297f3fc10a96a492db5d2a567b3d0d637a6e" => :big_sur
-    sha256 "e82db9e41acc0b88b8c5f6785953a016ed702c1213234e012a3002cb9f975b32" => :arm64_big_sur
-    sha256 "45289e8520aa9dced6210c1fa4baa69042f9d15ca49b89dc21659c6f49311df8" => :catalina
-    sha256 "511b92444a1adc14910119fecb575d45bb2f4293309b9097cf66f6d610a98a23" => :mojave
-    sha256 "629339b0b95e4d92e9f14122efd7d497738bab9355e4b9679db56b0dbbc29632" => :high_sierra
-    sha256 "2025d8717fae8b0d1b0f34aa66e3a267dc258b528379e64ee8114dcae3c9e118" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e82db9e41acc0b88b8c5f6785953a016ed702c1213234e012a3002cb9f975b32"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f5d014ddb9d16c8cb902eed5adaf297f3fc10a96a492db5d2a567b3d0d637a6e"
+    sha256 cellar: :any_skip_relocation, catalina:      "45289e8520aa9dced6210c1fa4baa69042f9d15ca49b89dc21659c6f49311df8"
+    sha256 cellar: :any_skip_relocation, mojave:        "511b92444a1adc14910119fecb575d45bb2f4293309b9097cf66f6d610a98a23"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "629339b0b95e4d92e9f14122efd7d497738bab9355e4b9679db56b0dbbc29632"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2025d8717fae8b0d1b0f34aa66e3a267dc258b528379e64ee8114dcae3c9e118"
   end
 
   depends_on "jq"

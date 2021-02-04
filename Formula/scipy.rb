@@ -11,11 +11,11 @@ class Scipy < Formula
   end
 
   bottle do
-    sha256 "f6a771cfaca9b1a33ba7ba01e961ea1d22bc3d0b62ce756b2f6ae1b5c820d6f8" => :big_sur
-    sha256 "96ad6a2766163fc391c7732a7c4e1b0ed101a8950ca4ddc308f1f58a299d50de" => :arm64_big_sur
-    sha256 "22c5e9f85c11e58e5ec990ab9a8aa8e5a3564b1bec3df80a445fe116a75f2d1e" => :catalina
-    sha256 "05c95144b014c46f94c587688e8380bcb7fe2f4b8dbbceb1f229ade501e20981" => :mojave
-    sha256 "fd4b0be58fb84f96163c959eb7e039dea33149f7a64037ec8597ede2501e294e" => :x86_64_linux
+    sha256 arm64_big_sur: "96ad6a2766163fc391c7732a7c4e1b0ed101a8950ca4ddc308f1f58a299d50de"
+    sha256 big_sur:       "f6a771cfaca9b1a33ba7ba01e961ea1d22bc3d0b62ce756b2f6ae1b5c820d6f8"
+    sha256 catalina:      "22c5e9f85c11e58e5ec990ab9a8aa8e5a3564b1bec3df80a445fe116a75f2d1e"
+    sha256 mojave:        "05c95144b014c46f94c587688e8380bcb7fe2f4b8dbbceb1f229ade501e20981"
+    sha256 x86_64_linux:  "fd4b0be58fb84f96163c959eb7e039dea33149f7a64037ec8597ede2501e294e"
   end
 
   depends_on "swig" => :build

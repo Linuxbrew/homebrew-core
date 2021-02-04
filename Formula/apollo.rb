@@ -8,14 +8,13 @@ class Apollo < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "b4ecc23c2aa054e69b8de5531d80315b5ed2746ea7cd438e66317bc666903a8b" => :big_sur
-    sha256 "305849117548586243e45c96c3b55660c9635d7efa24a727f66bc256a892df86" => :arm64_big_sur
-    sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :catalina
-    sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :mojave
-    sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :high_sierra
-    sha256 "a15ef5095fa59c9a4d87559b752f648f44b722141b8928dd90e1f0817267d696" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "305849117548586243e45c96c3b55660c9635d7efa24a727f66bc256a892df86"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b4ecc23c2aa054e69b8de5531d80315b5ed2746ea7cd438e66317bc666903a8b"
+    sha256 cellar: :any_skip_relocation, catalina:      "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
+    sha256 cellar: :any_skip_relocation, mojave:        "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a15ef5095fa59c9a4d87559b752f648f44b722141b8928dd90e1f0817267d696"
   end
 
   # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca

@@ -11,10 +11,10 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 "b82d22e73700e96436551a9119415dbd74ef096b1be7a3e98dbbeb00b04a19a6" => :big_sur
-    sha256 "2ee333bffcc8ee2bd1e3cfd4eab8ebb9791588a195991448a5a3d7eb7da8e0ed" => :arm64_big_sur
-    sha256 "a0a0e076fbf393299fd7c5f4775bdbf449d5e8d393f4b456c8d617219cc83aef" => :catalina
-    sha256 "944a5e4a9de241e57f91d8cf3007752e4cc27df9a364e1b38d42fe24eed306d9" => :mojave
+    sha256 arm64_big_sur: "2ee333bffcc8ee2bd1e3cfd4eab8ebb9791588a195991448a5a3d7eb7da8e0ed"
+    sha256 big_sur:       "b82d22e73700e96436551a9119415dbd74ef096b1be7a3e98dbbeb00b04a19a6"
+    sha256 catalina:      "a0a0e076fbf393299fd7c5f4775bdbf449d5e8d393f4b456c8d617219cc83aef"
+    sha256 mojave:        "944a5e4a9de241e57f91d8cf3007752e4cc27df9a364e1b38d42fe24eed306d9"
   end
 
   depends_on "autoconf" => :build

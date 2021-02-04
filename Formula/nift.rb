@@ -6,12 +6,11 @@ class Nift < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd954d10e59e79bdeea45897fc6691cd7f06497c4398ec0f1f7adae62869fc01" => :big_sur
-    sha256 "f08a936baa0f3e81ec0aa8343fb4970c39a7c73b308bad8df4e21fd665320ade" => :catalina
-    sha256 "56e8f7ea837fbff3d3a887bd57134364c55f352c0c4e9a5bf38301dbb7e4bdda" => :mojave
-    sha256 "ad7c89b1c61ba4659dff5fb3b021b3283f253e158ed72830b0598afdc33198c8" => :high_sierra
-    sha256 "ad8de8249476ad1dc5aa2f4a079fb0b1eff33aabca711da7eef51d0205b71a63" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "fd954d10e59e79bdeea45897fc6691cd7f06497c4398ec0f1f7adae62869fc01"
+    sha256 cellar: :any_skip_relocation, catalina:     "f08a936baa0f3e81ec0aa8343fb4970c39a7c73b308bad8df4e21fd665320ade"
+    sha256 cellar: :any_skip_relocation, mojave:       "56e8f7ea837fbff3d3a887bd57134364c55f352c0c4e9a5bf38301dbb7e4bdda"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "ad7c89b1c61ba4659dff5fb3b021b3283f253e158ed72830b0598afdc33198c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ad8de8249476ad1dc5aa2f4a079fb0b1eff33aabca711da7eef51d0205b71a63"
   end
 
   depends_on "luajit" unless OS.mac?

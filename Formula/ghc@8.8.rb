@@ -8,12 +8,11 @@ class GhcAT88 < Formula
 
   # Cellar should be :any_skip_relocation on Linux
   bottle do
-    cellar :any_skip_relocation
-    sha256 "78a806d8c18645588e55422e2d67e19f1caaf8e869e98c7327a716a1ead63926" => :big_sur
-    sha256 "de4d4235c849b5c8f07a3b4604b1e1e3c50b88f0deb4e97f9846ab8dde0d5d56" => :catalina
-    sha256 "96b82af24e29043cd4f4c66b6871d40913ac58e30e2c0fced9ca3cc043408778" => :mojave
-    sha256 "9d5a52d029125c10744cf20c500ff84d9602fd32f6d81e9ca0137aba508a7ec8" => :high_sierra
-    sha256 "0817dad180d333f9c5c025c565c4bd11c6b8e86f1dd8d2f328e68ba50cf9a9a4" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "78a806d8c18645588e55422e2d67e19f1caaf8e869e98c7327a716a1ead63926"
+    sha256 cellar: :any_skip_relocation, catalina:     "de4d4235c849b5c8f07a3b4604b1e1e3c50b88f0deb4e97f9846ab8dde0d5d56"
+    sha256 cellar: :any_skip_relocation, mojave:       "96b82af24e29043cd4f4c66b6871d40913ac58e30e2c0fced9ca3cc043408778"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "9d5a52d029125c10744cf20c500ff84d9602fd32f6d81e9ca0137aba508a7ec8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0817dad180d333f9c5c025c565c4bd11c6b8e86f1dd8d2f328e68ba50cf9a9a4"
   end
 
   keg_only :versioned_formula

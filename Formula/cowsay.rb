@@ -8,13 +8,12 @@ class Cowsay < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "422c58f10fc2441a62a90864d01b83176ebda627f9a8c29b34f89f4f1f86618e" => :big_sur
-    sha256 "dc3cb88861e89bb415d3b1be1b5314514174349bb44338551e80badc4da94542" => :arm64_big_sur
-    sha256 "c1f4af994e038a18492c8afe0f6b97cfd1c475fe62eafe68762cf5d734dc214d" => :catalina
-    sha256 "faebbfa7a9379fd4efddc43dc167fda055989d2936b0430e404c252a555439cc" => :mojave
-    sha256 "4cdddb22ad76cf14527347e58317caf1495dc88fdf5d6c729ac72fa2fe19dd81" => :high_sierra
-    sha256 "14c9b58039b0b0754018033abdb00a0524f7a130330b38e8013e23b1f8817350" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc3cb88861e89bb415d3b1be1b5314514174349bb44338551e80badc4da94542"
+    sha256 cellar: :any_skip_relocation, big_sur:       "422c58f10fc2441a62a90864d01b83176ebda627f9a8c29b34f89f4f1f86618e"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1f4af994e038a18492c8afe0f6b97cfd1c475fe62eafe68762cf5d734dc214d"
+    sha256 cellar: :any_skip_relocation, mojave:        "faebbfa7a9379fd4efddc43dc167fda055989d2936b0430e404c252a555439cc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4cdddb22ad76cf14527347e58317caf1495dc88fdf5d6c729ac72fa2fe19dd81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14c9b58039b0b0754018033abdb00a0524f7a130330b38e8013e23b1f8817350"
   end
 
   def install

@@ -7,13 +7,12 @@ class ParallelHashmap < Formula
   head "https://github.com/greg7mdp/parallel-hashmap.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd71614a7f2cb919499ae6f7f1bdf6121a7784d85064cfc4cde62d3892704cb0" => :big_sur
-    sha256 "aa3977a35de46f745dc5b8eb8dd4acf1a8f16f7bf18dcb7e4a18c46daf670386" => :arm64_big_sur
-    sha256 "932e18bb079269506931abfe4722a1eab66bb83f850bb5952c982b21864679a3" => :catalina
-    sha256 "d020435a32c4fe59e1bbc0f0e744726b81cade9f89fd871fd49487c5c8a3958f" => :mojave
-    sha256 "c3e7184629352580841f4e14d032eb09653e2dcc4d36f107113e8784ac45060c" => :high_sierra
-    sha256 "c68976263a9c11807b6c7b1c536f246a0dddb892cb5b8b4d90efeabb303aadde" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa3977a35de46f745dc5b8eb8dd4acf1a8f16f7bf18dcb7e4a18c46daf670386"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fd71614a7f2cb919499ae6f7f1bdf6121a7784d85064cfc4cde62d3892704cb0"
+    sha256 cellar: :any_skip_relocation, catalina:      "932e18bb079269506931abfe4722a1eab66bb83f850bb5952c982b21864679a3"
+    sha256 cellar: :any_skip_relocation, mojave:        "d020435a32c4fe59e1bbc0f0e744726b81cade9f89fd871fd49487c5c8a3958f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c3e7184629352580841f4e14d032eb09653e2dcc4d36f107113e8784ac45060c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c68976263a9c11807b6c7b1c536f246a0dddb892cb5b8b4d90efeabb303aadde"
   end
 
   depends_on "cmake" => :build

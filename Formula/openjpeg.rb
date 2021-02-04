@@ -7,12 +7,11 @@ class Openjpeg < Formula
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
-    cellar :any
-    sha256 "43c37565eb2eec2b41dee3f1cc26e3324a42a368cb88092fe1b0dbc941f7678f" => :big_sur
-    sha256 "b57a02c3bc4ee8a43e47df5015e6e40a04d7149e172806157e279b1b03c715ef" => :arm64_big_sur
-    sha256 "80426609c75b98ee0ee394e9017bb621dc73dd2d6f60d0c851f6940d0b268676" => :catalina
-    sha256 "e26d092b6177ee282d3724dea5ea4cb76af3645472791c3fefb002e2638588b0" => :mojave
-    sha256 "017924a40ebcef9ef63048215f7a66e794cbeebb47b024e9306796b143e65e46" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "b57a02c3bc4ee8a43e47df5015e6e40a04d7149e172806157e279b1b03c715ef"
+    sha256 cellar: :any, big_sur:       "43c37565eb2eec2b41dee3f1cc26e3324a42a368cb88092fe1b0dbc941f7678f"
+    sha256 cellar: :any, catalina:      "80426609c75b98ee0ee394e9017bb621dc73dd2d6f60d0c851f6940d0b268676"
+    sha256 cellar: :any, mojave:        "e26d092b6177ee282d3724dea5ea4cb76af3645472791c3fefb002e2638588b0"
+    sha256 cellar: :any, x86_64_linux:  "017924a40ebcef9ef63048215f7a66e794cbeebb47b024e9306796b143e65e46"
   end
 
   depends_on "cmake" => :build

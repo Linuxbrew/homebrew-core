@@ -7,11 +7,11 @@ class Ilmbase < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 "96c25377e22df725dff159ed26a7664448e7ba4a7fd90924532b1ed67c1c76c2" => :big_sur
-    sha256 "e00555535d8beaf7bdc54686c4841072f934460cd2c2326c73a142cd0a642a5e" => :arm64_big_sur
-    sha256 "dc14e8650e42b22189ce338e9c8593dd29a81c68d1a915e104651a97b3f1f7ab" => :catalina
-    sha256 "5f64d530a2162ca1a7b042704f0ba38de1b9efde4742ee76cbde3172af7612ac" => :mojave
-    sha256 "994e372ce736a7a9d38d5785d7390eaf7303aa16978f127a78670fd6f3e1e8a5" => :x86_64_linux
+    sha256 arm64_big_sur: "e00555535d8beaf7bdc54686c4841072f934460cd2c2326c73a142cd0a642a5e"
+    sha256 big_sur:       "96c25377e22df725dff159ed26a7664448e7ba4a7fd90924532b1ed67c1c76c2"
+    sha256 catalina:      "dc14e8650e42b22189ce338e9c8593dd29a81c68d1a915e104651a97b3f1f7ab"
+    sha256 mojave:        "5f64d530a2162ca1a7b042704f0ba38de1b9efde4742ee76cbde3172af7612ac"
+    sha256 x86_64_linux:  "994e372ce736a7a9d38d5785d7390eaf7303aa16978f127a78670fd6f3e1e8a5"
   end
 
   depends_on "cmake" => :build

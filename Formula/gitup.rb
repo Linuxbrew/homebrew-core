@@ -14,12 +14,11 @@ class Gitup < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5ea818d777b458b351c6dba3fced8dfe0b2872855041f2f4dce01751e4ead21c" => :big_sur
-    sha256 "756252ddabb0074e82777e094dc48b873f9d92654b1af72a3818a0d5e1dfca33" => :arm64_big_sur
-    sha256 "741ddc9b31fff9cab313a9bd9da4ef42d94946887b730db62a1ca437bd67b485" => :catalina
-    sha256 "30d5bfe2d496259630b86658d0269cdb8ae6039e8edc77f9651d21a74c6f2b3e" => :mojave
-    sha256 "08c79fa2666005c0ddf07eb3a670720610638d4d7e8eb8f40be1dbd6d0078750" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "756252ddabb0074e82777e094dc48b873f9d92654b1af72a3818a0d5e1dfca33"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5ea818d777b458b351c6dba3fced8dfe0b2872855041f2f4dce01751e4ead21c"
+    sha256 cellar: :any_skip_relocation, catalina:      "741ddc9b31fff9cab313a9bd9da4ef42d94946887b730db62a1ca437bd67b485"
+    sha256 cellar: :any_skip_relocation, mojave:        "30d5bfe2d496259630b86658d0269cdb8ae6039e8edc77f9651d21a74c6f2b3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08c79fa2666005c0ddf07eb3a670720610638d4d7e8eb8f40be1dbd6d0078750"
   end
 
   depends_on "python@3.9"

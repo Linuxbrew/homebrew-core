@@ -6,13 +6,12 @@ class Libxdamage < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "68750157664e1290e30b15ad95dbfcc1be2748b85e7eaef0851f2c0f56f043e3" => :big_sur
-    sha256 "bbd5ef8f7408de369198e66bc6aa8a75ddc798c444ebd7f03b885bc25ccfb136" => :arm64_big_sur
-    sha256 "2c09f29dfafe280bc0179dfe6ad82b623459e6bec07fefac41cf6b3e52385100" => :catalina
-    sha256 "ea0aee131addc90c4b4ba6e0d8c4f8cdfd39dc034a7bfc3e841c408042ad8906" => :mojave
-    sha256 "5c0ca5debb8c99cfed432fa2299e4a280ca81f8988aaacf44e0c0194d89ca7ac" => :high_sierra
-    sha256 "bfc0ac85f89a4dcc1e94991bef37212d55607dc7c7b9708f3a1845ee9b456c4f" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "bbd5ef8f7408de369198e66bc6aa8a75ddc798c444ebd7f03b885bc25ccfb136"
+    sha256 cellar: :any, big_sur:       "68750157664e1290e30b15ad95dbfcc1be2748b85e7eaef0851f2c0f56f043e3"
+    sha256 cellar: :any, catalina:      "2c09f29dfafe280bc0179dfe6ad82b623459e6bec07fefac41cf6b3e52385100"
+    sha256 cellar: :any, mojave:        "ea0aee131addc90c4b4ba6e0d8c4f8cdfd39dc034a7bfc3e841c408042ad8906"
+    sha256 cellar: :any, high_sierra:   "5c0ca5debb8c99cfed432fa2299e4a280ca81f8988aaacf44e0c0194d89ca7ac"
+    sha256 cellar: :any, x86_64_linux:  "bfc0ac85f89a4dcc1e94991bef37212d55607dc7c7b9708f3a1845ee9b456c4f"
   end
 
   depends_on "pkg-config" => :build

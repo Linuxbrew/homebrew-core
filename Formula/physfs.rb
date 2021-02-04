@@ -11,13 +11,12 @@ class Physfs < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "9b5564d6d9ced39825e762700cc50c7acfe3c37ef8d3afb89f4d67467b731614" => :big_sur
-    sha256 "4c7ece7b4677172dfcf85c0bf0d2b5487252528f6015c12db90cba2e51e59c9d" => :arm64_big_sur
-    sha256 "f5c4de02a3b305b0f9e0f1a76856b53542f92b5711ce2724d28797b44220e685" => :catalina
-    sha256 "20e3f8285d418477a07926a137dfe7750831bff2399b6b4ce4eb99ba942e1205" => :mojave
-    sha256 "48b9bf26c888bfc8d2cf892801e1543abfc149dcbfee91e4a28f79386bb81da4" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "4c7ece7b4677172dfcf85c0bf0d2b5487252528f6015c12db90cba2e51e59c9d"
+    sha256 cellar: :any, big_sur:       "9b5564d6d9ced39825e762700cc50c7acfe3c37ef8d3afb89f4d67467b731614"
+    sha256 cellar: :any, catalina:      "f5c4de02a3b305b0f9e0f1a76856b53542f92b5711ce2724d28797b44220e685"
+    sha256 cellar: :any, mojave:        "20e3f8285d418477a07926a137dfe7750831bff2399b6b4ce4eb99ba942e1205"
+    sha256 cellar: :any, x86_64_linux:  "48b9bf26c888bfc8d2cf892801e1543abfc149dcbfee91e4a28f79386bb81da4"
   end
 
   depends_on "cmake" => :build

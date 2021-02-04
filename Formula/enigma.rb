@@ -12,12 +12,11 @@ class Enigma < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "38e4eb761c8c03ec2ff3221d576335d60c60ecb5f369e69098d34740118d48e4" => :catalina
-    sha256 "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231" => :mojave
-    sha256 "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15" => :high_sierra
-    sha256 "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3" => :sierra
-    sha256 "5527fa5fdc8da6a0e8a14ad5bf48e5d7764d46b9fb63567c1b043815221e951e" => :x86_64_linux
+    sha256 cellar: :any, catalina:     "38e4eb761c8c03ec2ff3221d576335d60c60ecb5f369e69098d34740118d48e4"
+    sha256 cellar: :any, mojave:       "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231"
+    sha256 cellar: :any, high_sierra:  "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15"
+    sha256 cellar: :any, sierra:       "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3"
+    sha256 cellar: :any, x86_64_linux: "5527fa5fdc8da6a0e8a14ad5bf48e5d7764d46b9fb63567c1b043815221e951e"
   end
 
   head do

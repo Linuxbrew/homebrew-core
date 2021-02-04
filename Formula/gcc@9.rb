@@ -15,10 +15,10 @@ class GccAT9 < Formula
 
   # gcc is designed to be portable.
   bottle do
-    sha256 "29e25101260144bee0b09b045fce258352e0b832b269909f59d22dda16539926" => :big_sur
-    sha256 "9da2446533167ddef1c7ca78d132908d6c2a2d808c7f1569a7852db6fa21b00a" => :catalina
-    sha256 "65c34910dd7d637ed17e3ba222e940d79cb1a538947adcf616977bd10e88bdbb" => :mojave
-    sha256 "d03d145a38387655ffea5dcdba9e2e34bac82874ddb8e1ed8eaec748ce6393e7" => :x86_64_linux
+    sha256 big_sur:      "29e25101260144bee0b09b045fce258352e0b832b269909f59d22dda16539926"
+    sha256 catalina:     "9da2446533167ddef1c7ca78d132908d6c2a2d808c7f1569a7852db6fa21b00a"
+    sha256 mojave:       "65c34910dd7d637ed17e3ba222e940d79cb1a538947adcf616977bd10e88bdbb"
+    sha256 x86_64_linux: "d03d145a38387655ffea5dcdba9e2e34bac82874ddb8e1ed8eaec748ce6393e7"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

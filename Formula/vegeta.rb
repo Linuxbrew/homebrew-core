@@ -6,13 +6,12 @@ class Vegeta < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1f2ea9a3a871ff2f93ee65f1a5977aece4479835d954026342ac0c5eb523db27" => :big_sur
-    sha256 "7d95ea4ba41b01adc23e73959805a728a4d279cac33448685cced10e268e2965" => :arm64_big_sur
-    sha256 "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13" => :catalina
-    sha256 "76e2d89891ecee0bfa07e939619683cae2d954bca2c5524a6e87b84c105c6c25" => :mojave
-    sha256 "df3853752133b68c20a9d054c12d36d531779fe595bc6011bb1e2d3245e9df2d" => :high_sierra
-    sha256 "fc6ae4daca501e6c037d90b2a9d896fca2053ae8dc3851c335c38f373b59077f" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7d95ea4ba41b01adc23e73959805a728a4d279cac33448685cced10e268e2965"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1f2ea9a3a871ff2f93ee65f1a5977aece4479835d954026342ac0c5eb523db27"
+    sha256 cellar: :any_skip_relocation, catalina:      "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13"
+    sha256 cellar: :any_skip_relocation, mojave:        "76e2d89891ecee0bfa07e939619683cae2d954bca2c5524a6e87b84c105c6c25"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "df3853752133b68c20a9d054c12d36d531779fe595bc6011bb1e2d3245e9df2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc6ae4daca501e6c037d90b2a9d896fca2053ae8dc3851c335c38f373b59077f"
   end
 
   depends_on "go" => :build

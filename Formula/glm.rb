@@ -13,13 +13,12 @@ class Glm < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0533418aa7813363241f157a547604acc2c097790a6ddaff2967ede127e8225b" => :big_sur
-    sha256 "4835a0d6b85dd518d3b47830bbae5f45521f4588bd02d3f690f792a6960b9492" => :arm64_big_sur
-    sha256 "9b661be1f704c2e946dbd4d4f96d58ae82427824ef88d7dd9f0f0cfc3fae2233" => :catalina
-    sha256 "7210910c6f106de4c22874f3977b1457cea3db6bb03269ea6831ffae861bb80e" => :mojave
-    sha256 "ea41bb7f8f195c22d6f7834c57684412d752e2c72ff795b9056dd90aaebf9d84" => :high_sierra
-    sha256 "c93e76e1625623a3b6a0255661c5fc12fbbf2b7480aa1a62227973fbba294964" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4835a0d6b85dd518d3b47830bbae5f45521f4588bd02d3f690f792a6960b9492"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0533418aa7813363241f157a547604acc2c097790a6ddaff2967ede127e8225b"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b661be1f704c2e946dbd4d4f96d58ae82427824ef88d7dd9f0f0cfc3fae2233"
+    sha256 cellar: :any_skip_relocation, mojave:        "7210910c6f106de4c22874f3977b1457cea3db6bb03269ea6831ffae861bb80e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ea41bb7f8f195c22d6f7834c57684412d752e2c72ff795b9056dd90aaebf9d84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c93e76e1625623a3b6a0255661c5fc12fbbf2b7480aa1a62227973fbba294964"
   end
 
   depends_on "cmake" => :build

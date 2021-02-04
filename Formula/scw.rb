@@ -6,12 +6,11 @@ class Scw < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8088c820051babc7e934c5b6a3b4f4f3af5a8ca4861307fb81cb78e39c637c8c" => :big_sur
-    sha256 "323d5a79e50e9fb954ff5a25232ddc85ae24b690322b3c2efdfb64971f027505" => :arm64_big_sur
-    sha256 "34b8f4ad1a3cfd50e242f13ab53fee34085d7e1cb8b394384f378b928d10e21e" => :catalina
-    sha256 "ec797ed2a4c6c8cd6d9b6b2a0a86827bdebe3c41997f85ab8f6ed28c73351ccd" => :mojave
-    sha256 "a8c38e5b613e317102a1206e4d119916ff946c025b4b1a0187f9895899648efb" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "323d5a79e50e9fb954ff5a25232ddc85ae24b690322b3c2efdfb64971f027505"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8088c820051babc7e934c5b6a3b4f4f3af5a8ca4861307fb81cb78e39c637c8c"
+    sha256 cellar: :any_skip_relocation, catalina:      "34b8f4ad1a3cfd50e242f13ab53fee34085d7e1cb8b394384f378b928d10e21e"
+    sha256 cellar: :any_skip_relocation, mojave:        "ec797ed2a4c6c8cd6d9b6b2a0a86827bdebe3c41997f85ab8f6ed28c73351ccd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8c38e5b613e317102a1206e4d119916ff946c025b4b1a0187f9895899648efb"
   end
 
   depends_on "go" => :build

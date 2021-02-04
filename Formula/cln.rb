@@ -6,12 +6,11 @@ class Cln < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "3234c105147111fdbb679c8a27a4b59a99d8195a3e461642783028905c244db4" => :big_sur
-    sha256 "bbc7716e6028fc3dc95dc22bf20033d13119b6ffe62dbd4c2609ecce85459a92" => :catalina
-    sha256 "1e62717cf6b0562643947c904c547e737bc9209cb349c388c6b7f9edcd915001" => :mojave
-    sha256 "0f14327e937f0a665dc66c5b62dc5d11094d812831221d8b86f8e5ba966e9540" => :high_sierra
-    sha256 "606f7f6ca6c5ad8665656a09e521befc389ffa71d2ea87eadaca14f5af003671" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "3234c105147111fdbb679c8a27a4b59a99d8195a3e461642783028905c244db4"
+    sha256 cellar: :any, catalina:     "bbc7716e6028fc3dc95dc22bf20033d13119b6ffe62dbd4c2609ecce85459a92"
+    sha256 cellar: :any, mojave:       "1e62717cf6b0562643947c904c547e737bc9209cb349c388c6b7f9edcd915001"
+    sha256 cellar: :any, high_sierra:  "0f14327e937f0a665dc66c5b62dc5d11094d812831221d8b86f8e5ba966e9540"
+    sha256 cellar: :any, x86_64_linux: "606f7f6ca6c5ad8665656a09e521befc389ffa71d2ea87eadaca14f5af003671"
   end
 
   depends_on "gmp"

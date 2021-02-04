@@ -6,7 +6,7 @@ class MinimalPython < Formula
   revision 1
 
   bottle do
-    sha256 "f0fb1887b88e5aa46ed6171a2501b0b9a5a16ac13a532b858b8f27c4e60114a8" => :x86_64_linux
+    sha256 x86_64_linux: "f0fb1887b88e5aa46ed6171a2501b0b9a5a16ac13a532b858b8f27c4e60114a8"
   end
 
   keg_only "conflicts with python formula"

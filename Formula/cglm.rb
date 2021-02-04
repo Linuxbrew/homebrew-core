@@ -6,12 +6,11 @@ class Cglm < Formula
   license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "200eed2ddec2f9b1bd83389a028a87f33f1e21f189113e73d1b07827b68f1d5c" => :big_sur
-    sha256 "68743db1f6da6f8f865e664c574691bdcca09dc741315f303b2985bb8e4d5538" => :arm64_big_sur
-    sha256 "9da6d7be20925e8e0cbb7d1fc0faa43a15fb00063d9f7b8123ce19a8eabfb1a9" => :catalina
-    sha256 "096de5d9570f52485674b349e763f53f1939240d3e6596444b6ac7a0daf6aa39" => :mojave
-    sha256 "c24fc1f30875fb93d67f3c9599fa1cc61f76cc54a7d99a2d3bdb1dd47159cc2c" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "68743db1f6da6f8f865e664c574691bdcca09dc741315f303b2985bb8e4d5538"
+    sha256 cellar: :any, big_sur:       "200eed2ddec2f9b1bd83389a028a87f33f1e21f189113e73d1b07827b68f1d5c"
+    sha256 cellar: :any, catalina:      "9da6d7be20925e8e0cbb7d1fc0faa43a15fb00063d9f7b8123ce19a8eabfb1a9"
+    sha256 cellar: :any, mojave:        "096de5d9570f52485674b349e763f53f1939240d3e6596444b6ac7a0daf6aa39"
+    sha256 cellar: :any, x86_64_linux:  "c24fc1f30875fb93d67f3c9599fa1cc61f76cc54a7d99a2d3bdb1dd47159cc2c"
   end
 
   depends_on "autoconf" => :build

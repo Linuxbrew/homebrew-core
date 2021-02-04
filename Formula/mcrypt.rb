@@ -11,11 +11,11 @@ class Mcrypt < Formula
 
   bottle do
     rebuild 4
-    sha256 "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7" => :big_sur
-    sha256 "849ffa4e23dff9bff130c10d8ace02994034120b7d97ad36e9d7f6e8c048f97a" => :arm64_big_sur
-    sha256 "a52070083dfe080bbe0b8f71597a8a619c6b1421970c4670c6f40f5f2ba0fafe" => :catalina
-    sha256 "6a23409a37396e2b2256485737a8195b06dcdea3607583e509f1d87d6a75faec" => :mojave
-    sha256 "60108bc35f779aeb24a8c55c51482f4dcdc0b32e96009a3d28c9f9f195b5a5b3" => :x86_64_linux
+    sha256 arm64_big_sur: "849ffa4e23dff9bff130c10d8ace02994034120b7d97ad36e9d7f6e8c048f97a"
+    sha256 big_sur:       "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7"
+    sha256 catalina:      "a52070083dfe080bbe0b8f71597a8a619c6b1421970c4670c6f40f5f2ba0fafe"
+    sha256 mojave:        "6a23409a37396e2b2256485737a8195b06dcdea3607583e509f1d87d6a75faec"
+    sha256 x86_64_linux:  "60108bc35f779aeb24a8c55c51482f4dcdc0b32e96009a3d28c9f9f195b5a5b3"
   end
 
   # Added automake as a build dependency to update config files in libmcrypt.

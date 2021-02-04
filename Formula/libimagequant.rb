@@ -6,12 +6,11 @@ class Libimagequant < Formula
   license :cannot_represent
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "863269f70a434edaa3723358d05f1bbbbde6421c3ab547278b0e9352f16e7bf8" => :big_sur
-    sha256 "5ec56d3c2b5f3df3dcd24649f0ada66862ae7848c240c5e47323a5990a528636" => :arm64_big_sur
-    sha256 "4ba0f5ead6703bb5aacae5c418c2d15babbce21721df21ab176e1709a2108a9a" => :catalina
-    sha256 "ad7c57b0ee19056cce578be0cd08aada81be753dafd387365846c6a5e4a93cc6" => :mojave
-    sha256 "114d2ac5bb3c106854936b18c12f9f7fd52375472b1d03015582af913dac8673" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5ec56d3c2b5f3df3dcd24649f0ada66862ae7848c240c5e47323a5990a528636"
+    sha256 cellar: :any_skip_relocation, big_sur:       "863269f70a434edaa3723358d05f1bbbbde6421c3ab547278b0e9352f16e7bf8"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ba0f5ead6703bb5aacae5c418c2d15babbce21721df21ab176e1709a2108a9a"
+    sha256 cellar: :any_skip_relocation, mojave:        "ad7c57b0ee19056cce578be0cd08aada81be753dafd387365846c6a5e4a93cc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "114d2ac5bb3c106854936b18c12f9f7fd52375472b1d03015582af913dac8673"
   end
 
   def install

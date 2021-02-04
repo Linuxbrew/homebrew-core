@@ -11,11 +11,10 @@ class UBootTools < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6b4871d6839ee624ddd039dc7e5e59ca7c00d134cf5eb259e1016fba367573eb" => :big_sur
-    sha256 "16a44059e70ea3e5b304002930aa64676c0523b4d81cd1dca21de82ceb342f76" => :catalina
-    sha256 "be9e797cbde27d348dfe240985021a162cc390fe9ecff11e8f56666050830dcf" => :mojave
-    sha256 "241df3f1a012e0f382e7e3b3450992a8f2cf7d2ee25fc5a7c4d9e0ab1b6e6843" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "6b4871d6839ee624ddd039dc7e5e59ca7c00d134cf5eb259e1016fba367573eb"
+    sha256 cellar: :any, catalina:     "16a44059e70ea3e5b304002930aa64676c0523b4d81cd1dca21de82ceb342f76"
+    sha256 cellar: :any, mojave:       "be9e797cbde27d348dfe240985021a162cc390fe9ecff11e8f56666050830dcf"
+    sha256 cellar: :any, x86_64_linux: "241df3f1a012e0f382e7e3b3450992a8f2cf7d2ee25fc5a7c4d9e0ab1b6e6843"
   end
 
   depends_on "openssl@1.1"

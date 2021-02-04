@@ -16,14 +16,13 @@ class Pacvim < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "52a18b2f8a5a6e9ab6f2c31c08432c44c3f00183e18c80154a5c6f8daa069160" => :big_sur
-    sha256 "b690b089d153174f596700e750e133228e05949b3c4d01c993d93b862b102dc0" => :arm64_big_sur
-    sha256 "85bd0087ecc54716772881e46ce00553ee037eb2ea200d34d5db28709092369f" => :catalina
-    sha256 "e2ecd6cc1337adb4c9e760c50a83ae04a8cb86495d3c1ea167bfa5930d7a16a0" => :mojave
-    sha256 "b8ef8cdba34802db97fba770e013393973e908e11486b87a4f5189f139e468dc" => :high_sierra
-    sha256 "9a304c39ddb8a1e9680ec916e92faa291eac7f406f01e76141ab16a1e7051f70" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b690b089d153174f596700e750e133228e05949b3c4d01c993d93b862b102dc0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "52a18b2f8a5a6e9ab6f2c31c08432c44c3f00183e18c80154a5c6f8daa069160"
+    sha256 cellar: :any_skip_relocation, catalina:      "85bd0087ecc54716772881e46ce00553ee037eb2ea200d34d5db28709092369f"
+    sha256 cellar: :any_skip_relocation, mojave:        "e2ecd6cc1337adb4c9e760c50a83ae04a8cb86495d3c1ea167bfa5930d7a16a0"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b8ef8cdba34802db97fba770e013393973e908e11486b87a4f5189f139e468dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a304c39ddb8a1e9680ec916e92faa291eac7f406f01e76141ab16a1e7051f70"
   end
 
   uses_from_macos "ncurses"

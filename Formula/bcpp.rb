@@ -12,12 +12,11 @@ class Bcpp < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "447070d7c227cdb2e5c8df360c8ea31c8f9fa89b39e2092a3a888a40caedb523" => :big_sur
-    sha256 "1c7332e45d68c7c34e04b36935495e8e189944442650379f2c920757f2b210b7" => :arm64_big_sur
-    sha256 "1f2a9da46190bde2855e3bdc5d430302c831e3ff0eb3e3c34f8754bbe73744da" => :catalina
-    sha256 "1872e08cd8d7addb8459865d451622d05ed4f4fc2f91e3a6f144ba1fe483b27a" => :mojave
-    sha256 "8b8520c08e8e45efdb6fa4aa48ce5133ae0e5e72e783049d9d540514231f0547" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1c7332e45d68c7c34e04b36935495e8e189944442650379f2c920757f2b210b7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "447070d7c227cdb2e5c8df360c8ea31c8f9fa89b39e2092a3a888a40caedb523"
+    sha256 cellar: :any_skip_relocation, catalina:      "1f2a9da46190bde2855e3bdc5d430302c831e3ff0eb3e3c34f8754bbe73744da"
+    sha256 cellar: :any_skip_relocation, mojave:        "1872e08cd8d7addb8459865d451622d05ed4f4fc2f91e3a6f144ba1fe483b27a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b8520c08e8e45efdb6fa4aa48ce5133ae0e5e72e783049d9d540514231f0547"
   end
 
   def install

@@ -7,13 +7,12 @@ class Lolcat < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "df80796c28d2084b48ee2045954dbb2685eaa46935238b6b2a2cd1f41a546860" => :big_sur
-    sha256 "9a910107509f0e2b478d97837822deb1297155bcba4622b696ef19d424382346" => :arm64_big_sur
-    sha256 "c0e179d579938e4301f04b4896bb2c234f4b643e53e53cbd4a7f796978d2ea6d" => :catalina
-    sha256 "ac56190c6ec7e25d49f979aff7f6cc3e45820002ef22fbc444196b64de2590f9" => :mojave
-    sha256 "1eb5cf4cd5565e07659f37e2531be1e72b0e2e8e57587af229e230fa00315ed3" => :high_sierra
-    sha256 "dd1710f0d55cf77c4c9d71050d1c384ae849a46206e7fca4d0cd33f3ee9fc4b8" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a910107509f0e2b478d97837822deb1297155bcba4622b696ef19d424382346"
+    sha256 cellar: :any_skip_relocation, big_sur:       "df80796c28d2084b48ee2045954dbb2685eaa46935238b6b2a2cd1f41a546860"
+    sha256 cellar: :any_skip_relocation, catalina:      "c0e179d579938e4301f04b4896bb2c234f4b643e53e53cbd4a7f796978d2ea6d"
+    sha256 cellar: :any_skip_relocation, mojave:        "ac56190c6ec7e25d49f979aff7f6cc3e45820002ef22fbc444196b64de2590f9"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1eb5cf4cd5565e07659f37e2531be1e72b0e2e8e57587af229e230fa00315ed3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd1710f0d55cf77c4c9d71050d1c384ae849a46206e7fca4d0cd33f3ee9fc4b8"
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

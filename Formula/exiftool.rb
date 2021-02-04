@@ -13,12 +13,11 @@ class Exiftool < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "25ff309cacd34da2b0e285b0ae6a1eda155afe8fc76270f881127cef9fea9524" => :big_sur
-    sha256 "a0d8370ee8da32d13b5deb9acfbfa5e460a17c248b358f44c026690a8d22905f" => :arm64_big_sur
-    sha256 "8abcffb62ed34374bdb53169396db443b968631904a4450f6b68c9603e9392b9" => :catalina
-    sha256 "3faea0b5e1f2c4aba9273949f583e06a3a4cf7624b57883cd87f7889f2265989" => :mojave
-    sha256 "203e3ec0c45a1143beb39356bcbbb98e81972a81a2d5d6de8afc37d5a82204f1" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a0d8370ee8da32d13b5deb9acfbfa5e460a17c248b358f44c026690a8d22905f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "25ff309cacd34da2b0e285b0ae6a1eda155afe8fc76270f881127cef9fea9524"
+    sha256 cellar: :any_skip_relocation, catalina:      "8abcffb62ed34374bdb53169396db443b968631904a4450f6b68c9603e9392b9"
+    sha256 cellar: :any_skip_relocation, mojave:        "3faea0b5e1f2c4aba9273949f583e06a3a4cf7624b57883cd87f7889f2265989"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "203e3ec0c45a1143beb39356bcbbb98e81972a81a2d5d6de8afc37d5a82204f1"
   end
 
   def install

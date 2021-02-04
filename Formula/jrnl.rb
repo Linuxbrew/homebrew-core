@@ -12,12 +12,11 @@ class Jrnl < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4e448410c5aaeb2956c40164885b44acbf490654b167e070d71994f801686846" => :big_sur
-    sha256 "61c9d11c1bb47b070876ca61df5f0b0fa15fb67ca5b818cacb47bd2dd6c6869f" => :arm64_big_sur
-    sha256 "98e893542a7b48585a5a1a6a5fd01f6d13e43043142c8e195d3e712f64d00647" => :catalina
-    sha256 "c216cd7f0bc5d2fc62aa327aa7ea474cc2e7c2c313ab722994201c0f7a997775" => :mojave
-    sha256 "a239c686c6a340908e35876a7b8e9d5866a99da4d4849bbb15dd1f49b5f4b764" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "61c9d11c1bb47b070876ca61df5f0b0fa15fb67ca5b818cacb47bd2dd6c6869f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4e448410c5aaeb2956c40164885b44acbf490654b167e070d71994f801686846"
+    sha256 cellar: :any_skip_relocation, catalina:      "98e893542a7b48585a5a1a6a5fd01f6d13e43043142c8e195d3e712f64d00647"
+    sha256 cellar: :any_skip_relocation, mojave:        "c216cd7f0bc5d2fc62aa327aa7ea474cc2e7c2c313ab722994201c0f7a997775"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a239c686c6a340908e35876a7b8e9d5866a99da4d4849bbb15dd1f49b5f4b764"
   end
 
   depends_on "python@3.9"

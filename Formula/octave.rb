@@ -12,11 +12,11 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 "ff33dcad0c4ac9f3217536737c0efa63502c6fe918fbe188d44dfce82f3eb4a3" => :big_sur
-    sha256 "8f06de8a81e26a256997ab63f293a0cf7a45d2aa903bec5fad64f0eeac4dff91" => :arm64_big_sur
-    sha256 "ea27285a96cdfa71144297ee0d63e1a26df618b8f763a40994d62bc91aca2d41" => :catalina
-    sha256 "45e1d85154018d876e772283c5efe297383355b9be5aa287c51fe583b5d9b9d9" => :mojave
-    sha256 "4a92d3377d59e4e7f22a342f19991c605871a540cb0ae36fc2c6711e9bff0eb3" => :x86_64_linux
+    sha256 arm64_big_sur: "8f06de8a81e26a256997ab63f293a0cf7a45d2aa903bec5fad64f0eeac4dff91"
+    sha256 big_sur:       "ff33dcad0c4ac9f3217536737c0efa63502c6fe918fbe188d44dfce82f3eb4a3"
+    sha256 catalina:      "ea27285a96cdfa71144297ee0d63e1a26df618b8f763a40994d62bc91aca2d41"
+    sha256 mojave:        "45e1d85154018d876e772283c5efe297383355b9be5aa287c51fe583b5d9b9d9"
+    sha256 x86_64_linux:  "4a92d3377d59e4e7f22a342f19991c605871a540cb0ae36fc2c6711e9bff0eb3"
   end
 
   head do

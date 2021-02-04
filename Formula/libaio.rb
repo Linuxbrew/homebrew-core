@@ -6,8 +6,7 @@ class Libaio < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4d1c96633565fcbe50ea9bf4fd68a91b9cc9f65c086e9d3ab3d4c73cc85b5d7a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4d1c96633565fcbe50ea9bf4fd68a91b9cc9f65c086e9d3ab3d4c73cc85b5d7a"
   end
 
   depends_on :linux

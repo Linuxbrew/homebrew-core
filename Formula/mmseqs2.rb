@@ -9,13 +9,12 @@ class Mmseqs2 < Formula
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "680c7da7213bd418914740e3b7136ab839003ac287b586240982adecf8b1eaeb" => :big_sur
-    sha256 "586f29f2865f69e7947fd57f7da464a0437f13a3c47924ec857b4f89e7c7ffa5" => :arm64_big_sur
-    sha256 "2187f9ec5272d2f5c51fbe24d8b3a266b0441b17cd88b48cc9e30f28cfb9c8e6" => :catalina
-    sha256 "024422927bed2dd5a769255b6639d76ca4128bd27cd3d0717866847fa4d4468f" => :mojave
-    sha256 "8c4a19a4da642054fca312ccd309a4e4f20bcdbeb476b1ff9adab719a67d4b93" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "586f29f2865f69e7947fd57f7da464a0437f13a3c47924ec857b4f89e7c7ffa5"
+    sha256 cellar: :any, big_sur:       "680c7da7213bd418914740e3b7136ab839003ac287b586240982adecf8b1eaeb"
+    sha256 cellar: :any, catalina:      "2187f9ec5272d2f5c51fbe24d8b3a266b0441b17cd88b48cc9e30f28cfb9c8e6"
+    sha256 cellar: :any, mojave:        "024422927bed2dd5a769255b6639d76ca4128bd27cd3d0717866847fa4d4468f"
+    sha256 cellar: :any, x86_64_linux:  "8c4a19a4da642054fca312ccd309a4e4f20bcdbeb476b1ff9adab719a67d4b93"
   end
 
   depends_on "cmake" => :build

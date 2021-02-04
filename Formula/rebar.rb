@@ -7,13 +7,12 @@ class Rebar < Formula
   head "https://github.com/rebar/rebar.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "17b587b45197068cb021a40a4b8a82c69aac233a5f259986d7ad6bc8c41244b8" => :big_sur
-    sha256 "92373b3f954401cb022c08aa56b7e29c8f15cee4a370978c7486c16c2b91ebdd" => :arm64_big_sur
-    sha256 "1dca4b3d2760f3806569c7a455beb73508409177fd9a6f22816653f14e80fdee" => :catalina
-    sha256 "265cfa8851de8a55ff46346167f8670df48d8a731c427d51fe0da16cf2ee8b78" => :mojave
-    sha256 "edf0f9176717c5fc73d62bb89730188b76607c85d1f69e9d2b43abc4eb592df7" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "92373b3f954401cb022c08aa56b7e29c8f15cee4a370978c7486c16c2b91ebdd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "17b587b45197068cb021a40a4b8a82c69aac233a5f259986d7ad6bc8c41244b8"
+    sha256 cellar: :any_skip_relocation, catalina:      "1dca4b3d2760f3806569c7a455beb73508409177fd9a6f22816653f14e80fdee"
+    sha256 cellar: :any_skip_relocation, mojave:        "265cfa8851de8a55ff46346167f8670df48d8a731c427d51fe0da16cf2ee8b78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edf0f9176717c5fc73d62bb89730188b76607c85d1f69e9d2b43abc4eb592df7"
   end
 
   # Deprecated upstream on 2016-04-13 in favor of rebar3:

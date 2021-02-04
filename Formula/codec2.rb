@@ -7,12 +7,11 @@ class Codec2 < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "c28da7a7d230e8505859eafa28d9238ccadd97c4847f5ee5c269ffa24245ba49" => :big_sur
-    sha256 "d41040646585e5b91438818ff4dfdccc94b3a2567d31d6960710f8f2455bab04" => :catalina
-    sha256 "460c2febeb64e913796ee3f161b8fa50bbc00904c99228d5122324ebadd91fe9" => :mojave
-    sha256 "5f4530a54adbc38253b993bdbb21da86b4d11725b2edcbec79e43ed739875208" => :high_sierra
-    sha256 "1abf3196c1426021346c7d023af9ea7c1540e20f25977080ee22f5e78e47909f" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "c28da7a7d230e8505859eafa28d9238ccadd97c4847f5ee5c269ffa24245ba49"
+    sha256 cellar: :any, catalina:     "d41040646585e5b91438818ff4dfdccc94b3a2567d31d6960710f8f2455bab04"
+    sha256 cellar: :any, mojave:       "460c2febeb64e913796ee3f161b8fa50bbc00904c99228d5122324ebadd91fe9"
+    sha256 cellar: :any, high_sierra:  "5f4530a54adbc38253b993bdbb21da86b4d11725b2edcbec79e43ed739875208"
+    sha256 cellar: :any, x86_64_linux: "1abf3196c1426021346c7d023af9ea7c1540e20f25977080ee22f5e78e47909f"
   end
 
   depends_on "cmake" => :build

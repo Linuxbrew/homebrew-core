@@ -13,11 +13,11 @@ class ContentfulCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "c58c39ec09d1c7f8ee3f33f630c973b9130eb81fa85248861a443c820d9df0e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b58ebf1fd5ce935695403761bd5ca1f07f90af99855f02d02abbbda0346b81a"
-    sha256 cellar: :any_skip_relocation, catalina: "09700be6d19118704b3d234e497811f419284da934ee6960c3501fd7f2fa1cd4"
-    sha256 cellar: :any_skip_relocation, mojave: "5444fb62c4cdff96a9f01dda09b4ffb12b19033f600beb8596a4c8aab7ff568f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "93710c50f96150caf67a19c6e7a97b3534ff17b889fa8309e4e700503c7d7ac8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c58c39ec09d1c7f8ee3f33f630c973b9130eb81fa85248861a443c820d9df0e7"
+    sha256 cellar: :any_skip_relocation, catalina:      "09700be6d19118704b3d234e497811f419284da934ee6960c3501fd7f2fa1cd4"
+    sha256 cellar: :any_skip_relocation, mojave:        "5444fb62c4cdff96a9f01dda09b4ffb12b19033f600beb8596a4c8aab7ff568f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93710c50f96150caf67a19c6e7a97b3534ff17b889fa8309e4e700503c7d7ac8"
   end
 
   depends_on "node"

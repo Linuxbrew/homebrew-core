@@ -11,12 +11,11 @@ class Ed < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "57c700308a2ae32fb9a161f33665e040432a0bce4eafc746ece9c1a515b4097d" => :big_sur
-    sha256 "5c564d371bbcdfbbe568291254d591c12d220b23a502944aa68d3a890d4f73e3" => :arm64_big_sur
-    sha256 "7ed89b34fe7b4120255d4a6bd493a924c07c3ad31f3e8099a81ef526dc60b704" => :catalina
-    sha256 "2de3bede199b9f95bb617315e8eb8c8e30276dfcda7f17836c9fcc2dc5253580" => :mojave
-    sha256 "60345259d155bc8a60bd002e2378f00a3970a56737b25f2d40de881b8e951c83" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c564d371bbcdfbbe568291254d591c12d220b23a502944aa68d3a890d4f73e3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57c700308a2ae32fb9a161f33665e040432a0bce4eafc746ece9c1a515b4097d"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ed89b34fe7b4120255d4a6bd493a924c07c3ad31f3e8099a81ef526dc60b704"
+    sha256 cellar: :any_skip_relocation, mojave:        "2de3bede199b9f95bb617315e8eb8c8e30276dfcda7f17836c9fcc2dc5253580"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60345259d155bc8a60bd002e2378f00a3970a56737b25f2d40de881b8e951c83"
   end
 
   keg_only :provided_by_macos

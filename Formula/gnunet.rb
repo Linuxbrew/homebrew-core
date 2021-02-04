@@ -12,11 +12,11 @@ class Gnunet < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "8f3629373c78f67c8995c3aeb9ec4d27f7576b5f28c1d5b9daac3c8d2ef1796c"
-    sha256 cellar: :any, arm64_big_sur: "d2e622cc444972bf0fd15a30922f7f853c066eac83c94b18415fa1547fe1aa2c"
-    sha256 cellar: :any, catalina: "dce4848ff96012a2169bd768d4112dce18dd658f45fa1ab2dfafb4de6886c5fe"
-    sha256 cellar: :any, mojave: "cd3507df5abe3ac3832e61caffc487860e98f05b4a16bb629565c1e84d785c7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c2e3f4ef816945c253ccf1d35cadc26b6b5036a733ad5e0bfb057dd1b0c91b1e"
+    sha256 cellar: :any,                 arm64_big_sur: "d2e622cc444972bf0fd15a30922f7f853c066eac83c94b18415fa1547fe1aa2c"
+    sha256 cellar: :any,                 big_sur:       "8f3629373c78f67c8995c3aeb9ec4d27f7576b5f28c1d5b9daac3c8d2ef1796c"
+    sha256 cellar: :any,                 catalina:      "dce4848ff96012a2169bd768d4112dce18dd658f45fa1ab2dfafb4de6886c5fe"
+    sha256 cellar: :any,                 mojave:        "cd3507df5abe3ac3832e61caffc487860e98f05b4a16bb629565c1e84d785c7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2e3f4ef816945c253ccf1d35cadc26b6b5036a733ad5e0bfb057dd1b0c91b1e"
   end
 
   depends_on "pkg-config" => :build

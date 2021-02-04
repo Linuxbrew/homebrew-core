@@ -7,13 +7,12 @@ class Sparkey < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "6f469c28584124f46a7fa9835dee3311ef02d5a48f2d8fb8c8eb29f2c6688986" => :big_sur
-    sha256 "1b2b1cc05fd4af9994aa34e57bc8767bdb567455e27458e1a9ac38e340603c68" => :arm64_big_sur
-    sha256 "b7e64101995d257df010edb67bafcd60745f09c7b0ebb9650c817eb7343f1899" => :catalina
-    sha256 "438c323c343b7aade2da46316d24bcc4d5c7a95910a43914d70125af14a17636" => :mojave
-    sha256 "4acbb473ce3be942b808af45789ccb7ede8199c728f7c381cd0dda1a105c8a9e" => :high_sierra
-    sha256 "dc7ea6fc5b34d26e5f5c1bdbbd610143aa6327a0af210fc495ad556f22b19efa" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "1b2b1cc05fd4af9994aa34e57bc8767bdb567455e27458e1a9ac38e340603c68"
+    sha256 cellar: :any, big_sur:       "6f469c28584124f46a7fa9835dee3311ef02d5a48f2d8fb8c8eb29f2c6688986"
+    sha256 cellar: :any, catalina:      "b7e64101995d257df010edb67bafcd60745f09c7b0ebb9650c817eb7343f1899"
+    sha256 cellar: :any, mojave:        "438c323c343b7aade2da46316d24bcc4d5c7a95910a43914d70125af14a17636"
+    sha256 cellar: :any, high_sierra:   "4acbb473ce3be942b808af45789ccb7ede8199c728f7c381cd0dda1a105c8a9e"
+    sha256 cellar: :any, x86_64_linux:  "dc7ea6fc5b34d26e5f5c1bdbbd610143aa6327a0af210fc495ad556f22b19efa"
   end
 
   depends_on "autoconf" => :build

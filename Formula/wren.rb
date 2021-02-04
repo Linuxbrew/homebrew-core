@@ -12,11 +12,11 @@ class Wren < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, big_sur: "af31e3436d816900efe9a6cefdf4934abaeab26e4624216e4a2e066b95459a35"
-    sha256 cellar: :any, arm64_big_sur: "7ef952fd5a8e55ff56f3d2e5a56434e105dbb9b983fa4996beac0105408a036c"
-    sha256 cellar: :any, catalina: "c975932fca6aa5e23a331542d2d905d9b53af0b32c44fa9489c9b7bbca666b79"
-    sha256 cellar: :any, mojave: "12270fe77e376fe51eec1ceb2f113b84edcf3bfe37ef1c6dbcbf313459488536"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c725d5f36ace32ad96a0ec0fa5fe13017e8e6eeb10214af45f1551ea3e501a92"
+    sha256 cellar: :any,                 arm64_big_sur: "7ef952fd5a8e55ff56f3d2e5a56434e105dbb9b983fa4996beac0105408a036c"
+    sha256 cellar: :any,                 big_sur:       "af31e3436d816900efe9a6cefdf4934abaeab26e4624216e4a2e066b95459a35"
+    sha256 cellar: :any,                 catalina:      "c975932fca6aa5e23a331542d2d905d9b53af0b32c44fa9489c9b7bbca666b79"
+    sha256 cellar: :any,                 mojave:        "12270fe77e376fe51eec1ceb2f113b84edcf3bfe37ef1c6dbcbf313459488536"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c725d5f36ace32ad96a0ec0fa5fe13017e8e6eeb10214af45f1551ea3e501a92"
   end
 
   def install

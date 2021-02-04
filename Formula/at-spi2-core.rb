@@ -6,7 +6,7 @@ class AtSpi2Core < Formula
   revision 3
 
   bottle do
-    sha256 "b009112ec310ace56168d85c52bb4891af0dd05c50cbec1c24a9e9ea41feb7de" => :x86_64_linux
+    sha256 x86_64_linux: "b009112ec310ace56168d85c52bb4891af0dd05c50cbec1c24a9e9ea41feb7de"
   end
 
   depends_on "gobject-introspection" => :build

@@ -12,11 +12,11 @@ class Mozjpeg < Formula
 
   bottle do
     rebuild 1
-    sha256 "3009c242ebe825a0c9150839f62a92a8a317725f9411bbfe93a0881c8a7436eb" => :big_sur
-    sha256 "b76cd545bd4829c589107a5c723086bda97d9060dd76d5b2626d45502b279487" => :arm64_big_sur
-    sha256 "71f02633dddb7ea71193a7c21e1da0a6546fcd7c5ce10a725001b64aebf32a0f" => :catalina
-    sha256 "4ddb9a3d5b4618528eae92f95d4b08090cfefe8797402aa27da0712ef7121a09" => :mojave
-    sha256 "54836bc9bd338a9b8f0ea0e2a10250310c717f61939b820f57fb1bbd355b13e1" => :x86_64_linux
+    sha256 arm64_big_sur: "b76cd545bd4829c589107a5c723086bda97d9060dd76d5b2626d45502b279487"
+    sha256 big_sur:       "3009c242ebe825a0c9150839f62a92a8a317725f9411bbfe93a0881c8a7436eb"
+    sha256 catalina:      "71f02633dddb7ea71193a7c21e1da0a6546fcd7c5ce10a725001b64aebf32a0f"
+    sha256 mojave:        "4ddb9a3d5b4618528eae92f95d4b08090cfefe8797402aa27da0712ef7121a09"
+    sha256 x86_64_linux:  "54836bc9bd338a9b8f0ea0e2a10250310c717f61939b820f57fb1bbd355b13e1"
   end
 
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"

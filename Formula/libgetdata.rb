@@ -10,14 +10,13 @@ class Libgetdata < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 3
-    sha256 "3ee0053d39a05cadec5f4ed7edc3f143af7afd3d53b0fb7ee89b905ef7a220c6" => :big_sur
-    sha256 "731e469e2d2f4de61115fc882715a9dbaf33da5f14cc89fc628a1440766738fd" => :arm64_big_sur
-    sha256 "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9" => :catalina
-    sha256 "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe" => :mojave
-    sha256 "6b8b5f7801a6cf31ecd5ac82ee02ca344f9634ad01c235a828e3875d0354931b" => :high_sierra
-    sha256 "aaa7acceffef19f5e77f6934418c8c394b59e88c8de869bedb2de8163df3a441" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "731e469e2d2f4de61115fc882715a9dbaf33da5f14cc89fc628a1440766738fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3ee0053d39a05cadec5f4ed7edc3f143af7afd3d53b0fb7ee89b905ef7a220c6"
+    sha256 cellar: :any_skip_relocation, catalina:      "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9"
+    sha256 cellar: :any_skip_relocation, mojave:        "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6b8b5f7801a6cf31ecd5ac82ee02ca344f9634ad01c235a828e3875d0354931b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaa7acceffef19f5e77f6934418c8c394b59e88c8de869bedb2de8163df3a441"
   end
 
   depends_on "libtool"

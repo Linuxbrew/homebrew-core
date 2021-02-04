@@ -8,12 +8,11 @@ class Mypy < Formula
   head "https://github.com/python/mypy.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c8ce5ece63124e9426eee5fdb666af203fb687ed85e42802da5256b9410f3f28" => :big_sur
-    sha256 "bb60227c0abf74657de3f527793816c2dda2e466c9882711d32108574cf85339" => :arm64_big_sur
-    sha256 "b6ffae696bf452d07de1f017810fa9beeac4ca49a33528a6dbedef2f7c73f27c" => :catalina
-    sha256 "949b53af966482d5e6949e75553531b3deff7eace6ce4c07193c7673acf6d167" => :mojave
-    sha256 "196bd1e305fcb83b00eb0b99d29570a0cd60602cfe5178d4c3541c0bc040605c" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bb60227c0abf74657de3f527793816c2dda2e466c9882711d32108574cf85339"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8ce5ece63124e9426eee5fdb666af203fb687ed85e42802da5256b9410f3f28"
+    sha256 cellar: :any_skip_relocation, catalina:      "b6ffae696bf452d07de1f017810fa9beeac4ca49a33528a6dbedef2f7c73f27c"
+    sha256 cellar: :any_skip_relocation, mojave:        "949b53af966482d5e6949e75553531b3deff7eace6ce4c07193c7673acf6d167"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "196bd1e305fcb83b00eb0b99d29570a0cd60602cfe5178d4c3541c0bc040605c"
   end
 
   depends_on "sphinx-doc" => :build

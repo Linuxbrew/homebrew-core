@@ -11,12 +11,11 @@ class Pod2man < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f25e1faab4a26b64026c5f84a62ec47f03c3291e8449382ad37d7b124bd4e9f4" => :big_sur
-    sha256 "4f555cd902868cdb36c0e723876e576f73b597effee5cbfd669ca7a00dba1f2b" => :arm64_big_sur
-    sha256 "2c2eed3a6018e17e0ad345e605e36772ff606f2cb70a611604d4b98a9e96defd" => :catalina
-    sha256 "2569545e8e290c5281b72067276779c281be303caac9151c250194e15db5ed19" => :mojave
-    sha256 "5b7b6c115a45998307c33001f65920fe569e6617558e1b9fde766067621b34f1" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f555cd902868cdb36c0e723876e576f73b597effee5cbfd669ca7a00dba1f2b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f25e1faab4a26b64026c5f84a62ec47f03c3291e8449382ad37d7b124bd4e9f4"
+    sha256 cellar: :any_skip_relocation, catalina:      "2c2eed3a6018e17e0ad345e605e36772ff606f2cb70a611604d4b98a9e96defd"
+    sha256 cellar: :any_skip_relocation, mojave:        "2569545e8e290c5281b72067276779c281be303caac9151c250194e15db5ed19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b7b6c115a45998307c33001f65920fe569e6617558e1b9fde766067621b34f1"
   end
 
   keg_only :provided_by_macos

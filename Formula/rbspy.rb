@@ -6,12 +6,11 @@ class Rbspy < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a10933e0d91454ad97322d652f252af02a160820557afc9d1f5a46477d1ab6ac" => :big_sur
-    sha256 "217244ca6e6ab565de859dfa7c2b4f36a37c7809c33ae69af5890008abbe8d38" => :catalina
-    sha256 "99c94b9554baef714aabdbf73a0e6f9e7991e3c744fb108bda6643d81b10eeec" => :mojave
-    sha256 "613087ac87eb99251be1bc99ee843e043bf19f4c921e6ace169570d54faa4833" => :high_sierra
-    sha256 "3478336b86f8c4c13925c7eae6ba144fc98f454265dacd866c6d3ed559dab7f8" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "a10933e0d91454ad97322d652f252af02a160820557afc9d1f5a46477d1ab6ac"
+    sha256 cellar: :any_skip_relocation, catalina:     "217244ca6e6ab565de859dfa7c2b4f36a37c7809c33ae69af5890008abbe8d38"
+    sha256 cellar: :any_skip_relocation, mojave:       "99c94b9554baef714aabdbf73a0e6f9e7991e3c744fb108bda6643d81b10eeec"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "613087ac87eb99251be1bc99ee843e043bf19f4c921e6ace169570d54faa4833"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3478336b86f8c4c13925c7eae6ba144fc98f454265dacd866c6d3ed559dab7f8"
   end
 
   depends_on "rust" => :build

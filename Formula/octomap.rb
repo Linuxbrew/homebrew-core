@@ -6,12 +6,11 @@ class Octomap < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd9d3306fd3baa8c19a330c1deb9683a83572fe7dea71abcbe368ed5e9e90a93" => :big_sur
-    sha256 "484725230dbef1b0cb797a649219f481fadd4ac9841ba38d1e841dd4adbb0d77" => :arm64_big_sur
-    sha256 "5e914c7f5e2f0fa183fa8f0bd24508170162b5ae62fbb7b7672c18a36787c8a5" => :catalina
-    sha256 "5e019f4a11c0098d6dd0250fae94038946417030be84fea8b2bb65cc145440b4" => :mojave
-    sha256 "0ec6b70ece699ab7c60a0e84d0639e6ef475669d18895df4f965a429e73bb59d" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "484725230dbef1b0cb797a649219f481fadd4ac9841ba38d1e841dd4adbb0d77"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fd9d3306fd3baa8c19a330c1deb9683a83572fe7dea71abcbe368ed5e9e90a93"
+    sha256 cellar: :any_skip_relocation, catalina:      "5e914c7f5e2f0fa183fa8f0bd24508170162b5ae62fbb7b7672c18a36787c8a5"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e019f4a11c0098d6dd0250fae94038946417030be84fea8b2bb65cc145440b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ec6b70ece699ab7c60a0e84d0639e6ef475669d18895df4f965a429e73bb59d"
   end
 
   depends_on "cmake" => :build

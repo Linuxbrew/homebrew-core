@@ -12,11 +12,10 @@ class ClozureCl < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "8d92feb08987fc74fb3a105f94ec0e8664b587a31fa7077b95d1f3d5c86f6a7d" => :big_sur
-    sha256 "c3fbe11dec5f77264369a8b95a774599e5247771f4df475faeed1e589cf1033d" => :catalina
-    sha256 "9608b9fd4293d7e667a3aff0fbe457646844c336139ca5f5c7291ff43569e5cd" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "8d92feb08987fc74fb3a105f94ec0e8664b587a31fa7077b95d1f3d5c86f6a7d"
+    sha256 cellar: :any_skip_relocation, catalina:     "c3fbe11dec5f77264369a8b95a774599e5247771f4df475faeed1e589cf1033d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9608b9fd4293d7e667a3aff0fbe457646844c336139ca5f5c7291ff43569e5cd"
   end
 
   depends_on xcode: :build

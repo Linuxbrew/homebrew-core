@@ -11,12 +11,11 @@ class Libsndfile < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a4a734e58220fc8615d86e4563e9a874447d568151b366aa94391dfe07c4e0fb" => :big_sur
-    sha256 "8e2fc3b0df09a21840f8643f644bd3a0bb3c3551d21f600b344f6b316d3ef44d" => :arm64_big_sur
-    sha256 "671a3cc9c7dafd89cbaffeccf4de826262c144184bf5779320c236e87e7636cc" => :catalina
-    sha256 "8b2876610f9188e8125f636e85bcbd525343b216c6d0787954e78b88dfe8f101" => :mojave
-    sha256 "90ee1e46d8d78ad4220c3dffbe85cb0a85d654ac2bcea638632d411f2c2e310e" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e2fc3b0df09a21840f8643f644bd3a0bb3c3551d21f600b344f6b316d3ef44d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a4a734e58220fc8615d86e4563e9a874447d568151b366aa94391dfe07c4e0fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "671a3cc9c7dafd89cbaffeccf4de826262c144184bf5779320c236e87e7636cc"
+    sha256 cellar: :any_skip_relocation, mojave:        "8b2876610f9188e8125f636e85bcbd525343b216c6d0787954e78b88dfe8f101"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90ee1e46d8d78ad4220c3dffbe85cb0a85d654ac2bcea638632d411f2c2e310e"
   end
 
   depends_on "autoconf" => :build

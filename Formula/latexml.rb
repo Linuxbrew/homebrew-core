@@ -12,12 +12,11 @@ class Latexml < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5311fc896eb2d27a5fa149bea4d30e6be0f6693cde9da9709b32f11212f726e1" => :big_sur
-    sha256 "1baf39e551bf724eec7bfa7f63e6f2f80307c3eb21f53ff05fad1bcd620a6ef9" => :arm64_big_sur
-    sha256 "3af6c43c91d733210e1e75db13093c72aa91addc1cc8ae94cd716de6ec73ea37" => :catalina
-    sha256 "f51f58dc03c62130191b1bf2bb223459da93cdb7a7a1c3052a227a4bdc67dfe9" => :mojave
-    sha256 "b1b30f4c464d1537f777398f2b925450a776d9c98f1bf248bc243db815d4bad8" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1baf39e551bf724eec7bfa7f63e6f2f80307c3eb21f53ff05fad1bcd620a6ef9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5311fc896eb2d27a5fa149bea4d30e6be0f6693cde9da9709b32f11212f726e1"
+    sha256 cellar: :any_skip_relocation, catalina:      "3af6c43c91d733210e1e75db13093c72aa91addc1cc8ae94cd716de6ec73ea37"
+    sha256 cellar: :any_skip_relocation, mojave:        "f51f58dc03c62130191b1bf2bb223459da93cdb7a7a1c3052a227a4bdc67dfe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1b30f4c464d1537f777398f2b925450a776d9c98f1bf248bc243db815d4bad8"
   end
 
   uses_from_macos "libxml2"

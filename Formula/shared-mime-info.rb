@@ -11,12 +11,11 @@ class SharedMimeInfo < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "4857d9f38c0f3cbf23984d60c4ec6280d84b457123d34b9c01e96f3deb8b0bb2" => :big_sur
-    sha256 "c2c98a7a02e1b23f5c7f7baafe0e4b04f22a7b1a6df73912a7450ea73c162819" => :arm64_big_sur
-    sha256 "8cb87ae2f3014998ecebab2d8c37ac9ff364f1164417420c4d8778a38ca17d29" => :catalina
-    sha256 "786d1c053d03676c985de3a7c15d764b69626f5d12e7e36e4048055bdc36413c" => :mojave
-    sha256 "c9fe9c806f8c6a310ba9c0c6444ddfc3537cee2bc6681d27c1b86f26806a3e40" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "c2c98a7a02e1b23f5c7f7baafe0e4b04f22a7b1a6df73912a7450ea73c162819"
+    sha256 cellar: :any, big_sur:       "4857d9f38c0f3cbf23984d60c4ec6280d84b457123d34b9c01e96f3deb8b0bb2"
+    sha256 cellar: :any, catalina:      "8cb87ae2f3014998ecebab2d8c37ac9ff364f1164417420c4d8778a38ca17d29"
+    sha256 cellar: :any, mojave:        "786d1c053d03676c985de3a7c15d764b69626f5d12e7e36e4048055bdc36413c"
+    sha256 cellar: :any, x86_64_linux:  "c9fe9c806f8c6a310ba9c0c6444ddfc3537cee2bc6681d27c1b86f26806a3e40"
   end
 
   head do

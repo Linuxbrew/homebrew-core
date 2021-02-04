@@ -13,11 +13,11 @@ class AwsGoogleAuth < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "be1f6b869f40123cddba81ca3e1cc6298d51a83a2aec39dbc43f5c8d7306d403"
-    sha256 cellar: :any, arm64_big_sur: "d9ff01f8f261a4152f6aea74d58534570efc62c02eb88bc7081ec5c79d86c847"
-    sha256 cellar: :any, catalina: "30f3ab56ea79d656c1d3071db79c1d34f9f8bca178d567712ae5639c92456206"
-    sha256 cellar: :any, mojave: "0230b23f5ae7bc9c5d621746abffd8d606962b7c52afd704e606a3cad28fee20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1f312eda24dcb88d52d906277dbb4666f11720eecf6b0e565c9cde3f970fa91d"
+    sha256 cellar: :any,                 arm64_big_sur: "d9ff01f8f261a4152f6aea74d58534570efc62c02eb88bc7081ec5c79d86c847"
+    sha256 cellar: :any,                 big_sur:       "be1f6b869f40123cddba81ca3e1cc6298d51a83a2aec39dbc43f5c8d7306d403"
+    sha256 cellar: :any,                 catalina:      "30f3ab56ea79d656c1d3071db79c1d34f9f8bca178d567712ae5639c92456206"
+    sha256 cellar: :any,                 mojave:        "0230b23f5ae7bc9c5d621746abffd8d606962b7c52afd704e606a3cad28fee20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f312eda24dcb88d52d906277dbb4666f11720eecf6b0e565c9cde3f970fa91d"
   end
 
   depends_on "freetype"

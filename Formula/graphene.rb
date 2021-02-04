@@ -9,13 +9,12 @@ class Graphene < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0e6af428f089a813408d7edc7a5196372a1ee8dd3ed13f7edbf4acfb1f62407a" => :big_sur
-    sha256 "ed93a2b7f3830d38f82bece133afa43636e1cb90b3342c222909229260e63716" => :arm64_big_sur
-    sha256 "d8519d2811ee796969121cd0b087fb7a5e96c2952c69bb2dfe206f3efc299e31" => :catalina
-    sha256 "0e7e238034cfcd390b8bd0e49bd6ba3c23dcdbff7c9a1cea5e626b34a3381acb" => :mojave
-    sha256 "7bcd5ab83e1509ddeec6b710ba2a69c99bb92438344694423b1c886346fd44c2" => :high_sierra
-    sha256 "f02fe924f78f9a1889b2a6a3fc33793c01e8fe74925d5e3269f345b0962e139f" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "ed93a2b7f3830d38f82bece133afa43636e1cb90b3342c222909229260e63716"
+    sha256 cellar: :any, big_sur:       "0e6af428f089a813408d7edc7a5196372a1ee8dd3ed13f7edbf4acfb1f62407a"
+    sha256 cellar: :any, catalina:      "d8519d2811ee796969121cd0b087fb7a5e96c2952c69bb2dfe206f3efc299e31"
+    sha256 cellar: :any, mojave:        "0e7e238034cfcd390b8bd0e49bd6ba3c23dcdbff7c9a1cea5e626b34a3381acb"
+    sha256 cellar: :any, high_sierra:   "7bcd5ab83e1509ddeec6b710ba2a69c99bb92438344694423b1c886346fd44c2"
+    sha256 cellar: :any, x86_64_linux:  "f02fe924f78f9a1889b2a6a3fc33793c01e8fe74925d5e3269f345b0962e139f"
   end
 
   depends_on "gobject-introspection" => :build

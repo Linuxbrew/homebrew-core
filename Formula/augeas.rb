@@ -11,13 +11,13 @@ class Augeas < Formula
   end
 
   bottle do
-    sha256 "339c6898b7b3fd115fc3cc3c9a0cdb3eb6a1eab3f492e5f2de6513d7c6171c0e" => :big_sur
-    sha256 "a470a4b47f5072f27cf308fac97ff3b9cdd30f88aa4a950fbc73a4527ec9c6ba" => :arm64_big_sur
-    sha256 "00a45b8b446df0a95c2c45cbe608410df2d7be7787247f4b3a8fc1c2c19b41b6" => :catalina
-    sha256 "9a561491e3574dfe2cfe7da2a618c12d02218f88f760de46722d9b603e4f27ba" => :mojave
-    sha256 "0e1477f692cf67442dfcaf7c20a24733838df072ec867f59322070a7eaf3f925" => :high_sierra
-    sha256 "55b3fab93f2ec4a703dc2bb3b3d58c47375456bdb5f0308e0856b231d309c02d" => :sierra
-    sha256 "1cc7c0b182fa466465f1f115c4d5194d9578f49358f2de2fcf60b256a2a6267a" => :x86_64_linux
+    sha256 arm64_big_sur: "a470a4b47f5072f27cf308fac97ff3b9cdd30f88aa4a950fbc73a4527ec9c6ba"
+    sha256 big_sur:       "339c6898b7b3fd115fc3cc3c9a0cdb3eb6a1eab3f492e5f2de6513d7c6171c0e"
+    sha256 catalina:      "00a45b8b446df0a95c2c45cbe608410df2d7be7787247f4b3a8fc1c2c19b41b6"
+    sha256 mojave:        "9a561491e3574dfe2cfe7da2a618c12d02218f88f760de46722d9b603e4f27ba"
+    sha256 high_sierra:   "0e1477f692cf67442dfcaf7c20a24733838df072ec867f59322070a7eaf3f925"
+    sha256 sierra:        "55b3fab93f2ec4a703dc2bb3b3d58c47375456bdb5f0308e0856b231d309c02d"
+    sha256 x86_64_linux:  "1cc7c0b182fa466465f1f115c4d5194d9578f49358f2de2fcf60b256a2a6267a"
   end
 
   head do

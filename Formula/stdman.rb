@@ -8,12 +8,11 @@ class Stdman < Formula
   head "https://github.com/jeaye/stdman.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "72cfb38a8ed45c88a2a70cf75029fe5be4e53e18a19a85e532a482714b68d32a" => :big_sur
-    sha256 "f865e4982fe6eeb4674df33b984ad994c863d26e1ef209c13ed688ae2bda30b7" => :arm64_big_sur
-    sha256 "4cffe0f6e5f997fdef7932ca12d10f1d0a0501f659028a277166e9e1678a93a2" => :catalina
-    sha256 "741674ceaa66f53fd98c146dc1123c63d981997c4ef7bf171f671d83f8b87959" => :mojave
-    sha256 "e4b2e9a6c119d0995b03823ea2f2e86d0795fc4d8afd38bd0b080c76223a9dba" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f865e4982fe6eeb4674df33b984ad994c863d26e1ef209c13ed688ae2bda30b7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "72cfb38a8ed45c88a2a70cf75029fe5be4e53e18a19a85e532a482714b68d32a"
+    sha256 cellar: :any_skip_relocation, catalina:      "4cffe0f6e5f997fdef7932ca12d10f1d0a0501f659028a277166e9e1678a93a2"
+    sha256 cellar: :any_skip_relocation, mojave:        "741674ceaa66f53fd98c146dc1123c63d981997c4ef7bf171f671d83f8b87959"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4b2e9a6c119d0995b03823ea2f2e86d0795fc4d8afd38bd0b080c76223a9dba"
   end
 
   on_linux do

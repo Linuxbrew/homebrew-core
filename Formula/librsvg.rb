@@ -10,11 +10,11 @@ class Librsvg < Formula
   end
 
   bottle do
-    sha256 big_sur: "2160f03918ae945c4d741faba6a5389c3a7c1566aa53f33a37baf6675abbd5df"
-    sha256 arm64_big_sur: "ec04591468e4039417ec57a979dc79c6c41bdb707d02dc512aa87e25715b2fe6"
-    sha256 catalina: "215a03b5e14c336df9ffd3be938477783e65cc36a72853a897144a72f1563417"
-    sha256 mojave: "ea9a4821c81d04b7d21ed59515e83f6715ecb4d7f38145e7c7901e9d7129d1e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "909e17c19014ca74f58cc4d8e7838843aac98f0b1f5926cfa30a42d2177a5093"
+    sha256                               arm64_big_sur: "ec04591468e4039417ec57a979dc79c6c41bdb707d02dc512aa87e25715b2fe6"
+    sha256                               big_sur:       "2160f03918ae945c4d741faba6a5389c3a7c1566aa53f33a37baf6675abbd5df"
+    sha256                               catalina:      "215a03b5e14c336df9ffd3be938477783e65cc36a72853a897144a72f1563417"
+    sha256                               mojave:        "ea9a4821c81d04b7d21ed59515e83f6715ecb4d7f38145e7c7901e9d7129d1e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "909e17c19014ca74f58cc4d8e7838843aac98f0b1f5926cfa30a42d2177a5093"
   end
 
   depends_on "gobject-introspection" => :build

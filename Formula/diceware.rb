@@ -9,13 +9,12 @@ class Diceware < Formula
   revision OS.mac? ? 3 : 5
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "79f18254a3631e1cd5e3f1454ba1e8bdb543d40bf3ac32ae7e16a140e1a05691" => :big_sur
-    sha256 "ca1614ff22e5504fe1e2ebcdc11ba9e91043e33fe7d43b0d4cba802523604dfe" => :arm64_big_sur
-    sha256 "fd0844df14a177f46686016e0c0c1a3b741da092efc17ee312c1a808c3026ae6" => :catalina
-    sha256 "cedb8a95fb39b3de33096f5c42b67c7aa92a79441d09d0477ecaaaeec007fc19" => :mojave
-    sha256 "2694b1727559d8dba9984c677ad2b19b9b377d5f1f2ea168dfae5edc94b16b9d" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ca1614ff22e5504fe1e2ebcdc11ba9e91043e33fe7d43b0d4cba802523604dfe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "79f18254a3631e1cd5e3f1454ba1e8bdb543d40bf3ac32ae7e16a140e1a05691"
+    sha256 cellar: :any_skip_relocation, catalina:      "fd0844df14a177f46686016e0c0c1a3b741da092efc17ee312c1a808c3026ae6"
+    sha256 cellar: :any_skip_relocation, mojave:        "cedb8a95fb39b3de33096f5c42b67c7aa92a79441d09d0477ecaaaeec007fc19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2694b1727559d8dba9984c677ad2b19b9b377d5f1f2ea168dfae5edc94b16b9d"
   end
 
   depends_on "python@3.9"

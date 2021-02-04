@@ -14,11 +14,10 @@ class Pympress < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0dace778ed9f1ac2939f6b4c1305a629c4fc256d8768b9658196e90f0819e84e" => :big_sur
-    sha256 "d730fa081be30bd9dd49fa5f08cf8aa39ac31842fbb8b86423c1bc28db8b616c" => :catalina
-    sha256 "88b035ea21bd93571a1920bd94c1bc293ee68ffbc63237dbe8f9da0958323bae" => :mojave
-    sha256 "3d05c1a7bd0cfdb45b39f6f95bcd235b4a691f7ac593b408e6e75c9f69a353fc" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "0dace778ed9f1ac2939f6b4c1305a629c4fc256d8768b9658196e90f0819e84e"
+    sha256 cellar: :any_skip_relocation, catalina:     "d730fa081be30bd9dd49fa5f08cf8aa39ac31842fbb8b86423c1bc28db8b616c"
+    sha256 cellar: :any_skip_relocation, mojave:       "88b035ea21bd93571a1920bd94c1bc293ee68ffbc63237dbe8f9da0958323bae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3d05c1a7bd0cfdb45b39f6f95bcd235b4a691f7ac593b408e6e75c9f69a353fc"
   end
 
   depends_on "gobject-introspection"

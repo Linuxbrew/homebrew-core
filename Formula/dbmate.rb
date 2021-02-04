@@ -7,12 +7,11 @@ class Dbmate < Formula
   head "https://github.com/amacneil/dbmate.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ff8a77e409a899dd70559f72a8e8501df068ef6c6f1095f3ac1f28b0122c241" => :big_sur
-    sha256 "466238443d72e6d0f7bcf0c92a977ee34ca7c1003d0f355aae895725fe12be3a" => :arm64_big_sur
-    sha256 "5223d60533452d4ddb6d9d140418f74b263fec8ea000cda0f9c1757b4c2dddef" => :catalina
-    sha256 "547cad2cb3074d94999ddc6e3fc0a4b3000a0e91287bfb5192ce74fe89ca62e4" => :mojave
-    sha256 "086a2364c9cbd813057bd0d81e430a93cf76f8fb55ad58c72985fc1edda30a8a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "466238443d72e6d0f7bcf0c92a977ee34ca7c1003d0f355aae895725fe12be3a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2ff8a77e409a899dd70559f72a8e8501df068ef6c6f1095f3ac1f28b0122c241"
+    sha256 cellar: :any_skip_relocation, catalina:      "5223d60533452d4ddb6d9d140418f74b263fec8ea000cda0f9c1757b4c2dddef"
+    sha256 cellar: :any_skip_relocation, mojave:        "547cad2cb3074d94999ddc6e3fc0a4b3000a0e91287bfb5192ce74fe89ca62e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "086a2364c9cbd813057bd0d81e430a93cf76f8fb55ad58c72985fc1edda30a8a"
   end
 
   depends_on "go" => :build

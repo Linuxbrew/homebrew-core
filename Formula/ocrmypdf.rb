@@ -12,11 +12,10 @@ class Ocrmypdf < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "58b9c966a8f29c214a2e328630cb08232598df004c5fba2dc441c7b2b8117b88" => :big_sur
-    sha256 "e23eb9a57dc8ef9902b8ec315c9a9012722166606e2b54acb6b4f7ce75dc169f" => :catalina
-    sha256 "30b4f12f8a4099728f99489252d6f25396d922209951ea414def99815ae74e0e" => :mojave
-    sha256 "ce3958b3a04a7b3c8982848a9464ff68217cec8e8099ce30606099dcfccae26b" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "58b9c966a8f29c214a2e328630cb08232598df004c5fba2dc441c7b2b8117b88"
+    sha256 cellar: :any_skip_relocation, catalina:     "e23eb9a57dc8ef9902b8ec315c9a9012722166606e2b54acb6b4f7ce75dc169f"
+    sha256 cellar: :any_skip_relocation, mojave:       "30b4f12f8a4099728f99489252d6f25396d922209951ea414def99815ae74e0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ce3958b3a04a7b3c8982848a9464ff68217cec8e8099ce30606099dcfccae26b"
   end
 
   depends_on "pkg-config" => :build

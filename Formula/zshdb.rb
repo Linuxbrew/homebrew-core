@@ -15,13 +15,12 @@ class Zshdb < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "192eac5cebd479f637b5a0d6ea50abb908f0ab2453b570e9888a16f1c5eea1ec" => :big_sur
-    sha256 "388da120bb13ac218a9940ac65353776836a05a1d7b22b464d87800d5b7a8f91" => :arm64_big_sur
-    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :catalina
-    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :mojave
-    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :high_sierra
-    sha256 "1b06a6809102e0aab55818cf467f41564ee3c98254defa1080343730a1be2f64" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "388da120bb13ac218a9940ac65353776836a05a1d7b22b464d87800d5b7a8f91"
+    sha256 cellar: :any_skip_relocation, big_sur:       "192eac5cebd479f637b5a0d6ea50abb908f0ab2453b570e9888a16f1c5eea1ec"
+    sha256 cellar: :any_skip_relocation, catalina:      "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
+    sha256 cellar: :any_skip_relocation, mojave:        "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b06a6809102e0aab55818cf467f41564ee3c98254defa1080343730a1be2f64"
   end
 
   head do

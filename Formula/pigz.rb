@@ -11,12 +11,11 @@ class Pigz < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ab03009238f5a5181cd69b03905f9e85e89773ec643691ce3eb010d008d39aa0" => :big_sur
-    sha256 "9ca4d00080d69cb2df3f9301a86c9518693a75143d6dac70eee7fbe005a297d6" => :arm64_big_sur
-    sha256 "1f054b879a528740c7a6b854ff7fe948d2706dae808088fa19f82102b1ad174b" => :catalina
-    sha256 "0338683c663acf7cf0e403cf044ae62512215739bb811c3751165f2368edead3" => :mojave
-    sha256 "08b571babd8d5fc5644aa5c94b0b3af25031b52dfa0f48740d174d5076e0b7fe" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ca4d00080d69cb2df3f9301a86c9518693a75143d6dac70eee7fbe005a297d6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ab03009238f5a5181cd69b03905f9e85e89773ec643691ce3eb010d008d39aa0"
+    sha256 cellar: :any_skip_relocation, catalina:      "1f054b879a528740c7a6b854ff7fe948d2706dae808088fa19f82102b1ad174b"
+    sha256 cellar: :any_skip_relocation, mojave:        "0338683c663acf7cf0e403cf044ae62512215739bb811c3751165f2368edead3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08b571babd8d5fc5644aa5c94b0b3af25031b52dfa0f48740d174d5076e0b7fe"
   end
 
   uses_from_macos "zlib"

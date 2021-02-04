@@ -6,12 +6,11 @@ class Gofabric8 < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "4d4236c764b54c4699ceaf07831bb6fcd5709e99b343c8a2b5288ff3faa40f94" => :big_sur
-    sha256 "6400faecf5cfe3dfa54a04839869d327cc3f71d586aa5740d9f63e1e1f13c5f4" => :catalina
-    sha256 "6fefb818e47769d4c0811db307d5000aa7d3d48bcdae42e24b0a27272e01641f" => :mojave
-    sha256 "eea1c25113ff1206605e91ce87a817bb3eece380f9788a1385332c74827cd364" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "4d4236c764b54c4699ceaf07831bb6fcd5709e99b343c8a2b5288ff3faa40f94"
+    sha256 cellar: :any_skip_relocation, catalina:     "6400faecf5cfe3dfa54a04839869d327cc3f71d586aa5740d9f63e1e1f13c5f4"
+    sha256 cellar: :any_skip_relocation, mojave:       "6fefb818e47769d4c0811db307d5000aa7d3d48bcdae42e24b0a27272e01641f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "eea1c25113ff1206605e91ce87a817bb3eece380f9788a1385332c74827cd364"
   end
 
   deprecate! date: "2020-11-27", because: :repo_archived

@@ -7,12 +7,11 @@ class Dvm < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5f320e53c2734bed07fe70ac919232642d3a52d104bab787da9c08f251098942" => :big_sur
-    sha256 "9c7cc18808affb5cc05958f3e501602c8d40889157c776dfb9f5ba9109a717b7" => :catalina
-    sha256 "fa56fd369d0ef2dc43d29316d202f7cc3ca670765e07a3295429971929d93d24" => :mojave
-    sha256 "d98c151704057dc821b67634c0387b15ed3b0e86b07e1eecd9c073f2f27abcd4" => :high_sierra
-    sha256 "734113d157dd69892f74cc2a68f860bb5f0a9b4192184c538a7260b2e5fd4575" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "5f320e53c2734bed07fe70ac919232642d3a52d104bab787da9c08f251098942"
+    sha256 cellar: :any_skip_relocation, catalina:     "9c7cc18808affb5cc05958f3e501602c8d40889157c776dfb9f5ba9109a717b7"
+    sha256 cellar: :any_skip_relocation, mojave:       "fa56fd369d0ef2dc43d29316d202f7cc3ca670765e07a3295429971929d93d24"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "d98c151704057dc821b67634c0387b15ed3b0e86b07e1eecd9c073f2f27abcd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "734113d157dd69892f74cc2a68f860bb5f0a9b4192184c538a7260b2e5fd4575"
   end
 
   depends_on "go" => :build

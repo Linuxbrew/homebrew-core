@@ -7,13 +7,12 @@ class Libstrophe < Formula
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "a215207d02f646e2299504f7166cf293fd9f9714181106e0f7707a4feef9303a" => :big_sur
-    sha256 "fe773ec4022f94be98b7bb05ba534bf87411b901a713416d8581ddc4968dd868" => :arm64_big_sur
-    sha256 "cd0ced2cb8517143a02f68c2414de0c8f8da75829da7b46402cf645d6be960be" => :catalina
-    sha256 "17f49cd12a1fc672fe95155ac910265343cc877214af995e1728aa1ef75bc2f1" => :mojave
-    sha256 "b2c22db5df2cc80448e09f3db70d873c49e5e2898a4938c5ba6c14f8659c73de" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "fe773ec4022f94be98b7bb05ba534bf87411b901a713416d8581ddc4968dd868"
+    sha256 cellar: :any, big_sur:       "a215207d02f646e2299504f7166cf293fd9f9714181106e0f7707a4feef9303a"
+    sha256 cellar: :any, catalina:      "cd0ced2cb8517143a02f68c2414de0c8f8da75829da7b46402cf645d6be960be"
+    sha256 cellar: :any, mojave:        "17f49cd12a1fc672fe95155ac910265343cc877214af995e1728aa1ef75bc2f1"
+    sha256 cellar: :any, x86_64_linux:  "b2c22db5df2cc80448e09f3db70d873c49e5e2898a4938c5ba6c14f8659c73de"
   end
 
   depends_on "autoconf" => :build

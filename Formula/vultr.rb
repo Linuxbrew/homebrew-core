@@ -7,12 +7,11 @@ class Vultr < Formula
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7952cd1e77673a9e64b71ed8081ef47b0a0c7218475c7cf59b76909a108499c4" => :big_sur
-    sha256 "a73bd34611c56aefe57e5491191ae90109f779f49ecacee332c0e55745e84c89" => :catalina
-    sha256 "bce926c779ee605e3f36d9135dfd08bb898f62440cf04e5bcd991afd517931f2" => :mojave
-    sha256 "5f6278c15bd1487cbdee6b871057074b1a548a9dfba7a98b202d3ccbc12966c2" => :high_sierra
-    sha256 "fd6baf2bf250657939c16bb331ec5fa7a5f999579bf03b3f9ac25e6a9853ac09" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "7952cd1e77673a9e64b71ed8081ef47b0a0c7218475c7cf59b76909a108499c4"
+    sha256 cellar: :any_skip_relocation, catalina:     "a73bd34611c56aefe57e5491191ae90109f779f49ecacee332c0e55745e84c89"
+    sha256 cellar: :any_skip_relocation, mojave:       "bce926c779ee605e3f36d9135dfd08bb898f62440cf04e5bcd991afd517931f2"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "5f6278c15bd1487cbdee6b871057074b1a548a9dfba7a98b202d3ccbc12966c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "fd6baf2bf250657939c16bb331ec5fa7a5f999579bf03b3f9ac25e6a9853ac09"
   end
 
   depends_on "go" => :build

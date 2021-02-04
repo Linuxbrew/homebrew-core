@@ -12,12 +12,11 @@ class Peru < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "b8d5f0915d0f6b7a0ce49ffc61a0503b809ac6c074d2057d2f1396ea0788de67" => :big_sur
-    sha256 "171980304c1aa1545f2397ecc9adcedd3f84b533974265d243a88ba2ccd36de0" => :arm64_big_sur
-    sha256 "927f2ddcf69404fde76a587d8797eb6937d206b6f79ee05615bf55788f82dd6c" => :catalina
-    sha256 "8d48227b9184a9f0f623a799a91179e1f24e456507b802c5e620594f7104e940" => :mojave
-    sha256 "d41dc9820bd2621e5d580fd2ea43d5d536ae6c97340d1d954e11eb3ba9a3acb3" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "171980304c1aa1545f2397ecc9adcedd3f84b533974265d243a88ba2ccd36de0"
+    sha256 cellar: :any, big_sur:       "b8d5f0915d0f6b7a0ce49ffc61a0503b809ac6c074d2057d2f1396ea0788de67"
+    sha256 cellar: :any, catalina:      "927f2ddcf69404fde76a587d8797eb6937d206b6f79ee05615bf55788f82dd6c"
+    sha256 cellar: :any, mojave:        "8d48227b9184a9f0f623a799a91179e1f24e456507b802c5e620594f7104e940"
+    sha256 cellar: :any, x86_64_linux:  "d41dc9820bd2621e5d580fd2ea43d5d536ae6c97340d1d954e11eb3ba9a3acb3"
   end
 
   depends_on "libyaml"

@@ -5,7 +5,7 @@ class Libprelude < Formula
   sha256 "187e025a5d51219810123575b32aa0b40037709a073a775bc3e5a65aa6d6a66e"
 
   bottle do
-    sha256 "cb1b9bfee9be1ab5512a2c6fa8b67726c36b851ea713a265b35376b68c6e6e87" => :x86_64_linux
+    sha256 x86_64_linux: "cb1b9bfee9be1ab5512a2c6fa8b67726c36b851ea713a265b35376b68c6e6e87"
   end
 
   depends_on "libtool" => :build

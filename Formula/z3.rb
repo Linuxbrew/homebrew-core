@@ -13,12 +13,11 @@ class Z3 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2b644db19e5e4b40ab46040c845141cf484ed7a61a4405e26a2e7ee849e7fc8e" => :big_sur
-    sha256 "05119bd5f8a125823a9809ec6cc5bed54b426a7778832f3022b91edbde24b2d6" => :arm64_big_sur
-    sha256 "97099b1c125112e2a7b783dc7a568e34e1b43b8bce16fc6bb5697c7fd69da514" => :catalina
-    sha256 "c16751c07a66eb9aaeaa0d2aa1b59182ac3ee37dfcd475286260637d69260e42" => :mojave
-    sha256 "19ea87f80855a286e50301dd10bb7679e0de044fbf373e74dbd9f09b880be8d9" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05119bd5f8a125823a9809ec6cc5bed54b426a7778832f3022b91edbde24b2d6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2b644db19e5e4b40ab46040c845141cf484ed7a61a4405e26a2e7ee849e7fc8e"
+    sha256 cellar: :any_skip_relocation, catalina:      "97099b1c125112e2a7b783dc7a568e34e1b43b8bce16fc6bb5697c7fd69da514"
+    sha256 cellar: :any_skip_relocation, mojave:        "c16751c07a66eb9aaeaa0d2aa1b59182ac3ee37dfcd475286260637d69260e42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19ea87f80855a286e50301dd10bb7679e0de044fbf373e74dbd9f09b880be8d9"
   end
 
   # Has Python bindings but are supplementary to the main library

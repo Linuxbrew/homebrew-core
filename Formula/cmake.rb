@@ -12,11 +12,11 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "278f2ad1caf664019ff7b4a7fc5493999c06adf503637447af13a617d45cf484"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1658569ae8319c6cebd27b6b77bf8309c8b72e1af2e7fd353e4a6360d10d6910"
-    sha256 cellar: :any_skip_relocation, catalina: "c42d53380afdc00b76ec56a503fd6e27d8c64c65a6aa5dee0bebd45e35a78209"
-    sha256 cellar: :any_skip_relocation, mojave: "c4eac1fa4580a117a33f03cbd1ad8ccc5ec68770cc24bbe23bf9a3d55048ef70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6dd9aa0ed6c1cec6a213948fc6cf1b78b094c0f1d6612d362ae7a163294ed9c1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "278f2ad1caf664019ff7b4a7fc5493999c06adf503637447af13a617d45cf484"
+    sha256 cellar: :any_skip_relocation, catalina:      "c42d53380afdc00b76ec56a503fd6e27d8c64c65a6aa5dee0bebd45e35a78209"
+    sha256 cellar: :any_skip_relocation, mojave:        "c4eac1fa4580a117a33f03cbd1ad8ccc5ec68770cc24bbe23bf9a3d55048ef70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dd9aa0ed6c1cec6a213948fc6cf1b78b094c0f1d6612d362ae7a163294ed9c1"
   end
 
   depends_on "sphinx-doc" => :build

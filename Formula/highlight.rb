@@ -7,11 +7,11 @@ class Highlight < Formula
   head "https://gitlab.com/saalen/highlight.git"
 
   bottle do
-    sha256 "83dffbd090b52dd14631f638d1efeb9af97787edee3845b81d366733580935ff" => :big_sur
-    sha256 "e96e79486cab16ec84802064017f5e97d0f2e3e321e82b172299aff78dd4b82d" => :arm64_big_sur
-    sha256 "f7e4a91b1e26ff28387c0aa4f581a9d8a8973cca4608b04d02b44876cc734219" => :catalina
-    sha256 "9add800d3b6e9fba4b5c1dc223b987a7c600eef0c75511b80102f939cca1a659" => :mojave
-    sha256 "f3cdb6288f115f3d9b2377fa8b3202635403287d4414b8b1852ef7c2b1c6fdf5" => :x86_64_linux
+    sha256 arm64_big_sur: "e96e79486cab16ec84802064017f5e97d0f2e3e321e82b172299aff78dd4b82d"
+    sha256 big_sur:       "83dffbd090b52dd14631f638d1efeb9af97787edee3845b81d366733580935ff"
+    sha256 catalina:      "f7e4a91b1e26ff28387c0aa4f581a9d8a8973cca4608b04d02b44876cc734219"
+    sha256 mojave:        "9add800d3b6e9fba4b5c1dc223b987a7c600eef0c75511b80102f939cca1a659"
+    sha256 x86_64_linux:  "f3cdb6288f115f3d9b2377fa8b3202635403287d4414b8b1852ef7c2b1c6fdf5"
   end
 
   depends_on "boost" => :build

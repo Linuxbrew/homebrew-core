@@ -11,12 +11,12 @@ class Freedink < Formula
 
   bottle do
     rebuild 1
-    sha256 "fd45feffffd96dc600cda4e725619b326ec6a84e96c5844c156aca90fb2390b1" => :big_sur
-    sha256 "3d3c10351e92122890d83f912bafe794fa40a673783fa5d99b1bdfcdcd53f0cb" => :arm64_big_sur
-    sha256 "b971d9badc94cb0075963c341ed11c1872e3157b279def6d91fd088743b5e5e4" => :catalina
-    sha256 "d44bcab516f79beec47a1ebdc8ec68b66071a34e17abb8556407a3656946d454" => :mojave
-    sha256 "d022642338ba2979982088f1b65d6230ab71478fdaadfe4966372aa15b909182" => :high_sierra
-    sha256 "5a5a09f073341dce77b876a45529f1062f02d4b4d4d8564da6814c898321a8b3" => :x86_64_linux
+    sha256 arm64_big_sur: "3d3c10351e92122890d83f912bafe794fa40a673783fa5d99b1bdfcdcd53f0cb"
+    sha256 big_sur:       "fd45feffffd96dc600cda4e725619b326ec6a84e96c5844c156aca90fb2390b1"
+    sha256 catalina:      "b971d9badc94cb0075963c341ed11c1872e3157b279def6d91fd088743b5e5e4"
+    sha256 mojave:        "d44bcab516f79beec47a1ebdc8ec68b66071a34e17abb8556407a3656946d454"
+    sha256 high_sierra:   "d022642338ba2979982088f1b65d6230ab71478fdaadfe4966372aa15b909182"
+    sha256 x86_64_linux:  "5a5a09f073341dce77b876a45529f1062f02d4b4d4d8564da6814c898321a8b3"
   end
 
   depends_on "glm" => :build

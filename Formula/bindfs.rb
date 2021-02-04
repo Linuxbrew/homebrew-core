@@ -6,11 +6,10 @@ class Bindfs < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "bf4fb90d788651299973a3f48300824ae6b4ec4ce1441dd94d544180f54379bd" => :catalina
-    sha256 "cc9d4950a1b74a27307bac429892fd85ad439f5707f53a66e800a39b23a32fdf" => :mojave
-    sha256 "50df08ee8d3cc6f141d8488341f12c32ce478f02dfb8016f533bfeababfe4537" => :high_sierra
-    sha256 "fb4b84127bac0e1c7559e5f0b8d3b8d62aea5e0d1192d8f516aec5e9eee0cfe1" => :x86_64_linux
+    sha256 cellar: :any, catalina:     "bf4fb90d788651299973a3f48300824ae6b4ec4ce1441dd94d544180f54379bd"
+    sha256 cellar: :any, mojave:       "cc9d4950a1b74a27307bac429892fd85ad439f5707f53a66e800a39b23a32fdf"
+    sha256 cellar: :any, high_sierra:  "50df08ee8d3cc6f141d8488341f12c32ce478f02dfb8016f533bfeababfe4537"
+    sha256 cellar: :any, x86_64_linux: "fb4b84127bac0e1c7559e5f0b8d3b8d62aea5e0d1192d8f516aec5e9eee0cfe1"
   end
 
   head do

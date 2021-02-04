@@ -6,12 +6,11 @@ class OsmPbf < Formula
   license "LGPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cde905f5e30549acb2e9d002b95e8ebbf581aa078108abddc2e8a645329ffa71" => :big_sur
-    sha256 "5cfaf02637be652c5d7913288a576961c1d6bd9bf67c7818196c18aff0bda149" => :arm64_big_sur
-    sha256 "a61abe978818b7abd27cf0716204b24cc0135f2589298b63d7cad95577d2550f" => :catalina
-    sha256 "16ba12db1cc49ec09169e8463cdac17edeefb91ef7a32ff0eaa62556bfc409a0" => :mojave
-    sha256 "4e9f3892dd20ce64f59809f7e0227038f40bcc01d6fb5202e2266f98f5f86ac1" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5cfaf02637be652c5d7913288a576961c1d6bd9bf67c7818196c18aff0bda149"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cde905f5e30549acb2e9d002b95e8ebbf581aa078108abddc2e8a645329ffa71"
+    sha256 cellar: :any_skip_relocation, catalina:      "a61abe978818b7abd27cf0716204b24cc0135f2589298b63d7cad95577d2550f"
+    sha256 cellar: :any_skip_relocation, mojave:        "16ba12db1cc49ec09169e8463cdac17edeefb91ef7a32ff0eaa62556bfc409a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e9f3892dd20ce64f59809f7e0227038f40bcc01d6fb5202e2266f98f5f86ac1"
   end
 
   depends_on "cmake" => :build

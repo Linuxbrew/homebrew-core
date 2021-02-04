@@ -7,13 +7,12 @@ class Patchutils < Formula
   license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2305540f050f688ecb19afbd61daaee0dc51cf27d43cd2baff3e8542ea631680" => :big_sur
-    sha256 "cc5cba6808061043a4275dfff1ffbc9dfc623b604bd80df87731302d24d9e8a7" => :arm64_big_sur
-    sha256 "3ee4d0c62b3f2b26e28fbf476c37eaeb8ccca9000c4f8f2766cd2c662de855bc" => :catalina
-    sha256 "12cd388801c5c628db409cb043d6a2fc436f44ae8f01a754f430763380043af4" => :mojave
-    sha256 "84b5013e7c6647e1cda9faa1ab9b31834ed6e2ef6c1a48d21ab7c459dc4462b3" => :high_sierra
-    sha256 "d0a114819b0971bab6726f15c1de5098425df8618bf6ae9105c32f87767f1599" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc5cba6808061043a4275dfff1ffbc9dfc623b604bd80df87731302d24d9e8a7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2305540f050f688ecb19afbd61daaee0dc51cf27d43cd2baff3e8542ea631680"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ee4d0c62b3f2b26e28fbf476c37eaeb8ccca9000c4f8f2766cd2c662de855bc"
+    sha256 cellar: :any_skip_relocation, mojave:        "12cd388801c5c628db409cb043d6a2fc436f44ae8f01a754f430763380043af4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "84b5013e7c6647e1cda9faa1ab9b31834ed6e2ef6c1a48d21ab7c459dc4462b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0a114819b0971bab6726f15c1de5098425df8618bf6ae9105c32f87767f1599"
   end
 
   head do

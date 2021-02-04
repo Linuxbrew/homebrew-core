@@ -13,13 +13,12 @@ class Qcachegrind < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "65b5858aa4f3313bf7782bbb09de8d83f72a15da02bcf981da016a8216ff20a1" => :big_sur
-    sha256 "e41ff7b471b679c92de77708248ae2a42948b39a945ac89de73d85756ed0f3f2" => :arm64_big_sur
-    sha256 "8ce1697e577f363929ff9ef3a112513d840da04331c0d907a03c5970f8f04807" => :catalina
-    sha256 "a64cb74efa08ddc452e3f29eb956a2c89dd9f7eb0f5943731559fca9815350d7" => :mojave
-    sha256 "e094bf0bbff8d555689a89d17af5438a9e512fc5df192071b81e62b70fead525" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e41ff7b471b679c92de77708248ae2a42948b39a945ac89de73d85756ed0f3f2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "65b5858aa4f3313bf7782bbb09de8d83f72a15da02bcf981da016a8216ff20a1"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ce1697e577f363929ff9ef3a112513d840da04331c0d907a03c5970f8f04807"
+    sha256 cellar: :any_skip_relocation, mojave:        "a64cb74efa08ddc452e3f29eb956a2c89dd9f7eb0f5943731559fca9815350d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e094bf0bbff8d555689a89d17af5438a9e512fc5df192071b81e62b70fead525"
   end
 
   depends_on "graphviz"

@@ -11,7 +11,7 @@ class LadspaSdk < Formula
   end
 
   bottle do
-    sha256 "87235984ac866b2b579c6b944b767cc7bd2778ae963fae262f2d98b72528326f" => :x86_64_linux
+    sha256 x86_64_linux: "87235984ac866b2b579c6b944b767cc7bd2778ae963fae262f2d98b72528326f"
   end
 
   depends_on :linux

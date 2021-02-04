@@ -9,11 +9,10 @@ class BaculaFd < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a19497e01b65fc02630188d010f7a9dfa97185d411680e32bd1401aa7fe467d4" => :big_sur
-    sha256 "b9fcdda2e13a2f2367ad06d9142bff096c3241afc39a77f2d3b46c2716b0e8e5" => :catalina
-    sha256 "5adb4a080fb4d25c8c62d215d7dc0a5e6e62fae59ffc982607ad39529bd96db3" => :mojave
-    sha256 "d948665b00a840c16f29155ff81a85e21bbc05690523720ec3d5a0fd11a46656" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "a19497e01b65fc02630188d010f7a9dfa97185d411680e32bd1401aa7fe467d4"
+    sha256 cellar: :any_skip_relocation, catalina:     "b9fcdda2e13a2f2367ad06d9142bff096c3241afc39a77f2d3b46c2716b0e8e5"
+    sha256 cellar: :any_skip_relocation, mojave:       "5adb4a080fb4d25c8c62d215d7dc0a5e6e62fae59ffc982607ad39529bd96db3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d948665b00a840c16f29155ff81a85e21bbc05690523720ec3d5a0fd11a46656"
   end
 
   depends_on "openssl@1.1"

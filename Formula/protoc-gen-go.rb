@@ -8,12 +8,11 @@ class ProtocGenGo < Formula
   head "https://github.com/golang/protobuf.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "72b0d9ecea80b943041b675e7b4b7cd30eb7c8b8c7e259ea9f10d8ea80a300d7" => :big_sur
-    sha256 "8f72ac9dd4ac5745cd1a6bc97e4c777a1da32729247a5009bdb2b7d7c822f119" => :arm64_big_sur
-    sha256 "342612ad4c08732410ae7d159d5743a2c66f3a6a1ea410a8fed64fcad195118e" => :catalina
-    sha256 "cb8c75a45f9035bee99008a9101207ba0e74e41a28ef3ebdb4e1e492c769bd3d" => :mojave
-    sha256 "d251349e8e90d68d747e0cbb429c765c36da08b0dfb532b418a078176a465a3b" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8f72ac9dd4ac5745cd1a6bc97e4c777a1da32729247a5009bdb2b7d7c822f119"
+    sha256 cellar: :any_skip_relocation, big_sur:       "72b0d9ecea80b943041b675e7b4b7cd30eb7c8b8c7e259ea9f10d8ea80a300d7"
+    sha256 cellar: :any_skip_relocation, catalina:      "342612ad4c08732410ae7d159d5743a2c66f3a6a1ea410a8fed64fcad195118e"
+    sha256 cellar: :any_skip_relocation, mojave:        "cb8c75a45f9035bee99008a9101207ba0e74e41a28ef3ebdb4e1e492c769bd3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d251349e8e90d68d747e0cbb429c765c36da08b0dfb532b418a078176a465a3b"
   end
 
   depends_on "go" => :build

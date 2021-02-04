@@ -8,12 +8,11 @@ class Goofys < Formula
   head "https://github.com/kahing/goofys.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "da054592343f7423d91a3abadbe4d601295b1f74b3a404c36fdb4deb94f7019b" => :catalina
-    sha256 "cee50248f9ac4d33ef8ca585ad94e3c9e6226fc464dfad86de2b7f9497b9f2b7" => :mojave
-    sha256 "eb0a3cfe49104292c16d76dce71db34000b1a7214f660b3cff3a39e4b3ba7a44" => :high_sierra
-    sha256 "50aa904c2158d48a4dac55c47de1511f6530592f489aab0b982f32a7d12f6bdb" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, catalina:     "da054592343f7423d91a3abadbe4d601295b1f74b3a404c36fdb4deb94f7019b"
+    sha256 cellar: :any_skip_relocation, mojave:       "cee50248f9ac4d33ef8ca585ad94e3c9e6226fc464dfad86de2b7f9497b9f2b7"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "eb0a3cfe49104292c16d76dce71db34000b1a7214f660b3cff3a39e4b3ba7a44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "50aa904c2158d48a4dac55c47de1511f6530592f489aab0b982f32a7d12f6bdb"
   end
 
   depends_on "go" => :build

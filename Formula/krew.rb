@@ -8,12 +8,11 @@ class Krew < Formula
   head "https://github.com/kubernetes-sigs/krew.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "805ecc421849656067f79bb29078044ef16f4e7666bb3733754efddd5d541849" => :big_sur
-    sha256 "ab1fd5afe499a31d731cc9b4395d3ae71eb4774682b5295e8376611c52f8a262" => :catalina
-    sha256 "316b12ecb167df6a8cff3521d9ab093f874f1d49379ffd639a0bc1c77a9c8e01" => :mojave
-    sha256 "93a5fac86319f8273740dd52529ad1f3c4537afc5035b5974377dc9afbc93c66" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "805ecc421849656067f79bb29078044ef16f4e7666bb3733754efddd5d541849"
+    sha256 cellar: :any_skip_relocation, catalina:     "ab1fd5afe499a31d731cc9b4395d3ae71eb4774682b5295e8376611c52f8a262"
+    sha256 cellar: :any_skip_relocation, mojave:       "316b12ecb167df6a8cff3521d9ab093f874f1d49379ffd639a0bc1c77a9c8e01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "93a5fac86319f8273740dd52529ad1f3c4537afc5035b5974377dc9afbc93c66"
   end
 
   depends_on "go" => :build

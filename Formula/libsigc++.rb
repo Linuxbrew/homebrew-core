@@ -10,12 +10,11 @@ class Libsigcxx < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "eea9483112f22c255c7b783333a5a48b90e2fb0747ad00f0ed4b37275481b93a" => :big_sur
-    sha256 "34fc45a5a4a36a592f6cb4b1671e65fddea15b3df12dd114359a5ca3101f3665" => :arm64_big_sur
-    sha256 "5f7d8b6e6043bcab63f7f5675746f4d94f447cde8a48513c9db7b36b5a527e05" => :catalina
-    sha256 "6f3562f317a110489a2df296f8b8b3cb8bc37295b6aa5d306a5c0078f7fdb7cc" => :mojave
-    sha256 "c269dd0bb75627eebb1370dd03a41db43f4a0cc8798550879cd7282b2deaaeba" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "34fc45a5a4a36a592f6cb4b1671e65fddea15b3df12dd114359a5ca3101f3665"
+    sha256 cellar: :any, big_sur:       "eea9483112f22c255c7b783333a5a48b90e2fb0747ad00f0ed4b37275481b93a"
+    sha256 cellar: :any, catalina:      "5f7d8b6e6043bcab63f7f5675746f4d94f447cde8a48513c9db7b36b5a527e05"
+    sha256 cellar: :any, mojave:        "6f3562f317a110489a2df296f8b8b3cb8bc37295b6aa5d306a5c0078f7fdb7cc"
+    sha256 cellar: :any, x86_64_linux:  "c269dd0bb75627eebb1370dd03a41db43f4a0cc8798550879cd7282b2deaaeba"
   end
 
   depends_on "meson" => :build

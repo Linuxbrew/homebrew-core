@@ -16,12 +16,11 @@ class Bashdb < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e49b34af9e621c91f6a101bfe327182f956f7b25b48d9fc7804e5d8ea0277263" => :big_sur
-    sha256 "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41" => :catalina
-    sha256 "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41" => :mojave
-    sha256 "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41" => :high_sierra
-    sha256 "6640e91c77bca53d33acf19d11ea1db0cf02a6b41107b857c0e827dcdd02fa9a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "e49b34af9e621c91f6a101bfe327182f956f7b25b48d9fc7804e5d8ea0277263"
+    sha256 cellar: :any_skip_relocation, catalina:     "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41"
+    sha256 cellar: :any_skip_relocation, mojave:       "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6640e91c77bca53d33acf19d11ea1db0cf02a6b41107b857c0e827dcdd02fa9a"
   end
 
   depends_on "bash"

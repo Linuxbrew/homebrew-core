@@ -7,11 +7,10 @@ class PonyStable < Formula
   head "https://github.com/ponylang/pony-stable.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e" => :catalina
-    sha256 "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e" => :mojave
-    sha256 "caf0c823ba581ab0e669d0372c06d1cb74262f05334814a5f49370659aa030d1" => :high_sierra
-    sha256 "a9fbfdd5f7ff7790718cd2c246a1e98a014ef6cdb03251b598f2df75769b9d6b" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, catalina:     "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e"
+    sha256 cellar: :any_skip_relocation, mojave:       "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "caf0c823ba581ab0e669d0372c06d1cb74262f05334814a5f49370659aa030d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a9fbfdd5f7ff7790718cd2c246a1e98a014ef6cdb03251b598f2df75769b9d6b"
   end
 
   # "Stable is no longer being developed. It's been replaced by Corral

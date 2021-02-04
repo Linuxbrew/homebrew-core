@@ -9,11 +9,10 @@ class ConjureUp < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "1d755ca87d77ebcbc5d9f7d5fbb4e3287c5190a6373bb7d3d36c318606fa0b10" => :big_sur
-    sha256 "25e7e461528cf9c56ccdb4c286d38cc72c2843a7ba2310f65276f3c104ad3b80" => :catalina
-    sha256 "e722d4d340ff170432a12a97b0de57de13f774d439831989fc1286920d087376" => :mojave
-    sha256 "ebfd1eecdc33611258c6ba2eb39cc8ab88b227f14a4c0fa7196dab6f631e8aea" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "1d755ca87d77ebcbc5d9f7d5fbb4e3287c5190a6373bb7d3d36c318606fa0b10"
+    sha256 cellar: :any, catalina:     "25e7e461528cf9c56ccdb4c286d38cc72c2843a7ba2310f65276f3c104ad3b80"
+    sha256 cellar: :any, mojave:       "e722d4d340ff170432a12a97b0de57de13f774d439831989fc1286920d087376"
+    sha256 cellar: :any, x86_64_linux: "ebfd1eecdc33611258c6ba2eb39cc8ab88b227f14a4c0fa7196dab6f631e8aea"
   end
 
   depends_on "awscli"

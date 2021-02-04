@@ -10,14 +10,14 @@ class Ucommon < Formula
   end
 
   bottle do
-    sha256 "ca1bc13b9def95eb4839a628d6936ea799a284ac4d61dd53a77e77a046d3ffe1" => :big_sur
-    sha256 "1270ebc3579e74f3f044e88d7bca663efac0aa581ab214514f6345ade2a7ba16" => :arm64_big_sur
-    sha256 "3040baab77d1ff69f36ff21ec9259c8512170f361119e66b446a48b86f157320" => :catalina
-    sha256 "34ef3423a4f8f0de02e05e8a00a5f1cb12bd0b9790103354792c24b7613ccb80" => :mojave
-    sha256 "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c" => :high_sierra
-    sha256 "0546fbc44ac1e17d8757b41a67b2d68b15bc872b4b19fea649e5d7fe54a4d2d4" => :sierra
-    sha256 "57756d7809936ed885ef8fc7a284498ab12a5be6cc1ad41ad148dd45074fc322" => :el_capitan
-    sha256 "a49fe93e60a6eb5b93c6f2c64db995085739c55e715d1c9b5a0f2d0b17c496ae" => :x86_64_linux
+    sha256 arm64_big_sur: "1270ebc3579e74f3f044e88d7bca663efac0aa581ab214514f6345ade2a7ba16"
+    sha256 big_sur:       "ca1bc13b9def95eb4839a628d6936ea799a284ac4d61dd53a77e77a046d3ffe1"
+    sha256 catalina:      "3040baab77d1ff69f36ff21ec9259c8512170f361119e66b446a48b86f157320"
+    sha256 mojave:        "34ef3423a4f8f0de02e05e8a00a5f1cb12bd0b9790103354792c24b7613ccb80"
+    sha256 high_sierra:   "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c"
+    sha256 sierra:        "0546fbc44ac1e17d8757b41a67b2d68b15bc872b4b19fea649e5d7fe54a4d2d4"
+    sha256 el_capitan:    "57756d7809936ed885ef8fc7a284498ab12a5be6cc1ad41ad148dd45074fc322"
+    sha256 x86_64_linux:  "a49fe93e60a6eb5b93c6f2c64db995085739c55e715d1c9b5a0f2d0b17c496ae"
   end
 
   depends_on "pkg-config" => :build

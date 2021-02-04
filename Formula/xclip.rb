@@ -7,13 +7,12 @@ class Xclip < Formula
   revision OS.mac? ? 1 : 4
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4b3d034f8770dd75585b98910ce1ad1c0bbe010f91f61c814f9b655cc978e122" => :big_sur
-    sha256 "2a9e42621fbc329856454f299e2da20b8776de9136cf1233a97ec4662ef2b5fe" => :arm64_big_sur
-    sha256 "2229de2d3139a5a916be1d7e6c3227ef989ff20ce4322f0881eaeb22ee34caf1" => :catalina
-    sha256 "7bacdf14b8a248a969952c6cba098e01b15d63b280b95a453164d2b0117400dc" => :mojave
-    sha256 "4ff44edecff889254b56f12f261127e90f20c8b0f8d10e0d7f6b41788be0b2e4" => :high_sierra
-    sha256 "2f2c0e046087e8af545bab9db1cb7b2a1d3dcdcbfca3d1720b74bd608ab3009a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a9e42621fbc329856454f299e2da20b8776de9136cf1233a97ec4662ef2b5fe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4b3d034f8770dd75585b98910ce1ad1c0bbe010f91f61c814f9b655cc978e122"
+    sha256 cellar: :any_skip_relocation, catalina:      "2229de2d3139a5a916be1d7e6c3227ef989ff20ce4322f0881eaeb22ee34caf1"
+    sha256 cellar: :any_skip_relocation, mojave:        "7bacdf14b8a248a969952c6cba098e01b15d63b280b95a453164d2b0117400dc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4ff44edecff889254b56f12f261127e90f20c8b0f8d10e0d7f6b41788be0b2e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f2c0e046087e8af545bab9db1cb7b2a1d3dcdcbfca3d1720b74bd608ab3009a"
   end
 
   depends_on "autoconf" => :build

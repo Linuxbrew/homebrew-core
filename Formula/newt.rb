@@ -11,14 +11,13 @@ class Newt < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "93469c4ded76db63f8ac56143c9d110e18ff8c92f25857a7bb2955de63eb19cc" => :big_sur
-    sha256 "5b125ba2ac186a9b1163e5546a3669d19dbd1c9703060a2ac358e4ca784ec2b9" => :arm64_big_sur
-    sha256 "82ea49582f5bcf3bbaf6a39d4d6128c966889eaff682bf83601954c995ee1276" => :catalina
-    sha256 "2b902ecc6fc52b2f2681eb23e4eb568684a018deeada88e5a920952de8cc1080" => :mojave
-    sha256 "7a88cbe033eb207df57a6410f19339975a672e331c073e3ee79e467652c8753c" => :high_sierra
-    sha256 "4d82531bb783ba5e3f8a64150582e61b2fd4a9fb8be96d0bee88fa3bbe0dc3c3" => :sierra
-    sha256 "4f72da0d4af62cace8f3291d52453ebd22391ef8740df0eaffcb7e5b0c947137" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "5b125ba2ac186a9b1163e5546a3669d19dbd1c9703060a2ac358e4ca784ec2b9"
+    sha256 cellar: :any, big_sur:       "93469c4ded76db63f8ac56143c9d110e18ff8c92f25857a7bb2955de63eb19cc"
+    sha256 cellar: :any, catalina:      "82ea49582f5bcf3bbaf6a39d4d6128c966889eaff682bf83601954c995ee1276"
+    sha256 cellar: :any, mojave:        "2b902ecc6fc52b2f2681eb23e4eb568684a018deeada88e5a920952de8cc1080"
+    sha256 cellar: :any, high_sierra:   "7a88cbe033eb207df57a6410f19339975a672e331c073e3ee79e467652c8753c"
+    sha256 cellar: :any, sierra:        "4d82531bb783ba5e3f8a64150582e61b2fd4a9fb8be96d0bee88fa3bbe0dc3c3"
+    sha256 cellar: :any, x86_64_linux:  "4f72da0d4af62cace8f3291d52453ebd22391ef8740df0eaffcb7e5b0c947137"
   end
 
   depends_on "gettext"

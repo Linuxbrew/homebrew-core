@@ -9,11 +9,11 @@ class Vtk < Formula
 
   bottle do
     rebuild 1
-    sha256 "61c252de19459e69ba40d309e7ecbb76d2344da49ca4cd1b4e9001e8ad0648bf" => :big_sur
-    sha256 "e6f3c3eed81540d13324e11c69dffd1e1bb4125adab4bfb887b751b4eeef53c1" => :arm64_big_sur
-    sha256 "e86b086258803d2976412041b9e63cedad4b3f6370487a26cddd2f0aaa771677" => :catalina
-    sha256 "74398387250003929ee4df43e584a36d54e0b59fb9024446fd24156d809a5167" => :mojave
-    sha256 "4daceaaa3041797376aad4162a6dc60b6caa3a494e790d6d2ef9f4a6e61229e0" => :x86_64_linux
+    sha256 arm64_big_sur: "e6f3c3eed81540d13324e11c69dffd1e1bb4125adab4bfb887b751b4eeef53c1"
+    sha256 big_sur:       "61c252de19459e69ba40d309e7ecbb76d2344da49ca4cd1b4e9001e8ad0648bf"
+    sha256 catalina:      "e86b086258803d2976412041b9e63cedad4b3f6370487a26cddd2f0aaa771677"
+    sha256 mojave:        "74398387250003929ee4df43e584a36d54e0b59fb9024446fd24156d809a5167"
+    sha256 x86_64_linux:  "4daceaaa3041797376aad4162a6dc60b6caa3a494e790d6d2ef9f4a6e61229e0"
   end
 
   depends_on "cmake" => [:build, :test]

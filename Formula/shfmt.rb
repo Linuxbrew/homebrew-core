@@ -7,11 +7,11 @@ class Shfmt < Formula
   head "https://github.com/mvdan/sh.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur: "ac89ac489e6613322caae173fd5d422032a7c967ce575a89a0a719bd4161aafb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4371ba5acedef0249229c4355aaad90b9fd2ce78c1664deb323edf5d3a30c22"
-    sha256 cellar: :any_skip_relocation, catalina: "2a19f4a4e8c89a64071ef90248848199bd04b253c95c1d7f365e627068f69acc"
-    sha256 cellar: :any_skip_relocation, mojave: "8ba9f2635036f292ce79b2735421f822dbbbff454d2dd1274f29d48133951a97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7a6a1345fe93df2d28d256140eb920c1ef66de69288880c5b1e0469c6b42a917"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ac89ac489e6613322caae173fd5d422032a7c967ce575a89a0a719bd4161aafb"
+    sha256 cellar: :any_skip_relocation, catalina:      "2a19f4a4e8c89a64071ef90248848199bd04b253c95c1d7f365e627068f69acc"
+    sha256 cellar: :any_skip_relocation, mojave:        "8ba9f2635036f292ce79b2735421f822dbbbff454d2dd1274f29d48133951a97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a6a1345fe93df2d28d256140eb920c1ef66de69288880c5b1e0469c6b42a917"
   end
 
   depends_on "go" => :build

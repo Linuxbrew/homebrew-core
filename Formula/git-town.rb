@@ -6,14 +6,13 @@ class GitTown < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "95e2d5299980978b1901814ada3baa3b42a5c38474e042f891ba0aff10bbbeff" => :big_sur
-    sha256 "81f31ec12cd8abae36633570d7bfb4649e880c13b9312f30009272f6d8b7afe1" => :arm64_big_sur
-    sha256 "9c90e21d837c016a37117bbf04a6cb66e5acda6ea129dd7013a133cbf3e23d72" => :catalina
-    sha256 "f54ad1a3ad30a40be97995c2a8abbecc447e4d93966f18fbb43fcfaf65448bfc" => :mojave
-    sha256 "2ff4e78e7a3472caa0f5961996efd2ef9e4cfc82455363dfb4f9eaebd441cbe7" => :high_sierra
-    sha256 "98d370ea32f6a733504ccc35f214df73deda583fa45ef58611d990632fd8e0ad" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81f31ec12cd8abae36633570d7bfb4649e880c13b9312f30009272f6d8b7afe1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "95e2d5299980978b1901814ada3baa3b42a5c38474e042f891ba0aff10bbbeff"
+    sha256 cellar: :any_skip_relocation, catalina:      "9c90e21d837c016a37117bbf04a6cb66e5acda6ea129dd7013a133cbf3e23d72"
+    sha256 cellar: :any_skip_relocation, mojave:        "f54ad1a3ad30a40be97995c2a8abbecc447e4d93966f18fbb43fcfaf65448bfc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2ff4e78e7a3472caa0f5961996efd2ef9e4cfc82455363dfb4f9eaebd441cbe7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98d370ea32f6a733504ccc35f214df73deda583fa45ef58611d990632fd8e0ad"
   end
 
   depends_on "go" => :build

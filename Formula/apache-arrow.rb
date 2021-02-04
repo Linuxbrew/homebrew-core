@@ -12,11 +12,11 @@ class ApacheArrow < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur: "02e0835cc486236677a3311bf070d8bea7d185301e868209f0a214a231494f0e"
-    sha256 cellar: :any, arm64_big_sur: "873df99caa871ebbf3cbf3738f5ac30bfdd8c9a217c6b9c39bf63ec2aaaf83ae"
-    sha256 cellar: :any, catalina: "7697a944d45416a988bfb58a805067217733ee67e820ef2ebb29b0dc8155e5b8"
-    sha256 cellar: :any, mojave: "5317301f31980e79b8cf3fc59213c063d83c1292724bc5c30f1d7268442553ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "fdad7c023dca00eb97361749f1909519354d59db316e1d3ed2f46ba521d6ef83"
+    sha256 cellar: :any,                 arm64_big_sur: "873df99caa871ebbf3cbf3738f5ac30bfdd8c9a217c6b9c39bf63ec2aaaf83ae"
+    sha256 cellar: :any,                 big_sur:       "02e0835cc486236677a3311bf070d8bea7d185301e868209f0a214a231494f0e"
+    sha256 cellar: :any,                 catalina:      "7697a944d45416a988bfb58a805067217733ee67e820ef2ebb29b0dc8155e5b8"
+    sha256 cellar: :any,                 mojave:        "5317301f31980e79b8cf3fc59213c063d83c1292724bc5c30f1d7268442553ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdad7c023dca00eb97361749f1909519354d59db316e1d3ed2f46ba521d6ef83"
   end
 
   depends_on "boost" => :build

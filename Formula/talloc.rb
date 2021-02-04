@@ -11,12 +11,11 @@ class Talloc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "52c7fce48dc4d2a7f9a9d04c6728df1ca6ef485f7e7f4db7a7f381d1069ae48b" => :big_sur
-    sha256 "0075bc00e43000ac1e6aa959e7a0942a16e0097209be856cbe66b452fc937e27" => :arm64_big_sur
-    sha256 "da325e962398aecb598415cbc629e3066c07904d3a7ac0e86d73a996ce44629c" => :catalina
-    sha256 "d16cc6d63e86849c6aad4bf0479dd245e20d488662845c4df41ffea359242995" => :mojave
-    sha256 "57d0338aacf4fe09e7dd71740489c8eb2a337a4349fbf17a3edf8d564073dd5f" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0075bc00e43000ac1e6aa959e7a0942a16e0097209be856cbe66b452fc937e27"
+    sha256 cellar: :any_skip_relocation, big_sur:       "52c7fce48dc4d2a7f9a9d04c6728df1ca6ef485f7e7f4db7a7f381d1069ae48b"
+    sha256 cellar: :any_skip_relocation, catalina:      "da325e962398aecb598415cbc629e3066c07904d3a7ac0e86d73a996ce44629c"
+    sha256 cellar: :any_skip_relocation, mojave:        "d16cc6d63e86849c6aad4bf0479dd245e20d488662845c4df41ffea359242995"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57d0338aacf4fe09e7dd71740489c8eb2a337a4349fbf17a3edf8d564073dd5f"
   end
 
   depends_on "python@3.9" => :build

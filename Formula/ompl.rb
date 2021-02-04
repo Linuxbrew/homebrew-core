@@ -14,11 +14,11 @@ class Ompl < Formula
   end
 
   bottle do
-    sha256 "add9016ffe798af205fe201607e84dac67a9c8ae01fcaad5efefb1a75344eae7" => :big_sur
-    sha256 "0c0046ebe8850825b29a4932a41bee23be88589998e49362d82597c67adbe338" => :arm64_big_sur
-    sha256 "54e88cc082f922ad904f81021a53c455c9eb389d4ee6e2bfaa9596d09c589f1c" => :catalina
-    sha256 "22bd9dcbe10888f3f599f03fe43092ac8dedbb5ba4c167961ea75aef84383763" => :mojave
-    sha256 "fafd1ad3d66456f8a4e174b6724c039f9e7eb16ba8065686eea1be7b8dcc394a" => :x86_64_linux
+    sha256 arm64_big_sur: "0c0046ebe8850825b29a4932a41bee23be88589998e49362d82597c67adbe338"
+    sha256 big_sur:       "add9016ffe798af205fe201607e84dac67a9c8ae01fcaad5efefb1a75344eae7"
+    sha256 catalina:      "54e88cc082f922ad904f81021a53c455c9eb389d4ee6e2bfaa9596d09c589f1c"
+    sha256 mojave:        "22bd9dcbe10888f3f599f03fe43092ac8dedbb5ba4c167961ea75aef84383763"
+    sha256 x86_64_linux:  "fafd1ad3d66456f8a4e174b6724c039f9e7eb16ba8065686eea1be7b8dcc394a"
   end
 
   depends_on "cmake" => :build

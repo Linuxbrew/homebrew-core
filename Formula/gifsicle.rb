@@ -7,14 +7,13 @@ class Gifsicle < Formula
   revision 1 unless OS.mac?
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cb3eefd1feccd5bda0979aa5ccf1cc1198b599654a43d33328912733c6644f91" => :big_sur
-    sha256 "4196ed90bad0a312f4b899359d05f7f2dc454bd51ac3bd428598a9e9a9436b0a" => :arm64_big_sur
-    sha256 "5c39ab6736846e30082db190167bc498e78d03e523f642057eadc29f854c71b1" => :catalina
-    sha256 "52be1cd49246909777199147dcbbeb6f490580558615138ae063b6149cfbe53c" => :mojave
-    sha256 "a7cfb607906023c5bdb56a49f8a75ce0b3e2c76a971266bb530d04ed29be74f9" => :high_sierra
-    sha256 "746d071f268950c6af18704590b981f5f965d35e2adf6c202aa3df0f13e943e9" => :sierra
-    sha256 "9cb712ae95154af3bd45ce4ced75d5216dd9a0013a079eaa15522ba2ba6ee35f" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4196ed90bad0a312f4b899359d05f7f2dc454bd51ac3bd428598a9e9a9436b0a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cb3eefd1feccd5bda0979aa5ccf1cc1198b599654a43d33328912733c6644f91"
+    sha256 cellar: :any_skip_relocation, catalina:      "5c39ab6736846e30082db190167bc498e78d03e523f642057eadc29f854c71b1"
+    sha256 cellar: :any_skip_relocation, mojave:        "52be1cd49246909777199147dcbbeb6f490580558615138ae063b6149cfbe53c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a7cfb607906023c5bdb56a49f8a75ce0b3e2c76a971266bb530d04ed29be74f9"
+    sha256 cellar: :any_skip_relocation, sierra:        "746d071f268950c6af18704590b981f5f965d35e2adf6c202aa3df0f13e943e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cb712ae95154af3bd45ce4ced75d5216dd9a0013a079eaa15522ba2ba6ee35f"
   end
 
   head do

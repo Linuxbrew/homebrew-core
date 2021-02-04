@@ -12,12 +12,11 @@ class CharmTools < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6404dbae2164f20d435899289d4c65b798edf7f11feb8329dfb442fc596f6e6a" => :big_sur
-    sha256 "5ee8a00243ad9490a3506ed4719f832940ec5ddd49f1527722da1953d6a6f112" => :catalina
-    sha256 "dccb09db98760f93a0c1435ef3d9b9edcc5668a329af79f1fba95b3f5a45febd" => :mojave
-    sha256 "f67bdbf421144cc493491682afae38d4b5f136fbc5c2b21dfe41c2a971f6d5c0" => :high_sierra
-    sha256 "2c34e7c20311b138aa1ec6f2f091fabc51d6e2ef43d511ade8742089c1d42527" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "6404dbae2164f20d435899289d4c65b798edf7f11feb8329dfb442fc596f6e6a"
+    sha256 cellar: :any, catalina:     "5ee8a00243ad9490a3506ed4719f832940ec5ddd49f1527722da1953d6a6f112"
+    sha256 cellar: :any, mojave:       "dccb09db98760f93a0c1435ef3d9b9edcc5668a329af79f1fba95b3f5a45febd"
+    sha256 cellar: :any, high_sierra:  "f67bdbf421144cc493491682afae38d4b5f136fbc5c2b21dfe41c2a971f6d5c0"
+    sha256 cellar: :any, x86_64_linux: "2c34e7c20311b138aa1ec6f2f091fabc51d6e2ef43d511ade8742089c1d42527"
   end
 
   depends_on "charm"

@@ -7,13 +7,12 @@ class Libxlsxwriter < Formula
   head "https://github.com/jmcnamara/libxlsxwriter.git"
 
   bottle do
-    cellar :any
-    sha256 "f79e6842a397bc0da3208dfeb133784caac0d9ee14b7ba1f20f1e377fc54ea26" => :big_sur
-    sha256 "7d53786b313a6ed4f6b4e0e8781f511f39e815b1fd52e7a6731dc4273802295c" => :arm64_big_sur
-    sha256 "193e7a0b38a21425d0c5a9cf72a13f9c6baafe09072056eb521ae46ffcff43ab" => :catalina
-    sha256 "1674a7100e0ce0823b907ca07b3c5834dc9ff9f2b57b6da5cc71d5b09a07dd51" => :mojave
-    sha256 "6ed35324d633aef69f2493c7bede7729cadadcce9c60149ee28f1326a1da8bd7" => :high_sierra
-    sha256 "096fa56dd8f373f52d5d0a0341f8c9adcb2908b4dbc6574862fcad905b629e3c" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "7d53786b313a6ed4f6b4e0e8781f511f39e815b1fd52e7a6731dc4273802295c"
+    sha256 cellar: :any, big_sur:       "f79e6842a397bc0da3208dfeb133784caac0d9ee14b7ba1f20f1e377fc54ea26"
+    sha256 cellar: :any, catalina:      "193e7a0b38a21425d0c5a9cf72a13f9c6baafe09072056eb521ae46ffcff43ab"
+    sha256 cellar: :any, mojave:        "1674a7100e0ce0823b907ca07b3c5834dc9ff9f2b57b6da5cc71d5b09a07dd51"
+    sha256 cellar: :any, high_sierra:   "6ed35324d633aef69f2493c7bede7729cadadcce9c60149ee28f1326a1da8bd7"
+    sha256 cellar: :any, x86_64_linux:  "096fa56dd8f373f52d5d0a0341f8c9adcb2908b4dbc6574862fcad905b629e3c"
   end
 
   uses_from_macos "zlib"

@@ -8,13 +8,12 @@ class VstsCli < Formula
   revision OS.mac? ? 3 : 5
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e55275ba21c232b2f1c01712e4e6fbda26c31acc75de94d1077519bbe893352c" => :big_sur
-    sha256 "8a434c6b75304c7bc972dfbc9010163dcefda588e30e5ec2d63d7711e0091a75" => :arm64_big_sur
-    sha256 "8e952995319c76b81ff6bc83d57333ec92948f9912bf733303b15c45c1d40010" => :catalina
-    sha256 "9bf14052f8080b919ae1e20471a8c4f3157a10b3f0a232aa2ebff503b42dff26" => :mojave
-    sha256 "a20fcbd530d6cc07eebd219652bbdbd8c9cd51f01a61d0aee629e8e4868907b2" => :high_sierra
-    sha256 "c14cf959a28cba7643d7ffc0fc1cc18e232e2acdc38e928edfa1e125c65d4898" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a434c6b75304c7bc972dfbc9010163dcefda588e30e5ec2d63d7711e0091a75"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e55275ba21c232b2f1c01712e4e6fbda26c31acc75de94d1077519bbe893352c"
+    sha256 cellar: :any_skip_relocation, catalina:      "8e952995319c76b81ff6bc83d57333ec92948f9912bf733303b15c45c1d40010"
+    sha256 cellar: :any_skip_relocation, mojave:        "9bf14052f8080b919ae1e20471a8c4f3157a10b3f0a232aa2ebff503b42dff26"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a20fcbd530d6cc07eebd219652bbdbd8c9cd51f01a61d0aee629e8e4868907b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c14cf959a28cba7643d7ffc0fc1cc18e232e2acdc38e928edfa1e125c65d4898"
   end
 
   # https://github.com/Azure/azure-devops-cli-extension/pull/219#issuecomment-456404611

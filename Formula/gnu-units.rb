@@ -11,11 +11,11 @@ class GnuUnits < Formula
   end
 
   bottle do
-    sha256 "67c4941efc8a2b0b2b76193f28a83381cea01b74a2e981fb51222cc87e497aca" => :big_sur
-    sha256 "843af59e54203a4235dd3522d10fa7d5b6aad5e7326b3ef858c35df7e3e35b84" => :arm64_big_sur
-    sha256 "9a3735d1c7a52c9c4a1e2f81e1b0219a2621c3d32be663a085c5a1c48299a6d5" => :catalina
-    sha256 "720dc5aea47a82932ca0cb33b4a45ec3b4ac5c7910274c0dc925a371493f3b32" => :mojave
-    sha256 "dc9a21d453200ab581e1ce8fbb044293fd73928d2661a49d9b9ca8a59969738f" => :x86_64_linux
+    sha256 arm64_big_sur: "843af59e54203a4235dd3522d10fa7d5b6aad5e7326b3ef858c35df7e3e35b84"
+    sha256 big_sur:       "67c4941efc8a2b0b2b76193f28a83381cea01b74a2e981fb51222cc87e497aca"
+    sha256 catalina:      "9a3735d1c7a52c9c4a1e2f81e1b0219a2621c3d32be663a085c5a1c48299a6d5"
+    sha256 mojave:        "720dc5aea47a82932ca0cb33b4a45ec3b4ac5c7910274c0dc925a371493f3b32"
+    sha256 x86_64_linux:  "dc9a21d453200ab581e1ce8fbb044293fd73928d2661a49d9b9ca8a59969738f"
   end
 
   depends_on "readline"

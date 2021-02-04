@@ -7,13 +7,12 @@ class Pfetch < Formula
   head "https://github.com/dylanaraps/pfetch.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3e5ceb26959ab4f137221f87eefe0ba1912695cce887b30f2e4894c699d86261" => :big_sur
-    sha256 "d3d84a024e20f9a85803389150748894f9a9dab94593af5c0ee3967a82ebe55a" => :arm64_big_sur
-    sha256 "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570" => :catalina
-    sha256 "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570" => :mojave
-    sha256 "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570" => :high_sierra
-    sha256 "e7ad7744774ac27f1de27b66888679ed9516bdf2aba5a18666eeb4120fc98d43" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3d84a024e20f9a85803389150748894f9a9dab94593af5c0ee3967a82ebe55a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3e5ceb26959ab4f137221f87eefe0ba1912695cce887b30f2e4894c699d86261"
+    sha256 cellar: :any_skip_relocation, catalina:      "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
+    sha256 cellar: :any_skip_relocation, mojave:        "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7ad7744774ac27f1de27b66888679ed9516bdf2aba5a18666eeb4120fc98d43"
   end
 
   def install

@@ -12,11 +12,11 @@ class Httpd < Formula
   end
 
   bottle do
-    sha256 "5a979ae3affd408b4ab51f917ef34e662a9cb85eb3918e56e05e1bcfac1aedac" => :big_sur
-    sha256 "35357c35f6be07c0f3e60d64c88eae200158dca6e390a341569a9f0296ed33fb" => :arm64_big_sur
-    sha256 "c540cd4ba596ff6f0df9d772c41487c26201f548a3756ee7a02108c70fee147e" => :catalina
-    sha256 "b88153894953fa0c976f0f74bec8abf2646b320424cc92a5cbdebb6a493ab729" => :mojave
-    sha256 "a563e5dc4ba4b94222ab54cbf1df6308cbe9984b2b0114b73ac514ca3657cbf8" => :x86_64_linux
+    sha256 arm64_big_sur: "35357c35f6be07c0f3e60d64c88eae200158dca6e390a341569a9f0296ed33fb"
+    sha256 big_sur:       "5a979ae3affd408b4ab51f917ef34e662a9cb85eb3918e56e05e1bcfac1aedac"
+    sha256 catalina:      "c540cd4ba596ff6f0df9d772c41487c26201f548a3756ee7a02108c70fee147e"
+    sha256 mojave:        "b88153894953fa0c976f0f74bec8abf2646b320424cc92a5cbdebb6a493ab729"
+    sha256 x86_64_linux:  "a563e5dc4ba4b94222ab54cbf1df6308cbe9984b2b0114b73ac514ca3657cbf8"
   end
 
   depends_on "apr"

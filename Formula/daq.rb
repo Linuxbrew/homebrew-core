@@ -11,12 +11,11 @@ class Daq < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "97b4ba11a541dc9720410792b363be14a190e5fbdb4f7ed473aef94f99dc0751" => :big_sur
-    sha256 "3b1f25eab6e2c04f4b5e609a1d3e72c3eb55eb12d4a7acb61f43ae815bd10347" => :catalina
-    sha256 "8d57a1f8536259612d6ce312b54a96e8d0fd5527000593d11765baf095d1fd2d" => :mojave
-    sha256 "861fbfd197f0cef898687b427cfa259d6dbf15b2eace0036477910177b8c4c16" => :high_sierra
-    sha256 "ab76328a84f298fd8d74970dc1ea5c71b5696d9f2b150a141ab47f2caf6c898d" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "97b4ba11a541dc9720410792b363be14a190e5fbdb4f7ed473aef94f99dc0751"
+    sha256 cellar: :any, catalina:     "3b1f25eab6e2c04f4b5e609a1d3e72c3eb55eb12d4a7acb61f43ae815bd10347"
+    sha256 cellar: :any, mojave:       "8d57a1f8536259612d6ce312b54a96e8d0fd5527000593d11765baf095d1fd2d"
+    sha256 cellar: :any, high_sierra:  "861fbfd197f0cef898687b427cfa259d6dbf15b2eace0036477910177b8c4c16"
+    sha256 cellar: :any, x86_64_linux: "ab76328a84f298fd8d74970dc1ea5c71b5696d9f2b150a141ab47f2caf6c898d"
   end
 
   depends_on "autoconf" => :build

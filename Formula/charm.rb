@@ -6,12 +6,11 @@ class Charm < Formula
   license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c3c809d7c9488ae876f1549f825284dac9e500070ee62d9b351ff28c84e1620c" => :big_sur
-    sha256 "b2a4c9b953f6a54c51a171d819cfddc0655caf857ec72c3ec5136493f9296b24" => :catalina
-    sha256 "58e3a054f6b6ff73184e1f2909ee58117bd023bc28e448af2d6fe2e82b192735" => :mojave
-    sha256 "389d0723e4bcc34bc7747e66f7f721a36cf1ab63623ec23982d68ca2623e3f29" => :high_sierra
-    sha256 "e149e78ec5ae240183c8f5c497f7eb5312c0e75a3fbba953b9a227b951eff34e" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "c3c809d7c9488ae876f1549f825284dac9e500070ee62d9b351ff28c84e1620c"
+    sha256 cellar: :any_skip_relocation, catalina:     "b2a4c9b953f6a54c51a171d819cfddc0655caf857ec72c3ec5136493f9296b24"
+    sha256 cellar: :any_skip_relocation, mojave:       "58e3a054f6b6ff73184e1f2909ee58117bd023bc28e448af2d6fe2e82b192735"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "389d0723e4bcc34bc7747e66f7f721a36cf1ab63623ec23982d68ca2623e3f29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e149e78ec5ae240183c8f5c497f7eb5312c0e75a3fbba953b9a227b951eff34e"
   end
 
   depends_on "go" => :build

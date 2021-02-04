@@ -13,12 +13,11 @@ class CheckPostgres < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4d3fab04056d9f73cbbf1687301e43993c696637d86146d4124b74a0222d321f" => :big_sur
-    sha256 "1b4c6b85f790396a5c498e7354b548e981fcdc84d9c0fef2cfee0cbf6a8111de" => :arm64_big_sur
-    sha256 "6a52850ba011c00b1daf005009ef0143d02d397cd2b212f69ffcc92f9c93e7a5" => :catalina
-    sha256 "09f45361f23beae689194d98e4a8d4788e38d8a57f8be94c6fb5bcc5a7dd8950" => :mojave
-    sha256 "85fe8c83f397436555f6447844db79c4d445eb0702a4d190b7d5f6b667bee3fe" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b4c6b85f790396a5c498e7354b548e981fcdc84d9c0fef2cfee0cbf6a8111de"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d3fab04056d9f73cbbf1687301e43993c696637d86146d4124b74a0222d321f"
+    sha256 cellar: :any_skip_relocation, catalina:      "6a52850ba011c00b1daf005009ef0143d02d397cd2b212f69ffcc92f9c93e7a5"
+    sha256 cellar: :any_skip_relocation, mojave:        "09f45361f23beae689194d98e4a8d4788e38d8a57f8be94c6fb5bcc5a7dd8950"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85fe8c83f397436555f6447844db79c4d445eb0702a4d190b7d5f6b667bee3fe"
   end
 
   depends_on "postgresql"

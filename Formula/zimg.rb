@@ -7,13 +7,12 @@ class Zimg < Formula
   head "https://github.com/sekrit-twc/zimg.git"
 
   bottle do
-    cellar :any
-    sha256 "b0b118d35db77d2a1cc8f02eb4b88349835ebe1e714d3bedf1157196a0e921b7" => :big_sur
-    sha256 "88ce45e66e79aa6e2d0a9455272a3547601c6be259328b009d545b58f0200ce2" => :arm64_big_sur
-    sha256 "1b86d04d346e073a6f1f10de4df32d8ed38639589ab557f1ca926df3710cf7bf" => :catalina
-    sha256 "5e02a6d87423b269cb3068e00fbf133eb0ae5ba519d817fa9b71f76e3d9a24f1" => :mojave
-    sha256 "3aa550e35f7b18561cfcea1dff0c9e0d10fba0563f758b73b52f1767763bbec2" => :high_sierra
-    sha256 "a2b46efaf0d3ef02b7057d069c1e507ae7ac407dd0e1909654e0e50571723436" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "88ce45e66e79aa6e2d0a9455272a3547601c6be259328b009d545b58f0200ce2"
+    sha256 cellar: :any, big_sur:       "b0b118d35db77d2a1cc8f02eb4b88349835ebe1e714d3bedf1157196a0e921b7"
+    sha256 cellar: :any, catalina:      "1b86d04d346e073a6f1f10de4df32d8ed38639589ab557f1ca926df3710cf7bf"
+    sha256 cellar: :any, mojave:        "5e02a6d87423b269cb3068e00fbf133eb0ae5ba519d817fa9b71f76e3d9a24f1"
+    sha256 cellar: :any, high_sierra:   "3aa550e35f7b18561cfcea1dff0c9e0d10fba0563f758b73b52f1767763bbec2"
+    sha256 cellar: :any, x86_64_linux:  "a2b46efaf0d3ef02b7057d069c1e507ae7ac407dd0e1909654e0e50571723436"
   end
 
   depends_on "autoconf" => :build

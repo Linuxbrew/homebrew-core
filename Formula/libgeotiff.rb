@@ -6,13 +6,12 @@ class Libgeotiff < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "06ba6dd5e945ac1491a2838df004efdfbe5bf8d1c5e1a1d0df4084689c08002f" => :big_sur
-    sha256 "a670b1daf400c747f5993a97888a8910a126a6e4668ddf3aa78e4f259db9246b" => :arm64_big_sur
-    sha256 "181da2f2a3860b23ee95eded5a9f5600f34e2ee016e76a7fbede959e565d0ca8" => :catalina
-    sha256 "7311abe41270eb90f91b69e84eab0528be0b76a11cc43ce0e2aca1529da585fe" => :mojave
-    sha256 "b52ce34a76c3510314e840753610d5d423cd0689d5b93d3d41e7c119ba67d09b" => :high_sierra
-    sha256 "4661f6625a0c23deb96ed389ae3daa65c54a40df05434de3ab0de92a0f9f6eb6" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a670b1daf400c747f5993a97888a8910a126a6e4668ddf3aa78e4f259db9246b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "06ba6dd5e945ac1491a2838df004efdfbe5bf8d1c5e1a1d0df4084689c08002f"
+    sha256 cellar: :any_skip_relocation, catalina:      "181da2f2a3860b23ee95eded5a9f5600f34e2ee016e76a7fbede959e565d0ca8"
+    sha256 cellar: :any_skip_relocation, mojave:        "7311abe41270eb90f91b69e84eab0528be0b76a11cc43ce0e2aca1529da585fe"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b52ce34a76c3510314e840753610d5d423cd0689d5b93d3d41e7c119ba67d09b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4661f6625a0c23deb96ed389ae3daa65c54a40df05434de3ab0de92a0f9f6eb6"
   end
 
   head do

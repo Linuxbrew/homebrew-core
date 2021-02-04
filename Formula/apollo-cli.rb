@@ -12,12 +12,11 @@ class ApolloCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1fc3c00f4a19c5d6d14ce4d0d1d13359af23b7ffca125aa6bb8cf60add7ed681" => :big_sur
-    sha256 "f434c8484763c0a4d6bf7a07388479066e7c7a7ccb4393625a8e98d12fc213a1" => :arm64_big_sur
-    sha256 "e03caea9f82ef5c0c26ae30764cd11892624aadc24ad18550b1a9e857d4ad187" => :catalina
-    sha256 "c39c0db1b4c63c3822926d584557f80217349ae55f85068530aac9f964a7dc69" => :mojave
-    sha256 "493ba2d171812ec965d1f3a78da26adcb0b2454cffa3d28f571bb5ed2312580f" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f434c8484763c0a4d6bf7a07388479066e7c7a7ccb4393625a8e98d12fc213a1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1fc3c00f4a19c5d6d14ce4d0d1d13359af23b7ffca125aa6bb8cf60add7ed681"
+    sha256 cellar: :any_skip_relocation, catalina:      "e03caea9f82ef5c0c26ae30764cd11892624aadc24ad18550b1a9e857d4ad187"
+    sha256 cellar: :any_skip_relocation, mojave:        "c39c0db1b4c63c3822926d584557f80217349ae55f85068530aac9f964a7dc69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "493ba2d171812ec965d1f3a78da26adcb0b2454cffa3d28f571bb5ed2312580f"
   end
 
   depends_on "node"

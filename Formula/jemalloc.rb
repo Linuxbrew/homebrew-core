@@ -7,13 +7,12 @@ class Jemalloc < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "7797788be2da677a8343ac6199e2f180c2e6b627c0b9abc9da133fbc34e86678" => :big_sur
-    sha256 "724ab5947e53f571b9fed9e776a1ba22b1d71fe27ce5775553d70e990ef9dc63" => :arm64_big_sur
-    sha256 "b1b211e5bead798c236d478dd74310a97a7b59470f607b608c07222648b08bf5" => :catalina
-    sha256 "d3f6f85e74b08c8c97448e289734df484f884af35cd10ce9d9db43cf721fbf94" => :mojave
-    sha256 "8080c98844153da08346431fe0a0592f6f718cb7a17525f9ffb909c395bc0b6d" => :high_sierra
-    sha256 "08def7a0bdddf9311aeca1d40b93f4ac1b8b0c13ded3c66dc8ec44e517cff233" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "724ab5947e53f571b9fed9e776a1ba22b1d71fe27ce5775553d70e990ef9dc63"
+    sha256 cellar: :any, big_sur:       "7797788be2da677a8343ac6199e2f180c2e6b627c0b9abc9da133fbc34e86678"
+    sha256 cellar: :any, catalina:      "b1b211e5bead798c236d478dd74310a97a7b59470f607b608c07222648b08bf5"
+    sha256 cellar: :any, mojave:        "d3f6f85e74b08c8c97448e289734df484f884af35cd10ce9d9db43cf721fbf94"
+    sha256 cellar: :any, high_sierra:   "8080c98844153da08346431fe0a0592f6f718cb7a17525f9ffb909c395bc0b6d"
+    sha256 cellar: :any, x86_64_linux:  "08def7a0bdddf9311aeca1d40b93f4ac1b8b0c13ded3c66dc8ec44e517cff233"
   end
 
   head do

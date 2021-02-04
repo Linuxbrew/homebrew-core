@@ -7,13 +7,12 @@ class Dashing < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "7297bb9c8b50feeda73af51b59acfcac18f9d2beb57738de293146aaca7cd089" => :big_sur
-    sha256 "72b9d5ea8aaf171f9a46e099f190a9adf9ad90b6bd90dcdc54eaa922e2c277f9" => :arm64_big_sur
-    sha256 "43702cf1fbdeb449e9205716635cba4c62449e575f9a6ab45eeb4aeb166fdf9a" => :catalina
-    sha256 "bbd3a7995a6b5a0a87f4a08a4e4bb52fe75990bdde6b63bea1a9c56c7c144165" => :mojave
-    sha256 "d66d3aad93e3c76a2b68829b70df9f1ebfa7da2f5bd57d060efd9f6ba5ff11b8" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "72b9d5ea8aaf171f9a46e099f190a9adf9ad90b6bd90dcdc54eaa922e2c277f9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7297bb9c8b50feeda73af51b59acfcac18f9d2beb57738de293146aaca7cd089"
+    sha256 cellar: :any_skip_relocation, catalina:      "43702cf1fbdeb449e9205716635cba4c62449e575f9a6ab45eeb4aeb166fdf9a"
+    sha256 cellar: :any_skip_relocation, mojave:        "bbd3a7995a6b5a0a87f4a08a4e4bb52fe75990bdde6b63bea1a9c56c7c144165"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d66d3aad93e3c76a2b68829b70df9f1ebfa7da2f5bd57d060efd9f6ba5ff11b8"
   end
 
   depends_on "go" => :build

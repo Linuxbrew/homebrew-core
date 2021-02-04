@@ -13,13 +13,12 @@ class Rsync < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "def7f5cd96f4abc05ef344a16c084c11879dca54b91ea5dd56a6de63298cc1dd" => :big_sur
-    sha256 "05437fe41f5c05db284cb9b70c14ad47071976d3720d2148b62f83a2bfb0391a" => :arm64_big_sur
-    sha256 "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e" => :catalina
-    sha256 "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090" => :mojave
-    sha256 "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f" => :high_sierra
-    sha256 "7cb96b93ffe5ad5e3473032a4f869861fc2305738795e95a21f41a3fcfdc24c2" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05437fe41f5c05db284cb9b70c14ad47071976d3720d2148b62f83a2bfb0391a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "def7f5cd96f4abc05ef344a16c084c11879dca54b91ea5dd56a6de63298cc1dd"
+    sha256 cellar: :any_skip_relocation, catalina:      "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e"
+    sha256 cellar: :any_skip_relocation, mojave:        "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cb96b93ffe5ad5e3473032a4f869861fc2305738795e95a21f41a3fcfdc24c2"
   end
 
   depends_on "lz4"

@@ -7,13 +7,12 @@ class Srt < Formula
   head "https://github.com/Haivision/srt.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "44a1055208b9dc75d5ad82aa404b492fb28c226990ec0a01ab493a0d852bdd3b" => :big_sur
-    sha256 "ab7f65bed615a3c83007536df1b4c4d0d0f6851f350a78093203287ef1772aab" => :arm64_big_sur
-    sha256 "7056a06ce6405fe33266d528e6a8aa295e1a3db6780f23627494610a7f31f8fc" => :catalina
-    sha256 "0d14cac97d2dab6cdf4059c5472e448555fda17982c9e802869224f0049a13a2" => :mojave
-    sha256 "2eb6c23c608c7c6cb9db4f886fd73749351f876d276772eff175add7fc2b787a" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "ab7f65bed615a3c83007536df1b4c4d0d0f6851f350a78093203287ef1772aab"
+    sha256 cellar: :any, big_sur:       "44a1055208b9dc75d5ad82aa404b492fb28c226990ec0a01ab493a0d852bdd3b"
+    sha256 cellar: :any, catalina:      "7056a06ce6405fe33266d528e6a8aa295e1a3db6780f23627494610a7f31f8fc"
+    sha256 cellar: :any, mojave:        "0d14cac97d2dab6cdf4059c5472e448555fda17982c9e802869224f0049a13a2"
+    sha256 cellar: :any, x86_64_linux:  "2eb6c23c608c7c6cb9db4f886fd73749351f876d276772eff175add7fc2b787a"
   end
 
   depends_on "cmake" => :build

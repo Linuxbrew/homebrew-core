@@ -5,7 +5,7 @@ class Libsasl2 < Formula
   sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
 
   bottle do
-    sha256 "fea25c321868478ed2bab0788a188e87d00d90bf423f7c4c11161bcca9eda3b5" => :x86_64_linux
+    sha256 x86_64_linux: "fea25c321868478ed2bab0788a188e87d00d90bf423f7c4c11161bcca9eda3b5"
   end
 
   depends_on :linux

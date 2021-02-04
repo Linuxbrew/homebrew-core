@@ -12,12 +12,11 @@ class Libxslt < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "61c11bb170d9ba4bd079a2c81887b9d82cb34a3de110117d61d75f7f050b90d3" => :big_sur
-    sha256 "7f0dcf602ce806db8ce41b1e8d4ef352823f7343f258cd0519e6ad1885f3c593" => :arm64_big_sur
-    sha256 "7f1626b1ae090f561ed8d7c2a3c7e9067ad29d68b547d91ff5a2e83d346183bc" => :catalina
-    sha256 "6c73651ec7791877fe42675f9de291709300a2c3aa0da3e859d139e4121a5a18" => :mojave
-    sha256 "161d2de9a11ec44210091735f8c173e0b343f61e2689b17232fec8762e065ac7" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7f0dcf602ce806db8ce41b1e8d4ef352823f7343f258cd0519e6ad1885f3c593"
+    sha256 cellar: :any_skip_relocation, big_sur:       "61c11bb170d9ba4bd079a2c81887b9d82cb34a3de110117d61d75f7f050b90d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "7f1626b1ae090f561ed8d7c2a3c7e9067ad29d68b547d91ff5a2e83d346183bc"
+    sha256 cellar: :any_skip_relocation, mojave:        "6c73651ec7791877fe42675f9de291709300a2c3aa0da3e859d139e4121a5a18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "161d2de9a11ec44210091735f8c173e0b343f61e2689b17232fec8762e065ac7"
   end
 
   head do

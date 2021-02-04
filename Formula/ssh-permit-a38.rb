@@ -7,13 +7,12 @@ class SshPermitA38 < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "ed50251803a0e7fc976589be8b84f2cb7a149e871e1241b3f9819d5219413e99" => :big_sur
-    sha256 "3eefd64fbbe3e4d500a69352091da85ca685a435094facc30e6942d9d5e89a1d" => :catalina
-    sha256 "683ebbe9a6a845802f825f1775e6d861387be41fd520b648275f97a580e92398" => :mojave
-    sha256 "7d82d59932bb6d721a31726efc231d043d54d180995d0119d8f8bf9fc37f3e9b" => :high_sierra
-    sha256 "d563f22a553c7f4d45678adaf9190103d3b93ae2ddfc7d8b9efa7a6fcc2cf5fc" => :x86_64_linux
+    sha256 cellar: :any, big_sur:      "ed50251803a0e7fc976589be8b84f2cb7a149e871e1241b3f9819d5219413e99"
+    sha256 cellar: :any, catalina:     "3eefd64fbbe3e4d500a69352091da85ca685a435094facc30e6942d9d5e89a1d"
+    sha256 cellar: :any, mojave:       "683ebbe9a6a845802f825f1775e6d861387be41fd520b648275f97a580e92398"
+    sha256 cellar: :any, high_sierra:  "7d82d59932bb6d721a31726efc231d043d54d180995d0119d8f8bf9fc37f3e9b"
+    sha256 cellar: :any, x86_64_linux: "d563f22a553c7f4d45678adaf9190103d3b93ae2ddfc7d8b9efa7a6fcc2cf5fc"
   end
 
   depends_on "cmake" => :build

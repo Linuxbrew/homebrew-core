@@ -10,13 +10,12 @@ class Deheader < Formula
   head "https://gitlab.com/esr/deheader.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4d1fade275b69f47542d60cd80ce9b89b092e054954f41c5dc71626a737e23b3" => :big_sur
-    sha256 "5269db101973a43a04b1df3795c29b843cdb3ccb2e6fa91e55b7cc313579e6b8" => :arm64_big_sur
-    sha256 "c90653b7e27554f27b48ea49cef85d433320ee50a6ca63b0e899a69d65f61074" => :catalina
-    sha256 "a2f353a857e4fa0fecaf81e750bf9fd97ee8893e8e65f185f01c3c648f310724" => :mojave
-    sha256 "78ca1d70d0f500b332964630528f2110534d3d8a1eb89e01c9b6bfa4ad0dd0f0" => :high_sierra
-    sha256 "8ebba3aa96369cc366b75f2192115680b8a14bc4cf3115d6693c5f59c2befb5d" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5269db101973a43a04b1df3795c29b843cdb3ccb2e6fa91e55b7cc313579e6b8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d1fade275b69f47542d60cd80ce9b89b092e054954f41c5dc71626a737e23b3"
+    sha256 cellar: :any_skip_relocation, catalina:      "c90653b7e27554f27b48ea49cef85d433320ee50a6ca63b0e899a69d65f61074"
+    sha256 cellar: :any_skip_relocation, mojave:        "a2f353a857e4fa0fecaf81e750bf9fd97ee8893e8e65f185f01c3c648f310724"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "78ca1d70d0f500b332964630528f2110534d3d8a1eb89e01c9b6bfa4ad0dd0f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ebba3aa96369cc366b75f2192115680b8a14bc4cf3115d6693c5f59c2befb5d"
   end
 
   depends_on "xmlto" => :build

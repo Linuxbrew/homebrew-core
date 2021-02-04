@@ -11,11 +11,10 @@ class Hlint < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "537e2d46565c5b6799d5b538927741020c3422cb48eb81ce453180791fba03aa" => :big_sur
-    sha256 "75d3c4a1ce18ec83dd7e02033b44d2c7d9086b70719fed008e02c6d552e6d03c" => :catalina
-    sha256 "16397d3ee6601a82fb75ae4c58d57dc65d827a86052bd85d9a07f22edfc5a465" => :mojave
-    sha256 "4c4bb896b4907b3cfe2263f85f9b9dc090963507b81615fddf8b94d201e5f3ea" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "537e2d46565c5b6799d5b538927741020c3422cb48eb81ce453180791fba03aa"
+    sha256 cellar: :any_skip_relocation, catalina:     "75d3c4a1ce18ec83dd7e02033b44d2c7d9086b70719fed008e02c6d552e6d03c"
+    sha256 cellar: :any_skip_relocation, mojave:       "16397d3ee6601a82fb75ae4c58d57dc65d827a86052bd85d9a07f22edfc5a465"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4c4bb896b4907b3cfe2263f85f9b9dc090963507b81615fddf8b94d201e5f3ea"
   end
 
   depends_on "cabal-install" => :build

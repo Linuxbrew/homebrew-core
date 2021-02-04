@@ -14,12 +14,11 @@ class Netcdf < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "55caff29df9b25ee906d2dcce6c78e02b6e9ac163b42e06f53c45aa0f6ade645" => :big_sur
-    sha256 "26eaaca9d9cf3bddea87d982c76c31df6df91b198d04ac62f0084141109457dd" => :arm64_big_sur
-    sha256 "b3aeca909a91b47e8e0d3fdc9d209dd13ecfb2b1879bab5ea49d3dcfd6404ddd" => :catalina
-    sha256 "9504a25d84dd6afb80553576474420cc074c64821aa346a58271dad26982b187" => :mojave
-    sha256 "f8b515d71fa80f21cc142d18e5f6af29c0a9d707f54ff16acc0e7a994b81f635" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "26eaaca9d9cf3bddea87d982c76c31df6df91b198d04ac62f0084141109457dd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "55caff29df9b25ee906d2dcce6c78e02b6e9ac163b42e06f53c45aa0f6ade645"
+    sha256 cellar: :any_skip_relocation, catalina:      "b3aeca909a91b47e8e0d3fdc9d209dd13ecfb2b1879bab5ea49d3dcfd6404ddd"
+    sha256 cellar: :any_skip_relocation, mojave:        "9504a25d84dd6afb80553576474420cc074c64821aa346a58271dad26982b187"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8b515d71fa80f21cc142d18e5f6af29c0a9d707f54ff16acc0e7a994b81f635"
   end
 
   depends_on "cmake" => :build

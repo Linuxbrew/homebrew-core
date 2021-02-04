@@ -11,10 +11,10 @@ class Nickle < Formula
   end
 
   bottle do
-    sha256 "6e377f6674d6609f634b28941d8c53fef94c9cb429f31d1c765e4a5d8607e88d" => :big_sur
-    sha256 "3e1d028467ee41d963e9eaa9809f288fbc3effd826e09ae69bd4e4bfd26679c5" => :catalina
-    sha256 "6fa77667c30e0dfa186868159076bd2e003c34d32624915481f8c52e68b97f23" => :mojave
-    sha256 "460e15d3625c6fccf2710f60dee8d3d036a8a11afe81302580c38b4932ca5bcf" => :x86_64_linux
+    sha256 big_sur:      "6e377f6674d6609f634b28941d8c53fef94c9cb429f31d1c765e4a5d8607e88d"
+    sha256 catalina:     "3e1d028467ee41d963e9eaa9809f288fbc3effd826e09ae69bd4e4bfd26679c5"
+    sha256 mojave:       "6fa77667c30e0dfa186868159076bd2e003c34d32624915481f8c52e68b97f23"
+    sha256 x86_64_linux: "460e15d3625c6fccf2710f60dee8d3d036a8a11afe81302580c38b4932ca5bcf"
   end
 
   depends_on "readline"

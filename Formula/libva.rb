@@ -11,8 +11,7 @@ class Libva < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b907e460f3c7776691f84ad95132a399a743239b26801905c43219488bf16c40" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b907e460f3c7776691f84ad95132a399a743239b26801905c43219488bf16c40"
   end
 
   depends_on "pkg-config" => [:build, :test]

@@ -6,12 +6,11 @@ class Monolith < Formula
   license "Unlicense"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0fe966e60aba778a8fb0db2a0d62b95fce87b8ba3484aa8a8f3ef376c0ff5f22" => :big_sur
-    sha256 "478279d751123e01c26ca6426c5b81b1a905f6160cc8743fb61caa5718c1d991" => :arm64_big_sur
-    sha256 "f0f53627bafa8b487dd31ae9a7fb33c69f5ec87b2129e9f26a7f8beacd3f8a97" => :catalina
-    sha256 "7c8df579c475560e352f38e538967067e03d30a11658b2c18a158de25cfc1458" => :mojave
-    sha256 "ba56b9e12334e38781d59e273e9d4d03012697c66d53962b4f7e4929ac65fd41" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "478279d751123e01c26ca6426c5b81b1a905f6160cc8743fb61caa5718c1d991"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0fe966e60aba778a8fb0db2a0d62b95fce87b8ba3484aa8a8f3ef376c0ff5f22"
+    sha256 cellar: :any_skip_relocation, catalina:      "f0f53627bafa8b487dd31ae9a7fb33c69f5ec87b2129e9f26a7f8beacd3f8a97"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c8df579c475560e352f38e538967067e03d30a11658b2c18a158de25cfc1458"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba56b9e12334e38781d59e273e9d4d03012697c66d53962b4f7e4929ac65fd41"
   end
 
   depends_on "pkg-config" => :build

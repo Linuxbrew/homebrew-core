@@ -12,12 +12,11 @@ class Binutils < Formula
 
   # binutils is portable.
   bottle do
-    cellar :any
-    sha256 "464fb5fcf20ca249899299a48a210b3be8e9d72b02d62e9b325e8a2638a50b79" => :big_sur
-    sha256 "5227a5695421c8471b43801b12e2935a7bbaffbad405552d7473f0c1c36c8d3e" => :arm64_big_sur
-    sha256 "c0124975e7089a2f6620325f31833de7c9e85f02aebbb415000ed36262025a55" => :catalina
-    sha256 "c9c2f5b15ad2dbb6028a7b4e803cee330dc6803bc670684935b20ff5f8d11e7d" => :mojave
-    sha256 "fc8afeb58297ee9b18f410c2a849da9c6b2c912183543e5adfb8d71091a8e1b1" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "5227a5695421c8471b43801b12e2935a7bbaffbad405552d7473f0c1c36c8d3e"
+    sha256 cellar: :any, big_sur:       "464fb5fcf20ca249899299a48a210b3be8e9d72b02d62e9b325e8a2638a50b79"
+    sha256 cellar: :any, catalina:      "c0124975e7089a2f6620325f31833de7c9e85f02aebbb415000ed36262025a55"
+    sha256 cellar: :any, mojave:        "c9c2f5b15ad2dbb6028a7b4e803cee330dc6803bc670684935b20ff5f8d11e7d"
+    sha256 cellar: :any, x86_64_linux:  "fc8afeb58297ee9b18f410c2a849da9c6b2c912183543e5adfb8d71091a8e1b1"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"

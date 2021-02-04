@@ -6,12 +6,11 @@ class Hstr < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "23a7e98369fa1ef412f6f374d24a1828b5131425b39b828688004cf6e4cedda8" => :big_sur
-    sha256 "6f1758717c6c34317a775a0975864d66bdd2696f491859627a00641966ce6ece" => :arm64_big_sur
-    sha256 "eb5a750b04ba6c1908bde96a1bd7fb8733a80632953eeb5d43ad51b7747cc191" => :catalina
-    sha256 "723f7aec818080a72e40a3eda2aad8669d5d952927a7894718946cc0b788ff27" => :mojave
-    sha256 "ae4e395bef972c00c7fea7b4134dfd38f259968aa300a604a9e82ad48e2d37d0" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "6f1758717c6c34317a775a0975864d66bdd2696f491859627a00641966ce6ece"
+    sha256 cellar: :any, big_sur:       "23a7e98369fa1ef412f6f374d24a1828b5131425b39b828688004cf6e4cedda8"
+    sha256 cellar: :any, catalina:      "eb5a750b04ba6c1908bde96a1bd7fb8733a80632953eeb5d43ad51b7747cc191"
+    sha256 cellar: :any, mojave:        "723f7aec818080a72e40a3eda2aad8669d5d952927a7894718946cc0b788ff27"
+    sha256 cellar: :any, x86_64_linux:  "ae4e395bef972c00c7fea7b4134dfd38f259968aa300a604a9e82ad48e2d37d0"
   end
 
   depends_on "autoconf" => :build

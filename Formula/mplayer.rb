@@ -12,12 +12,11 @@ class Mplayer < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "7482460cff2275c11a9a0249bd77b018a211d926cc2fde68912e1063b2769dbd" => :big_sur
-    sha256 "cbbbc082ba6ceb67c119d97a4ecce0c2af5f7e19668e4361093e761cd981a6a6" => :catalina
-    sha256 "2ee069c78251cc7e45bd3c1b6bd5941e927b01f43af5f6deeb4fcdd744dbc52b" => :mojave
-    sha256 "16ffb5f78e41e6192f1f0ae7a4561ee6d009ad285ba61006f8069859b75d8d7f" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, big_sur:      "7482460cff2275c11a9a0249bd77b018a211d926cc2fde68912e1063b2769dbd"
+    sha256 cellar: :any_skip_relocation, catalina:     "cbbbc082ba6ceb67c119d97a4ecce0c2af5f7e19668e4361093e761cd981a6a6"
+    sha256 cellar: :any_skip_relocation, mojave:       "2ee069c78251cc7e45bd3c1b6bd5941e927b01f43af5f6deeb4fcdd744dbc52b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "16ffb5f78e41e6192f1f0ae7a4561ee6d009ad285ba61006f8069859b75d8d7f"
   end
 
   head do

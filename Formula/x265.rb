@@ -12,12 +12,11 @@ class X265 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8db84444f732498e1f1e3f8564b3091360ebb277a9c7f5d0bd457893a194f5a6" => :big_sur
-    sha256 "89918f59466d00820cd7e978c89b405959d082f108db2382bd76fe2bdedcfc5c" => :arm64_big_sur
-    sha256 "c7be7296406476bf93e13580eab209646680bafaa5fb46d31cf491ef3e3f0a25" => :catalina
-    sha256 "d6bce1ae70ea86a7203a42ab807e1a2334550a9b4af5ca7ebb9a0e89139c8444" => :mojave
-    sha256 "a7241c395c2c09035f9fb3c86b53f0de9f60b688f6c6f4b9f10df60f6190eb37" => :x86_64_linux
+    sha256 cellar: :any, arm64_big_sur: "89918f59466d00820cd7e978c89b405959d082f108db2382bd76fe2bdedcfc5c"
+    sha256 cellar: :any, big_sur:       "8db84444f732498e1f1e3f8564b3091360ebb277a9c7f5d0bd457893a194f5a6"
+    sha256 cellar: :any, catalina:      "c7be7296406476bf93e13580eab209646680bafaa5fb46d31cf491ef3e3f0a25"
+    sha256 cellar: :any, mojave:        "d6bce1ae70ea86a7203a42ab807e1a2334550a9b4af5ca7ebb9a0e89139c8444"
+    sha256 cellar: :any, x86_64_linux:  "a7241c395c2c09035f9fb3c86b53f0de9f60b688f6c6f4b9f10df60f6190eb37"
   end
 
   depends_on "cmake" => :build

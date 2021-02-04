@@ -6,12 +6,11 @@ class Navi < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "85d58e075944fcde015a3e45ed06668e64d72cd0b49afd5e719877da83863392" => :big_sur
-    sha256 "d4d7330da91c8993867b2c2443cad374b07d063a1ea4587e404fe6b99705f83b" => :arm64_big_sur
-    sha256 "2aa8fa7b3e54b886bcdec48fc5985ec0ad5f839f60e3ceeee385ba440277106b" => :catalina
-    sha256 "b03eabbab9d70619bbbef6a6b97cf86f46cf6f64f3dca444ea7da818813693cb" => :mojave
-    sha256 "52b86735a9b2d5c61038f570e3c25f5f78e62b88616dd8f75050b796946b8af2" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d4d7330da91c8993867b2c2443cad374b07d063a1ea4587e404fe6b99705f83b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "85d58e075944fcde015a3e45ed06668e64d72cd0b49afd5e719877da83863392"
+    sha256 cellar: :any_skip_relocation, catalina:      "2aa8fa7b3e54b886bcdec48fc5985ec0ad5f839f60e3ceeee385ba440277106b"
+    sha256 cellar: :any_skip_relocation, mojave:        "b03eabbab9d70619bbbef6a6b97cf86f46cf6f64f3dca444ea7da818813693cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52b86735a9b2d5c61038f570e3c25f5f78e62b88616dd8f75050b796946b8af2"
   end
 
   depends_on "rust" => :build

@@ -11,13 +11,12 @@ class Ansifilter < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4eb6f695e2770188371433e28574888c0e869a94eed6384eb346dea9447ac24d" => :big_sur
-    sha256 "d5b4b56e737b3dd6bea07aeca8cb06cce2bd5b2c92923e4e065f8cc8e85a0cc5" => :arm64_big_sur
-    sha256 "393daa46a9bc661060ca7132feb7d635cc08ad828bd3512e4d27d29a315a26b3" => :catalina
-    sha256 "8a1021a90a26783b1b2127dadac4dcd7d50f0c3e9e8d412a6ee2b0b61160088d" => :mojave
-    sha256 "a6b73540c7ed94ba539e24ade74aaf0281b1895184766085dc0af5b7923a1180" => :high_sierra
-    sha256 "eb08a0848a02674013994446cbf2c986e912d74c2945d6b1fb74af32d1b0a0e1" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5b4b56e737b3dd6bea07aeca8cb06cce2bd5b2c92923e4e065f8cc8e85a0cc5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4eb6f695e2770188371433e28574888c0e869a94eed6384eb346dea9447ac24d"
+    sha256 cellar: :any_skip_relocation, catalina:      "393daa46a9bc661060ca7132feb7d635cc08ad828bd3512e4d27d29a315a26b3"
+    sha256 cellar: :any_skip_relocation, mojave:        "8a1021a90a26783b1b2127dadac4dcd7d50f0c3e9e8d412a6ee2b0b61160088d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a6b73540c7ed94ba539e24ade74aaf0281b1895184766085dc0af5b7923a1180"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb08a0848a02674013994446cbf2c986e912d74c2945d6b1fb74af32d1b0a0e1"
   end
 
   def install
