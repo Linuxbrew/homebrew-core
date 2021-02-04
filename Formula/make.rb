@@ -43,15 +43,15 @@ class Make < Formula
   end
 
   def caveats
-    return unless OS.mac?
+    on_macos do
+      <<~EOS
+        GNU "make" has been installed as "gmake".
+        If you need to use it as "make", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-    <<~EOS
-      GNU "make" has been installed as "gmake".
-      If you need to use it as "make", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
-
-          PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do

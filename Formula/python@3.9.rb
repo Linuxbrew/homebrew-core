@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz"
   sha256 "991c3f8ac97992f3d308fefeb03a64db462574eadbff34ce8bc5bb583d9903ff"
   license "Python-2.0"
-  revision OS.mac? ? 7 : 8
+  revision OS.mac? ? 8 : 9
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,12 +12,10 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "86d6a425d2916c3a953f0a916b2e973aa15a43c5fb31c1ee7d691dd247eb3721"
-    sha256 big_sur:       "3aac55edc7b729b38d97f551560056414b732dd2d8764a8c9a60f897eb372078"
-    sha256 catalina:      "506f6963d6b33d371b83a13c275c9892fa952ff01a56593f359c27f0bfd48b37"
-    sha256 mojave:        "e3e9e5c3e4f926308b1fd5130962fbe6a840dbd4fcbbe4f775c89d84d94dbea9"
-    sha256 x86_64_linux:  "3b41923b16b9c06a5272aa5bf301f2774574ede62e05e85b0d78a6c19eab75df"
+    sha256 big_sur:       "621814095e93c2d8d996365513576604cfc58f17534c1f4ff303cd51028849ab"
+    sha256 arm64_big_sur: "9603bfefbb5b29bbbdab37b7b7ce26e27c36f2ecdfcc6a8d1976764bd0508e80"
+    sha256 catalina:      "9025d2e4f3aa72b7a1c46c2729bb935a5d9f7a5d34f60c381c43a90e178d3b08"
+    sha256 mojave:        "a6c7451d86298f8db98b71c0923a3c2694da1694a4ab51d5bee9c0601f25e200"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -105,6 +103,11 @@ class PythonAT39 < Formula
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
 
+    # The --enable-optimization and --with-lto flags diverge from what upstream
+    # python does for their macOS binary releases. They have chosen not to apply
+    # these flags because they want one build that will work across many macOS
+    # releases. Homebrew is not so constrained because the bottling
+    # infrastructure specializes for each macOS major release.
     args = %W[
       --prefix=#{prefix}
       --enable-ipv6
@@ -113,11 +116,17 @@ class PythonAT39 < Formula
       --enable-loadable-sqlite-extensions
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-dbmliborder=gdbm:ndbm
+      --enable-optimizations
+      --with-lto
     ]
 
     on_macos do
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
+
+      # Override LLVM_AR to be plain old system ar.
+      # https://bugs.python.org/issue43109
+      args << "LLVM_AR=/usr/bin/ar"
     end
     on_linux do
       args << "--enable-shared"

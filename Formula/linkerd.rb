@@ -25,14 +25,8 @@ class Linkerd < Formula
   def install
     ENV["CI_FORCE_CLEAN"] = "1"
 
-    os = if OS.mac?
-      "darwin"
-    else
-      "linux-amd64"
-    end
-
     system "bin/build-cli-bin"
-    bin.install "target/cli/#{os}/linkerd"
+    bin.install Dir["target/cli/*/linkerd"]
 
     # Install bash completion
     output = Utils.safe_popen_read("#{bin}/linkerd", "completion", "bash")

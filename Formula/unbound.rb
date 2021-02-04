@@ -40,10 +40,11 @@ class Unbound < Formula
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    if OS.mac?
+    on_macos do
       args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
-    else
-      args << "--with-libexpat=#{Formula["expat"].prefix}"
+    end
+    on_linux do
+      args << "--with-libexpat=#{Formula["expat"].opt_prefix}"
     end
     system "./configure", *args
 

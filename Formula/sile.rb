@@ -1,17 +1,16 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.13/sile-0.10.13.tar.xz"
-  sha256 "d207d0ee9749a6da16fa2db217f51d3586955387a132c45423b47eedf8c964a6"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.14/sile-0.10.14.tar.xz"
+  sha256 "255a1ebfd745e13a670e1a24fe34ef209b823819a19532d1a63cde6755340e80"
   license "MIT"
-  revision 2
   head "https://github.com/sile-typesetter/sile.git", shallow: false
 
   bottle do
-    sha256 arm64_big_sur: "80c36c1b06e74e2c46e16ef274874fecce5f2b4bc1521a1569c55aa89dccb359"
-    sha256 big_sur:       "d791ab6a480aabc66efede6487b6c8199527d0d9874249f510f18bf50fdb8443"
-    sha256 catalina:      "cb965e298eeb6f23de84f65c97b6537c2ae5ad1fc55224c3355f77eb28113bb7"
-    sha256 mojave:        "f1707b37213ffda7234761238e10a8abb8179c86c3f9b6e02c6d8dd71ffbecc0"
+    sha256 cellar: :any, big_sur:       "96fa8729e8a5a329e31ba0a72401e37f555cb1b901fe40bdaf86ff212f40d873"
+    sha256 cellar: :any, arm64_big_sur: "7aacf1722fd5edb35edbafed39a5135ee9dbfc614d5c2af6a78a10a4e72b58ae"
+    sha256               catalina:      "63164873fb734c31bef4f15dbe1c4b7825f8f4493188be75ebf3930c7a2c6e91"
+    sha256               mojave:        "9da40bac62aa9a45c9f0c3b0bcd06de5c6f7da79240b69b21e13c7af52b9885f"
   end
 
   if build.head?
@@ -57,8 +56,8 @@ class Sile < Formula
   end
 
   resource "lua_cliargs" do
-    url "https://github.com/amireh/lua_cliargs/archive/v2.3-3.tar.gz"
-    sha256 "288eea7c12b2e37bb40241c59e592472f835c526cd807ffc3e2fe21def772481"
+    url "https://github.com/amireh/lua_cliargs/archive/v3.0-2.tar.gz"
+    sha256 "971d6f1440a55bdf9db581d4b2bcbf472a301d76f696a0d0ed9423957c7d176e"
   end
 
   resource "lua-zlib" do
@@ -92,13 +91,13 @@ class Sile < Formula
   end
 
   resource "luasec" do
-    url "https://github.com/brunoos/luasec/archive/v0.9.tar.gz"
-    sha256 "6b6b94e8517bf6baf545fad29a2112f9ac7957ad85b4aae8e0727bec77d7a325"
+    url "https://github.com/brunoos/luasec/archive/v1.0.tar.gz"
+    sha256 "912bfd2050338895207cf24bc8dd26fa9ebddc34006cb8c33d488156d41ac932"
   end
 
   resource "penlight" do
-    url "https://github.com/Tieske/Penlight/archive/1.8.0.tar.gz"
-    sha256 "a1a41c5ec82c0459bc0508a0fb1cb56dfaa83a1dd7754d7174b336ad65420d3d"
+    url "https://github.com/Tieske/Penlight/archive/1.9.2.tar.gz"
+    sha256 "1094368bd95f84428ce1ce814028f8a73ee6a952e18dfffc5fa05d9ee1f0e486"
   end
 
   resource "stdlib" do
@@ -106,9 +105,14 @@ class Sile < Formula
     sha256 "42ca25ddcde59f608694a3335d24919a4df4cf6f14ea46c75249561a16c84711"
   end
 
+  resource "luautf8" do
+    url "https://github.com/starwing/luautf8/archive/0.1.3.tar.gz"
+    sha256 "208b3423a03a6c2822a2fa6b7cc8092ed7d3c0d792ec12c7cd28d6afaa442e0b"
+  end
+
   resource "vstruct" do
-    url "https://github.com/ToxicFrog/vstruct/archive/v2.0.1.tar.gz"
-    sha256 "4529ab32691b5f6e3c798ddfac36013d24d7581715dc7a50a77f17bb2d575c13"
+    url "https://github.com/ToxicFrog/vstruct/archive/v2.1.1.tar.gz"
+    sha256 "029ae887fc3c59279f378a499741811976d90f9a806569a42f4de80ad349f333"
   end
 
   def install
