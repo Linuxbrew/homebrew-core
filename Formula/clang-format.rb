@@ -29,18 +29,6 @@ class ClangFormat < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "37a27e538177b4d9b44eeb6d7749301eba4422763994189cc50f1e2c6cc21344"
   end
 
-  head do
-    url "https://git.llvm.org/git/llvm.git"
-
-    resource "clang" do
-      url "https://git.llvm.org/git/clang.git"
-    end
-
-    resource "libcxx" do
-      url "https://git.llvm.org/git/libcxx.git"
-    end
-  end
-
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "subversion" => :build
