@@ -21,6 +21,7 @@ class Libsecret < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
