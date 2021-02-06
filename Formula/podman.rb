@@ -1,29 +1,12 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
-  homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/v2.2.1.tar.gz"
-  sha256 "bd86b181251e2308cb52f18410fb52d89df7f130cecf0298bbf9a848fe7daf60"
+  homepage "https://podman.io"
+  url "https://github.com/containers/podman/releases/download/v2.2.1/podman-remote-static.tar.gz"
+  sha256 "fcaa81f63dee7bbb1e5dce60d3877eaec500a24ad02978c1263dd6e7c669c070"
   license "Apache-2.0"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d4557414e96180dd119382303f932a685cfd9f810cb39c89e646f366d6e933c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9f1b52e8e1fbb23a43ed7e961cb5e119d38aaa6abec767d1c795ffcbb5a08d8f"
-    sha256 cellar: :any_skip_relocation, catalina:      "c495895437ba8d9fbc999a74d3d8e465f7980fc78b846b383c396e96a220e5d7"
-    sha256 cellar: :any_skip_relocation, mojave:        "a608e53d52bfa2448c1ca8a48aa2702107d60bcd9bc351f4387c9c3922f3ca3f"
-  end
-
-  depends_on "go" => :build
-  depends_on "go-md2man" => :build
-
   def install
-    system "make", "podman-remote-darwin"
-    bin.install "bin/podman-remote-darwin" => "podman"
-
-    system "make", "install-podman-remote-darwin-docs"
-    man1.install Dir["docs/build/remote/darwin/*.1"]
-
-    bash_completion.install "completions/bash/podman"
-    zsh_completion.install "completions/zsh/_podman"
+    bin.install "podman-remote-static" => "podman"
   end
 
   test do
