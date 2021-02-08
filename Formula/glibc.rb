@@ -134,9 +134,6 @@ class Glibc < Formula
       ENV["BUILD_LDFLAGS"] = "-L#{opt_lib}" if opt_lib.directory?
     end
 
-    # -Os confuses valgrind.
-    ENV.O2
-
     # Use brewed ld.so.preload rather than the hotst's /etc/ld.so.preload
     inreplace "elf/rtld.c", '= "/etc/ld.so.preload";', '= SYSCONFDIR "/ld.so.preload";'
 
