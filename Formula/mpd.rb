@@ -40,7 +40,8 @@ class Mpd < Formula
 
   unless OS.mac?
     fails_with gcc: "5"
-    depends_on "gcc@6" => :build
+    fails_with gcc: "6"
+    depends_on "gcc@7"
     depends_on "curl"
   end
 
@@ -117,7 +118,7 @@ class Mpd < Formula
   test do
     # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
     # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
-    return if ENV["CI"]
+    # return if ENV["CI"]
 
     require "expect"
 
