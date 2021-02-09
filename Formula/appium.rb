@@ -17,6 +17,13 @@ class Appium < Formula
 
   depends_on "node"
 
+  on_linux do
+    depends_on "glib"
+    depends_on "nspr"
+    depends_on "nss"
+    depends_on "libxcb"
+  end
+
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
@@ -61,7 +68,7 @@ class Appium < Formula
     assert_match version.to_str, output
 
     # Test stays stuck forever on Linux CI
-    return if ENV["CI"]
+    # return if ENV["CI"]
 
     port = free_port
     begin
