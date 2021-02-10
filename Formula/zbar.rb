@@ -4,7 +4,7 @@ class Zbar < Formula
   url "https://github.com/mchehab/zbar/archive/0.23.1.tar.gz"
   sha256 "297439f8859089d2248f55ab95b2a90bba35687975365385c87364c77fdb19f3"
   license "LGPL-2.1-only"
-  revision 12
+  revision OS.mac? ? 12 : 13
   head "https://github.com/mchehab/zbar.git"
 
   livecheck do
@@ -17,7 +17,6 @@ class Zbar < Formula
     sha256 big_sur:       "f331d1b54eeabaa2fac58568eb5eb75dbc1958cfa30898cf2270ea4847c1e96b"
     sha256 catalina:      "b55d61b6b252c0591ca14881ea2cd8d2e008fdd1be0822be2c18a9d7c537230b"
     sha256 mojave:        "60a4c4fe9de4b65381c4a69e7bbf469ebc8a5c13f0581ba8dbbe2262218b235f"
-    sha256 x86_64_linux:  "40e60fe980fb875a3487ff579bc30d2325c2a1c1272a0218a98d8bf17a20ebf5"
   end
 
   depends_on "autoconf" => :build
@@ -33,9 +32,11 @@ class Zbar < Formula
   depends_on "ufraw"
   depends_on "xz"
 
-  def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?
+  on_linux do
+    depends_on "dbus"
+  end
 
+  def install
     system "autoreconf", "-fvi"
 
     args = %W[
