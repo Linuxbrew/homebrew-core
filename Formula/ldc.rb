@@ -41,10 +41,6 @@ class Ldc < Formula
   end
 
   def install
-    # Fix the error:
-    # CMakeFiles/LDCShared.dir/build.make:68: recipe for target 'dmd2/id.h' failed
-    ENV.deparallelize unless OS.mac?
-
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 
