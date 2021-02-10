@@ -66,8 +66,6 @@ class Qemu < Formula
       --disable-gtk
     ]
 
-    args << "--enable-cocoa" if OS.mac?
-
     # Sharing Samba directories in QEMU requires the samba.org smbd which is
     # incompatible with the macOS-provided version. This will lead to
     # silent runtime failures, so we set it to a Homebrew path in order to
