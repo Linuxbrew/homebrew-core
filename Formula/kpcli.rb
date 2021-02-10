@@ -76,16 +76,6 @@ class Kpcli < Formula
     sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
   end
 
-  resource "Term::ReadKey" do
-    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
-    sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
-  end
-
-  resource "Clone" do
-    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz"
-    sha256 "cbb6ee348afa95432e4878893b46752549e70dc68fe6d9e430d1d2e99079a9e6"
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
@@ -97,11 +87,9 @@ class Kpcli < Formula
       "Sort::Naturally",
       "Term::ShellUI",
       "Data::Password",
-      "Clipboard",
+      "Mac::Pasteboard",
       "Capture::Tiny",
     ]
-    resources += (OS.mac? ? ["Mac::Pasteboard"] : ["Term::ReadKey", "Clone"])
-
     resources.each do |r|
       resource(r).stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
