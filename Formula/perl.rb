@@ -4,6 +4,7 @@ class Perl < Formula
   url "https://www.cpan.org/src/5.0/perl-5.32.1.tar.xz"
   sha256 "57cc47c735c8300a8ce2fa0643507b44c4ae59012bfdad0121313db639e02309"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1 unless OS.mac?
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   livecheck do
@@ -16,15 +17,9 @@ class Perl < Formula
     sha256 big_sur:       "846c28c0b3ae4d63fb82feef77832b37f198a5669f4fb58a9a4cd081aa9c1e27"
     sha256 catalina:      "dce1838f66ce3929a58c1a68f351c98f7f2176b41d624e3cfc7bd8ec72d8cf90"
     sha256 mojave:        "45de452aa689c422e320ea35fa040a9cc0c6640c2a3b1dff9cabff3f4f17b490"
-    sha256 x86_64_linux:  "e1b506ab35bdd27e12bce3e3adb86e8121eb21166abfe07e6e8258f3041e331b"
   end
 
   uses_from_macos "expat"
-
-  unless OS.mac?
-    depends_on "gdbm"
-    depends_on "berkeley-db"
-  end
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"
@@ -43,6 +38,8 @@ class Perl < Formula
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
+      -Dnoextensions=GDBM_File
+      -Dnoextensions=DB_File
     ]
     on_macos do
       args << "-Dsed=/usr/bin/sed"
