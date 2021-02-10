@@ -22,7 +22,6 @@ class SLang < Formula
   end
 
   depends_on "libpng"
-  depends_on "pcre" unless OS.mac?
 
   on_linux do
     depends_on "pcre"
