@@ -18,7 +18,6 @@ class Sslh < Formula
 
   depends_on "libconfig"
   depends_on "pcre"
-  depends_on "netcat" => :test unless OS.mac?
 
   uses_from_macos "netcat" => :test
 
