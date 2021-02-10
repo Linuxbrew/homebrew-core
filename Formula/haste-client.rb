@@ -27,7 +27,7 @@ class HasteClient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5598d125cd66482f558d0bb7200b535752ac5d999fafa567916c98042a7a9d28"
   end
 
-  depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "faraday" do
     url "https://rubygems.org/gems/faraday-0.12.2.gem"
