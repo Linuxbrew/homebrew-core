@@ -18,7 +18,6 @@ class Pianod < Formula
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
-  depends_on "ffmpeg" unless OS.mac?
 
   on_linux do
     # pianod uses avfoundation on macOS, ffmpeg on Linux
