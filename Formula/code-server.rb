@@ -18,6 +18,7 @@ class CodeServer < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "glib"
     depends_on "libsecret"
     depends_on "libx11"
     depends_on "libxkbfile"
