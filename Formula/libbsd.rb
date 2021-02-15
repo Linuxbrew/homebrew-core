@@ -6,7 +6,6 @@ class Libbsd < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8d43fb4200e761ef1930cd44af0a76bf01ee765e09c342e5a3da9c406864b06e"
   end
 
   depends_on "libmd"
