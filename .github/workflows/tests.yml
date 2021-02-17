@@ -43,8 +43,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: homebrew/ubuntu16.04:master
-    env:
-      HOMEBREW_PATCHELF_RB: 1
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew

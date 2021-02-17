@@ -8,7 +8,6 @@ jobs:
     container:
       image: homebrew/ubuntu16.04:master
     env:
-      HOMEBREW_PATCHELF_RB: 1
       HOMEBREW_GIT_NAME: BrewTestBot
       HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'
       HOMEBREW_DEVELOPER: 1
