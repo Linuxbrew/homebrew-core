@@ -74,15 +74,6 @@ class Perl < Formula
         # locale.h includes xlocale.h if the latter one exists
         inreplace "#{perl_core}/perl.h", "include <xlocale.h>", "include <locale.h>"
       end
-
-      # CPAN modules installed via the system package manager will not be visible to
-      # brewed Perl. As a temporary measure, install critical CPAN modules to ensure
-      # they are available. See https://github.com/Linuxbrew/homebrew-core/pull/1064
-      ENV.activate_extensions!
-      ENV.setup_build_environment(formula: self)
-      ENV["PERL_MM_USE_DEFAULT"] = "1"
-      system bin/"cpan", "-i", "XML::Parser"
-      system bin/"cpan", "-i", "XML::SAX"
     end
   end
 
