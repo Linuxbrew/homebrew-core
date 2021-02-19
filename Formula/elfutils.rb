@@ -66,6 +66,6 @@ class Elfutils < Formula
 
   test do
     output = `#{bin}/elfutils-nm #{bin}/elfutils-nm`
-    assert_match /elf_kind/, output
+    assert_match "elf_kind", output
   end
 end
