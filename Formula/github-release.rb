@@ -7,16 +7,18 @@ class GithubRelease < Formula
   head "https://github.com/github-release/github-release.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "c1965bbd4a0613203aeb88b46947d341d2d74453c7b3e1f964c731fec2557220"
-    sha256 cellar: :any_skip_relocation, catalina:     "b4117cdc7da244a1aad14cd05b02b2d8eafdbf93f241f2fffcb16ae93d2c2cf3"
-    sha256 cellar: :any_skip_relocation, mojave:       "104bb9d23aa21c9b628ab812da084e238709790f63f9bb6c080d1514dcd8710c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b568aa8daf9b36eac67c2823d7c784218785854d13d90f432f378a00c583bbe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "d7770942546f2a49c7b44104fe69ad7cf724cc1eac39280d1217af66ccd97e3b"
+    sha256 cellar: :any_skip_relocation, catalina:     "6dc8bf5543967949480fb9bf3f24e149a5ef52857cc38877125f9ad6281eeb58"
+    sha256 cellar: :any_skip_relocation, mojave:       "745fcc9458243936c5e482098357c5f83d44e5126e5346f1f6c6ca90ee55a4c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "06610102485cb214158fa30123d9584508f29c683be05d4f7298401f7fa171fd"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     system "make"
     bin.install "github-release"
   end

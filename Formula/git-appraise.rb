@@ -20,6 +20,7 @@ class GitAppraise < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     (buildpath/"src/github.com/google").mkpath
     ln_s buildpath, buildpath/"src/github.com/google/git-appraise"

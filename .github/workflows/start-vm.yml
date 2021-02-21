@@ -25,9 +25,11 @@ jobs:
               runner=$(gcloud compute instances list --filter=TERMINATED --format="value(name)" | head -n 1)
               [[ ! -z "$runner" ]] && break
 
-              echo "No instance found, waiting 60 seconds"
+              echo "No instance found, waiting 60 seconds (attempt $i/$retries)"
               sleep 60
           done
+          # Start the VM
+          gcloud compute instances start --zone=europe-west1-b $runner
           echo "::set-output name=runner::$runner"
       - name: Label pull request
         uses: Homebrew/actions/label-pull-requests@master

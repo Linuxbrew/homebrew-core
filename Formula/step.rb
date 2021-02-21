@@ -1,24 +1,23 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.15.3/step-cli_0.15.3.tar.gz"
-  sha256 "18b2466181bbe7ba73cb619a974879950d30d014eb08d0e6e4d49d7fb140cb48"
+  url "https://github.com/smallstep/cli/releases/download/v0.15.7/step_0.15.7.tar.gz"
+  sha256 "2ca9cb702661da5254397d50e8dbeccdcbfdc465b680d36054eed8b9980f5021"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "6d1a27cfe002bc475febacac4a95ab59073517303ad4e6cf88f8ec178cc72e34"
-    sha256 cellar: :any_skip_relocation, catalina:     "dfe64078a83a4a4a2196472bf0ecd1bc25eb2d0bbe7ce9aedc7ec10af8fe26c7"
-    sha256 cellar: :any_skip_relocation, mojave:       "8187f3121b9969f3edd039633cf7429128383d10b86452d6dd5cb301f49a6c44"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "4a074ef855bf0c32d550e887f39957beb2b27df878403c3ae7da2cc023ddc254"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c85137f5c2d11947ee0e73ab9c2a8341a481d406201134a298d51df0b89a2115"
+    sha256 cellar: :any_skip_relocation, big_sur:      "ad4ae912df71e37088540b236b0378c747615a5aa20beac9341b833eee7a43ce"
+    sha256 cellar: :any_skip_relocation, catalina:     "330587ffd3553bc51b75a3557e0be4564879ffebf114369b4e20b7eb61217d3c"
+    sha256 cellar: :any_skip_relocation, mojave:       "08667ef973111774657604dceecbfadc72afd5aaf18fe1295ac7068415a0d4c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4ea397e32a4ff3b4d2cc536e8cee10775627fe42aa6614a21f91fc0b61dd1f9f"
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.15.5/step-certificates_0.15.5.tar.gz"
-    sha256 "861690259f21d60e1491f28fd572805b1f8c3141bde651e018da06b404d7cfed"
+    url "https://github.com/smallstep/certificates/releases/download/v0.15.8/step-certificates_0.15.8.tar.gz"
+    sha256 "b94c885410036a9743f8f1a43b982452ea226527748c834b8f6e953a4ee642a1"
   end
 
   def install
@@ -115,7 +114,7 @@ class Step < Formula
       shell_output("#{bin}/step certificate inspect --format json brew.crt > brew_crt.json")
       brew_crt_json = JSON.parse(File.read(testpath/"brew_crt.json"))
       assert_equal "CN=homebrew-smallstep-leaf", brew_crt_json["subject_dn"]
-      assert_equal "CN=homebrew-smallstep-test Intermediate CA", brew_crt_json["issuer_dn"]
+      assert_equal "O=homebrew-smallstep-test, CN=homebrew-smallstep-test Intermediate CA", brew_crt_json["issuer_dn"]
     ensure
       Process.kill(9, pid)
       Process.wait(pid)

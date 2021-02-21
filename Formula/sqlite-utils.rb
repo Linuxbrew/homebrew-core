@@ -2,15 +2,15 @@ class SqliteUtils < Formula
   include Language::Python::Virtualenv
   desc "CLI utility for manipulating SQLite databases"
   homepage "https://sqlite-utils.datasette.io/"
-  url "https://files.pythonhosted.org/packages/ca/70/3d6278ef2c8194a62e0080a237027472b8942a2ece3a1efc241b41d17f85/sqlite-utils-3.5.tar.gz"
-  sha256 "8bd4a74fe0dc40e72e8d5db96c3fd2355d6e440d8881f8925a11169500b94e20"
+  url "https://files.pythonhosted.org/packages/0d/7e/111bde53d3f4c4f03152963086a28aa11ea5536c6980f64b48eff43d7c7d/sqlite-utils-3.6.tar.gz"
+  sha256 "582a9bcf4b6cb32ee2efa4a0d8f79ec630e8965ca93c69ceaaa7d424e1c01560"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "92efb0b2d2abd6ef9dd6aa99c9a9a5e714833a9fd5098a55fbfc98c1fa540b04"
-    sha256 cellar: :any_skip_relocation, big_sur:       "86b279664f109615a76daf196c8f347b95e6114fc7e3ecd469d7a0d20ba783c2"
-    sha256 cellar: :any_skip_relocation, catalina:      "7b708730f173746ac25d1f1205f856de1930bcd00ebf4104af95e2a64aeba781"
-    sha256 cellar: :any_skip_relocation, mojave:        "9cc9ad54dacbd5b262948f3b0bc409546d48d0c75616b189a884575fda6eeb22"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e37e4cee6496ffc04f0baa54e9cd053be627329cbae5a1c3e9cfb31bd8a2b25"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f44bcf9d53ce1f616563ecebaa46a56fd5c5b67496980c20bdc957b11b10f01e"
+    sha256 cellar: :any_skip_relocation, catalina:      "19086ce7bce1db596f95a2c9c56b256a4a4a455daaf40a2050803cafba883fc2"
+    sha256 cellar: :any_skip_relocation, mojave:        "e2ab94b6a41c963426c3bd51107625871ce931d788674d1c32791ff20a9ce0db"
   end
 
   depends_on "python@3.9"
@@ -31,8 +31,8 @@ class SqliteUtils < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+    url "https://files.pythonhosted.org/packages/69/44/6c7326b95268c16cf8dc1376ed1a4f404fa9fd04c1371c0917d3f2806832/tabulate-0.8.8.tar.gz"
+    sha256 "26f2589d80d332fefd2371d396863dedeb806f51b54bdb4b264579270b621e92"
   end
 
   def install

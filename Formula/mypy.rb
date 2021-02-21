@@ -3,17 +3,16 @@ class Mypy < Formula
 
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://files.pythonhosted.org/packages/80/5b/8b3ed91920fe20ffa4b6473966b4a98e9759f7245e2232faf29c6c56d150/mypy-0.800.tar.gz"
-  sha256 "e0202e37756ed09daf4b0ba64ad2c245d357659e014c3f51d8cd0681ba66940a"
+  url "https://files.pythonhosted.org/packages/78/b1/6079ca9a5afbedb663a0c3db82bd2bcba1574ccdb55acd9b9855ed79dd39/mypy-0.812.tar.gz"
+  sha256 "cd07039aa5df222037005b08fbbfd69b3ab0b0bd7a07d7906de75ae52c4e3119"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d20a5070532554fc32a9026ac16ca1fe9e9018dea5cf575d4dfe807b48ab2f51"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6e9266f07abbef368e3c726be5702130ebf352a29947d8b7ce203fe06ff218d8"
-    sha256 cellar: :any_skip_relocation, catalina:      "bce213cfa9fa83b894ab9a335d844dd0040842a89955b8a37a4e3f76326349f6"
-    sha256 cellar: :any_skip_relocation, mojave:        "92769fc27906e2a28857a33a7e55918b129123659dfb27b35e8cbb2ea2d41f32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e467a316b9378df707491fa553bbf4785698ca279c98c8628a764cc75d06dea6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a72404960416f689a3bfc70537b28deccf6003d937fc0f2ccbf5ef66ccc1f887"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f91d5b4cdf147bf3842a8206085890ef07e2bc0e9a4ca9ea7e15e06d29efb823"
+    sha256 cellar: :any_skip_relocation, catalina:      "98e78ca77339a90caf679b561547e83c169078c1b5b1e90e024b4b8b1ac26055"
+    sha256 cellar: :any_skip_relocation, mojave:        "c03ea7bef371f9a3b5c0afa271126bde84e4713461e20ff179e5dbb654b94740"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7719f7c44e4f3a5e697c96f0b23e7ffb52e9003d0a9fb78e107b73eb53cf6a1"
   end
 
   depends_on "python@3.9"

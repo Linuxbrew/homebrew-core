@@ -5,10 +5,11 @@ class MysqlClientAT57 < Formula
   sha256 "9a8a04a2b0116ccff9a8d8aace07aaeaacf47329b701c5dfa9fa4351d3f1933b"
 
   bottle do
-    sha256 arm64_big_sur: "c5752cf67dff22a4e32b0c32651eb73d898adf04528a25d2a17e64ff2bc05374"
-    sha256 big_sur:       "61ca8bedda853898d6fca0036a520a39f514e33aca2ce691fa7e889b81790706"
-    sha256 catalina:      "effec4ea0f7867d42ea33ee16d6ea523e09f7ba9fe4e60fd9d55e6a6c577d2f8"
-    sha256 mojave:        "0991a1d5fcb24e23761f8ca17d4896b46054ac80aca88d4eca17b944fbb178f2"
+    rebuild 1
+    sha256 arm64_big_sur: "0fb106456fac4b96bee0ddd930ae8e13c9836b94339f11a699dfbfc2ee666363"
+    sha256 big_sur:       "36a87c6407f067da00379be909a143ec825bef8e6def35a0c4787daafc930152"
+    sha256 catalina:      "edad12cc0e3af651d3552ac645284167b06366be2b5e0c118fc644f1c23dea54"
+    sha256 mojave:        "8d1f7732d3bdd6f5c83258dc72c0663a639ca3a3f0e852626c8c19b13a58cb4b"
   end
 
   keg_only :versioned_formula
@@ -16,6 +17,8 @@ class MysqlClientAT57 < Formula
   depends_on "cmake" => :build
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "libedit"
 
   def install
     # https://bugs.mysql.com/bug.php?id=87348

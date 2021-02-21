@@ -16,10 +16,14 @@ class Gdrive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d5117e17733b88f11f7783f1417079a604f9d0a867018f1f6e13e95e7f7f4a64"
   end
 
+  # See https://github.com/prasmussen/gdrive/commit/31d0829c180795d17e00b7a354fffe4d72be712b
+  deprecate! date: "2021-02-18", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     dir = buildpath/"src/github.com/prasmussen/gdrive"
     dir.install buildpath.children

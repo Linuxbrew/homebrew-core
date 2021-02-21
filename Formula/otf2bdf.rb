@@ -40,7 +40,7 @@ class Otf2bdf < Formula
       assert_match "MacRoman", shell_output("#{bin}/otf2bdf -et /System/Library/Fonts/LucidaGrande.ttc")
     else
       resource("test-font").stage do
-        assert_match /MacRoman/, shell_output("#{bin}/otf2bdf -et LucidaGrande.ttc")
+        assert_match "MacRoman", shell_output("#{bin}/otf2bdf -et LucidaGrande.ttc")
       end
     end
   end

@@ -7,10 +7,11 @@ class Idris2 < Formula
   head "https://github.com/idris-lang/Idris2.git"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "14c0047e074da112ced6ac7bb2e8aeed67661fe53ca1ff673bbb93f8adcc3e18"
-    sha256 cellar: :any,                 catalina:     "970049099696d913196792a16019a86980ff770ffd476d28bc45eae8f27f0c2d"
-    sha256 cellar: :any,                 mojave:       "d54f0fca83f55d63bf65e81a3cf7e6f268133294c02a1498c07183ac36b36fe6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e89ca5e1c59e6348fa1c9883da6a2b33c3b57dc4c8d0f00da6cd13c5f5f724f8"
+    rebuild 1
+    sha256 cellar: :any,                 big_sur:      "2b30ef3cc0b899f187296f6b796cfb7d895bff9e69ee498c816a43382ad00608"
+    sha256 cellar: :any,                 catalina:     "dcae9a5929edd6c7e358fb6c7050df0f07b068ec943cf9cf7e9853b83f07f8cd"
+    sha256 cellar: :any,                 mojave:       "ab173b9e9ef6083e6ae2fe22f8a55892e80c064ec9b9838afa5b6488ae9a8529"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a8a2d238fc7a3aeb666d94dd787c675e4739133b7b30b98a3e888e7d854bfcd"
   end
 
   depends_on "coreutils" => :build

@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
-  url "https://github.com/kubernetes/kops/archive/v1.19.0.tar.gz"
-  sha256 "5cd8b8ab1e0412c9bb3a40d166653d8f447448c62478e029fe2d68b593e4c6dd"
+  url "https://github.com/kubernetes/kops/archive/v1.19.1.tar.gz"
+  sha256 "c7b1c362712d75119e25e4ec06dc44ddc810808c0ae3ed24fb1ca47ebc2d6b7b"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kops.git"
 
@@ -12,10 +12,10 @@ class Kops < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "5017210f634c7f79b8dcde2f02cf16c19ecaba26285540f462381c440be55b8e"
-    sha256 cellar: :any_skip_relocation, catalina:     "aadacf2463229576790c7035cb231d6f78661c744cfdba1667305c556efd58e4"
-    sha256 cellar: :any_skip_relocation, mojave:       "ef46f1bd7cee14ee1f81d17c2f49de6871a4f14dd428ea47d06bd65a72fdd384"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "957f977b5f1056c6b2b436a24b2fc16dfdca8731300d9ed79b3d0f9de9f7993a"
+    sha256 cellar: :any_skip_relocation, big_sur:      "8eae3a6b5c102d8a8f48eff9c8cb4dad2aaef4b25188b22762b891efdf0f1b06"
+    sha256 cellar: :any_skip_relocation, catalina:     "7293594cd3dd96b7dfa4a1ab47f36ed9783f1d7691a53d03e0a9fb3afbdd64a8"
+    sha256 cellar: :any_skip_relocation, mojave:       "c7d69ce9e59abd04088c227b738b668ef12c240656ec3bd369dd38263b4c228d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2b09e29a34ad3019d24abfb0b345c5d751b4f4ee2de628561a584593944ab427"
   end
 
   depends_on "go" => :build

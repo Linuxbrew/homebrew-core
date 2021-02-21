@@ -7,11 +7,11 @@ class Chars < Formula
   head "https://github.com/antifuchs/chars.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05b56b9920d19b157a658dabb4b7ec53455c5c874b7f4154a94324610d8e1e7d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "15a5fa9f743f43efa5b70fbabc2c26f879d13a304b32a878e6f90ccb5be06c7e"
-    sha256 cellar: :any_skip_relocation, catalina:      "4d56b107586689744485ede26f55a0916fe09bfa2e9ec27a250c9da3764f5e42"
-    sha256 cellar: :any_skip_relocation, mojave:        "d4bd08669fb838fb8773e4131fd71b972662299ac3c03ff6d83802c6e3d14efc"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "2dbec73c5adcc494e0932921f015e69b7b7bd8b1d1b29f7ea08bc56da029c9a0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae5975ad693a89f4d3c82809ba33f27d9387f7da07afaade8488d4d01e6460a6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7bf84510e842b1887ff71b0bb040954208fc3e190c6c184f7ee9d8fd3053cb8a"
+    sha256 cellar: :any_skip_relocation, catalina:      "66d0f3de7a9eede7244c30cf630a6491db948abffed597c5754a9a23cdcd5931"
+    sha256 cellar: :any_skip_relocation, mojave:        "9cee1f2bff403ab54515841d52575702ae2cd080a21bca940a0b99dafe0e20c1"
   end
 
   depends_on "rust" => :build
@@ -24,7 +24,7 @@ class Chars < Formula
 
   test do
     output = shell_output "#{bin}/chars 1C"
-    assert_match "control character", output
+    assert_match "Control character", output
     assert_match "FS", output
     assert_match "File Separator", output
   end

@@ -1,15 +1,15 @@
 class Rqlite < Formula
   desc "Lightweight, distributed relational database built on SQLite"
   homepage "http://www.rqlite.com/"
-  url "https://github.com/rqlite/rqlite/archive/v5.10.1.tar.gz"
-  sha256 "0d92268efaa97ed2c3f5f07c0926be47973b3d3c68fc1589d654c020c08e0989"
+  url "https://github.com/rqlite/rqlite/archive/v5.10.2.tar.gz"
+  sha256 "510f9a0e0cf6adfcc88a0d65273b82d6fb01722b63e5f439cff7e8b802dd24ea"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c2287d09af6299df300f9d24e894ac63f3aa86b8d23998bc0ea628c3a1451830"
-    sha256 cellar: :any_skip_relocation, big_sur:       "200defcfedecafcb13c9dfef7ff0b4c876d54649ccd579004aeea395087c2387"
-    sha256 cellar: :any_skip_relocation, catalina:      "e9cec7034aa2b56efbefd00b40a591def959158c33c54ad75ce6e8dfe1f68271"
-    sha256 cellar: :any_skip_relocation, mojave:        "9057ce4ca20abedd9a41bfae5f53b1b6f7411c1db9eea287655cba3e54624a22"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e9605fc91d586f7bf474f708b5b4c1264a82915598bdae21a84c726013f15c3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6d419ca2817c547658cd986f81b86651c935a71f5e26c992f2067c0b3991782d"
+    sha256 cellar: :any_skip_relocation, catalina:      "e0a5ef770f0a24d08cbfb8b2e2fbe5b01312e797842c642aff43589536c92b38"
+    sha256 cellar: :any_skip_relocation, mojave:        "3f425c5b80f7603379d01e3ac7cde73aa4b2f07eaafff6c398947c6c23a091a3"
   end
 
   depends_on "go" => :build

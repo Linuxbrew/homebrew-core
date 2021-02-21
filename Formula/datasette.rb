@@ -2,16 +2,16 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/2d/14/f19329dfb741ee12da22ff01ee66fc8a274b49b75f9df0af762105405c8d/datasette-0.54.1.tar.gz"
-  sha256 "6502838ac784bb7d09264ec8b31b193b2a04cb42547945bb88198423c5352c6a"
+  url "https://files.pythonhosted.org/packages/b6/50/64de62434b2caba0a4599106a32d167d4da1ddcee90f90bbe306274d6245/datasette-0.55.tar.gz"
+  sha256 "524c2efd20d3ed1a033e8b347f7462adbe3e8ebf0c1b1750df61ed27c717a4c4"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b491724fa7ab5ea685346cd1c64a1009d7019bdf9c9aaae5c3e1afe727b4c66"
-    sha256 cellar: :any_skip_relocation, big_sur:       "97c69650fe117746694414a30abeb8495452fef0fa3e5c665a815b1e352b6fa5"
-    sha256 cellar: :any_skip_relocation, catalina:      "744d7ac1130301a1939950dfac7faa428e167eb08014c4182f919554484ee5ab"
-    sha256 cellar: :any_skip_relocation, mojave:        "bab63c125aa6e99114c9dd9cce0a34bd6e0769d7045229da00dc709984be3321"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5ad3b899e65d24c699db9f56f4c6624da5a304510ff97e909156b3a1ffc38656"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c63f0e7caf21b94beffeda22d57cf0cd7f596f7c391d4528fdfe1f5a0ab61c86"
+    sha256 cellar: :any_skip_relocation, catalina:      "bfbb19b21e5b6aa1464a27da31bfa2be94df7041bd28a55c6eb08a9249dca976"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b777d70305c73d2d6027f044e7fe3057d7a0d827e0243b116b8af91b6a3605d"
   end
 
   depends_on "python@3.9"
@@ -92,8 +92,8 @@ class Datasette < Formula
   end
 
   resource "mergedeep" do
-    url "https://files.pythonhosted.org/packages/37/05/d48dd323ec042ef9e0dd1c1678ee716551f7160e976833de4800b45a1728/mergedeep-1.3.1.tar.gz"
-    sha256 "bfd361e0f841eec59af894d6c0a0eec741681e710bbffd8a4d2cb321ef6d5c5c"
+    url "https://files.pythonhosted.org/packages/3a/41/580bb4006e3ed0361b8151a01d324fb03f420815446c7def45d02f74c270/mergedeep-1.3.4.tar.gz"
+    sha256 "0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"
   end
 
   resource "packaging" do

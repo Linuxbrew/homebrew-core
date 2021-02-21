@@ -1,8 +1,8 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/v11.0.0.tar.gz"
-  sha256 "381f6b586333cb9279ca9fe5d93cb11d4603e7e9832061204f57c5535f8225f0"
+  url "https://github.com/halide/Halide/archive/v11.0.1.tar.gz"
+  sha256 "4db6c4697fd5b84298cb91c13d86d9e95b0f9a65227af39374e2da98b503c8f2"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,10 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ad19d68856aa1cc71143444247390ae4a6dd7e9f3ff62d466faca649f440d476"
-    sha256 cellar: :any, big_sur:       "df941a4b7b9e384b396e2a023e44565c0fdcb725ef14fdaf27138f76f9d1c5ee"
-    sha256 cellar: :any, catalina:      "300fb9d5ba8b9d5df83bf23edc62bd10f9614ccaa9bde758077cef79326566af"
-    sha256 cellar: :any, mojave:        "68f217f8fc16176d81325954ca87f92c62325d7beb8557852acb2c65e3dee052"
+    sha256 cellar: :any, arm64_big_sur: "f2c09c883b06369408e91662ac43392605ea44211df05cfbe04536e29963dff5"
+    sha256 cellar: :any, big_sur:       "cf8ac2f34055e99adc3a7fbebf6a842212f44c4ca0a7af22c23141b2f5ddae05"
+    sha256 cellar: :any, catalina:      "04dba10ef3d57f9261a67a6ca76ae343546f6a7030f5656acb366cc7f156867d"
+    sha256 cellar: :any, mojave:        "f79f5fa9c1dd02bba46368158c478b32d37ef708903068c81781cd7115510177"
   end
 
   depends_on "cmake" => :build

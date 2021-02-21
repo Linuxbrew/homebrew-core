@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.39.1",
-      revision: "d6975cfebbd6a623bc88b42a6b04b8b912a6058c"
+      tag:      "v0.40.0",
+      revision: "b7ebdc6b47b02908f600feaba3e1fcb4cf61a0d4"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,9 +15,9 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "46ec7764642604874fa8b544f09992463bf6e7850c5836c184349f9250bf256e"
-    sha256 cellar: :any, catalina: "5fef0d153430af662fe587f73d52d077db1befb496cec164adf88ede1574d048"
-    sha256 cellar: :any, mojave:   "1deaf1e1211d36253aa5a7c7400056048fe3106da5dbb85a367207693f53d2a6"
+    sha256 cellar: :any, big_sur:  "fe9252568cdda81ed509a439cb7dd8dbfaf2c83006ffa7ce816fc699c274b80e"
+    sha256 cellar: :any, catalina: "ee7c297401b21d9a509985482a5aa0e74bd58d37f99002482fd3e951aa5acfa3"
+    sha256 cellar: :any, mojave:   "0427673e3d05901a0d1e0bf77ff9931ca76d913429186f0be40b15add1977e74"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +26,7 @@ class Semgrep < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "pcre"
   depends_on "python@3.9"
 
   resource "attrs" do
