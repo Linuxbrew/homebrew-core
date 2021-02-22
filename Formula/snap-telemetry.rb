@@ -16,6 +16,9 @@ class SnapTelemetry < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "88fc6b67ef8f1a47044ed06ea2744d51193e7fd26fdee82df38c8782ba99ef68"
   end
 
+  # https://github.com/intelsdi-x/snap/commit/e3a6c8e39994b3980df0c7b069d5ede810622952
+  deprecate! date: "2018-12-20", because: :deprecated_upstream
+
   depends_on "glide" => :build
   depends_on "go" => :build
 
@@ -23,6 +26,7 @@ class SnapTelemetry < Formula
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "0"
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    ENV["GO111MODULE"] = "auto"
 
     snapteld = buildpath/"src/github.com/intelsdi-x/snap"
     snapteld.install buildpath.children
