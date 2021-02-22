@@ -7,6 +7,7 @@ class PonyStable < Formula
   head "https://github.com/ponylang/pony-stable.git"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, big_sur:      "6989c2d99d5b71bbabcc3728f218c195c06ab03363a54a1e8493cb7715d518f5"
     sha256 cellar: :any_skip_relocation, catalina:     "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e"
     sha256 cellar: :any_skip_relocation, mojave:       "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e"
     sha256 cellar: :any_skip_relocation, high_sierra:  "caf0c823ba581ab0e669d0372c06d1cb74262f05334814a5f49370659aa030d1"

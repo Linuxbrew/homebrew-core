@@ -11,6 +11,7 @@ class Dar < Formula
   end
 
   bottle do
+    sha256 cellar: :any, big_sur:     "7a7fc7d0cc33e3997ad565ce07648ed50e10b29195c56ab13de3963e5a22271f"
     sha256 cellar: :any, catalina:    "e3c5b475201e6916f344653c86357a54cdd5bf081a6b5ecc72e1f8cea67bbb8d"
     sha256 cellar: :any, mojave:      "3297d386d1572cf82676d96809cea6b54a4338c1a51213c6c059c81206b98c5b"
     sha256 cellar: :any, high_sierra: "7f44bc4ac5e17f47705f8a338517432690dadcf6e6f9e7cce502624d4849c6ca"

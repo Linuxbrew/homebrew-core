@@ -17,6 +17,9 @@ class PathExtractor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "43bae2b10f5116c680559e20ff5207d5bc2bac70a3cd242029e70888061c24b8"
   end
 
+  # https://github.com/edi9999/path-extractor/issues/8
+  disable! date: "2021-02-20", because: :no_license
+
   depends_on "go" => :build
 
   def install

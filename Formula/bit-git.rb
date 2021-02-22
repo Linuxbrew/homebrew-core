@@ -1,16 +1,16 @@
 class BitGit < Formula
   desc "Bit is a modern Git CLI"
   homepage "https://github.com/chriswalz/bit"
-  url "https://github.com/chriswalz/bit/archive/v0.9.13.tar.gz"
-  sha256 "4c91f4441b593c414f571abe302ee07aecc9044be4d9f6eff39da1210ef3df50"
+  url "https://github.com/chriswalz/bit/archive/v1.0.1.tar.gz"
+  sha256 "5ad1ee17ba015aa542c0794d9317045068963048203c8323eda528f419b1d470"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83baa9546cf664f7d92424d38138f0a65d18097a361e634c9567b8b710f6d80c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "88d3bc526a8ed6c8a0c21fefa5b2a232445fdf315ddcb7e19ba8663f802a389d"
-    sha256 cellar: :any_skip_relocation, catalina:      "ddd16eec937218aac660bef7888dbed9342efcfe112835c6b53ac851fe2faf94"
-    sha256 cellar: :any_skip_relocation, mojave:        "b0a0810589ae45fe1ba557c6c26da9cf0b864c853ef1612bcf4750de3cc66ce3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49189c93b0a4527b1804803ed9e8da452216d91cf7c30fc555017cb157ece01f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f0278bb553b1d02fb53bf1a18305fd031e95ef88fc39d24ddff9a5b1fdb83ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "706a291c13596bdb81799fa3f8133b715c4f95f23d825bfa37d4ea91bae30995"
+    sha256 cellar: :any_skip_relocation, catalina:      "5eb72f40d3862c3e44a5c5d12384a58fe013105624a3bf874f55a0164d1625ac"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8e8120297a38e532a3f0c48f8f5e36d83ae450b973d5224feed3bb9b6fe7048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8a3ba092661d505e38f7496575685b40aba99d923fba15209e40ff6c11f1046"
   end
 
   depends_on "go" => :build

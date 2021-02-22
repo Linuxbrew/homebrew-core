@@ -18,6 +18,7 @@ class Vultr < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/JamesClonk").mkpath
     ln_s buildpath, buildpath/"src/github.com/JamesClonk/vultr"
     system "go", "build", "-o", bin/"vultr"
