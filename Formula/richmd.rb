@@ -3,15 +3,15 @@ class Richmd < Formula
 
   desc "Format Markdown in the terminal with Rich"
   homepage "https://github.com/willmcgugan/rich"
-  url "https://files.pythonhosted.org/packages/7b/5a/5ade9c4713b1745970b6276b6c7d5ae37d0cafd453c6c4f1a4b44833980a/rich-9.11.0.tar.gz"
-  sha256 "f8f08fdac6bd67dc2dd7fe976da702d748487aa9eb5d050c48b2321bc67ed659"
+  url "https://files.pythonhosted.org/packages/6a/d2/c8a097b27269ec7e759c9f6b505c35750602ed00d832034ab1dd90629c4d/rich-9.11.1.tar.gz"
+  sha256 "86a157008d17c73ee03da80de91e09fc2f7713109ccd4e90496eeb3702bef638"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9e2113be2ae15dd4e44b0d284eed34ba17de4ba9e0b4e4218c908f71a3d5f18"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4da01d2d652b315d5fb8bea47857625793febc34bd02eb728dd4394ef3b818b2"
-    sha256 cellar: :any_skip_relocation, catalina:      "406da9ff1f21c4ca3c80e21efbe79a5d84f1341754f2de7fcaecba1302ccd7a4"
-    sha256 cellar: :any_skip_relocation, mojave:        "32f8ea1ddd88a690fe5cc0feefb13d259f35a608e4fc755bdb992e3ddcb33111"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8d4efb6934a539800ab1684df7930bfea3893e2ee99e1dea7c46faa8ec050c8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "de1ebc27d55c8115f8ae21dc19196457690c893dc6e94678b327551b55443759"
+    sha256 cellar: :any_skip_relocation, catalina:      "de9bbb54ec59736b52a15c469526dcecb9ef30b16f44fabf2b8f7606f10795b6"
+    sha256 cellar: :any_skip_relocation, mojave:        "b5b172a596aa887623d92f32c7ba414ddd7468eca33b466dacab84061d5f07ae"
   end
 
   depends_on "python@3.9"
@@ -46,6 +46,7 @@ class Richmd < Formula
   end
 
   test do
-    assert_equal "• Hello, World", shell_output("echo '- Hello, World' | #{bin}/richmd").strip
+    (testpath/"foo.md").write("- Hello, World")
+    assert_equal "• Hello, World", shell_output("#{bin}/richmd foo.md").strip
   end
 end

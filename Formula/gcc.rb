@@ -12,8 +12,8 @@ class Gcc < Formula
       # Branch from the Darwin maintainer of GCC with Apple Silicon support,
       # located at https://github.com/iains/gcc-darwin-arm64 and
       # backported with his help to gcc-10 branch. Too big for a patch.
-      url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20201228.tar.gz"
-      sha256 "dd5377a13f0ee4645bce1c18ed7327ea4ad5f8bd5c6a2a24eb299c647d3d43f4"
+      url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20210220.tar.gz"
+      sha256 "53beed690e4e0355d972ad58917a11e01af1cfe67b2e7602ca1ef89c98417a67"
       version "10.2.0"
     else
       url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
@@ -38,10 +38,10 @@ class Gcc < Formula
   # reminder: always add 'cellar :any'
   bottle do
     rebuild 1
-    sha256               arm64_big_sur: "82f9ed75ca22c2120054b0011430a007eb28d3daa218e523d4c09210c5c32dea"
-    sha256               big_sur:       "8b5bbf48a1436297fe001eff470552db520a85c5bace19896572df4ad1a59e88"
-    sha256               catalina:      "ad8caedc23b71e5c14eaf4bf5bc747e5ef73620b99b460ef0e17c6e80e17b971"
-    sha256               mojave:        "62483f796012e79c433fee8690e817266b704d171d03cb5d6ce75ca558d959a0"
+    sha256               arm64_big_sur: "26e823464b7a0c4b854d95ec1bbed3caa4875ab552ce76792f0a9084ee085d96"
+    sha256               big_sur:       "9c412d919eb6808625ac69fe8ff882e06a82700c28c7e650defe5748930be87e"
+    sha256               catalina:      "9e8ebd91740ea2113601ee4ba2adec48ecd580c1fbe66998e93cdc44fc92ebff"
+    sha256               mojave:        "930750d0fd5abd916a7fd4346d5a01affb38929eec02824351cd599ecba6a943"
     sha256 cellar: :any, x86_64_linux:  "8bde377e3d9ca28bfa842583accbacfa912666e71ffb5de7cb401663ca894c25"
   end
 

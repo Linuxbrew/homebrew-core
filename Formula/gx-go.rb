@@ -9,12 +9,13 @@ class GxGo < Formula
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "5dc1b0036572c7bd56d60b294608b151f1740018d90b94034072d8a97f3c0368"
-    sha256 cellar: :any_skip_relocation, catalina:     "66fa3b40ddb24acbb713379c90df9b398baafd51aa825d5ba28d5fc7781ad987"
-    sha256 cellar: :any_skip_relocation, mojave:       "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d"
-    sha256 cellar: :any_skip_relocation, sierra:       "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0e3a67318fa773982935149507745ad0dc1d01d53498b0737589366a249db4e9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f19c6b08f918f3a5d697033421405cc1d8640251c1f35debc5c64a68638a6bf6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5dc1b0036572c7bd56d60b294608b151f1740018d90b94034072d8a97f3c0368"
+    sha256 cellar: :any_skip_relocation, catalina:      "66fa3b40ddb24acbb713379c90df9b398baafd51aa825d5ba28d5fc7781ad987"
+    sha256 cellar: :any_skip_relocation, mojave:        "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d"
+    sha256 cellar: :any_skip_relocation, sierra:        "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e3a67318fa773982935149507745ad0dc1d01d53498b0737589366a249db4e9"
   end
 
   depends_on "go" => :build
@@ -176,6 +177,7 @@ class GxGo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     mkdir_p "src/github.com/whyrusleeping"
     ln_s buildpath, "src/github.com/whyrusleeping/gx-go"
     Language::Go.stage_deps resources, buildpath/"src"

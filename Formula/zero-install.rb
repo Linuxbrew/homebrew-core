@@ -13,10 +13,11 @@ class ZeroInstall < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "77fe4b65401743e8cd82de23568ad9e630e50467018faba2b7167231fe14f48a"
-    sha256 cellar: :any_skip_relocation, catalina:    "4306ae5d0ca339a7f5ecd9c7ba6a3a192a1d176883d49dda9d31aad78bc390fd"
-    sha256 cellar: :any_skip_relocation, mojave:      "73b04cd9560f78c799599fc4f9fba0de2b072c56e2195ef0522bb23e6eeb376b"
-    sha256 cellar: :any_skip_relocation, high_sierra: "4fb5867d432bd3e22525b95682521a12a3279dd4fb7f8b0df3cb6664a6959835"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a6dccd6f31bdb194e16e0c24a203055cea85d48ee5fc7b955db52d788056392"
+    sha256 cellar: :any_skip_relocation, big_sur:       "77fe4b65401743e8cd82de23568ad9e630e50467018faba2b7167231fe14f48a"
+    sha256 cellar: :any_skip_relocation, catalina:      "4306ae5d0ca339a7f5ecd9c7ba6a3a192a1d176883d49dda9d31aad78bc390fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "73b04cd9560f78c799599fc4f9fba0de2b072c56e2195ef0522bb23e6eeb376b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4fb5867d432bd3e22525b95682521a12a3279dd4fb7f8b0df3cb6664a6959835"
   end
 
   depends_on "ocaml" => :build

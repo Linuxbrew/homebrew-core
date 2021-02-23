@@ -1,17 +1,16 @@
 class TreCommand < Formula
   desc "Tree command, improved"
   homepage "https://github.com/dduan/tre"
-  url "https://github.com/dduan/tre/archive/v0.3.3.tar.gz"
-  sha256 "321a673e55397e80a0229537399f2c762a7d5196e3a486a684ea3c481e1d7bec"
+  url "https://github.com/dduan/tre/archive/v0.3.4.tar.gz"
+  sha256 "d4526efa37280ab2450c9595cf90b72d2fbf5fdeb989a3386f24297cb5da82fc"
   license "MIT"
   head "https://github.com/dduan/tre.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4a3de40999d02154d60415f318533075ccf4170a918036bfe53c4659217e1c85"
-    sha256 cellar: :any_skip_relocation, big_sur:       "980b7e58d8f8f34d6e5b5e8edc99f1f336173c25f4f0310e8922e098ef5758e4"
-    sha256 cellar: :any_skip_relocation, catalina:      "bef95c814d73de29b1c9cc2e868191b86e9e1d1326c0a7c590dbbb45f159e060"
-    sha256 cellar: :any_skip_relocation, mojave:        "56ffe7b2461747687c0caededfa6b3fd2094c1773744f3ea7660d6c6ce56f0c5"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "3c7d84087c637c80d13c29938d218ac442b841d1265552a6c383b28ad145204e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83da54c1ec093bdcf15dcae90b2b43e13b2657e0b54a7b4223a8fb2b043d1c26"
+    sha256 cellar: :any_skip_relocation, big_sur:       "268c11fcd92b83f9e0d063d3874503185fc3781f12d03c2f4b37f47c4f8608ae"
+    sha256 cellar: :any_skip_relocation, catalina:      "68fb625fb0215e2c5922cef0bd1655987f1543ff9b602aba0f8a5ed05802d87f"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d8d70e8cb16b59c6a6ad8361129dd432f31d5abbab2d6d97c11279330e1aebb"
   end
 
   depends_on "rust" => :build

@@ -14,6 +14,7 @@ class Eleventy < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "48934e50a9eee9eb34e6011eeb829c9995c102a5bd7d1c02eb041d0ba119ee52"
     sha256 cellar: :any_skip_relocation, mojave:        "0d259029be276276315bfa3cef874a0af1cbe4553ad5a6d5e09794ad70a7a6fb"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bd861131b89565c4637c60f11d7e2dfdb76220517005ab22bb8ef4f52720ed5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba2c4c49234f09f7910f78cddeee55fead2a373dcfc8407a157afbb5558f3ca9"
   end
 
   depends_on "node"

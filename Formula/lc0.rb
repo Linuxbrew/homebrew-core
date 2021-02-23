@@ -2,15 +2,15 @@ class Lc0 < Formula
   desc "Open source neural network based chess engine"
   homepage "https://lczero.org/"
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.26.3",
-      revision: "e339467ca9db5af8abd8037764cf69d44367c351"
+      tag:      "v0.27.0",
+      revision: "6bb93fbd1ac94b8e64943e520630c2f1db9d7813"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "90a5d1f252b13794d90a5c49f86487898b6f2e604dbb3a7d7668812df85847f8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "84db032b8b20484b983551ef61f5bf2866a9903f7a9cacec5b12b77563c85d15"
-    sha256 cellar: :any_skip_relocation, catalina:      "af7ab110193665adb07a14006319d5ccc8b3086ad4c388a029fd6787feb00302"
-    sha256 cellar: :any_skip_relocation, mojave:        "19dd162b0f6fa4536bf21a873ac400d0b7fa188cefe731b7db1d93049039d6fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9dc041c748fee70f187c04373ca80ba8c274d1b4b9a38ee135e6b4d6ce419fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0966b60547f4f559ed7bd03cdd0bbe41abfed8e8a69b8553eb790e120aac0e24"
+    sha256 cellar: :any_skip_relocation, catalina:      "ca05132c5b944255ce14f18960a59fa657d3dae1b9c088ff526b8763af793efc"
+    sha256 cellar: :any_skip_relocation, mojave:        "7578de28c6a91e884166aa033e4682a3d4992390c85fd74c811acb584b1b3f45"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +38,7 @@ class Lc0 < Formula
   end
 
   test do
-    assert_match(/^bestmove e2e4$/,
-      shell_output("lc0 benchmark --backend=blas --nodes=1 --num-positions=1"))
+    assert_match "Creating backend [blas]",
+      shell_output("lc0 benchmark --backend=blas --nodes=1 --num-positions=1 2>&1")
   end
 end

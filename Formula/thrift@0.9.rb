@@ -6,10 +6,11 @@ class ThriftAT09 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "0e5f46ca808e61fb8982787c04bbccedd6e17637b121dedf4a6581f5a30ea9fc"
-    sha256 cellar: :any, catalina:    "bebef37eaa3671d2810eaaf9f06b7c6cf73ef56f83b8359de514643cd201b946"
-    sha256 cellar: :any, mojave:      "9c4f0de40a613a30dce7b032425a66d0f5392680d6af39f9944e8982bd7d16d4"
-    sha256 cellar: :any, high_sierra: "a85aabc6f3c1d496f618c41e1ca367d2e8c730d9fd543f5b2a74af2760a1869a"
+    sha256 cellar: :any, arm64_big_sur: "0b96eded35c6da92ea4fb6a2cbbc2c572838a9a7a0221161088adb77f8ccaa9f"
+    sha256 cellar: :any, big_sur:       "0e5f46ca808e61fb8982787c04bbccedd6e17637b121dedf4a6581f5a30ea9fc"
+    sha256 cellar: :any, catalina:      "bebef37eaa3671d2810eaaf9f06b7c6cf73ef56f83b8359de514643cd201b946"
+    sha256 cellar: :any, mojave:        "9c4f0de40a613a30dce7b032425a66d0f5392680d6af39f9944e8982bd7d16d4"
+    sha256 cellar: :any, high_sierra:   "a85aabc6f3c1d496f618c41e1ca367d2e8c730d9fd543f5b2a74af2760a1869a"
   end
 
   keg_only :versioned_formula

@@ -3,13 +3,14 @@ class Nvc < Formula
   homepage "https://github.com/nickg/nvc"
   url "https://github.com/nickg/nvc/releases/download/r1.5.0/nvc-1.5.tar.gz"
   sha256 "4da984ba95eb3b8dd2893fb7a676675de869ff114b827a9f5490dfd54bc95fcb"
-  license "GPL-3.0"
-  revision 1
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 catalina:    "7ba6e4a374fa45ac6727a3a94b68ec1e317989999aeace6e16e2d2374f1adef9"
-    sha256 mojave:      "f7096c9a1f5430b7540a5384c21548e3d58937a571b894362d00326400ec52cb"
-    sha256 high_sierra: "9235685aba9cdb880d6d76336fa94e918762bbd5e7de2c150a5ab4d887ec2b74"
+    sha256 arm64_big_sur: "76441135ec856345e43510a1a7da280138a85d9c0cfee5976dd66d765d4baf4e"
+    sha256 big_sur:       "1f2d64225daa270c2914bc24bf9510ee778e3760a287c9d72f1aa6e96eb9ecbe"
+    sha256 catalina:      "35cf1be4eec7f103dd0d77d3a19464e7bbb745bc3dbbf04ccb0edf35ea82c734"
+    sha256 mojave:        "512571d57d7e9e97199941fc0dea8347034d64f750abb000ada7ba9fa5c8f4ea"
   end
 
   head do
@@ -21,8 +22,7 @@ class Nvc < Formula
 
   depends_on "check" => :build
   depends_on "pkg-config" => :build
-  # llvm 8+ is not supported https://github.com/nickg/nvc/commit/c3d1ae5700cfba6070293ad1bb5a6c198c631195
-  depends_on "llvm@7"
+  depends_on "llvm"
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
@@ -32,7 +32,7 @@ class Nvc < Formula
   def install
     system "./autogen.sh" if build.head?
     system "./tools/fetch-ieee.sh"
-    system "./configure", "--with-llvm=#{Formula["llvm@7"].opt_bin}/llvm-config",
+    system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=/usr/bin/clang"
     system "make"

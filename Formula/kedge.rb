@@ -15,10 +15,14 @@ class Kedge < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "387689996cf16d3ffee16df613912a61846e2377816b8ae655f4f1aa7680f802"
   end
 
+  # https://github.com/kedgeproject/kedge/issues/619
+  deprecate! date: "2021-02-21", because: :unsupported
+
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/kedgeproject").mkpath
     ln_s buildpath, buildpath/"src/github.com/kedgeproject/kedge"
     system "make", "bin"

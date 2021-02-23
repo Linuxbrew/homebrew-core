@@ -9,11 +9,12 @@ class Rack < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:      "8f5f2eac4a06a9295875d213a31505f9b8e66e96b16814176582e3fd5a0a223e"
-    sha256 cellar: :any_skip_relocation, catalina:     "8cf224e3f734308bef6c0ef3cd9aa3a63aa4fdedd9ee626e2ee91099affc83c2"
-    sha256 cellar: :any_skip_relocation, mojave:       "a50004c910fc4cbb34404fabf20bfcab87dcf6d7ce510a96c72fecbdc8d458cc"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "5e33e2bc51e9cf346ed59eabbef5849a170619be2a7b034b19d71a1a25a72fcb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "829790fe6b622cfd781b946b47bddeca50c69c34b96a939576dee780711cf4c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3da24ffbc52e301b97902eee71ecddbbb16c6df508a9241a4a9ed2dc7eed0652"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8f5f2eac4a06a9295875d213a31505f9b8e66e96b16814176582e3fd5a0a223e"
+    sha256 cellar: :any_skip_relocation, catalina:      "8cf224e3f734308bef6c0ef3cd9aa3a63aa4fdedd9ee626e2ee91099affc83c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "a50004c910fc4cbb34404fabf20bfcab87dcf6d7ce510a96c72fecbdc8d458cc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5e33e2bc51e9cf346ed59eabbef5849a170619be2a7b034b19d71a1a25a72fcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "829790fe6b622cfd781b946b47bddeca50c69c34b96a939576dee780711cf4c3"
   end
 
   depends_on "go" => :build
@@ -21,6 +22,7 @@ class Rack < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["TRAVIS_TAG"] = version
+    ENV["GO111MODULE"] = "auto"
 
     rackpath = buildpath/"src/github.com/rackspace/rack"
     rackpath.install Dir["{*,.??*}"]

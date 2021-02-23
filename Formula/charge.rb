@@ -14,6 +14,7 @@ class Charge < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b6b02c7658ca9d8c8211554a74d399f5a9188f516e152fb7eee5a2b879d050d3"
     sha256 cellar: :any_skip_relocation, mojave:        "f2d73159f3331a3c7a6126eb7054fb987abf89598521fad3dece201f06cbf79d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2dcccfe026217c62a72db3ff501ee56c1c8216e5f00e567ca12706aaddb6ea8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cad826732c97a901a3afb65e8585d5272736acbd5f1182bf91b3d91096fab5e4"
   end
 
   depends_on "node"

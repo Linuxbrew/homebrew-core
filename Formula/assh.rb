@@ -7,10 +7,11 @@ class Assh < Formula
   head "https://github.com/moul/assh.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "38f180a404deea504c730e59c9c4fa867f7af1c01558d64a891cd2803bf7777b"
-    sha256 cellar: :any_skip_relocation, catalina:     "486b60df723e01996d1654b53ff9ee8ff46d02500290ceb35a42a1aa8fdf22f6"
-    sha256 cellar: :any_skip_relocation, mojave:       "0432605530886e05a3bae571cc33c0ae4043e8f7616fa7245d6d352bf54e2a6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0426adcee90718d090bbb13796e7df987ae4fc55992eba92dc3827d4fab81bb8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0860549309f01ea758615ab322bffc4599bc18e57122f7cbaf307bd3ea97a5ef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "38f180a404deea504c730e59c9c4fa867f7af1c01558d64a891cd2803bf7777b"
+    sha256 cellar: :any_skip_relocation, catalina:      "486b60df723e01996d1654b53ff9ee8ff46d02500290ceb35a42a1aa8fdf22f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "0432605530886e05a3bae571cc33c0ae4043e8f7616fa7245d6d352bf54e2a6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0426adcee90718d090bbb13796e7df987ae4fc55992eba92dc3827d4fab81bb8"
   end
 
   depends_on "go" => :build

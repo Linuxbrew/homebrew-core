@@ -8,14 +8,15 @@ class Piknik < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:      "3b8097063683df3dafbe8f807abd626a348714e6a8a588be2bd4bc49ba83427c"
-    sha256 cellar: :any_skip_relocation, catalina:     "4c8bce52891ea6547f5644108b72300405c27e84e539fde0fa60c25e69db7a8e"
-    sha256 cellar: :any_skip_relocation, mojave:       "eee56739c24346b50d4fb7afa1285c87fbea135f3acd5fa90d1c2b9a81f84284"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "1209dc34580813c42b1075174e9f78e049f43449845c63aa3f033e761ecf0bd0"
-    sha256 cellar: :any_skip_relocation, sierra:       "fffe6c2329ae0840061a464162703ec7cd26649cd985d1ff4de37315059b9357"
-    sha256 cellar: :any_skip_relocation, el_capitan:   "40b1bdb322e89f3c955519a3156f8ab9ed7aa3833f0887f1bb1ccf6224038de8"
-    sha256 cellar: :any_skip_relocation, yosemite:     "c1bb1b4632aca54d93490f53b9142f7f808abec1cd6761418df63f11abeb80fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cb474ac511340da4da79451b9caad7d41f5ccf4025aebac349be1c6f7b1fdb55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aaaac7c574efbdc5e80448e4f2594f11169a10614b973535bac14bae0560cd64"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3b8097063683df3dafbe8f807abd626a348714e6a8a588be2bd4bc49ba83427c"
+    sha256 cellar: :any_skip_relocation, catalina:      "4c8bce52891ea6547f5644108b72300405c27e84e539fde0fa60c25e69db7a8e"
+    sha256 cellar: :any_skip_relocation, mojave:        "eee56739c24346b50d4fb7afa1285c87fbea135f3acd5fa90d1c2b9a81f84284"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1209dc34580813c42b1075174e9f78e049f43449845c63aa3f033e761ecf0bd0"
+    sha256 cellar: :any_skip_relocation, sierra:        "fffe6c2329ae0840061a464162703ec7cd26649cd985d1ff4de37315059b9357"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "40b1bdb322e89f3c955519a3156f8ab9ed7aa3833f0887f1bb1ccf6224038de8"
+    sha256 cellar: :any_skip_relocation, yosemite:      "c1bb1b4632aca54d93490f53b9142f7f808abec1cd6761418df63f11abeb80fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb474ac511340da4da79451b9caad7d41f5ccf4025aebac349be1c6f7b1fdb55"
   end
 
   depends_on "glide" => :build
@@ -24,6 +25,7 @@ class Piknik < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/jedisct1/"
     dir.install Dir["*"]
     ln_s buildpath/"src", dir

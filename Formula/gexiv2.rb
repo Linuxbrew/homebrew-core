@@ -1,17 +1,15 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.1.tar.xz"
-  sha256 "8aeafd59653ea88f6b78cb03780ee9fd61a2f993070c5f0d0976bed93ac2bd77"
-  license "GPL-2.0"
-  revision 1
+  url "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz"
+  sha256 "2322b552aca330eef79724a699c51a302345d5e074738578b398b7f2ff97944c"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, big_sur:      "c70dc1804031fb8c387dc3eff59274de4fdd85152df44f42001c630302080ea7"
-    sha256 cellar: :any, catalina:     "9ebb451be639c6e3557c4113dc999ab3a0ef6c0f9f2ab508a6eb5197da40e2c7"
-    sha256 cellar: :any, mojave:       "87d16bcad50a98b318106735fb10ed2652d8cab8768f2e9a5fb8690690d656d5"
-    sha256 cellar: :any, high_sierra:  "6fdb45c5dec3259a2f178fdd3baee874d3b6db477ab2067d89635632900742a8"
-    sha256 cellar: :any, x86_64_linux: "4d498b4e1c4695d3b0a1f97538c32197fa03c2a741333b9dd35f06a93151844e"
+    sha256 cellar: :any,                 big_sur:      "281c26fef197eba6584e3250aeb131c0ab5daf8afbdc1d702de71ba1e664ccf3"
+    sha256 cellar: :any,                 catalina:     "b96f01c0d637c9b4e16bf0f4d3dc4d072d0d672396152893b5afcbc0ae60cd3a"
+    sha256 cellar: :any,                 mojave:       "35e12c640ea61bd4659a86afb45e03efa8f81bfb46cb3a5119cb34f445f2dff2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9530b44c7f433c61be5d1e1f110a8d6ea53e1e27e490e46424f2657fc176cfe9"
   end
 
   depends_on "gobject-introspection" => :build

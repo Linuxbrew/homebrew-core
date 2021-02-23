@@ -4,19 +4,11 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision OS.mac? ? 9 : 10
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz"
-    sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
-
-    # https://trac.ffmpeg.org/ticket/8760
-    # Remove in next release
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/7c59e1b0f285cd7c7b35fcd71f49c5fd52cf9315.patch?full_index=1"
-      sha256 "1cbe1b68d70eadd49080a6e512a35f3e230de26b6e1b1c859d9119906417737f"
-    end
+    url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
+    sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
   end
 
   livecheck do
@@ -25,12 +17,11 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "9fc274673b6c8d8876ae6992b5bb829081c26c7e9f2e9e017a504ea409193064"
-    sha256 big_sur:       "9f5b9ad22c353816dd7555c91fb9e27187c929bdab4df8d038cca1d85f5583be"
-    sha256 catalina:      "faa2f5f16ef1aff82a488d110a48c382e4d51e4dddbdce5eb2dc19ee64668788"
-    sha256 mojave:        "a1deeb25c7edab098c2c0377fe49dd8b0c98e65f82ff22ce81676971d445ffa4"
-    sha256 x86_64_linux:  "a0c43f7e6428f098868e9cdfa4fcf8afa2e2cb220cabd8f6f3108ce76845a303"
+    sha256 arm64_big_sur: "0515c9f60fc6d3975f0ce707414426a62484e6974cd1fd121e5e55457556afc7"
+    sha256 big_sur:       "c749fddc306f2bce4d15ca20cc8e1f7b28082dd381af57486c72a641e71f0ccf"
+    sha256 catalina:      "ed0fc90c66b35c84a904ba01ab3e37c31a0c63a64889b2ab99718288d52404e4"
+    sha256 mojave:        "33cc1c8ede50ab0b7f38a37c1a85c9060165334200f59d735dd8bd8627508f0d"
+    sha256 x86_64_linux:  "a238882e46acba6b198bd18b5956781d929f786ec711080025304575725c6b06"
   end
 
   depends_on "nasm" => :build

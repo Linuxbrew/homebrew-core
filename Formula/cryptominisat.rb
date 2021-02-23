@@ -6,6 +6,7 @@ class Cryptominisat < Formula
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://github.com/msoos/cryptominisat.git"
@@ -13,9 +14,10 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 big_sur:  "a44fd7c5ef4e744e5f2b09fb9ed007b08c5a3a77ce77f82a84c7c50a1fc3741a"
-    sha256 catalina: "2c6b3e384755e1696497a521e474a3260e4bfbd270a5008b0d4e967e3fa263dc"
-    sha256 mojave:   "8643301b4c05958d3c220f1c4f0a155ba2ae9877871598c9862b7479a1805e08"
+    sha256 arm64_big_sur: "c203b2037a55507235aa4a64f35d7a96bf6af7913c27b64057fa61cc55a4b012"
+    sha256 big_sur:       "982f3dc69641c5c0e49857173283d732f631c228ce167a5fab142aa83b39d137"
+    sha256 catalina:      "4a3a5a12f7a19dea74436a5fd0de9f2dd848dbe7cfdd951dcdbf620822de32ab"
+    sha256 mojave:        "df9c576ce0f8b786cdbfbfd724e97196fa1e776447cf9df50e8ec7890ed509f3"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +29,7 @@ class Cryptominisat < Formula
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DNOM4RI=ON"
+      system "cmake", "..", *std_cmake_args, "-DNOM4RI=ON", "-DCMAKE_INSTALL_RPATH=#{lib}"
       system "make", "install"
     end
   end

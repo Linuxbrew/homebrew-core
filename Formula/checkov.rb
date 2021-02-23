@@ -4,33 +4,33 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/a8/31/6f0a8e6628725121de7eddc1239a911f0653498d24dc782a8bd1246d1079/checkov-1.0.765.tar.gz"
-  sha256 "6c54d0a1de548c0ff16f7f39f05663e12a703577b84d01fdb860ef855df8a6b1"
+  url "https://files.pythonhosted.org/packages/e7/5b/457a517e7af105333e8ba86983f29a0d71aad9578d657231897e910eb429/checkov-1.0.795.tar.gz"
+  sha256 "d5988e77020f1fec8782c326595123a76ea416e9557660ecd6bd2ff035180f53"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6311e736be479077789bb79f57062a1f8e9dbc71576fbae1a218a878ffb40ba0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e534d273fbd4bff08097daecfe6fd795f75f5fbd8830367f35af4943f9e65236"
-    sha256 cellar: :any_skip_relocation, catalina:      "6fff573d29328925e5ecca5b9c5ff2960413ce41dcd6ce9b0fcca94b5a83377d"
-    sha256 cellar: :any_skip_relocation, mojave:        "df06cba0e9591824c5795375db02d18d5d6db6d6b73efe9b42cdd4903163f937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c541b401abf6786ccf566f48d9a42b0584a6dadeb722706c38077455980c276b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bb80be3a878dfe6e0e70d39fd414bc0082af98d7334ea380777652f23869799a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4c0b449de31552d3005db7f28d040f91341e7bd9f30022233a02f3ea88e2c9fe"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea05fc2e68b58143d2cac1db83f54f0d4522b686f2cc800a24d69a27ec44563d"
+    sha256 cellar: :any_skip_relocation, mojave:        "938875db3f9fbf147e33943ed8e06c1cee997ab427269825744e4f42c3e64b36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5fcbd7680b926c10e61c5d409dc9cd382567c3152fcb0dd8c08f53323b0eac1"
   end
 
   depends_on "python@3.9"
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/65/a9/619bb7fbd8168e21b4593ebb9403294d59aabea5796e1c1732f8d0ded8b7/bc-python-hcl2-0.3.12.tar.gz"
-    sha256 "17b02a2dda3a299ff981c0e3e3b29818d88dc3dd9ba7d552d7d8e048a3183a5b"
+    url "https://files.pythonhosted.org/packages/6c/df/384d7db1cd8714c126529dcc6c4aa61cb94406cac2d54748dd410a08b396/bc-python-hcl2-0.3.13.tar.gz"
+    sha256 "1b560cd4f1e9c1cd5db4c9f3ffbfcf89b6fc5eb33a390df19ebf694a6dbf66c0"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a0/fd/2363c1f527c30ec14922f55f1cd65694f92100ba9546c4522c7cd5fed609/boto3-1.17.3.tar.gz"
-    sha256 "9f132c34e20110dea019293c89cede49b0a56be615b3e1debf98390ed9f1f7b9"
+    url "https://files.pythonhosted.org/packages/a4/88/788fa9c12396c9b468d3cbddb4dd9196d08abd8a8cddf093d170b5d83b5c/boto3-1.17.12.tar.gz"
+    sha256 "62f06cd1e7a78d8aaa4e527c327653e9a6c1af415b59836048a90c28a27e5f09"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/10/37/91ef27d73f4611ea2c0d3c1cafb33a7fa4d6b5ccdf46c6e135d1fa6c8fc0/botocore-1.20.3.tar.gz"
-    sha256 "a0fdded1c9636899ab273f50bf123f79b91439a8c282b5face8b5f4a48b493cb"
+    url "https://files.pythonhosted.org/packages/24/de/19ba5ea37f9ab9e41d21818751402f32b6dcffda708947c631d0e3adf928/botocore-1.20.12.tar.gz"
+    sha256 "39a92315a17a6f8bc1914dbb020f52e929f18e5b99a4fa1c5d8785f913427ed8"
   end
 
   resource "certifi" do
@@ -64,8 +64,8 @@ class Checkov < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/ec/4d/e6553122c85ec7c4c3e702142cc0f5ed02e5cf1b4d7ecea86a07e45725a0/GitPython-3.1.12.tar.gz"
-    sha256 "42dbefd8d9e2576c496ed0059f3103dcef7125b9ce16f9d5f9c834aed44a1dac"
+    url "https://files.pythonhosted.org/packages/d4/a9/60a66a0e8b452726cfc5939242ffa7158c1a9a78ff628bd4540b49156240/GitPython-3.1.13.tar.gz"
+    sha256 "8621a7e777e276a5ec838b59280ba5272dd144a18169c36c903d8b38b99f750a"
   end
 
   resource "idna" do
@@ -135,8 +135,8 @@ class Checkov < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+    url "https://files.pythonhosted.org/packages/69/44/6c7326b95268c16cf8dc1376ed1a4f404fa9fd04c1371c0917d3f2806832/tabulate-0.8.8.tar.gz"
+    sha256 "26f2589d80d332fefd2371d396863dedeb806f51b54bdb4b264579270b621e92"
   end
 
   resource "termcolor" do
@@ -145,8 +145,8 @@ class Checkov < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/69/50/9f29874d835945b845812799edc732ba30c41e9d20431f9f69c8ffb9c670/tqdm-4.56.0.tar.gz"
-    sha256 "fe3d08dd00a526850568d542ff9de9bbc2a09a791da3c334f3213d8d0bbbca65"
+    url "https://files.pythonhosted.org/packages/af/34/0fb7d9ce9f84244618e0acf8355f944e27107d617534e07978cb2221a59b/tqdm-4.57.0.tar.gz"
+    sha256 "65185676e9fdf20d154cffd1c5de8e39ef9696ff7e59fe0156b1b08e468736af"
   end
 
   resource "update-checker" do

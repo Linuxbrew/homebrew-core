@@ -4,7 +4,7 @@ class Libftdi < Formula
   url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2"
   sha256 "7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.intra2net.com/en/developer/libftdi/download.php"
@@ -12,11 +12,11 @@ class Libftdi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a6e523e9065f328cc5218448b50cb56da7e4381bd345567174171481282decf7"
-    sha256 cellar: :any,                 big_sur:       "8b406299142e6269c2c88d90d91e4ecae55b154768a7ce0e2d908e5cf7928466"
-    sha256 cellar: :any,                 catalina:      "111c471640e58466f019255c65348cffaf691b61703a57aa64869663b1507670"
-    sha256 cellar: :any,                 mojave:        "c4444db83840c4811f386aa7f37fd2747eec27c7d7beca4e76f490694a4ad377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e3d1f5a471aa51dd5d632ceaaf3f675227d5ca3921a1367b0828579151011d4"
+    sha256 cellar: :any,                 arm64_big_sur: "998ea9ac5c02fdad06ad304dc36ccd0b010267271e7d68ff3f3cfbf407339067"
+    sha256 cellar: :any,                 big_sur:       "26dfaad8173c39d9aa57354256ae4885ea4154a5c3f539c0cb8929e627cafd72"
+    sha256 cellar: :any,                 catalina:      "8f20fb63150135151bac6d385c5c8fac07ccdc97c5d4a17d1d9aaf62737a606c"
+    sha256 cellar: :any,                 mojave:        "52fd8c98d57a09972db3db70a405c32c17dc7ea60663c058b8cfa17d51fc1951"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6a1bb4044d47ae5669f8ac9e993bddb62aa6d95d284ad642d38937d2d8007c4"
   end
 
   depends_on "cmake" => :build
@@ -25,6 +25,13 @@ class Libftdi < Formula
   depends_on "boost"
   depends_on "confuse"
   depends_on "libusb"
+
+  # Patch to fix pkg-config flags issue. Homebrew/homebrew-core#71623
+  # http://developer.intra2net.com/git/?p=libftdi;a=commit;h=cdb28383402d248dbc6062f4391b038375c52385
+  patch do
+    url "http://developer.intra2net.com/git/?p=libftdi;a=patch;h=cdb28383402d248dbc6062f4391b038375c52385;hp=5c2c58e03ea999534e8cb64906c8ae8b15536c30"
+    sha256 "db4c3e558e0788db00dcec37929f7da2c4ad684791977445d8516cc3e134a3c4"
+  end
 
   def install
     mkdir "libftdi-build" do

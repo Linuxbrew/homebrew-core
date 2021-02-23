@@ -1,17 +1,16 @@
 class Dateutils < Formula
   desc "Tools to manipulate dates with a focus on financial data"
   homepage "https://www.fresse.org/dateutils/"
-  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.7/dateutils-0.4.7.tar.xz"
-  sha256 "49725457f5bef45ea424baade8999a6e54496e357f64280474ff7134a54f599a"
+  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.8/dateutils-0.4.8.tar.xz"
+  sha256 "3f7054a24cf3e3ea2c32a6b1f7474334c25b54e9c45c96b03f75eaaecc70c100"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_big_sur: "b8e6f41e3bbc0e784dba6ecfdd6ecfdf8bed76d06d8a749355568f8eeda78ef4"
-    sha256 big_sur:       "8ec20a61569fda99fc4979e7c1113546e03cb8f4aeae7177899acb72bdb7ab26"
-    sha256 catalina:      "25d5db665c0591e56c4ec698656a5519f20417473e3cb763299d804bc735a9a5"
-    sha256 mojave:        "3124ddab0439b64bcfc95057ee52c7c902e684898a2d96832732819682fba75c"
-    sha256 high_sierra:   "310bbe8e2d4d039d065fb9bc5cd33ced2fc45f970057f21a205ff0004d6921e0"
-    sha256 x86_64_linux:  "0258e09d2b5ca98808b7c7c9d94f69b10d80370a002796701b721d3631ed6788"
+    sha256 arm64_big_sur: "c70b9979cd1f117820f6aa531731115772b6320e22ffb779cddc1e248387a139"
+    sha256 big_sur:       "835ab3f87c6c6bf4a16b0e0f2e55fe16c4975ad63b1f8b7441786b9c75968c0f"
+    sha256 catalina:      "27ef93f0c6c9ceb68087939e3c4d8e8511a15fe59b78e50aab0ecdd6365db976"
+    sha256 mojave:        "e7649f49318c9f30cf4bc1c37bbf993b2a5471c7026bb4502000760c976d4892"
+    sha256 x86_64_linux:  "5ecc3df7d5f10935a59c1f24acb45515dabbed11c03a31de46f88457dc95f1e7"
   end
 
   head do
@@ -31,6 +30,6 @@ class Dateutils < Formula
 
   test do
     output = shell_output("#{bin}/dconv 2012-03-04 -f \"%Y-%m-%c-%w\"").strip
-    assert_equal "2012-03-01-00", output
+    assert_equal "2012-03-01-07", output
   end
 end

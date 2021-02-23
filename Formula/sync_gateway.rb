@@ -14,9 +14,10 @@ class SyncGateway < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "1eb668b81243fb12bcbbbacae732a90a03afca24977b00e8ad25b3eab36c564d"
-    sha256 cellar: :any_skip_relocation, catalina: "c433c7310d089ff0399ba66e3f35aca60a5663f207d9b23e95069f0d5dd6e397"
-    sha256 cellar: :any_skip_relocation, mojave:   "f352f303e22c12d87faa8e5748bce4b33fa831a88b30fb744a4f7e011296fa8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f74920fd3089dec5de1df45342787f01c176e6e7aea57e8781999f40f53a878"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1eb668b81243fb12bcbbbacae732a90a03afca24977b00e8ad25b3eab36c564d"
+    sha256 cellar: :any_skip_relocation, catalina:      "c433c7310d089ff0399ba66e3f35aca60a5663f207d9b23e95069f0d5dd6e397"
+    sha256 cellar: :any_skip_relocation, mojave:        "f352f303e22c12d87faa8e5748bce4b33fa831a88b30fb744a4f7e011296fa8b"
   end
 
   depends_on "gnupg" => :build
@@ -39,6 +40,7 @@ class SyncGateway < Formula
                                          "--project-name", "sync_gateway",
                                          "--set-revision", Utils.git_head
     cd "build" do
+      ENV["GO111MODULE"] = "auto"
       mkdir "godeps"
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
       cp manifest, ".repo/manifest.xml"

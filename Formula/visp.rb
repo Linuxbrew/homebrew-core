@@ -11,9 +11,10 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 big_sur:  "35c5ff55215f7513f1a6364eb72faddcbd6262ecb4b2f7ec9ddba22aaa29e87f"
-    sha256 catalina: "1541e6b55b3bfc59cb448b209d7f036471cf6a5aba1e5c90a594f522845957be"
-    sha256 mojave:   "51abe946753e53c79bd52e62397620ff010fa433d11d5f8f3cb34e45e75cd883"
+    sha256 arm64_big_sur: "a43e89e074d985dd688f5d2712aaab0a6f8c955930e489521a5e04fca48665d1"
+    sha256 big_sur:       "35c5ff55215f7513f1a6364eb72faddcbd6262ecb4b2f7ec9ddba22aaa29e87f"
+    sha256 catalina:      "1541e6b55b3bfc59cb448b209d7f036471cf6a5aba1e5c90a594f522845957be"
+    sha256 mojave:        "51abe946753e53c79bd52e62397620ff010fa433d11d5f8f3cb34e45e75cd883"
   end
 
   depends_on "cmake" => :build

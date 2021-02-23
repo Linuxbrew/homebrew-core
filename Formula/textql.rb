@@ -7,13 +7,14 @@ class Textql < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:      "84bb8f0f712da5618c74b46f86afffa5da7ade72a68e508e3037d590206f28f6"
-    sha256 cellar: :any_skip_relocation, catalina:     "d33d111039e957631d3a77cd35413707b47e684638a2571e3719a17c0173b55d"
-    sha256 cellar: :any_skip_relocation, mojave:       "b6d4fd5ee0a2d1758651f91c35e6bd40a832f0d997ec2a120268bfde03a48cfb"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb"
-    sha256 cellar: :any_skip_relocation, sierra:       "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5"
-    sha256 cellar: :any_skip_relocation, el_capitan:   "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ce423f3987a4a8175276fee09d94d3697878781a52bd9ca3285775f12bb191e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd027344a17ef0bc236b638e442fbe257a82e9504f050021750884c486db3371"
+    sha256 cellar: :any_skip_relocation, big_sur:       "84bb8f0f712da5618c74b46f86afffa5da7ade72a68e508e3037d590206f28f6"
+    sha256 cellar: :any_skip_relocation, catalina:      "d33d111039e957631d3a77cd35413707b47e684638a2571e3719a17c0173b55d"
+    sha256 cellar: :any_skip_relocation, mojave:        "b6d4fd5ee0a2d1758651f91c35e6bd40a832f0d997ec2a120268bfde03a48cfb"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb"
+    sha256 cellar: :any_skip_relocation, sierra:        "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce423f3987a4a8175276fee09d94d3697878781a52bd9ca3285775f12bb191e0"
   end
 
   depends_on "glide" => :build
@@ -22,6 +23,7 @@ class Textql < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/dinedal/textql").install buildpath.children
 
     cd "src/github.com/dinedal/textql" do

@@ -7,9 +7,10 @@ class TemporalTables < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "bbca0fa6293665bf8441fcaa6d560c7414b9cffb0e1e6ec0b05ae5abb75ead19"
-    sha256 cellar: :any_skip_relocation, catalina: "232faff661afb06b3b5c9a496a7d6781cb4c5d469080fea2903429472c1049e6"
-    sha256 cellar: :any_skip_relocation, mojave:   "bbf936aa039c98a3226fa8c3635d192d807826a9753fcee99514f212fc6f85c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ace1bc50036de0db253faad559c125c6f47496308b78ae9c81796cb19576fb62"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bbca0fa6293665bf8441fcaa6d560c7414b9cffb0e1e6ec0b05ae5abb75ead19"
+    sha256 cellar: :any_skip_relocation, catalina:      "232faff661afb06b3b5c9a496a7d6781cb4c5d469080fea2903429472c1049e6"
+    sha256 cellar: :any_skip_relocation, mojave:        "bbf936aa039c98a3226fa8c3635d192d807826a9753fcee99514f212fc6f85c3"
   end
 
   depends_on "postgresql"

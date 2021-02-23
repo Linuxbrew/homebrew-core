@@ -34,9 +34,17 @@ class SpaceinvadersGo < Formula
   end
 
   def install
-    system "go", "mod", "init", "github.com/asib/spaceinvaders"
-    system "go", "build"
-    bin.install "spaceinvaders"
+    # This builds with Go.
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+    sipath = buildpath/"src/github.com/asib/spaceinvaders"
+    sipath.install Dir["{*,.git}"]
+    Language::Go.stage_deps resources, buildpath/"src"
+    cd "src/github.com/asib/spaceinvaders/" do
+      system "go", "build"
+      bin.install "spaceinvaders"
+      prefix.install_metafiles
+    end
   end
 
   test do

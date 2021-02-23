@@ -1,10 +1,9 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.7/Python-3.8.7.tar.xz"
-  sha256 "ddcc1df16bb5b87aa42ec5d20a5b902f2d088caa269b28e01590f97a798ec50a"
+  url "https://www.python.org/ftp/python/3.8.8/Python-3.8.8.tar.xz"
+  sha256 "7c664249ff77e443d6ea0e4cf0e587eae918ca3c48d081d1915fe2a1f1bcc5cc"
   license "Python-2.0"
-  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,11 +11,11 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "25bd1842448e449935d3ce5f7caab7a51202ef93d010be2c307dd1d49800fc50"
-    sha256 big_sur:       "efc5d582cb6e3e2ab35622442434875efadba621ccd7b06d529b65049029cf3b"
-    sha256 catalina:      "4042005836f8e666000c8d0b627728c5c3b0935fc7f56dede3fee88fc1e8936f"
-    sha256 mojave:        "35c910b0b6ace555dd96dd93a8089eda6f0abd94a07fee30cf7a0046a75cf9c1"
-    sha256 x86_64_linux:  "a5f5638df325a98121ac7cdbcccf015cdbb630ad0731e550b3528f2ed8f98b2c"
+    sha256 arm64_big_sur: "f0f49027f4e669f6a864111f3fe859be87a327330add04e928187d28e484d9fa"
+    sha256 big_sur:       "e08a45704369d3479a3b0e5d976ca1da7e0eeea426611c02b63126306965c1be"
+    sha256 catalina:      "3a458b3e423dccf8970933807b378412ec69843a63a16daa1419beb2885d1b4d"
+    sha256 mojave:        "80b7b87ae8ca30ec62ef2ff46691fa1fe761f061635c148df82f80244d983a4c"
+    sha256 x86_64_linux:  "44ce525c345c70851aab09b2de5351e2af775b114d16e70c5d976c8a42f380b7"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -52,13 +51,13 @@ class PythonAT38 < Formula
              "bin/easy_install-3.7", "bin/easy_install-3.8"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/94/23/e9e3d96500c063129a19feb854efbb01e6ffe7d913f1da8176692418ab8e/setuptools-51.1.1.tar.gz"
-    sha256 "0b43d1e0e0ac1467185581c2ceaf86b5c1a1bc408f8f6407687b0856302d1850"
+    url "https://files.pythonhosted.org/packages/12/68/95515eaff788370246dac534830ea9ccb0758e921ac9e9041996026ecaf2/setuptools-53.0.0.tar.gz"
+    sha256 "1b18ef17d74ba97ac9c0e4b4265f123f07a8ae85d9cd093949fa056d3eeeead5"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ca/1e/d91d7aae44d00cd5001957a1473e4e4b7d1d0f072d1af7c34b5899c9ccdf/pip-20.3.3.tar.gz"
-    sha256 "79c1ac8a9dccbec8752761cb5a2df833224263ca661477a2a9ed03ddf4e0e3ba"
+    url "https://files.pythonhosted.org/packages/b7/2d/ad02de84a4c9fd3b1958dc9fb72764de1aa2605a9d7e943837be6ad82337/pip-21.0.1.tar.gz"
+    sha256 "99bbde183ec5ec037318e774b0d8ae0a64352fe53b2c7fd630be1d07e94f41e5"
   end
 
   resource "wheel" do
@@ -314,9 +313,8 @@ class PythonAT38 < Formula
 
     # Install unversioned symlinks in libexec/bin.
     {
-      "easy_install" => "easy_install-#{xy}",
-      "pip"          => "pip3",
-      "wheel"        => "wheel3",
+      "pip"   => "pip3",
+      "wheel" => "wheel3",
     }.each do |unversioned_name, versioned_name|
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end

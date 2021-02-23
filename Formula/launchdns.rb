@@ -4,14 +4,13 @@ class Launchdns < Formula
   url "https://github.com/josh/launchdns/archive/v1.0.4.tar.gz"
   sha256 "60f6010659407e3d148c021c88e1c1ce0924de320e99a5c58b21c8aece3888aa"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/josh/launchdns.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, catalina:    "cfa7f2fc765e5f4137df7fbb3f212cb1a3822edeecc095a2e5c75901e82526e8"
-    sha256 cellar: :any_skip_relocation, mojave:      "1572081e53a9b2234321ac9f4bb4f48507bbafcd781f29549907e7ded4873526"
-    sha256 cellar: :any_skip_relocation, high_sierra: "9379f60efc2a0984c79a3b59dab5093ca3fdaad89a8f697a7623abda15801293"
-    sha256 cellar: :any_skip_relocation, sierra:      "ced5d6c6bdb3074c29dd65b244fc4325cc4799820d7dd38c6dedf04c2555f3cb"
+    sha256 cellar: :any_skip_relocation, big_sur:  "7b3d512057f002e8392874c78e3c24526b18af0c67627f7621b14abe43f1b627"
+    sha256 cellar: :any_skip_relocation, catalina: "aa1aff83c3216221621ab07183258d6eac3b4662c7c22da75b4cee95465656eb"
+    sha256 cellar: :any_skip_relocation, mojave:   "7e0a8422dce7c3af9dbc5f6a5d2c5ccd0ee77cac87c5e011af82e44402b9a216"
   end
 
   def install

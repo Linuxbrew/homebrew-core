@@ -8,6 +8,7 @@ class Cspice < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "a8674cfcd5ef55ec8061890728960dd910aa23533c2c4868e93915c77b6e5c8c"
+    sha256 cellar: :any_skip_relocation, mojave:      "a08696e53b60d3255a28ca8c52fc6ba992d95f345f31dea6506a64227d10ceac"
     sha256 cellar: :any_skip_relocation, high_sierra: "dac29486067ad080407dfd76641a8902103ce333750d5e2c9723409806f2ab61"
     sha256 cellar: :any_skip_relocation, sierra:      "5ffb3eec6da9aa84ff58330734d024df9ea1378b1cc93365736b66d4315c47b9"
     sha256 cellar: :any_skip_relocation, el_capitan:  "ceec1738779c07c06bd21b5c81816fb66854b728a1a098fe5ac1f37a176ee32f"

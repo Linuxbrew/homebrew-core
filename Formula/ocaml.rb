@@ -13,9 +13,9 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.0.tar.xz"
-  sha256 "30734db17b609fdd1609c39a05912325c299023968a2c783e5955dd5163dfeb7"
-  license "LGPL-2.1"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.2.tar.xz"
+  sha256 "96871461078282d5db022077d89bde25c85fb5e376612b44f8c37d4e84f000e3"
+  license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   livecheck do
@@ -24,19 +24,18 @@ class Ocaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:      "e6258cd7012b9c0d8e961eb661cc11bc42c388d2153a9f8b9f0a37cf4e63a0f7"
-    sha256 cellar: :any, catalina:     "0870fc3042b3725fb2c6f131c4d6f78aec9f19d553e054ba4890773ef69e45a7"
-    sha256 cellar: :any, mojave:       "b43a7247e3d3848d5f20d2432d4996e41049e79c738762f1026f4376ec7e80d3"
-    sha256 cellar: :any, high_sierra:  "a534347814298cc8e66e321384f16eac85f2a59aaa2f536e542fb4870386bc2b"
-    sha256 cellar: :any, x86_64_linux: "2d53fc80dfed07b6f665b68a3e00337c2cb552039556ec15e670a11889b7e1ef"
+    sha256 cellar: :any,                 arm64_big_sur: "e063050517ec18694d395744b0f25db4347b9b39b805328dbd844ea73a4c406f"
+    sha256 cellar: :any,                 big_sur:       "ba026fe9338863ab3a79ca2c998f001eb38c913af36486db07e84e2c7e136e79"
+    sha256 cellar: :any,                 catalina:      "886db1a44bd60ac5275b56cd0acbf162d0b1836e2261a475035c40482ffb9788"
+    sha256 cellar: :any,                 mojave:        "5c4cce204b2ef4eea7c1f59df4216e9be9068e077d0ff92746af05035f485285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42698b8388b18c3982622f18e29d2cbfe7139ac56a44dfe13b8aabf80e13761d"
   end
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
     # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    default_prefix = OS.linux? ? "/home/linuxbrew/.linuxbrew" : "/usr/local"
-    reason "The bottle needs to be installed into #{default_prefix}."
-    satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
+    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   def install

@@ -9,15 +9,16 @@ class Wego < Formula
   head "https://github.com/schachmat/wego.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "ff772c99d0aebc8e471aa4785b7a429fda2c0af8ede5d43fb2ee1ba8c7617246"
-    sha256 cellar: :any_skip_relocation, catalina:     "5ac6a153a25c0d68564d000f52642d0891fc85de2183732b9d7b171b5e629146"
-    sha256 cellar: :any_skip_relocation, mojave:       "436dbf3a2dd0f517635078c987d95985941be4aaae3efc65b5fb2e3562af87cd"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "dc3714d72fde13770cec00100aa1ee843b944512c454e00ad131c822e868cedb"
-    sha256 cellar: :any_skip_relocation, sierra:       "504d831a34c22ec006a610f7af4d11000708570513e5391e2077d021ca6b3758"
-    sha256 cellar: :any_skip_relocation, el_capitan:   "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1"
-    sha256 cellar: :any_skip_relocation, yosemite:     "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d"
-    sha256 cellar: :any_skip_relocation, mavericks:    "6bc11cdcd939b5361704f1575f297a152da2e3de79e94392c33cf5e22ec40715"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f1132563798055a2e83e87938e08e462710fe7cca934d65d1c3f417cdf539a20"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2dd22ca29b4b1c7ffd10d9780a4db4dfb9db52dcef73ba07fe85f23a14aa472b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ff772c99d0aebc8e471aa4785b7a429fda2c0af8ede5d43fb2ee1ba8c7617246"
+    sha256 cellar: :any_skip_relocation, catalina:      "5ac6a153a25c0d68564d000f52642d0891fc85de2183732b9d7b171b5e629146"
+    sha256 cellar: :any_skip_relocation, mojave:        "436dbf3a2dd0f517635078c987d95985941be4aaae3efc65b5fb2e3562af87cd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "dc3714d72fde13770cec00100aa1ee843b944512c454e00ad131c822e868cedb"
+    sha256 cellar: :any_skip_relocation, sierra:        "504d831a34c22ec006a610f7af4d11000708570513e5391e2077d021ca6b3758"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "ccdba75878ffe9b62b49265f6f4b375da80f44e6c5b7c5a40294501fda8903b1"
+    sha256 cellar: :any_skip_relocation, yosemite:      "97e7c2edfa9b1a312a0f4f4bce9553b1c8e884409aca3f7acfed2dc99fcef05d"
+    sha256 cellar: :any_skip_relocation, mavericks:     "6bc11cdcd939b5361704f1575f297a152da2e3de79e94392c33cf5e22ec40715"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1132563798055a2e83e87938e08e462710fe7cca934d65d1c3f417cdf539a20"
   end
 
   depends_on "go" => :build
@@ -39,6 +40,7 @@ class Wego < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/schachmat").mkpath
     ln_sf buildpath, buildpath/"src/github.com/schachmat/wego"
     Language::Go.stage_deps resources, buildpath/"src"
