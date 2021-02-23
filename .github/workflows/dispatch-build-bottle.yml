@@ -56,14 +56,13 @@ jobs:
 
       - name: Upload bottles to Bintray
         env:
-          HOMEBREW_BINTRAY_USER: linuxbrewtestbot
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+          HOMEBREW_INTERNET_ARCHIVE_KEY: ${{secrets.HOMEBREW_INTERNET_ARCHIVE_KEY}}
         if: success() || github.event.client_payload.ignore_errors
         run: |
           cd ~/bottles
           brew update-reset $(brew --repo ${{github.repository}})
           brew pr-upload \
-            --bintray-org=linuxbrew \
+            --archive-item=linuxbrew \
             --keep-old \
             --verbose \
             --debug

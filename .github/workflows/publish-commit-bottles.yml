@@ -57,9 +57,8 @@ jobs:
       - name: Pull bottles
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          HOMEBREW_BINTRAY_USER: linuxbrewtestbot
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: brew pr-pull --bintray-org=linuxbrew --keep-old --debug ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
+          HOMEBREW_INTERNET_ARCHIVE_KEY: ${{secrets.HOMEBREW_INTERNET_ARCHIVE_KEY}}
+        run: brew pr-pull --archive-item=linuxbrew --keep-old --debug ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
