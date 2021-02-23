@@ -28,6 +28,7 @@ class UtilLinux < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
