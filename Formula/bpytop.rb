@@ -6,6 +6,7 @@ class Bpytop < Formula
   url "https://files.pythonhosted.org/packages/39/64/a72dd8d462de428f36d1f4a17f21ff5f71d382eb92dc1ddbb6b98e6ebb2e/bpytop-1.0.62.tar.gz"
   sha256 "9a408ffe6575c4e20621215e532b206fe6b6d2e7e4bd053ab4b4906e6d7ba909"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4addc771bc3230557490a97705b444944c70c75e1fc8ee898a0e2a4ed3f44fcc"
@@ -14,6 +15,7 @@ class Bpytop < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c85b26479ee5ae5322eed3c82fe7cf1f625ed5d0f7de36847f2331a33682f3f4"
   end
 
+  depends_on "rust" => :build # for cryptography
   depends_on "python@3.9"
   on_macos do
     depends_on "osx-cpu-temp"
@@ -31,6 +33,7 @@ class Bpytop < Formula
 
   test do
     config = (testpath/".config/bpytop")
+    config.install_symlink "#{pkgshare}/themes" => "themes"
     (config/"bpytop.conf").write <<~EOS
       #? Config file for bpytop v. #{version}
 
