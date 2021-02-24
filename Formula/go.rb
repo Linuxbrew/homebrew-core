@@ -41,12 +41,6 @@ class Go < Formula
   end
 
   def install
-    # Fixes: Error: Failure while executing: ../bin/ldd ../line-clang.elf: Permission denied
-    unless OS.mac?
-      chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
-      chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
-    end
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
@@ -57,10 +51,15 @@ class Go < Formula
 
     (buildpath/"pkg/obj").rmtree
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
+
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
     system bin/"go", "install", "-race", "std"
+
+    # Remove useless files.
+    # Breaks patchelf because it contains weird debug/test files
+    rm_rf Dir[libexec/"src/debug"] unless OS.mac?
   end
 
   test do
