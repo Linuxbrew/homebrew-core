@@ -5,6 +5,7 @@ class Go < Formula
   mirror "https://fossies.org/linux/misc/go1.16.src.tar.gz"
   sha256 "7688063d55656105898f323d90a79a39c378d86fe89ae192eb3b7fc46347c95a"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
   head "https://go.googlesource.com/go.git"
 
   livecheck do
@@ -17,7 +18,6 @@ class Go < Formula
     sha256 big_sur:       "f23bdf4231ea64207fd112500f2c1fd9569366b31f6c843a815c5c75e4be6c5c"
     sha256 catalina:      "dfd8a82a4b7d9f4136eb6af4dca507cc136cebb74e843eeb3ba0ecd1ad94a3a2"
     sha256 mojave:        "c54706ee25e7ac3006f8d7f9bbb059131eca3b750e03736671d4faaffc399977"
-    sha256 x86_64_linux:  "58b7d462d2eed80f5ed98e8407f91ad01d138c99c6c1d4aeb3a6e96912057367"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
@@ -60,7 +60,7 @@ class Go < Formula
 
     # Remove useless files.
     # Breaks patchelf because it contains weird debug/test files
-    rm_rf Dir[libexec/"src/debug"] unless OS.mac?
+    rm_rf Dir[libexec/"src/debug/elf/testdata"] unless OS.mac?
   end
 
   test do
