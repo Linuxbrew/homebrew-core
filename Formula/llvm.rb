@@ -81,8 +81,6 @@ class Llvm < Formula
     end
     depends_on "binutils" # needed for gold and strip
     depends_on "libelf" # openmp requires <gelf.h>
-
-    conflicts_with "clang-format", because: "both install `clang-format` binaries"
   end
 
   def install
