@@ -4,6 +4,7 @@ class PythonAT38 < Formula
   url "https://www.python.org/ftp/python/3.8.8/Python-3.8.8.tar.xz"
   sha256 "7c664249ff77e443d6ea0e4cf0e587eae918ca3c48d081d1915fe2a1f1bcc5cc"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,11 +12,11 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f0f49027f4e669f6a864111f3fe859be87a327330add04e928187d28e484d9fa"
-    sha256 big_sur:       "e08a45704369d3479a3b0e5d976ca1da7e0eeea426611c02b63126306965c1be"
-    sha256 catalina:      "3a458b3e423dccf8970933807b378412ec69843a63a16daa1419beb2885d1b4d"
-    sha256 mojave:        "80b7b87ae8ca30ec62ef2ff46691fa1fe761f061635c148df82f80244d983a4c"
-    sha256 x86_64_linux:  "ba9c7e47be68722e191688fad4a7a54b06f20dbb229ea12d6d3714f8eed4aa86"
+    sha256 arm64_big_sur: "d69d6259b306244ad832f35ce26982b51c3886798466048482fceb30a3b8af9e"
+    sha256 big_sur:       "17d85e5de9771365d769bad9bd7cc3f126f3eaa004c3ff684368a930d7fa710f"
+    sha256 catalina:      "898ace209da0f175407aad47f4076bb8a3ba40b9d3ef8480ad93abf733d284ed"
+    sha256 mojave:        "f185acb02fb2c9c5c884d4b94f878ebcce1f42302f56c073407c27d6e261a579"
+    sha256 x86_64_linux:  "ea35df6554aded0269b446eab8f87acde3cc1513eca4ecbe6140b1cd4026cbee"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -33,6 +34,7 @@ class PythonAT38 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
+  depends_on "mpdecimal"
   depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
@@ -82,6 +84,11 @@ class PythonAT38 < Formula
     end
   end
 
+  patch do
+    url "https://www.bytereef.org/contrib/decimal-3.8.diff"
+    sha256 "104083617f086375974908f619369cd64005d5ffc314038c31b8b49032280148"
+  end
+
   def lib_cellar
     prefix / (OS.mac? ? "Frameworks/Python.framework/Versions/#{xy}" : "") /
       "lib/python#{xy}"
@@ -102,6 +109,11 @@ class PythonAT38 < Formula
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
 
+    # Override the auto-detection in setup.py, which assumes a universal build.
+    on_macos do
+      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --enable-ipv6
@@ -111,6 +123,7 @@ class PythonAT38 < Formula
       --enable-loadable-sqlite-extensions
       --without-ensurepip
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-system-libmpdec
     ]
     args << "--with-dtrace" if OS.mac?
 
@@ -399,6 +412,7 @@ class PythonAT38 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
+    system "#{bin}/python#{xy}", "-c", "import _decimal"
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
     system "#{bin}/python#{xy}", "-c", "import zlib"
 

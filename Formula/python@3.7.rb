@@ -4,7 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tar.xz"
   sha256 "f8d82e7572c86ec9d55c8627aae5040124fd2203af400c383c821b980306ee6b"
   license "Python-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,10 +12,10 @@ class PythonAT37 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "c48b07384b44572dfdf7a511036947af907645f771257bd8ddce61a06f798e54"
-    sha256 catalina:     "9f21ff87839d9f382cfa27ea9cfc4cedcb21b3c608d01c8f1487f7711d63d03c"
-    sha256 mojave:       "0530a690893b3e4081dd790b7ba4036b6d0e8d2a1e58ce8c93a6f5d59bed5f27"
-    sha256 x86_64_linux: "de06f7a0dc99dbf107f63b4bd3e077d37da8991c70d6e11af3fb2fe4afd2cb96"
+    sha256 big_sur:      "80254e0ed92ea7c5a77aab2e1ca9f1b7ea4f9258419710114b9cdca2740f2247"
+    sha256 catalina:     "a5ae644b32ffc98ae4c06fa252b97d55abd653b6798cf908e8555bf03294ea12"
+    sha256 mojave:       "032d2875bd49a94e0a465f9ddb578198bc2c498a3308eb03536c07a9730dcf7b"
+    sha256 x86_64_linux: "86478118afcef8ca708d47879fbe4050a285774fdbe9934fe1150b22322158f0"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -34,6 +34,7 @@ class PythonAT37 < Formula
   depends_on "pkg-config" => :build
   depends_on arch: :x86_64
   depends_on "gdbm"
+  depends_on "mpdecimal"
   depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
@@ -83,6 +84,12 @@ class PythonAT37 < Formula
     sha256 "486188ac1a4af4565de5ad54949939bb69bffc006297e8eac9339f19d7d7492b"
   end
 
+  # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
+  patch do
+    url "https://www.bytereef.org/contrib/decimal-3.7.diff"
+    sha256 "aa9a3002420079a7d2c6033d80b49038d490984a9ddb3d1195bb48ca7fb4a1f0"
+  end
+
   def lib_cellar
     prefix / (OS.mac? ? "Frameworks/Python.framework/Versions/#{xy}" : "") /
       "lib/python#{xy}"
@@ -105,6 +112,11 @@ class PythonAT37 < Formula
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
 
+    # Override the auto-detection in setup.py, which assumes a universal build.
+    on_macos do
+      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = "x64"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --enable-ipv6
@@ -114,6 +126,7 @@ class PythonAT37 < Formula
       --enable-loadable-sqlite-extensions
       --without-ensurepip
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-system-libmpdec
     ]
     args << "--with-dtrace" unless OS.linux?
 
@@ -396,6 +409,7 @@ class PythonAT37 < Formula
     # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
     system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac? && MacOS.full_version < "11.1"
 
+    system "#{bin}/python#{xy}", "-c", "import _decimal"
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
     system "#{bin}/python#{xy}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
