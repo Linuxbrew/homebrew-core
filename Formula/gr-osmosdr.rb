@@ -13,6 +13,12 @@ class GrOsmosdr < Formula
     sha256 mojave:   "1316ec1150647972436f96a9d957b5c5b7889f6f962217b181e6185a939aa2e2"
   end
 
+  head do
+    url "https://github.com/osmocom/gr-osmosdr.git"
+
+    depends_on "pybind11" => :build
+  end
+
   # gr-osmosdr does not build with gnuradio 3.9+
   disable! date: "2021-01-17", because: :does_not_build
 

@@ -2,8 +2,10 @@ class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
   url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117.src.tgz"
+  version "20210117"
   sha256 "ec7a5a54deb39c7c0fa746d17767752154e9cb94dbcf3d15b795083b3f0f154b"
   license "HPND"
+  version_scheme 1
   head "https://github.com/MLton/mlton.git"
 
   livecheck do
@@ -12,9 +14,9 @@ class Mlton < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "17689a4038de312508541279c5d6f8be7fc695af642e9691810d67b65c68289c"
-    sha256 cellar: :any, catalina: "5b874e9fc91c7c868faccb85daf65bbe2553eb31c2a4d499d839c60a22dd7b5c"
-    sha256 cellar: :any, mojave:   "099192143e94c33e015832650e9a445458df745ce65a6702e1ddf328cf60c8e0"
+    sha256 cellar: :any, big_sur:  "be6a6d599390e1182ab91f99c8e4cbeb20ed10cbd472d7a7fda790cbb9e60b88"
+    sha256 cellar: :any, catalina: "9690c5e07e46081d3f771797ea92f8ddef37fb79e3104263794f8c7473170f18"
+    sha256 cellar: :any, mojave:   "e6fdecbf689992c25e1429e2f33d5cd66c5bdee500ec1fe07759ac8d53593fdf"
   end
 
   depends_on "autoconf" => :build

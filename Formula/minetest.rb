@@ -4,8 +4,8 @@ class Minetest < Formula
   license "LGPL-2.1"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.3.0.tar.gz"
-    sha256 "65dc2049f24c93fa544500f310a61e289c1b8fa47bf60877b746a2c27a7238d6"
+    url "https://github.com/minetest/minetest/archive/5.4.0.tar.gz"
+    sha256 "6e9b299e156651be9bcf973a9232cff32215de31dfae5ea770a71d1757cab014"
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game/archive/5.3.0.tar.gz"
@@ -19,10 +19,9 @@ class Minetest < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 big_sur:  "1a0e503d7c53c7a62650c0f5b0f76ba3e6b51d10ac07d9a17b0d8c56a2900234"
-    sha256 catalina: "92e0b98ccb73b2ab82272dd9a165007e84dcd493453cb3701c6881b44758654d"
-    sha256 mojave:   "c42e63842c20316be1582bca49e00da8302e11409a388cd6f537148d2740d400"
+    sha256 cellar: :any, big_sur:  "30d1427e3fafef0ede68549e111e9dbd9dcc78fb285c7c86803de2dab4c3c59d"
+    sha256               catalina: "6b1f0ecc8f9565d6bf578af5c7dd567de2ae32bc522836dc88a6079ac5b65bcf"
+    sha256               mojave:   "984fd05bd70577902fa1fb1d7c3cc0528ecfea99eb37fadb014ac24b62db25e4"
   end
 
   head do

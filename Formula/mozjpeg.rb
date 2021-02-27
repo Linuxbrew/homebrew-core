@@ -1,8 +1,8 @@
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
-  url "https://github.com/mozilla/mozjpeg/archive/v4.0.0.tar.gz"
-  sha256 "961e14e73d06a015e9b23b8af416f010187cc0bec95f6e3b0fcb28cc7e2cbdd4"
+  url "https://github.com/mozilla/mozjpeg/archive/v4.0.3.tar.gz"
+  sha256 "4f22731db2afa14531a5bf2633d8af79ca5cb697a550f678bf43f24e5e409ef0"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,11 @@ class Mozjpeg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "b76cd545bd4829c589107a5c723086bda97d9060dd76d5b2626d45502b279487"
-    sha256 big_sur:       "3009c242ebe825a0c9150839f62a92a8a317725f9411bbfe93a0881c8a7436eb"
-    sha256 catalina:      "71f02633dddb7ea71193a7c21e1da0a6546fcd7c5ce10a725001b64aebf32a0f"
-    sha256 mojave:        "4ddb9a3d5b4618528eae92f95d4b08090cfefe8797402aa27da0712ef7121a09"
-    sha256 x86_64_linux:  "54836bc9bd338a9b8f0ea0e2a10250310c717f61939b820f57fb1bbd355b13e1"
+    sha256                               arm64_big_sur: "43d05f184bc2c2f0451913c9d6a437dd597c9da0fc675fd6a96859face7d8819"
+    sha256                               big_sur:       "62b7cba57dec06208ee2af6a726b918c0131c0d4f4b735d32eab16df348e1852"
+    sha256                               catalina:      "0664824dab3ebe497562d4b9fcb1fdafd011d7f0bcd6d50dc60bd73db57168cc"
+    sha256                               mojave:        "0188f192ba8d6471e034d8144b321a84871d46cf110fb27bdebb67f2d9116baa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ada6a768a14983ee538c858b28c23262d287f1d6cf20694fe38bad9fa0aa94d"
   end
 
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"

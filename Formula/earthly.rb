@@ -1,8 +1,8 @@
 class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.5.2.tar.gz"
-  sha256 "f95f9b74f27cc38ba105274f2a070dd5c21ba3d840d8245b2bf264041b53e8ae"
+  url "https://github.com/earthly/earthly/archive/v0.5.3.tar.gz"
+  sha256 "dc5a4d7978013931422bc2c8b1185f9131a1a07c93623143e5acbb6059662ac1"
   license "BUSL-1.1"
   head "https://github.com/earthly/earthly.git"
 
@@ -12,18 +12,18 @@ class Earthly < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "db98a60a23b2efe39d0a434712cf751ffa140b1f02724bad373dc5bb8c384b96"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6646599b0a6505a6c91e5b180ccb927f75a59bc1ea11470e13e3432060a5ecd6"
-    sha256 cellar: :any_skip_relocation, catalina:      "9711247f2029c5ed3ff4c69c0daa48ba0e30d2e2ae71e9fbf81a4346c48859c7"
-    sha256 cellar: :any_skip_relocation, mojave:        "8b2f3b9aeba58b90ec60dd58080428def3581df1a3af5722e5774e842203cd21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ce818d93f71ea72e43a51873da98b480e3b446f21b40678430f4e56803e0610"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa035356c27782a07a0163d2178855e878fbb19ea3fe88a7cf3fcb7210e0cdef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "47e4935a2d7f15fb56f23ada7d3cbe0d7b6535ae8a435a7ad0ab0fdbe2f61a98"
+    sha256 cellar: :any_skip_relocation, catalina:      "8e08ead2e116fdd1045fcad5ffb540e1789de4de7616dd80ab70b3ed621598ee"
+    sha256 cellar: :any_skip_relocation, mojave:        "5ade4fab3501ac735435c530b2c094bc7c7f6e411f9b0ca2bb087ecbd057a3d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d29cb57d521fdc626ce0f90c375feab19d2fadc64c649f86b4ae8b9d60415fcd"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} -X" \
-              " main.GitSha=10e367052402ceb2a8afe0cd292a2fc8db7042da "
+              " main.GitSha=d4845a524e822b12803da1b11c23664709e7f44d "
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
     system "go", "build",
         "-tags", tags,

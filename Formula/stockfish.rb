@@ -1,8 +1,8 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://github.com/official-stockfish/Stockfish/archive/sf_12.tar.gz"
-  sha256 "d1ec11d1cb8dfc5b33bcd6ec89ed0bafb3951cc1690851448a2696caa2022899"
+  url "https://github.com/official-stockfish/Stockfish/archive/sf_13.tar.gz"
+  sha256 "15d14721b3be17c597535bdbb44fb951a1ee948312d90fbf55fa0e52b8b81d62"
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git"
 
@@ -13,11 +13,10 @@ class Stockfish < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "551132d7e63e86d86bf857b89cd6067b1c0b6461c8c2a48b9adf4edf9285ec12"
-    sha256 cellar: :any_skip_relocation, big_sur:       "80f4bffca9c15c8f2744876384f2a07d1184de36e67167b5730a9c7b32e11b9a"
-    sha256 cellar: :any_skip_relocation, catalina:      "54594ab09c5f7176a52ca9b8e1a8d937420d89f8ee98b17322a82396f88e14c2"
-    sha256 cellar: :any_skip_relocation, mojave:        "f0bf09f7f5b3a28debe09be7898bb6973524f13026d5c18eee6752450e778efe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a695ec759970fee9683ea548aaa9d90a0e355965f813d6eb3561b15a15ad4390"
+    sha256 cellar: :any_skip_relocation, big_sur:       "76291e5d29db6a4c5c9bd3fe6ca728294cc5f6bc67610831a214e7d98ab7d47f"
+    sha256 cellar: :any_skip_relocation, catalina:      "2786e7ccf04a15f45861c6949caa3b11219353bf3c2aadc03e8bbc2114ecbc67"
+    sha256 cellar: :any_skip_relocation, mojave:        "e375b405f0d4f38eb8b9fa73156817a62777e80d350b9ef46b0088bf3cf739fe"
   end
 
   def install

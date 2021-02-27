@@ -21,6 +21,9 @@
   "pdm": {
     "extra_packages": ["wheel"]
   },
+  "pipgrip": {
+    "extra_packages": ["wheel"]
+  },
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },

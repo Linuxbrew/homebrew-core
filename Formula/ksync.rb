@@ -3,19 +3,26 @@ class Ksync < Formula
   homepage "https://ksync.github.io/ksync/"
   url "https://github.com/ksync/ksync.git",
       tag:      "0.4.6",
-      revision: "a63f23dba397a540cca9cbde5001afa5cbd8b2ae"
+      revision: "bfb445b179a0405ab4a01b999010010406f425b7"
   license "Apache-2.0"
   head "https://github.com/ksync/ksync.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "e0e5dce990e687f5d19f30eff1dddf44430bfdcaa63da2389183436f6426833f"
-    sha256 cellar: :any_skip_relocation, catalina: "3d5ec6bf44c875d29d501b8ca96f7ca49aab9d749a8bad3a3cb967eea6883487"
-    sha256 cellar: :any_skip_relocation, mojave:   "03b1cda4ab1cb87932e019a009e8a46f06cfc180ecefd6cb574aa1d8e11ab751"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b8fdaafce04e89be790f15be07240b0ce0baabd5550ce6f625b6177d9fafecd1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e68abf337654f51128a835f8d3c124df880a37a26f2773b0aa09fce74c67d63a"
+    sha256 cellar: :any_skip_relocation, catalina:      "68409c1188fc629bb181765961ee9ff645b941400edcea9939d8d7189e7db5dc"
+    sha256 cellar: :any_skip_relocation, mojave:        "a4d52a2a59f8b6308ea858f051e8971145b9964c32564a832408e05f6582c23e"
   end
 
   depends_on "go" => :build
 
   def install
+    # Remove this when upstream provide working go.sum files
+    # (i.e. it builds without errors)
+    # https://github.com/ksync/ksync/issues/504
+    system "go", "mod", "tidy"
+
     project = "github.com/ksync/ksync"
     ldflags = %W[
       -w

@@ -2,8 +2,8 @@ class ErlangAT21 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.3.8.20.tar.gz"
-  sha256 "7ed3b3c149add9f847144d507ffc411d63a212523539789e9d73d19edcf5aa16"
+  url "https://github.com/erlang/otp/archive/OTP-21.3.8.21.tar.gz"
+  sha256 "47a0edb246c267f905564245ca3019e8491db5537dfa5441dc5031a4d091ea15"
   license "Apache-2.0"
 
   livecheck do
@@ -12,10 +12,10 @@ class ErlangAT21 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "6bb8d0a516d32ed5b0d35f38a7fa42847b65a36ce1dfb561f198b43a80add84d"
-    sha256 cellar: :any,                 catalina:     "bb684a65ce01740ed9005347f3a4eb67b48fd2300ba5abd648a6bf0288dc89b1"
-    sha256 cellar: :any,                 mojave:       "20e0f6b00c8c4b5bf9dbd71a245fa1e9b900a20255079c7a0a2b17b6136d1294"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "08d3936414801ad5dca2a36be33fe794269aa4c55a27b6771651204aec48b337"
+    sha256 cellar: :any,                 big_sur:      "cebd6a18804037d11d0e4f58f3e9579721408fe5fca1e6b435a0ffbc1441ef48"
+    sha256 cellar: :any,                 catalina:     "4a15839bac8cc79afb24e6ceeb15cd96201e9466cf699cf5093eda4eb0aa1c34"
+    sha256 cellar: :any,                 mojave:       "8148773da7ad7137b4a9042c96eb3e0a909ae706aaca3afad9dab32d04836f82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e816de62b9585972fc3543eeb1dfcf6cf3fd7ed222b15edb9f58edf84ae3f7f6"
   end
 
   keg_only :versioned_formula
@@ -45,18 +45,6 @@ class ErlangAT21 < Formula
   patch do
     url "https://github.com/erlang/otp/commit/3edba0dad391431cbadad44a8bd15c75254fc239.patch?full_index=1"
     sha256 "0c82d9f3bdb668ba78025988c9447bebe91a2f6bb00daa7f0ae7bd1916cd9bfd"
-  end
-
-  # Fix build on Xcode 12+ (https://bugs.erlang.org/browse/ERL-1306)
-  patch do
-    url "https://github.com/erlang/otp/commit/388622e9b626039c1e403b4952c2c905af364a96.patch?full_index=1"
-    sha256 "85d3611fc071f06d421b9c7fae00b656fde054586bf69551aec38930d4086780"
-  end
-
-  # Fix build on Big Sur (https://github.com/erlang/otp/pull/4524)
-  patch do
-    url "https://github.com/erlang/otp/commit/99fc87254e07fbd7bf4f9a02966a455846d5d017.patch?full_index=1"
-    sha256 "8a9b91f428f779e76d4ed85af1a079fd6b54bd9fc6d4d45fc2747f8a4fcac0cf"
   end
 
   def install

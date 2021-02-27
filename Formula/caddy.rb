@@ -7,17 +7,19 @@ class Caddy < Formula
   head "https://github.com/caddyserver/caddy.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "c59083c1a788a18a56a3207fde52c833d68dd00312a870bf8c00c73b634f4844"
-    sha256 cellar: :any_skip_relocation, catalina:     "21f0b6e91e1868b077f3d729db7e9b7ca399407304dae108b4f347ee4b77bae0"
-    sha256 cellar: :any_skip_relocation, mojave:       "3012750280d5bee8b42e7b40d0ecf96956f709ee1dd648ef86702f0436524200"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "033730159a0ec6f4373ea757486c02178b50bad355abeb8bc18005c40d26aa06"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "506af0d514605b32b5775cf716d241a5de2e96e8c5a99139573753c4476fbb4d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9564b852006d1a2bbad34dffce96a225b26e258fb9bc34a2202fe2b9dceee397"
+    sha256 cellar: :any_skip_relocation, catalina:      "e3426aa235903fb0d6d25674114e16f05974f719119bec81b443136f8cc1b347"
+    sha256 cellar: :any_skip_relocation, mojave:        "182ffcf9b7bb81f4299897a225848e690605f47126f1a2dd97b69ca5a7f869ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9e47e306a1dbe45059abe36b4ebe74e6a005868be9d2f4e0c3c26aa265bc3e1"
   end
 
   depends_on "go" => :build
 
   resource "xcaddy" do
-    url "https://github.com/caddyserver/xcaddy/archive/v0.1.7.tar.gz"
-    sha256 "9915970e69c07324f4d032741741516523147b6250e1426b16e6b794d4a56f05"
+    url "https://github.com/caddyserver/xcaddy/archive/v0.1.8.tar.gz"
+    sha256 "517e800e2c3edfa0bcb5a80092d2cc7dc2f7d1c21a91ec6e77393df127b182f9"
   end
 
   def install

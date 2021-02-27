@@ -1,11 +1,10 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://downloads.mariadb.org/connector-c/"
-  url "https://downloads.mariadb.org/f/connector-c-3.1.11/mariadb-connector-c-3.1.11-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.1.11-src.tar.gz"
-  sha256 "3e6f6c399493fe90efdc21a3fe70c30434b7480e8195642a959f1dd7a0fa5b0f"
+  url "https://downloads.mariadb.org/f/connector-c-3.1.12/mariadb-connector-c-3.1.12-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.1.12-src.tar.gz"
+  sha256 "2f5ae14708b4813e4ff6857d152c22e6fc0e551c9fa743c1ef81a68e3254fe63"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
 
   livecheck do
@@ -14,11 +13,11 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "32910577f524f9100dccee7efdf1fff27e2e2804c757ace2d84ac304f12c64d3"
-    sha256 big_sur:       "336449db2c8c97536c63023289de0afe75324a7b85c1cd601e5248100cb8f34b"
-    sha256 catalina:      "2efbfa48262a5d9f5232d68ac6ae2d0e82fe55fed4cf2278cd2ec858a34d7e1a"
-    sha256 mojave:        "31b05ada881147da4af8f2ac0b5402fcaa8e995876451e3af5d448f2df2cd609"
-    sha256 x86_64_linux:  "f1495ef13d11f4bfec6dae593cb7091a56cb53cd7aac473da35e8f1e8051b9c1"
+    sha256 arm64_big_sur: "578958505453c5d918388702108e6bbb9d4f86367ebf12cb08d1c1de03486aae"
+    sha256 big_sur:       "477ccf03090ae5e1ab301c93c4f07ceae1769e3c186858e3194cf311f803f03d"
+    sha256 catalina:      "1edcf6c7a0ffe45dd91c6377c423bdb0c96081a84b83eab17027fcfb085901f7"
+    sha256 mojave:        "3bccbdb436920b3254539bf7cab469bf3200999aca0e043891e56bf3f45889c7"
+    sha256 x86_64_linux:  "bcf16e017108a9016722e5cef413fd35de229d57ac829f1c4df964423b1c71e4"
   end
 
   depends_on "cmake" => :build

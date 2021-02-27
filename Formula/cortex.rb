@@ -1,8 +1,8 @@
 class Cortex < Formula
   desc "Long term storage for Prometheus"
   homepage "https://cortexmetrics.io/"
-  url "https://github.com/cortexproject/cortex/archive/v1.6.0.tar.gz"
-  sha256 "17dd427a676eb2af52a5d758397a4c384fe73e2e1379122b0a3dc6e36b378de4"
+  url "https://github.com/cortexproject/cortex/archive/v1.7.0.tar.gz"
+  sha256 "8454e424aabba01609fbcb5bfdaa7184779633893b00d1e6f3f697438213b74e"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,10 @@ class Cortex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a15b4792c7334365dbda6493e87214b2a7b091c5f6342bdb175ca6e44688bb4c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b2b1578fbda810919635eb9c5e6cd26c9826d9b66811a2408f9459f4428e6c52"
-    sha256 cellar: :any_skip_relocation, catalina:      "b89466af24dab8ef0e913462515d6bd0a1673c11d8eb8b0e1712212c1cb25dc1"
-    sha256 cellar: :any_skip_relocation, mojave:        "f0cf729caf7dc1b9cd19e2f4ac12bc38961f36f76d2ddbfac4365912dd33d8c4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "836f0a9476579a1f2c3947ba2df819b3fac2e4eb26db4c27986728428230981e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "06559234d2550b71c6bea421d9a7e89e4bf93ec47add1a9754ee40b234c58b17"
+    sha256 cellar: :any_skip_relocation, catalina:      "faf503740543dfd2d3fe98ef224485bb6244bc7e32921aae642b41acfc849a62"
+    sha256 cellar: :any_skip_relocation, mojave:        "923b7834a300f8129899f602c4b464d1efc1724055f7ae83fe296bbefa27c345"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.12.0.107.tar.xz"
-  sha256 "61f3cd629f8e99371c6b47c1f8d96b8ac46d9e851b5531eef20cdf9ab60d2a5f"
+  url "https://download.mono-project.com/sources/mono/mono-6.12.0.122.tar.xz"
+  sha256 "29c277660fc5e7513107aee1cbf8c5057c9370a4cdfeda2fc781be6986d89d23"
   license "MIT"
 
   livecheck do
@@ -11,9 +11,9 @@ class Mono < Formula
   end
 
   bottle do
-    sha256 big_sur:  "cc88ee58cc672b0eed70bff3fc8cd7bdc7ea219f0c95e1129193b188edff34dc"
-    sha256 catalina: "5180d906bcffc14c55bb32298b6bae70f3f0aec49777f92f8926ec2fc80d2d10"
-    sha256 mojave:   "a32daf667d9507ede278e478d4060a7fff234d3720e1382819310c0903626a2a"
+    sha256 big_sur:  "fdd17b0e0eb154047fa8091b52763f1f0df0fc921c216f6633d4d59f7cd62af5"
+    sha256 catalina: "428998efcf415948ca793b166d7ed6e242814205238e77111419de828fd33cfe"
+    sha256 mojave:   "d25b6982b6bd7af6b001e5f7b53ff0dad68937ce11ba0dce9d1529e2b0608b85"
   end
 
   depends_on "cmake" => :build
@@ -66,23 +66,7 @@ class Mono < Formula
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        revision: "db750f72af92181ec860b5150b40140583972c22"
-
-    # Remove in next release
-    # https://github.com/dotnet/msbuild/issues/6041
-    # https://github.com/dotnet/msbuild/pull/5381
-    patch do
-      url "https://github.com/mono/msbuild/commit/e2e4dfee543269ccb0a459263985b1c993feacec.patch?full_index=1"
-      sha256 "b64e93fbe1f5a5b8bcdb46ddd7d51a714f0e671b1b8ce2d1c2a0b80710ecb293"
-    end
-    patch do
-      url "https://github.com/mono/msbuild/commit/509c3190cf77be9422bddfad30b89e158f6229c3.patch?full_index=1"
-      sha256 "cf5fc342319cc1cb3b7bff02ec7d7d69af07f2777cf5b1910274d757cb14d92a"
-    end
-    patch do
-      url "https://github.com/mono/msbuild/commit/70bf6710473a2b6ffe363ea588f7b3ab87682a8d.patch?full_index=1"
-      sha256 "630b4187e882c162cd09e14f16ef2cca29b588dbea71bc444d925e5ef3f8f067"
-    end
+        revision: "70bf6710473a2b6ffe363ea588f7b3ab87682a8d"
   end
 
   # Temporary patch remove in the next mono release

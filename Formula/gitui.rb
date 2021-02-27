@@ -10,11 +10,12 @@ class Gitui < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "60db2601c6791f28adfa590269af2216b644c0aec57c7b76760fdbd2782c9b4c"
     sha256 cellar: :any_skip_relocation, catalina:      "58b881c6404ef201a9f386285cad4be06eed6f9da934895d9feb6e813cd9448d"
     sha256 cellar: :any_skip_relocation, mojave:        "724c0c2e5055cea5d49c376c2b6c8681847cf9f0a45079a3fff103f2e5641028"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36910592881172f99dc26e3c9538700fb9d1a014980cbf4aba903c35c60a758d"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "libiconv"
+  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", *std_cargo_args

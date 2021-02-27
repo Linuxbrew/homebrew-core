@@ -32,14 +32,7 @@ class ClangFormat < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "subversion" => :build
-  unless OS.mac?
-    depends_on "bison" => :build
-    depends_on "gcc" # needed for libstdc++
-    if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
-      depends_on "glibc"
-    end
-    depends_on "libedit" # llvm requires <histedit.h>
-  end
+  depends_on :macos # See caveats
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -65,6 +58,14 @@ class ClangFormat < Formula
     bin.install llvmpath/"build/bin/clang-format"
     bin.install llvmpath/"tools/clang/tools/clang-format/git-clang-format"
     (share/"clang").install Dir[llvmpath/"tools/clang/tools/clang-format/clang-format*"]
+  end
+
+  def caveats
+    unless OS.mac?
+      <<~EOS
+        Please use the clang-format executable provided by the llvm formulae instead.
+      EOS
+    end
   end
 
   test do

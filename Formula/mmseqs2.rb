@@ -1,20 +1,18 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/12-113e3.tar.gz"
-  version "12-113e3"
-  sha256 "81fa0d77eab9d74b429567da00aa7ec2d46049537ce469595d7356b6d8b5458a"
+  url "https://github.com/soedinglab/MMseqs2/archive/13-45111.tar.gz"
+  version "13-45111"
+  sha256 "6444bb682ebf5ced54b2eda7a301fa3e933c2a28b7661f96ef5bdab1d53695a2"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "586f29f2865f69e7947fd57f7da464a0437f13a3c47924ec857b4f89e7c7ffa5"
-    sha256 cellar: :any, big_sur:       "680c7da7213bd418914740e3b7136ab839003ac287b586240982adecf8b1eaeb"
-    sha256 cellar: :any, catalina:      "2187f9ec5272d2f5c51fbe24d8b3a266b0441b17cd88b48cc9e30f28cfb9c8e6"
-    sha256 cellar: :any, mojave:        "024422927bed2dd5a769255b6639d76ca4128bd27cd3d0717866847fa4d4468f"
-    sha256 cellar: :any, x86_64_linux:  "8c4a19a4da642054fca312ccd309a4e4f20bcdbeb476b1ff9adab719a67d4b93"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "510d513310f2372e90eb1cd63a3e03e8f86e92d286fc9bc28e11c64c6e953ebb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9c77c3321deb69aa84df7326821c803ecd377dc3f91931c26ca030832c25ee80"
+    sha256 cellar: :any_skip_relocation, catalina:      "f52feb3e6c03379981c6d7af2f2a3d404b0f0eb20ef2de490c1e8d67bd03ef54"
+    sha256 cellar: :any_skip_relocation, mojave:        "72a26a3d303d4150154c8200893ae6f4554b5eb1fe93a24d86c3b88d90aa1a3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80b9a385006d4ea4bffcb2aa9cb9f2c536f68ec1edde074ef883ddfcc0d130ca"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +27,7 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        revision: "d53d8be3761ee625b0dcddda29b092bbd02244ef"
+        revision: "790eb1b49f460d6054d5b8a6a643b8543f166388"
   end
 
   resource "testdata" do
@@ -54,9 +52,6 @@ class Mmseqs2 < Formula
       args << "-DOpenMP_CXX_LIB_NAMES=omp"
       args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
     end
-
-    # Fix SIMDe on AppleClang11, fixed upstream, remove in next release
-    args << "-DCMAKE_CXX_FLAGS=-DSIMDE_NO_CHECK_IMMEDIATE_CONSTANT=1" if DevelopmentTools.clang_build_version == 1100
 
     system "cmake", ".", *args
     system "make", "install"

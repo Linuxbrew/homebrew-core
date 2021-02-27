@@ -1,8 +1,8 @@
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
-  url "https://github.com/boyter/scc/archive/v2.13.0.tar.gz"
-  sha256 "11e2e44ef25ef848de1b380c94cb096ed77d3d590466c99c9f1b5c2dc99609c2"
+  url "https://github.com/boyter/scc/archive/v3.0.0.tar.gz"
+  sha256 "01b903e27add5180f5000b649ce6e5088fa2112e080bfca1d61b1832a84a0645"
   license any_of: ["MIT", "Unlicense"]
 
   livecheck do
@@ -11,12 +11,11 @@ class Scc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "62b0422f5870ec284d34261c83459095a958be8e6e227c61f0af534d55c1dd41"
-    sha256 cellar: :any_skip_relocation, big_sur:       "93d4e567fe99406e6aa8406bef550907df0b0f668459a008ab465fd2c62c4fe2"
-    sha256 cellar: :any_skip_relocation, catalina:      "648beb7662a3bd6cd47681fbabfbbe0b77ab557849c4842145c848c753ee4a53"
-    sha256 cellar: :any_skip_relocation, mojave:        "82f1f701f3739a60a2e5e24e698fe0a62c0fa12ec5c0d7935c702659fe0b0eae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c67d9e0ce2d6c56cb7344a69f86068b40d2420df9145347d82e4fbff5f9d6f9a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3c4d0faf74445889e647a4366f428dfada194b66be43bcae45e8493b21d02187"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e55821dfc18b02de3be5dec72881c65085ffa0b5a446179b86a151db5780577c"
+    sha256 cellar: :any_skip_relocation, catalina:      "8f425e7b1f10563d69e459bb5ce07e5cf87512c4eb0923acb2618e0b0f1184f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "81f89e5d3ba8358b052378b2c68bab24ade5d75ec8561b2e2b16b7de065c8d56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67f756d5090e8226482efee1d1ff8aa74684e184add296ac310603bb64c753c9"
   end
 
   depends_on "go" => :build
@@ -33,6 +32,11 @@ class Scc < Formula
       }
     EOS
 
-    assert_match "C,test.c,test.c,4,4,0,0,0,50\n", shell_output("#{bin}/scc -fcsv test.c")
+    expected_output = <<~EOS
+      Language,Lines,Code,Comments,Blanks,Complexity,Bytes
+      C,4,4,0,0,0,50
+    EOS
+
+    assert_match expected_output, shell_output("#{bin}/scc -fcsv test.c")
   end
 end

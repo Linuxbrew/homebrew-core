@@ -61,8 +61,10 @@ class Ldc < Formula
       system "make"
       system "make", "install"
 
-      # Workaround for https://github.com/ldc-developers/ldc/issues/3670
-      cp Formula["llvm"].opt_lib/"libLLVM.dylib", lib/"libLLVM.dylib" if OS.mac?
+      on_macos do
+        # Workaround for https://github.com/ldc-developers/ldc/issues/3670
+        cp Formula["llvm"].opt_lib/"libLLVM.dylib", lib/"libLLVM.dylib"
+      end
     end
   end
 

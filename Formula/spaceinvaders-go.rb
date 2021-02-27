@@ -1,50 +1,21 @@
 class SpaceinvadersGo < Formula
   desc "Space Invaders in your terminal written in Go"
   homepage "https://github.com/asib/spaceinvaders"
-  url "https://github.com/asib/spaceinvaders/archive/v1.2.tar.gz"
-  sha256 "e5298c4c13ff42f5cb3bf3913818c5155cf6918fd757124920045485d7ab5b9e"
+  url "https://github.com/asib/spaceinvaders/archive/v1.2.1.tar.gz"
+  sha256 "3fef982b94784d34ac2ae68c1d5dec12e260974907bce83528fe3c4132bed377"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "20ecc3ccc4d2c28cc9251f14fccc66fbd88abe6edc64708a73ed5aaa7941e39c"
-    sha256 cellar: :any_skip_relocation, catalina:     "221c4d6f495ed8b4c1db5c737b4ff08be55a65b2bd15fc1c3e43ae96e29726ba"
-    sha256 cellar: :any_skip_relocation, mojave:       "3f6f5106ba62445e33e2181facd9644dde99bb0f527455e4b49cecdb56cb56aa"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "5a512f039b4a9698eb5ce766798f462b134e98944e07ab3eccf712ee35c811d1"
-    sha256 cellar: :any_skip_relocation, sierra:       "672db5956f42626d3e9fc18defe431c4f2c18cd647f8cd534f9f522c314a0c49"
-    sha256 cellar: :any_skip_relocation, el_capitan:   "2ac0b623df41e8c9e9da05fc7f21e842bce1e71c0b9d4db52ef685cca9e040b0"
-    sha256 cellar: :any_skip_relocation, yosemite:     "99a7e2c353d5dbb310fa03e4a430d05e0092cb0aee1c19e38bd592492ae16487"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "720fe6d4f6871b7f1aa5de6024806d00c9dee67a65cbcbf60be8c184cf0e55c9"
+    sha256 cellar: :any_skip_relocation, big_sur:      "c0ed01fe110f5d7d681d12883f58962ae5c0ea721b032e8d3ef0adee41956841"
+    sha256 cellar: :any_skip_relocation, catalina:     "1c4712409711d84aa1a7ce64214bb620e13660991f2afacd41681278ae0c3ba1"
+    sha256 cellar: :any_skip_relocation, mojave:       "596f084c8dad9588158ea9419e8a7ce4e33e8193d18b18e4095a6443b5e2fbbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0ab83f52840337da3a6ec2946cc44154055f4cb1f95959330c69e99553a61259"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/mattn/go-runewidth" do
-    url "https://github.com/mattn/go-runewidth.git",
-        revision: "12e0ff74603c9a3209d8bf84f8ab349fe1ad9477"
-  end
-
-  go_resource "github.com/nsf/termbox-go" do
-    url "https://github.com/nsf/termbox-go.git",
-        revision: "347ab0bc907040257edaf8b580f729e12c93ab6b"
-  end
-
-  go_resource "github.com/simulatedsimian/joystick" do
-    url "https://github.com/simulatedsimian/joystick.git",
-        revision: "6aa8abe045a796cf36b720d0484809e3f70dc5bd"
-  end
-
   def install
-    # This builds with Go.
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    sipath = buildpath/"src/github.com/asib/spaceinvaders"
-    sipath.install Dir["{*,.git}"]
-    Language::Go.stage_deps resources, buildpath/"src"
-    cd "src/github.com/asib/spaceinvaders/" do
-      system "go", "build"
-      bin.install "spaceinvaders"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "-o", bin/"spaceinvaders"
   end
 
   test do

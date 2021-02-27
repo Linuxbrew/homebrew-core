@@ -8,10 +8,12 @@ class QpidProton < Formula
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:      "8fbc4f2dd6d3da1b582d4ac681efbe6642556f5ac32f15ee9fc1519ffd2d00bd"
-    sha256 cellar: :any, catalina:     "95e0eee7ab97b025c67e28d3463eb903216820361a39e247683814a75c4f6ba7"
-    sha256 cellar: :any, mojave:       "2322808f69519175c64b268a7ea75dceab4c3a8d3d898d4637a3dff066d2f69b"
-    sha256 cellar: :any, x86_64_linux: "78ea111494d1d05109578a8ab9ec5fa1cf734f4ea9d9b81f56f5b5d4b3f9ee88"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "a24a18a5d17a1f4d221676d8fa7e7bfff6fdc598708d4b07010ffa2ecefdf5b0"
+    sha256 cellar: :any,                 big_sur:       "37ac24b89b4a23abff75e11dda46d71403e39abc148906a2f77a65cf61f63804"
+    sha256 cellar: :any,                 catalina:      "5bb29532d0ac3ea61cc1c58b2bf3975f76d9cb7ff8e53b7a692558279a7ddcaf"
+    sha256 cellar: :any,                 mojave:        "9718338d5d938b7264df5a0312ff36a9060c5bd41c8b7bd439e6821238f10010"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9619b2ee124885c47c9972a61a64aabf3335a4858409223110461aaaeb78df4c"
   end
 
   depends_on "cmake" => :build
@@ -22,6 +24,7 @@ class QpidProton < Formula
     mkdir "build" do
       system "cmake", "..", "-DBUILD_BINDINGS=",
                          "-DLIB_INSTALL_DIR=#{lib}",
+                         "-DBUILD_TESTING=OFF",
                          "-Dproactor=libuv",
                          *std_cmake_args
       system "make", "install"

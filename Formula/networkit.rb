@@ -3,15 +3,15 @@ class Networkit < Formula
 
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/8.0.tar.gz"
-  sha256 "cdf9571043edbe76c447622ed33efe9cba2880f887ca231d98f6d3c22027e20e"
+  url "https://github.com/networkit/networkit/archive/8.1.tar.gz"
+  sha256 "0a22eb839606b9fabfa68c7add12c4de5eee735c6f8bb34420e5916ce5d7f829"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "6bcc6f2a916a88aecde8ba207f9529e85f4aa5c0824103cd174edd8305829853"
-    sha256 big_sur:       "1d61dc3b796983a9917d3432c81f71970124b1b92223571f8e71e5d93bfcf3a3"
-    sha256 catalina:      "9993759bccd6358ac11a8155f38f00c567216fde5f6b9bf7bf7540c16b3ade4d"
-    sha256 mojave:        "91d651e6ddc12737aa0c54bc70426a2156247fe24360bb4c4de1d548e5838224"
+    sha256 arm64_big_sur: "f31b0dd888f0f6f8b9a5150f6c77e43e51b1c636e82c55c035b1a2896c9843c0"
+    sha256 big_sur:       "ae370fdd0974d13ff6a572d2041e651738ae05da78f357c52ca32507a20cf137"
+    sha256 catalina:      "da73389019eb5285306e33e95e7bf3c223bef8a6037630ec11fe0bf7d3bc8f81"
+    sha256 mojave:        "a8fad9747011befa4f6995d09cfd21355649d57a99a969b63b8b15d1189336d4"
   end
 
   depends_on "cmake" => :build
@@ -22,13 +22,6 @@ class Networkit < Formula
   depends_on "numpy"
   depends_on "python@3.9"
   depends_on "scipy"
-
-  # setup.py: add --external-tlx option
-  # https://github.com/networkit/networkit/pull/666
-  patch do
-    url "https://github.com/networkit/networkit/commit/dbe93306402e6ffee78bf45df5efc9cf2ac991a7.patch?full_index=1"
-    sha256 "7b50df48972f5490ede25e101d04e7ec4b1c4f8ededfdaee94c17fedf917d572"
-  end
 
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"

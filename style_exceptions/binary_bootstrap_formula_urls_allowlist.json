@@ -1,4 +1,5 @@
 [
+  "cabal-install",
   "clozure-cl",
   "crystal",
   "fpc",
@@ -13,6 +14,7 @@
   "go@1.12",
   "go@1.13",
   "go@1.14",
+  "go@1.15",
   "ldc",
   "mlton",
   "openjdk",

@@ -15,6 +15,7 @@ class ClangFormatAT8 < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+  depends_on :macos # See caveats
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -37,6 +38,14 @@ class ClangFormatAT8 < Formula
 
     bin.install buildpath/"build/bin/clang-format" => "clang-format-8"
     bin.install buildpath/"tools/clang/tools/clang-format/git-clang-format" => "git-clang-format-8"
+  end
+
+  def caveats
+    unless OS.mac?
+      <<~EOS
+        Please use the clang-format executable provided by the llvm formulae instead.
+      EOS
+    end
   end
 
   test do

@@ -6,12 +6,13 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/3.0.8.tar.gz"
   sha256 "663ef2fcf359e1efb20831fae3901a3edbbb906dd0bc5e62af92e353651c5cec"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
-    sha256 arm64_big_sur: "12f52a5923b8fa6861a912f0d693c7d3b20eae237069afb37a75f242f92b42e1"
-    sha256 big_sur:       "a7804434d6a07751d04e290817c5ba3212c43b78e7e4c86651b3b4053878e791"
-    sha256 catalina:      "0188bcf2c380ae32007526f63f5b9752d5bc491b12f11f0d44da27058ce9ac74"
+    sha256 arm64_big_sur: "49686042c04a454e6aa528f3dcc376e7be802f355be967783720c230a606f653"
+    sha256 big_sur:       "0e7b02bc9abb0ba580436d557da3b3c08d0d0a47bbf814bf2f66f212d475c6c5"
+    sha256 catalina:      "91c662e862fbd2430c52767712f9391605c585680a6af3d0836e8b2caa895f06"
   end
 
   depends_on "cmake" => :build

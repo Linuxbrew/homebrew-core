@@ -1,6 +1,6 @@
 # Based on:
-# Apple Open Source: https://opensource.apple.com/source/cvs/cvs-45/
-# MacPorts: https://trac.macports.org/browser/trunk/dports/devel/cvs/Portfile
+# Apple Open Source: https://opensource.apple.com/source/cvs/cvs-47/
+# MacPorts: https://github.com/macports/macports-ports/blob/master/devel/cvs/Portfile
 # Creating a useful testcase: https://mrsrl.stanford.edu/~brian/cvstutorial/
 
 class VimRequirement < Requirement
@@ -14,7 +14,8 @@ class Cvs < Formula
   homepage "https://www.nongnu.org/cvs/"
   url "https://ftp.gnu.org/non-gnu/cvs/source/feature/1.12.13/cvs-1.12.13.tar.bz2"
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
-  revision OS.mac? ? 2 : 3
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
+  revision OS.mac? ? 3 : 4
 
   livecheck do
     url "https://ftp.gnu.org/non-gnu/cvs/source/feature/"
@@ -22,12 +23,16 @@ class Cvs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:      "0cf65c20d4220d636cfd9c9b4f4e6f3ab011fe01136e5677f9da56cb67c0c208"
-    sha256 cellar: :any_skip_relocation, catalina:     "2d6d9ac2f96edfbd55f9f13c215ba6aec3960c1c3f91e99294a512618b159bb9"
-    sha256 cellar: :any_skip_relocation, mojave:       "c564cc0e316461844b51f36f9d13e357184af89c325edfe8c565fd1f74d6d2da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e58c2bda5a61e91c4c5bde62b2f1be6bd33ecbca1e88599c10247e1cd1cba8e8"
+    sha256 cellar: :any,                 arm64_big_sur: "d254eab8b61ddab83920f40ee1981b0f63ea9fd7bc02e570837bc61551dfdd32"
+    sha256 cellar: :any,                 big_sur:       "6d6120ae3bf1d373e769370cd6ef8621cb462fb592cb337ad4057e10c4ee07ec"
+    sha256 cellar: :any,                 catalina:      "4844c8cc28ae86ca8adc34d149f9d78c94195b8ccb88af24a85a3112e53246f0"
+    sha256 cellar: :any,                 mojave:        "735fd1cc0b3e954123e93bb3565622e57a833863aaa95475c719d908a74fa1df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c1997c20b9ba268688aa085c98ae95f1bc04f5b81a5326014aaa45ee8baa010"
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext"
 
   unless OS.mac?
     depends_on VimRequirement unless ENV["HOMEBREW_GITHUB_ACTIONS"]
@@ -37,8 +42,8 @@ class Cvs < Formula
   end
 
   patch :p0 do
-    url "https://opensource.apple.com/tarballs/cvs/cvs-45.tar.gz"
-    sha256 "4d200dcf0c9d5044d85d850948c88a07de83aeded5e14fa1df332737d72dc9ce"
+    url "https://opensource.apple.com/tarballs/cvs/cvs-47.tar.gz"
+    sha256 "643d871d6c5f3aaa1f7be626d60bd83bbdcab0f61196f51cb81e8c20e41f808a"
     patches = ["patches/PR5178707.diff",
                "patches/ea.diff",
                "patches/endian.diff",
@@ -66,6 +71,16 @@ class Cvs < Formula
   patch :DATA
 
   def install
+    # Do the same work as patches/remove-libcrypto.diff but by
+    # changing autoconf's input instead of editing ./configure directly
+    inreplace "m4/acx_with_gssapi.m4", "AC_SEARCH_LIBS([RC4]", "# AC_SEARCH_LIBS([RC4]"
+
+    # Fix syntax error which breaks building against modern gettext
+    inreplace "configure.in", "AM_GNU_GETTEXT_VERSION dnl", "AM_GNU_GETTEXT_VERSION(0.21) dnl"
+
+    # Existing configure script needs updating for arm64 etc
+    system "autoreconf", "--verbose", "--install", "--force"
+
     # Work around configure issues with Xcode 12
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 

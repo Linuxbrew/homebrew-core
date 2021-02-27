@@ -1,9 +1,9 @@
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200827.tar.xz"
-  sha256 "51bc85e33a5b3cf353786ae64b0f1216d7a871447f058b6137f793eb0f53b7fd"
-  license "GPL-2.0"
+  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20210223.tar.xz"
+  sha256 "1f72da217044622d79e0bab57779e136a3df795e3761a3fc1dc0941a9055877c"
+  license "GPL-2.0-only"
   head "https://git.zx2c4.com/wireguard-tools.git"
 
   livecheck do
@@ -12,12 +12,11 @@ class WireguardTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f6ee3e4d2d716d4bd5d3fd704653f33b016ffe6f73dc8734523a0cfbef80487d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "007564c0016fce46841d7d28f907fc0c9ffa7480f95c846608a689c7f288600e"
-    sha256 cellar: :any_skip_relocation, catalina:      "45e84d6fd3efe601ecb6c959a356169908bd12aa2aaa42122663619c47c02e4e"
-    sha256 cellar: :any_skip_relocation, mojave:        "7c53423bac89aef0a7a521f04707961bf4416925edb3022d0bfc839f345f991b"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "7041f9c62ee72513ec0eb67ec1b240ce4be95c771aeecb9302fed746c0029dfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad8ff0ddbae6760abedc32e28c1f36900860e52f9c3179d7c33df3a6baa20fcd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3528b50affb6bb5a991a4d3389e1c215a2e9cd9a1591c65eedade9253f1f5ead"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58f2cfaeb9053557487a81d32db19af9610ab7084183fa9dae645e6bc06818bb"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4e4e92ad654b6f90345337fe1b52543c2f9714cf0e1ca9b3e9a05cc636637d4"
+    sha256 cellar: :any_skip_relocation, mojave:        "c23c30b23e792e4e7c888c3ac0cb6e9ae85b09ac2722c51fe867280f802ead13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30d8f5e0bee5b738782317bdfaf7cda4f4de7f518a1a97383ff0e2b658582d4a"
   end
 
   depends_on "bash"

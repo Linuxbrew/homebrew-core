@@ -1,16 +1,16 @@
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/v2.5.1.tar.gz"
-  sha256 "fee065673c3b9cf036b51d67672a8ede060652d803eef98fe490fbe8d83b2a7c"
+  url "https://github.com/juju/charmstore-client/archive/v2.5.2.tar.gz"
+  sha256 "3dd52c9a463bc09bedb3a07eb0977711aec77611b9c0d7f40cd366a66aa2ca03"
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "c3c809d7c9488ae876f1549f825284dac9e500070ee62d9b351ff28c84e1620c"
-    sha256 cellar: :any_skip_relocation, catalina:     "b2a4c9b953f6a54c51a171d819cfddc0655caf857ec72c3ec5136493f9296b24"
-    sha256 cellar: :any_skip_relocation, mojave:       "58e3a054f6b6ff73184e1f2909ee58117bd023bc28e448af2d6fe2e82b192735"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "389d0723e4bcc34bc7747e66f7f721a36cf1ab63623ec23982d68ca2623e3f29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e149e78ec5ae240183c8f5c497f7eb5312c0e75a3fbba953b9a227b951eff34e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "406f7bc14f44bd5462dde85da36d37cf5218ba7db06f7e27121ca2cc504d4eb8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6c5e1f0af81ab86774fe87eb7c793c390386cc45b255348dc6467ad030f740d8"
+    sha256 cellar: :any_skip_relocation, catalina:      "2cfca124d8f2bdc973797c2a290b36f87e4d8d4d39e7ebb4358b552e12ac89eb"
+    sha256 cellar: :any_skip_relocation, mojave:        "a50370e9787fc797efc1b7c0dcc45fff5fd2ee02fea66e2d7db5d132c2153665"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf1ca22d084c748ada975de748bc2456ab6f46ff3a354642dbc5fc54cd759fa2"
   end
 
   depends_on "go" => :build

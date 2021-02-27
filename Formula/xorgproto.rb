@@ -1,17 +1,16 @@
 class Xorgproto < Formula
   desc "X.Org: Protocol Headers"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2020.1.tar.bz2"
-  sha256 "54a153f139035a376c075845dd058049177212da94d7a9707cf9468367b699d2"
+  url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.3.tar.bz2"
+  sha256 "4c732b14fc7c7db64306374d9e8386d6172edbb93f587614df1938b9d9b9d737"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9fc28b855d68d640fdd985de0dd67f2a6aff09c12cef16e85adbd13aaef75da"
-    sha256 cellar: :any_skip_relocation, big_sur:       "544326e121b491df07548620fd34df91c127b041e5f2f633f12e01738ea349a7"
-    sha256 cellar: :any_skip_relocation, catalina:      "b50060e1137a990a6cb6c873c4f2bf8383af62285fdb229445d2d160f84d0736"
-    sha256 cellar: :any_skip_relocation, mojave:        "0809cb3a8941d8e3994a9f940e181b465fb67db49e8dc2e434fbd53d10f04e3c"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "11537fb587e7d0e539a60850f62327ded423b635969e846865dbdded481d24c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74828e2ef34f78e2716e93a71ef8f3610093808c17f9e3a880d76bac597cbec0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c561ab188ce76353f6d02629dbb2ca6c0913c22fc8017e26742ceeae5b5ab133"
+    sha256 cellar: :any_skip_relocation, big_sur:       "33a7f790f2fa4831f225abf614f98b30d032a0d05a60725135f0c4006f898393"
+    sha256 cellar: :any_skip_relocation, catalina:      "386eeca1a9111911f47672b5902a1cc4d7327de7564086b356b5061d0599060b"
+    sha256 cellar: :any_skip_relocation, mojave:        "89d2e0e9fdf33b7dc2dbe6a305f02157b1444f1dba53c56eec248d355c8148fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2fb150bc29d93cf40e0f14cfff52f604d18e394c35861e1b30da8df29aab76a"
   end
 
   depends_on "pkg-config" => [:build, :test]
