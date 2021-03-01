@@ -4,19 +4,27 @@ class Xh < Formula
   url "https://github.com/ducaale/xh/archive/v0.8.0.tar.gz"
   sha256 "73525bc3973d60be48ce1e4ff3d948bd44fab54450064ff431a9f31acdf468d4"
   license "MIT"
+  revision 1
   head "https://github.com/ducaale/xh.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "64964d749f996bc9db0257bad03eb87e3b8999b6b5a2e500443d705a9791145b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "aa1a4544bb0d860c9346219e1130eb92c0fa76af6427a19934b4cbea1cb27789"
-    sha256 cellar: :any_skip_relocation, catalina:      "a3e8759c45203faa82ccdca430c21cf1e27fa74f68ac820ffc5106cde321b137"
-    sha256 cellar: :any_skip_relocation, mojave:        "da0cdf25012d6a602ba4e58d18a38703f22bc201c5f64ef9802f740a284c226d"
+    root_url "https://dl.bintray.com/homebrew/bottles"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86e2d10fe797a9583a42e7fe028923a8dffc63458eb39ca785e7adfa75fb8422"
+    sha256 cellar: :any_skip_relocation, big_sur:       "af7e199fe0b18f23efb73d13575f2a389e59fe61d60b50d849ec10fc46de9ca5"
+    sha256 cellar: :any_skip_relocation, catalina:      "171279e3d8a5154a701fccb3daff418f020406ec72d722b2c127f8f7576b4971"
+    sha256 cellar: :any_skip_relocation, mojave:        "d4dcf1e911b879967826035906510a9a6e1e722039e863a7d1a1d425a6cdcf64"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+    bin.install_symlink bin/"xh" => "xhs"
+
+    man1.install "doc/xh.1"
+    bash_completion.install "completions/xh.bash"
+    fish_completion.install "completions/xh.fish"
+    zsh_completion.install "completions/_xh"
   end
 
   test do

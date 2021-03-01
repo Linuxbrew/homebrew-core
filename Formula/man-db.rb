@@ -12,11 +12,11 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "341d1ed539d162400e216d4a7fa9fd1c1254cc1a408fb72cca8623f1582ab346"
-    sha256 big_sur:       "3215d9a7659251e84cfc973926cf25fbd913b787a219e05697b2bf69067de7bf"
-    sha256 catalina:      "9c8abb3fe66f90f4bc28ff8bc657fa8eabdacee5b69e0dbc554f8d319fa0948e"
-    sha256 mojave:        "1c1760b6a478253caeb8d5535cac5a9466e2f03b1e6e5e9a1f6ee519b752adfb"
-    sha256 x86_64_linux:  "2dad155891f914461a021591193e63f3db4671914202964b1cafb55953ee44ef"
+    rebuild 1
+    sha256 arm64_big_sur: "901330a943645b6943c0689f4ff0f3ed7f9a1a83263493518f524e38c85df675"
+    sha256 big_sur:       "090f572b28b3848e07f5ceb96dd4a61b7b84df61273beb179a485f1674db06ff"
+    sha256 catalina:      "c145def495a7443af7de1f93ef9cf382c5441965ca6ebc534b6dbe5475aeee64"
+    sha256 mojave:        "df2a07a6c798e051b9ddcaaacab818ab9a5d3cf33164bd5af6ea5706255c6b76"
   end
 
   depends_on "pkg-config" => :build
@@ -56,6 +56,7 @@ class ManDb < Formula
       --prefix=#{prefix}
       --disable-cache-owner
       --disable-setuid
+      --disable-nls
       --program-prefix=g
     ]
 
@@ -67,7 +68,6 @@ class ManDb < Formula
 
     system "./configure", *args
 
-    system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"
 
     # Symlink commands without 'g' prefix into libexec/bin and

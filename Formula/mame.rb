@@ -2,9 +2,9 @@ class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
   # NOTE: Please keep these values in sync with rom-tools.rb when updating.
-  url "https://github.com/mamedev/mame/archive/mame0228.tar.gz"
-  version "0.228"
-  sha256 "1d8e6f20491492f8b15892ff958f9b067c48eb90cc2fc974b08bde297e657244"
+  url "https://github.com/mamedev/mame/archive/mame0229.tar.gz"
+  version "0.229"
+  sha256 "414921771ada0804a8c7f3540e33338e8495e16a3bca78a5a2b355abafa51e6a"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git"
 
@@ -19,10 +19,11 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e691df3aecfbe3bd954bb67e9f77274a3294781d4c4b8b0db5c867fc1f5e88a3"
-    sha256 cellar: :any, big_sur:       "a4a2c392a16ddf14ab1890c56a51a5c99f33438bd0af9396ff3b51cf5b65e6f0"
-    sha256 cellar: :any, catalina:      "60bdbeb0fe470d57fbfbce0ec579b7c6a399506445137d8fdced4bb961d6e3af"
-    sha256 cellar: :any, mojave:        "997ec943f87a8026bcd7df415aaf48bfc56b5a9668093f9398e1f48dea4c165b"
+    root_url "https://dl.bintray.com/homebrew/bottles"
+    sha256 cellar: :any, arm64_big_sur: "5d9c92530c40172e07638877b9c96447cb91bfdbf33045a72d2dbd4fa4f71e6d"
+    sha256 cellar: :any, big_sur:       "1e8892e6ffbe413fa809a266f490ed675fb0d5998368b725be1f08b7df6d09ef"
+    sha256 cellar: :any, catalina:      "be17029d7e336580480abfd196d80ea6f99600d9097a6c14472d92c137923379"
+    sha256 cellar: :any, mojave:        "217f52078eb0005e27d65fd4f2aed651c7252884349679751602feaa53a241da"
   end
 
   depends_on "glm" => :build
@@ -66,7 +67,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_RAPIDJSON=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1"
-    bin.install "mame64" => "mame"
+    bin.install "mame"
     cd "docs" do
       # We don't convert SVG files into PDF files, don't load the related extensions.
       inreplace "source/conf.py", "'sphinxcontrib.rsvgconverter',", ""

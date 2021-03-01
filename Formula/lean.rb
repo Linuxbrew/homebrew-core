@@ -1,8 +1,8 @@
 class Lean < Formula
   desc "Theorem prover"
   homepage "https://leanprover-community.github.io/"
-  url "https://github.com/leanprover-community/lean/archive/v3.23.0.tar.gz"
-  sha256 "f77831bf3f31cbc4b4dbe44e1b84252624d138045ddb03d3575db8998e71f540"
+  url "https://github.com/leanprover-community/lean/archive/v3.27.0.tar.gz"
+  sha256 "b6e453f44a5a353d7b7ad807ba13f87735ee51c913e2aff1113fc35dfe8dc214"
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git"
 
@@ -14,11 +14,10 @@ class Lean < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d3b7ae42577682c4d6ac355017eef314203a8a6351200194a95d9b8c12c7f246"
-    sha256 cellar: :any, big_sur:       "d1e11b32de65b73b9c83b938f6a24fb5d2663cc59bab361aacccce9b4cd93910"
-    sha256 cellar: :any, catalina:      "438c40c670dde56863fcb935ebfa8fc9e51d47920464a9d61aef2f44538fbfa5"
-    sha256 cellar: :any, mojave:        "5a963186f2c97e72a086e8f8283469a2d601789fe5598a3d5afb1402f1593ed0"
-    sha256 cellar: :any, x86_64_linux:  "2b3efa37fbba3a87653c8f69d21ca1600402e6409f473dfd1eaa3ea9ee396f00"
+    sha256 cellar: :any, arm64_big_sur: "54bf309b9271ff9f2f4b60945fe6348dfe517d6ac61670fc2ba1e1bbbe48bded"
+    sha256 cellar: :any, big_sur:       "69220ca1e33cba1e97e69c49c8fef33a44cec6b51bc1d5c8fab24266f05fa98a"
+    sha256 cellar: :any, catalina:      "7061fcd438716294d81532240eca7ca206a87198d3715d6227b0ce91a2182f58"
+    sha256 cellar: :any, mojave:        "6220b1f134ce7fe7376dd8076f28619eaf1fd57d45f8e316022e6d9275a7300f"
   end
 
   depends_on "cmake" => :build

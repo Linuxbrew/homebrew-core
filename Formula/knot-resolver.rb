@@ -1,8 +1,8 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.2.1.tar.xz"
-  sha256 "aa37b744c400f437acba7a54aebcbdbe722ece743d342cbc39f2dd8087f05826"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.3.0.tar.xz"
+  sha256 "fb6cb2c03f4fffbdd8a0098127383d03b14cf7d6abf3a0cd229fb13ff68ee33e"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
@@ -12,9 +12,10 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 big_sur:  "f4a73132e03dfdff1f370ccaabff44f14bccf46d4f4b7f7f91f653bf98d28252"
-    sha256 catalina: "47a56833e4c305195e188b8eb616ee232cb6738a7929c18df556ec5962a8171f"
-    sha256 mojave:   "af1a5075c8b0bc38054b0466d4475e7b4f2839fe386dc419d1be33ec448c328e"
+    root_url "https://dl.bintray.com/homebrew/bottles"
+    sha256 big_sur:  "f007354c76fdd4af09945fa548dc3889deab4e84c5bd1f1c206c109febd54b11"
+    sha256 catalina: "62e84d19b85449c3bda7b7b177449143c69864c72a10c2251b35c016bd779d3a"
+    sha256 mojave:   "562be32a5e4504b9f2bebeb4043d36efc6e21b6a7c13578d2228ab6f1a9545b8"
   end
 
   depends_on "meson" => :build
