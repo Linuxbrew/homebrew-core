@@ -29,7 +29,19 @@ class VtkAT82 < Formula
   depends_on "python@3.9"
   depends_on "qt@5"
 
-  # TODO: use diff
+  uses_from_macos "expat"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
+  unless OS.mac?
+    depends_on "icu4c"
+    depends_on "libxt"
+    depends_on "szip"
+    depends_on "tcl-tk"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   # Fix compile issues on Mojave and later
   patch do
     url "https://gitlab.kitware.com/vtk/vtk/commit/ca3b5a50d945b6e65f0e764b3138cad17bd7eb8d.patch"
@@ -62,7 +74,6 @@ class VtkAT82 < Formula
       -DModule_vtkInfovisBoostGraphAlgorithms=ON
       -DModule_vtkRenderingFreeTypeFontConfig=ON
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
-      -DVTK_USE_COCOA=ON
       -DVTK_USE_SYSTEM_EXPAT=ON
       -DVTK_USE_SYSTEM_HDF5=ON
       -DVTK_USE_SYSTEM_JPEG=ON
@@ -80,6 +91,7 @@ class VtkAT82 < Formula
       -DVTK_WRAP_PYTHON_SIP=ON
       -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
+    args << "-DVTK_USE_COCOA=" + (OS.mac? ? "ON" : "OFF")
 
     mkdir "build" do
       system "cmake", "..", *args
