@@ -27,6 +27,32 @@ class QtAT5 < Formula
   uses_from_macos "flex"
   uses_from_macos "sqlite"
 
+  unless OS.mac?
+    depends_on "at-spi2-core"
+    depends_on "fontconfig"
+    depends_on "glib"
+    depends_on "gperf"
+    depends_on "icu4c"
+    depends_on "libproxy"
+    depends_on "libxkbcommon"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxcomposite"
+    depends_on "libdrm"
+    depends_on "mesa"
+    depends_on "pulseaudio"
+    depends_on "python@3.8"
+    depends_on "sdl2"
+    depends_on "systemd"
+    depends_on "xcb-util"
+    depends_on "xcb-util-image"
+    depends_on "xcb-util-keysyms"
+    depends_on "xcb-util-renderutil"
+    depends_on "xcb-util-wm"
+    depends_on "zstd"
+    depends_on "wayland"
+  end
+
   # Find SDK for 11.x macOS
   # Upstreamed, remove when Qt updates Chromium
   patch do
@@ -45,29 +71,48 @@ class QtAT5 < Formula
   end
 
   def install
+    # Workaround for disk space issues on github actions
+    # https://github.com/Homebrew/linuxbrew-core/pull/19595
+    system "/home/linuxbrew/.linuxbrew/bin/brew", "cleanup", "--prune=0" if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     args = %W[
       -verbose
       -prefix #{prefix}
       -release
       -opensource -confirm-license
-      -system-zlib
       -qt-libpng
       -qt-libjpeg
       -qt-freetype
       -qt-pcre
       -nomake examples
       -nomake tests
-      -no-rpath
       -pkg-config
       -dbus-runtime
     ]
 
-    if Hardware::CPU.arm?
-      # Temporarily fixes for Apple Silicon
-      args << "-skip" << "qtwebengine" << "-no-assimp"
-    else
-      # Should be reenabled unconditionnaly once it is fixed on Apple Silicon
-      args << "-proprietary-codecs"
+    if OS.mac?
+      args << "-no-rpath"
+      args << "-system-zlib"
+    elsif OS.linux?
+      args << "-R#{lib}"
+      # https://bugreports.qt.io/browse/QTBUG-71564
+      args << "-no-avx2"
+      args << "-no-avx512"
+      args << "-qt-zlib"
+      # https://bugreports.qt.io/browse/QTBUG-60163
+      # https://codereview.qt-project.org/c/qt/qtwebengine/+/191880
+      args += %w[-skip qtwebengine]
+      args -= ["-proprietary-codecs"]
+      args << "-no-sql-mysql"
+    end
+    if OS.mac?
+      if Hardware::CPU.arm?
+        # Temporarily fixes for Apple Silicon
+        args << "-skip" << "qtwebengine" << "-no-assimp"
+      else
+        # Should be reenabled unconditionnaly once it is fixed on Apple Silicon
+        args << "-proprietary-codecs"
+      end
     end
 
     system "./configure", *args
