@@ -24,11 +24,13 @@ class Modules < Formula
 
   def install
     with_pager = OS.mac? ? "" : "--with-pager=#{Formula["less"].opt_bin}/less"
+    with_tclsh = OS.mac? ? "" : "--with-tclsh=#{Formula["tcl-tk"].opt_bin}/tclsh"
 
     args = %W[
       --prefix=#{prefix}
       --datarootdir=#{share}
       #{with_pager}
+      #{with_tclsh}
       --with-tcl=#{Formula["tcl-tk"].opt_lib}
       --without-x
     ]
