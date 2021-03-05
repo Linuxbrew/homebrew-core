@@ -25,6 +25,13 @@ class Bear < Formula
   depends_on "spdlog"
   depends_on "sqlite"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    fails_with gcc: "9"
+    depends_on "gcc"
+    depends_on "llvm"
+  end
+
   def install
     args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF
