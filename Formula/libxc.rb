@@ -20,8 +20,6 @@ class Libxc < Formula
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
 
-  depends_on "libffi" unless OS.mac?
-
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}",
@@ -42,7 +40,8 @@ class Libxc < Formula
         printf(\"%d.%d.%d\", major, minor, micro);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lm", "-lxc", "-o", "ctest"
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lm", "-lxc", "-o", "ctest",
+                   *("-lm" unless OS.mac?)
     system "./ctest"
 
     (testpath/"test.f90").write <<~EOS
