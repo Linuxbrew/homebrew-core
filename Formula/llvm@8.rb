@@ -60,6 +60,14 @@ class LlvmAT8 < Formula
     end
   end
 
+  unless OS.mac?
+    patch :p2 do
+      # Fixes MicrosoftDemangleNodes.h:14:17: error: found ':' in nested-name-specifier, expected '::'
+      url "https://github.com/llvm/llvm-project/commit/b288d90b39f4b905c02092a9bfcfd6d78f99b191.patch?full_index=1"
+      sha256 "2028d52e1a39326bb48fb7463132bbfe7fb4fa18f1adfeea9c3ed0320ed49564"
+    end
+  end
+
   resource "clang-extra-tools" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/clang-tools-extra-8.0.1.src.tar.xz"
     sha256 "187179b617e4f07bb605cc215da0527e64990b4a7dd5cbcc452a16b64e02c3e1"
