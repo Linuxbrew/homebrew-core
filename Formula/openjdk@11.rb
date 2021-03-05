@@ -62,11 +62,6 @@ class OpenjdkAT11 < Formula
   end
 
   def install
-    framework_path = File.expand_path(
-      "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-      MacOS::Xcode.prefix,
-    )
-
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = OS.mac? ? boot_jdk_dir/"Contents/Home" : boot_jdk_dir
@@ -102,6 +97,10 @@ class OpenjdkAT11 < Formula
     ]
 
     if OS.mac? && Hardware::CPU.arm?
+      framework_path = File.expand_path(
+        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
+        MacOS::Xcode.prefix,
+      )
       args += %W[
         --disable-warnings-as-errors
         --openjdk-target=aarch64-apple-darwin
@@ -110,12 +109,11 @@ class OpenjdkAT11 < Formula
         --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}\ -headerpad_max_install_names
         --with-extra-cxxflags=-arch\ arm64
       ]
-    else
-      args << "--with-extra-ldflags=-headerpad_max_install_names"
     end
 
     if OS.mac?
       args << "--with-sysroot=#{MacOS.sdk_path}"
+      args << "--with-extra-ldflags=-headerpad_max_install_names"
     else
       args << "--with-x=#{HOMEBREW_PREFIX}"
       args << "--with-cups=#{HOMEBREW_PREFIX}"
