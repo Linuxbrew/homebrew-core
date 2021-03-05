@@ -30,6 +30,11 @@ class Mpich < Formula
 
   conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    fails_with gcc: "9"
+  end
+
   def install
     if build.head?
       # ensure that the consistent set of autotools built by homebrew is used to
