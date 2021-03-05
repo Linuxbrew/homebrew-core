@@ -19,13 +19,13 @@ class Gromacs < Formula
 
   depends_on "cmake" => :build
   depends_on "fftw"
-  depends_on "gcc" if OS.mac?
+  depends_on "gcc"
   depends_on "gsl" # for OpenMP
   depends_on "openblas"
 
   unless OS.mac?
-    depends_on "libedit"
-    depends_on "libffi"
+    fails_with gcc: "5"
+    fails_with gcc: "6"
   end
 
   def install
@@ -37,13 +37,11 @@ class Gromacs < Formula
     inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
                                                              "/usr/bin/ld"
 
-    if OS.mac?
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      cc_args = %W[
-        -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
-        -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
-      ]
-    end
+    gcc_major_ver = Formula["gcc"].any_installed_version.major
+    cc_args = %W[
+      -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
+      -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
+    ]
     args = std_cmake_args + cc_args
 
     mkdir "build" do
