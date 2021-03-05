@@ -40,7 +40,6 @@ class GoAT112 < Formula
   end
 
   def install
-    ENV["CGO_ENABLED"] = "1" unless OS.mac?
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
