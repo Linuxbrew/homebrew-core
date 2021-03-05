@@ -43,7 +43,6 @@ class LlvmAT7 < Formula
     depends_on "libxml2"
     depends_on "python@3.8"
     depends_on "zlib"
-    depends_on "libomp"
   end
 
   resource "clang" do
@@ -130,6 +129,7 @@ class LlvmAT7 < Formula
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
+      -DLIBOMP_INSTALL_ALIASES=OFF
     ]
 
     if OS.mac?
@@ -170,10 +170,6 @@ class LlvmAT7 < Formula
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
     unless OS.mac?
-      # Remove conflicting libraries.
-      # libgomp.so conflicts with gcc.
-      rm lib/"libgomp.so"
-
       # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)
@@ -209,6 +205,7 @@ class LlvmAT7 < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{clean_version}/include",
+                           *("-Wl,-rpath=#{lib}" unless OS.mac?),
                            "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
