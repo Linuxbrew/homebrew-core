@@ -20,6 +20,8 @@ class Abseil < Formula
     fails_with gcc: "4"
     fails_with gcc: "5"
     fails_with gcc: "6"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
     depends_on "gcc@7" => :build
   end
 
