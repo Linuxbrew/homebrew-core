@@ -3,34 +3,32 @@ class Coconut < Formula
 
   desc "Simple, elegant, Pythonic functional programming"
   homepage "http://coconut-lang.org/"
-  url "https://files.pythonhosted.org/packages/49/bd/c77663bf5525bcb3c0995ebe0257cc5a9ef6d191cdb354faccc9841afe99/coconut-1.4.3.tar.gz"
-  sha256 "5053e876388faaa792154d3e86c27dcfa721d48a3611a8d9b94e7567e5652c0b"
+  url "https://files.pythonhosted.org/packages/3a/85/7697306188fc03809e794a65a2a745fdde052065b83571bdc36de7fe5a77/coconut-1.5.0.tar.gz"
+  sha256 "cb2263fb9e1aa4c6bb7e3051ae26e1444297ecc5e8762c4f8547873b6a0d861d"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebbb005b2c3a3848f5593718d8a21a98adade56ef4bb4239fe553a60fc3f9a17"
-    sha256 cellar: :any_skip_relocation, big_sur:       "987bf18d2f7bb2378ae95c21e2a2ede148c02086099c661081040a3b69b6a0d3"
-    sha256 cellar: :any_skip_relocation, catalina:      "4a4707189427a591dde0fd1897af8c31e64e350fbc8598bd2d929aa6df726cc9"
-    sha256 cellar: :any_skip_relocation, mojave:        "088c30ab276e9a04cf3ea31a65f96ca532d6f3870d55673cc0784fe83aaa6652"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "97e617049fd9e250dfd0c3353441595fb1d4a8bacd6a0ec73eefb15fe2a0e63c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7484ead0243f9c769178519ca22664f3697fa0eff7eb33c3f9690a8f6543e572"
+    sha256 cellar: :any_skip_relocation, big_sur:       "17075cb66b596e4e09df6caefa00ed315ae1e9c1699f547f7f23afe101f7140c"
+    sha256 cellar: :any_skip_relocation, catalina:      "d08209403eda81ce889603b3f1d2cb2cbc9a3873567bb9ac8363b40b60005c9a"
+    sha256 cellar: :any_skip_relocation, mojave:        "aa7123b110787c7f77ac38604e748d0b25f03e0da251667c17e634b9cf56e24b"
   end
 
   depends_on "python@3.9"
 
   resource "cPyparsing" do
-    url "https://files.pythonhosted.org/packages/f4/2e/11f7fd3dd699c57d27890971e104b632c7f6c4f96a9e58cd062473b39922/cPyparsing-2.4.5.0.1.1.tar.gz"
-    sha256 "9ef74514ca2359e3458674f1a0ee53632eb3c873361f766c5b90a7eed34699cd"
+    url "https://files.pythonhosted.org/packages/7e/08/00b11cc1c195301e5c9710b399a769e18fb6c7f8082b4f49c1aec78023eb/cPyparsing-2.4.5.0.1.2.tar.gz"
+    sha256 "689b6d53f85bef876fdb07829393bbbed66d2fada176a9386800dc49e4251b46"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/69/19/3aa4bf17e1cbbdfe934eb3d5b394ae9a0a7fb23594a2ff27e0fdaf8b4c59/prompt_toolkit-3.0.5.tar.gz"
-    sha256 "563d1a4140b63ff9dd587bda9557cffb2fe73650205ab6f4383092fb882e7dc8"
+    url "https://files.pythonhosted.org/packages/b1/32/2a6b734dc25b249467bfc1d844b077a252ea393d1b90733f4e899aa56506/prompt_toolkit-3.0.16.tar.gz"
+    sha256 "0fa02fa80363844a4ab4b8d6891f62dd0645ba672723130423ca4037b80c1974"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
+    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
   end
 
   resource "wcwidth" do

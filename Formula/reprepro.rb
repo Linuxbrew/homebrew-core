@@ -15,10 +15,13 @@ class Reprepro < Formula
   end
 
   depends_on "berkeley-db@4"
-  depends_on "gcc" if OS.mac?
   depends_on "gpgme"
   depends_on "libarchive"
   depends_on "xz"
+
+  on_macos do
+    depends_on "gcc"
+  end
 
   fails_with :clang do
     cause "No support for GNU C nested functions"

@@ -1,15 +1,15 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.3.2/jpeg-xl-v0.3.2.tar.bz2"
-  sha256 "1fd4d187e94e213ce69167700f0f58f62e2eb5d1d5550bc3878838005162ad5a"
+  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.3.3/jpeg-xl-v0.3.3.tar.bz2"
+  sha256 "a71dd1a148212976ffe4881f395eb0de171fca2f01ed44d16002add6dc667ec2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "49335fda588d8d4d87e74d6ac167105f635d8bafaa9d68539d1c84bd58a4820b"
-    sha256 cellar: :any, big_sur:       "fa9f5a441552dbd78ca8f82c218730ca821136c9bab256eefb68a06b2241f5a2"
-    sha256 cellar: :any, catalina:      "6351a2e34dcaf8b3e78acc7633d2ae654414bf378f9f54f0f3722031b6590397"
-    sha256 cellar: :any, mojave:        "bcb8277a8bfa9a3855b8c06411dc11a0fc4722de6d0412d98a2d1c9f559bc8fe"
+    sha256 cellar: :any, arm64_big_sur: "b60753226f78d7ef3be50e770052d8e44731d2c64b2b54e0d3f41a44300f386d"
+    sha256 cellar: :any, big_sur:       "bee178acbf480d2c02ab07723d4608ecad5bc1436744e153c0b933e36ac39d1d"
+    sha256 cellar: :any, catalina:      "868505cf9c4d421f2fdbd6951802b24309ded052ece4ca3e7f9c7d5ade25aa16"
+    sha256 cellar: :any, mojave:        "757ab7c5228678bf2f9b93e430b60ccdf035eaca95bc7e6d20c88ebf5b1d8a3c"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,7 @@ class JpegXl < Formula
   # https://gitlab.com/wg1/jpeg-xl/-/blob/v#{version}/deps.sh
   resource "highway" do
     url "https://github.com/google/highway.git",
-        revision: "a72b33809d98bd1a8fa961953f0f63f454c7f593"
+        revision: "946a1b40233438a1b0363598a6deaa1628a01003"
   end
 
   resource "lodepng" do
