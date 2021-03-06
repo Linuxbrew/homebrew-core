@@ -27,7 +27,8 @@ class Pagmo < Formula
   def install
     system "cmake", ".", "-DPAGMO_WITH_EIGEN3=ON", "-DPAGMO_WITH_NLOPT=ON",
                          *std_cmake_args,
-                         "-DCMAKE_CXX_STANDARD=17"
+                         "-DCMAKE_CXX_STANDARD=17",
+                         *("-DTBB_INCLUDE_DIR=#{Formula["tbb"].opt_include}" unless OS.mac?)
     system "make", "install"
   end
 
