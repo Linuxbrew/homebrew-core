@@ -3,7 +3,7 @@ class Argocd < Formula
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-cd.git",
       tag:      "v1.8.7",
-      revision: "a97230859344f8906502763743717d7ad7339c55"
+      revision: "eb3d1fb84b9b77cdffd70b14c4f949f1c64a9416"
   license "Apache-2.0"
 
   bottle do
