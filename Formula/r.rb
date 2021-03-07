@@ -58,9 +58,6 @@ class R < Formula
       "--disable-java",
     ]
 
-    # don't remember Homebrew's sed shim
-    args << "SED=/usr/bin/sed" if File.exist?("/usr/bin/sed")
-
     if OS.mac?
       args << "--without-cairo"
       args << "--without-x"
