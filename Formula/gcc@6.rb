@@ -124,9 +124,6 @@ class GccAT6 < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
     end
 
     # Ensure correct install names when linking against libgcc_s;
