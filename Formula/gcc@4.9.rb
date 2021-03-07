@@ -142,9 +142,6 @@ class GccAT49 < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
     else
       args << "--disable-multilib"
     end
