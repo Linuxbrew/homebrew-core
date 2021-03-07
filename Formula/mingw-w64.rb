@@ -94,10 +94,6 @@ class MingwW64 < Formula
         --disable-nls
         --enable-threads=posix
       ]
-      on_macos do
-        # Avoid reference to sed shim
-        args << "SED=/usr/bin/sed"
-      end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
