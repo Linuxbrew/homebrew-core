@@ -41,8 +41,6 @@ class Openvpn < Formula
       inreplace "sample/sample-plugins/Makefile" do |s|
         s.gsub! HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/pkg-config",
                 Formula["pkg-config"].opt_bin/"pkg-config"
-        s.gsub! HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/sed",
-                "/usr/bin/sed"
       end
     end
     unless OS.mac?
