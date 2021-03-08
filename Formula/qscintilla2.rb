@@ -29,9 +29,13 @@ class Qscintilla2 < Formula
   patch :DATA
 
   def install
-    spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
-    spec << "-arm64" if Hardware::CPU.arm?
-    args = %W[-config release -spec #{spec}]
+    args = "qscintilla.pro"
+
+    on_macos do
+      spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+      spec << "-arm64" if Hardware::CPU.arm?
+      args << %W[-config release -spec #{spec}]
+    end
 
     cd "Qt4Qt5" do
       inreplace "qscintilla.pro" do |s|
@@ -48,7 +52,7 @@ class Qscintilla2 < Formula
       end
 
       qt5 = Formula["qt@5"].opt_prefix
-      system "#{qt5}/bin/qmake", "qscintilla.pro", *args
+      system "#{qt5}/bin/qmake", *args
       system "make"
       system "make", "install"
     end
