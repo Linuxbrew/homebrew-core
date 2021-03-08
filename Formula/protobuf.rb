@@ -4,6 +4,7 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.5/protobuf-all-3.15.5.tar.gz"
   sha256 "c5d6404e8ef8dcf053ad850a974c93fbc29b1b44d1a5f7d54aeacf348028808f"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -15,7 +16,6 @@ class Protobuf < Formula
     sha256 cellar: :any, big_sur:       "872baaeb92aaaaa8d2634202806eeb91085072cc716e59acb2d77783e644d3e5"
     sha256 cellar: :any, catalina:      "3bdf6d20261ee868895d0ef07fc300dfde8d2015e70db90e3b9049a7453a418f"
     sha256 cellar: :any, mojave:        "28c9c92501261ebfddd78ab2cb94198d2256073012dc352b9c3bb32c6f5074c9"
-    sha256               x86_64_linux:  "668e44c88b641f5dc6f7496d560125cf6bbbf40b03c93ed932e0e71475be164e"
   end
 
   head do
@@ -31,12 +31,6 @@ class Protobuf < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
-  end
-
-  unless OS.mac?
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    depends_on "gcc@6" => :build
   end
 
   def install
