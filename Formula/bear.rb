@@ -25,12 +25,11 @@ class Bear < Formula
   depends_on "spdlog"
   depends_on "sqlite"
 
-  unless OS.mac?
-    fails_with gcc: "5"
-    fails_with gcc: "9"
-    depends_on "gcc"
-    depends_on "llvm"
-  end
+  depends_on "gcc" unless OS.mac?
+
+  uses_from_macos "llvm" => :test
+
+  fails_with gcc: "5" # needs C++17
 
   def install
     args = std_cmake_args + %w[
