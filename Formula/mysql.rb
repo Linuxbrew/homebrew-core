@@ -29,14 +29,8 @@ class Mysql < Formula
     because: "mysql, mariadb, and percona install the same binaries"
 
   unless OS.mac?
-    patch do
-      url "https://raw.githubusercontent.com/NixOS/nixpkgs/dae42566dbee37a3b7a609fa86eca9618f4f4b67/pkgs/servers/sql/mysql/abi-check.patch"
-      sha256 "0dcfcca3bb3e7eb7ccd3ae02d4eb4fb07877970359611f081b03eab77bd4d6c9"
-    end
+    depends_on "patchelf" => :build
     depends_on "pkg-config" => :build
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7"
   end
 
   def datadir
