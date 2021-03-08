@@ -43,6 +43,8 @@ class Crystal < Formula
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
+  fails_with :gcc unless OS.mac?
+
   resource "boot" do
     on_macos do
       url "https://github.com/crystal-lang/crystal/releases/download/0.36.1/crystal-0.36.1-1-darwin-x86_64.tar.gz"
@@ -57,11 +59,13 @@ class Crystal < Formula
   end
 
   def install
+    ENV["CC"] = Formula["llvm@9"].opt_bin/"clang" unless OS.mac?
+
     (buildpath/"boot").install resource("boot")
     ENV.append_path "PATH", "boot/bin"
     ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
     ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
-    ENV.append_path "LLVM_CONFIG", Formula["llvm"].opt_bin/"llvm-config"
+    ENV.append_path "LLVM_CONFIG", Formula["llvm@9"].opt_bin/"llvm-config"
 
     # Build crystal
     crystal_build_opts = []
