@@ -27,8 +27,6 @@ class Netcdf < Formula
 
   uses_from_macos "curl"
 
-  depends_on "libedit" unless OS.mac?
-
   resource "cxx" do
     url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx4-4.3.1.tar.gz"
     mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx4-4.3.1.tar.gz"
