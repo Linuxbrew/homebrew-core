@@ -27,6 +27,14 @@ class Libopenmpt < Formula
   depends_on "mpg123"
   depends_on "portaudio"
 
+  uses_from_macos "zlib"
+
+  unless OS.mac?
+    depends_on "pulseaudio"
+    fails_with gcc: "5"
+    depends_on "gcc" # libopenmpt explicitly requires C++17 to build
+  end
+
   resource "mystique.s3m" do
     url "https://api.modarchive.org/downloads.php?moduleid=54144#mystique.s3m"
     sha256 "e9a3a679e1c513e1d661b3093350ae3e35b065530d6ececc0a96e98d3ffffaf4"
