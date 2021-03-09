@@ -21,6 +21,11 @@ class Solidity < Formula
   depends_on xcode: ["11.0", :build]
   depends_on "boost"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    depends_on "gcc" # solidity explicitly requires C++17 support to build
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
