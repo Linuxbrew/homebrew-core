@@ -18,6 +18,11 @@ class Vcpkg < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    depends_on "gcc" # vcpkg explicitly needs C++17 to build
+  end
+
   if MacOS.version <= :mojave
     depends_on "gcc"
     fails_with :clang do
