@@ -20,6 +20,11 @@ class Lc0 < Formula
   depends_on "python@3.9" => :build # required to compile .pb files
   depends_on "eigen"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    depends_on "gcc" # meson explicitly checks for C++17 support
+  end
+
   resource "network" do
     url "https://training.lczero.org/get_network?sha=00af53b081e80147172e6f281c01daf5ca19ada173321438914c730370aa4267", using: :nounzip
     sha256 "12df03a12919e6392f3efbe6f461fc0ff5451b4105f755503da151adc7ab6d67"
@@ -38,7 +43,14 @@ class Lc0 < Formula
   end
 
   test do
-    assert_match "Creating backend [blas]",
-      shell_output("lc0 benchmark --backend=blas --nodes=1 --num-positions=1 2>&1")
+    on_macos do
+      assert_match "Creating backend [blas]",
+        shell_output("lc0 benchmark --backend=blas --nodes=1 --num-positions=1 2>&1")
+    end
+
+    on_linux do
+      assert_match "Creating backend [eigen]",
+        shell_output("lc0 benchmark --backend=eigen --nodes=1 --num-positions=1 2>&1")
+    end
   end
 end
