@@ -24,6 +24,11 @@ class Cairomm < Formula
   depends_on "libpng"
   depends_on "libsigc++"
 
+  unless OS.mac?
+    fails_with gcc: "5"
+    depends_on "gcc"
+  end
+
   def install
     ENV.cxx11
 
