@@ -5,6 +5,7 @@ class Atomicparsley < Formula
   version "20210124.204813.840499f"
   sha256 "21e6eb6791b63ba1d06c6ffa9cf40ee81cec80da944e8a29c6dbd11d9de50b28"
   license "GPL-2.0-or-later"
+  revision 1 unless OS.mac?
   version_scheme 1
   head "https://github.com/wez/atomicparsley.git"
 
@@ -13,18 +14,17 @@ class Atomicparsley < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "470db93186b6c976ca728327ea33934436953150b57f63ac906c8dd20b6b41f5"
     sha256 cellar: :any_skip_relocation, catalina:      "55ac0fe11e2d88b0a4f1168e31b303c7da596504ce81c22cc9c734666cf50a9e"
     sha256 cellar: :any_skip_relocation, mojave:        "6636633b195ddb728a805a00dff40e99691857dc41e89ada45fc8506b4ecaa29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71e407699f01167a0c500212e910fcad683a9f87018983c19290d6d6436f9875"
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "zlib"
 
-  unless OS.mac?
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7" => :build
+  on_linux do
+    depends_on "gcc" => :build
   end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".", *std_cmake_args
