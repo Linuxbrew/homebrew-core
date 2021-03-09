@@ -4,13 +4,13 @@ class Atkmm < Formula
   url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.0.tar.xz"
   sha256 "c93fa9f3876536391b54c307a923b7788e79796ace69a5e9141d67398c019973"
   license "LGPL-2.1-or-later"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1b1aabce33bb159b047e9a7f39164f0969832fda522d79b3a2b70c642323869e"
     sha256 cellar: :any, big_sur:       "5089524e732962aac25fb780a671bdb8736cde11dd8565adeeab2f23fcfe9d8b"
     sha256 cellar: :any, catalina:      "5a92889fa4d5326f5a750d076f02b9b352da60896328f2e20f16da813f442c98"
     sha256 cellar: :any, mojave:        "169e793e210a156583b3bf6126fb4f1e049f7ca0113ba2a6a4c37efb0d38a458"
-    sha256 cellar: :any, x86_64_linux:  "f8f50864ea218871a2183c43bf44707059e54bbedf9d16d54e1e19cdfdf03d85"
   end
 
   depends_on "meson" => :build
@@ -19,11 +19,11 @@ class Atkmm < Formula
   depends_on "atk"
   depends_on "glibmm"
 
-  unless OS.mac?
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7"
+  on_linux do
+    depends_on "gcc"
   end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11
