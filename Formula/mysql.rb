@@ -22,6 +22,8 @@ class Mysql < Formula
   depends_on "openssl@1.1"
   depends_on "protobuf"
 
+  uses_from_macos "cyrus-sasl"
+
   # Fix error: Cannot find system editline libraries.
   uses_from_macos "libedit"
 
