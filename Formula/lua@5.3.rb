@@ -4,6 +4,7 @@ class LuaAT53 < Formula
   url "https://www.lua.org/ftp/lua-5.3.6.tar.gz"
   sha256 "fc5fd69bb8736323f026672b1b7235da613d7177e72558893a0bdcd320466d60"
   license "MIT"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -16,7 +17,6 @@ class LuaAT53 < Formula
     sha256 cellar: :any, big_sur:       "3fec7275812f0646dc113da036b77ab09af80421ae5ab2d90f8a122b5b225f1e"
     sha256 cellar: :any, catalina:      "1ba7031cba6c4b703e6ac2729ceb8bb23fb9ce12915888bcf395c9ebbfbb95b5"
     sha256 cellar: :any, mojave:        "180e59018eb294a00e41b426071ffbca0d3dc522569217064472e39aed359c0e"
-    sha256 cellar: :any, x86_64_linux:  "80f2fb1fd8a7ac5199aaef540b510b8fe466bdbe30a1aa9b9329c87580f71215"
   end
 
   keg_only :versioned_formula
@@ -63,12 +63,7 @@ class LuaAT53 < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    system "make",
-           "install",
-           "INSTALL_TOP=#{prefix}",
-           "INSTALL_INC=#{include}/lua",
-           "INSTALL_MAN=#{man1}",
-           *("TO_LIB=liblua.a liblua.so liblua.so.#{version.major_minor} liblua.so.#{version}" unless OS.mac?)
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -77,7 +72,8 @@ class LuaAT53 < Formula
     bin.install_symlink "luac" => "luac#{version.major_minor}"
     bin.install_symlink "luac" => "luac-#{version.major_minor}"
     (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink "liblua.#{version.major_minor}.dylib" => "liblua#{version.major_minor}.dylib"
+    lib.install Dir[shared_library("src/liblua", "*")] unless OS.mac?
+    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
   end
