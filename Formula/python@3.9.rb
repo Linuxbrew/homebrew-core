@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
   sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
   license "Python-2.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -16,7 +16,6 @@ class PythonAT39 < Formula
     sha256 big_sur:       "5aaf6c9ba2ddcdf9e240ad6843abbf2a7fc8df3cf58e4a08680ddc88176fd00d"
     sha256 catalina:      "65c25cb1486cbda7ce41ce05b3e22a68095b41d50956bda1c9c6eec2dc566916"
     sha256 mojave:        "162eb3c703f64fcc7b56df755ddf9d70aafe85f4e8f8af2e273de0b7c8a31065"
-    sha256 x86_64_linux:  "b19ab9c2981df2ceaa3b5be288c9c3e20a1f3a7a5dbffaf561eb02ec15df6c9d"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -229,6 +228,19 @@ class PythonAT39 < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
+    end
+
+    on_linux do
+      # Prevent third-party packages from building against fragile Cellar paths
+      inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
+                    lib_cellar/"config*/Makefile",
+                    bin/"python#{version.major_minor}-config",
+                    lib/"pkgconfig/python-3.?.pc"],
+                prefix, opt_prefix
+
+      inreplace bin/"python#{version.major_minor}-config",
+                'prefix_real=$(installed_prefix "$0")',
+                "prefix_real=#{opt_prefix}"
     end
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
