@@ -33,6 +33,7 @@ class Mpich < Formula
   unless OS.mac?
     fails_with gcc: "5"
     fails_with gcc: "9"
+    depends_on "libfabric"
   end
 
   if Hardware::CPU.arm?
@@ -70,7 +71,9 @@ class Mpich < Formula
                           # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
                           "FFLAGS=-fallow-argument-mismatch",
                           "CXXFLAGS=-Wno-deprecated",
-                          "CFLAGS=-fgnu89-inline -Wno-deprecated"
+                          "CFLAGS=-fgnu89-inline -Wno-deprecated",
+                          # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
+                          *("--with-device=ch4:ofi" unless OS.mac?)
 
     system "make"
     system "make", "install"
