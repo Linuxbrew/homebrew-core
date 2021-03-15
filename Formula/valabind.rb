@@ -21,19 +21,6 @@ class Valabind < Formula
   uses_from_macos "flex" => :build
 
   def install
-    unless OS.mac?
-      # Valabind depends on the Vala code generator library during execution.
-      # The `libvala` pkg-config file installed by brew isn't pointing to Vala's
-      # opt_prefix so Valabind will break as soon as Vala releases a new
-      # patchlevel. This snippet modifies the Makefile to point to Vala's
-      # `opt_prefix` instead.
-      vala = Formula["vala"]
-      pre_ver = vala.prefix(vala.version)
-      inreplace "Makefile",
-                /^VALA_PKGLIBDIR=(.*$)/,
-                "VALA_PKGLIBDIR_=\\1\nVALA_PKGLIBDIR=$(subst #{pre_ver},#{vala.opt_prefix},$(VALA_PKGLIBDIR_))"
-    end
-
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
