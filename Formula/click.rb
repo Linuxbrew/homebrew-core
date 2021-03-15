@@ -15,7 +15,6 @@ class Click < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "tcl-tk" unless OS.mac?
 
   uses_from_macos "expect" => :test
 
