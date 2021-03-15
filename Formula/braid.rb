@@ -14,7 +14,7 @@ class Braid < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "5e62988e4e3c52890e699afc017e62e24d42ff49560d6c41e425c2649096d28b"
   end
 
-  depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
+  depends_on "ruby" if MacOS.version <= :sierra
 
   on_linux do
     depends_on "ruby"
