@@ -4,13 +4,13 @@ class Flow < Formula
   url "https://github.com/facebook/flow/archive/v0.146.0.tar.gz"
   sha256 "7221c17e56511ed7ed3770c04f8aa193d841c19dbba70737b4c89f45d094179d"
   license "MIT"
+  revision 1 unless OS.mac?
   head "https://github.com/facebook/flow.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "51bfd42347569c751e3d89a32767436c8bc716977d0d3acf53c2062dd9103d46"
     sha256 cellar: :any_skip_relocation, catalina:     "5616d2acec5a9d75b31177454c3c74afa19017530cde7acbce6de9a1c6f0bab0"
     sha256 cellar: :any_skip_relocation, mojave:       "78a8ac6263b7511a6e11a5bcc88106fff57ae1251ea52ea907e0f5e951c87701"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ac4c24f2ea8a8a01b21493bccffb035b1bb87def5ed329fd525f684c0f7ff00"
   end
 
   depends_on "ocaml" => :build
@@ -19,12 +19,6 @@ class Flow < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "rsync" => :build
   uses_from_macos "unzip" => :build
-
-  unless OS.mac?
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7"
-  end
 
   def install
     system "make", "all-homebrew"
