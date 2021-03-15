@@ -5,7 +5,7 @@ class Boost < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
   sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
   license "BSL-1.0"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/boostorg/boost.git"
 
   livecheck do
@@ -14,14 +14,13 @@ class Boost < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a6ca6c43f67270378ae0400e66095c329ebe90a1989a4a9c4606f1b8e72a692f"
-    sha256 cellar: :any,                 big_sur:       "be8564844a1e5bb58c26287453617458db6e886f85197c8ce35c21cfa74b1bc0"
-    sha256 cellar: :any,                 catalina:      "aef0fade9e8159b572907189bb8dfd828dab94c44e036cdd782c2b3834d218f3"
-    sha256 cellar: :any,                 mojave:        "e24d396d90a8db75738cba4543b678c79ef720a96bf2f93688bd2f35fef66d3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31d247fb3c53f8fa056ec1a21a2bae9b52c188ede4d2e835c514f87398e11871"
+    sha256 cellar: :any, arm64_big_sur: "a6ca6c43f67270378ae0400e66095c329ebe90a1989a4a9c4606f1b8e72a692f"
+    sha256 cellar: :any, big_sur:       "be8564844a1e5bb58c26287453617458db6e886f85197c8ce35c21cfa74b1bc0"
+    sha256 cellar: :any, catalina:      "aef0fade9e8159b572907189bb8dfd828dab94c44e036cdd782c2b3834d218f3"
+    sha256 cellar: :any, mojave:        "e24d396d90a8db75738cba4543b678c79ef720a96bf2f93688bd2f35fef66d3a"
   end
 
-  depends_on "icu4c" if OS.mac?
+  depends_on "icu4c"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -55,12 +54,8 @@ class Boost < Formula
     bootstrap_args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}
+      --with-icu=#{icu4c_prefix}
     ]
-    bootstrap_args << if OS.mac?
-      "--with-icu=#{icu4c_prefix}"
-    else
-      "--without-icu"
-    end
 
     # Handle libraries that will not be built.
     without_libraries = ["python", "mpi"]
