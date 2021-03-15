@@ -25,7 +25,7 @@ class CassandraCppDriver < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, ("-DLIBUV_ROOT_DIR=#{Formula["libuv"].opt_prefix}" unless OS.mac?)
+      system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "install"
     end
