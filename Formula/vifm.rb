@@ -24,7 +24,7 @@ class Vifm < Formula
                           "--without-libmagic",
                           "--without-X11"
     system "make"
-    system "make", "check" if OS.mac?
+    system "make", "check"
 
     ENV.deparallelize { system "make", "install" }
   end
