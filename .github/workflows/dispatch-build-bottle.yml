@@ -6,7 +6,7 @@ jobs:
   bottling:
     runs-on: ubuntu-latest
     container:
-      image: homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu16.04:master
     env:
       HOMEBREW_GIT_NAME: BrewTestBot
       HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'

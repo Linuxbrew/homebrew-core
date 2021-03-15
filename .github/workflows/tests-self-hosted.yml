@@ -5,6 +5,7 @@ on:
     types:
       - labeled
     paths:
+      - .github/workflows/tests-self-hosted.yml
       - "Formula/**"
 
 env:
@@ -66,7 +67,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 4320
     container:
-      image: homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu16.04:master
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
