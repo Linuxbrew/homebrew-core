@@ -5,9 +5,9 @@ class OpenshiftCli < Formula
   sha256 "e52795752079527824f7deae88996045ac67e7078eb4331a0793deae7d6500b7"
   license "Apache-2.0"
 
-  depends_on "kubernetes-cli"
-
   bottle :unneeded
+
+  depends_on "kubernetes-cli"
 
   def install
     bin.install "oc"
