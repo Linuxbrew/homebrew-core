@@ -17,6 +17,7 @@ class Helm < Formula
   depends_on "go" => :build
 
   def install
+    system "go", "mod", "tidy"
     system "make", "build"
     bin.install "bin/helm"
 
