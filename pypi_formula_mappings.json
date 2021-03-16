@@ -11,6 +11,9 @@
   "charm-tools": {
     "extra_packages": ["wheel"]
   },
+  "checkov": {
+    "exclude_packages": ["tabulate"]
+  },
   "diffoscope": "diffoscope[cmdline]",
   "ipython": {
     "extra_packages": ["ipykernel"]
@@ -18,6 +21,9 @@
   "fdroidserver": {
       "exclude_packages": ["numpy"],
       "extra_packages": ["wheel"]
+  },
+  "magic-wormhole": {
+    "extra_packages": ["wheel"]
   },
   "molecule": false,
   "openstackclient": {
@@ -40,6 +46,9 @@
   },
   "scipy": {
     "exclude_packages": ["numpy"]
+  },
+  "todoman": {
+    "exclude_packages": ["tabulate"]
   },
   "xdot": {
     "extra_packages": ["graphviz"]
