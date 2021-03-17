@@ -6,6 +6,7 @@ class Openssh < Formula
   version "8.5p1"
   sha256 "f52f3f41d429aa9918e38cf200af225ccdd8e66f052da572870c89737646ec25"
   license "SSH-OpenSSH"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -17,7 +18,6 @@ class Openssh < Formula
     sha256 big_sur:       "072d30cb24b4b9f9fb87096202cb007129a3299d0954cf06216b0b14a40f7d78"
     sha256 catalina:      "1c6012ada90081236cbb95788c430623787a78ec4ce842d5990a092aa0031249"
     sha256 mojave:        "d6b021979acbdcd9d803747977d58c9a1d23c906ceea2575b514233380c8a2ad"
-    sha256 x86_64_linux:  "2e633ddb2922edd8c488bd5737ef954e312ce552ac9ac9386eaaf358bfd03bba"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -29,6 +29,7 @@ class Openssh < Formula
   depends_on "openssl@1.1"
 
   unless OS.mac?
+    depends_on "linux-pam"
     depends_on "libedit"
     depends_on "krb5"
     depends_on "zlib"
@@ -66,11 +67,11 @@ class Openssh < Formula
       --with-ldns
       --with-libedit
       --with-kerberos5
+      --with-pam
       --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
       --with-security-key-builtin
     ]
 
-    args << "--with-pam" if OS.mac?
     args << "--with-privsep-path=#{var}/lib/sshd" unless OS.mac?
 
     system "./configure", *args
