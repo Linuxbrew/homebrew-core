@@ -4,6 +4,11 @@ class LttngUst < Formula
   url "https://lttng.org/files/lttng-ust/lttng-ust-2.12.1.tar.bz2"
   sha256 "48a3948b168195123a749d22818809bd25127bb5f1a66458c3c012b210d2a051"
   license all_of: ["LGPL-2.1-only", "MIT", "GPL-2.0-only", "BSD-3-Clause", "BSD-2-Clause", "GPL-3.0-or-later"]
+  revision 1
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "26af116dc83820250ae221e553efdd1883cd6a2d5cb8922f89d615b388c42de9"
+  end
 
   depends_on :linux
   depends_on "numactl"
