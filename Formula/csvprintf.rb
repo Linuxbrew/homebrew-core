@@ -1,18 +1,15 @@
 class Csvprintf < Formula
   desc "Command-line utility for parsing CSV files"
   homepage "https://github.com/archiecobbs/csvprintf"
-  url "https://github.com/archiecobbs/csvprintf/archive/1.0.4.tar.gz"
-  sha256 "022188ced570203d6084e6eab68f7ad96054a4ab8aa54db1857a8fd076280568"
+  url "https://github.com/archiecobbs/csvprintf/archive/1.1.0.tar.gz"
+  sha256 "a64e48a81a4416f47c224a67b9554c93763429e25e4b15e0d23f3067bd6a0ffc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9676e1950de7902d78da2d83614ea917268740fcb23a9c2581df72bbf3568b3f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f2c0d8dcc1ca9225adc07cc53b668dd72204c86126d08626f10bb4aa6a5950b8"
-    sha256 cellar: :any_skip_relocation, catalina:      "528d28c7c771522232c9a46b696cab18458ae21252859037c4f1b92801496eb4"
-    sha256 cellar: :any_skip_relocation, mojave:        "42e857e3fe76d351204fb76fd017a257f3362382af49f6c7c03e156af6bd5bb0"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "99340f4265ad7a952d3f4fdcce154a10e46c7c8c06979b9e7c5d5016810a8c87"
-    sha256 cellar: :any_skip_relocation, sierra:        "236d5de27a77cadffa4cc014b9f2416b7d952f8cedb96ced98096f0bbdc928cb"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "79c0236e6eeb86a283831f3123430f700862d229bc0b5d64b0a0251d8832e092"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8afbe3e5b8700c87735bc13b57bfcd617e4fb3a1520fa775c8166fd5ca82281d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3a11cedca73677e40d9ce558e0b00e7709574dc2dd631a054121b7607c1261e2"
+    sha256 cellar: :any_skip_relocation, catalina:      "42b91fd076c4f85bc0ec69ba1c9ae4d32a5a64b4070eb5859ee1e71199049f0f"
+    sha256 cellar: :any_skip_relocation, mojave:        "5fb842063d45968a558825af7a4dffcf5ef8258c9bd0c29c1b94657ac8fbab9f"
   end
 
   depends_on "autoconf" => :build

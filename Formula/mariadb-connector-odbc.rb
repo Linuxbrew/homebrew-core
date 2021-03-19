@@ -15,6 +15,7 @@ class MariadbConnectorOdbc < Formula
     sha256 big_sur:       "8ecf2575cfb6897176626d13821da084b97a86fff29103f21a6122fb508234c6"
     sha256 catalina:      "9e026906501acc48c754a22cd3415f968121d378d9b23ae02d09a92e771634b9"
     sha256 mojave:        "7291bc304b018ed6f5b9edbc5dcc35de99135be517eb559217148ae3f9d333c2"
+    sha256 x86_64_linux:  "66dd62f55a62b4e633634509c31360e494aba46e0e0c6558beb8077c7207d999"
   end
 
   depends_on "cmake" => :build

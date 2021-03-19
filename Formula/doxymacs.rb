@@ -8,6 +8,7 @@ class Doxymacs < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ffe57742c559c3ef80b3bf338d2903c7fc0137d4d9cc96f2b23bea2e0cab832"
     sha256 cellar: :any_skip_relocation, big_sur:       "761f34a12276f673ad5914b0b9caa8891eaab8fb213292a897e1000375a0370a"
+    sha256 cellar: :any_skip_relocation, catalina:      "060a755f85149143e0aea876b488f98e685e320c7ced43d3ae87dfcbd4931f14"
     sha256 cellar: :any_skip_relocation, mojave:        "48298f0f0b797c18f3af78a77a0f09f9db3880dc9d85771794894da348aedf1c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "29a4865170b12a2194c238c35ec5e0902b8e637e378f9013b7aef64fa21eb0fc"
     sha256 cellar: :any_skip_relocation, sierra:        "2fd3dc59a8c0c8fdccf8195265d320aaa7b5d67e9a81b5a085f27cc287e7370e"

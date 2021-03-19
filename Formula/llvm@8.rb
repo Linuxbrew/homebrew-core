@@ -6,19 +6,21 @@ class LlvmAT8 < Formula
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
   license "NCSA"
-  revision OS.mac? ? 3 : 4
+  revision OS.mac? ? 3 : 5
 
   bottle do
-    sha256 cellar: :any, catalina:     "ab099d84e5f0a58ea37172fd85753336d855fc25e9459ceff12ddc2dbb56ef71"
-    sha256 cellar: :any, mojave:       "ee795cbebce64f79bbcf7c42526093df7bd2e5e986a721197bca5cf6c822e87a"
-    sha256 cellar: :any, high_sierra:  "3f80b7119307b128b1e3ae8a2fea97a9878afb5a7436a7d35615b1e743bc7622"
-    sha256 cellar: :any, x86_64_linux: "f8d4d3f94d03df55400c31c7ba9f81fc25dfa3cf0ad67c172e04328109a56c4a"
+    sha256 cellar: :any,                 catalina:     "ab099d84e5f0a58ea37172fd85753336d855fc25e9459ceff12ddc2dbb56ef71"
+    sha256 cellar: :any,                 mojave:       "ee795cbebce64f79bbcf7c42526093df7bd2e5e986a721197bca5cf6c822e87a"
+    sha256 cellar: :any,                 high_sierra:  "3f80b7119307b128b1e3ae8a2fea97a9878afb5a7436a7d35615b1e743bc7622"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1b38a990522dccb6aca06300934044648d6df21e86259045f0dc0c693437a749"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { !OS.mac? || MacOS::CLT.installed? }
+    on_macos do
+      reason "The bottle needs the Xcode CLT to be installed."
+      satisfy { MacOS::CLT.installed? }
+    end
   end
 
   keg_only :versioned_formula
@@ -31,10 +33,15 @@ class LlvmAT8 < Formula
   depends_on "swig"
 
   unless OS.mac?
-    depends_on "gcc" # needed for libstdc++
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
+    depends_on "gcc" # for libstdc++
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -53,6 +60,14 @@ class LlvmAT8 < Formula
         url "https://gist.githubusercontent.com/iMichka/a5d88f6bbe1f62fc43dc040282234452/raw/430616d646260e47360d9cba0901ac2876007350/clang8?full_index=1"
         sha256 "a7403c5a3ea2edddb7c1cb70274396f4c31d6b7c37aa1e4e4edaca3d1b78300f"
       end
+    end
+  end
+
+  unless OS.mac?
+    patch :p2 do
+      # Fixes MicrosoftDemangleNodes.h:14:17: error: found ':' in nested-name-specifier, expected '::'
+      url "https://github.com/llvm/llvm-project/commit/b288d90b39f4b905c02092a9bfcfd6d78f99b191.patch?full_index=1"
+      sha256 "2028d52e1a39326bb48fb7463132bbfe7fb4fa18f1adfeea9c3ed0320ed49564"
     end
   end
 
@@ -121,17 +136,6 @@ class LlvmAT8 < Formula
     # limited to compiler-rt. llvm makes this somewhat easier because compiler-rt
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
-
-    unless OS.mac?
-      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
-      # Basically, the stage1 clang will try to locate a gcc toolchain and often
-      # get the default from /usr/local, which might contains an old version of
-      # gcc that can't build compiler-rt. This fixes the problem and, unlike
-      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
-      # hardcoding the gcc path into the binary
-      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
-        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
-    end
 
     args = %W[
       -DLIBOMP_ARCH=x86_64

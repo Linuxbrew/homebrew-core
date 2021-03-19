@@ -12,6 +12,7 @@ class Datasette < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c63f0e7caf21b94beffeda22d57cf0cd7f596f7c391d4528fdfe1f5a0ab61c86"
     sha256 cellar: :any_skip_relocation, catalina:      "bfbb19b21e5b6aa1464a27da31bfa2be94df7041bd28a55c6eb08a9249dca976"
     sha256 cellar: :any_skip_relocation, mojave:        "5b777d70305c73d2d6027f044e7fe3057d7a0d827e0243b116b8af91b6a3605d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31fe930e468eedf9248a5c8133560c8b5f9ea2bb23f37642256a1cf8674bfeb9"
   end
 
   depends_on "python@3.9"

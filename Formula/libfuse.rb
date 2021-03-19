@@ -1,40 +1,35 @@
 class Libfuse < Formula
   desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
-  url "https://github.com/libfuse/libfuse/releases/download/fuse-2.9.8/fuse-2.9.8.tar.gz"
-  sha256 "5e84f81d8dd527ea74f39b6bc001c874c02bad6871d7a9b0c14efb57430eafe3"
+  url "https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz"
+  sha256 "736e8d1ce65c09cb435fbbb500d53dc75f4d6e93bd325d22adc890951cf56337"
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
   head "https://github.com/libfuse/libfuse.git"
 
   bottle do
-    sha256 x86_64_linux: "66e21f1df0e11d0aa6f810f821e8981247e9285d39e6579bd7376ebfc6482a58"
+    sha256 x86_64_linux: "7bb51f1756d5b7409751902dd8367af5d9275455d243926de846ff6d9ec86ac3"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on :linux
 
   def install
-    ENV["MOUNT_FUSE_PATH"] = sbin
-    ENV["UDEV_RULES_PATH"] = etc/"udev/rules.d"
-    ENV["INIT_D_PATH"] = etc/"init.d"
-    system "./configure",
-      "--prefix=#{prefix}",
-      "--disable-silent-rules",
-      "--enable-lib",
-      "--enable-util",
-      "--enable-example",
-      "--disable-rpath"
-
-    system "make"
-    system "make", "install"
-    (pkgshare/"doc").install Dir["./doc/how-fuse-works", "./doc/kernel.txt"]
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dudevrulesdir=#{etc}/udev/rules.d", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
+    (pkgshare/"doc").install "doc/kernel.txt"
   end
 
   test do
     (testpath/"fuse-test.c").write <<~EOS
-      #include <fuse.h>
+      #define FUSE_USE_VERSION 31
+      #include <fuse3/fuse.h>
       #include <stdio.h>
       int main() {
         printf("%d%d\\n", FUSE_MAJOR_VERSION, FUSE_MINOR_VERSION);
@@ -42,7 +37,7 @@ class Libfuse < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "fuse-test.c", "-L#{lib}", "-I#{include}", "-D_FILE_OFFSET_BITS=64", "-lfuse", "-o", "fuse-test"
+    system ENV.cc, "fuse-test.c", "-L#{lib}", "-I#{include}", "-D_FILE_OFFSET_BITS=64", "-lfuse3", "-o", "fuse-test"
     system "./fuse-test"
   end
 end

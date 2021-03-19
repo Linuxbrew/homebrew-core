@@ -1,18 +1,17 @@
 class Mruby < Formula
   desc "Lightweight implementation of the Ruby language"
   homepage "https://mruby.org/"
-  url "https://github.com/mruby/mruby/archive/2.1.2.tar.gz"
-  sha256 "4dc0017e36d15e81dc85953afb2a643ba2571574748db0d8ede002cefbba053b"
+  url "https://github.com/mruby/mruby/archive/3.0.0.tar.gz"
+  sha256 "95b798cdd931ef29d388e2b0b267cba4dc469e8722c37d4ef8ee5248bc9075b0"
   license "MIT"
   head "https://github.com/mruby/mruby.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e46379c5d7600c8783732c5a4a93b9c3ce26370865e34f5b1f4c6459d2e8d94e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e1d5fd18c921cf19742a2c484f472d04b41fe84297c6c193ffc932cbc6c375df"
-    sha256 cellar: :any_skip_relocation, catalina:      "b6a638c04a991a249a737d0ad0d9f7fac31d35a7b2fd3c8507304e68f13bc983"
-    sha256 cellar: :any_skip_relocation, mojave:        "1f31eadc8801f65d42e2cfec43cda336324daf86978529dfc76338e6b094b16c"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "5b5dca177d9fdd6a2b543c9aeb2117e0d112d1578fadbb709d8565d83b21d6a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0a33a84718e9fcdf9478790564efb353120d8ea0e5d798766cee648c2f743b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cc2d97074393cbb8ea736fb513759bfe505962cf19348476697a3cd72687f82f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e500f9c72174e7a92a3151ddc39d137f8e243f46f1c81201efa8855a9d78aad0"
+    sha256 cellar: :any_skip_relocation, catalina:      "346991d6204ce4e9a745c8b20e8a0f1d308c5b9a46aae05b0acc9d3845f79633"
+    sha256 cellar: :any_skip_relocation, mojave:        "aa2812c5a7a2296671a88a989c94613e1ff2e91b6f8fa8579fef3b862699393a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c40e1324ce7a1919dcc3210e577a7ebbba61df14c0e95e704e1814bfa42a5dec"
   end
 
   depends_on "bison" => :build
@@ -20,6 +19,12 @@ class Mruby < Formula
   uses_from_macos "ruby"
 
   def install
+    cp "build_config/default.rb", buildpath/"homebrew.rb"
+    inreplace buildpath/"homebrew.rb",
+      "conf.gembox 'default'",
+      "conf.gembox 'full-core'"
+    ENV["MRUBY_CONFIG"] = buildpath/"homebrew.rb"
+
     system "make"
 
     cd "build/host/" do

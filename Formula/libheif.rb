@@ -4,13 +4,14 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.11.0/libheif-1.11.0.tar.gz"
   sha256 "c550938f56ff6dac83702251a143f87cb3a6c71a50d8723955290832d9960913"
   license "LGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "6d4a4ac2d0947af84d7987c706fb6598bd87296b3c170bb9eb50270d2f2b3bed"
-    sha256 cellar: :any,                 big_sur:       "daa9f993f1a04242f7786f141544fbb24a2c2d02e11f0253b6d72b6a8d6d3fe1"
-    sha256 cellar: :any,                 catalina:      "0b269433daa8aca16395d3ddc75fc8b63e15750c7c8a3af4a3769af09081f326"
-    sha256 cellar: :any,                 mojave:        "3ae3d4575f77c80b65ba04db875293422530d98ec80a61a6076316958fab6688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6af5b649e89a5ff4d7372c1c3a9f3b1b6e28137d9a4f44edb78959f12e7ebb7d"
+    sha256 cellar: :any,                 arm64_big_sur: "0cace1e7df98284e212181d14cc4537e59b67f296703516f4fedce8424647c2f"
+    sha256 cellar: :any,                 big_sur:       "68c4c76e85e0e09d12c23ff09ed7016d7755db92f5cdc05896ffd04717bffc78"
+    sha256 cellar: :any,                 catalina:      "2d817cd7e3d244cf7d076ac2978105d08694f067a158a3de4c53834583097509"
+    sha256 cellar: :any,                 mojave:        "139518ff3ffb704d73d41560470ac11e025816310c1a800e64f2eaaeb2df9a47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f75551a465eb1f06fdb56adf5fc061e6ab26c7db4518f10f83e64c00855ec0"
   end
 
   depends_on "pkg-config" => :build

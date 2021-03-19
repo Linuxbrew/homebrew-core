@@ -1,21 +1,21 @@
 class Bonniexx < Formula
   desc "Benchmark suite for file systems and hard drives"
   homepage "https://www.coker.com.au/bonnie++/"
-  url "https://www.coker.com.au/bonnie++/bonnie++-1.98.tgz"
-  sha256 "6e0bcbc08b78856fd998dd7bcb352d4615a99c26c2dc83d5b8345b102bad0b04"
+  url "https://www.coker.com.au/bonnie++/bonnie++-2.00a.tgz"
+  sha256 "a8d33bbd81bc7eb559ce5bf6e584b9b53faea39ccfb4ae92e58f27257e468f0e"
+  license "GPL-2.0-only"
 
   livecheck do
-    url "https://www.coker.com.au/bonnie++/experimental/"
-    regex(/href=.*?bonnie\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://doc.coker.com.au/projects/bonnie/"
+    regex(/href=.*?bonnie\+\+[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4cfba65b86dbc1566cd5a3ef029c11689e2af12290c2135e386ab7366df8c53a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "544f2f49ce8aed650290a8d30f30dbe7e1e1a172fbd458e9695397cf2f9164eb"
-    sha256 cellar: :any_skip_relocation, catalina:      "d6efac6fef771ca5d88fd4f8157e185e120c5e6935f9d940f2c6c3d5c9564ce0"
-    sha256 cellar: :any_skip_relocation, mojave:        "af6277fc9f23e9665b134aa2790dc30ebdaba386492c1832bf88a1f67280c63c"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "50872a4a0cbca4eecb515214f23efe7eb5e421dbbbe406a5e95a7bd62e4f9d34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7307deac96eeb1fee3e7ded67d2ded07af3e22b08def4d4f481a42b926a3386b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "902ceb61db37a6795eee8d7941a44633faa38bcd9c2a4b952bf837bab0ee6d59"
+    sha256 cellar: :any_skip_relocation, big_sur:       "75e1876579c6638c1e4c0509af5c76950ae379b034e6a051d091593cb08c1ddd"
+    sha256 cellar: :any_skip_relocation, catalina:      "83df0761686086ae64a3c08433613908d9c39d85daa7f81011b5bd70d2d5eb3d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c503806d5f1ad449a6943275fa93a3930fbbd7cd63b31ee873590d0219ded5b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fa961ef4884e5ed8aba3f1ffbadcf9fb1bb6b9d0a87647ad2a2492f99c10067"
   end
 
   # Remove the #ifdef _LARGEFILE64_SOURCE macros which not only prohibits the

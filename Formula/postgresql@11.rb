@@ -4,18 +4,19 @@ class PostgresqlAT11 < Formula
   url "https://ftp.postgresql.org/pub/source/v11.11/postgresql-11.11.tar.bz2"
   sha256 "40607b7fa15b7d63f5075a7277daf7b3412486aa5db3aedffdb7768b9298186c"
   license "PostgreSQL"
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(11(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=["']?v?(11(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "804875072eab6fe15fd1a268da0c4e8b160def90e2de354bb340d9a30e7923b8"
-    sha256 big_sur:       "b55106fedb700216757d12e4b025c7971a33b8fd162920d2eb143ac324b31ddf"
-    sha256 catalina:      "b41b6a0e6e62c507da4b74d4853c598579d7d1895888263a3cb1ff3c9bc6f665"
-    sha256 mojave:        "147159d27d3eb9b8bb18ea9f08ab336db664cdf4716b459a7310bcfd68dd2a94"
-    sha256 x86_64_linux:  "42b675adc7c66fe4891e10d3f1b40bd22323e93e4ba266750387c06c3f325226"
+    sha256 arm64_big_sur: "13273b530b4676aff62fe029c75c42e2807a239172ad6b1741e82ba86975c279"
+    sha256 big_sur:       "ea91a1a975c8ddc11fab237adc0e38915eae9789ca6b6158270d20a355403ef3"
+    sha256 catalina:      "3dbecb364cfb97f67a4268bff369fb6d8c5f575821743b9117d912fc7a320c9e"
+    sha256 mojave:        "58721865e436ac9177d52b69e53d3334a19c3a0db387a4205526f828aeda32f6"
+    sha256 x86_64_linux:  "a7fe75f81024e68248d8b1d8aa78200039019b905c939437820ee8aa5792ab19"
   end
 
   keg_only :versioned_formula
@@ -27,6 +28,12 @@ class PostgresqlAT11 < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  unless OS.mac?
+    depends_on "krb5"
+    depends_on "linux-pam"
+    depends_on "openldap"
+  end
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -49,19 +56,19 @@ class PostgresqlAT11 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
+      --with-gssapi
       --with-icu
+      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
+      --with-pam
       --with-perl
       --with-uuid=e2fs
     ]
     if OS.mac?
       args += %w[
         --with-bonjour
-        --with-gssapi
-        --with-ldap
-        --with-pam
         --with-tcl
       ]
     end

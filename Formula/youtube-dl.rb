@@ -3,16 +3,16 @@ class YoutubeDl < Formula
 
   desc "Download YouTube videos from the command-line"
   homepage "https://youtube-dl.org/"
-  url "https://files.pythonhosted.org/packages/44/ee/35b6ad9f8354fd36bef496205ddd6e19b12fa0142655594f2cdea27a5465/youtube_dl-2021.2.22.tar.gz"
-  sha256 "adcdec2b72ab7b68cd50a4d1e6581173353bcd6f0be175824a4b72ae890d9ae7"
+  url "https://files.pythonhosted.org/packages/ae/9e/b00e52b37f9cb73ccb1a5592f5e28345470ca8c24f328e8212546fc4a951/youtube_dl-2021.3.14.tar.gz"
+  sha256 "c287ad8dd33471aabaabab5ab1dd825bebc70eb8b83ebfa93fd71022e01a1d08"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "59bb20682e45ed2a4a8172b4a67260b65fde3789387a6a1295a47e7c9a1a38fb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8d0390a1788d7617dd7e613681d7a0312835fe2c7c6245c33de2e3f2fff25504"
-    sha256 cellar: :any_skip_relocation, catalina:      "3d11944e62ae6e3b414adf7b9b09ecb136f54a6c27ef56d5672b0bef28c90d78"
-    sha256 cellar: :any_skip_relocation, mojave:        "24ea5e9adc4b141e6ee6d305be8fabcf8a4e792b7482317a551c58838fa18d04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f300dc1ace82701587cb10f44349b22627fc2cda418bb88d84a2c563b7bf48d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3cbeeba083449acf0dc719a60a4b267c952d1977aa6372abee378a9d39108a71"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1fc1cc1befa83f86f4062564275929dc0469992905a00cc373f5b11a63c9fab2"
+    sha256 cellar: :any_skip_relocation, catalina:      "7d1f46c841d9e0c25ca7f0f756adea1138e11a09776ebe9a0986a62e8d4368bf"
+    sha256 cellar: :any_skip_relocation, mojave:        "c023a2e01b617d5d0a86ca0efee08e8cda395de424ee8b61fbd5c99f4985f549"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f82fb97419cd90922fe84670899b3b835a4adc9af9b9c64a37fa2aecf0e9c27"
   end
 
   depends_on "python@3.9"

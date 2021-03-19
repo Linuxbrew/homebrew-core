@@ -19,6 +19,7 @@ class Rgbds < Formula
     sha256 cellar: :any, x86_64_linux:  "99c6f33c7665084770b0bfbb64970309411174dc3a8ddea118e6a93d8c864d69"
   end
 
+  depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libpng"
 

@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.6.0/allegro-5.2.6.0.tar.gz"
-  sha256 "5de8189ec051e1865f359654f86ec68e2a12a94edd00ad06d1106caa5ff27763"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.7.0/allegro-5.2.7.0.tar.gz"
+  sha256 "c1e3b319d99cb453b39d393572ba2b9f3de42a96de424aee7d4a1abceaaa970c"
   license "Zlib"
   head "https://github.com/liballeg/allegro5.git"
 
@@ -12,11 +12,10 @@ class Allegro < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "709d62d7f2191f409671467cf25ec25edcb97641729277a62cc6cca065db4b0e"
-    sha256 cellar: :any, big_sur:       "fccd4a2c8eda6101d7a7f0dffe598cdafc4594b8fc247548d48d6eafe85e0cc3"
-    sha256 cellar: :any, catalina:      "9e71511f6c8faa8449dd06bc30bd74497ee832e3e0ca7f3eb02bcef263ab4b3f"
-    sha256 cellar: :any, mojave:        "ead9f69a2af4720ad8a9e020657b1db71e49cb3e83d9d8477d425de9d948ce07"
-    sha256 cellar: :any, high_sierra:   "4ab4367b267e257a1aeee6cd65301922cf38cb37e8c11865edecedac5960f96e"
+    sha256 cellar: :any, arm64_big_sur: "111f5e8474a0abd37641c2db543664b53f89d83201493a6e22d846a25290a16e"
+    sha256 cellar: :any, big_sur:       "d681ad8e081082bbb8ac3036b4697ce03cbfc139037977c3d45880cd3b9f8396"
+    sha256 cellar: :any, catalina:      "dc2b03c9441a55e8501a1e330a1c0d673756ca06efbbcd8970012ace01c7d232"
+    sha256 cellar: :any, mojave:        "b9b9dfdb3d26e50ee7f67a678fb20c6874366fe9eeeaf1300b6fb020050e6b37"
   end
 
   depends_on "cmake" => :build

@@ -7,11 +7,12 @@ class HelmAT2 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "432e81bffefbb026bd50058e920a424b1805b84efc634d78c93dfedb9fec3d5a"
-    sha256 cellar: :any_skip_relocation, catalina:     "831c4f5b7cf7fc1ab53364eeb2eeb6eff8babdbc51817b406b65a948ac6258c2"
-    sha256 cellar: :any_skip_relocation, mojave:       "ab7ef44ce55c8b3597a2cb6dfe0ef93b74b389e6a4d6ab09c9a1ebe8dce5e594"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "a1c5cb86cce4fe2941c94309c8c75cd00ed9fae2e6edc6ea67aacadcf2f13c9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "66f0d78ff5fde1dc9d15aab9a8ca648adabf92e5f357f7fc9b515b59e92ad77f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7372a593968befdd89f52a079360d4096be38df500199cec1de53b9d9a047502"
+    sha256 cellar: :any_skip_relocation, big_sur:       "432e81bffefbb026bd50058e920a424b1805b84efc634d78c93dfedb9fec3d5a"
+    sha256 cellar: :any_skip_relocation, catalina:      "831c4f5b7cf7fc1ab53364eeb2eeb6eff8babdbc51817b406b65a948ac6258c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "ab7ef44ce55c8b3597a2cb6dfe0ef93b74b389e6a4d6ab09c9a1ebe8dce5e594"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a1c5cb86cce4fe2941c94309c8c75cd00ed9fae2e6edc6ea67aacadcf2f13c9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66f0d78ff5fde1dc9d15aab9a8ca648adabf92e5f357f7fc9b515b59e92ad77f"
   end
 
   keg_only :versioned_formula

@@ -11,10 +11,11 @@ class Cairomm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e35cb366d4afd2a5a7153ddf2bd648ef6bdd75a82f79980480ec9c9b71afd821"
-    sha256 cellar: :any, big_sur:       "6177df22ea052d3e7ccd44d621d24837478340ea0d1385ef401a069414f893f1"
-    sha256 cellar: :any, catalina:      "cad19588b9a033b690cd2f1b73cb75282e017e1d32dfd39e29f7a35e2e8d3d91"
-    sha256 cellar: :any, mojave:        "b90f4177caced79c28888be8b38150c22d9a147eaa96493810ddbdf3fee87bf4"
+    sha256 cellar: :any,                 arm64_big_sur: "e35cb366d4afd2a5a7153ddf2bd648ef6bdd75a82f79980480ec9c9b71afd821"
+    sha256 cellar: :any,                 big_sur:       "6177df22ea052d3e7ccd44d621d24837478340ea0d1385ef401a069414f893f1"
+    sha256 cellar: :any,                 catalina:      "cad19588b9a033b690cd2f1b73cb75282e017e1d32dfd39e29f7a35e2e8d3d91"
+    sha256 cellar: :any,                 mojave:        "b90f4177caced79c28888be8b38150c22d9a147eaa96493810ddbdf3fee87bf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ee9faef168e0d8632447d10197151264f7b4a46c32c165c14019e59d8d7ebad"
   end
 
   depends_on "meson" => :build
@@ -23,6 +24,12 @@ class Cairomm < Formula
   depends_on "cairo"
   depends_on "libpng"
   depends_on "libsigc++"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11

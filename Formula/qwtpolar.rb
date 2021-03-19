@@ -3,18 +3,18 @@ class Qwtpolar < Formula
   homepage "https://qwtpolar.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 arm64_big_sur: "9e69907710588144c7d42992d475bb4dee85b2c5d65f7516148139bee378b1b8"
-    sha256 big_sur:       "24c95a54e4235a58322474e0bad2333cbb8d7345a6962314198c99e2db6c05d0"
-    sha256 catalina:      "aecaa5a0aa1d226e6e270e56efdb43884ba9d5fd73780e5460795910e7e0560b"
-    sha256 mojave:        "0d493ae14bbe49a4580e567c36df9bbbfa0f394055e9f49df812059e9e9aa3ea"
+    sha256 arm64_big_sur: "a6275a7f3ecb35b2cc11421b2d8edc5e356db716f28608f6fa7c6e79e06e8fd5"
+    sha256 big_sur:       "86dd4a8ac4503ead0816226891d764ddc8a969d0f1315836cb11bcc234de4987"
+    sha256 catalina:      "a11b3fa86995047e99d7e3c5b203744811bc60e8176925d9c42ee4c3b31072e3"
+    sha256 mojave:        "3d6ef191c60c01648584f1db3b9caecc60dfd692d2bfc9e143ee1a9e48b058ff"
   end
 
   depends_on xcode: :build
 
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "qwt"
 
   # Update designer plugin linking back to qwtpolar framework/lib after install
@@ -37,7 +37,8 @@ class Qwtpolar < Formula
     end
 
     ENV["QMAKEFEATURES"] = "#{Formula["qwt"].opt_prefix}/features"
-    system "qmake", "-config", "release"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "-config", "release"
     system "make"
     system "make", "install"
     pkgshare.install "examples"
@@ -58,7 +59,7 @@ class Qwtpolar < Formula
       s.gsub! "qwtPolarAddLibrary(qwtpolar)", "qwtPolarAddLibrary(qwtpolar)\nqwtPolarAddLibrary(qwt)"
     end
     cd "examples" do
-      system Formula["qt"].opt_bin/"qmake"
+      system Formula["qt@5"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
       assert_predicate Pathname.pwd/"bin/polardemo.app/Contents/MacOS/polardemo",

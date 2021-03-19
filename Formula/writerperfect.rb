@@ -13,6 +13,7 @@ class Writerperfect < Formula
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "00f00e38b26c51048a374d8becec3fbc1c1b1c05105710761575ae4906194920"
     sha256 cellar: :any, big_sur:       "434788af114e54153fe89b17ff3c0ddfd879ffd0e59ac822821ede791a33d145"
+    sha256 cellar: :any, catalina:      "d9a391e73e78b29ced39f355c8d52fbba4198af66c578b9d41257422a969cd17"
     sha256 cellar: :any, mojave:        "5e8658459f44238800ff490331d50aa6a71b48115157893c78901a4441a34dd3"
     sha256 cellar: :any, high_sierra:   "12f30a1f15f5887da7675026656f59dd74b7fbffdf4129a2c1778578dbf4cc4a"
     sha256 cellar: :any, sierra:        "36981e968c146d8aeca47d96327b3f3e909a3f58ca15bed17202e93fef6e17db"

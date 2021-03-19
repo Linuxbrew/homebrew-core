@@ -4,6 +4,7 @@ class NanopbGenerator < Formula
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.4.tar.gz"
   sha256 "56fb6efb17824f09fd64c509cc6bbe0f44919137f8143a8613e1194cd4782374"
   license "Zlib"
+  revision 1
 
   livecheck do
     url "https://jpa.kapsi.fi/nanopb/download/"
@@ -11,11 +12,11 @@ class NanopbGenerator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2bf71e3731cd20856320911e2f93faeb1e08f4dc833c9d24af1ac7f0a7b30f43"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e21886b97c90e974ad0703192f26ebd46b434dd0c5628d2c212a2281bc10b093"
-    sha256 cellar: :any_skip_relocation, catalina:      "6e8adb5331cae1497b14da6367cfbfc4b2231d06738c58402ab978f76834cbd9"
-    sha256 cellar: :any_skip_relocation, mojave:        "e64b44fbf7a8dc521871cc366962195eaa9d73db5da8d138ff1b71f4a6d92ccd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d86786e38ab54ad5029cecf744a586734a8f7e0d09d4c0f2beb5a28769afd50"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df771d601248c905f5da80f48cbac0c50d636fb0cb7d81e0fb655c9cda15ac87"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ee9dd36ebeaaec92ff043fdf57f5ef380da93b7dfac6295c5d37b600da5f314d"
+    sha256 cellar: :any_skip_relocation, catalina:      "9ad5efdcf92dde1e8fd3b1757b404840daada3eaed6dc1eb73be2de253542c7b"
+    sha256 cellar: :any_skip_relocation, mojave:        "4df510967a8882043092a084a019f27ef3b3c5730ad677ff777b0afdd86cace6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9736555d88f3d33d2e49434b45e66a44364b3815c2c938eaa9685fa51160a475"
   end
 
   depends_on "protobuf"

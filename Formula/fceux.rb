@@ -5,19 +5,20 @@ class Fceux < Formula
       tag:      "fceux-2.3.0",
       revision: "65c5b0d2a1c08db75bb41340bfa5534578926944"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/TASVideos/fceux.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a369411e4073f2c00f531efce9a9106905f79278db34e9631deb86c6a3f2b884"
-    sha256 cellar: :any, big_sur:       "ebc63da5d126fd47a5df151fabb90a711b4da9859465d42bd8654c55ade77c62"
-    sha256 cellar: :any, catalina:      "cfec571f34128f228777843a9089a6c48f0799a2c0d873b65f5ebfde2357a849"
-    sha256 cellar: :any, mojave:        "ea023c53472bdb9ed928f31bdd9e149c28376b45e9f419c799efc77f70b76110"
+    sha256 cellar: :any, arm64_big_sur: "2670e9ad02d6fcced8178967625bc9ad7e04772eadaf78a3a98cd4e2b452396c"
+    sha256 cellar: :any, big_sur:       "ab311b3b0e73d4cde15fd0c95ee221f6dfc0a239fb10c109c94c393cb0cc3782"
+    sha256 cellar: :any, catalina:      "bd7ddafbbe5357afa8db61d66004fb4ee3dafe67019a68646f7cf3653fc620ac"
+    sha256 cellar: :any, mojave:        "5e0d118e90f6333350a654e9c77627ef2703018cbda58589ea36580bf6542ced"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "minizip"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
 
   def install

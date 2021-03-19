@@ -11,6 +11,7 @@ class Collectd < Formula
     sha256 catalina:      "ea61777a4d32690b2a1ddd53081f0888f7c83066cc9e0e5482f604e61c981fd9"
     sha256 mojave:        "9efc5c99db4239be93afbad141938c697cc36c1442e117d92960a5265cfc57cf"
     sha256 high_sierra:   "850edf925fa233181c03c7157cf6c89fca53906f930c511febd283358242f688"
+    sha256 x86_64_linux:  "8044bc6f901ff94f1c70ef6b65b1d85e3b89e1c4fc3d1cffeeee282786c45747"
   end
 
   head do

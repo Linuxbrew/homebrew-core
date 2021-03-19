@@ -4,20 +4,20 @@ class Pushpin < Formula
   url "https://dl.bintray.com/fanout/source/pushpin-1.31.0.tar.bz2"
   sha256 "62504863297a8ec1833486affaff91fade7a970dd43b9c8c2add5944603481ac"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 big_sur:     "2ecabfaf77c7baa3a348b52c04e5d631decf56497f9c243308a4d3ecde956962"
-    sha256 catalina:    "cba8efdcbb2ce8e426ff46e450fbc686653a902f17d9cd7eb940be072e14914d"
-    sha256 mojave:      "466d8d74ad32796a9d6d1aa1ea19746570d6f5a6763d55ba829c01b9c6ea4656"
-    sha256 high_sierra: "326bb88e58a9ab6087ce7c4de8097f62cae5930c2dd469fe847760c467761b94"
+    sha256 big_sur:  "f032a66f0bb002c59fe705e403f43bba0df830a395b1ea66a4d52b0b46812e54"
+    sha256 catalina: "99c79baa11d8b5ea76ef9f842676f081d30e923610398617ba4c5352e1bc65ea"
+    sha256 mojave:   "815a63479cf6b06aa797652e0a3e18e4326449171790cb110f40fde66755df60"
   end
 
   depends_on "pkg-config" => :build
   depends_on "condure"
   depends_on "mongrel2"
   depends_on "python@3.9"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "zeromq"
   depends_on "zurl"
 

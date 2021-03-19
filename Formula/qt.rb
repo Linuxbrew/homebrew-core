@@ -1,14 +1,9 @@
-# Patches for Qt must be at the very least submitted to Qt's Gerrit codereview
-# rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
-  sha256 "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.2/single/qt-everywhere-src-6.0.2.tar.xz"
+  sha256 "67a076640647783b95a907d2231e4f34cec69be5ed338c1c1b33124cadf10bdf"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 6 unless OS.mac?
 
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
@@ -20,18 +15,39 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "049a78d3f84586a28d9d035bc5ff1a677b0dd9bd8c81b5775919591cde99f258"
-    sha256 cellar: :any, big_sur:       "ac22ab5828d894518e42f00e254f1e36d5be4e5f3f1c08b3cd49b57819daaf2d"
-    sha256 cellar: :any, catalina:      "51ab78a99ff3498a236d15d9bed92962ddd2499c4020356469f7ab1090cf6825"
-    sha256 cellar: :any, mojave:        "25c4a693c787860b090685ac5cbeea18128d4d6361eed5b1bfed1b16ff6e4494"
-    sha256 cellar: :any, x86_64_linux:  "7aa522535cdf682145668c193a89b59128b3cfb8f724af63e093cd692c422ed0"
+    sha256 cellar: :any, arm64_big_sur: "fb36682730c3261967347efd1e1219970ddcf9e39998183b2aeaa76acad98cce"
+    sha256 cellar: :any, big_sur:       "99950b7eb8c3fd4a91f5622f1199b77d99d9d2aa9deeb2e2f11a1ed568f1194b"
+    sha256 cellar: :any, catalina:      "30f9131632cfa2088eb24315a5f34090e004413261e11b7290e37d78d7f9e42e"
+    sha256 cellar: :any, mojave:        "9498b72fda65897df32aa8ecd754b45d0f02551280170beb6b76e7001d4fff01"
   end
 
-  keg_only "Qt 5 has CMake issues when linked"
-
+  depends_on "cmake" => [:build, :test]
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on xcode: :build
-  depends_on macos: :sierra if OS.mac?
+
+  depends_on "assimp"
+  depends_on "dbus"
+  depends_on "double-conversion"
+  depends_on "freetype"
+  depends_on "glib"
+  depends_on "icu4c"
+  depends_on "jasper"
+  depends_on "jpeg"
+  depends_on "libb2"
+  depends_on "libpng"
+  depends_on "libproxy"
+  depends_on "libtiff"
+  depends_on "pcre2"
+  depends_on "python@3.9"
+  depends_on "webp"
+  depends_on "zstd"
+
+  uses_from_macos "cups"
+  uses_from_macos "krb5"
+  uses_from_macos "perl"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   unless OS.mac?
     depends_on "at-spi2-core"
@@ -47,7 +63,6 @@ class Qt < Formula
     depends_on "libdrm"
     depends_on "mesa"
     depends_on "pulseaudio"
-    depends_on "python@3.8"
     depends_on "sdl2"
     depends_on "systemd"
     depends_on "xcb-util"
@@ -59,85 +74,67 @@ class Qt < Formula
     depends_on "wayland"
   end
 
-  uses_from_macos "gperf" => :build
-  uses_from_macos "bison"
-  uses_from_macos "flex"
-  uses_from_macos "sqlite"
-
-  # Find SDK for 11.x macOS
-  # Upstreamed, remove when Qt updates Chromium
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/92d4cf/qt/5.15.2.diff"
-    sha256 "fa99c7ffb8a510d140c02694a11e6c321930f43797dbf2fe8f2476680db4c2b2"
+  resource "qtimageformats" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtimageformats-everywhere-src-6.0.2.tar.xz"
+    sha256 "b0379ba6bbefbc48ed3ef8a1d8812531bd671362f74e0cffa6adf67bb1139206"
   end
 
-  # Patch for qmake on ARM
-  # https://codereview.qt-project.org/c/qt/qtbase/+/327649
-  if Hardware::CPU.arm?
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9dc732/qt/qt-split-arch.patch"
-      sha256 "36915fde68093af9a147d76f88a4e205b789eec38c0c6f422c21ae1e576d45c0"
-      directory "qtbase"
-    end
+  resource "qt3d" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qt3d-everywhere-src-6.0.2.tar.xz"
+    sha256 "ff6434da878062aea612a9d7323bd615c2f232c4462c26323f1a5511aac6db89"
+  end
+
+  resource "qtnetworkauth" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtnetworkauth-everywhere-src-6.0.2.tar.xz"
+    sha256 "05b66ef42f3e6bf4cf5f36744db8483f9a57dbc7bd9ecc9ba81e7ca99b0a37e6"
   end
 
   def install
-    # Workaround for disk space issues on github actions
-    # https://github.com/Homebrew/linuxbrew-core/pull/19595
-    system "/home/linuxbrew/.linuxbrew/bin/brew", "cleanup", "--prune=0" if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    resources.each { |addition| addition.stage buildpath/addition.name }
 
-    args = %W[
-      -verbose
-      -prefix #{prefix}
+    config_args = %W[
       -release
-      -opensource -confirm-license
-      -qt-libpng
-      -qt-libjpeg
-      -qt-freetype
-      -qt-pcre
-      -nomake examples
-      -nomake tests
-      -pkg-config
-      -dbus-runtime
+
+      -prefix #{HOMEBREW_PREFIX}
+      -extprefix #{prefix}
+
+      -libexecdir share/qt/libexec
+      -plugindir share/qt/plugins
+      -qmldir share/qt/qml
+      -docdir share/doc/qt
+      -translationdir share/qt/translations
+      -examplesdir share/qt/examples
+      -testsdir share/qt/tests
+
+      -libproxy
+      -no-feature-relocatable
+      -system-sqlite
     ]
 
-    if OS.mac?
-      args << "-no-rpath"
-      args << "-system-zlib"
-    elsif OS.linux?
-      args << "-R#{lib}"
-      # https://bugreports.qt.io/browse/QTBUG-71564
-      args << "-no-avx2"
-      args << "-no-avx512"
-      args << "-qt-zlib"
-      # https://bugreports.qt.io/browse/QTBUG-60163
-      # https://codereview.qt-project.org/c/qt/qtwebengine/+/191880
-      args += %w[-skip qtwebengine]
-      args -= ["-proprietary-codecs"]
-      args << "-no-sql-mysql"
-    end
-    if OS.mac?
-      if Hardware::CPU.arm?
-        # Temporarily fixes for Apple Silicon
-        args << "-skip" << "qtwebengine" << "-no-assimp"
-      else
-        # Should be reenabled unconditionnaly once it is fixed on Apple Silicon
-        args << "-proprietary-codecs"
-      end
-    end
+    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
+      -DICU_ROOT=#{Formula["icu4c"].opt_prefix}
 
-    system "./configure", *args
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
+      -DCMAKE_FIND_FRAMEWORK=FIRST
 
-    # Remove reference to shims directory
-    inreplace "qtbase/mkspecs/qmodule.pri",
-              /^PKG_CONFIG_EXECUTABLE = .*$/,
-              "PKG_CONFIG_EXECUTABLE = #{Formula["pkg-config"].opt_bin/"pkg-config"}"
-    system "make"
-    ENV.deparallelize
-    system "make", "install"
+      -DINSTALL_MKSPECSDIR=share/qt/mkspecs
+      -DINSTALL_DESCRIPTIONSDIR=share/qt/modules
+
+      -DFEATURE_pkg_config=ON
+      -DFEATURE_qt3d_system_assimp=ON
+      -DTEST_assimp=ON
+    ]
+
+    system "./configure", *config_args, "--", *cmake_args
+    system "ninja"
+    system "ninja", "install"
+
+    rm bin/"qt-cmake-private-install.cmake"
 
     # Some config scripts will only find Qt in a "Frameworks" folder
     frameworks.install_symlink Dir["#{lib}/*.framework"]
+
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", /.*set.__qt_initial_.*/, ""
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
@@ -146,35 +143,43 @@ class Qt < Formula
       include.install_symlink path => path.parent.basename(".framework")
     end
 
-    # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
-    # because we don't like having them in `bin`.
-    # (Note: This move breaks invocation of Assistant via the Help menu
-    # of both Designer and Linguist as that relies on Assistant being in `bin`.)
-    libexec.mkpath
-    Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
-  end
-
-  def caveats
-    s = <<~EOS
-      We agreed to the Qt open source license for you.
-      If this is unacceptable you should uninstall.
-    EOS
-
-    if Hardware::CPU.arm?
-      s += <<~EOS
-
-        This version of Qt on Apple Silicon does not include QtWebEngine
-      EOS
+    mkdir libexec
+    Pathname.glob("#{bin}/*.app") do |app|
+      mv app, libexec
+      bin.write_exec_script "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
     end
-
-    s
   end
 
   test do
-    (testpath/"hello.pro").write <<~EOS
-      QT       += core
-      QT       -= gui
-      TARGET = hello
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.19.0)
+
+      project(test VERSION 1.0.0 LANGUAGES CXX)
+
+      set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+      set(CMAKE_AUTOMOC ON)
+      set(CMAKE_AUTORCC ON)
+      set(CMAKE_AUTOUIC ON)
+
+      find_package(Qt6 COMPONENTS Core Widgets Sql Concurrent
+        3DCore Svg Quick3D Network NetworkAuth REQUIRED)
+
+      add_executable(test
+          main.cpp
+      )
+
+      target_link_libraries(test PRIVATE Qt6::Core Qt6::Widgets
+        Qt6::Sql Qt6::Concurrent Qt6::3DCore Qt6::Svg Qt6::Quick3D
+        Qt6::Network Qt6::NetworkAuth
+      )
+    EOS
+
+    (testpath/"test.pro").write <<~EOS
+      QT       += core svg 3dcore network networkauth quick3d \
+        sql
+      TARGET = test
       CONFIG   += console
       CONFIG   -= app_bundle
       TEMPLATE = app
@@ -182,24 +187,45 @@ class Qt < Formula
     EOS
 
     (testpath/"main.cpp").write <<~EOS
+      #undef QT_NO_DEBUG
       #include <QCoreApplication>
+      #include <Qt3DCore>
+      #include <QtQuick3D>
+      #include <QImageReader>
+      #include <QtNetworkAuth>
+      #include <QtSql>
+      #include <QtSvg>
       #include <QDebug>
+      #include <iostream>
 
       int main(int argc, char *argv[])
       {
         QCoreApplication a(argc, argv);
-        qDebug() << "Hello World!";
+        QSvgGenerator generator;
+        auto *handler = new QOAuthHttpServerReplyHandler();
+        delete handler; handler = nullptr;
+        auto *root = new Qt3DCore::QEntity();
+        delete root; root = nullptr;
+        Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
+        const auto &list = QImageReader::supportedImageFormats();
+        for(const char* fmt:{"bmp", "cur", "gif", "heic", "heif",
+          "icns", "ico", "jp2", "jpeg", "jpg", "pbm", "pgm", "png",
+          "ppm", "svg", "svgz", "tga", "tif", "tiff", "wbmp", "webp",
+          "xbm", "xpm"}) {
+          Q_ASSERT(list.contains(fmt));
+        }
         return 0;
       }
     EOS
 
+    system "cmake", testpath
+    system "make"
+    system "./test"
+
     # Work around "error: no member named 'signbit' in the global namespace"
     ENV.delete "CPATH"
-
-    system bin/"qmake", testpath/"hello.pro"
+    system bin/"qmake", testpath/"test.pro"
     system "make"
-    assert_predicate testpath/"hello", :exist?
-    assert_predicate testpath/"main.o", :exist?
-    system "./hello"
+    system "./test"
   end
 end

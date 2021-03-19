@@ -44,36 +44,28 @@ class Apr < Formula
     # The internal libtool throws an enormous strop if we don't do...
     ENV.deparallelize
 
-    if OS.linux? && build.bottle?
-      # Prevent hardcoded /usr/bin/gcc-4.8 compiler
-      ENV["CC"] = "cc"
-    end
-
     # Needed to apply the patch.
     system "autoconf"
 
-    # Stick it in libexec otherwise it pollutes lib with a .exp file.
-    system "./configure", "--prefix=#{libexec}"
+    system "./configure", *std_configure_args
     system "make", "install"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
-    lib.install_symlink Dir["#{libexec}/lib/*.a"]
-    lib.install_symlink Dir["#{libexec}/lib/#{shared_library("*")}"]
-    (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
-    (include/"apr-#{version.major}").install_symlink Dir["#{libexec}/include/apr-#{version.major}/*.h"]
 
-    rm Dir[libexec/"lib/*.la"]
+    # Install symlinks so that linkage doesn't break for reverse dependencies.
+    (libexec/"lib").install_symlink Dir["#{lib}/#{shared_library("*")}"]
+
+    rm Dir["#{lib}/*.{la,exp}"]
 
     # No need for this to point to the versioned path.
-    inreplace libexec/"bin/apr-#{version.major}-config", libexec, opt_libexec
+    inreplace bin/"apr-#{version.major}-config", prefix, opt_prefix
 
     on_linux do
       # Avoid references to the Homebrew shims directory
-      inreplace libexec/"build-#{version.major}/libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
+      inreplace prefix/"build-#{version.major}/libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
     end
   end
 
   test do
-    assert_match opt_libexec.to_s, shell_output("#{bin}/apr-#{version.major}-config --prefix")
+    assert_match opt_prefix.to_s, shell_output("#{bin}/apr-#{version.major}-config --prefix")
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <apr-#{version.major}/apr_version.h>

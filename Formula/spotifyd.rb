@@ -1,8 +1,8 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://github.com/Spotifyd/spotifyd"
-  url "https://github.com/Spotifyd/spotifyd/archive/v0.3.0.tar.gz"
-  sha256 "47b3d9a87a9bc8ff5a46b9ba3ccb5ea0b305964c6f334e601a0316697d8bcd4a"
+  url "https://github.com/Spotifyd/spotifyd/archive/v0.3.2.tar.gz"
+  sha256 "d1d5442e6639cde7fbd390a65335489611eec62a1cfcba99a4aba8e8977a9d9c"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git"
 
@@ -12,14 +12,19 @@ class Spotifyd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "fdc3e5aeee7705fad20e9c5278d21a2e0590d622ec929494ecc2eaed7220a6f9"
-    sha256 cellar: :any_skip_relocation, catalina: "ce40421f0813e1652b241385eabffe4c06f1fce26de182f36907a739e38b14b3"
-    sha256 cellar: :any_skip_relocation, mojave:   "4c0ad2cabb7962b0f798c74fc0d6246c4b430b2350e5672b1a23a89efc981cd9"
+    sha256 cellar: :any_skip_relocation, big_sur:      "c8f63e37af5e61c265e6843f91244dee84cddd37b4c311145f7b8d1c14e429fe"
+    sha256 cellar: :any_skip_relocation, catalina:     "777337567077e1ca16cffc7784fed7bfea77ea4f58fc42852584ed181ade6ea5"
+    sha256 cellar: :any_skip_relocation, mojave:       "eeb3feaaebc725fc35f27d71c9070089a9dc9d042a845d5d4e6ca4c86aeb58ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a165c594741ff8897b9ea79e1d483e783893850d431d74f80651e005eebaf01"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "dbus"
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed

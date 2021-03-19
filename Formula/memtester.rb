@@ -18,6 +18,7 @@ class Memtester < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3a076907f16eea276860af92f2ce27ac3ffa5f7ddb6b107bcd0767a4d2ae8f9e"
     sha256 cellar: :any_skip_relocation, mojave:        "0d0340b01dbeef9616b14cdb1b31d60f7c55280c289d6220a613fc15cbb73978"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1f4076eee7326cf525af344331ffd23b6961148b16c82cf9f8ba28e0f098a881"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4aa116d41d4c45d452a05bd67823c2b43a8a35ee6681db90cea0a2f34d97b65"
   end
 
   def install

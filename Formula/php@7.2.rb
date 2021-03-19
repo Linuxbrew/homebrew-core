@@ -6,25 +6,26 @@ class PhpAT72 < Formula
   mirror "https://fossies.org/linux/www/php-7.2.34.tar.xz"
   sha256 "409e11bc6a2c18707dfc44bc61c820ddfd81e17481470f3405ee7822d8379903"
   license "PHP-3.01"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 big_sur:      "e39495f5389c97e3e3e1c2b0ea47832cdff5e5db25e671da0f918d0fc74a7137"
-    sha256 catalina:     "0069df02b747f6e26b3e3ec5550cc83b96abd7858a6f53c6ff37f839d145fb71"
-    sha256 mojave:       "37be2c076029d9e1884c38166d3120be4ac93bd1db22cb3175d1894b830b73d1"
-    sha256 x86_64_linux: "7e83767fd1546f3eee8e895bdcf80a8c0708a7a67bd9341dba42f0ebcbd8d07a"
+    rebuild 1
+    sha256 arm64_big_sur: "68fa27133add9196aab8c9e883c31802fa970d12a25a503e451d4efea5c9e654"
+    sha256 big_sur:       "22806c50d8d176e762ff37b80686fd19ffee2cf6cf55f319c209b571f6261bbf"
+    sha256 catalina:      "95c2f84e72605a59160940bade71ff839c9690dd614a8d0c858eb660ab85bd6c"
+    sha256 mojave:        "a4db5f63b5f98288007e4b98af9b58edfae59a2de32b1958cc32a29b7fc7dc07"
+    sha256 x86_64_linux:  "efba8492441940df6b1c31cad859adb796f9a69179de88d625ddb67f0bf8614f"
   end
 
   keg_only :versioned_formula
 
-  deprecate! date: "2020-11-30", because: :versioned_formula
+  disable! date: "2021-11-30", because: :deprecated_upstream
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "xz" => :build
   depends_on "apr"
   depends_on "apr-util"
-  depends_on arch: :x86_64
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
@@ -64,6 +65,10 @@ class PhpAT72 < Formula
     # Work around configure issues with Xcode 12
     # See https://bugs.php.net/bug.php?id=80171
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
+    # Workaround for https://bugs.php.net/80310
+    ENV.append "CFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
+    ENV.append "CXXFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"

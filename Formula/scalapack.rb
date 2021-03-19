@@ -4,7 +4,7 @@ class Scalapack < Formula
   url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
   sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
   license "BSD-3-Clause"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   livecheck do
     url :homepage
@@ -12,12 +12,12 @@ class Scalapack < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7743ddfe24954d50640db05401637ce8878ffb795c4a991d3ba805a14ea3cca7"
-    sha256 cellar: :any, big_sur:       "da83f379e10c2bcfe543767c7e6a62ccd825e5f9d3cfb7ed066e9dd9c62c8154"
-    sha256 cellar: :any, catalina:      "281e3d5317f1616e8d5a6a3b9c37fbe6ee29a03b2abe14055854902a6c009a87"
-    sha256 cellar: :any, mojave:        "b222f27ffed17605ffca2d1b0b4804f4c66ec916c9d2b5f2dd085ad2427fa791"
-    sha256 cellar: :any, high_sierra:   "ea92d3247883a9e0de28483a34d1ca064d395d28c8a622fbac571f4cd6d0e64d"
-    sha256 cellar: :any, x86_64_linux:  "cd8013efd72936bdf7ff55b35659abda6a4f6476bef0884bbf7f989070b9c22d"
+    sha256 cellar: :any,                 arm64_big_sur: "7743ddfe24954d50640db05401637ce8878ffb795c4a991d3ba805a14ea3cca7"
+    sha256 cellar: :any,                 big_sur:       "da83f379e10c2bcfe543767c7e6a62ccd825e5f9d3cfb7ed066e9dd9c62c8154"
+    sha256 cellar: :any,                 catalina:      "281e3d5317f1616e8d5a6a3b9c37fbe6ee29a03b2abe14055854902a6c009a87"
+    sha256 cellar: :any,                 mojave:        "b222f27ffed17605ffca2d1b0b4804f4c66ec916c9d2b5f2dd085ad2427fa791"
+    sha256 cellar: :any,                 high_sierra:   "ea92d3247883a9e0de28483a34d1ca064d395d28c8a622fbac571f4cd6d0e64d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12a33a754d7cb4a0d992c1968d30d8a5db218c52324582c402b117c96102c37d"
   end
 
   depends_on "cmake" => :build

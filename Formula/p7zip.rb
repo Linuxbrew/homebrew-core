@@ -25,9 +25,10 @@ class P7zip < Formula
   end
 
   def install
-    if OS.mac?
+    on_macos do
       mv "makefile.macosx_llvm_64bits", "makefile.machine"
-    else
+    end
+    on_linux do
       mv "makefile.linux_any_cpu", "makefile.machine"
     end
     system "make", "all3",
@@ -45,7 +46,6 @@ class P7zip < Formula
     assert_equal "hello world!\n", File.read(testpath/"out/foo.txt")
   end
 end
-
 
 __END__
 diff -u -r a/makefile b/makefile
@@ -75,4 +75,3 @@ diff -u -r a/makefile b/makefile
  	$(MAKE) -C CPP/7zip/Compress/Lzham       clean
  	$(MAKE) -C CPP/7zip/Bundles/LzmaCon      clean2
  	$(MAKE) -C CPP/7zip/Bundles/AloneGCOV    clean
- 	

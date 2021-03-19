@@ -4,12 +4,13 @@ class Ncmpcpp < Formula
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
   sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3eb2acf03fdab347f1464bc47c4154322e80c4c25815547db63ae370ff564e3a"
-    sha256 cellar: :any, big_sur:       "3a9cfd01fa8d3dd506cdf4ecec054f629462b5a83d40241efd4ff899ef8035c1"
-    sha256 cellar: :any, catalina:      "02db63c070d06fa87ccd591ca2bbdf9fd96250d1e007515ec578bcf1b6bdfbcc"
-    sha256 cellar: :any, mojave:        "92f7fa5ac43a80aa482544eadefa39a4bb97985ec39962ca9e45e893f0f6900e"
+    sha256 cellar: :any, arm64_big_sur: "7223d508aab61a09ae0ce9f9f5bd4730af2acdb7b0fecb767eccc6d1ab03bb94"
+    sha256 cellar: :any, big_sur:       "786065df881f656cdfa90f5ef332ec56e460076a667b00eb82603c0437ea4905"
+    sha256 cellar: :any, catalina:      "0fa5c45f694cd1a04b42ecc0b9cb9ee71d99ff5eef6d6328c5b1c324708ef7b2"
+    sha256 cellar: :any, mojave:        "63b20423b99998513c269391fb75e604accb48c8fec70a8666443c2a316ab831"
   end
 
   head do

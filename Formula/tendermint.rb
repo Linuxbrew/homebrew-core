@@ -11,6 +11,7 @@ class Tendermint < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "27c98ea6cb01286c513a15a1ba86bfd1693ac6aa30e2179187edf28f67ab87dd"
     sha256 cellar: :any_skip_relocation, catalina:      "68dd51ae8dcc184e6c3ae064380cdab4e1be197270f335583f3ac7b0fd664a68"
     sha256 cellar: :any_skip_relocation, mojave:        "a8b8b60534b8e23f172962c81c4c3b11e423c64fb2d3adbc0d50f833e45b13a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e7549ecdb1a613920f929c4636d1fe7659c559add0a67871bff5eb75894b294"
   end
 
   depends_on "go" => :build

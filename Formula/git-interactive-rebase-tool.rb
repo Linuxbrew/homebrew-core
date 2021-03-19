@@ -11,10 +11,11 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "372e9db83f4c4e47a7268c380e83346884901e3323cab736ba8e6e2a6fd523be"
-    sha256 cellar: :any_skip_relocation, catalina:     "dbb362bd82f3863f68aaa26591cd0754070f91c6573556e86210b63034fe47b0"
-    sha256 cellar: :any_skip_relocation, mojave:       "06a54c67aa4daa0187733cb43a8ce3fcadd0d9a3aa3f8577dbd77f13e1128da5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8aa2272e5b9a9b34f346f33ed6676d98e252445bd664163aa6859f7821b0fa53"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6180d15058ccd520f47d2098b5cc027582cf8ea7ecb1c4a4d64e345c3e902f67"
+    sha256 cellar: :any_skip_relocation, big_sur:       "372e9db83f4c4e47a7268c380e83346884901e3323cab736ba8e6e2a6fd523be"
+    sha256 cellar: :any_skip_relocation, catalina:      "dbb362bd82f3863f68aaa26591cd0754070f91c6573556e86210b63034fe47b0"
+    sha256 cellar: :any_skip_relocation, mojave:        "06a54c67aa4daa0187733cb43a8ce3fcadd0d9a3aa3f8577dbd77f13e1128da5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aa2272e5b9a9b34f346f33ed6676d98e252445bd664163aa6859f7821b0fa53"
   end
 
   depends_on "rust" => :build

@@ -4,15 +4,15 @@ class Cloc < Formula
   url "https://github.com/AlDanial/cloc/archive/1.88.tar.gz"
   sha256 "e85c2d1b3ec389d892955cf20b3fa5c797e81136e231d9a09e4f4c62e272f8cd"
   license "GPL-2.0-or-later"
+  revision 2
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "debaf5cbb9e961ea9c7192d2a98ae8349a1e8e7a085bd5fdf3d7c3a0858fe2e5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9f1cc1669e19c4a9a539f0c8aaa91dccf74572a6ccb38948c3d60efe0c966ed6"
-    sha256 cellar: :any_skip_relocation, catalina:      "f287c5bccd7c70cd25a17eaa235b392c6b3f27da6a9d4c47d5b0cbd45608dc84"
-    sha256 cellar: :any_skip_relocation, mojave:        "eda8d2e68c995503592bc9b2ec5e49fb30e93464df512d20ba45c08d0a9e8886"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "24d26f59347952a7469fdb10830486a0f34b5c11884f5c4da05d34a858c8bd20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c18878eb25b176796223a7936874886efc875a5ad3dd2ae6bd99ef4a6d0aca91"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3638341e5639b04660af751d3646c698404636f12903fc7c90cf394d0069dfdb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6692daba03124d954e7dfd5455df6bda3fd7ba7a847b79f3510ddc03fb739aed"
+    sha256 cellar: :any_skip_relocation, catalina:      "8a91568128c7b0a952688e786eb16c3e7d1f4aecd73bef02ca4e7bc0f155fbae"
+    sha256 cellar: :any_skip_relocation, mojave:        "6db6825b40d19e3df273e692da859cd183284308ca57291a37fb4c59ed89436c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46bdd692483faa6d1529ce803b865f3f0a7f9dbff12766959c215f8e1aba81a5"
   end
 
   uses_from_macos "perl"
@@ -64,6 +64,12 @@ class Cloc < Formula
       url "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
       sha256 "d535b7954d64da1ac1305b1fadf98202769e3599376854b2ced90c382beac056"
     end
+  end
+
+  # Needed to fix https://github.com/AlDanial/cloc/issues/571 in 1.88
+  patch do
+    url "https://github.com/AlDanial/cloc/commit/32d0a28f44fc8687fd5dbfc94e9b197cc68b7f60.patch?full_index=1"
+    sha256 "eee7e728802b6e95768e6290e2d8f5f9b63242186b35b8c94a2ef405f911e63d"
   end
 
   def install

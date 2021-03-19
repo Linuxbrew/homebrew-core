@@ -1,15 +1,16 @@
 class Giza < Formula
   desc "Scientific plotting library for C/Fortran built on cairo"
   homepage "https://danieljprice.github.io/giza/"
-  url "https://downloads.sourceforge.net/project/giza/v1.1.0/giza-1.1.0.tar.gz"
-  sha256 "69f6b8187574eeb66ec3c1edadf247352b0ffebc6fc6ffbb050bafd324d3e300"
+  url "https://github.com/danieljprice/giza/archive/v1.2.0.tar.gz"
+  sha256 "40f0c4744852b9d054124b173357c84147f80194a10ada08603766cf497125cb"
   license "GPL-2.0-or-later"
+  head "https://github.com/danieljprice/giza.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "4f8cdbde732c7a01b43daac9e9970911458af323b9ecf82e8f64264e1d04464c"
-    sha256 cellar: :any, big_sur:       "7a485d9f66a4b57eadf001fe38219c52b95ddd097830a02cdc3356b2e435765d"
-    sha256 cellar: :any, catalina:      "4651e890ce15036cb2e8862a5c72d56201be4cfc345f7f66d95aa3fd452b6615"
-    sha256 cellar: :any, mojave:        "3bfd5ff70ee646773ac6d799c3bd5865a9ab689833ca1f484a6402fa9443b105"
+    sha256 cellar: :any, arm64_big_sur: "481144448b46e0e91687e0204912fed0001e446af9d17398fd5a1d79107c4211"
+    sha256 cellar: :any, big_sur:       "92f73283c143734b3d418bdd45fb44b15ddd90ed6f5a9d0b54205f8a9ac0f1eb"
+    sha256 cellar: :any, catalina:      "52c1a11f3837ee60692665755b4235fc78fa4503feac78e41166b59b62e1180f"
+    sha256 cellar: :any, mojave:        "be4dc2e327046559840cc4d65b9f98aa4b780d642ca7a6d1ebbb1c472ee41249"
   end
 
   depends_on "pkg-config" => :build

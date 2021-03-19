@@ -21,12 +21,14 @@ class PythonAT37 < Formula
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
-    reason <<~EOS
-      The bottle needs the Apple Command Line Tools to be installed.
-        You can install them, if desired, with:
-          xcode-select --install
-    EOS
-    satisfy { !OS.mac? || MacOS::CLT.installed? }
+    on_macos do
+      reason <<~EOS
+        The bottle needs the Apple Command Line Tools to be installed.
+          You can install them, if desired, with:
+            xcode-select --install
+      EOS
+      satisfy { MacOS::CLT.installed? }
+    end
   end
 
   keg_only :versioned_formula
@@ -91,8 +93,12 @@ class PythonAT37 < Formula
   end
 
   def lib_cellar
-    prefix / (OS.mac? ? "Frameworks/Python.framework/Versions/#{xy}" : "") /
-      "lib/python#{xy}"
+    on_macos do
+      return prefix/"Frameworks/Python.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}"
+    end
+    on_linux do
+      return prefix/"lib/python#{version.major_minor}"
+    end
   end
 
   def site_packages_cellar
@@ -101,12 +107,10 @@ class PythonAT37 < Formula
 
   # The HOMEBREW_PREFIX location of site-packages.
   def site_packages
-    HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
+    HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"
   end
 
   def install
-    ENV.permit_weak_imports
-
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
@@ -122,25 +126,32 @@ class PythonAT37 < Formula
       --enable-ipv6
       --datarootdir=#{share}
       --datadir=#{share}
-      #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --enable-loadable-sqlite-extensions
       --without-ensurepip
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-system-libmpdec
     ]
-    args << "--with-dtrace" unless OS.linux?
 
     args << "--without-gcc" if ENV.compiler == :clang
 
-    # Required for the _ctypes module
-    # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
-    args << "--with-system-ffi" unless OS.mac?
+    on_macos do
+      args << "--enable-framework=#{frameworks}"
+      args << "--with-dtrace"
+    end
+
+    on_linux do
+      args << "--enable-shared"
+
+      # Required for the _ctypes module
+      # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
+      args << "--with-system-ffi"
+    end
 
     cflags   = []
     ldflags  = []
     cppflags = []
 
-    if OS.mac? && MacOS.sdk_path_if_needed
+    if MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
       cflags  << "-isysroot #{MacOS.sdk_path}"
@@ -156,12 +167,7 @@ class PythonAT37 < Formula
     # Python's setup.py parses CPPFLAGS and LDFLAGS to learn search
     # paths for the dependencies of the compiled extension modules.
     # See Linuxbrew/linuxbrew#420, Linuxbrew/linuxbrew#460, and Linuxbrew/linuxbrew#875
-    unless OS.mac?
-      if build.bottle?
-        # Configure Python to use cc and c++ to build extension modules.
-        ENV["CC"] = "cc"
-        ENV["CXX"] = "c++"
-      end
+    on_linux do
       cppflags << ENV.cppflags << " -I#{HOMEBREW_PREFIX}/include"
       ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
     end
@@ -206,13 +212,15 @@ class PythonAT37 < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
+      on_macos do
+        system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
+      end
     end
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
-    if OS.mac?
+    on_macos do
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
                     lib_cellar/"config*/Makefile",
@@ -228,7 +236,9 @@ class PythonAT37 < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py"],
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
-    else
+    end
+
+    on_linux do
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_linux_x86_64-*.py",
                     lib_cellar/"config*/Makefile",
@@ -237,10 +247,7 @@ class PythonAT37 < Formula
     end
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
-    (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{xy}/lib/pkgconfig/*"]
-
-    # Remove 2to3 because python2 also installs it
-    rm bin/"2to3"
+    (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{version.major_minor}/lib/pkgconfig/*"]
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
@@ -265,21 +272,13 @@ class PythonAT37 < Formula
     end
   end
 
-  def xy
-    if OS.mac? && prefix.exist?
-      (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
-    else
-      version.to_s[/^\d\.\d/]
-    end
-  end
-
   def post_install
     ENV.delete "PYTHONPATH"
 
     # Fix up the site-packages so that user-installed Python software survives
     # minor updates, such as going from 3.3.2 to 3.3.3:
 
-    # Create a site-packages in HOMEBREW_PREFIX/lib/python#{xy}/site-packages
+    # Create a site-packages in HOMEBREW_PREFIX/lib/python#{version.major_minor}/site-packages
     site_packages.mkpath
 
     # Symlink the prefix site-packages into the cellar.
@@ -325,11 +324,7 @@ class PythonAT37 < Formula
     library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
                     Formula["sqlite"].opt_lib]
 
-    cfg = if OS.mac?
-      prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
-    else
-      lib_cellar/"distutils/distutils.cfg"
-    end
+    cfg = lib_cellar/"distutils/distutils.cfg"
 
     cfg.atomic_write <<~EOS
       [install]
@@ -363,7 +358,7 @@ class PythonAT37 < Formula
       # Only do this for a brewed python:
       if os.path.realpath(sys.executable).startswith('#{rack}'):
           # Shuffle /Library site-packages to the end of sys.path
-          library_site = '/Library/Python/#{xy}/site-packages'
+          library_site = '/Library/Python/#{version.major_minor}/site-packages'
           library_packages = [p for p in sys.path if p.startswith(library_site)]
           sys.path = [p for p in sys.path if not p.startswith(library_site)]
           # .pth files have already been processed so don't use addsitedir
@@ -371,13 +366,13 @@ class PythonAT37 < Formula
 
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
-          long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/Frameworks/Python\.framework/Versions/#{xy}/lib/python#{xy}/site-packages')
+          long_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/Frameworks/Python\.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}/site-packages')
           sys.path = [long_prefix.sub('#{site_packages}', p) for p in sys.path]
 
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
           if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
-              sys.executable = '#{opt_bin}/python#{xy}'
+              sys.executable = '#{opt_bin}/python#{version.major_minor}'
     EOS
   end
 
@@ -393,7 +388,7 @@ class PythonAT37 < Formula
       You can install Python packages with
         #{opt_bin}/pip3 install <package>
       They will install into the site-package directory
-        #{HOMEBREW_PREFIX/"lib/python3.7/site-packages"}
+        #{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
@@ -402,16 +397,18 @@ class PythonAT37 < Formula
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system "#{bin}/python#{xy}", "-c", "import sqlite3"
+    system "#{bin}/python#{version.major_minor}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
 
-    # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
-    # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
-    system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac? && MacOS.full_version < "11.1"
+    on_macos do
+      # Temporary failure on macOS 11.1 due to https://bugs.python.org/issue42480
+      # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
+      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
+    end
 
-    system "#{bin}/python#{xy}", "-c", "import _decimal"
-    system "#{bin}/python#{xy}", "-c", "import _gdbm"
-    system "#{bin}/python#{xy}", "-c", "import zlib"
+    system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
+    system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
+    system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
   end
 end

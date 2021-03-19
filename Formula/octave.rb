@@ -5,13 +5,13 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-6.2.0.tar.xz"
   sha256 "7b721324cccb3eaeb4efb455508201ac8ccbd200f77106f52342f9ab7f022d1a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "50a36fca58813ff8616c80706d4b00755e88c045ac56618624e2b64eee17fc22"
-    sha256 big_sur:       "d612c400c445c0ef82d8b4c6cfafe7ad8e75e38656a822f73afb20e9068d0fe4"
-    sha256 catalina:      "0efb1eb9ad8ecc20a6faf14061802ffbbe0f0849c07b275713586905c56ff400"
-    sha256 mojave:        "9877bff61c9a68bd97998f2134bed1ad3f12d1ffb1108c4aeff8f0093e56c246"
-    sha256 x86_64_linux:  "fef0a834c43fad0b0187e3ab7d96c7eac0914995b54735ae605f0ee55e8403e1"
+    sha256 arm64_big_sur: "afdebc1135673d8c0cf25286153423333c13aa31c89e9b0ceb07a185e4e8e1a3"
+    sha256 big_sur:       "a39e7b2b04823d13e9d71cac7b6379063804bf04cb64ae46ef330eeaa4233f25"
+    sha256 catalina:      "7a5ec4de669a721c99dce0743d6254b57c2b92406978fca7af0e77ba804bc499"
+    sha256 mojave:        "6babda8a8af803dcf3085292374a830123d98a71ded69f568feb3c6271c7356f"
   end
 
   head do
@@ -51,7 +51,7 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "qscintilla2"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
@@ -70,6 +70,25 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   def install
+    # Default configuration passes all linker flags to mkoctfile, to be
+    # inserted into every oct/mex build. This is unnecessary and can cause
+    # cause linking problems.
+    inreplace "src/mkoctfile.in.cc",
+              /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
+              '""'
+
+    # Qt 5.12 compatibility
+    # https://savannah.gnu.org/bugs/?55187
+    ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
+    # These "shouldn't" be necessary, but the build breaks without them.
+    # https://savannah.gnu.org/bugs/?55883
+    ENV["QT_CPPFLAGS"]="-I#{Formula["qt@5"].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{Formula["qt@5"].opt_include}"
+    ENV["QT_LDFLAGS"]="-F#{Formula["qt@5"].opt_lib}"
+    ENV.append "LDFLAGS", "-F#{Formula["qt@5"].opt_lib}"
+
+    system "./bootstrap" if build.head?
+
     args = ["--prefix=#{prefix}",
             "--disable-dependency-tracking",
             "--disable-silent-rules",
@@ -98,6 +117,7 @@ class Octave < Formula
     end
 
     system "./configure", *args
+
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change

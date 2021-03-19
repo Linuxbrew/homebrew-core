@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.4.tar.bz2"
   sha256 "b1945956109fd9c7844ee5780142c0d24564b88327dc2f9a61d29386abcf9d54"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
 
   livecheck do
@@ -12,9 +13,9 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 big_sur:  "cbdb655899bb965be50f7172dc373c9cd7a684804bd7f19e4cf913785a4448cf"
-    sha256 catalina: "c501e60de4774fb0ce463c1f3a1e1dd99246cd215f65b1571cd0aa863151b89b"
-    sha256 mojave:   "7e7cc30dcef9be691a3a13eb5bc6c000465efc5c10fea9066a78b5178bd5aa5d"
+    sha256 big_sur:  "63ce3f17fa4f0d129ca5273addd5d6eb13a1a09b8874fb9beee1ad2adbd0d994"
+    sha256 catalina: "24bc3187a83efa5687a03497c3bb3dc0772a924b71ca8663b40851c8b8d604d1"
+    sha256 mojave:   "5368c30b051f55c972b792655aa0a3c0e5e6cf65b7caeee4da973be5b2bd37ce"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +34,7 @@ class Qmmp < Formula
   depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "taglib"
 
   def install

@@ -12,6 +12,7 @@ class Leaf < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ff2197a6b53db4ed452c5abaf4279ad46b2c0ad48b82b07680c04d13a7163cba"
     sha256 cellar: :any_skip_relocation, mojave:        "8c1fa1f81a61baf2e78c9afaf0b82704086e9d082a8660e4548d1a0786871a37"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bb124d36d6bef75d7005792079f9b08ebbe4cd858469d1efe6d464865d351b6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae6ed65a25aa77488832805a45e9c44229fcbe02dc35df36a5f1639b3f941531"
   end
 
   depends_on "go" => :build

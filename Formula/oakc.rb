@@ -16,6 +16,7 @@ class Oakc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5eb1751a2156b8fce16bbc88f23f36748bc74422276aab43a8272e71d0d92a34"
     sha256 cellar: :any_skip_relocation, catalina:      "6b79624346a62c0e249e801857fd301f3ce0a72b9557da2dc5e4a56cab12d345"
     sha256 cellar: :any_skip_relocation, mojave:        "80c5b0d77def05e95b5b786a5dc1a16e757fcf772a32b1ee5976fc09583f3312"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72c976c83f638cb4ba0596f0f5a2eec2459eb23a3f3b7043e178917e2e8c172b"
   end
 
   depends_on "rust" => :build

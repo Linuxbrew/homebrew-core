@@ -4,19 +4,18 @@ class Zurl < Formula
   url "https://dl.bintray.com/fanout/source/zurl-1.11.0.tar.bz2"
   sha256 "18aa3b077aefdba47cc46c5bca513ca2e20f2564715be743f70e4efa4fdccd7a"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2a1b3d58c7788be71b497f056d11a899a01718f903548a8460cb3986db47c4a8"
-    sha256 cellar: :any, big_sur:       "d98fc6a62901e0d4bf2dfd73ea491bb5edf65b5075b2783eb37cd4555b15514a"
-    sha256 cellar: :any, catalina:      "17c084231724231503046a4d1b0de95c8cedceade6b2c4dd589ab259fc34518a"
-    sha256 cellar: :any, mojave:        "aac838332c5f0288bf435680564418739ddbcd72e8b1b0309e9df12ad914a60c"
-    sha256 cellar: :any, high_sierra:   "268dc7ab197c9ba0937f4254375e9e144449896d7110c6b2d75a80e6f2b85021"
+    sha256 cellar: :any, arm64_big_sur: "d4252a3968cce4e2dbb442c16e9ceac0f917ea44f6fe29746fb62cc7b7fdbd36"
+    sha256 cellar: :any, big_sur:       "ec815b28c14380cbc309c11fb2becb4e0421b3d933dfbe4f3b881941b97069c3"
+    sha256 cellar: :any, catalina:      "2d34fd92311ba6e171d3bc3a5c567daa4238a0d06e0cd078c79ce4c5368890a3"
+    sha256 cellar: :any, mojave:        "21b2977646141c7d191a9f835c42b70eff3e793b799228386043ac62ae44a34b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :test
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "zeromq"
 
   uses_from_macos "curl"

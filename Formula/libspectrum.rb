@@ -1,9 +1,9 @@
 class Libspectrum < Formula
   desc "Support library for ZX Spectrum emulator"
   homepage "https://fuse-emulator.sourceforge.io/libspectrum.php"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.4.4/libspectrum-1.4.4.tar.gz"
-  sha256 "fdfb2b2bad17bcfc98c098deaebf2a9811824b08d525172436d5eb134c9780b1"
-  revision 1
+  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.5.0/libspectrum-1.5.0.tar.gz"
+  sha256 "a353cb46e9b1a281061d816353ea010d0a6fe78e6a17aa0b7b74271ca5e4acfc"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -11,13 +11,11 @@ class Libspectrum < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "f487b145c99c26d5fff36506c00ca5e224f705f2e7723e7a8c3a9110eacd1a5a"
-    sha256 cellar: :any, big_sur:       "223d156e3594667291fbc123051e41843087681276e8d1966231005cb0e2af72"
-    sha256 cellar: :any, catalina:      "25edb4f26816ec6bfb7f1437c9a17fb2621c1bb81b93a48e22960aabf89d3a1d"
-    sha256 cellar: :any, mojave:        "29b40b473d7db763d376b1ac1949db8887b3d0a08016d84370add76524c0c377"
-    sha256 cellar: :any, high_sierra:   "b4ee40ecf01a16826994e74d31ca1dbc34baeeee0287908f4e1e4a11365f6b4b"
-    sha256 cellar: :any, x86_64_linux:  "01c7b8459ce6f012ee3256c96cec0867cb36712b639818f278c84a5502bb52f8"
+    sha256 cellar: :any,                 arm64_big_sur: "72eec781fcd9e66de8e08da5aa323f9e5bd8de3ec64ad1202fead40e65b3c3c3"
+    sha256 cellar: :any,                 big_sur:       "4c73d5c70e9669a07ad7fcc97b5a967b3b818a764d4c5a00992095f93d8b5505"
+    sha256 cellar: :any,                 catalina:      "9c98e034990260a5011d0587aaf081c7d761c5dd90299c9d38bc93fd70bb4fac"
+    sha256 cellar: :any,                 mojave:        "256b58b14183966bc73f607b85f805571bbaf2f9c861cb6377636914faca2db0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa0d47646573cbd9f8e3c42c1b945bcd75eca21d2986dd62167ddeb74d56bac"
   end
 
   head do

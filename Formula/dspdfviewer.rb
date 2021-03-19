@@ -4,16 +4,14 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0"
-  revision 8
+  revision 9
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
-    sha256 arm64_big_sur: "2a375ddcdf1dfc4c53f7fb2bfa4146ca7a08de8fe0e24436593b7e645ac2c00e"
-    sha256 big_sur:       "3a45a628615800fa2f18d8ec10dafed1c1ccecdd3d9603ef7561bb67faee8c89"
-    sha256 catalina:      "110de35c2516b74d0c6af47be2b1417f81a8805aae1a019b448e27e8dc03c362"
-    sha256 mojave:        "f6063bf108432e891c5ec13665cde11d30498e99cf4d130236b78ea3a894c32c"
-    sha256 high_sierra:   "93406709c843244b5c55b9f6167d67290899ac1aaa32bd32faa530fab66daae9"
-    sha256 sierra:        "ec6ea81aaa5e037a27803b830a6bb8c7100b003a0095dec2dd3b1e217d1a6a30"
+    sha256 arm64_big_sur: "61b84a1c0fc1bcc6e011727e834386fb705bd1fc35b891bf8c05c53251760617"
+    sha256 big_sur:       "d96af2845578b66dcd24e9c365caf4b6dea54b3a017168f897ae7048f3837a6d"
+    sha256 catalina:      "484ae962819c03c55c83a6df14978c05962ed42f77044aae7a0717574cb5028a"
+    sha256 mojave:        "80db38b231f37116816d5889d9b934f332b011049b88007d316ab55c77eed061"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +27,7 @@ class Dspdfviewer < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
-  depends_on "qt"
+  depends_on "qt@5"
 
   resource "poppler" do
     url "https://poppler.freedesktop.org/poppler-0.65.0.tar.xz"

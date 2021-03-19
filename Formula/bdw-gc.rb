@@ -34,7 +34,9 @@ class BdwGc < Formula
   depends_on "libatomic_ops" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "gcc"=> :test unless OS.mac?
+  on_linux do
+    depends_on "gcc" => :test
+  end
 
   def install
     system "./autogen.sh" if build.head?

@@ -1,16 +1,16 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r20.tar.gz"
-  sha256 "b0d755e255d48229c14b7ec5f86788c6fc96df1f6859f677b313fd9deb856398"
+  url "https://github.com/gokcehan/lf/archive/r21.tar.gz"
+  sha256 "088510cc1f86084c02353d55e56a8c44576b5dbfc37327daabaa86ae6b287a20"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76532aef2662851d91c21fec4e461f59d7e5ff34c29a1932b67a736df63614b6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "97eaf299413c09cbce0467da36ab94b572686b677bd29875280f007f8d02a59b"
-    sha256 cellar: :any_skip_relocation, catalina:      "91f1f834f8c148b7672013ef1daf2b622d98fc436d1456c7de046a0a999c0cb1"
-    sha256 cellar: :any_skip_relocation, mojave:        "12783fd218c49b0c221b7ab2bb1caebfbb55628441d147642c08f1467aa5dda2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66ad6221406671379032f91f2c03a33a505533faa306d32845c78c59faff80f3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5a260e0a910d03324023d7999f019075804b8243f7a68ab86a6e9667daa052b3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b6e1195a6710c0d5554d4457ff24e3d7aea47504415474edeceb61fd936eea63"
+    sha256 cellar: :any_skip_relocation, catalina:      "2b8abf2a0dfa91390d11eeaa88a26ac00563ea1698f2b997c99bbebc7f4d8300"
+    sha256 cellar: :any_skip_relocation, mojave:        "ffa6a3732dcaa2077472aa4fb8bb6f0f12dd1acf2f2d8d33561975724fbb14de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0634b4117ab33517946f149c7d355e4e436dd16dd2b03506ae5e231e14575bf"
   end
 
   depends_on "go" => :build

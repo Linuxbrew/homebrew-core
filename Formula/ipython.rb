@@ -3,17 +3,17 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/ae/b9/3c5dcecdc658783fee3dd760a9e1957312a2d9d75b8d8fc6988f629ab14a/ipython-7.20.0.tar.gz"
-  sha256 "1923af00820a8cf58e91d56b89efc59780a6e81363b94464a0f17c039dffff9e"
+  url "https://files.pythonhosted.org/packages/9c/7b/ca693dd606ccfe12cdc1623dc5e4ca24cbcab5a1ec39f5e5576b72d5cae7/ipython-7.21.0.tar.gz"
+  sha256 "04323f72d5b85b606330b6d7e2dc8d2683ad46c3905e955aa96ecc7a99388e70"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7d5dd05d06f52b5bd0d36a70f9e5641e8d200fa05231f3f3c7b74366e85361ba"
-    sha256 cellar: :any, big_sur:       "ab164c8802997467b514f3b81fbc4fe574a434983656231c96917097c3c7ac25"
-    sha256 cellar: :any, catalina:      "d16fd8efa286230cf06d673f390161c865870987c19f8a986124f586cf0aeb95"
-    sha256 cellar: :any, mojave:        "03108123ed431e372403798444ad09723dffc9ea3cc5a5870ed5aa47337aa1df"
-    sha256               x86_64_linux:  "36652f25f8a5cd79b1f73a1a170177bb393acdc2d6ac57a0787af137c0f45d45"
+    sha256 cellar: :any, arm64_big_sur: "d7b91cdb3e2ea291f4f779ab6ac2f22f5c093ad780fda5a44a5bdcb36af24016"
+    sha256 cellar: :any, big_sur:       "35687288840717dd70a5b13699401b34d52643e5f8b11d5b84fbcc36d3fe5a9c"
+    sha256 cellar: :any, catalina:      "a46fcdf59b0412edc3ba87f1f95d26501a560e5b1e375770c71889441f962045"
+    sha256 cellar: :any, mojave:        "10726ba870d8510884b4f2307342348465086462e17995cbdbd3d162ca58ee23"
+    sha256               x86_64_linux:  "d5478a19eb92ce7c4da994ddbd36eb566703499bea98fb6a217e869618b70fa8"
   end
 
   depends_on "python@3.9"
@@ -38,8 +38,8 @@ class Ipython < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/5e/bf/a7184ba49ff503ca6328e5331d71e08ee446255009ef7b4bfd7e3adf60a5/ipykernel-5.4.3.tar.gz"
-    sha256 "697103d218e9a8828025af7986e033c89e0b36e2b6eb84a5bda4739b9a27f3cb"
+    url "https://files.pythonhosted.org/packages/98/3c/dd8f27be9d31570395f65bf325a33d5bc9d4d59e5cfbcfe611c6b5cd9074/ipykernel-5.5.0.tar.gz"
+    sha256 "98321abefdf0505fb3dc7601f60fc4087364d394bd8fad53107eb1adee9ff475"
   end
 
   resource "ipython_genutils" do
@@ -78,8 +78,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/b1/46/4eb242362c43cf033b4ec4d7205612c46c9f904a8984cdfdb64d35476175/prompt_toolkit-3.0.14.tar.gz"
-    sha256 "7e966747c18ececaec785699626b771c1ba8344c8d31759a1915d6b12fad6525"
+    url "https://files.pythonhosted.org/packages/b1/32/2a6b734dc25b249467bfc1d844b077a252ea393d1b90733f4e899aa56506/prompt_toolkit-3.0.16.tar.gz"
+    sha256 "0fa02fa80363844a4ab4b8d6891f62dd0645ba672723130423ca4037b80c1974"
   end
 
   resource "ptyprocess" do
@@ -88,8 +88,8 @@ class Ipython < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
-    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
+    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
+    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
   end
 
   resource "python-dateutil" do
@@ -98,8 +98,8 @@ class Ipython < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/d7/4f/2e09600112c1e69ea7eefef3db443d966ae670a5b9fa229fe6eb84e945a4/pyzmq-22.0.2.tar.gz"
-    sha256 "d7b82a959e5e22d492f4f5a1e650e909a6c8c76ede178f538313ddb9d1e92963"
+    url "https://files.pythonhosted.org/packages/a3/7a/561526861908d366ddc2764933a6090078654b0f2ff20c3c180dd5851554/pyzmq-22.0.3.tar.gz"
+    sha256 "f7f63ce127980d40f3e6a5fdb87abf17ce1a7c2bd8bf2c7560e1bbce8ab1f92d"
   end
 
   resource "six" do

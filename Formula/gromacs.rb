@@ -1,8 +1,9 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.tar.gz"
-  sha256 "efa78ab8409b0f5bf0fbca174fb8fbcf012815326b5c71a9d7c385cde9a8f87b"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.1.tar.gz"
+  sha256 "bc1d0a75c134e1fb003202262fe10d3d32c59bbb40d714bc3e5015c71effe1e5"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -10,10 +11,11 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "217825d39e125e97af17405a9617386bea4db7efdb6a7698cb86b0972212f9f9"
-    sha256 big_sur:       "6e77d33e5f9daa524601bdb6c298758290b42be4fb481f102161a33acad07df8"
-    sha256 catalina:      "231561edcfb1afb096727fdac62a2ccb72e1d54e1adf015e77cd4aa93ad16bd5"
-    sha256 mojave:        "e34650e543535f254bbe425a5d44f0d7f903b987d1011f8624c976767d91872f"
+    sha256 arm64_big_sur: "d6544181b87b3fc112bac1062701baef98494401db96b9bb66ecdf74592626e5"
+    sha256 big_sur:       "ebea4352a0e8e468b72b403fb02c0293ffa86a5b0904b336d9a194a55f908c3a"
+    sha256 catalina:      "342033a6ab15cb11014ca9289ea51ecbe8ac6c0d1e1cb6f1fb80bf20d3be8071"
+    sha256 mojave:        "5fa4f3d48ec60a17153b6f767869970fd9cf7d92b4348b4fce2d203587b4a5b5"
+    sha256 x86_64_linux:  "d48b2255b0878d7dda68df5acc09e0d057ec541b85d25378ac07b7351aa76493"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +23,9 @@ class Gromacs < Formula
   depends_on "gcc"
   depends_on "gsl" # for OpenMP
   depends_on "openblas"
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
@@ -32,10 +37,11 @@ class Gromacs < Formula
                                                              "/usr/bin/ld"
 
     gcc_major_ver = Formula["gcc"].any_installed_version.major
-    args = std_cmake_args + %W[
+    cc_args = %W[
       -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
       -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
     ]
+    args = std_cmake_args + cc_args
 
     mkdir "build" do
       system "cmake", "..", *args

@@ -12,15 +12,18 @@ class KimApi < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "103ca1caadb590d3d321972c7718c41b0da96eef7d5cf5d9ed0312fe88ddec15"
-    sha256 cellar: :any, big_sur:       "daeee2ef1ce5325fc8bed3b1e5ff3c7c53386977c13927dfa24a7c922cc507a4"
-    sha256 cellar: :any, catalina:      "581d7d89321149e882a88b14ef71e80134661a461b2897b4305da9df846a40e0"
-    sha256 cellar: :any, mojave:        "b18997f5afa8aad1bae1ab08456b3baf32a4f5d0f381446f4a48e988c785a0ef"
+    sha256 cellar: :any,                 arm64_big_sur: "103ca1caadb590d3d321972c7718c41b0da96eef7d5cf5d9ed0312fe88ddec15"
+    sha256 cellar: :any,                 big_sur:       "daeee2ef1ce5325fc8bed3b1e5ff3c7c53386977c13927dfa24a7c922cc507a4"
+    sha256 cellar: :any,                 catalina:      "581d7d89321149e882a88b14ef71e80134661a461b2897b4305da9df846a40e0"
+    sha256 cellar: :any,                 mojave:        "b18997f5afa8aad1bae1ab08456b3baf32a4f5d0f381446f4a48e988c785a0ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "319d871cff62e366d7e8f486ffb8584ae3a17763f5cff9e465060ddb8fbbefe3"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "gcc" # for gfortran
+
+  uses_from_macos "xz"
 
   def install
     # change file(COPY) to configure_file() to avoid symlink issue; will be fixed in 2.2.2

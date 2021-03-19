@@ -5,7 +5,7 @@ class Netcdf < Formula
   mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
   sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
   license "BSD-3-Clause"
-  revision 2
+  revision OS.mac? ? 2 : 3
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
@@ -18,7 +18,7 @@ class Netcdf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "55caff29df9b25ee906d2dcce6c78e02b6e9ac163b42e06f53c45aa0f6ade645"
     sha256 cellar: :any_skip_relocation, catalina:      "b3aeca909a91b47e8e0d3fdc9d209dd13ecfb2b1879bab5ea49d3dcfd6404ddd"
     sha256 cellar: :any_skip_relocation, mojave:        "9504a25d84dd6afb80553576474420cc074c64821aa346a58271dad26982b187"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8b515d71fa80f21cc142d18e5f6af29c0a9d707f54ff16acc0e7a994b81f635"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91680c4afcb32d8c2afd67f50eb41a3a0a6adac7173aeb3c4f79b64a336ab453"
   end
 
   depends_on "cmake" => :build
@@ -44,6 +44,9 @@ class Netcdf < Formula
     mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.5.2.tar.gz"
     sha256 "b959937d7d9045184e9d2040a915d94a7f4d0185f4a9dceb8f08c94b0c3304aa"
   end
+
+  # Fix multiple definition of `ocdebug'; CMakeFiles/ocprint.dir/ocprint.c.o:
+  patch :DATA unless OS.mac?
 
   def install
     ENV.deparallelize
@@ -84,7 +87,7 @@ class Netcdf < Formula
     fortran_args << "-DENABLE_TESTS=OFF"
 
     # Fix for netcdf-fortran with GCC 10, remove with next version
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch" if OS.mac?
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
 
     resource("fortran").stage do
       mkdir "build-fortran" do
@@ -118,17 +121,16 @@ class Netcdf < Formula
       ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
     end
     on_linux do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
       inreplace [
         bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
         lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
         lib/"cmake/netCDF/netCDFConfig.cmake",
         lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
-      ], HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-#{gcc_major_ver}",
-         Formula["gcc"].opt_bin/"gcc"
+      ], HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-5",
+         "/usr/bin/cc"
       inreplace bin/"ncxx4-config",
-                HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-#{gcc_major_ver}",
-                Formula["gcc"].opt_bin/"g++"
+                HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-5",
+                "/usr/bin/c++"
     end
 
     if OS.mac?
@@ -185,3 +187,18 @@ class Netcdf < Formula
     system "./testf"
   end
 end
+
+
+__END__
+diff -Naur netcdf-c-4.7.4-old/ncdump/ocprint.c netcdf-c-4.7.4/ncdump/ocprint.c
+--- netcdf-c-4.7.4-old/ncdump/ocprint.c        2021-02-26 08:53:00.000000000 +0100
++++ netcdf-c-4.7.4/ncdump/ocprint.c    2021-02-26 08:53:49.000000000 +0100
+@@ -56,7 +56,7 @@
+ /*Mnemonic*/
+ #define TOPLEVEL 1
+
+-int ocdebug;
++extern int ocdebug;
+
+ static OCerror ocstat;
+ static OClink glink;

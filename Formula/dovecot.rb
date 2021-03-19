@@ -1,8 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.13.tar.gz"
-  sha256 "a3f875b80ec11a452480690108660030978c94fa8e796ad6d943a874b496f1c4"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.14.tar.gz"
+  sha256 "c8b3d7f3af1e558a3ff0f970309d4013a4d3ce136f8c02a53a3b05f345b9a34a"
+  license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
     url "https://dovecot.org/download"
@@ -10,11 +11,11 @@ class Dovecot < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6ad349637be542b74629d22b176f95463ce76b2a2222399eca131e7a32a5f153"
-    sha256 big_sur:       "8a4135867d76e1483351627346542c4828aaac3c06b7f3b82a557bf38774c689"
-    sha256 catalina:      "55c17feff666226130fb4b8bd47416bfdb22cc6ca7853a02f7a6f6d25416f440"
-    sha256 mojave:        "5733ac6559b0270d187eba750314195c0c0e469dbeb5541d688ac06ed2db8339"
-    sha256 x86_64_linux:  "2f15949caee4aa09fe24c07e56a79a574e8ce41c0a99113fd0cddac1940319b3"
+    sha256 arm64_big_sur: "b9f839dba9468f7eae88b0dd3fc82b5b874090e36a6acda2bb4213aec9643c0f"
+    sha256 big_sur:       "e2e2f8de6497655aaa4f3500e7daf815039ae7d5f4ab665a24479a93f0268f4f"
+    sha256 catalina:      "5e8f0e607c4ae4db5333adcba429c19c4292ad72512ee05a574ec412df1a066a"
+    sha256 mojave:        "23d56aa20b37f916b2942a2183529b9520072593439bb132c21dd82c91ca4d11"
+    sha256 x86_64_linux:  "f70fa088146cb0a055886eb78bcf7246a5760ca94bc9c178a4df3d5bd09850a9"
   end
 
   depends_on "openssl@1.1"
@@ -25,8 +26,8 @@ class Dovecot < Formula
   depends_on "linux-pam" unless OS.mac?
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.13.tar.gz"
-    sha256 "911fe566da5b638eab1b11105314300bc9049cc3832d4bd2aed44c265013bf17"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.14.tar.gz"
+    sha256 "68ca0f78a3caa6b090a469f45c395c44cf16da8fcb3345755b1ca436c9ffb2d2"
   end
 
   def install

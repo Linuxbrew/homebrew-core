@@ -1,16 +1,16 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/2.3.0.tar.gz"
-  sha256 "4537b9d2c10f4a249b471ab523bd58c47f8c88fa8da84feaafbe80fa44b335b2"
+  url "https://github.com/FreeRDP/FreeRDP/archive/2.3.2.tar.gz"
+  sha256 "a1f52f0d9569b418a555ffe4d15a3782712198be47308e9514d20ca5af41a1b1"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "a6c080437545eeae6bd7d6e8516000bd58af1f059ac3fee9f35f89fe4c4ec443"
-    sha256 big_sur:       "fc8f3dd6f8a80ed246cc27674372bfe519e927fbf54d01bc8b299c9f9dd625a7"
-    sha256 catalina:      "db56d189b837043d17c001e43392c9db300e09abaa1c61d8b8128d85c26c9e6c"
-    sha256 mojave:        "5112aee8f237bfa19a47f2d0a9cb084a24e7724f4a0841f7589141ba390a1fff"
-    sha256 x86_64_linux:  "69d60170d53aaac65c988309abe97c26cf3cc186578472c62b5ab901c06208cc"
+    sha256 arm64_big_sur: "1f42bf8b45b7e1a776b844e7b8b1c72bd83e635f8ffdf477789dc5d1f6aa0f3d"
+    sha256 big_sur:       "8851fccd1933c8ec16d40938a72effaf07eade70759cf71665b8a5fdf44fad29"
+    sha256 catalina:      "47096a60290cbcefa2a22268011bb1acb2ea8265973ba861542697856b55ba3f"
+    sha256 mojave:        "f9c50b97f50cd29509e67d5d3c2ecc28e89612ffa7d1e3adaa15e6b6aa4556cd"
+    sha256 x86_64_linux:  "42368b7c89e3b59c4117db4c93ee9f98d7384d68c4b0b4543f6763d094f36d34"
   end
 
   head do
@@ -46,7 +46,11 @@ class Freerdp < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DWITH_X11=ON", "-DBUILD_SHARED_LIBS=ON", "-DWITH_JPEG=ON"
+    system "cmake", ".", *std_cmake_args,
+                         "-DWITH_X11=ON",
+                         "-DBUILD_SHARED_LIBS=ON",
+                         "-DWITH_JPEG=ON",
+                         "-DCMAKE_INSTALL_NAME_DIR=#{lib}"
     system "make", "install"
   end
 

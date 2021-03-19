@@ -4,17 +4,18 @@ class Libtommath < Formula
   url "https://github.com/libtom/libtommath/releases/download/v1.2.0/ltm-1.2.0.tar.xz"
   sha256 "b7c75eecf680219484055fcedd686064409254ae44bc31a96c5032843c0e18b1"
   license "Unlicense"
-  revision 1
+  revision 3
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "efe92758582143141223011809f6f9d243e970a788669a3ba6eb0de6db9772a7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fde5371efe622e6a4f425e8294e742879b57aa355e2b1a593ff18cac2cb29840"
-    sha256 cellar: :any_skip_relocation, catalina:      "700d1c4dfecd1016215158de7436d02452a149c5882ba3fda1201a72d6c3d5ea"
-    sha256 cellar: :any_skip_relocation, mojave:        "9832ceb97e387a519d6ae9b66bb3a7066c1d112d947667527a5edfcc692e4983"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "26e39af069485ef58c3517fb765db3a5e8dba0f253aac3d0d5968ff2a35e595b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46ade22aa2c3833f8b71335ededa27275aa126cd6b72ace138395823cf1a8f3c"
+    sha256 cellar: :any,                 arm64_big_sur: "b91f82bc2fd4b0e36615b3ce67833e41a5bfde5fc35d0f29b1b20c49bbc31d89"
+    sha256 cellar: :any,                 big_sur:       "0f2e569f0625e7f52974b6cc69cdc51ee83dc8c302af03863fb3926fdc9c768f"
+    sha256 cellar: :any,                 catalina:      "35421851dc5c86313eda9b351b5401196d757e4e8de90fd410029862704a5f8d"
+    sha256 cellar: :any,                 mojave:        "631d118cba4e115604723dea978a4c439fd150480f7526bbcd2feec70300da83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d802d4a97d466abbf0bb159885ce6dc4cf2768f67af89f0fa4e9fd0cf1d9e4d8"
   end
+
+  depends_on "libtool" => :build
 
   # Fixes mp_set_double being missing on macOS.
   # This is needed by some dependents in homebrew-core.
@@ -27,12 +28,10 @@ class Libtommath < Formula
   end
 
   def install
-    ENV["DESTDIR"] = prefix
+    ENV["PREFIX"] = prefix
 
-    system "make"
-    system "make", "test_standalone"
-    include.install Dir["tommath*.h"]
-    lib.install "libtommath.a"
+    system "make", "-f", "makefile.shared", "install"
+    system "make", "test"
     pkgshare.install "test"
   end
 

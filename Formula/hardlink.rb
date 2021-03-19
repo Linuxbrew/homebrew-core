@@ -18,19 +18,26 @@ class Hardlink < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "attr" if OS.linux?
   depends_on "gnu-getopt"
   depends_on "pcre"
 
-  on_linux do
-    depends_on "attr"
-  end
+  conflicts_with "util-linux", because: "both install `hardlink` binaries"
 
   def install
+    # xattr syscalls are provided by glibc
+    inreplace "hardlink.c", "#include <attr/xattr.h>", "#include <sys/xattr.h>"
+
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "BINDIR=#{bin}", "install"
   end
 
   test do
-    system "#{bin}/hardlink", "--help"
+    (testpath/"foo").write "hello\n"
+    (testpath/"bar").write "hello\n"
+    system bin/"hardlink", "--ignore-time", testpath
+    (testpath/"foo").append_lines "world"
+    assert_equal <<~EOS, (testpath/"bar").read
+      hello
+      world
+    EOS
   end
 end

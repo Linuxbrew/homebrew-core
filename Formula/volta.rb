@@ -12,12 +12,19 @@ class Volta < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "efd062a807d2528c9e900958f0fd34f356972965e9dcd59e2d2438e2d4f0f0f8"
-    sha256 cellar: :any_skip_relocation, catalina: "721096bc2ddd9c82f900bdcee57fcdb0cf09e7d8b209ada6889ff478791d553c"
-    sha256 cellar: :any_skip_relocation, mojave:   "3f54cb49589eb0bfde6c32a3619c72e141ba842aaceae8bea902d8ab901302cf"
+    sha256 cellar: :any_skip_relocation, big_sur:      "efd062a807d2528c9e900958f0fd34f356972965e9dcd59e2d2438e2d4f0f0f8"
+    sha256 cellar: :any_skip_relocation, catalina:     "721096bc2ddd9c82f900bdcee57fcdb0cf09e7d8b209ada6889ff478791d553c"
+    sha256 cellar: :any_skip_relocation, mojave:       "3f54cb49589eb0bfde6c32a3619c72e141ba842aaceae8bea902d8ab901302cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4baf4948c01ddd95cc851e2e0c4830a6a2a61c4339aff3b9b4d82f27fbf62fea"
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

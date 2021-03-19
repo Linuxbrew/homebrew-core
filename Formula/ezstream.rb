@@ -12,10 +12,11 @@ class Ezstream < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "188838a38d3573fc77ffd5684e0e7759b24d550ffdd895243425e13c29e038c2"
-    sha256 cellar: :any, big_sur:       "fbfe1082559a1313ee3ff071ad35866fb20d5fb360fbfc634fbf85ac48c3e94d"
-    sha256 cellar: :any, catalina:      "2854c21def8d7e97747aeca5e856833d17780698739e581a192059c58f50ffa2"
-    sha256 cellar: :any, mojave:        "cfc4088a51cdcb0a586ee2a796d5a515d89007bebfae0f7bfd6b2a4c7a2c13f5"
+    sha256 cellar: :any,                 arm64_big_sur: "188838a38d3573fc77ffd5684e0e7759b24d550ffdd895243425e13c29e038c2"
+    sha256 cellar: :any,                 big_sur:       "fbfe1082559a1313ee3ff071ad35866fb20d5fb360fbfc634fbf85ac48c3e94d"
+    sha256 cellar: :any,                 catalina:      "2854c21def8d7e97747aeca5e856833d17780698739e581a192059c58f50ffa2"
+    sha256 cellar: :any,                 mojave:        "cfc4088a51cdcb0a586ee2a796d5a515d89007bebfae0f7bfd6b2a4c7a2c13f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69d8d7298bb6ca0ba42e402890eb0168942793c2c8e42821e603eef7187d0d54"
   end
 
   depends_on "check" => :build

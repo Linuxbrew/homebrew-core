@@ -4,13 +4,13 @@ class Acl2 < Formula
   url "https://github.com/acl2/acl2/archive/8.3.tar.gz"
   sha256 "45eedddb36b2eff889f0dba2b96fc7a9b1cf23992fcfdf909bc179f116f2c5ea"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 big_sur:      "47d523299e219e13e26adb3e3cc4d2eb984e9d535ef242bf16ee4c92229b63aa"
-    sha256 catalina:     "8bfb7ce324dfa93e6d8f46acaafbf69be4ed400c101371af97aa6ff7d9503469"
-    sha256 mojave:       "547ba61b3a0514bd55ff3a04b19c4e5792ec19eb64f46cbb672bf30ffd871b93"
-    sha256 x86_64_linux: "15beb3bf9e66f2ff608db6e70eba36dad1d0d2fbe085f7a74ed42300f1513e13"
+    sha256 big_sur:      "d1db45acd4143a2170cb691a18be510ae19e8b6b901d3b3c64e487cd54a0d32f"
+    sha256 catalina:     "2cda46804b1f76e90782794aaea0c0afa7f3af0331675d31cad1314c82343e71"
+    sha256 mojave:       "5e5b97b62de7d7ddf01a152c23038ea571ab5652f0d2af6f8d659478e5e7a1d2"
+    sha256 x86_64_linux: "a7c27eaf8a362bd6a668551b8ae70808e09f81a153936d397d1569343ef29514"
   end
 
   depends_on "sbcl"

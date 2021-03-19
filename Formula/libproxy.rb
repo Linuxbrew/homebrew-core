@@ -4,7 +4,7 @@ class Libproxy < Formula
   url "https://github.com/libproxy/libproxy/archive/0.4.17.tar.gz"
   sha256 "88c624711412665515e2800a7e564aabb5b3ee781b9820eca9168035b0de60a9"
   license "LGPL-2.1-or-later"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
@@ -12,19 +12,14 @@ class Libproxy < Formula
     sha256 big_sur:       "d094201c939cfab859da673186809a6c7a24b9a216829b862a1bb53059309d4c"
     sha256 catalina:      "c847a5adafa14e2614351edc46fdf1f8884908912845a9e425ce30925bb55e32"
     sha256 mojave:        "5f6f14d95746e1b4c3328f23c7d9018e7e6a1fab70eba1255276ad89c0c405e5"
-    sha256 x86_64_linux:  "cb119590a82dcb1a927083ebf0333186585dc50f8ba13352eb5f20d3f337edb3"
+    sha256 x86_64_linux:  "5c480c1821960c5311da891ef9dc9cbfe89d63fb73301ba2d2431b7265659121"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.9"
 
-  uses_from_macos "perl"
-
-  unless OS.mac?
-    fails_with gcc: "5"
-    fails_with gcc: "6"
+  on_linux do
     depends_on "dbus"
-    depends_on "gcc@7"
     depends_on "glib"
   end
 

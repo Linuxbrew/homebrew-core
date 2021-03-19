@@ -3,22 +3,40 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/3f/45/7914db3590585b3cc82f3e91c5ff26de4d0542bd24a22a054aa066d34b95/gimme%20aws%20creds-2.3.5.tar.gz"
-  sha256 "8e40c49dbbb08ae99618576ffb163f5928a3b05001e869cef63b995d7eb60767"
+  url "https://files.pythonhosted.org/packages/e5/aa/099db6ade30286a7f0035be57cc11fa3171c9380778ddc2c011ec6bf669e/gimme%20aws%20creds-2.4.1.tar.gz"
+  sha256 "a344bad852e1278e34f6758375b0f12050b0050adca44d31c8cc428f64186879"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "19457fe5cf9ac9b6e02d3fbc16bd5bc2f27dbb48d4ac013d6fd84f14cb372ca8"
-    sha256 cellar: :any, big_sur:       "7d85cf718164805994d15fbf28459f7a3a4217ddac7273f72b739a7d4716fe92"
-    sha256 cellar: :any, catalina:      "e5d20df1622fc3d9e71afaab90953693635cff0a178a3ee7fb1ab8e10d421373"
-    sha256 cellar: :any, mojave:        "47e3dc09b4a4c6208f89592d324ba9e26089e81fa104986444989e850ca4daef"
-    sha256 cellar: :any, x86_64_linux:  "65f3ef64c97798ee02907e4f3db1bf1f261bac03b282bab38f3d9ab3f33b879e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "cac4d5083ecf36b4b839ed60ac208ac97bbe9a137fcf5e1ee90a9aba18a13f7e"
+    sha256 cellar: :any,                 big_sur:       "8881b4dc72a43d7ce04fe9cd602a0c50ea3588b6e5ecf2768f7baa6d34d76a92"
+    sha256 cellar: :any,                 catalina:      "4ce67f0dca38126e599fd3550c34a358bab848737cdd9cfaf2944bb04ce29211"
+    sha256 cellar: :any,                 mojave:        "eb15cdd16643bc10d69e0cc81d6b7483a1fff26c32cedd5245d5371e913ee1cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f01f5cf2b86b075b1443329d9d9e0cc657240cf0ad1cb497b106c1af76170c85"
   end
 
   depends_on "python@3.9"
+  depends_on "rust"
 
   uses_from_macos "libffi"
+
+  on_macos do
+    resource "pyobjc-core" do
+      url "https://files.pythonhosted.org/packages/31/f2/880cc03678a2de93f7b60ab94b35323b7b1be213d775113b2a1b8e975201/pyobjc-core-7.1.tar.gz"
+      sha256 "a0616d5d816b4471f8f782c3a9a8923d2cc85014d88ad4f7fec694be9e6ea349"
+    end
+
+    resource "pyobjc-framework-Cocoa" do
+      url "https://files.pythonhosted.org/packages/e3/0a/44d42b3e54c26d8aa24361528802a6b830d0c97a7ddc6bedcd70ad02023f/pyobjc-framework-Cocoa-7.1.tar.gz"
+      sha256 "67966152b3d38a0225176fceca2e9f56d849c8e7445548da09a00cb13155ec3e"
+    end
+
+    resource "pyobjc-framework-LocalAuthentication" do
+      url "https://files.pythonhosted.org/packages/16/5e/a8d850157f828756f116ca1ccb767ded91d31a50e88bbd84a55344c4a78c/pyobjc-framework-LocalAuthentication-7.1.tar.gz"
+      sha256 "032d9f74cd79341a1d456df9212b0964f0af8ca6adff0a2f8941fdc241571975"
+    end
+  end
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -30,28 +48,28 @@ class GimmeAwsCreds < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/e8/ae/1893300b4c6c11da4521ec12759b992f685e563278cbde6bf23acf4afac5/boto3-1.16.1.tar.gz"
-    sha256 "ebbfbf391ff5deac7b00033dad8e98130db0a0961d76df98ebeb87f785eb0948"
+    url "https://files.pythonhosted.org/packages/e4/c3/ea17ed52138ba29aa6cdddec791fcf8865d54c26c74444a60929247069e5/boto3-1.17.24.tar.gz"
+    sha256 "bf4a321da7dbe0c5a20380ff9f6a8a4e2e135e72a40348890122a197368b4421"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e5/24/e00b3dd73931fca9420649423b9036330d8f251853f1920cad08fbfc7b88/botocore-1.19.1.tar.gz"
-    sha256 "325229fcc341b360fa9be114fe204355e13628597c7faae9a4895645e1b455f1"
+    url "https://files.pythonhosted.org/packages/5a/19/d40be5a0a2484744deedc796fbf61996a55e248ed4f89916c6900350a456/botocore-1.20.24.tar.gz"
+    sha256 "9398bcd9491442aa559a7c111b96004bb06af612e53baa7165b0a646bb43534d"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "configparser" do
@@ -60,18 +78,28 @@ class GimmeAwsCreds < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/5d/4b/7bb135c5787c003cdbc44990c5f41908f0f37135e0bb554e880d90fd5f6f/cryptography-3.1.1.tar.gz"
-    sha256 "9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+  end
+
+  resource "ctap-keyring-device" do
+    url "https://files.pythonhosted.org/packages/c4/c5/5c4ce510d457679c8886229ddbdc2a84969d63e50fe9fb09d6975d8e500e/ctap-keyring-device-1.0.6.tar.gz"
+    sha256 "a44264bb3d30c4ab763e4a3098b136602f873d86b666210d2bb1405b5e0473f6"
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/97/03/9ce85396423a4b9897cc3295a605b63dffd06940e65c1cccd51c2c016864/fido2-0.8.1.tar.gz"
-    sha256 "449068f6876f397c8bb96ebc6a75c81c2692f045126d3f13ece21d409acdf7c3"
+    url "https://files.pythonhosted.org/packages/80/c3/5077ee98edd23ee00b9f5f889fd65e8dd8dbe7717d663d3b5137e31f07e6/fido2-0.9.1.tar.gz"
+    sha256 "8680ee25238e2307596eb3900a0f8c0d9cc91189146ed8039544f1a3a69dfe6e"
   end
 
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/48/18/08eaa583eb21602e86e32d534fa7f40159774566037e60a69822b10ef3ad/importlib_metadata-3.7.2.tar.gz"
+    sha256 "18d5ff601069f98d5d605b6a4b50c18a34811d655c55548adc833e687289acde"
   end
 
   resource "jmespath" do
@@ -80,8 +108,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/3e/79/da95ce71b572ce01c268492957cc4c1055da6f683077a6caba10944dc4f2/keyring-21.4.0.tar.gz"
-    sha256 "9aeadd006a852b78f4b4ef7c7556c2774d2432bbef8ee538a3e9089ac8b11466"
+    url "https://files.pythonhosted.org/packages/e8/3e/4daf55c21dc38dfa39a5780fb1c9a15dbbe8d680a715b0c81c29be51662c/keyring-23.0.0.tar.gz"
+    sha256 "237ff44888ba9b3918a7dcb55c8f1db909c95b6f071bfb46c6918f33f453a68a"
   end
 
   resource "okta" do
@@ -100,13 +128,13 @@ class GimmeAwsCreds < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/50/de/2b688c062107942486c81a739383b1432a72717d9a85a6a1a692f003c70c/s3transfer-0.3.3.tar.gz"
-    sha256 "921a37e2aefc64145e7b73d50c71bb4f26f46e4c9f414dc648c6245ff92cf7db"
+    url "https://files.pythonhosted.org/packages/08/e1/3ee2096ebaeeb8c186d20ed16c8faf4a503913e5c9a0e14cd6b8ffc405a3/s3transfer-0.3.4.tar.gz"
+    sha256 "7fdddb4f22275cf1d32129e21f056337fd2a80b6ccef1664528145b72c49e6d2"
   end
 
   resource "six" do
@@ -115,13 +143,18 @@ class GimmeAwsCreds < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/3e/db/5ba900920642414333bdc3cb397075381d63eafc7e75c2373bbc560a9fa1/soupsieve-2.0.1.tar.gz"
-    sha256 "a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
+    url "https://files.pythonhosted.org/packages/54/b9/1584ee0cd971ea935447c87bbc9d195d981feec446dd0af799d9d95c9d86/soupsieve-2.2.tar.gz"
+    sha256 "407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/38/f9/4fa6df2753ded1bcc1ce2fdd8046f78bd240ff7647f5c9bcf547c0df77e3/zipp-3.4.1.tar.gz"
+    sha256 "3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76"
   end
 
   def install
@@ -134,8 +167,8 @@ class GimmeAwsCreds < Formula
     touch(config_file)
 
     assert_match "Okta Configuration Profile Name",
-      pipe_output("#{bin}/gimme-aws-creds --action-configure 2>&1",
-                  "TESTPROFILE\nhttps://something.oktapreview.com\n\n\n\n\n\n\n\n\n\n\n")
+      pipe_output("#{bin}/gimme-aws-creds --profile TESTPROFILE --action-configure 2>&1",
+                  "https://something.oktapreview.com\n\n\n\n\n\n\n\n\n\n\n")
     assert_match "", config_file.read
 
     assert_match version.to_s, shell_output("#{bin}/gimme-aws-creds --version")

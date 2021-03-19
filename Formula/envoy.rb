@@ -2,15 +2,14 @@ class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io"
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.17.0",
-      revision: "5c801b25cae04f06bf48248c90e87d623d7a6283"
+      tag:      "v1.17.1",
+      revision: "d6a4496e712d7a2335b26e2f76210d5904002c26"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "153d9b2bbda922100c14055e0fcc29522f4fe5edc88c1e0b282cd3ed3f6caea7"
-    sha256 cellar: :any_skip_relocation, catalina: "b03ea0b99cac58d48d35c82b224946a4386d421814e9518648b3c4f336dfeee8"
-    sha256 cellar: :any_skip_relocation, mojave:   "75577ea666c638d0d7e63250b73e2a78f6d22b5a2b3a1bc8a460528f0713721c"
+    sha256 cellar: :any_skip_relocation, big_sur:  "b02a569c32ab1e14d2004827df257a809482b3350a6d893c4896961b2b4da474"
+    sha256 cellar: :any_skip_relocation, catalina: "2fae1ff1f55e21b1d9f686e5f84888e53c878308885dc610bfea80e0fd15b465"
+    sha256 cellar: :any_skip_relocation, mojave:   "1752e6db90513c6828f7fbf349bcef42bf227cdd6ea1b5acb04e1b92788f463c"
   end
 
   depends_on "automake" => :build
@@ -23,10 +22,6 @@ class Envoy < Formula
 
   # Fix MarkupSafe hash error.
   # Remove with the next release (if backported).
-  patch do
-    url "https://github.com/envoyproxy/envoy/commit/0d5b470097d5e3645759e43414db8a7104aafb2e.patch?full_index=1"
-    sha256 "47c350ef1a27cb23dfe69f19427d1db582b7ff7268d966bd65094054f453f960"
-  end
   patch do
     url "https://github.com/envoyproxy/envoy/commit/b1caeb356f9b36be86fe1e0c161f8813b0654dfc.patch?full_index=1"
     sha256 "748a3664a3d89e91983fa3ad33ed6307649bcbd624335cc4d4b18ca299d9b8f2"

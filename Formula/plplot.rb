@@ -3,7 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.15.0%20Source/plplot-5.15.0.tar.gz"
   sha256 "b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b"
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   bottle do
     rebuild 1
@@ -11,7 +11,7 @@ class Plplot < Formula
     sha256 big_sur:       "54b7f57eb347cd104a27d199b7a5bca36f01be5c0f5c837290c9efc19429d7bb"
     sha256 catalina:      "57046a10346c01ff487b1da3623ad21daf5452be29b2adfef0845db9e5f4a185"
     sha256 mojave:        "e89a7f7b82e127c5980077b96423c1a40f534bca789818ef4fc95f0b67dee34a"
-    sha256 x86_64_linux:  "5977a71c5794ed5edf92ed858ec6da0b28092a9355632c6c507a4f37965c1797"
+    sha256 x86_64_linux:  "cfb36a712ae708e94624979ea54f8127c5ae36d95b0a5891c786ed25b8f0783e"
   end
 
   depends_on "cmake" => :build

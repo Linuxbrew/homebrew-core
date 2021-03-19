@@ -2,6 +2,7 @@ class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.0.5.tar.bz2"
@@ -14,11 +15,10 @@ class Audacious < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "4f4511d090781e94963a91f317481905c85a0780041a8d58c8f5ada36ecd9c90"
-    sha256 big_sur:       "e881a43ee5969621e9ebdab13e086f3a07f98ea7d80e394ccad1b3f0dfbf91ba"
-    sha256 catalina:      "c67d5df8448485c10ca6f7ac21ffee103458a4c5efded90dbcd342bc57aab140"
-    sha256 mojave:        "e854112485da922a5e993eaf78b9e448fed06b5f3a9cf3ef3953f77656d3f86f"
+    sha256 arm64_big_sur: "262e96f1222fb5ceba5b195ab5742913cdf75ac6fd8e5923e563f37301e137c5"
+    sha256 big_sur:       "d5b25fb05e6fe57692a0b6669f84723ca6867c8c9bd2fdcbcbfd816a5d2b907f"
+    sha256 catalina:      "39222ff0b21fb409570d2dbaea7e53a99b87d8a54a9e7e59b28b15b26a35f790"
+    sha256 mojave:        "31c07493cfb5225d8f09ba6728de4a0516abf2b9d8b357cbabb2c09c4d1b902c"
   end
 
   head do
@@ -52,7 +52,7 @@ class Audacious < Formula
   depends_on :macos # Due to Python 2
   depends_on "mpg123"
   depends_on "neon"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
   depends_on "wavpack"
 

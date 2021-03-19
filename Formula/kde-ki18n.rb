@@ -8,13 +8,14 @@ class KdeKi18n < Formula
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
-    sha256 arm64_big_sur: "c7c8afbafa7e430b41f32b8a27504695054e4b4f564efa918ea168065d13412e"
-    sha256 big_sur:       "c80d90127580db169c6695496d971b757e3c39d850767185d45c9ebea14e56d3"
-    sha256 catalina:      "55225df7ab1fc643e095610013b5aecd380a8824cc6ebb514472ba443d6013ea"
-    sha256 mojave:        "699281c021d6a0aa2835a2af13f490184e498ec1b0779800cbbaf576adbe5ee0"
+    sha256 arm64_big_sur: "3ebf24ce99afed3f6d8bc8127321611413fd88f5ccac67bd54ebfd5bfd97110d"
+    sha256 big_sur:       "3fab49671721c2ae1ef5dbeb4f39930d81dc0b9f4dc5b53e264ed43edd70b209"
+    sha256 catalina:      "99f6a40be017e93847a60d571b5493b124d132920de2d8bdf4a2d6fd2bfbe4f1"
+    sha256 mojave:        "40bab468d976d14924e62eb899f8b3300505960a51001d3bc2ed9348358d0d7d"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -22,7 +23,7 @@ class KdeKi18n < Formula
   depends_on "graphviz" => :build
   depends_on "kde-extra-cmake-modules" => [:build, :test]
   depends_on "gettext"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
@@ -56,7 +57,7 @@ class KdeKi18n < Formula
     cp_r (pkgshare/"autotests"), testpath
 
     args = std_cmake_args
-    args << "-DQt5_DIR=#{Formula["qt"].opt_prefix/"lib/cmake/Qt5"}"
+    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
     args << "-DLibIntl_INCLUDE_DIRS=#{Formula["gettext"].include}"
     args << "-DLibIntl_LIBRARIES=#{Formula["gettext"].lib/"libintl.dylib"}"
 

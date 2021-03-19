@@ -12,6 +12,7 @@ class Imake < Formula
     sha256 catalina:      "fadd526555076cbe59ef74e14456c732a084230e3bf23a78df259f222b11b4fc"
     sha256 mojave:        "211e42f25de025770eae0cf3b5ca2c5f03821a809009e0111115f808cd498ab1"
     sha256 high_sierra:   "582ea346c5d5caaa38795e2221172358b584e22cfe25ec48cacf78467272b257"
+    sha256 x86_64_linux:  "208348bd3e1fecfeff93f33d0b4bd6cfa4b1b13d15ff73f66a20eee6a6bc4bdd"
   end
 
   depends_on "pkg-config" => :build

@@ -2,17 +2,16 @@ class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
   url "https://github.com/wagoodman/dive.git",
-      tag:      "v0.9.2",
-      revision: "0872cc18d44a96ed9f59202ac95c556f7e7919a7"
+      tag:      "v0.10.0",
+      revision: "64880972b0726ec2ff2b005b0cc97801067c1bb5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2c03616976f43d70fc9f298f3eb7bb7b4f3bfad58611326424b6340341bb3098"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7c24a8bf42cae151e305b3ca83c8ef6c59acb87d1db58023e1cf10a5a3aca8d9"
-    sha256 cellar: :any_skip_relocation, catalina:      "bb8417748b9d7e9199951eccdeb6892e468721480b5b639e94bee7541cfdf25c"
-    sha256 cellar: :any_skip_relocation, mojave:        "12d537965d7d988136ff5aa24f002dbf8ce1a161f30e89167d7c1262ac1346c8"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "8ad8419f3ac59cb8b3e1627c0c329d773a1c6583e10693441a49a5f66c1efc71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce0c36c28347a8a8311c625d51f6511634a40ed0dc7ed643bc00452a11887e18"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "734a6756d2f43b3d0e91d71b9e6ef024e6a031e5d7c3ab6a44c49c3bbb8c8655"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4fdeb80d1d57527ef5887c98a5db2235e73edb7b3d0fe32d42f0cfcf0ea49780"
+    sha256 cellar: :any_skip_relocation, catalina:      "8c17b54b9370b6bc8d36dde60d42b71a7ef0fc3d700bd67893fe04c8ec1f69f9"
+    sha256 cellar: :any_skip_relocation, mojave:        "3e67c19a68dc97ba2b66e57886923b5abee437c74e83a76e289a1fc491c0416f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77714f6479380b41f7721a8569ad76c0a2b7c22ade4b3d8da153eaae023d0727"
   end
 
   depends_on "go" => :build

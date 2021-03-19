@@ -13,6 +13,7 @@ class Quvi < Formula
   bottle do
     sha256 cellar: :any, arm64_big_sur: "195d1401be4ab2b454d97e611163251bb4ed1986cab9c39b089268969fe67ff1"
     sha256 cellar: :any, big_sur:       "1b3252441e8eac802fcd016b09149004b86288c79916e2204be210478af2e185"
+    sha256 cellar: :any, catalina:      "4dd1859cd18aa0e4bdf2286c31dc80c74d572b8d3b3dd7cea89c9042ec73ac23"
     sha256 cellar: :any, mojave:        "403d1157a64341c76067353225c6acbe1c0f3e9c0b69634ed80f0bb6400c4c7c"
     sha256 cellar: :any, high_sierra:   "10fe26a54bcdf8e33e9798b399a3a72e8b571c9668e4398a3f8d1a7952f9c652"
     sha256 cellar: :any, sierra:        "9e3b86dff84297edec9c63ff1593136c2ce62e8a9f8d523e9d9137943da939bb"

@@ -4,6 +4,7 @@ class Djview4 < Formula
   url "https://downloads.sourceforge.net/project/djvu/DjView/4.12/djview-4.12.tar.gz"
   sha256 "5673c6a8b7e195b91a1720b24091915b8145de34879db1158bc936b100eaf3e3"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,10 +12,10 @@ class Djview4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:      "6dd9895644f2bc9be226ccab8affe012c31cd9a27835cd62dd3d4edddd2c0049"
-    sha256 cellar: :any, catalina:     "67dc7e3fab1c0c1407ec62c346071ec45e2981185948ec6015e75762e179cf0f"
-    sha256 cellar: :any, mojave:       "6ae80a29abde4d055c6ee544f997a8cd6bfe5bc5d9a0fa3bd7584d29cd32c73f"
-    sha256 cellar: :any, x86_64_linux: "9aa96d207fee31358aad731555b58a0b995e2b0fc58e9e66bbad2ce7a04c7f8a"
+    sha256 cellar: :any,                 big_sur:      "e649d68385bba4e58504c3fb4576367125dfff5717b4f6405bca35086ba9bed7"
+    sha256 cellar: :any,                 catalina:     "0a01bfd959f758987d9c4dd25e01e57532dd11279fa0d562876fc0927138e788"
+    sha256 cellar: :any,                 mojave:       "a1f4b788b946b22bbc4c9c3811dbb1db1827c78188dbbd79563cfd5d415ac01b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "46719434e0b25413c7fba59f56f7ec86e50254df447c0e2c6b5a4540c7556647"
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +23,7 @@ class Djview4 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "djvulibre"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     system "autoreconf", "-fiv"
@@ -39,9 +40,15 @@ class Djview4 < Formula
     # Simply copy the application bundle where you want it.
     on_macos do
       prefix.install "src/djview.app"
+      bin.write_exec_script prefix/"djview.app/Contents/MacOS/djview"
     end
     on_linux do
       prefix.install "src/djview"
     end
+  end
+
+  test do
+    assert_predicate prefix/"djview.app", :exist? if OS.mac?
+    assert_predicate prefix/"djview", :exist? unless OS.mac?
   end
 end

@@ -17,6 +17,7 @@ class Chkrootkit < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "63febac78a6eceecb7b3875b05810363448ddb25aa781b0d3ee30f32068696b9"
     sha256 cellar: :any_skip_relocation, catalina:      "db64fdae3055ce77b6771ef8b67362d68c11ef099373b71490204b135e4d84c3"
     sha256 cellar: :any_skip_relocation, mojave:        "6eb199dd0a6e307e5dc8ead5bc7b4981ac8697ebb3e8bd1ec3c34390b1cbcbd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e2480b413f409191991b377eedd33d82d9dea5c13554d6469642e8f81aec494"
   end
 
   def install

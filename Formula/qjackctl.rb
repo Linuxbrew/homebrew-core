@@ -4,6 +4,7 @@ class Qjackctl < Formula
   url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.1/qjackctl-0.9.1.tar.gz"
   sha256 "4fbe4c98ec5ce45efdd6a1088e2f5b208f5bcce994a8697b0bc96ecee99be254"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://git.code.sf.net/p/qjackctl/code.git"
 
   livecheck do
@@ -12,14 +13,14 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 big_sur:  "27f1483fa8d07de09612aa321728bddc11cd67fabb16ec19ee95aac1a1e037b6"
-    sha256 catalina: "93a7cc8b1101d27345e0a35c198453178c8a7384d43fb22303117acff8fec90c"
-    sha256 mojave:   "369a21fffa390380d0b9d3c16507c4626436d0367a7bbc073c0ec4eb0689dad7"
+    sha256 big_sur:  "3d0e211da2cf24780f1e53cbd768027483f03c97fa5e58c8beb665c47ec5082a"
+    sha256 catalina: "fdb3a1dca5d31c3839081d8e8d453c92e8ca60e4f0b7f2a45c41ffdfbfdb166c"
+    sha256 mojave:   "e482b9cf1424f3d5c4905cd9f789dd699bb50a72b39bce3e9a58169c8cd645f9"
   end
 
   depends_on "pkg-config" => :build
   depends_on "jack"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     ENV.cxx11
@@ -29,7 +30,7 @@ class Qjackctl < Formula
                           "--disable-xunique",
                           "--prefix=#{prefix}",
                           "--with-jack=#{Formula["jack"].opt_prefix}",
-                          "--with-qt=#{Formula["qt"].opt_prefix}"
+                          "--with-qt=#{Formula["qt@5"].opt_prefix}"
 
     system "make", "install"
     prefix.install bin/"qjackctl.app"

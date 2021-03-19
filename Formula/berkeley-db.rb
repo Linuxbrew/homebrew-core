@@ -2,10 +2,10 @@ class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/database/technologies/related/berkeleydb.html"
   # Requires registration to download so we mirror it
-  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
-  mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
-  sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
-  revision 1
+  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.40.tar.gz"
+  mirror "https://fossies.org/linux/misc/db-18.1.40.tar.gz"
+  sha256 "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
+  license "AGPL-3.0-only"
 
   livecheck do
     url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
@@ -13,13 +13,11 @@ class BerkeleyDb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "069db18392eb453adbf6862ff6ab7c694fba8a0885c432a4c9c63ef2946d73a4"
-    sha256 cellar: :any, big_sur:       "223eb7fbe303293676740e34fb6ff3f494ce17cba44029fb7ca47d64e138098f"
-    sha256 cellar: :any, catalina:      "f2fc006ecf0cddfeaf94af43572ca4cebc6654d8a87f3ebfdb55329174596887"
-    sha256 cellar: :any, mojave:        "eb5d0a59cec0fab48a0539f96195b1890599603577ca1792f831085418b19707"
-    sha256 cellar: :any, high_sierra:   "fa53aeeca3bef551d9f604b5eafb6b94bf1f14b95530a8d16e243fb7c2ad790e"
-    sha256 cellar: :any, sierra:        "1b3c06f6d3b1f45180068cb7127508072ed661e981e922dd273d6faef0030bc1"
-    sha256 cellar: :any, x86_64_linux:  "a61c738d8e2597fe1e662c1eda22005d1c846b2dee3516c89506c16d09fd0012"
+    sha256 cellar: :any,                 arm64_big_sur: "fb300ebe3dcc5b308c6fbc383856545a6b35e883889c95f0bfeee40d6d07b02d"
+    sha256 cellar: :any,                 big_sur:       "dc8c2c76f315ea02737e9277f74cc9f8faba1733c10c20e2ef62d50b4abce4b7"
+    sha256 cellar: :any,                 catalina:      "f4d82916099a1023af6a72675dce0a445000efd2286866d1f36bf0b1063b24aa"
+    sha256 cellar: :any,                 mojave:        "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9935bb07d8c09bc317aa61776b12b0277b136d1d5dfb65feb85c786a71a93e37"
   end
 
   depends_on "openssl@1.1"
@@ -28,17 +26,11 @@ class BerkeleyDb < Formula
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
 
-    # Fix this error for ARM64:
-    # checking build system type... .../sqlite/config.guess: unable to guess system type
-    if !OS.mac? && Hardware::CPU.arm?
-      cp "dist/config.guess", "lang/sql/sqlite/config.guess"
-      cp "dist/config.sub", "lang/sql/sqlite/config.sub"
-    end
-
     # --enable-compat185 is necessary because our build shadows
     # the system berkeley db 1.x
     args = %W[
       --disable-debug
+      --disable-static
       --prefix=#{prefix}
       --mandir=#{man}
       --enable-cxx
@@ -52,11 +44,10 @@ class BerkeleyDb < Formula
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
       system "../dist/configure", *args
-      system "make", "install"
+      system "make", "install", "DOCLIST=license"
 
-      # use the standard docs location
-      doc.parent.mkpath
-      mv prefix/"docs", doc
+      # delete docs dir because it is huge
+      rm_rf prefix/"docs"
     end
   end
 

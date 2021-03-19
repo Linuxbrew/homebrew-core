@@ -12,6 +12,7 @@ class NumUtils < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "50236cf7c8b791ba5663085c16837419d9bdc9452d64ba2f81936094f9f53592"
     sha256 cellar: :any_skip_relocation, catalina:      "b8aac296053a3fd6811ffdf85cb6f133174e4df5bd47318c02ad1f7298366fd6"
     sha256 cellar: :any_skip_relocation, mojave:        "476a96d60faaf281b704e6a137a0b4e03bd708e51f07ae97940f7efdba693ebb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6550f365537f58184c873796fd768b06c366122a3453174e3448c959bbf20b6"
   end
 
   conflicts_with "normalize", because: "both install `normalize` binaries"

@@ -10,6 +10,7 @@ class Vsearch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6801f717e69fb4c30da5fa87c54bd2e19e05af88f7b08b8efbf0df0444a6ef15"
     sha256 cellar: :any_skip_relocation, catalina:      "907ea4fbfaae550577d4f9569e7602bc55668fc8a0f0594907f69ab2ce80b25f"
     sha256 cellar: :any_skip_relocation, mojave:        "f0a8d4c30ce9921d29d574266c83bfd47ec4a0d8e7428790ca82a07b410f0deb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f42a1f8db32b85061097b75bf179a1333798ea3a21b4804cdffeae3d5ebcf6f"
   end
 
   depends_on "autoconf" => :build

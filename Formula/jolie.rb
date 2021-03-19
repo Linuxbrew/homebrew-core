@@ -11,6 +11,7 @@ class Jolie < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f8aecb9822259d55665704df3939d474d4c86de04979d4f8cf244a4cf2ba3150"
     sha256 cellar: :any_skip_relocation, mojave:        "f8aecb9822259d55665704df3939d474d4c86de04979d4f8cf244a4cf2ba3150"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f8aecb9822259d55665704df3939d474d4c86de04979d4f8cf244a4cf2ba3150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99d279cad028916964ea68fb9a225175252925771b3a19d9b3d96dc8e7360224"
   end
 
   depends_on "openjdk"

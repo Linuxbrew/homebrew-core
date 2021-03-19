@@ -16,6 +16,7 @@ class Fcct < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ad3be57c5b5be44baebf9b65b58707dc6ae42d8ec88694ecf212ef48b1ec6f71"
     sha256 cellar: :any_skip_relocation, catalina:      "bfa9271ef810cdaa856fe7f77a1bedebda49156a62ffedbadac2a7b3dff762ee"
     sha256 cellar: :any_skip_relocation, mojave:        "01a0424af0d9e118de1f247fee0c9b0cde198364860c818b55259e9c8884ae5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25da33544c7919a0945c05a5fadebe8c9a8ae5b1b61f0441adb8aa4094220100"
   end
 
   depends_on "go" => :build

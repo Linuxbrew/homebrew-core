@@ -1,25 +1,26 @@
 class LibvirtGlib < Formula
   desc "Libvirt API for glib-based programs"
   homepage "https://libvirt.org/"
-  url "https://libvirt.org/sources/glib/libvirt-glib-3.0.0.tar.gz"
-  sha256 "7fff8ca9a2b723dbfd04223b1c7624251c8bf79eb57ec27362a7301b2dd9ebfe"
+  url "https://libvirt.org/sources/glib/libvirt-glib-4.0.0.tar.xz"
+  sha256 "8423f7069daa476307321d1c11e2ecc285340cd32ca9fc05207762843edeacbd"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "https://libvirt.org/sources/glib/"
-    regex(/href=.*?libvirt-glib[._-]v?([\d.]+)\.t/i)
+    regex(/href=.*?libvirt-glib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 big_sur:     "6fe016260618ce29746ac834739030d6b2e6c7a8325974cf56521266a87c8599"
-    sha256 catalina:    "167725ebc46919472e205ae7f11953ac1dd1a6b7d4431fa8a54f720dd8d32717"
-    sha256 mojave:      "836139b6c4349752f9e5e6ce0863f3129602c54ee040caf0e8bb31ea97a6bf3f"
-    sha256 high_sierra: "fd81e19fae3e2855e61e9519ec829859fd3a9956927c47396af123611c6a23cd"
+    sha256 arm64_big_sur: "4d4918afe72309394ab15e98a5b15cf5c77e8027b20bc7bc7c1f0fb7524dbf78"
+    sha256 big_sur:       "9695bd9cca917eabee5eeaa038470e0a42c13767c420357ece93519958aa7653"
+    sha256 catalina:      "101d1a4bf6b4c45b49261fc97ddfb73d34a30511f6a24fc8f31c48caff8e14f4"
+    sha256 mojave:        "9a3967ba636f27cd1c923603e1df533b5edc7a7d5c90b089bf0154cd7b408b7f"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
   depends_on "gettext"
@@ -27,20 +28,11 @@ class LibvirtGlib < Formula
   depends_on "libvirt"
 
   def install
-    # macOS ld does not support linker option: --version-script
-    # https://bugzilla.redhat.com/show_bug.cgi?id=1304981
-    inreplace "libvirt-gconfig/Makefile.in", /^.*-Wl,--version-script=.*$\n/, ""
-    inreplace "libvirt-glib/Makefile.in",    /^.*-Wl,--version-script=.*$\n/, ""
-    inreplace "libvirt-gobject/Makefile.in", /^.*-Wl,--version-script=.*$\n/, ""
-
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-introspection
-      --prefix=#{prefix}
-    ]
-    system "./configure", *args
-    system "make", "install"
+    system "meson", "setup", "builddir", *std_meson_args, "-Dintrospection=enabled"
+    cd "builddir" do
+      system "meson", "compile"
+      system "meson", "install"
+    end
   end
 
   test do

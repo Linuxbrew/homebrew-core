@@ -4,19 +4,20 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.6/postgresql-12.6.tar.bz2"
   sha256 "df7dd98d5ccaf1f693c7e1d0d084e9fed7017ee248bba5be0167c42ad2d70a09"
   license "PostgreSQL"
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(12(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=["']?v?(12(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
     rebuild 1
-    sha256 arm64_big_sur: "2b0e485be06f2be6182d9704e95a3d3c479a73e57701c2dff3be25619fc8a14e"
-    sha256 big_sur:       "ffca6a4b4b696a93b0bf758abc4aa9d970bae38fdf92ea387804808a156ce722"
-    sha256 catalina:      "aa05eefdc26fe44263c05dc3e7d657d1f887b9389b20a32abfa8ff62321f169a"
-    sha256 mojave:        "4e6ecbd84a70033f9182acd09d762ebc1dba370970ce3f18c9accf2d16439a96"
-    sha256 x86_64_linux:  "c07c6b8c2216bef5eb975f709f7829b309c378266a510c4c623a167ac0ccad58"
+    sha256 arm64_big_sur: "c40b1a8be14ba123eed7a746ced8a9e6cd30bd6e6cba604fed259a712e085bd3"
+    sha256 big_sur:       "2f64555e8a25c33ecb45859b745b65d2944019b9a2cf470cf6658bf6d96f4a12"
+    sha256 catalina:      "27c3eb917fea4cddd42981063686576d9b454b28e33489c796ebe723fa239de8"
+    sha256 mojave:        "a677103e6e5e6977dd7ddee6cc3f64d6a75aa38fcf2910b33819f86f76ecdfe5"
+    sha256 x86_64_linux:  "64767e1dd8fa1ee1462e3d8c47306f9a39576b67ad4c99d7af85c21fcace6aa3"
   end
 
   keg_only :versioned_formula
@@ -32,6 +33,11 @@ class PostgresqlAT12 < Formula
   depends_on "krb5"
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  unless OS.mac?
+    depends_on "linux-pam"
+    depends_on "openldap"
+  end
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -54,19 +60,19 @@ class PostgresqlAT12 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
+      --with-gssapi
       --with-icu
+      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
+      --with-pam
       --with-perl
       --with-uuid=e2fs
     ]
     if OS.mac?
       args += %w[
         --with-bonjour
-        --with-gssapi
-        --with-ldap
-        --with-pam
         --with-tcl
       ]
     end
@@ -98,46 +104,28 @@ class PostgresqlAT12 < Formula
 
   def post_install
     (var/"log").mkpath
-    versioned_data_dir.mkpath
+    postgresql_datadir.mkpath
 
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir unless versioned_pg_version_exists?
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
-  # Previous versions of this formula used the same data dir as the regular
-  # postgresql formula. So we check whether the versioned data dir exists
-  # and has a PG_VERSION file, which should indicate that the versioned
-  # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
-    if versioned_pg_version_exists?
-      versioned_data_dir
-    else
-      old_postgres_data_dir
-    end
+    var/name
   end
 
-  def versioned_data_dir
-    var/name
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def old_postgres_data_dir
     var/"postgres"
-  end
-
-  # Same as with the data dir - use old log file if the old data dir
-  # is version 12
-  def postgresql_log_path
-    if versioned_pg_version_exists?
-      var/"log/#{name}.log"
-    else
-      var/"log/postgres.log"
-    end
-  end
-
-  def versioned_pg_version_exists?
-    (versioned_data_dir/"PG_VERSION").exist?
   end
 
   def postgresql_formula_present?
@@ -168,7 +156,7 @@ class PostgresqlAT12 < Formula
 
           In order to avoid this conflict, you should make sure that the
           #{name} data directory is located at:
-            #{versioned_data_dir}
+            #{postgresql_datadir}
 
         EOS
       else
@@ -179,7 +167,7 @@ class PostgresqlAT12 < Formula
           try to use both at the same time.
 
           You can migrate to a versioned data directory by running:
-            mv -v "#{old_postgres_data_dir}" "#{versioned_data_dir}"
+            mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
 
           (Make sure PostgreSQL is stopped before executing this command)
 

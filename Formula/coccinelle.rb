@@ -2,9 +2,9 @@ class Coccinelle < Formula
   desc "Program matching and transformation engine for C code"
   homepage "http://coccinelle.lip6.fr/"
   url "https://github.com/coccinelle/coccinelle.git",
-      tag:      "1.0.8",
-      revision: "d678c34afc0cfb479ad34f2225c57b1b8d3ebeae"
-  license "GPL-2.0"
+      tag:      "1.1.0",
+      revision: "e84d3ddc7d4131b7e7e70c29d49eca09d35fabb6"
+  license "GPL-2.0-only"
   head "https://github.com/coccinelle/coccinelle.git"
 
   livecheck do
@@ -13,11 +13,10 @@ class Coccinelle < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "45e6ce70f6c1221864c063f755607c40875b3265da4d9bd47687360ed6a05208"
-    sha256 cellar: :any, big_sur:       "b05ace46f798c6abdd47fd764b52575d119b67c65b64a7257fff378fd6ca73ca"
-    sha256 cellar: :any, catalina:      "cc2f0b1ff9f45f48c91f136b1b88ac6c7d2e34b475d77d1c0e418f1a47e691b2"
-    sha256 cellar: :any, mojave:        "6dd3d84d54e00d9d7ce4b27f1693d266120221bd98c99d7988a58c802c26fab3"
-    sha256 cellar: :any, high_sierra:   "c50aae7af14976966f3d3232ac89b4b2fb45753765e07377a39daf9aaeb22960"
+    sha256 cellar: :any, arm64_big_sur: "999cd887edc470102f1e318fbe59ad68a60786a8447a8e55ee453b5fe36f5008"
+    sha256 cellar: :any, big_sur:       "48c2002495d02950c1f6caa2b330d435d57f20ecda6a80b3912df5a11ae0c3b0"
+    sha256 cellar: :any, catalina:      "3705b898ce264c250741a0b464e0e87b53dcc658aa46ca82ae2e59a7bd19a00c"
+    sha256 cellar: :any, mojave:        "3bd2cb4ba4904b6eb84961a282d19ee8edb725af1ffd3b85ec378aaa873df8b0"
   end
 
   depends_on "autoconf" => :build

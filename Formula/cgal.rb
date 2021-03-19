@@ -4,17 +4,18 @@ class Cgal < Formula
   url "https://github.com/CGAL/cgal/releases/download/v5.2/CGAL-5.2.tar.xz"
   sha256 "744c86edb6e020ab0238f95ffeb9cf8363d98cde17ebb897d3ea93dac4145923"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f610594b97b512f9dddbf434c3fa68e6de5d2e45a9a9fe27037fb9f189e76fb3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a5f269116c77b8d520e186595582f5d5e71b4d356d396920287a59b3ae6fea7c"
-    sha256 cellar: :any_skip_relocation, catalina:      "17761c706fb5b039394dd23db164f5749ca348508820de1478f79f3422fd2ba2"
-    sha256 cellar: :any_skip_relocation, mojave:        "7163a4ad9b21491d1d9a10a0c6a126696b8647c4094c3c650dbd44b84274019d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cba1bf62a8aa5a38d03496a887f3adc6e3040c1c4584b19d52bfe86416963372"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f147afbea70885e0b536b942a8d2df08e80e95aaeca3a614b7cdde6c7aea5d00"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6b2bc9f1ff6c12c35578717211ed65c727d87362a1b5fdd94324bba7c52b7a78"
+    sha256 cellar: :any_skip_relocation, catalina:      "7c0402790a66c241c80cbc2288a4860afbdb9c3b33c1e800c3563565ba0f337f"
+    sha256 cellar: :any_skip_relocation, mojave:        "1794cb845b902e25ea590b1334fe1384c28985d21a5e181141c786c94361e153"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8075fa431aff310640d74de98de6d1b54f0d24056a253fec193e60a212ce8b96"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "qt" => [:build, :test]
+  depends_on "qt@5" => [:build, :test]
   depends_on "boost"
   depends_on "eigen"
   depends_on "gmp"
@@ -33,6 +34,7 @@ class Cgal < Formula
     system "cmake", ".", *args
     system "make", "install"
   end
+
   test do
     # https://doc.cgal.org/latest/Triangulation_2/Triangulation_2_2draw_triangulation_2_8cpp-example.html and  https://doc.cgal.org/latest/Algebraic_foundations/Algebraic_foundations_2interoperable_8cpp-example.html
     (testpath/"surprise.cpp").write <<~EOS
@@ -73,10 +75,13 @@ class Cgal < Formula
       cmake_minimum_required(VERSION 3.1...3.15)
       find_package(CGAL COMPONENTS Qt5)
       add_definitions(-DCGAL_USE_BASIC_VIEWER -DQT_NO_KEYWORDS)
+      include_directories(surprise BEFORE SYSTEM #{Formula["qt@5"].opt_include})
       add_executable(surprise surprise.cpp)
+      target_include_directories(surprise BEFORE PUBLIC #{Formula["qt@5"].opt_include})
       target_link_libraries(surprise PUBLIC CGAL::CGAL_Qt5)
     EOS
-    system "cmake", "-L", "-DQt5_DIR=#{Formula["qt"].opt_lib}/cmake/Qt5",
+    system "cmake", "-L", "-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5",
+           "-DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}",
            "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib", "-DCMAKE_PREFIX_PATH=#{prefix}", "."
     system "cmake", "--build", ".", "-v"
     assert_equal "15\n15", shell_output("./surprise").chomp

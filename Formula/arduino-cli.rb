@@ -2,8 +2,8 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     tag:      "0.16.1",
-     revision: "76f55490438e6c19226c9e2d9934f7d088152648"
+     tag:      "0.17.0",
+     revision: "ab58758347e10f22e07154d520d0223612674cab"
   license "GPL-3.0-only"
   head "https://github.com/arduino/arduino-cli.git"
 
@@ -13,10 +13,10 @@ class ArduinoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "bd5434ba150eb34f4d5d77dfa8430814d33ec9e7ade0c7d3a4ed0b13b56cbbe7"
-    sha256 cellar: :any_skip_relocation, catalina:     "dacfe865d4c42047932f5ce48133839cd550b49375f0408e71541ccdbd897dee"
-    sha256 cellar: :any_skip_relocation, mojave:       "2d01dc5a03005628970a21f65d73a325197be6d52392a93717d1e7caeea22790"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "08d966edb6fb6cd84081578655d039ee70e76c2e9dc490000ae7df0377d9efcf"
+    sha256 cellar: :any_skip_relocation, big_sur:      "b1ea08f5ff311ed3034c0c352510b4b48d37a3293d3a9eb1caa7904512df8487"
+    sha256 cellar: :any_skip_relocation, catalina:     "34f957da91ed2df616bd8838583ef2859606217c6d2461fef4d5ad6a8737a51f"
+    sha256 cellar: :any_skip_relocation, mojave:       "d555c3dff0884d07846c78d30100b18dcad505c052e9e5965b00723850320fde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "48123f9259ebf9d9f53ef42d2e4c80476a1d3c036d09f62e28320180e258b1d4"
   end
 
   depends_on "go" => :build

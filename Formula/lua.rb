@@ -4,6 +4,7 @@ class Lua < Formula
   url "https://www.lua.org/ftp/lua-5.4.2.tar.gz"
   sha256 "11570d97e9d7303c0a59567ed1ac7c648340cd0db10d5fd594c09223ef2f524f"
   license "MIT"
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -11,11 +12,11 @@ class Lua < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7ba9cee9e5c01a0801a19226ba577ec2acf84244f7370c5de0f8ee7942948cd0"
-    sha256 cellar: :any, big_sur:       "f7e0d6c4b3cd8d3fba1f26dd81d23eb68e1adfcd6f7915732449a8671eedfb1c"
-    sha256 cellar: :any, catalina:      "7fa53bc358e3fc6ebd2e1bcc326cd13f18141d780d07daadcecb891ebe61aa94"
-    sha256 cellar: :any, mojave:        "0196098bf8f4f49c78061412237acda0e2e2010f4abc61a7ac085ede71e9b7a3"
-    sha256 cellar: :any, x86_64_linux:  "1d96ad51e1cbbb6e520b36c81380397e637be2f0ed4dedb76bb1118d45324bbb"
+    sha256 cellar: :any,                 arm64_big_sur: "7ba9cee9e5c01a0801a19226ba577ec2acf84244f7370c5de0f8ee7942948cd0"
+    sha256 cellar: :any,                 big_sur:       "f7e0d6c4b3cd8d3fba1f26dd81d23eb68e1adfcd6f7915732449a8671eedfb1c"
+    sha256 cellar: :any,                 catalina:      "7fa53bc358e3fc6ebd2e1bcc326cd13f18141d780d07daadcecb891ebe61aa94"
+    sha256 cellar: :any,                 mojave:        "0196098bf8f4f49c78061412237acda0e2e2010f4abc61a7ac085ede71e9b7a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f41b53691adf6f37b1099f03ab6f898283611771f65b4b5ff513be0c5b0f7d7"
   end
 
   uses_from_macos "unzip" => :build
@@ -60,12 +61,7 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    system "make",
-           "install",
-           "INSTALL_TOP=#{prefix}",
-           "INSTALL_INC=#{include}/lua",
-           "INSTALL_MAN=#{man1}",
-           *("TO_LIB=liblua.a liblua.so liblua.so.#{version.major_minor} liblua.so.#{version}" unless OS.mac?)
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -74,7 +70,8 @@ class Lua < Formula
     bin.install_symlink "luac" => "luac#{version.major_minor}"
     bin.install_symlink "luac" => "luac-#{version.major_minor}"
     (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink "liblua.#{version.major_minor}.dylib" => "liblua#{version.major_minor}.dylib"
+    lib.install Dir[shared_library("src/liblua", "*")] unless OS.mac?
+    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
   end

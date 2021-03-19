@@ -1,23 +1,23 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.13.3.tgz"
-  sha256 "86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c"
+  url "https://github.com/coin-or/Ipopt/archive/releases/3.13.4.tar.gz"
+  sha256 "1fdd0f8ea637856d66b1ebdd7d52ad1b8b8c1142d1a4ce0976b200ab280e5683"
   license "EPL-1.0"
-  revision 2
+  revision 1 unless OS.mac?
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:      "c63686d9c36309fc55f88e7d9a97b99e34d20ccabd68e66009fdaab1e7ea4f6c"
-    sha256 cellar: :any, catalina:     "9e14aaecd0e58c1047ea13327314a99f30dd0fbc2049af6681aa879f8dccd617"
-    sha256 cellar: :any, mojave:       "ed286516c3ae473b824b5cefa4186e1519aa371464ec80f8c949a9da3eb50475"
-    sha256 cellar: :any, x86_64_linux: "1a5be764853c26979f4d9cd81290d34343e2945bb9eac8cf1cda29277a63d50c"
+    sha256 cellar: :any,                 big_sur:      "c63686d9c36309fc55f88e7d9a97b99e34d20ccabd68e66009fdaab1e7ea4f6c"
+    sha256 cellar: :any,                 catalina:     "9e14aaecd0e58c1047ea13327314a99f30dd0fbc2049af6681aa879f8dccd617"
+    sha256 cellar: :any,                 mojave:       "ed286516c3ae473b824b5cefa4186e1519aa371464ec80f8c949a9da3eb50475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e65904a70b0d82eda5176192d3fc2499753e030143cb35cdd67dfa809bd5b66b"
   end
 
   depends_on "openjdk" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "ampl-mp"
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "openblas"
 
   resource "mumps" do
@@ -39,8 +39,8 @@ class Ipopt < Formula
   end
 
   resource "test" do
-    url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.13.3.tgz"
-    sha256 "86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c"
+    url "https://github.com/coin-or/Ipopt/archive/releases/3.13.4.tar.gz"
+    sha256 "1fdd0f8ea637856d66b1ebdd7d52ad1b8b8c1142d1a4ce0976b200ab280e5683"
   end
 
   def install
@@ -52,8 +52,8 @@ class Ipopt < Formula
       cp "Make.inc/Makefile.inc.generic.SEQ", "Makefile.inc"
       inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
 
-      # Fix for GCC 10
-      inreplace "Makefile.inc", "OPTF    = -fPIC", "OPTF    = -fPIC -fallow-argument-mismatch" if OS.mac?
+      inreplace "Makefile.inc", "OPTF    = -fPIC",
+                "OPTF    = -fPIC -fallow-argument-mismatch"
 
       ENV.deparallelize { system "make", "d" }
 

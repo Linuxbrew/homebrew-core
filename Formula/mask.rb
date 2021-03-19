@@ -10,6 +10,7 @@ class Mask < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "95563975f0b87651a58c01845c098b93d6d0f7dfed889bebf4364e8fdfe2ffa6"
     sha256 cellar: :any_skip_relocation, catalina:      "80a869d6a62e065235ca7057e1a0df2b5045232cd897bfc5ee7b924098d8ac99"
     sha256 cellar: :any_skip_relocation, mojave:        "a4caf4f75c456b398325a2dc24d4a9b7681559fc53a55bac2b590a179bc5cde3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3744ff7ff36b16ae1397009bac74a3f182d60869980367d964d19cd8414f662"
   end
 
   depends_on "rust" => :build

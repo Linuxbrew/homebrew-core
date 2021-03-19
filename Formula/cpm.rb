@@ -1,16 +1,16 @@
 class Cpm < Formula
   desc "Fast CPAN module installer"
   homepage "https://metacpan.org/pod/cpm"
-  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997002.tar.gz"
-  sha256 "19de1224b5c86d566eb0b85767775efb5bbab82ce98ee8c44f8843f26aabbbab"
+  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997003.tar.gz"
+  sha256 "3262f95ba38074834f0a80e6592d7025d9c6ef562a5e60b2d5039c73f1fa3469"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/skaji/cpm.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ec077e8877216d394c00f4bae315edc76d0dd293d1d24b691526ee596766dcc9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c80c08f2faf3be4f3ffe1577c1002b2a9d44efbe66c8eae8068c2b68b537134f"
-    sha256 cellar: :any_skip_relocation, catalina:      "5ee136ba90a46455007f9e8f5f3de12d55dc8bb888f366c03838cdbc52ab6f63"
-    sha256 cellar: :any_skip_relocation, mojave:        "570d8a40888cc518229910ab30d0ee8c89a0b72a86d8cc12cea8222df885d5cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24e03d34f10f88d7a450d83a5061e15a3c0e2b9148591e55bef939841d509774"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c5e6faef15405105b73e63c6ac49b1b32b45a5d80b55eca399ad3ce37b06ea95"
+    sha256 cellar: :any_skip_relocation, catalina:      "085d3d7363f0e44b19fc5ba3eb5789dc65a928c60716d013520af3d515d03c74"
+    sha256 cellar: :any_skip_relocation, mojave:        "2425e1296cf3bd5e6afde77a2cf63975e048cd6f18f9809dc860a38f94202ba5"
   end
 
   depends_on "perl"

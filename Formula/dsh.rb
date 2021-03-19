@@ -13,6 +13,7 @@ class Dsh < Formula
   bottle do
     sha256 arm64_big_sur: "5e691ea82431b5921a5ce57f26e0219c0f5c38decd4249c3fb49beed4f284c4b"
     sha256 big_sur:       "8179e3e553da0ac7b40a6b69c0cd47283ce7ab80f399e0f84b57210fa8b6784b"
+    sha256 catalina:      "96b9dda875dac2f33db11bd912a9fd1babac7c2baa76fc0036386442dafaabd2"
     sha256 mojave:        "e978724605a216f2e3ffc5df3ba12bb53e3150aa63b7d18779723e563a35f867"
     sha256 high_sierra:   "5d553941319eae8d839a53063057fff05b359eb13e53da2d7313c3d41fae88b0"
     sha256 sierra:        "9d694a476e5d74d7c3edbf284628e3f68c96c5a30c91b7fd3c624630805636ea"

@@ -12,13 +12,17 @@ class Cling < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7c100296feb4998222916d3d3f98f22d1584031ec2115c83c562b53bb4025c91"
-    sha256 cellar: :any, big_sur:       "4f7e4ff0e73858b0fc8f3f3ea004f3118da82108a6087ebdb21973116ff58cee"
-    sha256 cellar: :any, catalina:      "743a41e996097da4d0d309839045c081dee5e2ec94ccb4839413003f632ffb98"
-    sha256 cellar: :any, mojave:        "ccc594737e7a0b777ad5360566a0fa13f0584c6cdb0b4023ed0ff59ebac30112"
+    sha256 cellar: :any,                 arm64_big_sur: "7c100296feb4998222916d3d3f98f22d1584031ec2115c83c562b53bb4025c91"
+    sha256 cellar: :any,                 big_sur:       "4f7e4ff0e73858b0fc8f3f3ea004f3118da82108a6087ebdb21973116ff58cee"
+    sha256 cellar: :any,                 catalina:      "743a41e996097da4d0d309839045c081dee5e2ec94ccb4839413003f632ffb98"
+    sha256 cellar: :any,                 mojave:        "ccc594737e7a0b777ad5360566a0fa13f0584c6cdb0b4023ed0ff59ebac30112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de7bb72540b0410b4f54d9e0d67315e2b649456ee30d4adaedfa76297b187298"
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   resource "clang" do
     url "http://root.cern.ch/git/clang.git",

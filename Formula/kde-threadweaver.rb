@@ -4,20 +4,21 @@ class KdeThreadweaver < Formula
   url "https://download.kde.org/stable/frameworks/5.79/threadweaver-5.79.0.tar.xz"
   sha256 "297ca4454e9dc526af8033ee47932a63e3ef3d76868a75dfa66df0f7a04d5918"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/frameworks/threadweaver.git"
 
   bottle do
-    sha256 arm64_big_sur: "d6b999d021af28fa3bed64f2cc7aac26b9b80e266e16d5f42aad21aa365549a9"
-    sha256 big_sur:       "cc0c3d6035feea18171feff8f6310fb5df7d58a631477c2537477316d921feb7"
-    sha256 catalina:      "1e224681d674951d07488d6b2abf0e67f753533994c8c7403f47f0600a36a21b"
-    sha256 mojave:        "98c69380c4e892705ade2564216a1d661757251f1c06af5d9212dbaf6a435f18"
+    sha256 arm64_big_sur: "4e2cc8b16301bc9e2fc14fda3748bf5c6806f1a5354fd8975bffe543afd609ac"
+    sha256 big_sur:       "14e86bf2b254bf6cc4a03eef9ce8fd440172befc09987963c06490bc5fb71475"
+    sha256 catalina:      "4ed11a2a30e6c38fb227c7b0177e7759c155320d4b3dd7de9a64386f3fbf9ed4"
+    sha256 mojave:        "47d34ce1fc476cbbbad3c8d7344a202a3169d450163e33cbf8d389dcf5f4bcf9"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
   depends_on "kde-extra-cmake-modules" => [:build, :test]
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
@@ -33,7 +34,8 @@ class KdeThreadweaver < Formula
   end
 
   test do
-    qt5_arg = "-DQt5Core_DIR=#{Formula["qt"].opt_prefix/"lib/cmake/Qt5Core"}"
+    ENV.delete "CPATH"
+    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5Core"}"
     system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, qt5_arg
     system "make"
 

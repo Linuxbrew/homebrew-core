@@ -4,7 +4,7 @@ class Afuse < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/afuse/afuse-0.4.1.tar.gz"
   sha256 "c6e0555a65d42d3782e0734198bbebd22486386e29cb00047bc43c3eb726dca8"
   license "GPL-2.0"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     sha256 cellar: :any, catalina:     "cf5a7aeba0e2504ea5bf7bf691ed2d0f8245cbac069b089359588e7df04140e0"
@@ -13,7 +13,6 @@ class Afuse < Formula
     sha256 cellar: :any, sierra:       "900e55a47834181f518e87e7cbaaf0f3f078b0d40631ffccfc776e82c7c61f87"
     sha256 cellar: :any, el_capitan:   "a4c0f86a179ca8c5d1e3977ff167dbcd1abff4ec1ee17fd5700a3fb602c781a3"
     sha256 cellar: :any, yosemite:     "2a57c7752c7b461f6b628a1c30e845fe13685eab394d933e8da3aebf7102ae9c"
-    sha256 cellar: :any, x86_64_linux: "7a7953cd690dfef18f9a3ea59b533aa887d9691a559306254a6333ba0b7c011b"
   end
 
   depends_on "pkg-config" => :build
@@ -33,7 +32,11 @@ class Afuse < Formula
   end
 
   test do
-    comp = OS.mac? ? /OSXFUSE/ : /FUSE library version/
-    assert_match comp, pipe_output("#{bin}/afuse --version 2>&1")
+    on_macos do
+      assert_match "OSXFUSE", pipe_output("#{bin}/afuse --version 2>&1")
+    end
+    on_linux do
+      assert_match "FUSE library version", pipe_output("#{bin}/afuse --version 2>&1")
+    end
   end
 end

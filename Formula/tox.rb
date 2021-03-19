@@ -3,16 +3,16 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/46/d6/26b3992979624fe0d4bd4cae0815b174b60e585338ce9c495cd56cc09a3f/tox-3.22.0.tar.gz"
-  sha256 "ed1e650cf6368bcbc4a071eeeba363c480920e0ed8a9ad1793c7caaa5ad33d49"
+  url "https://files.pythonhosted.org/packages/b3/6e/18e2727acc690532309cfb6a2b2d71345c3b007bbb166178d178237e9594/tox-3.23.0.tar.gz"
+  sha256 "05a4dbd5e4d3d8269b72b55600f0b0303e2eb47ad5c6fe76d3576f4c58d93661"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f6baed8fc61dedcc03e38c82f0b6d7c06d3e9841e56fc90dd5fbc21b98b7c540"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0f8b020e4f2d3ca4440f3eb327e6b123ce446f62e33efaaf0cea25d7fb333cb4"
-    sha256 cellar: :any_skip_relocation, catalina:      "2c34efadb7133271addf44a43e87da224ef3cd5818b6af55e3213168ccf2a322"
-    sha256 cellar: :any_skip_relocation, mojave:        "7da41446aa97405ac85f5cfdf5be8bb028f82017eb145d0023f779ddf174bdb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2652d96b24d2fb4db131226c6049cd5f9737f1d93ceb1f2d4bf4bbad16b04265"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "45b53cfa3dc89e039f809fa259d99a229a1ab8f8c513b60f8b5f4f8cdbb4f2d4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dfa2b66bb903c21137f6315f399b1d9a50274a2f00cdd900fadbc51435e00b9e"
+    sha256 cellar: :any_skip_relocation, catalina:      "634d9dff53aa35193606f04d7e79e32d46cd5bb7f7ef42a6a545d42342fa277f"
+    sha256 cellar: :any_skip_relocation, mojave:        "5f37452ae3e840b3c3377f671b9f8fe9847b8db57b9db91553b02a77cc70594c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75ac159e7a88de6f26a18661c19280ac2542000f72f557d73a8e9967db0aac45"
   end
 
   depends_on "python@3.9"

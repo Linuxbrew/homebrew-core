@@ -11,6 +11,7 @@ class Oauth2Proxy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "fadef8f69ce44469257ece86f89f59f08746ff82303f3b5595c1509af841aee8"
     sha256 cellar: :any_skip_relocation, catalina:      "b2d59b973929760ce53e8ccfa248db721e9712889418b9fa51a05c8e416774c5"
     sha256 cellar: :any_skip_relocation, mojave:        "5a7952a20c808199260d81aa8e99b3d6ac9ea42257d1e969e631a0f8a0fed36f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "492648f750ce264a3b695cb6fa12ed4dcad7452a8e17d0300cb7db6cf870f8da"
   end
 
   depends_on "go" => :build

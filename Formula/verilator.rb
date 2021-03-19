@@ -1,8 +1,8 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://www.veripool.org/ftp/verilator-4.108.tgz"
-  sha256 "8e8ec1de0bf200b6206035214f9071a5acc64bd2e7134361d564271e48552702"
+  url "https://www.veripool.org/ftp/verilator-4.110.tgz"
+  sha256 "4716fe0058661a29d6b59caf8e7471b2eddbded6ed44ede78dc1c65094ecfecc"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
 
   livecheck do
@@ -11,10 +11,12 @@ class Verilator < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "54cb01cc42dcbb937393cb3359459b18c4cc29c424d19065b09f1095fdee685b"
-    sha256 big_sur:       "45d7504fefb899372cd2ee8876e8a82d56b59f14972309b9dbeed83b580029b3"
-    sha256 catalina:      "8e616f827d635b2659f454a3f5dc302fced30bad4b26930ccd392944f71dbfd9"
-    sha256 mojave:        "97797a992b626adf8ae83c8ee22d881ec26bf12f390c6a807e0635bc67d6e09b"
+    rebuild 1
+    sha256 arm64_big_sur: "42901384ef7092b0039c505d2ebbd7586024f25d5578eb2be31b9793a8c92fb0"
+    sha256 big_sur:       "88161464bfe85fa5e711272374a7ff363d56b577ca490eac61165bde531c5543"
+    sha256 catalina:      "a89df25c889c4e7c8333c4ac2072c7e309dd43d93c1405242644cee644041de3"
+    sha256 mojave:        "a2ce7f0df7764dd771586ca7c0ebdb360e1834147c2d7737a5d7ec7adb3a0095"
+    sha256 x86_64_linux:  "d15af0102596b8eab865332a0439116a04eeaaaff644ff30ff2ef88c1273d30a"
   end
 
   head do
@@ -24,6 +26,9 @@ class Verilator < Formula
   end
 
   depends_on "python@3.9" => :build
+
+  uses_from_macos "bison"
+  uses_from_macos "flex"
   uses_from_macos "perl"
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag

@@ -5,19 +5,21 @@ class LlvmAT9 < Formula
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
 
   bottle do
-    sha256 cellar: :any, catalina:     "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01"
-    sha256 cellar: :any, mojave:       "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8"
-    sha256 cellar: :any, high_sierra:  "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825"
-    sha256 cellar: :any, x86_64_linux: "a98229acbc53ce81c6a0464ba8ec8519639d32623a4d98eedde750d45f1a73c7"
+    sha256 cellar: :any,                 catalina:     "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01"
+    sha256 cellar: :any,                 mojave:       "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8"
+    sha256 cellar: :any,                 high_sierra:  "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7ef6fe7b6cb774859478d26df2576b58d0b1af6c9b03dda7aeb110cc0ed9fd21"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { !OS.mac? || MacOS::CLT.installed? }
+    on_macos do
+      reason "The bottle needs the Xcode CLT to be installed."
+      satisfy { MacOS::CLT.installed? }
+    end
   end
 
   keg_only :versioned_formula
@@ -30,10 +32,15 @@ class LlvmAT9 < Formula
   depends_on "swig"
 
   unless OS.mac?
-    depends_on "gcc" # needed for libstdc++
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
+    depends_on "gcc" # for libstdc++
+    fails_with gcc: "5"
+    fails_with gcc: "6"
+    fails_with gcc: "7"
+    fails_with gcc: "8"
+    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -115,17 +122,6 @@ class LlvmAT9 < Formula
     # limited to compiler-rt. llvm makes this somewhat easier because compiler-rt
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
-
-    unless OS.mac?
-      # see https://llvm.org/docs/HowToCrossCompileBuiltinsOnArm.html#the-cmake-try-compile-stage-fails
-      # Basically, the stage1 clang will try to locate a gcc toolchain and often
-      # get the default from /usr/local, which might contains an old version of
-      # gcc that can't build compiler-rt. This fixes the problem and, unlike
-      # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
-      # hardcoding the gcc path into the binary
-      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
-        "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
-    end
 
     args = %W[
       -DLIBOMP_ARCH=x86_64

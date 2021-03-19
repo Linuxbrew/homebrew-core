@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      tag:      "2.7.12",
-      revision: "448880e64b35b4027321cc4f328392649dca923c"
+      tag:      "3.0.1",
+      revision: "dbccc1ee8edfa0a06e4f7b258bbee4a959bc18af"
   license "MIT"
   head "https://github.com/inlets/inlets.git"
 
@@ -13,11 +13,10 @@ class Inlets < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e8c975df59151c14040f9188c727667309c93025f92ea9ef2caac82515af64a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4c89bedf66827ec3d8247a195a997de7bd7df075ae78cc74c1af408b4a6c3d49"
-    sha256 cellar: :any_skip_relocation, catalina:      "2a0d9aa35bd843b2ed9773cee4b7b05c02b21cbcb78b085bb1c73363dc8a8ec4"
-    sha256 cellar: :any_skip_relocation, mojave:        "b1c8a139e4d6f18c666d7f6380bfad18ea3d8836c6aa394c5026e1e872840225"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d68f4e3fd5fa0b415c151554f4cecb045c8cc30d7dead92abf57a1dc6edfa26"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "49385530d15aed2d23ef0aed4f5f6b46cc6e6c49b0936a2b9995d95115cf88b8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd817356a0bccef76ee190e3ec5bd1a99965929b0e427697c8df0a4db088ab34"
+    sha256 cellar: :any_skip_relocation, catalina:      "ae0b7a7acdf69fce8d9305cbd125083aff5f98e7ec0d1bdcf96aa26a4319fca1"
+    sha256 cellar: :any_skip_relocation, mojave:        "1922d778ad53108052d204fe06122e7402ee5a28612c2e97f3ff78075b25cbae"
   end
 
   depends_on "go" => :build
@@ -96,12 +95,12 @@ class Inlets < Formula
 
       client_pid = fork do
         # Starting inlets client
-        exec "#{bin}/inlets client --remote localhost:#{remote_port} " \
-             "--upstream localhost:#{upstream_port} --token #{secret_token}"
+        exec "#{bin}/inlets client --url ws://localhost:#{remote_port} " \
+             "--upstream localhost:#{upstream_port} --token #{secret_token} --insecure"
       end
 
       sleep 3 # Waiting for inlets websocket tunnel
-      assert_match mock_response, shell_output("curl -s http://localhost:#{remote_port}/inlets-test")
+      assert_match mock_response, shell_output("curl -s localhost:#{remote_port}/inlets-test")
     ensure
       cleanup("Mock Server", mock_upstream_server_pid)
       cleanup("Inlets Server", server_pid)

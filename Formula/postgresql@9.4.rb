@@ -4,13 +4,14 @@ class PostgresqlAT94 < Formula
   url "https://ftp.postgresql.org/pub/source/v9.4.26/postgresql-9.4.26.tar.bz2"
   sha256 "f5c014fc4a5c94e8cf11314cbadcade4d84213cfcc82081c9123e1b8847a20b9"
   license "PostgreSQL"
+  revision 1 unless OS.mac?
 
   bottle do
     rebuild 3
     sha256 catalina:     "15217a46087cd4bef0227f5ca941ed843a4e024aafa4e7c7a3ebf746ca8a1344"
     sha256 mojave:       "4d24193f0f0931c246a86407d3d8208a48b514b8969dc4567b7d62de2becc3ec"
     sha256 high_sierra:  "2e09355d0bf2f70b5ea9c202f15aadee823902caad5cf35b64c882e4b969e70f"
-    sha256 x86_64_linux: "015a49fec3cc02bdce3094e13c0524d832d70916dbdfa2eec27020567234eeaf"
+    sha256 x86_64_linux: "460cf99b0c2dd7776bcb9611a4c9176a2606d821b7a4a7eab45fe96a28fd80c8"
   end
 
   keg_only :versioned_formula
@@ -21,6 +22,12 @@ class PostgresqlAT94 < Formula
   depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  unless OS.mac?
+    depends_on "krb5"
+    depends_on "linux-pam"
+    depends_on "openldap"
+  end
 
   uses_from_macos "libxslt"
   uses_from_macos "perl"
@@ -44,13 +51,18 @@ class PostgresqlAT94 < Formula
       --datadir=#{pkgshare}
       --docdir=#{doc}
       --enable-thread-safety
+      --with-gssapi
+      --with-ldap
       --with-openssl
+      --with-pam
       --with-libxml
       --with-libxslt
       --with-perl
       --with-uuid=e2fs
     ]
     if OS.mac?
+      args << "--with-bonjour"
+
       # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
       args << "--with-tcl"
       if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")

@@ -1,9 +1,10 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.4.1.tar.gz"
-  sha256 "3debcc95c2e70b5fe866b0f1eacf3d0f586fff2f3083e97247420b2f08e772e5"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.4.2.tar.gz"
+  sha256 "be1782ada2bc735b1d3538ed2fa8fb52d917eb32538c2f0612ae60c024101c31"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,10 +12,11 @@ class Dnsperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0109d601c9e40ef0ef18f62dad36fc3b2edb8072e5f1857e76d70353565f98f3"
-    sha256 cellar: :any, big_sur:       "c5b2d2a55ba7b574b3f02e36b9cac637aef6af943c7a9ea28c22277479fb7de7"
-    sha256 cellar: :any, catalina:      "3d8a1b6fadf78d65bae61247814a6a5cd75d66f06dae1d126a6269ed9e045c5b"
-    sha256 cellar: :any, mojave:        "f37e5ca6b5e5fc6f427fce4f9ec5942f670ef5548ec9f3fbaf8939cbf152cea5"
+    sha256 cellar: :any,                 arm64_big_sur: "8730e011c11d6122dc29b6394e581a0470e026ecd4e817f826514ebd7b6fcc82"
+    sha256 cellar: :any,                 big_sur:       "a28b5ac11a2d5163a91313749fd8ddd960ee6ca7f196b652927bbeb195989ffd"
+    sha256 cellar: :any,                 catalina:      "b84cdea5d717093c0d5221c95793c69dd338f7ade5606ad4a83f28695dc4cbbc"
+    sha256 cellar: :any,                 mojave:        "eb49eb5b1be6846b2c6bafd8a42a8e23275214ba2737ceefd640b5bbbf65e3d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6143d9af1c8c1e7caa06bb950ad15b098399102306022aa1af8dab2831d00e5e"
   end
 
   depends_on "pkg-config" => :build
@@ -23,17 +25,6 @@ class Dnsperf < Formula
   depends_on "libxml2"
 
   def install
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
-    # Extra linker flags are needed to build this on macOS.
-    # Upstream bug ticket: https://github.com/DNS-OARC/dnsperf/issues/80
-    ENV.append "LDFLAGS", "-framework CoreFoundation"
-    ENV.append "LDFLAGS", "-framework CoreServices"
-    ENV.append "LDFLAGS", "-framework Security"
-    ENV.append "LDFLAGS", "-framework GSS"
-    ENV.append "LDFLAGS", "-framework Kerberos"
-
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

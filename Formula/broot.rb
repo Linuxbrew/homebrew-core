@@ -1,17 +1,17 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/v1.2.4.tar.gz"
-  sha256 "c0122bffb9fb92f4050a5216a27b0c86b58194e33a62b19e1e3128171b1fde05"
+  url "https://github.com/Canop/broot/archive/v1.2.8.tar.gz"
+  sha256 "2951e0970fdae20dbbedaa9fdf666dd73bd64c0060a40884a21d7e1ecfb95f80"
   license "MIT"
   head "https://github.com/Canop/broot.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab0410c31bd630ef4120236fb3ee43ad868387b6e3f35561da2b03ab852c6367"
-    sha256 cellar: :any_skip_relocation, big_sur:       "407497deb4d27d5008421c3d096606f24f0e137c00f78d590766d528b8191df3"
-    sha256 cellar: :any_skip_relocation, catalina:      "1c0f1978be42f422ee84f084530588a291568e6744d01dc60b8574b1db75465f"
-    sha256 cellar: :any_skip_relocation, mojave:        "87a851ebb2c87e706766df9a084ea8bd85e911020617186b6251621e29e90571"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bb95d03813e7af5eec2cc08c4f9cf87abba64b06c4416c13bcf1d301ddca005"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ad0aaa0691b03bc2847d1644b2e539ee40a409cf22800911320f7a0d5755bb4d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6c937251652a7147cfe2aa4424a72160bc88f7df631457d6513d0c8171a0b321"
+    sha256 cellar: :any_skip_relocation, catalina:      "4e75e73c1e6aa891091a19b5596a3566605056cf0d78d86ff58842158412aa93"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f50a4e32437728748b394df3e5362e300f8e3fade8cb83a69a635a424cb9492"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83988abc2bce387477277190773566acad50386382dd3ba27770a2a1920dd853"
   end
 
   depends_on "rust" => :build
@@ -20,6 +20,23 @@ class Broot < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    # Replace man page "#version" and "#date" based on logic in release.sh
+    inreplace "man/page" do |s|
+      s.gsub! "#version", version
+      s.gsub! "#date", Time.now.utc.strftime("%Y/%m/%d")
+    end
+    man1.install "man/page" => "broot.1"
+
+    # Completion scripts are generated in the crate's build directory,
+    # which includes a fingerprint hash. Try to locate it first
+    out_dir = Dir["target/release/build/broot-*/out"].first
+    bash_completion.install "#{out_dir}/broot.bash"
+    bash_completion.install "#{out_dir}/br.bash"
+    fish_completion.install "#{out_dir}/broot.fish"
+    fish_completion.install "#{out_dir}/br.fish"
+    zsh_completion.install "#{out_dir}/_broot"
+    zsh_completion.install "#{out_dir}/_br"
   end
 
   test do

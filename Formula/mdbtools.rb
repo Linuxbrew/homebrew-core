@@ -1,16 +1,16 @@
 class Mdbtools < Formula
   desc "Tools to facilitate the use of Microsoft Access databases"
   homepage "https://github.com/mdbtools/mdbtools/"
-  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.1/mdbtools-0.9.1.tar.gz"
-  sha256 "f62b4dcf06a43ad2b4342be670fc934d03886da9feb9f38434029facc0b98f3c"
+  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.2/mdbtools-0.9.2.tar.gz"
+  sha256 "d4ba2974f9d4f0198fa92c5df178af7f52cdc5e1b545b6d0c9d79cd782fca742"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "51482d465b9bf4315b80f9b4b31423dbf1349b24f29358fdf0e6ea9a87a12b0b"
-    sha256 cellar: :any, big_sur:       "6a653b4fc6a4c990a1ea0f08085875010a1560fffcf100eafe0d81de52778464"
-    sha256 cellar: :any, catalina:      "04bb52a1f30aed9209498ea4fdbdf1b575a290f931632a2b37d1e6433b43f7b7"
-    sha256 cellar: :any, mojave:        "d2d9d42dee37437e5e9c6c701efd38b13456d59ebb1fb2fbebbcba8af7ff32c6"
-    sha256 cellar: :any, x86_64_linux:  "e3d67843e74ded73b04afd6ee66f1a5fd07df0f4dd92bf9c4e64d3cb3bbe3ebd"
+    sha256 cellar: :any,                 arm64_big_sur: "9053e31cbbc87cb451115fbe2fe039071e85cc05cdee130b1890d44888d9c6e3"
+    sha256 cellar: :any,                 big_sur:       "64736fd8868a154014317e36924e1246091fc788e1b3a037ba14678600ea3034"
+    sha256 cellar: :any,                 catalina:      "b37102d082ed7e84a5251551fa5e84618b118ebaa3224a5ec1d19e043551f4fc"
+    sha256 cellar: :any,                 mojave:        "49918a104b998fd7cd87f164d5d9ff47933e0d7cf3a9fb66214979fdfeedf45e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89964f70ab2102a759ed35353f8a29859f4606f7486ae049be8249dc44561d97"
   end
 
   depends_on "autoconf" => :build

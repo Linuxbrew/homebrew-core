@@ -4,6 +4,7 @@ class Perl < Formula
   url "https://www.cpan.org/src/5.0/perl-5.32.1.tar.xz"
   sha256 "57cc47c735c8300a8ce2fa0643507b44c4ae59012bfdad0121313db639e02309"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   livecheck do
@@ -12,13 +13,15 @@ class Perl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "f44eafa67a7c43e5583f2190933c07645a3e93e2a46c8b7f53ec175e171e31be"
-    sha256 big_sur:       "e65b6722d7371a936e77af5c2d2aeec76cec8e3b6116562c0584d588a724bfcd"
-    sha256 catalina:      "2777e9490753ec7d79129663a1102d25148076bfd1788044e8adac4a02086cbc"
-    sha256 mojave:        "bb71c5e9bb3c1c734d7c2a91ada60ce054096c97b1a619f4c3df2a1f1e828981"
-    sha256 x86_64_linux:  "7379beaf3a707d91ab543cc71bfcf504b364c2fc5ceaea0ca47831824692c6c5"
+    sha256 arm64_big_sur: "900ac321ecfc07d89588b203a6860fe3f3ba056a3565225d77115c99d651aed0"
+    sha256 big_sur:       "5178a634bfb37437ee40d836c3bacb1adb89516a553ef6a8c2d40cee9eea608b"
+    sha256 catalina:      "7ac87157d98223abcc2b25e35811c9dfd016f807454ec8fc219a910b4a9cdacc"
+    sha256 mojave:        "2663e8ce52b4fb4fab170e19fff638e0b65688a933a3cddd86696403323be88d"
+    sha256 x86_64_linux:  "141572cbbe109dec63cee8b9b84fc97f07a41027c6b8f4fad404120e95719f6e"
   end
+
+  depends_on "berkeley-db"
+  depends_on "gdbm"
 
   uses_from_macos "expat"
 
@@ -39,8 +42,6 @@ class Perl < Formula
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
-      -Dnoextensions=GDBM_File
-      -Dnoextensions=DB_File
     ]
     on_macos do
       args << "-Dsed=/usr/bin/sed"
@@ -64,8 +65,9 @@ class Perl < Formula
   end
 
   def post_install
-    unless OS.mac?
-      perl_core = Pathname.new(`#{bin/"perl"} -MConfig -e 'print $Config{archlib}'`)+"CORE"
+    on_linux do
+      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      perl_core = Pathname.new(perl_archlib)/"CORE"
       if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&
          (OS::Linux::Glibc.system_version >= "2.26" ||
          (Formula["glibc"].any_version_installed? && Formula["glibc"].version >= "2.26"))

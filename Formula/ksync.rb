@@ -13,6 +13,7 @@ class Ksync < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e68abf337654f51128a835f8d3c124df880a37a26f2773b0aa09fce74c67d63a"
     sha256 cellar: :any_skip_relocation, catalina:      "68409c1188fc629bb181765961ee9ff645b941400edcea9939d8d7189e7db5dc"
     sha256 cellar: :any_skip_relocation, mojave:        "a4d52a2a59f8b6308ea858f051e8971145b9964c32564a832408e05f6582c23e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "faddcbd7cbb803a169f003d38cf994eecb73cee2e2996e3e79b966322fcc8afc"
   end
 
   depends_on "go" => :build
@@ -28,7 +29,7 @@ class Ksync < Formula
       -w
       -X #{project}/pkg/ksync.GitCommit=#{Utils.git_short_head}
       -X #{project}/pkg/ksync.GitTag=#{version}
-      -X #{project}/pkg/ksync.BuildDate=#{Utils.safe_popen_read("date", "+%Y%m%dT%H%M%S").chomp}
+      -X #{project}/pkg/ksync.BuildDate=#{Time.now.utc.rfc3339(9)}
       -X #{project}/pkg/ksync.VersionString=Homebrew
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
     ]

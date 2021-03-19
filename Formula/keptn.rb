@@ -1,14 +1,15 @@
 class Keptn < Formula
   desc "Is the CLI for keptn.sh a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/0.7.3.tar.gz"
-  sha256 "7c5ab4bce7f8c75371a6130ae7929a9c7a88d05f29b96604b3849a93d2177228"
+  url "https://github.com/keptn/keptn/archive/0.8.0.tar.gz"
+  sha256 "91fb9dee635f446c8a3adf8cb1cf1a3c80ade96230a4e994247aed42f176f489"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "ab63fa9651a5c8fd6d038213c375ac235ac029ed96e6a5a6a5fa1bc4a603c079"
-    sha256 cellar: :any_skip_relocation, catalina: "5a33c7d846b600afcc7862a1577463393825f16ff1f2cd90e724b60200076f58"
-    sha256 cellar: :any_skip_relocation, mojave:   "c5db8c4f6047e856f95f0039223caa3779ed4fd69e14bc1709bb22dcacca4b23"
+    sha256 cellar: :any_skip_relocation, big_sur:      "5a6cff0dfb605514ab2530bf6b1e95ecfbfc598ce3a843263e75bb33df806346"
+    sha256 cellar: :any_skip_relocation, catalina:     "5093a00ef3fb4ef279966d85a52e1640392c228332429e6169cdd0e7adf76342"
+    sha256 cellar: :any_skip_relocation, mojave:       "6c8bdf7816c311f7170d901c7e52a286ec9cc25047749cc93fde21777d4bfb9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6d652322b26ee9da93113d2533a884961b21b0697334134127b50377df464e51"
   end
 
   depends_on "go" => :build
@@ -35,7 +36,7 @@ class Keptn < Formula
     r, _w, pid = PTY.spawn("#{bin}/keptn status", err: :out)
     begin
       Timeout.timeout(5) do
-        assert_match "CLI is not authenticated against any Keptn cluster.", r.gets.chomp
+        assert_match "Warning: could not open KUBECONFIG file", r.gets.chomp
         Process.wait pid
         assert_equal 0, $CHILD_STATUS.exitstatus
       end

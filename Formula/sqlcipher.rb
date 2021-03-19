@@ -1,16 +1,16 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.2.tar.gz"
-  sha256 "87458e0e16594b3ba6c7a1f046bc1ba783d002d35e0e7b61bb6b7bb862f362a7"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.3.tar.gz"
+  sha256 "b8df69b998c042ce7f8a99f07cf11f45dfebe51110ef92de95f1728358853133"
   license "BSD-3-Clause"
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9e9d5ee53f8a6f0d81981e91ef66052afd72d58eb50331ddf199dd74d8f339b6"
-    sha256 cellar: :any, big_sur:       "cac60b27489ae08e4be4fffcb80c66208cc628889ce89295802983581a39febc"
-    sha256 cellar: :any, catalina:      "b6e926a4630f8b4547e5d71f5195bdde461ef08e54b9ae90a45644b11543cd9d"
-    sha256 cellar: :any, mojave:        "8d216a324ade956c2ec9b4dc94a676b27342e590c948b1c80ba49d602c885ccb"
+    sha256 cellar: :any, arm64_big_sur: "2395b5999cde9cd6c8f53dd595a2827d8e2bdef8b801879b753378728a3cc94f"
+    sha256 cellar: :any, big_sur:       "97328f386addff936379b66ae032b3341cc6f047b7453e1a837cdc8a00b06653"
+    sha256 cellar: :any, catalina:      "826fa6703434de743eec33ca60db392fe772ace12e4eb3720c106d675c3edc70"
+    sha256 cellar: :any, mojave:        "123c63643cec4a0503993ba6f9a124a5f781db317c311103da82d91a895808e9"
   end
 
   depends_on "openssl@1.1"

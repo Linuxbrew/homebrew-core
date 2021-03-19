@@ -1,16 +1,14 @@
 class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.13.8/purescript-0.13.8.tar.gz"
-  sha256 "701fac49de867ec01252b067185e8bbd1b72e4b96997044bac3cca91e3f8096a"
+  url "https://hackage.haskell.org/package/purescript-0.14.0/purescript-0.14.0.tar.gz"
+  sha256 "606ea389095c6f7fcea35f13594a2b56462a76942d9ceb5a94de191a924766af"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, catalina:     "3fd65800108e0e185468ca1779a8e6599e1834be1f9f1179da5d964221d82461"
-    sha256 cellar: :any_skip_relocation, mojave:       "2438c8f73284b0c5923f7bace263e0b00b8df592b073127cd4dd16178d512199"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "a12832fe00786da347d0069578ff78556aa93890a28e5ae36497e3b4b7f68aab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9f594bba1f711592e3a5431dcf5bd3cc56a407c6199ef4454e92cfaca82d784c"
+    sha256 cellar: :any_skip_relocation, catalina:     "acc7ee0fc127b4d7e7fdcd4bccb83461b4c09e03236c43217d120dcc83275920"
+    sha256 cellar: :any_skip_relocation, mojave:       "a8e180565f3214a371f552b4e83420182710040fa7c8fcf85a62f007799dc45a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ed604ae651deb13812a5739a5e9be6de3f521523b22baa3bf938ebec0185f24d"
   end
 
   head do

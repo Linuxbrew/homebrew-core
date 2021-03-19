@@ -8,10 +8,11 @@ class Arb < Formula
   head "https://github.com/fredrik-johansson/arb.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d18804a179a6ea97014edb435487532e308fd3418250b0de06306e810c10e863"
-    sha256 cellar: :any, big_sur:       "0e09a51868eb29ac963d7a05de8d69582b84fcaa0daeda65d36a4836b3e8ce7a"
-    sha256 cellar: :any, catalina:      "735bd3b8dc3f89429d51b1fed7b0a651176d2816402eb5c88b7e7a33709d723f"
-    sha256 cellar: :any, mojave:        "e2001e15a3cab1166c517a366269ad88258748cd8373253f071450d433c7f8cb"
+    sha256 cellar: :any,                 arm64_big_sur: "d18804a179a6ea97014edb435487532e308fd3418250b0de06306e810c10e863"
+    sha256 cellar: :any,                 big_sur:       "0e09a51868eb29ac963d7a05de8d69582b84fcaa0daeda65d36a4836b3e8ce7a"
+    sha256 cellar: :any,                 catalina:      "735bd3b8dc3f89429d51b1fed7b0a651176d2816402eb5c88b7e7a33709d723f"
+    sha256 cellar: :any,                 mojave:        "e2001e15a3cab1166c517a366269ad88258748cd8373253f071450d433c7f8cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879b5c0499310fa605329c30f907189ec3bf455bd7fd8d172e67c4e8a81f8b9e"
   end
 
   depends_on "cmake" => :build

@@ -4,6 +4,7 @@ class Dwdiff < Formula
   url "https://os.ghalkes.nl/dist/dwdiff-2.1.4.tar.bz2"
   sha256 "df16fec44dcb467d65a4246a43628f93741996c1773e930b90c6dde22dd58e0a"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url "https://os.ghalkes.nl/dist/"
@@ -11,10 +12,10 @@ class Dwdiff < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "76860b0aea804eda3d1f9aa8f35b5b5cffe9c5dfae3abdfde268f03c8522b6a7"
-    sha256 big_sur:       "da01b804a7337d212eaa81bd24f03d84acad1c7a0dec29ba1963cc9e2210263a"
-    sha256 catalina:      "53b5c3a5a6f4bf8eca91bbfc6428b821697800abae53f27c4cae781bd7388db3"
-    sha256 mojave:        "e81958863d5893f914895fe4fe4e8662af9246986bfad79a37656e2874c5f30a"
+    sha256 arm64_big_sur: "21f7d3d86cf97118fd664bf3a46c29193b2c851dd16d3fe369cba0e0eda1c654"
+    sha256 big_sur:       "156bb6d1e3adeac2f3b7da5f2eb3048d77551983ed27e037e202372cc2656bbc"
+    sha256 catalina:      "53f6654a86ca81c164cb75c1a49afefff9ff492717f87344070e02694d87ed3c"
+    sha256 mojave:        "f128821bf6e00913517c61a523a9c0b2ce3b882be4c56a06bd8f1dc1ca3f0673"
   end
 
   depends_on "pkg-config" => :build

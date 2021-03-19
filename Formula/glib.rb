@@ -49,8 +49,6 @@ class Glib < Formula
     ]
 
     args << "-Diconv=native" if OS.mac?
-    # Prevent meson to use lib64 on centos
-    args << "--libdir=#{lib}" unless OS.mac?
 
     mkdir "build" do
       system "meson", *args, ".."

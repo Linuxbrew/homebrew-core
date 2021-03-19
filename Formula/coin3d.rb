@@ -2,6 +2,7 @@ class Coin3d < Formula
   desc "Open Inventor 2.1 API implementation (Coin) with Python bindings (Pivy)"
   homepage "https://coin3d.github.io/"
   license all_of: ["BSD-3-Clause", "ISC"]
+  revision 1
 
   stable do
     url "https://github.com/coin3d/coin/archive/Coin-4.0.0.tar.gz"
@@ -19,10 +20,10 @@ class Coin3d < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "df8e2e369aad234bc940bfc8e64d3956ba9a0e1896ab68214a7fff82c14e05d7"
-    sha256 big_sur:       "509b6d290e63f31756b1040b46366e8c0cafe173b098544caf7e8c61cd8a9b7e"
-    sha256 catalina:      "7ff9151841889454aea31e68576541e0f8b2e2021fd7133abf3e596ac2ae9de8"
-    sha256 mojave:        "a791ec37b8aa81bd249cdb2837753ca4419c38957f60c60e249e6c8274976ab6"
+    sha256 arm64_big_sur: "6d8bb0e053410225f3d83a4457d0b2a7582b1551035ee792c8fead40a80cf044"
+    sha256 big_sur:       "74fc8c889f099dd649513d06609990b9012ba96036dcde2f465f75ba8e8c7ba3"
+    sha256 catalina:      "8be84b25f7f685bdae957607ab4e1aa37095f32eb5614fc9979399a6ab990705"
+    sha256 mojave:        "07a8e2f4807dbcc411cba20a7b7b5696be3648303f2f0636e7075fd155b7b902"
   end
 
   head do
@@ -38,7 +39,7 @@ class Coin3d < Formula
   depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "boost"
-  depends_on "pyside"
+  depends_on "pyside@2"
   depends_on "python@3.9"
 
   def install
@@ -83,6 +84,8 @@ class Coin3d < Formula
            "-o", "test"
     system "./test"
 
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["pyside@2"].opt_lib}/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
       from pivy.sogui import SoGui
       assert SoGui.init("test") is not None

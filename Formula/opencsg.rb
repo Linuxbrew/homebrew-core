@@ -3,17 +3,16 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
   sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "441628c8cb74c7bf2eb12999c0d6befd2f94e11597c6707df86512eed2efefa2"
-    sha256 cellar: :any, big_sur:       "2d663b21cd90f37d02e772426aba83c7f9e9451a8325a2caf99f926a2176a495"
-    sha256 cellar: :any, catalina:      "d42c4c0c8aa5ef5abbe1f260e98f2652b0e7f78563415219b6b8c80fc4aa5859"
-    sha256 cellar: :any, mojave:        "41ca5a9f643f81e0c9ad862e5386994d85aed57c8c9b6a34493d97f7e66e7a53"
-    sha256 cellar: :any, high_sierra:   "67d059404b3a950b73ac4ab6096727c90f24fc1309871969c0d46a7df429de5b"
+    sha256 cellar: :any, arm64_big_sur: "c06e0c8e9ceee5ad621e6f650a289f34f30428bce43f6a9efb95621fc7afdafb"
+    sha256 cellar: :any, big_sur:       "f7e6296d4466eea7c516fdca9e382d30fad4194b73969a1158d3d399b59c9381"
+    sha256 cellar: :any, catalina:      "730e0c7b2656e63ac4c55effbb5030fb737bfdc6ecbda700ed37534ae8b0d295"
+    sha256 cellar: :any, mojave:        "7d8c19c4b5c1d26d5f15fb01094977fd58f14ccaa92085a13be68fd27943588a"
   end
 
-  depends_on "qt" => :build
+  depends_on "qt@5" => :build
   depends_on "glew"
 
   # This patch disabling building examples
@@ -23,7 +22,8 @@ class Opencsg < Formula
   end
 
   def install
-    system "qmake", "-r", "INSTALLDIR=#{prefix}",
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{Formula["glew"].opt_include}",
       "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
     system "make", "install"

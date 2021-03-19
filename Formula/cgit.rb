@@ -13,6 +13,7 @@ class Cgit < Formula
     sha256 mojave:        "0a8124c41a3e891d8ac8a9dc9391a1048deecb3b82a785d604bbf1d59125b010"
     sha256 high_sierra:   "b5dd8fcf3e81b7d320ea39d9de0b7a3b20b6522978e01f2527e14845d80454c4"
     sha256 sierra:        "7b21a1dd7536c3354280089b4521fa64e36c2d177303bf5f9ea7994b77a25f2d"
+    sha256 x86_64_linux:  "88cc6f0029907a7e2ffc5a520f9cd2ec9643c8dce4216951d6ed7e489e97dc99"
   end
 
   depends_on "gettext"

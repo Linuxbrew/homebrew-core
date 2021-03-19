@@ -16,6 +16,8 @@ class Tdkjs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df35f57f00e24aa7ed6abbf2090f1f99faad5d3cb491cbf832f5495db0a3c29"
   end
 
+  deprecate! date: "2021-03-04", because: :unmaintained
+
   depends_on "node"
 
   def install

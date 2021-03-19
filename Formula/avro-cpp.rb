@@ -5,13 +5,13 @@ class AvroCpp < Formula
   mirror "https://archive.apache.org/dist/avro/avro-1.10.1/cpp/avro-cpp-1.10.1.tar.gz"
   sha256 "6e9e8820325cdaffcc1981958ed86b484c33dcf0277a164b2a58357fdd046cc8"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ea71e8ee1e1274fed73fc1c748a2952104ddd2bcc9b06ae01bc7ca21caa7a637"
-    sha256 cellar: :any, big_sur:       "6f51a239801589187903594eae05312d66b0e75c9aa1ff2eb35676656c8a5e71"
-    sha256 cellar: :any, catalina:      "1c1ae120fb6ed8cb52d4ed74bc7ec80fb75c91f8963c4f6a71963d2bbd32c8e6"
-    sha256 cellar: :any, mojave:        "a64e584250028e59dc419d9a65a0f34b0bf74f24077b469531320bc3d95fa039"
+    sha256 cellar: :any, arm64_big_sur: "a0483d513cf45e07a900217f40380f2877f24d76bed80eca97c3a1847d319f00"
+    sha256 cellar: :any, big_sur:       "ca9e68702c6db225ae771e492cf3ad1ea810ab325fbb9909b4c4dd6db7134076"
+    sha256 cellar: :any, catalina:      "26406c1a5d27a8f5d73a444ff79ed97f975764e178074c8093edcb0322292e43"
+    sha256 cellar: :any, mojave:        "46756dffcea14bc4cc3f264f8a33e99eb553470423ca53f58c0499b80a16f1f4"
   end
 
   depends_on "cmake" => :build

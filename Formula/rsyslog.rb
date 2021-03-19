@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2012.0.tar.gz"
-  sha256 "d74cf571e6bcdf8a4c19974afd5e78a05356191390c2f80605a9004d1c587a0e"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2102.0.tar.gz"
+  sha256 "94ee0d0312c2edea737665594cbe4a9475e4e3b593e12b5b8ae3a743ac9c72a7"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -11,11 +11,11 @@ class Rsyslog < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f5831c9c196b460d9d188ebf66a0bae6d3f0fc89e7dc85ba3e2a305fd83c2e8d"
-    sha256 big_sur:       "209ec821a42fc9571c953528bfec86b08534bb434184645264317eb36f919527"
-    sha256 catalina:      "c1abf89226e00de3abc82c3910afa530b791637dc15d45fcb3cc4eb392f39ff8"
-    sha256 mojave:        "c58fb001a665dd9e691d833ec9d0e5061003af7aaaf8c9d911c430c429f17567"
-    sha256 x86_64_linux:  "01adcfba356273260de531c57383e46e1b588e2fb58a83d759566787fa313636"
+    sha256 arm64_big_sur: "881bebe09c8a02fd07128884954316c8ebc636ca0c98961957d1a9d196d18778"
+    sha256 big_sur:       "43592c8eb73fda51a9e93fbfa954932369d34e75d576cc6cac43aa65cd419e81"
+    sha256 catalina:      "bf7c7f327aced675dfa37cbc86df0106cb9d8e2826155371a4b8ec7fc43a2cea"
+    sha256 mojave:        "95b1f36183b0ec324fd66c7f691ba39305b676dcc46f81ba2aafb841537c855c"
+    sha256 x86_64_linux:  "5b87d738b25bdb31c04e633ecf0181a38ae5f0bfc5a8f00313d7d56cc6eecbd0"
   end
 
   depends_on "pkg-config" => :build
@@ -25,8 +25,8 @@ class Rsyslog < Formula
   uses_from_macos "zlib"
 
   resource "libfastjson" do
-    url "https://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
-    sha256 "3544c757668b4a257825b3cbc26f800f59ef3c1ff2a260f40f96b48ab1d59e07"
+    url "https://download.rsyslog.com/libfastjson/libfastjson-0.99.9.tar.gz"
+    sha256 "a330e1bdef3096b7ead53b4bad1a6158f19ba9c9ec7c36eda57de7729d84aaee"
   end
 
   def install

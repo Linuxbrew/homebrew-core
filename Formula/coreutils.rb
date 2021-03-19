@@ -49,10 +49,16 @@ class Coreutils < Formula
 
     system "./bootstrap" if build.head?
 
+    # Fix configure: error: you should not run configure as root
+    on_linux do
+      ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     args = %W[
       --prefix=#{prefix}
       --program-prefix=g
       --without-gmp
+      --without-selinux
     ]
 
     args << "--without-selinux" unless OS.mac?
@@ -75,10 +81,8 @@ class Coreutils < Formula
       b2sum base32 chcon hostid md5sum nproc numfmt pinky ptx realpath runcon
       sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate
     ]
-    unless OS.mac?
-      no_conflict << "dir"
-      no_conflict << "dircolors"
-      no_conflict << "vdir"
+    on_linux do
+      no_conflict += ["dir", "dircolors", "vdir"]
     end
     no_conflict.each do |cmd|
       bin.install_symlink "g#{cmd}" => cmd
@@ -87,7 +91,10 @@ class Coreutils < Formula
   end
 
   def caveats
-    msg = OS.mac? ? "Commands also provided by macOS" : "All commands"
+    msg = "Commands also provided by macOS"
+    on_linux do
+      msg = "All commands"
+    end
     <<~EOS
       #{msg} have been installed with the prefix "g".
       If you need to use these commands with their normal names, you

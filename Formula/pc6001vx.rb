@@ -4,18 +4,19 @@ class Pc6001vx < Formula
   url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.7.0_src.tar.gz"
   sha256 "8a735fa6769b1a268fc64c0ed92d7e27c5990b120f53ad50be255024db35b2b8"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f2f336642c7a262778f1488c7393141001d44f9926561317f718dbf21e684000"
-    sha256 cellar: :any, big_sur:       "89f9afe028baa7e2ff9bac2791f5d0c59186bafe5de3eb90817f229157ab35ce"
-    sha256 cellar: :any, catalina:      "38f1c392ed9cb5042619b663c8ef659f64ee3d8004beac5966af534cf3a977f8"
-    sha256 cellar: :any, mojave:        "12b257f629ecda8063fdede742c95ac88bf0adac8b99923cda54acacfc83136b"
+    sha256 cellar: :any, arm64_big_sur: "aee07f4792310c51d12c85a460ec600468169c9b584c47f56b1980ef1ad2ab25"
+    sha256 cellar: :any, big_sur:       "955a851714857a6316552a47e4456f1767c0031da42eb639f3bd256881f19633"
+    sha256 cellar: :any, catalina:      "26437cbcb26ef046a957c42c6a3a2ba1c35ddd35680efb1c9bbeecdf628574ab"
+    sha256 cellar: :any, mojave:        "84e0986b4d0db0802f75ed155e18b2fcf8305707ad031696179a51d28c2ff7b5"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
 
   def install
@@ -27,7 +28,8 @@ class Pc6001vx < Formula
     # Use libc++ explicitly, otherwise build fails
     ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
 
-    system "qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
     system "make"
     prefix.install "PC6001VX.app"
     bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"

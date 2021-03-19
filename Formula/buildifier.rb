@@ -1,25 +1,22 @@
 class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
-  url "https://github.com/bazelbuild/buildtools.git",
-      tag:      "3.5.0",
-      revision: "10384511ce98d864faf064a8ed54cdf31b98ac04"
+  url "https://github.com/bazelbuild/buildtools/archive/4.0.1.tar.gz"
+  sha256 "c28eef4d30ba1a195c6837acf6c75a4034981f5b4002dda3c5aa6e48ce023cf1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "21da6d6c0020f91ea197b48dbc5a108527d9aa2e41b47406d79403d49fda164e"
-    sha256 cellar: :any_skip_relocation, catalina:    "154877a4bfb01a9fd0498a42015e75ca3df72d7c2b92c47254866c8b9832ceb4"
-    sha256 cellar: :any_skip_relocation, mojave:      "36f2f0c2946d5e3a79f9287285cf335f14b1f181190907dfc29b12231764bc49"
-    sha256 cellar: :any_skip_relocation, high_sierra: "5b54427b4bd78b0b3dccfd66b8003a52aab3b4d1a7683586b66d6a6c835c0b4b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4e94523c894ce25eb78ca146d6b5381d6a410688a4830e646003cbad414d5ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dfec354e37e8027cfc1adbccd17d88e8ea4781d5653389534fbfb802b71d42d7"
+    sha256 cellar: :any_skip_relocation, catalina:      "105cd56c1b0933b8f2afbe283df6a03f7bc038b8b20daa194e5b6e7fc3ed9e6c"
+    sha256 cellar: :any_skip_relocation, mojave:        "7898e9f197210a0bb89f8674d07da5160d77790f7cf58507c47718d332214948"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "709ea8f1ea53c6210e1b91ccbafa1d75af7be611254870cbc23754deef2a305a"
   end
 
-  disable! date: "2021-02-17", because: :does_not_build
-
-  depends_on "bazelisk" => :build
+  depends_on "go" => :build
 
   def install
-    system "bazelisk", "build", "--config=release", "buildifier:buildifier"
-    bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
+    system "go", "build", *std_go_args, "./buildifier"
   end
 
   test do

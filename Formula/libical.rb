@@ -4,14 +4,14 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz"
   sha256 "bd26d98b7fcb2eb0cd5461747bbb02024ebe38e293ca53a7dfdcb2505265a728"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
-  revision 1
+  revision 2
 
   bottle do
-    sha256                               arm64_big_sur: "4444c686c12f4ccb5a2b1bba379b8b3e10b0c682e74664f003eddd188666d706"
-    sha256                               big_sur:       "50b73e2b2e9de25823e1c8aaad76e16aa6d40d0926de9ed5b41165fccda96cc7"
-    sha256                               catalina:      "56d8b3f3052c096d59cd1aae698c577e701958d358f4a60497e82d807995580c"
-    sha256                               mojave:        "4a33de39cdae5faf12efb0767b48218b002a7f674fa6eaadbfea1288a8c1c5cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ac2de19834f9e334da3d5f0dd8a40b5c04c8b3e04bc98b0093096fb7535cf2e"
+    sha256                               arm64_big_sur: "92dff71359989b5e1d9b393ad32577a1cb7462ce96654292d5a4694a93230010"
+    sha256                               big_sur:       "76add0e5fce6a528dc2ab84b226524f587e663ad349dfad726b2d4915e8f1c91"
+    sha256                               catalina:      "53c30edf307bf09de5f04d83d4772a27073aae375e4ffb3157f6e4f20e8af9b0"
+    sha256                               mojave:        "dbb77478aea20be00b83f170849d064b0ee870a9481ad2abf93c56d16c680dc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b705ce2dd2f41a65cec1fe9f106732fe599b3cc6a8914094a43e6ee28dc72b3"
   end
 
   depends_on "cmake" => :build

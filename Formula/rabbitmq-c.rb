@@ -7,11 +7,12 @@ class RabbitmqC < Formula
   head "https://github.com/alanxz/rabbitmq-c.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:      "f76f526ae3c37b8f686cbd796d2fc9f1ec6210e0ae2f8986260efa834b99c9f3"
-    sha256 cellar: :any, catalina:     "6434a9100eeadfcd57d35fd31d1863d75b71ec163a3a1be29076c217712bda55"
-    sha256 cellar: :any, mojave:       "5f99c633ece8efad2ef2085955b22d0558d8fc2dedcac67b3ba8b58a2640c2c3"
-    sha256 cellar: :any, high_sierra:  "53d883744a185e5daab18c8bd18fd70fed56dd009cc507356f128663947c2453"
-    sha256 cellar: :any, x86_64_linux: "4c472bd2e1a7fd4b14ed0c0bf8a5a9a2bbfec53a398e1738dc65848fc7a3b3e9"
+    sha256               arm64_big_sur: "ca5405b2852bfbecbe4e8145e688df1ffb4c97e2147e81684dc949b336dc8649"
+    sha256 cellar: :any, big_sur:       "f76f526ae3c37b8f686cbd796d2fc9f1ec6210e0ae2f8986260efa834b99c9f3"
+    sha256 cellar: :any, catalina:      "6434a9100eeadfcd57d35fd31d1863d75b71ec163a3a1be29076c217712bda55"
+    sha256 cellar: :any, mojave:        "5f99c633ece8efad2ef2085955b22d0558d8fc2dedcac67b3ba8b58a2640c2c3"
+    sha256 cellar: :any, high_sierra:   "53d883744a185e5daab18c8bd18fd70fed56dd009cc507356f128663947c2453"
+    sha256 cellar: :any, x86_64_linux:  "4c472bd2e1a7fd4b14ed0c0bf8a5a9a2bbfec53a398e1738dc65848fc7a3b3e9"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class RabbitmqC < Formula
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_EXAMPLES=OFF",
                          "-DBUILD_TESTS=OFF", "-DBUILD_API_DOCS=OFF",
-                         "-DBUILD_TOOLS=ON"
+                         "-DBUILD_TOOLS=ON", "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
     system "make", "install"
 
     if (lib/"x86_64-linux-gnu").directory?

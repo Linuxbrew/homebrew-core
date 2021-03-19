@@ -9,11 +9,12 @@ class LastpassCli < Formula
 
   bottle do
     rebuild 4
-    sha256 cellar: :any, arm64_big_sur: "1bccfb715b94c569d943c9ce5833f74628397abf1311f74c49d6e5d4b25b847b"
-    sha256 cellar: :any, big_sur:       "10f9224c8bfebae0cf12df72e6144ba3a309956b1efcce574975cd21cec930c5"
-    sha256 cellar: :any, catalina:      "8643f81d13a40ef8b86efe83fbee1b41b22c492b7725bebab83dcb2d253fd603"
-    sha256 cellar: :any, mojave:        "f1b7c42dd889f597ef06f0bd72bb1b273c21dc91e5f3e313da8599254954a7ae"
-    sha256 cellar: :any, high_sierra:   "62629472aafb7e4927d8ab5e9d7189c913e3249a172d0445ffe7eda31b642eb7"
+    sha256 cellar: :any,                 arm64_big_sur: "1bccfb715b94c569d943c9ce5833f74628397abf1311f74c49d6e5d4b25b847b"
+    sha256 cellar: :any,                 big_sur:       "10f9224c8bfebae0cf12df72e6144ba3a309956b1efcce574975cd21cec930c5"
+    sha256 cellar: :any,                 catalina:      "8643f81d13a40ef8b86efe83fbee1b41b22c492b7725bebab83dcb2d253fd603"
+    sha256 cellar: :any,                 mojave:        "f1b7c42dd889f597ef06f0bd72bb1b273c21dc91e5f3e313da8599254954a7ae"
+    sha256 cellar: :any,                 high_sierra:   "62629472aafb7e4927d8ab5e9d7189c913e3249a172d0445ffe7eda31b642eb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8daa9281f79a96ce185dede0b52ab6875169cc6f523bcef6958b01f74195c39"
   end
 
   depends_on "asciidoc" => :build
@@ -24,6 +25,9 @@ class LastpassCli < Formula
   depends_on "curl" if MacOS.version >= :mojave
   depends_on "openssl@1.1"
   depends_on "pinentry"
+
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

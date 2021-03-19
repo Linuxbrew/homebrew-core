@@ -8,12 +8,12 @@ class BoostPython3 < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "2737924fe270f67d7b6ed9913a30e18f084b5ce2590041d70d6523206f55e437"
-    sha256 cellar: :any, big_sur:       "7015c83ae4726838a1e67900ed201578949afd195ccdd6eb13fd7336794155e6"
-    sha256 cellar: :any, catalina:      "2daea9e8951e79d78ea85e4e5abd11c749ae5f6dea889a7357648f04328de0dd"
-    sha256 cellar: :any, mojave:        "96dfc26b8b8a3a1090eb883f2f555cdacbb9425b6a9a9627e46c38759ff32257"
-    sha256 cellar: :any, x86_64_linux:  "52f4ee8ec9f205d57229d0e7ae1b4bdd910285402549492ffd22e2fbc73c82d6"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_big_sur: "a2c3334993fd0d0b32365afb3b07608e1716a5c558a9e54309d6d96c6a5cea24"
+    sha256 cellar: :any,                 big_sur:       "5a7b9abda6b57a79fbc3c0a0d1ad92e1955adee6cd88e4ec81a23e8be95d5f8a"
+    sha256 cellar: :any,                 catalina:      "0e6d214e6a1ca416d64d1d098e767a9429a90323aaaaaadf1ff58f77f1ac22c5"
+    sha256 cellar: :any,                 mojave:        "a14c587cfc74d561150bfca4884e3b179595dd7f113a2d39a5cb55b9ca7d8d0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da9e61eae1d90a1ba45cb6a17ad6708ec0076532f79999ec6b01a2b7c71fad36"
   end
 
   depends_on "numpy" => :build
@@ -51,16 +51,18 @@ class BoostPython3 < Formula
     inreplace "bootstrap.sh", "using python", "#using python"
 
     pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    py_prefix = if OS.mac?
-      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
-    else
-      Formula["python@3.9"].opt_prefix
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    on_linux do
+      py_prefix = Formula["python@3.9"].opt_prefix
     end
 
     # Force boost to compile with the desired compiler
-    darwin = OS.mac? ? "using darwin : : #{ENV.cxx} ;" : ""
+    compiler_text = "using darwin : : #{ENV.cxx} ;"
+    on_linux do
+      compiler_text = "using gcc : : #{ENV.cxx} ;"
+    end
     (buildpath/"user-config.jam").write <<~EOS
-      #{darwin}
+      #{compiler_text}
       using python : #{pyver}
                    : python3
                    : #{py_prefix}/include/python#{pyver}
@@ -100,7 +102,7 @@ class BoostPython3 < Formula
     pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
     pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
 
-    system ENV.cxx, "-shared", *("-fPIC" unless OS.mac?), "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
+    system ENV.cxx, "-shared", "-fPIC", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS

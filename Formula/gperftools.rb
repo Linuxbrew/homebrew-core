@@ -1,8 +1,8 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.8.1/gperftools-2.8.1.tar.gz"
-  sha256 "12f07a8ba447f12a3ae15e6e3a6ad74de35163b787c0c7b76288d7395f2f74e0"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.9.1/gperftools-2.9.1.tar.gz"
+  sha256 "ea566e528605befb830671e359118c2da718f721c27225cbbc93858c7520fee3"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,10 +12,11 @@ class Gperftools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:      "2a1dbba19d4457f12fca0f37c107b65a3e04315c2b04cedade26a110a4bccf71"
-    sha256 cellar: :any, catalina:     "8d2e97b68f27e722336896358c6d4d29dd4eaca935f48c52983d779638edd2d2"
-    sha256 cellar: :any, mojave:       "7a1d5e130ca76a6f2ba0f6743754a7ebf1ceda443cbc820588f3062d4ed9a64f"
-    sha256 cellar: :any, x86_64_linux: "ff153bdfff4e0772b27e60cdaf6c8e45b3437d00155a633e922c5d354799276d"
+    sha256 cellar: :any,                 arm64_big_sur: "a8711aa1a9496a1c801b10bcfc3572fc204be3af52f2455a0a3d9e1b2d924aae"
+    sha256 cellar: :any,                 big_sur:       "db13bfa856a699c5e74e95ee81722cc76b38bb9dcca1d10cebe2eed17888ff68"
+    sha256 cellar: :any,                 catalina:      "df9901c12be430101b403c8024a4dc5b5f5d0f718e4ace970f52bc68b17a3659"
+    sha256 cellar: :any,                 mojave:        "9976b82f86958d3ad6924d138d138d5bddbc2bcc6eb16ea44c4255ed9cb889b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "069db31cef04cf5125a11c72a795ff60ca0d698fb43da5085e16145c7fca7807"
   end
 
   head do

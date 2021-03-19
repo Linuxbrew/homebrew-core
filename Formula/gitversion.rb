@@ -37,10 +37,6 @@ class Gitversion < Formula
     system "git", "config", "user.name", "Test"
     system "git", "config", "user.email", "test@example.com"
     system "git", "add", "test.txt"
-    unless OS.mac?
-      system "git", "config", "user.email", "you@example.com"
-      system "git", "config", "user.name", "Your Name"
-    end
     system "git", "commit", "-q", "--message='Test'"
     assert_match '"FullSemVer": "0.1.0+0"', shell_output("#{bin}/gitversion -output json")
   end

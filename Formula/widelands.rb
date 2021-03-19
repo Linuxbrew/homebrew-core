@@ -4,7 +4,7 @@ class Widelands < Formula
   url "https://launchpad.net/widelands/build21/build21/+download/widelands-build21-source.tar.gz"
   version "21"
   sha256 "601e0e4c6f91b3fb0ece2cd1b83ecfb02344a1b9194fbb70ef3f70e06994e357"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -12,9 +12,10 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "fb7bd7329d432fad065d06a1542c6a928586b81e3bbc82be69af86a7114010df"
-    sha256 catalina:      "3a7f2c398795720bbe29e500089108e56ddfb89c89799bb81b58b5e85011f4f6"
-    sha256 mojave:        "ad0071e4b80653d93de86d505a00a14fc3821d7260cd894d4004a69f0d2c298b"
+    sha256 arm64_big_sur: "e9e36b1c26ef45a2bd8b450eac89105e465c6cedfec4b6b77422a246f9a37431"
+    sha256 big_sur:       "05aa1e99267fc657793b9871ffbd34f0e4ec944920bac7fe8593328408246ecc"
+    sha256 catalina:      "9933c7f6952274d3d65fab22c6f1e72d086dd2754207cf3d0b16da5f972aa2e1"
+    sha256 mojave:        "fd14ec7e3b41d4607d31ccbdeaf44ed1f1826027ea29b8e25f2d9afdd62a1517"
   end
 
   depends_on "cmake" => :build

@@ -2,8 +2,8 @@ class Bluepill < Formula
   desc "Testing tool for iOS that runs UI tests using multiple simulators"
   homepage "https://github.com/linkedin/bluepill"
   url "https://github.com/linkedin/bluepill.git",
-      tag:      "v5.6.0",
-      revision: "ca19302bfbc48e1cf0ccf28eaad431abc6f78582"
+      tag:      "v5.8.0",
+      revision: "e2bca52fc54b5c3088ab31c7696c152a4dcbc984"
   license "BSD-2-Clause"
   head "https://github.com/linkedin/bluepill.git"
 
@@ -13,10 +13,10 @@ class Bluepill < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2f6fb626e74027dfa8cdc9a03f66e97d6034e4e32edfe327e544f0cd0abb8ed8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "74d6f5f15513a23c60a9a6fb0c1e8d6e01b74d73466821b66891a0402e10c4f7"
-    sha256 cellar: :any_skip_relocation, catalina:      "c05dba48f83e600ea0104f1edc4dd5b88017fe9ee487544bd4f78b61e2f4154b"
-    sha256 cellar: :any_skip_relocation, mojave:        "4459ee11cb00af2e0ae2aab7052a442cfde2a4b63d78abfc333df8b8b6e6badc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7ca7c32184cd08ab55841420f1f58407c33115cd82e294ca956c8e80cd24cac5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "769f83b81752afc1a3745b53a0b376f70599e442d4b339907ab1d3eb6d1d008c"
+    sha256 cellar: :any_skip_relocation, catalina:      "805b6b48c9e3e55b7cfd46520cf32ac50ddcdd33ce3d2f43a382d667af7baef2"
+    sha256 cellar: :any_skip_relocation, mojave:        "ab69ae6197856ab156fe5b22d98a7318b7c7389f3075c62ef49cb634fdef4d0b"
   end
 
   depends_on xcode: ["11.2", :build]

@@ -31,8 +31,7 @@ class AprUtil < Formula
   end
 
   def install
-    # Install in libexec otherwise it pollutes lib with a .exp file.
-    system "./configure", "--prefix=#{libexec}",
+    system "./configure", *std_configure_args,
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-crypto",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
@@ -40,17 +39,17 @@ class AprUtil < Formula
 
     system "make"
     system "make", "install"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
-    lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
 
-    rm Dir[libexec/"lib/*.la"]
-    rm Dir[libexec/"lib/apr-util-1/*.la"]
+    # Install symlinks so that linkage doesn't break for reverse dependencies.
+    (libexec/"lib").install_symlink Dir["#{lib}/#{shared_library("*")}"]
+
+    rm Dir[lib/"**/*.{la,exp}"]
 
     # No need for this to point to the versioned path.
-    inreplace libexec/"bin/apu-1-config", libexec, opt_libexec
+    inreplace bin/"apu-#{version.major}-config", prefix, opt_prefix
   end
 
   test do
-    assert_match opt_libexec.to_s, shell_output("#{bin}/apu-1-config --prefix")
+    assert_match opt_prefix.to_s, shell_output("#{bin}/apu-#{version.major}-config --prefix")
   end
 end

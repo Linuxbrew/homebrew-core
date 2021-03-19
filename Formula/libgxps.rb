@@ -1,10 +1,9 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://wiki.gnome.org/Projects/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
-  sha256 "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
+  url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz"
+  sha256 "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,10 @@ class Libgxps < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "985cab45b1a3186698595bd51e153806d10ff3e6ae014793e4dafeb14f4ef703"
-    sha256 cellar: :any, big_sur:       "2b3f7d48efd67aae795cbe831c3f6016ef3935927bc277e605525a9a29d38e45"
-    sha256 cellar: :any, catalina:      "dd6c63cf7f8af07a9ea8bbe4ee902d55a834652f4100780affab11dd38a3deb0"
-    sha256 cellar: :any, mojave:        "a71f1a595fe620805393786fe14dedc8fe3fb6f75a812536ba5acc00e9ec9c07"
-    sha256 cellar: :any, high_sierra:   "ed21a1e2b30b473883f54fa09c7a1707eb6ae2a78946ecbb1d1d11f5f340154a"
+    sha256 cellar: :any, arm64_big_sur: "22c593c1dafcc8a09e55ba9fc2c376b404d0fb0b62f800065f0f6edf047bb2fa"
+    sha256 cellar: :any, big_sur:       "c5f3520c5a94f6e33ff52a745c1d1667440ef8d662948f16ad25e82155ac4c8d"
+    sha256 cellar: :any, catalina:      "994ff26d92b50c014da31562fadace384a425c61d42037e8a03c2fa8f3b6a27a"
+    sha256 cellar: :any, mojave:        "b1d3ce677599e912000eae265d671a8e38f21daefadcb0dd23845b8130665295"
   end
 
   head do

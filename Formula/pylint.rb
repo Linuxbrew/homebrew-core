@@ -3,23 +3,23 @@ class Pylint < Formula
 
   desc "It's not just a linter that annoys you!"
   homepage "https://github.com/PyCQA/pylint"
-  url "https://files.pythonhosted.org/packages/0b/3f/915ca0f0431b68a5e4f155fef4a8b40a472c6107eb4ddfba4bcfa8428257/pylint-2.7.1.tar.gz"
-  sha256 "81ce108f6342421169ea039ff1f528208c99d2e5a9c4ca95cfc5291be6dfd982"
+  url "https://files.pythonhosted.org/packages/5c/09/4948cd0ad3ef8ab707bab1169bc73672bda3ede1c92e528b02b940be67e8/pylint-2.7.2.tar.gz"
+  sha256 "0e21d3b80b96740909d77206d741aa3ce0b06b41be375d92e1f3244a274c1f8a"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "55eaf1faf8fd5ac79c307456242c35d16fa6c50553d6841207de3de249e31fc5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b6f2a6b9f635cbd2b3ab6fb48391486a940be2b24fb27a81b365294e5c84634a"
-    sha256 cellar: :any_skip_relocation, catalina:      "95905f9440675e405d0729934a30df56f9bc2439c9318affbb4ea5ff72b3d98c"
-    sha256 cellar: :any_skip_relocation, mojave:        "68f462e1aca2b2c5c1087f765d68764fd97da82157f3d711ef528b899fa6044b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "faf3e956dd24fde05de7f3be3e447e4ac9305241d3ad285126d2b293981a2ce8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9ad660f542293a84602d0342271c80d84de4897e3ea65b2c0369cb904f9e66e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "51e50930614ca9fb6881bbfaa2b6e074be2a02aa03b244fe506f400c47526dff"
+    sha256 cellar: :any_skip_relocation, catalina:      "26f0378f5d293841df30ba39cdd2289465459017c5c77cb6662e2764d80dbc94"
+    sha256 cellar: :any_skip_relocation, mojave:        "4742fca3c1acb9e40eee01eda416832f07a2e5dc8a70b04b3be8fb969ec387c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "715a5d4551602927da9589c82f543e2c12f1659dec0223c604c5f6bf7124812f"
   end
 
   depends_on "python@3.9"
 
   resource "astroid" do
-    url "https://files.pythonhosted.org/packages/18/00/753b485627d9cd642516c195db63dcc0c87c36b8c682125c000b7f611b09/astroid-2.5.tar.gz"
-    sha256 "b31c92f545517dcc452f284bc9c044050862fbe6d93d2b3de4a215a6b384bf0d"
+    url "https://files.pythonhosted.org/packages/44/47/fe9dfab6f91682d7bcacf8ca813b3084b48f1deda4ac8ee56e49d63b928e/astroid-2.5.1.tar.gz"
+    sha256 "cfc35498ee64017be059ceffab0a25bedf7548ab76f2bea691c5565896e7128d"
   end
 
   resource "isort" do

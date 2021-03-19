@@ -4,12 +4,14 @@ class Tepl < Formula
   url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.1.tar.xz"
   sha256 "b1274967609f524484b38775fa9ecb296c6d6616aabd052f286339a289912804"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "b004d7cbc84ea585b4314dbe7e74c067d8afbe91e74e332f791e943cccb29ca7"
-    sha256 big_sur:       "6c38d94b1b6229fc7d19d0e69f8ef120ce4240d37a92be886aeab5e34975b0b2"
-    sha256 catalina:      "675eed4ccdb966979a976569153b4fc9e7523f33e745bf4af6816c57c110f753"
-    sha256 mojave:        "d2f9ce09157721d7c2b6b989c999b286e26e6cd626c98d8dd110cf5465091891"
+    sha256 arm64_big_sur: "212e5b56aa0fea2649092804f23313f04483e9152eb8e34bb1b178ff3aceb6e1"
+    sha256 big_sur:       "14bde00fae726c588b783d6b5bbb4e5730aac3c18a9c98c4d0165dbe987a817a"
+    sha256 catalina:      "c868e9398f125585eaa718312fc46ab6a3a006992cdc8407eca2bcea3bd3dae6"
+    sha256 mojave:        "ba3a682e018d8879a92d7d48f731a25ae3578814df85b1c668781c57769deb7f"
+    sha256 x86_64_linux:  "f39ec06967716db405b58c099f958c798dd7b3422cf1f03095dc790eecd89a84"
   end
 
   depends_on "gobject-introspection" => :build

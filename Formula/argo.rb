@@ -2,14 +2,14 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo.git",
-      tag:      "v2.12.9",
-      revision: "737905345d70ba1ebd566ce1230e4f971993dfd0"
+      tag:      "v2.12.10",
+      revision: "f1e0c6174b48af69d6e8ecd235a2d709f44f8095"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "373e16ebb731b43932863afc2115019f8c44f26e86698cc2aed6ecdb273ad669"
-    sha256 cellar: :any_skip_relocation, catalina: "1faf7ac893b790e60262b7664fa87a68a9187fab3a24580529816a03f84e4413"
-    sha256 cellar: :any_skip_relocation, mojave:   "bcc2f077aeaa397afee18593fcc672d70c477990698023a621ee3026a22183fc"
+    sha256 cellar: :any_skip_relocation, big_sur:  "af62c0bb8980ff0de71247bb6686f4f2aff74c038914186282f162b09ea3277c"
+    sha256 cellar: :any_skip_relocation, catalina: "4adff87b23d3a3d44882dcdaddfdba58836ce30a84afdfa5ab528c6fe25c7cab"
+    sha256 cellar: :any_skip_relocation, mojave:   "c7b8ce0247bb4193fc08647baf440b28e471fcc706a66912ab4b766917e29e80"
   end
 
   depends_on "go" => :build

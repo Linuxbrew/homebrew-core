@@ -1,15 +1,15 @@
 class Libgdata < Formula
   desc "GLib-based library for accessing online service APIs"
   homepage "https://wiki.gnome.org/Projects/libgdata"
-  url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.0.tar.xz"
-  sha256 "f0c20112fa5372b62c01256f268aef5131a161dfc23868f393ecf7b8b3752580"
+  url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz"
+  sha256 "dd8592eeb6512ad0a8cf5c8be8c72e76f74bfe6b23e4dd93f0756ee0716804c7"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "413a354df3ae8ea57c10b586e51dae29e58a62b1ab31f7f39a3604d368f31f9f"
-    sha256 cellar: :any, big_sur:       "ef65e8ecd410c9f9123922def6c7ccff264f235965e292fc3eab6bf6be93349f"
-    sha256 cellar: :any, catalina:      "1e7c809fca23a4ce3f61177749f6fd814bbe2f465caa8dada1f6b6c6f8be2c50"
-    sha256 cellar: :any, mojave:        "d09ac23f65b3bc9a63c22cb45d7a7742a70fc11af0fcedcee39f2c643f3cd4e1"
+    sha256 cellar: :any, arm64_big_sur: "f890b86a1e19fe8c0135094bc869356a6dc6279d84e6267742d2f817994c9708"
+    sha256 cellar: :any, big_sur:       "6afaf2089a648f7c81ceff2e491ab3c059fbe751a521f2756a124f3b64135d18"
+    sha256 cellar: :any, catalina:      "5b6500481c8f15817ecf307b1ab9886fb0caffcd133445ec0cdd06c6bcc605e2"
+    sha256 cellar: :any, mojave:        "0ab77d93d64a4257bd46de5d29543057d050a14aa4bc603ffa79c5e9f99695a4"
   end
 
   depends_on "gobject-introspection" => :build

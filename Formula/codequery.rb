@@ -4,16 +4,17 @@ class Codequery < Formula
   url "https://github.com/ruben2020/codequery/archive/v0.24.0.tar.gz"
   sha256 "39afc909eae3b0b044cefbbb0e33d09e8198a3b157cf4175fceb5a22217fe801"
   license "MPL-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e878297e7d2e9199a0524a9de866b5d98c49746449bd34829cb2df1ad8062466"
-    sha256 cellar: :any, big_sur:       "6882e0c73522ed885c8019728345d715f052131a977c2fcb412719f291067c2a"
-    sha256 cellar: :any, catalina:      "3e65dd4fdeca53a31d87f1de5cf2957624797575773a25a650e6899b33803056"
-    sha256 cellar: :any, mojave:        "b8ef06cdace299c0ac728ae6cfc29d4b7d9eee89ed80e9f04797e5e9b21db83b"
+    sha256 cellar: :any, arm64_big_sur: "b6911db7943e77b1da9e37997f578c3d66b8f2fbefee757f343dcc180b88d9bd"
+    sha256 cellar: :any, big_sur:       "1fe79b4632dd2e794bb09758ce9a776b7b751dddf4fd03ff47eeb0c79d16f729"
+    sha256 cellar: :any, catalina:      "feca768a985ac4578a99290c1070b8f1dfe0716017da89a1b6f01e9ae7685acd"
+    sha256 cellar: :any, mojave:        "c49d64f50a33ecc8de70d9431dab346d40de6f0fdc077b826d24b19db9cba99b"
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args

@@ -17,7 +17,9 @@ class Fakeroot < Formula
     sha256 cellar: :any, x86_64_linux: "418aeb02f20803d77d5bbbdaaea068b8ffc2a89cc2ab7b824845bc82d1a68cb8"
   end
 
-  depends_on "libcap" unless OS.mac?
+  on_linux do
+    depends_on "libcap"
+  end
 
   # Compile is broken. https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=766649
   # Patches submitted upstream on 24/10/2014, but no reply from maintainer thus far.

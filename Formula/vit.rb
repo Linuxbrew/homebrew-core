@@ -3,46 +3,40 @@ class Vit < Formula
 
   desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://files.pythonhosted.org/packages/ea/7e/b54db7887238ed3830200072d0414dfbabc64890a0f18ebcbef5b03359da/vit-2.0.0.tar.gz"
-  sha256 "5282d8076d9814d9248071aec8784cffbd968601542533ccb28ca61d1d08205e"
+  url "https://files.pythonhosted.org/packages/55/47/6d9a86e0646c0f65bb5be565c05699d11722d42cb2dd71c31380fc52aa73/vit-2.1.0.tar.gz"
+  sha256 "fd34f0b827953dfdecdc39f8416d41c50c24576c33a512a047a71c1263eb3e0f"
   license "MIT"
-  revision 2
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a36d7446ff702acf2b57db04ccbe3f10d32086207d96ad34dc6e013f2a7fdfcf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "facc1cfc1cad4655cc045ed25f2f134a2526eb4505a25f4ced073facbed9ebbb"
-    sha256 cellar: :any_skip_relocation, catalina:      "be5b88c99d467dcacba5ec84bd12dce9d5196bd5479469d3aaa32744cf531787"
-    sha256 cellar: :any_skip_relocation, mojave:        "e1187a8c5a4b75d55bcda3758f1a70375f7cb8fd995239383de172dc408cf23e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3fb8beae350a46c57b5e40940f5223043eb171dd7a1bcc4b9ef40320c2202571"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5fedd66cd3ea0e7b6f5cbb4e285b65c085a6b041190d42afa3ddbc4a1aa18f13"
+    sha256 cellar: :any_skip_relocation, catalina:      "17221b4deacb1ca0e63fc7949a06298dfe9d64c9a672a9974f63f4dc15473404"
+    sha256 cellar: :any_skip_relocation, mojave:        "d65ce3abf2f776a8baee233c618b543c2f806e48cfd343cc4d3febc9947f71b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5a593941fbefd5540abad328bd0af31e5b4a6f98438f8b3206a96a4149e2eed"
   end
 
   depends_on "python@3.9"
   depends_on "task"
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/82/c3/534ddba230bd4fbbd3b7a3d35f3341d014cca213f369a9940925e7e5f691/pytz-2019.3.tar.gz"
-    sha256 "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
+    sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
   end
 
   resource "tasklib" do
-    url "https://files.pythonhosted.org/packages/ae/23/3de1856314e8aa87330c57b5c6f8c8738c4fca72bc96fa10b54f7524c752/tasklib-1.3.0.tar.gz"
-    sha256 "5b478c53d5b531e072d1374bb4763249d137a094d93621e6ebe2f3f10c52d9a7"
+    url "https://files.pythonhosted.org/packages/5e/46/bf8e9aea0f747b89165f9639a0f1e87a65c3295bebae7a01351edba05034/tasklib-2.3.0.tar.gz"
+    sha256 "7fe8676acb4559129c4e958be7704c12dccdbae302fff47c5398bc0dd1c9e563"
   end
 
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/c6/52/5ec375d4efcbe4e31805f3c4b301bdfcff9dcbdb3605d4b79e117a16b38d/tzlocal-2.0.0.tar.gz"
-    sha256 "949b9dd5ba4be17190a80c0268167d7e6c92c62b30026cf9764caf3e308e5590"
+    url "https://files.pythonhosted.org/packages/ce/73/99e4cc30db6b21cba6c3b3b80cffc472cc5a0feaf79c290f01f1ac460710/tzlocal-2.1.tar.gz"
+    sha256 "643c97c5294aedc737780a49d9df30889321cbe1204eac2c2ec6134035a92e44"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/45/dd/d57924f77b0914f8a61c81222647888fbb583f89168a376ffeb5613b02a6/urwid-2.1.0.tar.gz"
-    sha256 "0896f36060beb6bf3801cb554303fef336a79661401797551ba106d23ab4cd86"
+    url "https://files.pythonhosted.org/packages/94/3f/e3010f4a11c08a5690540f7ebd0b0d251cc8a456895b7e49be201f73540c/urwid-2.1.2.tar.gz"
+    sha256 "588bee9c1cb208d0906a9f73c613d2bd32c3ed3702012f51efe318a3f2127eae"
   end
 
   def install

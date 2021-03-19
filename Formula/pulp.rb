@@ -9,10 +9,11 @@ class Pulp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "49a599ab8add4444e90892ea7975bafbf1012e23f3d592c8eee3c8476b933c96"
     sha256 cellar: :any_skip_relocation, catalina:     "b8171d3e267d32cb7c785ee72fb8a1dbe96d7a66a7d5311a23b314a0e742156c"
     sha256 cellar: :any_skip_relocation, mojave:       "9ee409ce24c46c02db3dade7b2942d8990708de840e03e0a80d5f2498a9bc46e"
     sha256 cellar: :any_skip_relocation, high_sierra:  "56016abc98b66356ad0d58c0ea951de4da772abca1f12fd2c3635a7700e36c63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b50ac7ddee441063caed3b866489f0a815227fd6dcd1b1364ab8813cfc1948fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "702ff29461c946dc17570cbd77de92ee50433c82f1fdcf79742c4c2bcbef0bd7"
   end
 
   depends_on "bower"

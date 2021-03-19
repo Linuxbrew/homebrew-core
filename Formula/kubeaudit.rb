@@ -1,17 +1,17 @@
 class Kubeaudit < Formula
   desc "Helps audit your Kubernetes clusters against common security controls"
   homepage "https://github.com/Shopify/kubeaudit"
-  url "https://github.com/Shopify/kubeaudit/archive/v0.12.0.tar.gz"
-  sha256 "5667fc8f7197e8ed03406ee28e0d2efc93819226db019f009db6cac27e93b59b"
+  url "https://github.com/Shopify/kubeaudit/archive/v0.13.0.tar.gz"
+  sha256 "5fa618e837d0997cee4367d359ca2716015bf2ea1400e8bc68b1eeeba048d676"
   license "MIT"
   head "https://github.com/Shopify/kubeaudit.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "08f2c8540db0020a5f88a9b5d4fa2d3f53558766587b3f68891ee8d454e7e401"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6b3dd8f651bf05d1dbf3a026e0882aed226e96e1fed043b625494c20f021fabf"
-    sha256 cellar: :any_skip_relocation, catalina:      "7aa43b94f9544018f5d5af233146e843f35deb9b76c6a01d8fe86ede1f13dcf1"
-    sha256 cellar: :any_skip_relocation, mojave:        "dc93207e1808fad38e06a08b11a35fc9bf4dd381cacccc525ade4534ee44287e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "640886c8a4d3dd2507528667f57883805b02c2e848fb318ea56e6f50312edfa0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5e3fb3c25d7c908ac24c5e99f49c00c5c9a15998110ec3f5f3abc64c149e1e9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "eab5a3f327d8db7b9298bb1abaeba7c866504d077ac524d1b7584038ac1e636a"
+    sha256 cellar: :any_skip_relocation, catalina:      "d1dbba7a528100cd55fb5d477cf6537aef9ee4ba2526f0f3789fc7f9fe574b68"
+    sha256 cellar: :any_skip_relocation, mojave:        "8d9a85b4f5a1de6386d78f9ad79410c4019431de6f9b096c383ec6f8a87c8afb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0d0ddc0f0cd5897705bbf9216db65d77a3e8f21fa89fcb87bf81fcfa674c1bf"
   end
 
   depends_on "go" => :build

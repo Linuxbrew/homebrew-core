@@ -3,25 +3,31 @@ class Kahip < Formula
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
   url "https://algo2.iti.kit.edu/schulz/software_releases/KaHIP_2.12.tar.gz"
   sha256 "b91abdbf9420e2691ed73cea999630e38dfaf0e03157c7a690a998564c652aac"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2a3a941d05e8ac41cec5522f11fd835159ffb370452cf788adbcfe0d8c68d654"
-    sha256 cellar: :any, big_sur:       "5e9b5722965b55d3cfe41c64138da7d508f3677948783d10fa8bdc6cb14fd899"
-    sha256 cellar: :any, catalina:      "a05c9bfbd38225e3730e10756f1515d833f09f61eccd7745c55dd8b78690b790"
-    sha256 cellar: :any, mojave:        "57e35f0a81e0d22f9d8d4438994efcc30295e54865525ba89236f58647f66174"
-    sha256 cellar: :any, high_sierra:   "78fda0b177b22dc65d0d9b5116dc842aa023cb027afccd4c2f968f42ac55fada"
-    sha256 cellar: :any, x86_64_linux:  "05033633bb34c3798b8b284177152f6adc35746031f34390ea600d88d5d41045"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "251a9daa84641cace789ee3a35512f139de3ff076690aba9a4b1f1518ec46307"
+    sha256 cellar: :any,                 big_sur:       "2b70b966c1677ebd261ee0de5a25a1db63ebc2d565fc8cda7935ba5f09dc2dcf"
+    sha256 cellar: :any,                 catalina:      "17060cfbab50579d52bfc82e71543ffc3832c1ffca61d03fe12e72ea238fcc3b"
+    sha256 cellar: :any,                 mojave:        "43c9497861fdd75caf95132fbcb8af3e58aff877ac6e9cbd5ca2f307e96396ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9cf84b19c6a917f8c39f970d7e4d7cdc9e7e76118ec6c42cb018dca052b4b2b"
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
   depends_on "open-mpi"
 
+  on_macos do
+    depends_on "gcc"
+  end
+
   def install
-    gcc_major_ver = Formula["gcc"].any_installed_version.major
-    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
-    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
+    on_macos do
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
+      ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
+    end
+
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
       system "make", "install"

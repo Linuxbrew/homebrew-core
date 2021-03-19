@@ -1,8 +1,8 @@
 class OpenOcd < Formula
   desc "On-chip debugging, in-system programming and boundary-scan testing"
   homepage "http://openocd.org/"
-  url "https://downloads.sourceforge.net/project/openocd/openocd/0.10.0/openocd-0.10.0.tar.bz2"
-  sha256 "7312e7d680752ac088b8b8f2b5ba3ff0d30e0a78139531847be4b75c101316ae"
+  url "https://downloads.sourceforge.net/project/openocd/openocd/0.11.0/openocd-0.11.0.tar.bz2"
+  sha256 "43a3ce734aff1d3706ad87793a9f3a5371cb0e357f0ffd0a151656b06b3d1e7d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,11 @@ class OpenOcd < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_big_sur: "b4695aad1ca7722c171bbf1df79c476d159289bd23fb895f1f440e606ab80cdd"
-    sha256 big_sur:       "3b90b2e58a0b0ba8d9c93909ae5735d5c0e19e6e7ba1af0339c78bc5ee8df452"
-    sha256 catalina:      "73738a0c3bfffa98beea25c441d5eddfd743dc5c7c79418685519354975bb840"
-    sha256 mojave:        "491bec9acdc4e446a6515975041f21dec919ba330f88b5a69e8651ddd9c07468"
-    sha256 high_sierra:   "0258f4d658907060d890c978a4d122ac5501119c4d28bb272e4bf5bc59bd8852"
-    sha256 sierra:        "790605e83cc22ab4a455a382f7b6a434d44c19f82e0b8a0ee6a3bf28ac6f9f31"
-    sha256 x86_64_linux:  "b1bd008d2bacea026671495974c59975f43bbdea841364f038f72ee19b4b62dc"
+    sha256 arm64_big_sur: "c95313b03e7050963f4a35a28e88743cd01d1a5e198f809e60ac9e3374799995"
+    sha256 big_sur:       "8c776e777a2587d45f7abc2ab9cb3d682a9e1d0c186c16d3beeec4b5dddcc637"
+    sha256 catalina:      "70eeaab9796e8356a5ad08c8f69e9fc7a86f9ef3f7060248ab49722dfeb95794"
+    sha256 mojave:        "31773a9703e8b217b5d6dc58dc670a8f8afd2b51e7735bbd499eef2daad357dd"
+    sha256 x86_64_linux:  "9abcd1758403cf963d59f85d9772e7ea4259590988b5736fabddf27037eff4c2"
   end
 
   head do
@@ -31,6 +28,7 @@ class OpenOcd < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "capstone"
   depends_on "hidapi"
   depends_on "libftdi"
   depends_on "libusb"

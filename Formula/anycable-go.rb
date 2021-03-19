@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "WebSocket server with action cable protocol"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/v1.0.3.tar.gz"
-  sha256 "8aa780b0ee5bf527fe211585aba2441a9cd5b72e58f353e3d4f76286262bf33a"
+  url "https://github.com/anycable/anycable-go/archive/v1.0.5.tar.gz"
+  sha256 "3fd4bef8732a7db0a0549b9eefd9f1ce2d295e6fa80e203bf68d6ffbcde2385a"
   license "MIT"
   head "https://github.com/anycable/anycable-go.git"
 
@@ -12,11 +12,11 @@ class AnycableGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ee40011c6d573f3f567adeec8098428d602580fec188af1191027380b0017989"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4fad3cde32a0582f7c67e5b1c1cf042b26440550adbea601b8e47a8391628763"
-    sha256 cellar: :any_skip_relocation, catalina:      "c9524a91cef04b327a268ed84a95bde54adaf82b82527bb3e086382c81fc6798"
-    sha256 cellar: :any_skip_relocation, mojave:        "3ca5d2a4a546fda4da5e840ef21f80494bcc0fd1df3890040cb63fcfc59911eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88bec5052feba93320994e99e204bb82b03e49afb03edc25240754f32bd28eb5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa6fef9beee0168cfd2add48f709ff4212fb2aa6e31839c8a973f0057fc5789b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1e5fde328e13ccb177d0b49f6849f1709513012f1369eed52c54b521cd8c8179"
+    sha256 cellar: :any_skip_relocation, catalina:      "ce4661c31905e67fdebc3f40f62bb35dc627bdf81520459814db3013eaea5cc2"
+    sha256 cellar: :any_skip_relocation, mojave:        "e906e9164d74a2d04c2e35ff7034e7bb7855d42f112f8b9c36b4b72152c92ca5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45f7c42216229126abd7afafc154fb4abd74302d330dd51fdf341213cb33bdf5"
   end
 
   depends_on "go" => :build

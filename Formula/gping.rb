@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/v1.2.0.tar.gz"
-  sha256 "2379d2d5c3e301140d9c65c4dcc2b99602acf511b2798f45009af4c1101a0716"
+  url "https://github.com/orf/gping/archive/v1.2.1.tar.gz"
+  sha256 "ca11655f4357278a152476373cbc131b4183990e431196889c366706aedf6787"
   license "MIT"
   head "https://github.com/orf/gping.git"
 
@@ -16,10 +16,10 @@ class Gping < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4deb2a242ab4de0d179b8328c74fb585cdbc0078e6074bea366415606e0b1f86"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ad76726fb0897f1960e045b31d6a080a1c699a5ebe187f1b5f3fabb1575afe90"
-    sha256 cellar: :any_skip_relocation, catalina:      "c8162661b26ec98036c7abd06916867fb715f1c6b0881fe41ce7bbd292773f07"
-    sha256 cellar: :any_skip_relocation, mojave:        "9c0a56c20f3c378227ae9288ff6b88d0eb2f3f1cbd33dcb493226dab1b894ad8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fc164e14a50a5dc25400542b55cc403051f70bf87f11dc3ea0a4d19d48943b3a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8574a0fd314ddfd911b85dc9a1cf4463e15cb470f867eab5eae9f9ccaa4af7a4"
+    sha256 cellar: :any_skip_relocation, catalina:      "3346653e1695fd5eaa23d8b62ab16292e25b143679ef8f8effb61b3b82cfc8ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "1511dcaf2f0eaad03a622d04ec8c6dbfc1fcff831aa10e8faea836b19995cc3a"
   end
 
   depends_on "rust" => :build

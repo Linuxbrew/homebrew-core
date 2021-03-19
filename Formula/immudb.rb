@@ -15,6 +15,7 @@ class Immudb < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d1b67665e3b063f375151def8fc27e652761c915573cb1b5c121db3d093ba38a"
     sha256 cellar: :any_skip_relocation, catalina:      "21b6ea017ac562e0aa3c5169449c9802e8671cc0de7d5a63c045fd6254c7d1d5"
     sha256 cellar: :any_skip_relocation, mojave:        "5362276aa69423fb456d37df1da348bb388dd9898ae63a8d660f7ca870d65fd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9b83348ca335ca8498f0dca2486b5ece6333ee3b4cb2d5d0e9d1a7d7e79d87f"
   end
 
   depends_on "go" => :build

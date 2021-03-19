@@ -3,7 +3,7 @@ class Libcdr < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.6.tar.xz"
   sha256 "01cd00b04a030977e544433c2d127c997205332cd9b8e35ec0ee17110da7f861"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -11,11 +11,10 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d1f5de8a24925e0e30822b31805cb73eb5e2c6072e4e88c8fc0f86e7ef992bdb"
-    sha256 cellar: :any, big_sur:       "ff990e3679d616548a67184a2b5a8030912c7c1a411119dd82c57f29893e2dec"
-    sha256 cellar: :any, catalina:      "8c07a139f24c7548cfd8eb6b5bba59ab643d0030d05fb52eb2baf7a825a232fa"
-    sha256 cellar: :any, mojave:        "9a1aff2e64f3d103b416b7bcc07c2431777660eee1466af64d9717cbcca9454b"
-    sha256 cellar: :any, high_sierra:   "f602a7919ea9e6921f3597f061b96b466d3291c597c355f410bd340b4b8e23d3"
+    sha256 cellar: :any, arm64_big_sur: "e28a17a4fb749e9f9f7d24ffc6f405db6c520ab8f4749f67ea9ac3f43ad976d4"
+    sha256 cellar: :any, big_sur:       "4fbab883412b32a9caf978ccfe1dbb9828c6d321cbb766c7e196910c8c36caff"
+    sha256 cellar: :any, catalina:      "0745bfaffbc67e43ae6768548e807922cf1ab0cc3a530dd0b523aeb89ae1ddc4"
+    sha256 cellar: :any, mojave:        "10f5db05d1dda0ef55f1322d91cb607f092fc7766624fbbf5e4617d17b27f6b1"
   end
 
   depends_on "cppunit" => :build
@@ -24,6 +23,13 @@ class Libcdr < Formula
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
+
+  # Patch for `error: use of undeclared identifier 'TRUE'`
+  # when built against icu4c 68.1+
+  patch do
+    url "https://github.com/LibreOffice/libcdr/commit/bf3e7f3bbc414d4341cf1420c99293debf1bd894.patch?full_index=1"
+    sha256 "7009cef94c259d4e6f7c62214df4661507d89ac7b548db60ed7ab5e37c8e0dcc"
+  end
 
   def install
     ENV.cxx11

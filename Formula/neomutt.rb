@@ -4,13 +4,14 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20210205.tar.gz"
   sha256 "77e177780fc2d8abb475d9cac4342c7e61d53c243f6ce2f9bc86d819fc962cdb"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
-    sha256 arm64_big_sur: "3c35079a979306068a2adf86e73c472149ec8ed2b5a8a19ac40db751a104316f"
-    sha256 big_sur:       "f40a3412fef8321567e8572bb015f447f0e81f29c7fc0a9e7f001a26688c1cb3"
-    sha256 catalina:      "f1375fe0f878437bb23257363230f5e805956bde9a97979da33c1ec5aa09169c"
-    sha256 mojave:        "9cd93e7f86b0da3940852430f1bbd19e07213b966ab1074c55d435953be187eb"
+    sha256 arm64_big_sur: "54f1a6052e8e08f98680c8daad63835220a228db45e9009d67b99c3476f7f19c"
+    sha256 big_sur:       "197b3a28aab58386b0b63b3228f55abf9627556cf442a2f780702f56baa9361c"
+    sha256 catalina:      "42e30c8b2f846f0e99864dad93adf4e7b697b1364263bc71cd60b32f023efaac"
+    sha256 mojave:        "8677ab0e377d6bc4526b8d93d71629f84b52e14b4cdb4620753eef5cac0bc6cd"
   end
 
   depends_on "docbook-xsl" => :build
@@ -22,6 +23,8 @@ class Neomutt < Formula
   depends_on "notmuch"
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
+
+  uses_from_macos "zlib"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

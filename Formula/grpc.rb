@@ -2,8 +2,8 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.36.0",
-      revision: "736e3758351ced3cd842bad3ba4e2540f01bbc48",
+      tag:      "v1.36.3",
+      revision: "ce05bf557ced2d311bad8ee520f9f8088f715bd8",
       shallow:  false
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
@@ -14,11 +14,11 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "b299f7b8be14c07a616887aee95d31ab76e6038fb03e6fad5131d1e326d7833e"
-    sha256                               big_sur:       "448f34c2344d584187c0fa2c0460d5a8a626a0ecac3b25c0c0ad018d70398906"
-    sha256                               catalina:      "1ec5bd64007c2ce57404e932ed2b378ba02aa0184e8d28133fbbf6b2732d39a0"
-    sha256                               mojave:        "9094b70903b63272622ad14c231c7bd9b0903d077b51d24b3158a9b826c5a62d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab5a4a4ba65b8d93ce828a2720cd33446ad0b2525568ea2fb36525c3e0760b77"
+    sha256                               arm64_big_sur: "3f207e9539804eaca38348f545cd5c6637f4d0fb3d4b70b4465edc004d14bc47"
+    sha256                               big_sur:       "82f42f253f2ec4dbc7242d616181e706b978cb83ca708bfd0b976dbd47472d13"
+    sha256                               catalina:      "fbd524f31f1a0526c49a61a8fd9f6c8dfb0867765c67342ab7c8bef15b025541"
+    sha256                               mojave:        "1be9b0b8660fc7a74a7165db297aaf5ef3651d676b964fa79e4495145fa12621"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5060207ef10a865c7555ec006a22a348d45cac7c15dcc67c4c3d35d38531c4e0"
   end
 
   depends_on "autoconf" => :build
@@ -33,13 +33,6 @@ class Grpc < Formula
   depends_on "re2"
 
   uses_from_macos "zlib"
-
-  unless OS.mac?
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7" => [:build, :test]
-  end
 
   def install
     mkdir "cmake/build" do

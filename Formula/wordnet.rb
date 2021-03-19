@@ -9,11 +9,12 @@ class Wordnet < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "48c70e44e65ff918d9a7c59999af788a00a29ed67419a411c789ae8e2f29684d"
-    sha256 big_sur:       "603c49d51a805975f31491b9f0faec95900cc9bde2042a3ce042c14ed4a2a808"
-    sha256 catalina:      "56264f8aa182e0fb8d64b0166e2583465b6e373b5d69c7e2247e5ec011467a91"
-    sha256 mojave:        "8fedff541aa821dbee4d0396c2137c1cdc43968e6772a69caa664ffabbc23dbe"
-    sha256 high_sierra:   "2e7eb00a5f63eec2972c927c4e566cf51121e61f95d5f04e4e29443950e3b42f"
+    sha256                               arm64_big_sur: "48c70e44e65ff918d9a7c59999af788a00a29ed67419a411c789ae8e2f29684d"
+    sha256                               big_sur:       "603c49d51a805975f31491b9f0faec95900cc9bde2042a3ce042c14ed4a2a808"
+    sha256                               catalina:      "56264f8aa182e0fb8d64b0166e2583465b6e373b5d69c7e2247e5ec011467a91"
+    sha256                               mojave:        "8fedff541aa821dbee4d0396c2137c1cdc43968e6772a69caa664ffabbc23dbe"
+    sha256                               high_sierra:   "2e7eb00a5f63eec2972c927c4e566cf51121e61f95d5f04e4e29443950e3b42f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "005d800d72d21aee626e0679d7952e8062636fe8c426c6562de6688ed637eeee"
   end
 
   depends_on "tcl-tk"

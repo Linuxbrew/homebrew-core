@@ -4,7 +4,7 @@ class Eccodes < Formula
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.20.0-Source.tar.gz"
   sha256 "207a3d7966e75d85920569b55a19824673e8cd0b50db4c4dac2d3d52eacd7985"
   license "Apache-2.0"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://software.ecmwf.int/wiki/display/ECC/Releases"
@@ -12,11 +12,11 @@ class Eccodes < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4963deb84e8b78f739f3dea7b60a02d10d2816fd6ae33977b4446ba486d644e2"
-    sha256 big_sur:       "f6c14688b40b22d5ffc85eac003c4424fc5c86b16e43df945e59142f708df72d"
-    sha256 catalina:      "1319aad1f0f1e7c65277d87adacf2d7525a36a824f540374a518f2356bebba62"
-    sha256 mojave:        "011de52ff9e8593f69de8782141953934340d1c668aa6d9cdc74c14f09571748"
-    sha256 x86_64_linux:  "3235b38cd75d8ac638638b7d25cdbfe0b67c062c6379850e2722b93415740483"
+    sha256 arm64_big_sur: "05c40d658fc48a091bbcf0c42f3b4a60e809d2c1f03e224a1496391d25cbfb70"
+    sha256 big_sur:       "8cb7f7bddf32ae37ef9fbb33ca784408472fe91408f5ee4a6368ce7ad39e90f4"
+    sha256 catalina:      "f0a852163220dea5ddc86937eb58a3369eaedf99f9103855fade7dd682e116bd"
+    sha256 mojave:        "5337b703af5451832edf3b79c08b2898c7ed4b305b849b02fbf2762ab043719d"
+    sha256 x86_64_linux:  "653698b8d6147aa972806de80cb98c9f44b520108946b7da21893e3f1f849c35"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +28,7 @@ class Eccodes < Formula
   def install
     # Fix for GCC 10, remove with next version
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch" if OS.mac?
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
 
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
@@ -41,7 +41,7 @@ class Eccodes < Formula
 
     # Avoid references to Homebrew shims directory
     os = OS.mac? ? "mac" : "linux"
-    cc = OS.mac? ? "clang" : "gcc"
+    cc = OS.mac? ? "clang" : "gcc-5"
     path = HOMEBREW_LIBRARY/"Homebrew/shims/#{os}/super/#{cc}"
     inreplace include/"eccodes_ecbuild_config.h", path, "/usr/bin/#{cc}"
     inreplace lib/"pkgconfig/eccodes.pc", path, "/usr/bin/#{cc}"

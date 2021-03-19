@@ -1,8 +1,8 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "https://eradman.com/entrproject/"
-  url "https://eradman.com/entrproject/code/entr-4.7.tar.gz"
-  sha256 "b6c1ab7644d83bb2a269dc74160867a3be0f5df116c7eb453c25053173534429"
+  url "https://eradman.com/entrproject/code/entr-4.8.tar.gz"
+  sha256 "f05555cd745b7dc67b61a98cf79971125b7e43931a5772d5bce2d891327425ae"
   license "ISC"
   head "https://github.com/eradman/entr.git"
 
@@ -12,11 +12,11 @@ class Entr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "382670926073b72a8a4661c3dbeda426bd525ec0d671095ed57e297b0cb85711"
-    sha256 cellar: :any_skip_relocation, big_sur:       "619e035bd88e1022abe8ea2bb47872d8d9bb0ce48774d316b20d78ed236cdcb6"
-    sha256 cellar: :any_skip_relocation, catalina:      "c2f8633d2f84a9f1b0b06fe49d8bf09ca07c4ca3b386b0111c1ab14609d28fa7"
-    sha256 cellar: :any_skip_relocation, mojave:        "667d0ba4094590eb0c24db62a35b467b58a2a5899b2419b05d8d49dd8f22fd15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c84b189c8c0a70c7896dc5ddd186c10a8eb864b1610bda8651f8c284e3c5f71b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c565a40ecea43d1a11359c89faae83ddf72f8333e2502c9484c889ef581b6246"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4c766358f913ef78bb956e50aef6e5b7d742b53fdf764a57feaaa9c35c0a6fa4"
+    sha256 cellar: :any_skip_relocation, catalina:      "8325c4a45a914f504b4097cb02d4575dcd62a73b44b79592f679b2abcd83b4a8"
+    sha256 cellar: :any_skip_relocation, mojave:        "133c9d70c130b848c948829b1e43d4325de4f7da32c3134987ff616242118c60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86ce62f7310f0b2acb7938410f6eeb2f3d3193ffa71664a96de482ce71fdbdfa"
   end
 
   def install

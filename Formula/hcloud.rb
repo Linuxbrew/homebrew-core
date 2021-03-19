@@ -1,23 +1,22 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/v1.20.0.tar.gz"
-  sha256 "116089f671f3f484b45fa8264cd016f92246421ba8c444a98d5bc18741e625e5"
+  url "https://github.com/hetznercloud/cli/archive/v1.21.1.tar.gz"
+  sha256 "0c76bd22e0891f4073b73d16fe233ab704fe5c0cf539f091d20d2e43ccbc5a1b"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bc0060e4db541d77ab09fea18eefbb3711ba806efa944ed44186c0c5330d3f08"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7c10f79205f3e38247cb40db50a81f5dcba875be47e34ab42871e8dc4f43eee9"
-    sha256 cellar: :any_skip_relocation, catalina:      "365e9535a762a7be3ab78d2ea33e9ba3444311805bfadec8c81f79e702211348"
-    sha256 cellar: :any_skip_relocation, mojave:        "99878daa16a1aa6b393292bc874faf9d6f7071d18cfb0383081c3a33f867a326"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31b3a29613a87fe89874d908b01f8d8f8d11d305951588e02761cf59e2ad8e50"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "336d97f3367bc86fb70d1d686c8cd7e88fe5a5825f66135fda8163cdc12a0314"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e89c1faf24d0d7ab8b48653edf4c1bb62df9e24112ff790370a8b43fcd136ffe"
+    sha256 cellar: :any_skip_relocation, catalina:      "1ed62a48deacae7016bf9a9245e5d0f0435167e5fd02dd8c0031ceb0bff8e239"
+    sha256 cellar: :any_skip_relocation, mojave:        "3544a27377c5bccf5e375dea2a24429c76406bdf8fcdcc9862f522be54439e09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "862e9c88404c94d743f4893c63787bf2f1399d66cf8972498cef044feaa7c605"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/hetznercloud/cli/cli.Version=v#{version}"
+    ldflags = "-s -w -X github.com/hetznercloud/cli/internal/version.Version=v#{version}"
     system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/hcloud"
 
     output = Utils.safe_popen_read("#{bin}/hcloud", "completion", "bash")

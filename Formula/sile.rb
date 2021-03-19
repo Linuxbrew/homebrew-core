@@ -1,15 +1,17 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.14/sile-0.10.14.tar.xz"
-  sha256 "255a1ebfd745e13a670e1a24fe34ef209b823819a19532d1a63cde6755340e80"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.15/sile-0.10.15.tar.xz"
+  sha256 "49b55730effd473c64a8955a903e48f61c51dd7bb862e6d5481193218d1e3c5c"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7aacf1722fd5edb35edbafed39a5135ee9dbfc614d5c2af6a78a10a4e72b58ae"
-    sha256 cellar: :any, big_sur:       "96fa8729e8a5a329e31ba0a72401e37f555cb1b901fe40bdaf86ff212f40d873"
-    sha256               catalina:      "63164873fb734c31bef4f15dbe1c4b7825f8f4493188be75ebf3930c7a2c6e91"
-    sha256               mojave:        "9da40bac62aa9a45c9f0c3b0bcd06de5c6f7da79240b69b21e13c7af52b9885f"
+    sha256 cellar: :any,                 arm64_big_sur: "f768811fa4abe78d42b5ee0649e5cb341c1360d4d846cbf2c86034d58f680da9"
+    sha256 cellar: :any,                 big_sur:       "13a0eadc5d659744004b803354ac10338afe1042c451072c5edce823dbb2c3a8"
+    sha256                               catalina:      "8fb3dfa926b68959d7cdb5ebae7e2552165a199b08667a267067845bc55841b3"
+    sha256                               mojave:        "439746d81c4a7395678327038d77f294c6848c31690ee90df592ba93d7a52b62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8b05c2c564a9a1678d495e0ca54b845ab54c389b0a95a69fade88204397d575"
   end
 
   head do
@@ -29,7 +31,8 @@ class Sile < Formula
   depends_on "libpng"
   depends_on "lua"
   depends_on "openssl@1.1"
-  depends_on "zlib"
+
+  uses_from_macos "zlib"
 
   resource "bit32" do
     url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.10.tar.gz"
@@ -153,9 +156,14 @@ class Sile < Formula
             s.gsub! ", <= 5.3", ""
           end
 
+          zlib_dir = Formula["zlib"].opt_prefix
+          on_macos do
+            zlib_dir = "#{MacOS.sdk_path_if_needed}/usr"
+          end
+
           system "luarocks", "make",
                              "#{r.name}-#{r.version}-1.rockspec",
-                             "ZLIB_DIR=#{Formula["zlib"].opt_prefix}",
+                             "ZLIB_DIR=#{zlib_dir}",
                              "--tree=#{luapath}",
                              "--lua-dir=#{luaprefix}"
         when "luaexpat"
@@ -191,10 +199,10 @@ class Sile < Formula
 
     (libexec/"bin").install bin/"sile"
     (bin/"sile").write <<~EOS
-      #!/bin/bash
+      #!/usr/bin/env sh
       export LUA_PATH="#{ENV["LUA_PATH"]};;"
       export LUA_CPATH="#{ENV["LUA_CPATH"]};;"
-      "#{libexec}/bin/sile" "$@"
+      exec "#{libexec}/bin/sile" "$@"
     EOS
   end
 

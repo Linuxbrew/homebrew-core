@@ -3,24 +3,23 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/78/eb/a48c359b32ad81e6c5ea0141ef9139859ef43dc4640d5ced721bba4ae1cc/yubikey-manager-3.1.2.tar.gz"
-  sha256 "7709c83aebb443259197a452772430edd1ac019e31a57a71ea33a90a4a7879f1"
+  url "https://files.pythonhosted.org/packages/0b/41/b6f3d4c71e967c61902b58ebfc39007167ac554b88b4f3eea44b4b0f41b8/yubikey-manager-4.0.0.tar.gz"
+  sha256 "ab7a953ceb6f5de4487c20c02672cf7ee19ab49f0b99a9ae2f1cfa06a5d64a44"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0fc39d2fd810b8f6eb193e7f7e8104a9e8e3227c6262e15d60cbea7e1a862162"
-    sha256 cellar: :any,                 big_sur:       "bdefdcfbdd17e876b92ee3405b79b094955ae2b597d1839ecbf3ef1e2cb48936"
-    sha256 cellar: :any,                 catalina:      "d58e6fa495a5e5cd405cb651bdcdcc783c179b3817a0469ab19c88b3f0153c29"
-    sha256 cellar: :any,                 mojave:        "bd8606fe932c56e86dbfe1ee4c920626e807bdc3e06e2f4a579ce32d39d14c6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "590ab2afb09291207e00a0ee13198e574eb847974e1f1678876ecca459a0c5db"
+    sha256 cellar: :any,                 arm64_big_sur: "a19b309fc13396408f6ac9c36232adcd9243312cf96a999b4a552ffa6953a6e2"
+    sha256 cellar: :any,                 big_sur:       "74a42e1fa390da95cf003bbd8a23fec3fd7c4c3aa34fd1861dc36ba47fb3ebc7"
+    sha256 cellar: :any,                 catalina:      "001843648f1a67f05ac364e912d90bbfff6eda7adb421b6184a10a156b4a4357"
+    sha256 cellar: :any,                 mojave:        "a5bade1f58997341d493602bf45c6caeb2a47f6dddcd5c381b7840e87a3624c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27a1bc332f48807b9442645be766f6a92486f803884ea86c76fe9238a0077fbc"
   end
 
+  depends_on "rust" => :build
   depends_on "swig" => :build
-  depends_on "libusb"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
-  depends_on "ykpers"
 
   uses_from_macos "libffi"
 
@@ -30,8 +29,8 @@ class Ykman < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "click" do
@@ -40,13 +39,13 @@ class Ykman < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/97/03/9ce85396423a4b9897cc3295a605b63dffd06940e65c1cccd51c2c016864/fido2-0.8.1.tar.gz"
-    sha256 "449068f6876f397c8bb96ebc6a75c81c2692f045126d3f13ece21d409acdf7c3"
+    url "https://files.pythonhosted.org/packages/80/c3/5077ee98edd23ee00b9f5f889fd65e8dd8dbe7717d663d3b5137e31f07e6/fido2-0.9.1.tar.gz"
+    sha256 "8680ee25238e2307596eb3900a0f8c0d9cc91189146ed8039544f1a3a69dfe6e"
   end
 
   resource "pycparser" do
@@ -54,19 +53,9 @@ class Ykman < Formula
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/98/cd/cbc9c152daba9b5de6094a185c66f1c6eb91c507f378bb7cad83d623ea88/pyOpenSSL-20.0.1.tar.gz"
-    sha256 "4c231c759543ba02560fcd2480c48dcec4dae34c9da7d3747c508227e0624b51"
-  end
-
   resource "pyscard" do
     url "https://files.pythonhosted.org/packages/2b/98/fd2a827eed42ca3dcd7a433ee75a9868bfe3fc1428839a2831ab9dd90c69/pyscard-2.0.0.tar.gz"
     sha256 "b364d9d9186e793c1c4709eb72a4d29e09067d36ca463b2c2abd995bd1055779"
-  end
-
-  resource "pyusb" do
-    url "https://files.pythonhosted.org/packages/b9/8d/25c4e446a07e918eb39b5af25c4a83a89db95ae44e4ed5a46c3c53b0a4d6/pyusb-1.1.1.tar.gz"
-    sha256 "7d449ad916ce58aff60b89aae0b65ac130f289c24d6a5b7b317742eccffafc38"
   end
 
   resource "six" do
@@ -75,12 +64,9 @@ class Ykman < Formula
   end
 
   def install
-    unless OS.mac?
-      ENV.prepend "CPPFLAGS", "-I#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include"
-
-      resource("pyscard").stage do
-        ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
-      end
+    on_linux do
+      # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
+      ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
     end
     virtualenv_install_with_resources
   end

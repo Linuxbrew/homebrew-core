@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.9.25.tar.gz"
-  sha256 "d7b733aeef4eba97f5351ba435001fa7365f55adabffdfdda909700335e98b0e"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.10.1.tar.gz"
+  sha256 "485ff7b9e5a34457ab424d7e2cb8d377dc571e8daf666e065a0a327b9e413cab"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git"
 
@@ -12,17 +12,20 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb6c2c4ef5992fcd944887052099d846e865b29486152f3eaaaeae7b64a97770"
-    sha256 cellar: :any_skip_relocation, big_sur:       "236e8976bd37896135951f14345d2c431aa30c35c06a8f564ee0d1890dde6e36"
-    sha256 cellar: :any_skip_relocation, catalina:      "c94e46a6bea15393eb22e15bd4bbbb63cb08db493989b2008aa16c5b9106d3f1"
-    sha256 cellar: :any_skip_relocation, mojave:        "0f1a9478c1873537097fa246ed25956d606df2b91939bf2d98102a95fcca2b96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f97a54288e5e3a6ec05ca97aaf43f070c13cfb06a1de91e8a392c9f949fd96d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f57ac503a784028d5252d08c34f770bb42e438a7a9ab5dd465ccd6ee9a38c86e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "acab9d99b760645bda2bc942afc1d854f82208689e7d85c0af49b51112318bd4"
+    sha256 cellar: :any_skip_relocation, catalina:      "bfd3fd35787a554da49bad238e9d2477eb33733593c0dcab1a0f7b0d4b73f34d"
+    sha256 cellar: :any_skip_relocation, mojave:        "4d0d76de9f326cbe149f2a7286f831c376c24c860ceb482ff24abdb69fdc50b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c16ca637a6b0a9323d41991788499958d43d5c4fef59ab291596f7ea9696acf0"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV.O0 unless OS.mac? # See https://github.com/golang/go/issues/26487
+    on_linux do
+      # See https://github.com/golang/go/issues/26487
+      ENV.O0
+    end
     system "make", "all"
     bin.install Dir["build/bin/*"]
   end

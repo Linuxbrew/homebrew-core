@@ -4,6 +4,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.23.tar.gz"
   sha256 "1c7a424303c134758e59607a0b3172e43a21a27ff08e8c88c2439ffd4fc724a5"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -11,15 +12,18 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e3508cd61df805a453628e8bbc52115c3665b9b8affddb2732f0481ec015a19f"
-    sha256 big_sur:       "c47107257dff45ee81f671271a213e232b8c682c560277e6f3c554234ae1a686"
-    sha256 catalina:      "308601d9802846e2a47e8d9ffed21bfe10a4186c9cd3adcff25e3ba936a2d94d"
-    sha256 mojave:        "080fd12e447803dfe1312d8628b07b8764b2634e7a0136fc69f506766e68146e"
+    sha256 arm64_big_sur: "813a67f5351719ddd2cd6977e842c1cf35880e9a2bc51095f37cb628d97282eb"
+    sha256 big_sur:       "9e9e4b5bfcad47adfbf7f2af7ebf2c2cc7411d2fb88a4a5155eaa2d919e899a1"
+    sha256 catalina:      "a5533c5f81c6651efee6f47e36bd51ac1e720cc70bd7403c1ac50af4eab33c7f"
+    sha256 mojave:        "23452cab50b70f8a0576001853665bdfff41df3b1c61b28d778dcecc153fb4d1"
+    sha256 x86_64_linux:  "230e67a6fd33a2e8e2ea6d4816a9b2531b9ebd4b01fd5853544872e8ccbbf669"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
   depends_on "protobuf"
+
+  uses_from_macos "cyrus-sasl"
 
   # Fix error: Cannot find system editline libraries.
   uses_from_macos "libedit"
@@ -28,14 +32,8 @@ class Mysql < Formula
     because: "mysql, mariadb, and percona install the same binaries"
 
   unless OS.mac?
-    patch do
-      url "https://raw.githubusercontent.com/NixOS/nixpkgs/dae42566dbee37a3b7a609fa86eca9618f4f4b67/pkgs/servers/sql/mysql/abi-check.patch"
-      sha256 "0dcfcca3bb3e7eb7ccd3ae02d4eb4fb07877970359611f081b03eab77bd4d6c9"
-    end
+    depends_on "patchelf" => :build
     depends_on "pkg-config" => :build
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7"
   end
 
   def datadir

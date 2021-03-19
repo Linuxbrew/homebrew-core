@@ -6,21 +6,21 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/v.0.7.6.tar.gz"
   sha256 "2c498cc6a18b9fbb77c52ca41ba329c503aa5d4ec648075c3ebb72bfa7102099"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fb0c87e940a7cc1575c7125d983b468ed7ff1564ac2c448fc70c30c5920c1189"
-    sha256 cellar: :any, big_sur:       "107ca8fb3207f324b61f7115019512c8a93280cbd8f16d60df2838d6ae8fbe44"
-    sha256 cellar: :any, catalina:      "a35ce1425f35485335912860dbf0276dd429b7091ee1166ad9b68828dc2a79b5"
-    sha256 cellar: :any, mojave:        "ed87a8d37fdb8a48cf537bd3483b42e58f3c8517abf513f9f3f1b575e1236152"
+    sha256 cellar: :any, arm64_big_sur: "2d9c7f0bfea1cbd362f8d11adc65bc87a94bcc8a840d7d31c1d267d66c408329"
+    sha256 cellar: :any, big_sur:       "818f42ce8f75cd917e28d369f80dcccb4ebb673ee9e5952489b4349f7ba60264"
+    sha256 cellar: :any, catalina:      "4979a536f207000148c91c6474e676785d10ae1199299cfb64f86fb7af0b4ed6"
+    sha256 cellar: :any, mojave:        "c6d74e2aec8212ddf582f358af89cf5c6bbc820c9f2fc68132bfd6d56ad54a6a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cpanminus"
   depends_on "ghostscript"
   depends_on "giflib"
-  depends_on "imagemagick@6"
+  depends_on "imagemagick"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "node"
@@ -30,13 +30,8 @@ class Lanraragi < Formula
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-6.9.11.tar.gz"
-    sha256 "3af99fb4625fe6c7ccb55c79709afe31df4af66886a35e5c5a494507a0814061"
-  end
-
-  resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.069.tar.gz"
-    sha256 "d83c2cae5e8a22ab49c9f2d964726625e9efe56490d756a48a7b149a3d6e278d"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-7.0.10.tar.gz"
+    sha256 "1d5272d71b5cb44c30cd84b09b4dc5735b850de164a192ba191a9b35568305f4"
   end
 
   resource "libarchive-headers" do
@@ -53,8 +48,9 @@ class Lanraragi < Formula
     ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
     ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
     ENV["CFLAGS"] = "-I#{libexec}/include"
+    ENV["OPENSSL_PREFIX"] = "#{Formula["openssl@1.1"]}/1.1.1g"
 
-    imagemagick = Formula["imagemagick@6"]
+    imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do
       inreplace "Makefile.PL" do |s|
         s.gsub! "/usr/local/include/ImageMagick-#{imagemagick.version.major}",
@@ -63,11 +59,6 @@ class Lanraragi < Formula
 
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make"
-      system "make", "install"
-    end
-
-    resource("IO::Socket::SSL").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "install"
     end
 

@@ -4,19 +4,20 @@ class Postgresql < Formula
   url "https://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2"
   sha256 "5fd7fcd08db86f5b2aed28fcfaf9ae0aca8e9428561ac547764c2a2b0f41adfc"
   license "PostgreSQL"
+  revision OS.mac? ? 1 : 2
   head "https://github.com/postgres/postgres.git"
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "25ef0f5a646460926edfd9784476e39515930e70b18dca97e8d494854a33623f"
-    sha256 big_sur:       "06c23afef614cae22f493d211abc57d4583ffe603e90d67cb127923151b5df27"
-    sha256 catalina:      "74187bccafb703b20326afa608542493620a86502d061fdea84415a048dcda5b"
-    sha256 mojave:        "1adff398048e085acbb4d2a7fa1c6fac09f1f874df142db983e4a6c16072f223"
-    sha256 x86_64_linux:  "0376e147edec6a318b219b6b1da4cd1eb4c081612858f7e36d1bf69e99d31b2f"
+    sha256 arm64_big_sur: "299babccbbf29b9769ab402aca01c4a0c4bc173a19a928e09fe1edabe7461c88"
+    sha256 big_sur:       "67a547842ae49911d301d490e70b5fff1ee27a65cea403abeff3a25d1806e8d6"
+    sha256 catalina:      "02af915cc2b5291c5a15b59a74dff255e918e7a6af34dbef53cf6ad264627628"
+    sha256 mojave:        "37f0b76c0f034d8a6837805eb27da3787c39cf895516a193ad298ea96f68e98a"
+    sha256 x86_64_linux:  "c7d881641cef7238d174b851304ff5d4cd3ae379f8015a58e8cbc98064da74af"
   end
 
   depends_on "pkg-config" => :build
@@ -26,6 +27,11 @@ class Postgresql < Formula
   depends_on "krb5"
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  unless OS.mac?
+    depends_on "linux-pam"
+    depends_on "openldap"
+  end
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -48,19 +54,19 @@ class Postgresql < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
+      --with-gssapi
       --with-icu
+      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
+      --with-pam
       --with-perl
       --with-uuid=e2fs
     ]
     if OS.mac?
       args += %w[
         --with-bonjour
-        --with-gssapi
-        --with-ldap
-        --with-pam
         --with-tcl
       ]
     end

@@ -4,19 +4,15 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/3.1.6.tar.gz"
   sha256 "0068e31cd878e07f3dffa4c6afba6242a753dac83b3799470149d2e816c1a2a7"
   license "Zlib"
+  revision 1
   head "https://github.com/apngasm/apngasm.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "89d28dc15d602243f648d782bf91931a2000feb1941fb452ee31bb13b8d50204"
-    sha256 cellar: :any, big_sur:       "9f0a2fd1ce759c8d60e9f31deb74a33ae9714f7391255577fd33eb0d534b3cae"
-    sha256 cellar: :any, catalina:      "48dfe150da3c6f5992d771f4581d39a6a4a9750ae4835d959f6bbc23c03923da"
-    sha256 cellar: :any, mojave:        "9385f652fd7fae83e373a823d7cd7b090213f3e6e17d1eee415022a4eb454cf4"
-    sha256 cellar: :any, high_sierra:   "df11f91ea8d27997410b38d42e435b58c34d54dd2bb58a714745ffcfaaacdda2"
-    sha256 cellar: :any, sierra:        "87cb9f81d1ec12b561e8750d259e27d1d97daa654742fcce032863e0185baf0f"
-    sha256 cellar: :any, el_capitan:    "073f74cacea8907e430113f4aae80d248887fc1d18de36f64889e683c08e3441"
-    sha256 cellar: :any, yosemite:      "5fb1bd67761e2717c78c3842c7effd8835acb5f6193a05516df7cde7ff7051e8"
-    sha256 cellar: :any, mavericks:     "124cee4bf9746a9e60882cf6fd5b2430265fc661af5dbe9bab2f85e83e985cfa"
+    sha256 cellar: :any,                 arm64_big_sur: "e939020f3749911eb164d7fa1703ed627dfe82a9721747019aa2c8408ab33e98"
+    sha256 cellar: :any,                 big_sur:       "989fab4ac0fef9191cc97100d9a6aa84e559d01b1adc2026f8b1dd8e300a2550"
+    sha256 cellar: :any,                 catalina:      "d77102b0795a702c5c0c84b96b6ea06d6c96d33a8e9bf70dcdbb170cf932869f"
+    sha256 cellar: :any,                 mojave:        "bab451c492901331dc7ff809aa1d553c9a5069e65cbbe8834ecfa2a771f102cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efad1c584abb2b150dc064194f924b078b8d1d9523a3b34ef7a9e58a73e463f7"
   end
 
   depends_on "cmake" => :build

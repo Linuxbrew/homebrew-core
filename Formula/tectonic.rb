@@ -4,6 +4,7 @@ class Tectonic < Formula
   url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.4.1.tar.gz"
   sha256 "5a2c910f822d59ddaf9d32a0e5f7f34ce30f44e4129513b3a0c50425cf48ac8f"
   license "MIT"
+  revision 1
 
   # As of writing, only the tags starting with `tectonic@` are release versions.
   # NOTE: The `GithubLatest` strategy cannot be used here because the "latest"
@@ -14,11 +15,11 @@ class Tectonic < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8af05e3deffb86e2f2893b40692d5299bb66e323dc24a52277f605bb48274261"
-    sha256 cellar: :any, big_sur:       "98a8197e79a15cbb27f29f871d78ef1ee3a5bff4292afd0aa030b12bc8d6e7bb"
-    sha256 cellar: :any, catalina:      "ee982811abc9559c29b502bac4938342c7c8c6d707ca4d374b0d5cf39ee1d6a0"
-    sha256 cellar: :any, mojave:        "573741924359aa5859b481faa45c18956f00b9c5e865877da40f2d71ccafb868"
-    sha256 cellar: :any, x86_64_linux:  "0618bec797dfae61be4d15a547c2522bc1a2f1ed13b0e59022516d6d1f147752"
+    sha256 cellar: :any,                 arm64_big_sur: "ca6e5d2c0f438d8ab645cb3a910a69b353d2ec1db75166109d8ea8dc0e68a47e"
+    sha256 cellar: :any,                 big_sur:       "fc5ee56b319d0fface7d033aa0cdaf9e17f8a738e031dae4268d8b3a13b04493"
+    sha256 cellar: :any,                 catalina:      "061da8046e4dad195200c34cf24916ec1171dd283be4df0fd6a74d56384ad00e"
+    sha256 cellar: :any,                 mojave:        "44cf87fc25c63521b4338916d4caccf4edf7204b050d7a096c7a05c1aa7206f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "907cd647e7ead7388ee169411f5afd9866f43aa56972805371002e552885570c"
   end
 
   depends_on "pkg-config" => :build

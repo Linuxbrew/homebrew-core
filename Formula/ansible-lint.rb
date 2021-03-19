@@ -3,19 +3,20 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/ad/c3/a20ea998c93502754629e1a7517ab0a69d3caf3ad5523c762c2fefa5e40d/ansible-lint-5.0.0.tar.gz"
-  sha256 "9c9ef05d361c374097206d1df200ab01c9cd3feef42b55898b90b0a09fee88d4"
+  url "https://files.pythonhosted.org/packages/06/4c/44f612e5378283b5b2f1cfde1b408e6830e64f6cbb0105aeee469291119f/ansible-lint-5.0.3.tar.gz"
+  sha256 "9416eaa3080f4fa38228a3a8931a5481fe3bc5e1e3d074033a9b756325b920bd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "089e352a432e397546f66a89a5aaadf2c9c13c6ee75a2e76fc0db8b947599ed3"
-    sha256 cellar: :any,                 big_sur:       "652ad013e337c0cfa6797abf128458b0de170b978f0f26e57cd0008e5e808cc7"
-    sha256 cellar: :any,                 catalina:      "9d90c29285fbf24aca2e480f87d5bb92cd2eb56e9950ef570f8df845be814f54"
-    sha256 cellar: :any,                 mojave:        "d973ce16611b4dc20ab08bf831a2dd0e3cf2343b0866b7571acf760f94182e1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b85255c4902c13c76bd07d15b5b8108d5a86745a2de94ff500577d4d9748cab3"
+    sha256 cellar: :any,                 arm64_big_sur: "38a3bd569e5c964d37bcf3f3b1e81ee63b40b09e8133e30cf6d730e67a9f9974"
+    sha256 cellar: :any,                 big_sur:       "64e4cf6b2bec269f4b4e8a9abd54e52a359075b8ad542a8fa0313485067f8d45"
+    sha256 cellar: :any,                 catalina:      "fd4d8d0a5edbcc40f76bd8e922e6ed11a8aa3d754942879e0c5092f8d025d8e5"
+    sha256 cellar: :any,                 mojave:        "64c9424456d8c8ffeaea456bedd822e66a489cc2775f0955e5021ea1573f78bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0f64768502def7d3e66da5039c07ae9574a28e095d9ae10c81cedf6ff78ada3"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "ansible"
   depends_on "libyaml"
   depends_on "openssl@1.1"
@@ -28,13 +29,18 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-base" do
-    url "https://files.pythonhosted.org/packages/bf/44/a75eec7928986a48e179769873f282496e007587e112c57d367c5e1abc1a/ansible-base-2.10.5.tar.gz"
-    sha256 "33ae323923b841f3d822f355380ce7c92610440362efeed67b4b39db41e555af"
+    url "https://files.pythonhosted.org/packages/83/f9/19c0f3c5bc555f08ee24122dfda7dc4968f966971817c2c3a07df6972c14/ansible-base-2.10.6.tar.gz"
+    sha256 "c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"
   end
 
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/bb/80/7118945282845f8dc337c45c7d9d171a9f86d0c7650ac7e65d60995691d2/bracex-2.1.1.tar.gz"
     sha256 "01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "colorama" do
@@ -45,6 +51,11 @@ class AnsibleLint < Formula
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "enrich" do
@@ -67,9 +78,14 @@ class AnsibleLint < Formula
     sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
   end
 
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+  end
+
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
-    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "pyparsing" do
@@ -83,13 +99,18 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/8c/65/8743a4b98585dbebf943aa8d8d30421606b492decfde9b8ffc3d5812a791/rich-9.10.0.tar.gz"
-    sha256 "e0f2db62a52536ee32f6f584a47536465872cae2b94887cf1f080fb9eaa13eb2"
+    url "https://files.pythonhosted.org/packages/ae/f6/6ffb46f6cf0bb584e44279accd3321cb838b78b324031feb8fd9adf63ed2/rich-9.13.0.tar.gz"
+    sha256 "d59e94a0e3e686f0d268fe5c7060baa1bd6744abca71b45351f5850a3aaa6764"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/17/2f/f38332bf6ba751d1c8124ea70681d2b2326d69126d9058fbd9b4c434d268/ruamel.yaml-0.16.12.tar.gz"
-    sha256 "076cc0bc34f1966d920a49f18b52b6ad559fbe656a0748e3535cf7b3f29ebf9e"
+    url "https://files.pythonhosted.org/packages/1d/2f/40abf6501e051df8af970bfa6d81a90fcd62dc536f82ceec80a2694a3123/ruamel.yaml-0.16.13.tar.gz"
+    sha256 "bb48c514222702878759a05af96f4b7ecdba9b33cd4efcf25c86b882cef3a942"
+  end
+
+  resource "ruamel.yaml.clib" do
+    url "https://files.pythonhosted.org/packages/fa/a1/f9c009a633fce3609e314294c7963abe64934d972abea257dce16a15666f/ruamel.yaml.clib-0.2.2.tar.gz"
+    sha256 "2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"
   end
 
   resource "typing-extensions" do
@@ -98,8 +119,8 @@ class AnsibleLint < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/51/14/cc689686ea37e37aa5693160203f3e89e210541b190173234e3443f2f6d5/wcmatch-8.1.tar.gz"
-    sha256 "4b2f5758d845d2cb391529f892201916cbb1c2ce10a447c7b7a57a2f4bb5647e"
+    url "https://files.pythonhosted.org/packages/24/b9/51525e9aea08d04e602a53812afe3890e78d204e55464f8d0ea906587e54/wcmatch-8.1.2.tar.gz"
+    sha256 "efda751de15201b395b6d6e64e6ae3b6b03dc502a64c3c908aa5cad14c27eee5"
   end
 
   def install

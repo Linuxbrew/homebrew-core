@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.0.2.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.0.2.tar.xz"
-  sha256 "84dd6e36f48c3a71ff5dceba375c1f6b34b71d4fa9e06b720780127176468ccc"
+  url "https://www.php.net/distributions/php-8.0.3.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.0.3.tar.xz"
+  sha256 "c9816aa9745a9695672951eaff3a35ca5eddcb9cacf87a4f04b9fb1169010251"
   license "PHP-3.01"
 
   livecheck do
@@ -13,11 +13,11 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "cbefa1db73d08b9af4593a44512b8d727e43033ee8517736bae5f16315501b12"
-    sha256 big_sur:       "6857142e12254b15da4e74c2986dd24faca57dac8d467b04621db349e277dd63"
-    sha256 catalina:      "b651611134c18f93fdf121a4277b51b197a896a19ccb8020289b4e19e0638349"
-    sha256 mojave:        "9583a51fcc6f804aadbb14e18f770d4fb4973deaed6ddc4770342e62974ffbca"
-    sha256 x86_64_linux:  "9fe04850bdf49c753ad79f4c3a971f4099cc31c8306ccbdce8b856b457ad5373"
+    sha256 arm64_big_sur: "797d42b8a41ada3454fd840fc69f1df3cb77937962e348609070696c80da63ba"
+    sha256 big_sur:       "1ac78ee799b207f47fa986852ccc780d9ab4978cd18bf4b583c044f7298b5689"
+    sha256 catalina:      "1293475830ef0709d10403ffbcffb978f08692f6861440c29d74358373f6c71a"
+    sha256 mojave:        "e32fad08d7908e8a725f2ef52c8e562d3bb75d3547b538ee29842443d31cd5db"
+    sha256 x86_64_linux:  "a80d62bab8a43f5eae733d70c8ff048c6c6d7f42c8802f7baedb4e4e26a1b36f"
   end
 
   head do
@@ -68,8 +68,10 @@ class Php < Formula
   end
 
   def install
-    # Ensure that libxml2 will be detected correctly in older MacOS
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
+    on_macos do
+      # Ensure that libxml2 will be detected correctly in older MacOS
+      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
+    end
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -105,10 +107,11 @@ class Php < Formula
 
     # system pkg-config missing
     ENV["KERBEROS_CFLAGS"] = " "
-    if OS.mac?
+    on_macos do
       ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
       ENV["SASL_LIBS"] = "-lsasl2"
-    else
+    end
+    on_linux do
       ENV["SQLITE_CFLAGS"] = "-I#{Formula["sqlite"].opt_include}"
       ENV["SQLITE_LIBS"] = "-lsqlite3"
       ENV["BZIP_DIR"] = Formula["bzip2"].opt_prefix
@@ -116,10 +119,9 @@ class Php < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = if OS.mac?
-      "=#{MacOS.sdk_path_if_needed}/usr"
-    else
-      ""
+    headers_path = ""
+    on_macos do
+      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
     end
 
     args = %W[
@@ -190,15 +192,16 @@ class Php < Formula
       --with-zlib
     ]
 
-    if OS.mac?
+    on_macos do
       args << "--enable-dtrace"
       args << "--with-ldap-sasl"
       args << "--with-os-sdkpath=#{MacOS.sdk_path_if_needed}"
-    else
+    end
+    on_linux do
       args << "--disable-dtrace"
+      args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
-      args << "--without-ldap-sasl"
     end
 
     system "./configure", *args
@@ -351,10 +354,11 @@ class Php < Formula
       "Zend OPCache extension not loaded")
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
-    if OS.mac?
+    on_macos do
       assert_includes MachO::Tools.dylibs("#{bin}/php"),
         "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
     end
+
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"

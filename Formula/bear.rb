@@ -3,16 +3,16 @@ class Bear < Formula
 
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/3.0.8.tar.gz"
-  sha256 "663ef2fcf359e1efb20831fae3901a3edbbb906dd0bc5e62af92e353651c5cec"
+  url "https://github.com/rizsotto/Bear/archive/3.0.9.tar.gz"
+  sha256 "bfe63d7b2847560a54060c76b4827f955b8440a8dc8ecfe88928f4e477ab5d2f"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
-    sha256 arm64_big_sur: "49686042c04a454e6aa528f3dcc376e7be802f355be967783720c230a606f653"
-    sha256 big_sur:       "0e7b02bc9abb0ba580436d557da3b3c08d0d0a47bbf814bf2f66f212d475c6c5"
-    sha256 catalina:      "91c662e862fbd2430c52767712f9391605c585680a6af3d0836e8b2caa895f06"
+    sha256 arm64_big_sur: "18abc76e49ec4d6021a0ccd7d24bf17beea6443f9946cf219f1e668cdb83c8ab"
+    sha256 big_sur:       "9ce43d35accad7eff6e37d8771e7f1be9283142b26915b035a770ad3817311ff"
+    sha256 catalina:      "8c036551bc9a7cedb76360a408ab07434b99e4c4f2d49932c9c2c65d927ecd39"
+    sha256 x86_64_linux:  "4f12dc9d19466b1f6d51ca25e7ab2c956537a71ce3494676d94d8a70e7dda4f6"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +24,14 @@ class Bear < Formula
   depends_on "python@3.9"
   depends_on "spdlog"
   depends_on "sqlite"
+
+  uses_from_macos "llvm" => :test
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # needs C++17
 
   def install
     args = std_cmake_args + %w[

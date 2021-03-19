@@ -2,7 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.36.1.tar.gz"
@@ -20,10 +20,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "4694a0e3cf3ce92bc193f1de4bec7fc3f3da821a77b3c3dc62c82702c26815cd"
-    sha256 cellar: :any,                 catalina:     "66115f7be21465192f8cec8e39176e86415f378eec1bd769b1fbf3b2cc10ae73"
-    sha256 cellar: :any,                 mojave:       "9686c1d0c02629fc17f6ae20324e0d89f7e57f3a81dfcd5eec63519b7c860c8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "faae2fd49ff48e238a0559a7d7c46d4b68ad837d2e038cab1a1b4596b4c03e4c"
+    sha256 cellar: :any, big_sur:  "be5cb87069b5e6301a083e2fc48917512044f712652cad8b4ffc3c3930da9f1f"
+    sha256 cellar: :any, catalina: "4d1e9c3f64c471e1e5edd16d80c08a14ada621ace96cb886e45878acb595633b"
+    sha256 cellar: :any, mojave:   "0cff71c7ccd5e060f10b0c5552106dfe8eecdbc3e4d7e44822edd647adae0f4e"
   end
 
   head do
@@ -59,8 +58,9 @@ class Crystal < Formula
   def install
     (buildpath/"boot").install resource("boot")
     ENV.append_path "PATH", "boot/bin"
-    ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].lib
+    ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
     ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
+    ENV.append_path "LLVM_CONFIG", Formula["llvm"].opt_bin/"llvm-config"
 
     # Build crystal
     crystal_build_opts = []

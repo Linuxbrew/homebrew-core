@@ -1,16 +1,16 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/gleam-lang/gleam/archive/v0.14.0.tar.gz"
-  sha256 "2795720f35994710094847990234da8d38e6e43f0810b69c6f45087547d2a4d4"
+  url "https://github.com/gleam-lang/gleam/archive/v0.14.2.tar.gz"
+  sha256 "8fa8b3d7fe07f3cc3f3e143d113b20d51258c3d2a7a151fa28edf3f5bb6bf53d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6aafff30563385ae2c4b05e97542ef1cc480047eae6c0cb0f42a07484fc51352"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b802e6cbd858c87266efb94ed7d7eff99bc21d433346cb8264723a4543591914"
-    sha256 cellar: :any_skip_relocation, catalina:      "13a90656910ed0cb6f31cdad54c5205a758d55ea7ba9d6fde1e20519853d1571"
-    sha256 cellar: :any_skip_relocation, mojave:        "67de10b9c2c3aedcaca4c44bcfb40e289371be4bea9b5ee5d3418c6101d5d89a"
-    sha256                               x86_64_linux:  "6238455fd8392ad038c110f76a860358e6d850cc23ea7024faeca3237a0964e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "446b77dafe2aef5e7609706eace19b713518c9130bac13fd2083972d0013398d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e9290a554bb3b0f6628ea885d984509f4a64b3856ab77964ab708ebaf7cd1aab"
+    sha256 cellar: :any_skip_relocation, catalina:      "6d456b0c4b9827fe53c1a9db21b474013b1d72b237f63eb2df1a71435e9020fb"
+    sha256 cellar: :any_skip_relocation, mojave:        "cd1a741e7030cd6427b6f5531b9aec01a3be66b245f9a4641939fe6820d541d4"
+    sha256                               x86_64_linux:  "6f8867640d9af38a8f77e7100378efc9e2904e454e7fabf8daa975e30c3f8878"
   end
 
   depends_on "rust" => :build

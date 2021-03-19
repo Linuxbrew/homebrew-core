@@ -5,12 +5,13 @@ class Wownero < Formula
       tag:      "v0.9.2.2",
       revision: "0e65b21328f88044009838ed963652effe13b5c4"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c6ae9f113bd94feddb7c7ca1253b63ad4cade092674ab507864b0a29b1e517e7"
-    sha256 cellar: :any, big_sur:       "d07b7be22848eec299611aaca316e9bd7c126b7e46a42ee6e4d2f68686abc2c4"
-    sha256 cellar: :any, catalina:      "97cd807f5bb67417e39369d3e119563610c747e260161ef39b669b9ed96e4ef2"
-    sha256 cellar: :any, mojave:        "35dc49cbba290886b13408ca8721e5821a3008cd68fefe231ecf91f1cd8d8a54"
+    sha256 cellar: :any, arm64_big_sur: "d80890e7ee1eb581b34b03499d02b2448dcedd1f8a1f995328a2c0900d43de9a"
+    sha256 cellar: :any, big_sur:       "9c6e61cdf77def4a409b44b0ca5f7a18f05d761f900dd3ceb3b99b4499d6d245"
+    sha256 cellar: :any, catalina:      "20768518c25c2477ee4719547d763e50286c7bace569e39ad9fb4f2d1d3df971"
+    sha256 cellar: :any, mojave:        "0d5accab8bb0c88ce97f9b215b16c91305474b5d4e6f9fdb73bdf2993a33693e"
   end
 
   depends_on "cmake" => :build

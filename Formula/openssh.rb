@@ -1,12 +1,12 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz"
-  version "8.4p1"
-  sha256 "5a01d22e407eb1c05ba8a8f7c654d388a13e9f226e4ed33bd38748dafa1d2b24"
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.5p1.tar.gz"
+  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.5p1.tar.gz"
+  version "8.5p1"
+  sha256 "f52f3f41d429aa9918e38cf200af225ccdd8e66f052da572870c89737646ec25"
   license "SSH-OpenSSH"
-  revision 2
+  revision 1 unless OS.mac?
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -14,11 +14,11 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "138d45d469062c9b9622b9a962770041921b80fb88f291ec9c778c6409076238"
-    sha256 big_sur:       "291bda7c89dd8086c24a920f3a0ce0d03719f76d8aeecabfc1b6cac44e5a973e"
-    sha256 catalina:      "0eaaea9198eb264ce6c3ac5ddbba1fcfeceafa000f039317d5e746f4408088b5"
-    sha256 mojave:        "eac0ab69709477e02dd8f86142f531a9ced2a34737fd92d6b7d796152b85fcbe"
-    sha256 x86_64_linux:  "6fd494293e3a12aa0b595ba2364de0c6dc391f1c95faf8a90ca785cf0fa685a1"
+    sha256 arm64_big_sur: "512393b02e5939a1f81f45ad968b0cd3602af9ddfecbacb6160bdb46b9d9f2fd"
+    sha256 big_sur:       "072d30cb24b4b9f9fb87096202cb007129a3299d0954cf06216b0b14a40f7d78"
+    sha256 catalina:      "1c6012ada90081236cbb95788c430623787a78ec4ce842d5990a092aa0031249"
+    sha256 mojave:        "d6b021979acbdcd9d803747977d58c9a1d23c906ceea2575b514233380c8a2ad"
+    sha256 x86_64_linux:  "f089adbaa38776bb0a62d31b43fb6a99ff9c11b855fb18e5dc20d14f51a9f8b3"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -30,6 +30,7 @@ class Openssh < Formula
   depends_on "openssl@1.1"
 
   unless OS.mac?
+    depends_on "linux-pam"
     depends_on "libedit"
     depends_on "krb5"
     depends_on "zlib"
@@ -67,11 +68,11 @@ class Openssh < Formula
       --with-ldns
       --with-libedit
       --with-kerberos5
+      --with-pam
       --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
       --with-security-key-builtin
     ]
 
-    args << "--with-pam" if OS.mac?
     args << "--with-privsep-path=#{var}/lib/sshd" unless OS.mac?
 
     system "./configure", *args

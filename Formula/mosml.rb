@@ -8,6 +8,7 @@ class Mosml < Formula
   bottle do
     sha256 arm64_big_sur: "0163ff06ef4997b1ab8eb1e55463475fc78f89ad4dd795d7ff4caeaca932a901"
     sha256 big_sur:       "96fae7154e49e57180eee17d8d90580a0e2d024f2f0b7510cfcc83d59f0449be"
+    sha256 catalina:      "d39293549810bf64ade65bcbcb969abf1c76d0812c2d9e8c2ffd8329d2d2a34b"
     sha256 mojave:        "f1a7484f284f194ece9c3bc25a99b8f38312ff504b207a57337b7de7f4e46755"
     sha256 high_sierra:   "7a888abd233069f837cf9aba4021baa71387a4b720bc53323d40a963433b566a"
     sha256 sierra:        "297c05c55f2784f3b934a2fdb3ec2f91d8b11a06453c8649c1f6562cefdc089e"

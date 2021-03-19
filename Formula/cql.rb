@@ -1,36 +1,31 @@
 class Cql < Formula
   desc "Decentralized SQL database with blockchain features"
   homepage "https://covenantsql.io"
-  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.0.tar.gz"
-  sha256 "fc63d9bc296b037c8a8fd1984bc6e4156d0c73d9948dfa8654a954f904ad1f4a"
+  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.1.tar.gz"
+  sha256 "73abb65106e5045208aa4a7cda56bc7c17ba377557ae47d60dad39a63f9c88a6"
   license "Apache-2.0"
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6446d50149ecd5016e5a2e22f1a912a75743b98e36f032236f2c9bab8a52b67"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f8c84bc3df9fd6eb3252f38ef53af69f2b8e4d6ee4af6c40ddbd1ddb642cf9f3"
-    sha256 cellar: :any_skip_relocation, catalina:      "6910f358939ba05d8db050688abe4d6df42ce12801949e8be7f49743023d572f"
-    sha256 cellar: :any_skip_relocation, mojave:        "dd644eb78e0c68e04fcde376481d12ab7d5a0cfddcd844fe3529d8129fec262b"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "623599aba9f2a656f5ee530dd367b0741b6b1e7a3e564c629adf29b5ef3a290e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b23b0a63a57b44e3d610c5fd7e3a872cc499084cf2ffa42ece22612b35a6a169"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "74a8c72f8d73c53ca3dbfcc443cf4319a9c5b590de766acb53f618063454bafa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cf8e7615d8f5c837efd97b0d5dfc1c0376522fa8823b3d12242470084e82fd81"
+    sha256 cellar: :any_skip_relocation, catalina:      "56b5f1a6ac0916da4bf79ae54ce6be4d5d7fae8d943cc3bab400e66e79cd0aec"
+    sha256 cellar: :any_skip_relocation, mojave:        "100623450a27784a84597f68cc03956ec715a7121cdffbe33d51126bb681392c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8db8d5f075697b27d11e75b721a992e7265f1f0ae34683d8b5cbcaca1db9e0ac"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
     ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
-    mkdir_p "src/github.com/CovenantSQL"
-    ldflags = "-X main.version=v#{version} " \
+
+    ldflags = "-s -w -X main.version=v#{version} " \
       "-X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C " \
       "-X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y"
-    ln_s buildpath, "src/github.com/CovenantSQL/CovenantSQL"
-    system "go", "build", "-tags", "sqlite_omit_load_extension",
-      "-ldflags", ldflags, "-o", "bin/cql", "github.com/CovenantSQL/CovenantSQL/cmd/cql"
-    bin.install "bin/cql"
+    system "go", "build", *std_go_args, "-tags", "sqlite_omit_load_extension",
+      "-ldflags", ldflags, "./cmd/cql"
+
     bash_completion.install "bin/completion/cql-completion.bash"
     zsh_completion.install "bin/completion/_cql"
   end

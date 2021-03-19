@@ -1,18 +1,18 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/3.08.tar.gz"
-  sha256 "05826c104b842bcdd1339b86894cb44c84ac2525ac296689d34b38a14bbba0dd"
+  url "https://github.com/bulletphysics/bullet3/archive/3.09.tar.gz"
+  sha256 "f2feef9322329c0571d9066fede2db0ede92b19f7f7fdf54def3b4651f02af03"
   license "Zlib"
-  revision 2
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
-    sha256 arm64_big_sur: "a5a64a05831e6387debb1f54dbfa9609478444e131562f5a5f7be09fbd434b33"
-    sha256 big_sur:       "cbf1daed6725c676797fb40910049ffcff8e2c28f52614f9da5392585c4b07ef"
-    sha256 catalina:      "8beddcd17b7277b00526201a97d1057fe9881ce62a9a60faf4b73dcc054393fd"
-    sha256 mojave:        "c11bec4ded6cac76461e6f8ae18342770a812c3bc5d5e574924b0840a35a9e14"
-    sha256 x86_64_linux:  "b82e64665ac0945c5e6f761f0d61bf420fd6b7999daee45d407b67d3162bc182"
+    rebuild 1
+    sha256                               arm64_big_sur: "1aaa38aecfc0d31a795175c22a7bf906c30e79226a72b7d10a3cb14a60f496a5"
+    sha256                               big_sur:       "d48eafeb3a22111a1269f0ba5cd8be8a9a6f9076561595358a04f7c03ffe37f5"
+    sha256                               catalina:      "58ea37e74322edadcfbf673f463e543db10bb2eabdd71743c8420e95441bd1e9"
+    sha256                               mojave:        "58a5289bd9672d3a6f0ad7c586f8465f91fd64fb15164841fd48758889982d36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6801c97c307e0ccf61a2d2918dcaec9e7397a8614a8ca733fe8a8da920b47c86"
   end
 
   depends_on "cmake" => :build
@@ -51,10 +51,9 @@ class Bullet < Formula
       }
     EOS
 
-    cxx_lib = if OS.mac?
-      "-lc++"
-    else
-      "-lstdc++"
+    cxx_lib = "-lc++"
+    on_linux do
+      cxx_lib = "-lstdc++"
     end
 
     system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",

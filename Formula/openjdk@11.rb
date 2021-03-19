@@ -1,17 +1,16 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.9-ga.tar.bz2"
-  sha256 "0f35778a120da24dff1f752d128029d87448777a6ab9401c7cf5bc875f127d80"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.10-ga.tar.bz2"
+  sha256 "d77a4fa45358f61dea0dbf504f513915c35e71a648b5ddfaad062ac5649589ad"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0257d7e29927678e60372f6d34153f9efb9e28d0d9eac7d80cddac131c6129a9"
-    sha256 cellar: :any, big_sur:       "610ed0bd964812cdce0f6e1a4b8c06fd867861c72be7ebff9f674362ba48b7b9"
-    sha256 cellar: :any, catalina:      "c640eade77c3ad69fef4d66872bbccc2e8782fcd5beee84ecb6c5b7dbb28081b"
-    sha256 cellar: :any, mojave:        "facf3c10d2f0183c5f55c2e7aad5bc9ad28da3979712a7fee342bb00b5dbdd5a"
-    sha256 cellar: :any, high_sierra:   "4e92d71376b9e07198245e434ba86c8caa95521f6dcec8454c726cec5a16c0d1"
-    sha256 cellar: :any, x86_64_linux:  "e1a14bdfbc860b807e98d7da65732c5315c24ec3b7a1c4dc6dcf77c303535cf3"
+    sha256 cellar: :any,                 arm64_big_sur: "cf3697acc905957c78e2255bea96bd807c29329a8d5dd4cd22603585875c7c8f"
+    sha256 cellar: :any,                 big_sur:       "327ca0eb47ef48009be2f97b5ad7756ee856d7673d39b9c601715e0f8450686c"
+    sha256 cellar: :any,                 catalina:      "6dd0a8c323dd861d68d43b6cce0f860225c86ebc6dd583403834b306fbaf1456"
+    sha256 cellar: :any,                 mojave:        "c5712586d99e91ce98b7375c71b71138e32e9c89559aa42298c087046a47af79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e03050310beea348d0694d9f492d08199c07bb6a477e085ccccafef4be02b71"
   end
 
   keg_only :versioned_formula
@@ -58,23 +57,12 @@ class OpenjdkAT11 < Formula
   if Hardware::CPU.arm?
     # Patch for Apple Silicon support
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/906561d5/openjdk%4011/aarch64.diff"
-      sha256 "67fbb8622df80e0ee86d6511fb07981f9c0288b9e75c4625b93add394828d658"
-    end
-  else
-    # Fix build on Xcode 12
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2087f9d0/openjdk%4011/xcode12.diff"
-      sha256 "d995c4bd49fc41ff47c4dab6f83b79b4e639c423040b7340ea13db743dfced70"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6e757d7b/openjdk%4011/aarch64.diff"
+      sha256 "4425b53eac3cc1a3531972f8b4982ba8dc87d6bc763cfcd19b6cab1cbaa9e6ca"
     end
   end
 
   def install
-    framework_path = File.expand_path(
-      "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-      MacOS::Xcode.prefix,
-    )
-
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = OS.mac? ? boot_jdk_dir/"Contents/Home" : boot_jdk_dir
@@ -110,6 +98,10 @@ class OpenjdkAT11 < Formula
     ]
 
     if OS.mac? && Hardware::CPU.arm?
+      framework_path = File.expand_path(
+        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
+        MacOS::Xcode.prefix,
+      )
       args += %W[
         --disable-warnings-as-errors
         --openjdk-target=aarch64-apple-darwin
@@ -118,12 +110,11 @@ class OpenjdkAT11 < Formula
         --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}\ -headerpad_max_install_names
         --with-extra-cxxflags=-arch\ arm64
       ]
-    else
-      args << "--with-extra-ldflags=-headerpad_max_install_names"
     end
 
     if OS.mac?
       args << "--with-sysroot=#{MacOS.sdk_path}"
+      args << "--with-extra-ldflags=-headerpad_max_install_names"
     else
       args << "--with-x=#{HOMEBREW_PREFIX}"
       args << "--with-cups=#{HOMEBREW_PREFIX}"

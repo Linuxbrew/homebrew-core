@@ -1,22 +1,23 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-21.02.0.tar.xz"
-  sha256 "5c14759c99891e6e472aced6d5f0ff1dacf85d80cd9026d365c55c653edf792c"
+  url "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz"
+  sha256 "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.freedesktop.org/poppler/poppler.git"
 
   livecheck do
     url :homepage
-    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "fc608407a5bb6842002759fafd627485001e056f575a934e403642e86e281f8b"
-    sha256 big_sur:       "750ea840ad93f806f925e868b2e7065b6999fcfac1cbb9191e7ba3429a55d8c6"
-    sha256 catalina:      "1ed13769d2e34240060dce5e8c3000ceefb9ad295005932199735f6fdfadf6c7"
-    sha256 mojave:        "50dabafcb046a59fce3a83942fb1f319ba0870a1e50a3b44dda2a9f6964b2b68"
-    sha256 x86_64_linux:  "4b698a6734ffb33feca8440a3a47bd770302195d2cf2d6502f6eaa576ad653fe"
+    sha256 arm64_big_sur: "90b6ef0d795977a282db75c4a5caed550d16f88ef41d6e290b3ede2d10e25d0e"
+    sha256 big_sur:       "437360eb64c1bbbe8b403f9a89d8bbbb46daeb5c9e3e94315efbc74605c0eac0"
+    sha256 catalina:      "551f5398999e8de473adaf26e9cba9a07871cfe3f488778cae3cdaffd25ba7db"
+    sha256 mojave:        "d672b3810ad4f8ef2fef83ac3ab9b28e6ea9487090a0f5796579c90aba5ee156"
+    sha256 x86_64_linux:  "63e39b59571d751fdaf7fbb945679bc1cfb3467ba2a5e4a13c3edaf1dbe19f43"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +34,7 @@ class Poppler < Formula
   depends_on "little-cms2"
   depends_on "nss"
   depends_on "openjpeg"
-  depends_on "qt"
+  depends_on "qt@5"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "curl"
@@ -54,6 +55,7 @@ class Poppler < Formula
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
       -DENABLE_QT5=ON
+      -DENABLE_QT6=OFF
       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
     ]

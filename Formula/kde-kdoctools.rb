@@ -9,13 +9,14 @@ class KdeKdoctools < Formula
     "LGPL-2.1-or-later",
     any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/kdoctools.git"
 
   bottle do
-    sha256 arm64_big_sur: "55bb3dcdc5c1919905d0b59e123a700fba3b1019318b10fb42c12e532d5e435b"
-    sha256 big_sur:       "bbaea2a1c9dc2797433cf2a827de608e66abb70537ebaeb8cee436ccdbd733c7"
-    sha256 catalina:      "79fc1a1fbed8b2307c1a27ddbdabfb6d898aa15f518c01509c6c40e72686a006"
-    sha256 mojave:        "c61bbfec5fffbaf9d85cfb48a2059165606b7a0d9aff1d234f99c9adf1bb22d3"
+    sha256 arm64_big_sur: "a0dda5a815bee9fb1dda9d0ff3e7403bd98f3829b4d212d8530da3759ae3c324"
+    sha256 big_sur:       "1a0d37dccc89e6cb718310025b98dffb8f17f968eb3990d068dd84732516a86a"
+    sha256 catalina:      "8392330a5b273dece3886f0bb7e2b4fe1c2a02ca61d00822127335c51d8072b0"
+    sha256 mojave:        "7e07c4f0dcae593a2a8aec84484360c581d8a244aea39660075f4c30a3362175"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -95,7 +96,7 @@ class KdeKdoctools < Formula
     cp_r (pkgshare/"tests"), testpath
 
     args = std_cmake_args
-    args << "-DQt5_DIR=#{Formula["qt"].opt_prefix/"lib/cmake/Qt5"}"
+    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
 
     system "cmake", testpath.to_s, *args
     system "make"

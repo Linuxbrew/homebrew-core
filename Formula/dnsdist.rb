@@ -3,17 +3,17 @@ class Dnsdist < Formula
   homepage "https://www.dnsdist.org/"
   url "https://downloads.powerdns.com/releases/dnsdist-1.5.1.tar.bz2"
   sha256 "cae759729a87703f4d09b0ed4227cb224aaaa252fa92f2432fd7116f560afbf1"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
-    regex(/href=.*?dnsdist[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?dnsdist[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 big_sur:  "85f26051fea25986ed2510c18ab9dcc29178c7a6acc4cdd01aa2fc3bf086c88a"
-    sha256 catalina: "61ec7c2d3aa37965c54474ba50f739658679d2dac84e46854e0ca6fbdf9b0058"
-    sha256 mojave:   "821cb52f93b00d1f596e40a9d905f2d7a01fbd26e44bbf48299b5123ed5bc7d6"
+    sha256 big_sur:  "ef12915caa3f88bc4b708380a64f59a21b846f4afefd4f591099f9ffb00cfbc5"
+    sha256 catalina: "b40f11519d2aeafb2d2d13730f07c037f919f42261c8eecc88d46ac7ecb44d74"
+    sha256 mojave:   "c48197fc0bb31f5967c2a8f9c37833abf567ea1ff3764cd334c0936e49430354"
   end
 
   depends_on "boost" => :build

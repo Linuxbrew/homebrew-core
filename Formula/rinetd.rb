@@ -1,8 +1,8 @@
 class Rinetd < Formula
   desc "Internet TCP redirection server"
   homepage "https://github.com/samhocevar/rinetd"
-  url "https://github.com/samhocevar/rinetd/releases/download/v0.70/rinetd-0.70.tar.bz2"
-  sha256 "cefe9115c57fe5ec98d735f6421f30c461192e345a46ef644857b11fa6c5fccb"
+  url "https://github.com/samhocevar/rinetd/releases/download/v0.73/rinetd-0.73.tar.bz2"
+  sha256 "24dd6ec1c4d353c33ced775a37566af9565b27e65f3e59939a8b2913a92c81d2"
   license "GPL-2.0-or-later"
   # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
   #       Debian tracks the "samhocevar" fork so we follow suit
@@ -14,12 +14,11 @@ class Rinetd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "d5e98fb2a9a9d85a92e5efb8dfed1e64f38a97c2c0e0de7c86cca30e1ad6ba70"
-    sha256 big_sur:       "3b5b6e687790fd0d6167cf42ce89baeb895acb4a66b1bf8451cfe5e46bb45e0a"
-    sha256 catalina:      "530373c4f2c88c0ddf3463733fba78776d22f7640d952db496104147d55d2275"
-    sha256 mojave:        "bdac7c623c5c49367b11a16dea5661f99fd5130fbea10973cc15842a1284d1b1"
-    sha256 x86_64_linux:  "30276267fb92e9e1aa2935c7e5348934328a0f8755cb8b3b7c4ea648a040133f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4f668d5feb5299fa1de94c4b0335ab3e36b5ac1238ccb4519cff25be103dea5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b73d5f5a82ad3371107eab67403b888e7e9e6f19f3c99909c8c72401a680c396"
+    sha256 cellar: :any_skip_relocation, catalina:      "f2f6a19fcfc01cfde67148410a6bcf81c861fb373e860210e32294cb9df4fbcc"
+    sha256 cellar: :any_skip_relocation, mojave:        "6a6f22a6081ac2dff01ca89a256a21c991a6f2171f2703b08e2acbd0d8c177a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7695baf654fb99a7a9244d995aec108cd4494dd71a2b6927bad2d11bcc2e15ca"
   end
 
   def install
@@ -28,7 +27,7 @@ class Rinetd < Formula
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{share}", "ac_cv_func_daemon=no"
 
     # Point hardcoded runtime paths inside of our prefix
-    inreplace "rinetd.h" do |s|
+    inreplace "src/rinetd.h" do |s|
       s.gsub! "/etc/rinetd.conf", "#{etc}/rinetd.conf"
       s.gsub! "/var/run/rinetd.pid", "#{var}/run/rinetd.pid"
     end

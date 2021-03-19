@@ -1,8 +1,8 @@
 class Jack < Formula
   desc "Audio Connection Kit"
   homepage "https://jackaudio.org/"
-  url "https://github.com/jackaudio/jack2/archive/v1.9.16.tar.gz"
-  sha256 "e176d04de94dcaa3f9d32ca1825091e1b938783a78c84e7466abd06af7637d37"
+  url "https://github.com/jackaudio/jack2/archive/v1.9.17.tar.gz"
+  sha256 "38f674bbc57852a8eb3d9faa1f96a0912d26f7d5df14c11005ad499c8ae352f2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,9 +11,10 @@ class Jack < Formula
   end
 
   bottle do
-    sha256 big_sur:  "8700de5add46350491add58d820108aabb5ab18545a4fab4fa20b2f05287e9ef"
-    sha256 catalina: "0c30bbc478e9305530f69fee884640dee62e5613c997dca8c99e736d8c943899"
-    sha256 mojave:   "dc531389d6a167fc2caa078f480272f8048bbf5d85ff4f46c299a42456661360"
+    sha256 arm64_big_sur: "30c242528a4d4995027685b6a9dbe0ef588101d8a77449f8b4d0efc11fda4fe0"
+    sha256 big_sur:       "63d190108f0d1265b3e2fa25118bbe1c993dbbf4922fff9d04d6ee1d786eb4bd"
+    sha256 catalina:      "526aa853b3738080f6710f957cb213e0ba313f6045270e08ffef775ddea30c3a"
+    sha256 mojave:        "8f3a34b8bb3406174b1c1e2d5f377ec85dec41372f3c772dac4abbde80d18a92"
   end
 
   depends_on "autoconf" => :build

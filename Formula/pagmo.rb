@@ -1,17 +1,15 @@
 class Pagmo < Formula
   desc "Scientific library for massively parallel optimization"
   homepage "https://esa.github.io/pagmo2/"
-  url "https://github.com/esa/pagmo2/archive/v2.16.1.tar.gz"
-  sha256 "45f2039f2198b6edadf81bdefb10a228f9dd087940c1f1ab1882098f16581df0"
+  url "https://github.com/esa/pagmo2/archive/v2.17.0.tar.gz"
+  sha256 "1b95b036f75e6fa0b21082ab228dbd63cd18ca10d9622ac53629245e0f95c35c"
   license any_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "bf27aed3a9f892343ebeb31cfca753d879e48bde543061bf37c97c909e48b2c2"
-    sha256 cellar: :any, big_sur:       "8009cffe1dd0a125dd4fa338c5436cfa7cd877ee4674635e9d6ad231eb23ed5b"
-    sha256 cellar: :any, catalina:      "d460dab7110318ff0b0a14239fe4074e3228c1e9047cdc8e94bec6bd4a95c6ea"
-    sha256 cellar: :any, mojave:        "1873261e4aff30f93c92fa0324de35b58dfd7d58f92ecd44cef4bc329dd6de27"
-    sha256 cellar: :any, x86_64_linux:  "e5fa31e2a03ea3e8dc2b50b9e99d04df0de5319bb53a5aaeee8b41033daba7dc"
+    sha256 cellar: :any, arm64_big_sur: "4153aa315f2174b1228b4646dbe18711b2a274704e8b9b58cd855f32142c78a2"
+    sha256 cellar: :any, big_sur:       "77cebfa5caa6276de184eb32922c673b6437c1653324bcbdef854a2fec4c917d"
+    sha256 cellar: :any, catalina:      "98e39c1e554b73519443529099df2b1e93cb3e0b755a814be45e8490cc7a739f"
+    sha256 cellar: :any, mojave:        "54089fee37bb382596312ed8664bbc5764c18d925ea75e56351caecdfe2916bd"
   end
 
   depends_on "cmake" => :build

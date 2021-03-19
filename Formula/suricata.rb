@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-6.0.1.tar.gz"
-  sha256 "e7a1798fe59c1d213f752feefbf8bb54168f9fa56235cf3380347c696ecdb1ae"
+  url "https://www.openinfosecfoundation.org/download/suricata-6.0.2.tar.gz"
+  sha256 "5e4647a07cb31b5d6d0049972a45375c137de908a964a44e2d6d231fa3ad4b52"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,11 +11,11 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6befcabe08c389432b3c85b21fce1807b4738777ca887a55973a10cfcb89ef14"
-    sha256 big_sur:       "cd52148789f69cc1a7de96263331bb83bfef1d1700b1f4ae0b4b30713126c9c7"
-    sha256 catalina:      "3cebeba7f69d0a43cfc8198158418ef3b5b059dc7095705a111451b386378ec1"
-    sha256 mojave:        "c12d4452106bb1a388dc7785117f052dba38a162b9c2df973d1286c37e05ab51"
-    sha256 x86_64_linux:  "0e7c7cd40c401f48da7191d73e2c39112c68c434060025f63247f8a6b599263a"
+    sha256 arm64_big_sur: "c33d9b4e2bf3ea8c1f1d5c6d9020142f6d7da3b60fcc51b7a49f16a92cf060bc"
+    sha256 big_sur:       "5751c86e66e385b9922f3e4eb0761df733ab00d1603c62e4534786e53e266634"
+    sha256 catalina:      "5fdfcd49565c97630df59a4c02f2f5c93ee0a65265d04024f2db9d265539c164"
+    sha256 mojave:        "a4c47459e160033762a12c8d613b70c3028e089e6e12db4cf3b03a10008b88f2"
+    sha256 x86_64_linux:  "455777d6ad6cc49441f22414450fc13745946581a1bafb60643047a76c7b7643"
   end
 
   depends_on "pkg-config" => :build
@@ -38,13 +38,13 @@ class Suricata < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/98/87/a7b98aa9256c8843f92878966dc3d8d914c14aad97e2c5ce4798d5743e07/simplejson-3.17.0.tar.gz"
-    sha256 "2b4b2b738b3b99819a17feaf118265d0753d5536049ea570b3c43b51c4701e81"
+    url "https://files.pythonhosted.org/packages/49/45/a16db4f0fa383aaf0676fb7e3c660304fe390415c243f41a77c7f917d59b/simplejson-3.17.2.tar.gz"
+    sha256 "75ecc79f26d99222a084fbdd1ce5aad3ac3a8bd535cd9059528452da38b68841"
   end
 
   def install

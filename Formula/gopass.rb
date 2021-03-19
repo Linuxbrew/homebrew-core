@@ -1,17 +1,18 @@
 class Gopass < Formula
   desc "Slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://github.com/gopasspw/gopass"
-  url "https://github.com/gopasspw/gopass/releases/download/v1.12.0/gopass-1.12.0.tar.gz"
-  sha256 "6208b32a7000eda3b2b4f7f11ddcb913253937e94764f79253dd76860ea57930"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.12.2/gopass-1.12.2.tar.gz"
+  sha256 "b4254ecbc14b62a68e1e98c99d08d53c50a5b5b15b8b5b592266a6d581c93f13"
   license "MIT"
+  revision 1
   head "https://github.com/gopasspw/gopass.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86b0b5cddcb25dd6be8e1a65de8aa6af1086d90746ced2f79e4a48eb36fbdf2d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "19afe4d3420e63828d826f7e94e9f26c5443dcced190eb2686c4069f4482fd59"
-    sha256 cellar: :any_skip_relocation, catalina:      "6c35471aa4ef7184ba97f04823cf93be21e9de80516a45dfadf31f2d54d65ca9"
-    sha256 cellar: :any_skip_relocation, mojave:        "9434fa19e3b85cb63c9a3391e51baf351d1cc8196b583ee3896df5084d762709"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5844b0cf8ba8eae45234f7da154856c4b729a1daf7394e7cc993d6ded5b0e578"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a794e1e56b2484bfdaf6e6c42f579671c5c31a73e000f2939aa6de37d76cae19"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6faa320d4c952d77c4414ce234bb26acfb211ab8852e45f220d07f15ab47662e"
+    sha256 cellar: :any_skip_relocation, catalina:      "97fea77ce366596bba1b07ba953253622fb71d4346f231238f55e216436b6320"
+    sha256 cellar: :any_skip_relocation, mojave:        "e74cf2edab933d91032ec2e8afdf1bc5a34373815ea3281abe00083322ce1150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd20ae910fdba099210170202211dbe99ca05b21bfb2d57f8433e6058f5a517c"
   end
 
   depends_on "go" => :build
@@ -22,9 +23,7 @@ class Gopass < Formula
   end
 
   def install
-    ENV["GOBIN"] = bin
-
-    system "go", "install", "-ldflags", "-s -w -X main.version=#{version}", "./..."
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", *std_go_args
 
     output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/gopass", "completion", "bash")
     (bash_completion/"gopass").write output

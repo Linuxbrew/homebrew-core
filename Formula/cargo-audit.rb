@@ -1,16 +1,16 @@
 class CargoAudit < Formula
   desc "Audit Cargo.lock files for crates with security vulnerabilities"
   homepage "https://rustsec.org/"
-  url "https://github.com/RustSec/cargo-audit/archive/v0.13.1.tar.gz"
-  sha256 "f0e6e93f63ff1cef96170270e5f828b5d87f674d1dbab10a6a9849dc08b3406a"
+  url "https://github.com/RustSec/cargo-audit/archive/v0.14.0.tar.gz"
+  sha256 "bd2ecab6ff03fb11496cd0e7389273991b7d14d19bbdd76847126cb28079519e"
   license "Apache-2.0"
   head "https://github.com/RustSec/cargo-audit.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2ee3fc5de64df2f639b9b8ced769417945789a15a6826886e3f7ce6c11451d1c"
-    sha256 cellar: :any, big_sur:       "cc3a589e9754896c184a212e8bfcf2017332299b5769fe0256bbbe791f481258"
-    sha256 cellar: :any, catalina:      "ed44448e1d7317cb0cc01cb728065d60b821efa8f2921f4b375793971c6c3aab"
-    sha256 cellar: :any, mojave:        "f9f90aa44066dd6591294f78309bed08e88fd88aa3f5d5fcc63b1d0fbc77de2d"
+    sha256 cellar: :any, arm64_big_sur: "94a00879936962e670f0368b378b10ed0f463d290b0e6d86a74c5b01cf6d1bc5"
+    sha256 cellar: :any, big_sur:       "e22d5081a6b6bf512c5b1486ac6d7cab6f49fce8da27e3bdb9b9bba7d812cf3a"
+    sha256 cellar: :any, catalina:      "b5630a5dc10e0b1bd98274c91fc4cd8c2ccca002b0ed5eca2f72c7b5b65d356b"
+    sha256 cellar: :any, mojave:        "68c918a7951990e869829f6d80421aa12968da30e9d93ba1569a6a012b2290ee"
   end
 
   depends_on "rust" => :build

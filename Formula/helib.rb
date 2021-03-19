@@ -1,15 +1,15 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v2.0.0.tar.gz"
-  sha256 "4e371807fe052ca27dce708ea302495a8dae8d1196e16e86df424fb5b0e40524"
+  url "https://github.com/homenc/HElib/archive/v2.1.0.tar.gz"
+  sha256 "641af0f602cfc7f5f5b1cfde0652252def2dfaf5f7962c2595cf598663637951"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9ce026c3f27f43a2a83add1321b376fd5a5f058f3c727487b974e6a52ed4219f"
-    sha256 cellar: :any, big_sur:       "be618fac7a91399ea6639c6854d79409d03b602c81252d20fd3c58ad8783af60"
-    sha256 cellar: :any, catalina:      "f1d09887bf3f3ec3d99d69f3b88bade395061e0663252fc688cee9ed7ec0a583"
-    sha256 cellar: :any, mojave:        "0bbf1b2dbe1998ae2d9c27b14bc73ab81fc90c2b910320adb3ec416b92603fc0"
+    sha256 cellar: :any, arm64_big_sur: "f2b559e89169fe6c8f23b56ad688c1724d91e3c90f78d9d438a4d3a426cbd80b"
+    sha256 cellar: :any, big_sur:       "7b2ee7e1e1d7039d8beeaa65779600015432bfab192d6800b13aafb87dcc7e36"
+    sha256 cellar: :any, catalina:      "407acf9d3b8c3a9fdff58c1fd25ab37db3a415c9858497c6027dfaab750b053f"
+    sha256 cellar: :any, mojave:        "d471cba32715cf99e874200faba41d400df7fea5c8943e10466a468a6b97afd3"
   end
 
   depends_on "cmake" => :build

@@ -9,14 +9,21 @@ class Vcpkg < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "9dcff0e796b3e9b34dd365e79e114a862bc297b289a64703698badf5a9b84cac"
-    sha256 cellar: :any, big_sur:       "b0eeafb5709891c77ab0b05e8b6ce6977b72d30651869dfba98f6b501048fbc3"
-    sha256 cellar: :any, catalina:      "37195113f690360e2e6efd0f4657f5b0e60f4a65e2c37ee25558bf8488d1aeb8"
-    sha256 cellar: :any, mojave:        "f1c8ef840126a72be1ed20a9f032bcfe25fdf4c30f3adb1da0e0905d7075a8d7"
+    sha256 cellar: :any,                 arm64_big_sur: "9dcff0e796b3e9b34dd365e79e114a862bc297b289a64703698badf5a9b84cac"
+    sha256 cellar: :any,                 big_sur:       "b0eeafb5709891c77ab0b05e8b6ce6977b72d30651869dfba98f6b501048fbc3"
+    sha256 cellar: :any,                 catalina:      "37195113f690360e2e6efd0f4657f5b0e60f4a65e2c37ee25558bf8488d1aeb8"
+    sha256 cellar: :any,                 mojave:        "f1c8ef840126a72be1ed20a9f032bcfe25fdf4c30f3adb1da0e0905d7075a8d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5f155a4c82dbbff813885b7dc54dd9f50ae00d1d1cd78d7ad738a9393e758e6"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+
+  on_linux do
+    depends_on "gcc" # for C++17
+  end
+
+  fails_with gcc: "5"
 
   if MacOS.version <= :mojave
     depends_on "gcc"

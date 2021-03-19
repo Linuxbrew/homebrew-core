@@ -17,6 +17,8 @@ class ApacheForrest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f256d7ab9229ee3d56602947b73d30c37502a7c464991700efbd635354e71fb2"
   end
 
+  deprecate! date: "2020-02-01", because: :unmaintained
+
   depends_on "openjdk"
 
   resource "deps" do

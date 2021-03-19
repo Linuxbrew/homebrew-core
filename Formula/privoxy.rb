@@ -1,8 +1,8 @@
 class Privoxy < Formula
   desc "Advanced filtering web proxy"
   homepage "https://www.privoxy.org/"
-  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.31%20%28stable%29/privoxy-3.0.31-stable-src.tar.gz"
-  sha256 "077729a3aac79222a4e8d88a650d9028d16fd4b0d6038da8f5f5e47120d004eb"
+  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.32%20%28stable%29/privoxy-3.0.32-stable-src.tar.gz"
+  sha256 "c61de4008c62445ec18f1f270407cbf2372eaba93beaccdc9e3238bb2defeed7"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,10 @@ class Privoxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "26375f4695b7de343616d8a4e74eaf62364fc5265f042b58e3d78506fa574d46"
-    sha256 cellar: :any, big_sur:       "22e5729f36297a65e826faec2f245eb4ffe2b7401e5f736a0bcc8522b1bc4791"
-    sha256 cellar: :any, catalina:      "d61dad8ae192fa981aeccf3eb8f10a832db93c34adaaca5f5d8f94d3f2a623d2"
-    sha256 cellar: :any, mojave:        "9803ca1f6e13b3d0b7ae9070c84853b94e12da9491f4019e1ecd514bef844051"
+    sha256 cellar: :any, arm64_big_sur: "c30372261661ab924bd6e3df9c86804d188dd130d0810e55e81aaa3431f924df"
+    sha256 cellar: :any, big_sur:       "2edd70c7227801bd01df3b6ee756802daa63d8567c3d7d79bceb80233f18bbff"
+    sha256 cellar: :any, catalina:      "b6b4b6fb269021a16685b7ee407ff8384699cf05910d3afbfac191afd6f1e588"
+    sha256 cellar: :any, mojave:        "d7302bde6de73110eff0a8e86554414641d7a2eac7ebe4aff54956f7609acc5b"
   end
 
   depends_on "autoconf" => :build
@@ -73,7 +73,8 @@ class Privoxy < Formula
     begin
       server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")
       sleep 1
-      assert_match "200 OK", shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
+      assert_match "HTTP/1.1 200 Connection established",
+                   shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
     ensure
       Process.kill("SIGINT", server.pid)
       Process.wait(server.pid)

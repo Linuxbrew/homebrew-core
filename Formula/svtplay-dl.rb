@@ -3,15 +3,16 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/54/1f/fc757bf1035840e6a861cafe2e2296875437d20a62fd583e33f716d7f1f0/svtplay-dl-3.1.tar.gz"
-  sha256 "27381b0c26771b97e095bb84354539205c1005ba1cbe7cd68f82d2db1e17bc44"
+  url "https://files.pythonhosted.org/packages/59/9f/ad5dac119070167444b3b6103bc0a42860aed74da14312a9b8d8471f6ea6/svtplay-dl-3.3.tar.gz"
+  sha256 "c51beef374410eabb205751f30cae2711d42959cced1bd733956c245ca6d422b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "076b9f0dd7389b5290de39da4550deb7c4084889fcfdaece02dff1a12c6bdc17"
-    sha256 cellar: :any, big_sur:       "b456d3278ff98949991af3c4cd1327ad36830c03dd8f5eb6ff0db56bfd1ebc49"
-    sha256 cellar: :any, catalina:      "3cf118cb80818cb0c3f1f5bd5f1b2738d9724474fcf49b978a54f08916389c82"
-    sha256 cellar: :any, mojave:        "52ff16bcb914b76f1ab4e595dac58fc61adceac8abb15d76680696ccfb2e831e"
+    sha256 cellar: :any,                 arm64_big_sur: "4baacce4f6eb171f8cdbe6c82a87c6d94a1794af9cfb20f3a2c1d3f053abbeaf"
+    sha256 cellar: :any,                 big_sur:       "1e2d17f606d8b5bde54e199243b64754c032f3da08bb34b14e4e84255378b907"
+    sha256 cellar: :any,                 catalina:      "49adf26c75ff2fde63adb1e12a86f7a6bf3b120546887edc8c602e41739efdc4"
+    sha256 cellar: :any,                 mojave:        "e5ebc45ff86034a99bae7ca93507071e2db34ac9a3dccb5b6fa46ae896c1a503"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03443c31b491965e5df59dc408e3768e50d242e3d51fcddbedd03cc51f5197c9"
   end
 
   depends_on "rust" => :build
@@ -64,8 +65,8 @@ class SvtplayDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

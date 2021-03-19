@@ -1,15 +1,15 @@
 class Vroom < Formula
   desc "Vehicle Routing Open-Source Optimization Machine"
   homepage "http://vroom-project.org/"
-  url "https://github.com/VROOM-Project/vroom/archive/v1.8.0.tar.gz"
-  sha256 "7f339e1e0ed6c81c02dd78e10d36db5ec09f404b45731b5fc80ed4036634c67a"
+  url "https://github.com/VROOM-Project/vroom/archive/v1.9.0.tar.gz"
+  sha256 "bd0a0d42e1729bc25527091a523d2f59eb077fb4b7629f2796b057c2c9e30b74"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3647c26358309daf1436651727d47fbf230892e1dee393d8808a4af0f7fb79b9"
-    sha256 cellar: :any, big_sur:       "0a8877fa647cc6998ec8ae81d39245b849805d0fe0d77e27456ba77da786f851"
-    sha256 cellar: :any, catalina:      "afa201989a1bd34ddf8dc96379bffe303eaa855a05dbbae570f44974bf5bf7e6"
-    sha256 cellar: :any, mojave:        "9ac415735021d7f3dd94247d0c9a8c7cfe2f4b1d1ec0ea1950663db92d70ff19"
+    sha256 cellar: :any, arm64_big_sur: "0317ceb98a3b73d216fd32410d8a55c7dbbb36a97ae84986440156848c1fb0c6"
+    sha256 cellar: :any, big_sur:       "ae81eeaeb51ed32b5a3ba989672f558f5b9fd95c3e16d2d9c215d1441c358124"
+    sha256 cellar: :any, catalina:      "4aba418dd64da25ec0164e6e702279ebce32a8f38f6e35321baa48a203a26ea5"
+    sha256 cellar: :any, mojave:        "10564e6caa19a27c671ed27d077733b8aee338a81d75bab37573c7020928981f"
   end
 
   depends_on "pkg-config" => :build

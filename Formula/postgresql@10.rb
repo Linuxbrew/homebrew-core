@@ -4,18 +4,19 @@ class PostgresqlAT10 < Formula
   url "https://ftp.postgresql.org/pub/source/v10.16/postgresql-10.16.tar.bz2"
   sha256 "a35c718b1b6690e01c69626d467edb933784f8d1d6741e21fe6cce0738467bb3"
   license "PostgreSQL"
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(10(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=["']?v?(10(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "c3936794a976c632110223dcaf4d18733e1bad8f68178581c2210a40dd217158"
-    sha256 big_sur:       "7c5a2358ebda9e4ce8ea6d6f2a80f4f4d64136af98d8e388d038194e69d9c267"
-    sha256 catalina:      "2b6c37259ccb35880dc138260023b30d73585108135d68a61c8b2cacd36d50e9"
-    sha256 mojave:        "2a05818fd3612e813745a8f7a45351f5a4829e5333825a6d2ca0f02b758841ea"
-    sha256 x86_64_linux:  "69e8142456a2195a0fb5061ca27c52a9e80ea38f24cb7922568246745bf551ec"
+    sha256 arm64_big_sur: "2394c47aefba56aa92284f393dde0f15d1b7ff526dd3e95a6b66d02d1b7fd0a3"
+    sha256 big_sur:       "569467a10dc757df4379d04c9cd04faa7c8e410a8b8235a2fc4e35e5dfe5df36"
+    sha256 catalina:      "4514036606239ca6ee8f80f732883507450b0b39412c3d4c0fc0f00826650263"
+    sha256 mojave:        "79b03ea9605950cbc9fd2495669d4745557f532dd3f98b8f3956f2b8786d1a15"
+    sha256 x86_64_linux:  "0f4dafac0cf589e4fbd571db32601a87298ff4c5a56839d642b356f276ff1fd6"
   end
 
   keg_only :versioned_formula
@@ -28,11 +29,25 @@ class PostgresqlAT10 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  unless OS.mac?
+    depends_on "krb5"
+    depends_on "linux-pam"
+    depends_on "openldap"
+  end
+
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
   on_linux do
     depends_on "util-linux"
+  end
+
+  # Patch for `error: conflicting types for 'DefineCollation'`
+  # when built against icu4c 68.2. Adapted from
+  # https://svnweb.freebsd.org/ports/head/databases/postgresql10-server/files/patch-icu68?revision=553940&view=co
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a28787a7f9b4a33cf5036379236e5a57a36282bc/postgresql%4010/icu4c68-2.patch"
+    sha256 "8d625f31f176c256a9b8b5763e751091472d9f8a57e12bb7324c990777cf674c"
   end
 
   def install
@@ -47,19 +62,19 @@ class PostgresqlAT10 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
+      --with-gssapi
       --with-icu
+      --with-ldap
       --with-libxml
       --with-libxslt
       --with-openssl
+      --with-pam
       --with-perl
       --with-uuid=e2fs
     ]
     if OS.mac?
       args += %w[
         --with-bonjour
-        --with-gssapi
-        --with-ldap
-        --with-pam
         --with-tcl
       ]
     end

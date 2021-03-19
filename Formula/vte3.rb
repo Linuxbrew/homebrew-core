@@ -4,12 +4,13 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.62/vte-0.62.3.tar.xz"
   sha256 "f5770285a52cc23a3c0428a43d492b7c0ba458ce7b8a73768a7d4f1e8a7db3b4"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "237386090e72c1d7a9a1cdacb26c863aba57c8b3f504842d32bd9461fe85165c"
-    sha256 big_sur:       "a4182d10e0035d491e0f8538b37affc3cae28ab8b17afa5c8cad2a43fc0f2f2f"
-    sha256 catalina:      "15a4f6887cf4e538971cea39b847b17b579be18c89b61d428a32160644ffd981"
-    sha256 mojave:        "39374da6e1ccd27d2858c588e89fee275d5955b4c3d6c5a97b92966852cbdf36"
+    sha256 arm64_big_sur: "f0f7150443c540652c6133f5c800f5553c68bc9b9adedcdee61bd1f71c1b9197"
+    sha256 big_sur:       "157092763cbc442f911714c53d0978fb38958a0675d17bb9888793cf9f0b46bf"
+    sha256 catalina:      "e948c6f73c405b25dc42e1cbf73a28f45200148d87ef041d32be1b94f20a1c7f"
+    sha256 mojave:        "cc298f9571df91acfec63f44a4bee0cc6a7c81fc50075af0297f3845a9a8ebad"
   end
 
   depends_on "gobject-introspection" => :build

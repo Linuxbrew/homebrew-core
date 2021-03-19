@@ -1,17 +1,17 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://docs.couchbase.com/c-sdk/3.0/hello-world/start-using-sdk.html"
-  url "https://packages.couchbase.com/clients/c/libcouchbase-3.0.7.tar.gz"
-  sha256 "d6b8809db28ae76390cd3b750fc8a38c3625853653269d2cda243782ba8f6c25"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-3.1.0.tar.gz"
+  sha256 "281ff774f8f70c359124fc1da4ed92d49223649aaf26d74ebf1a145b0a72f0b6"
   license "Apache-2.0"
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
-    sha256 arm64_big_sur: "da2a63b8eb5af2bccffef9edc70185ef16b96e836aab25e7b6482f02a017ff4d"
-    sha256 big_sur:       "abef06c0f2824fbb7a2a3733d83c86106de98ad6fab6c4ddc3292ed2c5e73524"
-    sha256 catalina:      "29ea32998215d2e4a62aa2789ca4b9938734030d3329b2578a983572d4db3ec6"
-    sha256 mojave:        "0212c43b10fb0c407ec999710203c4875067ce159221fde24fa49e0ee33a120d"
-    sha256 x86_64_linux:  "e3c9f040d18396f3849ec0152960ba8b4a824dd2d2c49851f1e591d36ca60f93"
+    sha256 arm64_big_sur: "71fa8fbb2e10e151771ada5a5cc242d6d8055d0215f3b9141620fb39bd53e1a1"
+    sha256 big_sur:       "8fec95daad6f595d304d6fcb544c7e8499df9988d2564a0bb2a863ef1cf6dff3"
+    sha256 catalina:      "dd30f83a3fb0341b34793b98396db6e5a686819de6f6a7d1c4d40362c92a8b1e"
+    sha256 mojave:        "a03cc9667703ab9f7e38e6ec683f80229ee71de0f55b02a5e591c4f65a16d299"
+    sha256 x86_64_linux:  "3e14bce9e4d0ba08c805f2bb71024b03a4c3239e6794ca48f9bb4ffd955146cb"
   end
 
   depends_on "cmake" => :build

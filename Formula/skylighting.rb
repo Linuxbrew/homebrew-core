@@ -1,15 +1,15 @@
 class Skylighting < Formula
   desc "Flexible syntax highlighter using KDE XML syntax descriptions"
   homepage "https://github.com/jgm/skylighting"
-  url "https://github.com/jgm/skylighting/archive/0.10.3.tar.gz"
-  sha256 "60efaa3ffe5eddec6bd19ff67d29d76581e2469bec53bf31e67d6a40f81bebdc"
+  url "https://github.com/jgm/skylighting/archive/0.10.4.1.tar.gz"
+  sha256 "d4bfe3f9a32f91f36765a4a164ae38bf6d7fdf312fc48f4a93449815b7863990"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/skylighting.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "cdfb9327d531d1e91ea4f88c43f9d0664d938fb049c5f1ddb06f1598740e004b"
-    sha256 cellar: :any_skip_relocation, catalina: "f8d88b23ddd164c87564023ca3e2b2037accdc742f4276991074f9768e0b898c"
-    sha256 cellar: :any_skip_relocation, mojave:   "3ac4be5f21f2c1e06e4e2c481480a6cc9cbd431bfb2ae878630954647045859d"
+    sha256 cellar: :any_skip_relocation, big_sur:  "56978271dda1736717902c68bc4b7f6b5a489d3a192cfe10ab1bf12fe6a01843"
+    sha256 cellar: :any_skip_relocation, catalina: "97dc6c9b82f9498d81145592ff04ca8b48d59da6f3ccfc24406e6d4b0ea70ad8"
+    sha256 cellar: :any_skip_relocation, mojave:   "5b0ad5e0be2f7075f7d0cc9571e34c8078435e113956ff3e51717ab63674eb0e"
   end
 
   depends_on "cabal-install" => :build

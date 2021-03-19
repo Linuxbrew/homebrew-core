@@ -4,7 +4,7 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
   license "BSD-3-Clause"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://www.hdfgroup.org/downloads/hdf5/"
@@ -18,7 +18,7 @@ class Hdf5 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ff70299b918490134fb3e883110f0092d591885db3fc798f2cc0f48cd9472f36"
     sha256 cellar: :any_skip_relocation, mojave:        "450afa0c0e0783b416e67df0d2a56c5f12518df65ba0326884e06f3388c5c445"
     sha256 cellar: :any_skip_relocation, high_sierra:   "541d0b241a81248d8b6c3d3b205fb3f319e5cefe751d7750aa2749b9696ff749"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50af52d419009a547d5e480925dd6f88817753f6a835b9259bfc036b222f19e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "883e6c23607e2f720b8c727fa870bb4beaf48a68a23b6142043b4508df3c5134"
   end
 
   depends_on "autoconf" => :build
@@ -51,6 +51,9 @@ class Hdf5 < Formula
     ]
     on_linux do
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      # necessary to avoid compiler paths that include shims directory being used
+      ENV["CC"] = "/usr/bin/cc"
+      ENV["CXX"] = "/usr/bin/c++"
     end
 
     system "./configure", *args
@@ -58,13 +61,6 @@ class Hdf5 < Formula
     # Avoid shims in settings file
     on_macos do
       inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
-    end
-    on_linux do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/g++-#{gcc_major_ver}",
-                                        Formula["gcc"].opt_bin/"g++"
-      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/gcc-#{gcc_major_ver}",
-                                        Formula["gcc"].opt_bin/"gcc"
     end
     system "make", "install"
   end

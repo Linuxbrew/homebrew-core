@@ -4,7 +4,8 @@ class Hdf5AT18 < Formula
   # NOTE: 1.8.23 is expected to be the last release for HDF5-1.8
   # (see: https://portal.hdfgroup.org/display/support/HDF5%201.8.22#HDF51.8.22-futureFutureofHDF5-1.8).
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.22/src/hdf5-1.8.22.tar.bz2"
-  sha256 "0ac77e1c22bce5bbbdb337bd7f97aeb5ef43c727a84ccb6d683d092eb57ebd8e"
+  sha256 "689b88c6a5577b05d603541ce900545779c96d62b6f83d3f23f46559b48893a4"
+  revision OS.mac? ? 1 : 2
 
   livecheck do
     url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/"
@@ -12,9 +13,10 @@ class Hdf5AT18 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "e48732946d17c335fa5a76755f84740bb28871fff41776dbe283952f5729fc24"
-    sha256 cellar: :any, catalina: "b5143d69b2ef67f5811e24bbefc2b762b4bd65355c7bd572a2b8bae449d5e295"
-    sha256 cellar: :any, mojave:   "f2669a1ae176f1ffd9f408ad0e66d42a864fb921e1750ca100d83f54c3c5ad31"
+    sha256 cellar: :any,                 big_sur:      "3c096b8675616ada699dbed4166448607ee962d9be0d204b4bfee7bed9a79dcc"
+    sha256 cellar: :any,                 catalina:     "9e89965d4c4a107868f480a8ec339cd8e73e49bd919eb07e377f375a40558bef"
+    sha256 cellar: :any,                 mojave:       "5510c91c49d43e1b3f1b60a7792449f5133816ea9384c652c2120e489a975c65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "af4a12304ab00133bb97b23ba6bd78ca2b4c280c7abec5dc256220da362550b4"
   end
 
   keg_only :versioned_formula
@@ -24,6 +26,11 @@ class Hdf5AT18 < Formula
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
   depends_on "szip"
+
+  unless OS.mac?
+    depends_on "hwloc"
+    depends_on "libevent"
+  end
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],

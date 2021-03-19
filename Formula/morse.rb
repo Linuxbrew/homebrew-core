@@ -7,10 +7,11 @@ class Morse < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "cb06d8049d00c1b52a2c6538ea10918a7623541df2304c1f9c154e042fde868d"
-    sha256 cellar: :any, big_sur:       "a956bb32257136228025435a70344d3322b621be1c932e1f61be3fbc1db3b000"
-    sha256 cellar: :any, catalina:      "f489bcc53ec31f5473e2116bd8d4f6867e15501cc8400e9992d1949331d18dee"
-    sha256 cellar: :any, mojave:        "e696b87957c0215da2e9f600f66460c341b4141b4ef86096dd78d9000a5ceafe"
+    sha256 cellar: :any,                 arm64_big_sur: "cb06d8049d00c1b52a2c6538ea10918a7623541df2304c1f9c154e042fde868d"
+    sha256 cellar: :any,                 big_sur:       "a956bb32257136228025435a70344d3322b621be1c932e1f61be3fbc1db3b000"
+    sha256 cellar: :any,                 catalina:      "f489bcc53ec31f5473e2116bd8d4f6867e15501cc8400e9992d1949331d18dee"
+    sha256 cellar: :any,                 mojave:        "e696b87957c0215da2e9f600f66460c341b4141b4ef86096dd78d9000a5ceafe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4719885c84ff27f4b10d6472b07b3ba17b1084a4608f647196e67706172a0eca"
   end
 
   depends_on "pkg-config" => :build

@@ -2,16 +2,17 @@ class PhpAT74 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.15.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.15.tar.xz"
-  sha256 "9b859c65f0cf7b3eff9d4a28cfab719fb3d36a1db3c20d874a79b5ec44d43cb8"
+  url "https://www.php.net/distributions/php-7.4.16.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.16.tar.xz"
+  sha256 "1c16cefaf88ded4c92eed6a8a41eb682bb2ef42429deb55f1c4ba159053fb98b"
   license "PHP-3.01"
 
   bottle do
-    sha256 arm64_big_sur: "3120baa405c79acaae9622e4c99599d8fe09ccdbaeecb8965d131c9559c257f1"
-    sha256 big_sur:       "11cbe697525464636f1e1ecc9de2900b341e8566a0b66239ab05d57271f85076"
-    sha256 catalina:      "09d8e3bd11eea8df1020621ba7e9d5e7d540a7042372879893a070ab09c3ca37"
-    sha256 mojave:        "9e023ddc63e4269895fb520acc3b21e6619028a94e55706f52d3e998978e57ec"
+    sha256 arm64_big_sur: "3d8f32719809271463e0fa2a6df17cf0f7366fad12a872a9f85e74e29a71470d"
+    sha256 big_sur:       "9fe2442ca2be2fd0b4af1876dc83176fe9b575dbf66528fa9fdbbd57bfeb38d3"
+    sha256 catalina:      "96b0767f4d6c2c4757d1d2fa47d42009be1664d0d2df3c38bbbc0132790eb97c"
+    sha256 mojave:        "e17c40aa2b61bf892245cdb6db158be9bd151cef06d86c44b75bb9159b597662"
+    sha256 x86_64_linux:  "f3f647ed2a715ef7fbff407ea867fb2942ae9a3749491acf329ed3fb2acee974"
   end
 
   keg_only :versioned_formula
@@ -52,13 +53,17 @@ class PhpAT74 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
-  # PHP build system incorrectly links system libraries
-  # see https://github.com/php/php-src/pull/3472
-  patch :DATA
+  on_macos do
+    # PHP build system incorrectly links system libraries
+    # see https://github.com/php/php-src/pull/3472
+    patch :DATA
+  end
 
   def install
-    # Ensure that libxml2 will be detected correctly in older MacOS
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
+    on_macos do
+      # Ensure that libxml2 will be detected correctly in older MacOS
+      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
+    end
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -97,12 +102,23 @@ class PhpAT74 < Formula
     ENV["lt_cv_path_SED"] = "sed"
 
     # system pkg-config missing
-    ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
-    ENV["SASL_LIBS"] = "-lsasl2"
+    ENV["KERBEROS_CFLAGS"] = " "
+    on_macos do
+      ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
+      ENV["SASL_LIBS"] = "-lsasl2"
+    end
+    on_linux do
+      ENV["SQLITE_CFLAGS"] = "-I#{Formula["sqlite"].opt_include}"
+      ENV["SQLITE_LIBS"] = "-lsqlite3"
+      ENV["BZIP_DIR"] = Formula["bzip2"].opt_prefix
+    end
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
+    headers_path = ""
+    on_macos do
+      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
+    end
 
     args = %W[
       --prefix=#{prefix}
@@ -111,11 +127,9 @@ class PhpAT74 < Formula
       --with-config-file-path=#{config_path}
       --with-config-file-scan-dir=#{config_path}/conf.d
       --with-pear=#{pkgshare}/pear
-      --with-os-sdkpath=#{MacOS.sdk_path_if_needed}
       --enable-bcmath
       --enable-calendar
       --enable-dba
-      --enable-dtrace
       --enable-exif
       --enable-ftp
       --enable-fpm
@@ -148,7 +162,6 @@ class PhpAT74 < Formula
       --with-kerberos
       --with-layout=GNU
       --with-ldap=#{Formula["openldap"].opt_prefix}
-      --with-ldap-sasl
       --with-libxml
       --with-libedit
       --with-mhash#{headers_path}
@@ -174,6 +187,18 @@ class PhpAT74 < Formula
       --with-zip
       --with-zlib
     ]
+
+    on_macos do
+      args << "--enable-dtrace"
+      args << "--with-ldap-sasl"
+      args << "--with-os-sdkpath=#{MacOS.sdk_path_if_needed}"
+    end
+    on_linux do
+      args << "--disable-dtrace"
+      args << "--without-ldap-sasl"
+      args << "--without-ndbm"
+      args << "--without-gdbm"
+    end
 
     system "./configure", *args
     system "make"
@@ -325,8 +350,11 @@ class PhpAT74 < Formula
       "Zend OPCache extension not loaded")
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
-    assert_includes MachO::Tools.dylibs("#{bin}/php"),
-      "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
+    on_macos do
+      assert_includes MachO::Tools.dylibs("#{bin}/php"),
+        "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
+    end
+
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
@@ -404,7 +432,7 @@ class PhpAT74 < Formula
       Process.wait(pid)
 
       fpm_pid = fork do
-        exec sbin/"php-fpm", "-y", "fpm.conf"
+        exec sbin/"php-fpm", "--allow-to-run-as-root", "-y", "fpm.conf"
       end
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"

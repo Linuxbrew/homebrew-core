@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-4.11.tar.gz"
-  sha256 "3d70bb0a07b6b343b1ff4b06f62d11147d205b30a808abc13978ea18ebed8fdd"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-4.12.tar.gz"
+  sha256 "3c5b87eb20e49f11084afb29224b6bad7a69bbdd8eaa99941c106149234bf1e1"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Lxc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7587be383f80df06098c27228a321bfa80aa1263410121b6f5724fbb72131c87"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7883dea752070fbeeafefca87ec599f57bd1cb56884083c727582a65b7ace74d"
-    sha256 cellar: :any_skip_relocation, catalina:      "930ef7166268f2a1f3ac23b5983e5e96b59e9992b68ff87a837fe92c7bd54db5"
-    sha256 cellar: :any_skip_relocation, mojave:        "86c31e43fb5cf1976bf5c0d1d220cb1265a8e0848b461c402330601d220a35f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "197a5fa5941d4b6c238b5d4c67cba0dbbaa63c88669668d076c52a4a407a6d39"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1f9cefe075b08f3c341b4ed86ba1b619dd19ba1e22960c7a3ea02494eb0b3b4e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0944432119962443f6500a6fc65c743bbc2e89f932e01b892c5cad66e3129a4d"
+    sha256 cellar: :any_skip_relocation, catalina:      "e59a9c9812724a33a975d6ac37615aee566a89251324b17aabf8b8567bfe3c51"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f9dea2d34460ccdd144b08d59f9a8bca9e2988c05f7b10a46d47990d9cb0a5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75117d06343ba24633daa40407ef89125c1cc2fc31b5a260cefcdca31caeaa82"
   end
 
   depends_on "go" => :build

@@ -4,6 +4,7 @@ class Xpdf < Formula
   url "https://dl.xpdfreader.com/xpdf-4.03.tar.gz"
   sha256 "0fe4274374c330feaadcebb7bd7700cb91203e153b26aa95952f02bf130be846"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://www.xpdfreader.com/download.html"
@@ -11,16 +12,17 @@ class Xpdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8daf2dd394f5990c3effcfe075f5e18366d6c1537b919c8bbe7aecb377b64d59"
-    sha256 cellar: :any, big_sur:       "dd539162f595f665a230ea4504969da19425acf9066b4943227f6e418ba924c9"
-    sha256 cellar: :any, catalina:      "6eea94e938839130aed8666e611a0a96c0457c56dd9c5ccbe108df5da732cff2"
-    sha256 cellar: :any, mojave:        "1d2d40b362e1f6098884c9a8781491b4d609063ebb9c328160d8b5e4b78cf4c7"
+    sha256 cellar: :any,                 arm64_big_sur: "052d966e5649b652bb61db7ff96386e5ca543fd65fb06818ab002b2f1138086b"
+    sha256 cellar: :any,                 big_sur:       "2c74e3ae45d2666271efb5a3a913db86a300110d2e89acb97f27b4e6d5c2af7f"
+    sha256 cellar: :any,                 catalina:      "af0d633049cdccbb05a15b92e1dddb2951ea6d2994a2bee343400681bfbf1a2d"
+    sha256 cellar: :any,                 mojave:        "d5a0e1f2c8d6897bda1290648814b351ffebf0aadbbe856b19f7088d2673baf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93191c2d19e3890f3e90cccd091837fb377da37c539dd7a2644d79f6c6a4b24f"
   end
 
   depends_on "cmake" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "qt"
+  depends_on "qt@5"
 
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"

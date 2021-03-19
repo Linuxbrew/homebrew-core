@@ -3,16 +3,16 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/6a/ce/beb25c37546afd5cb91318ed26c4f19af994cd059bc6d1ed75261422d005/howdoi-2.0.12.tar.gz"
-  sha256 "bab3eab349ec0b534cf1b05a563d45e4d301b914c53a7f2c3446fdcc60497c93"
+  url "https://files.pythonhosted.org/packages/b1/09/8d4752c6497ba09ee8df7257493c2b511a27a00324a6d500f7f44de34028/howdoi-2.0.14.tar.gz"
+  sha256 "9416be3c8a319fc0764a743a2ad05fa374876dab71dbe15ce86c3a05ece44a0a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef54659de200e0dfe8f21df996dc44cdeba26f817c149582a7313653657176d7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2e0e8ad772a7bf61bae5db97fa55470a6ff65155e9b6a6e5d19b3765564ccefa"
-    sha256 cellar: :any_skip_relocation, catalina:      "182c3080b03158638c0ab375d9b66ada2f6a19119f6145a90abec56bc7c4e0a9"
-    sha256 cellar: :any_skip_relocation, mojave:        "dea015344f0892eb4020896f4e6e66fee588c6e59ab39269655446743c686016"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0381e8a93be378169bffb657c28bbca01adad2984c207c0b438d0ccd329d161"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8f5000069501a288949e2b593f9eff5ca1d9464c7b7550ef2d7b9b0a2b856961"
+    sha256 cellar: :any_skip_relocation, big_sur:       "16c2dd8c609514d16eca3c670f244190c9cf9afafe714fbc2fd181dd0c457609"
+    sha256 cellar: :any_skip_relocation, catalina:      "ae491a171332e72cdd3e9810c8b9f2946a1b414be4f13faa5efe99f952b565c7"
+    sha256 cellar: :any_skip_relocation, mojave:        "1b4cc852626f8422f13b5c6a0817119bc826ea0c4e87732e3caf6d9322c13894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1347e0ad6dcdade1ae54d1e203d95b2c5ff8a7e47303cff0f68d1eb8d82db08"
   end
 
   depends_on "python@3.9"
@@ -61,8 +61,8 @@ class Howdoi < Formula
   end
 
   resource "keep" do
-    url "https://files.pythonhosted.org/packages/b9/c5/408a6ef63285639874d433eea0a6a6189837ff2fc7e7cb2f842e47037073/keep-2.10.tar.gz"
-    sha256 "ce71d14110df197ab5afdbd26a14c0bd266b79671118ae1351835fa192e61d9b"
+    url "https://files.pythonhosted.org/packages/6d/f2/2c35a4bb1332d81f2b1d94725a9ede4d44902fa8ec11b25dedd210394c2f/keep-2.10.1.tar.gz"
+    sha256 "3abbe445347711cecd9cbb80dab4a0777418972fc14a14e9387d0d2ae4b6adb7"
   end
 
   resource "lxml" do

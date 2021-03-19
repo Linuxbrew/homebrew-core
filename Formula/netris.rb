@@ -8,6 +8,7 @@ class Netris < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7b88fa79c440ed0dc4c971eb32197e9f88b34afbf50cd6d9e8929f2e03d7866"
     sha256 cellar: :any_skip_relocation, big_sur:       "9f7c51618024abd332dafe7c9075896fdfefbd80819a4b0c42bf493637947bd2"
+    sha256 cellar: :any_skip_relocation, catalina:      "41fc6feceffbce79c1bdac8c198d318b8a91c2e8ae099f068a8a21bf9344e038"
     sha256 cellar: :any_skip_relocation, mojave:        "25697a4b18177f5e976dd5510b68cac949a589a7c9abe2e2d148b930db0d1f89"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2ba4eea757cc21504d1da74796a29fcd23264b5d735c0c6debe1083614c2d57a"
     sha256 cellar: :any_skip_relocation, sierra:        "4ac49c49b3d000fcb5c9161f4b217231e9bee9faf29d5e4e7fc9f5d8e10772ec"

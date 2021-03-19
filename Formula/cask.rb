@@ -1,8 +1,8 @@
 class Cask < Formula
   desc "Emacs dependency management"
   homepage "https://cask.readthedocs.io/"
-  url "https://github.com/cask/cask/archive/v0.8.5.tar.gz"
-  sha256 "b7a6bda663d5a83a99036287cd9362d131ae3a0e0525a48b50eb194684e4447d"
+  url "https://github.com/cask/cask/archive/v0.8.6.tar.gz"
+  sha256 "0534a52f23c7b65e84aa4e1be62d623075cad39a19de38688fc0b5437cfb900f"
   license "GPL-3.0-or-later"
   head "https://github.com/cask/cask.git"
 

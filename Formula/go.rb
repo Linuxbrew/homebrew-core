@@ -1,9 +1,9 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
-  url "https://golang.org/dl/go1.16.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.16.src.tar.gz"
-  sha256 "7688063d55656105898f323d90a79a39c378d86fe89ae192eb3b7fc46347c95a"
+  url "https://golang.org/dl/go1.16.2.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.16.2.src.tar.gz"
+  sha256 "37ca14287a23cb8ba2ac3f5c3dd8adbc1f7a54b9701a57824bf19a0b271f83ea"
   license "BSD-3-Clause"
   revision 1 unless OS.mac?
   head "https://go.googlesource.com/go.git"
@@ -14,11 +14,11 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "c1f259427b953cb5564af663538a696bb79820f1b23b7baa940ab2c4e21bc684"
-    sha256 big_sur:       "f23bdf4231ea64207fd112500f2c1fd9569366b31f6c843a815c5c75e4be6c5c"
-    sha256 catalina:      "dfd8a82a4b7d9f4136eb6af4dca507cc136cebb74e843eeb3ba0ecd1ad94a3a2"
-    sha256 mojave:        "c54706ee25e7ac3006f8d7f9bbb059131eca3b750e03736671d4faaffc399977"
-    sha256 x86_64_linux:  "1436365ff0fb56a74f733c365bfc9ccdb16421a4e61c81608803fe84dc5c6f99"
+    sha256 arm64_big_sur: "b5e7afc5fe32df4a9f66f7467be5ec25266c649a942dba2fadf59ec0b31c6f33"
+    sha256 big_sur:       "b4b8fd4d0e53711f7ad6333146708a1ea61a7063abcfa086f57b1cf3c820e070"
+    sha256 catalina:      "ad0e76d44fb2f21cd125dc7fb97d2625688ed0cd33c02f9df77efa0a7315f82f"
+    sha256 mojave:        "17f5ec09c5cdd9251800b402b277df9443d4718c291ff3de4c1a58066c47f991"
+    sha256 x86_64_linux:  "ac0418ec93d70e6f4a38a6f6a99ca49f4d323cf01e88bb14e807fb2ddbc225d5"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
@@ -60,8 +60,8 @@ class Go < Formula
     system bin/"go", "install", "-race", "std"
 
     # Remove useless files.
-    # Breaks patchelf because it contains weird debug/test files
-    rm_rf Dir[libexec/"src/debug/elf/testdata"] unless OS.mac?
+    # Breaks patchelf because folder contains weird debug/test files
+    rm_rf Dir[libexec/"src/debug/elf/testdata"]
   end
 
   test do

@@ -3,14 +3,14 @@ class Zbackup < Formula
   homepage "http://zbackup.org"
   url "https://github.com/zbackup/zbackup/archive/1.4.4.tar.gz"
   sha256 "efccccd2a045da91576c591968374379da1dc4ca2e3dec4d3f8f12628fa29a85"
-  revision 16
+  revision 17
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "dbbf40f7f4edf658918a7beaa2c0a6c77c010b7dd18f230bb0a584a8fadfb0fd"
-    sha256 cellar: :any, big_sur:       "8463384c48b1fc5d96166d15b2e9a29ac42a0d27cb7c82a4076686b7f94a812f"
-    sha256 cellar: :any, catalina:      "8fd3d32ae8d088580aad9508af9e2a6cf6460b798bbf8a80ee1f9274ad164915"
-    sha256 cellar: :any, mojave:        "1601c36693ddea9f1c5426a6f9f772d1e9b09a1a8750b307ac68eb5727525692"
-    sha256 cellar: :any, x86_64_linux:  "b4cb9a3bcfbd1da139f29036d5f09157ef35e53086967ce5f834139670e22b0f"
+    sha256 cellar: :any,                 arm64_big_sur: "0d2ef11f65f24be482b5623e78e2bd71dba7b9a6eb924045958f5a2fbc069771"
+    sha256 cellar: :any,                 big_sur:       "a5a538598ebe43bbcac80ef3adfdef9215fd014221e7c9f5cb606bbc430ef413"
+    sha256 cellar: :any,                 catalina:      "6d28a5f41c26b55c3bc20a66bcc83c6d3b411e8ecd07fc26554e322f979c9fc6"
+    sha256 cellar: :any,                 mojave:        "8f43a2de1c40ae178b6653575e3a334ed2eeabd5118742a9feb80164658dd64e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc05bf62d38829834e9d3bcc03e3cde38e2d8a788cd93fb5978acbaa19be239c"
   end
 
   depends_on "cmake" => :build

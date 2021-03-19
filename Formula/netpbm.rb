@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "3997"
-  version "10.86.18"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4037"
+  version "10.86.19"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -16,11 +16,12 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0b8a01fca6a878a893dc0d0259e83f1663e0d71ba83fbad26a955812c798e729"
-    sha256 cellar: :any, big_sur:       "f67c2c93ff2c6a3d95640f228f9f7b8b0865a93f4fd4870871016015db79331f"
-    sha256 cellar: :any, catalina:      "9b136982e2785817585826f084a3282cce0b1bd643ddf3af54bf42213fc9eb25"
-    sha256 cellar: :any, mojave:        "4b4243c7384518eaee83aeff5e422a467395945300002496fda4d4f4dd8badc9"
-    sha256 cellar: :any, x86_64_linux:  "8915e963d1291d8008bc52013188a47ee2719c148bae0bf8226f4a6490feef0a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "4fc18df2e77de3684ba5f563f401c6aebb1528931b5203f061802ac430fb36af"
+    sha256 cellar: :any,                 big_sur:       "9bfeca916645831dff97b9cf1a63d2ec844829377118e92638cbb6b652b48ba0"
+    sha256 cellar: :any,                 catalina:      "24d6ed86c8f4548ea414f646213a398bb562a1ea421474e7e75fc69cfcaf78cd"
+    sha256 cellar: :any,                 mojave:        "bf81e0d0fca89fb491575b6352079b9a2e13cb7cf502a8b43334c30261a1cf65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8775233b970c850e1b09b0c2376f0dbc6e081a1ea1c2a4904b6fcb02288184a"
   end
 
   depends_on "jasper"
@@ -41,20 +42,23 @@ class Netpbm < Formula
 
     inreplace "config.mk" do |s|
       s.remove_make_var! "CC"
-      if OS.linux?
-        s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
-      elsif OS.mac?
-        s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
-        s.change_make_var! "NETPBMLIBTYPE", "dylib"
-        s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
-        s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
-      end
       s.change_make_var! "TIFFLIB", "-ltiff"
       s.change_make_var! "JPEGLIB", "-ljpeg"
       s.change_make_var! "PNGLIB", "-lpng"
       s.change_make_var! "ZLIB", "-lz"
       s.change_make_var! "JASPERLIB", "-ljasper"
       s.change_make_var! "JASPERHDR_DIR", "#{Formula["jasper"].opt_include}/jasper"
+
+      on_macos do
+        s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
+        s.change_make_var! "NETPBMLIBTYPE", "dylib"
+        s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
+        s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
+      end
+
+      on_linux do
+        s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
+      end
     end
 
     ENV.deparallelize
@@ -69,8 +73,7 @@ class Netpbm < Formula
       end
 
       prefix.install %w[bin include lib misc]
-      lib.install Dir["staticlink/*.a"]
-      lib.install Dir["sharedlink/*.dylib"] if OS.mac?
+      lib.install Dir["staticlink/*.a"], Dir["sharedlink/#{shared_library("*")}"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
   end

@@ -6,15 +6,18 @@ class Fabric < Formula
   url "https://files.pythonhosted.org/packages/32/61/9a26b8f3dcdb5cb17daff57c9a85be6d5963d50488f45319d64a413da762/fabric-2.6.0.tar.gz"
   sha256 "47f184b070272796fd2f9f0436799e18f2ccba4ee8ee587796fca192acd46cd2"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/fabric/fabric.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "dcba9dc3326e61575f8465c1975b94f4829ab1300e08ca3ff42e6be7282c169a"
-    sha256 cellar: :any, big_sur:       "39f9ee8ee9147fb0c78eb252af8df4aaed5bee3f81975cda24ca29cae261b882"
-    sha256 cellar: :any, catalina:      "d210d4da6e7512f63b6a5aa639e686075ff0c955878fa70bcf904388b8c4b5b7"
-    sha256 cellar: :any, mojave:        "8428a7b7803f2285f25d066928cc91f53df8dd3bacaefd9642c00b7286d046dd"
+    sha256 cellar: :any,                 arm64_big_sur: "a1a85887c89e303a76e534797d94e51cb2ded8bb0a17ec42860d992199db3d82"
+    sha256 cellar: :any,                 big_sur:       "5ce01be4718393b51968a5ccc9437eb0badad44ca2ddef47015fbd68b9c0a4ad"
+    sha256 cellar: :any,                 catalina:      "0cbd0659af1acc21a578926507419bead5faa3b8d209fd6f81e889399c18ed95"
+    sha256 cellar: :any,                 mojave:        "1ca741b9f8f491086e767d52fd79cf2de19416dd56a2f40b82d65b7fece64193"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31ea3cd5a5cb99c99990d8e939424d66f074f7ae6ef443515201ced388f18a78"
   end
 
+  depends_on "rust" => :build
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
@@ -24,13 +27,13 @@ class Fabric < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "invoke" do

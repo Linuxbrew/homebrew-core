@@ -4,13 +4,13 @@ class Field3d < Formula
   url "https://github.com/imageworks/Field3D/archive/v1.7.3.tar.gz"
   sha256 "b6168bc27abe0f5e9b8d01af7794b3268ae301ac72b753712df93125d51a0fd4"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7e00e38654398cd4cfe284517790e5fd6cc354ecaba6264aa0ff4952ade5727e"
-    sha256 cellar: :any, big_sur:       "df54705ee4664f08b7f50c2eb176b8b5ad356ee8a773321c11aa73a6e1de0b7d"
-    sha256 cellar: :any, catalina:      "62cd1be576caec00c1d4369e08d226a94f88056588b3b34047e137a012ac6eda"
-    sha256 cellar: :any, mojave:        "3c295ee04d92a9a1e0a87e6af3cf8dc53fcb7679b9518ba18d21c5667a17d458"
-    sha256 cellar: :any, high_sierra:   "e71612d2b6260538c6a283c1d68e5cfe4fa86325feab85d885e28ea4ddb1aed9"
+    sha256 cellar: :any, arm64_big_sur: "6781d411f8cc234b6882e768bcbed5ae6dbb827a61083dff16d964fdf40e6622"
+    sha256 cellar: :any, big_sur:       "46354c04b0cebfc7b54880b3e4ed3f9e57726dc773b4d8a0143f113c2c178da1"
+    sha256 cellar: :any, catalina:      "b781b7f40b7aaff0ec9b05979ad9698f86c23ecc270a3ffa90475e7450088cbd"
+    sha256 cellar: :any, mojave:        "4563833cb30bcb0194f018c9f9bf3f3b90c6f5ee803b414f33f4cf1df4f6889e"
   end
 
   depends_on "cmake" => :build

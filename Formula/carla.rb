@@ -4,7 +4,7 @@ class Carla < Formula
   url "https://github.com/falkTX/Carla/archive/v2.2.0.tar.gz"
   sha256 "4bf08511257db88979eccc002f10c153ff2a14f5143291c2be39cadd69ce10e1"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 3
   head "https://github.com/falkTX/Carla.git"
 
   livecheck do
@@ -13,17 +13,16 @@ class Carla < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:     "acf32e79adbb82d6cc86b6ce0615e7cdf20378622929d4ee32cc70750b40c192"
-    sha256 cellar: :any, catalina:    "8f55c9c9f85709f1d85d219d3d421cee0246b9e5b4a097613a8a8d2b1aba8c9b"
-    sha256 cellar: :any, mojave:      "ed7ec50b3e5193111da088c770dc1c4e6609299c9009f18b6b09e7558ac6e03e"
-    sha256 cellar: :any, high_sierra: "e4ae5a76855872c3fca8ffda7054abf5ae5acdb56473132a9945ff52f42ff2b1"
+    sha256 cellar: :any, big_sur:  "f8ee9fd5b1230b0e4b8e447969a420534d63f735758d21acdea0f52713b4f29a"
+    sha256 cellar: :any, catalina: "3d507dc32add60b1a0eb60eb0cb27fcfa352789c63133229d7881dedaf86779d"
+    sha256 cellar: :any, mojave:   "6d4f42afcb7a94322b8509db1a44dd8859cb46b3c0adda2efa103f4115032a9d"
   end
 
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libmagic"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
 
   def install

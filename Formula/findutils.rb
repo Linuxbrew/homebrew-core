@@ -5,13 +5,14 @@ class Findutils < Formula
   mirror "https://ftpmirror.gnu.org/findutils/findutils-4.8.0.tar.xz"
   sha256 "57127b7e97d91282c6ace556378d5455a9509898297e46e10443016ea1387164"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "39ffd40141c1d583f89ffe0c091a76cba9f4ebdbe3035c007e45b37774eb5b84"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4841d8c66138b3f5eb7d6a3c1588ae19e69c4a2561f6a6e2192a51e324022093"
-    sha256 cellar: :any_skip_relocation, catalina:      "86d61877d4c20e5bf2f89939034b0a058526c7f614d454c602fdd5685021f058"
-    sha256 cellar: :any_skip_relocation, mojave:        "34bffcfa0d3924fdc7140ba766615ef66ccd5a0336ce779ff062b66b6f60af3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b89e899076ea3c9c80df1989ff9083ec35e0e93a423cbcc09fc920c30c64ffc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "00515eb2dc81769263cbde9066c25807b120e3a25a7dbff3f5a3858c07ba7f6d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba06afcd59371297f232da8d59a68ebc2d66ce3ffdad3e83f65e2e9abb47a4c0"
+    sha256 cellar: :any_skip_relocation, catalina:      "7e47d6ae1e52d796ce0fd989c17ac169f1b78206e62a28274fe25296185a8a66"
+    sha256 cellar: :any_skip_relocation, mojave:        "78cf4e5b65633636743fd29b7fd3b48aebd20bed727203dc244192fdfa543f62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bec72672e565f9653e474489adb7a9f67da208026600af31a149f8e6f08640c3"
   end
 
   def install
@@ -45,15 +46,6 @@ class Findutils < Formula
     system "make", "install"
 
     on_macos do
-      # https://savannah.gnu.org/bugs/index.php?46846
-      # https://github.com/Homebrew/homebrew/issues/47791
-      (libexec/"bin").install bin/"gupdatedb"
-      (bin/"gupdatedb").write <<~EOS
-        #!/bin/sh
-        export LC_ALL='C'
-        exec "#{libexec}/bin/gupdatedb" "$@"
-      EOS
-
       [[prefix, bin], [share, man/"*"]].each do |base, path|
         Dir[path/"g*"].each do |p|
           f = Pathname.new(p)
@@ -71,14 +63,14 @@ class Findutils < Formula
   end
 
   def caveats
-    return unless OS.mac?
-
-    <<~EOS
-      All commands have been installed with the prefix "g".
-      If you need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
-        PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+    on_macos do
+      <<~EOS
+        All commands have been installed with the prefix "g".
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do

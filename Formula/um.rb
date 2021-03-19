@@ -14,7 +14,7 @@ class Um < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "965706a7846d6e06e1c21f592c477a597cd7ccf78d266a3ef5d3ab811fd1020b"
   end
 
-  depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
+  uses_from_macos "ruby", since: :high_sierra
 
   resource "kramdown" do
     url "https://rubygems.org/gems/kramdown-1.17.0.gem"

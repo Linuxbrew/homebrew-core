@@ -13,6 +13,7 @@ class ReorderPythonImports < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c8b110e4771ac1e3cfdeecc3fab97ddc93c9d01fdc88a446de90565b5650d38e"
     sha256 cellar: :any_skip_relocation, catalina:      "c4ca883147663f15683ba9a15cdcf8ce4cf38461b8960b4e9c51c01f46adb858"
     sha256 cellar: :any_skip_relocation, mojave:        "c874eb234767394d47372378befc196e3c8f51d5ec2e56caec6c3806693e7f56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae9a1ecb509c108e4c547dfef34cd091c36ad4c96180388f30cf667c7766a8e3"
   end
 
   depends_on "python@3.9"

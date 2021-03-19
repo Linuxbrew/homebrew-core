@@ -14,11 +14,12 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f8b99ea0ad2a19855aab784122271fbc811c69b03c53c0e8b959b02977e4444a"
-    sha256 big_sur:       "5725361adcd088a5b4fb278aa37b12964008f9ceb3892ceef558fb5de3c95896"
-    sha256 catalina:      "ecfbca86c18eb819222ae13aa2e4148d89c9dc15e1172545352b6fcf29d40d0c"
-    sha256 mojave:        "ffbc4252535f6073ff109cfa87e50847e6d44051a7ff374b8ad3b455477e7d1a"
-    sha256 x86_64_linux:  "c23929dc895fbdc8e71416d068857ec7f941e7fd869bf0b866b4fe76501d4161"
+    rebuild 1
+    sha256 arm64_big_sur: "39a86fd4fe2e3739b60c4f9ca81752c38e32178b141dd884de197a3f284538a6"
+    sha256 big_sur:       "a5a8d1d00e26e9159d154f030cc92cf33ed3e55da470afea990773b98013b438"
+    sha256 catalina:      "ac861861a5e35505ae43b7ac8a7323494f30407263ec4ca91c457ba428126580"
+    sha256 mojave:        "dc49f2728d9358e78f8b22978c722ee0a991379d99b879183d5d40a98e6996be"
+    sha256 x86_64_linux:  "ac824e234e2e56cdca26f7bfb9f7bc98b73249b5e8da96a327496165554b113c"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -118,7 +119,10 @@ class OpensslAT11 < Formula
   end
 
   def macos_post_install
+    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
+
     keychains = %w[
+      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 
@@ -127,8 +131,9 @@ class OpensslAT11 < Formula
       /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
+    # Check that the certificate has not expired
     valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout >/dev/null", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
@@ -136,8 +141,25 @@ class OpensslAT11 < Formula
       $CHILD_STATUS.success?
     end
 
+    # Check that the certificate is trusted in keychain
+    trusted_certs = begin
+      tmpfile = Tempfile.new
+
+      valid_certs.select do |cert|
+        tmpfile.rewind
+        tmpfile.write cert
+        tmpfile.truncate cert.size
+        tmpfile.flush
+        IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
+
+        $CHILD_STATUS.success?
+      end
+    ensure
+      tmpfile&.close!
+    end
+
     openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
+    (openssldir/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
   end
 
   def linux_post_install

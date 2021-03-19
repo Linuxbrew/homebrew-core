@@ -22,6 +22,10 @@ class Libsecret < Formula
   depends_on "glib"
   depends_on "libgcrypt"
 
+  on_linux do
+    depends_on "libxslt" => :build
+  end
+
   def install
     # Needed by intltool (xml::parser)
     ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?

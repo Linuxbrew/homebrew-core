@@ -5,12 +5,13 @@ class Monero < Formula
       tag:      "v0.17.1.9",
       revision: "8fef32e45c80aec41f25be9d1d8fb75adc883c64"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "926d66ff23fb78d43351a0424d57a6f21056886f13a459e4109fb3d132f29c5b"
-    sha256 cellar: :any, big_sur:       "f570a6d028b202aea254373ca9f59f84e8d1851f4ed6488b8519bdc44aa67144"
-    sha256 cellar: :any, catalina:      "d2bb3901c3d636ba60930a3b4df68f410532467d48ec675b720f02b132bbd790"
-    sha256 cellar: :any, mojave:        "8a3528d234f2f729fbbeb537489dddb35090a891f6d988074fc02fdd7fd3fae9"
+    sha256 cellar: :any, arm64_big_sur: "d6fb5505e8fab3d588fb01cd61e4feab202d575729525a96fc270060b4162079"
+    sha256 cellar: :any, big_sur:       "ba4a3f33a6554f58d0a6b6b689b770e74acc9304e411667259ceb2702550bb19"
+    sha256 cellar: :any, catalina:      "a62cc51e63fdb3a297a554a89cc748fa23d5d3908f9161de6099de086a40de71"
+    sha256 cellar: :any, mojave:        "cb68324913bbb7aa1b7a22145eae86098785359ddfae947fb6cc93fd2d5c077b"
   end
 
   depends_on "cmake" => :build

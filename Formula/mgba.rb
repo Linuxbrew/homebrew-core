@@ -4,7 +4,7 @@ class Mgba < Formula
   url "https://github.com/mgba-emu/mgba/archive/0.8.4.tar.gz"
   sha256 "6b94873dac9040fd6fd9f13f76dc48f342e954f3b4cf82717b59601c3a32b72c"
   license "MPL-2.0"
-  revision 2
+  revision 3
   head "https://github.com/mgba-emu/mgba.git"
 
   livecheck do
@@ -13,10 +13,10 @@ class Mgba < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "7a37aa37bb345914c0ec1f4b89a49e0c10c75b06548927282030a0d4bc48f9cf"
-    sha256 big_sur:       "c7c2dfcf3af79649d5f71ee51fe2cb346adf724d670174ba076a0f680ebaf09c"
-    sha256 catalina:      "5c585a38067bcc18296cb1f163b771c3cd38cd7e04cc90fb7ef81c8644c36444"
-    sha256 mojave:        "154aea74ade5528132daf55c1880b9c894554ac0465bf082e17b7c2c761a6169"
+    sha256 arm64_big_sur: "2e960f93ae91956ddbbf80541ca176d92585cadc4f3d0537bfc7a166ea9e6e59"
+    sha256 big_sur:       "b6534f335f4c25154cf5e38913a3b5166bf7e96c884409b54219032c34346459"
+    sha256 catalina:      "ae0565f81f06458602216f061e52872d2e5a20ba1399577d1819e507c66e08fe"
+    sha256 mojave:        "b98b2cc7c4d6a8cc6af107196c290538d8555656a27c46844e1c169ceb4e8181"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +25,7 @@ class Mgba < Formula
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libzip"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
 
   def install

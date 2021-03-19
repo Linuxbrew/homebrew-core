@@ -4,21 +4,22 @@ class Inspectrum < Formula
   url "https://github.com/miek/inspectrum/archive/v0.2.3.tar.gz"
   sha256 "7be5be96f50b0cea5b3dd647f06cc00adfa805a395484aa2ab84cf3e49b7227b"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/miek/inspectrum.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f7eae4a492478910e123b6515657bf7db836044a3b976634a89f697cb9cabcfb"
-    sha256 cellar: :any, big_sur:       "b2ccb3e2e45373c9aa03388d0ae6c90c15cc3261fb4c014d98f509861e8afab4"
-    sha256 cellar: :any, catalina:      "637f4276c9515232a3784b162fd21d3de9fcfd53cef12010e7cd7b3aba78f1c6"
-    sha256 cellar: :any, mojave:        "86cc47bb1267acc1e202cbd6eb5845750225bbb0d7a5dc3ae5058a58d7be6765"
-    sha256 cellar: :any, x86_64_linux:  "1cc7469c3ebf7a02c5c09919a7f941572e995f59a95cf5d62d9eb4ef6a1b02fb"
+    sha256 cellar: :any,                 arm64_big_sur: "a0fb5fe1d6d28598185e4b550c3eb023edd06caa538965143ad9368fb12fde29"
+    sha256 cellar: :any,                 big_sur:       "50970461c14baf9ad20ddaf10ce822fab5d1a3d3c50119864ec18ada903c4bc4"
+    sha256 cellar: :any,                 catalina:      "d1fab945b3121deb6e5e9fbfe761bbb550c2478f1c169266cc467fcf143c1ce1"
+    sha256 cellar: :any,                 mojave:        "1bb0c291cfea17440808f50296634ff87ef9c6b1ddd28e3f1ea816eb4018597d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae262169700c162f49df3681d30c1409462f840e667f77d19d01b5f0b0042b26"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "liquid-dsp"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     system "cmake", ".", *std_cmake_args

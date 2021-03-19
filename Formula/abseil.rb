@@ -4,24 +4,17 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20200923.3.tar.gz"
   sha256 "ebe2ad1480d27383e4bf4211e2ca2ef312d5e6a09eba869fd2e8a5c5d553ded2"
   license "Apache-2.0"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0b4448de8c7a176da27c895da37c7edbadabd304a2d5ddb76c7d134f7b130e4d"
     sha256 cellar: :any_skip_relocation, big_sur:       "e16d12f4d5eb788fc774d1cc6d328a659bfc56f0cef74244396f2453890bb9ed"
     sha256 cellar: :any_skip_relocation, catalina:      "648a6091da13e90637b3579249ae8821292ca96efb95cd1d4a5a649d553c6ef6"
     sha256 cellar: :any_skip_relocation, mojave:        "0879e0af3745923b219e99af5355100a4a8e4c944167414e038633a6779736d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "489fa27e66814672e0247a094d9a95d2449959b0796ab6a0b1951aa05ea4387b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88064d579870c7f43f69af3a06111deb95f57777978768d9159977ca863d02e9"
   end
 
   depends_on "cmake" => :build
-
-  unless OS.mac?
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7" => :build
-  end
 
   def install
     mkdir "build" do

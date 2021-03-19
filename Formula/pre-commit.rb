@@ -3,16 +3,16 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/31/c1/5dfe39aa1d94471b4c6afe4c9aba7fedfa5fe0d1b727a6e6d7a59bd53231/pre_commit-2.10.1.tar.gz"
-  sha256 "399baf78f13f4de82a29b649afd74bef2c4e28eb4f021661fc7f29246e8c7a3a"
+  url "https://files.pythonhosted.org/packages/81/51/9c5854bec705a95bc8533c4cd65b360c04bbd5680f83d59e6ebe2c4426ed/pre_commit-2.11.1.tar.gz"
+  sha256 "de55c5c72ce80d79106e48beb1b54104d16495ce7f95b0c7b13d4784193a00af"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "0800a3c02e6807e6b6f1602ee322b7c5a0667fd9d1333e1fa274c7cdf7b14166"
-    sha256 cellar: :any,                 big_sur:       "afd36a3c6bb29f0c6ee5fcc7c4c41236ca9722704ff883c1ecbca66b35031520"
-    sha256 cellar: :any,                 catalina:      "16e75f0ac5a2bc62f52519f25918557cdcfb7033dc7a96bc92cc70b6ff194795"
-    sha256 cellar: :any,                 mojave:        "599db2e4dc1759a4c16735e649c3e44e524f59e21f7fd25518b7dc0231cd508b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcb321a8a57815fb8a6f780100b9a9af4b02efba52ac5c023424a2824302fded"
+    sha256 cellar: :any,                 arm64_big_sur: "4b8edc0995b9e2b6c5bfafd856eb0e0ecb31ed6cded514640acd146aa2072477"
+    sha256 cellar: :any,                 big_sur:       "986e1ff0af301b35c603cb91406c2a4f10f57f71715b92416a1912817264d33f"
+    sha256 cellar: :any,                 catalina:      "69407d220808ce6bc532abd02d62e76ad2fa39ecacc00fed48502a0a4f6c07e5"
+    sha256 cellar: :any,                 mojave:        "3536f11bb1cc89d5073bb05283b9dcec4da2989a30f1f0c978de628084556a23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2828f1f15e180b7a54508a7c6781be34f7b6f4949e605169f622f05a14ad4ae"
   end
 
   depends_on "libyaml"
@@ -39,8 +39,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/2c/c2/cd5e7807dc0d9f76ce6a4016e7adc15d7745da3571db73c43ca4ea2fa02f/identify-1.5.13.tar.gz"
-    sha256 "70b638cf4743f33042bebb3b51e25261a0a10e80f978739f17e7fd4837664a66"
+    url "https://files.pythonhosted.org/packages/e7/cf/7e2c0c72ba53c54d2183bfbdde395b9384790ff67fd2f3208937c39a44b3/identify-2.1.1.tar.gz"
+    sha256 "da3d757c94596c50865aae63db6ba4e2e5e3f666c3ea6a6da0cd09a8b2d34abc"
   end
 
   resource "nodeenv" do

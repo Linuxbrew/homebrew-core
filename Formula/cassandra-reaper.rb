@@ -1,15 +1,11 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.1.3/cassandra-reaper-2.1.3-release.tar.gz"
-  sha256 "ba9a925c512996f55481914f6c02832c96d3c334722f7d611a76d30c1a9c16ee"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.2.2/cassandra-reaper-2.2.2-release.tar.gz"
+  sha256 "6bae1f25d0e0299bc8d2c4ebd0ca46ad31ab70a16db48de9e657fca73c27e751"
   license "Apache-2.0"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "760c1fa6584111c867b28479f60eec50e362a531fa066fb29bd0d3082009c040"
-    sha256 cellar: :any_skip_relocation, catalina: "7368f52e8a3992a67a077442fcb3a2e4168cfd9607b873b55d4871302742002a"
-    sha256 cellar: :any_skip_relocation, mojave:   "29bf7a8f41b59dccf1466612a9b7a123e7e3183a5e5bd154bf47c42d44632482"
-  end
+  bottle :unneeded
 
   depends_on "openjdk@8"
 
@@ -63,7 +59,7 @@ class CassandraReaper < Formula
     fork do
       exec "#{bin}/cassandra-reaper", "#{testpath}/cassandra-reaper.yaml"
     end
-    sleep 10
+    sleep 30
     assert_match "200 OK", shell_output("curl -Im3 -o- http://localhost:#{port}/webui/login.html")
   end
 end

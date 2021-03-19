@@ -4,6 +4,7 @@ class NodeAT10 < Formula
   url "https://nodejs.org/dist/v10.24.0/node-v10.24.0.tar.xz"
   sha256 "158273af66f891b2fca90aec7336c42f7574f467affad02c14e80ca163cb3acc"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,9 +12,9 @@ class NodeAT10 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "7eb171d84bdc69d54a1237b3921eb2acbf82988a77b28756d05992a4a5780446"
-    sha256 cellar: :any, catalina: "174bc01220552fb89a437c89b0a3e27a41b5b1d2a62e0d31cc37bdd8f6bf382f"
-    sha256 cellar: :any, mojave:   "b9cd28ffb76ada2d6d6a6089f4b806c554e449520ab5c654f748d041c2df2220"
+    sha256 cellar: :any, big_sur:  "e8282cb7f850b762065e8af12da2b8e4a7ffc08c49a2bafdff307b718b75f086"
+    sha256 cellar: :any, catalina: "efd6439e5f6afc43b8d84e98a61789b73f8e5ec6c9f6909668255e369a7589b5"
+    sha256 cellar: :any, mojave:   "276f214a1383ee11bf0a283b3b05f3365b10fc6642c6bd8e4e5c4a7ffc9f1822"
   end
 
   keg_only :versioned_formula

@@ -5,15 +5,15 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-3.0.0/apache-arrow-3.0.0.tar.gz"
   sha256 "73c2cc3be537aa1f3fd9490cfec185714168c9bfd599d23e287ab0cc0558e27a"
   license "Apache-2.0"
-  revision 2
+  revision 4
   head "https://github.com/apache/arrow.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "bffa46572a4fff64ee125416b12c2e8678c474ae78620a77fa430ec93ca115e3"
-    sha256 cellar: :any,                 big_sur:       "9422df11994b5c90026558e420b17c84ee0ee15fcbae654b2e7e2006844146fb"
-    sha256 cellar: :any,                 catalina:      "b007ab3307ce60c9346e0ed099f7f8e9fa354aa085c5df616913a9b2789b1966"
-    sha256 cellar: :any,                 mojave:        "2b4d9d894397f9d7f26f8e51f8c751c6c541e8d944db1b5ba98f8d1a6f88ec98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71c5d04d50acab31aceaf6df4622ecd1322224082c1e0bda0b3240eaf0f19217"
+    sha256 cellar: :any,                 arm64_big_sur: "64f82d9bdc476fe3cc6a201de3983cd3c1177ac6fd038918ea36b1771d297120"
+    sha256 cellar: :any,                 big_sur:       "8261f65e35b902389be6a40ff3734cbec6afdfa06a5732292f75cc7e0b068f8a"
+    sha256 cellar: :any,                 catalina:      "ad81da9f96a7a6d5efa5c0eea5403c47eaec53fe54d1cb8e922a3d0ff7ceeb00"
+    sha256 cellar: :any,                 mojave:        "60c0e8f79baaa38228ba30bfae9ad6b98dc754633a949eda69d5a10fd61245ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "877d8c7e071d898aaecbddf4e1ea96f5bb486bdcba4da301b141a6bab8bb2f7e"
   end
 
   depends_on "boost" => :build
@@ -32,6 +32,13 @@ class ApacheArrow < Formula
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
+
+  # Remove in next version
+  # https://github.com/apache/arrow/pull/9542
+  patch do
+    url "https://github.com/apache/arrow/commit/06c795c948b594c16d3a48289519ce036a285aad.patch?full_index=1"
+    sha256 "732845543b67289d1d462ebf6e87117ac72104047c6747e189a76d09840bc23f"
+  end
 
   def install
     # link against system libc++ instead of llvm provided libc++

@@ -5,6 +5,7 @@ class ManDb < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.9.4.tar.xz"
   sha256 "b66c99edfad16ad928c889f87cf76380263c1609323c280b3a9e6963fdb16756"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/man-db/"
@@ -12,15 +13,16 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "341d1ed539d162400e216d4a7fa9fd1c1254cc1a408fb72cca8623f1582ab346"
-    sha256 big_sur:       "3215d9a7659251e84cfc973926cf25fbd913b787a219e05697b2bf69067de7bf"
-    sha256 catalina:      "9c8abb3fe66f90f4bc28ff8bc657fa8eabdacee5b69e0dbc554f8d319fa0948e"
-    sha256 mojave:        "1c1760b6a478253caeb8d5535cac5a9466e2f03b1e6e5e9a1f6ee519b752adfb"
-    sha256 x86_64_linux:  "2dad155891f914461a021591193e63f3db4671914202964b1cafb55953ee44ef"
+    sha256 arm64_big_sur: "17a3f7d1314e32d74725f1f4bfcf7b715d60d8aff9b5a61d0ed5bbde2840f103"
+    sha256 big_sur:       "767c60fc61f4af286f60753ffca8297baaad41696e38eac2c9e12dc442ffb822"
+    sha256 catalina:      "b7f2d5cebcfe7727be74347a05d8d95da9759710f8f25703dd753f4c44af4158"
+    sha256 mojave:        "fb26c658449765651d30d47d08f60bd647195e35ff7afbe1bbcc48c1ec2748dd"
+    sha256 x86_64_linux:  "9a9c0f2b74135afd2ed3e50883eaa95d4f4c163be77a90d7ad636c6e54b01c86"
   end
 
   depends_on "pkg-config" => :build
   depends_on "groff"
+  depends_on "libpipeline"
 
   uses_from_macos "zlib"
 
@@ -28,34 +30,14 @@ class ManDb < Formula
     depends_on "gdbm"
   end
 
-  resource "libpipeline" do
-    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.3.tar.gz"
-    sha256 "5dbf08faf50fad853754293e57fd4e6c69bb8e486f176596d682c67e02a0adb0"
-  end
-
   def install
-    resource("libpipeline").stage do
-      ENV.append_to_cflags "-fPIC" unless OS.mac?
-      system "./configure",
-        "--disable-dependency-tracking",
-        "--disable-silent-rules",
-        "--prefix=#{buildpath}/libpipeline",
-        "--enable-static",
-        "--disable-shared"
-      system "make"
-      system "make", "install"
-      ENV.remove_from_cflags "-fPIC" unless OS.mac?
-    end
-
-    ENV["libpipeline_CFLAGS"] = "-I#{buildpath}/libpipeline/include"
-    ENV["libpipeline_LIBS"] = "-L#{buildpath}/libpipeline/lib -lpipeline"
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
       --disable-cache-owner
       --disable-setuid
+      --disable-nls
       --program-prefix=g
     ]
 
@@ -67,7 +49,6 @@ class ManDb < Formula
 
     system "./configure", *args
 
-    system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"
 
     # Symlink commands without 'g' prefix into libexec/bin and

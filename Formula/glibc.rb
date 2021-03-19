@@ -62,18 +62,14 @@ class LinuxKernelRequirement < Requirement
 
   MINIMUM_LINUX_KERNEL_VERSION = "2.6.32".freeze
 
-  def linux_kernel_version
-    @linux_kernel_version ||= Version.new Utils.safe_popen_read("uname -r")
-  end
-
   satisfy(build_env: false) do
-    linux_kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
+    OS.kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
   end
 
   def message
     <<~EOS
       Linux kernel version #{MINIMUM_LINUX_KERNEL_VERSION} or later is required by glibc.
-      Your system has Linux kernel version #{linux_kernel_version}.
+      Your system has Linux kernel version #{OS.kernel_version}.
     EOS
   end
 
@@ -87,6 +83,11 @@ class Glibc < Formula
   homepage "https://www.gnu.org/software/libc/"
   url "https://ftp.gnu.org/gnu/glibc/glibc-2.23.tar.gz"
   sha256 "2bd08abb24811cda62e17e61e9972f091f02a697df550e2e44ddcfb2255269d2"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+
+  livecheck do
+    skip "glibc is pinned to the version present in Homebrew CI"
+  end
 
   bottle do
     sha256 x86_64_linux: "654794e9e18c2401f1101a3fcf0a85eda448b4b969e9a99782a3f4f4659feda4"
@@ -102,14 +103,12 @@ class Glibc < Formula
   depends_on LinuxKernelRequirement
 
   # GCC 4.7 or later is required.
-  fails_with gcc: "4.3"
-  fails_with gcc: "4.4"
-  fails_with gcc: "4.5"
   fails_with gcc: "4.6"
 
   def install
     # Fix Error: `loc1@GLIBC_2.2.5' can't be versioned to common symbol 'loc1'
     # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869717
+    # Fixed in glibc 2.24
     inreplace "misc/regexp.c", /^(char \*loc[12s]);$/, "\\1 __attribute__ ((nocommon));"
 
     # Setting RPATH breaks glibc.
@@ -117,22 +116,6 @@ class Glibc < Formula
       LDFLAGS LD_LIBRARY_PATH LD_RUN_PATH LIBRARY_PATH
       HOMEBREW_DYNAMIC_LINKER HOMEBREW_LIBRARY_PATHS HOMEBREW_RPATH_PATHS
     ].each { |x| ENV.delete x }
-
-    gcc_keg = begin
-      Keg.for HOMEBREW_PREFIX/"bin"/ENV.cc
-    rescue Errno::ENOENT, NotAKegError
-      nil
-    end
-    if gcc_keg
-      # Use the original GCC specs file.
-      specs = Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=specs.orig").chomp)
-      raise "The original GCC specs file is missing: #{specs}" unless specs.readable?
-
-      ENV["LDFLAGS"] = "-specs=#{specs}"
-
-      # Fix error ld: cannot find -lc when upgrading glibc and compiling with a brewed gcc.
-      ENV["BUILD_LDFLAGS"] = "-L#{opt_lib}" if opt_lib.directory?
-    end
 
     # Use brewed ld.so.preload rather than the hotst's /etc/ld.so.preload
     inreplace "elf/rtld.c", '= "/etc/ld.so.preload";', '= SYSCONFDIR "/ld.so.preload";'
@@ -144,33 +127,30 @@ class Glibc < Formula
         "--disable-silent-rules",
         "--prefix=#{prefix}",
         "--enable-obsolete-rpc",
-        # Fix error: selinux/selinux.h: No such file or directory
         "--without-selinux",
+        "--without-selinux",
+        "--with-binutils=#{Formula["binutils"].bin}",
+        "--with-headers=#{Formula["linux-headers"].include}",
       ]
-      args << "--with-binutils=#{Formula["binutils"].bin}"
-      args << "--with-headers=#{Formula["linux-headers"].include}"
       system "../configure", *args
-
-      system "make" # Fix No rule to make target libdl.so.2 needed by sprof
+      system "make", "all"
       system "make", "install"
       prefix.install_symlink "lib" => "lib64"
     end
-  end
-
-  def post_install
-    # Fix permissions
-    chmod 0755, [lib/"ld-#{version}.so", lib/"libc-#{version}.so"]
 
     # Install ld.so symlink.
     ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
+  end
 
-    # Symlink ligcc_s.so.1 where glibc can find it.
-    # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
-    ln_sf Formula["gcc"].opt_lib/"libgcc_s.so.1", lib if Formula["gcc"].latest_version_installed?
-
+  def post_install
     # Compile locale definition files
     mkdir_p lib/"locale"
-    locales = ENV.map { |k, v| v if k[/^LANG$|^LC_/] && v != "C" && !v.start_with?("C.") }.compact
+
+    # Get all extra installed locales from the system, except C locales
+    locales = ENV.map do |k, v|
+      v if k[/^LANG$|^LC_/] && v != "C" && !v.start_with?("C.")
+    end.compact
+
     # en_US.UTF-8 is required by gawk make check
     locales = (locales + ["en_US.UTF-8"]).sort.uniq
     ohai "Installing locale data for #{locales.join(" ")}"
@@ -185,19 +165,19 @@ class Glibc < Formula
     end
 
     # Set the local time zone
-    sys_localtime = Pathname.new "/etc/localtime"
-    brew_localtime = Pathname.new prefix/"etc/localtime"
-    (prefix/"etc").install_symlink sys_localtime if sys_localtime.exist? && !brew_localtime.exist?
+    sys_localtime = Pathname("/etc/localtime")
+    brew_localtime = prefix/"etc/localtime"
+    (prefix/"etc").install_symlink sys_localtime if sys_localtime.exist? && brew_localtime.exist?
 
     # Set zoneinfo correctly using the system installed zoneinfo
-    sys_zoneinfo = Pathname.new "/usr/share/zoneinfo"
-    brew_zoneinfo = Pathname.new share/"zoneinfo"
+    sys_zoneinfo = Pathname("/usr/share/zoneinfo")
+    brew_zoneinfo = share/"zoneinfo"
     share.install_symlink sys_zoneinfo if sys_zoneinfo.exist? && !brew_zoneinfo.exist?
   end
 
   test do
-    system "#{lib}/ld-#{version}.so 2>&1 |grep Usage"
-    system "#{lib}/libc-#{version}.so", "--version"
-    system "#{bin}/locale", "--version"
+    assert_match "Usage", shell_output("#{lib}/ld-#{version}.so 2>&1", 127)
+    safe_system "#{lib}/libc-#{version}.so", "--version"
+    safe_system "#{bin}/locale", "--version"
   end
 end

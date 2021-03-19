@@ -68,8 +68,8 @@ class Libswiften < Formula
         return 0;
       }
     EOS
-    cflags = `#{bin}/swiften-config --cflags`.chomp.split(/ /)
-    ldflags = `#{bin}/swiften-config --libs`.chomp.split(/ /)
+    cflags = `#{bin}/swiften-config --cflags`.chomp.split
+    ldflags = `#{bin}/swiften-config --libs`.chomp.split
     system ENV.cxx, "-std=c++11", "test.cpp", *cflags, *ldflags, "-o", "test"
     system "./test"
   end

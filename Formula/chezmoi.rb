@@ -2,17 +2,17 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v1.8.11",
-      revision: "2e5a76c23de034344f7a9fa89cd3088cd9b52ac7"
+      tag:      "v2.0.1",
+      revision: "e0143cd0c7ec8b7bbe5f6a04d42a5dd5ed823b75"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "da785c92f04a6ba090a3709cbb92316afc5d5e5d7fd377bece70719b6d368b09"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9077a166a9b2b076840153f8a390489b44e213c62bec1f9f8961fa52ad558bfa"
-    sha256 cellar: :any_skip_relocation, catalina:      "ef947be4d77e99f13f24d04a39f57b7145e0669e4151e0592056ce5250ab209c"
-    sha256 cellar: :any_skip_relocation, mojave:        "27a39abe15552641b151583fc6e46241f366750a68527d37a4e38a85d2b24e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "411844b5aa71799726a4267fca164a44f3304a596f0ff0da2ba298d59c12f1e1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f16b7e710c8e2bd49e272e7d5800c1561a65a3f3c92ccc3beb72c080f99d667a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a8dac0cddec9b8a6c4260d9460bf1c635ecb0633957431b9e336e2e574679c1b"
+    sha256 cellar: :any_skip_relocation, catalina:      "8d1fa3982b87cf5ee866feec985d9feb8a8c4ab3e12721fdc4b9ea1dac32fbf0"
+    sha256 cellar: :any_skip_relocation, mojave:        "91ee46018d541604ae171b0c5ef521fdec79d175a925aefdc8b63b2add643598"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea602c808010cefa72fa8ec5e0f3f31d2fe12d8119c61076e0e3c610f854b77c"
   end
 
   depends_on "go" => :build
@@ -36,7 +36,7 @@ class Chezmoi < Formula
 
   test do
     # test version to ensure that version number is embedded in binary
-    assert_match "version #{version}", shell_output("#{bin}/chezmoi --version")
+    assert_match "version v#{version}", shell_output("#{bin}/chezmoi --version")
     assert_match "built by homebrew", shell_output("#{bin}/chezmoi --version")
 
     system "#{bin}/chezmoi", "init"

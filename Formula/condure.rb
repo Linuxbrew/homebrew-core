@@ -7,11 +7,12 @@ class Condure < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "49a9a397891392a99536028f60a15d951c942764e96f37ea7bab668710217ec6"
-    sha256 cellar: :any, big_sur:       "4e037359206bf4563fc7c7d64809d7e22905d1624ddda1047d0b92aa81a51b88"
-    sha256 cellar: :any, catalina:      "26957f142c585546573cadf4f89475803d55f308d3d63c51ee1248a70af3dd40"
-    sha256 cellar: :any, mojave:        "09bed07fabc6999a7eaf9f44ab25085b64ca9400fd2988328226f2fbba37d428"
-    sha256 cellar: :any, high_sierra:   "080bfe369f308022f3f766f7d9034e15114e17db0911dae9a37e482eb07954bf"
+    sha256 cellar: :any,                 arm64_big_sur: "49a9a397891392a99536028f60a15d951c942764e96f37ea7bab668710217ec6"
+    sha256 cellar: :any,                 big_sur:       "4e037359206bf4563fc7c7d64809d7e22905d1624ddda1047d0b92aa81a51b88"
+    sha256 cellar: :any,                 catalina:      "26957f142c585546573cadf4f89475803d55f308d3d63c51ee1248a70af3dd40"
+    sha256 cellar: :any,                 mojave:        "09bed07fabc6999a7eaf9f44ab25085b64ca9400fd2988328226f2fbba37d428"
+    sha256 cellar: :any,                 high_sierra:   "080bfe369f308022f3f766f7d9034e15114e17db0911dae9a37e482eb07954bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37826e97c7cdf607cbc6d04dfc4a6e6453d281b6b95a1376be3f515d9ac6a10c"
   end
 
   depends_on "pkg-config" => :build

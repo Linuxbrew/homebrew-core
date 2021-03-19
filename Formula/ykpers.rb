@@ -40,13 +40,19 @@ class Ykpers < Formula
   end
 
   def install
-    backend = OS.mac? ? "osx" : "libusb-1.0"
-    libyubikey_prefix = Formula["libyubikey"].opt_prefix
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-libyubikey-prefix=#{libyubikey_prefix}",
-                          "--with-backend=#{backend}"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --with-libyubikey-prefix=#{Formula["libyubikey"].opt_prefix}
+    ]
+    on_macos do
+      args << "--with-backend=osx"
+    end
+    on_linux do
+      args << "--with-backend=libusb-1.0"
+    end
+    system "./configure", *args
     system "make", "check"
     system "make", "install"
   end

@@ -1,16 +1,16 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/0.8.1/dav1d-0.8.1.tar.bz2"
-  sha256 "842da2945afcf54e651d17112bf2823a238e6c935a6c8dff3a8e96a2eb740269"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/0.8.2/dav1d-0.8.2.tar.bz2"
+  sha256 "78ec7a1714d98a8f4ecbc4255e83e6c4c944cdd881871ea234ce40153fd3df04"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5d7706832799921efd814f3f56f8a77a1004e254ea75c97a0c993c0a2577136a"
-    sha256 cellar: :any, big_sur:       "19b36dac5e316943575c177e8b48dce7a19dffc62e82b295c1850def41a7f91f"
-    sha256 cellar: :any, catalina:      "3dfee035e136d79127501d4a22c169ab4b0a832a5300591a0145c075220bac91"
-    sha256 cellar: :any, mojave:        "5a3f58f18e7314616a9d8f8b8de4675674f451fda032fd9e6dc07a8ce37c4b43"
-    sha256 cellar: :any, x86_64_linux:  "fe7a76c44820466ad04b3f35979f1493643b344e2895e9a5e3d7801ef65f08be"
+    sha256 cellar: :any,                 arm64_big_sur: "ff2b963d4889e5061e7a9aa734f445f975cd9c9dc5fcc58693e2c84a2f18665a"
+    sha256 cellar: :any,                 big_sur:       "aa92fc129112e67f1eec05fe15cf2ccacbe279c7391805516752c7c79b94c77c"
+    sha256 cellar: :any,                 catalina:      "bfecc7f69601a571190066d3a24e4f1b82264667d8b5e7c8894ec5f349703961"
+    sha256 cellar: :any,                 mojave:        "8dd4136d86ea8da33ecc3390fcf12585b3c4266cf186aa41212ca870d398ef16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e110fb0f662ace8d9033ecda799fb051d0e2e749419b520484a0e65eda281f91"
   end
 
   depends_on "meson" => :build
@@ -18,7 +18,7 @@ class Dav1d < Formula
   depends_on "ninja" => :build
 
   resource "00000000.ivf" do
-    url "https://code.videolan.org/videolan/dav1d-test-data/raw/master/8-bit/data/00000000.ivf"
+    url "https://code.videolan.org/videolan/dav1d-test-data/raw/0.8.2/8-bit/data/00000000.ivf"
     sha256 "52b4351f9bc8a876c8f3c9afc403d9e90f319c1882bfe44667d41c8c6f5486f3"
   end
 
