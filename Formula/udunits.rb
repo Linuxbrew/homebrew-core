@@ -21,8 +21,6 @@ class Udunits < Formula
   uses_from_macos "flex"
   uses_from_macos "texinfo"
 
-  uses_from_macos "bison" => :build unless OS.mac?
-
   unless OS.mac?
     patch :p1 do
       url "https://github.com/Unidata/UDUNITS-2/commit/0bb56200221ad960bc2da11fc0b4a70ec3c5d7c9.patch?full_index=1"
