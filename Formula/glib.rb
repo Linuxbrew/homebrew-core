@@ -47,8 +47,6 @@ class Glib < Formula
       -Ddtrace=false
     ]
 
-    args << "-Diconv=native" if OS.mac?
-
     mkdir "build" do
       system "meson", *args, ".."
       system "ninja", "-v"
