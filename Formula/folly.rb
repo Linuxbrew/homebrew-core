@@ -23,22 +23,19 @@ class Folly < Formula
   depends_on "libevent"
   depends_on "lz4"
   # https://github.com/facebook/folly/issues/966
-  depends_on macos: :high_sierra if OS.mac?
+  depends_on macos: :high_sierra
   depends_on "openssl@1.1"
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
-  unless OS.mac?
-    depends_on "jemalloc"
-    depends_on "python@3.9"
-  end
 
   def install
     mkdir "_build" do
-      args = std_cmake_args
-      args << "-DFOLLY_USE_JEMALLOC=#{OS.mac? ? "OFF" : "ON"}"
+      args = std_cmake_args + %w[
+        -DFOLLY_USE_JEMALLOC=OFF
+      ]
 
-      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON", ("-DCMAKE_POSITION_INDEPENDENT_CODE=ON" unless OS.mac?)
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
 
