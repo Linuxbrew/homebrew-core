@@ -13,7 +13,6 @@ class Ccze < Formula
     sha256 cellar: :any, catalina:      "1d7fe7ec73840e77d3f76f6f9d38757e4ab62d9d6a951e6d9ccf83782f73a29a"
     sha256 cellar: :any, mojave:        "f748556612ca69454aec71083d8cedbb3def5091c9663c7df046c597fe26048f"
     sha256 cellar: :any, high_sierra:   "fdc8abe565f7cec57dd3461d6840e2676c556fa54eaccada60df4958310ff8a7"
-    sha256 cellar: :any, x86_64_linux:  "4136c751b6e40c99933e0a71ca4c90a3ea1c8c847c49385db41c020951b3575e"
   end
 
   # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`
@@ -30,9 +29,6 @@ class Ccze < Formula
     # https://github.com/Homebrew/legacy-homebrew/pull/20636
     inreplace "src/Makefile.in", "-Wreturn-type -Wswitch -Wmulticharacter",
                                  "-Wreturn-type -Wswitch"
-
-    # error: two or more data types in declaration specifiers
-    inreplace "system.h.in", "#undef error_t", "" unless OS.mac?
 
     system "./configure", "--prefix=#{prefix}",
                           "--with-builtins=all"
