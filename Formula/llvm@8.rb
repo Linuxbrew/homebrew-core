@@ -6,13 +6,12 @@ class LlvmAT8 < Formula
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
   license "NCSA"
-  revision OS.mac? ? 3 : 5
+  revision OS.mac? ? 3 : 6
 
   bottle do
     sha256 cellar: :any,                 catalina:     "ab099d84e5f0a58ea37172fd85753336d855fc25e9459ceff12ddc2dbb56ef71"
     sha256 cellar: :any,                 mojave:       "ee795cbebce64f79bbcf7c42526093df7bd2e5e986a721197bca5cf6c822e87a"
     sha256 cellar: :any,                 high_sierra:  "3f80b7119307b128b1e3ae8a2fea97a9878afb5a7436a7d35615b1e743bc7622"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1b38a990522dccb6aca06300934044648d6df21e86259045f0dc0c693437a749"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -36,12 +35,6 @@ class LlvmAT8 < Formula
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
-    depends_on "gcc" # for libstdc++
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    fails_with gcc: "8"
-    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
