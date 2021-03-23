@@ -26,8 +26,15 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
+  depends_on "openjdk"
   depends_on "python@3.9"
   depends_on "yuicompressor"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   # Use emscripten's recommended binaryen revision to avoid build failures.
   # See llvm resource below for instructions on how to update this.
@@ -121,6 +128,7 @@ class Emscripten < Formula
     cd libexec do
       system "npm", "install", *Language::Node.local_npm_install_args
       rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
+      rm_rf "node_modules/google-closure-compiler-linux" # Delete GraalVM native image on Linux
     end
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
