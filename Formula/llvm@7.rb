@@ -4,13 +4,12 @@ class LlvmAT7 < Formula
   url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
   sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
   license "NCSA"
-  revision OS.mac? ? 2 : 4
+  revision OS.mac? ? 2 : 5
 
   bottle do
     sha256 cellar: :any,                 catalina:     "400bb0bb43849d1f118d93a1647de6e9636934e941c43a6f4866258f764f42b3"
     sha256 cellar: :any,                 mojave:       "564f25a86c519b737a795de441da6c6c14e9f026813a73149b7939c986241ba6"
     sha256 cellar: :any,                 high_sierra:  "4170d8e522ce8aea22450c818bb68b6142671f4239262395d8f09d82621ee343"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3e9cca7dcd83721aecedeadf1f0d305ed99426516aa2a6fc118560bffe250369"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -33,12 +32,6 @@ class LlvmAT7 < Formula
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
-    depends_on "gcc" # for libstdc++
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    fails_with gcc: "8"
-    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
