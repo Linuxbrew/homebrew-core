@@ -13,11 +13,11 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d2276abbe86c962ca778aa96284650efc5655409aa0e3d4e0f27de19634203cb"
-    sha256 big_sur:       "bd643b8173b4308b19e153fbf3f040da352e03c9178ff7ade2bc55e9f2ab87ca"
-    sha256 catalina:      "e7939bc3161bc0120701c3afaaa7035a32ba521c4e9859132f9ffc876711e061"
-    sha256 mojave:        "17282627b0b1d1eb6bf6a7bd96b17b7422f7a7c114f90fa38086f9bf2ceb150a"
-    sha256 x86_64_linux:  "50a2cddf17ca3416ce969bf5cfb803cec523db030632c30bce5a7299ded4bef1"
+    rebuild 1
+    sha256 arm64_big_sur: "ee74031a2d77242c7563a3c85db3729b4aaebc9a7013711293977bfc6d475da0"
+    sha256 big_sur:       "a87dff5d8d5aed0ca3446c972c98d5d5e1a6c4eea2e728d1d5e53d32578a5f73"
+    sha256 catalina:      "091ea83e4b3874ad4c4b5fae7bd12d2cb38649d2992d52c0fd568bf5e1d68c4f"
+    sha256 mojave:        "7c77895293158b816cd4a6ff1fbf74ed7c7248c8294bbd836632dd167f3fcd7d"
   end
 
   head do
@@ -48,7 +48,10 @@ class Libressl < Formula
 
   def post_install
     on_macos do
+      ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
+
       keychains = %w[
+        /Library/Keychains/System.keychain
         /System/Library/Keychains/SystemRootCertificates.keychain
       ]
 
@@ -57,8 +60,9 @@ class Libressl < Formula
         /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
       )
 
+      # Check that the certificate has not expired
       valid_certs = certs.select do |cert|
-        IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+        IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
           openssl_io.write(cert)
           openssl_io.close_write
         end
@@ -66,9 +70,26 @@ class Libressl < Formula
         $CHILD_STATUS.success?
       end
 
+      # Check that the certificate is trusted in keychain
+      trusted_certs = begin
+        tmpfile = Tempfile.new
+
+        valid_certs.select do |cert|
+          tmpfile.rewind
+          tmpfile.write cert
+          tmpfile.truncate cert.size
+          tmpfile.flush
+          IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
+
+          $CHILD_STATUS.success?
+        end
+      ensure
+        tmpfile&.close!
+      end
+
       # LibreSSL install a default pem - We prefer to use macOS for consistency.
       rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
-      (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
+      (etc/"libressl/cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
     end
   end
 

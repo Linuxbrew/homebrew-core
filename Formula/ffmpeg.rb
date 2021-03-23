@@ -1,16 +1,13 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
+  sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
-    sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
-  end
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -18,11 +15,10 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a4f02dfa8a56817cd7be885061073f188118c41a815657bee084b40ec5007191"
-    sha256 big_sur:       "e95f2be7645766bd375f8bccd4d0099cb701ce57e68663a30d4ce5c5353dbff9"
-    sha256 catalina:      "ea0820a0cc0b48c72d746198a9e9f41d8369e731ecbff9abeec772d36cbf75ab"
-    sha256 mojave:        "f0803e3310a22edd03a3a64e31edf4b340d7388f5af5bf5fbd9059aa335eced3"
-    sha256 x86_64_linux:  "c2573eaed3ccde545c5ba1c30204ea4a2fd2ef683003282a29dd6a08b0bafd3d"
+    sha256 arm64_big_sur: "d29b0e972cddbe7da5a1101a72a730b2dcf8f0bc8a58ab7f7f2907a07d4a9f4d"
+    sha256 big_sur:       "bc1604090d11822ee196b74c4b8ab71d336664b724c5f03f6b8c4a921c3280b5"
+    sha256 catalina:      "471f8bbd80744245afe882d6c81676fd0f4ce29bf0107b6c2c83a84f65c609d1"
+    sha256 mojave:        "2dccd6d29f19e93f2595e629ed600de0861a85292407dac666ca037a815aaff3"
   end
 
   depends_on "nasm" => :build
@@ -44,7 +40,6 @@ class Ffmpeg < Formula
   depends_on "openjpeg"
   depends_on "opus"
   depends_on "rav1e"
-  depends_on "rtmpdump"
   depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
@@ -108,7 +103,6 @@ class Ffmpeg < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libopenjpeg
-      --enable-librtmp
       --enable-libspeex
       --enable-libsoxr
       --enable-libzmq
