@@ -44,10 +44,6 @@ class Chapel < Formula
   end
 
   test do
-    # Fix [Fail] chpl not found. Make sure it available in the current PATH.
-    # Makefile:203: recipe for target 'check' failed
-    ENV.prepend_path "PATH", bin unless OS.mac?
-
     ENV["CHPL_HOME"] = libexec
     cd libexec do
       system "util/test/checkChplInstall"
