@@ -5,6 +5,7 @@ class Coreutils < Formula
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.32.tar.xz"
   sha256 "4458d8de7849df44ccab15e16b1548b285224dbba5f08fac070c1c0e0bcc4cfa"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 2
@@ -12,7 +13,6 @@ class Coreutils < Formula
     sha256 big_sur:       "371ec57703b3646e0113331308b6e03617c2a7f91e15e113380b605455daba20"
     sha256 catalina:      "7a97ad96dfbe6abbb5c94424518a077e040af8a77d1946ca960a5f33cd237551"
     sha256 mojave:        "10fbad2e35846c7e835cb979b5beb9edf07f3a9742ddcc3c28d9abd5fe9ccb1b"
-    sha256 x86_64_linux:  "0488508e9bf2ddd26b333ce3afc2b3ed98d5f711a4b6950012a1bf5587eb171f"
   end
 
   head do
@@ -44,15 +44,7 @@ class Coreutils < Formula
   conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
 
   def install
-    # Fix configure: error: you should not run configure as root
-    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     system "./bootstrap" if build.head?
-
-    # Fix configure: error: you should not run configure as root
-    on_linux do
-      ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
 
     args = %W[
       --prefix=#{prefix}
