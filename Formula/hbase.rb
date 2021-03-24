@@ -17,7 +17,12 @@ class Hbase < Formula
   depends_on "lzo"
   depends_on "openjdk@11"
 
-  depends_on "gcc" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "gcc" => :build
+    depends_on "netcat" => :test
+  end
+
+  fails_with gcc: "5"
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
