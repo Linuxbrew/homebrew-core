@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   livecheck do
@@ -15,11 +15,10 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d29b0e972cddbe7da5a1101a72a730b2dcf8f0bc8a58ab7f7f2907a07d4a9f4d"
-    sha256 big_sur:       "bc1604090d11822ee196b74c4b8ab71d336664b724c5f03f6b8c4a921c3280b5"
-    sha256 catalina:      "471f8bbd80744245afe882d6c81676fd0f4ce29bf0107b6c2c83a84f65c609d1"
-    sha256 mojave:        "2dccd6d29f19e93f2595e629ed600de0861a85292407dac666ca037a815aaff3"
-    sha256 x86_64_linux:  "09820fe18e0981ae331c13cf0d9d7f9bc424b3b950ada837c1caf4f054a313b9"
+    sha256 arm64_big_sur: "95e9f88efd0f33050d81317f66145e259e391c4c718bbe08ac0db53b0a3a1163"
+    sha256 big_sur:       "ad6fe2b17d24998db46d27a6976da6aa7b6e134f3885bee82089cb57dbeaf2c2"
+    sha256 catalina:      "60e65a454b96487f348098c066028205521402de9e5484ace2732040d9c928bb"
+    sha256 mojave:        "908108f0564c2217b34f002c28183e92edb05b286912f5959c13fe3a821b0482"
   end
 
   depends_on "nasm" => :build
