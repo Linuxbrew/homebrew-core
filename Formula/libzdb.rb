@@ -25,17 +25,13 @@ class Libzdb < Formula
   depends_on "postgresql"
   depends_on "sqlite"
 
-  unless OS.mac?
-    depends_on "gcc@7" # C++ 17 is required
-
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    fails_with gcc: "6"
+  on_linux do
+    depends_on "gcc" # C++ 17 is required
   end
 
+  fails_with gcc: "5"
+
   def install
-    # workaround for error: 'assert' was not declared in this scope
-    system "sed", "-i", "1,1i#include <cassert>", "test/zdbpp.cpp" unless OS.mac?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
     (pkgshare/"test").install Dir["test/*.{c,cpp}"]
@@ -44,8 +40,13 @@ class Libzdb < Formula
   test do
     cp_r pkgshare/"test", testpath
     cd "test" do
+      args = []
+      on_linux do
+        args = "-lpthread"
+      end
+
       system ENV.cc, "select.c", "-L#{lib}",
-             *("-lpthread" unless OS.mac?), "-lzdb", "-I#{include}/zdb", "-o", "select"
+             *args, "-lzdb", "-I#{include}/zdb", "-o", "select"
       system "./select"
     end
   end
