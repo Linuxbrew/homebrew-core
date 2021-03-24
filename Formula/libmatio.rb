@@ -1,17 +1,15 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.19/matio-1.5.19.tar.gz"
-  sha256 "a4fa4d248b0414fc72f3d6155f710c470d5628d3c31af834f8d5ccf06b60286f"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.20/matio-1.5.20.tar.gz"
+  sha256 "5d1f72a1f51abf6a9cd23eaa812fb17b861097059095f48c768c4835c5aa2598"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c2ce5f216e9fa77fd0d328504a4d339e1061b5e1c8800d7a1d741ac65c50a3ab"
-    sha256 cellar: :any, big_sur:       "6581c5cc3897753a78031740d10ccc534e9d0e8bde17d7c97d578b0b034d0475"
-    sha256 cellar: :any, catalina:      "ceb9363a18078ce2c25154d230a359ec3ce3db0cea9c2aaea3cfd41119806363"
-    sha256 cellar: :any, mojave:        "f015d539a7c798899a45b3a35d2795bc64aef3856b2ef5ef08fba6cf21295e25"
-    sha256 cellar: :any, high_sierra:   "41b16e1b850d33c612c474b2780b27396ba83da81f875a869014e5232d1f06da"
-    sha256 cellar: :any, x86_64_linux:  "a78cd2edfd625e3a8ea9e917b9dc5a855654708a431843ecdc3f4003a35dcf9d"
+    sha256 cellar: :any, arm64_big_sur: "3782a120f0b6f6f7a4ed927623eb131720745c838fde6825e2c3af242b62638d"
+    sha256 cellar: :any, big_sur:       "69052f804c792632ed2e29c4061015bb3c3270cbb6a6146f0959b5aa8f0133b8"
+    sha256 cellar: :any, catalina:      "3be0157dbe335338b1adedb1a0dcd8ffca7695f6f4ecf09a84fcbc36662e0535"
+    sha256 cellar: :any, mojave:        "ff7ed32d83439cd0e274468f44962509577146f511c0ac27eb9515cfc3a4b8c1"
   end
 
   depends_on "hdf5"
