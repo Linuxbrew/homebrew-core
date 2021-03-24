@@ -10,7 +10,6 @@ class Faust < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6d80da1e64a967bbc9549653d1848dba6ffdd8b54d99e1ed1b507ecfbdf84136"
     sha256 cellar: :any_skip_relocation, catalina:      "975ec4c8a2c10a975f998a94466734a5f3c08ceefb5c024d40d5d394a994754d"
     sha256 cellar: :any_skip_relocation, mojave:        "35e5b689fcec1730122ac0871d4c13eb3b84842991cf9728180fd84f4a654cf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dccc358000bffa588af634326b13ca09fd6bf62ce174d97d5884cd881c2ace31"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +19,6 @@ class Faust < Formula
   depends_on "llvm"
 
   def install
-    ENV.cxx11 unless OS.mac?
     system "make", "world"
     system "make", "install", "PREFIX=#{prefix}"
   end
