@@ -28,8 +28,6 @@ class Htop < Formula
   depends_on "ncurses" # enables mouse scroll
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" unless OS.mac?
-
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
