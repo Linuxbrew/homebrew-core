@@ -22,7 +22,6 @@ class Cmake < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "ncurses"
 
   uses_from_macos "ncurses"
 
