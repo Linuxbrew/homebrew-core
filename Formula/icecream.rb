@@ -21,11 +21,6 @@ class Icecream < Formula
   depends_on "libarchive"
   depends_on "lzo"
   depends_on "zstd"
-  unless OS.mac?
-    depends_on "pkg-config" => :build
-    depends_on "llvm" => :test
-    depends_on "libcap-ng"
-  end
 
   on_linux do
     depends_on "pkg-config" => :build
