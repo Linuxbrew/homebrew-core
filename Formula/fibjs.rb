@@ -17,7 +17,9 @@ class Fibjs < Formula
   depends_on "cmake" => :build
   depends_on macos: :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
 
-  depends_on "llvm" => :build unless OS.mac?
+  depends_on "gcc" unless OS.mac?
+
+  fails_with gcc: "5"
 
   def install
     # the build script breaks when CI is set by Homebrew
