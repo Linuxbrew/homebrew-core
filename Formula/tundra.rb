@@ -35,7 +35,8 @@ class Tundra < Formula
         return 0;
       }
     EOS
-    if OS.mac?
+
+    on_macos do
       (testpath/"tundra.lua").write <<~'EOS'
         Build {
           Units = function()
@@ -54,7 +55,9 @@ class Tundra < Formula
           },
         }
       EOS
-    else
+    end
+
+    on_linux do
       (testpath/"tundra.lua").write <<~'EOS'
         Build {
           Units = function()
@@ -74,10 +77,14 @@ class Tundra < Formula
         }
       EOS
     end
+
     system bin/"tundra2"
-    if OS.mac?
+
+    on_macos do
       system "./t2-output/macosx-clang-debug-default/test"
-    else
+    end
+
+    on_linux do
       system "./t2-output/linux-gcc-debug-default/test"
     end
   end
