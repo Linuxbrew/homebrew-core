@@ -27,10 +27,7 @@ class Hdf5AT18 < Formula
   depends_on "gcc" # for gfortran
   depends_on "szip"
 
-  unless OS.mac?
-    depends_on "hwloc"
-    depends_on "libevent"
-  end
+  uses_from_macos "m4" => :build
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
