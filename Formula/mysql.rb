@@ -31,6 +31,8 @@ class Mysql < Formula
   conflicts_with "mariadb", "percona-server",
     because: "mysql, mariadb, and percona install the same binaries"
 
+  ignore_missing_libraries "metadata_cache.so" unless OS.mac?
+
   unless OS.mac?
     depends_on "patchelf" => :build
     depends_on "pkg-config" => :build
