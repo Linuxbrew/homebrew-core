@@ -34,7 +34,6 @@ class Ssldump < Formula
 
   def install
     ENV["LIBS"] = "-lssl -lcrypto"
-    ENV.prepend "CFLAGS", "-DLINUX=1" unless OS.mac?
 
     # .dylib, not .a
     inreplace "configure.in", "if test -f $dir/libpcap.a; then",
