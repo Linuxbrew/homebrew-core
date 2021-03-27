@@ -15,7 +15,7 @@ class Pastebinit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2b65d2fe25cf3a5d8ed4f1ed5687f531c6a90b164567ccaa89d0f0d78fc3370"
   end
 
-  depends_on "docbook2x" => :build if OS.mac? # broken on linux
+  depends_on "docbook2x" => :build
   depends_on "python@3.9"
 
   # Remove for next release
@@ -30,10 +30,10 @@ class Pastebinit < Formula
       s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
     end
 
-    system "docbook2man", "pastebinit.xml" if OS.mac?
+    system "docbook2man", "pastebinit.xml"
     bin.install "pastebinit"
     etc.install "pastebin.d"
-    man1.install "PASTEBINIT.1" => "pastebinit.1" if OS.mac?
+    man1.install "PASTEBINIT.1" => "pastebinit.1"
     libexec.install %w[po utils]
   end
 
