@@ -29,9 +29,6 @@ class Gcab < Formula
   depends_on "glib"
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
-
     ENV.refurbish_args
 
     mkdir "build" do
