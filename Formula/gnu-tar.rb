@@ -35,9 +35,6 @@ class GnuTar < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
-    # Fix configure: error: you should not run configure as root
-    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if !OS.mac? || !ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
