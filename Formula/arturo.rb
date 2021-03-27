@@ -1,15 +1,15 @@
 class Arturo < Formula
   desc "Simple, modern and portable programming language for efficient scripting"
   homepage "https://github.com/arturo-lang/arturo"
-  url "https://github.com/arturo-lang/arturo/archive/v0.9.7.2.tar.gz"
-  sha256 "ac0c07cedfa700763e9e300cb84e058a3db1b76429eff4a2dca4ce912e971d38"
+  url "https://github.com/arturo-lang/arturo/archive/v0.9.7.4.tar.gz"
+  sha256 "a7bd26b89fd5724bac38f9e9dd6a99147541c57099a5baca9590e02dabac46d3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0f1a9623d87d1e4c29d1439a0b168da86705c7ebdf98762dbf79994a0358f9c7"
-    sha256 cellar: :any, big_sur:       "1bc0387d27bcc2542c5b93e50a835381413c22e48eb51e31ac5e5026d338ff4c"
-    sha256 cellar: :any, catalina:      "4a8e50e0a256a012492d960d8c06d57d4e43940b2dfcffa78cd1895a4e47f037"
-    sha256 cellar: :any, mojave:        "02ab700850cc749e8461e9196bba70eb3536fbf8e0613d9a485003ffa7b49b65"
+    sha256 cellar: :any, arm64_big_sur: "50953778128a490881a216c3251970d668bc1c063e143ee8351decef0fd28e4c"
+    sha256 cellar: :any, big_sur:       "b8210de3c8a54baca944a808583ba79046db3016c43f0ab56c88e5119998d304"
+    sha256 cellar: :any, catalina:      "4b45bd192ec76edb3fb5d3947281f9920d52972349f959fc173ef4ddec2c74c3"
+    sha256 cellar: :any, mojave:        "9a6519eb0a7784b0eea50e2239738985989f310eca8a2923f65237372dacea1c"
   end
 
   depends_on "nim" => :build

@@ -57,7 +57,7 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  if OS.mac? && Hardware::CPU.intel?
+  if Hardware::CPU.intel?
     # Patch for Big Sur, remove with GCC 10.3
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98805
     patch do

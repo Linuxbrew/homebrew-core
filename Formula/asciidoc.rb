@@ -48,7 +48,7 @@ class Asciidoc < Formula
     ].map { |f| rewrite_shebang detected_python_shebang, f }
 
     # otherwise macOS's xmllint bails out
-    inreplace "Makefile", "-f manpage", "-f manpage -L" if OS.mac?
+    inreplace "Makefile", "-f manpage", "-f manpage -L"
     system "make", "install"
     system "make", "docs"
   end

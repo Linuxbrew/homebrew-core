@@ -14,9 +14,10 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 big_sur:  "8a5e4d0c98e1d1a2e4f23788c60679a1a9ccb200876db602e3a26c97de9ba90d"
-    sha256 catalina: "e4033aa9b7b376f0e31fae79a36cdcc1203cc3c5901b9c53e7e4371b86aec1b8"
-    sha256 mojave:   "94cb23fbc0d49c2da13eedbfecd5bbac1826264c5b099f5b24c5a9804d3c52d5"
+    sha256 big_sur:      "8a5e4d0c98e1d1a2e4f23788c60679a1a9ccb200876db602e3a26c97de9ba90d"
+    sha256 catalina:     "e4033aa9b7b376f0e31fae79a36cdcc1203cc3c5901b9c53e7e4371b86aec1b8"
+    sha256 mojave:       "94cb23fbc0d49c2da13eedbfecd5bbac1826264c5b099f5b24c5a9804d3c52d5"
+    sha256 x86_64_linux: "8a07418cef39f8a5035571241ac03cc165440a3da55b01c98d757adcdc2f5e70"
   end
 
   head do

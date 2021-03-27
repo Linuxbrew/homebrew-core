@@ -1,8 +1,8 @@
 class Haproxy < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/2.3/src/haproxy-2.3.7.tar.gz"
-  sha256 "31ba7acd0d78367c71b56e4a87c9f11cd235fc5602bc5b84690779120e0a305b"
+  url "https://www.haproxy.org/download/2.3/src/haproxy-2.3.8.tar.gz"
+  sha256 "2aa2691238dbe6360318673603aecd1041df19d55447172f8cd988780788159c"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,19 +11,18 @@ class Haproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4e5685fc07ff9b71ff5b4b7e508df05d93e9aa68d7b2a89648de18db6f02603a"
-    sha256 cellar: :any,                 big_sur:       "cf39ccab107014fee5c4320580787a78f4aac35af273ce5f28c79d3bdeb9cf7e"
-    sha256 cellar: :any,                 catalina:      "bb24a0972b9987d8e71cf8018fbfcfa19eb9d32d5aa891371ec7c0952af83252"
-    sha256 cellar: :any,                 mojave:        "093bd702b26a0df5a9958d97b8e8857985c1e88c84724f2c00deea563e9a1863"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a94bdd55a2be738feee6a1b9d8978b8f80866720bc6705b62bb2bc96670c2583"
+    sha256 cellar: :any,                 arm64_big_sur: "f3dfc1b11675562422d4984e758d76ba82a0924480c2a89ffe4a1997d82a142a"
+    sha256 cellar: :any,                 big_sur:       "c8dc51619206f4d514b4db4a45a16a9b9671bccd5552dbf113b4fc064f5b5ddf"
+    sha256 cellar: :any,                 catalina:      "053ec0872fe76063dc2c41fddf440a1dca40ffeb875bafd226b81ae6ed26d20f"
+    sha256 cellar: :any,                 mojave:        "4b0e9fd292cb816311ed3e42aafedc6b890d643b90847457e77edd1383dcaec5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3692b43dda785832fbb190a7f26ddaf87b6810fe09bce9810aa4a65cf20b032"
   end
 
   depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
-    args = %W[
-      TARGET=#{OS.mac? ? "generic" : "linux-glibc"}
+    args = %w[
       USE_POLL=1
       USE_PCRE=1
       USE_OPENSSL=1
@@ -31,7 +30,14 @@ class Haproxy < Formula
       USE_ZLIB=1
       ADDLIB=-lcrypto
     ]
-    args << "USE_KQUEUE=1" if OS.mac?
+    on_macos do
+      args << "TARGET=generic"
+      # BSD only:
+      args << "USE_KQUEUE=1"
+    end
+    on_linux do
+      args << "TARGET=linux-glibc"
+    end
 
     # We build generic since the Makefile.osx doesn't appear to work
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}", *args

@@ -17,6 +17,7 @@ class Fizmo < Formula
     sha256 catalina:      "9f84f5f3d0f97f9637ad66d6d7906c53bd794518eab45c22f4eb51c153e31ac8"
     sha256 mojave:        "e37b186ac0ed5c8cdf5f08a7f7bedd7e997454700b6b9a92e14c41f3afc4c9fd"
     sha256 high_sierra:   "16992ff53e0327dfc9bce300d6a1c3a2e6e0874faf9ef3fb7638c3267ae09788"
+    sha256 x86_64_linux:  "e208d93dfba9150cd03eb9d80867d93f08e7716219a45c79ce24c88eca060d4c"
   end
 
   depends_on "pkg-config" => :build

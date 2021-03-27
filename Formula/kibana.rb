@@ -22,8 +22,6 @@ class Kibana < Formula
   depends_on "yarn" => :build
   depends_on "node@10"
 
-  depends_on "libx11" unless OS.mac?
-
   def install
     inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
 

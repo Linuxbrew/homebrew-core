@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4037"
-  version "10.86.19"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4059"
+  version "10.86.20"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -16,12 +16,11 @@ class Netpbm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "4fc18df2e77de3684ba5f563f401c6aebb1528931b5203f061802ac430fb36af"
-    sha256 cellar: :any,                 big_sur:       "9bfeca916645831dff97b9cf1a63d2ec844829377118e92638cbb6b652b48ba0"
-    sha256 cellar: :any,                 catalina:      "24d6ed86c8f4548ea414f646213a398bb562a1ea421474e7e75fc69cfcaf78cd"
-    sha256 cellar: :any,                 mojave:        "bf81e0d0fca89fb491575b6352079b9a2e13cb7cf502a8b43334c30261a1cf65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8775233b970c850e1b09b0c2376f0dbc6e081a1ea1c2a4904b6fcb02288184a"
+    sha256 cellar: :any,                 arm64_big_sur: "1a9cd5c5e48823ecd9980687ae77cfe68f9ad70820084fb897667a4529b964a8"
+    sha256 cellar: :any,                 big_sur:       "ab6a41174df56821e326fb0c9eac9a70f78019aa6b9add78270f8f0d3b661fb6"
+    sha256 cellar: :any,                 catalina:      "1b417e807b21934cb4dd3ae2c22f8f7c51cbfb93bb47b00c40bbfc80aecf53f0"
+    sha256 cellar: :any,                 mojave:        "421f83b0da42f565cafc48e4ca2c7db51218342f403c91e4f8c1bd0f44ba586b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5cd2ae7ff4268c4c21e38d4211383608a219cbd4c7e0fcd7d1e9e16b5063abc"
   end
 
   depends_on "jasper"

@@ -3,16 +3,16 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/14/e4/979056baa6369fd1365bfe90d1db1d982c373bc3e3a557624b85b3597cb0/Sphinx-3.5.2.tar.gz"
-  sha256 "672cfcc24b6b69235c97c750cb190a44ecd72696b4452acaf75c2d9cc78ca5ff"
+  url "https://files.pythonhosted.org/packages/47/8c/b8edf8b293613057355d45365201d9e98560a484a9c177934a6f25115826/Sphinx-3.5.3.tar.gz"
+  sha256 "ce9c228456131bab09a3d7d10ae58474de562a6f79abb3dc811ae401cf8c1abc"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4205f14fd3767570abe4c315059380653d1a5be1e2be9ee7f56e303cee288f36"
-    sha256 cellar: :any_skip_relocation, big_sur:       "52e964a4d9f40e4b10b937b6585fbba291ea7e22fb524f50d81e3b57ecd81ebd"
-    sha256 cellar: :any_skip_relocation, catalina:      "b17791e3ee6df990a294136500c91aa14637600d87a3e0e1fb8c659aef3925c9"
-    sha256 cellar: :any_skip_relocation, mojave:        "6738387dc6eaad2e5b652cc4613fb6a2c902065f028052150017dccfaec3320c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45a44a5d65a0a2fc4058b82dd6321e2df6e9bbcd25d7c4709c509c949035f1f2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6b3639fbc3fa5261b8b19d9cac4a231069b6d9b29ba1b426c6f2936e47d91cd3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a26249daadfe7f19e504b10a91cac994eb46ff28506f3afc2ef32cc035301c7"
+    sha256 cellar: :any_skip_relocation, catalina:      "c800247503511df400195c0add542898c0e650091d03f096b525902552eda160"
+    sha256 cellar: :any_skip_relocation, mojave:        "329955b970f77d781563ee6c2ba3d23a39def5b43a05d9bd5a67ec2ecec85873"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86ccc380903e38cdf9bf39eeee82f3f2838a4526d44bb2b4769aa86230100229"
   end
 
   keg_only <<~EOS
@@ -73,8 +73,8 @@ class SphinxDoc < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
-    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "pyparsing" do
@@ -128,8 +128,8 @@ class SphinxDoc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

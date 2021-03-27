@@ -1,4 +1,4 @@
-class KdeKi18n < Formula
+class Ki18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.79/ki18n-5.79.0.tar.xz"
@@ -12,16 +12,17 @@ class KdeKi18n < Formula
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
-    sha256 arm64_big_sur: "3ebf24ce99afed3f6d8bc8127321611413fd88f5ccac67bd54ebfd5bfd97110d"
-    sha256 big_sur:       "3fab49671721c2ae1ef5dbeb4f39930d81dc0b9f4dc5b53e264ed43edd70b209"
-    sha256 catalina:      "99f6a40be017e93847a60d571b5493b124d132920de2d8bdf4a2d6fd2bfbe4f1"
-    sha256 mojave:        "40bab468d976d14924e62eb899f8b3300505960a51001d3bc2ed9348358d0d7d"
+    sha256                               arm64_big_sur: "61c81f21327971452bcdba40f415d299d7a4e9c727060bcc377b065518b91087"
+    sha256                               big_sur:       "4d899f8c4dddb4cdc41a13aa957292c576c5849940e6c775a170cccd5a1b2395"
+    sha256                               catalina:      "3845dad0bb48a790e387e9a361ff608fd417b28016c4a010e88cad1086a40b9a"
+    sha256                               mojave:        "ced88da8dc87bfa0713f28de2b02a51e505bef317756d3efbb1c435821d9ba6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01ece043625c7b0c32ea8aa990876d2082bc5fe31b11119f9facc68bc246a298"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
+  depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
-  depends_on "kde-extra-cmake-modules" => [:build, :test]
   depends_on "gettext"
   depends_on "qt@5"
 

@@ -17,6 +17,7 @@ class Omake < Formula
     sha256 catalina:      "21933568db9ed765a0bf8c1f04b9f38e5923b6a320372a570499b221fb2afe6d"
     sha256 mojave:        "f54a0498316969552424a646ef36b15c567162e689e04203c95a5f8a4536c589"
     sha256 high_sierra:   "587b563698dc29ea2c662ffa58458f45e212f131e3687a37d26d8f379f089588"
+    sha256 x86_64_linux:  "7de4ba14dcaa7b635ec3eaa1a3a98000cee9affbcd00df1f44b46c4b6e19773e"
   end
 
   depends_on "ocaml" => [:build, :test]

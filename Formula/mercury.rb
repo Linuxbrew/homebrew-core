@@ -7,13 +7,16 @@ class Mercury < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, big_sur:     "2b02e97a19000e9c576fdd5c48b29300e210b9464fff7a0b7b68879555b9723b"
-    sha256 cellar: :any, catalina:    "ede7304ce96165ca6382118eacb3997e0732b875db721640002d203db9e66346"
-    sha256 cellar: :any, mojave:      "ac95cc73104a5621d7a561ae9957561206541633bff5adaf22ed36e21517add1"
-    sha256 cellar: :any, high_sierra: "60240308ebcc05ca33a4d40a787745cd4f60b445c9d94302505253bfd4697f6f"
+    sha256 cellar: :any,                 big_sur:      "2b02e97a19000e9c576fdd5c48b29300e210b9464fff7a0b7b68879555b9723b"
+    sha256 cellar: :any,                 catalina:     "ede7304ce96165ca6382118eacb3997e0732b875db721640002d203db9e66346"
+    sha256 cellar: :any,                 mojave:       "ac95cc73104a5621d7a561ae9957561206541633bff5adaf22ed36e21517add1"
+    sha256 cellar: :any,                 high_sierra:  "60240308ebcc05ca33a4d40a787745cd4f60b445c9d94302505253bfd4697f6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ad685c9aa799805e5dadb104e654db8909de67d57e6ff1ed7440a9ce9e71f0af"
   end
 
   depends_on "openjdk"
+
+  uses_from_macos "flex"
 
   # Disable advanced segfault handling due to broken header detection.
   patch do

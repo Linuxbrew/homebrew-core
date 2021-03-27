@@ -3,15 +3,15 @@ require "language/node"
 class Snowpack < Formula
   desc "Frontend build tool designed for the modern web"
   homepage "https://www.snowpack.dev"
-  url "https://registry.npmjs.org/snowpack/-/snowpack-3.0.13.tgz"
-  sha256 "35cf6805e4253f22a79a1496f529f88c39a441d798b0e691c53cd94e1413516f"
+  url "https://registry.npmjs.org/snowpack/-/snowpack-3.1.2.tgz"
+  sha256 "0aea9c6146a63da547ec3cf09099aed9d27aee3a7bcb35c95177dbc2d23cd497"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4148264a15951547102b58c903a2f34709b79643d4d4991789aac3d9d8d65219"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b99f05b87d6539b8312e7cf983e2fc7027f5372649b91907c187b63d7deaa323"
-    sha256 cellar: :any_skip_relocation, catalina:      "e45083a22c9a458ae356f158199c73ad5a7210f10d5a6b4d0e369f6d2d2d2b3a"
-    sha256 cellar: :any_skip_relocation, mojave:        "8bec25b62e92fc68ba75c975df570fc6fcaff05684c2a848c6252487bd51d9be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3df96ce4800dc5bdbfff3335939e52a262944233daaf812ea6740dc96dbc51a4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fec5e8d8a249a51f14a7f1e1c911ca8f0f370c86f0aae483d5968422606c45f5"
+    sha256 cellar: :any_skip_relocation, catalina:      "696fa879a214092c47a5f6e64b1f24d1f9796db512be77e359b5f5747a030f0f"
+    sha256 cellar: :any_skip_relocation, mojave:        "15a145271992199791230f71cbbef4aa0a778c3e876a746c736d62ba26cfad31"
   end
 
   depends_on "node"
@@ -22,17 +22,18 @@ class Snowpack < Formula
   end
 
   test do
-    system bin/"snowpack", "init"
-    assert_predicate testpath/"snowpack.config.js", :exist?
+    mkdir "work" do
+      system bin/"snowpack", "init"
+      assert_predicate testpath/"work/snowpack.config.js", :exist?
 
-    inreplace testpath/"snowpack.config.js",
-      "  packageOptions: {\n    /* ... */\n  },",
-      "  packageOptions: {\n    source: \"remote\"\n  },"
-    system bin/"snowpack", "add", "react"
-    deps_contents = File.read testpath/"snowpack.deps.json"
-    assert_match(/\s*"dependencies":\s*{\s*"react": ".*"\s*}/, deps_contents)
+      inreplace testpath/"work/snowpack.config.js",
+        "  packageOptions: {\n    /* ... */\n  },",
+        "  packageOptions: {\n    source: \"remote\"\n  },"
+      system bin/"snowpack", "add", "react"
+      deps_contents = File.read testpath/"work/snowpack.deps.json"
+      assert_match(/\s*"dependencies":\s*{\s*"react": ".*"\s*}/, deps_contents)
 
-    system bin/"snowpack", "build"
-    assert_predicate testpath/"build/_snowpack/env.js", :exist?
+      assert_match "Build Complete", shell_output("#{bin}/snowpack build")
+    end
   end
 end

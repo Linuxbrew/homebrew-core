@@ -15,7 +15,10 @@ class Pngcheck < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3440f1f335a0bd2ddffe9a30b0186bc19085f9fb83bfa80a81ba9f3c143d9641"
     sha256 cellar: :any_skip_relocation, catalina:      "a771117cbf3b11ec082ceaaa62ae6ed14f57e77cafb8b62f8bf9959e265274b6"
     sha256 cellar: :any_skip_relocation, mojave:        "83edeec573d0aa0032cf4f242d9c5b15462678da50c80dd922c4254a22b7ae16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6390d0397a19797ed6abedb6a23968e779fe3b070d9340560369e04034de7ef"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "make", "-f", "Makefile.unx", "ZINC=", "ZLIB=-lz"

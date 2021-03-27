@@ -10,6 +10,7 @@ class Hblock < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8c125bbc495e7429b58a9dd52c3f2c03b64f46d4f4193f7bc63c4ab60059a22b"
     sha256 cellar: :any_skip_relocation, catalina:      "463fcbc3b50a8ca76dffcf3d706637b8a613ec121421038fba5a249dc90c39bb"
     sha256 cellar: :any_skip_relocation, mojave:        "1851ab7697763b69a1dc9af241fa29877c42940634ee881b99feb0bea10ab297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aba50e6ba38613f3c6fd6e688aefaa6fd25a2eb85950db904453d044566268fa"
   end
 
   uses_from_macos "curl"

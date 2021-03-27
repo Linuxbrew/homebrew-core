@@ -66,7 +66,7 @@ class Jemalloc < Formula
         malloc_stats_print(NULL, NULL, NULL);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-ljemalloc", "-o", "test", ("--std=c99" unless OS.mac?)
+    system ENV.cc, "test.c", "-L#{lib}", "-ljemalloc", "-o", "test"
     system "./test"
   end
 end

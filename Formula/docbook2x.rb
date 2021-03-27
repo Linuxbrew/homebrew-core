@@ -3,7 +3,7 @@ class Docbook2x < Formula
   homepage "https://docbook2x.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/docbook2x/docbook2x/0.8.8/docbook2X-0.8.8.tar.gz"
   sha256 "4077757d367a9d1b1427e8d5dfc3c49d993e90deabc6df23d05cfe9cd2fcdc45"
-  revision 2 unless OS.mac?
+  revision 3 unless OS.mac?
 
   livecheck do
     url :stable
@@ -19,8 +19,8 @@ class Docbook2x < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a1110d4bd90cecf9ce8edacc27a3edc84dfcd4db7ab50b67269af0eb6a9bb00a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "acfdd1c80cb523b213dea0125819b1b6fc783d6d740cc8fc0047f44756b57889"
     sha256 cellar: :any_skip_relocation, yosemite:      "e3efe4afe190e126174c6e3bec0a9feb4ad37ddd0ecaef778b1e8df8a60e8717"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60e7fec19c3fe52b198744b2f5b2962d63522f9dc0cecfe8ae91c17910bbe8a7"
     sha256 cellar: :any_skip_relocation, mavericks:     "4b4750b139d7a262735e33ee0e314c7a589b6ada2d72e336aabaf334789a411d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6126b20affa23fe0188587c074546cf73b49a0b9e28217ac07a23e415d28f096"
   end
 
   depends_on "docbook"
@@ -29,9 +29,21 @@ class Docbook2x < Formula
   uses_from_macos "perl"
 
   on_linux do
+    resource "XML::NamespaceSupport" do
+      url "https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/XML-NamespaceSupport-1.12.tar.gz"
+      sha256 "47e995859f8dd0413aa3f22d350c4a62da652e854267aa0586ae544ae2bae5ef"
+    end
     resource "XML::Parser" do
       url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
       sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+    resource "XML::SAX::Exception" do
+      url "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz"
+      sha256 "66cb355ba4ef47c10ca738bd35999723644386ac853abbeb5132841f5e8a2ad0"
+    end
+    resource "XML::SAX::ParserFactory" do
+      url "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-1.02.tar.gz"
+      sha256 "4506c387043aa6a77b455f00f57409f3720aa7e553495ab2535263b4ed1ea12a"
     end
   end
 
@@ -41,7 +53,7 @@ class Docbook2x < Formula
       resources.each do |res|
         res.stage do
           system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
           system "make", "install"
         end
       end
@@ -52,6 +64,8 @@ class Docbook2x < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"] unless OS.mac?
   end
 
   test do

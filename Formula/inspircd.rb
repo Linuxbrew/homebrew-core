@@ -16,6 +16,7 @@ class Inspircd < Formula
     sha256 big_sur:       "03ea201f04b20128300f42ae72a5d5ca210dd83ecc9f9d855a81322501fc92a1"
     sha256 catalina:      "23c294085fe76ce18f6ee9af8716d72c3b116733aa576f0e45126e0c022f13db"
     sha256 mojave:        "d319dc9f7e5574a95f751b7823ead8b4f07440846ec79b10d239f28027065c70"
+    sha256 x86_64_linux:  "6fb932d60cedd2482cc66bc2775b55494e2a848ec97f8e83d751845efdcf5b3a"
   end
 
   depends_on "pkg-config" => :build

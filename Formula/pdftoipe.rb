@@ -7,10 +7,11 @@ class Pdftoipe < Formula
   revision 7
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bccabc517bbc2c3a48108fdcb944aa0de84a19d8fb39acb2fe7cd8e36521fa1e"
-    sha256 cellar: :any, big_sur:       "e2e2cacca9f434cdcf2914f2145de772fc132d42243681d6f7e8ce1739610e09"
-    sha256 cellar: :any, catalina:      "506ca131e673cbbed3564f3c40bf1dd9c9dda1f542d5c9dc93e6243fff88d4cd"
-    sha256 cellar: :any, mojave:        "5751badc621bd2d3a8263cad30c8f6c14b67fa27847f50647a68efbb9fced148"
+    sha256 cellar: :any,                 arm64_big_sur: "bccabc517bbc2c3a48108fdcb944aa0de84a19d8fb39acb2fe7cd8e36521fa1e"
+    sha256 cellar: :any,                 big_sur:       "e2e2cacca9f434cdcf2914f2145de772fc132d42243681d6f7e8ce1739610e09"
+    sha256 cellar: :any,                 catalina:      "506ca131e673cbbed3564f3c40bf1dd9c9dda1f542d5c9dc93e6243fff88d4cd"
+    sha256 cellar: :any,                 mojave:        "5751badc621bd2d3a8263cad30c8f6c14b67fa27847f50647a68efbb9fced148"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c2f9bd9ff23411175dbdce3d8b2ed078d74c09b2157bfda87848ddc629350fe"
   end
 
   depends_on "pkg-config" => :build

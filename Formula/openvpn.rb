@@ -30,6 +30,10 @@ class Openvpn < Formula
     depends_on "net-tools"
   end
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

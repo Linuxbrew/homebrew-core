@@ -9,11 +9,12 @@ class Gupnp < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "42df277f75efd31c355901035cf70f440078d5ef973fe3998ea9e0e53f6ffb61"
-    sha256 cellar: :any, big_sur:       "40c8a74e84cbf2826c098c04e888989166cbe27a9f387754c69b046b3761e6e9"
-    sha256 cellar: :any, catalina:      "0cb0e21dccf7a4cd8105303569e1f11409f46be63893eea7523d59eeff5b2398"
-    sha256 cellar: :any, mojave:        "24070ef84b5cad5ed79d0349b4f1bb41a1097aa20f0c401ab80b1c5646bdd153"
-    sha256 cellar: :any, high_sierra:   "0f0c2eb53f1182cb2b81ae49ba947d87c4ce1d0f3028c8aa5df2c0dc120e3ee8"
+    sha256 cellar: :any,                 arm64_big_sur: "42df277f75efd31c355901035cf70f440078d5ef973fe3998ea9e0e53f6ffb61"
+    sha256 cellar: :any,                 big_sur:       "40c8a74e84cbf2826c098c04e888989166cbe27a9f387754c69b046b3761e6e9"
+    sha256 cellar: :any,                 catalina:      "0cb0e21dccf7a4cd8105303569e1f11409f46be63893eea7523d59eeff5b2398"
+    sha256 cellar: :any,                 mojave:        "24070ef84b5cad5ed79d0349b4f1bb41a1097aa20f0c401ab80b1c5646bdd153"
+    sha256 cellar: :any,                 high_sierra:   "0f0c2eb53f1182cb2b81ae49ba947d87c4ce1d0f3028c8aa5df2c0dc120e3ee8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e433a1bdfbe692e3f4626fdea85edae388e1c5bedd88987e6d7949cfc5825f4"
   end
 
   depends_on "docbook-xsl" => :build

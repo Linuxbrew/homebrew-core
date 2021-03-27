@@ -18,6 +18,7 @@ class Rtags < Formula
     sha256 cellar: :any, catalina:      "332ba278034061d8789e8bcfc2d06120c122f0912de030524ee44d73089bdda6"
     sha256 cellar: :any, mojave:        "a9b3b3f280643e151a9d98438ae1bef2bf77eda3a3412d07c1781d60b6e13a25"
     sha256 cellar: :any, high_sierra:   "b1f34a462f2473d7059b8db4d78ff85f3bc18e5df25e2d597ce95052d15da132"
+    sha256               x86_64_linux:  "9c90fcfa30c51e6547ad33008e0238e75406ba630161c09cba1ded761aeca766"
   end
 
   depends_on "cmake" => :build

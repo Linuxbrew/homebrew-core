@@ -3,17 +3,17 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/7a/92/5153c35929540ff3e2c51b0d94113eab3624e6c30156564fabe47dac3ed5/gallery_dl-1.17.0.tar.gz"
-  sha256 "bf5196b9e18a45d62d7e823894f12def310264a258956882cbac13b5e856bf00"
+  url "https://files.pythonhosted.org/packages/a5/71/74bbec5ad4be57a369dac1cc8d7c2fe8024c255e07f812b1c5d6e7b423e6/gallery_dl-1.17.1.tar.gz"
+  sha256 "1cfaa3a617d5d222d4b9b41634b1bdede2673a8620d6b0e62fb755ae224ca2ac"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8178339bd2e9744aacd86ee169b4d8362d58b76accf1e60892b010bb55f72a3e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "46d0cdc8e6547a4b3ac011db77bf9027e497f0e27fd3970bbd76b228b777c20c"
-    sha256 cellar: :any_skip_relocation, catalina:      "565a950f04286e6e94a62cb228a9d9cb1fdc509b402801e15a7f43de9c7cd852"
-    sha256 cellar: :any_skip_relocation, mojave:        "16e6355a2eda46d1544706e3362acdc076d9cf22ba53c363f5e295c645d4b2f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73577261b84a3776333b4b9a5e02d25e607d4ae68630c9e84960d92530a2b5d4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "402d08e85ff1dfe4dd9f7cac6925733a2f8234f70da1bad7322dae160872a69d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d91ec7f9f5f3f3feb275cf08515db8f6c225790aecb39aaa0c6919006b5fce68"
+    sha256 cellar: :any_skip_relocation, catalina:      "d72132473705ced695b4d142b0c7fda1df34512e93367ffc6c05a8277d01b624"
+    sha256 cellar: :any_skip_relocation, mojave:        "69d2e784e6c3764102274142f48513694551b845d86ea723cf4cbf0807a9bc33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87d917d05ff8cb6302d9eb5d195c85ed301e3f53c0abc696d1df6500ac19c797"
   end
 
   depends_on "python@3.9"
@@ -39,8 +39,8 @@ class GalleryDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

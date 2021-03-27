@@ -1,10 +1,10 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1j.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1j.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1j.tar.gz"
-  sha256 "aaf2fcb575cdf6491b98ab4829abf78a3dec8402b8b81efc8f23c00d443981bf"
+  url "https://www.openssl.org/source/openssl-1.1.1k.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1k.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1k.tar.gz"
+  sha256 "892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
   license "OpenSSL"
   version_scheme 1
 
@@ -14,12 +14,11 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "39a86fd4fe2e3739b60c4f9ca81752c38e32178b141dd884de197a3f284538a6"
-    sha256 big_sur:       "a5a8d1d00e26e9159d154f030cc92cf33ed3e55da470afea990773b98013b438"
-    sha256 catalina:      "ac861861a5e35505ae43b7ac8a7323494f30407263ec4ca91c457ba428126580"
-    sha256 mojave:        "dc49f2728d9358e78f8b22978c722ee0a991379d99b879183d5d40a98e6996be"
-    sha256 x86_64_linux:  "ac824e234e2e56cdca26f7bfb9f7bc98b73249b5e8da96a327496165554b113c"
+    sha256 arm64_big_sur: "0a75e0f116c0653bc7a2b422e5dc500e7e51557303aa4fca9c1a28786189c1da"
+    sha256 big_sur:       "17d94c51ddfa8364baed5f3a754063e1ca75f807194f68d0b976619cf4e69c1a"
+    sha256 catalina:      "cb610ecdda346011031b890d7b7c6e1942d7fc08cf083b74f148ec7ffed8c7e1"
+    sha256 mojave:        "7928c80c309c6ece50b1c0d968a1e54011088cc896d26aa511249978a246bd50"
+    sha256 x86_64_linux:  "d7b7cc5b85d3c73a07e17a25d21f5bf805112dc8df298664e51b8722dff0a667"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"

@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/2.0.15.tar.gz"
-  sha256 "a71aaae08b36f5c730e5a6bd3ff88affbc5bf7c937029aab258cc0916d9ce895"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.16.tar.gz"
+  sha256 "6a1732596349637953ba5c403c47ce064c80773816050066a5b130293666f59c"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,10 +18,10 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3620637d068dc763d045c7a03679b83c335cbbecab0d492f51d17d73b44b18b0"
-    sha256 cellar: :any, big_sur:       "1bd58c270b767ddba737ad50f89def3d4ab497a8457adbea556a60180cf4c75c"
-    sha256 cellar: :any, catalina:      "8158293c11f8c5ed78afb764319f5d43b6ccc28879f556a2059db3042c825fc5"
-    sha256 cellar: :any, mojave:        "3eb65cf88ad607acddee00ce23ed46da5849ea5ad33fc26f1783e130691f7f59"
+    sha256 cellar: :any, arm64_big_sur: "077122fb453e065bf0732ade8a75afc0bf27bf49e2e56a52c60319178f338b4e"
+    sha256 cellar: :any, big_sur:       "429b4e9318c8b11009b8216b54360100f1ebfc6607265d79006771db35bf02f0"
+    sha256 cellar: :any, catalina:      "14dd5f2f1edc31e2e3600115a4a0db3b86e782abf9ec76d62f389c9d2ab24101"
+    sha256 cellar: :any, mojave:        "82753560825770ada70b02929287524471156515f71ba08239b4dd74e05af856"
   end
 
   depends_on "cmake" => :build

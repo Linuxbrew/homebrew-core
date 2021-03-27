@@ -24,6 +24,7 @@ class Exim < Formula
     sha256 big_sur:       "e6dd0ac8d655c88f4a774c3ec49852d7502f56c585f83a0edf247b048344eba3"
     sha256 catalina:      "831aed4b806adb75d3b510531d47f17ae0c38ea9539c608e68e5013c4508bc9f"
     sha256 mojave:        "a2341adeb6989c905c6f3cdcb3152bba15c76a9d2678e70c7738dd7e8fbc9c9c"
+    sha256 x86_64_linux:  "8e28b3393b9b10279c3eb6a8dd181ebe01d05914b5ba9d23d884caaa225a7631"
   end
 
   depends_on "berkeley-db@4"

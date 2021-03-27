@@ -10,6 +10,7 @@ class Unum < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e2ee19c28d058e0874fc5eb6008229305c471eac5a60c88ab99ef0917b907eb7"
     sha256 cellar: :any_skip_relocation, mojave:        "e2ee19c28d058e0874fc5eb6008229305c471eac5a60c88ab99ef0917b907eb7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "270c0296d036b4be85368539d895d27f0630e3f6a4106cc8758747e5f2371471"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "300f2098b00402fe7dddac15886fa6d4005b31274720fb6707298da5b7d497d7"
   end
 
   def install

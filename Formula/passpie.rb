@@ -6,16 +6,16 @@ class Passpie < Formula
   url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
   sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
   license "MIT"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f"
-    sha256 cellar: :any, big_sur:       "e8550b5e5a4caa3515b9e726beeb3a571a98db40e3fc2731fc0a4460fe929a61"
-    sha256 cellar: :any, catalina:      "29a24482b5c955a6d14b7a285d6937c04ab89a53f110c8343221d2ccef2cb508"
-    sha256 cellar: :any, mojave:        "9f524fdab59188aab2b53fe7c3e5084ecdc27149dd742abffdfb13af074ba0ee"
-    sha256 cellar: :any, high_sierra:   "acac2254266a3c741c15e28403482e67517d447dc4a4c0411934ec93ab902945"
-    sha256 cellar: :any, x86_64_linux:  "442b659edcd6391e2e04206acceb85fa4a14b652ca1577a1b655bc5481043e03"
+    sha256 cellar: :any,                 arm64_big_sur: "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f"
+    sha256 cellar: :any,                 big_sur:       "e8550b5e5a4caa3515b9e726beeb3a571a98db40e3fc2731fc0a4460fe929a61"
+    sha256 cellar: :any,                 catalina:      "29a24482b5c955a6d14b7a285d6937c04ab89a53f110c8343221d2ccef2cb508"
+    sha256 cellar: :any,                 mojave:        "9f524fdab59188aab2b53fe7c3e5084ecdc27149dd742abffdfb13af074ba0ee"
+    sha256 cellar: :any,                 high_sierra:   "acac2254266a3c741c15e28403482e67517d447dc4a4c0411934ec93ab902945"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb4bead806115cf3aa16f796e725244659e1baca5e8bc61ad5bb56b8ed0ad570"
   end
 
   depends_on "gnupg"

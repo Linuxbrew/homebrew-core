@@ -10,9 +10,10 @@ class Cedille < Formula
 
   bottle do
     rebuild 1
-    sha256 big_sur:  "9bfbd5b2e5b630d41cc5a43fe0c98931cad6c35751ce39328c5a26edc8070f3a"
-    sha256 catalina: "ec0149eec408a85bad6bc1e1475807b097d0c85e134c0f8ec88cb152422ebbd0"
-    sha256 mojave:   "a63ef04390299c7fad40453d4a979924e9d6d79e94d4eacfb3a6cfadb4e072a6"
+    sha256                               big_sur:      "9bfbd5b2e5b630d41cc5a43fe0c98931cad6c35751ce39328c5a26edc8070f3a"
+    sha256                               catalina:     "ec0149eec408a85bad6bc1e1475807b097d0c85e134c0f8ec88cb152422ebbd0"
+    sha256                               mojave:       "a63ef04390299c7fad40453d4a979924e9d6d79e94d4eacfb3a6cfadb4e072a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "46473072bb2d2b717ee19fe213d88ef8f223f5daa7fda4dc9294df8803e0f981"
   end
 
   depends_on "agda" => :build

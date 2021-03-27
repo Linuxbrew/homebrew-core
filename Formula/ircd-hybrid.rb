@@ -15,6 +15,7 @@ class IrcdHybrid < Formula
     sha256 big_sur:       "c51bee2a4d81c9467e7c2ed690cd4fbf267bfeb8221fcc4d95e6b660fc900d67"
     sha256 catalina:      "43d205233313470bb806fad466f65d351bf664b882aea01aabe90891cdf479c0"
     sha256 mojave:        "b89ff3f7cbeedad3fa65e8b8a28f601cfc3fd745ee591356a89ab36f257f1b3b"
+    sha256 x86_64_linux:  "af1ec43aabdb455fc38a338be6ee0a06cb72cf63aeb1d31b227b5df38acc6f38"
   end
 
   depends_on "openssl@1.1"

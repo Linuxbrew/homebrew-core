@@ -15,9 +15,12 @@ class TtyClock < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9b0e056ec6d86d9ba9cbd2abc02236607a6ad5601e7a656d10cad20182564315"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c0d981769811bf1c265e11702ea0d26bcf87102ac92896c04c14a91fbed1cc8c"
     sha256 cellar: :any_skip_relocation, yosemite:      "9341fb07070b665dc5f9593c1b4811ec734f7221afbde2547cee55fc9102aa1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ccb3a60434af5ef907f315dda369cbf8aacd919e9fea2aa2df375c289968d04"
   end
 
   depends_on "pkg-config" => :build
+
+  uses_from_macos "ncurses"
 
   def install
     ENV.append "LDFLAGS", "-lncurses"

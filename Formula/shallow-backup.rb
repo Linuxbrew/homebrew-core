@@ -15,6 +15,7 @@ class ShallowBackup < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e1ad3d711a2c18d700033fc80c16f21ebf40a1a0ba40d41352fe5c3e13339a5a"
     sha256 cellar: :any_skip_relocation, catalina:      "180c2239489893d858f7a12d729d07c47d0eed52bb77b0fc31dedba920697672"
     sha256 cellar: :any_skip_relocation, mojave:        "84fe6770d371202f7f6bda5e55b7dc1d54744faa38a25ed498d36eab4ef8be5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7edb104ebf1a85a6982374630ddddf0738c45f01402e26f1706b06c3c736c1b2"
   end
 
   depends_on "python@3.9"

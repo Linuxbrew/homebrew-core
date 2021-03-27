@@ -13,6 +13,7 @@ class Vulture < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b4f0c8d4d327b6d8687ef63b370a82332a25cea64be3eea8a55e20508d2072d2"
     sha256 cellar: :any_skip_relocation, catalina:      "b5e8ebd31bc7aee0bd3c547db9e49d6e91af523213488bdb99ac6435c5404cf9"
     sha256 cellar: :any_skip_relocation, mojave:        "0c6278066d30cedf4c077cb351c750d295ba566a32107580243820970d3f787b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cee60553522f8374e030ba094535c6a5cd93f168c1ee39acf35f658e2a27d12"
   end
 
   depends_on "python@3.9"

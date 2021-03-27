@@ -6,9 +6,10 @@ class Md4c < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "5253c9afbcee9804cd582fd860b4d5f8b9805d9a30ea97da59f4c8332738e5db"
-    sha256 cellar: :any, catalina: "51a8a4e90c02e9f1431252de17ea0a6af8b520659c87b8c6e4f68fc48c231085"
-    sha256 cellar: :any, mojave:   "de32cd227ac8eb3e44c7f5d1763959f2ac26200444f8023de9a343f40bdb341b"
+    sha256 cellar: :any,                 big_sur:      "5253c9afbcee9804cd582fd860b4d5f8b9805d9a30ea97da59f4c8332738e5db"
+    sha256 cellar: :any,                 catalina:     "51a8a4e90c02e9f1431252de17ea0a6af8b520659c87b8c6e4f68fc48c231085"
+    sha256 cellar: :any,                 mojave:       "de32cd227ac8eb3e44c7f5d1763959f2ac26200444f8023de9a343f40bdb341b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8bd5c6acd7260949d671c54fb0de8d2f75febcfe89ce9f293b361ec199149543"
   end
 
   depends_on "cmake" => :build

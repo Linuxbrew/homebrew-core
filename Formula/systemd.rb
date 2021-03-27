@@ -51,6 +51,7 @@ class Systemd < Formula
       -Dcreate-log-dirs=false
       -Dhwdb=false
       -Dlz4=true
+      -Dgcrypt=false
     ]
 
     mkdir "build" do

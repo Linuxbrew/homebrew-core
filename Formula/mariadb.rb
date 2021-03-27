@@ -28,9 +28,12 @@ class Mariadb < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "linux-pam"
+  end
+
+  unless OS.mac?
     depends_on "gcc@7" => :build
     depends_on "libcsv"
-    depends_on "linux-pam"
   end
 
   conflicts_with "mysql", "percona-server",

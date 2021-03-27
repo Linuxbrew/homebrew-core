@@ -1,14 +1,14 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/5.6.6.tar.gz"
-  sha256 "36aa1bc58997a31d5c78ab98faaa8f3b4478a97b0caa3a6afeac6129ad279143"
+  url "https://github.com/GitTools/GitVersion/archive/5.6.7.tar.gz"
+  sha256 "90e9d567ed5acfbf519b2791aa6e00c6875b17268d1e0e3d94253713e1fe33e2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "75ebeca8702ea549395c24070f1c376cb650663e549389c73c2e804d612b04e4"
-    sha256 cellar: :any, catalina: "06b78e5440747da71e7e9b692cb09ed089c6e857dd9fbe7c510b6cbfd21e5883"
-    sha256 cellar: :any, mojave:   "fb27d74a0ecd26af8792f43bb99ed6756486d61323382aee29f2248a18ef0527"
+    sha256 cellar: :any, big_sur:  "a0f78c6cfe556137a856bb22fdafd2a854dc25e313c6144f9fd22f90f7dd8a3f"
+    sha256 cellar: :any, catalina: "1158a3d149592114f62361060f69077b91caad1b727d153f957657d3c1a7d641"
+    sha256 cellar: :any, mojave:   "8e89caec762f6de9494f366847385f07d8402d03c700133f9454727a7948d332"
   end
 
   depends_on "dotnet"

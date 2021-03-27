@@ -34,11 +34,15 @@ class Cvs < Formula
   depends_on "automake" => :build
   depends_on "gettext"
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   unless OS.mac?
     depends_on VimRequirement unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     depends_on "vim" unless which "vim"
-    depends_on "linux-pam"
-    depends_on "zlib"
 
     # Fixes error: %n in writable segment detected
     patch do

@@ -13,7 +13,10 @@ class AutoconfAT213 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d3b4d6e06ae6749fc60fa437f1f5c2ae85a91f6979ca897e08b854f920c222a0"
     sha256 cellar: :any_skip_relocation, mojave:        "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c02bb36ddc516ad196527acf6a597198b1dd938482230542d55bddff989f6625"
   end
+
+  uses_from_macos "m4"
 
   def install
     system "./configure", "--disable-debug",

@@ -29,7 +29,10 @@ class Elektra < Formula
     end
 
     # Avoid references to the Homebrew shims directory
-    os = OS.mac? ? "mac" : "linux"
+    os = "mac"
+    on_linux do
+      os = "linux"
+    end
     inreplace Dir[prefix/"share/elektra/test_data/gen/gen/highlevel/*.check.sh"],
               HOMEBREW_SHIMS_PATH/"#{os}/super/", ""
 

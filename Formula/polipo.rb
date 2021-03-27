@@ -14,10 +14,13 @@ class Polipo < Formula
     sha256 mojave:        "2653a1ffd719d82318a04fd94b8a2573714c03e974b43ae7b3df6ad4b9e410f3"
     sha256 high_sierra:   "6fe78288ca28698ac07fd96d99fbbf311a6b410eb7150dfac5388564b76d4195"
     sha256 sierra:        "7a943f9e9952d78c692d5ec155b407319181a6a66ee1367801f77da8f7bb8459"
+    sha256 x86_64_linux:  "723e29b0647559f731b090aa5fb9a54774165cb08ba8acdaf29ee2f655409f9b"
   end
 
   # https://github.com/jech/polipo/commit/4d42ca1b5849518762d110f34b6ce2e03d6df9ec
   deprecate! date: "2016-11-06", because: :unsupported
+
+  uses_from_macos "texinfo"
 
   def install
     cache_root = (var + "cache/polipo")

@@ -1,16 +1,16 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.2.tar.xz"
-  sha256 "83c66a1cfd591d7680c144d2922c5955d38b4db336d7cd3ee109f7bcf9afef15"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.4.tar.xz"
+  sha256 "fe9c5dd88f486194ea2bc09b8814c1ed895bb6c530f37cbbf259757c4e482e4d"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "f5ba72b880262c20ef7fd5fd21232662b0b9d76d40c51b1f574483b63b1fb886"
-    sha256 big_sur:       "30685ea260245bc1a4e6c5e3b1301f7b603e64c98a83386e1b71515787e1a130"
-    sha256 catalina:      "fe5c2b2bc7a942a6cab4d091be0c9f88703919cc75b6ec92d51ef0ed24ebcdbc"
-    sha256 mojave:        "a76668fe271e79d4a74ed56657130dda2012c4cf78e9d7e5c417f010ca35ad8c"
-    sha256 x86_64_linux:  "bc3e86109c412b2fbab72d051f72e9cc9c7e18fe164ea89d6300e065dba750a3"
+    sha256 arm64_big_sur: "dde3cffcf21497db2473a1f916100a714e714cf59b802623d3e3917d9728a870"
+    sha256 big_sur:       "e322f11d0196713acd20b5bf4e14857de05a0cdd37499efc1cb4b6896b1c8026"
+    sha256 catalina:      "c465612de5e4ffec59a0d78f793d5a701fff51a35a2bb73fb1b18410a3433dfd"
+    sha256 mojave:        "2a37cb607621f83d20cd091723bdcd400040e5d3a726761b22a043699bd0b9aa"
+    sha256 x86_64_linux:  "8e193cf9c5bb7660e38a608963a0fe45b2c32e1cbea950bb5549e04a680cd4c7"
   end
 
   depends_on "gobject-introspection" => :build

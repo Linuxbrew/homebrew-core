@@ -1,4 +1,4 @@
-class KdeExtraCmakeModules < Formula
+class ExtraCmakeModules < Formula
   desc "Extra modules and scripts for CMake"
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.79/extra-cmake-modules-5.79.0.tar.xz"
@@ -15,11 +15,11 @@ class KdeExtraCmakeModules < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b037f9a37b5602092d85b8af767ad3f46d970c295aff9bf4b55ca21ecdfd11c0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fc8d6944b8c8900f3fb464cc8f4589bec834d6b7ab9adbce8b380dcf8d7bc00b"
-    sha256 cellar: :any_skip_relocation, catalina:      "6461611d4f810ef660c4554eadb4f708fe1f952458d2cd374a8200e36895f1cc"
-    sha256 cellar: :any_skip_relocation, mojave:        "daccf07232ea1f687e2f20b0f86823f7ebf421da92f1f4e7608c5197f556ead4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f298e516505cba1026697085ae03d7cda289d0f8df8131bb2e9e892aa14ea07"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "73af52ca8f90dc4a66c543ed896d97cf7820fc016e486d1f9a05d3f662883959"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3b53cf2a416928afe6bf92bce808a6816ab7c9e8fa08f1c9b7efeb74be7647e8"
+    sha256 cellar: :any_skip_relocation, catalina:      "63f12faa74b40544530ca7a674de660fd545b746a8ee0a215649abe1cf43985b"
+    sha256 cellar: :any_skip_relocation, mojave:        "a4c91e88ecd0abc7875bc3fcfaaf8680503f49b327a5bef11354e96fb24a6cc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f7425281dee72a21a7d23948e5a1b69dc1a29f8b182198316a8fb1a5415dd32"
   end
 
   depends_on "cmake" => [:build, :test]

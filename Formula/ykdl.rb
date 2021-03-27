@@ -12,6 +12,7 @@ class Ykdl < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "39f6e7ed8a11ec0a6eab3cb3e3236d261aa2490fc9e5697c75ecfc37ae33bead"
     sha256 cellar: :any_skip_relocation, catalina:      "797ce1b9f6002a6153019355f957013c078fbe3a36a709293b32a717ff78c30d"
     sha256 cellar: :any_skip_relocation, mojave:        "163c3593145fc6f85b00be215f20c5393219147af348c4c90dc34c942e5966f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ac52590515b8ee0d125dc28dab4f69f2820a63d7274d87c5feab2965523824e"
   end
 
   depends_on "python@3.9"

@@ -174,7 +174,9 @@ class MingwW64 < Formula
     EOS
 
     ENV["LC_ALL"] = "C"
-    ENV.remove_macosxsdk if OS.mac?
+    on_macos do
+      ENV.remove_macosxsdk
+    end
     target_archs.each do |arch|
       target = "#{arch}-w64-mingw32"
       outarch = (arch == "i686") ? "i386" : "x86-64"

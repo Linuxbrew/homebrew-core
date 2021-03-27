@@ -10,6 +10,7 @@ class AidaHeader < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "eba4b33299b9ed8ed988c4c17fbffe1e17364a7d284878247c3b0a738fe2b340"
     sha256 cellar: :any_skip_relocation, catalina:      "50a1e944d768d3f6b5d8dcaf8d074d821272056104369e85f72539c628b770f2"
     sha256 cellar: :any_skip_relocation, mojave:        "d4559d46451c98728a32679f6d62b7ee4c9a5fa57c18e7ba9315e33d2e7150b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4d3694ebe1c92a44f7850d5d45c78ed2e4855d55f8586f46f3f9859d6fe50c1"
   end
 
   def install

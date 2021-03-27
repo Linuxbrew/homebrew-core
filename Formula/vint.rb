@@ -15,6 +15,7 @@ class Vint < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8848e8f89f352b4bbcfb875438c09e4dbae683bc1a5044b30d254ee1700ec0e3"
     sha256 cellar: :any_skip_relocation, mojave:        "8e4f3863fcdd29a7c727e4117dbb8731606c97ad25bf5a80ddbad65d96a43dd7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4719b1fd512613b97246d52968fe3a7dfe6d45b7c9749bad87bd22bf4841fc0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4048191ca6369d943c94d18a054243daf54035215164a804889b3e7907bfb6a6"
   end
 
   depends_on "python@3.9"

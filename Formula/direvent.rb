@@ -13,6 +13,7 @@ class Direvent < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "0e9d14d7340a3031305913d1a506f17ebedfaae4b6da0c340d23f754de3fc4c7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b1893330b8cd3c41bfcfb1a5a919bf887febf17b9e5067d428d31169c8218295"
     sha256 cellar: :any_skip_relocation, sierra:        "6b04f666ccddc5f843e2dae19ee9af577390e9f1642b284237e5055885fb9864"
+    sha256                               x86_64_linux:  "d7d1b8df019aba2ed2e155f58193d469243a0833fe095ba1f9254566dfe91459"
   end
 
   def install

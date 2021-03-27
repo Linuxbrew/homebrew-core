@@ -12,6 +12,7 @@ class Coconut < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "17075cb66b596e4e09df6caefa00ed315ae1e9c1699f547f7f23afe101f7140c"
     sha256 cellar: :any_skip_relocation, catalina:      "d08209403eda81ce889603b3f1d2cb2cbc9a3873567bb9ac8363b40b60005c9a"
     sha256 cellar: :any_skip_relocation, mojave:        "aa7123b110787c7f77ac38604e748d0b25f03e0da251667c17e634b9cf56e24b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f8c91050c83bd52180136d05e1d5b8b481d1ea75853311dcda968b9a3147aba"
   end
 
   depends_on "python@3.9"

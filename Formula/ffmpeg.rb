@@ -1,16 +1,13 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
+  sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-4.3.2.tar.xz"
-    sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
-  end
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -18,11 +15,11 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a4f02dfa8a56817cd7be885061073f188118c41a815657bee084b40ec5007191"
-    sha256 big_sur:       "e95f2be7645766bd375f8bccd4d0099cb701ce57e68663a30d4ce5c5353dbff9"
-    sha256 catalina:      "ea0820a0cc0b48c72d746198a9e9f41d8369e731ecbff9abeec772d36cbf75ab"
-    sha256 mojave:        "f0803e3310a22edd03a3a64e31edf4b340d7388f5af5bf5fbd9059aa335eced3"
-    sha256 x86_64_linux:  "c2573eaed3ccde545c5ba1c30204ea4a2fd2ef683003282a29dd6a08b0bafd3d"
+    sha256 arm64_big_sur: "95e9f88efd0f33050d81317f66145e259e391c4c718bbe08ac0db53b0a3a1163"
+    sha256 big_sur:       "ad6fe2b17d24998db46d27a6976da6aa7b6e134f3885bee82089cb57dbeaf2c2"
+    sha256 catalina:      "60e65a454b96487f348098c066028205521402de9e5484ace2732040d9c928bb"
+    sha256 mojave:        "908108f0564c2217b34f002c28183e92edb05b286912f5959c13fe3a821b0482"
+    sha256 x86_64_linux:  "729c27e46343e798b6e2a5b8cdb8475a0e078a92a7657d88a40a4ebea2f511c6"
   end
 
   depends_on "nasm" => :build
@@ -44,7 +41,6 @@ class Ffmpeg < Formula
   depends_on "openjpeg"
   depends_on "opus"
   depends_on "rav1e"
-  depends_on "rtmpdump"
   depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
@@ -108,7 +104,6 @@ class Ffmpeg < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libopenjpeg
-      --enable-librtmp
       --enable-libspeex
       --enable-libsoxr
       --enable-libzmq

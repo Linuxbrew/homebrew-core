@@ -22,10 +22,7 @@ class Pstoedit < Formula
   # "You need a C++ compiler, e.g., g++ (newer than 6.0) to compile pstoedit."
   unless OS.mac?
     fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    fails_with gcc: "8"
-    depends_on "gcc@9" => :build
+    depends_on "gcc" => :build
   end
 
   def install

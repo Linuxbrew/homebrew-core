@@ -13,6 +13,7 @@ class NicotinePlus < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b03a1dbb5b2c2e7ea5a1503aee224621da27c3a7bd13725390ba8ace0b95ebb4"
     sha256 cellar: :any_skip_relocation, catalina:      "ee2d59e9cba8ded41ed7a76553ff1b4625e2acbe85e2220a750de6ce0d59fe11"
     sha256 cellar: :any_skip_relocation, mojave:        "e10c26a215aff2521cb147251a149120fb5e1681e0eff7a0c8ca8fe90dd32991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80f319237b748174d59a143a4b0b264904cdae6bb0c2fe7218c19199c54deacb"
   end
 
   depends_on "adwaita-icon-theme"

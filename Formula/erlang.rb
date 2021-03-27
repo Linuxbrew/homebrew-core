@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-23.2.7.tar.gz"
-  sha256 "db84414c42ef5c9d472ddf780cad6f210c2344b22ecd59ca57527bf043ea0943"
+  url "https://github.com/erlang/otp/archive/OTP-23.3.tar.gz"
+  sha256 "a9dfe9ea762b9f06f67af6074bed0f75705e1f114b9c45634db7d7cac2a293da"
   license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
 
@@ -13,11 +13,11 @@ class Erlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "17dd54ac9dc1f0b21422e781bdfbb6ee8db53e9c06d2a663a4d89a8eb6ce05b9"
-    sha256 cellar: :any,                 big_sur:       "42d12c0f32085c4e898d3a68531dd9d38b48b5a5eff085e000a3ba3cf736ce94"
-    sha256 cellar: :any,                 catalina:      "ba3e82593aee59d4ba65a63680575adc36f2efc008c91ec3724e28ca546b04b7"
-    sha256 cellar: :any,                 mojave:        "fd2d929a9f235fa7692d8a7586fce72fb8e600a631ccf962977ec6613fe1ae25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8afbd29daf081a72061af1ab678d7bcd0f35447b0045d3dec5d8ede582a7c69e"
+    sha256 cellar: :any,                 arm64_big_sur: "2701f0e35054ffe086baf2d570608c9b45136e5725c0b86f091ed07258aac4ef"
+    sha256 cellar: :any,                 big_sur:       "ff51a09424e0a09b1fc8d039fedce49579d8be978aa30cf02153641245a24901"
+    sha256 cellar: :any,                 catalina:      "a3f20bfb923fc4c652442bf947a114e5d97188ea7c47bdacf8b2a91a68f37a66"
+    sha256 cellar: :any,                 mojave:        "64094375de999a506d40c78786445c6f219593ec4f0502398df5d48136823ef2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b7a4c1377f33c22a61cc4eeaec73b49d32e21a61348a1302ba0df87ca6e5e28"
   end
 
   depends_on "autoconf" => :build
@@ -29,9 +29,9 @@ class Erlang < Formula
   uses_from_macos "m4" => :build
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_23.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_23.2.tar.gz"
-    sha256 "1f58e16826a8b9f86e10ca057f4e3e3e0304dcd3cf46fe2cef6f5c1d56196fc8"
+    url "https://www.erlang.org/download/otp_doc_html_23.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_23.3.tar.gz"
+    sha256 "03d86ac3e71bb58e27d01743a9668c7a1265b573541d4111590f0f3ec334383e"
   end
 
   def install

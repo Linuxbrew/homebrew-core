@@ -15,6 +15,7 @@ class Ydcv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "329fe285ec1d389d1dd876bd4775327be3781a2c4a336537790b5d43a0bf5449"
     sha256 cellar: :any_skip_relocation, catalina:      "f6984e690a8d4fab4b893cea60ead8c6cc53358066d1b255e7e49ff952f300cf"
     sha256 cellar: :any_skip_relocation, mojave:        "606b5e4d75d322b8c5ed787ccdd6729bbce88f7039731a958352d7d0445e1e1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c85c1e0754c49049a82ffd9ad0c218b0d6c0a9fec3e14628ee989a95f63c4edc"
   end
 
   depends_on "python@3.9"

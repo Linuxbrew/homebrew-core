@@ -35,7 +35,9 @@ class Uwsgi < Formula
   uses_from_macos "openldap"
   uses_from_macos "perl"
 
-  depends_on "linux-pam" unless OS.mac?
+  on_linux do
+    depends_on "linux-pam"
+  end
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and

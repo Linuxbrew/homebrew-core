@@ -11,6 +11,7 @@ class Austin < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ca848fe3df7f23f587130c513162f014a5c527de876b4daed5b771cfcdef4a63"
     sha256 cellar: :any_skip_relocation, catalina:      "fd66332fc1c28de38e489abe6589acd135a75f5d4f058350e6406960e90536e0"
     sha256 cellar: :any_skip_relocation, mojave:        "01fd01e344f256fcaa06733821873a7d29051c8d79df780bdee413840fa8469f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47769ceda0c45d4d47a25e89e0f836532a79a8170cf3f1c7b9a30f7752fcae85"
   end
 
   depends_on "autoconf" => :build

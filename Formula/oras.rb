@@ -1,16 +1,16 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/deislabs/oras"
-  url "https://github.com/deislabs/oras/archive/v0.11.0.tar.gz"
-  sha256 "47d7d2f5ec7a6c8dd49d607e89edad0af10457e1acbd803b33b0c0bfb4807614"
+  url "https://github.com/deislabs/oras/archive/v0.11.1.tar.gz"
+  sha256 "40416acb056b187544c06d8595553251c77aed27e9e3d7cf455798bcb070f089"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "48e3e62324171ff745c58facc0c2ccebb3694a24ca960a6f65ef374e99cee10e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "26d9a53ff1b82bd49c685b50632129c82a65ab60b0f41a8405d3f0c12695f839"
-    sha256 cellar: :any_skip_relocation, catalina:      "9b96c43f4b1696bd2db1bea8c5f686baf3ad747c42a0b130c76d8fa3b3a3a8b4"
-    sha256 cellar: :any_skip_relocation, mojave:        "d3e49aff7b26c7d7517deb77618a86a092a07c5db9d5874ae25ea6f466f88217"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb3d59cd7eef955a202dd8462c08e29097b5b2e11ef83848401b639aad755d23"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7df64201010ee88df6b42e9b4c7366c584db8f661f3892327333bc1d2b72b1b6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58f25965a9deb06395e3c73b6526ce48c65b837c9173b56780084501626d038e"
+    sha256 cellar: :any_skip_relocation, catalina:      "4a71d2ffb060d9b66c3c21ebad5f40433cb544ef406714d0756eb5a72a639c13"
+    sha256 cellar: :any_skip_relocation, mojave:        "008def6b863c4c2d40408d6298f89146149bfa67d6845a8fe8990329b19f59fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f09dd3ce69126006bec4380816ca56c05af0dd0db20cb553981f7e3237465297"
   end
 
   depends_on "go" => :build

@@ -23,11 +23,9 @@ class Cdrdao < Formula
 
   # first patch fixes build problems under 10.6
   # see https://sourceforge.net/p/cdrdao/patches/23/
-  if OS.mac?
-    patch do
-      url "https://sourceforge.net/p/cdrdao/patches/_discuss/thread/205354b0/141e/attachment/cdrdao-mac.patch"
-      sha256 "ee1702dfd9156ebb69f5d84dcab04197e11433dd823e80923fd497812041179e"
-    end
+  patch do
+    url "https://sourceforge.net/p/cdrdao/patches/_discuss/thread/205354b0/141e/attachment/cdrdao-mac.patch"
+    sha256 "ee1702dfd9156ebb69f5d84dcab04197e11433dd823e80923fd497812041179e"
   end
 
   # second patch fixes device autodetection on macOS

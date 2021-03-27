@@ -1,8 +1,8 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.0.1-src/pyside-setup-opensource-src-6.0.1.tar.xz"
-  sha256 "baac59a71d5d8d28badd4b484b3722500a6616684f932f0652b33a5b5feaf365"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.0.2-src/pyside-setup-opensource-src-6.0.2.tar.xz"
+  sha256 "55e129e044770c173d64e0144c7754125e6ded4a13ee3c1629dd6ae2ffae5e05"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -11,10 +11,10 @@ class Pyside < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "239f99f9eaca9ba85a68a805eb5279738d08bd58d5512ebf8492df84e703ee22"
-    sha256 big_sur:       "f6387aca1629b8cd43a4ddc95d309a94f8b7a6ee9cfd7c0decf11e924b73c427"
-    sha256 catalina:      "4fce7c337eed79efd48ee860b2759fe3b31144dca5824e8c36d783ac4133657e"
-    sha256 mojave:        "48aa2aee0d35ee4218560c63e6f34a9039a0f2a75e8363631be10c6600cfccc0"
+    sha256 arm64_big_sur: "ed53278ff12ea26cadddc73069972313dde14dfc1b6178df6f2ce1848d918e8e"
+    sha256 big_sur:       "d43a084b76590e278041ea5941411ad8eff85eb7830ebe269d28f145ae4ee595"
+    sha256 catalina:      "bf3143d51954f330beafad514eb9f27c0cfef3ff75cd4292534dcfafdec24862"
+    sha256 mojave:        "bc139beee506b5bb69c603f40c30bc88fdaf3d6e4cefcf6c08d441997e48726f"
   end
 
   depends_on "cmake" => :build

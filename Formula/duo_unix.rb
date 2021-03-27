@@ -22,7 +22,10 @@ class DuoUnix < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
-  depends_on "linux-pam" unless OS.mac?
+
+  on_linux do
+    depends_on "linux-pam"
+  end
 
   def install
     system "./bootstrap"

@@ -13,6 +13,7 @@ class Parliament < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "055f7fefb957c5269ab8ec19654b06e0e7db865333bbebb62a5e2ea9940ddfca"
     sha256 cellar: :any_skip_relocation, catalina:      "b29b423794a9ccb15f1509f6086b170f4f3393bad15a8bdaa9ab7312fc09ae31"
     sha256 cellar: :any_skip_relocation, mojave:        "2e59a17e90ad49204bd45177cddf947bd1fda2405572ae62b194143bb9cab337"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fd2df6d34ba118db03bc4fcc79decceabb1d559855634d730324d3d123a13a0"
   end
 
   depends_on "python@3.9"

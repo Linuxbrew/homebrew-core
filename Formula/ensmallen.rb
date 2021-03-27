@@ -1,15 +1,15 @@
 class Ensmallen < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://github.com/mlpack/ensmallen/archive/2.16.1.tar.gz"
-  sha256 "8afda8ed8e99889ca9ac1c0caf2563f1d649a9d412b4e8aa0698686351abcd16"
+  url "https://github.com/mlpack/ensmallen/archive/2.16.2.tar.gz"
+  sha256 "b4c9c6dcb3ec7a034f4668b0b71048f2e28c01aa57ce4291d6b3fca8c5bfeed2"
   license "BSD-3-Clause"
   head "https://github.com/mlpack/ensmallen.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "90556505e57a1fedfee45b1fdc71fc2d04435c4f56510fc23c5d045a2a609a30"
-    sha256 cellar: :any_skip_relocation, catalina: "97ece67ff32c345316d773ad7c1adffa0a33711edd0f7607945bd9104588b40c"
-    sha256 cellar: :any_skip_relocation, mojave:   "17bab1b071c058a3f79af23692b403a25474d2a0f74fee9318e639d6463f7872"
+    sha256 cellar: :any_skip_relocation, big_sur:  "e1f7354fa4e31a5312961d8c47c1b45f81d590f3074a5214a6c0ccf2e9e71b8f"
+    sha256 cellar: :any_skip_relocation, catalina: "bde043315aa52c771e43a628a9282de67e3599f982364da216dca51ca3db0966"
+    sha256 cellar: :any_skip_relocation, mojave:   "03ff20db9a165c237b5ef647fa7fefad606d7ae2f422ec52294d64bd254a5d9d"
   end
 
   depends_on "cmake" => :build

@@ -61,8 +61,6 @@ class Coreutils < Formula
       --without-selinux
     ]
 
-    args << "--without-selinux" unless OS.mac?
-
     system "./configure", *args
     system "make", "install"
 

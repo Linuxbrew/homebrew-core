@@ -3,17 +3,17 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://files.pythonhosted.org/packages/92/29/303a71a1bf4522d6e36baa14d48f286d75da545777d8510b9f4085686ee3/docker-compose-1.28.5.tar.gz"
-  sha256 "b3ff8f0352eb4055c4c483cb498aeff7c90195fa679f3caf7098a2d6fa6030e5"
+  url "https://files.pythonhosted.org/packages/c9/c7/ffb7376305e3ce632ea60355cb7ec729583bbb4b3ba62f6536dad30bc207/docker-compose-1.28.6.tar.gz"
+  sha256 "1d44906f7ab738ba2d1785130ed31b16111eee6dc5a1dbd7252091dae48c5281"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b2aa9493fda75a1044fee7c321394b4d884fe72e6658c7523712659a0549d583"
-    sha256 cellar: :any,                 big_sur:       "da80757f384997366c44221500a223cd169bbe002fc2676727b43056eca26ca8"
-    sha256 cellar: :any,                 catalina:      "ff772da8c719b4f7c0ad0aae4ddf625c6eee12a8bc5c56bf864dde3ee435752f"
-    sha256 cellar: :any,                 mojave:        "dd017cc11c4ac1242835aed3dd7da723244fb86f10e1c88e3a2ee319c674ab97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cc96016a7a82ea67aabd03d712de0c97a948cba7f60fcdbc230fb43c70a31aa"
+    sha256 cellar: :any,                 arm64_big_sur: "def888cda0498bf1e9236386ed287cd65fa8dcf314f7803de31bfe8b77bdb0ff"
+    sha256 cellar: :any,                 big_sur:       "42453957a2a31dc1ae31877e5ff284941a548726e1ca54dc8327f3621e40d561"
+    sha256 cellar: :any,                 catalina:      "ce5c763c78095a91d0acb65c61ababff31764a5455361f0459520d95283bfd83"
+    sha256 cellar: :any,                 mojave:        "78054b1fe088d704a358b96e416ac163afe60efc26560d97e902fd0e4b35e1ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e137517b8bd3c07a5df25c71fcb11cf5ebe3a49ef10e90eca0a75b20db1c21b7"
   end
 
   depends_on "rust" => :build
@@ -31,11 +31,6 @@ class DockerCompose < Formula
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/d8/ba/21c475ead997ee21502d30f76fd93ad8d5858d19a3fad7cd153de698c4dd/bcrypt-3.2.0.tar.gz"
     sha256 "5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"
-  end
-
-  resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
-    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
   end
 
   resource "certifi" do
@@ -134,13 +129,13 @@ class DockerCompose < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
-  resource "websocket_client" do
-    url "https://files.pythonhosted.org/packages/8b/0f/52de51b9b450ed52694208ab952d5af6ebbcbce7f166a48784095d930d8c/websocket_client-0.57.0.tar.gz"
-    sha256 "d735b91d6d1692a6a181f2a8c9e0238e5f6373356f561bb9dc4c7af36f452010"
+  resource "websocket-client" do
+    url "https://files.pythonhosted.org/packages/4a/df/112c278ba1ead96786d24d973429ce1e1a2c86b9843183d9f8ef8c6330d7/websocket_client-0.58.0.tar.gz"
+    sha256 "63509b41d158ae5b7f67eb4ad20fecbb4eee99434e73e140354dc3ff8e09716f"
   end
 
   def install

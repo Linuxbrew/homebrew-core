@@ -12,10 +12,11 @@ class Djview4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "e649d68385bba4e58504c3fb4576367125dfff5717b4f6405bca35086ba9bed7"
-    sha256 cellar: :any,                 catalina:     "0a01bfd959f758987d9c4dd25e01e57532dd11279fa0d562876fc0927138e788"
-    sha256 cellar: :any,                 mojave:       "a1f4b788b946b22bbc4c9c3811dbb1db1827c78188dbbd79563cfd5d415ac01b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "46719434e0b25413c7fba59f56f7ec86e50254df447c0e2c6b5a4540c7556647"
+    rebuild 1
+    sha256 cellar: :any,                 big_sur:      "e9764b18d1b3a47b052ed924c09f36b31428b429dce1aaa7ade4e679f1c52339"
+    sha256 cellar: :any,                 catalina:     "f77e017d7a0acdfbdadf62c2e5773b254d72691f9e51301fb91130ea3cb3d42a"
+    sha256 cellar: :any,                 mojave:       "03517ea84af4e35f7997e7e5a25bee8c786d9ca3ef8a681066405ef31304e031"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a90519323c81b5e6f41337cc389eebffd015e5a5e9d451b083eb89d2efff2170"
   end
 
   depends_on "autoconf" => :build
@@ -48,7 +49,11 @@ class Djview4 < Formula
   end
 
   test do
-    assert_predicate prefix/"djview.app", :exist? if OS.mac?
-    assert_predicate prefix/"djview", :exist? unless OS.mac?
+    on_macos do
+      assert_predicate prefix/"djview.app", :exist?
+    end
+    on_linux do
+      assert_predicate prefix/"djview", :exist?
+    end
   end
 end

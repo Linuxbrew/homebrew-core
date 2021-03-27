@@ -11,6 +11,7 @@ class GtkGnutella < Formula
     sha256 catalina:      "88c016e26d7b8d48bb7f1be67c5b84fadc6af0c58f3d258928f3d7a62c4d7e57"
     sha256 mojave:        "573fef65f5e1766416cfd94f715e2bffe39c6adf3108232d0f80fe76b0711348"
     sha256 high_sierra:   "c270c4e7d01b10b80a0dac8fc0b91981769c77186f975c5d1ba69a772aae6470"
+    sha256 x86_64_linux:  "c9a7420013d391a678bf6726aeddd39631a4a7b272f763d48935e648307399be"
   end
 
   depends_on "pkg-config" => :build

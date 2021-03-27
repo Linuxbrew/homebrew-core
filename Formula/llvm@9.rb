@@ -5,13 +5,13 @@ class LlvmAT9 < Formula
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision OS.mac? ? 2 : 4
+  revision OS.mac? ? 2 : 5
 
   bottle do
     sha256 cellar: :any,                 catalina:     "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01"
     sha256 cellar: :any,                 mojave:       "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8"
     sha256 cellar: :any,                 high_sierra:  "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7ef6fe7b6cb774859478d26df2576b58d0b1af6c9b03dda7aeb110cc0ed9fd21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "58e52bd9417353a02473dc29011aa39debc4dd38ce8c7740e5cdebfac117e006"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -35,12 +35,6 @@ class LlvmAT9 < Formula
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
-    depends_on "gcc" # for libstdc++
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    fails_with gcc: "8"
-    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>

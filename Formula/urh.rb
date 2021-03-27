@@ -8,10 +8,11 @@ class Urh < Formula
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0c727056d823dce0c6b4ad7a96ad53a34209a142f5af2fc5829aa6592300cc2a"
-    sha256 cellar: :any, big_sur:       "14b80c2ea0cd704579663ed8b0972718086bcf6266397ff4543a08ae87ca2add"
-    sha256 cellar: :any, catalina:      "8d90793f60e323a164c921c53f3ef38f775b4aa4ec6bd1b026fbe82937220e19"
-    sha256 cellar: :any, mojave:        "20a35ee00e62a0114167006e9de846912cf04751d18e08d83b79d25d6484f7f5"
+    sha256 cellar: :any,                 arm64_big_sur: "0c727056d823dce0c6b4ad7a96ad53a34209a142f5af2fc5829aa6592300cc2a"
+    sha256 cellar: :any,                 big_sur:       "14b80c2ea0cd704579663ed8b0972718086bcf6266397ff4543a08ae87ca2add"
+    sha256 cellar: :any,                 catalina:      "8d90793f60e323a164c921c53f3ef38f775b4aa4ec6bd1b026fbe82937220e19"
+    sha256 cellar: :any,                 mojave:        "20a35ee00e62a0114167006e9de846912cf04751d18e08d83b79d25d6484f7f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0310bb902ac46b2d61432513ad2539927606508d3d8664b37ec1ad6fcbfecaaf"
   end
 
   depends_on "pkg-config" => :build

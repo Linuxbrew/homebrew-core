@@ -15,6 +15,7 @@ class Homebank < Formula
     sha256 big_sur:       "08666d7e1363902f7aa4f33fbf7a1d00fccb0604a04aa504f5a1094b44359a96"
     sha256 catalina:      "48ef4e146e8fbc99def1d058b8cd5aabf62ad1fda020c19f722a52c67c2c1dfb"
     sha256 mojave:        "8ca2d14827c4e8cf86557ca2b486acba0650bb129786ff4fb782d2198c48354b"
+    sha256 x86_64_linux:  "08718fafc8c0fa442805c971c771908dc00d38fc38608e717b856301dfa54cfb"
   end
 
   depends_on "intltool" => :build

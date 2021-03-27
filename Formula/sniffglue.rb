@@ -1,18 +1,16 @@
 class Sniffglue < Formula
   desc "Secure multithreaded packet sniffer"
   homepage "https://github.com/kpcyrd/sniffglue"
-  url "https://github.com/kpcyrd/sniffglue/archive/v0.11.1.tar.gz"
-  sha256 "f3d4a42ee12113ef82a8033bb0d64359af5425c821407a7469e99c7a5af3186d"
+  url "https://github.com/kpcyrd/sniffglue/archive/v0.12.0.tar.gz"
+  sha256 "09f10be89311f69a3373cf5abc65fa1d7add1836d6836914b78281a0d94a9e78"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b461513034c9943c75eb70a7b23f0fdf4386760716a893e9b86cd81f3c637d4b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6c3bc15a04988b962743d108c67f28293829f96184e4c9d68e7a6e90bd0baa9c"
-    sha256 cellar: :any_skip_relocation, catalina:      "3c1e6e2eca7f6441d0c892089bd46c8451dd5fa3b1f42350b05592bb7fef06b7"
-    sha256 cellar: :any_skip_relocation, mojave:        "b781fc29156663e2b55f1fcb2a8647cf2eb2d452d43767c50ed9b57e88d92ff2"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "ad3744f7f3da5f36683cb16d0dbb3a5eaf0773cb59400eb972de68f12d999bb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f1c51ab467e7f85003da6cc3ff8f0caaf083859de604a53bc0b7c917a0c53da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7711fba881a079e3de12648a63c98d4e97539973408ec444b091b6b301eff433"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6d6894afc00176326c7b4932573c427d545b99faebecd38e95eefe41b3135872"
+    sha256 cellar: :any_skip_relocation, catalina:      "5fc37f26b3b0f6732901f1d6a2ad4143c133c787b49266517f509ef7c59c48c1"
+    sha256 cellar: :any_skip_relocation, mojave:        "d6a6dc71f619a033e206bd37a96ee59256b68996630ce32574cf6f5c99977c35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "115dc1c2b6e066d178fca6ec8b18352441ebdff0b6ee1def5cbfeffa21d9d3ed"
   end
 
   depends_on "rust" => :build

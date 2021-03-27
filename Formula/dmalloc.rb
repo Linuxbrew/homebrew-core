@@ -10,6 +10,7 @@ class Dmalloc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "300f9e7b54c15071bc36fb861cc6b75ef671052c8be6096a99314b1ca0077565"
     sha256 cellar: :any_skip_relocation, catalina:      "770699ff908a65026ecdebbe57272a50e57f60341c2918302ee4b6729e866533"
     sha256 cellar: :any_skip_relocation, mojave:        "40c8cf6501477c243064179e7b634da0d9d32348155d3aee9fbf6631ffdc7ba7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "905121d33a16c834a58f258a46b721fe6382d0a295453ea90efa29ab7850d85f"
   end
 
   def install

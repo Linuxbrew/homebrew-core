@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-21.0.0.tar.xz"
-  sha256 "e6204e98e6a8d77cf9dc5d34f99dd8e3ef7144f3601c808ca0dd26ba522e0d84"
+  url "https://archive.mesa3d.org/mesa-21.0.1.tar.xz"
+  sha256 "379fc984459394f2ab2d84049efdc3a659869dc1328ce72ef0598506611712bb"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
@@ -14,11 +14,11 @@ class Mesa < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a2b617ac47e7b62689b159f6cec26c0ab58232f1107e97d5aa7d526716985ac8"
-    sha256 big_sur:       "1156d7e7613c4c85d641e88dfa0dd8e5ccd26dff5921ef0043319d2f9566121a"
-    sha256 catalina:      "aed8cf54ca7e305a825cbcc0f5f784c1269e76516ef5622c31da77869547f0e9"
-    sha256 mojave:        "977792ae909b0fb0e1f98ca7404ae2b9bd1d9a7acaadc415ce2481e869083860"
-    sha256 x86_64_linux:  "c2d3f286d350fda43f85c85df6a9dea61a9b735ba23f977d9eff16c794744b85"
+    sha256 arm64_big_sur: "49a8334da14ed6b4564e459141356a1c56e81a7730ef39b03902739639330f2b"
+    sha256 big_sur:       "265955aea56410050891b5f79a15fd05b0d582b753b10c6d2583663005c5725b"
+    sha256 catalina:      "cf220039e75746011bdb3e837bc35ca9f3003ed24f1e4f8a16e22dcce6a72e67"
+    sha256 mojave:        "afff8f5e1ac285e43e0b1d083a1709822a0333dd1fe4f2be2506a85bb734eb36"
+    sha256 x86_64_linux:  "d9123125ca6d74d68e0b0169bbf4272e746d9b4001b5577ba3cb27c915a290e0"
   end
 
   depends_on "meson" => :build

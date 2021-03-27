@@ -45,7 +45,11 @@ class Wxmaxima < Formula
   end
 
   test do
-    # Test is disbaled on Linux as circle has no X (Error: Unable to initialize GTK+, is DISPLAY set properly)
-    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1", 255) if OS.mac?
+    on_linux do
+      # Error: Unable to initialize GTK+, is DISPLAY set properly
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
+    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1")
   end
 end

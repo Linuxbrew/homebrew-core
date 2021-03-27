@@ -3,8 +3,8 @@ require "language/node"
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
-  url "https://registry.npmjs.org/terrahub/-/terrahub-0.4.47.tgz"
-  sha256 "d2c66e3beaf28df2953f3830b771f1a34596ef51adaea321fe12ee39ada62b43"
+  url "https://registry.npmjs.org/terrahub/-/terrahub-0.5.1.tgz"
+  sha256 "ecb13c488d2e9f51fad258965791fa9bb390a4b86fb288651786433b724e6485"
   license "MPL-2.0"
 
   livecheck do
@@ -13,11 +13,11 @@ class Terrahub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8fb1ab5d692f7c6eb00c58882edfe883ed1b7bc130fcbacef2c59a2b05939054"
-    sha256 cellar: :any_skip_relocation, big_sur:       "637b0c5d0b5bb4842335e447baa3d9cb75e50435c402669e69411b2c927a750f"
-    sha256 cellar: :any_skip_relocation, catalina:      "35e7d2255110ab2aa7e3cd1d15237d3caa245f7f9103da07a1102d92d54c1730"
-    sha256 cellar: :any_skip_relocation, mojave:        "65cc91be46785198944a1c383672c2cf1b200c261f9130dbc58910cb760a023e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a1e0828594f304abef94b7d500163711cc6b2c07bbe8d360d2f903291e406ec"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e48badba557dfcda2234072e1bd141d4450c8507ad60d55df541165fac7178d1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "18623447b5df13ecb6f6cca5dd274113932e1f5c5da06112ead7aacca4bca735"
+    sha256 cellar: :any_skip_relocation, catalina:      "b522427ec32fa9d6bdd17c82c594958f3be7636e859cb80b483843e89b65eac2"
+    sha256 cellar: :any_skip_relocation, mojave:        "2bb024c5eb4877df4d91ef86b01b42694daa449eb1aeed7d7ce263e6e66264f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25800ac4086325ffb59eaa90eb3c400baeb6579bfd769225a3a3c254bc4028f5"
   end
 
   depends_on "node"

@@ -13,6 +13,7 @@ class DejaGnu < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "eea1adea3a1c062fd6ba0e85fefebe9f9036736a9d3a3744cec79123390270f3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "eea1adea3a1c062fd6ba0e85fefebe9f9036736a9d3a3744cec79123390270f3"
     sha256 cellar: :any_skip_relocation, sierra:        "5c1100eaf8ae4f28b1c4311241ddff8e0d195d0d241e106051bc60490d28d0e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da23af5f2f66044d847122ea18066515fa367cd66906ce28717c1203e475a2e4"
   end
 
   head do

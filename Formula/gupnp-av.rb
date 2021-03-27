@@ -12,6 +12,7 @@ class GupnpAv < Formula
     sha256 mojave:        "15f5c2ec832094d098ebbc52c1a327ce7e6125293180e7acc377bc7dcc3d5210"
     sha256 high_sierra:   "7149d11d69541003e8fc3b1d0da0b125b6dac5329db3017a735858363f31e78c"
     sha256 sierra:        "dc21d3e8e793fffde5b7b734be587f3a736f94f03f8bfa42ca5ae395be6081a3"
+    sha256 x86_64_linux:  "83ac17867733bca2be3a0b7f85b6c499568860056ae815bb9d42ab0ea1d9d095"
   end
 
   depends_on "gobject-introspection" => :build

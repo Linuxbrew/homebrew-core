@@ -5,7 +5,7 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
@@ -51,7 +51,7 @@ class Llvm < Formula
     sha256 cellar: :any,                 big_sur:       "15e243c9ff162f36d481f44f05862b95552d53020a6363d3a56fc73083348ca5"
     sha256 cellar: :any,                 catalina:      "5021a582f220802886c6029ed173e3bed4466c1151d6ef3ef6de377a7396371f"
     sha256 cellar: :any,                 mojave:        "ae3bb00ea8d53f0594a8e174c9f327eecb531a3846287b80d6f3933e2b47ff07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f7aa5a84415e9c2c205770abeb10969b3855c68c4a810f615303b91d2027e4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4f0b6034699ee1a12aa5fa68be68b47cea7a32cb54628aa2c9f0113f00fdcc1"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -81,12 +81,6 @@ class Llvm < Formula
     if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
       depends_on "glibc"
     end
-    depends_on "gcc" # for libstdc++
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    fails_with gcc: "8"
-    fails_with gcc: "9"
     depends_on "binutils" # needed for gold and strip
     depends_on "libelf" # openmp requires <gelf.h>
   end

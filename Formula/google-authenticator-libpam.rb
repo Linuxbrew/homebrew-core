@@ -18,7 +18,10 @@ class GoogleAuthenticatorLibpam < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "qrencode"
-  depends_on "linux-pam" unless OS.mac?
+
+  on_linux do
+    depends_on "linux-pam"
+  end
 
   def install
     system "./bootstrap.sh"

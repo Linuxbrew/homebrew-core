@@ -1,24 +1,20 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.23.0/chapel-1.23.0.tar.gz"
-  sha256 "7ae2c8f17a7b98ac68378e94a842cf16d4ab0bcfeabc0fee5ab4aaa07b205661"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.24.0/chapel-1.24.0.tar.gz"
+  sha256 "77c6087f3e0837268470915f2ad260d49cf7ac4adf16f5b44862ae624c1be801"
   license "Apache-2.0"
-  revision 1 unless OS.mac?
 
   bottle do
-    sha256 big_sur:      "5a3c5dc65fc572a84d9e4a8a5bcd7cac9c072822dbf674ebe32d7b740aeda63b"
-    sha256 catalina:     "5aa5b6a7e03ed702530959c1983e8989be5f1ba4494af6d9da044e38ef62bfcb"
-    sha256 mojave:       "123c5824b82621b4984e1afbf4f01f5c20af8cbc03e7b1266af396f8eaa80f79"
-    sha256 high_sierra:  "101b6a940e07d3e86ec809b3f7737950e0ef12c61daf43ef92c00e95047333c5"
-    sha256 x86_64_linux: "0944a9e3cef9a9213a110f6afa34cce2d6f70720ff287715e459e02f950ca698"
+    sha256 big_sur:      "31a99c8d05a4f7b15fe4304e28c19afc649d383f3067cec248e1b53e83aa419e"
+    sha256 catalina:     "0a8b6f467f3bcc5e3c8c9f5f6f4bf69224df6fdd63c930b6638f393194e474fd"
+    sha256 mojave:       "8a9bb9ed268f74bf9fac32456b36a73847e6f98aea8e0c8c76531c2aad5356a4"
+    sha256 x86_64_linux: "d26aad3dcfa8a56a18fffd6e3c63a1266fdf4a69a7c27e2c1e67669a1feb2b26"
   end
 
-  depends_on "python@3.9" unless OS.mac?
+  depends_on "python@3.9"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" unless OS.mac?
-
     libexec.install Dir["*"]
     # Chapel uses this ENV to work out where to install.
     ENV["CHPL_HOME"] = libexec
@@ -48,11 +44,6 @@ class Chapel < Formula
   end
 
   test do
-    # Fix [Fail] chpl not found. Make sure it available in the current PATH.
-    # Makefile:203: recipe for target 'check' failed
-    ENV.prepend_path "PATH", bin unless OS.mac?
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" unless OS.mac?
-
     ENV["CHPL_HOME"] = libexec
     cd libexec do
       system "util/test/checkChplInstall"

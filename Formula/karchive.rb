@@ -1,4 +1,4 @@
-class KdeKarchive < Formula
+class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.79/karchive-5.79.0.tar.xz"
@@ -13,16 +13,17 @@ class KdeKarchive < Formula
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
-    sha256 arm64_big_sur: "0b3b535f5402de3c1885d2064e1a56ad9724cd3cb9b03b7095bd1ace63f9c877"
-    sha256 big_sur:       "3e1b0e3b53f2879ba8eb38a04ae0b8530c26f6d411c45ff87366e4c55072e671"
-    sha256 catalina:      "1c0dfdc9b341296e4d6f3732207a6fd81497d9573471542ce1d0ea546c0ff435"
-    sha256 mojave:        "e8f81aeae13c7b409fb423074ed50da2a752e0ad7694921665f59e91bc9996d1"
+    sha256                               arm64_big_sur: "c24a1bde95066fb8b294f2d829c22df06d941b6e774ec9a9f9f01dd6d683db2f"
+    sha256                               big_sur:       "6eb76b616530f12a8e740bdc5564261db0dc31b372aca5c0b8294957a6652b1c"
+    sha256                               catalina:      "dbe1767ef8c18c47a97212511db52b54a27880b2cf67237adac2584263779f25"
+    sha256                               mojave:        "fc4000204bd9b46611254f20bd7b5b42d3adb3bf2faecca928126b1f9c530773"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7360683d04c119f3babe19b3aa3a0ec759b2a960a26766ac215fcf623222269d"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
+  depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
-  depends_on "kde-extra-cmake-modules" => [:build, :test]
 
   depends_on "qt@5"
   depends_on "xz"

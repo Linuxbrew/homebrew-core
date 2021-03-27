@@ -13,6 +13,7 @@ class Dromeaudio < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "5199ecfbb8454f1560685c537b1fbaf1b301b39ad8ea825a9f846cc9f3530f30"
     sha256 cellar: :any_skip_relocation, mojave:        "062b0fa8e43363d60e5816343d1fcb7f58ce02c236512d96f4bf4ba10c96fd2c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1334685c021a520567e2d16bfe68ebddea8f9382a50645e241d09349cfb6b450"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e6a44248d0ebb4f454d321e07f3d93d20f66c62b7c77dab55bb1cb6f1b36214"
   end
 
   depends_on "cmake" => :build

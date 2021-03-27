@@ -14,7 +14,6 @@ class Bat < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "llvm" => :build unless OS.mac?
 
   uses_from_macos "zlib"
 

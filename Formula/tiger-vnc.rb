@@ -22,6 +22,7 @@ class TigerVnc < Formula
   depends_on "pixman"
 
   on_linux do
+    depends_on "linux-pam"
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "libxdamage"
@@ -33,7 +34,6 @@ class TigerVnc < Formula
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxtst"
-    depends_on "linux-pam"
   end
 
   def install
