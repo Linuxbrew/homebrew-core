@@ -61,7 +61,7 @@ class Sdl2Mixer < Formula
           return success;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lsdl2_mixer", "test.c", "-o", "test"
+    system ENV.cc, "-I#{Formula["sdl2"].opt_include}/SDL2", "test.c", "-L#{lib}", "-lSDL2_mixer", "-o", "test"
     system "./test"
   end
 end
