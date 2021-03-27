@@ -22,7 +22,7 @@ class Pypy3 < Formula
   depends_on "gdbm"
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
-  depends_on "libffi" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
+  depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tcl-tk"
