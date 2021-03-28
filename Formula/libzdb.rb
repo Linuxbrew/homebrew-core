@@ -34,8 +34,6 @@ class Libzdb < Formula
   end
 
   def install
-    # workaround for error: 'assert' was not declared in this scope
-    system "sed", "-i", "1,1i#include <cassert>", "test/zdbpp.cpp" unless OS.mac?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
     (pkgshare/"test").install Dir["test/*.{c,cpp}"]
