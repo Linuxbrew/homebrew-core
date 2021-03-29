@@ -14,7 +14,6 @@ class Fakeroot < Formula
     sha256 cellar: :any, catalina:     "c72ae187158b6cce73311fee527ba8bf8d2f0e18340bd66eef57b50b3d45c275"
     sha256 cellar: :any, mojave:       "6c23e4c601af569c2de802cac685de5d18e6ebafcb53e6c53107aa3feb3d1527"
     sha256 cellar: :any, high_sierra:  "df9be392f3579464893be013744b5aa40a7e4e91e01155bd1547e4104d381640"
-    sha256 cellar: :any, x86_64_linux: "418aeb02f20803d77d5bbbdaaea068b8ffc2a89cc2ab7b824845bc82d1a68cb8"
   end
 
   # Does not build. Mac support looks abandoned since 2013
@@ -55,28 +54,26 @@ class Fakeroot < Formula
     # have to patch the generated file after it is generated.
     # Patch has been submitted with detailed explanation to
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=766649
-    if OS.mac?
-      system "make", "wraptmpf.h"
-      (buildpath/"patch-for-wraptmpf-h").write <<~EOS
-        diff --git a/wraptmpf.h b/wraptmpf.h
-        index dbfccc9..0e04771 100644
-        --- a/wraptmpf.h
-        +++ b/wraptmpf.h
-        @@ -575,6 +575,10 @@ static __inline__ int next_mkdirat (int dir_fd, const char *pathname, mode_t mod
-         #endif /* HAVE_MKDIRAT */
-         #ifdef HAVE_OPENAT
-         extern int openat (int dir_fd, const char *pathname, int flags, ...);
-        +static __inline__ int next_openat (int dir_fd, const char *pathname, int flags, mode_t mode) __attribute__((always_inline));
-        +static __inline__ int next_openat (int dir_fd, const char *pathname, int flags, mode_t mode) {
-        +  return openat (dir_fd, pathname, flags, mode);
-        +}
+    system "make", "wraptmpf.h"
+    (buildpath/"patch-for-wraptmpf-h").write <<~EOS
+      diff --git a/wraptmpf.h b/wraptmpf.h
+      index dbfccc9..0e04771 100644
+      --- a/wraptmpf.h
+      +++ b/wraptmpf.h
+      @@ -575,6 +575,10 @@ static __inline__ int next_mkdirat (int dir_fd, const char *pathname, mode_t mod
+       #endif /* HAVE_MKDIRAT */
+       #ifdef HAVE_OPENAT
+       extern int openat (int dir_fd, const char *pathname, int flags, ...);
+      +static __inline__ int next_openat (int dir_fd, const char *pathname, int flags, mode_t mode) __attribute__((always_inline));
+      +static __inline__ int next_openat (int dir_fd, const char *pathname, int flags, mode_t mode) {
+      +  return openat (dir_fd, pathname, flags, mode);
+      +}
 
-         #endif /* HAVE_OPENAT */
-         #ifdef HAVE_RENAMEAT
-      EOS
+       #endif /* HAVE_OPENAT */
+       #ifdef HAVE_RENAMEAT
+    EOS
 
-      system "patch < patch-for-wraptmpf-h"
-    end
+    system "patch < patch-for-wraptmpf-h"
 
     system "make"
     system "make", "install"
