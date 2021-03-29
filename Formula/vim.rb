@@ -47,6 +47,7 @@ class Vim < Formula
     system "./configure", "--prefix=#{HOMEBREW_PREFIX}",
                           "--mandir=#{man}",
                           "--enable-multibyte",
+                          "--with-features=huge",
                           "--with-tlib=ncurses",
                           "--with-compiledby=Homebrew",
                           "--enable-cscope",
@@ -54,8 +55,7 @@ class Vim < Formula
                           "--enable-perlinterp",
                           "--enable-rubyinterp",
                           "--enable-python3interp",
-                          "--enable-gui=no",
-                          "--without-x",
+                          "--enable-gui=gtk2",
                           "--enable-luainterp",
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
     system "make"
