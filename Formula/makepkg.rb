@@ -12,7 +12,6 @@ class Makepkg < Formula
     sha256 catalina:     "fb89c76eb6c2a50b14d2380ad1440b37f96e86f39d5bd60378ab5ac85cd02b08"
     sha256 mojave:       "b6606a63e0727072c1016ffa8b60db28de0de67d3b5d3f495aa8d0728b7325c9"
     sha256 high_sierra:  "c8f2f6999669c56b5e40e2608ad1e0adfe2c8eb73f8cef959a229856d21da6ed"
-    sha256 x86_64_linux: "89db5edb447a533a4f754a0e716e37977b8427aecab14f4ac0649afee17b783c"
   end
 
   disable! date: "2022-03-28", because: "depends on fakeroot which does not build"
