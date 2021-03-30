@@ -19,8 +19,8 @@ class Vim < Formula
   depends_on "lua"
   depends_on "perl"
   depends_on "python@3.9"
+  depends_on "gtk+3"  
   depends_on "ruby"
-  depends_on "gtk+3"
 
   uses_from_macos "ncurses"
 
