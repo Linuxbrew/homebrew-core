@@ -48,14 +48,12 @@ class Vim < Formula
                           "--mandir=#{man}",
                           "--enable-multibyte",
                           "--with-features=huge",
-                          "--with-tlib=ncurses",
                           "--with-compiledby=Homebrew",
                           "--enable-cscope",
-                          "--enable-terminal",
                           "--enable-perlinterp",
                           "--enable-rubyinterp",
                           "--enable-python3interp",
-                          "--enable-gui=no",
+                          "--enable-gui=gtk2",
                           "--enable-luainterp",
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
     system "make"
