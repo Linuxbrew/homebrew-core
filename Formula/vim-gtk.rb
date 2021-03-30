@@ -16,10 +16,10 @@ class Vim < Formula
   end
 
   depends_on "gettext"
+  depends_on "gtk+3"
   depends_on "lua"
   depends_on "perl"
   depends_on "python@3.9"
-  depends_on "gtk+3"  
   depends_on "ruby"
 
   uses_from_macos "ncurses"
