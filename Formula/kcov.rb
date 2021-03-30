@@ -29,7 +29,7 @@ class Kcov < Formula
 
   unless OS.mac?
     depends_on "curl"
-    depends_on "elfutils"
+    depends_on "libelf"
     depends_on "zlib"
   end
 
