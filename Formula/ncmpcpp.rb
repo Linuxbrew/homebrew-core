@@ -29,6 +29,8 @@ class Ncmpcpp < Formula
   depends_on "readline"
   depends_on "taglib"
 
+  uses_from_macos "curl"
+
   def install
     ENV.cxx11
 
