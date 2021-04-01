@@ -3,21 +3,25 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.9.2",
-      revision: "88442026750858c1dea9218dc0666fbbb5ae6520"
+      tag:      "8.10.0",
+      revision: "200be9132a4bfbe8fb91bce8a04c4fa15d2e590b"
   license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "8752e51cfdfadcc0c5249d31083dbef30e359ca2157ef0c3f847aaf477fbaa17"
-    sha256 cellar: :any,                 catalina:     "584593be63000b4c0a506ad56e1eeb65f6c4ccc614c9d77383c47d1930048bb9"
-    sha256 cellar: :any,                 mojave:       "a1dcb3bc58bde9e00fb6968c5e3cb72542aa109bdd4f94eeb3a37254ab5142c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "caaa2f34269ebe25ce7b1831a18d8c39e8c0c2b7caa23750225beac45c6b7781"
+    sha256 cellar: :any, arm64_big_sur: "3e659fe7c11089ff17657eac6595b7437360366eceac41f33a208efa2417b58c"
+    sha256 cellar: :any, big_sur:       "811d05788aee7d04c61fea429b12ba882ed6df0e86d1f440b8c2000c44ccd9a7"
+    sha256 cellar: :any, catalina:      "cba8185be2c7539d030288913a84bc4f8bddc36b167d9067c46b3e07294c6603"
+    sha256 cellar: :any, mojave:        "307b7bc647f468fa91b3f6fce1615eb6c9972badff7799b2e1cf86a80691347c"
   end
 
   depends_on "cmake" => :build
+  depends_on "flatbuffers" => :build
   depends_on "rapidjson" => :build
+  depends_on "spdlog" => :build
   depends_on "boost"
+  depends_on "fmt"
+  depends_on "zlib"
 
   def install
     ENV.cxx11
@@ -27,7 +31,10 @@ class VowpalWabbit < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DBUILD_TESTS=OFF",
-                            "-DRAPIDJSON_SYS_DEP=ON"
+                            "-DRAPIDJSON_SYS_DEP=ON",
+                            "-DFMT_SYS_DEP=ON",
+                            "-DSPDLOG_SYS_DEP=ON",
+                            "-DBUILD_FLATBUFFERS=ON"
       system "make", "install"
     end
     bin.install Dir["utl/*"]
@@ -35,6 +42,7 @@ class VowpalWabbit < Formula
     rm bin/"new_version"
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
+    rm_r bin/"flatbuffer"
   end
 
   test do
