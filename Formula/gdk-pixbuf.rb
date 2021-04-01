@@ -49,11 +49,9 @@ class GdkPixbuf < Formula
       -Dgir=true
       -Drelocatable=false
       -Dnative_windows_loaders=false
+      -Dinstalled_tests=false
       -Dman=false
     ]
-
-    args << "-Dinstalled_tests=false" if OS.mac?
-    args << "--libdir=#{lib}" unless OS.mac?
 
     ENV["DESTDIR"] = "/"
     mkdir "build" do
