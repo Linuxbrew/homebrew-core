@@ -24,8 +24,6 @@ class Libpeas < Formula
   depends_on "python@3.9"
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
     args = std_meson_args + %w[
       -Dpython3=true
       -Dintrospection=true
