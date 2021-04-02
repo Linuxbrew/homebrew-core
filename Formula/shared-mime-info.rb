@@ -37,9 +37,6 @@ class SharedMimeInfo < Formula
   uses_from_macos "libxml2"
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     # Disable the post-install update-mimedb due to crash
     mkdir "build" do
