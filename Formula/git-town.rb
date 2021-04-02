@@ -25,10 +25,6 @@ class GitTown < Formula
     assert_match version.to_s, shell_output("#{bin}/git-town version")
 
     system "git", "init"
-    unless OS.mac?
-      system "git", "config", "user.email", "you@example.com"
-      system "git", "config", "user.name", "Your Name"
-    end
     touch "testing.txt"
     system "git", "add", "testing.txt"
     system "git", "commit", "-m", "Testing!"
