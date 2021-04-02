@@ -28,11 +28,6 @@ class Postgresql < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  unless OS.mac?
-    depends_on "linux-pam"
-    depends_on "openldap"
-  end
-
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
