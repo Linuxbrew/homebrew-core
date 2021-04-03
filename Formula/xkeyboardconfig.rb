@@ -21,9 +21,6 @@ class Xkeyboardconfig < Formula
   uses_from_macos "libxslt" => :build
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5"
-
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
