@@ -31,9 +31,8 @@ class Sqldiff < Formula
   test do
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
-    sqlite = OS.mac? ? "/usr/bin/sqlite3" : Formula["sqlite"].bin/"sqlite3"
     sqlpath.write "create table test (name text);"
-    system "#{sqlite} #{dbpath} < #{sqlpath}"
+    system "sqlite3 #{dbpath} < #{sqlpath}"
     assert_equal "test: 0 changes, 0 inserts, 0 deletes, 0 unchanged",
                  shell_output("#{bin}/sqldiff --summary #{dbpath} #{dbpath}").strip
   end
