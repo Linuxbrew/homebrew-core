@@ -82,12 +82,7 @@ class UtilLinux < Formula
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
-      if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
-        # these conflict with bash-completion on Linux
-        next if !OS.mac? && %w[chsh mount rfkill rtcwake].include?(prog.basename.to_s)
-
-        bash_completion.install prog
-      end
+      bash_completion.install prog if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
     end
   end
 
