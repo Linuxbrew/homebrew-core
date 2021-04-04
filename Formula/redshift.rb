@@ -32,15 +32,18 @@ class Redshift < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --#{OS.mac? ? "enable" : "disable"}-corelocation
       --disable-silent-rules
       --disable-dependency-tracking
       --disable-geoclue
       --disable-geoclue2
-      --#{OS.mac? ? "enable" : "disable"}-quartz
       --with-systemduserunitdir=no
       --disable-gui
     ]
+
+    if OS.mac?
+      args << "--enable-corelocation"
+      args << "--enable-quartz"
+    end
 
     system "./bootstrap" if build.head?
     system "./configure", *args
