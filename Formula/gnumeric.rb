@@ -26,25 +26,11 @@ class Gnumeric < Formula
 
   on_linux do
     depends_on "perl"
-
-    resource "XML::Parser" do
-      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
-      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
-    end
   end
 
   def install
-    on_linux do
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-
-      resources.each do |res|
-        res.stage do
-          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
-          system "make", "install"
-        end
-      end
-    end
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
 
     # ensures that the files remain within the keg
     inreplace "component/Makefile.in",
