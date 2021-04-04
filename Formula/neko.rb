@@ -21,7 +21,12 @@ class Neko < Formula
   depends_on "mbedtls"
   depends_on "openssl@1.1"
   depends_on "pcre"
-  unless OS.mac?
+
+  uses_from_macos "curl"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
+  on_linux do
     depends_on "apr"
     depends_on "apr-util"
     depends_on "httpd"
@@ -30,9 +35,6 @@ class Neko < Formula
     depends_on "pango"
     depends_on "sqlite"
   end
-
-  uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   # Don't redefine MSG_NOSIGNAL -- https://github.com/HaxeFoundation/neko/pull/217
   patch do
@@ -56,12 +58,14 @@ class Neko < Formula
 
   def install
     args = std_cmake_args
-    unless OS.mac?
+
+    on_linux do
       args << "-DAPR_LIBRARY=#{Formula["apr"].libexec}/lib"
       args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].libexec}/include/apr-1"
       args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].libexec}/lib"
       args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].libexec}/include/apr-1"
     end
+
     inreplace "libs/mysql/CMakeLists.txt",
               %r{https://downloads.mariadb.org/f/},
               "https://downloads.mariadb.com/Connectors/c/"
