@@ -16,16 +16,16 @@ class Glui < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f87bbfbeed8373500404dc7a708cb13b696a42d693b52e4a1671a81c37a3abee"
   end
 
+  on_linux do
+    depends_on "freeglut"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   # Fix compiler warnings in glui.h. Merged into master on November 28, 2016.
   patch do
     url "https://github.com/libglui/glui/commit/fc9ad76733034605872a0d1323bb19cbc23d87bf.patch?full_index=1"
     sha256 "b1afada854f920692ab7cb6b6292034f3488936c4332e3e996798ee494a3fdd7"
-  end
-
-  unless OS.mac?
-    depends_on "freeglut"
-    depends_on "mesa"
-    depends_on "mesa-glu"
   end
 
   def install
@@ -36,7 +36,7 @@ class Glui < Formula
   end
 
   test do
-    if OS.mac?
+    on_macos do
       (testpath/"test.cpp").write <<~EOS
         #include <cassert>
         #include <GL/glui.h>
@@ -49,7 +49,9 @@ class Glui < Formula
       system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
         "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
       system "./a.out"
-    else
+    end
+
+    on_linux do
       (testpath/"test.cpp").write <<~EOS
         #include <cassert>
         #include <GL/glui.h>
