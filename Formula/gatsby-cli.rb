@@ -26,8 +26,6 @@ class GatsbyCli < Formula
   end
 
   test do
-    return if Process.uid.zero?
-
     system bin/"gatsby", "new", "hello-world", "https://github.com/gatsbyjs/gatsby-starter-hello-world"
     assert_predicate testpath/"hello-world/package.json", :exist?, "package.json was not cloned"
   end
