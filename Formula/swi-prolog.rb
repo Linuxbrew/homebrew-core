@@ -32,10 +32,15 @@ class SwiProlog < Formula
 
   def install
     mkdir "build" do
+      cc_args = %w[
+        -DCMAKE_C_COMPILER=/usr/bin/gcc
+        -DCMAKE_CXX_COMPILER=/usr/bin/g++
+      ]
       system "cmake", "..", *std_cmake_args,
                       "-DSWIPL_PACKAGES_JAVA=OFF",
                       "-DSWIPL_PACKAGES_X=OFF",
-                      "-DCMAKE_INSTALL_PREFIX=#{libexec}"
+                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                      *cc_args
       system "make", "install"
     end
 
