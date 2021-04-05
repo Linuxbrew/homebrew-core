@@ -22,15 +22,7 @@ class Plotutils < Formula
 
   depends_on "libpng"
 
-  unless OS.mac?
-    depends_on "libice"
-    depends_on "libsm"
-    depends_on "libx11"
-    depends_on "libxaw"
-    depends_on "libxext"
-    depends_on "libxmu"
-    depends_on "libxt"
-  end
+  depends_on "libxaw" unless OS.mac?
 
   def install
     # Fix usage of libpng to be 1.5 compatible
