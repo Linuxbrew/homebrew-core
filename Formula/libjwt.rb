@@ -41,7 +41,7 @@ class Libjwt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-ljwt", *("-Wl,-rpath=#{lib}" unless OS.mac?), "-o", "test"
+    system ENV.cc, "-L#{lib}", "-I#{include}", "test.c", "-ljwt", "-o", "test"
     system "./test"
   end
 end
