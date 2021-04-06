@@ -43,9 +43,6 @@ class Fossil < Formula
   end
 
   test do
-    # fix for CircleCI, where fossil cannot detect the user it is
-    # running as
-    args = %w[-A alice] unless ENV["USER"]
-    system "#{bin}/fossil", "init", *args, "test"
+    system "#{bin}/fossil", "init", "test"
   end
 end
