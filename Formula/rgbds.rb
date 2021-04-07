@@ -23,8 +23,6 @@ class Rgbds < Formula
   depends_on "pkg-config" => :build
   depends_on "libpng"
 
-  uses_from_macos "bison" => :build
-
   def install
     system "make", "install", "PREFIX=#{prefix}", "mandir=#{man}"
   end
