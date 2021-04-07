@@ -73,11 +73,11 @@ jobs:
 
       - name: Upload bottles to GitHub Packages
         env:
-          HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
+          HOMEBREW_GITHUB_PACKAGES_USER: linuxbrewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
         run: |
           cd ~/bottles
-          brew pr-upload --verbose --keep-old --no-commit --root-url="https://ghcr.io/v2/linuxbrew/core"
+          brew pr-upload --verbose --keep-old --no-commit --root-url="https://ghcr.io/v2/Linuxbrew/homebrew-core"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
