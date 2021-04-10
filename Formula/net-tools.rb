@@ -6,8 +6,7 @@ class NetTools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3356573f08d651305f57af733130adabf68f5f13e92ff4db5cdc0c069a94f73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a5be21d42280ba9e5bbbd99e94e3e2b7647741ffa36835a015c98b0aa3a1639"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0a5be21d42280ba9e5bbbd99e94e3e2b7647741ffa36835a015c98b0aa3a1639"
   end
 
   depends_on "gettext" => :build
