@@ -70,19 +70,7 @@ class GccAT6 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
-    args = []
-
-    if OS.mac?
-      args += [
-        "--build=x86_64-apple-darwin#{OS.kernel_version}",
-        "--with-system-zlib",
-      ]
-
-      # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
-      # format to avoid failure during the stage 3 comparison of object files.
-      # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-      args << "--with-dwarf2" if MacOS.version <= :mountain_lion
-    else
+    unless OS.mac?
       # Change the default directory name for 64-bit libraries to `lib`
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
@@ -92,7 +80,7 @@ class GccAT6 < Formula
       ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=crti.o")).parent
     end
 
-    args += [
+    args = [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
@@ -114,13 +102,15 @@ class GccAT6 < Formula
       "--disable-nls",
     ]
 
-    # Fix Linux error: gnu/stubs-32.h: No such file or directory.
-    args << "--disable-multilib" unless OS.mac?
-
-    # Xcode 10 dropped 32-bit support
-    args << "--disable-multilib" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
-
     if OS.mac?
+      args += [
+        "--build=x86_64-apple-darwin#{OS.kernel_version}",
+        "--with-system-zlib",
+      ]
+
+      # Xcode 10 dropped 32-bit support
+      args << "--disable-multilib" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
+
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       if sdk
@@ -128,15 +118,13 @@ class GccAT6 < Formula
         args << "--with-sysroot=#{sdk}"
       end
 
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
-    end
-
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    if OS.mac?
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
+
+    # Fix Linux error: gnu/stubs-32.h: No such file or directory.
+    args << "--disable-multilib" unless OS.mac?
 
     mkdir "build" do
       system "../configure", *args
