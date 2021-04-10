@@ -44,8 +44,7 @@ class Mkvtoolnix < Formula
 
   unless OS.mac?
     fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7" => :build
+    depends_on "gcc" => :build
   end
 
   def install
