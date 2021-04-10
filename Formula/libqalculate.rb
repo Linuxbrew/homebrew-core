@@ -30,6 +30,7 @@ class Libqalculate < Formula
   end
 
   test do
-    system "#{bin}/qalc", "-nocurrencies", "(2+2)/4 hours to minutes"
+    output = shell_output("#{bin}/qalc -nocurrencies '(2+2)/4 hours to minutes'")
+    assert_equal output, "((2 + 2) / 4) × hour = 60 min\n"
   end
 end
