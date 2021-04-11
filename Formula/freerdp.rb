@@ -43,12 +43,6 @@ class Freerdp < Formula
     depends_on "wayland"
   end
 
-  unless OS.mac?
-    depends_on "cups"
-    depends_on "systemd"
-    depends_on "wayland"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args,
                          "-DWITH_X11=ON",
