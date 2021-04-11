@@ -67,15 +67,7 @@ class GccAT8 < Formula
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
-    if OS.mac?
-      args += [
-        "--build=x86_64-apple-darwin#{OS.kernel_version.major}",
-        "--with-system-zlib",
-      ]
-    else
-      # Fix Linux error: gnu/stubs-32.h: No such file or directory.
-      args << "--disable-multilib"
-
+    unless OS.mac?
       # Change the default directory name for 64-bit libraries to `lib`
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
@@ -85,23 +77,25 @@ class GccAT8 < Formula
       ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=crti.o")).parent
     end
 
-    args += [
-      "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
-      "--enable-checking=release",
-      "--disable-nls",
-      "--enable-languages=#{languages.join(",")}",
-      # Make most executables versioned to avoid conflicts.
-      "--program-suffix=-#{version_suffix}",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--with-pkgversion=#{pkgversion}",
-      "--with-bugurl=#{tap.issues_url}",
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}/gcc/#{version_suffix}
+      --disable-nls
+      --enable-checking=release
+      --enable-languages=#{languages.join(",")}
+      --program-suffix=-#{version_suffix}
+      --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-mpfr=#{Formula["mpfr"].opt_prefix}
+      --with-mpc=#{Formula["libmpc"].opt_prefix}
+      --with-isl=#{Formula["isl"].opt_prefix}
+      --with-pkgversion=#{pkgversion}
+      --with-bugurl=#{tap.issues_url}
     ]
 
     if OS.mac?
+      args << "--build=x86_64-apple-darwin#{OS.kernel_version.major}"
+      args << "--with-system-zlib"
+
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       if sdk
@@ -109,13 +103,13 @@ class GccAT8 < Formula
         args << "--with-sysroot=#{sdk}"
       end
 
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/homebrew/pull/34303
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    # Fix Linux error: gnu/stubs-32.h: No such file or directory.
+    args << "--disable-multilib" unless OS.mac?
 
     mkdir "build" do
       system "../configure", *args
