@@ -37,11 +37,6 @@ class GccAT49 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  unless OS.mac?
-    depends_on "binutils"
-    depends_on "zlib"
-  end
-
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-4.3.2.tar.bz2"
     mirror "https://ftpmirror.gnu.org/gmp/gmp-4.3.2.tar.bz2"
@@ -104,17 +99,10 @@ class GccAT49 < Formula
 
     version_suffix = version.major_minor.to_s
 
-    args = []
-    if OS.mac?
-      args += [
-        "--build=#{arch}-apple-darwin#{osmajor}",
-        "--with-system-zlib",
-      ]
-    else
-      # Change the default directory name for 64-bit libraries to `lib`
-      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=."
-    end
+    # Change the default directory name for 64-bit libraries to `lib`
+    # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+    inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=." unless OS.mac?
+
     args = [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
@@ -138,6 +126,7 @@ class GccAT49 < Formula
       # install-info is run.
       "MAKEINFO=missing",
       "--disable-nls",
+      "--enable-multilib",
     ]
 
     if OS.mac?
@@ -151,17 +140,14 @@ class GccAT49 < Formula
         args << "--with-sysroot=#{sdk}"
       end
 
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
-    else
-      args << "--disable-multilib"
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/homebrew/pull/34303
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
-    ENV["CPPFLAGS"] = "-I#{Formula["zlib"].include}" unless OS.mac?
+    args << "--disable-multilib" unless OS.mac?
 
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    ENV["CPPFLAGS"] = "-I#{Formula["zlib"].include}" unless OS.mac?
 
     mkdir "build" do
       system "../configure", *args
