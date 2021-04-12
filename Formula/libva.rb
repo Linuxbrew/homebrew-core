@@ -4,6 +4,7 @@ class Libva < Formula
   url "https://github.com/intel/libva/releases/download/2.11.0/libva-2.11.0.tar.bz2"
   sha256 "6e361117038b571ad4741d38c9280db8c140b17e76e8c01fc7a4d608d3ed7d5d"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
