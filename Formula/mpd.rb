@@ -4,7 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.6.tar.xz"
   sha256 "2be149a4895c3cb613477f8cf1193593e3d8a1d38a75ffa7d32da8c8316a4d5e"
   license "GPL-2.0-or-later"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
@@ -12,7 +12,6 @@ class Mpd < Formula
     sha256 cellar: :any,                 big_sur:       "6ad7522c6793e94000346e9ebfeffb16be3cf5e7b6137d980727bfd0709f7335"
     sha256 cellar: :any,                 catalina:      "ec2f59889ddd17efe2b15029ab61878798bd3fcd302229edf029891b08245b75"
     sha256 cellar: :any,                 mojave:        "d3aac34e250c84974268cae2fd7aeda94dba391768f5df9a246cc63899a0a002"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc99c9d6d154e003771a8adb41f82952e83bd04f88a9d348fca2317b7228fd6e"
   end
 
   depends_on "boost" => :build
@@ -40,11 +39,11 @@ class Mpd < Formula
   depends_on "opus"
   depends_on "sqlite"
 
-  unless OS.mac?
-    fails_with gcc: "5"
-    depends_on "gcc@6" => :build
-    depends_on "curl"
-  end
+  uses_from_macos "curl"
+
+  depends_on "gcc" unless OS.mac?
+
+  fails_with gcc: "5"
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
