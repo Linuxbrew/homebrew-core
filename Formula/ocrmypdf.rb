@@ -6,13 +6,13 @@ class Ocrmypdf < Formula
   url "https://files.pythonhosted.org/packages/f6/0a/04b78c479bae669a0250022ea695b3d8a8e8b2c8f8bdeb2061df2b4085f9/ocrmypdf-11.7.3.tar.gz"
   sha256 "329b070959731c277f0df91cfe011dd4da0d6534f23a739a3aa77bdab00fbc2f"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "f430f0ad0571047852e0b74f1d15409810af03d462bcb091ccefe49e52f607e9"
     sha256 cellar: :any,                 big_sur:       "8ab27a358dc76e23185109369195229a961998946c566198ba743a9388bc65a3"
     sha256 cellar: :any,                 catalina:      "97169aad00a334e85a51d9f275e7ba6d950bb139321b0d9817dcfaab8e36ade9"
     sha256 cellar: :any,                 mojave:        "5d4cfa767680e259b9fde387bece8879b2dce9095e21894745466dc89ccb3d4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0cae5d81b67e3ef296263a2a1307acdf0b3bf52a5277bbc844f325bc5ae1336"
   end
 
   depends_on "pkg-config" => :build
@@ -37,10 +37,9 @@ class Ocrmypdf < Formula
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
-  unless OS.mac?
-    depends_on "gcc@6"
-    fails_with gcc: "5"
-  end
+  depends_on "gcc" unless OS.mac?
+
+  fails_with gcc: "5"
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
