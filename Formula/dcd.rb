@@ -5,6 +5,7 @@ class Dcd < Formula
       tag:      "v0.13.2",
       revision: "f38d36ab411748b1ee306fe5de607cf1e7058908"
   license "GPL-3.0-or-later"
+  revision 1 unless OS.mac?
   head "https://github.com/dlang-community/dcd.git", shallow: false
 
   bottle do
