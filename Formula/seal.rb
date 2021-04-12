@@ -18,18 +18,15 @@ class Seal < Formula
 
   uses_from_macos "zlib"
 
+  # #pragma GCC error "SEAL requires __GNUC__ >= 6"
+  # In reality gcc@6 does not work because of some missing C++17 features.
+  depends_on "gcc" unless OS.mac?
+
+  fails_with gcc: "5"
+
   resource "hexl" do
     url "https://github.com/intel/hexl/archive/tags/v1.0.1.tar.gz"
     sha256 "435bc6727a5d54e0b1fca0e2d21ac0fdf5bd8623fbd9015637d01ece931cc602"
-  end
-
-  # #pragma GCC error "SEAL requires __GNUC__ >= 6"
-  # In reality gcc@6 does not work because of some missing C++17 features.
-  unless OS.mac?
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    depends_on "gcc@8" => [:build, :test]
   end
 
   def install
@@ -63,7 +60,7 @@ class Seal < Formula
   end
 
   test do
-    ENV["CXX"] = Formula["gcc@8"].opt_bin/"g++-8" unless OS.mac?
+    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-10" unless OS.mac?
     cp_r (pkgshare/"examples"), testpath
 
     # remove the partial CMakeLists
