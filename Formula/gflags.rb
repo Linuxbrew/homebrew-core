@@ -4,7 +4,7 @@ class Gflags < Formula
   url "https://github.com/gflags/gflags/archive/v2.2.2.tar.gz"
   sha256 "34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf"
   license "BSD-3-Clause"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     rebuild 1
@@ -14,16 +14,9 @@ class Gflags < Formula
     sha256 cellar: :any, mojave:        "e3176e449321b1e2070a9fabc796e6820f2f0f1f4db1c3916f58e6cdd52e510e"
     sha256 cellar: :any, high_sierra:   "4beffa84f47bdfd9a1a90d9e591d9af4616db464d63046018ef0c58936d58366"
     sha256 cellar: :any, sierra:        "6f06466ca55f2174daecbc935e0bca1f2aed9bfb94a92f21d52fb4db1e07cd4a"
-    sha256 cellar: :any, x86_64_linux:  "e6c751416ad9906dbb376a079d599b30d19c2d1f36cbaf6a3fa631e4d3123870"
   end
 
   depends_on "cmake" => :build
-
-  unless OS.mac?
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    depends_on "gcc@6" => [:build, :test]
-  end
 
   def install
     mkdir "buildroot" do
@@ -57,11 +50,7 @@ class Gflags < Formula
         return 0;
       }
     EOS
-    if OS.mac?
-      system ENV.cxx, "-L#{lib}", "-lgflags", "test.cpp", "-o", "test"
-    else
-      system Formula["gcc@6"].bin/"c++-6", "-L#{lib}", "-lgflags", "test.cpp", "-o", "test"
-    end
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lgflags", "-o", "test"
     assert_match "Hello world!", shell_output("./test")
     assert_match "Foo bar!", shell_output("./test --message='Foo bar!'")
   end
