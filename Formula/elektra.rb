@@ -4,6 +4,7 @@ class Elektra < Formula
   url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.5.tar.gz"
   sha256 "0b6ee9d6bf13c3749f4d014df444606f84a2f5a797a541002f8d4e745007c3a5"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   livecheck do
