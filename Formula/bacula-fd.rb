@@ -3,6 +3,7 @@ class BaculaFd < Formula
   homepage "https://www.bacula.org/"
   url "https://downloads.sourceforge.net/project/bacula/bacula/11.0.2/bacula-11.0.2.tar.gz"
   sha256 "a2868ab0d854231b9b0251ade9f50091b0fe3c331f92afba9672b81bd969e02f"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 big_sur:  "5e9cfba07ac1ce2145c53f8ef7a55314ec3225ecdbb75d3b783a5283ae7618f7"
