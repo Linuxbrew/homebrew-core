@@ -4,6 +4,7 @@ class Asciidoctor < Formula
   url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.13.tar.gz"
   sha256 "4812dd15bb71b3ae8351e8e3c2df4528c7c40dd97ef1954a56442b56b59019a6"
   license "MIT"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f9ca51b3374baec623240ec160ef48bf04d0cb49d734b1018b012431a0fda02"
