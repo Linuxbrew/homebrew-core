@@ -45,9 +45,6 @@ class Netcdf < Formula
     sha256 "c6da30c2fe7e4e614c1dff4124e857afbd45355c6798353eccfa60c0702b495a"
   end
 
-  # Fix multiple definition of `ocdebug'; CMakeFiles/ocprint.dir/ocprint.c.o:
-  patch :DATA unless OS.mac?
-
   def install
     ENV.deparallelize
 
@@ -192,18 +189,3 @@ class Netcdf < Formula
     system "./testf"
   end
 end
-
-
-__END__
-diff -Naur netcdf-c-4.7.4-old/ncdump/ocprint.c netcdf-c-4.7.4/ncdump/ocprint.c
---- netcdf-c-4.7.4-old/ncdump/ocprint.c        2021-02-26 08:53:00.000000000 +0100
-+++ netcdf-c-4.7.4/ncdump/ocprint.c    2021-02-26 08:53:49.000000000 +0100
-@@ -56,7 +56,7 @@
- /*Mnemonic*/
- #define TOPLEVEL 1
-
--int ocdebug;
-+extern int ocdebug;
-
- static OCerror ocstat;
- static OClink glink;
