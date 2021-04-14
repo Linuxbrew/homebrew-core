@@ -16,18 +16,15 @@ class Libsigcxx < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on macos: :high_sierra if OS.mac? # needs C++17
+
   unless OS.mac?
     depends_on "m4" => :build
-    depends_on "gcc@7"
-
-    fails_with gcc: "4"
-    fails_with gcc: "5"
-    fails_with gcc: "6"
+    depends_on "gcc"
   end
 
-  def install
-    ENV.cxx11
+  fails_with gcc: "5"
 
+  def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
       system "ninja"
@@ -35,7 +32,7 @@ class Libsigcxx < Formula
     end
   end
   test do
-    ENV["CXX"] = Formula["gcc@7"].opt_bin/"c++-7" unless OS.mac?
+    ENV["CXX"] = Formula["gcc"].opt_bin/"c++-10" unless OS.mac?
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <string>
