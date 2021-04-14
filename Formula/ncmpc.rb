@@ -25,13 +25,14 @@ class Ncmpc < Formula
   depends_on "gettext"
   depends_on "libmpdclient"
   depends_on "pcre"
+
   if OS.mac?
     depends_on "gcc" if DevelopmentTools.clang_build_version <= 800
   else
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    depends_on "gcc@7"
+    depends_on "gcc"
   end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do
