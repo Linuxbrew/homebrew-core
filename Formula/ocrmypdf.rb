@@ -142,7 +142,7 @@ class Ocrmypdf < Formula
     end
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :sierra
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     res = resources.map(&:name).to_set - ["Pillow"]
     res.each do |r|
