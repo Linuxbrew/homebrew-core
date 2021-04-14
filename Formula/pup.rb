@@ -27,7 +27,6 @@ class Pup < Formula
     ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/ericchiang/pup"
     dir.install buildpath.children
-    os = OS.mac? ? "darwin" : "linux"
 
     os = "darwin"
     on_linux do
