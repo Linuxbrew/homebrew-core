@@ -4,6 +4,7 @@ class Libpqxx < Formula
   url "https://github.com/jtv/libpqxx/archive/7.4.1.tar.gz"
   sha256 "73b2f0a0af786d6039291b60250bee577bc7ea7c10b7550ec37da448940848b7"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "5d7d1131c04dc41a6277ab06f953e180fef6979be60d854e4fa02df7111e59f8"
@@ -22,12 +23,10 @@ class Libpqxx < Formula
   unless OS.mac?
     depends_on "doxygen" => :build
     depends_on "xmlto" => :build
-    depends_on "gcc@9"
-    fails_with gcc: "5"
-    fails_with gcc: "6"
-    fails_with gcc: "7"
-    fails_with gcc: "8"
+    depends_on "gcc"
   end
+
+  fails_with gcc: "5"
 
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
@@ -38,7 +37,7 @@ class Libpqxx < Formula
   end
 
   test do
-    cxx = OS.mac? ? ENV.cxx : Formula["gcc@9"].opt_bin/"g++-9"
+    cxx = OS.mac? ? ENV.cxx : Formula["gcc"].opt_bin/"g++-10"
 
     (testpath/"test.cpp").write <<~EOS
       #include <pqxx/pqxx>
