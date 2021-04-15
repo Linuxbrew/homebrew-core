@@ -5,6 +5,7 @@ class Ccls < Formula
   sha256 "28c228f49dfc0f23cb5d581b7de35792648f32c39f4ca35f68ff8c9cb5ce56c2"
   license "Apache-2.0"
   head "https://github.com/MaskRay/ccls.git"
+  revision 1 unless OS.mac?
 
   bottle do
     sha256                               arm64_big_sur: "995792cf80b2355a0e7d232e01fdacbf69f90ec3c3e238107168cf833d116d91"
@@ -18,14 +19,10 @@ class Ccls < Formula
   depends_on "rapidjson" => :build
   depends_on "llvm"
   depends_on macos: :high_sierra # C++ 17 is required
-  depends_on "gcc@9" unless OS.mac? # C++17 is required
 
-  fails_with gcc: "4"
+  depends_on "gcc" unless OS.mac? # C++17 is required
+
   fails_with gcc: "5"
-  fails_with gcc: "6"
-  fails_with gcc: "7" do
-    version "7.1"
-  end
 
   def install
     # https://github.com/Homebrew/brew/issues/6070
