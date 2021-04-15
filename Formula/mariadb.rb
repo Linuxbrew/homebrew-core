@@ -28,6 +28,7 @@ class Mariadb < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "gcc"
     depends_on "linux-pam"
   end
 
@@ -35,6 +36,14 @@ class Mariadb < Formula
     because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
+
+  fails_with gcc: "5"
+
+  patch do
+    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/242cab8cbcd91af882233730a83627d3b12ced83.patch?full_index=1"
+    sha256 "760fd19cd8d4d756a0799ed9110cfd2898237e43835fefe3668079c5b87fc36d"
+    directory "libmariadb"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
