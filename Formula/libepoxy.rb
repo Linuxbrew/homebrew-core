@@ -26,11 +26,7 @@ class Libepoxy < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
 
-  unless OS.mac?
-    depends_on "freeglut"
-    depends_on "mesa"
-    depends_on "xorgproto"
-  end
+  depends_on "freeglut" unless OS.mac?
 
   def install
     mkdir "build" do
