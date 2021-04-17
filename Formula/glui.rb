@@ -28,12 +28,6 @@ class Glui < Formula
     sha256 "b1afada854f920692ab7cb6b6292034f3488936c4332e3e996798ee494a3fdd7"
   end
 
-  unless OS.mac?
-    depends_on "freeglut"
-    depends_on "mesa"
-    depends_on "mesa-glu"
-  end
-
   def install
     system "make", "setup"
     system "make", "lib/libglui.a"
