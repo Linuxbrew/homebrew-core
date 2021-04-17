@@ -48,8 +48,6 @@ class Deno < Formula
       system "ninja", "-C", "out"
     end
 
-    system "core/libdeno/build/linux/sysroot_scripts/install-sysroot.py", "--arch=amd64" unless OS.mac?
-
     cd "cli" do
       # cargo seems to build rusty_v8 twice in parallel, which causes problems,
       # hence the need for -j1
