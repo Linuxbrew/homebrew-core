@@ -26,9 +26,6 @@ class VorbisTools < Formula
   uses_from_macos "curl"
 
   def install
-    # Fixes: /usr/bin/ld: vgfilter.o: undefined reference to symbol 'tanh@@GLIBC_2.2.5'
-    ENV.prepend "LDFLAGS", "-lm" unless OS.mac?
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
