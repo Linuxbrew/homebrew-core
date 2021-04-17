@@ -26,11 +26,6 @@ class Mupdf < Formula
   depends_on "mesa"
   depends_on "openssl@1.1"
 
-  unless OS.mac?
-    depends_on "mesa-glu"
-    depends_on "xinput"
-  end
-
   conflicts_with "mupdf-tools",
     because: "mupdf and mupdf-tools install the same binaries"
 
