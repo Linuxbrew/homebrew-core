@@ -52,7 +52,6 @@ class Ntl < Formula
       -lgmp
       -lpthread
     ]
-    flags << "-lpthread" unless OS.mac?
     system ENV.cxx, "square.cc", "-o", "square", *flags
     assert_equal "4611686018427387904", pipe_output("./square", "2147483648")
   end
