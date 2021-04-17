@@ -27,10 +27,6 @@ class GnustepMake < Formula
   end
 
   test do
-    if OS.mac?
-      assert_match shell_output("#{libexec}/gnustep-config --variable=CC").chomp, ENV.cc
-    else
-      assert_match shell_output("#{libexec}/gnustep-config --variable=CC").chomp, "gcc-5"
-    end
+    assert_match shell_output("#{libexec}/gnustep-config --variable=CC").chomp, ENV.cc
   end
 end
