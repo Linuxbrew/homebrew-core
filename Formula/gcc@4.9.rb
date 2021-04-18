@@ -148,8 +148,6 @@ class GccAT49 < Formula
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
-    ENV["CPPFLAGS"] = "-I#{Formula["zlib"].include}" unless OS.mac?
-
     on_linux do
       args << "--disable-multilib"
     end
