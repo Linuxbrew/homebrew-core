@@ -70,15 +70,9 @@ class GccAT6 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
-    unless OS.mac?
-      # Change the default directory name for 64-bit libraries to `lib`
-      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
-
-      # Set the search path for glibc libraries and objects, using the system's glibc
-      # Fix the error: ld: cannot find crti.o: No such file or directory
-      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-file-name=crti.o")).parent
-    end
+    # Change the default directory name for 64-bit libraries to `lib`
+    # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+    inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
 
     args = [
       "--prefix=#{prefix}",
