@@ -24,16 +24,6 @@ class Glog < Formula
     mkdir "cmake-build" do
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make", "install"
-
-      unless OS.mac?
-        # Move lib64/* to lib/ on Linuxbrew
-        lib64 = Pathname.new "#{lib}64"
-        if lib64.directory?
-          mkdir_p lib
-          mv lib64, lib
-          rmdir lib64
-        end
-      end
     end
 
     # Upstream PR from 30 Aug 2017 "Produce pkg-config file under cmake"
