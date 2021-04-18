@@ -44,15 +44,7 @@ class Coreutils < Formula
   conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
 
   def install
-    # Fix configure: error: you should not run configure as root
-    ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     system "./bootstrap" if build.head?
-
-    # Fix configure: error: you should not run configure as root
-    on_linux do
-      ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
 
     args = %W[
       --prefix=#{prefix}
