@@ -28,16 +28,6 @@ class DoubleConversion < Formula
       system "make"
       lib.install "libdouble-conversion.a"
     end
-
-    unless OS.mac?
-      # Move lib64/* to lib/ on Linuxbrew
-      lib64 = Pathname.new "#{lib}64"
-      if lib64.directory?
-        mkdir_p lib
-        mv lib64, lib
-        rmdir lib64
-      end
-    end
   end
 
   test do
