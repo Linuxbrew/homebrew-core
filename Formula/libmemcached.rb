@@ -29,6 +29,7 @@ class Libmemcached < Formula
   end
 
   test do
+    tcp_port = free_port
     (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <string.h>
@@ -36,7 +37,7 @@ class Libmemcached < Formula
       #include <libmemcached-1.0/memcached.h>
 
       int main(int argc, char **argv) {
-          const char *conf = "--SERVER=localhost:11211";
+          const char *conf = "--SERVER=localhost:#{tcp_port}";
           memcached_st *memc = memcached(conf, strlen(conf));
           assert(memc != NULL);
 
@@ -65,12 +66,7 @@ class Libmemcached < Formula
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmemcached", "-o", "test"
 
     memcached = Formula["memcached"].bin/"memcached"
-    # Assumes port 11211 is not already taken
-    io = if Process.uid.zero?
-      IO.popen("#{memcached} -u root --listen=localhost:22122")
-    else
-      IO.popen("#{memcached} --listen=localhost:11211")
-    end
+    io = IO.popen("#{memcached} --listen=localhost:#{tcp_port}")
     sleep 1
     system "./test"
     Process.kill "TERM", io.pid
