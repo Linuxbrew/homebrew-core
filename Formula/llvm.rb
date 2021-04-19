@@ -54,6 +54,10 @@ class Llvm < Formula
     depends_on "libelf" # openmp requires <gelf.h>
   end
 
+  depends_on "gcc" unless OS.mac?
+
+  fails_with gcc: "5"
+
   def install
     projects = %w[
       clang
@@ -69,7 +73,7 @@ class Llvm < Formula
       libunwind
       libcxxabi
     ]
-    args << "libcxx" if OS.mac?
+    runtimes << "libcxx" if OS.mac?
 
     py_ver = Language::Python.major_minor_version("python3")
     site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
@@ -259,42 +263,44 @@ class Llvm < Formula
       assert_equal "Hello World!", shell_output("./testXC").chomp
     end
 
-    # link against installed libc++
-    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    system "#{bin}/clang++", "-v",
-           "-isystem", "#{opt_include}/c++/v1",
-           "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
-    on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
-    assert_equal "Hello World!", shell_output("./testlibc++").chomp
+    if OS.mac?
+      # link against installed libc++
+      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+      system "#{bin}/clang++", "-v",
+             "-isystem", "#{opt_include}/c++/v1",
+             "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
+             "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+      on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
+      assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
-    # Testing mlir
-    (testpath/"test.mlir").write <<~EOS
-      func @bad_branch() {
-        br ^missing  // expected-error {{reference to an undefined block}}
-      }
-    EOS
-    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
+      # Testing mlir
+      (testpath/"test.mlir").write <<~EOS
+        func @bad_branch() {
+          br ^missing  // expected-error {{reference to an undefined block}}
+        }
+      EOS
+      system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
 
-    (testpath/"scanbuildtest.cpp").write <<~EOS
-      #include <iostream>
-      int main() {
-        int *i = new int;
-        *i = 1;
-        delete i;
-        std::cout << *i << std::endl;
-        return 0;
-      }
-    EOS
-    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
-      "warning: Use of memory after it is freed"
+      (testpath/"scanbuildtest.cpp").write <<~EOS
+        #include <iostream>
+        int main() {
+          int *i = new int;
+          *i = 1;
+          delete i;
+          std::cout << *i << std::endl;
+          return 0;
+        }
+      EOS
+      assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
+        "warning: Use of memory after it is freed"
 
-    (testpath/"clangformattest.c").write <<~EOS
-      int    main() {
-          printf("Hello world!"); }
-    EOS
-    assert_equal "int main() { printf(\"Hello world!\"); }\n",
-      shell_output("#{bin}/clang-format -style=google clangformattest.c")
+      (testpath/"clangformattest.c").write <<~EOS
+        int    main() {
+            printf("Hello world!"); }
+      EOS
+      assert_equal "int main() { printf(\"Hello world!\"); }\n",
+        shell_output("#{bin}/clang-format -style=google clangformattest.c")
+    end
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
