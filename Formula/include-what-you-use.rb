@@ -32,6 +32,7 @@ class IncludeWhatYouUse < Formula
 
   def install
     llvm = Formula["llvm@11"]
+    gcc = Formula["gcc"] unless OS.mac?
 
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
     # so install to libexec to ensure that the resource path, which is always
@@ -39,9 +40,11 @@ class IncludeWhatYouUse < Formula
     # and is not configurable, is also located under libexec.
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
-      -DCMAKE_PREFIX_PATH=#{llvm.opt_lib}
       -DCMAKE_CXX_FLAGS=-std=gnu++14
     ]
+
+    args << "-DCMAKE_PREFIX_PATH=#{llvm.opt_lib}" if OS.mac?
+    args << "-DCMAKE_PREFIX_PATH=#{gcc.opt_lib}" unless OS.mac?
 
     mkdir "build" do
       system "cmake", *args, ".."
@@ -58,8 +61,15 @@ class IncludeWhatYouUse < Formula
     # formula. This would be indicated by include-what-you-use failing to
     # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    (libexec/"lib").install_symlink llvm.lib/"clang"
-    (libexec/"include").install_symlink llvm.include/"c++"
+    if OS.mac?
+      (libexec/"lib").install_symlink llvm.lib/"clang"
+      (libexec/"include").install_symlink llvm.include/"c++"
+    end
+
+    unless OS.mac?
+      (libexec/"lib").install_symlink gcc.lib/"cpp-#{gcc.version.major}"
+      (libexec/"include").install_symlink gcc.include/"c++-#{gcc.version.major}"
+    end
   end
 
   test do
