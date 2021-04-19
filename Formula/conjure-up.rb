@@ -284,9 +284,6 @@ class ConjureUp < Formula
   end
 
   test do
-    # "!! This should _not_ be run as root or with sudo. !!"
-    return if Process.uid.zero?
-
     assert_match "conjure-up #{version}", shell_output("#{bin}/conjure-up --version")
     system bin/"conjure-up", "openstack-base", "metal", "--show-env"
     assert_predicate testpath/".cache/conjure-up-spells/spells-index.yaml",
