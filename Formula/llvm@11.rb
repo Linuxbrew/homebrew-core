@@ -33,6 +33,10 @@ class LlvmAT11 < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
+  if !OS.mac? &&
+     (Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
+    depends_on "glibc"
+  end
   depends_on "python@3.9"
 
   uses_from_macos "libedit"
@@ -165,6 +169,14 @@ class LlvmAT11 < Formula
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
+    unless OS.mac?
+      # Strip executables/libraries/object files to reduce their size
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
+    end
+
     # Install LLVM Python bindings
     # Clang Python bindings are installed by CMake
     (lib/site_packages).install llvmpath/"bindings/python/llvm"
@@ -269,12 +281,17 @@ class LlvmAT11 < Formula
       assert_equal "Hello World!", shell_output("./testXC").chomp
     end
 
+    lib_path = ""
+    on_linux do
+      lib_path = "/x86_64-unknown-linux-gnu/c++/"
+    end
+
     # link against installed libc++
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}#{lib_path}"
     on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
     assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
