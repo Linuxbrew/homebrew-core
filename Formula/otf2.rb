@@ -44,11 +44,6 @@ class Otf2 < Formula
   end
 
   test do
-    if Process.uid.zero?
-      ENV["OMPI_ALLOW_RUN_AS_ROOT"] = "1"
-      ENV["OMPI_ALLOW_RUN_AS_ROOT_CONFIRM"] = "1"
-    end
-
     cp_r "#{share}/doc/otf2/examples", testpath
     workdir = testpath/"examples"
     chdir "#{testpath}/examples" do
