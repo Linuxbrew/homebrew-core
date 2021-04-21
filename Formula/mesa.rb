@@ -6,6 +6,7 @@ class Mesa < Formula
   url "https://archive.mesa3d.org/mesa-21.0.1.tar.xz"
   sha256 "379fc984459394f2ab2d84049efdc3a659869dc1328ce72ef0598506611712bb"
   license "MIT"
+  revision 1 unless OS.mac?
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   livecheck do
@@ -18,7 +19,6 @@ class Mesa < Formula
     sha256 big_sur:       "265955aea56410050891b5f79a15fd05b0d582b753b10c6d2583663005c5725b"
     sha256 catalina:      "cf220039e75746011bdb3e837bc35ca9f3003ed24f1e4f8a16e22dcce6a72e67"
     sha256 mojave:        "afff8f5e1ac285e43e0b1d083a1709822a0333dd1fe4f2be2506a85bb734eb36"
-    sha256 x86_64_linux:  "d9123125ca6d74d68e0b0169bbf4272e746d9b4001b5577ba3cb27c915a290e0"
   end
 
   depends_on "meson" => :build
