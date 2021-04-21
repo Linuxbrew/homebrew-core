@@ -25,6 +25,10 @@ class Rtags < Formula
   depends_on "llvm"
   depends_on "openssl@1.1"
 
+  depends_on "gcc" unless OS.mac?
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
 
