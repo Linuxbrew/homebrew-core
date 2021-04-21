@@ -1,9 +1,9 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2021/sqlite-src-3350400.zip"
-  version "3.35.4"
-  sha256 "77007915a87ccc8a653d5f3d2d3a3cca89807641965c2a6e2958bea964ea02a4"
+  url "https://www.sqlite.org/2021/sqlite-src-3350500.zip"
+  version "3.35.5"
+  sha256 "f4beeca5595c33ab5031a920d9c9fd65fe693bad2b16320c3a6a6950e66d3b11"
   license "blessing"
 
   livecheck do
@@ -12,11 +12,10 @@ class Dbhash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "192459af55fea298ab699637dac1d8ba6ff29bfb7c419707e971b14f794aa4b6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9c3795a82d8267b8d8fe7c829d680f739819dd4dfa25179fa4c8ffcac65b9ffc"
-    sha256 cellar: :any_skip_relocation, catalina:      "5016115b60aac4dce47d73d8407f215a109a35c42360d5a5322ff193bb960a5e"
-    sha256 cellar: :any_skip_relocation, mojave:        "6adc51b47cc9bbe81adc4693f48bc24699459ec1e036253ce54ab1200ceeb288"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39f8a4387376b4477403d5f84693f10dfddf7f6f79ac3ebe5814c81d5afcf322"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c7c7eebca675d25b8256f40b9b1968b6277ab163f2c275c9414ff03638e5ccc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "089ac0935340a12203e164370650e7811465d3b8bd040f5b69e1597953dfba8f"
+    sha256 cellar: :any_skip_relocation, catalina:      "7a692257948fb631fe4279c9e74537304ad6a5fec196d97b6afbd1d846776221"
+    sha256 cellar: :any_skip_relocation, mojave:        "90ef9bf06740ac7e40e18ec65b9cddeb948b030afcb7c51db0dcb0bf241a297e"
   end
 
   uses_from_macos "tcl-tk" => :build

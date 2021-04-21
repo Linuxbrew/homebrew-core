@@ -3,17 +3,16 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/ad/16/d1ccae2576e48110fed524c7675fe23276e4e209efd23929d82b87609338/conan-1.35.1.tar.gz"
-  sha256 "b55136ac1b6a1fcf4ffb0d2c3934a9bdab0dd22ef8a736f557214d3d09bb8e20"
+  url "https://files.pythonhosted.org/packages/85/f5/098563d336b935af89f76d9cd947a02731e17f96a25263ce95169a20bb26/conan-1.35.2.tar.gz"
+  sha256 "402e4de67219d2551e5282d8f23463af0f07c6c162648d851f3b0a7b7236dcf3"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0595a08b9dd0bf7fb1389b91291182496e954109f7706a65a1e6428c892617d9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "dc6463ab87aa485792a4a6f75b0a3da35fa706943586610876c97be93c62ceab"
-    sha256 cellar: :any_skip_relocation, catalina:      "f6fd5287a04affbc7f6fa4ff7e1389dc78168b989bd8f7c26b3bbb5b166dd823"
-    sha256 cellar: :any_skip_relocation, mojave:        "188badc517c07ec48022b0f79f323a24007a77a290cfc659c4142b7bd374e450"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23ef57a11773f4434b560c8a52d3340145d6eb1babf2320448d8d052bf0be2dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e7e506551ccdba0909fdce5d78e3ef2137fab148ccdf89c8b8bf3ec8a58b6ac"
+    sha256 cellar: :any_skip_relocation, big_sur:       "16fa043c0c2e2b65355b85cf87a919741fabbe466a7eefd134cc358bf0381bbc"
+    sha256 cellar: :any_skip_relocation, catalina:      "05ec2e00a27b06077c233cc8ca9ff587c8a77e40eb63bb4f8c54ac726daa5bf8"
+    sha256 cellar: :any_skip_relocation, mojave:        "d5c0b5e700f32899ed79cf8edab54aa5ba1c1d1725828cdb07b6e1c8d52887c6"
   end
 
   depends_on "pkg-config" => :build

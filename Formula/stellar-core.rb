@@ -25,7 +25,9 @@ class StellarCore < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
-  depends_on "gcc" unless OS.mac?
+  on_linux do
+    depends_on "gcc"
+  end
 
   # Needs libraries at runtime:
   # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found

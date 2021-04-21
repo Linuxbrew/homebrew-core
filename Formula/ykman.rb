@@ -3,17 +3,16 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/8f/0d/5dc7fa046ac9bb23d162a6e12b95ebbbdbb4cd4d76df995ca2c514545821/yubikey-manager-4.0.1.tar.gz"
-  sha256 "3b16caa39bf038169b53aff684ee113168a27e8e08548c73f8395cc0ff713bf1"
+  url "https://files.pythonhosted.org/packages/67/4d/824b40d37cafc9ca681ad1fa80981a59d10b4153f146b6bafb943180ea46/yubikey-manager-4.0.2.tar.gz"
+  sha256 "998f804a66695feeb3a48ba200320850243aa605d6d4edcb30bea4cc349aea21"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d379ac350760f313a35f754c066c8c7addbcc0275eda6b3edf0a87844f012869"
-    sha256 cellar: :any,                 big_sur:       "baf09f48223a8de64a99605e9134c89dd6c95d361038d3da669569a05ff4de13"
-    sha256 cellar: :any,                 catalina:      "ecd3a0e259e8881d53af3496d7bcbb7f0a3d4b7681d0c02f2b042e9297136fd5"
-    sha256 cellar: :any,                 mojave:        "c78c75b9178c2c57995940da0d5ffb207556dd74d55ef92c440a930a2f406455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8351746ba044a1fd5e63aff3725aabf1f4864d41d15583a82f273e0d6a8e88b"
+    sha256 cellar: :any, arm64_big_sur: "2549b4d49538b1634e2ef40fd70a0df6fb0bc92de29aa736c926e8ef09eb20de"
+    sha256 cellar: :any, big_sur:       "1395eb2175ef338f3b4d205fd838161c1242ab0a5778cfa07963dd94eba544d6"
+    sha256 cellar: :any, catalina:      "7679ab9aa2fa8c4f5a220849ef43e1358562c1fabc6f48bd015a4ed0bffbdf1e"
+    sha256 cellar: :any, mojave:        "d5f30c128ef9df005618d69debe043a08691191ff5a0896a2dd47ce1f630d6d7"
   end
 
   depends_on "rust" => :build
