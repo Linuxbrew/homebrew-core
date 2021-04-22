@@ -48,11 +48,6 @@ class Makepkg < Formula
       pkgrel=0
       pkgver=0
     EOS
-    # Won't run as root, use more permissive test
-    if ENV["USER"] == "root"
-      assert_match "makepkg (pacman) #{version}", pipe_output("#{bin}/makepkg --version")
-    else
-      assert_match "md5sums=('e232a2683c0", pipe_output("#{bin}/makepkg -dg 2>&1")
-    end
+    assert_match "md5sums=('e232a2683c0", pipe_output("#{bin}/makepkg -dg 2>&1")
   end
 end
