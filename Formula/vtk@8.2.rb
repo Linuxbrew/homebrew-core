@@ -92,7 +92,6 @@ class VtkAT82 < Formula
       -DVTK_WRAP_PYTHON_SIP=ON
       -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
-    args << "-DVTK_USE_COCOA=" + (OS.mac? ? "ON" : "OFF")
 
     on_macos do
       args << "-DVTK_USE_COCOA=ON"
