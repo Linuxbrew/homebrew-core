@@ -8,13 +8,13 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
   sha256 "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1 unless OS.mac?
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ca6ad27d24c751b85f2b577df3773d52b48f0f286c5b1414ae8d1437ad72a3e4"
     sha256 cellar: :any,                 big_sur:       "e7b8af5d4a61e1ab8ec6b564ed998adca00096b0d9253ab1869ffceae386e90e"
     sha256 cellar: :any,                 catalina:      "bb2f387b24ff94be3bd555be8201ac8b458bf2927e912cf3d5543fb0057e826d"
     sha256 cellar: :any,                 mojave:        "b683d62158780905d1bcf43f4159169db3cd4ca196dd4e12d3fd261dc4825d6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64bc8e93a572f89d45428587165c3837a4f17449ed2f072eeac84c411504b717"
   end
 
   keg_only :versioned_formula
