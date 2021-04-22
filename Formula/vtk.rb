@@ -87,7 +87,6 @@ class Vtk < Formula
       -DPython3_EXECUTABLE:FILEPATH=#{Formula["python@3.9"].opt_bin}/python3
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
     ]
-    args << "-DVTK_USE_COCOA=" + (OS.mac? ? "ON" : "OFF")
     args << "-DOpenGL_GL_PREFERENCE=LEGACY" unless OS.mac?
 
     on_macos do
