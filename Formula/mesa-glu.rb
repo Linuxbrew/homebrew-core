@@ -4,6 +4,7 @@ class MesaGlu < Formula
   url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz"
   sha256 "fb5a4c2dd6ba6d1c21ab7c05129b0769544e1d68e1e3b0ffecb18e73c93055bc"
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
+  revision 1 unless OS.mac?
 
   livecheck do
     url :head
@@ -16,7 +17,6 @@ class MesaGlu < Formula
     sha256 cellar: :any, catalina:      "977fc1911d5d0334c56b9d287de0ee2f716fc23b5fde21404415bf89ce46cfce"
     sha256 cellar: :any, mojave:        "ddfad217be6c1f0ea8f22d17348d901ad999365a01f824ab6f51a911eee654e1"
     sha256 cellar: :any, high_sierra:   "598992b552b004eb5e06460a3c84de6ff39f6d7a7112be2819f99280d33f3fa9"
-    sha256 cellar: :any, x86_64_linux:  "cc6c07a0fec48dbaf44144916637188e1ebdc65bfdbb0da37652bca7873c728d"
   end
 
   head do
