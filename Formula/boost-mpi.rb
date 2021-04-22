@@ -106,8 +106,9 @@ class BoostMpi < Formula
       }
     EOS
     boost = Formula["boost"]
-    system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi", "-lboost_serialization", "-o", "test"
-    system "mpirun", *("--allow-run-as-root" if ENV["HOMEBREW_GITHUB_ACTIONS"]), "-np", "2", "./test"
+    system "mpic++", "test.cpp", "-Wl,-rpath=#{lib}", "-Wl,-rpath=#{boost.lib}", "-L#{lib}", "-L#{boost.lib}",
+           "-lboost_mpi-mt", "-lboost_serialization", "-o", "test"
+    system "mpirun", "-np", "2", "./test"
 
     (testpath/"CMakeLists.txt").write "find_package(Boost COMPONENTS mpi REQUIRED)"
     system "cmake", ".", "-Wno-dev"
