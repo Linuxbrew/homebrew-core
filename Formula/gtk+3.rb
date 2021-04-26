@@ -54,9 +54,6 @@ class Gtkx3 < Formula
     if OS.mac?
       args << "-Dquartz_backend=true"
       args << "-Dx11_backend=false"
-    else
-      args << "-Dquartz_backend=false"
-      args << "-Dx11_backend=true"
     end
 
     # ensure that we don't run the meson post install script
