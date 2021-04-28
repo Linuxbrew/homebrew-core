@@ -6,7 +6,9 @@ class DockerMachineCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/docker/machine.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a953e0a6776024c35f839a0f4a23a782e186318fd07fdaa0a8405f41fadbd01a"
+  end
 
   conflicts_with "docker-machine",
     because: "docker-machine already includes completion scripts"
