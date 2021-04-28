@@ -6,7 +6,9 @@ class SpeedtestCli < Formula
   license "Apache-2.0"
   head "https://github.com/sivel/speedtest-cli.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "ebf51e9de63f99e3fcea09b61015488a25e7769422fd9656fee9c0ecf7ba08b3"
+  end
 
   def install
     bin.install "speedtest.py" => "speedtest"

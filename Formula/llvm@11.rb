@@ -5,6 +5,7 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   livecheck do
     url :homepage
@@ -12,11 +13,10 @@ class LlvmAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5871a473293bde42baf9abf89169189e3abaa7f781fd77636adb84360e28a7e6"
-    sha256 cellar: :any,                 big_sur:       "faba8d2d00aeecf0f4d8898b64973f5d284568089ac7ac12db41a6c15c50befb"
-    sha256 cellar: :any,                 catalina:      "50c129d10bad4eb67d327f5409cd6d2437953a51bd86d4c7cb8870ccab3f5caf"
-    sha256 cellar: :any,                 mojave:        "501ae2d6c4030397444698ade77a596f84e0b8490ba440be243a33df2473a42a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b9664ef4aed5b11ac4e150e60a92c379ba59e8beade5a8f7a3381225038f19c"
+    sha256 cellar: :any, arm64_big_sur: "3b3549ea1b1004dcd63fed6aa0f3b9b8437f6398e924073b65bc293d8fae0532"
+    sha256 cellar: :any, big_sur:       "d44a42519c3c306a93fcbc8a3d86044d48392598c22b6d3e9170463e6ec7dc50"
+    sha256 cellar: :any, catalina:      "d5dfe866ed1b475df5c99055d98b805c9acd4225b0f8a75fbe50e21c4e5e95f4"
+    sha256 cellar: :any, mojave:        "ea145694576fbfd5955e0543c7dac64db16d66fd9b7956536ebd07506cb65960"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -78,6 +78,12 @@ class LlvmAT11 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6166a68c/llvm/openmp_arm.patch"
     sha256 "70fe3836b423e593688cd1cc7a3d76ee6406e64b9909f1a2f780c6f018f89b1e"
+  end
+
+  # Support for macOS 11.3+ SDKs
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/a3a24316087d0e1b4db0b8fee19cdee8b7968032.patch?full_index=1"
+    sha256 "744aaebcc8da875892a00cbe2ebc6bb16db97431808b49f134adf70e64cf0e91"
   end
 
   def install
