@@ -5,7 +5,9 @@ class RakeCompletion < Formula
   sha256 "085801e62cb240311d77885778a603f649b3fd5d85ee279691d1d00bc060bba6"
   license "MIT"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "6d5a9f29cceb2470b61d563fc7d9d762e0a8b73f8e052d99103fad25e6301f62"
+  end
 
   def install
     bash_completion.install "rake.sh" => "rake"

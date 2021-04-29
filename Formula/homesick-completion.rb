@@ -5,7 +5,9 @@ class HomesickCompletion < Formula
   sha256 "f9953d92dc5c0d9770d502a68651795c78f5d7bd6078cd747e77ebc602c43609"
   license "MIT"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "84ac5662175829b833121f38e89eb136906b72d3274378b024a8059829b7026f"
+  end
 
   deprecate! date: "2020-08-10", because: :repo_archived
 

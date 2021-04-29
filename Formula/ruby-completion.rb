@@ -7,7 +7,9 @@ class RubyCompletion < Formula
   license "MIT"
   head "https://github.com/mernen/completion-ruby.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "534da18dd29bafad68930a70b41d94de09a99d0c4cf01e62bdb1a3c3f49fd3f3"
+  end
 
   def install
     bash_completion.install "completion-ruby" => "ruby"
