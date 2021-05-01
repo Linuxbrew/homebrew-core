@@ -1,0 +1,93 @@
+name: Build bottles from 'brew request-bottle' trigger.
+
+on: repository_dispatch
+
+jobs:
+  bottle:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+      options: --user=linuxbrew
+    steps:
+      # Printing these details should always be the first step listed.
+      - name: ${{github.event.client_payload.formula}}
+        id: print_details
+        run: |
+          echo formula=${{github.event.client_payload.formula}}
+          echo sender=${{github.event.sender.login}}
+          echo name=${{github.event.client_payload.name}}
+          echo ignore-errors=${{github.event.client_payload.ignore_errors}}
+          echo issue=${{github.event.client_payload.issue}}
+          echo "::set-output name=repo::$(brew --repo ${{github.repository}})"
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Build bottles
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          mkdir ~/bottles
+          cd ~/bottles
+          brew test-bot \
+            --only-formulae \
+            --keep-old \
+            --skip-recursive-dependents \
+            --only-json-tab \
+            ${{github.event.client_payload.formula}}
+
+      - name: Upload bottles
+        if: always()
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: ~/bottles/
+
+      - name: Post comment on failure
+        if: ${{!success() && github.event.client_payload.issue > 0}}
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          issue: ${{github.event.client_payload.issue}}
+          body: ":warning: @${{github.actor}} bottle request for ${{github.event.client_payload.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          bot_body: ":warning: Bottle request for ${{github.event.client_payload.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          bot: BrewTestBot
+  upload:
+    runs-on: ubuntu-latest
+    needs: bottle
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Setup git
+        uses: Homebrew/actions/git-user-config@master
+
+      - name: Download bottles from GitHub Actions
+        uses: actions/download-artifact@main
+        with:
+          name: bottles
+          path: ~/bottles/
+
+      - name: Upload and publish bottles to GitHub Packages
+        env:
+          HOMEBREW_GITHUB_PACKAGES_USER: linuxbrewtestbot
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
+        run: |
+          cd ~/bottles
+          brew pr-upload --verbose --keep-old --root-url="https://ghcr.io/v2/linuxbrew/core"
+
+      - name: Push commits
+        uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+
+      - name: Post comment on failure
+        if: ${{!success() && github.event.client_payload.issue > 0}}
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          issue: ${{github.event.client_payload.issue}}
+          body: ":warning: @${{github.actor}} bottle request for ${{github.event.client_payload.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          bot_body: ":warning: Bottle request for ${{github.event.client_payload.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          bot: BrewTestBot

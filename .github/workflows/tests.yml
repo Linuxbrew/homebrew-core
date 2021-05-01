@@ -1,0 +1,114 @@
+name: GitHub Actions CI
+on:
+  push:
+    branches: master
+  pull_request:
+    paths-ignore:
+      - "Formula/patchelf.rb"
+      - "Formula/binutils.rb"
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
+jobs:
+  tap_syntax:
+    if: github.repository == 'Homebrew/linuxbrew-core' && ! contains(github.event.pull_request.labels.*.name, 'self-hosted-ci')
+    runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.result }}
+      skip-arm-tests: ${{ steps.check-arm-labels.outputs.result }}
+    env:
+      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+    steps:
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+
+    - name: Cache Bundler RubyGems
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+        key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+        restore-keys: ${{ runner.os }}-rubygems-
+
+    - name: Install Bundler RubyGems
+      run: brew install-bundler-gems
+
+    - run: brew test-bot --only-tap-syntax
+
+  tests:
+    needs: tap_syntax
+    if: github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, 'Merge') == false
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
+      options: --user=linuxbrew
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: rm steps_output.txt
+
+      - run: brew test-bot --only-setup
+
+      - name: Run brew test-bot --only-json-tab --only-formulae
+        run: |
+          mkdir ~/bottles
+          cd ~/bottles
+          brew test-bot --only-json-tab --only-formulae
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs (Linux)
+          path: ~/bottles/logs
+
+      - name: Delete logs and home
+        if: always()
+        run: |
+          rm -rvf ~/bottles/logs
+          rm -rvf ~/bottles/home
+
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd ~/bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+          failures=$(ls failed/*.json | wc -l | xargs echo -n)
+          echo "$failures failed bottles"
+          echo "::set-output name=failures::$failures"
+
+      - name: Upload failed bottles
+        if: always() && steps.bottles.outputs.failures > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles (failed)
+          path: ~/bottles/failed
+
+      # Must be run before the `Upload bottles` step so that failed
+      # bottles are not included in the `bottles` artifact.
+      - name: Delete failed bottles
+        if: always()
+        run: rm -rvf ~/bottles/failed
+
+      - name: Upload bottles
+        if: always() && steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: ~/bottles
+
+      - run: brew test-bot --only-cleanup-after
+        if: always()
+
+      - name: Post Cleanup
+        if: always()
+        run: rm -rvf ~/bottles

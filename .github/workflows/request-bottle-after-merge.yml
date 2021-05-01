@@ -1,0 +1,46 @@
+name: Request bottles after upstream merge.
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Formula/*'
+
+jobs:
+  request-bottles:
+    if: startsWith(github.event.head_commit.message, 'Merge') == true && contains(github.event.head_commit.message, 'Conflicts') == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Homebrew
+        run: brew update-reset
+      - name: Tap linux-dev
+        run: |
+          brew tap homebrew/linux-dev
+      - name: Get associated pull request
+        uses: actions/github-script@master
+        id: pr
+        with:
+          result-encoding: string
+          script: |
+            const prs = await github.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.payload.head_commit.id
+            })
+            console.log(prs.data.length + " prs")
+            if (prs.data.length === 0) {
+              console.log("No pull requests are associated with this merge commit.")
+              return 0
+            }
+            const pr = prs.data[0]
+            return pr.number
+      - name: Request bottles
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_LINUXBREW_CORE_WORKFLOWS_API_TOKEN}}
+          GIT_COMMITTER_NAME: ${{github.event.pusher.name}}
+          GIT_COMMITTER_EMAIL: ${{github.event.pusher.email}}
+        run: |
+          cd $(brew --repo ${{github.repository}})
+          git reset --hard ${{github.sha}}
+          brew find-formulae-to-bottle | xargs -n1 brew request-bottle --issue=${{steps.pr.outputs.result}}
