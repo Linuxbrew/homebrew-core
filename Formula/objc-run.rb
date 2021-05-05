@@ -22,6 +22,8 @@ class ObjcRun < Formula
     satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX } unless Hardware::CPU.arm?
   end
 
+  uses_from_macos "llvm" => :test
+
   def install
     bin.install "objc-run"
     pkgshare.install "examples", "test.bash"
