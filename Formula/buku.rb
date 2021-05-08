@@ -209,7 +209,6 @@ class Buku < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
-    ENV["PYTHONIOENCODING"] = "utf-8" unless OS.mac?
     expect = OS.mac? ? "/usr/bin/expect" : "#{Formula["expect"].opt_bin}/expect"
 
     expect = "/usr/bin/expect"
