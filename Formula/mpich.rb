@@ -43,8 +43,6 @@ class Mpich < Formula
 
   conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
-  depends_on "libfabric" unless OS.mac?
-
   if Hardware::CPU.arm?
     # gfortran from 10.2.0 on arm64 does not seem to know about real128 and complex128
     # the recommended solution by upstream is to comment out the declaration of
