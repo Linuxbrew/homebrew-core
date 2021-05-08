@@ -25,11 +25,8 @@ class Fltk < Formula
 
   unless OS.mac?
     depends_on "pkg-config" => :build
-    depends_on "libx11"
-    depends_on "libxext"
     depends_on "libxft"
     depends_on "libxt"
-    depends_on "mesa"
     depends_on "mesa-glu"
   end
 
