@@ -20,8 +20,6 @@ class Mmseqs2 < Formula
   depends_on "libomp"
   depends_on "wget"
 
-  depends_on "gawk" unless OS.mac?
-
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
