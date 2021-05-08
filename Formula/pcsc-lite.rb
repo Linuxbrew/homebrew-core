@@ -25,8 +25,6 @@ class PcscLite < Formula
     depends_on "libusb"
   end
 
-  depends_on "libusb" unless OS.mac?
-
   def install
     args = %W[--disable-dependency-tracking
               --disable-silent-rules
