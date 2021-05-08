@@ -22,7 +22,6 @@ class Pinentry < Formula
   depends_on "pkg-config" => :build
   depends_on "libassuan"
   depends_on "libgpg-error"
-  depends_on "libsecret" unless OS.mac?
 
   on_linux do
     depends_on "libsecret"
