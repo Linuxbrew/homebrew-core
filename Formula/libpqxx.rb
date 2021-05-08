@@ -16,11 +16,7 @@ class Libpqxx < Formula
   depends_on "libpq"
   depends_on "postgresql"
 
-  unless OS.mac?
-    depends_on "doxygen" => :build
-    depends_on "xmlto" => :build
-    depends_on "gcc"
-  end
+  depends_on "gcc" unless OS.mac?
 
   fails_with gcc: "5"
 
