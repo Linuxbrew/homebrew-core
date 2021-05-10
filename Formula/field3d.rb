@@ -4,13 +4,13 @@ class Field3d < Formula
   url "https://github.com/imageworks/Field3D/archive/v1.7.3.tar.gz"
   sha256 "b6168bc27abe0f5e9b8d01af7794b3268ae301ac72b753712df93125d51a0fd4"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c89838aa0ae15362f20185876d52e26f2481cb81de1cc02af5afd14a0258ffe4"
-    sha256 cellar: :any, big_sur:       "0b241420488c3114eb7be754d367ac304e5ee1f4eb0ced337e993a2f40cb2916"
-    sha256 cellar: :any, catalina:      "c5762c0dcb2845b79128738c961a24320308b2fcd7b512d55229684fba01f3e6"
-    sha256 cellar: :any, mojave:        "0d94886e981db690def40186348a61afff86722db9bcc5a7d1cdb31289b45d3f"
+    sha256 cellar: :any, arm64_big_sur: "b12b7bbffb37cac1a70220ad329743dbd1eb47c44e7229a8646d9b14124151f2"
+    sha256 cellar: :any, big_sur:       "90b0c9cc4ab05cfcbfa656aa634f808513d6f4e8f11a51f43d7a34abd8dd4f1f"
+    sha256 cellar: :any, catalina:      "76d498d553b562262c1654c1cd717057eaf0bc78d03bbe20dfb3e55c55f5d5a4"
+    sha256 cellar: :any, mojave:        "c5722c3960ff48af8007245cdf71a818d292ce76b85abf998c2a9623da3297a4"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class Field3d < Formula
     ENV.prepend "CXXFLAGS", "-DH5_USE_110_API"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DMPI_FOUND=OFF"
       system "make", "install"
     end
     man1.install "man/f3dinfo.1"

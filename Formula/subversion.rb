@@ -5,13 +5,13 @@ class Subversion < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.14.1.tar.bz2"
   sha256 "2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "ca05380632bac6c53ae282050a0ce9a3034ffbb5719684f2d96cc43fbfe1e130"
-    sha256 big_sur:       "b98befd5c5b05ab4381e055a967cb6df55a59174cca11ce6ff9cbe4a3bd35e59"
-    sha256 catalina:      "3cfd3fc3886817d9accd3f118083b95e1c6832eee4f20fa1b73b28a2e2262600"
-    sha256 mojave:        "5de933ae5c71c09e2aae3607dfc84a47c85a67532e2e35b1b09c06e27046e0ba"
-    sha256 x86_64_linux:  "ce0b10e67bb137e2a0130da2a6a60bf2886c905c37654bd99d49776fdebeffc4"
+    sha256 arm64_big_sur: "cc10a37f931098a527772624566986313996921ef4db503574894e7c879a148e"
+    sha256 big_sur:       "b35d05510851c952fb29dfab08291eef60a8635ccd5c04133dca9bfe8d2d3489"
+    sha256 catalina:      "10dfdde7c27501f4dbeb5b31a24faaf3230680c381d3fe3c2998478cbdb1bcc6"
+    sha256 mojave:        "c7b9deadb79fd1bce8efeddcbd6e4097bc8f7e256d2d073acf276aa3d5f6fb7d"
   end
 
   head do
@@ -22,8 +22,7 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
-  # Do not build java bindings on ARM as openjdk is not available
-  depends_on "openjdk" => :build if Hardware::CPU.intel?
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "scons" => :build # For Serf
@@ -114,6 +113,7 @@ class Subversion < Formula
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
+      --with-jdk=#{Formula["openjdk"].opt_prefix}
       --with-ruby-sitedir=#{lib}/ruby
       --with-py3c=#{py3c_prefix}
       --with-serf=#{serf_prefix}
@@ -123,13 +123,11 @@ class Subversion < Formula
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
+      --enable-javahl
       --without-jikes
       PYTHON=#{Formula["python@3.9"].opt_bin}/python3
       RUBY=#{ruby}
     ]
-
-    # Do not build java bindings on ARM as openjdk is not available
-    args << "--with-jdk=#{Formula["openjdk"].opt_prefix}" << "--enable-javahl" if Hardware::CPU.intel?
 
     inreplace "Makefile.in",
               "toolsdir = @bindir@/svn-tools",
@@ -149,13 +147,13 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python3.9/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    if Hardware::CPU.intel?
-      # Java and Perl support don't build correctly in parallel:
-      # https://github.com/Homebrew/homebrew/issues/20415
-      ENV.deparallelize
-      system "make", "javahl"
-      system "make", "install-javahl"
+    # Java and Perl support don't build correctly in parallel:
+    # https://github.com/Homebrew/homebrew/issues/20415
+    ENV.deparallelize
+    system "make", "javahl"
+    system "make", "install-javahl"
 
+    if Hardware::CPU.intel?
       perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
       perl_core = Pathname.new(perl_archlib)/"CORE"
       perl_extern_h = perl_core/"EXTERN.h"

@@ -8,11 +8,11 @@ class Zstd < Formula
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1a1b9a78b09d90da95c31dbdc3d4a62ef57f2c1d875d15a62342fc1556bfba4d"
-    sha256 cellar: :any,                 big_sur:       "eeb8825bb703294879b70a5018efecb08a42863cb56c870fdd7215d886732778"
-    sha256 cellar: :any,                 catalina:      "9fff3447bc3ca1d239dbb239b37bd70fabd37087bf61c85407bad8d5c47a831a"
-    sha256 cellar: :any,                 mojave:        "0da410f0a383f7068b51b0e72969496a631b8aeb46b2cbaf431989e9a8646018"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6e1e6bbe270f2d462866bf42750538766b8b73bc2050c051d4433f9764698e2"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "3d51ef9a3f13e82d4dc2e3796c3f02ee32593686c87498f0ba49302b38fb5f7a"
+    sha256 cellar: :any, big_sur:       "84b118224c8da97b293087196e5dabcefceaede9d0c4c60dd05bcb103d2668a6"
+    sha256 cellar: :any, catalina:      "3bdec91921f43b57d2afb4fd61641dd912330c010b2c1979c51602cecfe66f1a"
+    sha256 cellar: :any, mojave:        "29f6070e68f504cda74fb368ca267cf4031203371fb74cd4bdb9547229fec849"
   end
 
   depends_on "cmake" => :build
@@ -20,13 +20,11 @@ class Zstd < Formula
   uses_from_macos "zlib"
 
   def install
-    rpath = "-DCMAKE_INSTALL_RPATH=@loader_path/../lib"
-    on_linux do
-      rpath = nil
-    end
-
     cd "build/cmake" do
-      system "cmake", "-S", ".", "-B", "builddir", "-DZSTD_BUILD_CONTRIB=ON", *std_cmake_args, rpath
+      system "cmake", "-S", ".", "-B", "builddir",
+                      "-DZSTD_BUILD_CONTRIB=ON",
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      *std_cmake_args
       system "cmake", "--build", "builddir"
       system "cmake", "--install", "builddir"
     end

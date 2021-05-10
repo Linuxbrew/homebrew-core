@@ -1,15 +1,15 @@
 class I686ElfGcc < Formula
   desc "GNU compiler collection for i686-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
-  sha256 "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
+  sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   bottle do
-    sha256 big_sur:  "b08b99ff3b7ae42ef378cc46b614170f232098dcc0a650d7557637d2135809e2"
-    sha256 catalina: "3c71adb21e1e28dbcb124437cdd0f1de8a1d5fab8aa834ccfe67735f6af55fe9"
-    sha256 mojave:   "486dc517f6e1e21d96f3483eb7f8ab12a6e989c251cab9cd07d70fa01f4574e6"
+    sha256 big_sur:  "6d402e313e5bb521f8359dba3805c2e9791f2d660395dda69e13da8e0f118a84"
+    sha256 catalina: "c1f1073df4c6c3b134178abb19e8e35d9b3a5ce50815d8407aca4682fe283018"
+    sha256 mojave:   "6799e72168bcb5f4e14081b64a98eb746e7a699be00bccf9adeead726796ff0e"
   end
 
   depends_on "gmp"

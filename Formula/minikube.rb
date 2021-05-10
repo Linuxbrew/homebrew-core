@@ -5,14 +5,14 @@ class Minikube < Formula
       tag:      "v1.20.0",
       revision: "c61663e942ec43b20e8e70839dcca52e44cd85ae"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kubernetes/minikube.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "53cc2891ce5c064248d527505b6bd52609cec749f5276db3a85f3446545c6f36"
-    sha256 cellar: :any_skip_relocation, big_sur:       "22ed1a5612a4adea9fd5498dd5ee7239b91b25b76f0b0f3ec0dae526c262f760"
-    sha256 cellar: :any_skip_relocation, catalina:      "516c090d58dd73861792aebcebcf1944fdea269c8272d10c8899ce0ba56de8e3"
-    sha256 cellar: :any_skip_relocation, mojave:        "b657f734e8feb8dd5437f653c06f4c975209533ef39bb0cf4fe4a00cba08357b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e232c28548672fa61a3211523debdce6e886b97c135ed863f8560b83ade191f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c891bcb7b481240bf1661b74baed90eda12ab2bc9ea671dfe5376879e112afe8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3e2c06536603de6f2c1cae599f94a40c2846b6b2aa2543147cea91b862c5c4b5"
+    sha256 cellar: :any_skip_relocation, catalina:      "2e42dc4ea7cdf2f4182738578c63870df81e12c6a90ebca87617ed6f2149c8b9"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb87ba4bdc14ad363bb365175d7ac055b140f3e6cfefb127e232bcd2e36e99ae"
   end
 
   depends_on "go" => :build
@@ -28,6 +28,9 @@ class Minikube < Formula
 
     output = Utils.safe_popen_read("#{bin}/minikube", "completion", "zsh")
     (zsh_completion/"_minikube").write output
+
+    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "fish")
+    (fish_completion/"minikube.fish").write output
   end
 
   test do

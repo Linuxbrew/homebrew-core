@@ -1,8 +1,8 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v2.5.1.tar.gz"
-  sha256 "f29d63b91ff2bddd130b29ddee90a1f450706271a13d5d80b653b50379ffa076"
+  url "https://github.com/commercialhaskell/stack/archive/v2.7.1.tar.gz"
+  sha256 "eb849d5625084a6de57e8520ddf8172aca64ddadd9fee37cdafeefad80895b62"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git"
 
@@ -12,10 +12,9 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "2f6c0dc9279cc4dadc27305b448e1f27ac3f3f9189e667806b2f47ba323cc2e7"
-    sha256 cellar: :any_skip_relocation, catalina:     "a3e160e30048c2223853f8fd977797ed95e0fb198977c230fdc5397b610a1bb8"
-    sha256 cellar: :any_skip_relocation, mojave:       "1e73da7200f3de9ca57d571ae707815c94b1737840dd16e5c260c15e682f5cbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "376056836c7e2c1e26a080ebe0efd8a790b6825005874faf759df0d79da54b50"
+    sha256 cellar: :any_skip_relocation, big_sur:  "d8b72126d7ceaea59f2782116ec614f1c74b36709d4df71be68632b3de8525ac"
+    sha256 cellar: :any_skip_relocation, catalina: "39a5f47f91b0095d329793e351292e0d3c1e24f197d368fa08d564b4887cf291"
+    sha256 cellar: :any_skip_relocation, mojave:   "d5a85f265e0c0aba503f035469c0fa7aca81e5029e6c7b5eb3b28461b929fddb"
   end
 
   depends_on "cabal-install" => :build
@@ -27,15 +26,11 @@ class HaskellStack < Formula
     depends_on "gmp"
   end
 
-  # Support build with persistent-2.11 and optparse-applicative-0.16
-  patch do
-    url "https://github.com/commercialhaskell/stack/commit/7796eaa6b2c6c5e8a579af34ebc33b12d73b6c99.patch?full_index=1"
-    sha256 "58aa8a861307c14068148a88bf8f46ed7fe2e3c89a3c8bfd1949316e2d7dab29"
-  end
-
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+
+    cabal_install_constraints = ["--constraint=persistent^>=2.11.0.0", "--constraint=persistent-template^>=2.9.1.0"]
+    system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
   end
 
   test do
