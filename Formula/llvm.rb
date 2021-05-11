@@ -7,16 +7,12 @@ class Llvm < Formula
   sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1 unless OS.mac?
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
     url :homepage
     regex(/LLVM (\d+\.\d+\.\d+)/i)
-  end
-
-  bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ed5ab9d8b078710b63e67f88f4d174a984f7a8c1e8240bc16d7b722ccb99792"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
