@@ -5,6 +5,8 @@ class SchemaEvolutionManager < Formula
   sha256 "268a7a09a2175ed081593843fd03f330afb42710b2af0c9bc456b5e8546057c2"
   license "Apache-2.0"
 
+  uses_from_macos "ruby"
+
   def install
     system "./install.sh", prefix
   end
