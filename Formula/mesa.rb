@@ -53,6 +53,8 @@ class Mesa < Formula
     depends_on "wayland-protocols"
   end
 
+  fails_with :gcc unless OS.mac?
+
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
     sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
@@ -128,6 +130,7 @@ class Mesa < Formula
       -lXext
       -lm
     ]
-    system ENV.cc, "glxgears.c", "-o", "gears", *flags
+    system ENV.cc, "glxgears.c", "-o", "gears", *flags if OS.mac?
+    system Formula["llvm"].opt_bin/"clang", "glxgears.c", "-o", "gears", *flags unless OS.mac?
   end
 end
