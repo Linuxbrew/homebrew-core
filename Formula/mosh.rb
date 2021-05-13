@@ -39,10 +39,6 @@ class Mosh < Formula
   uses_from_macos "openssl@1.1"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "openssl@1.1"
-  end
-
   def install
     ENV.cxx11
 
