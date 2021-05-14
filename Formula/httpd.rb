@@ -109,8 +109,14 @@ class Httpd < Formula
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
       s.gsub! "${prefix}/lib/httpd/modules",
               "#{HOMEBREW_PREFIX}/lib/httpd/modules"
-      s.gsub! "#{HOMEBREW_SHIMS_PATH}/mac/super",
-              "#{HOMEBREW_PREFIX}/bin"
+      if OS.mac?
+        s.gsub! "#{HOMEBREW_SHIMS_PATH}/mac/super",
+                "#{HOMEBREW_PREFIX}/bin"
+      end
+      unless OS.mac?
+        s.gsub! "#{HOMEBREW_SHIMS_PATH}/linux/super",
+                "#{HOMEBREW_PREFIX}/bin"
+      end
     end
   end
 
