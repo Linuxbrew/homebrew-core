@@ -23,7 +23,6 @@ class Openldap < Formula
   depends_on "openssl@1.1"
 
   on_linux do
-    depends_on "groff" => :build
     depends_on "util-linux"
   end
 
@@ -51,7 +50,13 @@ class Openldap < Formula
       --enable-translucent
       --enable-unique
       --enable-valsort
+      --without-systemd
     ]
+
+    # Disable manpage generation
+    inreplace "Makefile.in" do |s|
+      s.change_make_var! "SUBDIRS", "include libraries clients servers"
+    end
 
     system "./configure", *args
     system "make", "install"
