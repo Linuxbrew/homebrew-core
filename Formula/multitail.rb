@@ -12,14 +12,13 @@ class Multitail < Formula
     sha256 cellar: :any, catalina:      "6d0d74b45d02adc52fa6a5f666484c62941457da3cb10e50d65f5d772cc59c02"
     sha256 cellar: :any, mojave:        "933801e9ec5999742cfcea6cc59580f69fc966ad82858326c2a90f68868de60f"
     sha256 cellar: :any, high_sierra:   "57526de43035b0d5d2520d54b252d29c20a4efb146c019ac044ad5067be5351a"
-    sha256 cellar: :any, x86_64_linux:  "6496c1392f9856eefa03fc864094e55553d4b478149b592a287c946aa141f271"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ncurses"
 
   def install
-    system "make", "-f", OS.mac? ? "makefile.macosx" : "Makefile", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
+    system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
 
     bin.install "multitail"
     man1.install gzip("multitail.1")
