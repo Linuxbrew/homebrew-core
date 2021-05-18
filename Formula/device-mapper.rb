@@ -12,10 +12,6 @@ class DeviceMapper < Formula
     regex(/href=.*?;a=tag;.*?>Release (\d+(?:\.\d+)+)</i)
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a0899e7f3489b8c459bdbaf0334faf7a7d79f62951db61a6f1ef9d5a6da3c357"
-  end
-
   depends_on "libaio"
   depends_on :linux
 
