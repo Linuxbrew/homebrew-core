@@ -25,9 +25,6 @@ class Ccls < Formula
   fails_with gcc: "5"
 
   def install
-    # https://github.com/Homebrew/brew/issues/6070
-    ENV.remove %w[LDFLAGS LIBRARY_PATH HOMEBREW_LIBRARY_PATHS], "#{HOMEBREW_PREFIX}/lib" unless OS.mac?
-
     system "cmake", *std_cmake_args
     system "make", "install"
   end
