@@ -30,7 +30,7 @@ class Bear < Formula
   uses_from_macos "llvm" => :test
 
   on_macos do
-    depends_on "llvm" if MacOS.version <= :mojave
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
   end
 
   on_linux do
@@ -49,7 +49,7 @@ class Bear < Formula
 
   def install
     on_macos do
-      ENV.llvm_clang if MacOS.version <= :mojave
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
     end
 
     args = std_cmake_args + %w[

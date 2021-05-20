@@ -3,7 +3,8 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.25.tar.gz"
   sha256 "93c5f57cbd69573a8d9798725edec52e92830f70c398a1afaaea2227db331728"
-  license "GPL-2.0-only"
+  license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -11,15 +12,17 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6eb5409662bc0529288f41fcf6fe5b9cc45cf2976477ec94d4531f89789c97a0"
-    sha256 big_sur:       "3b121c1a7dc8628a255b9654bac20b324f49387a19cdab126161066c2f2005d0"
-    sha256 catalina:      "0bd40128bca6ba97aa595dc822f9408c593476c6d86310e9ce36f139ce4328f7"
-    sha256 mojave:        "9aeac3bc140793f5e6a363c16345070efecbb22b4e9b2a64ca27419405f0c145"
-    sha256 x86_64_linux:  "ad0afeaef42b70470ab342cee7f50ab573c8dbf17c0b52550dc9638e4252052c"
+    sha256 arm64_big_sur: "2e4b10e541bb3bdd076139c13bf6df3f729280c795552dd0d2b478de59631d1a"
+    sha256 big_sur:       "db388d333de4224dcc9ca54917069c75805801f00bc1355c9dcfe5bf518c4045"
+    sha256 catalina:      "a20b72150ec1de16c23f749c4dfa65785d5d271b2597d9555f3f355848d02007"
+    sha256 mojave:        "12ec5589ad0cfa9bae8922d10d72671eca10eef0785397f9ec2a92eb9b6a0a9d"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "libevent"
+  depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "zstd"
@@ -60,11 +63,14 @@ class Mysql < Formula
       -DINSTALL_PLUGINDIR=lib/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
+      -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
-      -DWITH_PROTOBUF=system
+      -DWITH_ICU=system
       -DWITH_LIBEVENT=system
+      -DWITH_LZ4=system
+      -DWITH_PROTOBUF=system
+      -DWITH_SSL=system
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
@@ -81,6 +87,7 @@ class Mysql < Formula
     end
 
     # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
+    # Reported upstream at https://bugs.mysql.com/bug.php?id=103227
     rm_rf lib/"libssl.dylib"
     rm_rf lib/"libssl.1.1.dylib"
     rm_rf lib/"libcrypto.1.1.dylib"
