@@ -42,7 +42,6 @@ class Vtk < Formula
   uses_from_macos "zlib"
 
   unless OS.mac?
-    depends_on "szip"
     depends_on "tcl-tk"
     depends_on "mesa"
     depends_on "mesa-glu"
