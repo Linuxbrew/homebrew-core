@@ -1,3 +1,4 @@
+# argo: Build a bottle for Linux
 class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
