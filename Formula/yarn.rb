@@ -1,3 +1,4 @@
+# yarn: Build a bottle for Linux
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
