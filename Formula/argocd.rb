@@ -1,3 +1,4 @@
+# argocd: Build a bottle for Linux
 class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.io"
