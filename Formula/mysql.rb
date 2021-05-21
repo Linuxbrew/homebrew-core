@@ -27,6 +27,7 @@ class Mysql < Formula
   depends_on "protobuf"
   depends_on "zstd"
 
+  uses_from_macos "curl"
   uses_from_macos "cyrus-sasl"
 
   # Fix error: Cannot find system editline libraries.
@@ -36,10 +37,7 @@ class Mysql < Formula
   conflicts_with "mariadb", "percona-server",
     because: "mysql, mariadb, and percona install the same binaries"
 
-  unless OS.mac?
-    depends_on "patchelf" => :build
-    depends_on "pkg-config" => :build
-  end
+  depends_on "patchelf" => :build unless OS.mac?
 
   def datadir
     var/"mysql"
