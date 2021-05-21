@@ -28,6 +28,7 @@ class Mysql < Formula
   depends_on "zstd"
 
   uses_from_macos "cyrus-sasl"
+  uses_from_macos "curl"
 
   # Fix error: Cannot find system editline libraries.
   uses_from_macos "libedit"
