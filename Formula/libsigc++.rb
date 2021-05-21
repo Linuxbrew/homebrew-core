@@ -52,7 +52,7 @@ class Libsigcxx < Formula
     EOS
 
     on_linux do
-      ENV["CXX"] = Formula["gcc"].opt_bin/"c++-10"
+      ENV["CXX"] = Formula["gcc"].opt_bin/"c++-#{Formula["gcc"].any_installed_version.major}"
     end
 
     system ENV.cxx, "-std=c++17", "test.cpp",
