@@ -104,6 +104,7 @@ class Subversion < Formula
     # Don't mess with Apache modules (since we're not sudo)
     zlib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["zlib"].opt_prefix
     ruby = OS.mac? ? "/usr/bin/ruby" : "#{Formula["ruby"].opt_bin}/ruby"
+    sqlite = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["sqlite"].opt_prefix
     args = %W[
       --prefix=#{prefix}
       --disable-debug
@@ -117,7 +118,7 @@ class Subversion < Formula
       --with-ruby-sitedir=#{lib}/ruby
       --with-py3c=#{py3c_prefix}
       --with-serf=#{serf_prefix}
-      --with-sqlite=#{MacOS.sdk_path_if_needed}/usr
+      --with-sqlite=#{sqlite}
       --with-swig=#{Formula["swig"].opt_prefix}
       --with-zlib=#{zlib}
       --without-apache-libexecdir
