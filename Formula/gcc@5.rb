@@ -6,7 +6,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -156,6 +156,23 @@ class GccAT5 < Formula
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.
       system "make", OS.mac? ? "install" : "install-strip"
+
+      # Add symlinks for libgcc, libgomp, libquadmath and libstdc++ so that bottles
+      # built in CI can find these libraries when using brewed gcc@5
+      unless OS.mac?
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.so.1"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.so.1"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.so.0"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.so.6"
+      end
     end
 
     # Handle conflicts between GCC formulae.
