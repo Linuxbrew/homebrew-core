@@ -24,7 +24,6 @@ class Global < Formula
   end
 
   depends_on "ctags"
-  depends_on "gperf"
   depends_on "python@3.9"
 
   uses_from_macos "ncurses"
