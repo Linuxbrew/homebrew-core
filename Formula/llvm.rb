@@ -7,7 +7,7 @@ class Llvm < Formula
   sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -67,10 +67,10 @@ class Llvm < Formula
     ]
     runtimes = %w[
       compiler-rt
-      libunwind
+      libcxx
       libcxxabi
+      libunwind
     ]
-    runtimes << "libcxx" if OS.mac?
 
     py_ver = Language::Python.major_minor_version("python3")
     site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
@@ -136,6 +136,13 @@ class Llvm < Formula
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
       args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      runtime_args = %w[
+        -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
+        -DLIBCXX_USE_COMPILER_RT=ON
+        -DLIBCXXABI_USE_COMPILER_RT=ON
+        -DLIBCXXABI_USE_LLVM_UNWINDER=ON
+      ]
+      args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
     end
 
     llvmpath = buildpath/"llvm"
@@ -268,44 +275,41 @@ class Llvm < Formula
       assert_equal "Hello World!", shell_output("./testXC").chomp
     end
 
-    if OS.mac?
-      # link against installed libc++
-      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-      system "#{bin}/clang++", "-v",
-             "-isystem", "#{opt_include}/c++/v1",
-             "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-             "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
-      on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
-      assert_equal "Hello World!", shell_output("./testlibc++").chomp
+    # link against installed libc++
+    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+    system "#{bin}/clang++", "-v",
+           "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
+           "-Wl,-rpath,#{opt_lib}"
+    on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
+    assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
-      # Testing mlir
-      (testpath/"test.mlir").write <<~EOS
-        func @bad_branch() {
-          br ^missing  // expected-error {{reference to an undefined block}}
-        }
-      EOS
-      system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
+    # Testing mlir
+    (testpath/"test.mlir").write <<~EOS
+      func @bad_branch() {
+        br ^missing  // expected-error {{reference to an undefined block}}
+      }
+    EOS
+    system "#{bin}/mlir-opt", "--verify-diagnostics", "test.mlir"
 
-      (testpath/"scanbuildtest.cpp").write <<~EOS
-        #include <iostream>
-        int main() {
-          int *i = new int;
-          *i = 1;
-          delete i;
-          std::cout << *i << std::endl;
-          return 0;
-        }
-      EOS
-      assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
-        "warning: Use of memory after it is freed"
+    (testpath/"scanbuildtest.cpp").write <<~EOS
+      #include <iostream>
+      int main() {
+        int *i = new int;
+        *i = 1;
+        delete i;
+        std::cout << *i << std::endl;
+        return 0;
+      }
+    EOS
+    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
+      "warning: Use of memory after it is freed"
 
-      (testpath/"clangformattest.c").write <<~EOS
-        int    main() {
-            printf("Hello world!"); }
-      EOS
-      assert_equal "int main() { printf(\"Hello world!\"); }\n",
-        shell_output("#{bin}/clang-format -style=google clangformattest.c")
-    end
+    (testpath/"clangformattest.c").write <<~EOS
+      int    main() {
+          printf("Hello world!"); }
+    EOS
+    assert_equal "int main() { printf(\"Hello world!\"); }\n",
+      shell_output("#{bin}/clang-format -style=google clangformattest.c")
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.
