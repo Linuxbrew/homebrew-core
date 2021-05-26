@@ -43,7 +43,6 @@ class Reminiscence < Formula
 
     ENV.prepend "CPPFLAGS", "-I#{libexec}/include"
     ENV.prepend "LDFLAGS", "-L#{libexec}/lib"
-    ENV.append "LDFLAGS", "-Wl,-rpath=#{libexec}/lib" unless OS.mac?
 
     system "make"
     bin.install "rs" => "reminiscence"
