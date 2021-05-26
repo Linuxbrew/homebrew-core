@@ -60,7 +60,6 @@ class Seal < Formula
   end
 
   test do
-    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-10" unless OS.mac?
     cp_r (pkgshare/"examples"), testpath
 
     # remove the partial CMakeLists
