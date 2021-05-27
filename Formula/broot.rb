@@ -46,8 +46,6 @@ class Broot < Formula
 
     assert_match "A tree explorer and a customizable launcher", shell_output("#{bin}/broot --help 2>&1")
 
-    return if !OS.mac? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     require "pty"
     require "io/console"
     PTY.spawn(bin/"broot", "--cmd", ":pt", "--no-style", "--out", testpath/"output.txt", err: :out) do |r, w, pid|
