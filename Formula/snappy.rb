@@ -30,6 +30,13 @@ class Snappy < Formula
   # `folly` issue ref: https://github.com/facebook/folly/issues/1583
   patch :DATA
 
+  unless OS.mac?
+    patch do
+      url "https://github.com/google/snappy/commit/0c716d435abe65250100c2caea0e5126ac4e14bd.patch?full_index=1"
+      sha256 "12ff7d1182a35298de3287db32ef8581b8ef600efd6d9509fcc894d3d2056c80"
+    end
+  end
+
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     on_macos do
