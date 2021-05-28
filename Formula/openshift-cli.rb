@@ -26,7 +26,6 @@ class OpenshiftCli < Formula
   depends_on "go" => :build
   depends_on "heimdal" => :build
   depends_on "socat"
-  depends_on "krb5" unless OS.mac?
 
   uses_from_macos "krb5"
 
