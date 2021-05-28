@@ -31,8 +31,6 @@ class Libpqxx < Formula
   end
 
   test do
-    cxx = OS.mac? ? ENV.cxx : Formula["gcc"].opt_bin/"g++-10"
-
     (testpath/"test.cpp").write <<~EOS
       #include <pqxx/pqxx>
       int main(int argc, char** argv) {
@@ -40,7 +38,7 @@ class Libpqxx < Formula
         return 0;
       }
     EOS
-    system cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
            "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no running postgresql server
     # system "./test"
