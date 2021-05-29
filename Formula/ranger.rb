@@ -16,8 +16,6 @@ class Ranger < Formula
 
   depends_on "python@3.9"
 
-  depends_on "python@3.9" unless OS.mac?
-
   def install
     man1.install "doc/ranger.1"
     libexec.install "ranger.py", "ranger"
