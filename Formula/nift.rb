@@ -13,7 +13,6 @@ class Nift < Formula
   end
 
   depends_on "luajit-openresty"
-  depends_on "luajit" unless OS.mac?
 
   def install
     inreplace "Lua.h", "/usr/local/include", Formula["luajit-openresty"].opt_include
