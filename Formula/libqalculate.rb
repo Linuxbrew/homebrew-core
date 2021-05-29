@@ -16,7 +16,6 @@ class Libqalculate < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gnuplot"
   depends_on "mpfr"
   depends_on "readline"
 
@@ -31,6 +30,7 @@ class Libqalculate < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--without-icu",
+                          "--without-gnuplot-call",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
