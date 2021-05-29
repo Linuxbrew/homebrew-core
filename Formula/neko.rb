@@ -29,8 +29,6 @@ class Neko < Formula
     depends_on "httpd"
     # On mac, neko uses carbon. On Linux it uses gtk2
     depends_on "gtk+"
-    depends_on "pango"
-    depends_on "sqlite"
   end
 
   uses_from_macos "sqlite"
