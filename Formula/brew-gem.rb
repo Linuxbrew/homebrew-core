@@ -14,6 +14,8 @@ class BrewGem < Formula
     regex(/^v(\d+(?:\.\d+)+)$/i)
   end
 
+  uses_from_macos "ruby"
+
   def install
     inreplace "lib/brew/gem/formula.rb.erb", "/usr/local", HOMEBREW_PREFIX
 
