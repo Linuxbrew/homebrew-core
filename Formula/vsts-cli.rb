@@ -279,11 +279,8 @@ class VstsCli < Formula
 
   test do
     system "#{bin}/vsts", "configure", "--help"
-    # ERROR: No recommended backend was available.
-    if OS.mac?
-      output = shell_output("#{bin}/vsts logout 2>&1", 1)
-      assert_equal "ERROR: The credential was not found", output.chomp
-    end
+    output = shell_output("#{bin}/vsts logout 2>&1", 1)
+    assert_equal "ERROR: The credential was not found", output.chomp
     output = shell_output("#{bin}/vsts work 2>&1", 2)
     assert_match "vsts work: error: the following arguments are required", output
   end
