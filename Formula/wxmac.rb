@@ -32,12 +32,6 @@ class Wxmac < Formula
     depends_on "mesa-glu"
   end
 
-  unless OS.mac?
-    depends_on "gtk+"
-    depends_on "libsm"
-    depends_on "mesa-glu"
-  end
-
   def install
     args = [
       "--prefix=#{prefix}",
