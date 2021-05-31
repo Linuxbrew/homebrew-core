@@ -1,4 +1,4 @@
-class Bazel < Formula
+ Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/4.1.0/bazel-4.1.0-dist.zip"
@@ -10,14 +10,15 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "68ba1b9ef6eb74c9d64d4c71ecfef8008585deba136a86afa9ffa488c322646e"
     sha256 cellar: :any_skip_relocation, catalina:      "37cb81e7d6d5b60b5866a5eb57fbff26fa2dc9e37accab99d862a298adea3204"
     sha256 cellar: :any_skip_relocation, mojave:        "dbd4edf845b075e517442522bc2dd12f993d16d3b895f06dbf2024bd933754cf"
-  end
+
 
   depends_on "python@3.9" => :build
   depends_on "openjdk@11"
 
   uses_from_macos "zip"
 
-  def install
+
+ install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
@@ -43,27 +44,27 @@ class Bazel < Formula
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
       zsh_completion.install "scripts/zsh_completion/_bazel"
-    end
-  end
+    
 
-  test do
+
+ do
     touch testpath/"WORKSPACE"
 
-    (testpath/"ProjectRunner.java").write <<~EOS
-      public class ProjectRunner {
-        public static void main(String args[]) {
+    (testpath/"ProjectRunner.java").write 
+       ProjectRunner {
+        (String args[]) {
           System.out.println("Hi!");
         }
       }
-    EOS
+    
 
-    (testpath/"BUILD").write <<~EOS
+    (testpath/"BUILD").write 
       java_binary(
         name = "bazel-test",
         srcs = glob(["*.java"]),
         main_class = "ProjectRunner",
       )
-    EOS
+    
 
     system bin/"bazel",
            "build",
@@ -75,12 +76,12 @@ class Bazel < Formula
     # bypasses this behavior.
     (testpath/"tools"/"bazel").write <<~EOS
       #!/bin/bash
-      echo "stub-wrapper"
-      exit 1
-    EOS
+      "stub-wrapper"
+       1
+    
     (testpath/"tools/bazel").chmod 0755
 
     assert_equal "stub-wrapper\n", shell_output("#{bin}/bazel --version", 1)
     assert_equal "bazel #{version}-homebrew\n", shell_output("#{bin}/bazel-#{version} --version")
-  end
-end
+  
+
