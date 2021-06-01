@@ -31,19 +31,6 @@ class Openjdk < Formula
   depends_on "autoconf" => :build
   depends_on xcode: :build if Hardware::CPU.arm?
 
-  unless OS.mac?
-    depends_on "cups"
-    depends_on "fontconfig"
-    depends_on "libx11"
-    depends_on "libxext"
-    depends_on "libxrandr"
-    depends_on "libxrender"
-    depends_on "libxt"
-    depends_on "libxtst"
-    depends_on "unzip"
-    depends_on "zip"
-  end
-
   ignore_missing_libraries "libjvm.so" if OS.linux?
 
   on_linux do
@@ -51,6 +38,7 @@ class Openjdk < Formula
     depends_on "alsa-lib"
     depends_on "cups"
     depends_on "fontconfig"
+    depends_on "gcc"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
@@ -60,6 +48,8 @@ class Openjdk < Formula
     depends_on "unzip"
     depends_on "zip"
   end
+
+  fails_with gcc: "5"
 
   # From https://jdk.java.net/archive/
   resource "boot-jdk" do
