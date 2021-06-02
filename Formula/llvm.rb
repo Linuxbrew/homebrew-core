@@ -7,7 +7,7 @@ class Llvm < Formula
   sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision OS.mac? ? 1 : 3
+  revision OS.mac? ? 1 : 4
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -134,6 +134,10 @@ class Llvm < Formula
       args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
       runtime_args = %w[
         -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
+        -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+        -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY=ON
+        -DLIBCXX_STATICALLY_LINK_ABI_IN_SHARED_LIBRARY=OFF
+        -DLIBCXX_STATICALLY_LINK_ABI_IN_STATIC_LIBRARY=ON
         -DLIBCXX_USE_COMPILER_RT=ON
         -DLIBCXXABI_USE_COMPILER_RT=ON
         -DLIBCXXABI_USE_LLVM_UNWINDER=ON
@@ -275,9 +279,59 @@ class Llvm < Formula
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
     system "#{bin}/clang++", "-v",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-Wl,-rpath,#{opt_lib}"
-    on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
+           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+    assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
+                    (opt_lib/shared_library("libc++", "1")).to_path
     assert_equal "Hello World!", shell_output("./testlibc++").chomp
+
+    on_linux do
+      # Link installed libc++, libc++abi, and libunwind archives both into
+      # a position independent executable (PIE), as well as into a fully
+      # position independent (PIC) DSO for things like plugins that export
+      # a C-only API but internally use C++.
+      #
+      # FIXME: It'd be nice to be able to use flags like `-static-libstdc++`
+      # together with `-stdlib=libc++` (the latter one we need anyways for
+      # headers) to achieve this but those flags don't set up the correct
+      # search paths or handle all of the libraries needed by `libc++` when
+      # linking statically.
+
+      system "#{bin}/clang++", "-v", "-o", "test_pie_runtimes",
+             "-pie", "-fPIC", "test.cpp", "-L#{opt_lib}",
+             "-stdlib=libc++", "-rtlib=compiler-rt", "-unwindlib=libunwind",
+             "-static-libstdc++", "-static-libgcc", "-lpthread", "-ldl"
+      assert_equal "Hello World!", shell_output("./test_pie_runtimes").chomp
+      (testpath/"test_pie_runtimes").dynamically_linked_libraries.each do |lib|
+        refute_match(/lib(std)?c\+\+/, lib)
+        refute_match(/libgcc/, lib)
+      end
+
+      (testpath/"test_plugin.cpp").write <<~EOS
+        #include <iostream>
+        __attribute__((visibility("default")))
+        extern "C" void run_plugin() {
+          std::cout << "Hello Plugin World!" << std::endl;
+        }
+      EOS
+      (testpath/"test_plugin_main.c").write <<~EOS
+        extern void run_plugin();
+        int main() {
+          run_plugin();
+        }
+      EOS
+      system "#{bin}/clang++", "-v", "-o", "test_plugin.so",
+             "-shared", "-fPIC", "test_plugin.cpp", "-L#{opt_lib}",
+             "-stdlib=libc++", "-rtlib=compiler-rt", "-unwindlib=libunwind",
+             "-static-libstdc++", "-static-libgcc", "-lpthread", "-ldl"
+      system "#{bin}/clang", "-v",
+             "test_plugin_main.c", "-o", "test_plugin_libc++",
+             "test_plugin.so", "-Wl,-rpath=#{testpath}", "-rtlib=compiler-rt"
+      assert_equal "Hello Plugin World!", shell_output("./test_plugin_libc++").chomp
+      (testpath/"test_plugin.so").dynamically_linked_libraries.each do |lib|
+        refute_match(/lib(std)?c\+\+/, lib)
+        refute_match(/libgcc/, lib)
+      end
+    end
 
     # Testing mlir
     (testpath/"test.mlir").write <<~EOS
