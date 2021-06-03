@@ -1,3 +1,4 @@
+# argocd-autopilot: Build a bottle for Linux
 class ArgocdAutopilot < Formula
   desc "Opinionated way of installing Argo CD and managing GitOps repositories"
   homepage "https://argoproj.io"
