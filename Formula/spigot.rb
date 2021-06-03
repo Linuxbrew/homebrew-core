@@ -20,6 +20,8 @@ class Spigot < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "ncurses"
+
   on_linux do
     depends_on "gmp"
   end
