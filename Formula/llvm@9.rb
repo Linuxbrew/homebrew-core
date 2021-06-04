@@ -42,13 +42,6 @@ class LlvmAT9 < Formula
   resource "clang" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz"
     sha256 "5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253"
-
-    unless OS.mac?
-      patch do
-        url "https://gist.githubusercontent.com/iMichka/9ac8e228679a85210e11e59d029217c1/raw/e50e47df860201589e6f43e9f8e9a4fc8d8a972b/clang9?full_index=1"
-        sha256 "65cf0dd9fdce510e74648e5c230de3e253492b8f6793a89534becdb13e488d0c"
-      end
-    end
   end
 
   resource "clang-extra-tools" do
