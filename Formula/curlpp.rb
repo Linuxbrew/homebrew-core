@@ -15,11 +15,19 @@ class Curlpp < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "curl"
+
   def install
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    inreplace bin/"curlpp-config", "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    shim_from = "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/clang"
+    shim_to = "/usr/bin/clang"
+    on_linux do
+      shim_from = %r{#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/gcc.*}o
+      shim_to = "/usr/bin/gcc"
+    end
+    inreplace bin/"curlpp-config", shim_from, shim_to
   end
 
   test do
