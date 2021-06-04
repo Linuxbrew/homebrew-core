@@ -55,9 +55,7 @@ class Cgns < Formula
         return 0;
       }
     EOS
-    system Formula["hdf5"].opt_prefix/"bin/h5cc", testpath/"test.c", "-L#{opt_lib}", "-lcgns",
-                                                  *("-Wl,-rpath=#{Formula["szip"].opt_lib}" unless OS.mac?),
-                                                  *("-Wl,-rpath=#{lib}" unless OS.mac?)
+    system Formula["hdf5"].opt_prefix/"bin/h5cc", testpath/"test.c", "-L#{opt_lib}", "-lcgns"
     system "./a.out"
   end
 end
