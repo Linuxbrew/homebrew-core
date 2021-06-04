@@ -27,6 +27,12 @@ class Watchman < Formula
   depends_on "pcre"
   depends_on "python@3.9"
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
