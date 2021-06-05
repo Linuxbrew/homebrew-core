@@ -44,12 +44,6 @@ class ManDb < Formula
       --with-systemdsystemunitdir=#{etc}/systemd/system
     ]
 
-    unless OS.mac?
-      args << "--with-config-file=#{etc}/man_db.conf"
-      args << "--with-systemdtmpfilesdir=#{etc}/tmpfiles.d"
-      args << "--with-systemdsystemunitdir=#{etc}/systemd/system"
-    end
-
     system "./configure", *args
 
     system "make", "install"
