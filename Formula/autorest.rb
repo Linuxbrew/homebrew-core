@@ -10,6 +10,10 @@ class Autorest < Formula
   depends_on arch: :x86_64
   depends_on "node"
 
+  on_linux do
+    depends_on "libunwind"
+  end
+
   resource "homebrew-petstore" do
     url "https://raw.githubusercontent.com/Azure/autorest/5c170a02c009d032e10aa9f5ab7841e637b3d53b/Samples/1b-code-generation-multilang/petstore.yaml"
     sha256 "e981f21115bc9deba47c74e5c533d92a94cf5dbe880c4304357650083283ce13"
