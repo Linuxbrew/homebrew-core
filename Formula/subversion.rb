@@ -35,14 +35,18 @@ class Subversion < Formula
   depends_on "openssl@1.1" # For Serf
   depends_on "utf8proc"
 
-  depends_on "libtool" unless OS.mac?
-
   uses_from_macos "expat"
   uses_from_macos "krb5"
   uses_from_macos "perl"
   uses_from_macos "ruby"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
+
+  # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
+  # Prevent linking into a Python Framework
+  patch :DATA if OS.mac?
+
+  depends_on "libtool" unless OS.mac?
 
   resource "py3c" do
     url "https://github.com/encukou/py3c/archive/v1.1.tar.gz"
@@ -55,10 +59,6 @@ class Subversion < Formula
     sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
 
-  # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
-  # Prevent linking into a Python Framework
-  patch :DATA if OS.mac?
-
   def install
     py3c_prefix = buildpath/"py3c"
     serf_prefix = libexec/"serf"
@@ -70,26 +70,33 @@ class Subversion < Formula
           s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
           "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
         end
-        inreplace "SConstruct" do |s|
-          s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
-          "print('Warning: Used unknown variables:', ', '.join(unknown.keys()))"
-          s.gsub! "match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'",
-          "match = re.search(b'SERF_MAJOR_VERSION ([0-9]+).*'"
-          s.gsub! "'SERF_MINOR_VERSION ([0-9]+).*'",
-          "b'SERF_MINOR_VERSION ([0-9]+).*'"
-          s.gsub! "'SERF_PATCH_VERSION ([0-9]+)'",
-          "b'SERF_PATCH_VERSION ([0-9]+)'"
-        end
       end
+
+      inreplace "SConstruct" do |s|
+        s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
+        "print('Warning: Used unknown variables:', ', '.join(unknown.keys()))"
+        s.gsub! "match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'",
+        "match = re.search(b'SERF_MAJOR_VERSION ([0-9]+).*'"
+        s.gsub! "'SERF_MINOR_VERSION ([0-9]+).*'",
+        "b'SERF_MINOR_VERSION ([0-9]+).*'"
+        s.gsub! "'SERF_PATCH_VERSION ([0-9]+)'",
+        "b'SERF_PATCH_VERSION ([0-9]+)'"
+      end
+
       # scons ignores our compiler and flags unless explicitly passed
+      krb5 = "/usr"
+      krb5 = Formula["krb5"].opt_prefix unless OS.mac?
+
       args = %W[
-        PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].opt_prefix} CC=#{ENV.cc}
+        PREFIX=#{serf_prefix} GSSAPI=#{krb5} CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
         OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
-        ZLIB=#{Formula["zlib"].opt_prefix}
       ]
+
+      args << "ZLIB=#{Formula["zlib"].opt_prefix}" unless OS.mac?
+
       system "scons", *args
       system "scons", "install"
     end
@@ -100,9 +107,15 @@ class Subversion < Formula
     # Use existing system zlib and sqlite
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
-    zlib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["zlib"].opt_prefix
-    ruby = OS.mac? ? "/usr/bin/ruby" : "#{Formula["ruby"].opt_bin}/ruby"
-    sqlite = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["sqlite"].opt_prefix
+    zlib = "#{MacOS.sdk_path_if_needed}/usr"
+    zlib = Formula["zlib"].opt_prefix unless OS.mac?
+
+    ruby = "/usr/bin/ruby"
+    ruby = "#{Formula["ruby"].opt_bin}/ruby" unless OS.mac?
+
+    sqlite = "#{MacOS.sdk_path_if_needed}/usr"
+    sqlite = Formula["sqlite"].opt_prefix unless OS.mac?
+
     args = %W[
       --prefix=#{prefix}
       --disable-debug
@@ -203,16 +216,15 @@ class Subversion < Formula
     system "#{bin}/svnadmin", "verify", "test"
 
     if Hardware::CPU.intel?
-      ENV["PERL5LIB"] = if OS.mac?
-        perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
-        "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
-      else
-        perl_version = Utils.safe_popen_read(
-          Formula["perl"].opt_bin/"perl", "--version"
-        )[/v(\d+\.\d+(?:\.\d+)?)/, 1]
-        "#{lib}/perl5/site_perl/#{perl_version}/x86_64-linux-thread-multi"
-      end
-      system "/usr/bin/perl", "-e", "use SVN::Client; new SVN::Client()"
+      platform = "darwin-thread-multi-2level"
+      platform = "x86_64-linux-thread-multi" unless OS.mac?
+
+      perl = "usr/bin/perl"
+      perl = "#{Formula["perl"].opt_bin}/perl" unless OS.mac?
+
+      perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/#{platform}"
+      system perl, "-e", "use SVN::Client; new SVN::Client()"
     end
   end
 end
