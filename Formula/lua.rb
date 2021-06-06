@@ -22,6 +22,15 @@ class Lua < Formula
 
   uses_from_macos "unzip" => :build
 
+  if OS.mac?
+    # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
+    # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/11c8360432f471f74a9b2d76e012e3b36f30b871/lua/lua-dylib.patch"
+      sha256 "a39e2ae1066f680e5c8bf1749fe09b0e33a0215c31972b133a73d43b00bf29dc"
+    end
+  end
+
   on_linux do
     depends_on "readline"
 
@@ -31,15 +40,6 @@ class Lua < Formula
     patch do
       url "https://gist.githubusercontent.com/dawidd6/fbec1d0179f8b8f7d026ed48c2f177a6/raw/a03a2dc572287314861db3c5f761427c30691c29/lua-5.4.patch"
       sha256 "6549934065eb131a13713dca7fd5143b9d90e3f0654be49294cf56bc4bb5cc0f"
-    end
-  end
-
-  if OS.mac?
-    # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-    # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/11c8360432f471f74a9b2d76e012e3b36f30b871/lua/lua-dylib.patch"
-      sha256 "a39e2ae1066f680e5c8bf1749fe09b0e33a0215c31972b133a73d43b00bf29dc"
     end
   end
 
@@ -62,9 +62,11 @@ class Lua < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    arch = OS.mac? ? "macosx" : "linux"
-    system "make", arch, "INSTALL_TOP=#{prefix}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", ("INSTALL_MAN=#{man1}" unless OS.mac?)
+    os = "macosx"
+    os = "linux" unless OS.mac?
+
+    system "make", os, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -98,7 +100,7 @@ class Lua < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua -lm #{"-ldl" unless OS.mac?}
+      Libs: -L${libdir} -llua -lm -ldl
       Cflags: -I${includedir}
     EOS
   end
