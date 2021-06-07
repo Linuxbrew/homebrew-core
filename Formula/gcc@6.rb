@@ -65,10 +65,6 @@ class GccAT6 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
-    # Change the default directory name for 64-bit libraries to `lib`
-    # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-    inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
-
     args = [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
@@ -113,6 +109,10 @@ class GccAT6 < Formula
     on_linux do
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
+
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
     end
 
     mkdir "build" do
