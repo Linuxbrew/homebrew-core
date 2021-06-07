@@ -61,10 +61,6 @@ class GccAT8 < Formula
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
-    # Change the default directory name for 64-bit libraries to `lib`
-    # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-    inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
-
     args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
@@ -106,6 +102,10 @@ class GccAT8 < Formula
     on_linux do
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
+
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
     end
 
     mkdir "build" do
