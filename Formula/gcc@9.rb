@@ -61,10 +61,6 @@ class GccAT9 < Formula
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
-    # Change the default directory name for 64-bit libraries to `lib`
-    # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-    inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
-
     args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
@@ -106,6 +102,10 @@ class GccAT9 < Formula
     on_linux do
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
+
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
     end
 
     mkdir "build" do
@@ -137,7 +137,7 @@ class GccAT9 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = bin/"gcc-9"
+      gcc = bin/"gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
