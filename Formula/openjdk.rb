@@ -128,6 +128,8 @@ class Openjdk < Formula
       args << "--with-x=#{HOMEBREW_PREFIX}"
       args << "--with-cups=#{HOMEBREW_PREFIX}"
       args << "--with-fontconfig=#{HOMEBREW_PREFIX}"
+      args << "--host=x86_64-linux-gnu"
+      args << "--build=x86_64-linux-gnu"
     end
 
     chmod 0755, "configure"
