@@ -62,8 +62,10 @@ class LuaAT53 < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    arch = OS.mac? ? "macosx" : "linux"
-    system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
+    os = "macosx"
+    os = "linux" unless OS.mac?
+
+    system "make", os, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
@@ -98,7 +100,7 @@ class LuaAT53 < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua.#{version.major_minor} -lm #{"-ldl" unless OS.mac?}
+      Libs: -L${libdir} -llua.#{version.major_minor} -lm -ldl
       Cflags: -I${includedir}
     EOS
   end
