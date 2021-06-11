@@ -33,6 +33,7 @@ class Goffice < Formula
   depends_on "pcre"
 
   uses_from_macos "libxslt"
+  uses_from_macos "perl"
 
   def install
     # Needed by intltool (xml::parser)
