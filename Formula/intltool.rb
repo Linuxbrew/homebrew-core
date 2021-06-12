@@ -4,7 +4,7 @@ class Intltool < Formula
   url "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz"
   sha256 "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
   license "GPL-2.0-or-later"
-  revision 2 unless OS.mac?
+  revision 3 unless OS.mac?
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a95b3272a26918e1a92ad548ca72e1b74f5ade8073193c560c418369f9dacb51"
@@ -15,7 +15,6 @@ class Intltool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e587e46b6ebdebb7864eb4f9cb17c221024d9167ae0148899adedb6127b2bdfb"
     sha256 cellar: :any_skip_relocation, el_capitan:    "14bb0680842b8b392cb1a5f5baf142e99a54a538d1a587f6d1158785b276ffc6"
     sha256 cellar: :any_skip_relocation, yosemite:      "da6c24f1cc40fdf6ae286ec003ecd779d0f866fe850e36f5e5953786fa45a561"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a861f53af5cd698f4c1ff74a6f4eecd05de807c8809a67d7f67e05137c74c66d"
   end
 
   on_linux do
