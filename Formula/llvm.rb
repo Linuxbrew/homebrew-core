@@ -7,16 +7,12 @@ class Llvm < Formula
   sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision OS.mac? ? 1 : 4
+  revision OS.mac? ? 1 : 5
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
     url :homepage
     regex(/LLVM (\d+\.\d+\.\d+)/i)
-  end
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a87cea53a898c185780d516ac6fd06be91257c51383ee18375f6d15ec75dbe6b"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -135,12 +131,20 @@ class Llvm < Formula
       runtime_args = %w[
         -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
         -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+
         -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY=ON
         -DLIBCXX_STATICALLY_LINK_ABI_IN_SHARED_LIBRARY=OFF
         -DLIBCXX_STATICALLY_LINK_ABI_IN_STATIC_LIBRARY=ON
         -DLIBCXX_USE_COMPILER_RT=ON
+        -DLIBCXX_HAS_ATOMIC_LIB=OFF
+
+        -DLIBCXXABI_ENABLE_STATIC_UNWINDER=ON
+        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_SHARED_LIBRARY=OFF
+        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_STATIC_LIBRARY=ON
         -DLIBCXXABI_USE_COMPILER_RT=ON
         -DLIBCXXABI_USE_LLVM_UNWINDER=ON
+
+        -DLIBUNWIND_USE_COMPILER_RT=ON
       ]
       args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
     end
@@ -279,9 +283,14 @@ class Llvm < Formula
     # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
     system "#{bin}/clang++", "-v",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+           "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
                     (opt_lib/shared_library("libc++", "1")).to_path
+    (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
+      refute_match(/libstdc\+\+/, lib)
+      refute_match(/libgcc/, lib)
+      refute_match(/libatomic/, lib)
+    end
     assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
     on_linux do
@@ -298,12 +307,14 @@ class Llvm < Formula
 
       system "#{bin}/clang++", "-v", "-o", "test_pie_runtimes",
              "-pie", "-fPIC", "test.cpp", "-L#{opt_lib}",
-             "-stdlib=libc++", "-rtlib=compiler-rt", "-unwindlib=libunwind",
-             "-static-libstdc++", "-static-libgcc", "-lpthread", "-ldl"
+             "-stdlib=libc++", "-rtlib=compiler-rt",
+             "-static-libstdc++", "-lpthread", "-ldl"
       assert_equal "Hello World!", shell_output("./test_pie_runtimes").chomp
       (testpath/"test_pie_runtimes").dynamically_linked_libraries.each do |lib|
         refute_match(/lib(std)?c\+\+/, lib)
         refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+        refute_match(/libunwind/, lib)
       end
 
       (testpath/"test_plugin.cpp").write <<~EOS
@@ -321,8 +332,8 @@ class Llvm < Formula
       EOS
       system "#{bin}/clang++", "-v", "-o", "test_plugin.so",
              "-shared", "-fPIC", "test_plugin.cpp", "-L#{opt_lib}",
-             "-stdlib=libc++", "-rtlib=compiler-rt", "-unwindlib=libunwind",
-             "-static-libstdc++", "-static-libgcc", "-lpthread", "-ldl"
+             "-stdlib=libc++", "-rtlib=compiler-rt",
+             "-static-libstdc++", "-lpthread", "-ldl"
       system "#{bin}/clang", "-v",
              "test_plugin_main.c", "-o", "test_plugin_libc++",
              "test_plugin.so", "-Wl,-rpath=#{testpath}", "-rtlib=compiler-rt"
@@ -330,6 +341,8 @@ class Llvm < Formula
       (testpath/"test_plugin.so").dynamically_linked_libraries.each do |lib|
         refute_match(/lib(std)?c\+\+/, lib)
         refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+        refute_match(/libunwind/, lib)
       end
     end
 
