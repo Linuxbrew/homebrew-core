@@ -64,23 +64,27 @@ class LibtorrentRasterbar < Formula
   end
 
   test do
+    args = [
+      "-I#{Formula["boost"].include}/boost",
+      "-L#{Formula["boost"].lib}",
+      "-I#{include}",
+      "-L#{lib}",
+      "-lpthread",
+      "-lboost_system",
+      "-ltorrent-rasterbar",
+    ]
+
     if OS.mac?
-      system ENV.cxx, "-std=c++11", "-I#{Formula["boost"].include}/boost",
-                      "-L#{lib}", "-ltorrent-rasterbar",
-                      "-L#{Formula["boost"].lib}", "-lboost_system",
-                      "-framework", "SystemConfiguration",
-                      "-framework", "CoreFoundation",
-                      libexec/"examples/make_torrent.cpp", "-o", "test"
-    else
-      system ENV.cxx, libexec/"examples/make_torrent.cpp",
-                      "-std=c++11",
-                      "-I#{Formula["boost"].include}/boost", "-L#{Formula["boost"].lib}",
-                      "-I#{include}", "-L#{lib}",
-                      "-lpthread",
-                      "-lboost_system",
-                      "-ltorrent-rasterbar",
-                      "-o", "test"
+      args += [
+        "-framework",
+        "SystemConfiguration",
+        "-framework",
+        "CoreFoundation",
+      ]
     end
+
+    system ENV.cxx, libexec/"examples/make_torrent.cpp",
+                    "-std=c++11", *args, "-o", "test"
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
     assert_predicate testpath/"test.torrent", :exist?
   end
