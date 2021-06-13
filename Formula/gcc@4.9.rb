@@ -65,6 +65,10 @@ class GccAT49 < Formula
     sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
   end
 
+  def version_suffix
+    version.major.to_s
+  end
+
   # Fix build with Xcode 9
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
   if DevelopmentTools.clang_build_version >= 900
@@ -88,12 +92,6 @@ class GccAT49 < Formula
 
     # Build dependencies in-tree, to avoid having versioned formulas
     resources.each { |r| r.stage(buildpath/r.name) }
-
-    version_suffix = version.major_minor.to_s
-
-    # Change the default directory name for 64-bit libraries to `lib`
-    # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-    inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=." unless OS.mac?
 
     args = [
       "--prefix=#{prefix}",
@@ -139,6 +137,10 @@ class GccAT49 < Formula
 
     on_linux do
       args << "--disable-multilib"
+
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=." unless OS.mac?
     end
 
     mkdir "build" do
@@ -155,14 +157,6 @@ class GccAT49 < Formula
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
-
-    unless OS.mac?
-      # Strip the binaries to reduce their size.
-      system("strip", "--strip-unneeded", "--preserve-dates", *Dir[prefix/"**/*"].select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
   end
 
   def add_suffix(file, suffix)
@@ -174,7 +168,7 @@ class GccAT49 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = bin/"gcc-4.9"
+      gcc = bin/"gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -229,7 +223,7 @@ class GccAT49 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/4.9"
+      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
