@@ -19,21 +19,19 @@ class LuaAT51 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8893699f985435a1a04289c5b760446bac7d9008f5e7c6dd890f030ffbd53ab"
   end
 
+  deprecate! date: "2012-02-17", because: :unsupported
+
   unless OS.mac?
     depends_on "readline"
     depends_on "unzip" # To be able to work with rock files (in the test and in real life)
-  end
 
-  # Add shared library for linux
-  # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
-  unless OS.mac?
+    # Add shared library for linux
+    # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
     patch do
       url "https://gist.githubusercontent.com/iMichka/0f389e65e5abd63bfc6073bfa76082b0/raw/6e9c4c4690c737d93a376e053bcb82cdd69aac3b/lua5.1.5.patch"
       sha256 "342b0d08eea9b9836be49fc88b3518cf207ee0e9aea09a248d3620c0b34e8e44"
     end
   end
-
-  deprecate! date: "2012-02-17", because: :unsupported
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
@@ -47,11 +45,14 @@ class LuaAT51 < Formula
 
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
-      s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX" if OS.mac?
+
+      if OS.mac?
+        s.gsub! "@LUA_PREFIX@", prefix
+        s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX"
+      end
     end
 
     # Fix path in the config header
@@ -66,14 +67,18 @@ class LuaAT51 < Formula
       s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.1 -lm"
     end
 
-    arch = OS.mac? ? "macosx" : "linux"
-    system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
-    system "make",
-           "install",
-           "INSTALL_TOP=#{prefix}",
-           "INSTALL_MAN=#{man1}",
-           "INSTALL_INC=#{include}/lua-5.1",
-           *("TO_LIB=liblua.so.5.1.5" unless OS.mac?)
+    os = "macosx"
+    os = "linux" unless OS.mac?
+
+    args = [
+      "INSTALL_TOP=#{prefix}",
+      "INSTALL_MAN=#{man1}",
+      "INSTALL_INC=#{include}/lua-5.1",
+    ]
+
+    system "make", os, *args
+    args << "TO_LIB=liblua.so.5.1.5" unless OS.mac?
+    system "make", "install", *args
 
     (lib/"pkgconfig").install "etc/lua.pc"
 
