@@ -61,13 +61,11 @@ class Gupnp < Formula
         return 0;
       }
     EOS
-    linker_flags = %W[
-      -L#{lib}
-      -lgupnp-1.2
-      -lglib-2.0
-      -lgobject-2.0
-    ]
-    system ENV.cc, "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
+
+    libxml2 = "-I#{MacOS.sdk_path}/usr/include/libxml2"
+    libxml2 = "-I#{Formula["libxml2"].include}/libxml2" unless OS.mac?
+
+    system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
            "-I#{Formula["gssdp"].opt_include}/gssdp-1.2",
            "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.2",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
@@ -75,8 +73,7 @@ class Gupnp < Formula
            "-L#{Formula["glib"].opt_lib}",
            "-lglib-2.0", "-lgobject-2.0",
            "-I#{Formula["libsoup"].opt_include}/libsoup-2.4",
-           "-I" + (OS.mac? ? "#{MacOS.sdk_path}/usr/include/libxml2" : Formula["libxml2"].include/"libxml2"),
-           testpath/"test.c", *(linker_flags unless OS.mac?), "-o", testpath/"test"
+           libxml2, "-o", testpath/"test"
     system "./test"
   end
 end
