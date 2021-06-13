@@ -40,6 +40,10 @@ class GccAT5 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  def version_suffix
+    version.major.to_s
+  end
+
   # Fix build with Xcode 9
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
   if DevelopmentTools.clang_build_version >= 900
@@ -75,8 +79,6 @@ class GccAT5 < Formula
 
     # C, C++, ObjC and Fortran compilers are always built
     languages = %w[c c++ fortran objc obj-c++]
-
-    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -186,7 +188,7 @@ class GccAT5 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = "#{bin}/gcc-#{version.major}"
+      gcc = "#{bin}/gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -241,7 +243,7 @@ class GccAT5 < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version.major}"
+      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
         + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
