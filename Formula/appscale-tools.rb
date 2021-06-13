@@ -12,10 +12,8 @@ class AppscaleTools < Formula
     sha256 cellar: :any, catalina:     "dc2f20c3743a21aa5f06b3068faadf0f00c5da34728ca55af936439213b9f7ad"
     sha256 cellar: :any, mojave:       "eb5e13b06c11ecb6a29eb79e0bcd474ee8320c5ce4d223427809b03f899aebbf"
     sha256 cellar: :any, high_sierra:  "70e89498336894ae025118e51e418528d8d73da9b1e2786559b6bcbe6055f55b"
-    sha256 cellar: :any, x86_64_linux: "3ce6279fcd352c2a934db1c656884c625164eb4b89b82fe28bde58cb4bc3d014"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)
   depends_on "openssl@1.1"
