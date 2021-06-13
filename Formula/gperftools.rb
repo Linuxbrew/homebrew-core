@@ -4,6 +4,7 @@ class Gperftools < Formula
   url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.9.1/gperftools-2.9.1.tar.gz"
   sha256 "ea566e528605befb830671e359118c2da718f721c27225cbbc93858c7520fee3"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
 
   livecheck do
     url :stable
@@ -16,7 +17,6 @@ class Gperftools < Formula
     sha256 cellar: :any,                 big_sur:       "db13bfa856a699c5e74e95ee81722cc76b38bb9dcca1d10cebe2eed17888ff68"
     sha256 cellar: :any,                 catalina:      "df9901c12be430101b403c8024a4dc5b5f5d0f718e4ace970f52bc68b17a3659"
     sha256 cellar: :any,                 mojave:        "9976b82f86958d3ad6924d138d138d5bddbc2bcc6eb16ea44c4255ed9cb889b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "069db31cef04cf5125a11c72a795ff60ca0d698fb43da5085e16145c7fca7807"
   end
 
   head do
@@ -30,42 +30,25 @@ class Gperftools < Formula
   on_linux do
     # libunwind is strongly recommended for Linux x86_64
     # https://github.com/gperftools/gperftools/blob/master/INSTALL
+    depends_on "libunwind"
     depends_on "xz"
-
-    resource "libunwind" do
-      url "https://download.savannah.gnu.org/releases/libunwind/libunwind-1.2.1.tar.gz"
-      sha256 "3f3ecb90e28cbe53fba7a4a27ccce7aad188d3210bb1964a923a731a27a75acb"
-    end
   end
 
   def install
     # Fix "error: unknown type name 'mach_port_t'"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    if OS.mac?
-      ENV.append_to_cflags "-D_XOPEN_SOURCE"
-    else
-      resource("libunwind").stage do
-        system "./configure",
-               "--prefix=#{libexec}/libunwind",
-               "--disable-debug",
-               "--disable-dependency-tracking"
-        system "make", "install"
-      end
-
-      ENV.append_to_cflags "-I#{libexec}/libunwind/include"
-      ENV["LDFLAGS"] = "-L#{libexec}/libunwind/lib"
-    end
+    ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
-    if OS.mac?
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
-    else
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "--enable-libunwind"
-    end
+
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+    ]
+    args << "--enable-libunwind" unless OS.mac?
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
