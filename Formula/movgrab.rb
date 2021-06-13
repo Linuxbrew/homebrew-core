@@ -16,7 +16,7 @@ class Movgrab < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "libressl"
 
   # Fixes an incompatibility between Linux's getxattr and macOS's.
   # Reported upstream; half of this is already committed, and there's
