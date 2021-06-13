@@ -26,7 +26,6 @@ class IncludeWhatYouUse < Formula
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-  depends_on "gcc" => :build unless OS.mac? # libstdc++
 
   def install
     llvm = Formula["llvm"]
