@@ -35,10 +35,6 @@ class Bonniexx < Formula
   end
 
   test do
-    if Process.uid.zero?
-      system "#{sbin}/bonnie++", "-s", "0", "-u", "0:0"
-    else
-      system "#{sbin}/bonnie++", "-s", "0"
-    end
+    system "#{sbin}/bonnie++", "-s", "0"
   end
 end
