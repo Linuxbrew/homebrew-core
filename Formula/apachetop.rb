@@ -24,7 +24,6 @@ class Apachetop < Formula
   depends_on "adns"
   depends_on "ncurses"
   depends_on "pcre"
-  depends_on "readline"
 
   def install
     system "./autogen.sh"
