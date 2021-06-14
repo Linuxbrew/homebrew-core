@@ -20,10 +20,9 @@ class Gdl < Formula
   depends_on "gtk+3"
   depends_on "libxml2"
 
-  def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+  uses_from_macos "perl" => :build
 
+  def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
