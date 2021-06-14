@@ -31,19 +31,10 @@ class Mariadb < Formula
     depends_on "linux-pam"
   end
 
-  unless OS.mac?
-    depends_on "gcc@7" => :build
-    depends_on "libcsv"
-  end
-
   conflicts_with "mysql", "percona-server",
     because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
-
-  fails_with gcc: "4"
-  fails_with gcc: "5"
-  fails_with gcc: "6"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
