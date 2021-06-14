@@ -67,13 +67,6 @@ class Gdal < Formula
     # Fixes: error: inlining failed in call to always_inline __m128i _mm_shuffle_epi8
     ENV.append_to_cflags "-msse4.1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    unless OS.mac?
-      # The python build needs libgdal.so, which is located in .libs
-      ENV.append "LDFLAGS", "-L#{buildpath}/.libs"
-      # The python build needs gnm headers, which are located in the gnm folder
-      ENV.append "CFLAGS", "-I#{buildpath}/gnm"
-    end
-
     args = [
       # Base configuration
       "--prefix=#{prefix}",
