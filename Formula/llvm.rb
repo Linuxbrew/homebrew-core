@@ -1,5 +1,3 @@
-require "os/linux/glibc"
-
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
@@ -7,16 +5,12 @@ class Llvm < Formula
   sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision OS.mac? ? 1 : 5
+  revision OS.mac? ? 1 : 6
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
     url :homepage
     regex(/LLVM (\d+\.\d+\.\d+)/i)
-  end
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "346b0a85ba9560a9bbd892f2f3d5797b25fd20479d0f9bb32f6d473e80aed235"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -29,10 +23,6 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  if !OS.mac? &&
-     (Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
-    depends_on "glibc"
-  end
   depends_on "python@3.9"
 
   uses_from_macos "libedit"
@@ -42,14 +32,13 @@ class Llvm < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "libelf" # openmp requires <gelf.h>
+
+    patch :DATA
   end
-
-  depends_on "gcc" unless OS.mac?
-
-  fails_with gcc: "5"
 
   def install
     projects = %w[
@@ -127,6 +116,8 @@ class Llvm < Formula
     end
 
     on_linux do
+      args << "-DCMAKE_CXX_FLAGS=-fpermissive"
+      args << "-DCMAKE_C_FLAGS=-fpermissive"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
@@ -159,16 +150,8 @@ class Llvm < Formula
       # Workaround for CMake Error: failed to create symbolic link
       ENV.deparallelize if Hardware::CPU.arm?
       system "cmake", "--build", "."
-      system "cmake", "--build", ".", "--target", "install"
+      system "cmake", "--build", ".", "--target", "install/strip"
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
-    end
-
-    unless OS.mac?
-      # Strip executables/libraries/object files to reduce their size
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
     end
 
     on_macos do
@@ -395,3 +378,101 @@ class Llvm < Formula
     end
   end
 end
+
+__END__
+diff --git a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h
+index fa067b7..39ab908 100644
+--- a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h
++++ b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h
+@@ -56,6 +56,12 @@ public:
+   virtual llvm::Optional<MmapData> GetMmapData() { return llvm::None; }
+
+ protected:
++  // NB: This constructor is here only because gcc<=6.5 requires a virtual base
++  // class initializer on abstract class (even though it is never used). It can
++  // be deleted once we move to gcc>=7.0.
++  NativeRegisterContextLinux(NativeThreadProtocol &thread)
++      : NativeRegisterContextRegisterInfo(thread, nullptr) {}
++
+   lldb::ByteOrder GetByteOrder() const;
+
+   virtual Status ReadRegisterRaw(uint32_t reg_index, RegisterValue &reg_value);
+diff --git a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp
+index c6aa320..e222909 100644
+--- a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp
++++ b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp
+@@ -292,6 +292,8 @@ NativeRegisterContextLinux_x86_64::NativeRegisterContextLinux_x86_64(
+     const ArchSpec &target_arch, NativeThreadProtocol &native_thread)
+     : NativeRegisterContextRegisterInfo(
+           native_thread, CreateRegisterInfoInterface(target_arch)),
++      NativeRegisterContextLinux(native_thread),
++      NativeRegisterContextWatchpoint_x86(native_thread),
+       m_xstate_type(XStateType::Invalid), m_ymm_set(), m_mpx_set(),
+       m_reg_info(), m_gpr_x86_64() {
+   // Set up data about ranges of valid registers.
+@@ -1040,14 +1042,16 @@ NativeRegisterContextLinux_x86_64::GetSyscallData() {
+     static const uint32_t Args[] = {lldb_eax_i386, lldb_ebx_i386, lldb_ecx_i386,
+                                     lldb_edx_i386, lldb_esi_i386, lldb_edi_i386,
+                                     lldb_ebp_i386};
+-    return SyscallData{Int80, Args, lldb_eax_i386};
++    return SyscallData{llvm::makeArrayRef(Int80), llvm::makeArrayRef(Args),
++                       lldb_eax_i386};
+   }
+   case llvm::Triple::x86_64: {
+     static const uint8_t Syscall[] = {0x0f, 0x05};
+     static const uint32_t Args[] = {
+         lldb_rax_x86_64, lldb_rdi_x86_64, lldb_rsi_x86_64, lldb_rdx_x86_64,
+         lldb_r10_x86_64, lldb_r8_x86_64,  lldb_r9_x86_64};
+-    return SyscallData{Syscall, Args, lldb_rax_x86_64};
++    return SyscallData{llvm::makeArrayRef(Syscall), llvm::makeArrayRef(Args),
++                       lldb_rax_x86_64};
+   }
+   default:
+     llvm_unreachable("Unhandled architecture!");
+diff --git a/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h b/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h
+index cfb8900..071cf92 100644
+--- a/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h
++++ b/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h
+@@ -16,6 +16,13 @@ namespace lldb_private {
+ class NativeRegisterContextWatchpoint_x86
+     : public virtual NativeRegisterContextRegisterInfo {
+ public:
++  // NB: This constructor is here only because gcc<=6.5 requires a virtual base
++  // class initializer on abstract class (even though it is never used). It can
++  // be deleted once we move to gcc>=7.0.
++  NativeRegisterContextWatchpoint_x86(NativeThreadProtocol &thread)
++      : NativeRegisterContextRegisterInfo(thread, nullptr) {}
++
++
+   Status IsWatchpointHit(uint32_t wp_index, bool &is_hit) override;
+
+   Status GetWatchpointHitIndex(uint32_t &wp_index,
+diff --git a/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp b/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp
+index e9f6fcf..ce259c5 100644
+--- a/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp
++++ b/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp
+@@ -50,7 +50,7 @@ public:
+   TestingRegistry();
+ };
+
+-static llvm::Optional<TestingRegistry> g_registry;
++static std::unique_ptr<TestingRegistry> g_registry;
+ static llvm::Optional<Serializer> g_serializer;
+ static llvm::Optional<Deserializer> g_deserializer;
+
+@@ -75,13 +75,13 @@ inline TestInstrumentationData GetTestInstrumentationData() {
+ class TestInstrumentationDataRAII {
+ public:
+   TestInstrumentationDataRAII(llvm::raw_string_ostream &os) {
+-    g_registry.emplace();
++    g_registry = std::make_unique<TestingRegistry>();
+     g_serializer.emplace(os);
+     g_deserializer.reset();
+   }
+
+   TestInstrumentationDataRAII(llvm::StringRef buffer) {
+-    g_registry.emplace();
++    g_registry = std::make_unique<TestingRegistry>();
+     g_serializer.reset();
+     g_deserializer.emplace(buffer);
+   }
