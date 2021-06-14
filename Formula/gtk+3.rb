@@ -32,16 +32,6 @@ class Gtkx3 < Formula
   depends_on "libepoxy"
   depends_on "pango"
 
-  unless OS.mac?
-    depends_on "cmake"
-    depends_on "at-spi2-atk"
-    depends_on "cairo"
-    depends_on "iso-codes"
-    depends_on "libxkbcommon"
-    depends_on "xorgproto"
-    depends_on "wayland-protocols"
-  end
-
   uses_from_macos "libxslt" => :build # for xsltproc
 
   on_linux do
