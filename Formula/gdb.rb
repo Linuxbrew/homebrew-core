@@ -17,11 +17,6 @@ class Gdb < Formula
   depends_on "python@3.9"
   depends_on "xz" # required for lzma support
 
-  unless OS.mac?
-    fails_with gcc: "5"
-    depends_on "gcc"
-  end
-
   uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
   uses_from_macos "ncurses"
