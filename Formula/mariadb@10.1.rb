@@ -31,15 +31,6 @@ class MariadbAT101 < Formula
     depends_on "linux-pam"
   end
 
-  fails_with gcc: "4"
-  fails_with gcc: "5"
-  fails_with gcc: "6"
-
-  unless OS.mac?
-    depends_on "gcc@7" => :build
-    depends_on "libcsv"
-  end
-
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
