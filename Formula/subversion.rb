@@ -108,9 +108,6 @@ class Subversion < Formula
       system "scons", "install"
     end
 
-    # svn can't find libserf-1.so.1 at runtime without this
-    ENV.append "LDFLAGS", "-Wl,-rpath=#{serf_prefix}/lib" unless OS.mac?
-
     # Use existing system zlib and sqlite
     on_linux do
       # svn can't find libserf-1.so.1 at runtime without this
