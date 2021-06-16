@@ -61,6 +61,7 @@
     "exclude_packages": ["protobuf", "six", "tabulate"]
   },
   "ipython": {
+    "exclude_packages": ["six"],
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {
@@ -106,6 +107,7 @@
     "extra_packages": ["wheel"]
   },
   "pipgrip": {
+    "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
   "platformio": {

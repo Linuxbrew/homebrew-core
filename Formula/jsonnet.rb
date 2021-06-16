@@ -19,6 +19,8 @@ class Jsonnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a693d72ef0db06f63ec19566cb9eaf3344e0a47ed2cba9557c05a48d412d0515"
   end
 
+  conflicts_with "go-jsonnet", because: "both install binaries with the same name"
+
   def install
     ENV.cxx11
     system "make"

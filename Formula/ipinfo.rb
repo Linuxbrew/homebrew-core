@@ -16,6 +16,8 @@ class Ipinfo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3ddff03c21a8628ec0bab847802f2bbb5aeb16623b69982220c163d51d1762a"
   end
 
+  conflicts_with "ipinfo-cli", because: "ipinfo and ipinfo-cli install the same binaries"
+
   def install
     system "make", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
   end
