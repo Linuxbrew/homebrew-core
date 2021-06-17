@@ -45,7 +45,7 @@ class OpenshiftCli < Formula
         system "make", "cross-build-darwin-amd64", "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
       end
 
-      bin.install "_output//bin/#{OS.mac? ? "darwin" : "linux"}_amd64/oc"
+      bin.install "_output//bin/darwin_amd64/oc"
 
       bash_completion.install "contrib/completions/bash/oc"
       zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
