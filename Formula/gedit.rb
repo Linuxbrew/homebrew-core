@@ -93,7 +93,7 @@ class Gedit < Formula
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{OS.mac? ? include : opt_include}/gedit-40.0
+      -I#{include}/gedit-40.0
       -I#{libepoxy.opt_include}
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -I#{libpeas.opt_include}/libpeas-1.0
@@ -104,14 +104,14 @@ class Gedit < Formula
       -L#{atk.opt_lib}
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
-      -L#{OS.mac? ? lib : opt_lib}/gedit
+      -L#{lib}/gedit
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
       -L#{gobject_introspection.opt_lib}
       -L#{gtksourceview4.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libpeas.opt_lib}
-      -L#{OS.mac? ? lib : opt_lib}
+      -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
@@ -125,7 +125,7 @@ class Gedit < Formula
       -lgmodule-2.0
       -lgobject-2.0
       -lgtk-3
-      -lgtksourceview-#{OS.mac? ? "4.0" : "4"}
+      -lgtksourceview-4.0
       -lpango-1.0
       -lpangocairo-1.0
       -lpeas-1.0
