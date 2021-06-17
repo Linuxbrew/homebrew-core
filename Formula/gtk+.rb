@@ -37,6 +37,8 @@ class Gtkx < Formula
   depends_on "hicolor-icon-theme"
   depends_on "pango"
 
+  uses_from_macos "cups"
+
   unless OS.mac?
     depends_on "cairo"
     depends_on "libxinerama"
@@ -67,9 +69,6 @@ class Gtkx < Formula
             "--enable-introspection=yes",
             "--with-gdktarget=#{OS.mac? ? "quartz" : "x11"}",
             "--disable-visibility"]
-
-    # temporarily disable cups until linuxbrew/homebrew-core#495 is merged
-    args << "--disable-cups" unless OS.mac?
 
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
