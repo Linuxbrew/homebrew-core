@@ -1,4 +1,6 @@
 class GitArchiveAll < Formula
+  include Language::Python::Shebang
+
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
   url "https://github.com/Kentzo/git-archive-all/archive/1.23.0.tar.gz"
@@ -18,13 +20,7 @@ class GitArchiveAll < Formula
   depends_on "python@3.9" unless OS.mac?
 
   def install
-    unless OS.mac?
-      Dir["*.py"].each do |file|
-        next unless File.read(file).include?("/usr/bin/env python")
-
-        inreplace file, %r{#! ?/usr/bin/env python}, "#!#{Formula["python@3.9"].opt_bin/"python3"}"
-      end
-    end
+    rewrite_shebang detected_python_shebang, "*.py" unless OS.mac?
 
     system "make", "prefix=#{prefix}", "install"
   end
