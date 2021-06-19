@@ -5,7 +5,7 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 2 : 4
 
   # This should be removed when LLVM 13 is released, so we only check the
   # current version (the `llvm` formula) and one major version before it
@@ -20,7 +20,6 @@ class LlvmAT11 < Formula
     sha256 cellar: :any,                 big_sur:       "a4ba9bdae23b82c7125ca0ab2c538ea9e590e61c3af0e0927912ff46d27f5bed"
     sha256 cellar: :any,                 catalina:      "a214eaa69c3f978987c281497cdbd98eb7d81372da793a3ae34b11f8910c9288"
     sha256 cellar: :any,                 mojave:        "6a2a325871e43bcf8a01e0d93d38aaf3ce2bc0977aeb93ef3d3d43fd0dbde4ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c499684fe9402dd495fcd3565d3a9fec232248f89249f14451b00728e82c173f"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -33,10 +32,6 @@ class LlvmAT11 < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  if !OS.mac? &&
-     (Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
-    depends_on "glibc"
-  end
   depends_on "python@3.9"
 
   uses_from_macos "libedit"
@@ -46,6 +41,7 @@ class LlvmAT11 < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "libelf" # openmp requires <gelf.h>
@@ -195,16 +191,8 @@ class LlvmAT11 < Formula
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
-      system "cmake", "--build", ".", "--target", "install"
+      system "cmake", "--build", ".", "--target", "install/strip"
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
-    end
-
-    unless OS.mac?
-      # Strip executables/libraries/object files to reduce their size
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
     end
 
     # Install LLVM Python bindings
