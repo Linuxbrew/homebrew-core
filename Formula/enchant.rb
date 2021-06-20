@@ -16,10 +16,15 @@ class Enchant < Formula
   depends_on "aspell"
   depends_on "glib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-relocatable"
+                          "--enable-relocatable",
+                          "--with-aspell-dir=#{Formula["aspell"].share}"
 
     system "make", "install"
     ln_s "enchant-2.pc", lib/"pkgconfig/enchant.pc"
