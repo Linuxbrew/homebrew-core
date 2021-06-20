@@ -1,18 +1,15 @@
-require "os/linux/glibc"
-
 class LlvmAT8 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
   license "NCSA"
-  revision OS.mac? ? 3 : 7
+  revision OS.mac? ? 3 : 8
 
   bottle do
     sha256 cellar: :any,                 catalina:     "ab099d84e5f0a58ea37172fd85753336d855fc25e9459ceff12ddc2dbb56ef71"
     sha256 cellar: :any,                 mojave:       "ee795cbebce64f79bbcf7c42526093df7bd2e5e986a721197bca5cf6c822e87a"
     sha256 cellar: :any,                 high_sierra:  "3f80b7119307b128b1e3ae8a2fea97a9878afb5a7436a7d35615b1e743bc7622"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "45da03e8b833c66c310e25c997567728b9a906f8fa81a178c7c268532c48e779"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -28,9 +25,7 @@ class LlvmAT8 < Formula
   depends_on "swig"
 
   unless OS.mac?
-    if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
-      depends_on "glibc"
-    end
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -209,14 +204,6 @@ class LlvmAT8 < Formula
     xz = "3.8" unless OS.mac?
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
-
-    unless OS.mac?
-      # Strip executables/libraries/object files to reduce their size
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
   end
 
   def caveats
@@ -329,7 +316,7 @@ class LlvmAT8 < Formula
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
            "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-      (opt_lib/shared_library("libc++", "1")).to_path
+      (opt_lib/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
