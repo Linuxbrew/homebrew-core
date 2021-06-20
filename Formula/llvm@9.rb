@@ -5,13 +5,12 @@ class LlvmAT9 < Formula
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision OS.mac? ? 2 : 6
+  revision OS.mac? ? 2 : 7
 
   bottle do
     sha256 cellar: :any,                 catalina:     "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01"
     sha256 cellar: :any,                 mojave:       "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8"
     sha256 cellar: :any,                 high_sierra:  "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8ef91c6dfa7c2bcdd171d359c7e1c686b769a0aedc011870bf6aa67d9329859e"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -27,9 +26,7 @@ class LlvmAT9 < Formula
   depends_on "swig"
 
   unless OS.mac?
-    if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
-      depends_on "glibc"
-    end
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -187,14 +184,6 @@ class LlvmAT9 < Formula
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
-    unless OS.mac?
-      # Strip executables/libraries/object files to reduce their size
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
-
     # install emacs modes
     elisp.install Dir["utils/emacs/*.el"] + %w[
       tools/clang/tools/clang-format/clang-format.el
@@ -313,7 +302,7 @@ class LlvmAT9 < Formula
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
            "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (opt_lib/shared_library("libc++", "1")).to_path
+                    (opt_lib/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
