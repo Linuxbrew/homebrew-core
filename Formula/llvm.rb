@@ -41,7 +41,10 @@ class Llvm < Formula
     depends_on "binutils" # needed for gold
     depends_on "libelf" # openmp requires <gelf.h>
 
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0b8ff8b7ad4c2e1d474b214cd615a98e0caa796/llvm/llvm.patch"
+      sha256 "084adce7711b07d94197a75fb2162b253186b38d612996eeb6e2bc9ce5b1e6e2"
+    end
   end
 
   def install
@@ -120,8 +123,9 @@ class Llvm < Formula
     end
 
     on_linux do
-      args << "-DCMAKE_CXX_FLAGS=-fpermissive"
-      args << "-DCMAKE_C_FLAGS=-fpermissive"
+      ENV.append "CXXFLAGS", "-fpermissive"
+      ENV.append "CFLAGS", "-fpermissive"
+
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
@@ -276,7 +280,7 @@ class Llvm < Formula
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
            "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (opt_lib/shared_library("libc++", "1")).to_path
+                    (opt_lib/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
@@ -382,101 +386,3 @@ class Llvm < Formula
     end
   end
 end
-
-__END__
-diff --git a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h
-index fa067b7..39ab908 100644
---- a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h
-+++ b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux.h
-@@ -56,6 +56,12 @@ public:
-   virtual llvm::Optional<MmapData> GetMmapData() { return llvm::None; }
-
- protected:
-+  // NB: This constructor is here only because gcc<=6.5 requires a virtual base
-+  // class initializer on abstract class (even though it is never used). It can
-+  // be deleted once we move to gcc>=7.0.
-+  NativeRegisterContextLinux(NativeThreadProtocol &thread)
-+      : NativeRegisterContextRegisterInfo(thread, nullptr) {}
-+
-   lldb::ByteOrder GetByteOrder() const;
-
-   virtual Status ReadRegisterRaw(uint32_t reg_index, RegisterValue &reg_value);
-diff --git a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp
-index c6aa320..e222909 100644
---- a/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp
-+++ b/lldb/source/Plugins/Process/Linux/NativeRegisterContextLinux_x86_64.cpp
-@@ -292,6 +292,8 @@ NativeRegisterContextLinux_x86_64::NativeRegisterContextLinux_x86_64(
-     const ArchSpec &target_arch, NativeThreadProtocol &native_thread)
-     : NativeRegisterContextRegisterInfo(
-           native_thread, CreateRegisterInfoInterface(target_arch)),
-+      NativeRegisterContextLinux(native_thread),
-+      NativeRegisterContextWatchpoint_x86(native_thread),
-       m_xstate_type(XStateType::Invalid), m_ymm_set(), m_mpx_set(),
-       m_reg_info(), m_gpr_x86_64() {
-   // Set up data about ranges of valid registers.
-@@ -1040,14 +1042,16 @@ NativeRegisterContextLinux_x86_64::GetSyscallData() {
-     static const uint32_t Args[] = {lldb_eax_i386, lldb_ebx_i386, lldb_ecx_i386,
-                                     lldb_edx_i386, lldb_esi_i386, lldb_edi_i386,
-                                     lldb_ebp_i386};
--    return SyscallData{Int80, Args, lldb_eax_i386};
-+    return SyscallData{llvm::makeArrayRef(Int80), llvm::makeArrayRef(Args),
-+                       lldb_eax_i386};
-   }
-   case llvm::Triple::x86_64: {
-     static const uint8_t Syscall[] = {0x0f, 0x05};
-     static const uint32_t Args[] = {
-         lldb_rax_x86_64, lldb_rdi_x86_64, lldb_rsi_x86_64, lldb_rdx_x86_64,
-         lldb_r10_x86_64, lldb_r8_x86_64,  lldb_r9_x86_64};
--    return SyscallData{Syscall, Args, lldb_rax_x86_64};
-+    return SyscallData{llvm::makeArrayRef(Syscall), llvm::makeArrayRef(Args),
-+                       lldb_rax_x86_64};
-   }
-   default:
-     llvm_unreachable("Unhandled architecture!");
-diff --git a/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h b/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h
-index cfb8900..071cf92 100644
---- a/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h
-+++ b/lldb/source/Plugins/Process/Utility/NativeRegisterContextWatchpoint_x86.h
-@@ -16,6 +16,13 @@ namespace lldb_private {
- class NativeRegisterContextWatchpoint_x86
-     : public virtual NativeRegisterContextRegisterInfo {
- public:
-+  // NB: This constructor is here only because gcc<=6.5 requires a virtual base
-+  // class initializer on abstract class (even though it is never used). It can
-+  // be deleted once we move to gcc>=7.0.
-+  NativeRegisterContextWatchpoint_x86(NativeThreadProtocol &thread)
-+      : NativeRegisterContextRegisterInfo(thread, nullptr) {}
-+
-+
-   Status IsWatchpointHit(uint32_t wp_index, bool &is_hit) override;
-
-   Status GetWatchpointHitIndex(uint32_t &wp_index,
-diff --git a/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp b/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp
-index e9f6fcf..ce259c5 100644
---- a/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp
-+++ b/lldb/unittests/Utility/ReproducerInstrumentationTest.cpp
-@@ -50,7 +50,7 @@ public:
-   TestingRegistry();
- };
-
--static llvm::Optional<TestingRegistry> g_registry;
-+static std::unique_ptr<TestingRegistry> g_registry;
- static llvm::Optional<Serializer> g_serializer;
- static llvm::Optional<Deserializer> g_deserializer;
-
-@@ -75,13 +75,13 @@ inline TestInstrumentationData GetTestInstrumentationData() {
- class TestInstrumentationDataRAII {
- public:
-   TestInstrumentationDataRAII(llvm::raw_string_ostream &os) {
--    g_registry.emplace();
-+    g_registry = std::make_unique<TestingRegistry>();
-     g_serializer.emplace(os);
-     g_deserializer.reset();
-   }
-
-   TestInstrumentationDataRAII(llvm::StringRef buffer) {
--    g_registry.emplace();
-+    g_registry = std::make_unique<TestingRegistry>();
-     g_serializer.reset();
-     g_deserializer.emplace(buffer);
-   }
