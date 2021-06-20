@@ -4,13 +4,12 @@ class LlvmAT7 < Formula
   url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
   sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
   license "NCSA"
-  revision OS.mac? ? 2 : 6
+  revision OS.mac? ? 2 : 7
 
   bottle do
     sha256 cellar: :any,                 catalina:     "400bb0bb43849d1f118d93a1647de6e9636934e941c43a6f4866258f764f42b3"
     sha256 cellar: :any,                 mojave:       "564f25a86c519b737a795de441da6c6c14e9f026813a73149b7939c986241ba6"
     sha256 cellar: :any,                 high_sierra:  "4170d8e522ce8aea22450c818bb68b6142671f4239262395d8f09d82621ee343"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f4ae7bc630d993aa381d1fc029fa1d4ec47968ab5820953287f45f4100f33631"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -25,9 +24,7 @@ class LlvmAT7 < Formula
   depends_on "libffi"
 
   unless OS.mac?
-    if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
-      depends_on "glibc"
-    end
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -190,14 +187,6 @@ class LlvmAT7 < Formula
     xz = "3.8" unless OS.mac?
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
-
-    unless OS.mac?
-      # Strip executables/libraries/object files to reduce their size
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
   end
 
   def caveats
@@ -309,7 +298,7 @@ class LlvmAT7 < Formula
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
            "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
     assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-      (opt_lib/shared_library("libc++", "1")).to_path
+      (opt_lib/shared_library("libc++", "1")).to_s
     (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
       refute_match(/libstdc\+\+/, lib)
       refute_match(/libgcc/, lib)
