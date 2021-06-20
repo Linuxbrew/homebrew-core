@@ -29,8 +29,11 @@ class Homebank < Formula
   depends_on "libsoup"
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+    unless OS.mac?
+      # Needed by intltool (xml::parser)
+      ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5"
+      ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
+    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-ofx"
