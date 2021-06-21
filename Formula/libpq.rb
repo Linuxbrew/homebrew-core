@@ -80,7 +80,6 @@ class Libpq < Formula
         }
     EOS
     system ENV.cc, "libpq.c", "-L#{lib}", "-I#{include}", "-lpq", "-o", "libpqtest"
-    ENV.prepend_path "LD_LIBRARY_PATH", lib unless OS.mac?
     assert_equal "Connection to database attempted and failed", shell_output("./libpqtest")
   end
 end
