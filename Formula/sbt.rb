@@ -14,6 +14,8 @@ class Sbt < Formula
   depends_on arch: :x86_64
   depends_on "openjdk"
 
+  uses_from_macos "zlib"
+
   def install
     inreplace "bin/sbt" do |s|
       s.gsub! 'etc_sbt_opts_file="/etc/sbt/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
@@ -24,7 +26,12 @@ class Sbt < Formula
     etc.install "conf/sbtopts"
 
     (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.overridable_java_home_env
-    (bin/"sbtn").write_env_script libexec/"bin/sbtn-x86_64-apple-darwin", Language::Java.overridable_java_home_env
+    on_macos do
+      (bin/"sbtn").write_env_script libexec/"bin/sbtn-x86_64-apple-darwin", Language::Java.overridable_java_home_env
+    end
+    on_linux do
+      (bin/"sbtn").write_env_script libexec/"bin/sbtn-x86_64-pc-linux", Language::Java.overridable_java_home_env
+    end
   end
 
   def caveats
