@@ -17,8 +17,6 @@ class Lapack < Formula
 
   keg_only :shadowed_by_macos, "macOS provides LAPACK in Accelerate.framework"
 
-  keg_only "it conflicts with openblas" unless OS.mac?
-
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
 
