@@ -36,6 +36,11 @@ class Libsvg < Formula
   # https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76
   patch :DATA
 
+  patch do
+    url "https://github.com/maximeh/buildroot/commit/45c3b0ec49fac67cc81651f0bed063722a48dc29.patch?full_index=1"
+    sha256 "dd534ec95c08e8feef90bb3301d446d5b19d3f3bfcad8b89f9d166ce1c92b497"
+  end
+
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
@@ -117,7 +122,8 @@ class Libsvg < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lsvg", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-o", "test",
+                   "-L#{lib}", "-lsvg", "-lpng", "-ljpeg"
     assert_equal "1\n2\n3\n4\n5\n6\nSUCCESS\n", shell_output("./test")
   end
 end
