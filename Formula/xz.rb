@@ -12,6 +12,7 @@ class Xz < Formula
     "GPL-2.0-or-later",
     "GPL-3.0-or-later",
   ]
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c84206005787304416ed81094bd3a0cdd2ae8eb62649db5a3a44fa14b276d09f"
