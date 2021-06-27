@@ -27,9 +27,18 @@ class Htop < Formula
   depends_on "python@3.9" => :build
   depends_on "ncurses" # enables mouse scroll
 
+  on_linux do
+    depends_on "lm-sensors"
+  end
+
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    on_macos do
+      system "./configure", "--prefix=#{prefix}"
+    end
+    on_linux do
+      system "./configure", "--prefix=#{prefix}", "--enable-sensors"
+    end
     system "make", "install"
   end
 
