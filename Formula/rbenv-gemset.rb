@@ -7,7 +7,12 @@ class RbenvGemset < Formula
   revision 1
   head "https://github.com/jf/rbenv-gemset.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "57bcf5e57436cf4a85a595127c09b591f6a971b132e900ab12d29aae2d00f767"
+    sha256 cellar: :any_skip_relocation, big_sur:       "002920ce6ab3bf97133b5e771c03a7a5c62f2a7af2175a807a899f0ebe932149"
+    sha256 cellar: :any_skip_relocation, catalina:      "002920ce6ab3bf97133b5e771c03a7a5c62f2a7af2175a807a899f0ebe932149"
+    sha256 cellar: :any_skip_relocation, mojave:        "002920ce6ab3bf97133b5e771c03a7a5c62f2a7af2175a807a899f0ebe932149"
+  end
 
   depends_on "rbenv"
 
