@@ -5,6 +5,7 @@ class Ncurses < Formula
   mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.2.tar.gz"
   sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "111ab64b5ffbe5aebe18096a2ff95e8e8f6426955799181db8338677e8f853e4"
@@ -12,7 +13,6 @@ class Ncurses < Formula
     sha256 catalina:      "eae51ad3391edafe3d6c649ba44f607ee1464b4b5d9ee48770e9817ee5f0ccdd"
     sha256 mojave:        "1771e0ce821cf8cbe38d0ce8d1843fd559532923222edc5dbf5b31fcf24fed90"
     sha256 high_sierra:   "4648be8457b081026d3da80f290abaf3fbfdcb49d62914861a63fc706f9adabe"
-    sha256 x86_64_linux:  "fc5a0983a8afae8ef46945f3bec9dba9d66e81e879027d100d05088ea6f8043d"
   end
 
   keg_only :provided_by_macos
@@ -32,7 +32,8 @@ class Ncurses < Formula
                           "--enable-widec",
                           "--with-shared",
                           "--with-gpm=no",
-                          "--without-ada"
+                          "--without-ada",
+                          "--with-terminfo-dirs=/lib/terminfo"
     system "make", "install"
     make_libncurses_symlinks
 
