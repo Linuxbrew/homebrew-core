@@ -13,7 +13,7 @@ class Pcapplusplus < Formula
   end
 
   def install
-    system "./configure-mac_os_x.sh", "--install-dir", prefix
+    system "./configure-linux.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and
     # 'make install' in two separate commands.
