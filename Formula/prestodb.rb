@@ -14,6 +14,7 @@ class Prestodb < Formula
   end
 
   depends_on "openjdk"
+  depends_on "python@3.9"
 
   conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
 
