@@ -14,7 +14,7 @@ class Pillow < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?
+  depends_on "python@3.7" => [:build, :test] if OS.mac? && !Hardware::CPU.arm?
   depends_on "python@3.8" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "jpeg"
