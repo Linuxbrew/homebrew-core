@@ -4,6 +4,7 @@ class Zip < Formula
   url "https://downloads.sourceforge.net/project/infozip/Zip%203.x%20%28latest%29/3.0/zip30.tar.gz"
   version "3.0"
   sha256 "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,6 @@ class Zip < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d218e0b7d82c7864a1ead12186b5bc09b43c2aa3749651008ac8dbcf32ec0d7c"
     sha256 cellar: :any_skip_relocation, sierra:        "be282c3dfde4da608ab090910b3fe3cbec914d435122854f17acc0f718cc3a15"
     sha256 cellar: :any_skip_relocation, el_capitan:    "54ea09b9be1a8c8a20b94e7cadff551ed243f5762a0d8da79f1aaedc4c9492a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eee82c511bc78167c6bc043a8795f3b7b47e2ba77a595d6234648ae73102efb2"
   end
 
   keg_only :provided_by_macos
