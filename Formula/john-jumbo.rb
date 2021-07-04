@@ -27,6 +27,10 @@ class JohnJumbo < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "llvm" => :build
+  end
+
   conflicts_with "john", because: "both install the same binaries"
 
   # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
