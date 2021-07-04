@@ -25,6 +25,7 @@ class Beast < Formula
   depends_on "openjdk@11"
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["beagle"].lib}" unless OS.mac?
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     ENV.prepend_path "PATH", Formula["openjdk@11"].opt_bin unless OS.mac?
     system "ant", "linux"
@@ -32,7 +33,6 @@ class Beast < Formula
     pkgshare.install_symlink libexec/"examples"
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files libexec/"bin", JAVA_HOME: ENV["JAVA_HOME"]
-    inreplace libexec/"bin/beast", "/usr/local/lib:$LD_LIBRARY_PATH", Formula["beagle"].lib unless OS.mac?
   end
 
   test do
