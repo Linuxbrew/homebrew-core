@@ -25,8 +25,10 @@ class Libgweather < Formula
   uses_from_macos "libxml2"
 
   def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+    on_linux do
+      # Needed to find intltool (xml::parser)
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+    end
 
     ENV["DESTDIR"] = "/"
 
