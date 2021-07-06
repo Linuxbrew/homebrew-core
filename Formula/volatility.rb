@@ -6,7 +6,7 @@ class Volatility < Formula
   url "https://github.com/volatilityfoundation/volatility/archive/2.6.1.tar.gz"
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
   license "GPL-2.0"
-  revision OS.mac? ? 2 : 3
+  revision 2
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
@@ -155,17 +155,10 @@ class Volatility < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        if OS.mac?
-          sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-        else
-          zlib_prefix = Formula["zlib"].opt_prefix
-        end
-        if OS.mac?
-          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
-        else
-          s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{zlib_prefix}/lib', '#{zlib_prefix}/include')"
-        end
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.hi"
+
+        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
 
         jpeg_opt_prefix = Formula["jpeg"].opt_prefix
         s.gsub! "JPEG_ROOT = None",
@@ -179,7 +172,7 @@ class Volatility < Formula
       begin
         # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
         deleted = ENV.delete "SDKROOT"
-        if OS.mac? && !MacOS::CLT.installed?
+        unless MacOS::CLT.installed?
           ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
         end
         venv.pip_install Pathname.pwd
@@ -191,8 +184,7 @@ class Volatility < Formula
     res = resources.map(&:name).to_set - ["Pillow"]
 
     res.each do |r|
-      # appnope is only intended for macOS and refuses to install elsewhere
-      venv.pip_install resource(r) unless r == "appnope"
+      venv.pip_install resource(r)
     end
 
     venv.pip_install_and_link buildpath
