@@ -1,5 +1,3 @@
-require "os/linux/glibc"
-
 class LlvmAT8 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
@@ -139,44 +137,6 @@ class LlvmAT8 < Formula
       -DLLDB_DISABLE_PYTHON=1
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
-    if OS.mac?
-      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
-      args << "-DLLVM_ENABLE_LIBCXX=ON"
-    else
-      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
-      args << "-DLLVM_ENABLE_LIBCXX=OFF"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
-
-      # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
-
-      # Add flags to build shared and static libc++ which are independent of GCC
-      args += %w[
-        -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
-        -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-
-        -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY=ON
-        -DLIBCXX_STATICALLY_LINK_ABI_IN_SHARED_LIBRARY=OFF
-        -DLIBCXX_STATICALLY_LINK_ABI_IN_STATIC_LIBRARY=ON
-        -DLIBCXX_USE_COMPILER_RT=ON
-
-        -DLIBCXXABI_ENABLE_STATIC_UNWINDER=ON
-        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_SHARED_LIBRARY=OFF
-        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_STATIC_LIBRARY=ON
-        -DLIBCXXABI_USE_COMPILER_RT=ON
-        -DLIBCXXABI_USE_LLVM_UNWINDER=ON
-
-        -DLIBUNWIND_USE_COMPILER_RT=ON
-      ]
-
-      # Don't pass -rtlib as an argument to GCC because it doesn't understand it.
-      inreplace (buildpath/"projects/libcxx/CMakeLists.txt"),
-        "list(APPEND LIBCXX_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
-      inreplace (buildpath/"projects/libcxxabi/CMakeLists.txt"),
-        "list(APPEND LIBCXXABI_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
-      inreplace (buildpath/"projects/libunwind/CMakeLists.txt"),
-        "list(APPEND LIBUNWIND_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
-    end
 
     on_macos do
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
@@ -240,8 +200,8 @@ class LlvmAT8 < Formula
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
-    xz = 2.7
     # install llvm python bindings
+    xz = "2.7"
     on_linux { xz = "3.8" }
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
