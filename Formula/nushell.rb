@@ -13,10 +13,12 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "892a28b839a2de152633237a0e45bfa9bd635df3beba332221869c5f6ddce7f9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d54c43a2d81d8cf61ee011210451f74cac04b5929db9d153891c0bd080cc95fe"
-    sha256 cellar: :any_skip_relocation, catalina:      "d02bb02d4cbae6ce9a5f211cc0cbc0ee4c5de913a08e218dceeaf43120947e37"
-    sha256 cellar: :any_skip_relocation, mojave:        "b8716e127334f781821f2e87dbea74c55cfccde0dc5149e7c4dc6c16c1b7f88e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32b6f5f5876a6300350837a82de65d4955252b8d25071b97fe10cc5c4f4018a8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7284250388ab1d340a6700b5c98d342c3234e06c138308b4f4f9929bfea3fd27"
+    sha256 cellar: :any_skip_relocation, catalina:      "68b5edcf15ca021fc19de8d4dcc7bccbcc24ad23cc3279b5b7d981a20f0c132d"
+    sha256 cellar: :any_skip_relocation, mojave:        "82712d1fe54a439313dd3852b11be5fae7d824a7500bdced32c596137eec5cc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7531305cc27ccbcd887d770c75dbd2dbebf22fc8cc9d48584ef064bac2c6b710"
   end
 
   depends_on "rust" => :build
