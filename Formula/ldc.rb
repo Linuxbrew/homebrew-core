@@ -4,6 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc-1.26.0-src.tar.gz"
   sha256 "c18f4c76869f0196b459dcd6196c7eaea1b097cc422cf3771de394f6c0ef7474"
   license "BSD-3-Clause"
+  revision 1 unless OS.mac?
   head "https://github.com/ldc-developers/ldc.git"
 
   livecheck do
@@ -26,9 +27,7 @@ class Ldc < Formula
 
   uses_from_macos "libxml2" => :build
 
-  depends_on "gcc" unless OS.mac?
-
-  fails_with gcc: "5"
+  fails_with :gcc
 
   resource "ldc-bootstrap" do
     on_macos do
@@ -53,6 +52,12 @@ class Ldc < Formula
 
     # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
     ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib
+
+    on_linux do
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      gcc_path = Formula["gcc"].opt_lib/"gcc/#{gcc_major_ver}"
+      ENV.append "LDFLAGS", "-L#{gcc_path} -Wl,-rpath,#{gcc_path}"
+    end
 
     mkdir "build" do
       args = std_cmake_args + %W[
