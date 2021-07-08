@@ -58,7 +58,6 @@ class Libmodplug < Formula
     # Second, acquire an actual music file from a popular internet
     # source and attempt to parse it.
     resource("testmod").stage testpath
-    mv "downloads.php?moduleid=60395", "downloads.php" unless OS.mac?
     (testpath/"test_mod.cpp").write <<~EOS
       #include "libmodplug/modplug.h"
       #include <fstream>
