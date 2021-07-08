@@ -39,16 +39,6 @@ class Libhttpseverywhere < Formula
       system "ninja"
       system "ninja", "install"
     end
-
-    if OS.mac?
-      dir = [Pathname.new("#{lib}64"), lib/"x86_64-linux-gnu"].find(&:directory?)
-      unless dir.nil?
-        mkdir_p lib
-        system "/bin/mv", *Dir[dir/"*"], lib
-        rmdir dir
-        inreplace Dir[lib/"pkgconfig/*.pc"], %r{lib64|lib/x86_64-linux-gnu}, "lib"
-      end
-    end
   end
 
   test do
