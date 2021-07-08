@@ -17,6 +17,7 @@ class Cpanminus < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6a9b5bde63d8c5860788c67470c9dffcfe12036d38e331ad4c5028455ad45a79"
     sha256 cellar: :any_skip_relocation, catalina:      "6a9b5bde63d8c5860788c67470c9dffcfe12036d38e331ad4c5028455ad45a79"
     sha256 cellar: :any_skip_relocation, mojave:        "6a9b5bde63d8c5860788c67470c9dffcfe12036d38e331ad4c5028455ad45a79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78c0fc8d2fcb14cb94e62d972f06ae6a1762846471eb5d0669909121c24fa08d"
   end
 
   def install
