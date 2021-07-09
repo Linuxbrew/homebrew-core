@@ -1,16 +1,17 @@
 class NewrelicCli < Formula
   desc "Command-line interface for New Relic"
   homepage "https://github.com/newrelic/newrelic-cli"
-  url "https://github.com/newrelic/newrelic-cli/archive/v0.29.3.tar.gz"
-  sha256 "dca166e7c5c3d630801386613f74e110b457b6ee13b9bcd2124804c15f7ddf27"
+  url "https://github.com/newrelic/newrelic-cli/archive/v0.29.4.tar.gz"
+  sha256 "94b0b9881a12e0e5a78e244a4a61ffda4052e84730a7d0d74b313cbc5c6a008c"
   license "Apache-2.0"
   head "https://github.com/newrelic/newrelic-cli.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "482bc5910493e48a5dc7cbf7962552518cfbb279d69db5bb1b06c0875e8464de"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a55da45c71047333ec3df4066a5321ecdd9becd0b05046f9a69341c80915147a"
-    sha256 cellar: :any_skip_relocation, catalina:      "98100abddaeb2b0fd7ac80836bf6652a788fa57ca32eaf7dd72dbdc9b0a50c21"
-    sha256 cellar: :any_skip_relocation, mojave:        "6c28cb3f996c2265481233bb7a6c2c8db13548fffb0194f6875d8f517585f9c3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "986533096a36ac919231df0105f9f85fab9637593c40d08060c9457b140af1b0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bd98907f971de9eb4682e64dd4718ce3a1517058037e843cf0c7cc814a0732e3"
+    sha256 cellar: :any_skip_relocation, catalina:      "7bb496a802887fa0139ecc7d1d8d96c4cf9cd7b0c9424fd3993fab5b94dfb90a"
+    sha256 cellar: :any_skip_relocation, mojave:        "4f17c54970466ee5b1617dabcf5f2f0c39cf84d5eafa1438690283b847dce2aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "549befaf288c969623839c9fb57c20009fae66fd17ba84ada4baba56eee84d0e"
   end
 
   depends_on "go" => :build
@@ -18,7 +19,12 @@ class NewrelicCli < Formula
   def install
     ENV["PROJECT_VER"] = version
     system "make", "compile-only"
-    bin.install "bin/darwin/newrelic"
+    on_macos do
+      bin.install "bin/darwin/newrelic"
+    end
+    on_linux do
+      bin.install "bin/linux/newrelic"
+    end
 
     output = Utils.safe_popen_read("#{bin}/newrelic", "completion", "--shell", "bash")
     (bash_completion/"newrelic").write output

@@ -1,17 +1,16 @@
 class Inframap < Formula
   desc "Read your tfstate or HCL to generate a graph"
   homepage "https://github.com/cycloidio/inframap"
-  url "https://github.com/cycloidio/inframap/archive/v0.6.6.tar.gz"
-  sha256 "7adb43db2bda4ac8e39e54515c7923ddb3e0266731fe5d6eaef47248afccee95"
+  url "https://github.com/cycloidio/inframap/archive/v0.6.7.tar.gz"
+  sha256 "e9d6daa48c6fa1a8ecc5437c7121cb5072eb81c29c88ca9e6d778637c8442332"
   license "MIT"
   head "https://github.com/cycloidio/inframap.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a7bb3f525440891ce100f3d847ca7f06df2c94d6ce3e0c4dc621e72171dd1c1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "958f736b7e0c02a142ec51bd43291e9bebca1abcfbd4afce02c74432ee1f838a"
-    sha256 cellar: :any_skip_relocation, catalina:      "00f393f750d9ba38730b3ec3a3292b1cf6ddecd54ee113bc8102b74dca6bf655"
-    sha256 cellar: :any_skip_relocation, mojave:        "636171542156a61576550bb3bf5d47de02d59a8baef3af71a4a86254837b1bd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "874720ed28b3c93c24e761ad55d4f433cbdb4c2e84b2d7872404fc5d4d9101e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ee096fc9fe0909cc34675dbd7a7269c8092ffee0d6ba71fa333e75afc4ff28c1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0a4fe8ae6b7fcf419ab21ea31beb6b90dbeedd73ba2a771672e41c7a30ff4d0d"
+    sha256 cellar: :any_skip_relocation, catalina:      "ba85244090ace0d6a94dbb41c9693f11647cb8e949acc5511c8d9c25a3f74c1b"
+    sha256 cellar: :any_skip_relocation, mojave:        "d7bb58c695d390162b9a5376decf76acf02929d9b4421137ccbb7e91f940bdd2"
   end
 
   depends_on "go" => :build
