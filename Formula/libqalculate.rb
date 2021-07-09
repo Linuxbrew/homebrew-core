@@ -16,20 +16,27 @@ class Libqalculate < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gnuplot"
   depends_on "mpfr"
   depends_on "readline"
 
+  uses_from_macos "curl"
+  uses_from_macos "perl"
+
   def install
+    # Needed by intltool (xml::parser)
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
+
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--without-icu",
+                          "--without-gnuplot-call",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/qalc", "-nocurrencies", "(2+2)/4 hours to minutes"
+    output = shell_output("#{bin}/qalc -nocurrencies '(2+2)/4 hours to minutes'")
+    assert_equal output, "((2 + 2) / 4) × hour = 60 min\n"
   end
 end
