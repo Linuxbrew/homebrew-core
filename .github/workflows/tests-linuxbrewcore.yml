@@ -63,7 +63,7 @@ jobs:
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          brew test-bot --only-json-tab --only-formulae --fail-fast --keep-old
+          brew test-bot --only-json-tab --only-formulae --fail-fast --keep-old --debug
 
       - name: Output brew bottle result
         if: always()
