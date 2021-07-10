@@ -13,7 +13,7 @@ class Gprof2dot < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7fde10f750d764840f63e58ffbeab678c565859810288d7bd3b6978d50bcd655"
     sha256 cellar: :any_skip_relocation, catalina:      "5c47790338ce21e3a7cbe32e9c366ddf1c451057d72bfe6f9c09ffb62d0b18c6"
     sha256 cellar: :any_skip_relocation, mojave:        "6a2ab69926fa5a54cb4f263f9f99398292bdb7aaaf252a34f6d6ba412c627599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8794def76c417fe051ec00fc7a85a53e9cb02fa1802ad22edbeb50f30254295b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8794def76c417fe051ec00fc7a85a53e9cb02fa1802ad22edbeb50f30254295b" # linuxbrew-core
   end
 
   depends_on "graphviz"

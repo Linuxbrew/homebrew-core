@@ -11,7 +11,7 @@ class TigerVnc < Formula
     sha256 catalina:      "b9a09483c45610c81dd29fc20a41b4fa8120e1353f736bb637732d4788e4bb28"
     sha256 mojave:        "c90bdf1ac012129c5d4caecd3e5acf2d110ca8cd68a8bcff6de07373149424db"
     sha256 high_sierra:   "2370d829c67ca1df886e47aca162c68034e138a10a93b846c31f1c927d84c435"
-    sha256 x86_64_linux:  "67db0f47bd15bc93d07689db2a89358f95332278c6a344997b01cb19a865f476"
+    sha256 x86_64_linux:  "67db0f47bd15bc93d07689db2a89358f95332278c6a344997b01cb19a865f476" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

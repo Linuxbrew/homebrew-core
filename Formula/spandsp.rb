@@ -19,7 +19,7 @@ class Spandsp < Formula
     sha256 cellar: :any, sierra:        "c0b8349525680304f99e464d328df804279be85398969974f2b708e5167c89fe"
     sha256 cellar: :any, el_capitan:    "428120be3841ca77961f2d19fe8f98f1615972db4f568e3cfa2c0a44cae44e77"
     sha256 cellar: :any, yosemite:      "65fd095ea758180f18ca9c39864dbd3432115610b0db2439dbc923d3c0002f7b"
-    sha256 cellar: :any, x86_64_linux:  "fbfef7cc4ea42ef6fbab88703fc1caa6091b4e6bed0762a044859c27f95bd42d"
+    sha256 cellar: :any, x86_64_linux:  "fbfef7cc4ea42ef6fbab88703fc1caa6091b4e6bed0762a044859c27f95bd42d" # linuxbrew-core
   end
 
   depends_on "libtiff"

@@ -18,7 +18,7 @@ class Cbc < Formula
     sha256 cellar: :any, catalina:      "56fee588e216483d5b63e6e6f61dc824325da64f61fcaa7af3c3f6692c0a004d"
     sha256 cellar: :any, mojave:        "d415cd6ac5c7afdda6e54d74e1acf76282ad81170333690bcd2ae3c08babdff5"
     sha256 cellar: :any, high_sierra:   "e1c7da5d2d650279cbc41a2dd6fe36d39f6298de743b59a27fbde6645f8f748b"
-    sha256 cellar: :any, x86_64_linux:  "6f59081fd9a87149c94ca5967898a4bb7823dfe0160352337356b170073dce2f"
+    sha256 cellar: :any, x86_64_linux:  "6f59081fd9a87149c94ca5967898a4bb7823dfe0160352337356b170073dce2f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

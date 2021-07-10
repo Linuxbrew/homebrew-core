@@ -6,7 +6,7 @@ class Spark < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c98b248ad29955ccf560e99cb9c325fb28d881391c5bf9c0888251a02f41792d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c98b248ad29955ccf560e99cb9c325fb28d881391c5bf9c0888251a02f41792d" # linuxbrew-core
   end
 
   def install

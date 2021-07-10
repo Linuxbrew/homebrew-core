@@ -18,7 +18,7 @@ class Iozone < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f47bc3f26886b9469cc471bdea595bacd0158199ad1892d2b1836100d617f1e5"
     sha256 cellar: :any_skip_relocation, catalina:      "ac6f70cec9ffbf1c4be9feeb737bdf2eefeed1a9f9c62f6c4609fd08b6a3de4a"
     sha256 cellar: :any_skip_relocation, mojave:        "8098476c90a74f06fa73eda62e402629fd179b2f008f59fc97d2f0b5dd633ab5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2b6ee8987d460b87abb78e43a0312f6109a68b864b5ae1415c4c36a9b3bae89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2b6ee8987d460b87abb78e43a0312f6109a68b864b5ae1415c4c36a9b3bae89" # linuxbrew-core
   end
 
   def install

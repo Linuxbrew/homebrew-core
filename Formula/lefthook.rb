@@ -10,6 +10,7 @@ class Lefthook < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "994054301cbd256012cacdc9f18035b1126c8b9c265ed92c0fdd33f5b49f82c7"
     sha256 cellar: :any_skip_relocation, catalina:      "642f251ad57b2db7c6029ac2fabac8c3b8678ab8dd0fe8ee3cf47b6183778110"
     sha256 cellar: :any_skip_relocation, mojave:        "f4093725732ed61c70a440ccd7e7632974f33810f7b4662376a413fa3361e683"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d1a1986c19d22b58edadb67bba7a2a296e5a13f4fdb11844ba1e35f15b64c2" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -13,7 +13,7 @@ class Openslide < Formula
     sha256 cellar: :any, mojave:        "d90e3ee5514064389cea2bdf1d4369cc2be4e1d965ac9d56f47e0c6e22f310af"
     sha256 cellar: :any, high_sierra:   "1d70f22fad80e061bcfa5d4955d522d37bd077c51cad4697579a104759233ad2"
     sha256 cellar: :any, sierra:        "de34071d033c87c731be7954d7c0ced87ddf086100c29fea07410d68621b9929"
-    sha256 cellar: :any, x86_64_linux:  "421b9ef84c0d9ee17356a47208e6b8ad07f83d5c944855a4f3b6bb7fe2f64a40"
+    sha256 cellar: :any, x86_64_linux:  "421b9ef84c0d9ee17356a47208e6b8ad07f83d5c944855a4f3b6bb7fe2f64a40" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

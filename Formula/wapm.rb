@@ -16,7 +16,7 @@ class Wapm < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ef83086768af8348415cc720b3b4241d20cc7b1c00946d6b4f09ecb4c8242e19"
     sha256 cellar: :any_skip_relocation, catalina:      "b9cecfbe7298d07700898408a94862c6caf0aa69e18322e404df87d0172001d5"
     sha256 cellar: :any_skip_relocation, mojave:        "15070099aa602582bcc3d701a1a6626f9f17bfce559ffab53c4a62eebcc2f170"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64d4c9d1722ecfa266c06eaa572ca737e810d6a7354781376925fe1f9c0424cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64d4c9d1722ecfa266c06eaa572ca737e810d6a7354781376925fe1f9c0424cd" # linuxbrew-core
   end
 
   depends_on "rust" => :build

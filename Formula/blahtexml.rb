@@ -14,7 +14,7 @@ class Blahtexml < Formula
     sha256 cellar: :any, high_sierra:   "c2696cdaa1724541f0d07900219247365e30061a471df0b80f6469b3bc2b4a14"
     sha256 cellar: :any, sierra:        "bcd628072b5b7d6625e2b2caad1c6f64483807facda1b2eff32795de1b25070f"
     sha256 cellar: :any, el_capitan:    "b1788b8622b704c67b11295f6bf84ab881298980f8101b5fed6cb7441b4edc82"
-    sha256 cellar: :any, x86_64_linux:  "5d88f5d4496b22549a57283b33cf3eb95f0a0ec8db5105e6180d48ab59422f01"
+    sha256 cellar: :any, x86_64_linux:  "5d88f5d4496b22549a57283b33cf3eb95f0a0ec8db5105e6180d48ab59422f01" # linuxbrew-core
   end
 
   depends_on "xerces-c"

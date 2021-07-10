@@ -19,7 +19,7 @@ class PipesSh < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322"
     sha256 cellar: :any_skip_relocation, sierra:        "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff7abda2674bdddfaf0360e9e223b2e70f3657ef4fdf24937d158e9601ff4912"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff7abda2674bdddfaf0360e9e223b2e70f3657ef4fdf24937d158e9601ff4912" # linuxbrew-core
   end
 
   depends_on "bash"

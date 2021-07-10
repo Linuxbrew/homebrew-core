@@ -13,7 +13,7 @@ class Vit < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5fedd66cd3ea0e7b6f5cbb4e285b65c085a6b041190d42afa3ddbc4a1aa18f13"
     sha256 cellar: :any_skip_relocation, catalina:      "17221b4deacb1ca0e63fc7949a06298dfe9d64c9a672a9974f63f4dc15473404"
     sha256 cellar: :any_skip_relocation, mojave:        "d65ce3abf2f776a8baee233c618b543c2f806e48cfd343cc4d3febc9947f71b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5a593941fbefd5540abad328bd0af31e5b4a6f98438f8b3206a96a4149e2eed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5a593941fbefd5540abad328bd0af31e5b4a6f98438f8b3206a96a4149e2eed" # linuxbrew-core
   end
 
   depends_on "python@3.9"

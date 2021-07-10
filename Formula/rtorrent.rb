@@ -12,7 +12,7 @@ class Rtorrent < Formula
     sha256 cellar: :any, catalina:      "fb9d292ae3f773162316eac2516bcc12a5a63718d4638aa4ff08a7d57e8a853e"
     sha256 cellar: :any, mojave:        "7bdf998faac16a4411e0f52ef906e09dff47507cef2b1218ac59b82d9298ae72"
     sha256 cellar: :any, high_sierra:   "ac0c6f9edd1fc875266e08a9d7576251d8be88f86162e5a431b10a5c5bb5f0b0"
-    sha256 cellar: :any, x86_64_linux:  "ff20b176338f77f5e47aa5bda81956b008239f060f94ca35b3a8ee09885dd891"
+    sha256 cellar: :any, x86_64_linux:  "ff20b176338f77f5e47aa5bda81956b008239f060f94ca35b3a8ee09885dd891" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

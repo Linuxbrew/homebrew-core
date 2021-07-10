@@ -11,7 +11,7 @@ class Fargatecli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4cf90341de4a444842414de2364ae5ed51283008dfd99739cde4fcd00583f50a"
     sha256 cellar: :any_skip_relocation, mojave:        "193a1ca57966d54bc0ebaaa5b28397448f2ecc0276d6f69b4adc20acd8324553"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c5b6d73103fdab97321d13426271177f03bb1240db637f8d252678e376e7f129"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614f3d03030905e357039121a113e56bfbdbad0ba8341807e020a2fb488d7131"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614f3d03030905e357039121a113e56bfbdbad0ba8341807e020a2fb488d7131" # linuxbrew-core
   end
 
   depends_on "go" => :build

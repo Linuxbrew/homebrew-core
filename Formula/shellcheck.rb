@@ -12,7 +12,7 @@ class Shellcheck < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cd11c23dc7b8247e976b0df0cfde0b2efe27ce86ccaf41f7946dc63da42c1e9e"
     sha256 cellar: :any_skip_relocation, catalina:      "93daddfdf6d5a6eb297d4bd83ffe06042b8821e37151801d5b1b8e90424d267b"
     sha256 cellar: :any_skip_relocation, mojave:        "648862ca99ae45e54144d566ef005f23bbb5ec6ecd1138bb61758e4e169e37c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee02a95e6fca5aa122161a29a2fcc9b1c23f5d504e66f256120db333a829ac96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee02a95e6fca5aa122161a29a2fcc9b1c23f5d504e66f256120db333a829ac96" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

@@ -3,16 +3,16 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/e8/c1/d1ce252f300df890db7a510363423c21fbe34db2d5b143cd788db1898e7c/dxpy-0.311.0.tar.gz"
-  sha256 "c9874ef780944ee49fead90cb085479eae8c1182584cb090717900687586694b"
+  url "https://files.pythonhosted.org/packages/67/0c/3645e1b51ad0fa6469965d608560728fff69d4da565ad9504ca2e520d8dd/dxpy-0.312.0.tar.gz"
+  sha256 "5a0362a4762a2866676dd77d4dad38ca50ebe718746b452e2c2d6cd77d8598d3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "60e6db426f95e39c93db2345fda9da3709d3caea1cbf85e2e21ccfe40e4abf81"
-    sha256 cellar: :any,                 big_sur:       "3e0ce912380a175b776027556788babc94d233bb4a09951f8bafe37484308f32"
-    sha256 cellar: :any,                 catalina:      "8b1064bd40e576282f7a5589b7a1cae5fa1cd92d8b0c9f43fca9e7e7bb05d4ae"
-    sha256 cellar: :any,                 mojave:        "816a71b9df6d0ecfecb605f6c51e945725d57f8dc5b65ec9333dd8ef756927b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d84f3e8ffcd14d1fda87d5cf78890bcec721a875b9540ec2198ead518b8bec5a"
+    sha256 cellar: :any,                 arm64_big_sur: "dd636e7b49ec79ecd6bf8342d64d786d5f8660c058ce4bd886c96c971d4092ad"
+    sha256 cellar: :any,                 big_sur:       "1bb0373c82549a7553b12cfd643c7c86ceeb298c1b0706686e19b3c66e981e79"
+    sha256 cellar: :any,                 catalina:      "18b93681cdb90a1957d6acc230a020f17addcab00f581020955e62e61ea7082b"
+    sha256 cellar: :any,                 mojave:        "8ee89831b01e1e0adf447f9e8cb5c27af5a95fad643844e401ce4be19c0cee47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aa8f16c38e40d256f6cdf3652c9e402e2dbaeaab8a3785fc31fc7499d33f03d" # linuxbrew-core
   end
 
   depends_on "python@3.9"
@@ -32,8 +32,8 @@ class Dxpy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
-    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
+    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
+    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
   resource "cffi" do

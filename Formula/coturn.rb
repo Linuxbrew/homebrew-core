@@ -15,7 +15,7 @@ class Coturn < Formula
     sha256 big_sur:       "cbf4ffbe501023ff20d1d0798c0d3976c16fe29062fe18ce9e03230031c55f5b"
     sha256 catalina:      "9fcb011c5da93820c3b567ddb6488fb6812cd8d40477d167990023db5d510749"
     sha256 mojave:        "eef1e160c7951bd96f3f59a395d2474529fa03c12d380dd7daf9625435003c31"
-    sha256 x86_64_linux:  "fd57385c75ee2b46535bf8eca2bf1513b87ff705b677b87de53843b30300cd83"
+    sha256 x86_64_linux:  "fd57385c75ee2b46535bf8eca2bf1513b87ff705b677b87de53843b30300cd83" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

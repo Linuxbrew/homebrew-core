@@ -10,7 +10,7 @@ class Gravity < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "45fa429c501fbc6bed4df03f4bd42d843eb9a0c2178c38e91463c5be23d8c559"
     sha256 cellar: :any_skip_relocation, catalina:      "b5c92698d98471fd098e09fafbc39cfac3fbde7f445e5fadde854fab8aa8f658"
     sha256 cellar: :any_skip_relocation, mojave:        "dca9c51bdb7adbc1310c28ac630b19f12567d3110af64a7a0e4821ea61c31e8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b4c99bc9a711da94f7d4d20f5a9cb3eac76a972d0e8dca199da17904e6942c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b4c99bc9a711da94f7d4d20f5a9cb3eac76a972d0e8dca199da17904e6942c" # linuxbrew-core
   end
 
   def install

@@ -18,7 +18,7 @@ class Exiftags < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7aaa2a8e78b03e4f842c84a46ce7fb5ed8ff1a956ababde1f26bc716431a67e0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "47d75e83f89d0db4a54d779d9c9820fbb788c102738824e86b83a441d9a60af8"
     sha256 cellar: :any_skip_relocation, yosemite:      "23a94f2c2694d52ef393e751e23a01c4ed23c0ca7004b6597546047310e73f53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d68e876ce5bcc06fb0f58b639e4d340127e126bc4cd49a324985122e6f4e9c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d68e876ce5bcc06fb0f58b639e4d340127e126bc4cd49a324985122e6f4e9c8" # linuxbrew-core
   end
 
   def install

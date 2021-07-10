@@ -12,7 +12,7 @@ class Goocanvas < Formula
     sha256 mojave:        "b9d36364339793b428077bbc7735981f8cd33e681971653806dc574236382778"
     sha256 high_sierra:   "6822fe0a452809ce94bc1fd70fb32b024ad52702a56878db381b7dad2e05aa28"
     sha256 sierra:        "44b1bd9f058cd4fe112cd1022a0ad2daa93c7f849257ae57bc6d10f9c33e57de"
-    sha256 x86_64_linux:  "128ca78ced485aab93ad7b9e996c9b7f9838ea3b7d2d88d92b027b116137a29c"
+    sha256 x86_64_linux:  "128ca78ced485aab93ad7b9e996c9b7f9838ea3b7d2d88d92b027b116137a29c" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

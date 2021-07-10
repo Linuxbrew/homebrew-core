@@ -11,7 +11,7 @@ class Rename < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "308b9f76cf8386eb9c5835204233f0869cc566d9995b383a5215649e8b1c7a48"
     sha256 cellar: :any_skip_relocation, catalina:      "2f1c70cacb289e2286bc6ec1e47319d197c2f0d74f8474b303aa2cb9aad8bb0e"
     sha256 cellar: :any_skip_relocation, mojave:        "2f1c70cacb289e2286bc6ec1e47319d197c2f0d74f8474b303aa2cb9aad8bb0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa5d3a801d6f1807f2dc280b41bf6f4b20ff2c6fc53414a0644cd15c71488e22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa5d3a801d6f1807f2dc280b41bf6f4b20ff2c6fc53414a0644cd15c71488e22" # linuxbrew-core
   end
 
   depends_on "pod2man" => :build

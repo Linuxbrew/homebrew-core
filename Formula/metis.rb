@@ -18,7 +18,7 @@ class Metis < Formula
     sha256 cellar: :any, sierra:        "9c8deed80ece8c24e7ebccbce8410557b27afe711d3f59fccb7d781254d0cc34"
     sha256 cellar: :any, el_capitan:    "54f75262475744bc6ad3ba66ac801e03c18bbac00a9bcf0ca9d05853f2022498"
     sha256 cellar: :any, yosemite:      "b33c2fc2c8a1cdb9f48faf41201bdc6384090b8dbd6ed3eecd05264eb6431c0b"
-    sha256 cellar: :any, x86_64_linux:  "5bae428970f681f9bea501461d755d60127ab380bc0572b35156c4733021df22"
+    sha256 cellar: :any, x86_64_linux:  "5bae428970f681f9bea501461d755d60127ab380bc0572b35156c4733021df22" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

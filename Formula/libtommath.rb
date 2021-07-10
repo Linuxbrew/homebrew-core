@@ -12,7 +12,7 @@ class Libtommath < Formula
     sha256 cellar: :any,                 big_sur:       "0f2e569f0625e7f52974b6cc69cdc51ee83dc8c302af03863fb3926fdc9c768f"
     sha256 cellar: :any,                 catalina:      "35421851dc5c86313eda9b351b5401196d757e4e8de90fd410029862704a5f8d"
     sha256 cellar: :any,                 mojave:        "631d118cba4e115604723dea978a4c439fd150480f7526bbcd2feec70300da83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d802d4a97d466abbf0bb159885ce6dc4cf2768f67af89f0fa4e9fd0cf1d9e4d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d802d4a97d466abbf0bb159885ce6dc4cf2768f67af89f0fa4e9fd0cf1d9e4d8" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

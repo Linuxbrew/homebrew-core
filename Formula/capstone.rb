@@ -12,7 +12,7 @@ class Capstone < Formula
     sha256 cellar: :any, catalina:      "b434ee96e9d7c413e289340b280705a6c3b9929cf1859de865d88bc012c34396"
     sha256 cellar: :any, mojave:        "c90885740ef54af155c2a0151dc85f728a3aa7ca304a45510e5524ac7fecb7fc"
     sha256 cellar: :any, high_sierra:   "c6d974a3c237fc36bfea2042d95551f2be7197d37fc0df6c7b9ea2179cd01084"
-    sha256 cellar: :any, x86_64_linux:  "ad74aefb601c270f6203f038bfe7c98275227df8e99b694f22a2f4ec0556953e"
+    sha256 cellar: :any, x86_64_linux:  "ad74aefb601c270f6203f038bfe7c98275227df8e99b694f22a2f4ec0556953e" # linuxbrew-core
   end
 
   def install

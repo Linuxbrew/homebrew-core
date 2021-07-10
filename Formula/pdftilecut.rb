@@ -10,7 +10,7 @@ class Pdftilecut < Formula
     sha256 cellar: :any,                 big_sur:       "5cc898901cadbd6b08d17bb17ada4e636d00b8c3d4139343ccc26e8e701e4c81"
     sha256 cellar: :any,                 catalina:      "173f96dddd480ad7c18440dcc55fe1d23930b71b9ae38723e426214a13e03f15"
     sha256 cellar: :any,                 mojave:        "6da1ac7ea176188c87da04b27539d6a55e0a03736daf42959d577cca6a1c4014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "768fe1056fcb98cc2a6420e840066f219b9dbe76531a0579186f5a7c96a66d24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "768fe1056fcb98cc2a6420e840066f219b9dbe76531a0579186f5a7c96a66d24" # linuxbrew-core
   end
 
   depends_on "go" => :build

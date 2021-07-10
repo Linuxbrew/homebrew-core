@@ -14,7 +14,7 @@ class Libucl < Formula
     sha256 cellar: :any, high_sierra:   "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315"
     sha256 cellar: :any, sierra:        "5c477e0feb163dc955e89eabf97cae445fefc9c920fe46073c85af348535d7cd"
     sha256 cellar: :any, el_capitan:    "93e7d66507c386c9fe720b5f4c77d3b719574b7c311319cddc09bcbda659bce7"
-    sha256 cellar: :any, x86_64_linux:  "105185654971e14837cbac0afdd5be444081b1536f0799a80b54972c42e2a794"
+    sha256 cellar: :any, x86_64_linux:  "105185654971e14837cbac0afdd5be444081b1536f0799a80b54972c42e2a794" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

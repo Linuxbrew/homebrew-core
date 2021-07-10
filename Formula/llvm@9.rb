@@ -8,10 +8,11 @@ class LlvmAT9 < Formula
   revision OS.mac? ? 2 : 6
 
   bottle do
-    sha256 cellar: :any,                 catalina:     "86f022bf477a011e5f416a0e98984de4c07fbba366dc494c6cef315807112a01"
-    sha256 cellar: :any,                 mojave:       "e3f1be89db13adc068d2a0bfcb5f06e6220074e79c3af021a75d5e8b0cb3a1c8"
-    sha256 cellar: :any,                 high_sierra:  "715609e32eedc2d2135ab5f24799de649ab89d19dd765c697cc59b4ac11b3825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8ef91c6dfa7c2bcdd171d359c7e1c686b769a0aedc011870bf6aa67d9329859e"
+    rebuild 1
+    sha256 cellar: :any,                 big_sur:      "9a0e78a7bacb2ae0dbd0ab743603ec495a9585b3e1392edd6a03475d0c4d9361"
+    sha256 cellar: :any,                 catalina:     "ce2d6976563d4d7e319b756d0b36516916ac72a22c6988da68b8a689fe928095"
+    sha256 cellar: :any,                 mojave:       "af34cdde7dd9445a38c4c18dd5856004b47da54cfec9cb46ddd469b22d020893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "85c9f5a649ba3cbc1ca9c45231dd3083d7b4c3a9a644441c899b2e3c19ead59d" # linuxbrew-core
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -26,10 +27,8 @@ class LlvmAT9 < Formula
   depends_on "libffi"
   depends_on "swig"
 
-  unless OS.mac?
-    if Formula["glibc"].any_version_installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
-      depends_on "glibc"
-    end
+  on_linux do
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
     depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
@@ -42,6 +41,13 @@ class LlvmAT9 < Formula
   resource "clang" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz"
     sha256 "5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253"
+
+    # Fix for Big Sur+ SDK. Backported from
+    # https://github.com/llvm/llvm-project/commit/a3a24316087d0e1b4db0b8fee19cdee8b7968032
+    patch :p3 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1f6960faf59a8d3d83ba8c32d0ec389febfee792/llvm%409/llvm%409.patch"
+      sha256 "02fb21c26f468b0dab25c93b2802539133e06b0bcf19802a7ecdc227c454c4db"
+    end
   end
 
   resource "clang-extra-tools" do
@@ -99,7 +105,7 @@ class LlvmAT9 < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx")
-    (buildpath/"projects/libcxxabi").install resource("libcxxabi") unless OS.mac?
+    on_linux { (buildpath/"projects/libcxxabi").install resource("libcxxabi") }
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/lldb").install resource("lldb")
@@ -116,7 +122,6 @@ class LlvmAT9 < Formula
     args = %W[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
-      -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
@@ -133,10 +138,19 @@ class LlvmAT9 < Formula
       -DLLDB_DISABLE_PYTHON=1
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
-    if OS.mac?
+
+    on_macos do
+      args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
-    else
+      args << "-DDARWIN_osx_ARCHS=x86_64;x86_64h"
+
+      sdk = MacOS.sdk_path_if_needed
+      args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+    end
+
+    on_linux do
+      args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
@@ -164,11 +178,6 @@ class LlvmAT9 < Formula
     end
 
     mkdir "build" do
-      if MacOS.version >= :mojave
-        sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
-        args << "-DDEFAULT_SYSROOT=#{sdk_path}"
-      end
-
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
@@ -183,17 +192,9 @@ class LlvmAT9 < Formula
 
     # install llvm python bindings
     xz = "2.7"
-    xz = "3.8" unless OS.mac?
+    on_linux { xz = "3.8" }
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
-
-    unless OS.mac?
-      # Strip executables/libraries/object files to reduce their size
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
 
     # install emacs modes
     elisp.install Dir["utils/emacs/*.el"] + %w[
@@ -234,7 +235,7 @@ class LlvmAT9 < Formula
       "-nobuiltininc",
       "-I#{lib}/clang/#{clean_version}/include",
     ]
-    args << "-Wl,-rpath=#{lib}" unless OS.mac?
+    on_linux { args << "-Wl,-rpath=#{lib}" }
 
     system "#{bin}/clang", *args, "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
@@ -269,7 +270,7 @@ class LlvmAT9 < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
+    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp

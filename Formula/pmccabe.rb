@@ -14,7 +14,7 @@ class Pmccabe < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "220285c0f0ae07835785574504d1d7730fb2abc06ddacfb76e1fe73f999d2cc1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d6189f6ae7341da933653c687adec0bb8952b14ed8a2883b19aec4db90b65eea"
     sha256 cellar: :any_skip_relocation, yosemite:      "cb369d2f04ce0fccdb22b2640f1f6e37fc056b6edda79767474040cb52f76936"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ca8ca868e22ba122e2c5cbc51a9cb753d27eb01fea55633990d5cf6d26470ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ca8ca868e22ba122e2c5cbc51a9cb753d27eb01fea55633990d5cf6d26470ed" # linuxbrew-core
   end
 
   def install

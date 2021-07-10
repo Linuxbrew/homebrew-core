@@ -20,7 +20,7 @@ class Libart < Formula
     sha256 cellar: :any, sierra:        "e9e14623ba0284a89dd09c7be72393619582c5d0489891cd1f654b6c26b0fabc"
     sha256 cellar: :any, el_capitan:    "18fb7a842650151fef102efadefa52aa12dc3f597ace95b8e25efe6518a65d2e"
     sha256 cellar: :any, yosemite:      "006a9bf5e40ea99cdb4a10b7a2a2ac6a249f511254be1954a937dac0e50a6f0d"
-    sha256 cellar: :any, x86_64_linux:  "9cb8b40710f91708ee63c5efe4465b126eaa44bd6b12208d0889a13e9d08d639"
+    sha256 cellar: :any, x86_64_linux:  "9cb8b40710f91708ee63c5efe4465b126eaa44bd6b12208d0889a13e9d08d639" # linuxbrew-core
   end
 
   def install

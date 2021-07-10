@@ -15,7 +15,7 @@ class Nzbget < Formula
     sha256                               big_sur:      "58bdb9f03b4fd13f12a8ae0eaad6c4a020843ee63458b7309350d84dd1507679"
     sha256                               catalina:     "9a83ad81e63662db998f945f0a3531615332eed2d8b26bf035559aca133d52b6"
     sha256                               mojave:       "6a63b3f3645d5f03333db43d5e216a8bcc2a8d97935ae79423a892af1f452855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ac0c722b543c7fa635971289bf61cc2bf8d38ed76253ed72ab3d563dcc9a0591"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ac0c722b543c7fa635971289bf61cc2bf8d38ed76253ed72ab3d563dcc9a0591" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

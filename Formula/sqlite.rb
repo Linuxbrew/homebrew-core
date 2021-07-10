@@ -19,7 +19,7 @@ class Sqlite < Formula
     sha256 cellar: :any,                 big_sur:       "2c9c5f05c16c1fa972fc49c4b2705d7877b99640b6bb0b3908333e17f63dd71b"
     sha256 cellar: :any,                 catalina:      "3665b75356219a7823309efad0304b40bbccc369576685e8faef280a539e8600"
     sha256 cellar: :any,                 mojave:        "f96b12f3fe9b69283cb786aee0d034370cb2407a076f58f20e19de08745d58c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b8faf56c6f089b2538a86678652af07da8eb0db8000e684e875c1ef12be011e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b8faf56c6f089b2538a86678652af07da8eb0db8000e684e875c1ef12be011e" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

@@ -17,6 +17,7 @@ class Goenv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "05ca9b052b0ff4a3de3acb1d3b7c767ca60bf80cd756c8ecaea51f7f97734fed"
     sha256 cellar: :any_skip_relocation, catalina:      "05ca9b052b0ff4a3de3acb1d3b7c767ca60bf80cd756c8ecaea51f7f97734fed"
     sha256 cellar: :any_skip_relocation, mojave:        "05ca9b052b0ff4a3de3acb1d3b7c767ca60bf80cd756c8ecaea51f7f97734fed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "979222eb942ecefdcb16a2f009e3a78ea58a3197f6c12b4c4c2555dafcc4f41c" # linuxbrew-core
   end
 
   def install

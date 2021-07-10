@@ -11,7 +11,7 @@ class AwsEsProxy < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4ea34f837d16948e94a2e612c9d257e553b37f60c305172ea8e34798347f2dbe"
     sha256 cellar: :any_skip_relocation, mojave:        "cc4f13aa9d1aee4a1667a60e5a5a161ae78289fb9a587d12597c379e5c0a9b05"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a3804611f47815c7ba21ea108cb0e077fbfe59c2f52b85c1f778758babbb5a92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "847bdfd4c851e6e01c2633763f91891c9fce735238be2c9f0ccca55df7dcd4e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "847bdfd4c851e6e01c2633763f91891c9fce735238be2c9f0ccca55df7dcd4e8" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -9,7 +9,7 @@ class Openfast < Formula
     sha256 cellar: :any,                 big_sur:      "b577b71497f13a85ffe284abcf2b7177a1af238e76d11b111bdd0b597f97feda"
     sha256 cellar: :any,                 catalina:     "58f36f20e6f92384c04a7c670d35f7021af09fcf62cbc59dde7854f28c8fddbd"
     sha256 cellar: :any,                 mojave:       "ccf3899fac01fc1ad9fae9d697297bea3bd4f29e30334e181615c8194f28d585"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e9891ae1a78f39103faabf8ebdd2370579b31e6649bbb4ac2f63f6818ba664b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e9891ae1a78f39103faabf8ebdd2370579b31e6649bbb4ac2f63f6818ba664b0" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

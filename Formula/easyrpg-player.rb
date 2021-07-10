@@ -15,7 +15,7 @@ class EasyrpgPlayer < Formula
     sha256 cellar: :any,                 catalina:      "e6b485bfe87e67da97b5bc34c828889286bbac4602db5e04efae54392c60a99b"
     sha256 cellar: :any,                 mojave:        "454cf0e4e8ad0721c52346d26d29b974e568fb0c3b9c12e60d1bc8f88ddc7bc1"
     sha256 cellar: :any,                 high_sierra:   "23f7a5cbe93058e968781d35b1a94df1e23ff84942b1afb5ada3e33dfd5b9ca6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a565a89586a0b270cfb5916526769115943485576f69adfe912f30d942921dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a565a89586a0b270cfb5916526769115943485576f69adfe912f30d942921dd" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

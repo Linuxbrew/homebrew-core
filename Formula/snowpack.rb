@@ -3,15 +3,16 @@ require "language/node"
 class Snowpack < Formula
   desc "Frontend build tool designed for the modern web"
   homepage "https://www.snowpack.dev"
-  url "https://registry.npmjs.org/snowpack/-/snowpack-3.7.1.tgz"
-  sha256 "ac13f33efd2ae9b6210d4b41d2b045c7c6c97d4b391391271b3ed874e449cf95"
+  url "https://registry.npmjs.org/snowpack/-/snowpack-3.8.0.tgz"
+  sha256 "d6bcf8945c22ac8c5894c81e7f2498f8ca94fcfac7f4b823295aa11b6e500d39"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03d60a0a0d5dae9d7e25dcd270c690fb5e04902fed737be98bd5f641ff6109ac"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ce26a723ed84402cbd33abea60218efe7de947f5d609c98a63ebbf441f8641be"
-    sha256 cellar: :any_skip_relocation, catalina:      "ce26a723ed84402cbd33abea60218efe7de947f5d609c98a63ebbf441f8641be"
-    sha256 cellar: :any_skip_relocation, mojave:        "ce26a723ed84402cbd33abea60218efe7de947f5d609c98a63ebbf441f8641be"
+    sha256                               arm64_big_sur: "0bd5deb8654c73ca1c5a8a2f1a81a31d695c4194a4978ef6268500d3b9230039"
+    sha256                               big_sur:       "8b402108bf4fd23aa5af95c109a3948bb8f59edd5294617fcca8010ccefb31d2"
+    sha256                               catalina:      "429f76f8b69fea46562aa2f3d5a901416516f0d2db6f2c431f2473f3bc0e6ee0"
+    sha256                               mojave:        "c281ae5b29f9a6b48dee884c2fb46e17c68dda31d914ef1ea6a0c1c19befb2db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6b5c9d01b1aae29f5b988d3f6af76952b8418573f0cb3ae7065101a0e3329d4" # linuxbrew-core
   end
 
   depends_on "node"

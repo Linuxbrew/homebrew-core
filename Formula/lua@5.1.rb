@@ -16,7 +16,7 @@ class LuaAT51 < Formula
     sha256 cellar: :any,                 high_sierra:   "d374b94b3e4b9af93cb5c04086f4a9836c06953b4b1941c68a92986ba57356b1"
     sha256 cellar: :any,                 sierra:        "67ce3661b56fe8dd0daf6f94b7da31a9516b00ae85d9bbe9eabd7ed2e1dbb324"
     sha256 cellar: :any,                 el_capitan:    "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8893699f985435a1a04289c5b760446bac7d9008f5e7c6dd890f030ffbd53ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8893699f985435a1a04289c5b760446bac7d9008f5e7c6dd890f030ffbd53ab" # linuxbrew-core
   end
 
   deprecate! date: "2012-02-17", because: :unsupported

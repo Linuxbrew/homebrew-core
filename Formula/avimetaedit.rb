@@ -12,7 +12,7 @@ class Avimetaedit < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "323673de85bd3c8f272d5f8d0b32d34304faaa02f88c2ce44f08c697266e889e"
     sha256 cellar: :any_skip_relocation, sierra:        "75d65e8ef1ecf31ebb016aa7e1a940bdaac33042af895729a230b6ee4beab3f0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "41873fc416d070f417f1387e50515ffa099018c2f8ef27a2b8ce8b8a94b5c43f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf2378bdb33b344b09b14ca9bc41cc0463dbf3e6058339d12ce78c9b9420f3e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf2378bdb33b344b09b14ca9bc41cc0463dbf3e6058339d12ce78c9b9420f3e8" # linuxbrew-core
   end
 
   def install

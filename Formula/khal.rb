@@ -13,7 +13,7 @@ class Khal < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3e90a57da163a0233afe9086d19b20992065b2166905b43971fdd9beda727846"
     sha256 cellar: :any_skip_relocation, catalina:      "91685e0cb8aee14a698634d66032ca208493c4da59a0871e1275f3edea293048"
     sha256 cellar: :any_skip_relocation, mojave:        "5eb78b53541dbc953a60345ff433ee5e4a5f1f0c16699cafbf71d5a49f28b509"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bf1ff1fa1071153002515468ce56bf3bf2665cf82109ac31b5a31252b35a40f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bf1ff1fa1071153002515468ce56bf3bf2665cf82109ac31b5a31252b35a40f" # linuxbrew-core
   end
 
   depends_on "python@3.9"

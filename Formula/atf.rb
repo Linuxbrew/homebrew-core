@@ -14,7 +14,7 @@ class Atf < Formula
     sha256 sierra:        "a58333135e72fa1817c0411f3801615780c4346347d73d25ddec6eca6b213c41"
     sha256 el_capitan:    "74493d4b4868628a7a84338eb28ecfce8afdd896962f3ba632b1e785def48737"
     sha256 yosemite:      "e4caa0498d0caf2e99e0eea9ae9269240e4f4a49a41f712cf6a730fab8d72672"
-    sha256 x86_64_linux:  "425b01c2d934a3dc46586d83a0e58ef07c6dc185733e7678c5be4844b82b9147"
+    sha256 x86_64_linux:  "425b01c2d934a3dc46586d83a0e58ef07c6dc185733e7678c5be4844b82b9147" # linuxbrew-core
   end
 
   def install

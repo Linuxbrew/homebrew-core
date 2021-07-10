@@ -16,7 +16,7 @@ class Libtiff < Formula
     sha256 cellar: :any,                 big_sur:       "09f08e1168780c12c8f1526038eb4f4692624c85a9e78099b8ae2c58e39f5289"
     sha256 cellar: :any,                 catalina:      "e413c1170e33242eb941683d14ae51de594a013b8c6e5151f53b3352358b26fe"
     sha256 cellar: :any,                 mojave:        "06248bbf04ff5180541a90d60bae68246b5f1665d42909be471fdc9a6781a718"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e213d552390bfd246a1a937dd550f5326cfc379d36654343cbd86cc5b7ac79e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e213d552390bfd246a1a937dd550f5326cfc379d36654343cbd86cc5b7ac79e7" # linuxbrew-core
   end
 
   depends_on "jpeg"

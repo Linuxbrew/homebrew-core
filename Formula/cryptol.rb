@@ -10,7 +10,7 @@ class Cryptol < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
     sha256 cellar: :any_skip_relocation, catalina:     "be3298c8389c666439fc38f898e4cd16ea06fc3513977dc65a3cca684a28cde0"
     sha256 cellar: :any_skip_relocation, mojave:       "105d72cd5224912dfa83599dbf41393878bc3bd71ce9ab5d8056f490bd18e3fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "55e86348af8da6e3bc8ba6c6e037e8662bbd23623bf93a776335e065f5a5a358"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "55e86348af8da6e3bc8ba6c6e037e8662bbd23623bf93a776335e065f5a5a358" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

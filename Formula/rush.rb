@@ -13,7 +13,7 @@ class Rush < Formula
     sha256 mojave:        "5cdc9e464c7086e99e26063787dfefafd4805d90b0ea5aa40044b81f23d10db1"
     sha256 high_sierra:   "a76250fc5b34898050b9e18abd00dffbefd2c37dcd021b37d30bef75574abe49"
     sha256 sierra:        "55acb177bf3b6c2d041341b9a625ac10c6aba1237974febd66e40f1a7ec23319"
-    sha256 x86_64_linux:  "464e15df614617ebb7f00c043af7757d0bfcb87c53798a4eb0aae0385b114dbb"
+    sha256 x86_64_linux:  "464e15df614617ebb7f00c043af7757d0bfcb87c53798a4eb0aae0385b114dbb" # linuxbrew-core
   end
 
   def install

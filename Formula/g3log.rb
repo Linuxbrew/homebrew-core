@@ -10,7 +10,7 @@ class G3log < Formula
     sha256 cellar: :any, big_sur:       "5e24eda970bf16a1d737e0112ef7e86651c6cdd29b14b6dd4beec2faf9f9d292"
     sha256 cellar: :any, catalina:      "3325a5a22c63c02f6c3a7d9b35f533e579f369ff2871f7152d0ca4994bb049d3"
     sha256 cellar: :any, mojave:        "f44e98ef652573827da51288539acb1122af634b79f61f8ec2687b7b5184e971"
-    sha256 cellar: :any, x86_64_linux:  "8e4d14d45bdb2959b7ddd2f7568228d828adab7719a4db5fe74490bdec44070e"
+    sha256 cellar: :any, x86_64_linux:  "8e4d14d45bdb2959b7ddd2f7568228d828adab7719a4db5fe74490bdec44070e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

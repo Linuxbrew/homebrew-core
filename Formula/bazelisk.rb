@@ -12,7 +12,7 @@ class Bazelisk < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "35e01853fe87cbf9b034b3e04b3f84a8e0634625f76a9ee01c022ff46e4a395d"
     sha256 cellar: :any_skip_relocation, catalina:      "3ebb8cdd8eaf5a8977ad328340b1ee408f67729cf91cb6dc856bcd4801850b75"
     sha256 cellar: :any_skip_relocation, mojave:        "cd3141d86b7b78d9404664e2fd00174a800c14db2e98ff9bad8b9f85bd543593"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89b4e240475ad32f1efe8c728218e261fbcebaa13cf5cfbc0be6d00cb79c3d82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89b4e240475ad32f1efe8c728218e261fbcebaa13cf5cfbc0be6d00cb79c3d82" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -16,7 +16,7 @@ class Tmux < Formula
     sha256 cellar: :any,                 big_sur:       "db717e09b9e53769b9bc6f277d25f20c8ec159eb90093a45c0ceefb54105509a"
     sha256 cellar: :any,                 catalina:      "9aa7eba75f4f56f099182ecd7d41cad0117ce1a11f9fcbd8319a22015c317898"
     sha256 cellar: :any,                 mojave:        "fa64cb30acc5300390f65f29ed95b4a816f1431b3dbd94051ee695243cf5c63e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c516a5986729c70f0a7ca385a41267b73e88694b8d705a3ec7272562c4958d60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c516a5986729c70f0a7ca385a41267b73e88694b8d705a3ec7272562c4958d60" # linuxbrew-core
   end
 
   head do

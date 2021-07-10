@@ -12,7 +12,7 @@ class Hy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b3a8611e5647203bc52944ae8c3a7fb1c105e1dda9d65a6641fef45edfc1f48c"
     sha256 cellar: :any_skip_relocation, catalina:      "b8f9062329e87549cc63f63712e0a5790d9722905fd15765d82f997296f49c58"
     sha256 cellar: :any_skip_relocation, mojave:        "30734f23d8c216671a4eb3b8595288354e8f00f31da0da76f9022595c3daf496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db18a814f718e237d633fa346145d9ba6ecd454fc0fd999885c92d3c60e61028"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db18a814f718e237d633fa346145d9ba6ecd454fc0fd999885c92d3c60e61028" # linuxbrew-core
   end
 
   depends_on "python@3.9"

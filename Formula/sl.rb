@@ -15,7 +15,7 @@ class Sl < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "afd30cb3a99d238a8ac52810834244d5f47fc2ff597db9ad61012bd2014395b9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f186cb86f4d48929aa671434dbd6be0a861069608098a30dc952697bcca85972"
     sha256 cellar: :any_skip_relocation, yosemite:      "696104243a18e08279d461e66e6a696791e6c36b67df43e361ad6f6de1200440"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4496112f89e9706de41635e99f28775a8366b0e4daa7a9d46d2ba4f28a3b971c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4496112f89e9706de41635e99f28775a8366b0e4daa7a9d46d2ba4f28a3b971c" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

@@ -11,7 +11,7 @@ class Libirecovery < Formula
     sha256 cellar: :any, catalina:      "a2733550b10ce601236c7e88f8bf689371c42d83e11875459f57a2da8b5bd4e0"
     sha256 cellar: :any, mojave:        "09cc0a8c6798d5b9ce0bd08bebdec68ef774f5e3ab4e41837c342c07f888b7bb"
     sha256 cellar: :any, high_sierra:   "04679d947675817c497d74a4a36714ef89a865425c05bc2b936b9bbb9806fe18"
-    sha256 cellar: :any, x86_64_linux:  "b8f2ed7155ce512630c5c90fee516200edb01ca3463d44c4e9f6edbcd0cc826f"
+    sha256 cellar: :any, x86_64_linux:  "b8f2ed7155ce512630c5c90fee516200edb01ca3463d44c4e9f6edbcd0cc826f" # linuxbrew-core
   end
 
   head do

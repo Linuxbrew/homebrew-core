@@ -18,7 +18,7 @@ class Mhash < Formula
     sha256 cellar: :any, sierra:        "f630165dd7f7a0f8e5b710e0e0af5ebca6ca0edc98cd46a01b617a3e16bff7ea"
     sha256 cellar: :any, el_capitan:    "8817cea2b724d7ea00fd1efb348aa8bdb5d93ca155cb9ccf8eb316f76b42941b"
     sha256 cellar: :any, yosemite:      "fb03873f042a16fd2db5ae2a7eb62e970927b75a9dff92decbb3fd035a2bd41f"
-    sha256 cellar: :any, x86_64_linux:  "901a01a7fbc06bea6d8192520a2eef0a6d9ffb7fe8b62df6f47958fd02f10714"
+    sha256 cellar: :any, x86_64_linux:  "901a01a7fbc06bea6d8192520a2eef0a6d9ffb7fe8b62df6f47958fd02f10714" # linuxbrew-core
   end
 
   def install

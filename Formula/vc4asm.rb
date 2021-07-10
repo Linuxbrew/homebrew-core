@@ -9,7 +9,7 @@ class Vc4asm < Formula
     sha256 cellar: :any,                 big_sur:       "1eefbd03ec375b8021eb783af2fdf5e343c5548201eddbb29e6cf9b6db47e80c"
     sha256 cellar: :any,                 catalina:      "cd4f683e1e968cb0577b7e6d9b054c503719b10f9bd37442feb8481a19d75fd7"
     sha256 cellar: :any,                 mojave:        "5d806a353310bda8308cc207ff165541253d7a7ea39189ce156d066e5d7b4514"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "578f024a124d2ff5084d5385d94e9d0a60b108bb517f69c422336c3dc8b921ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "578f024a124d2ff5084d5385d94e9d0a60b108bb517f69c422336c3dc8b921ac" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

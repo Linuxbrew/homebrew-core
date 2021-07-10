@@ -10,7 +10,7 @@ class Tass64 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "70f966e5974c671aac1c1209c2273325be29b5d56de851416344d0559c8b8c34"
     sha256 cellar: :any_skip_relocation, catalina:      "e59c0c91030879fbc49cd205a1e5e0e5c0026434d1bff86a9742b4d00139824c"
     sha256 cellar: :any_skip_relocation, mojave:        "a5be46e97063271c7bc9ddadc88e4b318193ee0f0556489593c3db9aed5ef03b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b323dd132cc5f117f25c44ea32a11a26064ef66a773311f1c159571050a6a20f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b323dd132cc5f117f25c44ea32a11a26064ef66a773311f1c159571050a6a20f" # linuxbrew-core
   end
 
   def install

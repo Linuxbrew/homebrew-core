@@ -14,7 +14,7 @@ class Avanor < Formula
     sha256 sierra:        "848e96ed26b258042b77a3c2139398b8e6f62722719263c082fb4c6655ffd4bc"
     sha256 el_capitan:    "a66b436a645cafa77a5bd79d22f314ff2b9331526f5efeaf79d38346647cad66"
     sha256 yosemite:      "1c12fd7f45993d18b481d3317594083e4bb88f0eecf100d4b5dd4a927c866200"
-    sha256 x86_64_linux:  "fac0daf5f6f98e48364ce42b619096483a60a03e52c268e5729f9843dcbb87fe"
+    sha256 x86_64_linux:  "fac0daf5f6f98e48364ce42b619096483a60a03e52c268e5729f9843dcbb87fe" # linuxbrew-core
   end
 
   # Upstream fix for clang: https://sourceforge.net/p/avanor/code/133/

@@ -18,7 +18,7 @@ class Sipcalc < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1ccdaec0a816dde9f7caa0f7a77cd984ece78a61a5886032c4c8821915753482"
     sha256 cellar: :any_skip_relocation, el_capitan:    "56aa686252ac703ed3dbe91f5737ec4d4b95d52516f4ab52947df15b77d1c58f"
     sha256 cellar: :any_skip_relocation, yosemite:      "6b2fc300755693d382fd5ea971c272a7c8c7bff49614dd88d8db4270aa496012"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b46fe939cfe356d7558edec86f1e7a2f4988d32a92c40ba8c9b4095294c309a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b46fe939cfe356d7558edec86f1e7a2f4988d32a92c40ba8c9b4095294c309a" # linuxbrew-core
   end
 
   def install

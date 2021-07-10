@@ -7,7 +7,8 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git"
 
   bottle do
-    sha256 x86_64_linux: "bd50f07866cf8875f079d7dab3ee0f176fc154ef42ce3a3879ca0a722eac3e96"
+    rebuild 1
+    sha256 x86_64_linux: "063ae7cfdf081f72c3d6bfbec87e1a95a1e0f90da0e33c6e232b5a8796ab9a4c" # linuxbrew-core
   end
 
   depends_on "coreutils" => :build
@@ -22,6 +23,7 @@ class Systemd < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "rsync" => :build
   depends_on "expat"
   depends_on "libcap"
   depends_on :linux
@@ -29,6 +31,7 @@ class Systemd < Formula
   depends_on "openssl@1.1"
   depends_on "util-linux" # for libmount
   depends_on "xz"
+  depends_on "zstd"
 
   def install
     args = %W[

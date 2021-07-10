@@ -17,7 +17,7 @@ class CheckPostgres < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4d3fab04056d9f73cbbf1687301e43993c696637d86146d4124b74a0222d321f"
     sha256 cellar: :any_skip_relocation, catalina:      "6a52850ba011c00b1daf005009ef0143d02d397cd2b212f69ffcc92f9c93e7a5"
     sha256 cellar: :any_skip_relocation, mojave:        "09f45361f23beae689194d98e4a8d4788e38d8a57f8be94c6fb5bcc5a7dd8950"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85fe8c83f397436555f6447844db79c4d445eb0702a4d190b7d5f6b667bee3fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85fe8c83f397436555f6447844db79c4d445eb0702a4d190b7d5f6b667bee3fe" # linuxbrew-core
   end
 
   depends_on "postgresql"

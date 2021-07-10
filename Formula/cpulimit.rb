@@ -15,7 +15,7 @@ class Cpulimit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9d7320465152a12ba75ce924beada5a3ce365b14becaa75e08ee8334c2cb2f6a"
     sha256 cellar: :any_skip_relocation, yosemite:      "7ff9d929c5a1178b250b756cefcbecc4b202c72f03073e9eb43f4a47420930a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14d6bb8b03bf1a09123c93a7f5dc02a81b90c84d5bd7d7f8c13bd0ceb8449e24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14d6bb8b03bf1a09123c93a7f5dc02a81b90c84d5bd7d7f8c13bd0ceb8449e24" # linuxbrew-core
   end
 
   def install

@@ -10,7 +10,7 @@ class BitGit < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f321a7d78c247054446dfbd07a46de743a36ad591f034e2e81c93b443741288a"
     sha256 cellar: :any_skip_relocation, catalina:      "4e4e377fc26a5574fa6b38f63f2aa1979f0639854ece3a14cbc95fb6a2cc037b"
     sha256 cellar: :any_skip_relocation, mojave:        "d30223745868e73a5e35a00fbc77810fe5b3b1b1055e546dce34e3d6b6c27325"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9242804e17ecbd8e6a42368a26c83fd8d97567ce6adbe5c2471dce9f6969f90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9242804e17ecbd8e6a42368a26c83fd8d97567ce6adbe5c2471dce9f6969f90" # linuxbrew-core
   end
 
   depends_on "go" => :build

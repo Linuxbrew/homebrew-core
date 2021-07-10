@@ -18,7 +18,7 @@ class Tta < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "7a3c44b675bbaf81041c7eeacef622fab8fe3abbc83329a927a1ed0034231b1f"
     sha256 cellar: :any_skip_relocation, el_capitan:   "0543d1561fe44fc6137f90076d247f16e6ac28e72413a7ba3bac08d422bb4e9c"
     sha256 cellar: :any_skip_relocation, yosemite:     "e25b0a3c395c62d2cb130f4817e405a9e09494c92c17fc71bf123d72b6da5f06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "aca2a5f136f9dce50d27b1e7c4bfae6f58f2b8f510a1f46fc940e0fbfa3cdc0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "aca2a5f136f9dce50d27b1e7c4bfae6f58f2b8f510a1f46fc940e0fbfa3cdc0c" # linuxbrew-core
   end
 
   def install

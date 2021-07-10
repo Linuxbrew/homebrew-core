@@ -14,7 +14,7 @@ class Quotatool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "4d04c382c8cf8b0376b34ce12813be06e879fdf6b60711cf90643d08887304fb"
     sha256 cellar: :any_skip_relocation, el_capitan:    "da5c90f85204fa90a38da073765ec5c0f0a20333bcdcd131d79b682afa74233f"
     sha256 cellar: :any_skip_relocation, yosemite:      "8af3549d42247f0b79458c96978f8f5e5fbe04cc1c0dd86f84accdf03e8e510f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83ce70d23b5c84d09b07c26544c977e2f5ceb96efeb2f860c75256948b3c1efe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83ce70d23b5c84d09b07c26544c977e2f5ceb96efeb2f860c75256948b3c1efe" # linuxbrew-core
   end
 
   def install

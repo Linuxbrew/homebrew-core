@@ -11,7 +11,7 @@ class Cimg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "00665e094498209f99bce51093d12ea584e38823b5627aac2407d1a6a0d09038"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "00665e094498209f99bce51093d12ea584e38823b5627aac2407d1a6a0d09038" # linuxbrew-core
   end
 
   def install

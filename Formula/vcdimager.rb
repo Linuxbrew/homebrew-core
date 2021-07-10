@@ -13,7 +13,7 @@ class Vcdimager < Formula
     sha256 cellar: :any, mojave:        "cb45bd1a48e551a60e8b344668a79e24414012ebc76a141ee6c0677ec21ad594"
     sha256 cellar: :any, high_sierra:   "993b40efcd1af1844ed14064de2551cecbdacc3a1c4d39f9fe1d8b289b3b6eb9"
     sha256 cellar: :any, sierra:        "2e8567e154610bb1c3c29a50c6fc9f150ddf84c36d6c94fc35a1f8ab3a495f13"
-    sha256 cellar: :any, x86_64_linux:  "1c4a6a6f2531cf0a8b48b2a6087cfe000861752c2951dee9e60b8efcd25e77e2"
+    sha256 cellar: :any, x86_64_linux:  "1c4a6a6f2531cf0a8b48b2a6087cfe000861752c2951dee9e60b8efcd25e77e2" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

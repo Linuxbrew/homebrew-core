@@ -10,7 +10,7 @@ class Tj < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:  "6e47b0d410b1a9aafc4b31bf6f397e5b6194faf2aea88e0fc0f45a4584adbf37"
     sha256 cellar: :any_skip_relocation, sierra:       "f62d1e6bebec485f947355a7a0a79fd9f3986396ac5f79c96e630693533a5c9d"
     sha256 cellar: :any_skip_relocation, el_capitan:   "679f41ee55f109604f19583683f43406e4af88f86b60534ab4e758d5b2192940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c7486821bd35ae016c533c2b8a49839ede4754bf2405e5f192a431dc8b50fa99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c7486821bd35ae016c533c2b8a49839ede4754bf2405e5f192a431dc8b50fa99" # linuxbrew-core
   end
 
   # https://github.com/sgreben/tj/issues/5

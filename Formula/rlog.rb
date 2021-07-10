@@ -14,7 +14,7 @@ class Rlog < Formula
     sha256 cellar: :any, sierra:        "51f6586bcfa2235a19b311189ca63431c596c689c7b014850e4a0cef2275074e"
     sha256 cellar: :any, el_capitan:    "c95d8998639fd75131f923191eaa857bc3ff8f33ee64ca3b5d459ac1979e6fa2"
     sha256 cellar: :any, yosemite:      "44f3b8ee89802fb13674e3b60e873045a459bf13513b84f3f7b94c8a4444b2eb"
-    sha256 cellar: :any, x86_64_linux:  "5a43623a13c9b426ccb0d03fc1f0eb1317bc86d5e1a6ded67a47b7f33293ab75"
+    sha256 cellar: :any, x86_64_linux:  "5a43623a13c9b426ccb0d03fc1f0eb1317bc86d5e1a6ded67a47b7f33293ab75" # linuxbrew-core
   end
 
   patch :DATA

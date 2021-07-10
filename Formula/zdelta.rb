@@ -12,7 +12,7 @@ class Zdelta < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "49b891fbf6b6f93796cb3080dcbefc1d873000e84d74a4bf2dd851b625e6a698"
     sha256 cellar: :any_skip_relocation, el_capitan:   "3a186612374b9b2aca2e56f5dd68049c0b1ef952e4cb0b07263faf2ea62f136a"
     sha256 cellar: :any_skip_relocation, yosemite:     "2ade2838217be1b9f6bc55be6bf05fa5046ae09a42d17b714b9f2a73f934c993"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bd48342dfec250f6b0705fde8cc8e338d7a293409b28d76f86a827569f937c31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bd48342dfec250f6b0705fde8cc8e338d7a293409b28d76f86a827569f937c31" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

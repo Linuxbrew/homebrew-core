@@ -13,7 +13,7 @@ class MpsYoutube < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "2dd08756b9e62a90560e745bc04c143746d814083d4718e8b54907f7afd13403"
     sha256 cellar: :any_skip_relocation, catalina:     "4e9a341a4d730d6b3ded045d3db8fc3bed53c181c380cb412c8ca87af512cb49"
     sha256 cellar: :any_skip_relocation, mojave:       "7447cf6a16ec67bcfd0c11ede83ff5c2b91f4c8aebb12cd125f3c242473933e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a7d23f3e8cba72c049bd00776dee02891f62864dddded95817fd7df53841065c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a7d23f3e8cba72c049bd00776dee02891f62864dddded95817fd7df53841065c" # linuxbrew-core
   end
 
   depends_on "mplayer"

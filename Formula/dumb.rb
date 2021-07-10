@@ -13,7 +13,7 @@ class Dumb < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "04219fcc6bf6cd174cb5c2ddde4bfdbff266ed665e543c9948911e731d682dc9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d2352df11bee735e963b887609578ec1b3acf0e07748385f472a6add0e1cd2b6"
     sha256 cellar: :any_skip_relocation, yosemite:      "317ac8139d8efb03022bb4f9a76ad61f2358570680563924d13229c52b282dff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d63c3a89ff351dd4c33d5691699b2df26badcf7a95da1a557c7ef052caae078"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d63c3a89ff351dd4c33d5691699b2df26badcf7a95da1a557c7ef052caae078" # linuxbrew-core
   end
 
   def install

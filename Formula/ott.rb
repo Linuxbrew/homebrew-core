@@ -18,7 +18,7 @@ class Ott < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "22f441ac37e494c9b667838b43e87f820dcf2fe090c4794db7eb0cc3cbd514a6"
     sha256 cellar: :any_skip_relocation, mojave:        "7f4274253521ef41f38b674247906a6f9567dce515c80a5150111a1da0dc5caf"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a59bb92116efa3e1b7c13da59a95dd7ad7a2618c6efc4b09d74a59001478bde5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f04fbb34cb6bca85d8b80072276397bbdf383beb49a8954498b2d10e6c052a23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f04fbb34cb6bca85d8b80072276397bbdf383beb49a8954498b2d10e6c052a23" # linuxbrew-core
   end
 
   depends_on "ocaml" => :build

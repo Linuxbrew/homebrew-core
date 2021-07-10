@@ -14,7 +14,7 @@ class Ctail < Formula
     sha256 cellar: :any, sierra:       "829ed2ea1ac94bf32fd1817f714b87301abf2c488cf151675239d5d9bf6f6ef8"
     sha256 cellar: :any, el_capitan:   "80a2ae43fba99e6eb5eb4b50b52ee0e32213d521f59e147a109444439b86365d"
     sha256 cellar: :any, yosemite:     "e23b4f67bc165d9d4549963b41b9ee89a5fa2e18040277750c4800da016a919e"
-    sha256 cellar: :any, x86_64_linux: "397b05cee383b7688f98baebeb5bc2a39aaf0c9e64a5cdea9efbe0e94af1edcb"
+    sha256 cellar: :any, x86_64_linux: "397b05cee383b7688f98baebeb5bc2a39aaf0c9e64a5cdea9efbe0e94af1edcb" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

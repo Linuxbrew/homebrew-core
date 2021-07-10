@@ -17,7 +17,7 @@ class Camlp5 < Formula
     sha256 big_sur:       "a01dea02114f9eb35e8d151ea3b61c34c7fcf5c2db09583cc3480a010211e7b3"
     sha256 catalina:      "14d9affdc0d1aaeef2a2e122523acba47d3b271f7002c66e407e02387f48b1fe"
     sha256 mojave:        "6b753cfd90a18e4d813cfc9ce3d3345547a0424527c15d51304621c9f6689b14"
-    sha256 x86_64_linux:  "468f1a1341113efc399641b3b2c5d0390a9e8294e5f3b9a18c1a6150464aa744"
+    sha256 x86_64_linux:  "468f1a1341113efc399641b3b2c5d0390a9e8294e5f3b9a18c1a6150464aa744" # linuxbrew-core
   end
 
   depends_on "ocaml"

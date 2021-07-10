@@ -9,7 +9,7 @@ class RbenvDefaultGems < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1e1fdba37bf88db84ae56cd101d333b958c3adfab8b0e4515838cf5c3ad6b753"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1e1fdba37bf88db84ae56cd101d333b958c3adfab8b0e4515838cf5c3ad6b753" # linuxbrew-core
   end
 
   depends_on "rbenv"

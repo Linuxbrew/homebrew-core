@@ -11,7 +11,7 @@ class SsllabsScan < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bedc2ae76ea62f469af8ca941f894016b053edd0c598e4845bcbe95e73c344a3"
     sha256 cellar: :any_skip_relocation, catalina:      "01c7e2503e8793f79149a3115dffff286ab0db876ccbfe6d8bb11ed54f27ba38"
     sha256 cellar: :any_skip_relocation, mojave:        "eb44e540aba0e6a209ab3820a168184f39ddd470673093c7a3dc87a0e70eab42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da652c7b483e2fb5184ac0cb10cf07ff60298e400059495afc2d035028628e48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da652c7b483e2fb5184ac0cb10cf07ff60298e400059495afc2d035028628e48" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -16,7 +16,7 @@ class Sersniff < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "077112b0300e14f956fbe45ff650cf973e04c355707a3add63b8efc7fc047737"
     sha256 cellar: :any_skip_relocation, el_capitan:    "abde8af644fecfa883abf597486fd269b379001ae29161fbd21777d0506edc86"
     sha256 cellar: :any_skip_relocation, yosemite:      "c0c00897dd19dc6f8dff05b57e961079c8f783ba9afc345cac9f064dd2ae6630"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9400957079dd90421a957e9f5c0d307017c1da1fd171ec083e6baa542633a54d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9400957079dd90421a957e9f5c0d307017c1da1fd171ec083e6baa542633a54d" # linuxbrew-core
   end
 
   def install

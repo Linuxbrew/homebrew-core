@@ -15,7 +15,7 @@ class Asuka < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "6c71e20910385795758563119bf66206b6507fc83a6ed70f39872e45acc47415"
     sha256 cellar: :any_skip_relocation, mojave:        "8143fc7187b559648f9c7e1f8c53a6f6c9dcee316ba623480abbe1fa6ccef90d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1b483ae24e861978bcc9487794ffb27a79edbbcb0a1821b24b9e62b5ee3c9c0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c03adc67c3707e0e0777ad6d5d302e098e8561e8ce2f4bbb5079407773602288"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c03adc67c3707e0e0777ad6d5d302e098e8561e8ce2f4bbb5079407773602288" # linuxbrew-core
   end
 
   depends_on "rust" => :build

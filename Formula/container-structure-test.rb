@@ -11,7 +11,7 @@ class ContainerStructureTest < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "fe1c78a41314a909b9251ac55e09a109dcfff01315bde3d515dd2344038183df"
     sha256 cellar: :any_skip_relocation, catalina:      "62fe8a2e6ee7931c9755dcede739cc54f27173362e1767c675f2fa244dbebf42"
     sha256 cellar: :any_skip_relocation, mojave:        "11d19adb68076f69c4fc9a27bdfd858cdb9260406e5ec72b15f04b08d795650c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfed29ef2fb06ad405db2acfbba242a9900f2d9309e136429fd7916c19857a05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfed29ef2fb06ad405db2acfbba242a9900f2d9309e136429fd7916c19857a05" # linuxbrew-core
   end
 
   depends_on "go" => :build

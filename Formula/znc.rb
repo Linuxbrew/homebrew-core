@@ -11,7 +11,7 @@ class Znc < Formula
     sha256 big_sur:       "37a5eaf20286fab88bd11f0f6f44ebf5bd2bb787deac43529d01cde28ef94188"
     sha256 catalina:      "dc2145a17c2d550c367c1de12ab1e8c20bfc273cd92fe02da55678892b75a29c"
     sha256 mojave:        "85a43a2796ec9d97fbe224a09501b82ae5495202dfffcc1ce8f9515a399076a5"
-    sha256 x86_64_linux:  "31d08922763099437dfe1f4c7f32df239a2955ae98a799d9dac9b9e751c0e360"
+    sha256 x86_64_linux:  "31d08922763099437dfe1f4c7f32df239a2955ae98a799d9dac9b9e751c0e360" # linuxbrew-core
   end
 
   head do

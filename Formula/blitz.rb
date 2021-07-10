@@ -12,7 +12,7 @@ class Blitz < Formula
     sha256 cellar: :any, catalina:      "2bfa3e5a52f0f51e9e02c84f10f804093b7080c158b3376f330dd51c0f9e3d23"
     sha256 cellar: :any, mojave:        "a06052c039592fe7b41face9c72d715ba0602456a9df07a40a472d3ceba02c00"
     sha256 cellar: :any, high_sierra:   "79901f790ea3583942a72ababfba3dc6569169f228b0428c047da52f1f99c02d"
-    sha256 cellar: :any, x86_64_linux:  "d278a8e077c31a5cf4f75a3fbbc0564ed2a59c814fe81aeb6d94bd13878dd731"
+    sha256 cellar: :any, x86_64_linux:  "d278a8e077c31a5cf4f75a3fbbc0564ed2a59c814fe81aeb6d94bd13878dd731" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -10,7 +10,7 @@ class Slackcat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ffd89b1f8ec05ad9258fbed8b8e1a2f11345414de7d160cbf11250887a4b037b"
     sha256 cellar: :any_skip_relocation, catalina:      "ca236771d46645d91e47f6b907fd2171822f6f7d0ca79e5c086366c73b5e57c7"
     sha256 cellar: :any_skip_relocation, mojave:        "874dfe7ec201371aa7f8b5e011db03cf573c63c893ecb7f851eabd839c144a98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fc50639a616d08ae3d2958d9dfef12c24f97db2da29d917976da745ac3414f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fc50639a616d08ae3d2958d9dfef12c24f97db2da29d917976da745ac3414f7" # linuxbrew-core
   end
 
   depends_on "go" => :build

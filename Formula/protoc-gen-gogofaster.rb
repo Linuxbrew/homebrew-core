@@ -12,7 +12,7 @@ class ProtocGenGogofaster < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6fba8cafcb5492731cf7ef4916cd4dcf60863f51db329b13dd9549a1082f196b"
     sha256 cellar: :any_skip_relocation, catalina:      "6fba8cafcb5492731cf7ef4916cd4dcf60863f51db329b13dd9549a1082f196b"
     sha256 cellar: :any_skip_relocation, mojave:        "6fba8cafcb5492731cf7ef4916cd4dcf60863f51db329b13dd9549a1082f196b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86c6120204262486b4d8fc189b65bf27654e7ca76b3a56c62aa535ff008f1076"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86c6120204262486b4d8fc189b65bf27654e7ca76b3a56c62aa535ff008f1076" # linuxbrew-core
   end
 
   depends_on "go" => :build

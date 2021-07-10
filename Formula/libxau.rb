@@ -11,7 +11,7 @@ class Libxau < Formula
     sha256 cellar: :any, catalina:      "d10771f476b47134c9c3f18a33fb4d4d86c37e2a4d6dbbc87c13b7ffd06c7248"
     sha256 cellar: :any, mojave:        "3a34b529a2092bf1aaffc6603056871c2b0c4b8bd1fe728a14ae6b35e8cf3f77"
     sha256 cellar: :any, high_sierra:   "15522122382cdc3e364167c71835e4885a0241189be938853cc4744f38e82aa0"
-    sha256 cellar: :any, x86_64_linux:  "6be192d4f2b68b34f86d0a1a2e8e5324a2124bca531972464942e56cc4339e8d"
+    sha256 cellar: :any, x86_64_linux:  "6be192d4f2b68b34f86d0a1a2e8e5324a2124bca531972464942e56cc4339e8d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

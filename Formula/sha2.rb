@@ -15,7 +15,7 @@ class Sha2 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b7710c8b0af7a9c0c319b2e417a63d59e7978a6a7be560e172719a8e4a9b56dc"
     sha256 cellar: :any_skip_relocation, catalina:      "dbcf9483f299affb674b45e9a5d6e3dbb13cc5e18d22b7fbdc6a80c22b6e4c9b"
     sha256 cellar: :any_skip_relocation, mojave:        "cc85a50ddee16d85b3e1412ad8ce420bddc4fb70af97152f3328e208030823a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61dcb8167985f042d839b8eba145a0422181c13a95aa561dcf3c2d549fe135b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61dcb8167985f042d839b8eba145a0422181c13a95aa561dcf3c2d549fe135b5" # linuxbrew-core
   end
 
   def install

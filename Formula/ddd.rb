@@ -13,7 +13,7 @@ class Ddd < Formula
     sha256 catalina:     "df163eb838675a73c69913af1e1526a5c20e5cbeafa58836112ce4ae642a705a"
     sha256 mojave:       "ef4ae2c46be3ad1aee12c52ca34d7606c3aa056250792a61c03af4581fe8e568"
     sha256 high_sierra:  "9fc9c568178424aeb25d6721c4faffb99a8bd7ef967ea0ae4e3464b65651d0b8"
-    sha256 x86_64_linux: "9c14e25332e94d143ce96bb5dc6d0d9da94b5b219ae428c737b04542ba3d04d8"
+    sha256 x86_64_linux: "9c14e25332e94d143ce96bb5dc6d0d9da94b5b219ae428c737b04542ba3d04d8" # linuxbrew-core
   end
 
   depends_on "gdb" => :test

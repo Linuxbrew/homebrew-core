@@ -6,7 +6,7 @@ class LttngUst < Formula
   license all_of: ["LGPL-2.1-only", "MIT", "GPL-2.0-only", "BSD-3-Clause", "BSD-2-Clause", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "714e02826081339a18562517fa6280dbfe6ae774f29af3b2faedee1122c116e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "714e02826081339a18562517fa6280dbfe6ae774f29af3b2faedee1122c116e7" # linuxbrew-core
   end
 
   depends_on :linux

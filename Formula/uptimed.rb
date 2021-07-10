@@ -11,7 +11,7 @@ class Uptimed < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1e20c4955ff14a05da57be77e08e163e164e41995411c21aeaa5a5bf3919fb7c"
     sha256 cellar: :any_skip_relocation, mojave:        "d5d96957debd223a243d71dc0d9858d19179c94841f6640822b1db841c0bfd48"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8585595184bf697772b292e123f63c97513e242c7d04194c9e1990d60fcef571"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fd95eb1e6c6ec074d1ddfb7a847e99861c3305619b1342f12e6b6cd7fc18579"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fd95eb1e6c6ec074d1ddfb7a847e99861c3305619b1342f12e6b6cd7fc18579" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

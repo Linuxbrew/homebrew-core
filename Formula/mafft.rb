@@ -16,7 +16,7 @@ class Mafft < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9dc1f412ecf13f900a82a0599c89b59770135d67f60ab4f1341c2c614fdbdb03"
     sha256 cellar: :any_skip_relocation, catalina:      "713146b4b684418a6aefe6001f828cf601b5250068e8f26b036a68ea915585bc"
     sha256 cellar: :any_skip_relocation, mojave:        "bb7e9f17d362f385847dc71fac8d184f8e2f2b46683fcbe41bfb77bfe7cb3a91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29c04482a84df4657e79ea63da9177aa2ea522680cccdea996f268446829afee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29c04482a84df4657e79ea63da9177aa2ea522680cccdea996f268446829afee" # linuxbrew-core
   end
 
   def install

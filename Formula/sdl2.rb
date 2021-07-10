@@ -16,7 +16,7 @@ class Sdl2 < Formula
     sha256 cellar: :any, big_sur:       "ccde7145d4334d9274f9588e6b841bf3749729682e1d25f590bdcf7994dfdd89"
     sha256 cellar: :any, catalina:      "d6ae3300160c5bb495b78a5c5c0fc995f9e797e9cdd4b04ef77d59d45d2d694d"
     sha256 cellar: :any, mojave:        "4f3988fb3af0f370bc1648d6eb1d6573fd37381df0f3b9ee0874a49d6a7dec2e"
-    sha256 cellar: :any, x86_64_linux:  "feb0cb7f4d5338f820892d917e821cfe09ad4ca0b66c5981b9af06411c199f09"
+    sha256 cellar: :any, x86_64_linux:  "feb0cb7f4d5338f820892d917e821cfe09ad4ca0b66c5981b9af06411c199f09" # linuxbrew-core
   end
 
   head do

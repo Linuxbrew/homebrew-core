@@ -13,7 +13,7 @@ class Lasi < Formula
     sha256 cellar: :any, big_sur:       "d4d9a1f05e4acef822930f62b4dd5b5f87f815e01523eb41b91df079af35b69b"
     sha256 cellar: :any, catalina:      "9c9b3d4df3fef9c27ccc60f51583976cfb7093c5ea345c0dced428e0539b7ede"
     sha256 cellar: :any, mojave:        "95eed6a78b95300f4b496bdba60b0542c9b66e5ce96ca7c8fcd081e76eebc675"
-    sha256 cellar: :any, x86_64_linux:  "6645d369079c15d4503955a7a81cc3e70eab4397d7a388f58d0427a7a52bcdd4"
+    sha256 cellar: :any, x86_64_linux:  "6645d369079c15d4503955a7a81cc3e70eab4397d7a388f58d0427a7a52bcdd4" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

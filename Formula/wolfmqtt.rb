@@ -11,7 +11,7 @@ class Wolfmqtt < Formula
     sha256 cellar: :any,                 big_sur:       "70cc3493f685ea09b9bda05688cfcdd9fb8dd7bbfd386ad1c4c6f58b29769dad"
     sha256 cellar: :any,                 catalina:      "495e994e80e47776f4f58c9e87a6b8cc74d0cc91abe4981bf1fca314e0d0ad83"
     sha256 cellar: :any,                 mojave:        "a6a39104cd27c320b7e99a303e191fca638a54aca69cdbd10b9ca9a8e26b8a8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe22ed7f5f5639037dab4f458ac82676ed1285f59722adc58f2dbe7dfda5521"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe22ed7f5f5639037dab4f458ac82676ed1285f59722adc58f2dbe7dfda5521" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

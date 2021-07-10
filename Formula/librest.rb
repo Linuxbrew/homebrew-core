@@ -11,7 +11,7 @@ class Librest < Formula
     sha256                               catalina:      "fb2e698cdf400c3f413a707132acd9b55139e2aa26da2f405f5eaebeace6573b"
     sha256                               mojave:        "dbaf452ac76dbc63e161ffc086aac7f6409614ca573c20fe02bd2e87d473e5b2"
     sha256                               high_sierra:   "5ab2748f8103ff622b6615f6427f21c7f9313b227824bd91429aa6f4c5c9c982"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97e4f6875d65d4650243625e893a8352a53d90deac39205059e5881602836479"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97e4f6875d65d4650243625e893a8352a53d90deac39205059e5881602836479" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

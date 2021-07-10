@@ -14,7 +14,7 @@ class Bit < Formula
     sha256 catalina:      "bc1b85c6100f4c5166eda34de5a92b66d73f45336536ed08921926dbb90ef6d8"
     sha256 mojave:        "c9fe18470becb44f6580e36bd3e9bc52219a1d4f111d271382942304c435cd86"
     sha256 high_sierra:   "2e2f871d7759adb7d2772a8ec319c3762c3e54e58625172f4ad44132cbdf3b2b"
-    sha256 x86_64_linux:  "f8b61647b1d0bbd903b2503d96b1618ba6c8a298dd523dae133d33b7d7c3a093"
+    sha256 x86_64_linux:  "f8b61647b1d0bbd903b2503d96b1618ba6c8a298dd523dae133d33b7d7c3a093" # linuxbrew-core
   end
 
   depends_on "node"

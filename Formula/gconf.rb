@@ -11,7 +11,7 @@ class Gconf < Formula
     sha256 sierra:       "46a60790c5f50f74833167d63e6a4772cd7b3de5672a54dd9a26ff7d82df1cb7"
     sha256 el_capitan:   "e810083f15d5ebb027c92071ea67c5960abf4d0b19c5e7809a71d026a78ae34a"
     sha256 yosemite:     "85f809fb483b3c78b283d3e7b681b133d106d991717d361c0bdd9596a81178ea"
-    sha256 x86_64_linux: "80d45dd84ef10113ee297fcecada53bd07f103bc591f24c45800151f9ff1477d"
+    sha256 x86_64_linux: "80d45dd84ef10113ee297fcecada53bd07f103bc591f24c45800151f9ff1477d" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

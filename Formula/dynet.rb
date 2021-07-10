@@ -11,7 +11,7 @@ class Dynet < Formula
     sha256 cellar: :any, catalina:      "d699aaf34e601dca84a10d735a822954de02b2139757699da77df2632d9ae95c"
     sha256 cellar: :any, mojave:        "edc5ba7539f3c224b091ae08b2f23ae667f6851ebbc10515e410fbe2efb2aec4"
     sha256 cellar: :any, high_sierra:   "a8b5c58b84c07911937f5b2c633e38e884f860ac97fc45881bfa817f6045c467"
-    sha256 cellar: :any, x86_64_linux:  "6b91023247574ff1d134700b35f9be07cdb1350c13ba6fb8932438ede2af313d"
+    sha256 cellar: :any, x86_64_linux:  "6b91023247574ff1d134700b35f9be07cdb1350c13ba6fb8932438ede2af313d" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

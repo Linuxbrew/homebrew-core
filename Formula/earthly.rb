@@ -16,8 +16,10 @@ class Earthly < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "45b1406d85fbc167590873e727dd63624ed17bceadc289bb4c6c7f8e8a669317"
     sha256 cellar: :any_skip_relocation, catalina:      "16c593502fd9a7270edab13a2ed8c9ca44486eb90bc97dceef99ec8c092ddadf"
     sha256 cellar: :any_skip_relocation, mojave:        "a9a09599ccebca0c987ea802cfc861097055ab2662db97c417bfeb83756fdb90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3b8af702a1afbb4ec9e795dc1f7f51421938a57378488764463b279cb26afb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3b8af702a1afbb4ec9e795dc1f7f51421938a57378488764463b279cb26afb3" # linuxbrew-core
   end
+
+  disable! date: "2021-07-15", because: "has an incompatible license"
 
   depends_on "go" => :build
 

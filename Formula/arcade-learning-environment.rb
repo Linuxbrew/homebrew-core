@@ -13,7 +13,7 @@ class ArcadeLearningEnvironment < Formula
     sha256 cellar: :any, catalina:      "86f7ee81ae0de6f7eebd78bf21dbc79b8230689c275ba812b6ef772b9774118f"
     sha256 cellar: :any, mojave:        "eb678eb7cf4205890d5feecfcdf9a06a7afe3f90b5b3159bc5460f2ee2467c0b"
     sha256 cellar: :any, high_sierra:   "13856fba32b0dd67c81787b198d71ba02df7fa3a1e2b6e2d552b141c5f901855"
-    sha256 cellar: :any, x86_64_linux:  "a188a30f86359398546d813916619677bb2441d2f4b31c666f04a59c1efef78c"
+    sha256 cellar: :any, x86_64_linux:  "a188a30f86359398546d813916619677bb2441d2f4b31c666f04a59c1efef78c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

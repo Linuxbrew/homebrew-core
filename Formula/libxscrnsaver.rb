@@ -11,7 +11,7 @@ class Libxscrnsaver < Formula
     sha256 cellar: :any, catalina:      "d90c91c9058ec7f2bcac9b2b9b83a5dd76096acd88d09c93edee9abaa02707a5"
     sha256 cellar: :any, mojave:        "f57eb48a438ab0556e3401ba7b0b049392d11faa2de214ab533e9d444cbf65f2"
     sha256 cellar: :any, high_sierra:   "44c025315c63c131e89f1fbb4949a0bae4b56bc76ea9e2db320c058e245a3e43"
-    sha256 cellar: :any, x86_64_linux:  "e2d880890f7b7a4df804c3ad575247d6a4d4eecfc7314bba90405f49c4b25b3d"
+    sha256 cellar: :any, x86_64_linux:  "e2d880890f7b7a4df804c3ad575247d6a4d4eecfc7314bba90405f49c4b25b3d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -13,7 +13,7 @@ class Sshuttle < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c9e76a2c946a5093591707b85b66c8201b693af597f79534d14d2e6101e20cff"
     sha256 cellar: :any_skip_relocation, catalina:      "b80986476eb84c3cded3910bb7ef5210407cadf6716b277e8d3341c9413be7a8"
     sha256 cellar: :any_skip_relocation, mojave:        "5f3e98db1083312557436f54752aa0eb0d300dadb66a73cecb228b892578617c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb795ad75ee7ac83cb8e12a7638e4272184f582d521f1801744f9aa181dcddbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb795ad75ee7ac83cb8e12a7638e4272184f582d521f1801744f9aa181dcddbd" # linuxbrew-core
   end
 
   depends_on "python@3.9"

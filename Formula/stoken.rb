@@ -11,7 +11,7 @@ class Stoken < Formula
     sha256 cellar: :any, catalina:      "423dbce4e76710fe932fc4d86fa25b39ced8f138d781fcccbc3982ce83136216"
     sha256 cellar: :any, mojave:        "59ee230b63a707bf9c1fd966ec003c14ca16c7e61a331b765e31a1ba4b7db867"
     sha256 cellar: :any, high_sierra:   "6c6b704e5f9830e0192383c53717f64b0af48119d6f0d96d78de521820a6c84b"
-    sha256 cellar: :any, x86_64_linux:  "bb36935bef860c89a3d57ede15d330171e967453c0dfc0722dc34ac882d1fb5e"
+    sha256 cellar: :any, x86_64_linux:  "bb36935bef860c89a3d57ede15d330171e967453c0dfc0722dc34ac882d1fb5e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

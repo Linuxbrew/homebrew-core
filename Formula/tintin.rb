@@ -15,7 +15,7 @@ class Tintin < Formula
     sha256 cellar: :any,                 big_sur:       "75d0d24c05851877e7542fca80f3e254cc8c4502946a6cc09b2cfd9cab6a94ae"
     sha256 cellar: :any,                 catalina:      "9a9660684f30f8263a4d3502af6cc0fd6d78d088404cd4804813cf0fd6b19d13"
     sha256 cellar: :any,                 mojave:        "5f4883e59f5d48c351fb8c0db259dd026a0aa8c456c3ddbec349793c651f6220"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c1d2488d7f324e540c87b58c588a91dc9aca7578cbc4e6e94fa9707740e2bc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c1d2488d7f324e540c87b58c588a91dc9aca7578cbc4e6e94fa9707740e2bc7" # linuxbrew-core
   end
 
   depends_on "gnutls"

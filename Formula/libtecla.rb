@@ -18,7 +18,7 @@ class Libtecla < Formula
     sha256 cellar: :any, sierra:        "21cd696f6e79ae6401dd19f832ac24263f016a62c2d15ec31e25d515bbea5983"
     sha256 cellar: :any, el_capitan:    "3ceb3942ea4ae1434dcc0aea00fa58b6f16787bc1a0067e9497ad4cb050f771a"
     sha256 cellar: :any, yosemite:      "836d6100343197540f079ea7f6b9e5641fd8efc4e331d3492f8be4cd41ced6e9"
-    sha256 cellar: :any, x86_64_linux:  "d51094034ca406b255ddd2a44c9eeb078ace5502b5bb9b9421e8260a0beb1e10" # glibc 2.19
+    sha256 cellar: :any, x86_64_linux:  "d51094034ca406b255ddd2a44c9eeb078ace5502b5bb9b9421e8260a0beb1e10" # linuxbrew-core
   end
 
   # Added automake as a build dependency to update config files for ARM support.

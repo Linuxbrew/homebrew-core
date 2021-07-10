@@ -11,7 +11,7 @@ class Libewf < Formula
     sha256 cellar: :any,                 big_sur:       "01223ea80696527795667054cf517c08160e5beb015ed9d7098639f3786d540c"
     sha256 cellar: :any,                 catalina:      "16f6fe5bc2d8a30f216241ecc70ef23b3122043e4e75992d166fda26dad1463c"
     sha256 cellar: :any,                 mojave:        "5669d19089228d1702a8b6469189d0fff7af625514fcd5a56b08f1f98ff81a33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54caa34a84e142b5da8c6e26b4783990088afa154cc909b70cd5fb379c84274e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54caa34a84e142b5da8c6e26b4783990088afa154cc909b70cd5fb379c84274e" # linuxbrew-core
   end
 
   head do

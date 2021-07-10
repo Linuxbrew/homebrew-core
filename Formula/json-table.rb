@@ -14,7 +14,7 @@ class JsonTable < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2afef9b965070bcde986759dbd03cfd8fe3e77aec5a12158fb4aa189626ab977"
     sha256 cellar: :any_skip_relocation, sierra:        "e5ed8ece1e10ede4417f347703f1e62bb417c65a11f6cac5f10915d44359eb5b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3240813838be9e797fd443e5f51d6bb53fc56a8d958dd361cbc865de003619bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecff6ae31141bf53b9bf2189e38cd23adc69ed679776750aa6a08bdf0a787aeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecff6ae31141bf53b9bf2189e38cd23adc69ed679776750aa6a08bdf0a787aeb" # linuxbrew-core
   end
 
   def install

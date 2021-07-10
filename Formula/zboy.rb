@@ -17,7 +17,7 @@ class Zboy < Formula
     sha256 cellar: :any,                 catalina:      "9e143e9227bc22e48d66f7e9f3239374d4d22edc4d0867ffe50f8f60180d27db"
     sha256 cellar: :any,                 mojave:        "8e8a1a05aef5dbfde8ab113ef4e2da14bcf440a7bdb7a001a4913e60b90c23b0"
     sha256 cellar: :any,                 high_sierra:   "52b7fa6f933809f05ba692036e78233bb0da2947b5cfc8d1a85ab37037f0cac9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f824082c8ea0276ce44f6da146844e0d087f53377b6c88e4327f08e24c620a82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f824082c8ea0276ce44f6da146844e0d087f53377b6c88e4327f08e24c620a82" # linuxbrew-core
   end
 
   depends_on "sdl2"

@@ -17,7 +17,7 @@ class Xmp < Formula
     sha256 cellar: :any, catalina:      "dc4399be2df77f0534bf1151201fd52b61694df7285bd58d9c1fe16522f199f6"
     sha256 cellar: :any, mojave:        "197be59a2a0c3495aeed49eeeedea65b060534f4ff5ad234cdd35f6da19fb9e1"
     sha256 cellar: :any, high_sierra:   "c76b4335844295d6daaaaca97f462828d39a9ce511c859d0ebf66165b12a6354"
-    sha256 cellar: :any, x86_64_linux:  "0a471e113005d4df0e3fec160bacb405e3a9e085be0b63f6e996faf3b2d9bb28"
+    sha256 cellar: :any, x86_64_linux:  "0a471e113005d4df0e3fec160bacb405e3a9e085be0b63f6e996faf3b2d9bb28" # linuxbrew-core
   end
 
   head do

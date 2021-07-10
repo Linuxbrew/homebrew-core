@@ -13,7 +13,7 @@ class SourceToImage < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3fbf3469cf68fa605bbac9b3cb726ffc5c1f485d27dcacd4b9310e24e8d165e4"
     sha256 cellar: :any_skip_relocation, mojave:        "c576266fcc9e09cfae7ea91d9bc6f76b4aad025d087cf11acfe94218cdfe1774"
     sha256 cellar: :any_skip_relocation, high_sierra:   "29fb2fc7a031e904e743264878f9a4010e7c5d6aa0a3091ea0ec1038f312a5ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd150ca96b53f95c588d39afbfca76f758636c06ec92d204bcb5d241f40b4976"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd150ca96b53f95c588d39afbfca76f758636c06ec92d204bcb5d241f40b4976" # linuxbrew-core
   end
 
   depends_on "go" => :build

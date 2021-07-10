@@ -11,7 +11,7 @@ class Samurai < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5e3819fa6eb240e781c236528297422575c6c2ae9aa4e38e6ddc7dbac0e25339"
     sha256 cellar: :any_skip_relocation, catalina:      "35e183246e80cfe5a6f9b11b12cd2e0c3a754da15b8fb7550b5716de9e219e8d"
     sha256 cellar: :any_skip_relocation, mojave:        "ef652224d51e64d4e83f921a3870cd9cb4d7dbc315156cb68dd01d30d2d34414"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234c212119cdbf2c55d25a660bb650f03916ca322109fef920c1b595c000624c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234c212119cdbf2c55d25a660bb650f03916ca322109fef920c1b595c000624c" # linuxbrew-core
   end
 
   def install

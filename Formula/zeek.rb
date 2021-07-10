@@ -2,16 +2,17 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v4.0.2",
-      revision: "b372622610a4d9fb96e94d8108f282a7f6865f86"
+      tag:      "v4.0.3",
+      revision: "0ef59aa853dd0497316091a5a65a698b7ea6e4d1"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git"
 
   bottle do
-    sha256 arm64_big_sur: "ba5ee9e2acf7dc41da3addadbdf3c2fdb201d012b2d45cb6d414cdf5bb78c962"
-    sha256 big_sur:       "3caa4e22a0983ce76fef62b2e0d2665691fd71a724192031eb0fc6c8c8c88555"
-    sha256 catalina:      "648345b2bb189c2609e8610e8f0a0eaea034cfdf88d078d228cb3d1934ac1c64"
-    sha256 mojave:        "2be006af7ccb9f98dfaf05915a93443e4f7f1f73baa0a26d85d29c70188bf131"
+    sha256 arm64_big_sur: "d1dca303e52b624d30980091076c1d5e3c1a47a773a54a7213ac30051bafe644"
+    sha256 big_sur:       "726838d541a6496b8beec4f46ca743dad39bc34e76f3cd3267761a95edb5a43f"
+    sha256 catalina:      "cfac892b4e156c6bb48cb15b08183c955b80246529a5d4a4d000d7c97c8ddbbe"
+    sha256 mojave:        "9a1087cfc39f8c0d52c44d03ff16587ea72b9bacdb0233a5dfd47c6622916e62"
   end
 
   depends_on "bison" => :build

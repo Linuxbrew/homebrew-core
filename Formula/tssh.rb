@@ -10,7 +10,7 @@ class Tssh < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b416cc7c675e0d5a21c7e6812f6e39f9111ce2460f614ae0a4c567345b4ca0f4"
     sha256 cellar: :any_skip_relocation, catalina:      "f3db9a92163c71c92495c7a75c7a51c13cf4a3024d151885b410aa21d3a4f4ea"
     sha256 cellar: :any_skip_relocation, mojave:        "3be96045a90dd61710b14ad968ac3734ae892223a57e24cc5cb4c9aa3f63a3ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6556ad49d8bcab9d050a383418a5faaba786cd078c50d2e5c83328cd9012d428"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6556ad49d8bcab9d050a383418a5faaba786cd078c50d2e5c83328cd9012d428" # linuxbrew-core
   end
 
   depends_on "go" => :build

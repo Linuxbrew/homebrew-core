@@ -10,7 +10,7 @@ class Libxmp < Formula
     sha256 cellar: :any,                 big_sur:       "73e8a533ff1ea91a3b09adb60218a80b858ab627207f5193c053d030ccfd2ad0"
     sha256 cellar: :any,                 catalina:      "60ad2fdda77476d1e2a902020ca9559e48a31f145de0d5fff0b382d3f1c07645"
     sha256 cellar: :any,                 mojave:        "ac65679e55ab676a6f2b2a13d846c7929d7d111f9b252554753f31150bbc486e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90e4bd5ba020b26fa678be9791c012baf18305d87b208808502d9e3ced7ed064"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90e4bd5ba020b26fa678be9791c012baf18305d87b208808502d9e3ced7ed064" # linuxbrew-core
   end
 
   head do

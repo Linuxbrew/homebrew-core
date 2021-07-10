@@ -13,7 +13,7 @@ class Digitemp < Formula
     sha256 cellar: :any, mojave:        "54fbf374d90a378d49b86174f4c00e0a56a1cee599d040a740469d7ad7b3a991"
     sha256 cellar: :any, high_sierra:   "a91be4056f24f4bef0c19c8a3693d48e0f7d391494e7db1be416ab1eb833daa2"
     sha256 cellar: :any, sierra:        "dab9de93acb1edb05e3607075b36ce233e567dd9a1918aacf3b19f3826aa30ef"
-    sha256 cellar: :any, x86_64_linux:  "b595d6bc1bac893fb36797b950580b6b726aa8195fe705694bb6013518622480"
+    sha256 cellar: :any, x86_64_linux:  "b595d6bc1bac893fb36797b950580b6b726aa8195fe705694bb6013518622480" # linuxbrew-core
   end
 
   depends_on "libusb-compat"

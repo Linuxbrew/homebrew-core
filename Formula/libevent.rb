@@ -16,7 +16,7 @@ class Libevent < Formula
     sha256 cellar: :any, catalina:      "b5f5e7607d76b9b41ecac6df72ab5797079a9367055bb305514917595e63a323"
     sha256 cellar: :any, mojave:        "c52ad284f2bbdd512cd0ddd9fe19dd1b7092f7b967f593a7784098f5a1cdd254"
     sha256 cellar: :any, high_sierra:   "bad1dc570cc96e2ed5654159d3dd382d94fbbda00ca26e6f5a5ddd7ce6cb6ed9"
-    sha256 cellar: :any, x86_64_linux:  "86b07d728dc74f5d3873cab631f237ae9bb8212b7807e954b08297f63f219581"
+    sha256 cellar: :any, x86_64_linux:  "86b07d728dc74f5d3873cab631f237ae9bb8212b7807e954b08297f63f219581" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

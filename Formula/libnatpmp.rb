@@ -17,7 +17,7 @@ class Libnatpmp < Formula
     sha256 cellar: :any, high_sierra:   "04c286ebb17bf08728749e390dd9ccabf3fcc4b660ffe4b6f315dcf89012f15a"
     sha256 cellar: :any, sierra:        "d1aaa97c827918f7d35d121399cb8f59b4442b94c3283a51b7931f0e008ff934"
     sha256 cellar: :any, el_capitan:    "667fe1a26fdd6e1a36f6e7b263f2f8e3d01f884da9d9edeb182dbb40b08475ab"
-    sha256 cellar: :any, x86_64_linux:  "05e5b8a929142a7b6723be3b86c3be5babb36c4fd136866a4b3df7d03b9a64f3"
+    sha256 cellar: :any, x86_64_linux:  "05e5b8a929142a7b6723be3b86c3be5babb36c4fd136866a4b3df7d03b9a64f3" # linuxbrew-core
   end
 
   def install

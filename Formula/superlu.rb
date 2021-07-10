@@ -12,11 +12,11 @@ class Superlu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f1c2e676ff4ef640635472b8b8f975c1a0b0c753069add54f1a1f3b838ca769"
-    sha256 cellar: :any_skip_relocation, big_sur:       "62393851b2e93277e5420852f6a40ce680fb3d606620984731395024e708a2cc"
-    sha256 cellar: :any_skip_relocation, catalina:      "5cc18b04209b3d65f7b1c44413db97251c3bf2933d3a82e9783e269bb21e3d1b"
-    sha256 cellar: :any_skip_relocation, mojave:        "84070217c8d262573eacc0d5e5b08ac7e19c68574d0cc229863b6f9d0615d404"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b33c0bb2f9593c5b5657e77c346960f062545a0ee320772bd528ba443eddc16f"
+    sha256                               arm64_big_sur: "70e9312167959d574969c9853b78f8c862ecd9e4350d1e37e8bb0529764d7cb7"
+    sha256                               big_sur:       "31635c3e8dc6dbd1401509c09812d28063c1e2de9ba0f6b234bedb88be9488d3"
+    sha256                               catalina:      "9d40cab963df57b12521fe8150b19f37a8b969c8f4c6a0454767fdda0719c298"
+    sha256                               mojave:        "ad6d7e6dab5b4f937fb99468d53d93f1d6eb28b095f95c809d99104d766e38ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b33c0bb2f9593c5b5657e77c346960f062545a0ee320772bd528ba443eddc16f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

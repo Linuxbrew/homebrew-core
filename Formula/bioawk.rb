@@ -12,7 +12,7 @@ class Bioawk < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "023f5cafaa31404e68b8fc6bcfbeee27e63eb5fbcab897d2f406fceda90ec9ff"
     sha256 cellar: :any_skip_relocation, sierra:        "154d44dd9ea56db8170127711e991950d487e379ae12df76332e4b7512f79fe8"
     sha256 cellar: :any_skip_relocation, el_capitan:    "df0810bc087f924cdddcdb73f00faf9772de9475e0e698c7af8a7d036b3a4c91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a07d49e22f1a40df39ff561f21e6c534241c7ff77815a65c48cde505df132960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a07d49e22f1a40df39ff561f21e6c534241c7ff77815a65c48cde505df132960" # linuxbrew-core
   end
 
   uses_from_macos "bison" => :build

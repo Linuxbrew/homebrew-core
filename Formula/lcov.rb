@@ -16,7 +16,7 @@ class Lcov < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1c84487473440a6f7971ecf25f2b8b5022d23a230d16e863825b43944788e3be"
     sha256 cellar: :any_skip_relocation, mojave:        "41ebe534e6bf4166e88d0eb59ac04d28df457a86fb514fc610ca485386bd06b4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9c3a3586283d61ae1f1ce30145b613ebdc50e28a7656cf4b4f4e935408f4c147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c6247d64d2ea9c7974f91f9efaf06dac0fc670812d410d18b10912ba6dd79ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c6247d64d2ea9c7974f91f9efaf06dac0fc670812d410d18b10912ba6dd79ba" # linuxbrew-core
   end
 
   uses_from_macos "perl"

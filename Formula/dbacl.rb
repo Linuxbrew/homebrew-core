@@ -14,7 +14,7 @@ class Dbacl < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c6e6d74e2f2a86325ee895f8ef6893d99e1463d0018ead0d0da46e0dfd95c272"
     sha256 cellar: :any_skip_relocation, el_capitan:    "750c29761c5784ddbd0d46643f2d462d8b22c14822773e2366db01be17a3e310"
     sha256 cellar: :any_skip_relocation, yosemite:      "b3d759bba5d1e478bc3df9e829594f49fb37cdd96e589937ebf4a7da87416855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6377e27a2e528d660a52c39167fbf9ce6c8449ab93324ee75c105f6c723edc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6377e27a2e528d660a52c39167fbf9ce6c8449ab93324ee75c105f6c723edc3" # linuxbrew-core
   end
 
   def install

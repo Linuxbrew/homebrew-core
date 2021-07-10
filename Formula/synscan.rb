@@ -12,7 +12,7 @@ class Synscan < Formula
     sha256 cellar: :any, catalina:      "0e99e8f964f270377bd7dc6c0ecfae64682f3b2831776d7723f200c159623ac6"
     sha256 cellar: :any, mojave:        "aba139d4f46b1248a796f26dccb6399fd6f6eadd94b7777f5218d3a0599f0bad"
     sha256 cellar: :any, high_sierra:   "4364e517dd2b231cd711be4ccebdfe802e1ef6f7cacfaff46e987790c90c21f8"
-    sha256 cellar: :any, x86_64_linux:  "5cb2509711aa818da6301f8af04e2902b3a42ebc7a60951daaae72d98b952456"
+    sha256 cellar: :any, x86_64_linux:  "5cb2509711aa818da6301f8af04e2902b3a42ebc7a60951daaae72d98b952456" # linuxbrew-core
   end
 
   depends_on "libpcap"

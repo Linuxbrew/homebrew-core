@@ -12,7 +12,7 @@ class Libav < Formula
     sha256 cellar: :any,                 big_sur:       "0bd97c8c39f11b5b29d5c271a28eb4ea4a40b4062a4331f8d97f738c9a82fb05"
     sha256 cellar: :any,                 catalina:      "fcfafef0bb5eeee417c1d69d8ddb1fe0d7a8f8fe70edf39b8499a0df841f6905"
     sha256 cellar: :any,                 mojave:        "f71b7acc7dd972d60176b7d6c9bfe247181867d98ff991d771dcff54a6beace5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9084c8190150a220fdffd6da4d93297336f5d9b59cdd6895eeb839af950efd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9084c8190150a220fdffd6da4d93297336f5d9b59cdd6895eeb839af950efd0" # linuxbrew-core
   end
 
   # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html

@@ -11,7 +11,7 @@ class Libxcomposite < Formula
     sha256 cellar: :any, catalina:      "3b8b0780e6c95393d9a6d56739ecc501b183d462009544c45d89293850c2ccf6"
     sha256 cellar: :any, mojave:        "5332e3ec89bac3372540513a9b54b3ba1d5f4bbe0dfe233d8297a4fbc6168d98"
     sha256 cellar: :any, high_sierra:   "4571cc99283062d9f242fcad7bbabb32ea687974723eaa0289639d018393ff61"
-    sha256 cellar: :any, x86_64_linux:  "36325590c3613db2a9d671f1d8cdae14a470e2ad9102e6e2bbb7056a2767e200"
+    sha256 cellar: :any, x86_64_linux:  "36325590c3613db2a9d671f1d8cdae14a470e2ad9102e6e2bbb7056a2767e200" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

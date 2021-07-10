@@ -11,7 +11,7 @@ class Libmatroska < Formula
     sha256 cellar: :any,                 big_sur:       "f1ec19e1e09fcb4b56f08701419e43e0f70f2551ef5584510b26c29cac3b4f34"
     sha256 cellar: :any,                 catalina:      "8c1331e57e66489ba3488e44e70860c645f0c2739d5b34ec82be45fc42985d7a"
     sha256 cellar: :any,                 mojave:        "c3f5c74b93b7b71755e104c8c62d0ac8f10b36ca579210729e654706e83f1e03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c49eecf59d98946a02fbd0df6893dedd123fa2d668f96a589f07323e1e195c53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c49eecf59d98946a02fbd0df6893dedd123fa2d668f96a589f07323e1e195c53" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

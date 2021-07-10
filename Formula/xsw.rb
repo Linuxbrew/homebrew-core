@@ -14,7 +14,7 @@ class Xsw < Formula
     sha256 sierra:        "02e0d7c1f309b1743d11555af5601ddbf462c835e81f6188dd3f46835978a86a"
     sha256 el_capitan:    "b7a6391cf0df4a4d514a33188dc67a8fac551a3f66e82da626c4d4877cfe5274"
     sha256 yosemite:      "8652e603fa053db1bfedeebad3699f6c77158a7133b55b37cea9ac33981aec8f"
-    sha256 x86_64_linux:  "703711c7b386b60ac0dd81f3eae7a01be7ec7abd6351c041bc2a6e830486db3e"
+    sha256 x86_64_linux:  "703711c7b386b60ac0dd81f3eae7a01be7ec7abd6351c041bc2a6e830486db3e" # linuxbrew-core
   end
 
   depends_on "sdl"

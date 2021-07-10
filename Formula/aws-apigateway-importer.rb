@@ -13,7 +13,7 @@ class AwsApigatewayImporter < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "65d77c58ac90e7767f93896c9ec95a478dc1388316bcdafb4c06ed10db089caf"
     sha256 cellar: :any_skip_relocation, el_capitan:   "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861"
     sha256 cellar: :any_skip_relocation, yosemite:     "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c1b5793a470c5027f4be302cb0d3143a41cf0de2edce8ce8bb7b399be125072a" # glibc 2.19
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c1b5793a470c5027f4be302cb0d3143a41cf0de2edce8ce8bb7b399be125072a" # linuxbrew-core
   end
 
   deprecate! date: "2020-11-12", because: :repo_archived

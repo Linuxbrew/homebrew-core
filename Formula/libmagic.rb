@@ -16,7 +16,7 @@ class Libmagic < Formula
     sha256 big_sur:       "e8524f59c4be8ea41ecf784e236f19357ea42b6e6160348f96ba948699d297f8"
     sha256 catalina:      "4d242598d9d51562b4f02edb901902bc62c52c834cb6bea67ad957aeaa594b1c"
     sha256 mojave:        "06639c7f11f68169ea2709f9fc96f4417eb9e21f8f4b0c88a96ccc26528bed9f"
-    sha256 x86_64_linux:  "5b976bc4d70b9145baf7f17e59df5c3eaa7712a23e463d7abfb0c56cfd2298fc"
+    sha256 x86_64_linux:  "5b976bc4d70b9145baf7f17e59df5c3eaa7712a23e463d7abfb0c56cfd2298fc" # linuxbrew-core
   end
 
   uses_from_macos "zlib"

@@ -17,7 +17,7 @@ class Ivykis < Formula
     sha256 cellar: :any, catalina:      "5da36891f20e60db1a94b7eafeaf35605a0a4b18e833721aec01ab68399653a3"
     sha256 cellar: :any, mojave:        "dd4fa86f2988dd4c913fc443131ce519ebf034ff492b4760f323ca663fb1744c"
     sha256 cellar: :any, high_sierra:   "1409aa60298ac27959cf5370b70d158843524e5f5638e28e9607ac7e8783b11e"
-    sha256 cellar: :any, x86_64_linux:  "29416c373dd9f32504a9f4c206026b0184922f5bfbf89d1d3f368ea8cc2cb849"
+    sha256 cellar: :any, x86_64_linux:  "29416c373dd9f32504a9f4c206026b0184922f5bfbf89d1d3f368ea8cc2cb849" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

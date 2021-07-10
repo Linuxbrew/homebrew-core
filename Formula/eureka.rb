@@ -12,7 +12,7 @@ class Eureka < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b8fa76b3d16fb92968402f2057693af133270c72292307461f351b8950b9b329"
     sha256 cellar: :any_skip_relocation, mojave:        "2d31715b3b5aa38ed008b58e83d9ce6c9afdbe58f9f6d4bb3bf9195f3dc139ed"
     sha256 cellar: :any_skip_relocation, high_sierra:   "060f76e2626e9b30184f1cfe0a61f8b4ddf545c8f8a5d59c6a8d1b54f9548c4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ff126111dca00f92352482d6c8a13e4530925449a04107b8aa05cf72d9ebb46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ff126111dca00f92352482d6c8a13e4530925449a04107b8aa05cf72d9ebb46" # linuxbrew-core
   end
 
   depends_on "rust" => :build

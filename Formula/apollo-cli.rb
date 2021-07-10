@@ -12,7 +12,7 @@ class ApolloCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "177b60ba635cb722708dabf6f29cfdff587b33331e82d27450bba242cca10b5c"
     sha256 cellar: :any_skip_relocation, catalina:      "177b60ba635cb722708dabf6f29cfdff587b33331e82d27450bba242cca10b5c"
     sha256 cellar: :any_skip_relocation, mojave:        "177b60ba635cb722708dabf6f29cfdff587b33331e82d27450bba242cca10b5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e6274243e95f38bac8d18e1dc56d266974b0ce3e3d4a71fb04a1d6b52777a08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e6274243e95f38bac8d18e1dc56d266974b0ce3e3d4a71fb04a1d6b52777a08" # linuxbrew-core
   end
 
   depends_on "node"

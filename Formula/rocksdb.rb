@@ -11,7 +11,7 @@ class Rocksdb < Formula
     sha256 cellar: :any,                 big_sur:       "a8ad63c138140f1917b7959158f1a7a5ff0514431180e1c2c4c36251b5db8b46"
     sha256 cellar: :any,                 catalina:      "d317701d793cd9cc5177f4393a8c8066339451d8bb8564b2dc2af20d8c545912"
     sha256 cellar: :any,                 mojave:        "278b0478a10c1a4b266af0122422beeae46c9beeaad8c2dab7d862e2e58bc49f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07691e5f060d163b78cc586626edfc3680e1e31786d7f55697a16aa72b2dc9a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07691e5f060d163b78cc586626edfc3680e1e31786d7f55697a16aa72b2dc9a0" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

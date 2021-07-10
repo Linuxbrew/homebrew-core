@@ -14,7 +14,7 @@ class Pwgen < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "01a0709f74923e7b86d680f03d3ec056d3175cb7e54be176a26d5bfae890fd21"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7dade70b172cb91635afffe8bb1eadb251f9dbd3368ab9e4a37f98a7c0a14b01"
     sha256 cellar: :any_skip_relocation, yosemite:      "1799bdbb42974d10e2ff3a4e382351b1f03f0a3be31c15ff718d8935d1226101"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5a8380949cd7d180139ddbdb3a657649d6107f00de5bedb63be8bbaeb4db5a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5a8380949cd7d180139ddbdb3a657649d6107f00de5bedb63be8bbaeb4db5a9" # linuxbrew-core
   end
 
   def install

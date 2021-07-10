@@ -10,7 +10,7 @@ class Mkclean < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c840bc41e467e5e5da4a58843280ea53238cbc0574a1954904423fccf6a23350"
     sha256 cellar: :any_skip_relocation, catalina:      "233250daa7e3c2b5dea11c5afd8fd2ac6985b054dac3e71ba62f6a7e02f302a8"
     sha256 cellar: :any_skip_relocation, mojave:        "ab570a0a6db26d6dbe08ab347ef3b8f881f77766ce2fbfffdf9a9c3b61a94f46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14550e4245ad0366935da1e530ae167b3302a05f98a90317d264d47e37c26af8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14550e4245ad0366935da1e530ae167b3302a05f98a90317d264d47e37c26af8" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

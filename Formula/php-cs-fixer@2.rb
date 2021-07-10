@@ -6,7 +6,7 @@ class PhpCsFixerAT2 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5f80ed35e0644fa2eafc81ab81b4320187f3257c0819fd43e70e6f7cc2003b3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5f80ed35e0644fa2eafc81ab81b4320187f3257c0819fd43e70e6f7cc2003b3d" # linuxbrew-core
   end
 
   keg_only :versioned_formula

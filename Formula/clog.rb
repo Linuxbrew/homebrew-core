@@ -20,7 +20,7 @@ class Clog < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "97e07b94ea058c766f4d036cc503fc6ec08ca64cddced33d63723e4611534595"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5"
     sha256 cellar: :any_skip_relocation, yosemite:      "a6c42c7d0795252434a3e1fc0307fc40490a4f29a9186408fa3ed7d82ba5f02e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b3caad1b6f75007a0aa346d967c2c975ab3e67d6491acfcaa01518de350a269"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b3caad1b6f75007a0aa346d967c2c975ab3e67d6491acfcaa01518de350a269" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

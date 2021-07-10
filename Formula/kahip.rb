@@ -11,7 +11,7 @@ class Kahip < Formula
     sha256 cellar: :any,                 big_sur:       "b020b5b9e72805576099c1a4cd13c5bf0ac07c7451f22150bb8b1213029ac83f"
     sha256 cellar: :any,                 catalina:      "9d37b651ac2a278ec406cdab07d9c61fbc4ee5fc18b299d9fc640d13ddd3e01e"
     sha256 cellar: :any,                 mojave:        "3426ae40721153a746e297e6fc0ceceb6f07fd6df88f2ebdcca830ccc16e9c73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0258d4bb8fc771b98528c7f45c014985d65b1ffd23e7f3628a2c424985f37b94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0258d4bb8fc771b98528c7f45c014985d65b1ffd23e7f3628a2c424985f37b94" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

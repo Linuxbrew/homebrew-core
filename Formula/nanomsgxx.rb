@@ -8,7 +8,7 @@ class Nanomsgxx < Formula
 
   bottle do
     rebuild 4
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1a6282a899055fc6ca201ec484aadf25319df19fbae4569e31933865510f8eb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1a6282a899055fc6ca201ec484aadf25319df19fbae4569e31933865510f8eb7" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

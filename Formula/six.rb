@@ -11,7 +11,7 @@ class Six < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
     sha256 cellar: :any_skip_relocation, catalina:      "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
     sha256 cellar: :any_skip_relocation, mojave:        "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6068e58ff59ea70f491671ad3257b129ed7d5b90a5c678348c3dfdaa14953cdd" # linuxbrew-core
   end
 
   depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?

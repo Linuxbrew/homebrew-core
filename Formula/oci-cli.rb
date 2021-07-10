@@ -3,17 +3,17 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/5e/69/4ee82111440338829a42a7128925fdac2a808e1c597add0c46b7d5320a58/oci-cli-2.26.0.tar.gz"
-  sha256 "170953ce8332b5b9a17e5d2dfe1be8a2f4297bab8243ae261972c5a7efcea0da"
+  url "https://files.pythonhosted.org/packages/2b/1b/3e9e686b9a9199c22d8e6d78536e7f2ceeb0981fc6b736e61b264ea29714/oci-cli-2.26.1.tar.gz"
+  sha256 "19f140ef679d0dc51287a90df597f94d964feb5a5358819cb1b51d247e920b6b"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "20a70419c1126a509fed70fcb5c9334dfded322897c8c2f0e7c236ca05323642"
-    sha256 cellar: :any,                 big_sur:       "d3de63495e9f08629a38d57818d38db8ca573c46db7de0eab5603285f8ed155c"
-    sha256 cellar: :any,                 catalina:      "c4d1fee044f049b4958c0754d944ae046c0754785a48dcceaa72fa63cc0d36a1"
-    sha256 cellar: :any,                 mojave:        "3c2275c02f0392ec5ae183eafeae7e73fb947d40fd841602f99993e2e137218b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fd5e80f8dcec15f2e75fa8e03a441ffee4cb15ab16c473e2103bf7b1e677b3e"
+    sha256 cellar: :any,                 arm64_big_sur: "544148f367f5288e4fda21a3c10ca5fed4843600bf0c37f973192de5cbc7ca5d"
+    sha256 cellar: :any,                 big_sur:       "fb88ad6a12768992cc06bf2472824260927dab9a590d659959281c22ae82ba75"
+    sha256 cellar: :any,                 catalina:      "ca1be3ec3cf77d8281ce4e8d49dcdfdf2b61cc8362c9b52ad7252dd2137b5c08"
+    sha256 cellar: :any,                 mojave:        "592f03829b05398af75fe9b149a1dfb2d4bb5701f6d2b303ee7f6152756b23f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45dc45132a6f5a756403b51ff759e38cfd208a3fddff53d3a4d2797b942b8ef9" # linuxbrew-core
   end
 
   depends_on "rust" => :build
@@ -55,8 +55,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/fe/87/af30ada8b09d944320911d743e9b0adced5c450438a1f953ebe8489d0dba/oci-2.41.0.tar.gz"
-    sha256 "3ce3fc36c22dff2cbfb330c092361b8194b11cdcbbd94f681b557b18cbbd05e5"
+    url "https://files.pythonhosted.org/packages/72/04/482d555c7bf9ff29f0ff0a341a846c82a96559bc1e5f05894efeabd655e5/oci-2.41.1.tar.gz"
+    sha256 "73c2e5ec2c74af74cd39f056cb23b0e0e304b0cdc08eb4d3eedd975af111ed82"
   end
 
   resource "pycparser" do

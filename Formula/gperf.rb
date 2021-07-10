@@ -15,7 +15,7 @@ class Gperf < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3cbaa18692ac53ce98a754d46e07e89d6dddca4bef3bbb312e762abf5a30093d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "27f661ef9546ff113279654e92c08bb8d8ab837f7dc8b308c1a2beeafdcebc76"
     sha256 cellar: :any_skip_relocation, yosemite:      "263440c302dddec69c2140e8df2e4c00a76b76137243e712e8e8756140e0eaf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "901587d856ef1e6c4d58ce9259eb9a3f85bfa29635b6a3d0fa3c68ad8e8a2b1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "901587d856ef1e6c4d58ce9259eb9a3f85bfa29635b6a3d0fa3c68ad8e8a2b1c" # linuxbrew-core
   end
 
   def install

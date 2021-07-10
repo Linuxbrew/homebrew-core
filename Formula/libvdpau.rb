@@ -15,7 +15,7 @@ class Libvdpau < Formula
     sha256 big_sur:       "37a873028601ad2d18ba85aa20c5a0e1b6ffe9bdbce860d4878498d3acd6746e"
     sha256 catalina:      "bec2b355ee24c1bd5a7c399c073ed99f470ab79adb87bdc4bd739ca70bd7b2db"
     sha256 mojave:        "e9580c9e952c63e6a4d02fa3e80255f0fb10c71d6b8ff4815769cd4fb80b42e2"
-    sha256 x86_64_linux:  "fff5d6b025320433c9bc4038d0c537803d9ee2502e4813d3a79b4a4071ae6c92"
+    sha256 x86_64_linux:  "fff5d6b025320433c9bc4038d0c537803d9ee2502e4813d3a79b4a4071ae6c92" # linuxbrew-core
   end
 
   depends_on "meson" => :build

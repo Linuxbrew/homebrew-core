@@ -15,7 +15,7 @@ class DockerSlim < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b26187e10d9c9648b373065d01e03a5674e65fd177408d42e833cdd2f0c7701a"
     sha256 cellar: :any_skip_relocation, catalina:      "b26187e10d9c9648b373065d01e03a5674e65fd177408d42e833cdd2f0c7701a"
     sha256 cellar: :any_skip_relocation, mojave:        "b26187e10d9c9648b373065d01e03a5674e65fd177408d42e833cdd2f0c7701a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70ce787fa0e398cfd5df85e6258b3ddf0c059ef13baf8d15c9c8764b8f4b2e90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70ce787fa0e398cfd5df85e6258b3ddf0c059ef13baf8d15c9c8764b8f4b2e90" # linuxbrew-core
   end
 
   depends_on "go" => :build

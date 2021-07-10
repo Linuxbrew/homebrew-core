@@ -15,7 +15,7 @@ class Cheapglk < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d76d29db8ea0201fcef949e02cbddb1c06311dece796a263192ffef487a3aa2c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "497a5399738c026d318d3213b764f20fb80ccea94181919fad2e80eb75086055"
     sha256 cellar: :any_skip_relocation, yosemite:      "8351c9dec39fd8e860e50a8e693e1c648def81c3ddcbdd3a856f656d585b0082"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bef666b5ffc26b22b763537ee7dc2b26854f2e329fb950194e4b5fd80151e50f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bef666b5ffc26b22b763537ee7dc2b26854f2e329fb950194e4b5fd80151e50f" # linuxbrew-core
   end
 
   keg_only "it conflicts with other Glk libraries"

@@ -19,7 +19,7 @@ class Tofrodos < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3d5363cda2170ce2fbcb7e03c84f715b62ead1e5646000dd06395f5677fd2269"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4a2b22ff08d0fb65c80be7359be2f04d12b70f4e6d490b96cb819ea69b3e3d88"
     sha256 cellar: :any_skip_relocation, yosemite:      "4a5427c6870c3d4822ef4da3ddd8d79c18b91e5b7f14edb4aa449a53da70114e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1d2241aa8c8eb51383156e8aad1385dd9b34e6900f6c3940bdd4c04b1e3d963"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1d2241aa8c8eb51383156e8aad1385dd9b34e6900f6c3940bdd4c04b1e3d963" # linuxbrew-core
   end
 
   def install

@@ -6,7 +6,7 @@ class Psql2csv < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9c6880c0b5911b3d8bbc35d5076acd31742f1a09238fc8404501dcb5ffb2bc35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9c6880c0b5911b3d8bbc35d5076acd31742f1a09238fc8404501dcb5ffb2bc35" # linuxbrew-core
   end
 
   depends_on "postgresql"

@@ -16,7 +16,7 @@ class NetSnmp < Formula
     sha256 big_sur:       "263ce5cfee921c1a75b0427e19cb15be78d6f65b2f2630d04ea4f5aac087f435"
     sha256 catalina:      "7eaea9810b5847062284f67e1ac83a8f96739a3d9dec0428237717467aeec312"
     sha256 mojave:        "8c57e53e0e45997e91c0071b9e7ee245d8610f935731b1ec6738b141274593eb"
-    sha256 x86_64_linux:  "177521069687eb0366887e0fedb1ebfec14a28d3dd139830cb8eca0664bfdebe"
+    sha256 x86_64_linux:  "177521069687eb0366887e0fedb1ebfec14a28d3dd139830cb8eca0664bfdebe" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

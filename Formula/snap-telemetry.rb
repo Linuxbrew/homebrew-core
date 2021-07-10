@@ -14,7 +14,7 @@ class SnapTelemetry < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "066cf3014caa27b6c3327f983cbe632cb85476c0731ec3fda40e85205c1a5f71"
     sha256 cellar: :any_skip_relocation, sierra:        "1ff53b8b2f1827e2a607d81dd3db246eb1388dfd1aa7110dcf59a8e4ba606d17"
     sha256 cellar: :any_skip_relocation, el_capitan:    "50ce1be7d6e83f309d8fd62bf2b36cb03c29b726d575abfbeef895b3f628fb46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88fc6b67ef8f1a47044ed06ea2744d51193e7fd26fdee82df38c8782ba99ef68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88fc6b67ef8f1a47044ed06ea2744d51193e7fd26fdee82df38c8782ba99ef68" # linuxbrew-core
   end
 
   # https://github.com/intelsdi-x/snap/commit/e3a6c8e39994b3980df0c7b069d5ede810622952

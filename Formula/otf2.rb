@@ -11,7 +11,7 @@ class Otf2 < Formula
     sha256 catalina:      "9bbb9997272253be31bcefb9b398b6d46725ff18bc6d5097c16e59fab6fece0f"
     sha256 mojave:        "befb628ab3134837d2d6f442ac9b12da47d813adb5b13f8839c66993c0b0e6cf"
     sha256 high_sierra:   "5866bf0afb7c3fb48e718d209019f1ac3574c221c862b2e35ea9ea907ed91008"
-    sha256 x86_64_linux:  "5ca23beb2d96d041b86dc1f33467851dd8bf750e823bcc8d2dfee8a989407423"
+    sha256 x86_64_linux:  "5ca23beb2d96d041b86dc1f33467851dd8bf750e823bcc8d2dfee8a989407423" # linuxbrew-core
   end
 
   depends_on "sphinx-doc" => :build

@@ -13,7 +13,7 @@ class Alac < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3c833c71834ea65498c761d4fe444a26e97e107433de526ab55ad1fb0d36a2ba"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4cb85c125553c6c2a49576790c5be5e0b89096569131df3b8576f3499e65ef5a"
     sha256 cellar: :any_skip_relocation, yosemite:      "a3a54a254a147f3a1173870bdd2e9399043b3e506d8c04383f99cf3ce67a4fca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13cb21bc650758a34bd9b9dc2ecfcce95fe20461b4c34b304acd2e9046c46683"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13cb21bc650758a34bd9b9dc2ecfcce95fe20461b4c34b304acd2e9046c46683" # linuxbrew-core
   end
 
   def install

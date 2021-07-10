@@ -17,7 +17,7 @@ class Babl < Formula
     sha256 big_sur:       "f2e800564684938cfca18fc994eebcb3a2373f7362047513ca1a24f16c1937b0"
     sha256 catalina:      "33616239de78a0b3918cbb825913edd26ea49d2dbd0550a79ed7441052acb0a3"
     sha256 mojave:        "54e1710cab528ac2fd32300a1aa9577e1eb71ceae931792c356d2e5e582b2eaa"
-    sha256 x86_64_linux:  "85379477d14b40b5972b729060678e5e91d2c13323c27c7f197434cc0650486d"
+    sha256 x86_64_linux:  "85379477d14b40b5972b729060678e5e91d2c13323c27c7f197434cc0650486d" # linuxbrew-core
   end
 
   depends_on "glib" => :build # for gobject-introspection

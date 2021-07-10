@@ -13,7 +13,7 @@ class Hayai < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "c28fb50fbaed6281dafa6b8ec7b2cafc45fe3255bcc57a6678dbac5da67e4dca"
     sha256 cellar: :any_skip_relocation, sierra:        "d2702e169ba0c8a8b79f3df6f83fc2268b95b0b0d2c2c4d11387ea99011800f4"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0a9089377b36a1f719966add1fcd01780e27e250db062affb818236e9b8161c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "321c19da0e0431910e97953db3e2034bee4241e3c87291187118d7e5d01d11a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "321c19da0e0431910e97953db3e2034bee4241e3c87291187118d7e5d01d11a9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

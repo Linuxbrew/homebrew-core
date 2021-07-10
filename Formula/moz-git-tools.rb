@@ -16,7 +16,7 @@ class MozGitTools < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7a771b0e71a44dafd3fc4eb2210f909d412f9ea541a7ff50a96ce272204cc501"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c5ddb2e842a6fb26ba5feacdee6bac287d94732abd888bd11bc5c80be4f100a4"
     sha256 cellar: :any_skip_relocation, yosemite:      "91f89ec1014d6c7b395571210c0f21b1e701f4bfb90540a94fa3daafd4472d3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062a3aae38de75ddf248d91ac7b402b9fc783867d97aced3a0fa3077debe171f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062a3aae38de75ddf248d91ac7b402b9fc783867d97aced3a0fa3077debe171f" # linuxbrew-core
   end
 
   def install

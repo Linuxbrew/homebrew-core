@@ -12,7 +12,7 @@ class RabbitmqC < Formula
     sha256 cellar: :any,                 big_sur:       "efe8285e7bdfc661fa5cfede54785b44e817b38fa800e64f75dec2755ae69a7a"
     sha256 cellar: :any,                 catalina:      "1ae238a471c056d01372fed68b25dbcfe5a29a88f144b9cf09b859a4f287af98"
     sha256 cellar: :any,                 mojave:        "80ecbc2444e12039a77f178dbd7557bcda2795ea182bc7fd788f16e7f5e48e4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c89afb2c9119870330b87e98490026cd629b7089e370efaf6b532b49e4abb784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c89afb2c9119870330b87e98490026cd629b7089e370efaf6b532b49e4abb784" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

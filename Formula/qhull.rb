@@ -19,7 +19,7 @@ class Qhull < Formula
     sha256 cellar: :any,                 big_sur:       "1c0b6ed4613b8319859b7c0c15b174bb1e89178c79e060ccc400220beb079d46"
     sha256 cellar: :any,                 catalina:      "b48c342482e1e50857c444f8eb39f71c36a522a9f0692bd479b93d2088672d2f"
     sha256 cellar: :any,                 mojave:        "6bec66662d9b4d1942a959505442790cfafd482660a2c8785a45175714fe1ae6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b40fe40b671bd6abb26125e5e68a68374f676a02cb92b192041689ca80c81e1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b40fe40b671bd6abb26125e5e68a68374f676a02cb92b192041689ca80c81e1c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

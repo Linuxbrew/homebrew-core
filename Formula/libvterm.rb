@@ -17,7 +17,7 @@ class Libvterm < Formula
     sha256 cellar: :any, catalina:      "b62a78631bca9a723eb25dd924853ced974718df0847820c7c38f7f0d7fdc43c"
     sha256 cellar: :any, mojave:        "56946cfa43a7bcf3b47086d61541b2a0541d636a362c788401f51b29cf6fa35f"
     sha256 cellar: :any, high_sierra:   "518299bd4bde4aeb3063df624e4c474280ac15a8e65f612059c7d03717b143ac"
-    sha256 cellar: :any, x86_64_linux:  "bb4bf5f7bd0bdb8413edd440c4862b480609e1780f8f5e9f893558c6426b76fd"
+    sha256 cellar: :any, x86_64_linux:  "bb4bf5f7bd0bdb8413edd440c4862b480609e1780f8f5e9f893558c6426b76fd" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

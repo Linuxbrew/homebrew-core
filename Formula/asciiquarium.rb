@@ -20,7 +20,7 @@ class Asciiquarium < Formula
     sha256 cellar: :any,                 big_sur:       "ed80b66a1dad41855acd00b13b9c0d038f5bd3d8aaf59a7875bf5f317d38bb11"
     sha256 cellar: :any,                 catalina:      "cfd54b1753a801f6d6e74bcebd384e9d8b1dd9a51eb5271ff0a76e0d392c41fa"
     sha256 cellar: :any,                 mojave:        "1e50254a2473ef040dafa627205372aad2077fcbd04c8e062fe92344c9936eeb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "042b96e7b18945a5e5085f72aea363d4d21640bf69b46f86179081d78953f9da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "042b96e7b18945a5e5085f72aea363d4d21640bf69b46f86179081d78953f9da" # linuxbrew-core
   end
 
   depends_on "ncurses"

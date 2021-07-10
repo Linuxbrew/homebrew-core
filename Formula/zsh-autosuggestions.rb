@@ -6,7 +6,7 @@ class ZshAutosuggestions < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4537653cbf3540a0785481966b36291255839f1be4012a22409ef97c46a1860b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4537653cbf3540a0785481966b36291255839f1be4012a22409ef97c46a1860b" # linuxbrew-core
   end
 
   uses_from_macos "zsh" => :test

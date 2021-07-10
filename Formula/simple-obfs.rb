@@ -15,7 +15,7 @@ class SimpleObfs < Formula
     sha256 cellar: :any, high_sierra:   "08024887dc9fba3f56425181dd34dba1ecf185dad688b85d20a7b70ec07afbae"
     sha256 cellar: :any, sierra:        "831de4a180d61c801397ead63a0130d8d2eb102afb526ef81bcecb2f9d1d029b"
     sha256 cellar: :any, el_capitan:    "eccfcd8d4016297999d730fd185624b42e903f7dfac43bd6227c337c2b3aafea"
-    sha256 cellar: :any, x86_64_linux:  "1e6100821cd18c5579eb2f55d2ca71d0ee0dda8bf84e062f02387e66036f0c45"
+    sha256 cellar: :any, x86_64_linux:  "1e6100821cd18c5579eb2f55d2ca71d0ee0dda8bf84e062f02387e66036f0c45" # linuxbrew-core
   end
 
   depends_on "asciidoc" => :build

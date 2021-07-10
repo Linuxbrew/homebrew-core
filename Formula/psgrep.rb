@@ -7,7 +7,7 @@ class Psgrep < Formula
   head "https://github.com/jvz/psgrep.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ec88e4f8662da264f6312ba3d454887825f21285f39c926f9f2d80f5b035d02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ec88e4f8662da264f6312ba3d454887825f21285f39c926f9f2d80f5b035d02" # linuxbrew-core
   end
 
   def install

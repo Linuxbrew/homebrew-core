@@ -16,7 +16,7 @@ class Xapian < Formula
     sha256 cellar: :any, big_sur:       "5221d8356199601091b9d08fd9d46f5b6cc735ccbcfbaf0a88f9a740ecc282a2"
     sha256 cellar: :any, catalina:      "29142b83f9c5366b5a102475a92dfb779915764f1143b48a3f3fc881ea4ada07"
     sha256 cellar: :any, mojave:        "c97b7ab978b2afa9341c96cd3f41205dca022663951c4bf5516ab8eabe64d7ed"
-    sha256 cellar: :any, x86_64_linux:  "7eb15b9bdb098561cc417d706e76d01fca78059cb7f11714538b27f4ccbbefa7"
+    sha256 cellar: :any, x86_64_linux:  "7eb15b9bdb098561cc417d706e76d01fca78059cb7f11714538b27f4ccbbefa7" # linuxbrew-core
   end
 
   depends_on "sphinx-doc" => :build

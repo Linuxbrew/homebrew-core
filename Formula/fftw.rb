@@ -16,7 +16,7 @@ class Fftw < Formula
     sha256 cellar: :any,                 big_sur:       "8ee0fe663966dcc2ba924768dc921536873b172b024302f1f06e663237d11a29"
     sha256 cellar: :any,                 catalina:      "e5c826687292998daa2f2e76d13325fde551b54450846c3190efde540a02650e"
     sha256 cellar: :any,                 mojave:        "17af7472492ccf0704b958db622505872d7bca0f2d2f05869d07f1b01557c0ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "525ccc854bdb048261d0fca7b3e0f5bc758e45e6373d7d591fd8f761ddc719be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "525ccc854bdb048261d0fca7b3e0f5bc758e45e6373d7d591fd8f761ddc719be" # linuxbrew-core
   end
 
   depends_on "open-mpi"

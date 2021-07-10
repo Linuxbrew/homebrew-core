@@ -10,7 +10,7 @@ class Upx < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "5fc54db6b0fb2e8ebfa630d48c893e569e49b5c6795646d8912c447f3b0a1747"
     sha256 cellar: :any_skip_relocation, catalina:     "c04d7040eeaa8d2842449b86789ece0f0a73ee0ac1c013c6a00596288251abbc"
     sha256 cellar: :any_skip_relocation, mojave:       "a2253a74b3531dc9173eac2ae2ea816ff7b8af3657aee2180ca1253f49cd9fec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e34d2d57d52fb4cd406d690b891b8549a9309246b114ec8fa6797aa7b7e0a7b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e34d2d57d52fb4cd406d690b891b8549a9309246b114ec8fa6797aa7b7e0a7b2" # linuxbrew-core
   end
 
   depends_on "ucl" => :build

@@ -14,7 +14,7 @@ class Libdv < Formula
     sha256 cellar: :any, sierra:        "9ea1a006d7aa954c5a1d61497f9f7f43e0b1bd5bce911b6d334a693d8af58671"
     sha256 cellar: :any, el_capitan:    "0624e82748111d0a8a050a802ec4251c443127c39c93b3b2469a00816a602040"
     sha256 cellar: :any, yosemite:      "49262f766082fa4c9a509236bdaf5eec8746a8c4b9724fc83521bfc5725660c7"
-    sha256 cellar: :any, x86_64_linux:  "71124d54e0811b7ce6ba63e694ccca0750bcce387f2a4749bf1efd599a8ac7df"
+    sha256 cellar: :any, x86_64_linux:  "71124d54e0811b7ce6ba63e694ccca0750bcce387f2a4749bf1efd599a8ac7df" # linuxbrew-core
   end
 
   depends_on "popt"

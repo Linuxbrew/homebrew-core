@@ -12,7 +12,7 @@ class Exodriver < Formula
     sha256 cellar: :any,                 catalina:      "aa86ed0ef4a6886bf65ba979938202a7bfabf2d844f2ffe14dee2466f3c65e59"
     sha256 cellar: :any,                 mojave:        "9451412a4469cdf44e56eeac4c457a91b3363410859d4d48975ce3223f8b20d2"
     sha256 cellar: :any,                 high_sierra:   "db8ef53e652b1296843207ee4d315b7ce5e7adf35ce5cf07f36d1d3f8dfdd28f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5686297f9c1c8ba86a33c1c050523b885d572e04953d55560fc24e8447fa9af6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5686297f9c1c8ba86a33c1c050523b885d572e04953d55560fc24e8447fa9af6" # linuxbrew-core
   end
 
   depends_on "libusb"

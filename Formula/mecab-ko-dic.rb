@@ -15,7 +15,7 @@ class MecabKoDic < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ab72fcbb7b1e0bc1ec8667a2d183ad5beab66279d27486ef1ae241d4114fddd1"
     sha256 cellar: :any_skip_relocation, catalina:      "02f67f9bd82e7310074c4c47097bcb4244c79211af9736db8fa73861dbbb820d"
     sha256 cellar: :any_skip_relocation, mojave:        "8d9c37045d060855f558ef8706cee66e918e553ff5c8893811e5cf78767893cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dab32f0d4cb92c5f363585a0d0119868a5e4bbb5d4e846ab1cb4b9e9704dbd81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dab32f0d4cb92c5f363585a0d0119868a5e4bbb5d4e846ab1cb4b9e9704dbd81" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

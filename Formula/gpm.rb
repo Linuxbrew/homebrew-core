@@ -15,7 +15,7 @@ class Gpm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "816976b12502697adb886dfbee31bbc2cfcbe2cff1302927f8da6cef4e4b08cf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ba26a6b34e92b4333d636ae3d9e54d726f6bd3bbabdabbfbdd9c3fec569e10fe"
     sha256 cellar: :any_skip_relocation, yosemite:      "0ed200c92c086eebf306065403c6a18db6e55e6d2764904cbd53f442f3043179"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b6a05fae07ddd0d354188079121f2320db1528cd86007e6a57a11f5a083a1ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b6a05fae07ddd0d354188079121f2320db1528cd86007e6a57a11f5a083a1ee" # linuxbrew-core
   end
 
   depends_on "go"

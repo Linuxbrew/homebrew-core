@@ -7,12 +7,17 @@ class PhpAT74 < Formula
   sha256 "cf43384a7806241bc2ff22022619baa4abb9710f12ec1656d0173de992e32a90"
   license "PHP-3.01"
 
+  livecheck do
+    url "https://www.php.net/downloads"
+    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "128a2d4bb90560334eb6bf3a1522da545c10a9c7aed631e0d780dd9a8f5efb27"
     sha256 big_sur:       "35f2945562939ad4d03b268358677cfe436b8df9e8f9d3d1e7e252340c33c822"
     sha256 catalina:      "bb7d60f266c1f115c45e1cd824f575bb1dec3ea0a33638e3d561feab0fcd1466"
     sha256 mojave:        "76144f17e6f0cbee4705d0e94252e8ce4f0c3e99755abcc4b5c8e63272b5e6f9"
-    sha256 x86_64_linux:  "0924a709e8615d66fb7d7c2e27319d462e52878625a00b45f73f39c926229931"
+    sha256 x86_64_linux:  "0924a709e8615d66fb7d7c2e27319d462e52878625a00b45f73f39c926229931" # linuxbrew-core
   end
 
   keg_only :versioned_formula

@@ -16,7 +16,7 @@ class Aespipe < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c96c3f1ba5bcd7672630d7c9d693cb5d9333e3473ecdca6771290a68ac54db2e"
     sha256 cellar: :any_skip_relocation, mojave:        "f52e6c3afc951ca588522d8073b62300113a30cb6d3927a25de643cc10622d74"
     sha256 cellar: :any_skip_relocation, high_sierra:   "00d7cb8240e8e1beb4b8cf701bf38961531df8a9f2d497c4ff5a95747ac3dbae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f386c2d3388f3feb5a0a5e33f1e67d7465c5d5f9a3287a2c89cb9a6788d6f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f386c2d3388f3feb5a0a5e33f1e67d7465c5d5f9a3287a2c89cb9a6788d6f0" # linuxbrew-core
   end
 
   def install

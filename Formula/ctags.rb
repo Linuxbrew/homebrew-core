@@ -26,7 +26,7 @@ class Ctags < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9986b3f6897b60cbdf5d73b4ad819d2d30726043dc0d665b77ba2def399a60b4"
     sha256 cellar: :any_skip_relocation, catalina:      "2292b70a7b744c2238507417e40c2dc7273c6d919c9fe037bf668cf00863ad92"
     sha256 cellar: :any_skip_relocation, mojave:        "238b65e5e1614f1d24fd88b6741c04d1cf48fd5f5d247cdbcd1f82d5796197d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b18fd41f63d6dac15a567e7ac15d0fabf5a1197ebe09beea7b5702c9e956f98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b18fd41f63d6dac15a567e7ac15d0fabf5a1197ebe09beea7b5702c9e956f98" # linuxbrew-core
   end
 
   head do

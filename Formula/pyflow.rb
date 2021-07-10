@@ -10,7 +10,7 @@ class Pyflow < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "619d1a1095428a7dc3ba1367c4ca5a64dd49eff8d5a91cbfd7e9966b9be2cc5a"
     sha256 cellar: :any_skip_relocation, catalina:      "2658cf76995468b62f16119d3b6288081a0ab95ca410bc445754ee67099567bd"
     sha256 cellar: :any_skip_relocation, mojave:        "f25d6af683f972dbdc918433965c7b589356fd4323766b1b778120ef5bdce6fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6babeceb2bdffeef9f8a8009c633d01030a3c0a28f49ea021b43e873a4b982c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6babeceb2bdffeef9f8a8009c633d01030a3c0a28f49ea021b43e873a4b982c1" # linuxbrew-core
   end
 
   depends_on "rust" => :build

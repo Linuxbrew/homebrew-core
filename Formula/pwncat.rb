@@ -13,7 +13,7 @@ class Pwncat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "fe18e3f9569fead9b8d60a719798afa0cda35626e6296d7a8917dd1d08812b92"
     sha256 cellar: :any_skip_relocation, catalina:      "6aab31b67601d8e6c3bd584d8f4f264843ff8dab112eef4b31ae5896e6ba653a"
     sha256 cellar: :any_skip_relocation, mojave:        "ea6514ac82a8edcbe9e2fc1cd2077baa1b4312979f39c84359ba7794822c0a91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afbb5cc72c584503153433f7a298460108b93b03d40679c8b4ab3f9d946f3813"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afbb5cc72c584503153433f7a298460108b93b03d40679c8b4ab3f9d946f3813" # linuxbrew-core
   end
 
   depends_on "python@3.9"

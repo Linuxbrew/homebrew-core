@@ -17,7 +17,7 @@ class Abnfgen < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "3a62e72bec09b9bfff637710db366f713abc95de45437aeadbfa87a87dfc040c"
     sha256 cellar: :any_skip_relocation, sierra:        "0d69f39473838a8e46fb02009329e05be6eeaed579ff5533a09cbbecd8d46a2d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fd51cb760ed8afb8a9e3dd5d05c8efa832361b238ad95410fb2864c91c081825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f87311cc93a40da50b39b5e291eefffd0cd06e8cce69f44a6895e8d9e3ee53b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f87311cc93a40da50b39b5e291eefffd0cd06e8cce69f44a6895e8d9e3ee53b" # linuxbrew-core
   end
 
   def install

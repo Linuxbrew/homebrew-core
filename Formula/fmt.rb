@@ -10,7 +10,7 @@ class Fmt < Formula
     sha256 cellar: :any, big_sur:       "030400184b37be2dbefd79244622b6ba1db79a7a082063c9731422d67c1ec689"
     sha256 cellar: :any, catalina:      "bc10923606cbc09de72d80d4fa35f2834cd3661791b493936a8d2853e571ef9d"
     sha256 cellar: :any, mojave:        "9ff67f083520e388e629e37267b87099e2335ff8bedecd7662779f3042f11f3e"
-    sha256 cellar: :any, x86_64_linux:  "cc32da20bc1eea0128172069233dabc747f2e29e10e87ee8406d79ee746d9213"
+    sha256 cellar: :any, x86_64_linux:  "cc32da20bc1eea0128172069233dabc747f2e29e10e87ee8406d79ee746d9213" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

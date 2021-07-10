@@ -15,7 +15,7 @@ class Blazeblogger < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8e6e405d5b586a95006ab1f47d2f5cef961a2dbdaa9759fb4427663edcd12adf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0d6bf439fa6f880cb9457581da66082f49f514f8b0fd4b57ac81180948aaa5e1"
     sha256 cellar: :any_skip_relocation, yosemite:      "bac92237da25ffb0b9b31bd78fea353bf717cfb6f1381fbb0df333f555fbab91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2899ae65143abb4b3408f02950b73824a6d7f1c436efa6a819da9b5c0ec873d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2899ae65143abb4b3408f02950b73824a6d7f1c436efa6a819da9b5c0ec873d1" # linuxbrew-core
   end
 
   def install

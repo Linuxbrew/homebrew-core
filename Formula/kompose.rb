@@ -11,7 +11,7 @@ class Kompose < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "34da28575e40dd6c1bb1fcb36e073aa7d8236f4d8c16a33876cdaa2bcd4f7af2"
     sha256 cellar: :any_skip_relocation, mojave:        "2f6bf388c3aa7d51a9151f39378911b7d1a6cd16505ada04eba05b7b65e7ec78"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8f727cb8dce4e8f5090c856ef6725f000d3618d6129868a0057293e449f1c79a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cd49588d70aac2e3e42bf53c3ce802fe47850a4d83bcd058f983a9c8e821247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cd49588d70aac2e3e42bf53c3ce802fe47850a4d83bcd058f983a9c8e821247" # linuxbrew-core
   end
 
   depends_on "go" => :build

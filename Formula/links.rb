@@ -15,7 +15,7 @@ class Links < Formula
     sha256 cellar: :any,                 big_sur:       "a318a648c86e882e797a9517304d464f1f059b35c6e5b5e22c0ea5c23f7bd304"
     sha256 cellar: :any,                 catalina:      "a90bd1693fc0808e1dc407a09a1e783c331711ee9a72082f1872733354c0c9d1"
     sha256 cellar: :any,                 mojave:        "8d83115fe0bdaf3ba1c18bf31f9df95cf8d1879af78bb910f59e402df7504383"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d065d98860466afd5b84ddde8854cb328ae7f80d1a96d2acbfdd9f81c25519"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d065d98860466afd5b84ddde8854cb328ae7f80d1a96d2acbfdd9f81c25519" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

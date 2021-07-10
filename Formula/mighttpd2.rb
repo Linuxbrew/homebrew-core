@@ -12,7 +12,7 @@ class Mighttpd2 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "bcea435a9feba47df19b64d9fac972a1df8f580647204b07a73b2ade2e14c479"
     sha256 cellar: :any_skip_relocation, mojave:        "68e563757fb405de41a4312c03f7b72da99586430ea8f0aff98fdab48213635f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7b033c6ce128310465134a09bae1ef3df9cb630db732167a06028c1a5773576e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7652478fdda8d75605a033d776ef5020bb8e5a231ba0ab2991906feab9a80af9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7652478fdda8d75605a033d776ef5020bb8e5a231ba0ab2991906feab9a80af9" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

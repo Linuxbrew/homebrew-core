@@ -6,7 +6,7 @@ class Calabash < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d7e1ea5236dca4abc850e97b1eecb44166d91f9700579a48b365783f695d553"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d7e1ea5236dca4abc850e97b1eecb44166d91f9700579a48b365783f695d553" # linuxbrew-core
   end
 
   depends_on "openjdk"

@@ -24,7 +24,7 @@ class Audiofile < Formula
     sha256 cellar: :any, catalina:      "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4"
     sha256 cellar: :any, mojave:        "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769"
     sha256 cellar: :any, high_sierra:   "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024"
-    sha256 cellar: :any, x86_64_linux:  "f4024aee6f2305107229848df9d156158607989441ca686b1e048017e4700adb"
+    sha256 cellar: :any, x86_64_linux:  "f4024aee6f2305107229848df9d156158607989441ca686b1e048017e4700adb" # linuxbrew-core
   end
 
   head do

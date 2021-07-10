@@ -16,7 +16,7 @@ class Mpir < Formula
     sha256 cellar: :any,                 big_sur:       "2364f0bb79cf8a0ef739f077eaacc7228fd89d39d18d0b9f1e135a2577472684"
     sha256 cellar: :any,                 catalina:      "884e9e0b62c809c531c55d6da43fbebadd5428976afbf95d2dc8968599e6e013"
     sha256 cellar: :any,                 mojave:        "1b930468cbd16840c9c689b8b24c91ce45a136b7512ccd06b6c13a14cd5405e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d0f53a64e9a57fec0259c1e57c7486a24f989a73bee5c90067f21caddf0860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d0f53a64e9a57fec0259c1e57c7486a24f989a73bee5c90067f21caddf0860" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

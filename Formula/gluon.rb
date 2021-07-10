@@ -17,7 +17,7 @@ class Gluon < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "abea6a7007ec7663a5d3d8994a8028412843d45210b5b17723f2bcb0dc43134b"
     sha256 cellar: :any_skip_relocation, mojave:        "b6a865cd7da1a201a008ae65478191082501e1dc9ab7b6dae189e4f2f2bef8e4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "847b61a0a4b7d4afc4598301c5bbf6afac3e70c737cdb0a26ad0438db42b1e44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08580a9a5c430e40e64d2e3c5b3e1f3159bbe21c8f28e96c9a2b5fb34afaf2df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08580a9a5c430e40e64d2e3c5b3e1f3159bbe21c8f28e96c9a2b5fb34afaf2df" # linuxbrew-core
   end
 
   depends_on "rust" => :build

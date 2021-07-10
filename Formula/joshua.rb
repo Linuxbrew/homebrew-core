@@ -11,7 +11,7 @@ class Joshua < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982"
     sha256 cellar: :any_skip_relocation, mojave:        "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982"
     sha256 cellar: :any_skip_relocation, high_sierra:   "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7acfaf7a26f9977cea0296e8d1efe3aa525683101a8a1da20cf2544735d287f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7acfaf7a26f9977cea0296e8d1efe3aa525683101a8a1da20cf2544735d287f" # linuxbrew-core
   end
 
   depends_on "openjdk"

@@ -14,7 +14,7 @@ class Minuit2 < Formula
     sha256 cellar: :any, sierra:        "00867c4037d0110f2adf23a623aa918a95c9345be197ecdc0a9aa0d9da9f04e0"
     sha256 cellar: :any, el_capitan:    "7457852262758583daca3f23ac3e6fa312fe0a3fd84f0b20da2081967124a0fc"
     sha256 cellar: :any, yosemite:      "32ff2d05e0a85b28513789e1f625e654f2141b80202f506ad0f7721caab95ddd"
-    sha256 cellar: :any, x86_64_linux:  "21d0ab80dd54743416711d524d9b6ab32cba585f7e5784362a32efd4a5710073"
+    sha256 cellar: :any, x86_64_linux:  "21d0ab80dd54743416711d524d9b6ab32cba585f7e5784362a32efd4a5710073" # linuxbrew-core
   end
 
   def install

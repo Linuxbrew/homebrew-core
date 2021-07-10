@@ -12,7 +12,7 @@ class Subversion < Formula
     sha256 big_sur:       "d9c0205d04df5fb25d510b4e9a85de721de17ca152257d8850770f141e1a1f44"
     sha256 catalina:      "c1a0c5bcf8a1fac3837c34f7bcff1897d8f3074e72f06fc541804599e73a492c"
     sha256 mojave:        "5fb32f15610da2ab65ffc09ff298a479bf1ef8cd8aa964883e58937e85abe154"
-    sha256 x86_64_linux:  "b0aa9bfe640d9211a6d6115c20cad156d49e68fb266da26349fc36e9bfbd5ea1"
+    sha256 x86_64_linux:  "b0aa9bfe640d9211a6d6115c20cad156d49e68fb266da26349fc36e9bfbd5ea1" # linuxbrew-core
   end
 
   head do

@@ -19,7 +19,7 @@ class Npth < Formula
     sha256 cellar: :any, high_sierra:   "51a68f02a29f9b1a596048894be6425696872ddbbc928b372c07a5e256df8ba8"
     sha256 cellar: :any, sierra:        "930defbdfa6136f82abdaa7efea0328390079d13f284798756997217eb31427d"
     sha256 cellar: :any, el_capitan:    "8b2591ec804a0e410e8bf8657487f2d26248307e7cf74b2e49906037618ebc03"
-    sha256 cellar: :any, x86_64_linux:  "5d7dabef2890e1981208c7674a2bb3404978b500331307096a12060d59443108"
+    sha256 cellar: :any, x86_64_linux:  "5d7dabef2890e1981208c7674a2bb3404978b500331307096a12060d59443108" # linuxbrew-core
   end
 
   def install

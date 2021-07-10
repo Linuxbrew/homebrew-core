@@ -10,7 +10,7 @@ class Texmath < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5103aa3afe5577ee258878a49075f887c10f704a3267e005b6be77518d27e871"
     sha256 cellar: :any_skip_relocation, catalina:      "821d782521b756be6628037d9848a1080f3acd98cf75585241d3a73f70841dcb"
     sha256 cellar: :any_skip_relocation, mojave:        "9f1fc7ee11583a51ccb981bd0ec238b19b963054e5b58bf47edd5e86098c78d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cbf976c8e8f9ada3122dfac7cfbc167bdae67f9b62e4deb78af1296e2063890"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cbf976c8e8f9ada3122dfac7cfbc167bdae67f9b62e4deb78af1296e2063890" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

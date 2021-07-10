@@ -14,7 +14,7 @@ class Castxml < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a1a2615fb092dbe1485ccf936022b878118f9b4142de52a44ae48a19c2441808"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a1a2615fb092dbe1485ccf936022b878118f9b4142de52a44ae48a19c2441808" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

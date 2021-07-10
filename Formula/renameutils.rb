@@ -15,7 +15,7 @@ class Renameutils < Formula
     sha256 cellar: :any, catalina:     "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a"
     sha256 cellar: :any, mojave:       "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605"
     sha256 cellar: :any, high_sierra:  "d25dc64bcc5d30e7695c65a93f7285849b57fdbdb18bf7d5e7bc22f0786cb14c"
-    sha256               x86_64_linux: "da4006f1a66f3f4c51b273126ba8ec20193fcb2c4c624b8cdbffa7b3a0c55a0d"
+    sha256               x86_64_linux: "da4006f1a66f3f4c51b273126ba8ec20193fcb2c4c624b8cdbffa7b3a0c55a0d" # linuxbrew-core
   end
 
   depends_on "coreutils"

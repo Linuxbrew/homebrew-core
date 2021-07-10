@@ -12,7 +12,7 @@ class Laszip < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "df73f3c2c8be13bc0fab13f28cbb22262a24c283f4da85cf6b21c55531516e7f"
     sha256 cellar: :any_skip_relocation, mojave:        "3a9bc6d5931145800cb5792740a3cae118d27c4879144f3c74a44c2aee75ce64"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a32459a4896bdc365fae55b70744bb7ae2a05b552e3bb0b0097345e0ea423014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15fa5ef57a5b86446e6d9e21fe1cab535d2716ec703864f347fce124f8e8ee0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15fa5ef57a5b86446e6d9e21fe1cab535d2716ec703864f347fce124f8e8ee0e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

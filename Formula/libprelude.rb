@@ -11,7 +11,7 @@ class Libprelude < Formula
     sha256 big_sur:       "c2e8d9d9c831ad24e13cd6d470a08c91c9dad1085ce7fe40e559df77b79a1503"
     sha256 catalina:      "abd1ed78ae980d13cffbe2f7421179f3e416d63f0263b2df2749219bb4ade1ae"
     sha256 mojave:        "99b39668c53d9e1514e8168db34402d897bd9159ecafdc3a377b097748945fb0"
-    sha256 x86_64_linux:  "282e13c10a69ba928d5f5597c5e88c33253caef9c5a221eae4f15dc670e125a7"
+    sha256 x86_64_linux:  "282e13c10a69ba928d5f5597c5e88c33253caef9c5a221eae4f15dc670e125a7" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

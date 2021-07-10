@@ -11,7 +11,7 @@ class Fd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "378bf3b71edf7c09a80cd8815bd068f6c2b8abaf2df149fc23f33f52acecc817"
     sha256 cellar: :any_skip_relocation, catalina:      "1fef32a7cd0c80f62343b4caf6a0979f89bacfa7434ed54ffede6adb85ace329"
     sha256 cellar: :any_skip_relocation, mojave:        "160cdfc22b5d0ac9694ce8dd95f7e22a7bdc95f6d376344d15f924f9ef67149b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee51f7f61ee4e4792bd8ed756982a7595b348d30a98f497e0570234045134de9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee51f7f61ee4e4792bd8ed756982a7595b348d30a98f497e0570234045134de9" # linuxbrew-core
   end
 
   depends_on "rust" => :build

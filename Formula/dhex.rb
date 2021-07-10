@@ -16,7 +16,7 @@ class Dhex < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2d6043ce881b7b407fa40691639c25c72d73a427fcdd39a56e0683f48b16b328"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bfc2aa6c73ffff61a471b4dd8e183e493781a5c34baeddffc56fa89b0542a9bd"
     sha256 cellar: :any_skip_relocation, sierra:        "b83e63ad0f1e2910e1f2495903ac4077aa5caaabe8cb2702094f42c3921c7a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9acf5875c20249ac61ecf9884713525aab0ae56d86f42155713f4151b1e72ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9acf5875c20249ac61ecf9884713525aab0ae56d86f42155713f4151b1e72ff" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

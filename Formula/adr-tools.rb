@@ -6,7 +6,7 @@ class AdrTools < Formula
   license "CC-BY-4.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cd9f8e39616798db8ae97d74123fc7f4179f84b8954c232da4b2ecbb6516c8a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cd9f8e39616798db8ae97d74123fc7f4179f84b8954c232da4b2ecbb6516c8a1" # linuxbrew-core
   end
 
   def install

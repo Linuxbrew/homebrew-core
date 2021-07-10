@@ -12,7 +12,7 @@ class Libusbmuxd < Formula
     sha256 cellar: :any, catalina:      "72fcc67099f03a3d68faa131eaf464a431e5d5eaea0a5ddb9b8414c065f7ef73"
     sha256 cellar: :any, mojave:        "132ee76aa823e51abb97c92c53ab8a30819720ced7020080f949cf4fd937f6ea"
     sha256 cellar: :any, high_sierra:   "67c3d43cb2a1ebfd68fba1c9b51b419288fedefc93f101adeea1b5f6bdf1ad77"
-    sha256 cellar: :any, x86_64_linux:  "cea8ac47904a4a0dac13f9420ec2c8639e03f8cad78f373b521bb93e1431618f"
+    sha256 cellar: :any, x86_64_linux:  "cea8ac47904a4a0dac13f9420ec2c8639e03f8cad78f373b521bb93e1431618f" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

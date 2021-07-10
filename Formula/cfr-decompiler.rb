@@ -17,7 +17,7 @@ class CfrDecompiler < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "01b786e75cce66964d72c4da0e6545ed08275d7372e43f6e810c76bd65ee26d4"
     sha256 cellar: :any_skip_relocation, catalina:      "59ae9cd6d368e85589ffd31f2ae0c223b9635d6cd5787e9a360de5f743f15ba2"
     sha256 cellar: :any_skip_relocation, mojave:        "bad961cc5db80bdc29b4ac304147dc019b16efc01161a5e5289ad87cf835a5bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01e7be9ecb8b2e6f9cca578178f8ad2bc1aec5455a1a1ac9edce1679e62a7d73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01e7be9ecb8b2e6f9cca578178f8ad2bc1aec5455a1a1ac9edce1679e62a7d73" # linuxbrew-core
   end
 
   depends_on "maven" => :build

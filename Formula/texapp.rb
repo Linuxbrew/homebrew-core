@@ -12,7 +12,7 @@ class Texapp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
     sha256 cellar: :any_skip_relocation, sierra:        "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84560f05d9dff6dfec4878d4393c248e210ec29f3081edf35078bcb7018bfca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84560f05d9dff6dfec4878d4393c248e210ec29f3081edf35078bcb7018bfca7" # linuxbrew-core
   end
 
   def install

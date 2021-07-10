@@ -12,7 +12,7 @@ class Jc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b63408852e77d527bea6ca4fc301f08056bd82439770ccbceafd9449a99f2ca7"
     sha256 cellar: :any_skip_relocation, catalina:      "3eab5b0b5a38b24da1ea61343b95d1fc5ee721df216421769447ac727ec057c3"
     sha256 cellar: :any_skip_relocation, mojave:        "997c1be1d30d1aa5bfcbbe89e8c5643250adcbb55d917b3f7dce7f2f15b1b02d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2f6141079f6d74f8e4a79a49547f16b9b4aef635911e4abfb4747d9b5834bea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2f6141079f6d74f8e4a79a49547f16b9b4aef635911e4abfb4747d9b5834bea" # linuxbrew-core
   end
 
   depends_on "python@3.9"

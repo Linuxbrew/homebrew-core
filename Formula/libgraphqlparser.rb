@@ -12,7 +12,7 @@ class Libgraphqlparser < Formula
     sha256 cellar: :any, catalina:      "e4cea535715f0ed46ff1713df73dbc43d2845f4e0152f0137d4ad18def845050"
     sha256 cellar: :any, mojave:        "f2d46a3bfb5fd3aef9f8b47a5d1c50d204f6dbd74d1a387ca664e36022b7ddc4"
     sha256 cellar: :any, high_sierra:   "64779ec3108d9eef789d279abfafa90437c6a76b2ed3973d45979cd1051dc170"
-    sha256 cellar: :any, x86_64_linux:  "451370cc5e18a9420015806109c94f492a787c2743136ca6f1dab4a84739f532"
+    sha256 cellar: :any, x86_64_linux:  "451370cc5e18a9420015806109c94f492a787c2743136ca6f1dab4a84739f532" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

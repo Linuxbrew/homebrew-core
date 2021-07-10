@@ -11,7 +11,7 @@ class Jailkit < Formula
     sha256 catalina:      "488323402cd9c3487e515ebe4ed8b4e056188af3d125ee063a1056c58c1c61a4"
     sha256 mojave:        "6aeb6044ff3ba537d8575fea45053da11764549b72d545df3b962b6a6d3ee68c"
     sha256 high_sierra:   "7ab554fa425961fe843c0533b360b5f0eb7dcc39ed707e6f757e0c4e328d930c"
-    sha256 x86_64_linux:  "43036fa40745784ca5f2375f3b9b963c1f405fe22b054a0a1a19c99f672ae16d"
+    sha256 x86_64_linux:  "43036fa40745784ca5f2375f3b9b963c1f405fe22b054a0a1a19c99f672ae16d" # linuxbrew-core
   end
 
   depends_on "python@3.9"

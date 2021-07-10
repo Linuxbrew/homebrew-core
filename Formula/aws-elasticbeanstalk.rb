@@ -12,7 +12,7 @@ class AwsElasticbeanstalk < Formula
     sha256 cellar: :any,                 big_sur:       "5a8269756245372ef47b8367d95e22dea139a6bf75ef7bddb9e0f68f328a8274"
     sha256 cellar: :any,                 catalina:      "02e0394235b4bd7f92c9b2bf35e7e51cd48ccc735818ce466bb09b9db12420ee"
     sha256 cellar: :any,                 mojave:        "b754539b9e405acece1a34a9f2f812ade33fc07d6ef1aeade1d1e2e388603f0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e7f034bd0c2eb252f563172fb0ae39289619cbc85f9447059c10b9af5e26526"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e7f034bd0c2eb252f563172fb0ae39289619cbc85f9447059c10b9af5e26526" # linuxbrew-core
   end
 
   depends_on "rust" => :build

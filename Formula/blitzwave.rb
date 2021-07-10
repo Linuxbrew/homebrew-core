@@ -13,7 +13,7 @@ class Blitzwave < Formula
     sha256 cellar: :any, sierra:       "1722c7dfacc458ca54d05dcc06a5281bbe48935f66eaaf7374c2551ad50298a8"
     sha256 cellar: :any, el_capitan:   "be9ba4deb07a468b23f430fe2f0896206b120f70e07f94d48267448c0524d3bc"
     sha256 cellar: :any, yosemite:     "609c85eec329a8aa988a2b026522642f41b392039936661ce428d13887dfa84d"
-    sha256 cellar: :any, x86_64_linux: "c1e0d672e0b49081bb7c4e96249b304063bd41067e1d5671ece8e8a7c3b711f9"
+    sha256 cellar: :any, x86_64_linux: "c1e0d672e0b49081bb7c4e96249b304063bd41067e1d5671ece8e8a7c3b711f9" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -14,7 +14,7 @@ class Bcoin < Formula
     sha256                               big_sur:       "f5ea48d98b345f76dba628c6fca49f1202e214a8ed265109d898716b689198f4"
     sha256                               catalina:      "cbc374b70e39ec6954a58f1c69cfb357121df495da3e2e5b51d6ce590b35de92"
     sha256                               mojave:        "4e8b2f111b3643712058823c9af5c1650ce64c7d5757e30c1c58d3d34dcac8ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ea38b8e4d5304f539dce6485cc3ec5628c92642199bfafde0d49a2ae6e34f8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ea38b8e4d5304f539dce6485cc3ec5628c92642199bfafde0d49a2ae6e34f8b" # linuxbrew-core
   end
 
   depends_on "python@3.9" => :build

@@ -23,7 +23,7 @@ class Lha < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bd78eb55cbce8091fd07d82ec486bfd67fc8079b2fe6385c8374b2e7c5171528"
     sha256 cellar: :any_skip_relocation, catalina:      "429d3165a0f986e815f09ea3f6b2d93e1bd0feef01b6df6159a983e8118244a4"
     sha256 cellar: :any_skip_relocation, mojave:        "12b5c79de56f71138c64d517ffc0091bc313f4cc0f174e10276b248b06e2fa0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "208546ee6f604a3ee6f83ab6e66387c71b349d33aeaada51dcdf81c4c9d28543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "208546ee6f604a3ee6f83ab6e66387c71b349d33aeaada51dcdf81c4c9d28543" # linuxbrew-core
   end
 
   head do

@@ -14,7 +14,7 @@ class Bchunk < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d6183607b5b987345ee3380263819f1d5e12f2f3cc9f6fd55accfbf92c26d5ef"
     sha256 cellar: :any_skip_relocation, sierra:        "95ef5fddc2234902187dde834690fb5957bd99ce11403e3d0f8881a705bb8f27"
     sha256 cellar: :any_skip_relocation, el_capitan:    "665af973709071e982939f37ba39c79c6e41f7f18277d65670475ba9d8315f94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d704539396152281a0fc791189fb40a9045fe93db151709f5c09d03b351c1b0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d704539396152281a0fc791189fb40a9045fe93db151709f5c09d03b351c1b0f" # linuxbrew-core
   end
 
   def install

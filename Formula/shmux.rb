@@ -12,7 +12,7 @@ class Shmux < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "e433bd14622d3f77a35042649d0d73e888b164ab4f04431864fb68c9ec64b62c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bc38ad3a6feddd116edd9d3ab00ac18bc6663d08b9d111414975bdd1543d1b79"
     sha256 cellar: :any_skip_relocation, sierra:        "13f8831248e646784dd3cefd82707c45966ea05528e0c836156dea98b9c8c870"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9f5655875e42cc02cdc82f49a3aa29d2b9b3af7f5eff7f8c9dd8ffbe14262ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9f5655875e42cc02cdc82f49a3aa29d2b9b3af7f5eff7f8c9dd8ffbe14262ed" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

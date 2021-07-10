@@ -10,7 +10,7 @@ class Stella < Formula
     sha256 cellar: :any,                 big_sur:      "413ec06db90b9e5fd3f704e8181e50d4d39c88ff579c0e9dc523ee74b2ad3558"
     sha256 cellar: :any,                 catalina:     "7765c2e205dc182aab86de151356ae6a586585a076cea5f9d0d82708447a0427"
     sha256 cellar: :any,                 mojave:       "228ac66abf639dce733dce76c6cde14c122c84c12476c1663a64243ac609994a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a3a543f967b0422f2076273338c3de567d2c93016c3e92f98cedd9d51d472516"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a3a543f967b0422f2076273338c3de567d2c93016c3e92f98cedd9d51d472516" # linuxbrew-core
   end
 
   depends_on xcode: :build

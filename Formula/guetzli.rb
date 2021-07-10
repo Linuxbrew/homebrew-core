@@ -15,7 +15,7 @@ class Guetzli < Formula
     sha256 cellar: :any, sierra:        "c059346fa601885f550b50752d6d1a23eced66388b18e1c1db5169a0951dcad6"
     sha256 cellar: :any, el_capitan:    "a77327b3964a88a84879943171e0d10d6661cc72c5ceaa12ee2091f02930da1a"
     sha256 cellar: :any, yosemite:      "04864f5c52c77f2d382247a57bf082052599a2bc9bd8fa28592ab17657342b08"
-    sha256 cellar: :any, x86_64_linux:  "8773230c14dd93f68486caef52e012299873c447a4203a652499dbf469528a52"
+    sha256 cellar: :any, x86_64_linux:  "8773230c14dd93f68486caef52e012299873c447a4203a652499dbf469528a52" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

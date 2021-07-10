@@ -17,7 +17,7 @@ class Unzip < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "979c8a1705b3822f49391c2402e961e1a66c148017af85b1b54babe6463340c8"
     sha256 cellar: :any_skip_relocation, catalina:      "ab86dd48d398d55a9162032f0e17e6d33111d8807a9f157953fe30483ddf330e"
     sha256 cellar: :any_skip_relocation, mojave:        "76f80f74ec99ec7d8678ed1f8e3d13b495e50a3be65a37cad584804448d932b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f64b1d75f83c936125e0ae873668c992ca1f2041480f899b178959da4cafa1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f64b1d75f83c936125e0ae873668c992ca1f2041480f899b178959da4cafa1b" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

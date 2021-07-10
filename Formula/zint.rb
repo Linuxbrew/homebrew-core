@@ -17,7 +17,7 @@ class Zint < Formula
     sha256 cellar: :any, catalina:      "27a13b9022616484c612860ec1ac80146f765de23c32a52cf7f6f7a516727672"
     sha256 cellar: :any, mojave:        "398f6493010f6b4778fe5ce80b559b745f53de2dcbd0c331f844431274a1d1ac"
     sha256 cellar: :any, high_sierra:   "7142283083b90b3d185672f98fc987292337b8cb50cfb4e76cb61394df05781a"
-    sha256 cellar: :any, x86_64_linux:  "521eb64c1a8847575ce8bd1b00c081e9baafff939e8459559ab7339c6d12fb36"
+    sha256 cellar: :any, x86_64_linux:  "521eb64c1a8847575ce8bd1b00c081e9baafff939e8459559ab7339c6d12fb36" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

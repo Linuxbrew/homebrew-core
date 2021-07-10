@@ -14,7 +14,7 @@ class Saxon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "75fca68a37c4d331f43396fb56fd28a0ee3e7048e824cc8f8a72c23ee7a14f32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "75fca68a37c4d331f43396fb56fd28a0ee3e7048e824cc8f8a72c23ee7a14f32" # linuxbrew-core
   end
 
   depends_on "openjdk"

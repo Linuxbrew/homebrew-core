@@ -11,7 +11,7 @@ class Watchman < Formula
     sha256 cellar: :any, big_sur:       "22fb0d7442a9b36f66861a04b9401c40b9e106401914cbff3e164c988e52595d"
     sha256 cellar: :any, catalina:      "b7702260bbebfe18540d3f860069a043b94cea5b7743b743a2a8dc8a8d36bdc3"
     sha256 cellar: :any, mojave:        "2ccbd0df37dd9c81283a137259cfed579b5c8c6596914849f4feabd2adadd0f5"
-    sha256               x86_64_linux:  "b6d1bf0fd3e9a66b564c8f7fc946cd3a021bc1325111d66807ebb4aebf561664"
+    sha256               x86_64_linux:  "b6d1bf0fd3e9a66b564c8f7fc946cd3a021bc1325111d66807ebb4aebf561664" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

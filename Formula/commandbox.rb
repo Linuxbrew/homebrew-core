@@ -12,7 +12,7 @@ class Commandbox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "17d80c467ecde009f3ea89a115ed3f6d4b310e84d57fbd94a8362907f24ce2b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "17d80c467ecde009f3ea89a115ed3f6d4b310e84d57fbd94a8362907f24ce2b8" # linuxbrew-core
   end
 
   # not yet compatible with Java 17 on ARM

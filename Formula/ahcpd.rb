@@ -11,7 +11,7 @@ class Ahcpd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3f3e332726a04e2cb6a639b18d0092a80cf8d83a9363e75c6579d73ba8ac4d16"
     sha256 cellar: :any_skip_relocation, catalina:      "9320f1465296a364f0d55ffca9342f087b781f0853ad2213b278189bfc062202"
     sha256 cellar: :any_skip_relocation, mojave:        "22a512b076e972064d6b0af3eb696a5d2ee62c06aadd2aea01a0bec886d28379"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42fb84d1c4dc82de4e74fde394685ea1abf9b8d21911ff0cba51c38abcbbfc47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42fb84d1c4dc82de4e74fde394685ea1abf9b8d21911ff0cba51c38abcbbfc47" # linuxbrew-core
   end
 
   patch :DATA

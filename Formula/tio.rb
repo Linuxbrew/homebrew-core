@@ -11,7 +11,7 @@ class Tio < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a630b860983adbd4c2691538739850ef934aeafcfa33c5561a00e3db2b355e88"
     sha256 cellar: :any_skip_relocation, mojave:        "f33b4bc0d653c0f2111f0c30865395d2cadfe524f33ab1c84c843e54ec432ed9"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1241b11c102b527fd43225a3283290fe5488889a9e0919e7b4b536ddcb4a4d83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "204f139cbc573038264c0b660f29fb128d2a785f5a9532698d7379781c430453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "204f139cbc573038264c0b660f29fb128d2a785f5a9532698d7379781c430453" # linuxbrew-core
   end
 
   def install

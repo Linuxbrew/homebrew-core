@@ -16,7 +16,7 @@ class Pipebench < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "213e31962005a876277c6f8edd3c9cd8964c253496f7945d48aef7338c76277e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "353cabdaf04a41e2169c1e489cd038f9fbe7f33cfd24a5a0b3068449ccc3446d"
     sha256 cellar: :any_skip_relocation, yosemite:      "a999c7ba2978e60d38bdeec63d1f1a8b2667cb0d77d35c4da2e57212a37b85ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47b160fec5a4d67846d1f1916216ebeb4c27f5eb3d65137417ed8c1bf00261ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47b160fec5a4d67846d1f1916216ebeb4c27f5eb3d65137417ed8c1bf00261ce" # linuxbrew-core
   end
 
   def install

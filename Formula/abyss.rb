@@ -16,7 +16,7 @@ class Abyss < Formula
     sha256 cellar: :any,                 big_sur:       "e56ce6b9bf533fb34bd2f87e87fb1019e3cccdcdc94d0e665e144121c95ddcad"
     sha256 cellar: :any,                 catalina:      "5a95037e8675013c34f4119d5a2914706ec3b99f522426878a19f27031ad4d79"
     sha256 cellar: :any,                 mojave:        "fc1208b6ff7dbcdc23d621076a271a40f1090cab41690ce35433c81425984494"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db702612c5696bd48af501c8a25127ba772492b38257eb539422359020e38f98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db702612c5696bd48af501c8a25127ba772492b38257eb539422359020e38f98" # linuxbrew-core
   end
 
   head do

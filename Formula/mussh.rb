@@ -5,7 +5,7 @@ class Mussh < Formula
   sha256 "6ba883cfaacc3f54c2643e8790556ff7b17da73c9e0d4e18346a51791fedd267"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9454e3f271552a7261a4009e43e77383fb87a62a418443437b74a568ff51cfb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9454e3f271552a7261a4009e43e77383fb87a62a418443437b74a568ff51cfb3" # linuxbrew-core
   end
 
   def install

@@ -10,7 +10,7 @@ class Dvdbackup < Formula
     sha256 cellar: :any, big_sur:       "dc6778d0bf6be00d5b9abfe877b0893b37ac2a36ca3395155658572b8b050750"
     sha256 cellar: :any, catalina:      "f90daeedafee023dd908051af528be81f629f30026ec109f89e2bb187582d75b"
     sha256 cellar: :any, mojave:        "e28050e6f6611d8f8f573f52bdb17bb349a5f347b0a6499e9eaa8bfdde9a5f71"
-    sha256               x86_64_linux:  "be2627b8adc87fc869f3f148ac36675cb855acc4ba799b7f3d4546fe814a6a03"
+    sha256               x86_64_linux:  "be2627b8adc87fc869f3f148ac36675cb855acc4ba799b7f3d4546fe814a6a03" # linuxbrew-core
   end
 
   depends_on "libdvdread"

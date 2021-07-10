@@ -14,7 +14,7 @@ class Mercury < Formula
     sha256 cellar: :any,                 big_sur:      "8b37f68829e59efd2127a32dfbcbf80d617196b6f35c970e1d4727b5076abb39"
     sha256 cellar: :any,                 catalina:     "2b98c59507d6aa72db55b8864d9818f302fef92b5bbdc6630287276494a3bc62"
     sha256 cellar: :any,                 mojave:       "e0011e25fa5732a2a271f30c5589c35f1caeb7cbab44ccba2271ab7bd2632243"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dd9dc1d16d83d367a7216ac404d646d354aba2d494e3da0325ff912719d09a8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dd9dc1d16d83d367a7216ac404d646d354aba2d494e3da0325ff912719d09a8b" # linuxbrew-core
   end
 
   depends_on "openjdk"

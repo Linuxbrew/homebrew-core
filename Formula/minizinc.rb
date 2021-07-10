@@ -11,7 +11,7 @@ class Minizinc < Formula
     sha256 cellar: :any,                 big_sur:       "65127ebb8476ee303b45624b7e7a7c9e1f6d4b740056b95c31da6350f819ada6"
     sha256 cellar: :any,                 catalina:      "921698a98271c69f66d66303be5e6852b083e4117a349f4039c482597b863039"
     sha256 cellar: :any,                 mojave:        "2ffec6708a7253410c073e8faa5e8dceb43ddee2d1002beb1032f31c8ee4a492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a38d745dc5a54de9602108c8b1cd7e3f86af69c9a5b260606edfaa1461d8a588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a38d745dc5a54de9602108c8b1cd7e3f86af69c9a5b260606edfaa1461d8a588" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

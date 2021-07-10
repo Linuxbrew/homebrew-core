@@ -12,7 +12,7 @@ class Libiptcdata < Formula
     sha256 mojave:        "78dc7bb6b1e5bcccc1c0c9ef158b8d423f782aa455b1b10c3eebb29de6e7fa58"
     sha256 high_sierra:   "62f4a032075fbf0b9a43ef474b784bae7c47d503483bdc2e09e851c5568345e3"
     sha256 sierra:        "0a9cd6e750e496cd4eb9797ac34d3659c8dc2bb6977020def1edb2ee60711a39"
-    sha256 x86_64_linux:  "7f9b08a8c811698bef704d6f07486e4cc0df0783d32ad2af750ace1d1ed37630"
+    sha256 x86_64_linux:  "7f9b08a8c811698bef704d6f07486e4cc0df0783d32ad2af750ace1d1ed37630" # linuxbrew-core
   end
 
   depends_on "gettext"

@@ -16,7 +16,7 @@ class Fortio < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "52f0ae2dcb229904142d93ecfbd053f5ef3a3b28df118625e8516b7e5af57635"
     sha256 cellar: :any_skip_relocation, catalina:      "72be3944ede1dc33bf377db6693920dbd3f7d667ad61d8b1ee50d4c4c64b65a6"
     sha256 cellar: :any_skip_relocation, mojave:        "396c971624a6adf19b6b0bb8788190a592dae099af38e841d23278e4b46aab42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c36707b7959d7bd49c7a528d00221135ab6d9040f79ea43ececdf6f20e04a05f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c36707b7959d7bd49c7a528d00221135ab6d9040f79ea43ececdf6f20e04a05f" # linuxbrew-core
   end
 
   depends_on "go" => :build

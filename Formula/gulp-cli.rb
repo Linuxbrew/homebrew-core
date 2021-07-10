@@ -13,7 +13,7 @@ class GulpCli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "231b635ddf8a704a3be4a6ba34611248ece69ed1de04fb82adfa6a20ac83fddb"
     sha256 cellar: :any_skip_relocation, mojave:        "29ec2f9cf132be84c577ff6d6ea02845ee96d995e1affdea8961903f9fec616a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e4d363c9d5035fc814ca6a6820b9c8c35a320cd507067cad5eb0c0e6c337c36e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f9fa037cd9475877b82fba9aed3623cbe0e09bcc44d99818dbcf00369b1ea0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f9fa037cd9475877b82fba9aed3623cbe0e09bcc44d99818dbcf00369b1ea0" # linuxbrew-core
   end
 
   depends_on "node"

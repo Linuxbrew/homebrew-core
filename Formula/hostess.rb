@@ -12,7 +12,7 @@ class Hostess < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "addb5bc6b7ff84ad6d2a33f2e0c46298f16865473ad82a32c02434def068c26b"
     sha256 cellar: :any_skip_relocation, catalina:      "9386f4841bb16ea44d5131b0a360138a3d33d7595e85d0baba3b9546762d7ae6"
     sha256 cellar: :any_skip_relocation, mojave:        "90e6b36f4131f2e8a914cd81e6a17e59075e734fa83b583654e178c6e7e65aa3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d877db59a78cefae8f14353af9cb5b779159318c09ff77f2b4853e188ace138b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d877db59a78cefae8f14353af9cb5b779159318c09ff77f2b4853e188ace138b" # linuxbrew-core
   end
 
   depends_on "go" => :build

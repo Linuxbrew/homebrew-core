@@ -12,7 +12,7 @@ class Glide < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "33a39604d9007bf46e92a0a9131a59c15162dce6ace8b498a91110bc7d316f43"
     sha256 cellar: :any_skip_relocation, catalina:      "014fc42198c07253f844ea7b20b1a9378b08cfb445e548b307c6fb131bd44565"
     sha256 cellar: :any_skip_relocation, mojave:        "7f4be1018eba40d85aca555364a09f97a18d8e09c71e6bb42e6ca1a2c0866865"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad6e9703f508da34c1f44fde18dcd00e5106a4bc4cc02a967e64c10e9273c943"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad6e9703f508da34c1f44fde18dcd00e5106a4bc4cc02a967e64c10e9273c943" # linuxbrew-core
   end
 
   # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983

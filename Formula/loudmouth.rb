@@ -10,7 +10,7 @@ class Loudmouth < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d770f0cd1a81375c306d0bc6fdd81610d27bc844fd5086518aaa7f8fa6252a14"
     sha256 cellar: :any_skip_relocation, catalina:      "b83be4ad6fce30f484015b344d21e3e425860b3c8a2cb6a609e059611d03caf9"
     sha256 cellar: :any_skip_relocation, mojave:        "681944a95c5642a4651110e5d91d88acf335176b34d85f0f159aef291f07b38d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f346113f01357da85cd4411eb56e4398457b8e22a9aad191d3cdfa371027759f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f346113f01357da85cd4411eb56e4398457b8e22a9aad191d3cdfa371027759f" # linuxbrew-core
   end
 
   head do

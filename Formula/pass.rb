@@ -16,7 +16,7 @@ class Pass < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "80812f17b470ea37c9027851ed71a6a09a8d0be359e6770c9e836646c68ade9e"
     sha256 cellar: :any_skip_relocation, catalina:      "80812f17b470ea37c9027851ed71a6a09a8d0be359e6770c9e836646c68ade9e"
     sha256 cellar: :any_skip_relocation, mojave:        "80812f17b470ea37c9027851ed71a6a09a8d0be359e6770c9e836646c68ade9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59753aa6bb5027b238e43bcdf87f603c9850166b485b85b6e457ecc8f4aff25c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59753aa6bb5027b238e43bcdf87f603c9850166b485b85b6e457ecc8f4aff25c" # linuxbrew-core
   end
 
   depends_on "gnu-getopt"

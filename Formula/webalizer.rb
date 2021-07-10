@@ -14,7 +14,7 @@ class Webalizer < Formula
     sha256 high_sierra:   "e27c0dd7038a5a82e6fa127428c0b98750801e343b1b973b05bb08f38b055cdd"
     sha256 sierra:        "cb42abb300bb5dc9639c811a13e24cca1be2cceee01d02eabb1ec149414569d4"
     sha256 el_capitan:    "2bae3de97730aa72807cadcfda25ac395f3e30608d865df998fb474e75d4c780"
-    sha256 x86_64_linux:  "77debeb1469a80a86e5268914116a495c273eab5131231a14cd35e4f39acd942"
+    sha256 x86_64_linux:  "77debeb1469a80a86e5268914116a495c273eab5131231a14cd35e4f39acd942" # linuxbrew-core
   end
 
   depends_on "berkeley-db"

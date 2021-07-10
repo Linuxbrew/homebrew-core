@@ -12,7 +12,7 @@ class Pacparser < Formula
     sha256 cellar: :any, big_sur:       "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f"
     sha256 cellar: :any, catalina:      "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174"
     sha256 cellar: :any, mojave:        "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e"
-    sha256 cellar: :any, x86_64_linux:  "c589a12cc1f53e3928cb55b04c9b8f250b02676d37e491e64ebac32bbeedbd57"
+    sha256 cellar: :any, x86_64_linux:  "c589a12cc1f53e3928cb55b04c9b8f250b02676d37e491e64ebac32bbeedbd57" # linuxbrew-core
   end
 
   # Fix build for MacOS 11.1

@@ -9,7 +9,7 @@ class Mat2 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "2cf257a8aaf56858e195df29823cb3fdef6b25deb2c7df0a19d17e02044bfc05"
     sha256 cellar: :any_skip_relocation, catalina:     "6134535ba8f2fd9b654df05cb0398eb167140ff636e8988228791102227695c0"
     sha256 cellar: :any_skip_relocation, mojave:       "130e341149d1005c85efc2b5421b133f8897b98913b27186ef1360c3de138726"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dbd7791d3b2eeddcd18837fef2196845e59b0756e8ecae23fd27351977625e48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dbd7791d3b2eeddcd18837fef2196845e59b0756e8ecae23fd27351977625e48" # linuxbrew-core
   end
 
   depends_on "exiftool"

@@ -11,7 +11,7 @@ class BoostPython3 < Formula
     sha256 cellar: :any,                 big_sur:       "031cfc31e2d655019467833a4c6ba4fcb7ed69f2e28798fead339cf5a1a84681"
     sha256 cellar: :any,                 catalina:      "2f905a84c2f81d6037d16215e55e31feff2d5cccedb170e7294726d2ec3f80d9"
     sha256 cellar: :any,                 mojave:        "9f4253a35144aabe0056e46b2c11c8c45d2fe4857b7d7cf4e2e728de19b8c044"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbf5076d32fa5c5578006f0f5f5490dba9e0ab65a2953e0c70d48b1f54a92e9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbf5076d32fa5c5578006f0f5f5490dba9e0ab65a2953e0c70d48b1f54a92e9e" # linuxbrew-core
   end
 
   depends_on "numpy" => :build

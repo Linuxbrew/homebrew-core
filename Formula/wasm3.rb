@@ -10,7 +10,7 @@ class Wasm3 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e282401723657985765d781b1fc6b23ff47ca669fe12d7aba5efe4d5a5f75bab"
     sha256 cellar: :any_skip_relocation, catalina:      "bd63b2e2268796e20ef1a3b12fa8460bea3e37c954fc7ca1abd8d756d39361ed"
     sha256 cellar: :any_skip_relocation, mojave:        "43e49af5bf99efa53964ccfddffd2e8061ce3b1aac3707ea389ee1f19dd80fd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81b8f98c9949213fa0de653e994f7da51f43b84d654257e8f51cc782e8fe09a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81b8f98c9949213fa0de653e994f7da51f43b84d654257e8f51cc782e8fe09a3" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

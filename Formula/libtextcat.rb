@@ -16,7 +16,7 @@ class Libtextcat < Formula
     sha256 cellar: :any, sierra:        "24fe8791549204d8ef6e596fc327fbd3a645c729b440ba31ef47cf545f6f5b30"
     sha256 cellar: :any, el_capitan:    "afa51f83d0a3c96ffc6f6c35011c864347f31d2c3aea987102c59f0257177072"
     sha256 cellar: :any, yosemite:      "1a63f24b16949843f6a3f6c17d9467208a471cfa6bf1b193738fa94c2d320f02"
-    sha256 cellar: :any, x86_64_linux:  "90b38de4353d0e026a9b6259b698e34d0091c94d8d54579bef4f07de7fb97869"
+    sha256 cellar: :any, x86_64_linux:  "90b38de4353d0e026a9b6259b698e34d0091c94d8d54579bef4f07de7fb97869" # linuxbrew-core
   end
 
   def install

@@ -17,7 +17,7 @@ class Libarchive < Formula
     sha256 cellar: :any,                 big_sur:       "88826e185e60eba60ad004889a76dae4354a15533a5ba8254ecf0323075b34cd"
     sha256 cellar: :any,                 catalina:      "616792d4660cc153ce5868fd612980af9b8b9e18d54c4199eb11e08bc9bb45da"
     sha256 cellar: :any,                 mojave:        "b231516d40d35180e1f61a50175324e4ce28f71aec27769ecc4661dbe6e883d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ebda0300824c3acf8f56c75c538c7c2d3bc7367013207e21c6af4ccd36bc674"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ebda0300824c3acf8f56c75c538c7c2d3bc7367013207e21c6af4ccd36bc674" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

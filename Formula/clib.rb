@@ -16,7 +16,7 @@ class Clib < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ba2d9b6112f7a183a28e06b00bdf01c3164dbdf05b6284b5a5d8c972c4a5ef59"
     sha256 cellar: :any_skip_relocation, catalina:      "19a1b473f5c392ce7a1f8ae8209918926777f32395a31199047af6cd22ff01a5"
     sha256 cellar: :any_skip_relocation, mojave:        "30f21023c47efeda8c7609f7ad09de5c866e903ab85d90f11227424836fbf248"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e320a6d6eb72d44dca67d98fc1ddc0b4bd86009b75a2516ed2445877505206ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e320a6d6eb72d44dca67d98fc1ddc0b4bd86009b75a2516ed2445877505206ff" # linuxbrew-core
   end
 
   uses_from_macos "curl"

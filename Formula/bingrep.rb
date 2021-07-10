@@ -10,7 +10,7 @@ class Bingrep < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a4024e1291282371002c7af0a35fcb55e929300b0b60a4b2f97dfd0755af396e"
     sha256 cellar: :any_skip_relocation, catalina:      "bf59cab5aa3c7710fe2910aac21433ff8c10c4101b44df3669783d588178633f"
     sha256 cellar: :any_skip_relocation, mojave:        "3fde029ce5bc7b15c715543091868082ffcdd8f1be4d661061b8256c0289dcba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7546f290d663b439160fe6e8e9588012c82e00f255cf84201d5dfc084dc29497"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7546f290d663b439160fe6e8e9588012c82e00f255cf84201d5dfc084dc29497" # linuxbrew-core
   end
 
   depends_on "rust" => :build

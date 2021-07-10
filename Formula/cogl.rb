@@ -11,7 +11,7 @@ class Cogl < Formula
     sha256 catalina:      "37fdd46a2845adf0e8f4ce85d5a80384ea235e435ef5f42167622f5224e4e51f"
     sha256 mojave:        "eb37baaa178631afac43c8bb1c93cdf9b78dd7d44862c63dec598d54a51b201e"
     sha256 high_sierra:   "46de52386a1123e828d94598279a99a88e3819d8f1dac1a51f39850a321ff7f2"
-    sha256 x86_64_linux:  "a99fbbe280a27912c5e78923d97ce94ed9166497909343a0e697848d9954ee65"
+    sha256 x86_64_linux:  "a99fbbe280a27912c5e78923d97ce94ed9166497909343a0e697848d9954ee65" # linuxbrew-core
   end
 
   head do

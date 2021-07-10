@@ -19,7 +19,7 @@ class Pkcrack < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "264358646b08985192cd06c9bc032c16296eb00198dd9852521e0cfdfe1703ef"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9b46e1c0097cc4024d4f5b182ac8fdbc27e3caec52874b19d570aba6f946fc10"
     sha256 cellar: :any_skip_relocation, yosemite:      "47f2ffa2e27f0dc5e6df45de7335e316a8ea83288153b274ae5d8e11c7157055"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6cb4646b598265351bf105fe91a3ef9eab9c546e3ed98ae2c3b4ce2c5fa3d3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6cb4646b598265351bf105fe91a3ef9eab9c546e3ed98ae2c3b4ce2c5fa3d3d" # linuxbrew-core
   end
 
   conflicts_with "csound", because: "both install `extract` binaries"

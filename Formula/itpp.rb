@@ -17,7 +17,7 @@ class Itpp < Formula
     sha256 cellar: :any, big_sur:       "05b2e27723a47b64d46abb221ac931cbd4f530c2bea166ff4a75c6cc6aec496f"
     sha256 cellar: :any, catalina:      "e35e75d21d3414bf4586b7ca6ee2ff1f99b8fd7106bf32c7eec434b2de5135d8"
     sha256 cellar: :any, mojave:        "9c4b59029023095449f5592cf26420418af874263b49980a255d084c3f6c8a25"
-    sha256 cellar: :any, x86_64_linux:  "d5290853e3e8fcf68330f08e092c478d5a249f015f79ebbcc7a59ceea9c9f4da"
+    sha256 cellar: :any, x86_64_linux:  "d5290853e3e8fcf68330f08e092c478d5a249f015f79ebbcc7a59ceea9c9f4da" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

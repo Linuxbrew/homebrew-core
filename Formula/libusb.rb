@@ -15,7 +15,7 @@ class Libusb < Formula
     sha256 cellar: :any, big_sur:       "74e0067e968ddbea31e070885ae86bc1db5c66fd157588e84576e653e62894c8"
     sha256 cellar: :any, catalina:      "034ae259f17afb5894860cdb1786fd6d391359e8d221c0f765eceed6210b60df"
     sha256 cellar: :any, mojave:        "1318e1155192bdaf7d159562849ee8f73cb0f59b0cb77c142f8be99056ba9d9e"
-    sha256 cellar: :any, x86_64_linux:  "b6c5e81cb430546009410949485f379a1dfd1c4201abe90d04f7698a98e977f0"
+    sha256 cellar: :any, x86_64_linux:  "b6c5e81cb430546009410949485f379a1dfd1c4201abe90d04f7698a98e977f0" # linuxbrew-core
   end
 
   head do

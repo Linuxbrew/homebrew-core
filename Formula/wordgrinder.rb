@@ -12,7 +12,7 @@ class Wordgrinder < Formula
     sha256 cellar: :any, big_sur:       "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b"
     sha256 cellar: :any, catalina:      "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17"
     sha256 cellar: :any, mojave:        "143c53429552e244089211458fc42bcdbb79171d5f98ae17db9c7175208c8ae4"
-    sha256 cellar: :any, x86_64_linux:  "1100676d184382d055bde51f6c733bbf9690d56a42a8d4478cbd14ff6b15dbd3"
+    sha256 cellar: :any, x86_64_linux:  "1100676d184382d055bde51f6c733bbf9690d56a42a8d4478cbd14ff6b15dbd3" # linuxbrew-core
   end
 
   depends_on "lua" => :build

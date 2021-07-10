@@ -11,7 +11,7 @@ class WrenCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a24574abd51e1ddd58d41e2dbbd89fc0a85f27087541e1c9a982daa601bcdb39"
     sha256 cellar: :any_skip_relocation, catalina:      "bf9368948d1953ceef3246ff6e4d4d142b8d86d9d62d3f0f432a6f5d241f10b2"
     sha256 cellar: :any_skip_relocation, mojave:        "e11eb478ca480716c938c8f88af228bbdeaf394b6e11738606fbd57dff86a25d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93794a935ead33a55fb0b8042d1707c35f0e47650b3e78d53ed4c986b8231747"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93794a935ead33a55fb0b8042d1707c35f0e47650b3e78d53ed4c986b8231747" # linuxbrew-core
   end
 
   def install

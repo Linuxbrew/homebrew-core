@@ -7,7 +7,7 @@ class Libfuse < Formula
   head "https://github.com/libfuse/libfuse.git"
 
   bottle do
-    sha256 x86_64_linux: "7b065c02ab46c0a6567cbccc5ecf14fa8f9c5b8735fa136ab64f958227fe7d9a"
+    sha256 x86_64_linux: "7b065c02ab46c0a6567cbccc5ecf14fa8f9c5b8735fa136ab64f958227fe7d9a" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

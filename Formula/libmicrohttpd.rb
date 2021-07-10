@@ -11,7 +11,7 @@ class Libmicrohttpd < Formula
     sha256 cellar: :any,                 big_sur:       "035f1dd8caeb642f47c82f8efeabde09d2476af9b5a73b7ef6337f0c6373090e"
     sha256 cellar: :any,                 catalina:      "61f7cd6b76713ad189ac09c59b7f798cdda9383b022c55fdd5c48da1360ef6fb"
     sha256 cellar: :any,                 mojave:        "eba382f3e0e66eb18e11bebc64c28d1adc9e1a34775a931a00ae1ff606d62f43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2acb75376102f675b6bd9f3d72ce9fa976c646e282087e1743e3c21f290a580"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2acb75376102f675b6bd9f3d72ce9fa976c646e282087e1743e3c21f290a580" # linuxbrew-core
   end
 
   depends_on "gnutls"

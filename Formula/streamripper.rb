@@ -16,7 +16,7 @@ class Streamripper < Formula
     sha256 cellar: :any, mojave:       "559e6ce06f450c306178c1e361154f134c3478ad1bc35ca70d0d3f000938043d"
     sha256 cellar: :any, high_sierra:  "9df7827f89ef7f517ccfdb52be976b358ede1ceb2690f8617b4cc52da7c4cf41"
     sha256 cellar: :any, sierra:       "2ccd049ca0ce6720055a86b726bfb1388b4e3784b2cd597bc7b26fd1e593a60c"
-    sha256 cellar: :any, x86_64_linux: "22f71b3f01f71134c947a5ae2e95a634fac12b626d222607a560948066708d1a"
+    sha256 cellar: :any, x86_64_linux: "22f71b3f01f71134c947a5ae2e95a634fac12b626d222607a560948066708d1a" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

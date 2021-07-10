@@ -17,7 +17,7 @@ class Wasmtime < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "31f0a85a18b265a95a88cef8bb953ba3b5f2793a73cdae86e84cb09362710c5b"
     sha256 cellar: :any_skip_relocation, catalina:      "741e62eb7b97c4a9e6d0e55b7476966db477782bebb7c3856dfddf447fbd8cde"
     sha256 cellar: :any_skip_relocation, mojave:        "991ea5ad43a53a43d1b5caabfacdea18ec9396affa167f499fdd3867079e3c0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9090fce8889300e9c9fc0922e3c671f45392e5d7766610c524a42bf68a1683a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9090fce8889300e9c9fc0922e3c671f45392e5d7766610c524a42bf68a1683a" # linuxbrew-core
   end
 
   depends_on "rust" => :build

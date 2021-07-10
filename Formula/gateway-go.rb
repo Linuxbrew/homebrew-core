@@ -12,7 +12,7 @@ class GatewayGo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "31a5cc63190a8e757c9a7ec84f4ed0b3ba0252d3ee479ee795d3a9fd3c622257"
     sha256 cellar: :any_skip_relocation, catalina:      "31d0a5a6767e70634c0c2b3d077c0de1533ff4655a1cf14e933cedfdc3e0f993"
     sha256 cellar: :any_skip_relocation, mojave:        "81a1ec5d087317840427958e1a77ce1a8dfd492864f427a624e4a980d9e2b85d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e74819a2854361d69568f2888110ee6b7cccb414c398cc0e85c067e1f047eecb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e74819a2854361d69568f2888110ee6b7cccb414c398cc0e85c067e1f047eecb" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -15,7 +15,7 @@ class Pod2man < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "53e3c8c329177d03b2894745c6d679fa752f828daafaff0ef2bc10800b6dbcf5"
     sha256 cellar: :any_skip_relocation, catalina:      "ca1fb674f4d5ffd23945ec684b4ba2ca48241cb5e273fbd4b4007753277e2e4a"
     sha256 cellar: :any_skip_relocation, mojave:        "09c560e15e46d7eb4836ced38a0eea6900ddce5d5230a86578c33ed61328ce5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3ea41aefedf23b069698af0549f3d2c7249293cfc205f60d036a53a7eade83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3ea41aefedf23b069698af0549f3d2c7249293cfc205f60d036a53a7eade83" # linuxbrew-core
   end
 
   keg_only "perl ships with pod2man"

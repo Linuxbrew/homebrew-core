@@ -18,7 +18,7 @@ class Rinetd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b73d5f5a82ad3371107eab67403b888e7e9e6f19f3c99909c8c72401a680c396"
     sha256 cellar: :any_skip_relocation, catalina:      "f2f6a19fcfc01cfde67148410a6bcf81c861fb373e860210e32294cb9df4fbcc"
     sha256 cellar: :any_skip_relocation, mojave:        "6a6f22a6081ac2dff01ca89a256a21c991a6f2171f2703b08e2acbd0d8c177a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7695baf654fb99a7a9244d995aec108cd4494dd71a2b6927bad2d11bcc2e15ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7695baf654fb99a7a9244d995aec108cd4494dd71a2b6927bad2d11bcc2e15ca" # linuxbrew-core
   end
 
   def install

@@ -12,7 +12,7 @@ class AwsIamAuthenticator < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a161d4ea3ef00ab85c8f0cea198e0dafde39cd3a76359b75ea22521c35eac7d6"
     sha256 cellar: :any_skip_relocation, catalina:      "192ace97a0c76ed0aceda060290db6abcde5af8ad7dfc30faaf5f4ed4ae92b6a"
     sha256 cellar: :any_skip_relocation, mojave:        "c7f23ccd6bdd852a7c1928df437381204aa9da22a2f41eb3a5776864838f39db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b4f5af9a91eda6c629d9fd98e098bdd27e3683a8ca9c2fff19a500edc721fb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b4f5af9a91eda6c629d9fd98e098bdd27e3683a8ca9c2fff19a500edc721fb9" # linuxbrew-core
   end
 
   depends_on "go" => :build

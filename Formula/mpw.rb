@@ -19,7 +19,7 @@ class Mpw < Formula
     sha256 cellar: :any,                 big_sur:       "ab5d2d32aee8f5d90e3818a776d10a681ce84435161ef9a9c146310b2277ce93"
     sha256 cellar: :any,                 catalina:      "577e79323642d34b2ab391959ce2075e96172faa540c2e9d628406d0e80e2fc4"
     sha256 cellar: :any,                 mojave:        "8592cadcded1acf97d687135d7f9f88674c05837e6f9646bb514c0b7fc18c954"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5fc9f79a1e75ad47c4438304d48500d00147a9b9cfe9f7c0f480f6b458ac0a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5fc9f79a1e75ad47c4438304d48500d00147a9b9cfe9f7c0f480f6b458ac0a9" # linuxbrew-core
   end
 
   depends_on "json-c"

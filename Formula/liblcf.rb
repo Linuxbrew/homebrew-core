@@ -12,7 +12,7 @@ class Liblcf < Formula
     sha256 cellar: :any,                 big_sur:       "4324dce9a80a86cbd12fa12f73719cf5a9710f42d7b5d71e29d87fd4179f685c"
     sha256 cellar: :any,                 catalina:      "928d1095b1b008b0416636501459f0ff7bd22d8b69eef75ea9e4c151dafbe703"
     sha256 cellar: :any,                 mojave:        "0391e77bd5cefbdfdda6ba603a01e8c206b21acb662649f2e602d66e6f9401ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8125e1e85032ae17e75ecf682ff9e2f3d691ad22722ec9ca69442c2aa7a53d3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8125e1e85032ae17e75ecf682ff9e2f3d691ad22722ec9ca69442c2aa7a53d3b" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

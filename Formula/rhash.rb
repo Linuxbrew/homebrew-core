@@ -11,7 +11,7 @@ class Rhash < Formula
     sha256 big_sur:       "6f7648fc30e68060747fb9be6480be57c7b30680e429b619f34ead13b9cc80d6"
     sha256 catalina:      "108986af36d715a05223344f3f338c04b0ce5aa6d6cf0c26776be015adaef36a"
     sha256 mojave:        "87ac3199498088f7d465dafefc6f014e10b4692ed3997895bbf1eb288dce8cdd"
-    sha256 x86_64_linux:  "5900246a7a807f942e49b646df6cc45d3ded62461f0e0e6dc8d05b751f6bd924"
+    sha256 x86_64_linux:  "5900246a7a807f942e49b646df6cc45d3ded62461f0e0e6dc8d05b751f6bd924" # linuxbrew-core
   end
 
   def install

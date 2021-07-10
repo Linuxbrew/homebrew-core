@@ -13,7 +13,7 @@ class Ccal < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ea42afd04ed210cf6e0bedac3ab4ce6b3e37421ba8d79478769d2e117c38a41f"
     sha256 cellar: :any_skip_relocation, mojave:        "c3a4bead8506e0234e878727e6d7827925e600bcee3857859fd575d4bbb185cc"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cd9bd38878cee9658e312142edfca7cf35e5223ef30b3a3effc9e4108ccf3d51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "846faa1d98b5d0ba354ce7c770786c306f7e14460e16e8cf5edfa425e0997478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "846faa1d98b5d0ba354ce7c770786c306f7e14460e16e8cf5edfa425e0997478" # linuxbrew-core
   end
 
   def install

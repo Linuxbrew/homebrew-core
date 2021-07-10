@@ -16,7 +16,7 @@ class Redis < Formula
     sha256 cellar: :any,                 big_sur:       "358fa4d16ce86681ad8a738ea97bcae82528f410a2ae5867350358e03109a715"
     sha256 cellar: :any,                 catalina:      "37ae1b9a121da9058048d2d439d6bcf1854752126d0d9895e0b908e3505deed7"
     sha256 cellar: :any,                 mojave:        "ecea2980c852e3af9f5b82c1c96c5180ef32f04efaf9c428b25c4b2d6dbffe1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d7f5090873433e893f511365effcf100898ae2a6b6f4e82f027cda37d5e8cfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d7f5090873433e893f511365effcf100898ae2a6b6f4e82f027cda37d5e8cfd" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

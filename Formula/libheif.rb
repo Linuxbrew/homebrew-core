@@ -10,7 +10,7 @@ class Libheif < Formula
     sha256 cellar: :any,                 big_sur:       "446b22420364f8914e39777b3c99a7a94035287e0d881e4ca3b0682093f6f2fe"
     sha256 cellar: :any,                 catalina:      "3e852c84854a7beb0dc3e4ece0c5b161e35271c0eb68c1a1f86f2a3f019c2aa7"
     sha256 cellar: :any,                 mojave:        "a03dba57d45f433a2ab7ae145641aea1ef7b1838aeb49c60847be2e529513079"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea4e278752f6f6747d8e4e3aeb22cc5dd2b04c7e5447ba1336cfcee686e27877"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea4e278752f6f6747d8e4e3aeb22cc5dd2b04c7e5447ba1336cfcee686e27877" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

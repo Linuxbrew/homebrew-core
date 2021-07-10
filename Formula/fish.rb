@@ -15,7 +15,7 @@ class Fish < Formula
     sha256 cellar: :any,                 big_sur:       "eb6c0068f4a2fce0992048d31f1204ebaad31237a17e2ada18843a54afea162c"
     sha256 cellar: :any,                 catalina:      "50b1d13f3cf765f6b7933b317e48c76bcd42ce65fb5cbd5eeb1279229d6937a7"
     sha256 cellar: :any,                 mojave:        "25119dc2f23d89aad5666dcd6ebdf58a1c250c5a86942c187a65b72ab19e287c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13846c25ad06b9327782e430ed9e7e1d7faec4712704a28001b65ba5073df84c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51bd53dd99a53f4a8ca8dbe7903164082b6bec26c71ea15f2c35761533f49599" # linuxbrew-core
   end
 
   head do

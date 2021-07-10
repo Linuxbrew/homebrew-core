@@ -14,7 +14,7 @@ class Rkflashtool < Formula
     sha256 cellar: :any, sierra:        "cbeb2509bcd210026250c915a9909e8f056e9e2da1f599d7a611695c334f4966"
     sha256 cellar: :any, el_capitan:    "7a8b5c66395b179ce38845c36369b1a65c6eacc73fd29227809597257669af6d"
     sha256 cellar: :any, yosemite:      "cf5c51c7aa18c9304ade585c82d9083421eafde114ef6ab22736a24f45530226"
-    sha256 cellar: :any, x86_64_linux:  "37b218c0025a5a86b679e0cb051ca65069e32c09813d8f461f39a4d16f805c01"
+    sha256 cellar: :any, x86_64_linux:  "37b218c0025a5a86b679e0cb051ca65069e32c09813d8f461f39a4d16f805c01" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

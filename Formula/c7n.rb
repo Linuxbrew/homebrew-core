@@ -17,7 +17,7 @@ class C7n < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7397f0c77fe711a05e308c6421245398258a54eee0e6ca518c3913f637232a73"
     sha256 cellar: :any_skip_relocation, catalina:      "c6b867966434eedc878b9eba1954a00a99f719f0e6bc6af8ecdd0a429fb51d51"
     sha256 cellar: :any_skip_relocation, mojave:        "92cf48c7bd3579a52af646610c467b038a94c9581b99101b7e8075843b797c0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd76348757c672ce6ff7d608205cf16a131f2b4f93855bb4a7393fabfe0a1991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd76348757c672ce6ff7d608205cf16a131f2b4f93855bb4a7393fabfe0a1991" # linuxbrew-core
   end
 
   depends_on "python-tabulate"

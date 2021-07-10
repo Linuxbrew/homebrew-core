@@ -20,7 +20,7 @@ class Discount < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf"
     sha256 cellar: :any_skip_relocation, catalina:      "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5"
     sha256 cellar: :any_skip_relocation, mojave:        "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e42b7af439824dd803b88059e65d9faf6514d901ce0f0acaa226265d0a67c15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e42b7af439824dd803b88059e65d9faf6514d901ce0f0acaa226265d0a67c15" # linuxbrew-core
   end
 
   conflicts_with "markdown", because: "both install `markdown` binaries"

@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v1.0.1.tar.gz"
-  sha256 "4124593de269bfcfdeb0481a471a842a5dbfc34ac1796252c8c54a44d5da8c33"
+  url "https://github.com/hashicorp/terraform/archive/v1.0.2.tar.gz"
+  sha256 "036a028cb311c001c48e86bc65e9b7870c81de57e96437325247785cf6c84937"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Terraform < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d1640e8d95cab2c3889e0acce33aa57f0d66f11aa37139d7e60b3ec4a22b281"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4cf97326be462d59d3e4f0511e1d5bf65f1adac15709a0bed05607241335b629"
-    sha256 cellar: :any_skip_relocation, catalina:      "4a8950a791124e0902bc94c58d4d1238962cc434970b6de2744e75aca776a2e8"
-    sha256 cellar: :any_skip_relocation, mojave:        "cde83d21d5779df8387b344b507108fbd96d0b5b2a13bb90558e373cf58fbda6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3cb25342e90a4a20d3d822d8812035bbc096f44c9e4f563b8037f8038f463fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "21124f9183cc412db43f260fe21180b785aea099eef6744d0c95ecb3665beb6e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fc3c635772ddc322986c1c87c3204145874a0058b365116dcc921d64e4c3cbdb"
+    sha256 cellar: :any_skip_relocation, catalina:      "f9a8260f1d7fa0b32cec11e120d5ae4a466c41b04d05a0ff5a0da02c0f218755"
+    sha256 cellar: :any_skip_relocation, mojave:        "d9cdd42b6bb80ac80f0105b48fdc4556355c30e8c1d3ce51a706fba76e4a1deb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88e75bee2d33d7997e629d69cf6aca6292431c1075b1610ea3e876cd966ee34d" # linuxbrew-core
   end
 
   depends_on "go" => :build

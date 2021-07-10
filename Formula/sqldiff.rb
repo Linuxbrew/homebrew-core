@@ -19,7 +19,7 @@ class Sqldiff < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "90601ff9aed7b0638b959e765878f42e38430dead627adbb7d6b68530ecb0915"
     sha256 cellar: :any_skip_relocation, catalina:      "8ccda1604107c379c4072127825ac3a1c042ad03ccb8d6f763335403ca01790c"
     sha256 cellar: :any_skip_relocation, mojave:        "470d541de3685a5b7ba46a997e493e6a69faf1ff69d29b15dbbed0c1e10fd166"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d4152b7daec60f5864e9e17c8d91f17de3bb5ffcdd81375fcf1351a7a7fd027"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d4152b7daec60f5864e9e17c8d91f17de3bb5ffcdd81375fcf1351a7a7fd027" # linuxbrew-core
   end
 
   uses_from_macos "tcl-tk" => :build

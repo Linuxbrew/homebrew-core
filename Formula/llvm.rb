@@ -19,7 +19,7 @@ class Llvm < Formula
     sha256 cellar: :any,                 big_sur:       "8d3cafc2a4704b9ea50ddeab57c3f1d65be5beffaec9cc02314750a7fca765e6"
     sha256 cellar: :any,                 catalina:      "bc6130bb8c47d81285291c0d14202a60a20a640a76462bd1cdf334f618dff8b3"
     sha256 cellar: :any,                 mojave:        "88ebb2156518dfae3b1d814c2a9c370dc1bdda9c35593d418ca0974537929c2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f19bea29fc116831eac8d3477f267d225961d61ac2fc8278b1788c507d950799"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f19bea29fc116831eac8d3477f267d225961d61ac2fc8278b1788c507d950799" # linuxbrew-core
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed

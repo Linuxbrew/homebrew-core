@@ -10,7 +10,7 @@ class Badtouch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "31133f02d762c17de4ab1d60a27874a6c4f33cf4a677257e1b446872315b3195"
     sha256 cellar: :any_skip_relocation, catalina:      "df8dc24dfe3aa1ceabdd61fe783fb7edd8aa8de8ab558d98002e330eaf37ee50"
     sha256 cellar: :any_skip_relocation, mojave:        "5459ee6e2d462ebc1c7ea33f3139bbe9a482859876a9f163cf61e80fae9c12d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60d486372f420e87039c9f8bef1a154dae06484ae4c306bf650b4202237edb69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60d486372f420e87039c9f8bef1a154dae06484ae4c306bf650b4202237edb69" # linuxbrew-core
   end
 
   depends_on "rust" => :build

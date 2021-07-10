@@ -12,7 +12,7 @@ class Vmtouch < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "020d4e624a448e4e1b9a6e26b8f506bd65ab789ae1c0f23f25beda78b09bc6dd"
     sha256 cellar: :any_skip_relocation, high_sierra:   "edb14ca1ff4cbd4ab535ca9099ea113a36e280ddaf2957a65bdef10f4a7a1b88"
     sha256 cellar: :any_skip_relocation, sierra:        "7359ed3256886940e6fb1883141c495d5b3e6ab28130ed16553e0f6ab57ac3db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55ec1c830415be7e6e7b01947028f631fa3674d178f09959ae5f58b42a9594d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55ec1c830415be7e6e7b01947028f631fa3674d178f09959ae5f58b42a9594d1" # linuxbrew-core
   end
 
   # Upstream change broke macOS support in 1.3.1, patch submitted upstream and accepted.

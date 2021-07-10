@@ -15,7 +15,7 @@ class Ffms2 < Formula
     sha256 cellar: :any, big_sur:       "d3933ecde477f9ad7156ab174af028a409cf1a9e9def84f775036704a413101e"
     sha256 cellar: :any, catalina:      "978c5addaa61cde403d5f5cf51448d6b9512e68c08570385b3ef645e39813d8b"
     sha256 cellar: :any, mojave:        "4c9b2aa7932969e43df33c69c559df7bbc3212011e94a073cfb3024e334f7fee"
-    sha256 cellar: :any, x86_64_linux:  "0823cb360356b86691c387b39bdf47bfefb9879402cd94cad1325ac4896251fc"
+    sha256 cellar: :any, x86_64_linux:  "0823cb360356b86691c387b39bdf47bfefb9879402cd94cad1325ac4896251fc" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

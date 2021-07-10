@@ -15,7 +15,7 @@ class Libxmlsec1 < Formula
     sha256 cellar: :any,                 big_sur:       "5aed153ff3381f68d125b08d102bd37e089d117d0c0fb68abde374b7282fa29e"
     sha256 cellar: :any,                 catalina:      "f98ab26235b1d1ea25ad8ca472eb4dce6f81642129c14b95c545fe26f66f666a"
     sha256 cellar: :any,                 mojave:        "56239f6e8cd3205ae408d35b85d1446cdb346310e8c1c662e79bcd3a47c5e4ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a328d1b1a2ed3ceed0248ec13471159035a84f3666eda1cebc8b427d9073ee9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a328d1b1a2ed3ceed0248ec13471159035a84f3666eda1cebc8b427d9073ee9f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

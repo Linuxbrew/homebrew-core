@@ -15,7 +15,7 @@ class CairommAT114 < Formula
     sha256 cellar: :any, big_sur:       "67f908984fdf0cefc9d18cc14bc59517f5b41a821acee8b6f98538f3bfea864a"
     sha256 cellar: :any, catalina:      "61e7e813f3a0a75951b2a25ef451bc97268330768cb2963fd00e8debf4d26a92"
     sha256 cellar: :any, mojave:        "919c048378cc28132ddbff1138796dcdc1f1d330a6f60b97b0ddfa2c77394780"
-    sha256               x86_64_linux:  "5e28c607d798731c3ee3352d41e3cca3be4320249dbf546a5ddcab0b85f01c10"
+    sha256               x86_64_linux:  "5e28c607d798731c3ee3352d41e3cca3be4320249dbf546a5ddcab0b85f01c10" # linuxbrew-core
   end
 
   depends_on "meson" => :build

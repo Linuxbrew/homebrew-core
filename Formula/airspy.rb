@@ -10,7 +10,7 @@ class Airspy < Formula
     sha256                               big_sur:       "acada5e4e39e99dfad89cbcd1d0440cc3b4814936160b37220059cf602b94b4d"
     sha256                               catalina:      "5e8d910759443d83f3975b41e2805b4bfeb605d55271f0e37e8ca7de470415f0"
     sha256                               mojave:        "28e8a9afd6a78a3c091e70d0326431a68738ec26e08448d88d62974374a08a42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3287a4bae876ea0fd56c2275a6dc274196d7a2edd334a5a5e7cdf0d942afa09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3287a4bae876ea0fd56c2275a6dc274196d7a2edd334a5a5e7cdf0d942afa09" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

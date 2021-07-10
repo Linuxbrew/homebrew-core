@@ -10,7 +10,7 @@ class Gitleaks < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e2b4b0a51b2570e73336ab89d51f40f962a801a663795e73feeb19e90ed54e56"
     sha256 cellar: :any_skip_relocation, catalina:      "22f51a910f778865734a9a4068d9cda3f53beb23cf319cec5fa1c43e1e1f5ed5"
     sha256 cellar: :any_skip_relocation, mojave:        "b1686d4627cf6a2ca03a00b92584a5289120ddc20a8be31c72e4a8c548e7a432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2438bd6308d416d9b67a4e9458ed85d4dae6fd46b0b6e21f56c776c89a5ce102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2438bd6308d416d9b67a4e9458ed85d4dae6fd46b0b6e21f56c776c89a5ce102" # linuxbrew-core
   end
 
   depends_on "go" => :build

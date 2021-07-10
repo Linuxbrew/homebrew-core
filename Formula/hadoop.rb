@@ -11,6 +11,7 @@ class Hadoop < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b7a267d1262025ee2ba27a3f7b3262e742728226834f9224e7cf64f5bef8a2c4"
     sha256 cellar: :any_skip_relocation, catalina:      "b7a267d1262025ee2ba27a3f7b3262e742728226834f9224e7cf64f5bef8a2c4"
     sha256 cellar: :any_skip_relocation, mojave:        "b7a267d1262025ee2ba27a3f7b3262e742728226834f9224e7cf64f5bef8a2c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ab7ec87e14d03ddfae37c0c2ab5526570dfcd35a27dd253b70d27a1109bf3f8" # linuxbrew-core
   end
 
   depends_on "openjdk"

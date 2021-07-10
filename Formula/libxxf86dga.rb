@@ -11,7 +11,7 @@ class Libxxf86dga < Formula
     sha256 cellar: :any, catalina:      "15c9455a9f38b82ed8d6254ed5316426426fa5ae1451f3f0261adaf4c44f8c05"
     sha256 cellar: :any, mojave:        "0c6b3b1caa96edeb68748295ecfd60001e50cffe3275dc156534d955bfc4951a"
     sha256 cellar: :any, high_sierra:   "6d5cc78dafe39697dc39b8b061c74bff94046f9bf9819eded1c6575a5c4b9f4c"
-    sha256 cellar: :any, x86_64_linux:  "7c14eb6063062a733553b3be2ab69b7b91127ce649ed0c22cc64aa55da2a8a9a"
+    sha256 cellar: :any, x86_64_linux:  "7c14eb6063062a733553b3be2ab69b7b91127ce649ed0c22cc64aa55da2a8a9a" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

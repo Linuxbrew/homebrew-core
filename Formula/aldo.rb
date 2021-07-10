@@ -20,7 +20,7 @@ class Aldo < Formula
     sha256 cellar: :any, sierra:        "ad5216c04fce4d1f4da63af2fa4d298a3414073db186991ec4389a942799ddd1"
     sha256 cellar: :any, el_capitan:    "0691c4b9b7ae5b6f104c5b5205f731d4348563b8a9a8c3631395f619ce00aabf"
     sha256 cellar: :any, yosemite:      "f5d55cefcfc65033f50bf2aedb30298db1540a8dd5f5c028feb3b4b1c7e5610b"
-    sha256 cellar: :any, x86_64_linux:  "3101dd5c2d8b4646c2623fb0bcd72f1d7ca41346b201c799a90289db96649075"
+    sha256 cellar: :any, x86_64_linux:  "3101dd5c2d8b4646c2623fb0bcd72f1d7ca41346b201c799a90289db96649075" # linuxbrew-core
   end
 
   depends_on "libao"

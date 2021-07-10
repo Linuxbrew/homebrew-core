@@ -10,7 +10,7 @@ class Fwup < Formula
     sha256 cellar: :any,                 big_sur:       "60e7fa61ed1255184a0369febf79601a27236210b4455d7f2648b5150a85268b"
     sha256 cellar: :any,                 catalina:      "a562691d96719f33d9d05b6d1aacccd4e67f2dc6e2b4e750e0054638dbb04fae"
     sha256 cellar: :any,                 mojave:        "5b2117cffd84f70866f52fae62c4f610f133bc5906b8fdfa51c675714165e77d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf23d0f84d53e083a9ec0221b5b7f289b5f5ea194e878cf101f7207d58e56c4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf23d0f84d53e083a9ec0221b5b7f289b5f5ea194e878cf101f7207d58e56c4e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

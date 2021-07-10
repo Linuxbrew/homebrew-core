@@ -18,7 +18,7 @@ class Bcrypt < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "132998cb8e196f506666943a94a26927a19899cb1e45ee8eaf65e5ad0ee7ef8d"
     sha256 cellar: :any_skip_relocation, mojave:        "bb843c3b04f9adf57df1c2d07e30303626eedb0f45695dcaf38d0835ea3e35fd"
     sha256 cellar: :any_skip_relocation, high_sierra:   "883a4a97b7275e91cd90ab9d1ca69fa2a3c0db3544a2d77863a37bda16c51667"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7277b7a96e6eca5b00de7b7f91c60a300e128b3b03387df5338b4c67f147860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7277b7a96e6eca5b00de7b7f91c60a300e128b3b03387df5338b4c67f147860" # linuxbrew-core
   end
 
   uses_from_macos "zlib"

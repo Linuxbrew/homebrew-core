@@ -27,7 +27,7 @@ class Cvs < Formula
     sha256 cellar: :any,                 big_sur:       "6d6120ae3bf1d373e769370cd6ef8621cb462fb592cb337ad4057e10c4ee07ec"
     sha256 cellar: :any,                 catalina:      "4844c8cc28ae86ca8adc34d149f9d78c94195b8ccb88af24a85a3112e53246f0"
     sha256 cellar: :any,                 mojave:        "735fd1cc0b3e954123e93bb3565622e57a833863aaa95475c719d908a74fa1df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "283538feee0a042719515bf5600499c5979955fa2bbd7e2548953accfe85f3c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "283538feee0a042719515bf5600499c5979955fa2bbd7e2548953accfe85f3c6" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

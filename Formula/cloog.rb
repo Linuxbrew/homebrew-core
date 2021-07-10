@@ -16,7 +16,7 @@ class Cloog < Formula
     sha256 cellar: :any, big_sur:       "f7c327b7541e01820a0b70ac9877dae9263609de74480aad14568a505ee7af83"
     sha256 cellar: :any, catalina:      "7899742ca2ecd424f8354679f710d86329abf9935017dd0952950b485b0d9967"
     sha256 cellar: :any, mojave:        "604d9bd3eaab93d10f50d3dacf0c9c49b2b986b3a6379a95586fe4c4cbf26622"
-    sha256 cellar: :any, x86_64_linux:  "e7ad53d2f268d6296185a7d4bbafef5bd6c7af1e3cad79c61d1ddbb9954ead36"
+    sha256 cellar: :any, x86_64_linux:  "e7ad53d2f268d6296185a7d4bbafef5bd6c7af1e3cad79c61d1ddbb9954ead36" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

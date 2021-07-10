@@ -2,10 +2,11 @@ class Flac < Formula
   desc "Free lossless audio codec"
   homepage "https://xiph.org/flac/"
   url "https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/flac/flac-1.3.3.tar.xz"
   sha256 "213e82bd716c9de6db2f98bcadbc4c24c7e2efe8c75939a1a84e28539c4e1748"
 
   livecheck do
-    url "https://downloads.xiph.org/releases/flac/"
+    url "https://ftp.osuosl.org/pub/xiph/releases/flac/?C=M&O=D"
     regex(/href=.*?flac[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -16,7 +17,7 @@ class Flac < Formula
     sha256 cellar: :any, catalina:      "3d33119f1e513ad58f20722e41498fc23315d756a834d8b346cee6842f45fea1"
     sha256 cellar: :any, mojave:        "ffadc5a1825acd43aee92ea2523a1b46b3c63820f5cf59f61ee2972571454755"
     sha256 cellar: :any, high_sierra:   "53562e93cd58b45d15fb5303938b1718298d69101a53612fd53075e881cbfc95"
-    sha256 cellar: :any, x86_64_linux:  "3f9d8dec51f88267ccfcb02ee151e109fe70db894212dac029a4b3902517c91d"
+    sha256 cellar: :any, x86_64_linux:  "3f9d8dec51f88267ccfcb02ee151e109fe70db894212dac029a4b3902517c91d" # linuxbrew-core
   end
 
   head do

@@ -12,7 +12,7 @@ class Redsocks < Formula
     sha256 cellar: :any, mojave:       "0da35f33e9faaf37c59043a5f20d1e4a89f5b543644332b856a525183f31fe96"
     sha256 cellar: :any, high_sierra:  "4f8630032cb62bc1cc9f318a837ea0f42964704e2310115696766c8a51f8b5f2"
     sha256 cellar: :any, sierra:       "9b528c2ce745b2402d15073e7da4fb62789789caa70e5373946ae1699f663b8b"
-    sha256 cellar: :any, x86_64_linux: "a362fc218d64e3cd927ccde66a035a0cb4bb3d4be056ec1df853818478604b32"
+    sha256 cellar: :any, x86_64_linux: "a362fc218d64e3cd927ccde66a035a0cb4bb3d4be056ec1df853818478604b32" # linuxbrew-core
   end
 
   # 0.5 build did not get addressed and no release since 2016-12-27

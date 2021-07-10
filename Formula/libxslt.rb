@@ -14,7 +14,7 @@ class Libxslt < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "98a652b7c5300dcd0c74b096cbc6e86004d6a794f0de5f5188839c787a0bcc60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "98a652b7c5300dcd0c74b096cbc6e86004d6a794f0de5f5188839c787a0bcc60" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

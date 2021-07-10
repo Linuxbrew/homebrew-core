@@ -11,7 +11,7 @@ class Dupseek < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5dd4ba8f61d6e17de45eed186601e3d90b84515a6971520cf38be3d94888ee4f"
     sha256 cellar: :any_skip_relocation, catalina:      "aca5de3c9426773cb4ae19e791bb8662fd55b5f56075c2120d850d5228176a19"
     sha256 cellar: :any_skip_relocation, mojave:        "e06fc46656cf29f29a33a198a011a022753e616b03e36dfee9cf1ade5c4ab227"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3474d09c5989f98afcd59d1859a9aef933e9af9040a44d58601ec0ea7397561e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3474d09c5989f98afcd59d1859a9aef933e9af9040a44d58601ec0ea7397561e" # linuxbrew-core
   end
 
   def install

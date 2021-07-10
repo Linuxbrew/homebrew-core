@@ -12,7 +12,7 @@ class Gobuster < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f8f36299b36b59006637dcc7d062614eb209ba82a31f5a67fce789c4d6ef9562"
     sha256 cellar: :any_skip_relocation, mojave:        "16912d38db06501d02cdab6066d1da01129779d958ce142c40018cce30328fc4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "341ce02f5e99ba1bf9cee8d6cbdd150a6e36d8b0fd811ded7a2da8933d877f9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c965314548c15ef709834bcc6ab25c57b5f6b69797f1c7e7e29121ac6c6e3fad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c965314548c15ef709834bcc6ab25c57b5f6b69797f1c7e7e29121ac6c6e3fad" # linuxbrew-core
   end
 
   depends_on "go" => :build

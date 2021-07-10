@@ -11,7 +11,7 @@ class GitHound < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b800dc830647b0806200364a0b242c64cef639618a5ccc9268f3333f3a645802"
     sha256 cellar: :any_skip_relocation, mojave:        "6bfbbe48552eaa75d5fd861c1feb9bd21a5d47c1718f4295ce469062965311de"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5951f740815c5e38e8d0a97270bf867f99cb0a2ea2ec9ee3cc4b4ccba5ee96fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5c3fcec0a4a52729259f604ea953bad4e639c6889e6014949ed6bf2042ce506"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5c3fcec0a4a52729259f604ea953bad4e639c6889e6014949ed6bf2042ce506" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -20,7 +20,7 @@ class Scheme48 < Formula
     sha256 sierra:        "e9751df2e3cfd1a007d74d541ca494a439645e3006ad354ddf65b0abfb370864"
     sha256 el_capitan:    "af2ced8a13fdad5478f745c698b09071e71d84daca01c6e3e3c35961b06cbea4"
     sha256 yosemite:      "475d12c64562fc2498fcd8d9a8bab76d4f290444e43fcf04c40c745a7f6c6923"
-    sha256 x86_64_linux:  "509943ce4c8fddcdd8eb1b23fd61051056d63a9a54d9c3652c458bd3a264229e"
+    sha256 x86_64_linux:  "509943ce4c8fddcdd8eb1b23fd61051056d63a9a54d9c3652c458bd3a264229e" # linuxbrew-core
   end
 
   def install

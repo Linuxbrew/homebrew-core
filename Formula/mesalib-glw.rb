@@ -17,7 +17,7 @@ class MesalibGlw < Formula
     sha256 cellar: :any,                 catalina:      "1a1690918045f775ea6d71216a5b674b5762556aeaf0285e70533150aa7f14b6"
     sha256 cellar: :any,                 mojave:        "39c625451d18574ed9b9fcd6383c3a3e3b0ac7633f85d28df97a3594ea02e37a"
     sha256 cellar: :any,                 high_sierra:   "fdd89421a230f4b3ea4c2b73cae82cd37d3b44bc61afd5b9e7274dc23491dc8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad2d40cdb9d3b725ae8f32e79002079021a99620030d212e2f410e7dc514c1a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad2d40cdb9d3b725ae8f32e79002079021a99620030d212e2f410e7dc514c1a6" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

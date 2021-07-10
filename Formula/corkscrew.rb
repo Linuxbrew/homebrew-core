@@ -19,7 +19,7 @@ class Corkscrew < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "85d9050689df4cf0ec3275957fad60609ea1a9511079f20f05470e1b767c94f2"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f7e4e63df01aa33a6518f4f6c2c0ccbb0c7b8aaca95052d4aa827b5e56ed8e5c"
     sha256 cellar: :any_skip_relocation, yosemite:      "5a0916aa242a22808bbbb652664f1e44620c1c78b896982f67c9a5a1b85a5efc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "722088638812e2a57b6db3f78697f0f0b7c823281a9328c1cc92fb608cf2eb58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "722088638812e2a57b6db3f78697f0f0b7c823281a9328c1cc92fb608cf2eb58" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

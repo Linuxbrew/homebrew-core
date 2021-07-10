@@ -15,7 +15,7 @@ class Libvoikko < Formula
     sha256 cellar: :any,                 big_sur:       "02041f6b02bbdf49d1399b6c8b0f99e00a003a9f03bf13b57fe449759f98e27e"
     sha256 cellar: :any,                 catalina:      "ffc0a9565f9806e59b80b69523230d550a9c3cdfacf6d892a13a7c3b11ac428e"
     sha256 cellar: :any,                 mojave:        "79b5cb80a3e95beb1d57485d549724334d687dfdbc60520d3b437f5646ae756d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b06655800543aacecf4d0dbb2b42ef798ee1c1eadd3a2f51ce7596294392dcee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b06655800543aacecf4d0dbb2b42ef798ee1c1eadd3a2f51ce7596294392dcee" # linuxbrew-core
   end
 
   depends_on "foma" => :build

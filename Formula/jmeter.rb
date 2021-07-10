@@ -11,7 +11,7 @@ class Jmeter < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c0e2b8904f50831defb9c2cc948f6fc6591324d0e14db6e996cc5d0ba4c15867"
     sha256 cellar: :any_skip_relocation, catalina:      "d7aba96b31d80733d0e1cb760411465fd5d27780579c66f8218186c8bd412149"
     sha256 cellar: :any_skip_relocation, mojave:        "9d97d4aaae18b7001f0aba7db65f703e54c7fc90704fef283c3bacd5323b9735"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fce68c3e706abebbf0737136c451ed515406d90955a9f0d3d74e1262d2899323"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fce68c3e706abebbf0737136c451ed515406d90955a9f0d3d74e1262d2899323" # linuxbrew-core
   end
 
   depends_on "openjdk"

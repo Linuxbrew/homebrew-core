@@ -12,7 +12,7 @@ class Gqlplus < Formula
     sha256 cellar: :any, mojave:        "014190ba5c0c8e5bc88b0d434f6a05d4c26ab0b6e40b96d6fa00f37f02ee078a"
     sha256 cellar: :any, high_sierra:   "324544d5383507812e0cc14a6e085697661944588ee1fe56477c67e2bc1c009d"
     sha256 cellar: :any, sierra:        "9ad645ec60442256a86ad9bcd081b7adffd4d6ad4cdb47f10814020b53f3200d"
-    sha256 cellar: :any, x86_64_linux:  "47ec82883bc3dc546d011ab7cbcff24b957edabcec628e9131db99402f3977be"
+    sha256 cellar: :any, x86_64_linux:  "47ec82883bc3dc546d011ab7cbcff24b957edabcec628e9131db99402f3977be" # linuxbrew-core
   end
 
   depends_on "readline"

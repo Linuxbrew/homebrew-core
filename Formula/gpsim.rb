@@ -18,7 +18,7 @@ class Gpsim < Formula
     sha256 cellar: :any, mojave:        "00c585480ada4e552a32ee3f0e11bc68142ce4f6671eeb14badc51007d07be9f"
     sha256 cellar: :any, high_sierra:   "612ce9c2f03a5c6464aee9b9bdcd6884e434e457f515bbbc2adceb8417f1c6d1"
     sha256 cellar: :any, sierra:        "5a366b0dccfe1ff92aaed6d29f9bd5ca66806471b17e8941206e985f6bd8817a"
-    sha256 cellar: :any, x86_64_linux:  "9974da000b4b1951f9a4516c178250fa13468eeda2f9825482edf2a71b25fda8"
+    sha256 cellar: :any, x86_64_linux:  "9974da000b4b1951f9a4516c178250fa13468eeda2f9825482edf2a71b25fda8" # linuxbrew-core
   end
 
   depends_on "gputils" => :build

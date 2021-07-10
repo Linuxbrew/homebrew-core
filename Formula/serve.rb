@@ -12,7 +12,7 @@ class Serve < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b6358efb493acb673bf7513a252f9f48e9ebb2c6a7824208d89ae631cfad9439"
     sha256 cellar: :any_skip_relocation, mojave:        "9521fba08dd7bcfd843464b3c12a4f841007f28052104072768e052c194de6aa"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0735a5f8002970bc5d1cb1ca68681713de9dfcffc7eeb30bcdcb7fc33bc58551"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26a725409826cf578d5a33942786175a359da5ba43163e6a34cabe0670b6375c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26a725409826cf578d5a33942786175a359da5ba43163e6a34cabe0670b6375c" # linuxbrew-core
   end
 
   depends_on "go" => :build

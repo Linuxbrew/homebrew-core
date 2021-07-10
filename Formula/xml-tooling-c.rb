@@ -15,7 +15,7 @@ class XmlToolingC < Formula
     sha256 cellar: :any, big_sur:       "57c8c16990f589f0e07a7e5d57dd202c4f35b6e66d57bbda66d4d9bc2af6bd33"
     sha256 cellar: :any, catalina:      "859a056b4271610e876b42606d145a0ddc2d79cb94c0470e2ca93cdef38c4e2b"
     sha256 cellar: :any, mojave:        "69d6679f8c610867e03269af38ce56306af656a2e1f7b3bbce30d25085d6ae9a"
-    sha256 cellar: :any, x86_64_linux:  "9a5891ffb5972b178fa3fa009b00664d4f5b3ff61ecce1f30320476b5e77cddd"
+    sha256 cellar: :any, x86_64_linux:  "9a5891ffb5972b178fa3fa009b00664d4f5b3ff61ecce1f30320476b5e77cddd" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

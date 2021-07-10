@@ -17,7 +17,7 @@ class Bzip2 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "78421d5891328cb96cce8ff6a6c20ce5930a4a74fd1b24b05ef02cd92117c5fd"
     sha256 cellar: :any_skip_relocation, mojave:        "313e48f4528c1d8042a9cd4c77bd69047dedd7eda2bd350650a902e1ff549a38"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a3eedbcb61a66d3a1286685db878e19c1de90605626d1d988705f66a5aa66673"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4cbb681a3aeda2361625bd10d329e47bf986feaccd50bf3a1dce7753ad42d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4cbb681a3aeda2361625bd10d329e47bf986feaccd50bf3a1dce7753ad42d6" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

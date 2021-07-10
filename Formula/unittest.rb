@@ -13,7 +13,7 @@ class Unittest < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c997c9ce2d6984607af24a6dc7dc21ddefc0570a15d2fb61192b3a361120a83d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "501b61d05de70cfb53116c66daf380cb35a1665eeecf34dfc6b27ab945458f43"
     sha256 cellar: :any_skip_relocation, yosemite:      "8e26d281818bdf26ae2876004f5388fee9bd954589f57a6a25c979949e5f5bf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "faec1beb9a391c122fb62f9268ffc34fc8a77869fc32b12f1f00c96e664de503"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "faec1beb9a391c122fb62f9268ffc34fc8a77869fc32b12f1f00c96e664de503" # linuxbrew-core
   end
 
   def install

@@ -10,7 +10,7 @@ class Imath < Formula
     sha256 cellar: :any,                 big_sur:       "dc1caaac49ebc5c4cd0f8a120102c513a101bf6f2cef0ff45972db5d8a2a6a5c"
     sha256 cellar: :any,                 catalina:      "799ecbff5b86f6c8167c41e5abbaebf41acade96d9c311ff53fa2af8244c44c4"
     sha256 cellar: :any,                 mojave:        "3280110f29ee186b8ab8463c81dd8305de8c8388815ceda75ba27ae21666704a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbfc99d2b81f9241d79409e2f437db9750f34f4e7e6e8332ea05e8f315458b67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbfc99d2b81f9241d79409e2f437db9750f34f4e7e6e8332ea05e8f315458b67" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -10,7 +10,7 @@ class Mpop < Formula
     sha256 big_sur:       "8666c6f36ee3f3ed758139f4aceb22128b2c05c9ccaf47a538ef649d6daf598b"
     sha256 catalina:      "651b41a0c11959ff187840e7bb0f036912a2611555b12c2d6ca5536d9356bdb2"
     sha256 mojave:        "7e0f134fcfd8d0d032b53a24a9d6c19cc92f5856a1f5fbfc432e7bf13ec51dd8"
-    sha256 x86_64_linux:  "b03f4b5efe2917f1bcd0dde1a352ba54296b47d748acab8e6cceb6eb287279eb"
+    sha256 x86_64_linux:  "b03f4b5efe2917f1bcd0dde1a352ba54296b47d748acab8e6cceb6eb287279eb" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

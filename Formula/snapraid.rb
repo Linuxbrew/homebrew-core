@@ -11,7 +11,7 @@ class Snapraid < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d92da7dbdf737efbbeee7025c7d1ed0bc01c1f3cbaf29f0b8ded4b264ff627e8"
     sha256 cellar: :any_skip_relocation, mojave:        "8ccbba9450a1f49a2d1b9d0424d9dee7ffaac4348f0cf4edf0bfb2b8858f5885"
     sha256 cellar: :any_skip_relocation, high_sierra:   "db38538cd61796483d63bb4cf8aa687f8801796abb4074e2a5a69e8cefcaae96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95c413eadcaffc767b23f0392bb3f4ce0593ddafa524b4ba5c4ef427d23462ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95c413eadcaffc767b23f0392bb3f4ce0593ddafa524b4ba5c4ef427d23462ed" # linuxbrew-core
   end
 
   head do

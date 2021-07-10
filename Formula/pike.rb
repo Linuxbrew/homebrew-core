@@ -17,7 +17,7 @@ class Pike < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "15805f34b5fa27d32c8a86cb69459d03300b11b2ec491597264823899f77568f"
     sha256 cellar: :any_skip_relocation, catalina:      "b34252e2bd9dfea5ffc5e56e10523658ff44ecc5686eabda34ce2c19a22faabc"
     sha256 cellar: :any_skip_relocation, mojave:        "1eacafb5514b416f75a39a50bdfc697123f66be10a892be1906fa674580f9298"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f861a7afd0148f58189325de42bbf34cebdce49fd6952355c2055748bfb768c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f861a7afd0148f58189325de42bbf34cebdce49fd6952355c2055748bfb768c" # linuxbrew-core
   end
 
   depends_on "gmp"

@@ -11,7 +11,7 @@ class DmtxUtils < Formula
     sha256 cellar: :any,                 big_sur:       "0f5cbe20fda6fcc8db3bf57039ced929283a31b666f38da8a64ba5c6c19d76cd"
     sha256 cellar: :any,                 catalina:      "20b46ae2ba790f10191d8f53c8ce3095222d1b814db72990e7fc48a501fabba9"
     sha256 cellar: :any,                 mojave:        "810dec06d01994da047123c4169d7398efacd4060adc639fdbcb845f3c6e2606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "616e2b725c2480f8fd9c1e1a9e3f11bd0584ab9d61117c93d4a672564edb20a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "616e2b725c2480f8fd9c1e1a9e3f11bd0584ab9d61117c93d4a672564edb20a7" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -16,7 +16,7 @@ class Jags < Formula
     sha256 cellar: :any,                 big_sur:       "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
     sha256 cellar: :any,                 catalina:      "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
     sha256 cellar: :any,                 mojave:        "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f105913a43f34f311a2dd3298eb488119615290f8f3b68f7ad5fb9080e54dc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f105913a43f34f311a2dd3298eb488119615290f8f3b68f7ad5fb9080e54dc0" # linuxbrew-core
   end
 
   depends_on "gcc" # for gfortran

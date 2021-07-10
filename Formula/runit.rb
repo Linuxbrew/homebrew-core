@@ -16,7 +16,7 @@ class Runit < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c6e5b49ab3601824db1969967c5ba4a0d35fa65841cfa2ec1d50fcca968fcf05"
     sha256 cellar: :any_skip_relocation, mojave:        "3c684c031305f98a2d24e904b6fc3301a71f0089e84e814028bad8ab05658cae"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a66fbfb0258db267c5a3a3d7790fe4b5224478e7ecc1377a9a877118d5e27be5"
-    sha256                               x86_64_linux:  "29f9a0a57e1a9ba4b0e39cf9cb2f8935dfc6df91de80962f27ffff36630953e9"
+    sha256                               x86_64_linux:  "29f9a0a57e1a9ba4b0e39cf9cb2f8935dfc6df91de80962f27ffff36630953e9" # linuxbrew-core
   end
 
   def install

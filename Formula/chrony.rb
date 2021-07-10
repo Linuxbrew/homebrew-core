@@ -15,7 +15,7 @@ class Chrony < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ecba024c1c74b0f2d8094b06043a6ceafbc4bcd4cba944e3600792789adcfb4b"
     sha256 cellar: :any_skip_relocation, catalina:      "dfe728a9f5ecc085ba6582a2791e1e6a2f5d2ef609ee4f3da237e4442d016dbe"
     sha256 cellar: :any_skip_relocation, mojave:        "b908fae19168cb50d7d1fe33e2885ad19ff8bb1e190442aa3ee6ea6c47f4c72f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3bf23ccc84b2182fb5e7e05a6e5e212c9241e5e0c4570a67929d8ac0f750a13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3bf23ccc84b2182fb5e7e05a6e5e212c9241e5e0c4570a67929d8ac0f750a13" # linuxbrew-core
   end
 
   depends_on "nettle"

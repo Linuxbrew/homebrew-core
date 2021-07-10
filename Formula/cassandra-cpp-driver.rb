@@ -11,7 +11,7 @@ class CassandraCppDriver < Formula
     sha256 cellar: :any,                 big_sur:       "a27012349a4335a6e68c87d043883b366e81b592ef0b5465281298b1c7d8aba9"
     sha256 cellar: :any,                 catalina:      "19a4f1d92582723258c06b8e9f49783520d05ab4966de3a0ce29089d9e1bac59"
     sha256 cellar: :any,                 mojave:        "9832a774e184a7bb13e060983cbab2ddbe63af9bbc2b36394eb74a855e6fbcde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd653b40e16ed399bbf133f96f627b12bb33d09ad8bf1156b76ab617284799ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd653b40e16ed399bbf133f96f627b12bb33d09ad8bf1156b76ab617284799ad" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

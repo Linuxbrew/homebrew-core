@@ -11,7 +11,7 @@ class Libxfont < Formula
     sha256 cellar: :any, catalina:      "0321fea5b7329575b6d4b3ed762d741309c329c74df6a9ae2693667828e9a1da"
     sha256 cellar: :any, mojave:        "68cfb860815eedac8d96bb1853a64a12c3cc77bcc0e99ffbd693666b2bfb9119"
     sha256 cellar: :any, high_sierra:   "54fe9ff4143205d5d14a416f276193c4f9f5dc83898a057823462ac78c8de891"
-    sha256 cellar: :any, x86_64_linux:  "4edfe60ec0a2c89945fc027a4870c4b3e3e91b6c2a871cf2af368ebeb20dfd2c"
+    sha256 cellar: :any, x86_64_linux:  "4edfe60ec0a2c89945fc027a4870c4b3e3e91b6c2a871cf2af368ebeb20dfd2c" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

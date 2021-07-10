@@ -14,7 +14,7 @@ class Flake < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b2eca0967c020b082f7d7f8c4d15765204ea63aa9332012074c852967a0fee07"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e521dae57260b2a71f161f16609530c854ff8ebee4252b0addf3c16b5abc982c"
     sha256 cellar: :any_skip_relocation, yosemite:      "af8e2e83dd3c82e8cc26be91ca64e24571b34185d4f8f007725b54d37f38e2b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aa028b1632bae1f3d4365ec813e9cb4e908cfd0edaa8b55080f902ec9a28b81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aa028b1632bae1f3d4365ec813e9cb4e908cfd0edaa8b55080f902ec9a28b81" # linuxbrew-core
   end
 
   def install

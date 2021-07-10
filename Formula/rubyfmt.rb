@@ -11,7 +11,7 @@ class Rubyfmt < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b"
     sha256 cellar: :any_skip_relocation, mojave:        "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8843c31665c63f1c243dce1b20f8d3c39c8d0037b5a47dc6a8e62b47db63dd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8843c31665c63f1c243dce1b20f8d3c39c8d0037b5a47dc6a8e62b47db63dd0" # linuxbrew-core
   end
 
   uses_from_macos "ruby"

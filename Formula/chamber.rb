@@ -17,7 +17,7 @@ class Chamber < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4aa6c179d62dc7c35f630d8aa3f8c23030cd41bcf8ae8d175dd7851ea67ca0cf"
     sha256 cellar: :any_skip_relocation, catalina:      "08e0dfec7c1f00660daa2c5637d2609a05e364a95e28e79997058aabf3fa0078"
     sha256 cellar: :any_skip_relocation, mojave:        "a7298287685510c1d50a285ee305c04d86c1ceb35be53aa6294802a51f82becd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "332b546f7d901d5bcd2e8178e367eae759c17bee072cd376672ba0c33669322b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "332b546f7d901d5bcd2e8178e367eae759c17bee072cd376672ba0c33669322b" # linuxbrew-core
   end
 
   depends_on "go" => :build

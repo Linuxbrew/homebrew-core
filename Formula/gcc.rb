@@ -32,7 +32,7 @@ class Gcc < Formula
     sha256 big_sur:       "4ec68e83ce46f4c686a4c9a7f90a748705543826da81e4c74c78d210b6c66c81"
     sha256 catalina:      "c8405807d9bdab853432100e8d85bf3b4c7d4a4123067f099699a492d40a430b"
     sha256 mojave:        "cac0a37271b71e40b3df7b9fa83190c11dfcd9640d8b3d02bc2ba2bae5b964ac"
-    sha256 x86_64_linux:  "7a2f47441a55ad77374ad67674d89fca5def4f9585ada08352d6498a1771f361"
+    sha256 x86_64_linux:  "7a2f47441a55ad77374ad67674d89fca5def4f9585ada08352d6498a1771f361" # linuxbrew-core
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

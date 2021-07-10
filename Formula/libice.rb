@@ -11,7 +11,7 @@ class Libice < Formula
     sha256 cellar: :any, catalina:      "4c5c97814304360fdaeec959107e79e9fdb62ba151159ca55342944efec4bd82"
     sha256 cellar: :any, mojave:        "d7249247483e6ee2787e66c7f887a7df52aedd5abd2558ae377b5d16e3b6275e"
     sha256 cellar: :any, high_sierra:   "b5f1f14bc4fd8d18fd19b2552ddc898f53f573015de0706289de54c177b16eb4"
-    sha256 cellar: :any, x86_64_linux:  "935f190724128149ac5c9d38202080532a071a4e8ae1248a794824a9dee61f12"
+    sha256 cellar: :any, x86_64_linux:  "935f190724128149ac5c9d38202080532a071a4e8ae1248a794824a9dee61f12" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -10,7 +10,7 @@ class Abcm2ps < Formula
     sha256 big_sur:       "576ceb67099499b4456a08434a9638a792eee8d12df2db9d957c80a48fb004e3"
     sha256 catalina:      "294a1b897cd3224cfb9c03053c9a7826c9e7cdbe07065ff17f5f9a9f1608a0f8"
     sha256 mojave:        "5bbc737b7c7b864e6490431cab5359b6193b75faa23ac6d5b5a1d78eda906b1c"
-    sha256 x86_64_linux:  "a3b96f1b29bf7e413f370e13450ccd5d7eac88d508fe19f00260bd711a34b911"
+    sha256 x86_64_linux:  "a3b96f1b29bf7e413f370e13450ccd5d7eac88d508fe19f00260bd711a34b911" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

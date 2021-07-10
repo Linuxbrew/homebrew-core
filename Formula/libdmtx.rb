@@ -13,7 +13,7 @@ class Libdmtx < Formula
     sha256 cellar: :any, high_sierra:   "eb892feb7d29f9291a0edc2be6c34b4584614103d4af9d1c62eb54370decd8e1"
     sha256 cellar: :any, sierra:        "c93913cd5aff29278c538957fd6890d990f760abaff1b14cea6f6f171194b706"
     sha256 cellar: :any, el_capitan:    "ebcd82bf4d9da2a71bd066722ce6750d6cf064b1c8f477ba9aca47987acd330c"
-    sha256 cellar: :any, x86_64_linux:  "399dc064ad8757be66a854f5c41c8bd3d1efad7d22adb7a83c1d44bcddb75b52"
+    sha256 cellar: :any, x86_64_linux:  "399dc064ad8757be66a854f5c41c8bd3d1efad7d22adb7a83c1d44bcddb75b52" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

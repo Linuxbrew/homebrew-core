@@ -18,7 +18,7 @@ class LcdfTypetools < Formula
     sha256 mojave:        "0fd983396dbcf027e560753e6f25797500d085762edcf59a1a2034cd55c24cfd"
     sha256 high_sierra:   "cdff1c16d03fd920033f85dd2e2180f91791057729fbd26b6f193ac7cd0ce9f4"
     sha256 sierra:        "2bfe28f9e869eec676cada56bcf6efe97024e0e1f93b126a7b26ac2a292db2af"
-    sha256 x86_64_linux:  "f40ddeb592dfdfdfa121474e5c6caa3d98f0dcdc2bac3ed7b2dfa77f0311c92e"
+    sha256 x86_64_linux:  "f40ddeb592dfdfdfa121474e5c6caa3d98f0dcdc2bac3ed7b2dfa77f0311c92e" # linuxbrew-core
   end
 
   def install

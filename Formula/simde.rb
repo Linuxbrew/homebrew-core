@@ -7,7 +7,7 @@ class Simde < Formula
   head "https://github.com/simd-everywhere/simde.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2b76aa4bfc8e2fe4c0af7a594e7f25aba0575b4f0ca9babef7057215e9cafe74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2b76aa4bfc8e2fe4c0af7a594e7f25aba0575b4f0ca9babef7057215e9cafe74" # linuxbrew-core
   end
 
   depends_on "meson" => :build

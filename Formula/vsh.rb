@@ -10,7 +10,7 @@ class Vsh < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4d616d613324f4289d5ab4d51fe8fe4cbc44d676399f20c945a83e1b0291fdf3"
     sha256 cellar: :any_skip_relocation, catalina:      "b63300d4db50898209cc4322973f692c49efb0670df5b72a816660e3941f9654"
     sha256 cellar: :any_skip_relocation, mojave:        "9ac7a12b169868af589a1c4044db817b1ad1df20266299203f80f7135450313f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de5c2cde166c22abb15d2579d0d6be19454652eaf2563f8aa4270adfb26f6407"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de5c2cde166c22abb15d2579d0d6be19454652eaf2563f8aa4270adfb26f6407" # linuxbrew-core
   end
 
   depends_on "go" => :build

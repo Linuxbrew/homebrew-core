@@ -10,7 +10,7 @@ class Sshfs < Formula
     sha256 cellar: :any, mojave:       "5f69267c0f1f2489989e108919d66210e058423d0d1f1661812c0194b164619c"
     sha256 cellar: :any, high_sierra:  "58d222f37622b399352f16eaf823d3e564445d9e951629e965281ac31de5ef4a"
     sha256 cellar: :any, sierra:       "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01"
-    sha256               x86_64_linux: "adbef91244bb2888824afce89666060acf8e833ed78f5563ba64053055d688fb"
+    sha256               x86_64_linux: "adbef91244bb2888824afce89666060acf8e833ed78f5563ba64053055d688fb" # linuxbrew-core
   end
 
   depends_on "meson" => :build

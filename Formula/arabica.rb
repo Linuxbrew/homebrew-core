@@ -23,7 +23,7 @@ class Arabica < Formula
     sha256 cellar: :any, catalina:      "4fbf676c46941de213b095ab74f0b4973e5984c2bbaa7679757b0db4b369480a"
     sha256 cellar: :any, mojave:        "acc299016dbd644658880e9fa29af6d3f0b9f8e226b16ccd3fcaea8dae23febf"
     sha256 cellar: :any, high_sierra:   "62920d4f26c2da71c6abf60c90c1322457e340df8142d7133a9ee1f7c2b46745"
-    sha256 cellar: :any, x86_64_linux:  "ee7c3c47abb05ccab2cf0160f2962c1d179e27a9c8301cb537a8a077a2f2cba5"
+    sha256 cellar: :any, x86_64_linux:  "ee7c3c47abb05ccab2cf0160f2962c1d179e27a9c8301cb537a8a077a2f2cba5" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

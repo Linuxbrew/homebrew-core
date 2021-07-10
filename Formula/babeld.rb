@@ -16,7 +16,7 @@ class Babeld < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "63a4e1edb9625b5f3e11df84a840979330b0bd3af8d77dec25fe09e92698719f"
     sha256 cellar: :any_skip_relocation, catalina:      "b6906565df2c7862dd7979ef3599414bc59f0b78b05b0e3a9dbf411ab29fad83"
     sha256 cellar: :any_skip_relocation, mojave:        "a59602b1643b95845ab9d1b6ecd68d1231ee825ac68fadb577e93d85b9b99ac9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47467d998e46d7e837d4b226edf4c22c29a8be28973dd56d7ffebffeb4e5437d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47467d998e46d7e837d4b226edf4c22c29a8be28973dd56d7ffebffeb4e5437d" # linuxbrew-core
   end
 
   def install

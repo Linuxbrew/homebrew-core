@@ -14,7 +14,7 @@ class Duc < Formula
     sha256 cellar: :any,                 mojave:        "a6482213346ed6dfb26066b3442722a856cb8348d6123aecfe72929251e6b20a"
     sha256 cellar: :any,                 high_sierra:   "d74b95c03260c0b14fd85e296835047bd88dbbc2f4fd0d62dc3a43409178c18c"
     sha256 cellar: :any,                 sierra:        "9bde89536984080777e870473934584417fb4c34a0e44074b08a07a5db1a98d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dbb835d37d6eb774f98cce6fcd13e690aa0711183c8435d7dfcfb08445b528a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dbb835d37d6eb774f98cce6fcd13e690aa0711183c8435d7dfcfb08445b528a" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

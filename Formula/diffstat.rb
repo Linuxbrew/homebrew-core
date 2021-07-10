@@ -15,7 +15,7 @@ class Diffstat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77"
     sha256 cellar: :any_skip_relocation, catalina:      "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf"
     sha256 cellar: :any_skip_relocation, mojave:        "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7a22c3ca50cc20a3711698fa3c48b604045e5ab17f25a8af1d331f9bd3da40c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7a22c3ca50cc20a3711698fa3c48b604045e5ab17f25a8af1d331f9bd3da40c" # linuxbrew-core
   end
 
   def install

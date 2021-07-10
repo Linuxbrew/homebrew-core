@@ -11,7 +11,7 @@ class Ncmpcpp < Formula
     sha256 cellar: :any,                 big_sur:       "94f81334cde20719c43ff2e31cd89b89fe05b79e072f91e9ad5a9e8b104e7453"
     sha256 cellar: :any,                 catalina:      "491b03399a3f52b0ae8bd5ffd4ccbe34bff8565f1a5898d60c0a6c04e1bc43db"
     sha256 cellar: :any,                 mojave:        "228570b600da1e6001294be6761a84cf93f373a6d32aadbe38c7f239158835cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6544900ddf305c9b85a7dd0d44272caf80d7c5884c37ed6a6550d0a83c26169c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6544900ddf305c9b85a7dd0d44272caf80d7c5884c37ed6a6550d0a83c26169c" # linuxbrew-core
   end
 
   head do

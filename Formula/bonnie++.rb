@@ -15,7 +15,7 @@ class Bonniexx < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "75e1876579c6638c1e4c0509af5c76950ae379b034e6a051d091593cb08c1ddd"
     sha256 cellar: :any_skip_relocation, catalina:      "83df0761686086ae64a3c08433613908d9c39d85daa7f81011b5bd70d2d5eb3d"
     sha256 cellar: :any_skip_relocation, mojave:        "c503806d5f1ad449a6943275fa93a3930fbbd7cd63b31ee873590d0219ded5b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fa961ef4884e5ed8aba3f1ffbadcf9fb1bb6b9d0a87647ad2a2492f99c10067"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fa961ef4884e5ed8aba3f1ffbadcf9fb1bb6b9d0a87647ad2a2492f99c10067" # linuxbrew-core
   end
 
   # Remove the #ifdef _LARGEFILE64_SOURCE macros which not only prohibits the

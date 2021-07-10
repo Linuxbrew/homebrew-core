@@ -16,7 +16,7 @@ class Gpa < Formula
     sha256 big_sur:       "b4476f76bdd1e9b7acb836a49cb7e216726d277d04d24ce1b5c2d3d7e392adf0"
     sha256 catalina:      "c598e546d83f042d3de1011bff926a839c34e56c06a4c9cc6dbab25ff9c19df6"
     sha256 mojave:        "14eace8606e49fe9d3d2fa39a9f79fbbaca7cff7d78c0cb7027033f92133fa04"
-    sha256 x86_64_linux:  "cfb7f5902331a599750e01492a1d7f250fb679b515d2050e4fa19befc25724ae"
+    sha256 x86_64_linux:  "cfb7f5902331a599750e01492a1d7f250fb679b515d2050e4fa19befc25724ae" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -13,7 +13,7 @@ class Stow < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92"
     sha256 cellar: :any_skip_relocation, high_sierra:   "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92"
     sha256 cellar: :any_skip_relocation, sierra:        "cbc7a61940a343aff46fdb6190dc26a359d26c9c468c05b1dbde2484a066ceb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9c9d729eedfc866f0303dddf4ad36e94cf0e5711846724bebdda4b0e1acbf61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9c9d729eedfc866f0303dddf4ad36e94cf0e5711846724bebdda4b0e1acbf61" # linuxbrew-core
   end
 
   def install

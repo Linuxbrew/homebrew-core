@@ -19,7 +19,7 @@ class Liboping < Formula
     sha256 sierra:        "42b80e23afe4fb4f296d039b0bdd4ccd0da21937514fdd04a90bc01d39da7aec"
     sha256 el_capitan:    "de0bb72a0752469b262db3a24a41c84746930858462cd08993c057caadd46264"
     sha256 yosemite:      "c4f46d01bdace450a49e2c4fc4ba4056070bf1b869ed07f1b0a1d6a4f7646bc9"
-    sha256 x86_64_linux:  "c85669755c8afdc54ec31e0ba30e49589c84cd0ed2ad2b0988e97135d5381fc1"
+    sha256 x86_64_linux:  "c85669755c8afdc54ec31e0ba30e49589c84cd0ed2ad2b0988e97135d5381fc1" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

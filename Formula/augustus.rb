@@ -17,7 +17,7 @@ class Augustus < Formula
     sha256 cellar: :any,                 big_sur:       "0ceda121d6ead1c2b3812f7e1a9155366751da603fd1ab6c0ccbcada6eebb668"
     sha256 cellar: :any,                 catalina:      "526462eb67bf51a1b95fdecf402d67df75c876333adfabe5aedffe89d76946fc"
     sha256 cellar: :any,                 mojave:        "1eab0e15ac3027334f0ccda5e4edce2d99cafeffcea50f486842aada76bf6212"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "320895ea39d8c7eafb1701d4484427655a5ba5a38b70382220af78b7d3c82eee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "320895ea39d8c7eafb1701d4484427655a5ba5a38b70382220af78b7d3c82eee" # linuxbrew-core
   end
 
   depends_on "boost" => :build

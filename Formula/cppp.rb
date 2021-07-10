@@ -13,7 +13,7 @@ class Cppp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "af58094ee1d80d6d09163b42755d827aa5b8be15b636a6ad087b334978ad2e38"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3bb773301b97402f783e506f3ccc339d7363df6e292d255d6b3209e5be8d1c1a"
     sha256 cellar: :any_skip_relocation, yosemite:      "7c18c1844a89ca3a0ee7084b06c908de2288378eaeac09c7872b0eae97129fc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d57d66bfceb8cb6bdae878532ec2935fd4199da506b2c017dc777e9a846c95d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d57d66bfceb8cb6bdae878532ec2935fd4199da506b2c017dc777e9a846c95d2" # linuxbrew-core
   end
 
   def install

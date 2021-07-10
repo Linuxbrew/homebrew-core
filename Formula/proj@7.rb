@@ -10,7 +10,7 @@ class ProjAT7 < Formula
     sha256 big_sur:       "85fe28900d71302e7a6a433cf97f6c2bbffd760578a731f502a3dbea2be02917"
     sha256 catalina:      "34dc4a8dda8470ec24951126171ac370232d215a4623e8c8b67161b52a875706"
     sha256 mojave:        "cfda390ef15a53e47786071d599ded6ecfb540c3c70ae0174135d50c481f058b"
-    sha256 x86_64_linux:  "3bb8d91148a287630a1c7a5a4606192400af7cbbbf3f6ae6a00f67530d4c9f59"
+    sha256 x86_64_linux:  "3bb8d91148a287630a1c7a5a4606192400af7cbbbf3f6ae6a00f67530d4c9f59" # linuxbrew-core
   end
 
   keg_only :versioned_formula

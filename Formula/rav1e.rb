@@ -17,7 +17,7 @@ class Rav1e < Formula
     sha256 cellar: :any,                 big_sur:       "45b2b8adc65f38c42d453665f302385df54b251846355d002b753365a0701a3e"
     sha256 cellar: :any,                 catalina:      "e08ce645cc56ed8258cc84c6aedaa7e78ce02ce4fed0ad7032845a2c0052aed0"
     sha256 cellar: :any,                 mojave:        "8ed66c0b3180c82355a8d9201ace97ac281b8dab4bc152ad9e58a855b01429ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4f2b5b4866819e5106b96b928247f069f78be5e9fafa11f832f1c3935519193"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4f2b5b4866819e5106b96b928247f069f78be5e9fafa11f832f1c3935519193" # linuxbrew-core
   end
 
   depends_on "cargo-c" => :build

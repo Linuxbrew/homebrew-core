@@ -13,7 +13,7 @@ class Mycli < Formula
     sha256 cellar: :any,                 big_sur:       "06ebeca7331a42b285c8aeb600a80e435b616df96ee6ffa2f789a989e64eb8e6"
     sha256 cellar: :any,                 catalina:      "5a422d46352babae1bbcb8c529a2bd0885c79d85878eb43ce71818a53fcd1ff6"
     sha256 cellar: :any,                 mojave:        "2c85021224eb11cfc16e9275f798f48202f0f8c450eb05efd6b1e5eeaf4135bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "456efa40c7e45319b8e16ddcd2bbbafa96b1b3bb090b63f46dc4c5862691b845"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "456efa40c7e45319b8e16ddcd2bbbafa96b1b3bb090b63f46dc4c5862691b845" # linuxbrew-core
   end
 
   depends_on "rust" => :build

@@ -11,7 +11,7 @@ class Jerasure < Formula
     sha256 cellar: :any, high_sierra:  "8e63bf431836395466d91ef947126a39c8193b274ab22156cf421d6958508607"
     sha256 cellar: :any, sierra:       "603646521f0255877f611df53e30ccbc071b07cba6e0f33025404332e9677ffa"
     sha256 cellar: :any, el_capitan:   "1db6ef4631512bf3b155d614588689b2bacc911178cedf828db8f810d9e18d43"
-    sha256 cellar: :any, x86_64_linux: "790990c755e408f6ec7649fa6e2765666619a6122fb05ea6a57afbb1d289cc22"
+    sha256 cellar: :any, x86_64_linux: "790990c755e408f6ec7649fa6e2765666619a6122fb05ea6a57afbb1d289cc22" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: "Depends on gf-complete which has been disabled"

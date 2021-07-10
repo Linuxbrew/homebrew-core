@@ -13,7 +13,7 @@ class Classads < Formula
     sha256 cellar: :any, sierra:       "d51471a725a552974a309b8add05ca731264f7a0fbaedee1c85b97475c204cb7"
     sha256 cellar: :any, el_capitan:   "52bd3bb21e7a2491ad96f01988b802ab183c5e93d3123e9cc57b75e1a0076171"
     sha256 cellar: :any, yosemite:     "2ec01b2285391e8c1a696c783db281dc69c05e0f2c483792129799b8ad304d7e"
-    sha256 cellar: :any, x86_64_linux: "909635d1a430caa525b45dc818b110296da7c70d5e54c0a549156e5b8a532a33"
+    sha256 cellar: :any, x86_64_linux: "909635d1a430caa525b45dc818b110296da7c70d5e54c0a549156e5b8a532a33" # linuxbrew-core
   end
 
   depends_on "pcre"

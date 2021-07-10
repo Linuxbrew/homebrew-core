@@ -12,7 +12,7 @@ class Diskus < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "3c4f0aafa14c810b36b2d5dbeb6998bdc866aad7b531f12f14508ee2e8b1c46d"
     sha256 cellar: :any_skip_relocation, mojave:        "16deb101df03efdcc20f56ed24d2e9608e8733e3bf9f552935ccc73428ac96a3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e603cd7daf7d48e0f139b584ef77f4f59949470e4e2d0ee0f430ac229fe444ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ac7bf3d18a34673bd95b60032380e37241ac655357bab665b63d2c5fc8f30ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ac7bf3d18a34673bd95b60032380e37241ac655357bab665b63d2c5fc8f30ca" # linuxbrew-core
   end
 
   depends_on "rust" => :build

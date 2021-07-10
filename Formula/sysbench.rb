@@ -12,7 +12,7 @@ class Sysbench < Formula
     sha256 cellar: :any,                 big_sur:       "a9c638a46ddda6841018ad7354673315882a83e2aad7a480f46663db25e3c553"
     sha256 cellar: :any,                 catalina:      "f85e28b078ef05d9a155d0655275e6a9418494d94ab3dd524607a9c6ca84806b"
     sha256 cellar: :any,                 mojave:        "a29e37acd73943d5a1d72e6a5cb2f0812e2be3aeb061f919d271a8b31f2ac412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f9cf704a34e18ddf2b4e826500a6b98b6e0df6e9b2dcf85e93dfe9f5fa2988f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f9cf704a34e18ddf2b4e826500a6b98b6e0df6e9b2dcf85e93dfe9f5fa2988f" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

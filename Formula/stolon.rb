@@ -11,7 +11,7 @@ class Stolon < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "8bbf533b32cba6f798e17aad03e6268c6fe66be84cac9801226217e40c9cc0a9"
     sha256 cellar: :any_skip_relocation, mojave:       "fac96dde0102d1b0b7cd6e6dad8cb3bb3b7dfdee16f0fe98cbb439e4602a48e5"
     sha256 cellar: :any_skip_relocation, high_sierra:  "3f82acb97ffd0f586b5c6c643237205f0df3c5d03ed2cbd01143aba404d0e1b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f9a42e2d84e9a0a7e6edbe81878b02e25f8e1ce62129e3e45b7b696bbcdbe17c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f9a42e2d84e9a0a7e6edbe81878b02e25f8e1ce62129e3e45b7b696bbcdbe17c" # linuxbrew-core
   end
 
   depends_on "go" => :build

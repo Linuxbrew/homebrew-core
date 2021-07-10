@@ -15,7 +15,7 @@ class DuoUnix < Formula
     sha256 catalina:      "67a6ff6605578e287fc862f6fb2ee9360dea7c22f8fbaa97a1bf18dd13db5ec0"
     sha256 mojave:        "753e3f0d60c4c0404a6e347d052bc1ed4bd1e66b43170675549a36d4fe736f25"
     sha256 high_sierra:   "8e707bc378fa13dfd92fb39e0de055c58f2470973fe80edc41bf500e4863128a"
-    sha256 x86_64_linux:  "bdf77d178534c6a4a6283ea965b0a0ba7457641c44ac445a07a2841cf1cf455c"
+    sha256 x86_64_linux:  "bdf77d178534c6a4a6283ea965b0a0ba7457641c44ac445a07a2841cf1cf455c" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

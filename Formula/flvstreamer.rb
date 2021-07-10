@@ -20,7 +20,7 @@ class Flvstreamer < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e257779383d236611212078f2e6db28d457d51a282d6163806e0232134a046b0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5a4b649ce0f2c32bca4091f4867a37cca0e8ae2a292d4ef29aa2949530bdd651"
     sha256 cellar: :any_skip_relocation, yosemite:      "243e6ce44b77212ff84e3a739bf2b203c687bdcdd36b17ba24daa5335bf0a151"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23dcc8826feee8b48a0161f1d8a88a18c3f8312effb91cf8459cd0aa4bcd2ad6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23dcc8826feee8b48a0161f1d8a88a18c3f8312effb91cf8459cd0aa4bcd2ad6" # linuxbrew-core
   end
 
   conflicts_with "rtmpdump", because: "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"

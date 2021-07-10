@@ -9,11 +9,12 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3add12cfc5cc3aed5ea37da9eb901ee5c66803ccbf0be5f6d592543447634594"
-    sha256 cellar: :any,                 big_sur:       "898c6725202a6d7e8c086aa2a5d1cf0041a01642ae138cb28e4d8684696c1c32"
-    sha256 cellar: :any,                 catalina:      "51763ab53bd44b00bf45e2efe804a6f15388f4e2ac3d35086d9c0f6109263f94"
-    sha256 cellar: :any,                 mojave:        "171e4f4266cd4d1407c00638d2744e4b25fffd0408ecf8d7a655ab70137ff5e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcf6460f70c13fbf5cbd4627808af1a742bc1113605b5b66dd64e0df38734894"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "41896d9958a84aad343e09cd769d87ed34e44af446723afa5b375e926b1ae614"
+    sha256 cellar: :any,                 big_sur:       "2afedad750d6a2da248f4b9404179a4373e9ed02f0f62aafa3f85fd3b250a9f1"
+    sha256 cellar: :any,                 catalina:      "5a3cfa0026e00cfe945de6b4ff13263d224aef153dcd93fdb544c9358a0bdb6f"
+    sha256 cellar: :any,                 mojave:        "1309a31faf75575c91cf6ed8c5a34f504515d03774cea6af64ac1713a218f917"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a0bd3d403db0a003bc25a6095999e73bc55915926b9749d3b7ccfbf34ab2d80" # linuxbrew-core
   end
 
   depends_on "python@3.9"
@@ -22,10 +23,8 @@ class Ipython < Formula
 
   # use resources from ipykernel (which includes ipython)
   resource "appnope" do
-    on_macos do
-      url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
-      sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
-    end
+    url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
+    sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
   end
 
   resource "backcall" do
@@ -134,7 +133,11 @@ class Ipython < Formula
 
     # install other resources
     ipykernel = resource("ipykernel")
-    (resources - [ipykernel]).each do |r|
+    res = resources - [ipykernel]
+    on_linux do
+      res -= [resource("appnope")]
+    end
+    res.each do |r|
       r.stage do
         system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end

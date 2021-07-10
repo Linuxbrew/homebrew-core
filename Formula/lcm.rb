@@ -12,7 +12,7 @@ class Lcm < Formula
     sha256 cellar: :any, big_sur:       "8ae12270c1b2ba9c0c02b22a32bb96326a4694aee2e0c65e694d71ef7e1a4c05"
     sha256 cellar: :any, catalina:      "13a51b7c5ca3ffa82d366ae898ab98dcafa725af2a6f8319bcbf16225b0dba4f"
     sha256 cellar: :any, mojave:        "437bc1978078c4ad00696efb00cf4add0afa7666c1e8b7a8b6080974bed3eae4"
-    sha256 cellar: :any, x86_64_linux:  "e326b3c44a82b190d09bc82c3fd118629f3ffd36d77425ceaf83753195242c19"
+    sha256 cellar: :any, x86_64_linux:  "e326b3c44a82b190d09bc82c3fd118629f3ffd36d77425ceaf83753195242c19" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

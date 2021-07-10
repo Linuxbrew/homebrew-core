@@ -13,7 +13,7 @@ class Srmio < Formula
     sha256 cellar: :any, sierra:       "9ca9c4a2d17c7f431b1ad9899ae97ea22ec44e24a9c0c60220638c0f31f9b2c4"
     sha256 cellar: :any, el_capitan:   "9e45cba0daaa89683552f1feb19cd49c42d27a311113ecb204ae8c2e48231f3f"
     sha256 cellar: :any, yosemite:     "e71a6c2fac5115cae2fe1a8b7eea9fb5800b96f908adf357a667b5df70bd7089"
-    sha256 cellar: :any, x86_64_linux: "091c31156bdb1f487a811255982cd6e2ba0cbaa10124d152443c53340c5a6e77"
+    sha256 cellar: :any, x86_64_linux: "091c31156bdb1f487a811255982cd6e2ba0cbaa10124d152443c53340c5a6e77" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

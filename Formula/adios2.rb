@@ -12,7 +12,7 @@ class Adios2 < Formula
     sha256 big_sur:       "7d1abe16be0173d2c1e645c51641b59fea8983c140c5caef132016d4e1416568"
     sha256 catalina:      "6826ba1d0cf70bd775a97a152fa2423b0091dfb196500d5a1eef0884f6e9d2f8"
     sha256 mojave:        "ec0da5f5869f0473b3c7b906cb4ea86d7673f4ff3bb479d6cf88621beb990507"
-    sha256 x86_64_linux:  "00f1b30a74e7e8e0472392f3ac5d6323a1b3e708a9bce4ce87534a344f5d8a6e"
+    sha256 x86_64_linux:  "00f1b30a74e7e8e0472392f3ac5d6323a1b3e708a9bce4ce87534a344f5d8a6e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

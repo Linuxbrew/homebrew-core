@@ -13,7 +13,7 @@ class Hexo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "55bcaac970db5cb434a16c27e5165dc338cdcf6498b8243936c5bcc509ea2eae"
     sha256 cellar: :any_skip_relocation, catalina:      "5bcbf7709254e2615b78b583f8c70336ecc5f20702ae5a855d7c6bb9ac2c4908"
     sha256 cellar: :any_skip_relocation, mojave:        "dbc44b1c38643e08908e1978f0142c2caf1a6ec8a3ee6663c8038855de222612"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c489d2961a0d133484a1b925abc9cf4b1def58adf8731d07060cf8ed4b602fec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c489d2961a0d133484a1b925abc9cf4b1def58adf8731d07060cf8ed4b602fec" # linuxbrew-core
   end
 
   depends_on "node"

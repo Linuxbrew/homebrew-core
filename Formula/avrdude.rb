@@ -20,7 +20,7 @@ class Avrdude < Formula
     sha256                               high_sierra:   "b0cb94b5c4f01fcc870f286bca293218c98fda23d76397db8a831272f7087038"
     sha256                               sierra:        "e8e26af5565cd897867d4e6e71e66e6e946e1e21eb4e27d3cd49f199f088fc5d"
     sha256                               el_capitan:    "c953526dc893a9b162a109d074edf8bb71d7049c63990282edc994c63de90c44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddfe626435ddcdbb928056a816515ff4b8da1f009dec703afe9c7de2788f7407"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddfe626435ddcdbb928056a816515ff4b8da1f009dec703afe9c7de2788f7407" # linuxbrew-core
   end
 
   head do

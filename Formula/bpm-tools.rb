@@ -14,7 +14,7 @@ class BpmTools < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "56e3a889338b82d5b477c1564506e23549d9651b08260d9c9a38b5e6bd1555ab"
     sha256 cellar: :any_skip_relocation, high_sierra:   "422342ce8dd8a50853e8289ccc936747f4a77a20803850e6481498cf8c4a12c5"
     sha256 cellar: :any_skip_relocation, sierra:        "f1219d522f61e89606f3e607a636e406faf5f954846b48965e37cc25dbb29b87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20c8a421d7c78aa0c0eec565f1a5584218910bd55c366ad06c865198b8a0a315"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20c8a421d7c78aa0c0eec565f1a5584218910bd55c366ad06c865198b8a0a315" # linuxbrew-core
   end
 
   def install

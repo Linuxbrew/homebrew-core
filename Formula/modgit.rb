@@ -5,7 +5,7 @@ class Modgit < Formula
   sha256 "9d279c370eee29f54017ca20cf543efda87534bd6a584e7c0f489bbf931dccb8"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0428f040a4b3f361834936dfc098f2ba08f979b81d9b6fc6b7cf6b401e5c308a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0428f040a4b3f361834936dfc098f2ba08f979b81d9b6fc6b7cf6b401e5c308a" # linuxbrew-core
   end
 
   def install

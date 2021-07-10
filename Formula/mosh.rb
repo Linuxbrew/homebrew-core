@@ -27,7 +27,7 @@ class Mosh < Formula
     sha256 cellar: :any,                 big_sur:       "b297986eb2a108d1f38c75e90e12f19953a39bda71ff75860e060f15f26f17d0"
     sha256 cellar: :any,                 catalina:      "b9f84223c2299ed1ecefcb98fa545d2a53613933280fbc45c9dec32e9d9a9902"
     sha256 cellar: :any,                 mojave:        "0201d43d7aed512afa30e241423c12b4828f193a7fe3155c173cccb55be56ce8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e121b2d600662da184399481a8d7b28ed5ba31b90235ccee6c0ea1a179860ef7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e121b2d600662da184399481a8d7b28ed5ba31b90235ccee6c0ea1a179860ef7" # linuxbrew-core
   end
 
   head do

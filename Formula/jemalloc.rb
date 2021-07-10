@@ -12,7 +12,7 @@ class Jemalloc < Formula
     sha256 cellar: :any, catalina:      "b1b211e5bead798c236d478dd74310a97a7b59470f607b608c07222648b08bf5"
     sha256 cellar: :any, mojave:        "d3f6f85e74b08c8c97448e289734df484f884af35cd10ce9d9db43cf721fbf94"
     sha256 cellar: :any, high_sierra:   "8080c98844153da08346431fe0a0592f6f718cb7a17525f9ffb909c395bc0b6d"
-    sha256 cellar: :any, x86_64_linux:  "08def7a0bdddf9311aeca1d40b93f4ac1b8b0c13ded3c66dc8ec44e517cff233"
+    sha256 cellar: :any, x86_64_linux:  "08def7a0bdddf9311aeca1d40b93f4ac1b8b0c13ded3c66dc8ec44e517cff233" # linuxbrew-core
   end
 
   head do

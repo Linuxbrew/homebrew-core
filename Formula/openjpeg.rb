@@ -11,7 +11,7 @@ class Openjpeg < Formula
     sha256 cellar: :any, big_sur:       "43c37565eb2eec2b41dee3f1cc26e3324a42a368cb88092fe1b0dbc941f7678f"
     sha256 cellar: :any, catalina:      "80426609c75b98ee0ee394e9017bb621dc73dd2d6f60d0c851f6940d0b268676"
     sha256 cellar: :any, mojave:        "e26d092b6177ee282d3724dea5ea4cb76af3645472791c3fefb002e2638588b0"
-    sha256 cellar: :any, x86_64_linux:  "017924a40ebcef9ef63048215f7a66e794cbeebb47b024e9306796b143e65e46"
+    sha256 cellar: :any, x86_64_linux:  "017924a40ebcef9ef63048215f7a66e794cbeebb47b024e9306796b143e65e46" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -22,7 +22,7 @@ class Portaudio < Formula
     sha256 cellar: :any,                 big_sur:       "f9ae97164b4101048870c761b15998e46f40da666c3f0e20c33cf6ce2f7319d0"
     sha256 cellar: :any,                 catalina:      "8b87696f44cf2220cff66b9bcfa105f6a58dfec4eb2a881409e37773494c84b4"
     sha256 cellar: :any,                 mojave:        "a2cab0bc4fee9757af7269408eb91df07ddeddfa6dd35c9740aae93816622b0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46dee74016b11a3ebde06636a260d81953d371816bd0f4afaf88f748797a1ad7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46dee74016b11a3ebde06636a260d81953d371816bd0f4afaf88f748797a1ad7" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

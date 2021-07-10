@@ -18,7 +18,7 @@ class Backupninja < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "39df0693351a58ac9f406d6c16ab9c15ddb5d96ddf7ac9e98cf94061ccffe9a8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "39df0693351a58ac9f406d6c16ab9c15ddb5d96ddf7ac9e98cf94061ccffe9a8"
     sha256 cellar: :any_skip_relocation, sierra:        "071ac37b853475ae44c4b3dde995d694a5fce322e68d7eeb39eb52a85c781cea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46e71b934970638888d029ae6b69b09090e6f111c8eae190dd677234ebfb8601"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46e71b934970638888d029ae6b69b09090e6f111c8eae190dd677234ebfb8601" # linuxbrew-core
   end
 
   depends_on "bash"

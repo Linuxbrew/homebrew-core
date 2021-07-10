@@ -11,7 +11,7 @@ class Inja < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "fe3c6b65fe9f72935ac560e8c670b1dbe751fec0a02e9108a9898d6315ecd991"
     sha256 cellar: :any_skip_relocation, catalina:      "99ce29b9041c1723c165118582179d0541f788549d68fa269ec71ab09fdebdb8"
     sha256 cellar: :any_skip_relocation, mojave:        "0a912572fad4b9ac680aa0df36b4a0a24dd051af1534695f93922975f7e9fbc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "470aeba98f4e00b08c68db0ec20a3d80b0c26b50a5661d8fdf553ce48676e5ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "470aeba98f4e00b08c68db0ec20a3d80b0c26b50a5661d8fdf553ce48676e5ef" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

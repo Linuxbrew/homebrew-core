@@ -13,7 +13,7 @@ class Genstats < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "051dbb7c4f653b615b606d1fce15df9336a086e38428fcfdb2aee9f0057d8990"
     sha256 cellar: :any_skip_relocation, el_capitan:    "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f"
     sha256 cellar: :any_skip_relocation, yosemite:      "91737ec825ed346716fddcedc4e075b195f214dfb22586a33d46f7ec5ea3a17e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b532a53713cc8fafb4a544bf1d07ab75a5d70436f0fb15d1eaa52d1d11235fad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b532a53713cc8fafb4a544bf1d07ab75a5d70436f0fb15d1eaa52d1d11235fad" # linuxbrew-core
   end
 
   deprecate! date: "2021-05-20", because: "Upstream website has disappeared"

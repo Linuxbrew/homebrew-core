@@ -8,7 +8,7 @@ class Mkcue < Formula
 
   bottle do
     rebuild 3
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "52943029895b1e24197f114414788ca21b60e7fa870e2950ab23d6f98cad2e2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "52943029895b1e24197f114414788ca21b60e7fa870e2950ab23d6f98cad2e2f" # linuxbrew-core
   end
 
   def install

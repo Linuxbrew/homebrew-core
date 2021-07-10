@@ -19,7 +19,7 @@ class Dns2tcp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e948ddde1e95f055a9cd3e73cd2756c22f729d9feed9ebc2929cb3df6fe09584"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2cd5e77bec42f0f5e2715494c38eb8773ab30d53b140509d3f428d38890bf640"
     sha256 cellar: :any_skip_relocation, yosemite:      "3e805ac804eea824b81bd15191b71cdc42d4ac779ebfc1d74d5de51500be18a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29555ccb8cdf2fba7bfc8807ff887b4494f4858c100248f0c680f4e6c0194702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29555ccb8cdf2fba7bfc8807ff887b4494f4858c100248f0c680f4e6c0194702" # linuxbrew-core
   end
 
   def install

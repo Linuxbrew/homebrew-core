@@ -11,7 +11,7 @@ class GitExtras < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9c71ac1ab00be885a134f3cc634e89a412f61ba79f0c2da89fab10d1b16710e4"
     sha256 cellar: :any_skip_relocation, catalina:      "937098a922e8b3149329d93079d35cd8bfa551296c3798d9a84bccf275d05770"
     sha256 cellar: :any_skip_relocation, mojave:        "55b4518da5dc0d3f07725c86d64a844b8a98cbcdb28f2a8bd99791c444d1838f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a86c19cf08fccdc2986d811b9f33483086a0468a3a9b8c807c1e5ddda88116a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a86c19cf08fccdc2986d811b9f33483086a0468a3a9b8c807c1e5ddda88116a" # linuxbrew-core
   end
 
   on_linux do

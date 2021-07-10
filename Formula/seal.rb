@@ -10,7 +10,7 @@ class Seal < Formula
     sha256 cellar: :any,                 big_sur:       "2b7445854b7a4ed0359802e21f322437d035a76906d57b4da524a0cbe231aa69"
     sha256 cellar: :any,                 catalina:      "17c2a83d814cb00f94f09235f0a1e324d42d5fea0a900664248c7e00614f684b"
     sha256 cellar: :any,                 mojave:        "ff3705306ee82ff03db408c4d0d8fc1101281c8ce6236b521ecdffd513ca9d35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3197941a3d56c503f2199eb958a61c5e33211e788aba4d26107d14b1f29c9b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3197941a3d56c503f2199eb958a61c5e33211e788aba4d26107d14b1f29c9b3" # linuxbrew-core
   end
 
   depends_on "cmake" => [:build, :test]

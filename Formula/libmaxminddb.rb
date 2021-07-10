@@ -10,7 +10,7 @@ class Libmaxminddb < Formula
     sha256 cellar: :any,                 big_sur:       "44c4fa58c0113cb4e8784ac6fe0dfc7d2fc21d163c2c939171d83c45f5f70c8c"
     sha256 cellar: :any,                 catalina:      "ba231cfafcbd5b10b1ba0b38d2b53d006449b7799db27f795aad7358f1cbf2a7"
     sha256 cellar: :any,                 mojave:        "2320b83ae954d4a25180bf6b3d20ed7e3eb174b4ecb83ab12fd94f4ebeecb228"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9da1d2478773fb5875ca9f17a51e838297065650a8894a1680f7de96f764f859"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9da1d2478773fb5875ca9f17a51e838297065650a8894a1680f7de96f764f859" # linuxbrew-core
   end
 
   head do

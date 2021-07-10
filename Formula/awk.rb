@@ -13,7 +13,7 @@ class Awk < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a73059712fb0cc9a57389f72596ca5c52978ad54bf9dce04baedbf653b154022"
     sha256 cellar: :any_skip_relocation, catalina:      "681acac2c4bac4b8f275f640abf46e5391216d800ff34ad8c57c8d116674fae6"
     sha256 cellar: :any_skip_relocation, mojave:        "202e81f1562d8b46d4b932f91c64ab58fc6017f6cdd2cc3f2a636038abc76fc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b43145524bd133b1b4f87bce5c1ea7c9d56ff3d97b60fa256581264aec660421"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b43145524bd133b1b4f87bce5c1ea7c9d56ff3d97b60fa256581264aec660421" # linuxbrew-core
   end
 
   uses_from_macos "bison"

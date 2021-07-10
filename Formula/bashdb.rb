@@ -20,7 +20,7 @@ class Bashdb < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41"
     sha256 cellar: :any_skip_relocation, mojave:       "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41"
     sha256 cellar: :any_skip_relocation, high_sierra:  "0ab6de48ce871bc7b6abc582154b425350a70b7f2ecadd3b303c7a91dafc3c41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6640e91c77bca53d33acf19d11ea1db0cf02a6b41107b857c0e827dcdd02fa9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6640e91c77bca53d33acf19d11ea1db0cf02a6b41107b857c0e827dcdd02fa9a" # linuxbrew-core
   end
 
   depends_on "bash"

@@ -21,7 +21,7 @@ class Jbig2dec < Formula
     sha256 cellar: :any, catalina:      "7e70d2b2472b4116d1f98b7518f124067dbfa8e4d3d73b552af38440e7770bdd"
     sha256 cellar: :any, mojave:        "d02d163a886d1f3a9e1af50418ed2f19f66981b44a58f3228b3580f585929ee4"
     sha256 cellar: :any, high_sierra:   "8ec515805d2fab8f4db3b27afba0363428f341bb16fbda7d2708ef44fffc5285"
-    sha256 cellar: :any, x86_64_linux:  "9fa9ab6aeaaacc16b6ab6b52a999523f2b098cb71a37224cb50bd3fe355afd61"
+    sha256 cellar: :any, x86_64_linux:  "9fa9ab6aeaaacc16b6ab6b52a999523f2b098cb71a37224cb50bd3fe355afd61" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -11,7 +11,7 @@ class Kubeaudit < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "71b9458707cfea249b3b6fd7b18914fbbb6efd497f140f0133234ccecd1360fa"
     sha256 cellar: :any_skip_relocation, catalina:      "21883f6590403eac8d826fdcc0fe160a580954fcf666afa6c29e2244c1334398"
     sha256 cellar: :any_skip_relocation, mojave:        "fb90dc0cc651d0d9b86a5e294099cf8f98cc81df56e6bda3cdf6a39cf2765098"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd084f91577e765cde020f95b77fb5cbc1a704fa011afca506404922a05ed593"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd084f91577e765cde020f95b77fb5cbc1a704fa011afca506404922a05ed593" # linuxbrew-core
   end
 
   depends_on "go" => :build

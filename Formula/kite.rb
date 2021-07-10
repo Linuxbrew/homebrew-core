@@ -15,7 +15,7 @@ class Kite < Formula
     sha256 cellar: :any,                 big_sur:      "e42d72077eab99bf9765a87691d809c953ab94bd36c65b1dd51a6f681a3962fe"
     sha256 cellar: :any,                 catalina:     "34c4f01c0b9290e11773e9bd9f971bdefd47dba7d2bd9023aed4fb0b50738184"
     sha256 cellar: :any,                 mojave:       "45a37540be7705e4daca4716415228a99a6ad77ec46d4916834cce0f71f7f08c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ad2ff7cc4daa2e51d61532e7ebe0e911b9121bf89aec7d805ecde5255aa0931e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ad2ff7cc4daa2e51d61532e7ebe0e911b9121bf89aec7d805ecde5255aa0931e" # linuxbrew-core
   end
 
   deprecate! date: "2021-02-12", because: :unmaintained

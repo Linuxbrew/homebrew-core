@@ -11,7 +11,7 @@ class Libbitcoin < Formula
     sha256 cellar: :any,                 big_sur:       "1244b027fc18f6dba8a0126a578165a09b1c01b1ebf87cba093f7a90b5083505"
     sha256 cellar: :any,                 catalina:      "3229377e4e17745fff4d608d41397c786f6772574bc4957f999cb3bf693e4d4b"
     sha256 cellar: :any,                 mojave:        "c17b574fa866c922c770dd70c9e08f5d55f2e24d5fabe5c366ffcf68f9bea946"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9584040cd459dca7dc4e830b4f2b854f9e881dc57d5d8cba2da6df1c51a63dbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9584040cd459dca7dc4e830b4f2b854f9e881dc57d5d8cba2da6df1c51a63dbe" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

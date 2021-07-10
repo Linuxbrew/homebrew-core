@@ -10,7 +10,7 @@ class Gau < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e07435d1b92a2249a588a6937a153cb3bc8e35ca3cdf137ed5d181242a1c8c41"
     sha256 cellar: :any_skip_relocation, catalina:      "0e7265809d066b9c6d6d1e79b320038307b7b7f666e9e3bae6324a34bd58b357"
     sha256 cellar: :any_skip_relocation, mojave:        "8ab1292a808320aa1223f50d9975749a58eac7c579cb5ecbfbad0bbbcbfcc5a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b1f91caaabe5706e2d0e0f02cd42e7d4258d392710f4f7322e26f7ab6509734"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b1f91caaabe5706e2d0e0f02cd42e7d4258d392710f4f7322e26f7ab6509734" # linuxbrew-core
   end
 
   depends_on "go" => :build

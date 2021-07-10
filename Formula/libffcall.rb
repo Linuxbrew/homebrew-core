@@ -11,7 +11,7 @@ class Libffcall < Formula
     sha256 cellar: :any,                 big_sur:       "61cb42231c842a5559808582e374420e058fe76cc60b47f08b383c2751536caa"
     sha256 cellar: :any,                 catalina:      "1412d8bb030690981a6322f18a3ef686aaa3f7b1ab3e390be2767e83cb5160a5"
     sha256 cellar: :any,                 mojave:        "093534e26c77187ebd27234802635357c458cfe6956edc618d6292e707bc5fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b9ade24ffa94a150150dd446d25f7fdee0497c98d334cbf9d4b3cc0ed649990"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b9ade24ffa94a150150dd446d25f7fdee0497c98d334cbf9d4b3cc0ed649990" # linuxbrew-core
   end
 
   def install

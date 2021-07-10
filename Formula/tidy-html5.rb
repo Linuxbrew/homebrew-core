@@ -19,7 +19,7 @@ class TidyHtml5 < Formula
     sha256 cellar: :any, high_sierra:   "af9633f1578980fe3d4351c3d71b4b83cc79f814d87310e4b7d05830c53c9621"
     sha256 cellar: :any, sierra:        "6c8f843d25d6964b18d4c2fa15aaf2606b36decbbe65c31b38a7982e499a9d28"
     sha256 cellar: :any, el_capitan:    "48416711a2f1a080e9eae1ecba30773ee48eae98181e25c6ae5ace07cb7ac8ee"
-    sha256 cellar: :any, x86_64_linux:  "a9e3d3b4b49df633a5a58fbee141c2e309e93e467f23d0c728a17ce3d8b69b5a"
+    sha256 cellar: :any, x86_64_linux:  "a9e3d3b4b49df633a5a58fbee141c2e309e93e467f23d0c728a17ce3d8b69b5a" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

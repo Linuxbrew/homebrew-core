@@ -14,7 +14,7 @@ class Gflags < Formula
     sha256 cellar: :any,                 mojave:        "e3176e449321b1e2070a9fabc796e6820f2f0f1f4db1c3916f58e6cdd52e510e"
     sha256 cellar: :any,                 high_sierra:   "4beffa84f47bdfd9a1a90d9e591d9af4616db464d63046018ef0c58936d58366"
     sha256 cellar: :any,                 sierra:        "6f06466ca55f2174daecbc935e0bca1f2aed9bfb94a92f21d52fb4db1e07cd4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de926565f70796a5d1b7db6cd3ba3528723709a5db5eb251759125ff50bf37bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de926565f70796a5d1b7db6cd3ba3528723709a5db5eb251759125ff50bf37bf" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

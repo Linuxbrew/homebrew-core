@@ -18,7 +18,7 @@ class Ompl < Formula
     sha256                               big_sur:       "aab42d95974b15167f1a240f853283eed81a928877822a0aa8ee67664f1992e6"
     sha256                               catalina:      "6b0190b615a9929cd74f03e97ff62efdca225ce9c7afc171ed3f5be31f2a8afd"
     sha256                               mojave:        "b7d94176b089fc5959b6accb2da9390f94ab1863902f0f189bd542566815578c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "253e047d917fc694014f19a9aed93bf16774eefdc72157eb4a218cc160dc085b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "253e047d917fc694014f19a9aed93bf16774eefdc72157eb4a218cc160dc085b" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

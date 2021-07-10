@@ -6,7 +6,7 @@ class Shunit2 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "82fc864cd6bb364a531df9a69168b8d8d8cc3df33bdba72308f43168ce32cd1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "82fc864cd6bb364a531df9a69168b8d8d8cc3df33bdba72308f43168ce32cd1d" # linuxbrew-core
   end
 
   def install

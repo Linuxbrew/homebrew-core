@@ -11,7 +11,7 @@ class Grpcui < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c6c62dbe114c2bb1de1a0c19d7845bdf2fe758e1810721772888776332a28897"
     sha256 cellar: :any_skip_relocation, mojave:        "9f5c2e8b3bdc9e0d4609819503f4a10de72cba88b7fb4aa614e5c315975f7436"
     sha256 cellar: :any_skip_relocation, high_sierra:   "af7abe614d2e96ce599ec1683ad9ec94c51daaf5d72613ad9c4bdedb7c9a4495"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1160ac5074c836858425946ebee67b17fa10b37efbe256dd17fb8b7b3897260d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1160ac5074c836858425946ebee67b17fa10b37efbe256dd17fb8b7b3897260d" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -11,7 +11,7 @@ class Gsl < Formula
     sha256 cellar: :any,                 big_sur:       "ea2a8b743f1a4825c5f8991a0f7bc16e805b846c0c5c8f35995ca3a730d7ad3a"
     sha256 cellar: :any,                 catalina:      "ed733561136f1dd07e3ce164a3c0e0d7857c98158349ca6481bee4bd71f422b7"
     sha256 cellar: :any,                 mojave:        "6bc76e54e0a4db8d8993605bf7662f1076e46ade1ee6c59424a44248b0c72a87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b83d664557598a1bbf7bfdde1fd93ea17a5d199af45fef4a1cfeb0e3102a594"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b83d664557598a1bbf7bfdde1fd93ea17a5d199af45fef4a1cfeb0e3102a594" # linuxbrew-core
   end
 
   def install

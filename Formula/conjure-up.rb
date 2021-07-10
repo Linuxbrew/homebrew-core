@@ -13,7 +13,7 @@ class ConjureUp < Formula
     sha256 cellar: :any,                 big_sur:       "869c705b0f4392a57afd2ba7e4f7b5260640b5130c47dbb3aeb77bc142296d6c"
     sha256 cellar: :any,                 catalina:      "2112383857f9f865eff1a9528dd6ab2ace8a7b34be1d4ed3ac4fe80b014f9241"
     sha256 cellar: :any,                 mojave:        "b36c8bb8462705691744403cdcf6b2da77e7d1391249dba3857297cc950e6b97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c8b1066e586f75f8072cd08e8e172317c6518cb6c8a7f723a5051f602d05692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c8b1066e586f75f8072cd08e8e172317c6518cb6c8a7f723a5051f602d05692" # linuxbrew-core
   end
 
   deprecate! date: "2021-04-15", because: :repo_archived

@@ -12,7 +12,7 @@ class Platformio < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "35e55074a397b5aebbe070b544e92d94ad740657666ef211b6280bdb8485678d"
     sha256 cellar: :any_skip_relocation, catalina:      "790c0ae34e8542297af1f6852c27bda0261a606246af32058aa06751c3d3953a"
     sha256 cellar: :any_skip_relocation, mojave:        "1b113213a5bf0c2e76813d37ab22326c7367548eeb6dd56c2af74d9a9c3acaf0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fe236136f4e5bbe386175689bf7ffc541a67e5e3521b7744372246e9c0ff5af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fe236136f4e5bbe386175689bf7ffc541a67e5e3521b7744372246e9c0ff5af" # linuxbrew-core
   end
 
   depends_on "python-tabulate"

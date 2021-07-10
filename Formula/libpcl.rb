@@ -14,7 +14,7 @@ class Libpcl < Formula
     sha256 cellar: :any, sierra:       "525c0925d7d3234cf5da86a892d15aa4f6d4417f302ed821e2bfd6e7cb06ef43"
     sha256 cellar: :any, el_capitan:   "1975baf018352fd1f1ca88bd39fc02db384e2f6be4017976184dda3365c60608"
     sha256 cellar: :any, yosemite:     "e9c6f7bc1efab583e44879426a5abb2ff5e7f3eb30261a81a7be723c3280c3a3"
-    sha256 cellar: :any, x86_64_linux: "0f7ac6736461560ec54ab2cf752952a9e9da832e0b85cfbefbc96cb2bb9c9be5"
+    sha256 cellar: :any, x86_64_linux: "0f7ac6736461560ec54ab2cf752952a9e9da832e0b85cfbefbc96cb2bb9c9be5" # linuxbrew-core
   end
 
   def install

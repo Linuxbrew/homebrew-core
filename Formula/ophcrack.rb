@@ -14,7 +14,7 @@ class Ophcrack < Formula
     sha256 cellar: :any, mojave:        "0bdbfbee37e693edff5fc8f71c52f1fb12d6dd07c1e64aa1a20401df0789853a"
     sha256 cellar: :any, high_sierra:   "a1061331c1e9b4a726c818005a3d795ba8c73b29ecd78a3828b5e5eafac18107"
     sha256 cellar: :any, sierra:        "6229ee0c1e44192fa0d513b7e72e5c72e7fbd29b5ad7f61cd5c5824d76d49105"
-    sha256 cellar: :any, x86_64_linux:  "d2198ca755690e9db9a2216549fd266b2654510274ffba3a58205fd7296df811"
+    sha256 cellar: :any, x86_64_linux:  "d2198ca755690e9db9a2216549fd266b2654510274ffba3a58205fd7296df811" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

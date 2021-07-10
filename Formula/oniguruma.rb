@@ -16,7 +16,7 @@ class Oniguruma < Formula
     sha256 cellar: :any,                 big_sur:       "8154799c44b09d3283fab1d9e5c2a59c8026f8bf6358f94f99343cb0a9d84847"
     sha256 cellar: :any,                 catalina:      "fcb2b0c651e23b91ca63bf821b84bb1fb41d05dfcfdb601542228d0803db6384"
     sha256 cellar: :any,                 mojave:        "a09a31d8e1cf76b4c6025a4578259bb0b82a6b56733155afb2f363cc1ae5adbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a70a49d184cdf6c2212e7c64bd5198c5b885182f6b0bd03641f4f2c737887df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a70a49d184cdf6c2212e7c64bd5198c5b885182f6b0bd03641f4f2c737887df" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

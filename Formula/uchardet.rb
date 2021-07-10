@@ -11,7 +11,7 @@ class Uchardet < Formula
     sha256 cellar: :any, catalina:      "34bd4791834a762da961de136a3cad253800a98deea2d1dededf8efb465f215d"
     sha256 cellar: :any, mojave:        "a254139ee777de77d5907dfeb47d4306f2e5e5f0b3775edfedcbf1fcf217fdbe"
     sha256 cellar: :any, high_sierra:   "a89237dd88e4190826ce6fb4a8a625711636db7d6c4ba10d5ddd56d37347e868"
-    sha256 cellar: :any, x86_64_linux:  "6d5d176e4f2caae139d5f42376a08da54913f4018f26504267677f6ab319b641"
+    sha256 cellar: :any, x86_64_linux:  "6d5d176e4f2caae139d5f42376a08da54913f4018f26504267677f6ab319b641" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

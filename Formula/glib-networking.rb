@@ -10,7 +10,7 @@ class GlibNetworking < Formula
     sha256 cellar: :any, big_sur:       "22288b8ad200b43cc6e6be824457e7d078425aeb9d3c9992a60b7f98bc1d8780"
     sha256 cellar: :any, catalina:      "cf152dc56f935513958b8807d4a8c7f02b9e6950110ce66609f54df5bff0da59"
     sha256 cellar: :any, mojave:        "0e4b6128e863ec39780f0750a5057a90013780c47b2438d25b30e4effbbe3609"
-    sha256               x86_64_linux:  "d0fe1329801d27218280ff3db1e6c89fdd02b5b34dff96c968917ccea896bda5"
+    sha256               x86_64_linux:  "d0fe1329801d27218280ff3db1e6c89fdd02b5b34dff96c968917ccea896bda5" # linuxbrew-core
   end
 
   depends_on "meson" => :build

@@ -11,7 +11,7 @@ class Gsasl < Formula
     sha256 big_sur:       "42ef3c24427817c75c74804f31cd0d039a9900c8da5f96dbf9ab7b76e2563168"
     sha256 catalina:      "6f7aa6d0a2276a8d3434f2c16cfd7f60d85fbb4204194dcf6a678b7bb8c4e0f2"
     sha256 mojave:        "f9518412c5a6f631a78ef1ed3ed8989914446f2be1bad0de786ad82dc4c190e1"
-    sha256 x86_64_linux:  "a35bb63d4623bf77efd7c5000ace81c5581c573c1b5f47e87fc26e193692f4be"
+    sha256 x86_64_linux:  "a35bb63d4623bf77efd7c5000ace81c5581c573c1b5f47e87fc26e193692f4be" # linuxbrew-core
   end
 
   depends_on "libgcrypt"

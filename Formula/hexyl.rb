@@ -11,7 +11,7 @@ class Hexyl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "2443b91247ef98143863f23724ab1ffe3b192aa65471d2198ab02ffa72936ce9"
     sha256 cellar: :any_skip_relocation, mojave:        "465474b8dd2b6344efda4d611341a0d40c46965fabce4e3446bb3bc0a45c2392"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8805fb02b8cc13ffe9ca11663140f502dfbcbe5a4cbdf1262bd88758bc88167f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e05d4c3583ba9f0b2baf281051dd5f3b051502d49075f903b704b30f3602efac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e05d4c3583ba9f0b2baf281051dd5f3b051502d49075f903b704b30f3602efac" # linuxbrew-core
   end
 
   depends_on "rust" => :build

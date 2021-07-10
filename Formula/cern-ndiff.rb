@@ -16,7 +16,7 @@ class CernNdiff < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8b7fdab117eb811c70f44ecedceaf71bd6c1bfcb14930f7d5daa9ed6dd4e41bf"
     sha256 cellar: :any_skip_relocation, catalina:      "4d90638bad7723e4d1fa90fd3078018eea5472197569a40540c8bcc4f9b05620"
     sha256 cellar: :any_skip_relocation, mojave:        "0345d6cee16212fd72011a4910c5ffa57b37c6f1768198faf32ff526fbbd630c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30ca014137a0a09b3b84f17ade682974ef6f4e7ec4dabd9102be868088ee5c9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30ca014137a0a09b3b84f17ade682974ef6f4e7ec4dabd9102be868088ee5c9f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

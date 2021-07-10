@@ -13,7 +13,7 @@ class Recutils < Formula
     sha256 cellar: :any, mojave:        "1503a69c0ed988355b959c47b2c8a5e5a4f451d41027f5a06cdf5de19f7d171f"
     sha256 cellar: :any, high_sierra:   "c2ca0221b7e7091c11840a000f02b130325a188aeb03b100947562aa8d9ce3ef"
     sha256 cellar: :any, sierra:        "694cfda88a56f30c66d71080b8a1a4763a17789e0ea54b37c778ba84107f6430"
-    sha256 cellar: :any, x86_64_linux:  "111ee4bf1d770f006189b126835f5b1767beccd98ac544303cb3a63017b5f0bb"
+    sha256 cellar: :any, x86_64_linux:  "111ee4bf1d770f006189b126835f5b1767beccd98ac544303cb3a63017b5f0bb" # linuxbrew-core
   end
 
   on_linux do

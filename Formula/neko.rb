@@ -13,7 +13,7 @@ class Neko < Formula
     sha256 cellar: :any,                 big_sur:       "b709a1c46fd41c3d0f2e09ef65624e5e286408c885b8eb773806533d251c5550"
     sha256 cellar: :any,                 catalina:      "3c3942cb5d805125d765c401688fb8dc8a66047d21e1e9e10522ecd94de58c21"
     sha256 cellar: :any,                 mojave:        "6fbefe32d592b7fe197ea6e2e891b9da0d2d34ead8e5a44306714d16c4b40042"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "137575e065207e056fc975a729896f9e3ac96b174ca7aa06c1202793856cf8f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "137575e065207e056fc975a729896f9e3ac96b174ca7aa06c1202793856cf8f5" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

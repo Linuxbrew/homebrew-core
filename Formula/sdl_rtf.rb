@@ -14,7 +14,7 @@ class SdlRtf < Formula
     sha256 cellar: :any, sierra:        "c34abb198f384916d7b2a09a88c69cb84f29674031329bb7a1733e8a5ed39255"
     sha256 cellar: :any, el_capitan:    "6c7e9f7459ff062fbb48ee1a383a4fd4acc2c29f5ee9b57dea93710c94ccda11"
     sha256 cellar: :any, yosemite:      "8dd89df32c9ea02bcab36932c2f22bcb6de58d6002bd6fb9e95f9bbfe5ccf41e"
-    sha256 cellar: :any, x86_64_linux:  "387e1a87657e3cd634cd172140c29804a80dc807b2c8487c0680d0d64a81749e"
+    sha256 cellar: :any, x86_64_linux:  "387e1a87657e3cd634cd172140c29804a80dc807b2c8487c0680d0d64a81749e" # linuxbrew-core
   end
 
   depends_on "sdl"

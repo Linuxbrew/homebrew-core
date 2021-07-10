@@ -16,7 +16,7 @@ class Mpich < Formula
     sha256 cellar: :any,                 big_sur:       "23d95423962812214194ca039fdd2d7dcca76626d291e02566989460b748a8df"
     sha256 cellar: :any,                 catalina:      "3d5324ae766872fb9c2d6229ea97f49930c6a8239e38cc89bf5fb6a8f71d88d4"
     sha256 cellar: :any,                 mojave:        "80d73225cb6e7242190049addb88898f920991a637f6dd7af07f13ffa28095fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "856c28367fa8c5d91366ca3061437f7cf5aafcda78e6aa41d8ec6f0fa349386d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "856c28367fa8c5d91366ca3061437f7cf5aafcda78e6aa41d8ec6f0fa349386d" # linuxbrew-core
   end
 
   head do

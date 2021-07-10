@@ -11,7 +11,7 @@ class CollectorSidecar < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "689ede327bbf176b9c4f3d544f90f5940b1d026151b91c50a0100edd268c48ec"
     sha256 cellar: :any_skip_relocation, catalina:      "30f35fc66f276071c2126fbe77f7bb7b3a7852a1c45adc2d5532a8340b421902"
     sha256 cellar: :any_skip_relocation, mojave:        "193227a80963772b7a480713f3d104fe9e3a1dc7e1c7122a26292fd5bf5c0708"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "431341635759a5a933deb0ba737ef4338804caff98ad40af25938f9d78621d5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "431341635759a5a933deb0ba737ef4338804caff98ad40af25938f9d78621d5c" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -14,7 +14,7 @@ class Termius < Formula
     sha256 cellar: :any,                 big_sur:       "604a373e98092e951cfd186d5312f0c86d01af48f13d190d7aad3a338863bc5a"
     sha256 cellar: :any,                 catalina:      "8b32dde9daefefd5d170966e6a58c8c71a1c125172c80c138fba28cce4826ef6"
     sha256 cellar: :any,                 mojave:        "937ccb6f7f995f4be6e8ba6db448333cafa4a49087098a564ca6bf5070a3c5e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "139702459d24ce34204b84cf9c11d541457bfd9e033a82385e8a0c94eec29b68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "139702459d24ce34204b84cf9c11d541457bfd9e033a82385e8a0c94eec29b68" # linuxbrew-core
   end
 
   depends_on "rust" => :build

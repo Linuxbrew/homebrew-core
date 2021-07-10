@@ -20,7 +20,7 @@ class GitFlowAvh < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85"
     sha256 cellar: :any_skip_relocation, high_sierra:   "945e9ba05a169b32c86f5bd347542e803625791cf9a4b50a4a42fafb5e0b9c85"
     sha256 cellar: :any_skip_relocation, sierra:        "0e68b196dd24d9d41f9b0c5545d115c9ca8327dd799facbed2e619f8ceea221b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "030e370e7cb1ef9df85712bfb1e2f13202727d0ddd29bc99a395f8d1f93768cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "030e370e7cb1ef9df85712bfb1e2f13202727d0ddd29bc99a395f8d1f93768cb" # linuxbrew-core
   end
 
   head do

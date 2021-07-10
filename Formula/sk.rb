@@ -11,7 +11,7 @@ class Sk < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "61c1157e45e27f80c0aa1807416b82562540d72d6e1132912f59fc9fd0d51c86"
     sha256 cellar: :any_skip_relocation, catalina:      "e1b6019d494e2750d305e5366b51129720126c51931928681da48ba89293a46b"
     sha256 cellar: :any_skip_relocation, mojave:        "05483c56866808ff11d9054ccfde8b7c8bfea652d3aff1f353cddca5e4451d4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40ee06fb9558836638afaf272766937ed9d550bcca687588039bf4ecd85bfb8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40ee06fb9558836638afaf272766937ed9d550bcca687588039bf4ecd85bfb8d" # linuxbrew-core
   end
 
   depends_on "rust" => :build

@@ -12,7 +12,7 @@ class Cgrep < Formula
     sha256 cellar: :any,                 big_sur:       "cdb29911007db234f2480b8f4d7958a024f14d33c219b9de134fcc335d39357a"
     sha256 cellar: :any,                 catalina:      "75e4aa890057e43801be25ca61531c74b22b8685a3ada1032c270b740e9a9cda"
     sha256 cellar: :any,                 mojave:        "83e3c982a030617bc8d4b2dd329170e2c8ad7d77d40f715ecb83f7bdcba86135"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2220a23b365577486c8d97fb5107e98088b8f86668d8bd0e97889d187dd2985f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2220a23b365577486c8d97fb5107e98088b8f86668d8bd0e97889d187dd2985f" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

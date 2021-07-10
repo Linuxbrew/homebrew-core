@@ -3,15 +3,15 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://www.serverless.com/"
-  url "https://github.com/serverless/serverless/archive/v2.51.0.tar.gz"
-  sha256 "afb2e212c03de929e8bbe27ba9c1abce0b66b26b0d639037fe559ec8ba530711"
+  url "https://github.com/serverless/serverless/archive/v2.51.2.tar.gz"
+  sha256 "54275ec93d1e4ffd692ff73ecd69945a0acc11ef1db89ff16fe27d08c1b9653a"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "991ac4debc74abe84b62be286b5d7cfacdef0ea41af4c8b3395d9f3650e6a7ff"
-    sha256 big_sur:       "1e8707900a6a6f52fe848ee6ae4a1c65d12fe98ccc18d734235a8370b7a39e20"
-    sha256 catalina:      "5e8a36976730d959fa13ca01e9c8c2b1ef6b598aa4bb627b432f1eda588cfd3f"
-    sha256 mojave:        "a0d8a2823c80ddd658ab57c39c330d79dd3794582172cd279ddd711392986971"
+    sha256 arm64_big_sur: "a2957dbac36a5dedd73f6dbdc9f37ae5d6cc3f78fb21aa6e9e59db4e9e1ba82d"
+    sha256 big_sur:       "5a091549938e52a6a38098183e19ff6907d8ad0c64b22c2e49ba4a3b2ceb7791"
+    sha256 catalina:      "c3306335eafec524272e9fc5f2d4074d7a9590ab5efff1fce8def83d6a8f8d58"
+    sha256 mojave:        "040913df137130ee781ee54c1b535ec331fdfd74d91c539739b42ce291c0dfb2"
   end
 
   depends_on "node"

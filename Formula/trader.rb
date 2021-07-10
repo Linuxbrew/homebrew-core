@@ -10,7 +10,7 @@ class Trader < Formula
     sha256 big_sur:       "cacf85ddfc82657267a51c2a6159b0b5f4f5f26029bc32a5cdf895e433578158"
     sha256 catalina:      "f88445380e3d80b13e99a9c8c657609941a3f696be2e5039521b1d0a847f03c6"
     sha256 mojave:        "55412b011ce76032c044f0a5839ee05f8b26ecd45471f79b1862a91c2fdc0011"
-    sha256 x86_64_linux:  "8627219803c741bf1447cbd0a6e32b7fce8a45aaa8e96e079465ad34856e1720"
+    sha256 x86_64_linux:  "8627219803c741bf1447cbd0a6e32b7fce8a45aaa8e96e079465ad34856e1720" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

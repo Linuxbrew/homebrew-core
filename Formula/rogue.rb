@@ -16,7 +16,7 @@ class Rogue < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c6e8bb630a966cd8885e378242f9175ffd8327e26ec1ed679016302b437a5156"
     sha256 cellar: :any_skip_relocation, catalina:      "c576555f6857ff3ec7f0b2e39625d3c1f86989315b735a5e27d9416c095e5efc"
     sha256 cellar: :any_skip_relocation, mojave:        "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feb1ea9e89e4158d36a5b7de4a22a72048eaf46128f8461bc52121fff302884c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feb1ea9e89e4158d36a5b7de4a22a72048eaf46128f8461bc52121fff302884c" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

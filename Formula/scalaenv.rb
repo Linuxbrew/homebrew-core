@@ -7,7 +7,7 @@ class Scalaenv < Formula
   head "https://github.com/scalaenv/scalaenv.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b51747d670f28a19e57ddc56b0c55375294b7d05de46ec638bc4d5b05abd631f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b51747d670f28a19e57ddc56b0c55375294b7d05de46ec638bc4d5b05abd631f" # linuxbrew-core
   end
 
   def install

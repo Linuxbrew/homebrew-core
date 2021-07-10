@@ -8,7 +8,7 @@ class Gnunet < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "42fb8e4b25df8f32e358d4f422f91b6673c78bac23a6dcac719cbac480e21d56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "42fb8e4b25df8f32e358d4f422f91b6673c78bac23a6dcac719cbac480e21d56" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

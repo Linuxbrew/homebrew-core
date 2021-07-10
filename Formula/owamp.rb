@@ -21,7 +21,7 @@ class Owamp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "afdeaab138caa02c535fd9d2b847c5b5b24273beef19271fc60415de16d0681f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6f86a33c176ba1394560b7707466c088930f13db102b7adc159e80e889fdc5cf"
     sha256 cellar: :any_skip_relocation, yosemite:      "fce4cc5bf0a9b5355779fb45637651f6a78bb8d3dd93bdc3ff2826b7866617fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c0e15d7f9f2c9c1d19660a4aeba9d4789fc2921525e5c491a2e2992ca952159"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c0e15d7f9f2c9c1d19660a4aeba9d4789fc2921525e5c491a2e2992ca952159" # linuxbrew-core
   end
 
   depends_on "i2util"

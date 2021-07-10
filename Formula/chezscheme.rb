@@ -11,7 +11,7 @@ class Chezscheme < Formula
     sha256                               catalina:     "54d8553a07253c0215f8654f1c54e9ac03734160544ac9823896601e86dd2c81"
     sha256                               mojave:       "a1f551093249b315e309f75e4174995b2d7f475376dc97c78f43e5302ec4b3a6"
     sha256                               high_sierra:  "cb114681db205f5b31da0c3b7906dba46633275b369f6bc3adef4e0411880982"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8892ca967d9ea2634917f11edbd5f6c61d74acc0060dab6cc43b1ea5fa07e4ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8892ca967d9ea2634917f11edbd5f6c61d74acc0060dab6cc43b1ea5fa07e4ba" # linuxbrew-core
   end
 
   depends_on "libx11" => :build

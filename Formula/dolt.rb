@@ -15,7 +15,7 @@ class Dolt < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1f0cf09d5d668b55b2904c160b6f5cbe67fe061d576875444a97c49a85ae06e0"
     sha256 cellar: :any_skip_relocation, catalina:      "22ed6b157100b83069557d04c9787dfcb513059c059288f0e1e26a4f458fc0e0"
     sha256 cellar: :any_skip_relocation, mojave:        "a4ba9b6fdb4f48f196a714cb5a3733804fe3c0ffee57413b6b9d11bbb023b227"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21a6ee61ae62054238f0e465d090dc8eb0a47c6e80eb03355eec6501362075fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21a6ee61ae62054238f0e465d090dc8eb0a47c6e80eb03355eec6501362075fa" # linuxbrew-core
   end
 
   depends_on "go" => :build

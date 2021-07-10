@@ -16,7 +16,7 @@ class Cfitsio < Formula
     sha256 cellar: :any, catalina:      "2abc3263aed574298efd50d60dd5fa07e69c5a39ed87772e3edaa727a293506a"
     sha256 cellar: :any, mojave:        "07c4d1610f3e5d90cbedb238939f588f09150edfe006f41c5072d2fb4e01980a"
     sha256 cellar: :any, high_sierra:   "ec8feab397612c13da91dd9c8e2c91289973ec1e7e10bf07f17023cf5db26745"
-    sha256 cellar: :any, x86_64_linux:  "626909972973854c2c31e78a62af93df456278dba370ceee362bc26dd229eda3"
+    sha256 cellar: :any, x86_64_linux:  "626909972973854c2c31e78a62af93df456278dba370ceee362bc26dd229eda3" # linuxbrew-core
   end
 
   def install

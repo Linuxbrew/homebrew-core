@@ -12,7 +12,7 @@ class Stormssh < Formula
     sha256 big_sur:       "e2519c5c0c796e4fa0a5f63a7bcbe4f17c188616c10abf6aee4921c2670a7f7e"
     sha256 catalina:      "91c073021a2155e31ecfc09a7e5e2e03172c34408f31c725895b0ddd1bcf9a31"
     sha256 mojave:        "ffeaf80fd8e4ff994985be761d55d90fd4a60a4198b3aa87983b8933dab8b4b4"
-    sha256 x86_64_linux:  "3058cc10a40a7fe66e2c9bb369aef73713733e9536fe63a9b793e561638596ab"
+    sha256 x86_64_linux:  "3058cc10a40a7fe66e2c9bb369aef73713733e9536fe63a9b793e561638596ab" # linuxbrew-core
   end
 
   depends_on "python@3.9"

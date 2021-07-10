@@ -20,7 +20,7 @@ class SdlSound < Formula
     sha256 cellar: :any,                 sierra:        "0e692b6c08600d6d7014fc582b5a351e8a4eea42ce95d231ef39a0c07c41c71b"
     sha256 cellar: :any,                 el_capitan:    "fd93d8be366bfe3f16839f50d11ab1149cc725c6bf6248befe90feae25c0e052"
     sha256 cellar: :any,                 yosemite:      "8f06d7c6c18c8a5192aebf5672c20f9f3b27bbd3109459ef96110d935c00f87b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3017fd9a630ffce338eb378471a7d2e9c61012ad9022818b2f5ded89fc234b6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3017fd9a630ffce338eb378471a7d2e9c61012ad9022818b2f5ded89fc234b6d" # linuxbrew-core
   end
 
   head do

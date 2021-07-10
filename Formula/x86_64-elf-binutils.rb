@@ -12,6 +12,7 @@ class X8664ElfBinutils < Formula
     sha256 big_sur:       "35bad9983b807b3dbbf640efad0e7e05651b3970cf03007b3e32213b8ee8332e"
     sha256 catalina:      "9770ee8f2705cb05cb9364097af357810756c128ca9ced34abbde2a98fbd0136"
     sha256 mojave:        "190ee3a8bc927c44be285a89df32bc889270a3169737d114ef97f2f1b4be9937"
+    sha256 x86_64_linux:  "71068b026e8ccb1db4ac642d2d32e9db176f64c900cb13ece287fe8e2bd16e5e" # linuxbrew-core
   end
 
   uses_from_macos "texinfo"

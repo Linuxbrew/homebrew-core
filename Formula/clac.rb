@@ -11,7 +11,7 @@ class Clac < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "afa69f51c57695ae2e01a3ad9a44690fa746e925129ab2809550811cafe0fb3f"
     sha256 cellar: :any_skip_relocation, mojave:        "af0e4194b84f969e0a701f32c102dd64a432f6f675e6913716b81b96e548d451"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5be5ed82ad0b8669aef16942e39e9d60341ab6201ee019b9b997ab5ee4ea76b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "702df9f7e39ddc26efbd1fc951822cb2b8349cda6e6da962639f65a6ac566b97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "702df9f7e39ddc26efbd1fc951822cb2b8349cda6e6da962639f65a6ac566b97" # linuxbrew-core
   end
 
   def install

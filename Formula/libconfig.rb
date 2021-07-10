@@ -11,7 +11,7 @@ class Libconfig < Formula
     sha256 cellar: :any,                 big_sur:       "90fad29e719a3bd1b8ebe4eb857299b8a78a229543c3062d370bcdcfa0b8cd5c"
     sha256 cellar: :any,                 catalina:      "88689325264c406acb9f624b0c66cae10e2c7b5874b4d78335751b4627a5496c"
     sha256 cellar: :any,                 mojave:        "f5470e709146445744e2f9a200e0ea8042be9cd144a3e0b9f0a664b07e1aadc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04cac7af8139904ae1d9f0b68e31f91239ef512b9cdacee447ad97fd5bff67a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04cac7af8139904ae1d9f0b68e31f91239ef512b9cdacee447ad97fd5bff67a0" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

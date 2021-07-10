@@ -13,7 +13,7 @@ class Vrpn < Formula
     sha256 cellar: :any, high_sierra:   "9b9f4a31161dbc0a4a9ea0759122f0a3725a361dde0b5f1def9bab4e59de12e7"
     sha256 cellar: :any, sierra:        "4e03c131adba54f74742151ee269d2d0c1716e307294679ed2366c0e6cb5fd41"
     sha256 cellar: :any, el_capitan:    "36e5273f8006b1fe5f1655e258f8937e06e9abc4ad849e2c9b1e7a1462fe790d"
-    sha256 cellar: :any, x86_64_linux:  "30030b05ef8bc7a36a3fe44167566c800ac46362c4c5fbf4bdb77d03efa89c1e"
+    sha256 cellar: :any, x86_64_linux:  "30030b05ef8bc7a36a3fe44167566c800ac46362c4c5fbf4bdb77d03efa89c1e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

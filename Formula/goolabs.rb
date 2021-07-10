@@ -13,7 +13,7 @@ class Goolabs < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "cce23cbee7e9db39636fc2fdc023fc24a2790867f3979fff2f2ece8a0580f690"
     sha256 cellar: :any_skip_relocation, mojave:        "7ec468710694a97546f137e9ebc5e26b124646ea4a0bbe3f1c44b6a4203389e0"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0c2057e24ee158933764e90ed0dff1a4e2e0f43871329658791c53fef270d185"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d10489410d281a6d6caadc49c88ff00ce4bbff32e51dcc6428df705722e05355"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d10489410d281a6d6caadc49c88ff00ce4bbff32e51dcc6428df705722e05355" # linuxbrew-core
   end
 
   depends_on "python@3.9"

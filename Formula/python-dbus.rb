@@ -6,7 +6,7 @@ class PythonDbus < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "248dae77030f91f860eaf269bf7d1705a682a7717d84b4dc1a035e1be5d219e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "248dae77030f91f860eaf269bf7d1705a682a7717d84b4dc1a035e1be5d219e8" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -10,7 +10,7 @@ class Omega < Formula
     sha256 big_sur:       "a9adc43192d3cfefc48b5102405b8542549336ae7c7a73c4f964c64f2f3c9306"
     sha256 catalina:      "171d9ac0866a0124ef2da5c8f23bbe755ba8db69dd30b7ecf6ef2a924f288444"
     sha256 mojave:        "21777656dec508784295f638ecce1a7c54aa32870b16d6d5bf9951b01a7803a2"
-    sha256 x86_64_linux:  "a8b1b2fafdc1bc9285c4be52516c8605f9e99c66cc0f82cb910b6d26698ee995"
+    sha256 x86_64_linux:  "a8b1b2fafdc1bc9285c4be52516c8605f9e99c66cc0f82cb910b6d26698ee995" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

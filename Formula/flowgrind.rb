@@ -16,7 +16,7 @@ class Flowgrind < Formula
     sha256 cellar: :any,                 catalina:      "e598d94bf046253c93bfb394d532584bca417b69e63b70b851f0ab4f9adf3089"
     sha256 cellar: :any,                 mojave:        "652a07d073f21ae8158fed8b7a34c739a88a0e594c32408a83d48e80a93df944"
     sha256 cellar: :any,                 high_sierra:   "4b723ca4f7f92a354bf8226d67fd8537a13c07223ff5d05ebd9da82491cb546a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a707fe8eacc84d240398273c80618b8a53220a1f07250da8d0e4784feb17e2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a707fe8eacc84d240398273c80618b8a53220a1f07250da8d0e4784feb17e2c" # linuxbrew-core
   end
 
   depends_on "gsl"

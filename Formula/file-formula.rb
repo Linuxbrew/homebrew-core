@@ -13,7 +13,7 @@ class FileFormula < Formula
     sha256 cellar: :any,                 big_sur:       "90936b82c5dae98ee47784aea42bb8c085febf2bdc860c5c5d8d553d6b958201"
     sha256 cellar: :any,                 catalina:      "79a0d7c166aaccfef9c381350dae30f8547a68b99e380f8d542fc92a05d1e8cf"
     sha256 cellar: :any,                 mojave:        "7c351f1d74d78678bdff2d1ba0f245a7d3e6933e56ce726d60488e5d78cfa631"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf16610f56b3865882a8800d04a5f76c073bcaa0739ce0fa705b5655e93d66d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf16610f56b3865882a8800d04a5f76c073bcaa0739ce0fa705b5655e93d66d7" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

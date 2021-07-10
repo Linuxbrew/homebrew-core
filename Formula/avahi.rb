@@ -7,7 +7,7 @@ class Avahi < Formula
 
   bottle do
     rebuild 1
-    sha256 x86_64_linux: "f917789b377a8aba9b81a612053d46716d07012c6f98e908e03b8eb580ee0146"
+    sha256 x86_64_linux: "f917789b377a8aba9b81a612053d46716d07012c6f98e908e03b8eb580ee0146" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

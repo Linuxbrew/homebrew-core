@@ -16,7 +16,7 @@ class LibpokerEval < Formula
     sha256 cellar: :any, sierra:        "5216cd33d433fd9212ed14d6fffec593c7106226547c1555344604186e7aafc6"
     sha256 cellar: :any, el_capitan:    "67b105600a8e29ed2d38421bc27340ff6e9092806f6458f0ddd6a27de0bcfb9c"
     sha256 cellar: :any, yosemite:      "b15086546ac1ac0310e3113231bfcc2c9de0d23474be8a1a1b4663e6bc8f713f"
-    sha256 cellar: :any, x86_64_linux:  "13fefc57333b56e0e1a3e4cbf583ed3b70e2e0a3cd9ce0d86b17a1135b153de8"
+    sha256 cellar: :any, x86_64_linux:  "13fefc57333b56e0e1a3e4cbf583ed3b70e2e0a3cd9ce0d86b17a1135b153de8" # linuxbrew-core
   end
 
   def install

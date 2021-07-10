@@ -13,7 +13,7 @@ class Diffutils < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "4ec2a5ef0ca889d6c449b31ed43c797a0656ff7a2acfd913d0f87d8f14248031"
     sha256 cellar: :any_skip_relocation, high_sierra:   "fe012f4e981c3df3b2d1b3eb2b77009991148e3bdc08dd974d6f6071108e8937"
     sha256 cellar: :any_skip_relocation, sierra:        "3a04e2e2de81458a8fc75482a97a02883a1cdf231ee340ce30d9a712d0475305"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14aedfee9f25b2e2d0ba28dfc62941767d078919fce26cdcc60ff05ddba50f5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14aedfee9f25b2e2d0ba28dfc62941767d078919fce26cdcc60ff05ddba50f5b" # linuxbrew-core
   end
 
   def install

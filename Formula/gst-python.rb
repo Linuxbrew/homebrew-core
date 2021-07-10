@@ -14,7 +14,7 @@ class GstPython < Formula
     sha256 big_sur:      "c5461f496775e0d65ed07bb217d1f12eb68ba633ea9c688add6297fab942fdd6"
     sha256 catalina:     "7de5518b76bea95a7769f1230db57fa03d389483f7800e060db7f2553ac0f856"
     sha256 mojave:       "c155c0ff5e23c12f99746fd05058bfc5d01f4b3af9f2abf641035f7564efef1d"
-    sha256 x86_64_linux: "366d3f0f2dbac7c3237f30aab9cbab24be64c465c7817b1af664474d088e886d"
+    sha256 x86_64_linux: "366d3f0f2dbac7c3237f30aab9cbab24be64c465c7817b1af664474d088e886d" # linuxbrew-core
   end
 
   depends_on "meson" => :build

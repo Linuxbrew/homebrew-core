@@ -11,7 +11,7 @@ class Wslay < Formula
     sha256 cellar: :any, catalina:      "b0c31393b4065ddad22d079252f4310ccafee1c26d5ea56a58c2bc3bfa728b46"
     sha256 cellar: :any, mojave:        "4ea82d98c0fd0cfcc1e842dde6e0fbd15355d538876f24fa0c2ca6f05ed17926"
     sha256 cellar: :any, high_sierra:   "6aade683b7db8a32c859e54134568bdb3983d57878783d86c89e5d28c5e8db77"
-    sha256 cellar: :any, x86_64_linux:  "f1a5469f7dc5f02fb47e37268228dfd4d868a7380a6f8ae7ab596c389c854ddf"
+    sha256 cellar: :any, x86_64_linux:  "f1a5469f7dc5f02fb47e37268228dfd4d868a7380a6f8ae7ab596c389c854ddf" # linuxbrew-core
   end
 
   head do

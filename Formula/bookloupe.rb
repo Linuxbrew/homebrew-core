@@ -12,7 +12,7 @@ class Bookloupe < Formula
     sha256 cellar: :any, mojave:        "f5e7f38cfa342d15025f798e9476a7091d3dbd60a15a6635d9fd784033dd531c"
     sha256 cellar: :any, high_sierra:   "8cade7bb36828e32d7be412d29404748198079745defd97ed2ec533ff91f5645"
     sha256 cellar: :any, sierra:        "564cdae8b088da04903efd886b33ed12e5673a64866679f67b37acdb68bf539c"
-    sha256 cellar: :any, x86_64_linux:  "53e3b9cf02016d4e3e81fbd6153e59f3f39c5ef4215a37abc568b903c29693fe"
+    sha256 cellar: :any, x86_64_linux:  "53e3b9cf02016d4e3e81fbd6153e59f3f39c5ef4215a37abc568b903c29693fe" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

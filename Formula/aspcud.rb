@@ -10,7 +10,7 @@ class Aspcud < Formula
     sha256 big_sur:       "c934a46742cb4d96d62a3e15dd9e0ada641672f405b1a96edc3f71dac2c87036"
     sha256 catalina:      "3b19a6ee9f466789d05533e5614ae6daf9cf4abc4e2f6347ad401ea7d4d1040a"
     sha256 mojave:        "b5d0df64bc57c7f929b00f04617f9b1260e7c3715abe68b98559c8b693070add"
-    sha256 x86_64_linux:  "d45fb02d4234eda0aa26adcaa4cbc70e74a927d78c0c9186d0415e5ff3c8e451"
+    sha256 x86_64_linux:  "d45fb02d4234eda0aa26adcaa4cbc70e74a927d78c0c9186d0415e5ff3c8e451" # linuxbrew-core
   end
 
   depends_on "boost" => :build

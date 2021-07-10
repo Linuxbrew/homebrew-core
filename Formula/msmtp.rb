@@ -15,7 +15,7 @@ class Msmtp < Formula
     sha256 big_sur:       "f2f12ecc517a43485ad6b4de45bba8a3a0434f6e568ff40f0dcd9b0ca0aab7b3"
     sha256 catalina:      "905c4115c7457ef7a063a94b0eb7f31e5c9713858b75edf711410b39c4c0991e"
     sha256 mojave:        "beffeb0167849f87a790624c01ab67ad2e007c2c0b0b2e3bd9a7f7522ca1ea29"
-    sha256 x86_64_linux:  "fd5f4cc21e6e4a66ce25a31fe939f08ac9c6a7e81dcffd5f5e630a0b76e5fee1"
+    sha256 x86_64_linux:  "fd5f4cc21e6e4a66ce25a31fe939f08ac9c6a7e81dcffd5f5e630a0b76e5fee1" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -17,7 +17,7 @@ class Autogen < Formula
     sha256 catalina:      "fa3818d518a214d9798a514e90c461d3a6be2c6fc0758c85ad4ad6b134a28851"
     sha256 mojave:        "76df021218eb1d338cb8ee2a18c04e1d120166991c94ba64055537beac0e68fb"
     sha256 high_sierra:   "45fb9e222b8c21729659821aa5565010df9c3f347fae4bc2f0e5fc01680a2c1a"
-    sha256 x86_64_linux:  "ee193e837db096f9f15c0c3f39d577e48b333e0195299a64cf2a0c1ab8467dbe"
+    sha256 x86_64_linux:  "ee193e837db096f9f15c0c3f39d577e48b333e0195299a64cf2a0c1ab8467dbe" # linuxbrew-core
   end
 
   depends_on "coreutils" => :build

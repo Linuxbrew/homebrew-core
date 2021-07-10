@@ -10,7 +10,7 @@ class Fio < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bb9050168d21fefdc45f840013449816b36081531f378bad0476d7bfc98aead2"
     sha256 cellar: :any_skip_relocation, catalina:      "67b18e9eaacd69787de1eaa32d978a11f507e47178121e3e1ca7a625240a4fdc"
     sha256 cellar: :any_skip_relocation, mojave:        "c438ba9327ba63b5034b0a0e4004b3a97480fdd8568c6fcb8fe6f6bd7446421c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad5d53fc7bde5db63ec6e91596f14e51f6f91437a20c17a0be9606eae2c5e6e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad5d53fc7bde5db63ec6e91596f14e51f6f91437a20c17a0be9606eae2c5e6e8" # linuxbrew-core
   end
 
   uses_from_macos "zlib"

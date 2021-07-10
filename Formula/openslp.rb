@@ -12,7 +12,7 @@ class Openslp < Formula
     sha256 sierra:       "fdd847dba24e5a96c30ccef98f0d035f39abc88617d779df627c132be5b648ae"
     sha256 el_capitan:   "1c19d8355ddda63b9259101a0b7b56ea0fd9fb8f343e2df19f7248542fbf38e5"
     sha256 yosemite:     "95e41f7f42e80ab3234b460d90196389a0d275877195fe188ffc6249c0b762ce"
-    sha256 x86_64_linux: "4bc594636cf22b11cd255c2db2c046ec4f3af30f3ac5b1e90e665f0c47743f78"
+    sha256 x86_64_linux: "4bc594636cf22b11cd255c2db2c046ec4f3af30f3ac5b1e90e665f0c47743f78" # linuxbrew-core
   end
 
   def install

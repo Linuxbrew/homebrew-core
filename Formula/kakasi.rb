@@ -12,7 +12,7 @@ class Kakasi < Formula
     sha256 sierra:       "a50761a65d9b64f65d81b6045e992dbfb99746815433f7fc187b43bb0aa36f85"
     sha256 el_capitan:   "7fca04e65ce14fa8d18d19e197525063274057a2760e4841d4e8a9b06f4b0fa3"
     sha256 yosemite:     "da407c10d807cf72679df6555d29b53f388dd32abf674f1ae0ecbace44fc3372"
-    sha256 x86_64_linux: "e73e5d24e98cc69fc02f40decb1c9bee7f49f8affb8276435984737637241938"
+    sha256 x86_64_linux: "e73e5d24e98cc69fc02f40decb1c9bee7f49f8affb8276435984737637241938" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

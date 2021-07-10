@@ -10,7 +10,7 @@ class Cobalt < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5ca1b479a6a57d582035a3012bee0405c41d675c95669fa28de6dd7a3f28cb45"
     sha256 cellar: :any_skip_relocation, catalina:      "c3f7b8fcf776fe439bbcf1766db0b7da4088a20c05f3864d0f06c8bfd19f1ab1"
     sha256 cellar: :any_skip_relocation, mojave:        "25ab3e8ef46a1eaf6f7032d68f5930696783bb75add7d0b918b82cfb9fa58535"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47405ed05f32ae0c95f3c705251f4f553cd5654bfc4e5015f71d606f41bf3206"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47405ed05f32ae0c95f3c705251f4f553cd5654bfc4e5015f71d606f41bf3206" # linuxbrew-core
   end
 
   depends_on "rust" => :build

@@ -14,7 +14,7 @@ class HttpServer < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "11f0b3f7fc0975e2eb7c911fe1555c13527f75ea5468215e6d6340e11bf36f33"
     sha256 cellar: :any_skip_relocation, mojave:        "fcc2086b4000cc47077413c116c09ee4b60fe9b064f7d95ff7c19c966a181d4f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1b3f5212bc710e5ae053bbd9fb3bd279d763ad03e6c550425ab95534e309a9ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "695211b38640b76aafc49f610b604ca7db5a77592badd34d12388f7059f86739"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "695211b38640b76aafc49f610b604ca7db5a77592badd34d12388f7059f86739" # linuxbrew-core
   end
 
   depends_on "node"

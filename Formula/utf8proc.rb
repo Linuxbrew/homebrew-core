@@ -10,7 +10,7 @@ class Utf8proc < Formula
     sha256 cellar: :any, big_sur:       "7d57bb4f93fdfd377fda65e74b9bf1cb7b2b4875a4481682a4b2a39cfe65d3e7"
     sha256 cellar: :any, catalina:      "cf77fdee400e5692c3b78f0fc599e575b071b11a70ff1f3443e22c8dd14bd0fe"
     sha256 cellar: :any, mojave:        "1bee383abb84a7f9921e1c6b3aa26de0c8c79295c4ae184959521bf537ba4552"
-    sha256 cellar: :any, x86_64_linux:  "648ed8a239c549c52054e08425a33491706810a5ad6c4ba1043dc6a1036de9fa"
+    sha256 cellar: :any, x86_64_linux:  "648ed8a239c549c52054e08425a33491706810a5ad6c4ba1043dc6a1036de9fa" # linuxbrew-core
   end
 
   def install

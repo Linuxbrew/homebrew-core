@@ -14,7 +14,7 @@ class JujuWait < Formula
     sha256 cellar: :any, catalina:      "82f581e595e843682782737000c28646f59ce7ceda2572a094c616aeddf26709"
     sha256 cellar: :any, mojave:        "3d09fe21c6290f6a055cae35c06e4cdd7682111b295eea2551430df1f618b3d0"
     sha256 cellar: :any, high_sierra:   "5d6a6e8f8fe65ec7f7e0b132b75d85d3b918ec850f9f9b8d0f5742ab6d37f552"
-    sha256 cellar: :any, x86_64_linux:  "69e146cea424222137048bc2e6bcf61d2ac4a454456c56032576d1756cf436c4"
+    sha256 cellar: :any, x86_64_linux:  "69e146cea424222137048bc2e6bcf61d2ac4a454456c56032576d1756cf436c4" # linuxbrew-core
   end
 
   depends_on "juju"

@@ -16,7 +16,7 @@ class Ats2Postiats < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "19ea3eb93cc5ba40ce3c1bdc48666edd4a8cd00027fbb4531392a0f15ecc7a94"
     sha256 cellar: :any_skip_relocation, mojave:        "9e0b2824b0ea3d67e22c6690d3608c5d09d9855075e9811ad71b5f2703be9304"
     sha256 cellar: :any_skip_relocation, high_sierra:   "91d683a9f1c94daff0e9b089cc7a5ceda949eb4b5aa7d286c554d9506ee6d49c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45b4bd6084761b9f298904cbf2e37fd9885a5052cc4472ed01a1f9dce5ccf91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45b4bd6084761b9f298904cbf2e37fd9885a5052cc4472ed01a1f9dce5ccf91" # linuxbrew-core
   end
 
   depends_on "gmp"

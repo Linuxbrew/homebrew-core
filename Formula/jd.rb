@@ -10,7 +10,7 @@ class Jd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "043e88ba4881d02947cd922f8be0d26d581afcf1b877d433f8bb2f53e724a245"
     sha256 cellar: :any_skip_relocation, catalina:      "bf662b680167c6d28e9adf4d28ac35bb13fe6838255b9e6d4cf49be0a05cb920"
     sha256 cellar: :any_skip_relocation, mojave:        "c9a9b7acbab08f9717cf464bf2b00d970728d014ccb738fcb28af7502e8ef6d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bc66354f3ccb0e34e66015717f5c5cdcb9f5c4965b75d8e570da5912d3148d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bc66354f3ccb0e34e66015717f5c5cdcb9f5c4965b75d8e570da5912d3148d0" # linuxbrew-core
   end
 
   depends_on "go" => :build

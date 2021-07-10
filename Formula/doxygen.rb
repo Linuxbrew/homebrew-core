@@ -12,7 +12,7 @@ class Doxygen < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b8e1ea1bb601d8cc7cd7cf66b67a544e9e5534c2793cee5ac90bef5d076ad1e5"
     sha256 cellar: :any_skip_relocation, catalina:      "10e13f7bf6977bee6487366b3fc1dc55b4c191d5d505cb816997838504b3e0a4"
     sha256 cellar: :any_skip_relocation, mojave:        "0422adc9bfa6e1558cdcca24f8f4266f0927cf4c10fe3e245fe8e3017a7717b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a4bdafe1082ed127d04f7cdb589df6aefec88bc133fe65d15deacf0dd3e783e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a4bdafe1082ed127d04f7cdb589df6aefec88bc133fe65d15deacf0dd3e783e" # linuxbrew-core
   end
 
   depends_on "bison" => :build

@@ -12,7 +12,7 @@ class Hexedit < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b292c19f7f562a6d062f834395f4add815855ae4c9bfb9192a967af7c135da06"
     sha256 cellar: :any_skip_relocation, mojave:        "17eb067bc169a802ebdfe9a4af927cb70f2b2230337a78ee4ef00dc5cef1c7ba"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cd9b838e99eafc11ab15415f46073e549273b6f461e37adb9e6eaead2e93021d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c81ec2d9c26d0e0c26b97d8560f27a737971c0cfed1e5ea0162d372b08eacf40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c81ec2d9c26d0e0c26b97d8560f27a737971c0cfed1e5ea0162d372b08eacf40" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -8,7 +8,7 @@ class Neofetch < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c391809c141a7037056071d41afb5157f44357b922bf45e119f47d6814892453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c391809c141a7037056071d41afb5157f44357b922bf45e119f47d6814892453" # linuxbrew-core
   end
 
   on_macos do

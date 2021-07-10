@@ -15,7 +15,7 @@ class Pth < Formula
     sha256 cellar: :any, sierra:        "583d6ae1681974c7461650151253c5a302f33fb16dae74b5546a4a693cec71d1"
     sha256 cellar: :any, el_capitan:    "bac7f73c061797768be28e21bec2e7773cfd70ff7c3f46eafd464b9632d5eae4"
     sha256 cellar: :any, yosemite:      "7b31c6d65a97c722e661feb4c73a59a9025f1eac6b297ff181931bbdbc894ff3"
-    sha256 cellar: :any, x86_64_linux:  "a1e2eafca56d3449338a0d2455b268329d11280dddb91db21864f0082390fe47"
+    sha256 cellar: :any, x86_64_linux:  "a1e2eafca56d3449338a0d2455b268329d11280dddb91db21864f0082390fe47" # linuxbrew-core
   end
 
   def install

@@ -13,7 +13,7 @@ class Cowsay < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c1f4af994e038a18492c8afe0f6b97cfd1c475fe62eafe68762cf5d734dc214d"
     sha256 cellar: :any_skip_relocation, mojave:        "faebbfa7a9379fd4efddc43dc167fda055989d2936b0430e404c252a555439cc"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4cdddb22ad76cf14527347e58317caf1495dc88fdf5d6c729ac72fa2fe19dd81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14c9b58039b0b0754018033abdb00a0524f7a130330b38e8013e23b1f8817350"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14c9b58039b0b0754018033abdb00a0524f7a130330b38e8013e23b1f8817350" # linuxbrew-core
   end
 
   def install

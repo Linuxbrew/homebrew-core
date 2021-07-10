@@ -19,7 +19,7 @@ class Fontconfig < Formula
     sha256 high_sierra:   "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23"
     sha256 sierra:        "631531c4eb502bd97e4a5bef30760d1eef87dd50306ef2defb9460ac3338cfe1"
     sha256 el_capitan:    "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1"
-    sha256 x86_64_linux:  "2aa79674e60e88f1afc613ed65d8e6e0e32f9b19eee7df7afb394b6357555caf"
+    sha256 x86_64_linux:  "2aa79674e60e88f1afc613ed65d8e6e0e32f9b19eee7df7afb394b6357555caf" # linuxbrew-core
   end
 
   head do

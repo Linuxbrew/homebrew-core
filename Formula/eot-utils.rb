@@ -19,7 +19,7 @@ class EotUtils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "320909b9801c96b10491dca13de7c793dae8b0d0864839c6b7a65cbaa1e8e036"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b2a4e0f385fa861baf54ac3c483f5599bc96994b3797fe00430653f1a5c28ba4"
     sha256 cellar: :any_skip_relocation, yosemite:      "3276e755d84fda54851733b693e56922ddb597f1ac4f14792f4221ce794832da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b6c465872f4fc93b590a8b06db5b964d8d8549d78ac79ab13918dee2245efd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b6c465872f4fc93b590a8b06db5b964d8d8549d78ac79ab13918dee2245efd" # linuxbrew-core
   end
 
   resource "eot" do

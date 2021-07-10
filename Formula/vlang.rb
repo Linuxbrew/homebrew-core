@@ -16,7 +16,7 @@ class Vlang < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9be25862e7c69582ef1c8ee312e10e76988e5247439657f704078f56a5f6abc3"
     sha256 cellar: :any_skip_relocation, catalina:      "d4e2bde9c42995a3c348f1ede4a78fa579a22b601144cc0b8adeb009d310c1b7"
     sha256 cellar: :any_skip_relocation, mojave:        "0fe9d3b759400cee1a53c10f1a913a541d2f2f151822ff82454e953796c931cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfb694b3c91762fe94e530df8edc20fc514b07af87966630d91d01733420bd13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfb694b3c91762fe94e530df8edc20fc514b07af87966630d91d01733420bd13" # linuxbrew-core
   end
 
   resource "vc" do

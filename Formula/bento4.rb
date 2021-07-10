@@ -15,7 +15,7 @@ class Bento4 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bcd39d888aaf6b72f83e5f6235744ae11acb9e1330ff0766310fd2b1a9efee3d"
     sha256 cellar: :any_skip_relocation, catalina:      "bef6df08fd97cb7824c49fd890ae11184fd90fadb789aa80cd699a0e0f0a91b1"
     sha256 cellar: :any_skip_relocation, mojave:        "7c1b3a269b3fbeb4768896aefe7a224fc1b7ceb4072ad60f752e3ac4e98031cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8ed04f699e29cb193e4f035d4bb876bf1f8eb9b668689d87bfd0da5b925ebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8ed04f699e29cb193e4f035d4bb876bf1f8eb9b668689d87bfd0da5b925ebd" # linuxbrew-core
   end
 
   depends_on xcode: :build

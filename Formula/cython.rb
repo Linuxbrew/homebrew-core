@@ -10,7 +10,7 @@ class Cython < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d9b9a6c55d7152dffda4bf7c4e65157050072ef8f2625b4222671bd6a6fa2615"
     sha256 cellar: :any_skip_relocation, catalina:      "b0cc1cbfe42e3b9dfde63adb41da2533723a5e84ee4a3b36130889aa58009656"
     sha256 cellar: :any_skip_relocation, mojave:        "e2eed460453e818d913014dae5c19686bbf48aa6aa6f4d808da726153de712c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "762f0006f934c8b82044effd122f3a9c8ecd645dc7ae80ea00df01d172e1bd98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "762f0006f934c8b82044effd122f3a9c8ecd645dc7ae80ea00df01d172e1bd98" # linuxbrew-core
   end
 
   keg_only <<~EOS

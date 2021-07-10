@@ -16,7 +16,7 @@ class Eigen < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c3305d00c64e0bd6f53e45858b92be3d72827c02b2e2f71d4edd01f1efaa1080"
     sha256 cellar: :any_skip_relocation, catalina:      "172a99d2e904ece3409ae56304beb77ff638313e52b7f1eb00ce58d8a11a3a68"
     sha256 cellar: :any_skip_relocation, mojave:        "dada92aa488d06af18fbf589a46c490a5b9090ae75d0027d5dae109ddad792e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a31bd4cbbed6653186e5f54c81f318b6eab0c5c70d29b665d545fd9df661be35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a31bd4cbbed6653186e5f54c81f318b6eab0c5c70d29b665d545fd9df661be35" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

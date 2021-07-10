@@ -11,7 +11,7 @@ class Colfer < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
     sha256 cellar: :any_skip_relocation, mojave:        "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e473145b34ba1d5b5fad2513999bb049f25b4515967ad207ed7ad6c8261963b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e473145b34ba1d5b5fad2513999bb049f25b4515967ad207ed7ad6c8261963b" # linuxbrew-core
   end
 
   depends_on "go" => :build

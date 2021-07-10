@@ -9,7 +9,7 @@ class Oq < Formula
     sha256 cellar: :any,                 big_sur:      "d2103ce8be5e0323e7b3a05be2f8ddd87a8b1dab4a738bb8b4910d218d405330"
     sha256 cellar: :any,                 catalina:     "a0cfe0c660845ce97db5870370f0d7d8b456471d4cf78c4ab01dadae6e59d9c7"
     sha256 cellar: :any,                 mojave:       "4163e9f867d0b15c64f522f2319185d5d1085426171cea15cd0e7654644d54bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bac03c6db8b41c7d5e6dc5b3d53a64852e8155eefcf502f4f62e04ecb5c08291"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bac03c6db8b41c7d5e6dc5b3d53a64852e8155eefcf502f4f62e04ecb5c08291" # linuxbrew-core
   end
 
   depends_on "crystal" => :build

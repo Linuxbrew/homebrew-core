@@ -11,7 +11,7 @@ class Elixir < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4911491569ca202ea71fb36a4bbb50bc89ddb936148660f0c8a484e4f0b84052"
     sha256 cellar: :any_skip_relocation, catalina:      "e362b53d078cbbb93b016f5e0efe53347e2c2b18c44419dc80070570c4ac11c7"
     sha256 cellar: :any_skip_relocation, mojave:        "00b036d03064ef97c3cdca45577a412e22304f19b357d1906098161ab7da9450"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4ad23cb38af4672b77ee757484fc7b25d20934f4b49d12984ba841016677271"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4ad23cb38af4672b77ee757484fc7b25d20934f4b49d12984ba841016677271" # linuxbrew-core
   end
 
   depends_on "erlang"

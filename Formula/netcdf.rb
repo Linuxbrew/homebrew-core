@@ -18,7 +18,7 @@ class Netcdf < Formula
     sha256                               big_sur:       "5d17807efcdad51a3bba144e55b003db3c04468e7b6f940501bb92fcae8258dd"
     sha256                               catalina:      "f913fd0f1c6b935c4bb072fded3439cf1d9f22af3acf68f209264be69b9bed09"
     sha256                               mojave:        "7d0569b3e8c8d3bf5573874965407e3209bbd6e43f6ddf36fb51f935544c8274"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f58677b852a6b84cd3ba6dc36e1ab4b077605302ad59cbc160254e2b3e103476"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f58677b852a6b84cd3ba6dc36e1ab4b077605302ad59cbc160254e2b3e103476" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

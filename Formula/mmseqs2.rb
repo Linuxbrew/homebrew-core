@@ -12,7 +12,7 @@ class Mmseqs2 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9c77c3321deb69aa84df7326821c803ecd377dc3f91931c26ca030832c25ee80"
     sha256 cellar: :any_skip_relocation, catalina:      "f52feb3e6c03379981c6d7af2f2a3d404b0f0eb20ef2de490c1e8d67bd03ef54"
     sha256 cellar: :any_skip_relocation, mojave:        "72a26a3d303d4150154c8200893ae6f4554b5eb1fe93a24d86c3b88d90aa1a3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80b9a385006d4ea4bffcb2aa9cb9f2c536f68ec1edde074ef883ddfcc0d130ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80b9a385006d4ea4bffcb2aa9cb9f2c536f68ec1edde074ef883ddfcc0d130ca" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

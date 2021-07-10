@@ -11,7 +11,7 @@ class Editorconfig < Formula
     sha256 cellar: :any,                 big_sur:       "35b906670a62d96a889967f904b9b157ca860f72993be36f4085081df24d23d1"
     sha256 cellar: :any,                 catalina:      "b6cac809fe16ed3e788d3bab017f128a6c960652104ed541791cca02b6e4bc16"
     sha256 cellar: :any,                 mojave:        "553e730194b67c667c214f992fd25bd44974d7c9f6812641be65c4347370c124"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0684baa132641725e9d48b0780ef4f9f742114e63992ae5558c9ad6a48fd10d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0684baa132641725e9d48b0780ef4f9f742114e63992ae5558c9ad6a48fd10d2" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -11,7 +11,7 @@ class DejaGnu < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
     sha256 cellar: :any_skip_relocation, catalina:      "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
     sha256 cellar: :any_skip_relocation, mojave:        "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720" # linuxbrew-core
   end
 
   head do

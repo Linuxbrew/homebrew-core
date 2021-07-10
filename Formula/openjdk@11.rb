@@ -10,7 +10,7 @@ class OpenjdkAT11 < Formula
     sha256 cellar: :any,                 big_sur:       "327ca0eb47ef48009be2f97b5ad7756ee856d7673d39b9c601715e0f8450686c"
     sha256 cellar: :any,                 catalina:      "6dd0a8c323dd861d68d43b6cce0f860225c86ebc6dd583403834b306fbaf1456"
     sha256 cellar: :any,                 mojave:        "c5712586d99e91ce98b7375c71b71138e32e9c89559aa42298c087046a47af79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e03050310beea348d0694d9f492d08199c07bb6a477e085ccccafef4be02b71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e03050310beea348d0694d9f492d08199c07bb6a477e085ccccafef4be02b71" # linuxbrew-core
   end
 
   keg_only :versioned_formula
@@ -63,9 +63,18 @@ class OpenjdkAT11 < Formula
   end
 
   def install
+    framework_path = ""
+    if OS.mac?
+      framework_path = File.expand_path(
+        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
+        MacOS::Xcode.prefix,
+      )
+    end
+
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
-    boot_jdk = OS.mac? ? boot_jdk_dir/"Contents/Home" : boot_jdk_dir
+    boot_jdk = boot_jdk_dir/"Contents/Home"
+    boot_jdk = boot_jdk_dir unless OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     # Inspecting .hg_archival.txt to find a build number
@@ -97,24 +106,20 @@ class OpenjdkAT11 < Formula
       --with-jvm-variants=server
     ]
 
-    if OS.mac? && Hardware::CPU.arm?
-      framework_path = File.expand_path(
-        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-        MacOS::Xcode.prefix,
-      )
-      args += %W[
-        --disable-warnings-as-errors
-        --openjdk-target=aarch64-apple-darwin
-        --with-build-jdk=#{boot_jdk}
-        --with-extra-cflags=-arch\ arm64
-        --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}\ -headerpad_max_install_names
-        --with-extra-cxxflags=-arch\ arm64
-      ]
-    end
-
     if OS.mac?
-      args << "--with-sysroot=#{MacOS.sdk_path}"
-      args << "--with-extra-ldflags=-headerpad_max_install_names"
+      if Hardware::CPU.arm?
+        args += %W[
+          --disable-warnings-as-errors
+          --openjdk-target=aarch64-apple-darwin
+          --with-build-jdk=#{boot_jdk}
+          --with-extra-cflags=-arch\ arm64
+          --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}\ -headerpad_max_install_names
+          --with-extra-cxxflags=-arch\ arm64
+        ]
+      else
+        args << "--with-sysroot=#{MacOS.sdk_path}"
+        args << "--with-extra-ldflags=-headerpad_max_install_names"
+      end
     else
       args << "--with-x=#{HOMEBREW_PREFIX}"
       args << "--with-cups=#{HOMEBREW_PREFIX}"
@@ -133,21 +138,21 @@ class OpenjdkAT11 < Formula
       bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+
+      if Hardware::CPU.arm?
+        dest = libexec/"openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework"
+        # Copy JavaNativeFoundation.framework from Xcode
+        # https://gist.github.com/claui/ea4248aa64d6a1b06c6d6ed80bc2d2b8#gistcomment-3539574
+        cp_r "#{framework_path}/JavaNativeFoundation.framework", dest, remove_destination: true
+
+        # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
+        system "codesign", "-f", "-s", "-", "#{dest}/Versions/A/JavaNativeFoundation"
+      end
     else
       libexec.install Dir["build/linux-x86_64-normal-server-release/images/jdk/*"]
       bin.install_symlink Dir["#{libexec}/bin/*"]
       include.install_symlink Dir["#{libexec}/include/*.h"]
       include.install_symlink Dir["#{libexec}/include/linux/*.h"]
-    end
-
-    if OS.mac? && Hardware::CPU.arm?
-      dest = libexec/"openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework"
-      # Copy JavaNativeFoundation.framework from Xcode
-      # https://gist.github.com/claui/ea4248aa64d6a1b06c6d6ed80bc2d2b8#gistcomment-3539574
-      cp_r "#{framework_path}/JavaNativeFoundation.framework", dest, remove_destination: true
-
-      # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
-      system "codesign", "-f", "-s", "-", "#{dest}/Versions/A/JavaNativeFoundation"
     end
   end
 

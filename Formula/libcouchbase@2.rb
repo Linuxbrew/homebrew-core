@@ -10,7 +10,7 @@ class LibcouchbaseAT2 < Formula
     sha256                               big_sur:       "9ccf1d8d54a3b9bad9da0b4fef45da6320060f4675cc9c1e75a7dea605003ad2"
     sha256                               catalina:      "01b9bceacbd38205745952c98a7db51cc388049da2a950d26eab11ab4b8dee64"
     sha256                               mojave:        "fddb24ff1b03d1dbf91f2ac46096ebd113e5dde208e49430ac55de783fa9f897"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59ccfded2657c0fb08783be2e6e94bbb78bc7ebf9543d342f1e6970234d7f293"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59ccfded2657c0fb08783be2e6e94bbb78bc7ebf9543d342f1e6970234d7f293" # linuxbrew-core
   end
 
   keg_only :versioned_formula

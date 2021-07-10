@@ -10,7 +10,7 @@ class GsettingsDesktopSchemas < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a7f5b4fc71c5dfdd9418823c6252872b6e6ecc7bab2e5828dcdcf7d484223178"
     sha256 cellar: :any_skip_relocation, catalina:      "24379b6ab7c18f2d682d59ef7c8f94eaf67a41d0ed3156deb5f0f9bc99919cd4"
     sha256 cellar: :any_skip_relocation, mojave:        "1350e64db550d9db2f48be5495f4da335b324b9b6c87ce4f073cf52cdbe3f790"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55492f06fbcee241f240b180fb66aaaf27c2e22ed307f9c7ad03520e4ae4d162"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55492f06fbcee241f240b180fb66aaaf27c2e22ed307f9c7ad03520e4ae4d162" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

@@ -10,7 +10,7 @@ class Awsweeper < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "0d73492221e06ae265d9e81fc3583dbf286f386beb7a711f0283822e9ba8759f"
     sha256 cellar: :any_skip_relocation, catalina:     "04820fc239d4bd2f470e5bba636969ca8487bdf9ef73208d470a08a733e8bf02"
     sha256 cellar: :any_skip_relocation, mojave:       "6bf1b5e08c686bf2e75f1054385ad598fbefe3ea8048c3d3c9e82193683f097a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a92d5e179b92901932556b29f587bff4b0eef6cf5f9b65cba4cf40ac38d391f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a92d5e179b92901932556b29f587bff4b0eef6cf5f9b65cba4cf40ac38d391f4" # linuxbrew-core
   end
 
   depends_on "go" => :build

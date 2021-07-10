@@ -15,7 +15,7 @@ class Eg < Formula
     sha256 sierra:        "307a0ce0f1514288179dbbc56fdac3de02100c80e8c57b1abedcab5cd0cff458"
     sha256 el_capitan:    "500a97f229b78ab83b97591d9276f7d9e1e4ce4d392f2530f5c8a9f10543b469"
     sha256 yosemite:      "65d2bab2a43912dfd487f817724dc7feee3ba3e226c07d0bd78ad22edcea970c"
-    sha256 x86_64_linux:  "381f38352b8cdb673571eabd8b5f72cbf32ee9cbe92d61748f0cf943ffc8cede"
+    sha256 x86_64_linux:  "381f38352b8cdb673571eabd8b5f72cbf32ee9cbe92d61748f0cf943ffc8cede" # linuxbrew-core
   end
 
   depends_on "s-lang"

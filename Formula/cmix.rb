@@ -12,7 +12,7 @@ class Cmix < Formula
     sha256 cellar: :any_skip_relocation, mojave:       "448fa06555b59d6a0541d1e36ff9eac14e05775fd2ef119e860a305368b800ec"
     sha256 cellar: :any_skip_relocation, high_sierra:  "6e1bc1de5f3c36e6fcda7874b8fbd18938aedbdbce94039763302f9643964a0a"
     sha256 cellar: :any_skip_relocation, sierra:       "3dc97bda2656e2b2ffccb50915f9a981513fff5a8f90af2a1c5521afe52568d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "778bb75257364cd8793b1adae549d2e354e52679e9ae2f4e74995bef1505e57b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "778bb75257364cd8793b1adae549d2e354e52679e9ae2f4e74995bef1505e57b" # linuxbrew-core
   end
 
   def install

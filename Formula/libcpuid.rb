@@ -10,7 +10,7 @@ class Libcpuid < Formula
     sha256 cellar: :any,                 big_sur:      "f7252b191ada11eee6bb25649cba4fda28be44c91ebcfd936e3508d3573bf4f1"
     sha256 cellar: :any,                 catalina:     "e954e21a3bb2ab10c1eb831af1626ccf9cbbe69e123a4da6d69975d59cfca867"
     sha256 cellar: :any,                 mojave:       "9cb4e35df56ce25adcfc4c0a03f1a377aac54ec7e217bc9bb583df41eebcc8c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a6caf9f4f13f5d7423e6ffba9039d5077b0b8917122b8e8af5f44432e9c87cb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a6caf9f4f13f5d7423e6ffba9039d5077b0b8917122b8e8af5f44432e9c87cb8" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

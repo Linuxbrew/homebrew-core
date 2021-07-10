@@ -16,7 +16,7 @@ class Rpm < Formula
     sha256 big_sur:      "cb96a7acd3064a24034996032a19c451f03ad1fede1c6a672331869220c4bc80"
     sha256 catalina:     "3f7de90218b2fbf8c42e63a4ae14f50244e058aff631e795197ac69e287a1d09"
     sha256 mojave:       "239cee186295db10924b8bf891a20c36169002d551389f934dec8b107df03ed6"
-    sha256 x86_64_linux: "47339e6b27849b4bdc339f21468ca70e49f7321cbf2cb0ce4e19acada061cbd7"
+    sha256 x86_64_linux: "47339e6b27849b4bdc339f21468ca70e49f7321cbf2cb0ce4e19acada061cbd7" # linuxbrew-core
   end
 
   depends_on "berkeley-db"

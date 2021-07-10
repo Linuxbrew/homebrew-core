@@ -11,7 +11,7 @@ class Whois < Formula
     sha256 cellar: :any,                 big_sur:       "2292a0ceec5f8357e7cf1f3cf4fdd9742d098745e4b2f9696b391861d3d17b9c"
     sha256 cellar: :any,                 catalina:      "062ff59198a48c66bbbbe665b047bf39d6f59b9f6c8bbefc0e76a020cd432d5c"
     sha256 cellar: :any,                 mojave:        "0f90a109c12c82e20e16a59ded524758576724ecf8eab092dce7cbf7535b884a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfcef4c75873b35a6d7e7b33641756c7762f188468fbfd222278f7305523c2e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfcef4c75873b35a6d7e7b33641756c7762f188468fbfd222278f7305523c2e5" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

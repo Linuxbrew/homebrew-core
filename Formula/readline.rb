@@ -16,7 +16,7 @@ class Readline < Formula
     sha256 cellar: :any, big_sur:       "2cc3a9582e3c7e21eb3c2c8964abd33e9720fb4a9588c626d8424ff8cc9b1aed"
     sha256 cellar: :any, catalina:      "fe4de019cf549376a7743dcb0c86db8a08ca2b6d0dd2f8cb796dd7cf973dc2e9"
     sha256 cellar: :any, mojave:        "1ea5a8050482911b319dc3e1436ee03310ba79d75d855d40114ba6067e01b9c5"
-    sha256 cellar: :any, x86_64_linux:  "cf7ae93f4dc5560c7c7fac35d3fbb7f528a43f3084daf2273e67032d131bdb04"
+    sha256 cellar: :any, x86_64_linux:  "cf7ae93f4dc5560c7c7fac35d3fbb7f528a43f3084daf2273e67032d131bdb04" # linuxbrew-core
   end
 
   keg_only :shadowed_by_macos, "macOS provides BSD libedit"

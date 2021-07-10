@@ -13,7 +13,7 @@ class Zpaq < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "2ca2aa378add42b28e3a4513e4176740e013ff9189b7d5d091c998c6ba8ec16f"
     sha256 cellar: :any_skip_relocation, catalina:      "6bedfd3bff1fa1e98b6a41eedf02aa1f7600943f9081624fb9811e69fd3d9ffa"
     sha256 cellar: :any_skip_relocation, mojave:        "6b9d7285117ab09ac91605b8d1b2b2d7b4c05874156968a398273a3d29254cc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe5d91f40a8b284173a5ae9e13a963d9bb8e73bc0911a1f75f23799125aaac14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe5d91f40a8b284173a5ae9e13a963d9bb8e73bc0911a1f75f23799125aaac14" # linuxbrew-core
   end
 
   resource "test" do

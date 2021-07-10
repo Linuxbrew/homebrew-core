@@ -11,7 +11,7 @@ class GitDelta < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3d9082ceeb39d5eea1d05a3ca589aa3edfdca89bfd833b2f2d5c6fbe8a09a1bb"
     sha256 cellar: :any_skip_relocation, catalina:      "9e613f07aeec747ed8d5af0e96c19274a4b3a1cf779bb3c96d30f17a2afc4aa0"
     sha256 cellar: :any_skip_relocation, mojave:        "a15d0f20ba032f9e438e799347646167b9a0f4ad74c607d4ff25e204fc27ee50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd02491b7ac18227dc23088d7c0294e92d482de6c1f793eb4b6c89c97e800e92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd02491b7ac18227dc23088d7c0294e92d482de6c1f793eb4b6c89c97e800e92" # linuxbrew-core
   end
 
   depends_on "rust" => :build

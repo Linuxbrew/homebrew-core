@@ -10,7 +10,7 @@ class Re2c < Formula
     sha256 big_sur:       "92542633618857c419aad645a7b772bf42cae681a7e19e351e1d9b49c95fdac5"
     sha256 catalina:      "5d03da5d1265e3169f34f5c70a08f96dbee0dc0e617363f16db2a516e2f5c76b"
     sha256 mojave:        "7235fbeb0e362988b5137e7c3be85e9af7742848bff96f69135d38d9ebb1bc04"
-    sha256 x86_64_linux:  "1ce3476458a90f2999db24d2466bc07eecbcddea463bbe1f4d3eb69834603109"
+    sha256 x86_64_linux:  "1ce3476458a90f2999db24d2466bc07eecbcddea463bbe1f4d3eb69834603109" # linuxbrew-core
   end
 
   def install

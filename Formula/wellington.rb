@@ -12,7 +12,7 @@ class Wellington < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9aaeb3a098cbee88efc4e60d1edbfec242d6b2271f821b4d096fe6acb3d16987"
     sha256 cellar: :any_skip_relocation, mojave:        "a49538429713f2f7b979ab533d4231de84140d9e4e63b5658941552c1c99117a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "53a61eeebc1e787fa7870437ce089276c5f1daad26430078e988d1b6aa50c7b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4475484cb2378a741c1cfdcdabc95b5ea175202c1b78ce2481d23aff35fb3da4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4475484cb2378a741c1cfdcdabc95b5ea175202c1b78ce2481d23aff35fb3da4" # linuxbrew-core
   end
 
   depends_on "go" => :build

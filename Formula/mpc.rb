@@ -16,7 +16,7 @@ class Mpc < Formula
     sha256 cellar: :any, catalina:      "341a4c3cef23004a47f37fa299047e63baedceb07405813d6fc112c9ad7d4ff2"
     sha256 cellar: :any, mojave:        "29742180fafe0fffeba3fc09c3d355395084ef3d063004347a96bc37c72682db"
     sha256 cellar: :any, high_sierra:   "84bd2c475a7880bf1f36c560a5696c12c27ff6cdb5cd907082d14ffd094b1081"
-    sha256 cellar: :any, x86_64_linux:  "563c1305bef6315981535b1b8df208cc313751dc8f9cdc7278d515386f9aeb98"
+    sha256 cellar: :any, x86_64_linux:  "563c1305bef6315981535b1b8df208cc313751dc8f9cdc7278d515386f9aeb98" # linuxbrew-core
   end
 
   depends_on "meson" => :build

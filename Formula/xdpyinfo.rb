@@ -11,7 +11,7 @@ class Xdpyinfo < Formula
     sha256 cellar: :any, big_sur:       "128f9ce7c4fad4a7bdc313c02c7c2324fa311845cc6ccaf9e19cc835bbef83e6"
     sha256 cellar: :any, catalina:      "dfb295a0259be51cd1ec75a16bda4582608569ad098a37ad257818616f70b81e"
     sha256 cellar: :any, mojave:        "2f9c704633a4a7d7df952f4874a16bae0cc8890e6ba1fdf7cd1654bb4cad01c7"
-    sha256 cellar: :any, x86_64_linux:  "6520af465c71fe6a5cb8d2bac5e055413814b07206093e841c01ed940fab0c54"
+    sha256 cellar: :any, x86_64_linux:  "6520af465c71fe6a5cb8d2bac5e055413814b07206093e841c01ed940fab0c54" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

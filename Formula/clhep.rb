@@ -15,7 +15,7 @@ class Clhep < Formula
     sha256 cellar: :any,                 big_sur:       "73ed5e5dcdf0b6d8b50f91cb6e8839fb967be25a02f8374e185cc1cdc6718dce"
     sha256 cellar: :any,                 catalina:      "e441759f93337bcadd69460a709ec0adc4c1655fdf1677893471f7497d840bac"
     sha256 cellar: :any,                 mojave:        "77c920470ac55af4f79d2b6fced83301cbe187c13b2e238ab637d9bceb642120"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b30f5f2c3a27cb6aa43151d8c963de22edc26634179988d86dd538726ec44f6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b30f5f2c3a27cb6aa43151d8c963de22edc26634179988d86dd538726ec44f6b" # linuxbrew-core
   end
 
   head do

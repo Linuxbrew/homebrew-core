@@ -6,7 +6,7 @@ class LaunchctlCompletion < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "14ff31532b6b8df8c32ffaad844a0a7fa5d1d12b0fc9df3f3497bb4a38b67945"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "14ff31532b6b8df8c32ffaad844a0a7fa5d1d12b0fc9df3f3497bb4a38b67945" # linuxbrew-core
   end
 
   def install

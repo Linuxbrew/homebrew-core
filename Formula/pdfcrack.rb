@@ -11,7 +11,7 @@ class Pdfcrack < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "2c26ba3ca3a1edd9cc9e6570cb5d1c7838a152a3d8281a2a16c6be5276d47b23"
     sha256 cellar: :any_skip_relocation, mojave:        "12310e0c5841db19ecf51f527cde0aaba1663a04aa78c760a5d6e02218dc4e3c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9923fadda54414a1d0cd5e86b0796aec8bbaf7c80e96e7518b5ae136d50d5674"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f075ba2bcfd8bf8d6cdab7bc7a683003e7047a2d3858a4c28702ca0ae3fd397a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f075ba2bcfd8bf8d6cdab7bc7a683003e7047a2d3858a4c28702ca0ae3fd397a" # linuxbrew-core
   end
 
   def install

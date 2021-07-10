@@ -13,7 +13,7 @@ class Latexml < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bf7e2861733757d69d9cd5b36c89de48dbbae354109bb90111a279c3ba7ac45d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bf7e2861733757d69d9cd5b36c89de48dbbae354109bb90111a279c3ba7ac45d" # linuxbrew-core
   end
 
   uses_from_macos "libxml2"

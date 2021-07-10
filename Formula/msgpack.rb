@@ -12,7 +12,7 @@ class Msgpack < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "bb3e3af7ce4994911518db90db9ff4747e72492832b3aa98ff7c82fd3d5990b2"
     sha256 cellar: :any_skip_relocation, mojave:        "f418d11d056dd08160b27088d19ee12d4a9e36dbd913ffae8d2c9838a1449475"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7424d6d9dee3edd0f07c4ea6f11567255dea4f1bbffbb6c41f20c5412952028d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ffc795917ab21985beeb23e6940c197a3ee483eb767fa393c05ed4a74619331"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ffc795917ab21985beeb23e6940c197a3ee483eb767fa393c05ed4a74619331" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

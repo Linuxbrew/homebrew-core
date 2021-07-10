@@ -11,7 +11,7 @@ class GnuTar < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a6ab3eb4a49d609f5f1dde43710b847fd827ebc03195aee052c7aeb528aa9bcc"
     sha256 cellar: :any_skip_relocation, catalina:      "53b9fc4011ca3ca3e669aa96a95a5394ef45138b9b2d52c76c3a17fceb432229"
     sha256 cellar: :any_skip_relocation, mojave:        "c4f9fcc7bdbb2bc5591a6650cf3bbfc1aa791e85f6d299f165a9466c235c83ae"
-    sha256                               x86_64_linux:  "62b370ce29f30cf6fbcc1b106a7a9258a9d1770468eb4e075b8fd5ef192593f6"
+    sha256                               x86_64_linux:  "62b370ce29f30cf6fbcc1b106a7a9258a9d1770468eb4e075b8fd5ef192593f6" # linuxbrew-core
   end
 
   head do

@@ -20,6 +20,7 @@ class Qemu < Formula
     sha256 big_sur:       "93b55db46955010ccb2e017bad0b5bcd6cfb663261271fcead604ebfc008a445"
     sha256 catalina:      "936594517984109e17548df23a38eab142df9d9f2aba2b73db5fc1154d7a2a81"
     sha256 mojave:        "77413fd07a33641ecaf46a41dd04895d75c0f2cd6e12a9722afa5cecce209b53"
+    sha256 x86_64_linux:  "69293aa9397f59b802d111e8f3c1d5f213d847d3d9d7fcd321798e66cd246cc4" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

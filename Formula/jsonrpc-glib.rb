@@ -11,7 +11,7 @@ class JsonrpcGlib < Formula
     sha256 cellar: :any, catalina:      "5dcab8d9974c1bd60c225d8ce2976fd20c0cedcaf2d537a57f42fe80aec20ece"
     sha256 cellar: :any, mojave:        "3a7318d1a9d0bee9a6b234494236778205d9dcbfb20622dbbda6c3007b3f8858"
     sha256 cellar: :any, high_sierra:   "fc193951d9001132ec4fe5ee59fccae34ee8249bf51b386a52924056a0d2f333"
-    sha256 cellar: :any, x86_64_linux:  "7ffac5f8e15ee5b270309ab04ec868ef00e2d95fe669fbdd1c9f8064d0066393"
+    sha256 cellar: :any, x86_64_linux:  "7ffac5f8e15ee5b270309ab04ec868ef00e2d95fe669fbdd1c9f8064d0066393" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

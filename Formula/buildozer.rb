@@ -10,7 +10,7 @@ class Buildozer < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a4d0c0665fff008552b629d97d0194a47e272e110fa01843fc95042163ae8d53"
     sha256 cellar: :any_skip_relocation, catalina:      "9860c62aa97c12fdf060ec4046bddecd00235d420649ceccd23a290c251ef4bd"
     sha256 cellar: :any_skip_relocation, mojave:        "8dd939f4e3e8575d5ad4f8a493f318a5f6659dbb9efc52a53fc3ca3821bd59e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bc946feb71f23ba902e0c5f422be996b4abb08b45a9669864e9c81c9fdade54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bc946feb71f23ba902e0c5f422be996b4abb08b45a9669864e9c81c9fdade54" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -10,7 +10,7 @@ class Qpdf < Formula
     sha256 cellar: :any,                 big_sur:       "d58a95848a41828fd8a8cf0f1bbc2965f7d5c4b253a359d99750e53c01777c63"
     sha256 cellar: :any,                 catalina:      "2896a1a0b6edd8b19b1f596439d60081325f63a4d6ed6cfd859f28790ca8f4d7"
     sha256 cellar: :any,                 mojave:        "d017c72291915e439affa7000b113169fd3e48bdd1b2d31760fdfe2f3d1950fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b856a4f28b9a0377c40251172c09763548faff2aacd50c5f1e03f9c680434eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b856a4f28b9a0377c40251172c09763548faff2aacd50c5f1e03f9c680434eb" # linuxbrew-core
   end
 
   depends_on "jpeg"

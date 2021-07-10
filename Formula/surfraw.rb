@@ -12,7 +12,7 @@ class Surfraw < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9"
     sha256 cellar: :any_skip_relocation, sierra:        "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48b20736aae201046c9fdd3f0952ee5776be80c7eb0a7b68b3c75b837eca9285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48b20736aae201046c9fdd3f0952ee5776be80c7eb0a7b68b3c75b837eca9285" # linuxbrew-core
   end
 
   def install

@@ -10,7 +10,7 @@ class Meilisearch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "55a6830696ba4b3fd3801be99180c95305e8b8d6c88e222068be8ecf528a1ca4"
     sha256 cellar: :any_skip_relocation, catalina:      "2b6572a94c06b50750ecf5e9d2a39ec2fe502213f12c8efe10e0dbbba4b003af"
     sha256 cellar: :any_skip_relocation, mojave:        "87df8e1be817662fce7d9a570bb1d0482edfe3338c7e642b2f2603436e2be236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f0b47139ad8cd84a9323054d9de94ac40e16f351e0891166e12627ff0689586"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f0b47139ad8cd84a9323054d9de94ac40e16f351e0891166e12627ff0689586" # linuxbrew-core
   end
 
   depends_on "rust" => :build

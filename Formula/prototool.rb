@@ -11,7 +11,7 @@ class Prototool < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e7c678d2842ce666ddfbeee1092c2354a420c9b8b94244e8db2b382f6568e536"
     sha256 cellar: :any_skip_relocation, mojave:        "256435ac965872664fc2707b8188090c2a1d369308ef2b224d53e1b972ee7620"
     sha256 cellar: :any_skip_relocation, high_sierra:   "373cf39c37bd40c8eb4f9261129226bf0f276771872060ea3495d6a2d56fa911"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cce2631c1f7d5320cb0a2ca0b8b61af88143a6185058d937d700a3bee0623731"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cce2631c1f7d5320cb0a2ca0b8b61af88143a6185058d937d700a3bee0623731" # linuxbrew-core
   end
 
   depends_on "go" => :build

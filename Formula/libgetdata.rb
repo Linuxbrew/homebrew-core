@@ -12,7 +12,7 @@ class Libgetdata < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9"
     sha256 cellar: :any_skip_relocation, mojave:        "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe"
     sha256 cellar: :any_skip_relocation, high_sierra:   "6b8b5f7801a6cf31ecd5ac82ee02ca344f9634ad01c235a828e3875d0354931b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaa7acceffef19f5e77f6934418c8c394b59e88c8de869bedb2de8163df3a441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaa7acceffef19f5e77f6934418c8c394b59e88c8de869bedb2de8163df3a441" # linuxbrew-core
   end
 
   depends_on "libtool"

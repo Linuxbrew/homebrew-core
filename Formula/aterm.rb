@@ -14,7 +14,7 @@ class Aterm < Formula
     sha256 cellar: :any, sierra:        "dd7b81b3bd9a31746ab461b8d79e4c32838b7e86f540769e4c17825a4b89c1c2"
     sha256 cellar: :any, el_capitan:    "5140e20287eda941f8756dfdaf377663f84f6872d1ca3f6d70e04b554591d11a"
     sha256 cellar: :any, yosemite:      "d12bebbfa2e764abb9cfac1aecd6fc04e58f83eadf0fb3db298d5be03d7f8dca"
-    sha256 cellar: :any, x86_64_linux:  "a4e4c8cc34a33e6d5ff5720845a2e8ee8876f789e638d94169b850d8a2d8ecad"
+    sha256 cellar: :any, x86_64_linux:  "a4e4c8cc34a33e6d5ff5720845a2e8ee8876f789e638d94169b850d8a2d8ecad" # linuxbrew-core
   end
 
   def install

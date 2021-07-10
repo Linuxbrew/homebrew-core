@@ -15,7 +15,7 @@ class Newlisp < Formula
     sha256 catalina:      "62fd116459d24ab0db976221fb16fd83a7a7db5447298bcc7f8b0dbf9a55f91f"
     sha256 mojave:        "179146b49c20011f3da4dbdb9b66a6ed66d5dd9f15d07aeca9b8717219a62eeb"
     sha256 high_sierra:   "5a0d4085a0e7fc364b3165be7e92a9dfeb2f4882e1971663ac74c70348a5c4a4"
-    sha256 x86_64_linux:  "cf8de711e794fa5b226a3bca90f3200e2ecfbb5917e8a3e9f3fee10c8bad505f"
+    sha256 x86_64_linux:  "cf8de711e794fa5b226a3bca90f3200e2ecfbb5917e8a3e9f3fee10c8bad505f" # linuxbrew-core
   end
 
   depends_on "readline"

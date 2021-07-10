@@ -13,7 +13,7 @@ class Ssdeep < Formula
     sha256 cellar: :any, high_sierra:   "1c8a9a487676961755daf5688ec478a5925f3a0dfe36faeb7027878600ef2384"
     sha256 cellar: :any, sierra:        "84677545f87098d9c5d74719044c56616a8788f1320c9258794807dac2343328"
     sha256 cellar: :any, el_capitan:    "c07f5558ed32f7de17f349cbc62e56cf277d3d30c83fa7844bdf41000729dcba"
-    sha256 cellar: :any, x86_64_linux:  "196f6fbb9e5b008ab981b091d867361b43f07c29bbacc840f7c23f1f8ffd7161"
+    sha256 cellar: :any, x86_64_linux:  "196f6fbb9e5b008ab981b091d867361b43f07c29bbacc840f7c23f1f8ffd7161" # linuxbrew-core
   end
 
   def install

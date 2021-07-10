@@ -16,7 +16,7 @@ class Entr < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "34c0d604196544f8ae2e42b12aa74f00629cac3f5bfb98afc129fed8d67b2098"
     sha256 cellar: :any_skip_relocation, catalina:      "d8da9de096d0a21583ca63bc426b0880ad873b89d003beac8e99d5208b58daa1"
     sha256 cellar: :any_skip_relocation, mojave:        "a892e39fd5faed448d1cca2fcee8a961dda60cb8bb811f63f5ed3773e1e84b27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54d9d924c7e75e1ff0f336820541204b543a023e85c49f3388536b4aa0e70334"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54d9d924c7e75e1ff0f336820541204b543a023e85c49f3388536b4aa0e70334" # linuxbrew-core
   end
 
   def install

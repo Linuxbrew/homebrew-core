@@ -6,7 +6,7 @@ class YarnCompletion < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "fa61ffe0566b918f54f590d3767cc467f5218f2911b3b5b7f6491d8d5a7e06f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "fa61ffe0566b918f54f590d3767cc467f5218f2911b3b5b7f6491d8d5a7e06f0" # linuxbrew-core
   end
 
   depends_on "bash"

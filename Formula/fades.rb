@@ -13,7 +13,7 @@ class Fades < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "78532c867a5ab35381edeb565f094fff1d2d269c169f903e10bde65a2ee2b3c7"
     sha256 cellar: :any_skip_relocation, mojave:        "bc2264df647adc84ef4f5321258ee9030da3269a66d4f50ed5faf0cc3185bd83"
     sha256 cellar: :any_skip_relocation, high_sierra:   "bdf1c47688725b9335adaca1dae977fba9aa534d44f4c65b4a1a684d6fc7930e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33e3576e84276e6483f1a75f3067f83ef2be22001311a7f1185be0e781e0a16d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33e3576e84276e6483f1a75f3067f83ef2be22001311a7f1185be0e781e0a16d" # linuxbrew-core
   end
 
   depends_on "python@3.9"

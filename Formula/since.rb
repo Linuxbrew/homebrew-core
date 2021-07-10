@@ -14,7 +14,7 @@ class Since < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ff4ba4b7cad5fa4211bff04d5868521bc21b60995cf40f15bd507abb7c4cbaab"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ec4898462899cb632329f71dc0b4dd9a13a051aafd6da7dfd22e940e9d1ce01a"
     sha256 cellar: :any_skip_relocation, yosemite:      "e92218f17ac1926f4651b3e70d3fe42d43b7024e1f10d0ab6f1c7c9dd6bad606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "606f75f34e3690b1f38dfbe519ac9362e91ef226aaeac62840ff00fc11561de1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "606f75f34e3690b1f38dfbe519ac9362e91ef226aaeac62840ff00fc11561de1" # linuxbrew-core
   end
 
   def install

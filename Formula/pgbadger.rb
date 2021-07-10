@@ -11,7 +11,7 @@ class Pgbadger < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "47dd580296d42a158b6e11853790080a6ec9408ece3f69d66672050f89753a19"
     sha256 cellar: :any_skip_relocation, catalina:      "751904911636d8e1e4c8714f6c41d0aa9b56b703fc78dd024e8df1b67807f977"
     sha256 cellar: :any_skip_relocation, mojave:        "0684dc2d96a3e715f58050c0c05d037a185cced9d0a36d970d6e0f7feffe7d0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef223be776158910a8f7b9f78aea73d96fd1d4377920f35aa2d76e9e8af857fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef223be776158910a8f7b9f78aea73d96fd1d4377920f35aa2d76e9e8af857fb" # linuxbrew-core
   end
 
   def install

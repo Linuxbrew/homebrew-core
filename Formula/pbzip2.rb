@@ -14,7 +14,7 @@ class Pbzip2 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c15b9c38b5302286033e54ff4be006c3b31ccb179f96641e44f1126958527d7e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "be653d724b6f061cb9939dbdbf457aebc275e16dbf599f598b9ff3999fdd5db3"
     sha256 cellar: :any_skip_relocation, yosemite:      "ad103aef3e2d72293cfed3fcc42999afee9b4fc332f8319e3c079758215411c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f212965d48b2321dde49bded9cc2d6e55e6d5083c5a232025f7bc3c077360eec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f212965d48b2321dde49bded9cc2d6e55e6d5083c5a232025f7bc3c077360eec" # linuxbrew-core
   end
 
   def install

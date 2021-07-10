@@ -13,7 +13,7 @@ class Slowhttptest < Formula
     sha256 cellar: :any, catalina:      "7cd865ac1b118d8ef7bdf0b540f56140ff4254e7a38d2b22d520c9bd1158df5d"
     sha256 cellar: :any, mojave:        "f4da64ee55ba56ffaff0d383954d0e13577326dbca30b431d5d89775dcfb396e"
     sha256 cellar: :any, high_sierra:   "3ffeaec203cd16a00aeb0bf239dfe5b32087e35a74dd5c6917bd3e7a2a09848f"
-    sha256 cellar: :any, x86_64_linux:  "95fc74baad6a2ec27edcdfed0bcc2ad12c4a9be0f439bd458ecff2476c2a18ad"
+    sha256 cellar: :any, x86_64_linux:  "95fc74baad6a2ec27edcdfed0bcc2ad12c4a9be0f439bd458ecff2476c2a18ad" # linuxbrew-core
   end
 
   # Remove these in next version

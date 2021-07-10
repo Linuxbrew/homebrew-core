@@ -16,7 +16,7 @@ class Hackrf < Formula
     sha256 cellar: :any,                 big_sur:       "54e9e6ad6edbac05a150b07cab7e23ff6053e2c64c927fdbc63bea7007c7ec9e"
     sha256 cellar: :any,                 catalina:      "903c9d309035f261f336a5c3d456a7947eb14390be917f43f40dbaf2ff0146b6"
     sha256 cellar: :any,                 mojave:        "68d1ffb38ef62af28483d702189ea4019cf81764767d91dd0fa113f39bcbdc0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88d1a1b474544b53ec16b80a1b4d7d6414118e0afa503e9b495954ed1eb12ad9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88d1a1b474544b53ec16b80a1b4d7d6414118e0afa503e9b495954ed1eb12ad9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

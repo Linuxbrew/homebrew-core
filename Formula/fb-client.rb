@@ -16,7 +16,7 @@ class FbClient < Formula
     sha256 cellar: :any, big_sur:       "76cab48a5e41ea108da84e1228ddea7c23ee92727206d0e0ef00aa11e65167ae"
     sha256 cellar: :any, catalina:      "0f2e6cd24defedab9ce9b5a843b75a7082592808035f00082008c47f5ba26024"
     sha256 cellar: :any, mojave:        "9a7adf6509265cf7c9ae67d68b108685d49e35f44ab00bdfe1c77be073942596"
-    sha256 cellar: :any, x86_64_linux:  "b7046652787b4b87d433f4ac2328a8a3b86df5aabbe1a8a5c87ff7ccf03a702e"
+    sha256 cellar: :any, x86_64_linux:  "b7046652787b4b87d433f4ac2328a8a3b86df5aabbe1a8a5c87ff7ccf03a702e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

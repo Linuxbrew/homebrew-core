@@ -10,7 +10,7 @@ class Pipemeter < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ef9f94223b9b5d583ca7f3714e85fbdc59721be6bdc31f46bda43cecb4a4c0b5"
     sha256 cellar: :any_skip_relocation, catalina:      "faf2fcb90aebb9e26bfd1f9dcfd32bb43fd4247a87a466640dcd74824806da00"
     sha256 cellar: :any_skip_relocation, mojave:        "73de834fc4df5c79baf9cffc35fbe14df34e35e8414c1d3648326de9a5ced34c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80837101e6c422153ebe6525c69b2dedfdd0134c1414866a98266447930511ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80837101e6c422153ebe6525c69b2dedfdd0134c1414866a98266447930511ce" # linuxbrew-core
   end
 
   def install

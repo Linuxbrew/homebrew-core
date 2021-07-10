@@ -13,7 +13,7 @@ class Lzfse < Formula
     sha256 cellar: :any, high_sierra:   "e2a28bc48a8d90dd26cf2fe92d9186cbe0f19c8a58a5d15c8591826cd047b43b"
     sha256 cellar: :any, sierra:        "2da23959f27fe8a141b2967a591052c6ec081224b7b3c9c65c4a854faba77456"
     sha256 cellar: :any, el_capitan:    "4fcadd0779483cf14e95f7566002af22e9b488585c37fba1b5e75f715b930c01"
-    sha256 cellar: :any, x86_64_linux:  "19104cde7a280d1029728ade6450182301ffc4c1eca611c8e4be6030578bf81b"
+    sha256 cellar: :any, x86_64_linux:  "19104cde7a280d1029728ade6450182301ffc4c1eca611c8e4be6030578bf81b" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

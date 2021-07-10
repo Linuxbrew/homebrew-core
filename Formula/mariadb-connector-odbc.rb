@@ -15,7 +15,7 @@ class MariadbConnectorOdbc < Formula
     sha256 cellar: :any, big_sur:       "605a16d0c1f7d05fbb2f509fe638f49797e56302c30b2bf875db4d7b54abaad7"
     sha256 cellar: :any, catalina:      "78fc1a7690d2bdf25fffe06fb0964873029aa9b312563e1bfc9ceca30abf5cd5"
     sha256 cellar: :any, mojave:        "952d6b594a1b313175e3e22afd2abfc4c89db5c99b5df31dfa17bc5a1165466f"
-    sha256               x86_64_linux:  "35c1630de331099a1284db23faef1040f18e5613d73190e7483fccfe69c5d24b"
+    sha256               x86_64_linux:  "35c1630de331099a1284db23faef1040f18e5613d73190e7483fccfe69c5d24b" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

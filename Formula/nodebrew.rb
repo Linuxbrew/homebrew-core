@@ -8,7 +8,7 @@ class Nodebrew < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dad75f41cddb514ed89c01ae75b38c18ab21e4cb0ee2b9135c986968975b058d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dad75f41cddb514ed89c01ae75b38c18ab21e4cb0ee2b9135c986968975b058d" # linuxbrew-core
   end
 
   def install

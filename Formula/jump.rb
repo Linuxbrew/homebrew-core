@@ -11,7 +11,7 @@ class Jump < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "82d744d63ad1485d1ef5afa534d9f1526339e217b86ba38f7e4e54afb3c7d439"
     sha256 cellar: :any_skip_relocation, catalina:      "a89cde1a3dd5671412c35dd53603349c1b76fa474be9349231c895e8e3c71b48"
     sha256 cellar: :any_skip_relocation, mojave:        "a877dfb7b7a806bb3637555125e91605c3e8834f53ca9d0d900693349d5f35f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7011822daa9ef04c9af6af45fbc62b1fdeb6b93e488ff65aa297d60089dcd2d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7011822daa9ef04c9af6af45fbc62b1fdeb6b93e488ff65aa297d60089dcd2d7" # linuxbrew-core
   end
 
   depends_on "go" => :build

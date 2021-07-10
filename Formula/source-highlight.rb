@@ -16,7 +16,7 @@ class SourceHighlight < Formula
     sha256 big_sur:       "22764adfe8f5adef5fe50654e9d4218dd0966272cebfae37cb37004bb7e7f88e"
     sha256 catalina:      "defe1639783fd04bb3993487e15a68958bc53413229f008b6c5307bee623fa07"
     sha256 mojave:        "7c955cdd528a707e3ae17352314b3fa47eebf57b4b544eb9a3dc7e75a6875f6a"
-    sha256 x86_64_linux:  "a625c44295563eb13bb41edff00bde62fce1bbe5a99ddadea99cae4c3f660119"
+    sha256 x86_64_linux:  "a625c44295563eb13bb41edff00bde62fce1bbe5a99ddadea99cae4c3f660119" # linuxbrew-core
   end
 
   depends_on "boost"

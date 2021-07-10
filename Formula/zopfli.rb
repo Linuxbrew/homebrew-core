@@ -12,7 +12,7 @@ class Zopfli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "aa44f1667254347800d442b6347d6df658e3ee24386d2284cce8e88a27e87d6d"
     sha256 cellar: :any_skip_relocation, mojave:        "521a5185b6881c878be60af7df7c673f5845255f957b88d01307eb9220407a52"
     sha256 cellar: :any_skip_relocation, high_sierra:   "fb474057725b73aa00261b10d000474cb05c020b7d951d085dcf9ed5b0973030"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9abd5cbd72acc595e4bf1668a3233020c9c451e2718a3333c14170428e60f99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9abd5cbd72acc595e4bf1668a3233020c9c451e2718a3333c14170428e60f99" # linuxbrew-core
   end
 
   def install

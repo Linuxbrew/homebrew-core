@@ -15,7 +15,7 @@ class Tclap < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "345213efdaff1e9b1ea0af2528fed0699beb7050b34b359df70cdf220c3cb399"
     sha256 cellar: :any_skip_relocation, catalina:      "48653e8b3887fd1046f82516ecc3ed5147eeade6d28bd466c1f5c6b320f9a159"
     sha256 cellar: :any_skip_relocation, mojave:        "b3c06dabecff169974b1cd64550e1351f619ebf0c2a09cb4a21b654b42d55b95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f14c866492961207a1258b429deedceb4326357a1c30484b6170f55a2f471f33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f14c866492961207a1258b429deedceb4326357a1c30484b6170f55a2f471f33" # linuxbrew-core
   end
 
   def install

@@ -18,7 +18,7 @@ class Libpng < Formula
     sha256 cellar: :any, mojave:        "53bbd14cc27c86c16605e256e7646a1b5656c253abca084958c5d80a2961cb01"
     sha256 cellar: :any, high_sierra:   "bbdd94bdd5954bc50c096391486e67265dce5631efb913dcffe4469806a242b6"
     sha256 cellar: :any, sierra:        "e66797079a9a8134f91bd36b58054c6c32f6a9cd161c1bd19f0192319edb80aa"
-    sha256 cellar: :any, x86_64_linux:  "c5d219b27780c730af50693110ed2c79e50200d3595c7e395998fe3950354ec9"
+    sha256 cellar: :any, x86_64_linux:  "c5d219b27780c730af50693110ed2c79e50200d3595c7e395998fe3950354ec9" # linuxbrew-core
   end
 
   head do

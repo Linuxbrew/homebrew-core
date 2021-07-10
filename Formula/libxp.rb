@@ -16,7 +16,7 @@ class Libxp < Formula
     sha256 cellar: :any, catalina:      "e70342d93c5cf690582f559318b05b26da9175fc7620493fa15a224a847ec1da"
     sha256 cellar: :any, mojave:        "1cc823e7fe3acb64e58b554e5e956302959f28cb5737eea5c6d15655128aee15"
     sha256 cellar: :any, high_sierra:   "8e904b533b4c4264232ae6391e7d4bc37dade77d5d20539ed3d42900ab3950ce"
-    sha256 cellar: :any, x86_64_linux:  "96c3bde8db1c0a717f1c2f02db4a81a595a59b96d483894d40461e6b43728704"
+    sha256 cellar: :any, x86_64_linux:  "96c3bde8db1c0a717f1c2f02db4a81a595a59b96d483894d40461e6b43728704" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

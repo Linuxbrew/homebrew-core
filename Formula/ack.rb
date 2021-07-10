@@ -7,7 +7,7 @@ class Ack < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a838e3fffb37b9064032dd9c1b38323f77bf3b692a119037f490ee1cc22df53a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a838e3fffb37b9064032dd9c1b38323f77bf3b692a119037f490ee1cc22df53a" # linuxbrew-core
   end
 
   head do

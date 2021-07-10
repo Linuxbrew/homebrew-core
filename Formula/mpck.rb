@@ -12,7 +12,7 @@ class Mpck < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "e819ac8ce7eab3b4f83bcdf83cfbb129a9e3cebb36e314dabca646f808ed6257"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3ecd47f83f5645cfaf2bfef23b5b9a1b14bb36f2ec146409ca44d9d5f25c3401"
     sha256 cellar: :any_skip_relocation, sierra:        "cd283270b83cf83c3e3a3c393404c1eca16e1620ced195821b97fe5ad6b39236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d57cb79bd723f695fc86fccd2ddd79a0166aa276b679dbe85e34c8a2f0d59db0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d57cb79bd723f695fc86fccd2ddd79a0166aa276b679dbe85e34c8a2f0d59db0" # linuxbrew-core
   end
 
   def install

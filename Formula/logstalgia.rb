@@ -12,7 +12,7 @@ class Logstalgia < Formula
     sha256 catalina:      "e292916be0cc939d985c4f42930d5217cf06d1e57fa2a3e376d55a44c4b21fd9"
     sha256 mojave:        "ecc61da046585777d74c682a14f6e3963570603188d2d447d3fbc4c5f87895dd"
     sha256 high_sierra:   "c0411062c997c5ca8aaf27726d2205601438a50ccbecc9a166c26c30bd3c08aa"
-    sha256 x86_64_linux:  "16fbd5c3c4ca586fda49deb694607ed49e62253fd13df37e88b9e1a959140d22"
+    sha256 x86_64_linux:  "16fbd5c3c4ca586fda49deb694607ed49e62253fd13df37e88b9e1a959140d22" # linuxbrew-core
   end
 
   head do

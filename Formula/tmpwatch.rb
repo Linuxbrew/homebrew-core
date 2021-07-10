@@ -11,7 +11,7 @@ class Tmpwatch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "990ba2839f3c2ddf69e280e976463969d3274410f1a84a90e00a6a9b0f5cef35"
     sha256 cellar: :any_skip_relocation, catalina:      "acd49e52b73f82c2cab4a77f46e99e0f69f856dc43cbf03f775ab58b44e78d6b"
     sha256 cellar: :any_skip_relocation, mojave:        "800714b1d0f11a8fc52b070046aa3a5aaf99883f9320d9a233ffabf801ae2996"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "342e59416589d1c4d460487d2b11534cbc39bdb4bfa899376746b88bfb4ab6ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "342e59416589d1c4d460487d2b11534cbc39bdb4bfa899376746b88bfb4ab6ce" # linuxbrew-core
   end
 
   def install

@@ -12,7 +12,7 @@ class CoreosCt < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:  "5acd28f4e5dd0c74938cc7e7e10c5501badbab1d05316537a9afa173ff64f44e"
     sha256 cellar: :any_skip_relocation, sierra:       "8f09ba9875fe34e55de7fd25514493f41276d5c5e9f3cd37e00288fb6d44323e"
     sha256 cellar: :any_skip_relocation, el_capitan:   "9a48da5217b7e4b57e56702ee884fbc3067ccd895c2144cf7b02571cbcb80b42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8b89024eadf9553ff4da1feb5b0d463ac5f4a7f251a4a3a706b7228ac3a7fe49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8b89024eadf9553ff4da1feb5b0d463ac5f4a7f251a4a3a706b7228ac3a7fe49" # linuxbrew-core
   end
 
   deprecate! date: "2020-11-10", because: :repo_archived

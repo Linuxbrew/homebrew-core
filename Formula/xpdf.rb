@@ -16,7 +16,7 @@ class Xpdf < Formula
     sha256 cellar: :any,                 big_sur:       "2c74e3ae45d2666271efb5a3a913db86a300110d2e89acb97f27b4e6d5c2af7f"
     sha256 cellar: :any,                 catalina:      "af0d633049cdccbb05a15b92e1dddb2951ea6d2994a2bee343400681bfbf1a2d"
     sha256 cellar: :any,                 mojave:        "d5a0e1f2c8d6897bda1290648814b351ffebf0aadbbe856b19f7088d2673baf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93191c2d19e3890f3e90cccd091837fb377da37c539dd7a2644d79f6c6a4b24f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93191c2d19e3890f3e90cccd091837fb377da37c539dd7a2644d79f6c6a4b24f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

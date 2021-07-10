@@ -12,7 +12,7 @@ class Tfenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "89881336b91728f3fc49c497d3be4ca37cfa7b3f3357c9c0ca06719252fb0620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "89881336b91728f3fc49c497d3be4ca37cfa7b3f3357c9c0ca06719252fb0620" # linuxbrew-core
   end
 
   uses_from_macos "unzip"

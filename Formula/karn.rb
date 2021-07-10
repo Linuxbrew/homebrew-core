@@ -10,7 +10,7 @@ class Karn < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bdcf0389352b56c208549750ec502a1bfc01c02c0466c981abfcace027cc479b"
     sha256 cellar: :any_skip_relocation, catalina:      "6f9d3e100d55f950b54ee3ada80008209a1f61aefe62ae7f171e9615554b2f93"
     sha256 cellar: :any_skip_relocation, mojave:        "4d676e8bc136599f4ec3ef0d6cb604b003ced4a0537c190ea430d5b0ca8609cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f89604d20a95f5f330463e56dfa86d920238bc00c7cb5ced040f86c81570c26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f89604d20a95f5f330463e56dfa86d920238bc00c7cb5ced040f86c81570c26" # linuxbrew-core
   end
 
   depends_on "go" => :build

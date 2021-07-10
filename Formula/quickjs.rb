@@ -15,7 +15,7 @@ class Quickjs < Formula
     sha256 big_sur:       "fe0f2ea5d5afcdf52bd8fc70277f27b39e00aeda8229bcb2d59d01a8454704ca"
     sha256 catalina:      "ec26dd8206150e0f19102256a47a77c4373b61ba9a91981050a6fa000f010284"
     sha256 mojave:        "de7929242e69797033d62921e1605c67890e5dbe13f05cd09e01724962d12624"
-    sha256 x86_64_linux:  "0ffbbe7d66543994d2ec21a6b26edcae6c43e297be4c29a067b3972c75b606a9"
+    sha256 x86_64_linux:  "0ffbbe7d66543994d2ec21a6b26edcae6c43e297be4c29a067b3972c75b606a9" # linuxbrew-core
   end
 
   def install

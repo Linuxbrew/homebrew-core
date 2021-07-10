@@ -13,7 +13,7 @@ class RobotFramework < Formula
     sha256 cellar: :any,                 big_sur:       "6049e2e09ad5bff3c406d2fc53b5274ea44a8d8f5b32f50ea6d480a7f16d9b67"
     sha256 cellar: :any,                 catalina:      "1d34cd445b028f3477338f6ccce56267491139fd14d9c45389e6905eb2e6374a"
     sha256 cellar: :any,                 mojave:        "6bea33bdab5c5cb74afde044975094803e387e61be5ce4077fb4d87ec7a4a1cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a95a8280ec678c11ec88e22743cb82d71e843c0360d998ce1cdbd8ae1d3c4dd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a95a8280ec678c11ec88e22743cb82d71e843c0360d998ce1cdbd8ae1d3c4dd2" # linuxbrew-core
   end
 
   depends_on "rust" => :build

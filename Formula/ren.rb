@@ -13,7 +13,7 @@ class Ren < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "bf3e11211d6884d8969fc99ccf8a42b3132dc48bd3100492a442eb5a41fdbd88"
     sha256 cellar: :any_skip_relocation, el_capitan:    "966876dfcc9f36c4bc3d1358a9a8500c79d9324ebd8697033571146f1e482685"
     sha256 cellar: :any_skip_relocation, yosemite:      "e8ca6bb656f8daca43c6ce446dfff66625fabdedda81604745f0960b419e422a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61968e427310d1ed94551cbe757eeae7defcf310888eb506016b8b0a660cfe72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61968e427310d1ed94551cbe757eeae7defcf310888eb506016b8b0a660cfe72" # linuxbrew-core
   end
 
   def install

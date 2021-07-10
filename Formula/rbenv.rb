@@ -13,7 +13,7 @@ class Rbenv < Formula
     sha256 cellar: :any, mojave:        "d1019098dee8d037587069398e5ad04e6d736f834dc44ae73943bec46b10b260"
     sha256 cellar: :any, high_sierra:   "b5984102794a9d39388ca1f6ec77965aeea29b971cc00cb5af8ede8ee6c926d6"
     sha256 cellar: :any, sierra:        "873175a851e5aa4f5b3438072030b945c252f08a9a07760c64dc045e2cce4724"
-    sha256 cellar: :any, x86_64_linux:  "b3c384b5d154ce9566e59760682035d3be05bf997e2c336942a9423f12eb74ef"
+    sha256 cellar: :any, x86_64_linux:  "b3c384b5d154ce9566e59760682035d3be05bf997e2c336942a9423f12eb74ef" # linuxbrew-core
   end
 
   depends_on "ruby-build"

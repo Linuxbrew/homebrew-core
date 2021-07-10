@@ -11,7 +11,7 @@ class OpenalSoft < Formula
     sha256 cellar: :any,                 big_sur:       "275cde0ac6442628e8edbba58a7ff291adc797bcb88ed4b76649a11bf17eb09c"
     sha256 cellar: :any,                 catalina:      "242237bdf9b18a852b185da7b479133af60693403cf2503e517461f5bb579012"
     sha256 cellar: :any,                 mojave:        "da2ec851e3d934085169047429e299bf86c0919a742c0bceac21dd716134ea67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebb164e94f9187a5a787bc3f82bbe6233c1dc5e36d56e1e43f4417aebca62864"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebb164e94f9187a5a787bc3f82bbe6233c1dc5e36d56e1e43f4417aebca62864" # linuxbrew-core
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenAL.framework"

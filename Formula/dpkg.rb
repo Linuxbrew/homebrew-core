@@ -18,7 +18,7 @@ class Dpkg < Formula
     sha256 big_sur:       "36fe071803813a6afff6cd69bbba249cd0321e3204302a1aee25f8f4873c934c"
     sha256 catalina:      "15bb579c5dc9c7d36879fa5a07fe682f7064cef68ecd45f46cbe3aec0120c837"
     sha256 mojave:        "422227f7e36fcdc361f8ba3fc5ba6c19603bd25ec3933cf6b5cef0eb5ccec523"
-    sha256 x86_64_linux:  "9e532542fd248b6a4862446584e2b0262a3aa5353f458f553ac4f26be78f7c8d"
+    sha256 x86_64_linux:  "9e532542fd248b6a4862446584e2b0262a3aa5353f458f553ac4f26be78f7c8d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -16,7 +16,7 @@ class Cdo < Formula
     sha256 cellar: :any,                 big_sur:       "6f3d10dfcc8bf35c102f3ee8595e95f71e5d6acbcae4e000d7bc7323c50dfbcf"
     sha256 cellar: :any,                 catalina:      "8ea69492689eaf80fec52045743e19825b7892bc19ea2f962d2be74dad6a883c"
     sha256 cellar: :any,                 mojave:        "7d4033220e3fa18f3e4a18c775e69b1f50e8949a67d6109d6a8544301599cfc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afb68049645d6b82adba383d0266ba2beab13cbc11750974d5254f9fa9b27222"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afb68049645d6b82adba383d0266ba2beab13cbc11750974d5254f9fa9b27222" # linuxbrew-core
   end
 
   depends_on "eccodes"

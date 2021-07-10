@@ -16,7 +16,7 @@ class GoJira < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "82a05966c4af4b6200507909bc37eaef905f96d69d1c790ae655e35741ca058c"
     sha256 cellar: :any_skip_relocation, mojave:        "32dbd901f35e80fce61a466811dfa5261e543bdb15da855973506e1964c21497"
     sha256 cellar: :any_skip_relocation, high_sierra:   "94372ad76c9857929142891482451672c615a03a32ea310ffcc993b89ad889ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "794c7e3d57e45e0779e6ec6f63393ec37953448f889b81d3e7ced78ec2cd43c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "794c7e3d57e45e0779e6ec6f63393ec37953448f889b81d3e7ced78ec2cd43c7" # linuxbrew-core
   end
 
   depends_on "go" => :build

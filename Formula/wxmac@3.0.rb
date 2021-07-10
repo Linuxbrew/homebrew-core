@@ -15,7 +15,7 @@ class WxmacAT30 < Formula
     sha256 cellar: :any,                 big_sur:       "42385ebead8045f2f4b1ac40f13f15c18b84b78ffa7110d69ebf8a798cd29dc0"
     sha256 cellar: :any,                 catalina:      "d3d18b83d84b79735bda4497ebd92f763ed7cf4200c8ce8d651070ccd1b2719d"
     sha256 cellar: :any,                 mojave:        "319f6ca3509265ace16fae3aaab777ae932130b741ba51d99702c0391da7833f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a01dc105f108e26ceab237d4db8e78f24569edac5e9fc7664b9004939d604ecf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a01dc105f108e26ceab237d4db8e78f24569edac5e9fc7664b9004939d604ecf" # linuxbrew-core
   end
 
   depends_on "jpeg"

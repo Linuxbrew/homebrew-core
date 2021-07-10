@@ -17,7 +17,7 @@ class Never < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "27edab01757524441aafd95606dd1bea9d75e3e59e45b5ddbed4887eb15f0e60"
     sha256 cellar: :any_skip_relocation, mojave:        "5daef4a51095d73edd0e2a4b4fbf3b26abb3f038c0da41aa9cba4d77d7c1fd4b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a4aae9a3453fd5b3a0014e071c9ccb5be132a442d9d5ae54e810289a21b4215d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00641fc6d93cdb9492cb9c3b20896b155fa462d3a40310134cbf3570f4a08e09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00641fc6d93cdb9492cb9c3b20896b155fa462d3a40310134cbf3570f4a08e09" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

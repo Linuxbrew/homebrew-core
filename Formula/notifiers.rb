@@ -14,7 +14,7 @@ class Notifiers < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "97f389f0f3bea37994deb5d1d8b1e4ef67fbdc2822ed73734f13f728d7bc86d3"
     sha256 cellar: :any_skip_relocation, mojave:        "62bbd2a965c1feadc28ea3a1b6263f8781a42515f3bc8a23f796d1e8b11029a8"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e7cd27abdadb3f0f85c6e365cfaeb7dbe24ba1aeb7d161eff4ad9ac96f90702f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4013789b491b0ba78a717b352909c5d9bb71f53ddb9a05193e3ebba537fa60da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4013789b491b0ba78a717b352909c5d9bb71f53ddb9a05193e3ebba537fa60da" # linuxbrew-core
   end
 
   depends_on "python@3.9"

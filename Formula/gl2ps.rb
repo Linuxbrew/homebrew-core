@@ -16,7 +16,7 @@ class Gl2ps < Formula
     sha256 cellar: :any, catalina:      "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15"
     sha256 cellar: :any, mojave:        "bc857ec44c73448acf748dea7a699e1018a874196dec19659a63aa70a7b5e970"
     sha256 cellar: :any, high_sierra:   "6c36dc780b0579f44057cadddb9e1a2e369e2ba9205b68d6c81ebd79defc45b4"
-    sha256 cellar: :any, x86_64_linux:  "0c30fbb5197067a5d5de6d491a4ed79e8457e6a91eaed031cd3d1a1737fc7f04"
+    sha256 cellar: :any, x86_64_linux:  "0c30fbb5197067a5d5de6d491a4ed79e8457e6a91eaed031cd3d1a1737fc7f04" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

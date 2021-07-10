@@ -15,7 +15,7 @@ class Libbluray < Formula
     sha256 cellar: :any,                 big_sur:       "c5bcd42c46908cfed9df378bf73b25a23482dbb6676bec1322fc902f51aad07c"
     sha256 cellar: :any,                 catalina:      "acfe4417abf3c5169e7271e81043fd4fb6d26bcd2ea96a266b820c33e8492ac6"
     sha256 cellar: :any,                 mojave:        "1321b4dba202cd31bd086cab15545128c8f00081378aa5e03598e54774f9a3e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f160f91981c6122170981e44625092f80392a8b791699c86d471d12d04251070"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f160f91981c6122170981e44625092f80392a8b791699c86d471d12d04251070" # linuxbrew-core
   end
 
   head do

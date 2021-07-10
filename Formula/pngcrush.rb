@@ -18,7 +18,7 @@ class Pngcrush < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f648ad0c664699f67bba8ba791358e8b294d0c1d975f026aa67fc1635badbc73"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2633aff1e7cec8bb6c55da5c4daf9f555c74e516ebcc5f3027589588f76d3e17"
     sha256 cellar: :any_skip_relocation, yosemite:      "5505ea179a71996eb4fab04feebd09ebbef7e8ea4c1efba1e0184333c1883d1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba6239bf4207630191192d93d9c56e59c7e3ff47bd1dd6a3cdf80154e73d1be1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba6239bf4207630191192d93d9c56e59c7e3ff47bd1dd6a3cdf80154e73d1be1" # linuxbrew-core
   end
 
   def install

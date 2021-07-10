@@ -26,7 +26,7 @@ class Fcl < Formula
     sha256 catalina:      "05a5dfa094009376e5915ad14289490fa370462153102eb43e402d50663a23f4"
     sha256 mojave:        "7fc28b6f1bd196e83873f61617e590af68ebf861cfc76af9d892c8ef40b25601"
     sha256 high_sierra:   "625f6117a551777a1f12eba3253886a441a5a00e2759218b9566d40bb9f3ab2c"
-    sha256 x86_64_linux:  "a4893b2dff93aba4c97dc4a6efa19406b0c276e5491c0ba0a6c1768ad057b986"
+    sha256 x86_64_linux:  "a4893b2dff93aba4c97dc4a6efa19406b0c276e5491c0ba0a6c1768ad057b986" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

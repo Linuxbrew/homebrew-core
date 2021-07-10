@@ -13,7 +13,7 @@ class LibjsonRpcCpp < Formula
     sha256 cellar: :any, big_sur:       "96c5a539ae83af10f043b89d47dd4e433089a658c3676a9533716e3e04edb440"
     sha256 cellar: :any, catalina:      "451b43048c296d53ea5ca91c6894cbc638710cfc6006426ebc536f143d8c1f04"
     sha256 cellar: :any, mojave:        "88c6224dddcb78a2662b1fdecaae8944132fc7b3aec8b0b69b78b73134b52342"
-    sha256 cellar: :any, x86_64_linux:  "d45d5552592b5bdae47182356f00c642f449ac6107942c9a512c43465fcdcb54"
+    sha256 cellar: :any, x86_64_linux:  "d45d5552592b5bdae47182356f00c642f449ac6107942c9a512c43465fcdcb54" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

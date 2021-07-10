@@ -11,7 +11,7 @@ class AwsRotateKey < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ae4352b4f481dbcb3d5538c6140f4fc0c7c6af45e844d2a1740944ef09191226"
     sha256 cellar: :any_skip_relocation, catalina:      "b45abd46858f15815ca5a1cf540e508c4e05051c4d9448133a04ff23f026843b"
     sha256 cellar: :any_skip_relocation, mojave:        "afbf03d4e1323d8cb41ae103ce1bf9de456883d8df92e418f8c69fc54d57126e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "394c17427def09e5ad893e535103a806c3715c6fe819498b2aeeb8620ddac52a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "394c17427def09e5ad893e535103a806c3715c6fe819498b2aeeb8620ddac52a" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -15,7 +15,7 @@ class Unoconv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "34695d78b10bb265c9164e262dca4d3321c18bf8f9622c59377f3b8f1e7771d0"
     sha256 cellar: :any_skip_relocation, catalina:      "21013d55757dbd1d67143f3a3d44dfad73a948a84bcbc323a9be2770d103702b"
     sha256 cellar: :any_skip_relocation, mojave:        "8f9de5f5019bfae60563a842de0894f8436bc6a988c87ab407eac02eee99188d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a796854695e69834af933d3fcf953e3a158c966d6db3a901e3f1b514c30ddc03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a796854695e69834af933d3fcf953e3a158c966d6db3a901e3f1b514c30ddc03" # linuxbrew-core
   end
 
   depends_on "python@3.9"

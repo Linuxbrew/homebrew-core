@@ -17,7 +17,7 @@ class Smpeg < Formula
     sha256 cellar: :any,                 high_sierra:   "2779c8aba2aed376076e53fc9e2e694e8b5fabca0096ae91eed786b73ef3704f"
     sha256 cellar: :any,                 sierra:        "9ac1a1c83a9861b8762ab711d709e67bf020204fb1c1b5907b244d83ced4ab2c"
     sha256 cellar: :any,                 el_capitan:    "a4bf36f39959150e1f0cd83c8f58761ce59acdee50f591a1f695665b7517728a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eee39cbdbaa936ede8e1ebab1eb651974104dfafb5200f6516da3461cb1b7ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eee39cbdbaa936ede8e1ebab1eb651974104dfafb5200f6516da3461cb1b7ad" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

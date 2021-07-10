@@ -14,7 +14,7 @@ class Fobis < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0a1685a770c843092bdcd918de2439bc9ed16e75b49e61e93148386b42d326d1"
     sha256 cellar: :any_skip_relocation, mojave:        "6b517fdd37dbbdfce2e3ca628afd4f92ef688c18939e78c2b0487dbc1ac7da5e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "81a5206bdd09bf9b630a9ef4793015283891d88b1790dc8638e759679d892522"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3bb714fcdc637b9506d8be1f1c2d2e25867c3684202a9ac9f01e49eb15bddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3bb714fcdc637b9506d8be1f1c2d2e25867c3684202a9ac9f01e49eb15bddf" # linuxbrew-core
   end
 
   depends_on "gcc" # for gfortran

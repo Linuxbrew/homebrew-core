@@ -15,7 +15,7 @@ class GitRemoteCodecommit < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "aee7f65ffcaa551a185eb59d6917972265d3c9508c15f52c725e2ceefa6f9c04"
     sha256 cellar: :any_skip_relocation, catalina:      "60e9845d4b0b0cf980e05903b93c19a320a78a530547b1730a3a740c658d2c67"
     sha256 cellar: :any_skip_relocation, mojave:        "841203b77fc24bc7ed3f426de14421ef19d4062c3eaacf8493c624057b3b0352"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03a65a3ba2c0c65e876c5df7bc3507d4a2484e280ced99992da2070298b6e406"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03a65a3ba2c0c65e876c5df7bc3507d4a2484e280ced99992da2070298b6e406" # linuxbrew-core
   end
 
   depends_on "python@3.9"

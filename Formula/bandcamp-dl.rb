@@ -10,7 +10,6 @@ class BandcampDl < Formula
   stable do
     url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
     sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
-    version "0.0.8-12"
     # upstream hotfix, https://github.com/iheanyi/bandcamp-dl/pull/167
     # remove this in next release
     patch do
@@ -31,7 +30,7 @@ class BandcampDl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ee51b1cdb255665578251bd7081ae2a01abcca24d48d72eed076b9a8794af58c"
     sha256 cellar: :any_skip_relocation, mojave:        "d416f44eae62f3a83be9ea4312cb244581772df264c9c8156165dde038144f56"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f1d7e4a182af86854f3218cf6812fa7975d922a0ee3e8c3b5c9ee16741b0eb1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19fd67e120525dd2fbb38e0dcfab0ddae983699f3f6f827d074cbb2d726868eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19fd67e120525dd2fbb38e0dcfab0ddae983699f3f6f827d074cbb2d726868eb" # linuxbrew-core
   end
 
   depends_on "python@3.9"

@@ -26,7 +26,7 @@ class Libelf < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a771e35555810a4910304e3ca5967ea3e4f8cbe45576e5b2dc6b80cd9c1f0f13"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a06b058c7e401942f442f573b63aa2cdd548b45d38b02b7af92393c67093f56e"
     sha256 cellar: :any_skip_relocation, yosemite:      "3b4ea9ab20228d9e912f80a330b6d6d093f9bb65a712208c83cd49bdcc4fc9ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bf880eee47f3426bf118683c699ef1b533e8a1d2f76908e481c53e6c93bb5eb" # glibc 2.19
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bf880eee47f3426bf118683c699ef1b533e8a1d2f76908e481c53e6c93bb5eb" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

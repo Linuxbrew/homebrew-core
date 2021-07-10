@@ -18,7 +18,7 @@ class Slrn < Formula
     sha256 big_sur:       "1e3a47c2adbd775237d1b34cba86c82a14096d792a922887f76f6eadb0964513"
     sha256 catalina:      "5440f5353ec5ae3f3a2cdd3ed43b931bd41db738ee4b993b0ec3b41618f7406f"
     sha256 mojave:        "35550c096c81454ae0756d0831fa8a6dd2db9857db591b72f8cf96aeb4e4fac3"
-    sha256 x86_64_linux:  "2948bfb6d066d51e4e6adef0c42ce9be91b03ead397343ccb3f1e6b4eab9bc9d"
+    sha256 x86_64_linux:  "2948bfb6d066d51e4e6adef0c42ce9be91b03ead397343ccb3f1e6b4eab9bc9d" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

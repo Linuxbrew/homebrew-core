@@ -13,7 +13,7 @@ class ProxychainsNg < Formula
     sha256 mojave:        "4b41340fc2a68c579b3ab30affbe82f9be545537f727507d19977b1b67193a96"
     sha256 high_sierra:   "42ba51b1578ff901987212d74e8b3a83ec6313f5ccfe3d554a9b32766f9b65c4"
     sha256 sierra:        "4c8e8c69bd10529a33b3f70e1a55504f79e3358fe834d521c95adafb2f4eea4a"
-    sha256 x86_64_linux:  "1645137ebcd3fbc19c0ae8300075622be26ddd797aa289267e0ad1f1c6298be0"
+    sha256 x86_64_linux:  "1645137ebcd3fbc19c0ae8300075622be26ddd797aa289267e0ad1f1c6298be0" # linuxbrew-core
   end
 
   def install

@@ -10,7 +10,7 @@ class ProtobufC < Formula
     sha256 cellar: :any,                 big_sur:       "a79fd80a8a0fb8dd05a014cc34ac7281441c167659c0bf1ea36df7be8db3084b"
     sha256 cellar: :any,                 catalina:      "4caae0df2e6727218460e8ef1a0cf18aa0bee6fd14841e6f3456fa325faf4326"
     sha256 cellar: :any,                 mojave:        "96cf2cab8b8b7e5e8228fb5c6bf9bfdd34c7b54ab208eda056ace3648600777a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e1ec372c89de752dbc4940bbbfa8c9ffa456f2d512b25208e212946bca81cde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e1ec372c89de752dbc4940bbbfa8c9ffa456f2d512b25208e212946bca81cde" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

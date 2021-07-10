@@ -11,7 +11,7 @@ class MongoCDriver < Formula
     sha256 cellar: :any,                 big_sur:       "514427be599aea9adc6601f33cd242619c218a2cacf33a919fcdf230d283084a"
     sha256 cellar: :any,                 catalina:      "abeb0a6d8048c79288aac204342888a7e70883927d675ffcbbf474299a95847f"
     sha256 cellar: :any,                 mojave:        "d256dcb80336babd2201b8ac723e72b6a4131cba639b7f86879dddf9d741560f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebaaf81cdbf491bf0f2d3559029321fb5c915990045eb142dccf3a6cd5b3061b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebaaf81cdbf491bf0f2d3559029321fb5c915990045eb142dccf3a6cd5b3061b" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

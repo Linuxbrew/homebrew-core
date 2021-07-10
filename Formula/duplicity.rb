@@ -12,7 +12,7 @@ class Duplicity < Formula
     sha256 cellar: :any,                 big_sur:       "e97c58230094d6e4e56c9f54dbe20669f784a1e73ff82f680218030ec162e02d"
     sha256 cellar: :any,                 catalina:      "0f791e784e0eb7ee2914f28352f84edb85445b463809e6cea45e6307f7e9202a"
     sha256 cellar: :any,                 mojave:        "92858efda72b4712cda38fb120982bfce8f32b8297bb1fddcf4429c3572a1534"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c96b827fd5b9a52b7a1c85b063daccaffd0efae361e5b71740c6e62d7366f01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c96b827fd5b9a52b7a1c85b063daccaffd0efae361e5b71740c6e62d7366f01" # linuxbrew-core
   end
 
   depends_on "rust" => :build # for cryptography

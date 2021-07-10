@@ -13,7 +13,7 @@ class Rmcast < Formula
     sha256 cellar: :any, sierra:        "9ef73c5d52886029cd89d829cdceccca0d03bce0dc72647d8cce6704d492f080"
     sha256 cellar: :any, el_capitan:    "4fe0a1745659bb99748972c2fa0640e6b864e92739ba192a89ed12c0614b1372"
     sha256 cellar: :any, yosemite:      "502e09994a9b455d9040f8e346419a2a3ef0156a73b0249bc161446448729292"
-    sha256 cellar: :any, x86_64_linux:  "66d26e6af4e5b3f82527e222677c68d724d461b1fc354bbcfdb04c3f981714ad"
+    sha256 cellar: :any, x86_64_linux:  "66d26e6af4e5b3f82527e222677c68d724d461b1fc354bbcfdb04c3f981714ad" # linuxbrew-core
   end
 
   def install

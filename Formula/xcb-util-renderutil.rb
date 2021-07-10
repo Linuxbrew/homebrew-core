@@ -10,7 +10,7 @@ class XcbUtilRenderutil < Formula
     sha256 cellar: :any, big_sur:       "0941200260ef409b5daa61664cad100fe69b08e99b8cb440297079387e2dadff"
     sha256 cellar: :any, catalina:      "5fb7ef030a443af89504e74d04fccf3000ac04bf152798e7d4242247e2378ae2"
     sha256 cellar: :any, mojave:        "b0a2c992673650129ee49fcb4fbe6873ef4b8d29a5677ae873a27e05fc7a0d27"
-    sha256 cellar: :any, x86_64_linux:  "2fe0a7c790b83b5ea49327a59db0af06e02cd11981f693f08c34c0f56733e3a6"
+    sha256 cellar: :any, x86_64_linux:  "2fe0a7c790b83b5ea49327a59db0af06e02cd11981f693f08c34c0f56733e3a6" # linuxbrew-core
   end
 
   head do

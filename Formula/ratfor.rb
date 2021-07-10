@@ -11,7 +11,7 @@ class Ratfor < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "053917ccdf191b7cb15adb1c207cb3f18553def7d4cc9584b09222be07754660"
     sha256 cellar: :any_skip_relocation, mojave:        "054cb6d92e13050233c54a5bbfdd1dc9fbaed09d63937b8426d543d9569ee07b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "16c83b337e66de93f5e1b21d77242b849a4a1613e2c2e38d1971a77277924bce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b90b86cca7062430218257e2cef0b71dc9ac090141caa3dbe1534edc34e2bca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b90b86cca7062430218257e2cef0b71dc9ac090141caa3dbe1534edc34e2bca" # linuxbrew-core
   end
 
   depends_on "gcc" # for gfortran

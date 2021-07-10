@@ -10,7 +10,7 @@ class XmlrpcC < Formula
     sha256 cellar: :any,                 big_sur:       "a270cdb18af53d135dc5b46e772ebde0b0174aa4edcb334a3522ee79b7301f8b"
     sha256 cellar: :any,                 catalina:      "8f2f988116b29088d76766843fa5d2eafc2f33d919990baeb31f67fd9b8c0b53"
     sha256 cellar: :any,                 mojave:        "b058d27a7d2a0ba5a265186a5c4bcb26c9a9a0c9d4a60e639b30a72a2d4a7169"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaabb5a152a66482dc3d8d38aa7741429ecff0cb95d039200bad9cdd7da780e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaabb5a152a66482dc3d8d38aa7741429ecff0cb95d039200bad9cdd7da780e8" # linuxbrew-core
   end
 
   uses_from_macos "curl"

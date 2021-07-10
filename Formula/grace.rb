@@ -17,7 +17,7 @@ class Grace < Formula
     sha256 big_sur:       "d5d91b7e7c89c18d466f01ce56c6935bbbcab420b392f942700b2432bc39d01d"
     sha256 catalina:      "8bbfbfe5b8a205b29d21728d049f45d7acfbac1ca49dd2acc514321a9ce9f71a"
     sha256 mojave:        "d5f408abf27cb7470e65dd34296e647141fdadf3d7b3255d512cc38f6c228d48"
-    sha256 x86_64_linux:  "3a64c82972c7587fc250c25889919a1702b6fecb28d50b72ba083fc5fd440e9d"
+    sha256 x86_64_linux:  "3a64c82972c7587fc250c25889919a1702b6fecb28d50b72ba083fc5fd440e9d" # linuxbrew-core
   end
 
   depends_on "fftw"

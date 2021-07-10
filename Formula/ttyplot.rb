@@ -11,7 +11,7 @@ class Ttyplot < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "760b571d2cc940c6a1ad14655f2e2c0cac4aa64dea8e63d37454528cf969d8b2"
     sha256 cellar: :any_skip_relocation, mojave:        "b31388536afde7ef669c334f520e73f95ceef82d0c9f73f5390a65d13d3235ef"
     sha256 cellar: :any_skip_relocation, high_sierra:   "6d01769af5216ac128e8cb9a0a55397959594fa8f20fafcf65780db4b66ac090"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1eb4429c41791d5811e0f57dba784f6fd28dd4ba1f87643e2c7f9b120eed710"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1eb4429c41791d5811e0f57dba784f6fd28dd4ba1f87643e2c7f9b120eed710" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

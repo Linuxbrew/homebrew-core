@@ -11,7 +11,7 @@ class Pioneer < Formula
     sha256 big_sur:       "8b59ff2ff180ccdd5485d063d8a46038bc7ae2fb77c70a9a6aec891aba40c7b7"
     sha256 catalina:      "abeb86c374fa69e433e548cd1189105206cfd3859a1dd06d0ea2b45a15092b9f"
     sha256 mojave:        "bd448dc95f9f104637263a4e9aea398177b502938a969b766db8229ddc89860a"
-    sha256 x86_64_linux:  "a086bcd78137db719f4d8117ab8bf89534dd993a2884a4d62ee7a8a07dbd1ec6"
+    sha256 x86_64_linux:  "a086bcd78137db719f4d8117ab8bf89534dd993a2884a4d62ee7a8a07dbd1ec6" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

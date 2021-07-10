@@ -15,7 +15,7 @@ class Gsar < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "762262cc0840aa074588b1fbbd534f6b865a44d344628b9dbf36b07dfdef2a9a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5cf3fe6d772f95378e2802a6208b8f06524a81b4d881343571dd3af201b69e98"
     sha256 cellar: :any_skip_relocation, yosemite:      "6e138e63b868dfbd4d16109cabe60f50dc600fd65cbf14cd3926b1b8c2f3e2dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e0cdee67e5f45f98f759b505f691b9ea7b6b25dd770fa4d58cc630a54f7a5de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e0cdee67e5f45f98f759b505f691b9ea7b6b25dd770fa4d58cc630a54f7a5de" # linuxbrew-core
   end
 
   def install

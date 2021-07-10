@@ -11,7 +11,7 @@ class OsmPbf < Formula
     sha256 cellar: :any,                 big_sur:       "f0dd295bba1bb4671d2dd4621c0781e1919f1920625a048c71353ed3e077c748"
     sha256 cellar: :any,                 catalina:      "d8ad7c5004b502d94d8e0e2f57376075354844261bd707af422d8fea2923f3e5"
     sha256 cellar: :any,                 mojave:        "5936f90c3c9c6a7ed4a673acb4bf621b213aca053912aff1a3b85f8129879fd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f734d0314e89e3ccb8344a87fdea3f707db6472a334b340483f8b4bb411efbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f734d0314e89e3ccb8344a87fdea3f707db6472a334b340483f8b4bb411efbb" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

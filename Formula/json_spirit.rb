@@ -24,7 +24,7 @@ class JsonSpirit < Formula
     sha256 cellar: :any, mojave:        "2cec376e843919e2f3693e73be0e3a2c6a6f3b283e503b51d42108c5471e8091"
     sha256 cellar: :any, high_sierra:   "55299a7931b4bbbcf1ee5c576fe35283373279cc95b3b5126696ad5741f3d072"
     sha256 cellar: :any, sierra:        "0dc2370a736a065b47f6f83f8ed292209fc978005a720de8653e32cc1c568cce"
-    sha256 cellar: :any, x86_64_linux:  "ff88d4988fbd8700c64dd0089616f267fb76e3c92ffec66eb115a42179621925"
+    sha256 cellar: :any, x86_64_linux:  "ff88d4988fbd8700c64dd0089616f267fb76e3c92ffec66eb115a42179621925" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

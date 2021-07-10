@@ -13,7 +13,7 @@ class Bpytop < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7476adb29b33fadcbc402edc7e19a511af60ee95870785342703c4c103d2fe84"
     sha256 cellar: :any_skip_relocation, catalina:      "b292c129d613342fb9bf3d8a8ff63578a4c4cd6c928bb0a2a205f3f4e980a270"
     sha256 cellar: :any_skip_relocation, mojave:        "e4e3977fa3294c1cb76b57c968b02ffe6b511ce91799da78c1872ca22431633f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "274d8ebc17a5c54d05f37b3f1064ce6998b207a369bab0ceef2e312438e083e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "274d8ebc17a5c54d05f37b3f1064ce6998b207a369bab0ceef2e312438e083e0" # linuxbrew-core
   end
 
   depends_on "rust" => :build # for cryptography

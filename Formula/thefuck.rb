@@ -13,7 +13,7 @@ class Thefuck < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f1160909978920c2818a8368c3386ecbfc60049d9367078817701967f41dc94d"
     sha256 cellar: :any_skip_relocation, catalina:      "b69bb2d139c3aae2ea6896a25a73b3e7d05fa86c04255354d2529ecfb87abd3b"
     sha256 cellar: :any_skip_relocation, mojave:        "796e2b1d7f8a69760c9366d2c4f66cf24ec0fbef916a3f0dcea1fa567b46617d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9e38eeb47c63dc8a350f8a7e13d4dc1c5774ae3d71d04eb8c392b0ab21d98bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9e38eeb47c63dc8a350f8a7e13d4dc1c5774ae3d71d04eb8c392b0ab21d98bd" # linuxbrew-core
   end
 
   depends_on "python@3.9"

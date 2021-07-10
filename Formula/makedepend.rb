@@ -16,7 +16,7 @@ class Makedepend < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "afe76789b5f01ccfee8cc0d4ffa308015fb5d8791a1d7ce6b2dc1ee4bf2a020f"
     sha256 cellar: :any_skip_relocation, mojave:        "a25fb9fd3ce11f6b98da2c53fad8f046174697087f5f34664999afb9df5f41de"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0f463e197923867ff9387b2ccd1461d4b410e89205bd3896ae98c5d52679c4c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c8983da0577d99df857001a87e56a9e32bd59e30c26b1fd797b70e37df0cf9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c8983da0577d99df857001a87e56a9e32bd59e30c26b1fd797b70e37df0cf9" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

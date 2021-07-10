@@ -17,7 +17,7 @@ class Go < Formula
     sha256 big_sur:       "416c5e2b7247c78482a5465f79d83c0240ee0c9098c8c7429f9c7af073402cc9"
     sha256 catalina:      "8a7564fab7f715feed7506e3cc30f20295fd62914418fb636a5a4c4ca1fc7398"
     sha256 mojave:        "a232e1f840525ab1e9411ba4edaa74c2bb73705e8e6feb7506649a7d608f9292"
-    sha256 x86_64_linux:  "efe39d8db1c054fa8d6169ee2a024b4267313215a5d03ab34bebdb6a87e8554d"
+    sha256 x86_64_linux:  "efe39d8db1c054fa8d6169ee2a024b4267313215a5d03ab34bebdb6a87e8554d" # linuxbrew-core
   end
 
   # Don't update this unless this version cannot bootstrap the new version.

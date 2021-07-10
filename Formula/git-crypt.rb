@@ -17,7 +17,7 @@ class GitCrypt < Formula
     sha256 cellar: :any, mojave:        "89d2058a4dd5afc565696707c8e93621fd644f9ab303fe378727ae999783d156"
     sha256 cellar: :any, high_sierra:   "0d2cf3c93ab2ca4059163f8da8a3ab845b566b13debf5e1b43a734dc86138a18"
     sha256 cellar: :any, sierra:        "6b2c2773e5c327282d461f5d49600928ae97d432e5f4d8b7acfcaaa6e6d1ef68"
-    sha256 cellar: :any, x86_64_linux:  "372004fabdc4dd18a4fb615f9b4619e4cc64665e39b3303c6b417b7d3a5c2d78"
+    sha256 cellar: :any, x86_64_linux:  "372004fabdc4dd18a4fb615f9b4619e4cc64665e39b3303c6b417b7d3a5c2d78" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

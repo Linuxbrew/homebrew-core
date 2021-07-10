@@ -17,7 +17,7 @@ class Libressl < Formula
     sha256 big_sur:       "580f06f61b53fcbcc66a55e1a176b581701fb7f83c22bd8d1429520dfd314a8c"
     sha256 catalina:      "1665bf0da8764d6f3e2be97354db769c6f39fd7b2788429e58a81e6172e6185d"
     sha256 mojave:        "b4eca6067e1ee105ab1798c35f7415a608a4c23baa316a91b6e855ce99885fe7"
-    sha256 x86_64_linux:  "99bf4676d0f0403cc39c535829b13650e976b8f301eaf77991e29ae8c0f8dc49"
+    sha256 x86_64_linux:  "99bf4676d0f0403cc39c535829b13650e976b8f301eaf77991e29ae8c0f8dc49" # linuxbrew-core
   end
 
   head do

@@ -17,7 +17,7 @@ class Augeas < Formula
     sha256 mojave:        "9a561491e3574dfe2cfe7da2a618c12d02218f88f760de46722d9b603e4f27ba"
     sha256 high_sierra:   "0e1477f692cf67442dfcaf7c20a24733838df072ec867f59322070a7eaf3f925"
     sha256 sierra:        "55b3fab93f2ec4a703dc2bb3b3d58c47375456bdb5f0308e0856b231d309c02d"
-    sha256 x86_64_linux:  "1cc7c0b182fa466465f1f115c4d5194d9578f49358f2de2fcf60b256a2a6267a"
+    sha256 x86_64_linux:  "1cc7c0b182fa466465f1f115c4d5194d9578f49358f2de2fcf60b256a2a6267a" # linuxbrew-core
   end
 
   head do

@@ -1,8 +1,8 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2021_03_3.tar.gz"
-  sha256 "e95f07adaee9280df077cb147210ee75e16957d81687ab0836d62ebf1f6f715f"
+  url "https://github.com/rdkit/rdkit/archive/Release_2021_03_4.tar.gz"
+  sha256 "bed309df7f1e2ea25736a986cf951325681142ee49468b1c62d020a109d2ef52"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git"
 
@@ -15,10 +15,11 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f065b2f947c24fe8b52fc84766f511dd9a695546933597c4fe5df1844e4f1588"
-    sha256 cellar: :any, big_sur:       "e786992d134187bff83938ee4d2b05ee7cbc75d13ab41470e808fc7a12e4ee4c"
-    sha256 cellar: :any, catalina:      "24283966e3001e25b283e917d2ad4b0619563560991814864e9192b2c8093673"
-    sha256 cellar: :any, mojave:        "bd83ea1458265dfb3141cf3644db8c50579668c8ee317f0c4b53115a195cb617"
+    sha256 cellar: :any,                 arm64_big_sur: "93d9b4598f4d66ee6ac7d4c6fbeaa6d9fef2bc0929d4d403f40fb273310b5750"
+    sha256 cellar: :any,                 big_sur:       "e580f50002c683bda22c367b8354484741ec16651b631d67f12e5a670379a456"
+    sha256 cellar: :any,                 catalina:      "9758cd582b479ef9e6ac2de5df083754bf0c0bec39c71a12c38f14f1bfb51f3a"
+    sha256 cellar: :any,                 mojave:        "e40831307c5d620bd2709a2182d1dc0cb70e8b487580ada9f661de0837af0799"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29770030f671dd0a7892654d6358495fccbf55f2211cc231cda1b287db0db822"
   end
 
   depends_on "cmake" => :build

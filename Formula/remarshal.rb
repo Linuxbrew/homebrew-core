@@ -15,7 +15,7 @@ class Remarshal < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "204004c532be6254a8366067b285e5d900c0cb6961ad47e589d03f7cbd4eed55"
     sha256 cellar: :any_skip_relocation, mojave:        "608a1f16ab92f54dc4fd3479633b86e62de3bf51df2f8f7b111f9312141576df"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1a671dcd4a208faf7e12bc97154d6f67137b2463d2f4d17ed1841785c4cf41c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5ab7197b879fcc59363b0ca7a7f908c147a240563b42aac46fb411666859877"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5ab7197b879fcc59363b0ca7a7f908c147a240563b42aac46fb411666859877" # linuxbrew-core
   end
 
   depends_on "python@3.9"

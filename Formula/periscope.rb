@@ -11,7 +11,7 @@ class Periscope < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "24aefb91809223a004545b0f7966851a4c01cfeea1928afd7229aa4f0c31a343"
     sha256 cellar: :any_skip_relocation, catalina:      "c61ca7e7e40bbf7b6f20f31666eb524880cbcdd8044f2acb676169627a1f4c01"
     sha256 cellar: :any_skip_relocation, mojave:        "fd07096a5c2096d16223fc292be0a3ccf0f1af1f59619ab14938c9ac30890ebf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d27b71b4ee5b8f8c8999f3285d4da2571d8c7bb2d99993cd2167b0d67df62b35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d27b71b4ee5b8f8c8999f3285d4da2571d8c7bb2d99993cd2167b0d67df62b35" # linuxbrew-core
   end
 
   depends_on "go" => :build

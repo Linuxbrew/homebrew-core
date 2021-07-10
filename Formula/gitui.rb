@@ -10,7 +10,7 @@ class Gitui < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4640d62f90ed33ee842222cf7097107df01859e8ef6ca3f73d9d9dc3e867657f"
     sha256 cellar: :any_skip_relocation, catalina:      "3d6c1149eac1794de3968fd9b453b60ed3320e3b95ef76e52538abc61e7f9049"
     sha256 cellar: :any_skip_relocation, mojave:        "13fc418071d3171cb4351caf40a1e90157aae83fc0bddbb3a68393ba5964447f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82bec297b03262bc060c04c4230cb4986890f8aec051f8b74b0bc55e5959b98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82bec297b03262bc060c04c4230cb4986890f8aec051f8b74b0bc55e5959b98" # linuxbrew-core
   end
 
   depends_on "rust" => :build

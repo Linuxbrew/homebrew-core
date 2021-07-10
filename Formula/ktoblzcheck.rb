@@ -17,7 +17,7 @@ class Ktoblzcheck < Formula
     sha256 catalina:      "b7abb3dd65cefac9c8ebe1f54482c42adc6a4dbc2c6e3f18452f4b500d5d9aa5"
     sha256 mojave:        "94c9812c2bcffef71b7e6805fa0f54b4a17cc52cb92dadb87fd804fcfab97701"
     sha256 high_sierra:   "39e8b0149fcd448eddace995b7dc37331716b25a5f77b2be5f7b3eb462635854"
-    sha256 x86_64_linux:  "7c781479dffd045accdb5ab0057766857adde9f21b64d2d45f59fc7d774d2748"
+    sha256 x86_64_linux:  "7c781479dffd045accdb5ab0057766857adde9f21b64d2d45f59fc7d774d2748" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

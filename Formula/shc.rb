@@ -13,7 +13,7 @@ class Shc < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ff3c55ef1d10c16066e97a20143dbd1e7781ceb9a2c5c8b46d140f6711bc79fa"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c19f4586119be579006eace517045998138d83a17e2b5c8ec00ad73ea007b68c"
     sha256 cellar: :any_skip_relocation, sierra:        "6e1834ac7b4cc64ba972a59189512bb9ff9e0ec307df78f9e0fc1fee42378f6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07d4f2747a3777202794ca5d5fbcb1a79033df428ef6659d0cb4d83be3bd2c8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07d4f2747a3777202794ca5d5fbcb1a79033df428ef6659d0cb4d83be3bd2c8b" # linuxbrew-core
   end
 
   def install

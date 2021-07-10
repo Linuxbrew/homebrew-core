@@ -13,7 +13,7 @@ class Ykman < Formula
     sha256 cellar: :any,                 big_sur:       "c1b30a71bba7dcd8c5fc71e35ef011b4665586de129762a72afe00a551f0672b"
     sha256 cellar: :any,                 catalina:      "46aca102b3c8cdad01b5366849893f8476f78c37bef9853b8f22d4e2eda50b88"
     sha256 cellar: :any,                 mojave:        "66b2cfd1a7c3fc74f75d450eb114e128f8fe2c9c2721d905e74ada4515f0599f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3059c9e790dfc969421f0eb81c6f9b3a9c7bb8cc5a4c55c28f8ff87ac4f26cdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3059c9e790dfc969421f0eb81c6f9b3a9c7bb8cc5a4c55c28f8ff87ac4f26cdd" # linuxbrew-core
   end
 
   depends_on "rust" => :build

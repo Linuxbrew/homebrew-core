@@ -17,7 +17,7 @@ class Physfs < Formula
     sha256 cellar: :any,                 big_sur:       "f2348a828a9f32b6fdb78278c5ecd86c7f7bb4abf27032478b44cd4db6338b0c"
     sha256 cellar: :any,                 catalina:      "be794e8986be384f98e3d4d14a4fe3830428084febea0caff4bba5c363e890c6"
     sha256 cellar: :any,                 mojave:        "03f4a5a5ed440e3b39e91af11ac4470f07ce742f844d188bca3e58becfd24f3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b70e9a5fc0ca57819b2a6093b302600bc36e2cc8b8bfe2ddf9bf1155c7b7792"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b70e9a5fc0ca57819b2a6093b302600bc36e2cc8b8bfe2ddf9bf1155c7b7792" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

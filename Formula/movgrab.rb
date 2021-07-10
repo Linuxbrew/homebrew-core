@@ -12,7 +12,7 @@ class Movgrab < Formula
     sha256 cellar: :any, catalina:      "b3032648e55b090ca256192c989683f3b0a26942f38f0460dce9457548c14fe0"
     sha256 cellar: :any, mojave:        "b0e5153f5147c8d256685dfa8be4ac67bc863bb472afcaf769caa133fb94b889"
     sha256 cellar: :any, high_sierra:   "7702b7817fc398f4901014bd6162578294da414a18b1ae4e5f10ef8cf05a678c"
-    sha256 cellar: :any, x86_64_linux:  "a213c5acfd106131fb89a7488d4a9bf54150116f4cdc5f56aaf56665b65a3075"
+    sha256 cellar: :any, x86_64_linux:  "a213c5acfd106131fb89a7488d4a9bf54150116f4cdc5f56aaf56665b65a3075" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

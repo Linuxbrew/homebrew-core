@@ -14,7 +14,7 @@ class Libetonyek < Formula
     sha256 cellar: :any, big_sur:       "c0d419840c9454c6fe46fcffe7e27d57a8a5ea6a26a9bdd75ab6756f9399b2d0"
     sha256 cellar: :any, catalina:      "d40376bdfb4527e035ec8c0c1d65927303f81a456d02ce9fb0503a41f5e9ee60"
     sha256 cellar: :any, mojave:        "1d30b4258651cc6edbd2e7e39d6af095a25f52994baa3ed34e2be0e2f606ecf2"
-    sha256               x86_64_linux:  "0e965edb3a191228affb1a492543b1a45d7728c03a4b633eba77bbf45028e3bc"
+    sha256               x86_64_linux:  "0e965edb3a191228affb1a492543b1a45d7728c03a4b633eba77bbf45028e3bc" # linuxbrew-core
   end
 
   depends_on "boost" => :build

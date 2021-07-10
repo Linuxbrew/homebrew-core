@@ -12,7 +12,7 @@ class Rrdtool < Formula
     sha256 catalina:      "ce57cda576f452e7790e091d645887231d4aa5b691e2c33b4ea93b3dd92d7757"
     sha256 mojave:        "fae6691230b527c93670d1d00b266e43497744fc09df06c9977265e578b529fc"
     sha256 high_sierra:   "858013744cfc3d31a47b7e3629198922d1994f20d0d44c11f6c921ce6f2b9942"
-    sha256 x86_64_linux:  "54d65d9b9ca1575d0340c954cd97cfafa478418477706e14af06557ab718f2ad"
+    sha256 x86_64_linux:  "54d65d9b9ca1575d0340c954cd97cfafa478418477706e14af06557ab718f2ad" # linuxbrew-core
   end
 
   head do

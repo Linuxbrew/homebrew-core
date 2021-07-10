@@ -19,7 +19,7 @@ class LibvoAacenc < Formula
     sha256 cellar: :any, sierra:        "9430e86c9f25aa9fcccf0a19cc6125c9397c23b311b993b1adf83cbe330cd9b4"
     sha256 cellar: :any, el_capitan:    "e9a59439f8eec4cdc4d273afb49cbd8f8357862d4d8c7c5d9d9d38588ec6d810"
     sha256 cellar: :any, yosemite:      "cf63ddcb79e40b79264507393ed4fa1b223feecf4638f0e58fef464db722b554"
-    sha256 cellar: :any, x86_64_linux:  "83ce60b4e4f066d2bb98b4952d2fe92199cc41588bdc280c69f688e4fd4d7809"
+    sha256 cellar: :any, x86_64_linux:  "83ce60b4e4f066d2bb98b4952d2fe92199cc41588bdc280c69f688e4fd4d7809" # linuxbrew-core
   end
 
   def install

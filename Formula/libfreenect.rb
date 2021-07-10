@@ -11,7 +11,7 @@ class Libfreenect < Formula
     sha256 cellar: :any,                 big_sur:       "7e7be2792089b91924578ffa29711185ab7ae4b20e3d9489fe6c39bb97436867"
     sha256 cellar: :any,                 catalina:      "cdf0630222750f1a4281159cbc161601eb5d02487632b647940af4503e557ebb"
     sha256 cellar: :any,                 mojave:        "5c5d2b1b69179658fec4c9a0e65b3132e69b32f0214ad4a09a75cbf7db1ed9f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "977d12eb32c3e68f43e6c0ef625e2ed62814ba9b4eaf2f06af7cfb2abb18bd0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "977d12eb32c3e68f43e6c0ef625e2ed62814ba9b4eaf2f06af7cfb2abb18bd0d" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

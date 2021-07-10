@@ -14,7 +14,7 @@ class Jrtplib < Formula
     sha256 cellar: :any, catalina:      "05fc5e0747f7d5f725f9dda22cf39d414e8ee751829d14e9c32fa12279834cfc"
     sha256 cellar: :any, mojave:        "1b48b36e9011b4aa675f1d581e900c64bcad93ba15fc86d1e27db09ed2c75ce9"
     sha256 cellar: :any, high_sierra:   "420016bd3f9981189dc8bf69dc7520da8d9cbde848147dde495792c1a5a984fa"
-    sha256 cellar: :any, x86_64_linux:  "43260e27fd5b6abdd0b2ed5d7a6628a490a6fd7dd0e492a731e30fb117c22384"
+    sha256 cellar: :any, x86_64_linux:  "43260e27fd5b6abdd0b2ed5d7a6628a490a6fd7dd0e492a731e30fb117c22384" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

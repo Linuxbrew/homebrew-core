@@ -12,7 +12,7 @@ class Libhttpseverywhere < Formula
     sha256 cellar: :any,                 catalina:      "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728"
     sha256 cellar: :any,                 mojave:        "2835c48e21e0a96730893f96319736e55d29d8b224fcc0915e319bcbc3b521c2"
     sha256 cellar: :any,                 high_sierra:   "9c7c9397a0ebe56b82ffa6d8daeb9e645e94d14ed4fd25aedbe313c603e0b9b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4a2bd9068acc5a9b68174352b6fa0e1923a4f05b27982fb57de244bd1f1d041"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4a2bd9068acc5a9b68174352b6fa0e1923a4f05b27982fb57de244bd1f1d041" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build
@@ -38,16 +38,6 @@ class Libhttpseverywhere < Formula
       system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
-    end
-
-    if OS.mac?
-      dir = [Pathname.new("#{lib}64"), lib/"x86_64-linux-gnu"].find(&:directory?)
-      unless dir.nil?
-        mkdir_p lib
-        system "/bin/mv", *Dir[dir/"*"], lib
-        rmdir dir
-        inreplace Dir[lib/"pkgconfig/*.pc"], %r{lib64|lib/x86_64-linux-gnu}, "lib"
-      end
     end
   end
 
@@ -97,7 +87,9 @@ class Libhttpseverywhere < Formula
       -lsoup-2.4
       -lxml2
     ]
-    flags << "-lintl" if OS.mac?
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -12,7 +12,7 @@ class Libmpeg2 < Formula
 
   bottle do
     rebuild 3
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1eb4e3c113049194258bad418e3f1f68b840b46f6acb11be780ffae8adf8fd26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1eb4e3c113049194258bad418e3f1f68b840b46f6acb11be780ffae8adf8fd26" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

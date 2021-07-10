@@ -20,7 +20,7 @@ class Ipfs < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cf27a87766f08ae1164b07e4764cc23022c90e61a7a09ef4933772ba780cf7be"
     sha256 cellar: :any_skip_relocation, catalina:      "25fed340fbbb800032ade9a9b8e336dd1a281677d212b0045ad3ac5d25c8230b"
     sha256 cellar: :any_skip_relocation, mojave:        "99ecea05edda6979e511ef1a81064beb45469b258d9ae6ddf9a551b1bbb44ed5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bcb3484a5b2b9cc468cbcee9a7a60f36a2feba8e101f4574e647f0877215821"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bcb3484a5b2b9cc468cbcee9a7a60f36a2feba8e101f4574e647f0877215821" # linuxbrew-core
   end
 
   depends_on "go" => :build

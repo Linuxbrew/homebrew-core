@@ -16,7 +16,7 @@ class Hfstospell < Formula
     sha256 cellar: :any,                 big_sur:       "6fb2851153c12aa38ed01a7335781df78be3490380e6713b2a9c642f88e737d0"
     sha256 cellar: :any,                 catalina:      "0651d2057fcf3c0242bcd277b0ddafb247c0f00fc78d2652e9eae9c82776f923"
     sha256 cellar: :any,                 mojave:        "25a4f7bfe15fae7efd0ce6cf1ccedb150571935de5e0266cbf7fa472290bbf6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea2697fe154ae351227cb6a249248657bc94239acaf19fafffb8cd99b36eb5d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea2697fe154ae351227cb6a249248657bc94239acaf19fafffb8cd99b36eb5d2" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

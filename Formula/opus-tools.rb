@@ -12,7 +12,7 @@ class OpusTools < Formula
     sha256 cellar: :any, catalina:      "964b3493cffeb5e32411c7a34e1813e8e83e940419aca39f50be7db9b0c8fab2"
     sha256 cellar: :any, mojave:        "c4059aca471c3b1ec384323c1c801b844a2d2b61f17434ebc43c0accffde9f9b"
     sha256 cellar: :any, high_sierra:   "0f8828cf6044f2d7b0cac9c591295b420244e8f086dc0afae9ae5420e6be7cb9"
-    sha256 cellar: :any, x86_64_linux:  "4d512ac525dd99bf194a432108bb6be04338bf91846dcfeb0e1387c094f855b6"
+    sha256 cellar: :any, x86_64_linux:  "4d512ac525dd99bf194a432108bb6be04338bf91846dcfeb0e1387c094f855b6" # linuxbrew-core
   end
 
   head do

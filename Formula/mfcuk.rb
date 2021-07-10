@@ -12,7 +12,7 @@ class Mfcuk < Formula
     sha256 cellar: :any,                 catalina:      "c9191edf0484422fa432827e017d05d4854cde1fd8194a3735eec0e060884652"
     sha256 cellar: :any,                 mojave:        "2540f3232f4220dac3cf296c43fea2f2582c71ab18037e9d0c047c4f1df39f71"
     sha256 cellar: :any,                 high_sierra:   "f624f03ed0674915332412b50d0013a9495aece4b1ef773767024d11b8fd0d8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe6f2d40f1d9869ce2cf35ba55fce1aee8200ed0fb609a06fb219daa0ead0ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe6f2d40f1d9869ce2cf35ba55fce1aee8200ed0fb609a06fb219daa0ead0ef" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

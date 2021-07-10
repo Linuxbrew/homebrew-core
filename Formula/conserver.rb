@@ -16,7 +16,7 @@ class Conserver < Formula
     sha256 cellar: :any,                 big_sur:       "84d3aa85edeae0dc29cf8e9f4dded552ab0f9b82dac3b711ecdb8a2bba94115a"
     sha256 cellar: :any,                 catalina:      "59eded66b17cf4854626060c9c012efa25fe09c5fed47c0c162047a5aac1171e"
     sha256 cellar: :any,                 mojave:        "ff0421a6796b9913159a910628f97878d2b22956f18e23e8d27bd400e6b611a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dfd9e3f1afd9e5452afdabb9ee9a9952a3a345aee04fb0c26d25984b7bd65e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dfd9e3f1afd9e5452afdabb9ee9a9952a3a345aee04fb0c26d25984b7bd65e5" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

@@ -12,7 +12,7 @@ class Bullet < Formula
     sha256 cellar: :any,                 big_sur:       "85bf74ad7500b0bc9b15f212cc45d1d3ad6e2a2e427a1878ac571e7fd7007d97"
     sha256 cellar: :any,                 catalina:      "76e1c4ed888700e335545275f080f954071d76164784881488b0b31f295bdbb3"
     sha256 cellar: :any,                 mojave:        "3b39c389a9b532dfdbc0f3652bf9530fc68e1d453d1df5e017028b41f448e6c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f107c101bf232dd58bb6e9b33dff5ba92006b422cff6c88f3c1f7b7dd84a54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f107c101bf232dd58bb6e9b33dff5ba92006b422cff6c88f3c1f7b7dd84a54" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

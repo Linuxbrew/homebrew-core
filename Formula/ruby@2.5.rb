@@ -10,7 +10,7 @@ class RubyAT25 < Formula
     sha256 big_sur:       "fb6b696623fc988abecbf9fb9f5298219c62c69851123b9d9d69c3f127b0ec3c"
     sha256 catalina:      "8fab1468c593b5907e027c175dc19e3273b08cc8b344822ce593dcab645e857d"
     sha256 mojave:        "ef4974800a4417e6251fb548486150157c2f0ff62275170431381480bac1c3ed"
-    sha256 x86_64_linux:  "00952d46480347241dadbbf54be90f5aa6e875f95bd1209271ec71b32eeebbfd"
+    sha256 x86_64_linux:  "00952d46480347241dadbbf54be90f5aa6e875f95bd1209271ec71b32eeebbfd" # linuxbrew-core
   end
 
   keg_only :versioned_formula

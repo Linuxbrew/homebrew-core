@@ -8,7 +8,7 @@ class GitGui < Formula
   head "https://github.com/git/git.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4c74f3625ae0a40d8fe38346045b635aa0489e7a92239c7fed3b33c16867c613"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4c74f3625ae0a40d8fe38346045b635aa0489e7a92239c7fed3b33c16867c613" # linuxbrew-core
   end
 
   depends_on "tcl-tk"

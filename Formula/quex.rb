@@ -12,7 +12,7 @@ class Quex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0846e378796efe8d17ffb22efb697e35f4d2c3e540e7b390e3e63ac73ac9d620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0846e378796efe8d17ffb22efb697e35f4d2c3e540e7b390e3e63ac73ac9d620" # linuxbrew-core
   end
 
   depends_on "python@3.9"

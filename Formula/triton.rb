@@ -12,7 +12,7 @@ class Triton < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "58babe7098da230bf1daa9b7e7838b683ee97b7a82d6a68e32ac1dc9699f8f84"
     sha256 cellar: :any_skip_relocation, catalina:      "e3c6ee7a64059050fed8b4577af8711be23d63c0e765371347842a4233b36d3b"
     sha256 cellar: :any_skip_relocation, mojave:        "de43242aef253303a8303740989570dc99a2ec2a9015668064e14ce4ec4a4d79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e083fe946e07fbbcf263f03112333bc2112ea40a39fe26fe1df0a1954f3fc978"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e083fe946e07fbbcf263f03112333bc2112ea40a39fe26fe1df0a1954f3fc978" # linuxbrew-core
   end
 
   depends_on "node"

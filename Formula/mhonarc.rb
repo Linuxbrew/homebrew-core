@@ -7,7 +7,7 @@ class Mhonarc < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9a6c4bddb21af835cc9664460d4cd83dc46175de5d338f4d719d0012a7df45b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9a6c4bddb21af835cc9664460d4cd83dc46175de5d338f4d719d0012a7df45b" # linuxbrew-core
   end
 
   depends_on "perl"

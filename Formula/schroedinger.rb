@@ -15,7 +15,7 @@ class Schroedinger < Formula
     sha256 cellar: :any, sierra:        "7d2d6d343f571e21f27ce5c13645ebe7039e4d45d2b96dba550f6383185c18f6"
     sha256 cellar: :any, el_capitan:    "1b990c49b7d72f3030bcee52bf70094a6cf16111867565cdb7541f670636cf05"
     sha256 cellar: :any, yosemite:      "5b1355803b730a9727c959261f0e2afc217f77502eac88120f77941c5cf373db"
-    sha256 cellar: :any, x86_64_linux:  "6d9db51d5f058623b9a32b165b6308052de84f830d7e0ea022f679e026f910d6"
+    sha256 cellar: :any, x86_64_linux:  "6d9db51d5f058623b9a32b165b6308052de84f830d7e0ea022f679e026f910d6" # linuxbrew-core
   end
 
   head do

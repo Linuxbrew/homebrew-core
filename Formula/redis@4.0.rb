@@ -11,7 +11,7 @@ class RedisAT40 < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "a3da3a3af97a3ca5c36c2399defd06e6cbbd0b105980b2d626f224e384adc017"
     sha256 cellar: :any_skip_relocation, mojave:       "3cbcec571f8c420f2f6daacbef87ed462229f31e4d189be36bee7795a25fc050"
     sha256 cellar: :any_skip_relocation, high_sierra:  "e2c6a35a448d8a5bc23182d07a499e7005681d522131253d9087de9c091ba8f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e303e3369879649bf99c0765097cb60a441ac07e75094bb1997e3f446f310ce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e303e3369879649bf99c0765097cb60a441ac07e75094bb1997e3f446f310ce2" # linuxbrew-core
   end
 
   keg_only :versioned_formula

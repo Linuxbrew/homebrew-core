@@ -12,7 +12,7 @@ class Spatialindex < Formula
     sha256 cellar: :any, catalina:      "fbcbfaf6510137f3168a0dc57cbac8c8b1435094b1ede9d35a30fa6ccaea28f4"
     sha256 cellar: :any, mojave:        "a5cbdfb3acddb053e596fc56e7653559581923e48ed6815503fffc47c7a16660"
     sha256 cellar: :any, high_sierra:   "cace27981cc1e5143a48e8b700d6823dff9d8049140683e0e536c476894ede91"
-    sha256 cellar: :any, x86_64_linux:  "8dfd42763d47df94150084d18107674bd6494358f58b92a1f7ccde542385956c"
+    sha256 cellar: :any, x86_64_linux:  "8dfd42763d47df94150084d18107674bd6494358f58b92a1f7ccde542385956c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

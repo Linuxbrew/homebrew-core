@@ -11,7 +11,7 @@ class JpegTurbo < Formula
     sha256                               big_sur:       "d75de3940ae5b5d5117e50b8167aed9cf672bf490a0ef0752f2a092079d64cff"
     sha256                               catalina:      "6896a17259ac12146111d562538ed144a25ed18c704f503294a2043ae0d1e28a"
     sha256                               mojave:        "b917a78fb0222d9423eda3728c4c0ee63a83ef232a7a4f21036307d92a27d68f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e986c724e369b50c4493d5ba81a71f06f3e1267d257dff7b7fb56968994de45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e986c724e369b50c4493d5ba81a71f06f3e1267d257dff7b7fb56968994de45" # linuxbrew-core
   end
 
   keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg"

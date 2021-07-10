@@ -17,7 +17,7 @@ class Libuninameslist < Formula
     sha256 cellar: :any, catalina:      "38e3ba23a50f2acdebdf4a6419b8e5d996650f9fd9c4e081eb18c77b57dc08ac"
     sha256 cellar: :any, mojave:        "5bbf66b5f23f99f833b95fae6462084c98838e79142e66a0e602ad7a70dc13f6"
     sha256 cellar: :any, high_sierra:   "9e6875ea89497fb8f3c8c4121f9142f7ca23f85a4d2ae8b3845d49db4194cf51"
-    sha256 cellar: :any, x86_64_linux:  "146645519948f29f3e49ffafdff267b672ce9654a9470d2f27e9ebc1ab45bd61"
+    sha256 cellar: :any, x86_64_linux:  "146645519948f29f3e49ffafdff267b672ce9654a9470d2f27e9ebc1ab45bd61" # linuxbrew-core
   end
 
   head do

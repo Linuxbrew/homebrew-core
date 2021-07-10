@@ -14,7 +14,7 @@ class Ipmitool < Formula
     sha256 cellar: :any, mojave:        "3bf8d00d62c2e1dc781493d448062ad365ac8e7c73010ee37ba2040a48513c10"
     sha256 cellar: :any, high_sierra:   "04462f0b4129d34cbf7e8e5c72591360e89dd6d6cef20008567015d57ab611c4"
     sha256 cellar: :any, sierra:        "f08f0e5717ff8ccf031ca738eb4995b39db5d37b802800b6e0b6c154f6fed830"
-    sha256 cellar: :any, x86_64_linux:  "b8262f186dbb9cab277c76f441aee44b6a488ca522b2768beb75f195ff28a73d"
+    sha256 cellar: :any, x86_64_linux:  "b8262f186dbb9cab277c76f441aee44b6a488ca522b2768beb75f195ff28a73d" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

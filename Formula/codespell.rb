@@ -12,7 +12,7 @@ class Codespell < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bffb02505b16322acbf427d6aeaa7e0cd6dc13a62a4c6db6475a1560b98df76d"
     sha256 cellar: :any_skip_relocation, catalina:      "bffb02505b16322acbf427d6aeaa7e0cd6dc13a62a4c6db6475a1560b98df76d"
     sha256 cellar: :any_skip_relocation, mojave:        "bffb02505b16322acbf427d6aeaa7e0cd6dc13a62a4c6db6475a1560b98df76d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "733633e894f0991af5bc117fad0ddbde02676f37c2e2b260557a6d57b87f0d45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "733633e894f0991af5bc117fad0ddbde02676f37c2e2b260557a6d57b87f0d45" # linuxbrew-core
   end
 
   depends_on "python@3.9"

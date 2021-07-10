@@ -16,7 +16,7 @@ class Ncompress < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b78cd2bde25384f42fd1f5d29ec6b1a909449e6f20c20c44c232885d0d99acbe"
     sha256 cellar: :any_skip_relocation, catalina:      "55220d13762facae37b84f1b6fcc6ec696daee5cc8b8478b868f5f7e34123af2"
     sha256 cellar: :any_skip_relocation, mojave:        "e680253759776cc3de92aee1afac39c180f1758113bc56e25bbd469206df0c5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5be1d38d68a01895cb10dc31342e9e1cb9252cc01646698dae981c558c51fe70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5be1d38d68a01895cb10dc31342e9e1cb9252cc01646698dae981c558c51fe70" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

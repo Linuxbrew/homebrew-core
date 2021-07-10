@@ -10,7 +10,7 @@ class FdkAacEncoder < Formula
     sha256 cellar: :any,                 big_sur:       "32240adad3bc3e6fe29d1c6a29909024a203aaa5167fd4a93b8b4383edb65186"
     sha256 cellar: :any,                 catalina:      "c4da455a74f28dd39f1c2be168cc08711921c00a7fe2fc2779b80eb57e96af29"
     sha256 cellar: :any,                 mojave:        "09c58b1dac4628d28a357542d9af2e000067804ad0523ece1121016172626c87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3198944396f2fadcd473fbf45648e7a41320682dc58107daddb332731f71680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3198944396f2fadcd473fbf45648e7a41320682dc58107daddb332731f71680" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

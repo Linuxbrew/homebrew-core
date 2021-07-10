@@ -12,7 +12,7 @@ class Etcd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6d61d2f48b71a9d79abe75c16601e5e19c73618ccee420e7ef7ca4544a30d740"
     sha256 cellar: :any_skip_relocation, catalina:      "286156f3543c75daaf30aae4da338c4382e16b3dd22ad1bf05ee90898e373843"
     sha256 cellar: :any_skip_relocation, mojave:        "e3faeef31e8635edcc01a1940421e8110405a7c04e5058d4c2392584bfa03315"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65b23bb788dabeaf1a1f681afb85cc983a0d8f68e08cf6dbeed8b6755160ec04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65b23bb788dabeaf1a1f681afb85cc983a0d8f68e08cf6dbeed8b6755160ec04" # linuxbrew-core
   end
 
   depends_on "go" => :build

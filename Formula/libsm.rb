@@ -11,7 +11,7 @@ class Libsm < Formula
     sha256 cellar: :any, catalina:      "0cfe06bc49f376e5f770e378097ecf7e261db7d4b3c51740ddfcb86df36815af"
     sha256 cellar: :any, mojave:        "35cca1d4348481da2d35f1c91882e9b32604480a15b679efed3209f74ff8d78b"
     sha256 cellar: :any, high_sierra:   "927db02bae25120237de025a8219899d9ed69d8f4669c6662e170a4e0ce9eee2"
-    sha256 cellar: :any, x86_64_linux:  "a950f4644e491d2fcadb37db2e96554d5bae2f5446dce62c57cf7398b89645d1"
+    sha256 cellar: :any, x86_64_linux:  "a950f4644e491d2fcadb37db2e96554d5bae2f5446dce62c57cf7398b89645d1" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

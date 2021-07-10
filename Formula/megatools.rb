@@ -16,7 +16,7 @@ class Megatools < Formula
     sha256 cellar: :any, catalina:      "88c7b8cf60517507c7d6e7d9709b53bca671d949c7363c117e27ffb7d860f855"
     sha256 cellar: :any, mojave:        "21844a1f366aec458b92ad00debef361388aca790bdd43583ebe51df22e7f68d"
     sha256 cellar: :any, high_sierra:   "0f295ea8f68a858f114ef09bd4f53b82c5a401664e16beee28af7cca2d1aef5c"
-    sha256 cellar: :any, x86_64_linux:  "da69c707ef351b7c785dd7d296cf4538eee8d7d8d15d88102359ea8552214fc7"
+    sha256 cellar: :any, x86_64_linux:  "da69c707ef351b7c785dd7d296cf4538eee8d7d8d15d88102359ea8552214fc7" # linuxbrew-core
   end
 
   depends_on "asciidoc" => :build

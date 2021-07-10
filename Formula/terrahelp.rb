@@ -12,7 +12,7 @@ class Terrahelp < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "58044fae3de9a59f2420d65923e6d2619b91d026e45a1a6629699b11f9afa5be"
     sha256 cellar: :any_skip_relocation, catalina:      "e8edbc804fa080128c6fdad4182eae24e3679c846bb03cfc7c71b56bba1e983a"
     sha256 cellar: :any_skip_relocation, mojave:        "7ba4bc44de9efe372c14e80ecb0eeed2f6b634fb1e49fa66768db616200206b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3843c8527ac50c395b92d883f962d1a6fa1ea72390fa6d795b55082a051a0251"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3843c8527ac50c395b92d883f962d1a6fa1ea72390fa6d795b55082a051a0251" # linuxbrew-core
   end
 
   depends_on "go" => :build

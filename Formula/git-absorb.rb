@@ -11,7 +11,7 @@ class GitAbsorb < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5c90abd3d3058854758851749660bab97f06a9b60b01e6eb75da29c3c6fa3941"
     sha256 cellar: :any_skip_relocation, catalina:      "0d9b836c7c18d1284e31fe6d354cbfae95c513fae6855d7d8897dbaab3eacf0e"
     sha256 cellar: :any_skip_relocation, mojave:        "d5f13b0f733d6c2d1cd8c98008fcf51faccd3bd4312dd7742dc6a2cc695d0a34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b85569fe1ff485b10cec0ef00c9af375ab1a1982e23708aee6cccc5431abe88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b85569fe1ff485b10cec0ef00c9af375ab1a1982e23708aee6cccc5431abe88" # linuxbrew-core
   end
 
   depends_on "rust" => :build

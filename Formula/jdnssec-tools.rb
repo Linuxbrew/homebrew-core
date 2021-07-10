@@ -18,7 +18,7 @@ class JdnssecTools < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b"
     sha256 cellar: :any_skip_relocation, mojave:        "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0173c0674b059271d0ca7e85705859a6015f4c10daa23fc39374057f54ad0571"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0173c0674b059271d0ca7e85705859a6015f4c10daa23fc39374057f54ad0571" # linuxbrew-core
   end
 
   depends_on "openjdk"

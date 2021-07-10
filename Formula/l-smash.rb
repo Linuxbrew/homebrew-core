@@ -15,7 +15,7 @@ class LSmash < Formula
     sha256 cellar: :any, sierra:       "57802892865529a99658bd4da1b29eb5287259183658131cc215ef80fcd0cfbe"
     sha256 cellar: :any, el_capitan:   "5751796e42e7d544f4976bc304a0ae7407dc5217b2b4218b0a6afdc18ea3eeaf"
     sha256 cellar: :any, yosemite:     "3703bdeb1dfe66aef898e60a990f4e64f0ab3c1fe26a49cf824b3c6998acaacc"
-    sha256 cellar: :any, x86_64_linux: "00b5b08edf3405261e5b6777a2ca57c15b51d504e4369d27c811acd925cd694a"
+    sha256 cellar: :any, x86_64_linux: "00b5b08edf3405261e5b6777a2ca57c15b51d504e4369d27c811acd925cd694a" # linuxbrew-core
   end
 
   # failed to upgrade since 02-11-2018

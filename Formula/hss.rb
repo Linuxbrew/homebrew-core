@@ -12,7 +12,7 @@ class Hss < Formula
     sha256 cellar: :any, mojave:        "bc7f0e8a54effd65cae855164b7ea0d287af079ceec01accebb74f476e04c863"
     sha256 cellar: :any, high_sierra:   "e6b884c0c3f45c0365c39d65f644281c0079899b96d7835ad7fdab6e2e67c338"
     sha256 cellar: :any, sierra:        "4d23f98a3af8e2facd71c61616a207bb7c990bb2b9c5c52ca9a772cc6aecd0be"
-    sha256 cellar: :any, x86_64_linux:  "6cff00cde752aa5af09131c5f6cded34d828b826f02ba3199caed87a50567af1"
+    sha256 cellar: :any, x86_64_linux:  "6cff00cde752aa5af09131c5f6cded34d828b826f02ba3199caed87a50567af1" # linuxbrew-core
   end
 
   depends_on "readline"

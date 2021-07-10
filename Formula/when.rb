@@ -11,7 +11,7 @@ class When < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "88a5d4653d7062e0ac6d9913d35390126c1739fe04f0f458624f0199046d0fcd"
     sha256 cellar: :any_skip_relocation, mojave:        "18c0460162e7dcb98d499fb8622a471162897a91f4f844fe46f42a52182cc69e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a0623fd31e458f82217956bd98e72964634f5d632025336386e824a27fe654ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d03dcac46258b1009b911a1475f23580d67035190aecb38e22b59842cdb74dd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d03dcac46258b1009b911a1475f23580d67035190aecb38e22b59842cdb74dd6" # linuxbrew-core
   end
 
   def install

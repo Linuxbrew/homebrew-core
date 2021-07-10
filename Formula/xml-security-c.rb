@@ -14,7 +14,7 @@ class XmlSecurityC < Formula
     sha256 cellar: :any, mojave:        "eec2216263c3bb21b52418d18232034aacc69335d3e14624225627fe5364347c"
     sha256 cellar: :any, high_sierra:   "5ee66d19898cd50085e90392313d3a1f45204bd111f32019251af89ee84f1ca5"
     sha256 cellar: :any, sierra:        "bd1e4d4b5768f869d28850ad440e32d417f6db5d182c6049afc87575bb36ccc9"
-    sha256 cellar: :any, x86_64_linux:  "3df702bab27cebced62824fd1c0f743102d7b863e77cf45990b1be824f36e389"
+    sha256 cellar: :any, x86_64_linux:  "3df702bab27cebced62824fd1c0f743102d7b863e77cf45990b1be824f36e389" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

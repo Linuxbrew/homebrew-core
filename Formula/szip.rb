@@ -18,7 +18,7 @@ class Szip < Formula
     sha256 cellar: :any, high_sierra:   "3b84fc3869965a5851cd13554ab46283a13adfa568ca7df1288728b2cfde0c4a"
     sha256 cellar: :any, sierra:        "c57296964a6ac43991c5f3a6b0b14e3deb99e14f3d1214427385dc4112e803af"
     sha256 cellar: :any, el_capitan:    "a4b1f903019aaa2e1d53e661aaf90f0e91937b3ad4b71126483feffb4c2d2e13"
-    sha256 cellar: :any, x86_64_linux:  "607f95722c26f88e12ca47db91b334cd2b8447c2710c4452dca8fbdce2081c98"
+    sha256 cellar: :any, x86_64_linux:  "607f95722c26f88e12ca47db91b334cd2b8447c2710c4452dca8fbdce2081c98" # linuxbrew-core
   end
 
   def install

@@ -13,7 +13,7 @@ class Fairymax < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8dad1d34ed2ce478abebc9ac986bbf5d7d0bf7af5f8326839da735d8fb3d11c6"
     sha256 cellar: :any_skip_relocation, mojave:        "5c4d837d9726fd83661fac0703cda7829f2c81e48f69ac98016915f97dad15cf"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7da2c1f0d3c9f8cdfd5729c22b16bb3a0c81e0189988e4afe43ccaa69518beda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35ac685db112aea1b99ddba941788d83904f40a8429495fa5d1b9964b9085998"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35ac685db112aea1b99ddba941788d83904f40a8429495fa5d1b9964b9085998" # linuxbrew-core
   end
 
   def install

@@ -12,7 +12,7 @@ class VstsCli < Formula
     sha256 cellar: :any,                 big_sur:       "c3bdc4320322286d34f0030a787ae04059822d352fe5de2a136932b0d787b5cb"
     sha256 cellar: :any,                 catalina:      "cabfe93b0a12cb130c8acc879f6858083d8e80bbfe727eb3e4f653410943cf5b"
     sha256 cellar: :any,                 mojave:        "c6857c4daa283ec757a22d1bde0f628d5201e92d3b98c51aa6153537ad7bee31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b26c4499b2795ad46e154cf87fd363563f1ccca772dad139882f9ba215e883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b26c4499b2795ad46e154cf87fd363563f1ccca772dad139882f9ba215e883" # linuxbrew-core
   end
 
   # https://github.com/Azure/azure-devops-cli-extension/pull/219#issuecomment-456404611

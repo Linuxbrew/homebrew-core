@@ -16,7 +16,7 @@ class Poco < Formula
     sha256 cellar: :any,                 big_sur:       "ec8ca74c0085ccb363451475afd0913463730f5129205ff1e76edf43bcafae1d"
     sha256 cellar: :any,                 catalina:      "15372ab13fe7e6269b7038532c0a05675b12f71df5f5a69c4930d57a16a598c1"
     sha256 cellar: :any,                 mojave:        "2bb42c67ece76fde31d9dd8d79fad23fecbf9ae33231f1601a335829b1f6f3c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c81133110ba09fd7f8178bb46cc61e427170ec04be3b6f3e584f83917916dbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c81133110ba09fd7f8178bb46cc61e427170ec04be3b6f3e584f83917916dbd" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

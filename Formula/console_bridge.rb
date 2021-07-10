@@ -11,7 +11,7 @@ class ConsoleBridge < Formula
     sha256 cellar: :any, catalina:      "0b499b94d9a1f14aebdbcdbfb21d95ce06a9c2a9160ecf317541bef7c76a1324"
     sha256 cellar: :any, mojave:        "a8fe261af6240d0a5128c4a9d214457bc0f0d20b198172c8a84e95d9ffa3fbd9"
     sha256 cellar: :any, high_sierra:   "0be0e4bb4c6a14c7f8725dc44443b5772e4b4a5b9da1df521cfb4d18d88c9437"
-    sha256 cellar: :any, x86_64_linux:  "dd20eebf5a9657a567ee4939bdfe23331fea7a14d56a67f1fdce419c2caa7122"
+    sha256 cellar: :any, x86_64_linux:  "dd20eebf5a9657a567ee4939bdfe23331fea7a14d56a67f1fdce419c2caa7122" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

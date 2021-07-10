@@ -15,7 +15,7 @@ class Sysdig < Formula
     sha256 big_sur:      "9caf5620dbeadf8e87bf19a598baa7bae5f6c0d1643666182fe91972806e6d84"
     sha256 catalina:     "7a21384d18bf9848f7fc91b6deb2099b01f44952e9ce88cbee3f53c0b8f1f33e"
     sha256 mojave:       "e29dcafe2de6f4fecc5e32ceb9d81c6bbab6b252dae5056ee8e617ac5204911a"
-    sha256 x86_64_linux: "0ad352bb19b40652d7622acdb060b5c3a65470ec5f1c1723af19df13b707991c"
+    sha256 x86_64_linux: "0ad352bb19b40652d7622acdb060b5c3a65470ec5f1c1723af19df13b707991c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

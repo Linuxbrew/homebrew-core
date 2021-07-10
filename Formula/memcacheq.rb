@@ -12,7 +12,7 @@ class Memcacheq < Formula
     sha256 cellar: :any, mojave:        "3a41379223936c7802a6df61454f70cb14fb6df6ae43e46d32fea87b1194c11b"
     sha256 cellar: :any, high_sierra:   "8e519465f17eadf1db20439176d6d4c120572ca700e3c6d33706df73788f88f7"
     sha256 cellar: :any, sierra:        "89f6b5b9085f13f38bacdff51c0082dc17ec992bc8c5366ebfd38542d91d5703"
-    sha256 cellar: :any, x86_64_linux:  "842786a8811253bff019e2b72a8b6c8808a7287b10eb359a39e1b73690bed59a"
+    sha256 cellar: :any, x86_64_linux:  "842786a8811253bff019e2b72a8b6c8808a7287b10eb359a39e1b73690bed59a" # linuxbrew-core
   end
 
   depends_on "berkeley-db"

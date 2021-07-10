@@ -21,7 +21,7 @@ class Archey < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "909d885f7b4b146ba77be86f58edb4e98fceb41e41dce9447490a2ab0a08410c"
     sha256 cellar: :any_skip_relocation, catalina:      "909d885f7b4b146ba77be86f58edb4e98fceb41e41dce9447490a2ab0a08410c"
     sha256 cellar: :any_skip_relocation, mojave:        "909d885f7b4b146ba77be86f58edb4e98fceb41e41dce9447490a2ab0a08410c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f34208326a88d41a2da5abefe270f45294f40b35982f6dfb86c5b908fa447837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f34208326a88d41a2da5abefe270f45294f40b35982f6dfb86c5b908fa447837" # linuxbrew-core
   end
 
   deprecate! date: "2017-04-28", because: :repo_archived

@@ -13,7 +13,7 @@ class SwiProlog < Formula
 
   bottle do
     rebuild 1
-    sha256 x86_64_linux: "12ecb163975e72690071c6011e3c7e50b6460ddc493a8c6ae8900aa96969b985"
+    sha256 x86_64_linux: "12ecb163975e72690071c6011e3c7e50b6460ddc493a8c6ae8900aa96969b985" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

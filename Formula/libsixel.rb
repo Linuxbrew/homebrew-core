@@ -10,7 +10,7 @@ class Libsixel < Formula
     sha256 cellar: :any, catalina:      "520fa6d77af3c6cc84fb84b1a5b8797bb6e44396b70ad7654eb3362d2174d0ab"
     sha256 cellar: :any, mojave:        "716d90122f113bd1c6b2ad7e872a476923981b4c26830c94ca68724437e860b1"
     sha256 cellar: :any, high_sierra:   "9e061ce67b22c8ad8760bccc7e954ee46852285bc078087712538e102ce8215c"
-    sha256 cellar: :any, x86_64_linux:  "219b506690cf24fd40e0df9b90f1ecd44ec1e166eb325dade1b914fb0f117718"
+    sha256 cellar: :any, x86_64_linux:  "219b506690cf24fd40e0df9b90f1ecd44ec1e166eb325dade1b914fb0f117718" # linuxbrew-core
   end
 
   depends_on "jpeg"

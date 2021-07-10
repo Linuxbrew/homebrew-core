@@ -14,8 +14,11 @@ class Rtags < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "62d0bdd599b47230638cd9450b830c81238ae941890bfe331ad215b0087104c4"
+    sha256 cellar: :any, arm64_big_sur: "841f0e639cd56b510b2f2571276c7bcbe3fc86269127222f605c605ec5a074aa"
+    sha256 cellar: :any, big_sur:       "78858c44b0a41a2437f5b553069b14a9c612fd77b717e95dbaf1949f8629184a"
+    sha256 cellar: :any, catalina:      "a421a220b9d412b03d094fc5ce869813534daf3df87271bc16b0fbf01b3cb305"
+    sha256 cellar: :any, mojave:        "84995048fe27191b02332d264e02f7c51178fd5ae5b1f16e6f7be7849adbabcb"
+    sha256               x86_64_linux:  "5a7c87899b141f903a063f6a8063d10231415699f8e4d8d182b223edf035a5eb" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

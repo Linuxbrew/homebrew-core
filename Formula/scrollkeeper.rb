@@ -11,7 +11,7 @@ class Scrollkeeper < Formula
     sha256 catalina:      "9bd348638b9e3492db3549c7ac0756975ca2c57303ec58685bb3e6694fff1dd1"
     sha256 mojave:        "0d7cbee6e25a46848d7c387ba07c4ee110ae2256953d2e5addd26f68e21c645d"
     sha256 high_sierra:   "efa4637b9d1b3942192dca6fb4602ef72ec6b285ba424c087d290c8feb5e2c5b"
-    sha256 x86_64_linux:  "1a3a135d005b278f52c8586e2c79ea7fc02faa8ccd4100dbb66ebaf32bb14581"
+    sha256 x86_64_linux:  "1a3a135d005b278f52c8586e2c79ea7fc02faa8ccd4100dbb66ebaf32bb14581" # linuxbrew-core
   end
 
   depends_on "docbook"

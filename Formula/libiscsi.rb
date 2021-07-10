@@ -13,7 +13,7 @@ class Libiscsi < Formula
     sha256 cellar: :any, mojave:        "473988c2ba81d9d9cf6eb21f2f3d41ade13e76131a2c2aabdade9983c79f99ed"
     sha256 cellar: :any, high_sierra:   "c05b614ecbacf4f957777c33144924322147b40b898fbb1acf91b72663e35203"
     sha256 cellar: :any, sierra:        "832760665cad678de3079365edc72bc21d946dd03ecff9304220b9972a29dd8c"
-    sha256 cellar: :any, x86_64_linux:  "15397ee12c43f009f7990487bcd6e01f658c9d89cb1e5ea6c8c6c34a01d93dc9"
+    sha256 cellar: :any, x86_64_linux:  "15397ee12c43f009f7990487bcd6e01f658c9d89cb1e5ea6c8c6c34a01d93dc9" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

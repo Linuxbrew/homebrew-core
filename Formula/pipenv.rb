@@ -12,7 +12,7 @@ class Pipenv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3e01446c114bb70d72f7455b19417e9e3190a95dcd565dc4ce994988b1b49f54"
     sha256 cellar: :any_skip_relocation, catalina:      "59356350c5fce175f14d525b10991f180fe557a01563c88b66d7771e733aa095"
     sha256 cellar: :any_skip_relocation, mojave:        "c29cf7117b5b8de37eadbaa43ad1a17daebead776b8767f2f6bc3884ed42f370"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddb58fd15e52980c8b2145e4e984ebd5719b3eb42270361af9f6ed64fdb2c2ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddb58fd15e52980c8b2145e4e984ebd5719b3eb42270361af9f6ed64fdb2c2ba" # linuxbrew-core
   end
 
   depends_on "python@3.9"

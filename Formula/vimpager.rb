@@ -14,7 +14,7 @@ class Vimpager < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "308c68e761983beb317bbefcba285022dbc74a66486a3da7e2ac8bc929649a3a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "eccfe695299ff91b489e0385b2024e6f383426f696dc4a5462fe2e0bc6f875b1"
     sha256 cellar: :any_skip_relocation, yosemite:      "be8ae8e77106e1fa95821b59171b982af74365693be0b416e41bb807a07c6c60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30604f02c981295f1cd967cb1ecf5a2afd3c4c51f5d751383c78eafb085e0f10" # glibc 2.19
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30604f02c981295f1cd967cb1ecf5a2afd3c4c51f5d751383c78eafb085e0f10" # linuxbrew-core
   end
 
   depends_on "pandoc" => :build

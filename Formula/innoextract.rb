@@ -12,7 +12,7 @@ class Innoextract < Formula
     sha256 cellar: :any,                 catalina:      "d929af92d772abc9d2e243044250bf536d1703c2d2b124ad26a65989ecba8bce"
     sha256 cellar: :any,                 mojave:        "c65b57194a8adccdb33db63b0061fbcf94d1e8a1b4b62a441d94ae99c7512adb"
     sha256 cellar: :any,                 high_sierra:   "83b502512cbdce3329d67f2e4a9784e77632c0f8b672854fef5561e542214e3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33b70619be60df1fdfbdeb70f2bf077bcc2e944d50083bda8dcda9451d54ebd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33b70619be60df1fdfbdeb70f2bf077bcc2e944d50083bda8dcda9451d54ebd6" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

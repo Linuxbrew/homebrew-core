@@ -11,7 +11,7 @@ class Twoping < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f2bd33aa7e38b7c1c8fed34946d7e3938b11b5f90960a882b06fbe41c1767699"
     sha256 cellar: :any_skip_relocation, catalina:      "0978ad67cf29cd0b88b0156c798e7d60e7977de707f0d85810a2bcd982e167cd"
     sha256 cellar: :any_skip_relocation, mojave:        "8edf34efd897e63c2ff25f28775ac0c19e9404535e8c3cd5d233a7f2594a1d71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "872d2261d99a0dd342bef4307ea11eb8d53484e3a4c0276bdf288ecd88358a95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "872d2261d99a0dd342bef4307ea11eb8d53484e3a4c0276bdf288ecd88358a95" # linuxbrew-core
   end
 
   depends_on "python@3.9"

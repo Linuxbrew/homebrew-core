@@ -16,10 +16,10 @@ class Monetdb < Formula
     sha256 big_sur:       "1ea9d8083285ca63b2ea3cd32811a25f944f9674b6d24437993cf4e8135a86bb"
     sha256 catalina:      "4299b46c1a6b51e30fc7525e2e095bb2eb05ceed4003cd6d3454fcd1fed5fcaa"
     sha256 mojave:        "c16ee6bc2e315e90a6503bc3399ba8e84834de76a2a6a89f7e3633bc8ff748b4"
-    sha256 x86_64_linux:  "1b3794cc293101fbc5e117dd8be753230f44bfbfd4ca3b6a5fd1e16594c2fb89"
+    sha256 x86_64_linux:  "1b3794cc293101fbc5e117dd8be753230f44bfbfd4ca3b6a5fd1e16594c2fb89" # linuxbrew-core
   end
 
-  depends_on "bison" => :build  # macOS bison is too old
+  depends_on "bison" => :build # macOS bison is too old
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build

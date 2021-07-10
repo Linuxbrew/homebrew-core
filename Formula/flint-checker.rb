@@ -14,7 +14,7 @@ class FlintChecker < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "0d246b741b5a09fcb7aa0641ba2322e55db92eb98b755f6528171e0ce82c782e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "be77f701f14ecabf655ddbf92eb132aa0cca9413196343783032a665ce2b33c0"
     sha256 cellar: :any_skip_relocation, yosemite:      "5dcce77a6426af8579cd283a120f6bb3b8cce384f6d4934c995dc7b23779bc51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e86502681a601784297e43b9a6e2e659b27dc191f13553faeb75bbe81fa3d907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e86502681a601784297e43b9a6e2e659b27dc191f13553faeb75bbe81fa3d907" # linuxbrew-core
   end
 
   depends_on "go" => :build

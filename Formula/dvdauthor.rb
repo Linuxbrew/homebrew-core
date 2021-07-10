@@ -15,7 +15,7 @@ class Dvdauthor < Formula
     sha256 cellar: :any,                 big_sur:       "c6405e471ac402f1b0ec1e2fbbb2ee3eb4be9dd82f0ef5b8991339928ff2fdb0"
     sha256 cellar: :any,                 catalina:      "7ebcd748eb4eba1876bd1cb181fa6ec679773dbf753be805845904b69685ee11"
     sha256 cellar: :any,                 mojave:        "5da2d90859c186ea0795b18210ef2722f96bfbb16f53d3a0cb0aa89084026ce0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afdfb291b73b40769bace04dc4c172729aeee6dad5f8e4c3efdb1e298af857ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afdfb291b73b40769bace04dc4c172729aeee6dad5f8e4c3efdb1e298af857ee" # linuxbrew-core
   end
 
   # Dvdauthor will optionally detect ImageMagick or GraphicsMagick, too.

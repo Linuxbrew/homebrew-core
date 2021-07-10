@@ -11,7 +11,7 @@ class Cattle < Formula
     sha256 catalina:      "d721fea1c78f6b79eb7ae7e325442e276638919bdef0a21604e910501d4cc67f"
     sha256 mojave:        "7ce0b67200025300e8e326dc890c79b94be12b627ebc4bbf230ae64437aa286d"
     sha256 high_sierra:   "43b809e209b52621c0ac66810b751a22f43d1718f75f41c9c0364d6ecb762b83"
-    sha256 x86_64_linux:  "650f1eebb6873a8161a9c781a69e66a9bddc26a8788f47faecdff837e6de27a7"
+    sha256 x86_64_linux:  "650f1eebb6873a8161a9c781a69e66a9bddc26a8788f47faecdff837e6de27a7" # linuxbrew-core
   end
 
   head do

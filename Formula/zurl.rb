@@ -11,7 +11,7 @@ class Zurl < Formula
     sha256 cellar: :any,                 big_sur:       "ec815b28c14380cbc309c11fb2becb4e0421b3d933dfbe4f3b881941b97069c3"
     sha256 cellar: :any,                 catalina:      "2d34fd92311ba6e171d3bc3a5c567daa4238a0d06e0cd078c79ce4c5368890a3"
     sha256 cellar: :any,                 mojave:        "21b2977646141c7d191a9f835c42b70eff3e793b799228386043ac62ae44a34b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee8a345ae1aa761b5c37183a93414255779491c843f1433bd78d000fa42121b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee8a345ae1aa761b5c37183a93414255779491c843f1433bd78d000fa42121b4" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

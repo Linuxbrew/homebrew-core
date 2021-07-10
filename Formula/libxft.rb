@@ -11,7 +11,7 @@ class Libxft < Formula
     sha256 cellar: :any, catalina:      "468e6b59613df1504055545f7e1662141b159b158856b41288f017e2b975e852"
     sha256 cellar: :any, mojave:        "c571235a69c34bf95279c8e415b34f8c8fad9a21eac4a05c55b1beec584f6757"
     sha256 cellar: :any, high_sierra:   "d8a6efe662c060ebe7a638fcd4b1ffc3ba34beb53586827cef583948be17b802"
-    sha256 cellar: :any, x86_64_linux:  "4984276e481c86d2442315e36a8638c9c09a65bd6ce561547bc10d8efdf2cb53"
+    sha256 cellar: :any, x86_64_linux:  "4984276e481c86d2442315e36a8638c9c09a65bd6ce561547bc10d8efdf2cb53" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

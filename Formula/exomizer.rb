@@ -10,7 +10,7 @@ class Exomizer < Formula
     sha256 cellar: :any_skip_relocation, mojave:       "653ce86b30882fae1deae16bbf40b50f9b46b7f4f3f51e1952a988121e4fd5dc"
     sha256 cellar: :any_skip_relocation, high_sierra:  "46b2f9b190847344ab7a16c94eb4b2bad48009a8f08e5463427af75c9eb67409"
     sha256 cellar: :any_skip_relocation, sierra:       "6c6389b18ce3be2c7ffdb919e79273ecc8e26b9067bd06b29474d37c9e162e83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b4b63981c014d8978621e8125dd54efd3f8435a92fa8b7a654d28e24a012793e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b4b63981c014d8978621e8125dd54efd3f8435a92fa8b7a654d28e24a012793e" # linuxbrew-core
   end
 
   # custom license

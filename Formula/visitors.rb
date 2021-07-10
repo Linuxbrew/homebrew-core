@@ -14,7 +14,7 @@ class Visitors < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "703c1a15a3e29b870f2a37b335a321b258a7e248c665e8d3647bcc61754adcd7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "60d139c48a4d3c8b457462530893ff11c681e512cf707ba6819a783eb17d3c4c"
     sha256 cellar: :any_skip_relocation, yosemite:      "2d0a3e1a40e08ae6b4892731b0cd1f3a495e8eba42476630b7863fc057e85df3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd61381b6d4befd771c6dc526b9aa5c3b1dafdfd65479e06306175230e31f6f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd61381b6d4befd771c6dc526b9aa5c3b1dafdfd65479e06306175230e31f6f4" # linuxbrew-core
   end
 
   def install

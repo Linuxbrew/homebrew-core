@@ -11,7 +11,7 @@ class Ngs < Formula
     sha256 cellar: :any,                 big_sur:       "f92d46bbd5c75caadce87ba7856fd49367cdeae26f94f9875cad7bc3f87187db"
     sha256 cellar: :any,                 catalina:      "56844fed9b44e5d1cca3634051245eb43f6758f995e1a0ffd8b919e17df51510"
     sha256 cellar: :any,                 mojave:        "d5d04636b7d4a6de1028fedbe36fe15c1938d7dd5d5e09a9bfda0680e39d17ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5112c86bfa3b6d406ee2126dd73d6d05135e9d3659da6243a4556090ed9d7d7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5112c86bfa3b6d406ee2126dd73d6d05135e9d3659da6243a4556090ed9d7d7f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

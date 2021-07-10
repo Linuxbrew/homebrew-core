@@ -17,7 +17,7 @@ class Libtermkey < Formula
     sha256 cellar: :any, mojave:        "efa6360ccb50275ee143410e57b4ff47b2d6bafd97d6f4feeb3cb3ee02050a2c"
     sha256 cellar: :any, high_sierra:   "e3b848de428f811c1879530c043145152bf4b0e599ed642aa2845904d13f7081"
     sha256 cellar: :any, sierra:        "3f8ce77603619d85de7127f317e276c0cd38a461c545cafeb7c875e7c89fe467"
-    sha256 cellar: :any, x86_64_linux:  "06448056fd738bb09a88c734b85e54692bfbd1bed7a977307cbbe480a1e0e5f1"
+    sha256 cellar: :any, x86_64_linux:  "06448056fd738bb09a88c734b85e54692bfbd1bed7a977307cbbe480a1e0e5f1" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

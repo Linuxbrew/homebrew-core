@@ -17,7 +17,7 @@ class Recoverjpeg < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "87b3d9adf8b59d91350b7e655a78b68525caaaad0a614c5b7e1b6097d29cf6d9"
     sha256 cellar: :any_skip_relocation, mojave:        "0f424efc21d5e07c2cdce7a870e28ee1aea42ac8f65f12eb5a845895c49ed958"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5366edde2383098f7ee4ac866d0d2ff528efbf63af934dd469c3b8e6739678ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d505f521d4e36b8f4828e0ea2ec4ae6fe523e5a3527f7efb0ac583683f61dd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d505f521d4e36b8f4828e0ea2ec4ae6fe523e5a3527f7efb0ac583683f61dd1" # linuxbrew-core
   end
 
   def install

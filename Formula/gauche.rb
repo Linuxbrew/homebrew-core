@@ -17,7 +17,7 @@ class Gauche < Formula
     sha256 big_sur:       "946cf4fb5df28115150e9e8fef530885dea4ea78a141340b76a3696813c5ceb5"
     sha256 catalina:      "3242db5cccc130802f125d27c51b447b1f52a43d2a4d8a4819f52b71d88d08e5"
     sha256 mojave:        "c278ec5a5c34957a9e75b386aad28736a4a64864c4f1a156486e6b4959e4aed5"
-    sha256 x86_64_linux:  "3168c4c69e1b624e54bbae923e3e8ee973c10e2da638b7838c07a731a0fe0632"
+    sha256 x86_64_linux:  "3168c4c69e1b624e54bbae923e3e8ee973c10e2da638b7838c07a731a0fe0632" # linuxbrew-core
   end
 
   depends_on "mbedtls"

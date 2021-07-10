@@ -10,7 +10,7 @@ class Cwlogs < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "40fdfc79d6533963798aed789fe8026f30d44e87c3e6e9ecd602d531ed1fb7c2"
     sha256 cellar: :any_skip_relocation, catalina:     "975da66abe1ce9ff42eb63453c52acc31aeeffff435a2c0aab9d1bd3008be280"
     sha256 cellar: :any_skip_relocation, mojave:       "d0e1bda71db260a905c5f88da3fce0074ab59576ef6c12948eeae2ae5faf6435"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "93fe2f05d2d458b93b4ab543b35442d00c2af9444f1696e6f05bf6f0c55df97b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "93fe2f05d2d458b93b4ab543b35442d00c2af9444f1696e6f05bf6f0c55df97b" # linuxbrew-core
   end
 
   # https://github.com/segmentio/cwlogs/issues/37

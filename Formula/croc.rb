@@ -11,7 +11,7 @@ class Croc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4f2380eed7e43e12c8351b4f888a413c132f7d0368c51f7bdc19d784cfb5343d"
     sha256 cellar: :any_skip_relocation, catalina:      "648abc127e2e14010beae1e4238ebfd181bb84e92bdcaac9e8aa85247b710827"
     sha256 cellar: :any_skip_relocation, mojave:        "7d8246133db4e8b79a53f58b2173f21449b78ba0f5dca344213ab094a36afae3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eec14f50a1837be6dc7bc82fd22aff62809982397d3142fac9f9e6d18d3315b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eec14f50a1837be6dc7bc82fd22aff62809982397d3142fac9f9e6d18d3315b" # linuxbrew-core
   end
 
   depends_on "go" => :build

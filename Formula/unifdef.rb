@@ -11,7 +11,7 @@ class Unifdef < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ae908aa0c1845ce059576df3922808db790fb0ea91109f89aa930c8da7a68904"
     sha256 cellar: :any_skip_relocation, mojave:        "ded3ae5ba762ee493fc5ed45d0e6ed5a8261b4bf9bc2de54880f4a373b1ba075"
     sha256 cellar: :any_skip_relocation, high_sierra:   "74ec90a8fc2467e8d613f2a6347d973dcd6387fdd9734bc66088a64ace7e0d4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b8c175edd596a6f4151ba46ea34610b83927efc59dc852f188496c1498152c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b8c175edd596a6f4151ba46ea34610b83927efc59dc852f188496c1498152c9" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

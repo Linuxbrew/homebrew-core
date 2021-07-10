@@ -10,7 +10,7 @@ class Glibmm < Formula
     sha256 cellar: :any, big_sur:       "a19057e4cdbcafddcdf0632c15c68fde2830e290a7516f89e26d5d2dab583b50"
     sha256 cellar: :any, catalina:      "52fe443b93eacccd6a85ac9fa71fc45b66199a12af4fe313bbed3bceac58a368"
     sha256 cellar: :any, mojave:        "51230b1f33200cc431c068bf00bc80c76267aacdea2382b4ec9a3d6323774398"
-    sha256               x86_64_linux:  "75b8c720188ed19d1fc4a0cd360086d393e0b87a876cdadd5b426e381a85956f"
+    sha256               x86_64_linux:  "75b8c720188ed19d1fc4a0cd360086d393e0b87a876cdadd5b426e381a85956f" # linuxbrew-core
   end
 
   depends_on "meson" => :build

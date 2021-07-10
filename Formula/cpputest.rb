@@ -13,7 +13,7 @@ class Cpputest < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9e06d26ed7a552c818c7f1d6bb68ef16e7185238a14bdf0ae337a410ecb46384"
     sha256 cellar: :any_skip_relocation, mojave:        "59881c464ae17f1a2381145f78f614d174c83fbe8f4900e362e9a6830fcf446e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9cea67d4098efe30dd499d1a999467800ff91a9e7954ec6407b03d181a20761d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92359e01ff73b94180817c447029fc37495c0f7b6ca72d8ff6e9720d6bd6e6a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92359e01ff73b94180817c447029fc37495c0f7b6ca72d8ff6e9720d6bd6e6a8" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

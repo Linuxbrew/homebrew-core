@@ -16,7 +16,7 @@ class Librttopo < Formula
     sha256 cellar: :any, big_sur:       "59068843a454371abc25ad9421771eb2770febfaa00d41e1527476f4cbfdb05b"
     sha256 cellar: :any, catalina:      "9512f32068f310fc02c082828e4ebac85a698ef69f370243aa00a5b873569319"
     sha256 cellar: :any, mojave:        "d6bc9674875a3eeb44cec544f6cc9ac9ce6435f7fd951f446801a8aadcb1a323"
-    sha256 cellar: :any, x86_64_linux:  "f9c117dcc1dada2ebf17cc4e99f229f339fb8ea1e1a2f9a9bd0eadddb7dbe4c9"
+    sha256 cellar: :any, x86_64_linux:  "f9c117dcc1dada2ebf17cc4e99f229f339fb8ea1e1a2f9a9bd0eadddb7dbe4c9" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

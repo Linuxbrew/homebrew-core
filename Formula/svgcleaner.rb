@@ -13,7 +13,7 @@ class Svgcleaner < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "43533727baf2ed09cdce9fe64357c1bc1f70fed57d70f37cfd824b664ab1266f"
     sha256 cellar: :any_skip_relocation, mojave:        "bf18c353316b7a46ed2cecad188a638e359ce77acdcf501f578e5f96149ed667"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7e6df86bb8f994b157ff6de9bb7f43605b813a6a476f6f2d3af4d3483c1b6483"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8357ea0709abd6d2794a1b7430c57e09a080cb28a87e4d4e6f08172d7c3d76bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8357ea0709abd6d2794a1b7430c57e09a080cb28a87e4d4e6f08172d7c3d76bd" # linuxbrew-core
   end
 
   depends_on "rust" => :build

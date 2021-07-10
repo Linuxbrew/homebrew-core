@@ -11,7 +11,7 @@ class Libxext < Formula
     sha256 cellar: :any, catalina:      "20cc49734eba43e2e9f058fa12f3782c76ac232fada3f6d297f91dca6e0582be"
     sha256 cellar: :any, mojave:        "3f2da07d877e158f41231d088f0ffe5551132beaf2f3df683dae0ac2c11817cb"
     sha256 cellar: :any, high_sierra:   "0070b8ea70006d011aac1c617e1a5f88caa2ae351b637858f828f859cb72d813"
-    sha256 cellar: :any, x86_64_linux:  "ec21c900415cb14a9e86a96b00d9c2eaa1c22b4e79babad8748ac072ba52252b"
+    sha256 cellar: :any, x86_64_linux:  "ec21c900415cb14a9e86a96b00d9c2eaa1c22b4e79babad8748ac072ba52252b" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

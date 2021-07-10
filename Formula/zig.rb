@@ -8,10 +8,11 @@ class Zig < Formula
   head "https://github.com/ziglang/zig.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "cbfe30a9fc41655c96d04c98a00d4dd451823ee8f55afaa9387c9cf367f66c62"
-    sha256 cellar: :any, big_sur:       "740bcf88640b02fa8b21a6719c62c21afe3dd59ea60bb2a8d5efd4a3826fd5c7"
-    sha256 cellar: :any, catalina:      "be1c5cab5438eede09322ff1e896202f0cbfaafb0641a596fdd04f0f4f6c6d48"
-    sha256 cellar: :any, mojave:        "207446cc593dd0b1c63716d26bbb552a2242bc94fe19033df177186f610872df"
+    sha256 cellar: :any,                 arm64_big_sur: "cbfe30a9fc41655c96d04c98a00d4dd451823ee8f55afaa9387c9cf367f66c62"
+    sha256 cellar: :any,                 big_sur:       "740bcf88640b02fa8b21a6719c62c21afe3dd59ea60bb2a8d5efd4a3826fd5c7"
+    sha256 cellar: :any,                 catalina:      "be1c5cab5438eede09322ff1e896202f0cbfaafb0641a596fdd04f0f4f6c6d48"
+    sha256 cellar: :any,                 mojave:        "207446cc593dd0b1c63716d26bbb552a2242bc94fe19033df177186f610872df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "669c7a43da2645e71689d500089368ebd8fff431aa9aef0bd3e104ff3702b5dc" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

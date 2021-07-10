@@ -11,7 +11,7 @@ class Flatbuffers < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c5a82ba1d1ce4c4b77053bc294af6a5e6094c5b7e59e4b4c946b4301dd71b6b3"
     sha256 cellar: :any_skip_relocation, catalina:      "149eda4aca1b555fd228e9edc2bf4987eee46e0445ae1bff79404177149e6f72"
     sha256 cellar: :any_skip_relocation, mojave:        "3827dfa116cdaf777f7bb5023b3eaecb2820265bcc57dce833724f84d2c17065"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c51dcfac282faef73418d4cb838c1f2abffd5c1cad31fb76ffce974645caf20d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c51dcfac282faef73418d4cb838c1f2abffd5c1cad31fb76ffce974645caf20d" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

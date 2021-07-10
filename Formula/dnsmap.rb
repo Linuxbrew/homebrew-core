@@ -13,7 +13,7 @@ class Dnsmap < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2015e3fdee32fcdbc0501f522ba720280e8cb07a75f8166fd62a9f876ea12124"
     sha256 cellar: :any_skip_relocation, el_capitan:    "57d5f7ea4a8a73b454bbc60e38fdb9a55e07c2d97f0b5acf38db0408e83b197b"
     sha256 cellar: :any_skip_relocation, yosemite:      "6ede00304c268f3a0013f8aa708f5bfc314acbac1db7a3547e8381dc620b18eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3209acb66a74659763a47b9f921ee423040b8f090a5fc67a7037547c652e057"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3209acb66a74659763a47b9f921ee423040b8f090a5fc67a7037547c652e057" # linuxbrew-core
   end
 
   def install

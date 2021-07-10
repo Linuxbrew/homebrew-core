@@ -12,7 +12,7 @@ class GolangciLint < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "febec79eb5eca7fe1f7163cbf8631d9dca96e850cf2be6c804eb90d24e3e0eaf"
     sha256 cellar: :any_skip_relocation, catalina:      "7ffb50b08181cb637274e66cbb9d6eb6e687ad25e40a785d7b530d27f797159d"
     sha256 cellar: :any_skip_relocation, mojave:        "d84d56b784ee0f6a711be75ce3488848eb8511c02aaa29769680a11b29c09998"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4299a55fb00edca1fdd47bc98a9999a6ad1deec4bdec72f9cd6f576c27e62afa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4299a55fb00edca1fdd47bc98a9999a6ad1deec4bdec72f9cd6f576c27e62afa" # linuxbrew-core
   end
 
   depends_on "go"

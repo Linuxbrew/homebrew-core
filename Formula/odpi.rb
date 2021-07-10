@@ -10,7 +10,7 @@ class Odpi < Formula
     sha256 cellar: :any,                 big_sur:       "d9af5824c934c6f98d74ea55cb32061c814dd19954ae048b1be6314ee2940b02"
     sha256 cellar: :any,                 catalina:      "a6a14f8c32838d6d243da9c6c5698bbb22ac4c65e25fa9e0e1c977e482ab0242"
     sha256 cellar: :any,                 mojave:        "b0fece1f144232228e72a20e2325abeddbcd47e20a17e00b1cbbaa65099b4641"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afc2a5c6cd8c0d4458a558dc7c508b7c18783e600cde27e4e1a25b0c8ce44003"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afc2a5c6cd8c0d4458a558dc7c508b7c18783e600cde27e4e1a25b0c8ce44003" # linuxbrew-core
   end
 
   def install

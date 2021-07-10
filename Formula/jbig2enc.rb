@@ -14,7 +14,7 @@ class Jbig2enc < Formula
     sha256 cellar: :any, high_sierra:   "7431e5b6cf8354ab27bbb7710b2133eb3d381f3c6a30b7143332fba5e7fe82f7"
     sha256 cellar: :any, sierra:        "53d757dc93193756cc90f94a6ca2f4bad2b77610e5b93d5d74f95899019771be"
     sha256 cellar: :any, el_capitan:    "f903109f6f2da89af11e576c8776f10e16eadb71c0a60edb9f35157b965edd98"
-    sha256 cellar: :any, x86_64_linux:  "c4866faffc379de19928354c429ad603b74891c77db4289a6c4b2595cd08efb8"
+    sha256 cellar: :any, x86_64_linux:  "c4866faffc379de19928354c429ad603b74891c77db4289a6c4b2595cd08efb8" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

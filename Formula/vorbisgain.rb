@@ -14,7 +14,7 @@ class Vorbisgain < Formula
     sha256 cellar: :any, sierra:        "3572efe1e0741ee5b1f3cc0499325ae59acec5f9ab44df5987bab22312d9e3af"
     sha256 cellar: :any, el_capitan:    "00f7047e5d884dbf22ed036154961b41d4ad6ae8295c55043929b008ae82a9f7"
     sha256 cellar: :any, yosemite:      "a1315eaaaf667f7486deb2b899c422e3cc9caa8f9e771221dca12b0ecc085dc7"
-    sha256 cellar: :any, x86_64_linux:  "acaa8afad6cd0e01b23b88c6c7cb1736e08b315c827bafe3603fb1e413451046"
+    sha256 cellar: :any, x86_64_linux:  "acaa8afad6cd0e01b23b88c6c7cb1736e08b315c827bafe3603fb1e413451046" # linuxbrew-core
   end
 
   depends_on "libogg"

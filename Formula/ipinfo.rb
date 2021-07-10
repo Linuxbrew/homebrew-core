@@ -13,7 +13,7 @@ class Ipinfo < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "255c10eb2f0f885ba301fa2977ae3c45b5f7117388739adb58ce4312515ff98f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ecb331ae035cf5963afc8e8adf371d80f936960bf0d5ba379b18761263a1b040"
     sha256 cellar: :any_skip_relocation, yosemite:      "e1ce332c726d060521e97a5402746a60778d91beaf28704d9ce5bb6e17451fb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3ddff03c21a8628ec0bab847802f2bbb5aeb16623b69982220c163d51d1762a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3ddff03c21a8628ec0bab847802f2bbb5aeb16623b69982220c163d51d1762a" # linuxbrew-core
   end
 
   conflicts_with "ipinfo-cli", because: "ipinfo and ipinfo-cli install the same binaries"

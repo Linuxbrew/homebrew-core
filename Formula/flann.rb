@@ -11,7 +11,7 @@ class Flann < Formula
     sha256 cellar: :any, big_sur:       "f6555dce8d62d9dde8da5ee6ea7a6efc1e9a80339060bb4b7af3fd1e7e845584"
     sha256 cellar: :any, catalina:      "101ec3e673a5b69c5f6cf6c79af0fbfca3a00ef90b7a4dde0a4bad638a187d1a"
     sha256 cellar: :any, mojave:        "ab351183f61258ac6fefd9f64677c4b917929674fb36eff89aa9d85c825dfef8"
-    sha256 cellar: :any, x86_64_linux:  "01879b304dc39a88b75c82c698527227a0f45ffc445723b06301b60832bcd9d9"
+    sha256 cellar: :any, x86_64_linux:  "01879b304dc39a88b75c82c698527227a0f45ffc445723b06301b60832bcd9d9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

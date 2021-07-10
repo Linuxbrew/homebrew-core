@@ -16,7 +16,7 @@ class KimApi < Formula
     sha256 cellar: :any,                 big_sur:       "f25c0ff199bc5c41842e992537af0602b9fe84fae6ebea234258d066da8c084c"
     sha256 cellar: :any,                 catalina:      "01da03836e0e268b9bd51958f8cc141210b6040023943fef58d8b12bd0a6b2f3"
     sha256 cellar: :any,                 mojave:        "43592f7c9e14fa4e1e453410f615f573e96eac0edd1117a063d586b385bee84a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c4713031b747f22d64cbcd1eeaa31211074e1fbec56f3dfc2283f00444005e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c4713031b747f22d64cbcd1eeaa31211074e1fbec56f3dfc2283f00444005e9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -13,7 +13,7 @@ class Openhmd < Formula
     sha256 cellar: :any, mojave:        "796c1a6f06715aa8a3304cca0083378d5fe2a1006b55da8727938922b5408c8d"
     sha256 cellar: :any, high_sierra:   "1c54727de5836916bca42065d0ed53f0a796d07ec6866408a69213c94b151092"
     sha256 cellar: :any, sierra:        "97f5dff1e77b6b615544ed6611aa6d8c3395e3c6dc759c4576084d87a4e976ad"
-    sha256 cellar: :any, x86_64_linux:  "1c76125523d08577fba3e0f1ed47825b78c7040a5185798feb042833ab95fb84"
+    sha256 cellar: :any, x86_64_linux:  "1c76125523d08577fba3e0f1ed47825b78c7040a5185798feb042833ab95fb84" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

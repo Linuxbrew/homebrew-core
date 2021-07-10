@@ -13,7 +13,7 @@ class NoMoreSecrets < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "ad2927337af4e85d6bff3fbdcfeb2e435c85de8d527d23a3644c7add3c7acab0"
     sha256 cellar: :any_skip_relocation, sierra:        "97ff320dd7639a7a71fbfa4f7e72fb7c66e4b60ea0f6a6adc4583c63cbda05ac"
     sha256 cellar: :any_skip_relocation, el_capitan:    "78c52bd9f179967cb240c8f49763e03e512092ee476b73e38166bfa79757664f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f1a4c9cd5475c3c827311068e2dac60cdc3bda46ecaa5d1925bba8fd868312"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f1a4c9cd5475c3c827311068e2dac60cdc3bda46ecaa5d1925bba8fd868312" # linuxbrew-core
   end
 
   def install

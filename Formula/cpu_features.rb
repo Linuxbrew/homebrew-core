@@ -10,7 +10,7 @@ class CpuFeatures < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "ba67bb2d2166f43b17aba3fb4f8306b577e17779e8a8facea32a16451c7b369d"
     sha256 cellar: :any_skip_relocation, mojave:       "9f7d3b134c25934208808a47a8c8ecde61d8a7c3d429246ce807d9183930bd66"
     sha256 cellar: :any_skip_relocation, high_sierra:  "057d70560cecfd8863543a562ddb0ec64147ac3ce6292adedf0bc28c74a92349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8116fe1bb8805aa7df967e20423af1c49a143d51aab4b97bb58653256eb9e3ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8116fe1bb8805aa7df967e20423af1c49a143d51aab4b97bb58653256eb9e3ff" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

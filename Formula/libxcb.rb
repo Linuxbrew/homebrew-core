@@ -23,7 +23,7 @@ class Libxcb < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "990819c1dd57e74dc867ba37d1952fc0e7baa69273aa6a809ce5b4c18346eac4"
     sha256 cellar: :any_skip_relocation, catalina:      "7f40d617b2092e9dc4fed78b032a1cde7658b813b26bcabb349770cd6c744208"
     sha256 cellar: :any_skip_relocation, mojave:        "3a21a6aee4bda8851599df53ed9ebe6b282ff3264be763badcb7c3346d89c90a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4eed8760ef7dc1a20d5a5b0f4da7430738a08c2bb7dddc97766a6bf4ee2ff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4eed8760ef7dc1a20d5a5b0f4da7430738a08c2bb7dddc97766a6bf4ee2ff5" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

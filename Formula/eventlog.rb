@@ -12,7 +12,7 @@ class Eventlog < Formula
     sha256 cellar: :any, sierra:       "266c920dec2b898e620a5de1bdcbcc68c3b06663c8b4f8d155138ba989958b99"
     sha256 cellar: :any, el_capitan:   "9073fb11ae9c20375295c36b5bb6845639ea1f9c17a677c1d93ff206075ff871"
     sha256 cellar: :any, yosemite:     "2bdc1f762ea05e79f486e7e78b8a173ea99a5a76b4bedd28a03a1c8912f39925"
-    sha256 cellar: :any, x86_64_linux: "dafbd7123de97b0a29ca89c6e965a2123664ec34851c815b8bd1a616397dc525"
+    sha256 cellar: :any, x86_64_linux: "dafbd7123de97b0a29ca89c6e965a2123664ec34851c815b8bd1a616397dc525" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

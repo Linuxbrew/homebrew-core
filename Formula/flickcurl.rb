@@ -14,7 +14,7 @@ class Flickcurl < Formula
     sha256 cellar: :any, sierra:        "ddffd36ee6ab7c4cfd0edba1be9aa488ed38d1ee66a99c2e2445bf4d21cd0c00"
     sha256 cellar: :any, el_capitan:    "01886ddb800167eed18495d780baa81bac793243a54d452ad9a34a06e876e4d2"
     sha256 cellar: :any, yosemite:      "64c7a8f7d2bcc90063f926724fd1bd9277f783f3aca3c83e53684222f3d1d1c3"
-    sha256 cellar: :any, x86_64_linux:  "6c86b32a14f619047b098012b44d8499b0e067a0e702c36140b71ceb2314562d"
+    sha256 cellar: :any, x86_64_linux:  "6c86b32a14f619047b098012b44d8499b0e067a0e702c36140b71ceb2314562d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

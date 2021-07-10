@@ -15,7 +15,7 @@ class Libpst < Formula
     sha256 cellar: :any,                 big_sur:       "be3136353a0d0c538070a6c1261b75620abffda9d2cee435daf3debbc5fe2f8e"
     sha256 cellar: :any,                 catalina:      "d6ec30b4b9ca7d8968c5155b98c2a32dca502910c6c95ac860dc50065de89f65"
     sha256 cellar: :any,                 mojave:        "9ba873578452d668ac195f1e3b332f692f45ee5db1a6c55e68e57e8d08d3878a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "974a841c42f8279716bf807976cc169fbb954ba4d30a3da31b9b325c4b123310"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "974a841c42f8279716bf807976cc169fbb954ba4d30a3da31b9b325c4b123310" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

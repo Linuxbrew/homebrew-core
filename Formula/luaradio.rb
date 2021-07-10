@@ -11,7 +11,7 @@ class Luaradio < Formula
     sha256 cellar: :any,                 big_sur:       "765bcff473c15da215a2c162c3247c12b3a12a6a088ff324103de2e05510e973"
     sha256 cellar: :any,                 catalina:      "e0de1690d1a42741722374cc61a8966a51c9ff8219b46d5e361e06fdcf11e4b4"
     sha256 cellar: :any,                 mojave:        "535aa76ad7c009e4ffa918eb910462d861081a7516f17a2210275bb6e619ad9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4805d2baf59aa929e8d8c5727c2df2b1657c8eb1facf23c76212be24a6bf618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4805d2baf59aa929e8d8c5727c2df2b1657c8eb1facf23c76212be24a6bf618" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

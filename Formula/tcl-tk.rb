@@ -17,7 +17,7 @@ class TclTk < Formula
     sha256 big_sur:       "d9ffd39a32e602515594c4658aaab20224d9d57eeffa3aa10028736ff64ad40b"
     sha256 catalina:      "f4027cdfd4d797d769b027f13b53e0ad714b47cd94fa02f550ff1403294467da"
     sha256 mojave:        "23916830afd9e9fb7bf63b0c047f0b2a6f969cb746055d73ca6576e18c87e07f"
-    sha256 x86_64_linux:  "6e3aa22b67a5b2078f6ee8d0b531dec378957058ac8a191a403d0ae7034bdab6"
+    sha256 x86_64_linux:  "6e3aa22b67a5b2078f6ee8d0b531dec378957058ac8a191a403d0ae7034bdab6" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

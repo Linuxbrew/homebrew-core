@@ -18,7 +18,7 @@ class IslAT018 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "728e3b1ab4e7c7cf6298e80c398dfdb8012c1b5c77fb54261d618d094bd9a1bb"
     sha256 cellar: :any_skip_relocation, mojave:        "efcde3c18baf1ee3e76312758ab5a95cb4df68267d7273003d519abce2ad6c87"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0525751dc4fd778bf8be05f743d798d9229e9955999d06a1cfbecee33d737a38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef95686496676a3c73c57db6eee32a9f039e9c2b7ccf173c3b1941124ef6f78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef95686496676a3c73c57db6eee32a9f039e9c2b7ccf173c3b1941124ef6f78" # linuxbrew-core
   end
 
   keg_only :versioned_formula

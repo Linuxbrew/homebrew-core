@@ -16,7 +16,7 @@ class Detach < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "dbd06a1dcb4592035dff0b4df0cc3259c2dbb444acdb1553ab2a2d4edf3fff57"
     sha256 cellar: :any_skip_relocation, mojave:        "4aa3f65488ee7fb05d156d92f5f76a29d2cebe2034b226665e219978e228f1db"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3367f32cb05a37e05e9ab18e4e1f2664137f7d03073fc2d9ec4aba0d62a6f431"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c8d040524edff3ad1d757eb94e4784296d88a6e6f8ae76c66da7fd87987b0ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c8d040524edff3ad1d757eb94e4784296d88a6e6f8ae76c66da7fd87987b0ee" # linuxbrew-core
   end
 
   def install

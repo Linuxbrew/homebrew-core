@@ -11,7 +11,7 @@ class Mpd < Formula
     sha256 cellar: :any, big_sur:       "20fc058208f1afbb9c82d091c4631200dc831fef03b883d6890cd980873824c3"
     sha256 cellar: :any, catalina:      "1a8e909305eb50fe397c702d95d2226ca936132759f0fe7408e9e60cb79d08bd"
     sha256 cellar: :any, mojave:        "28875232919ed08ec59ad07391ba3d317e4f71311964ed4446511eb52e327a96"
-    sha256               x86_64_linux:  "7df8326c2f5df41f6cb2ca8e9886dbf151a25c43ca1a597bccad565c041e01be"
+    sha256               x86_64_linux:  "7df8326c2f5df41f6cb2ca8e9886dbf151a25c43ca1a597bccad565c041e01be" # linuxbrew-core
   end
 
   depends_on "boost" => :build

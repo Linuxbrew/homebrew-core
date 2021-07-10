@@ -10,7 +10,7 @@ class Grc < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b98a2242b3de6f9fb093d12dfa0edf6c36407d49c4eca9284feb4dafdd111ae9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b98a2242b3de6f9fb093d12dfa0edf6c36407d49c4eca9284feb4dafdd111ae9" # linuxbrew-core
   end
 
   depends_on "python@3.9"

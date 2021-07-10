@@ -6,7 +6,7 @@ class Eless < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cc720394c1e88326fb9a2f76457a1edb4efa081313fe7fc914e1e9375b1e5ade"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cc720394c1e88326fb9a2f76457a1edb4efa081313fe7fc914e1e9375b1e5ade" # linuxbrew-core
   end
 
   depends_on "emacs"

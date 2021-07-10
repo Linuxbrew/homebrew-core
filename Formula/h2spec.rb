@@ -1,5 +1,5 @@
 class H2spec < Formula
-  desc "Fast website link checker in Go"
+  desc "Conformance testing tool for HTTP/2 implementation"
   homepage "https://github.com/summerwind/h2spec"
   url "https://github.com/summerwind/h2spec.git",
     tag:      "v2.6.0",
@@ -13,7 +13,7 @@ class H2spec < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ee24c3ab807d25dc92116e1b794d319365b7ad7a801f9ef9089f2992844673aa"
     sha256 cellar: :any_skip_relocation, catalina:      "c585fbaa7e8d101d280edafce5e26b4df57a1ac8ddbd7327f1efdc07d0ac17a0"
     sha256 cellar: :any_skip_relocation, mojave:        "83ba531c3cfffe083ffc687cff9c7ad41eb30c6745994a6eca2bc9f245e7f00e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74f9da5152bf7abfc389c94b8e91c36a67dfe055e016163c1b6df6685add9e93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74f9da5152bf7abfc389c94b8e91c36a67dfe055e016163c1b6df6685add9e93" # linuxbrew-core
   end
 
   depends_on "go" => :build

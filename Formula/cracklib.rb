@@ -18,7 +18,7 @@ class Cracklib < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be"
     sha256 cellar: :any_skip_relocation, high_sierra:   "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78"
     sha256 cellar: :any_skip_relocation, sierra:        "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da217b61f4dab75cc43b8ea8e4fd5238176ce19c555f247652522e8dad2bd582"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da217b61f4dab75cc43b8ea8e4fd5238176ce19c555f247652522e8dad2bd582" # linuxbrew-core
   end
 
   depends_on "gettext"

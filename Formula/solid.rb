@@ -12,7 +12,7 @@ class Solid < Formula
     sha256 cellar: :any, mojave:        "8c7fd219da510e1821b50069ffbcc3025bee102a1ada47fe4b3f9464507fb1bc"
     sha256 cellar: :any, high_sierra:   "30954dffe6674f98523b3cb299f909aefbe554b70000cd777df75c326edf80d0"
     sha256 cellar: :any, sierra:        "2836475cd2195c3906950c2a62ed618302e3f57ba4c348a82b737fcb0956fc07"
-    sha256 cellar: :any, x86_64_linux:  "b95a66e0bb7461f55791cc0708bcc37b2e121e8efe94cacb5ea1cdbd9bc356ca"
+    sha256 cellar: :any, x86_64_linux:  "b95a66e0bb7461f55791cc0708bcc37b2e121e8efe94cacb5ea1cdbd9bc356ca" # linuxbrew-core
   end
 
   # This patch fixes a broken build on clang-600.0.56.

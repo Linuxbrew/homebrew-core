@@ -15,7 +15,7 @@ class Pdns < Formula
     sha256 big_sur:       "3462eb24c8379733f29bdc2fa6177cdf643aecbfc5fbe58ac3d5f9129a32befe"
     sha256 catalina:      "b3caacf5599b6a71a88daabb7c7ce5ec606f75ad7378e57a8eb0e19935923c19"
     sha256 mojave:        "03a2e4848800803555e0e2ea398de47b0172f96a82412b83e0629a62979dd6e7"
-    sha256 x86_64_linux:  "79d68d3f7dfc60c6d5eb7d96921e4a17525e3a191fd3249342f44e047aa5204e"
+    sha256 x86_64_linux:  "79d68d3f7dfc60c6d5eb7d96921e4a17525e3a191fd3249342f44e047aa5204e" # linuxbrew-core
   end
 
   head do

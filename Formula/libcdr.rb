@@ -16,7 +16,7 @@ class Libcdr < Formula
     sha256 cellar: :any,                 big_sur:       "0c5c055abec9d36ae8beaaf07e0268cb5b4495ec3103b933b03ff2676d96d049"
     sha256 cellar: :any,                 catalina:      "e79b945338269508e453ed4f8748d0a9b5e19304658621765c2eae54120d0537"
     sha256 cellar: :any,                 mojave:        "42016c8a3b6e75ce702e84f2afdf3c328807b776b10e9c809772c0f69d569d1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8731aa6739a97522a5c6795b847e7b049ce68eeeaedd46520959929422708325"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8731aa6739a97522a5c6795b847e7b049ce68eeeaedd46520959929422708325" # linuxbrew-core
   end
 
   depends_on "cppunit" => :build

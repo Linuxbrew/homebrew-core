@@ -15,7 +15,7 @@ class Envchain < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "42419c23d7dd363b9232918f69fa4ea01270b6eb4dc9c4b1c4d5170ff920fda3"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4e34971c35ec6a716995a5e8d491970809bb5ce6c5651676f70d757b4044c834"
     sha256 cellar: :any_skip_relocation, yosemite:      "1de7c8c17e489b1f832078d3e5c403133accd187f2e666b44bb4da5d1d74f9f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f24f674a86e50307c6b42796f5850925c193fe8e7aaaa1219061f747397ed7a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f24f674a86e50307c6b42796f5850925c193fe8e7aaaa1219061f747397ed7a6" # linuxbrew-core
   end
 
   on_linux do

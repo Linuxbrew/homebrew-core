@@ -18,7 +18,7 @@ class Neon < Formula
     sha256 cellar: :any,                 catalina:      "08c046a121125fb4a2ec4e84035586aa46086aa07a0bbeb2f189ed7e597a6d67"
     sha256 cellar: :any,                 mojave:        "20d474191273a8210f05ecb6ed300d6aa92ffccd6cc45d3ef1f12d8d58d5fee9"
     sha256 cellar: :any,                 high_sierra:   "0bc378496a9a3c82f30909210acdd3ead44594dba78741797edabbec2b9481e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d9143c72313908dab9261c669a34a757d523535f83bdc4c2cd0ea5555c0c3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d9143c72313908dab9261c669a34a757d523535f83bdc4c2cd0ea5555c0c3f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

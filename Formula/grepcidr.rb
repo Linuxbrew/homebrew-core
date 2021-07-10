@@ -19,7 +19,7 @@ class Grepcidr < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "12dfa49026bffb77ed1c4a08e9b60b56859eb183bbf791754d0b1d476ba6d795"
     sha256 cellar: :any_skip_relocation, el_capitan:    "31ccf6792cab3c5022530ef4576ea53e6dedd4855b939d11212fea0d7fa294dc"
     sha256 cellar: :any_skip_relocation, yosemite:      "d0024b81610b4a698de415aef87958e2a61f74a9f1f2b7acf875f2f3d50ecc05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7e58d61f306f9da90413cc6b95746dcb46fc94ac937216955d7ef42dd45dccc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7e58d61f306f9da90413cc6b95746dcb46fc94ac937216955d7ef42dd45dccc" # linuxbrew-core
   end
 
   def install

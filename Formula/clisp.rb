@@ -27,7 +27,7 @@ class Clisp < Formula
     sha256 cellar: :any, big_sur:      "05bfe89f749c669150e3c9d4589a18ac0e5ffe9d3c27cc3da67fa41ad20a9258"
     sha256 cellar: :any, catalina:     "b6a273e26d27a1bd3c8654631f2cd6fe964f0b9fc83d11ddb74513243378217e"
     sha256 cellar: :any, mojave:       "ee265923cfb2f5943d513a98b4205b57df9317ebf36a0faa4f29f3ee0c3734c2"
-    sha256               x86_64_linux: "84d7bfd9c0b73480853c0727adc4cd586e8a62ba289eafdaef883456fefd086a"
+    sha256               x86_64_linux: "84d7bfd9c0b73480853c0727adc4cd586e8a62ba289eafdaef883456fefd086a" # linuxbrew-core
   end
 
   head do

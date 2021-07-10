@@ -14,7 +14,7 @@ class Ngrep < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "390424274552105e21b3f3e926b933322a09333cee02274d2f84a5e23f4ea74d"
     sha256 cellar: :any_skip_relocation, sierra:        "0e915d1e3b7e7da8e58a48457de4e40359cb0f870eb45a77302d36c1b767d044"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d057c167d3b695ff915c13fd39e3cd7b3e6e2a5b3f82bce6bb8ea4c030e8f6e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0a075f2cf2659feeb885338c57a820575de1ef733c0054ef9513136bd8be2ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0a075f2cf2659feeb885338c57a820575de1ef733c0054ef9513136bd8be2ba" # linuxbrew-core
   end
 
   uses_from_macos "libpcap"

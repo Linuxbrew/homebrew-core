@@ -11,7 +11,7 @@ class Roswell < Formula
     sha256 big_sur:       "633680e3f581ec760fdbf9d559de97ec01443663f814600b6ce2ff6e55b28ee6"
     sha256 catalina:      "327cea9e5eebd0c6aa57eda3a01fb0487c36412b24397a85d411a995b5efcecf"
     sha256 mojave:        "35d4e37825ad03c973e6e95caedb293cd6d055b06825d2d5ce089c9777e8db72"
-    sha256 x86_64_linux:  "6d720637cfaef4b37befa95342ac65fa408f80daef9ab7122e376001b5161a37"
+    sha256 x86_64_linux:  "6d720637cfaef4b37befa95342ac65fa408f80daef9ab7122e376001b5161a37" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

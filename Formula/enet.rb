@@ -12,7 +12,7 @@ class Enet < Formula
     sha256 cellar: :any, catalina:      "557052d4c6fb7e8c4329270730bd97b032f279c2cfafaa6ebbd32f7ff7e076bf"
     sha256 cellar: :any, mojave:        "7df13b64c909df3368a91094abaaab1563f66ebcb276af0d318408977af08d2f"
     sha256 cellar: :any, high_sierra:   "6fbf495f25b1df30003129b77167df08d26fbb576fa61a3f17ff7eba366bdd2a"
-    sha256 cellar: :any, x86_64_linux:  "f79a8f1a3cc20e8952dccb88cd247049e3b5cfc930ce5ac5c2537e386df051d8"
+    sha256 cellar: :any, x86_64_linux:  "f79a8f1a3cc20e8952dccb88cd247049e3b5cfc930ce5ac5c2537e386df051d8" # linuxbrew-core
   end
 
   def install

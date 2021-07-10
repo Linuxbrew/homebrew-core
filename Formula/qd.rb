@@ -17,7 +17,7 @@ class Qd < Formula
     sha256 cellar: :any,                 catalina:      "9700e6163692f31c736ddd74f535305fef730e021c4ca9f85b5860926397e330"
     sha256 cellar: :any,                 mojave:        "53e4efc8ab2d1c18b1c4198bed031eb1b97b4431b1c0a4e8e4195c9b01659098"
     sha256 cellar: :any,                 high_sierra:   "0ff67d07426a90d2897f0f69da0bd91bedb8a40ea52c0201c80225dd6c22510d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd17ada14d5480d3d3da703b1e6cd2de7d50df46f2c7f08dfa9158d50d51c74e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd17ada14d5480d3d3da703b1e6cd2de7d50df46f2c7f08dfa9158d50d51c74e" # linuxbrew-core
   end
 
   depends_on "gcc" # for gfortran

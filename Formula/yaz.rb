@@ -15,7 +15,7 @@ class Yaz < Formula
     sha256 cellar: :any,                 big_sur:       "968de6c53096f9f0accf06488de7e4ab76428a33eb1bcd27866ae34376b82996"
     sha256 cellar: :any,                 catalina:      "5a2ead8e67e33724130ae46cfcdd880488f99715816ef803f5b30b64cb3cf898"
     sha256 cellar: :any,                 mojave:        "2e9e5037cc90d375556fd203e8316e81b0df113a48509bf25df6f581c2dc2f9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7569afbf4e208bc4adccbfa8c771662d07a57d7fa2c1a4655e6cde0a8a9fc11b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7569afbf4e208bc4adccbfa8c771662d07a57d7fa2c1a4655e6cde0a8a9fc11b" # linuxbrew-core
   end
 
   head do

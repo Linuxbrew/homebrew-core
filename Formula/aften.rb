@@ -22,7 +22,7 @@ class Aften < Formula
     sha256 cellar: :any, sierra:        "535ef47b08163c8d1d7a66ffda7d3f280c0569a74d9feedbcfc93cd3c55194ca"
     sha256 cellar: :any, el_capitan:    "68b4983cc843e2d57854a263038a965a2dd6c473c98111f482ec1c69d09ace83"
     sha256 cellar: :any, yosemite:      "4f785f04a3bbde677452f2c5d1c04f77605e156b4020294c5799c85d0b8586d3"
-    sha256 cellar: :any, x86_64_linux:  "146f47a5dfd6ccdc4342e3f71694801c8b4706809b3110982dae3d2062aaed3f"
+    sha256 cellar: :any, x86_64_linux:  "146f47a5dfd6ccdc4342e3f71694801c8b4706809b3110982dae3d2062aaed3f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

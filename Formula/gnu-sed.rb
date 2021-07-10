@@ -12,7 +12,7 @@ class GnuSed < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "726be75d6d7155820b408a10e5c1a5ba1406374a7fc167af62524a4f4bbbc099"
     sha256 cellar: :any_skip_relocation, mojave:        "093f16752e7dfb115c055f20aed090108b94edd47c40f5e50878d961359251b2"
     sha256 cellar: :any_skip_relocation, high_sierra:   "865abe618c67037a4a419a05e0df2c6814fb3abdd6f631ea546aeba0aaf8eb78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ddd750074b40c2fa24f81ec6057ead7eca21b76ca9191fe292da13afdc5a274"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ddd750074b40c2fa24f81ec6057ead7eca21b76ca9191fe292da13afdc5a274" # linuxbrew-core
   end
 
   conflicts_with "ssed", because: "both install share/info/sed.info"

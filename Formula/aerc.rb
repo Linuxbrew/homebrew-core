@@ -10,7 +10,7 @@ class Aerc < Formula
     sha256 big_sur:       "bfbdc6552a248e34e2a85f24664568a8bfc80a3941eb01bc05f9c9b97b6bc811"
     sha256 catalina:      "52d1557638048defbd2c5dfc83ecd929acbbecbd3ee40a6dd8c2460a2232f81d"
     sha256 mojave:        "fe2c485199cdf423c32e27d69ebc5a2af2b355b6a8b2e24ff467a4fc23899b4d"
-    sha256 x86_64_linux:  "94ce010fb83f07b05b93400f546bb6640ca1ba38a5d1e7d5efe120f611d8ef50"
+    sha256 x86_64_linux:  "94ce010fb83f07b05b93400f546bb6640ca1ba38a5d1e7d5efe120f611d8ef50" # linuxbrew-core
   end
 
   depends_on "go" => :build

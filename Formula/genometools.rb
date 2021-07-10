@@ -12,7 +12,7 @@ class Genometools < Formula
     sha256 cellar: :any,                 big_sur:       "8adf70e333da419e3ee99a7da16c72c32cd2b03584bf0210d69ee7dcb3106d63"
     sha256 cellar: :any,                 catalina:      "41a9e52f2f0853eb1826e7136a43ae17410292fdc277860eef8f56980f124572"
     sha256 cellar: :any,                 mojave:        "606831c946666247431971c496c9d028434c04537a4cbf67f9965a83508f54d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e12a80b950f65f144fb95a2a70c266bfc60a49ead2627e93b69eaa09d097697d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e12a80b950f65f144fb95a2a70c266bfc60a49ead2627e93b69eaa09d097697d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

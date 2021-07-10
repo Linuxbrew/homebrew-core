@@ -11,7 +11,7 @@ class Libxkbfile < Formula
     sha256 cellar: :any, catalina:      "18d3314727b519379948c4b69a242d0f52bfdba78cf2d2bc0f1cd1384510dda4"
     sha256 cellar: :any, mojave:        "19c4c1ad6066ba36e079e5b7b66ed2e66d6202dc9fbda01fd8ff6cf802264c5b"
     sha256 cellar: :any, high_sierra:   "94703acd3591d5ccec71ac964adce8b86ad370498add6026b9ba9dea0bc04d13"
-    sha256 cellar: :any, x86_64_linux:  "1b03e5998161e41d38c0bf0111d9fe43b780bf01e0334f3ff89788e8c4cafa4e"
+    sha256 cellar: :any, x86_64_linux:  "1b03e5998161e41d38c0bf0111d9fe43b780bf01e0334f3ff89788e8c4cafa4e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

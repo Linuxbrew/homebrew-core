@@ -18,7 +18,7 @@ class RegexOpt < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "76b26dc9e766e7a8b0806660e966e3a49c593591b94d90439f89b7cbc797d019"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0e46dec5d46b145e32ca597c00c75fea2e7097e57c5d3131be141e5bea2b96db"
     sha256 cellar: :any_skip_relocation, sierra:        "68b5f75c9fdb645334ae8a48a5b7e01620e19d5f103811579cb8bf96101c6ac7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd31e2648a4c0bb509b4f2424700dfba3386d91083bd37796adc009864f040b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd31e2648a4c0bb509b4f2424700dfba3386d91083bd37796adc009864f040b0" # linuxbrew-core
   end
 
   def install

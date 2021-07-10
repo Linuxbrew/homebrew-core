@@ -12,7 +12,7 @@ class Dasm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "354cf4953e70e7518fc7ee0b0861a0be21fa80770a60d18a2c0ea0d31deb979d"
     sha256 cellar: :any_skip_relocation, mojave:        "43a9c82d0ed5d8466cdf1bd749c3a94710f76c5a1f1599a5a4538a58616bc95f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "145c79491ba96ba7d21f4085ff3cedf482555e46c9c334fe6c9b2458202bfb8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e9e797aef1b736f37a23cb6d45dfe609b0db63e8738c804c06d02629fcefddb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e9e797aef1b736f37a23cb6d45dfe609b0db63e8738c804c06d02629fcefddb" # linuxbrew-core
   end
 
   def install

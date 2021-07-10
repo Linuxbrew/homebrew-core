@@ -16,7 +16,7 @@ class Libspectre < Formula
     sha256 cellar: :any,                 big_sur:       "dd24fcf3da06f8020b4c5439ca40d1b2eb17a518b62f205e8d34d4e259b0fd7e"
     sha256 cellar: :any,                 catalina:      "b6010400519844d7e3c0ead42e613279dcf301b69775bbc75f8e93c2cadf797b"
     sha256 cellar: :any,                 mojave:        "03c755d7c557ed3b53e73f398be9d2a04fd87143fa91d8dcbb010d8a36f313a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3306db6030a81ed47d8a4195802e271d99f4c41a22759f8b8f92173318a59cfa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3306db6030a81ed47d8a4195802e271d99f4c41a22759f8b8f92173318a59cfa" # linuxbrew-core
   end
 
   depends_on "ghostscript"

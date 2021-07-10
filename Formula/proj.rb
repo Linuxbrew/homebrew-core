@@ -10,7 +10,7 @@ class Proj < Formula
     sha256 big_sur:       "12230b16ab649e99e65aebd6d7f932aa20e9c7c9198470325f0bc25fda44d598"
     sha256 catalina:      "dd546af1c56863f71f9fef6304a9d27d4bf988396b8970b6c4175123ac8ea588"
     sha256 mojave:        "7c932f415d358b401fbd35e2edbc7154a0ce2ed2b7d90e3e7c772ff692e43539"
-    sha256 x86_64_linux:  "ece361d33ea28a83de82570049ab567064e92efdf7777f291db6229d546290b8"
+    sha256 x86_64_linux:  "ece361d33ea28a83de82570049ab567064e92efdf7777f291db6229d546290b8" # linuxbrew-core
   end
 
   head do

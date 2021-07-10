@@ -16,7 +16,7 @@ class Librdkafka < Formula
     sha256                               big_sur:       "3ec79e37ef21015419739012106ec51199fa50ec71a5843bf97a9bbcd3dd0fc5"
     sha256                               catalina:      "40a7854b189f58305028f1977497b9f9d979ebb1f941835b31898da3e5b64e08"
     sha256                               mojave:        "1d640334758e0049452c87e1dbf264dcbe2f951334f5c49e6e0760480ead6379"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1055f2925f502952305196d0faddec564bcd506165462a51ac12b672f828fd99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1055f2925f502952305196d0faddec564bcd506165462a51ac12b672f828fd99" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

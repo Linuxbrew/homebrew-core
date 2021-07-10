@@ -11,6 +11,7 @@ class Plenv < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ae532487be7748372f5e4af1f5f5543ea98c2821ae63a28b85fe5a47c17734a2"
     sha256 cellar: :any_skip_relocation, catalina:      "ae532487be7748372f5e4af1f5f5543ea98c2821ae63a28b85fe5a47c17734a2"
     sha256 cellar: :any_skip_relocation, mojave:        "ae532487be7748372f5e4af1f5f5543ea98c2821ae63a28b85fe5a47c17734a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6898b01d73122d18ac80e714614e566482fdc1b8055a3ef01cc11a3c9cde503c" # linuxbrew-core
   end
 
   depends_on "perl-build"

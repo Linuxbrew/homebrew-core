@@ -7,7 +7,7 @@ class GitFixup < Formula
   head "https://github.com/keis/git-fixup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "55457be986a571f82ee55e3695f9dcbfa12bee89d89b409253abe88036af8183"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "55457be986a571f82ee55e3695f9dcbfa12bee89d89b409253abe88036af8183" # linuxbrew-core
   end
 
   def install

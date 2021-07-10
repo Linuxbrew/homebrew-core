@@ -11,7 +11,7 @@ class Sparse < Formula
     sha256 catalina:      "1fb15ba5444a7c67d9f45215fc02e948583c28d8078546b3e0f766df50a1a859"
     sha256 mojave:        "ac0ade8d4c0f98cadcca728fdd3c0694e3d3a4432c57edf0725542a91d750128"
     sha256 high_sierra:   "7dcabb27270d98a6ad13d6b2c6b8c1bf3f0a9fa001a9737db841f1cd604dbeec"
-    sha256 x86_64_linux:  "75908d62778234c3484673ac7ff7ba6f70eaabc8fefc0e00761ce15820398177"
+    sha256 x86_64_linux:  "75908d62778234c3484673ac7ff7ba6f70eaabc8fefc0e00761ce15820398177" # linuxbrew-core
   end
 
   depends_on "gcc" if DevelopmentTools.clang_build_version < 1100

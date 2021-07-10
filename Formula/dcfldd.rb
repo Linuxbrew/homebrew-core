@@ -14,7 +14,7 @@ class Dcfldd < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "0958d948042f047d4249a7400f8c4f7adfe41f11c20aa04a0dbaac09c718ea2a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0d5ff357d74fa90a97d80e202ddb5b5554bfec35efa2c4cb6e0f7e6dc9cf8ece"
     sha256 cellar: :any_skip_relocation, yosemite:      "4731a1409199c0eb8d83f9f2f23106c1f71ccb1f8d8faf71a3fd691ba394791f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7c9ef612fb36d98dd72de1602453bc739c5c0f51cb4a4e9309d5062a07f4286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7c9ef612fb36d98dd72de1602453bc739c5c0f51cb4a4e9309d5062a07f4286" # linuxbrew-core
   end
 
   def install

@@ -116,7 +116,7 @@ class Mailhog < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f917aca265baff755eef3cba936e694f2bb214a0bc95e8bd9de08b283746d5cd"
     sha256 cellar: :any_skip_relocation, catalina:      "baf343b697366b603e680e27d3642ffa8b2b62d1b1be1f394260f85a058b1b95"
     sha256 cellar: :any_skip_relocation, mojave:        "7ebea41ba2db7c5bd144dd2844415800853c56ddefcd587d94717229196c5535"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1ca41debab0cf4762130af856c3a78eca3e6c411610651dcc424a0e1bf8a816"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1ca41debab0cf4762130af856c3a78eca3e6c411610651dcc424a0e1bf8a816" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -16,7 +16,7 @@ class Dps8m < Formula
     sha256 cellar: :any, catalina:      "d9d967a0c7dad0b63ea6327102cb5d83345ff6b0bcdbf754398c1a5cdb0b0916"
     sha256 cellar: :any, mojave:        "2c148e6bcd3a83e91b6b327d285bcfbb6490a3f7d8f08c4d904a6b907fbe61cf"
     sha256 cellar: :any, high_sierra:   "600be3242396b61b2e807ed850cd65fc30a4676993c44c5171488954be496ce4"
-    sha256 cellar: :any, x86_64_linux:  "faab297b7a33705cd9ad1b286ff537635b888fa6c901ce6cb93d63698fda8478"
+    sha256 cellar: :any, x86_64_linux:  "faab297b7a33705cd9ad1b286ff537635b888fa6c901ce6cb93d63698fda8478" # linuxbrew-core
   end
 
   depends_on "libuv"

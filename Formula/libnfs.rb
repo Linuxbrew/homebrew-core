@@ -12,7 +12,7 @@ class Libnfs < Formula
     sha256 cellar: :any, mojave:        "e51a653f469f19db8c24f009166b7c63a3d9e48ffd16e687d81e2fc0da52f632"
     sha256 cellar: :any, high_sierra:   "2c6199b4295a952c6c179811c9190c8741054011f23ed5a051528baf07b44509"
     sha256 cellar: :any, sierra:        "668a6d77334fd656ea8ca32c1bb36c9253fb95f1dc701607d722afa6af6aa737"
-    sha256 cellar: :any, x86_64_linux:  "2de58298789155d7b0552e43f1e96063db3320121f9423599fa6d69bd515e6fe"
+    sha256 cellar: :any, x86_64_linux:  "2de58298789155d7b0552e43f1e96063db3320121f9423599fa6d69bd515e6fe" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

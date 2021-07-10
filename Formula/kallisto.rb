@@ -11,7 +11,7 @@ class Kallisto < Formula
     sha256 cellar: :any, catalina:      "7ef1f941663072b0a57597992acf8203ba3664129f305cb8626c0c346e51bf0c"
     sha256 cellar: :any, mojave:        "b2e59c1cc0fc1b07d02bab1cbc1533bcca1edf4bc0b81791d5ac597a7b84cce0"
     sha256 cellar: :any, high_sierra:   "8491424ec8d4f8e170315e13c5f3bb92895b608c9c7108f260459e06bbbf73f9"
-    sha256 cellar: :any, x86_64_linux:  "e156a9efff4fdd99320d9d3a5c65cdc7cbe35ae36319ff975ed97f7918390398"
+    sha256 cellar: :any, x86_64_linux:  "e156a9efff4fdd99320d9d3a5c65cdc7cbe35ae36319ff975ed97f7918390398" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

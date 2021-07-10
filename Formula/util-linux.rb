@@ -18,7 +18,7 @@ class UtilLinux < Formula
     sha256 big_sur:       "cfca1e4ceeccb7b27f043b6e63d29cd5a2d64908d995530b37f270d751baa208"
     sha256 catalina:      "8edf1edb90bab5bfd76c11dacfd8f8e9a212d154284113d56089ac225944f05d"
     sha256 mojave:        "4d7d5e3771db846dd2f1c6b74c867ad1119983a5fb96ac503d40860cf2fc37f4"
-    sha256 x86_64_linux:  "24bd0096b100a3734db440f45689524f7f9dbb2896ae77cf2089e91269d11307"
+    sha256 x86_64_linux:  "24bd0096b100a3734db440f45689524f7f9dbb2896ae77cf2089e91269d11307" # linuxbrew-core
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"

@@ -11,7 +11,7 @@ class Cc65 < Formula
     sha256 big_sur:       "d0010fe7f4b58daea95dd57f4116668bd2bedfbd5392e73412162292034d456d"
     sha256 catalina:      "a773d68d33b81899ebe7c10d294c0d6e2c2eab9063206f787b1e8c5b8e36f437"
     sha256 mojave:        "bd750ae3470b736a6b7260723ead51d6e871edc8d8607f53b670f03c84932a00"
-    sha256 x86_64_linux:  "0d74fe87b3eb1bfafcc420c7bf3b86a4abc2ef9d1e74109e603f84e8cf147023"
+    sha256 x86_64_linux:  "0d74fe87b3eb1bfafcc420c7bf3b86a4abc2ef9d1e74109e603f84e8cf147023" # linuxbrew-core
   end
 
   conflicts_with "grc", because: "both install `grc` binaries"

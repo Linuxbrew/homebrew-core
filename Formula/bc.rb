@@ -15,7 +15,7 @@ class Bc < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "0baf2e31191d80258636186bf9adcdf6b3f554f213d36cb3054213f736e52bf1"
     sha256 cellar: :any_skip_relocation, sierra:        "1d8f0459c0b67aae275c43e01e5312146be72163acadd3d6c8f2bc440181508c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e5c4b3fa712d705c3cc9bfae12242c9b4dc429e329c61d12aa01b65c1623a11f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57de5ac07f99f1b7b67b854997e9f2a6fb69664f904ea3c3cf4538d509227d91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57de5ac07f99f1b7b67b854997e9f2a6fb69664f904ea3c3cf4538d509227d91" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

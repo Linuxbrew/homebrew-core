@@ -15,7 +15,7 @@ class Tpl < Formula
     sha256 cellar: :any,                 sierra:        "1d8a496506b276702c07d594e17b9c7be4f43c1a4651120b765b2015c18bbe54"
     sha256 cellar: :any,                 el_capitan:    "a887350815a2791312bdec2ecdf82795d6f54c67f9e76842236e8bb1f507108d"
     sha256 cellar: :any,                 yosemite:      "2587ed48c7a6ff2c309e688695c79d845b5fe2a06eae1189dc1c9de21f9bceaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7a5b2db59ce7aa6eb4b2a374ff9a38a0f7511219bc5562f342b4a36a761f91e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7a5b2db59ce7aa6eb4b2a374ff9a38a0f7511219bc5562f342b4a36a761f91e" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

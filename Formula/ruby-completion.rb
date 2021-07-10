@@ -7,6 +7,10 @@ class RubyCompletion < Formula
   license "MIT"
   head "https://github.com/mernen/completion-ruby.git"
 
+  livecheck do
+    skip "No version information available to check"
+  end
+
   def install
     bash_completion.install "completion-ruby" => "ruby"
   end

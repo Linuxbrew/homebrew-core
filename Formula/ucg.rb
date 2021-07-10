@@ -14,7 +14,7 @@ class Ucg < Formula
     sha256 cellar: :any, high_sierra:  "3642e741bc9ffd1cf1982bfc2c373e0ed54a417c08ac46f43e4cf8a09a0a1a8a"
     sha256 cellar: :any, sierra:       "dddf2d62a2e582a9356a4da6434ddb0432ce6d6b1d50a5dc6728f9b6254531a5"
     sha256 cellar: :any, el_capitan:   "e4699a681ae9d2e9d68ce7da85fc050907070bc9650fad0c4f76faf991f3a422"
-    sha256 cellar: :any, x86_64_linux: "3bd072acfa65d6fcecd97f3546c6c4b93db1acfe59dc5659f3a20f6660be38e1"
+    sha256 cellar: :any, x86_64_linux: "3bd072acfa65d6fcecd97f3546c6c4b93db1acfe59dc5659f3a20f6660be38e1" # linuxbrew-core
   end
 
   depends_on "argp-standalone" => :build if OS.mac?

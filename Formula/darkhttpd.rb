@@ -10,7 +10,7 @@ class Darkhttpd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1643b2894325e4ed51b6007c1f1c6a935cc0780f48f3d953620d7b0ab50d6dbc"
     sha256 cellar: :any_skip_relocation, catalina:      "161992a2da584f5704fc6923d26fe6675a2ac23b3a66d9c1bba154b2a5888833"
     sha256 cellar: :any_skip_relocation, mojave:        "fdc947505f7ee3885b23431afe3603cb6e75f7edeea9784dab45975b30956086"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cdf1c1b081997f17209f8c98e4250356eb9c1da40cf167b4fba49df201c5070"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cdf1c1b081997f17209f8c98e4250356eb9c1da40cf167b4fba49df201c5070" # linuxbrew-core
   end
 
   def install

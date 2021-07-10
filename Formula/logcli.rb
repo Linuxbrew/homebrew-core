@@ -10,7 +10,7 @@ class Logcli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7fb693fd292ab4918059c8c24d638ec9739273a75489e211a79fbbeaa06d19f9"
     sha256 cellar: :any_skip_relocation, catalina:      "112e29ca1fcc7d1814c720711c9d065bd861065bf47c613d2b5be2bc8e6c0e39"
     sha256 cellar: :any_skip_relocation, mojave:        "bd651c8a96c2fc1f3b56a4519b3880e54929962e1e49fb9122ace4ff0fde0ad9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7babc002268e53cdd7d3539b77ad6ad29ae2e1010d5d847da24ac4d3dcfb8bf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7babc002268e53cdd7d3539b77ad6ad29ae2e1010d5d847da24ac4d3dcfb8bf6" # linuxbrew-core
   end
 
   depends_on "go" => :build

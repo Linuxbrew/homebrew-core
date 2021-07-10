@@ -16,7 +16,7 @@ class Sslscan < Formula
     sha256 cellar: :any,                 big_sur:       "dd0b57a82a99814e2e21c8d8b076207b7cc1824ce4f2ae6e10ad57eb318c3f89"
     sha256 cellar: :any,                 catalina:      "e13086894f20487eee91a42160b7b4d891851e26a23184be8139bca2f0392022"
     sha256 cellar: :any,                 mojave:        "30d8baa596df4a6ccade6d02bb77f73747d0c5dae2518bf0082f9aaf2fd8351b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "869a46770ab8297b6d691f2362f98afab8ab6e535ccf0889dccdc094c300744f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "869a46770ab8297b6d691f2362f98afab8ab6e535ccf0889dccdc094c300744f" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

@@ -14,7 +14,7 @@ class Odo < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "06af025b0a2df201a9b79944dcc4809708b305242622a90c92a9906a18adf2d6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "979cc7131a35180614e848fa5fa12a72f734da7321358c89dfbd425fc8dff837"
     sha256 cellar: :any_skip_relocation, yosemite:      "ebfc6a2e616694a3862b1d6d11dda1a2c1cb4c966447678b342457490e0e0abc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e52c4656200257bb6f8c111f24eefa0cfdb5ca552575cc036006d70ec46adf8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e52c4656200257bb6f8c111f24eefa0cfdb5ca552575cc036006d70ec46adf8" # linuxbrew-core
   end
 
   def install

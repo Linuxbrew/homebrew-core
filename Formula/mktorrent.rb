@@ -13,7 +13,7 @@ class Mktorrent < Formula
     sha256 cellar: :any, mojave:        "22bc8649ce5fea25549610eec4110d45f3fa1d05335cfc982df82806ff34d71b"
     sha256 cellar: :any, high_sierra:   "60be732dfea657c6faffa7e9d644f6ade7f974e7fea6ec46fa2941baac5eee80"
     sha256 cellar: :any, sierra:        "3e7f91587dbea47713351b40a99b50728a878a9eb720eca14bd125541e62606f"
-    sha256 cellar: :any, x86_64_linux:  "425b126bd8bc925e4ddaf214cca4fc6399f4dfaff25be70b736919e001c2bf47"
+    sha256 cellar: :any, x86_64_linux:  "425b126bd8bc925e4ddaf214cca4fc6399f4dfaff25be70b736919e001c2bf47" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

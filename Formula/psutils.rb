@@ -28,7 +28,7 @@ class Psutils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1319662888a509ceee3993bf17e7fb2f9dfaea5ce25c983c0bcda13283b5d612"
     sha256 cellar: :any_skip_relocation, el_capitan:    "def5b3fc8cef9b4c532cc26ae216d1c6b0dae54da5a39acbdb818d53a04bf697"
     sha256 cellar: :any_skip_relocation, yosemite:      "8fedc8290fdcbd5cb5f8042cc83e4c10c6c2a29888c2a89f72280d3b5b53946d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "096cf231524d69e34b00382a617d3269e86926c78b8071752a568031b91a3258"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "096cf231524d69e34b00382a617d3269e86926c78b8071752a568031b91a3258" # linuxbrew-core
   end
 
   def install

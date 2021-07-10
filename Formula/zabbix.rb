@@ -11,7 +11,7 @@ class Zabbix < Formula
     sha256 big_sur:       "28f7230bb8ebbdc989edd13bc1e0f1056c5d6616a81e5a1d0d1781636c9edf94"
     sha256 catalina:      "e04e30bcd523d19f9dbc1597e5ce62530e68a560b988e413725f41269c295dd9"
     sha256 mojave:        "6949f2cf1de7bc49943904c8f9dfec6524e9e1eed01de43a72351c8fa6b1c09b"
-    sha256 x86_64_linux:  "542a037dd7a7b1b443c60462536620362d03ecfd28da2cb144e14c5192b9e24a"
+    sha256 x86_64_linux:  "542a037dd7a7b1b443c60462536620362d03ecfd28da2cb144e14c5192b9e24a" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

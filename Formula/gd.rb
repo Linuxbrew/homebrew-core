@@ -10,7 +10,7 @@ class Gd < Formula
     sha256 cellar: :any,                 big_sur:       "2c746f463d1b0ceaa2a9986b9ace87da6ec8b99b1a1362383d2375b067dc7010"
     sha256 cellar: :any,                 catalina:      "aa93cd58d9694c86299445e73750e41b5740bc6ea5b247032ed3c71eca5cbce4"
     sha256 cellar: :any,                 mojave:        "59e7dada9e961a52a5db6d14ad39985310bd6dfdbf4b9a4a321280d880b110bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b94dc351c8a0c05536601c885a09552942e8e978432c2e443b10406a0c578d9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b94dc351c8a0c05536601c885a09552942e8e978432c2e443b10406a0c578d9d" # linuxbrew-core
   end
 
   head do

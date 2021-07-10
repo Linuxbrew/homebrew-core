@@ -15,7 +15,7 @@ class Libantlr3c < Formula
     sha256 cellar: :any, sierra:        "a5e779c431e16bdaab829c774468ce11f8e7ea359412800e294433b011704541"
     sha256 cellar: :any, el_capitan:    "fea1cde8ae732cdbbffa6a6d329239b1da067d2b69424d53178e60309748c403"
     sha256 cellar: :any, yosemite:      "8026d876b20980138c076cb4008f358deb858204b6399c436cf45e93594274e7"
-    sha256 cellar: :any, x86_64_linux:  "7ba5de8cbd399bd3a171def488f92250be15a62ca21c12133d5c1645b3d02487"
+    sha256 cellar: :any, x86_64_linux:  "7ba5de8cbd399bd3a171def488f92250be15a62ca21c12133d5c1645b3d02487" # linuxbrew-core
   end
 
   def install

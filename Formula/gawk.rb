@@ -12,7 +12,7 @@ class Gawk < Formula
     sha256 catalina:      "581b48f781104f0c3233edc30c47628f4eec8c2f1f2e191151f367ce26ec538a"
     sha256 mojave:        "ddbb56c56d66f375147769a27301e2ffd099abdc07f5dfc16389af22028e185b"
     sha256 high_sierra:   "eac1b8c97c682c32a1b6c589818aa8ffb8f09630258ed6f215c882368540713e"
-    sha256 x86_64_linux:  "0f922d5a95472db2e7d5eb067b263d7cd67e03ffba20a47264b2d0c8d01bbab0"
+    sha256 x86_64_linux:  "0f922d5a95472db2e7d5eb067b263d7cd67e03ffba20a47264b2d0c8d01bbab0" # linuxbrew-core
   end
 
   depends_on "gettext"

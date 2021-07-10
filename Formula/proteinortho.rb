@@ -10,7 +10,7 @@ class Proteinortho < Formula
     sha256 cellar: :any,                 big_sur:       "c75afcf372564f4b5f22bbed0bcce9cdb7ec6fef91cd0fcf7e1aba153ecaaf32"
     sha256 cellar: :any,                 catalina:      "090b08218718cb955e4ee1044fc337394d9dc8f745eb83af5dbb4beb7615c153"
     sha256 cellar: :any,                 mojave:        "3861fa61d70fac1b647864001254a196fcd135f435af0d816a87c2605bb538e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cab957581addd7580770220acb61ea61e5a90e06542307c166db7b9d724f6359"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cab957581addd7580770220acb61ea61e5a90e06542307c166db7b9d724f6359" # linuxbrew-core
   end
 
   depends_on "diamond"

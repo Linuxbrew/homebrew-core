@@ -11,7 +11,7 @@ class Ironcli < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:  "c4f4ad82734f93b32a2f64e1adaaf493fa38b4e34cbc9298fbbdc02851003343"
     sha256 cellar: :any_skip_relocation, sierra:       "14d4bcd4ac89e89fb09b27994ba372d1e25690724c99b7ffbfb0231466c01bca"
     sha256 cellar: :any_skip_relocation, el_capitan:   "62bed7f56cf23a148407527ff2b1234638ae0b365806ccc79c602ee081eed1dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1e21387baef4dc4421649413232a17313a831d80702018417ee56892216d05cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1e21387baef4dc4421649413232a17313a831d80702018417ee56892216d05cf" # linuxbrew-core
   end
 
   depends_on "dep" => :build

@@ -14,7 +14,7 @@ class Coffeescript < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "090fe2a4161fbcf4e7615cded97c8e9736f7939c1a70a863f37d83141f5cb118"
     sha256 cellar: :any_skip_relocation, mojave:        "acd2a08cb5db976c36508582ac5ff82476ad9dc037ab065353d071cf46c211f5"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4ee049a8e7bb8a0c67452cb0b912ef5fd4e402c4948cf1b4cb8a5022640df19e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e83af49fa56a8b6562eba8f4d48728258fd12a43f50cd83a76769ed8f055c943"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e83af49fa56a8b6562eba8f4d48728258fd12a43f50cd83a76769ed8f055c943" # linuxbrew-core
   end
 
   depends_on "node"

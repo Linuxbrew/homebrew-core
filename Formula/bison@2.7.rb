@@ -14,7 +14,7 @@ class BisonAT27 < Formula
     sha256 high_sierra:   "ee0e758aa798809aaa3e94f1e3659c9d33497a577c25cfc03ecfe18c25862837"
     sha256 sierra:        "7f1f717becaf0a818b154d3706b88f6c61a102b4f909e030005aaa5433abc34e"
     sha256 el_capitan:    "3b49ff1a76807438bfb6805e513d372fba8d49c0259fe4f28e1587d47e42bf5c"
-    sha256 x86_64_linux:  "a4de258d310b1e5456ab9ab49066896a43ccf777cdd2502dadf7bb2045cf172a"
+    sha256 x86_64_linux:  "a4de258d310b1e5456ab9ab49066896a43ccf777cdd2502dadf7bb2045cf172a" # linuxbrew-core
   end
 
   keg_only :versioned_formula

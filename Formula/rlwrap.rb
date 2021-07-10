@@ -16,7 +16,7 @@ class Rlwrap < Formula
     sha256 big_sur:       "4776bfe5bf3753463d331b150b37be72f4729aa144d9bb45030c56e9ad16c6a0"
     sha256 catalina:      "ca0fa52e2eb8649716938dd6d21a15652a7eeaf2ba0acfcb9cbd6cb9a5dae490"
     sha256 mojave:        "fcfe56a0eac619bcf9d9d1f8f5ddda648e09719c8c78c0db3d599f7edb7a59b7"
-    sha256 x86_64_linux:  "525f35129e98623fbebda88c217862faf363bd9641d20858a9b8c14c120f4458"
+    sha256 x86_64_linux:  "525f35129e98623fbebda88c217862faf363bd9641d20858a9b8c14c120f4458" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -9,7 +9,7 @@ class Libdvdnav < Formula
     sha256 cellar: :any,                 big_sur:       "cabd25ecc0df8a3729e7196737e56041d8d6b9f369972d66de1ade19b4bfbafb"
     sha256 cellar: :any,                 catalina:      "ded7214f830c32676e5a64c2836b5498e44aeaa4967c5753a89c48af66edeaf7"
     sha256 cellar: :any,                 mojave:        "4fe58e754e7174ef7013a89a0620e05b8131bd50ed1de2c54e8b837db81fc4de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "617aa56d6c050c571662c753292b76dfaead0ca4538d1c3e66da6f401d03b847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "617aa56d6c050c571662c753292b76dfaead0ca4538d1c3e66da6f401d03b847" # linuxbrew-core
   end
 
   head do

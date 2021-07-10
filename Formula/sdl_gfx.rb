@@ -17,7 +17,7 @@ class SdlGfx < Formula
     sha256 cellar: :any, high_sierra:   "b1040e970fe68325a37c4a6af037206c28d12ae77f49851a0d28333e7c19a5e4"
     sha256 cellar: :any, sierra:        "643210ccd7a2d9f2fc92d519900bbeb51c1f168729e40860c40e67629ce2ef8a"
     sha256 cellar: :any, el_capitan:    "072983d26bc7e50acd12ef27adab047c3e14e45dff83e98be9ea005c7c107524"
-    sha256 cellar: :any, x86_64_linux:  "8180b7aa9d29e8eb44d3d58a71f56aa9be0aba2d75034db7ba2370051682b252"
+    sha256 cellar: :any, x86_64_linux:  "8180b7aa9d29e8eb44d3d58a71f56aa9be0aba2d75034db7ba2370051682b252" # linuxbrew-core
   end
 
   depends_on "sdl"

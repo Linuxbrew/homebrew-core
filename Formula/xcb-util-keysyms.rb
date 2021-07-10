@@ -10,7 +10,7 @@ class XcbUtilKeysyms < Formula
     sha256 cellar: :any, big_sur:       "702425d6d222f48788f38ab247dd84664f5a4d349484634a9f775b64045cbaca"
     sha256 cellar: :any, catalina:      "6ad4d1328c04a6ef44033161542d0f27f94160cb326af4572c86473e8d0cba09"
     sha256 cellar: :any, mojave:        "a6abcd84a8ded46e939d3551642e08a87fddb9fd8a2744071351086ddd35170c"
-    sha256 cellar: :any, x86_64_linux:  "2a86550481e0c4f0d53883c27463d10d069bc6d97649a8a026108703896d2407"
+    sha256 cellar: :any, x86_64_linux:  "2a86550481e0c4f0d53883c27463d10d069bc6d97649a8a026108703896d2407" # linuxbrew-core
   end
 
   head do

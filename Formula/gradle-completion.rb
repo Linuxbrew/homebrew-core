@@ -7,7 +7,7 @@ class GradleCompletion < Formula
   head "https://github.com/gradle/gradle-completion.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "082fd6d30ecf3beee82a945947b31691ec655ed9ba7150ac52dcf1bb483f57e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "082fd6d30ecf3beee82a945947b31691ec655ed9ba7150ac52dcf1bb483f57e9" # linuxbrew-core
   end
 
   depends_on "bash-completion"

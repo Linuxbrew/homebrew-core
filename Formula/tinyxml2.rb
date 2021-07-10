@@ -11,7 +11,7 @@ class Tinyxml2 < Formula
     sha256 cellar: :any,                 big_sur:       "4df58f65bc6629e1884225503622e07f26e52a9690e24a6e959dd1304b11dbb8"
     sha256 cellar: :any,                 catalina:      "d09e9f6a1833923fea9528a056c663cb5e05b71afacc1fcec7b9b6fbeb30772f"
     sha256 cellar: :any,                 mojave:        "84db2d094fa220b2269cd97bed3fb50edfd23061f6ab9dece09a82562e73a975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3309307a6ddad63d4ef83da82dc33488796775d1aaac1eec0a19d843fc1f9d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3309307a6ddad63d4ef83da82dc33488796775d1aaac1eec0a19d843fc1f9d4" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

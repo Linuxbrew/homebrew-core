@@ -6,7 +6,7 @@ class Elfutils < Formula
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-only"]
 
   bottle do
-    sha256 x86_64_linux: "ce01b01cd668db7abb2afd19e97911e2a52dd8009cf2ac538dabc9591fb181bb"
+    sha256 x86_64_linux: "ce01b01cd668db7abb2afd19e97911e2a52dd8009cf2ac538dabc9591fb181bb" # linuxbrew-core
   end
 
   depends_on "m4" => :build

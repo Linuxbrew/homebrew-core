@@ -15,7 +15,7 @@ class Libuvc < Formula
     sha256 cellar: :any, high_sierra:   "c0ec2076095af1c5154bc43d18a5869b5678f026f1b3c76964f136e4ada07717"
     sha256 cellar: :any, sierra:        "1888941024fe1b8ca44f15b98e51390872286c0145806fbd0a61999bab225905"
     sha256 cellar: :any, el_capitan:    "4defbab7e171c20da065eb5e4f2b11b5b27165efbd850e742674be281f3a0fcd"
-    sha256 cellar: :any, x86_64_linux:  "53b5d544c54769aca873258fa6d022cf0a342173d90f92373439cc25b68bd434"
+    sha256 cellar: :any, x86_64_linux:  "53b5d544c54769aca873258fa6d022cf0a342173d90f92373439cc25b68bd434" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -18,7 +18,7 @@ class UcspiTcp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "46d324e867e5a35cbb17e8a215ff33f693651d11645eed116e4e4a6c02085b34"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a57368e57812063bc4e1450c0bef5cad8392c44e54abf3c8ca950ea51abe7ae9"
     sha256 cellar: :any_skip_relocation, yosemite:      "727e93394b415da772b43ce5028ad54dcb569f695e6c8c4cdf05dc462b2febbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11588cce324099f1e6d4f25d2d57714ce1d4030ff825f9d460c935d876801073"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11588cce324099f1e6d4f25d2d57714ce1d4030ff825f9d460c935d876801073" # linuxbrew-core
   end
 
   # IPv6 patch

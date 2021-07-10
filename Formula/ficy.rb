@@ -17,7 +17,7 @@ class Ficy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "eb6228a79e94bd6a6d37ec647da5b0ca1863ba03992d93bed90071858d0be55e"
     sha256 cellar: :any_skip_relocation, catalina:      "9974dd8c30bcfe482222a8e6f4040c6c5ccb21c7ef6b893dbbf3033f7e5a85ab"
     sha256 cellar: :any_skip_relocation, mojave:        "01d1a72a131cb19375bc8a068a59759d3207a60c84a4772cd8d52641ae1f8b8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "444ee03e04226f979f00d81206a21a58c190a5605680a2a3b8012ab04a82e851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "444ee03e04226f979f00d81206a21a58c190a5605680a2a3b8012ab04a82e851" # linuxbrew-core
   end
 
   def install

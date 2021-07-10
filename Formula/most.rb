@@ -17,7 +17,7 @@ class Most < Formula
     sha256 cellar: :any, mojave:        "aa9766e4fa0be084108b370c639060b7a27e5ff8eb90c649cbc643160659932f"
     sha256 cellar: :any, high_sierra:   "192ccb3fe86ae7766bd1aadb8e92d8bc7a28cb666fffe52d0750c6c2a4450657"
     sha256 cellar: :any, sierra:        "9a9d74a50ade82af787d47e5f6514df01a47b5159dc1521d93c470ce8554743e"
-    sha256 cellar: :any, x86_64_linux:  "7fb09694c31232093bc0c65fd3dd43b6ed4f42f86ae4682333cd08ab0b9f998a"
+    sha256 cellar: :any, x86_64_linux:  "7fb09694c31232093bc0c65fd3dd43b6ed4f42f86ae4682333cd08ab0b9f998a" # linuxbrew-core
   end
 
   depends_on "s-lang"

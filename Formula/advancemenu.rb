@@ -11,7 +11,7 @@ class Advancemenu < Formula
     sha256 catalina:      "07f9a82231936429257190078d28ec7313b39dfe9ecf3ed9e82b15fbe1615366"
     sha256 mojave:        "36ebf0c6727172fa909b933f801986e483892d5cb10c0a2fb27314880d906bd1"
     sha256 high_sierra:   "fda952fe67d2c39e57d621b6a1392493a95c8ef62f510f63534f962a97252d26"
-    sha256 x86_64_linux:  "30a22cc194562e66fd231e2d476de80ebad66477a5f8cf6b86fecca1f98b950e"
+    sha256 x86_64_linux:  "30a22cc194562e66fd231e2d476de80ebad66477a5f8cf6b86fecca1f98b950e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

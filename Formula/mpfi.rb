@@ -18,7 +18,7 @@ class Mpfi < Formula
     sha256 cellar: :any, mojave:        "55d8819c0310e6b8bc66742f7ab5881b9b552a9c60eaf940595ed08e8a320a56"
     sha256 cellar: :any, high_sierra:   "d4464bdbbb2861861fa92e471f75e1b658e7c5f5814028a6c57f74c76092b013"
     sha256 cellar: :any, sierra:        "50d3b78c1ef6837198a0320dbbe0852ad524f83bc2e12460bfbdc188bd1da76a"
-    sha256 cellar: :any, x86_64_linux:  "9d948d4b378594da197972541f316203868402c5aab7b8b32aa5b83bdad0bd07"
+    sha256 cellar: :any, x86_64_linux:  "9d948d4b378594da197972541f316203868402c5aab7b8b32aa5b83bdad0bd07" # linuxbrew-core
   end
 
   depends_on "gmp"

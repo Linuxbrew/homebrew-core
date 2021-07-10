@@ -22,7 +22,7 @@ class LittleCms2 < Formula
     sha256 cellar: :any,                 big_sur:       "70eaa9b280425731f7dcf104e75d4ae1e6a90421e1a741e0fe82859361c8ae84"
     sha256 cellar: :any,                 catalina:      "0f782fa69d2e12e9c1765df4ae1b7bd87143402aa1840d483092f3b74f89ae19"
     sha256 cellar: :any,                 mojave:        "69af639323557bdd2c09fdaf354d9830441014f98609609146a8c836c752ac10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8844b0b5e0eeb0ef25fe7c057b94e097fbfa97814f02ac7a1b8f1d64a90a3569"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8844b0b5e0eeb0ef25fe7c057b94e097fbfa97814f02ac7a1b8f1d64a90a3569" # linuxbrew-core
   end
 
   depends_on "jpeg"

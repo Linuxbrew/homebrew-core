@@ -19,7 +19,7 @@ class Cryptominisat < Formula
     sha256                               big_sur:       "ca952863f4a030cff0f60b3dc1b598c9a070460b5372577e63c8df577008e5eb"
     sha256                               catalina:      "9314367f35d7d82790d4840b04d744fba37196f068fa38b899c7ac4c7e8f987b"
     sha256                               mojave:        "2ad7c47169eae4780e42ddec65f1f6144fc59ee5585dd8d26ff5d270d25d9cc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6484b29e1019b87a16ea79207b7d2dd69933eae1a7c405f58f04a1f570e5eca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6484b29e1019b87a16ea79207b7d2dd69933eae1a7c405f58f04a1f570e5eca" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

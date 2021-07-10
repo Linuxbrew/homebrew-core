@@ -13,7 +13,7 @@ class Libao < Formula
     sha256 catalina:      "703bfcae17a364ad0e526d5556b3583d1864c6db4c52ba85ef64dc0600039372"
     sha256 mojave:        "932b3a41565e678489471dae66b29fea1ca2de6013c2559f9c34cc5e9bd5a33f"
     sha256 high_sierra:   "d7144edd6dc64b987d9a9d584799fe20a76ed92f2b1b18c074a6846926f23169"
-    sha256 x86_64_linux:  "15cc75f026413a6866aab48694f9f72eaa751247a934a950d3624213f09644f3"
+    sha256 x86_64_linux:  "15cc75f026413a6866aab48694f9f72eaa751247a934a950d3624213f09644f3" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

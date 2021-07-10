@@ -6,7 +6,7 @@ class GitOpen < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b9a415294b615c483c64ea122544f80ccde480db013ced6c62b558c5cdabff74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b9a415294b615c483c64ea122544f80ccde480db013ced6c62b558c5cdabff74" # linuxbrew-core
   end
 
   def install

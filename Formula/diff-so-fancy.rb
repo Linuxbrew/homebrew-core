@@ -7,7 +7,7 @@ class DiffSoFancy < Formula
   head "https://github.com/so-fancy/diff-so-fancy.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8450eafcc6360a778332968ad63287e8c5e474d9141159a6986ad31397336155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8450eafcc6360a778332968ad63287e8c5e474d9141159a6986ad31397336155" # linuxbrew-core
   end
 
   def install

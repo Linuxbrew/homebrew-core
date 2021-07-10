@@ -11,7 +11,7 @@ class Jvgrep < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d7d7ed4778bab36afa71a8b06b5a42b5d4178bb3bd08c94a90e9f099af5ea92e"
     sha256 cellar: :any_skip_relocation, catalina:      "da1235bed154594ddbda2614b02a42cefe359aeb02835bd99cce97642aa83df7"
     sha256 cellar: :any_skip_relocation, mojave:        "dde02ed909386bfbbd045fb7c6109544a7e7f3f047b0add74d2ace9ff1fa5d62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "445e2bd02e005dc839548ab12c5500507a78c687d07e51cb2d8971b01c94f2b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "445e2bd02e005dc839548ab12c5500507a78c687d07e51cb2d8971b01c94f2b2" # linuxbrew-core
   end
 
   depends_on "go" => :build

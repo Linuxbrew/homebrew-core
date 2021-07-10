@@ -12,7 +12,7 @@ class Findutils < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ba06afcd59371297f232da8d59a68ebc2d66ce3ffdad3e83f65e2e9abb47a4c0"
     sha256 cellar: :any_skip_relocation, catalina:      "7e47d6ae1e52d796ce0fd989c17ac169f1b78206e62a28274fe25296185a8a66"
     sha256 cellar: :any_skip_relocation, mojave:        "78cf4e5b65633636743fd29b7fd3b48aebd20bed727203dc244192fdfa543f62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bec72672e565f9653e474489adb7a9f67da208026600af31a149f8e6f08640c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bec72672e565f9653e474489adb7a9f67da208026600af31a149f8e6f08640c3" # linuxbrew-core
   end
 
   def install

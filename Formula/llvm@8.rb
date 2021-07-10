@@ -10,7 +10,7 @@ class LlvmAT8 < Formula
     sha256 cellar: :any,                 catalina:     "ab099d84e5f0a58ea37172fd85753336d855fc25e9459ceff12ddc2dbb56ef71"
     sha256 cellar: :any,                 mojave:       "ee795cbebce64f79bbcf7c42526093df7bd2e5e986a721197bca5cf6c822e87a"
     sha256 cellar: :any,                 high_sierra:  "3f80b7119307b128b1e3ae8a2fea97a9878afb5a7436a7d35615b1e743bc7622"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "45da03e8b833c66c310e25c997567728b9a906f8fa81a178c7c268532c48e779"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "45da03e8b833c66c310e25c997567728b9a906f8fa81a178c7c268532c48e779" # linuxbrew-core
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed

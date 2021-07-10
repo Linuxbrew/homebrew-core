@@ -15,7 +15,7 @@ class Orc < Formula
     sha256 cellar: :any, catalina:      "df8ed6c8e2d13c9425174f38a6ff60d291cc3febababa670ebe74b21fe56ceab"
     sha256 cellar: :any, mojave:        "8b11d82f1c1e51fe41d4b7cf1a905f72bdb977ce2acc0eafcf2ba6b89f06d58c"
     sha256 cellar: :any, high_sierra:   "d347537787016fa19c7653a9912e0c11d134f10e96a75bc0f5bb28e221e012d8"
-    sha256 cellar: :any, x86_64_linux:  "40d56f593ecf67d184f45482de66f7dc357abae1f7fb5e9cf53efa79d57786ad"
+    sha256 cellar: :any, x86_64_linux:  "40d56f593ecf67d184f45482de66f7dc357abae1f7fb5e9cf53efa79d57786ad" # linuxbrew-core
   end
 
   depends_on "meson" => :build

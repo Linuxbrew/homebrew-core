@@ -11,7 +11,7 @@ class Icecream < Formula
     sha256 catalina:      "666f827a6a686e6d2e81dc1d0eb5aae8374f01d7d1524ef6c695e3bf207c4af5"
     sha256 mojave:        "fb94b2d8e763469a2b0112523f89496f4a81e22ed9b7290f4280178f726853da"
     sha256 high_sierra:   "6cc11bcddd969e9aeb7e83692e9714d5891f0530bacbc1c52b019b298bce3d24"
-    sha256 x86_64_linux:  "61972acf33fce83d9ddc20a148cc4294b4d913e2de7c3ffb380b606504162b24"
+    sha256 x86_64_linux:  "61972acf33fce83d9ddc20a148cc4294b4d913e2de7c3ffb380b606504162b24" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

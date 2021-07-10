@@ -10,7 +10,7 @@ class Libiodbc < Formula
     sha256 cellar: :any,                 big_sur:       "ee25a27296ec772e888b1631f4f937ddba2e848c550f3ae0af70abb3c5089cf9"
     sha256 cellar: :any,                 catalina:      "1ef55cd149e392eca7c0708cc24a928d5b762e672e2651902b8fea24f2d76f20"
     sha256 cellar: :any,                 mojave:        "e8afda31c8d863560d0b45da2e0b09f452daca6bbe6b37762366743843f0f3b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2d26a3f634393d8351e612de1646ea705b61c9c758a10d7efd384a27055514b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2d26a3f634393d8351e612de1646ea705b61c9c758a10d7efd384a27055514b" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

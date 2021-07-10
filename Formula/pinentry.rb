@@ -16,7 +16,7 @@ class Pinentry < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b2fca70261e4f8a945628d62d8d673ee75df71bffa469616447928ab05eaa9bb"
     sha256 cellar: :any_skip_relocation, catalina:      "83a923d3334fa79364af9539de6126014209b8f50a313b7a085986d06fe80753"
     sha256 cellar: :any_skip_relocation, mojave:        "92cf647e09770cda92dd77ef0814da6ea8b69a27710e73fc4bf601e0d9d8a8ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "367942193e532fdcffc5147450dff9ad8dd81cb30f817e477eaf1cca424945cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "367942193e532fdcffc5147450dff9ad8dd81cb30f817e477eaf1cca424945cc" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

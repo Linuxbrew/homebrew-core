@@ -14,7 +14,7 @@ class XalanC < Formula
     sha256 cellar: :any, high_sierra:  "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f"
     sha256 cellar: :any, sierra:       "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c"
     sha256 cellar: :any, el_capitan:   "0b99ebef6e23b1c0d1e67d4ed8130130ad5c7b6af03f43ea9248c2d78e19a5cc"
-    sha256 cellar: :any, x86_64_linux: "263e1a1314c7e6490530dce0e10940052480f9bad379439811becaeb035ec88e"
+    sha256 cellar: :any, x86_64_linux: "263e1a1314c7e6490530dce0e10940052480f9bad379439811becaeb035ec88e" # linuxbrew-core
   end
 
   depends_on "xerces-c"

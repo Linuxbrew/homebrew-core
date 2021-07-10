@@ -11,7 +11,7 @@ class Vert < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:  "b7c63c671335e19afca83f08091a987c35576eb4cb94f1d7b00490d1448f3e77"
     sha256 cellar: :any_skip_relocation, sierra:       "e189a592a062ef9e2cc19506f99272ffc9f97f3e529a54eddd7287f0c9574935"
     sha256 cellar: :any_skip_relocation, el_capitan:   "534043c69cbd56a22d656ba873e180e628b3a0ace433d8f020b886212afa050e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "916f756c60905850e023b2f4ababf182503fca57ea80f811d211e5b77e3cdf1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "916f756c60905850e023b2f4ababf182503fca57ea80f811d211e5b77e3cdf1b" # linuxbrew-core
   end
 
   depends_on "dep" => :build

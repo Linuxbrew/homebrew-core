@@ -16,7 +16,7 @@ class OathToolkit < Formula
     sha256 big_sur:       "ed6ceb54edc0b0bea449a75c756b604c6204f6fd80c9e280ce57b1e3d7140ac7"
     sha256 catalina:      "04c85d25d9c1e8cac2164a4b538344f95181346fd3170e65e43173aca6770b6d"
     sha256 mojave:        "136fc9c533486f31645fdd6594d96fc8f17487439248b78a8c42a868ce7aaacb"
-    sha256 x86_64_linux:  "6c8d61f34d34082fb448fcb520c1dffc18e157adffcf18d8b447a925cb6aa0c3"
+    sha256 x86_64_linux:  "6c8d61f34d34082fb448fcb520c1dffc18e157adffcf18d8b447a925cb6aa0c3" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

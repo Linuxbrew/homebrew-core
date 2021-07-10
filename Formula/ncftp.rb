@@ -17,7 +17,7 @@ class Ncftp < Formula
     sha256 big_sur:       "be10854d86393b58f542fbe778bf650c90a9635fbd14eff8149459838c4455c6"
     sha256 catalina:      "c5759f94e328047e35a3f22c63ecf7bf7051edbc68432b3eb9db6c61d8f84bb2"
     sha256 mojave:        "381492aa09e004859600ffc441ebd4dfe1c75685099debf5a7c283c15785a26c"
-    sha256 x86_64_linux:  "ea6666551a48994028a11b9cc968e08bc78d7fb16a68e847083ab3fdaa7694c9"
+    sha256 x86_64_linux:  "ea6666551a48994028a11b9cc968e08bc78d7fb16a68e847083ab3fdaa7694c9" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

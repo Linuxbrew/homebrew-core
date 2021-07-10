@@ -15,7 +15,7 @@ class GnuShogi < Formula
     sha256 sierra:        "677531c9eb7bdd01f22862c24d5ab144f7b78bd672223854fc169d103a9924e2"
     sha256 el_capitan:    "49ff431036e172362b24dc7eca426a638ec2953ea014c67e4cae239e9175bf27"
     sha256 yosemite:      "1fbc9bf567ea4c50c5bb12fda953e18ce8617298d474ed8a56ca2b9dd24b2726"
-    sha256 x86_64_linux:  "336a04422baf73ef1f8d3da3ff4616335d644a1bb116b40445999352a06bdc05"
+    sha256 x86_64_linux:  "336a04422baf73ef1f8d3da3ff4616335d644a1bb116b40445999352a06bdc05" # linuxbrew-core
   end
 
   def install

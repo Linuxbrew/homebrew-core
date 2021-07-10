@@ -10,7 +10,7 @@ class Libfido2 < Formula
     sha256 cellar: :any,                 big_sur:       "d8c08675127341e5722cc32655264db3302452236b8cf0f2c50df3482c3aa4fa"
     sha256 cellar: :any,                 catalina:      "23f50861ba90e4741bb83ef2eb0528d5c857ae8d1de3b419c76ffb4605244b7e"
     sha256 cellar: :any,                 mojave:        "2c8b902da49a858e8c6ab479e63bf2138515ceb3d98c0ae4e36631bf06901c9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "721eed6cdc7a32727dba6e11ced1a69025e686b6b6b1f33bf183d01a34ffa3f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "721eed6cdc7a32727dba6e11ced1a69025e686b6b6b1f33bf183d01a34ffa3f9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

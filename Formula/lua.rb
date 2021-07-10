@@ -17,12 +17,12 @@ class Lua < Formula
     sha256 cellar: :any,                 big_sur:       "e59dc980047218242a11cd735216b5ec881c45c60f50fffd5edd68450c281b94"
     sha256 cellar: :any,                 catalina:      "e79726810bfb57b4803ddba7f83a6e1b231724a3d19d8bfc63ba6a003f2fe886"
     sha256 cellar: :any,                 mojave:        "862243ef1193911dc07afcafcfbcbda1b6834d528dbdbfdd5558a27ef902d044"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1465450038e1e18b964533e18b2213f851d90430b756c21e462df0dc71926527"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1465450038e1e18b964533e18b2213f851d90430b756c21e462df0dc71926527" # linuxbrew-core
   end
 
   uses_from_macos "unzip" => :build
 
-  if OS.mac?
+  on_macos do
     # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
     # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
     patch do
@@ -34,25 +34,28 @@ class Lua < Formula
   on_linux do
     depends_on "readline"
 
-    # Add shared library for linux
-    # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
+    # Add shared library for linux. Equivalent to the mac patch above.
     # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     patch do
-      url "https://gist.githubusercontent.com/dawidd6/fbec1d0179f8b8f7d026ed48c2f177a6/raw/a03a2dc572287314861db3c5f761427c30691c29/lua-5.4.patch"
-      sha256 "6549934065eb131a13713dca7fd5143b9d90e3f0654be49294cf56bc4bb5cc0f"
+      url "https://raw.githubusercontent.com/iMichka/formula-patches/c20f0fbc7a647129025911410d42100d0c38a7ab/lua/lua-so.patch"
+      sha256 "da80df731a9b03f346fb6582a176f1b5d6d02bc36faa93d046cdf60dc44d4eca"
     end
   end
 
   def install
-    # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
-    # when making a shared object; recompile with -fPIC
-    # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
-    ENV.append_to_cflags "-fPIC" unless OS.mac?
+    on_linux do
+      # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+      # when making a shared object; recompile with -fPIC
+      # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+      ENV.append_to_cflags "-fPIC"
+    end
 
     # Substitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      s.gsub! "@OPT_LIB@", opt_lib if OS.mac?
+      on_macos do
+        s.gsub! "@OPT_LIB@", opt_lib
+      end
       s.remove_make_var! "CC"
       s.change_make_var! "MYCFLAGS", ENV.cflags
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -61,12 +64,14 @@ class Lua < Formula
     # Fix path in the config header
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
-    # We ship our own pkg-config file as Lua no longer provide them upstream.
     os = "macosx"
-    os = "linux" unless OS.mac?
+    on_linux do
+      os = "linux"
+    end
 
-    system "make", os, "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    # We ship our own pkg-config file as Lua no longer provide them upstream.
+    system "make", os, "INSTALL_TOP=#{prefix}"
+    system "make", "install", "INSTALL_TOP=#{prefix}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -75,10 +80,13 @@ class Lua < Formula
     bin.install_symlink "luac" => "luac#{version.major_minor}"
     bin.install_symlink "luac" => "luac-#{version.major_minor}"
     (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install Dir[shared_library("src/liblua", "*")] unless OS.mac?
     lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
+
+    on_linux do
+      lib.install Dir[shared_library("src/liblua", "*")]
+    end
   end
 
   def pc_file

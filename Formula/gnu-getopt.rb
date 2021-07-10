@@ -10,7 +10,7 @@ class GnuGetopt < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e9b50df1befbbee936eda326aae7479e0a0557964eb29e5ae6ba68cd15f93a0e"
     sha256 cellar: :any_skip_relocation, catalina:      "f496f191c9e3d5dd178255bf2baac2e9933ff7aeef4904a10539e8b98e80df4c"
     sha256 cellar: :any_skip_relocation, mojave:        "804cd9ab8706b9aed9b2ebc7bccfbdbea97cc261bf0f0cb70ef9788070d8685a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4f2dd671f163476c6b46b1556bb19b56ce8b11e5b30d24d0a8f70faf5cce05a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4f2dd671f163476c6b46b1556bb19b56ce8b11e5b30d24d0a8f70faf5cce05a" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

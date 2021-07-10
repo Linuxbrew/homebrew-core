@@ -16,7 +16,7 @@ class Pngquant < Formula
     sha256 cellar: :any,                 big_sur:       "0bc025960043fb557d6d539dcf23b28b92f2bea1510633ab60f18be46291df69"
     sha256 cellar: :any,                 catalina:      "4ebceda76f537444ec729a1728b319f3023b2e14d22e7921c6159060c20e0bea"
     sha256 cellar: :any,                 mojave:        "ca06335788b3f0e24dd910b8efaf6222f4c742cbb5bf2bbdc6ec4e6bf802b69d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d71454505590c40c8bd10a47372b2cc0dcabd6ec56e211a3955734f9ddb638e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d71454505590c40c8bd10a47372b2cc0dcabd6ec56e211a3955734f9ddb638e9" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

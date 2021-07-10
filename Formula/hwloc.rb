@@ -10,7 +10,7 @@ class Hwloc < Formula
     sha256 cellar: :any,                 big_sur:       "d0b225d121dcd50e56b2b592a2670f05e94d48316cd37e6c254c36b99690e278"
     sha256 cellar: :any,                 catalina:      "39a52a77a6f45eed5601095cd8e4e96e978683fab21231547367903d21943ead"
     sha256 cellar: :any,                 mojave:        "27fe1f8278655b12f5392ea303c3c3083ab71bb8db42a111192e6e72bd898c9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f7287be85049666d39d9563272f153f91915fe6f288386427e2abd63ab98a81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f7287be85049666d39d9563272f153f91915fe6f288386427e2abd63ab98a81" # linuxbrew-core
   end
 
   head do

@@ -10,7 +10,7 @@ class Octomap < Formula
     sha256                               big_sur:       "476b64c7554e93e2f14955fb5d0063bddfc097cb5bcef1e06ffc934e182fff2c"
     sha256                               catalina:      "de360e7e0e3d6ec32157a5efe614481a077913b80540eca1f3dfc65f0c32bf80"
     sha256                               mojave:        "2108b9e2a70a4e8f2eb6581ff525570d83eb7a603f4af0cb69c2d9caeb5c16b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c1d8649f77df789d363e6ac9a3e06281c755fef1ff63b400eff264ee8311d16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c1d8649f77df789d363e6ac9a3e06281c755fef1ff63b400eff264ee8311d16" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

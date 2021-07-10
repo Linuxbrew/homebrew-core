@@ -12,7 +12,7 @@ class Dwatch < Formula
     sha256 catalina:      "c79f51f4329569d682357a97014bd67a14ac1444e4fb983abd3a9e96339ba87a"
     sha256 mojave:        "69b3cb7cc60c1635c3134a0cd5e9dd884b3e28f52955e62da9beb0605e43cff5"
     sha256 high_sierra:   "fdf97f373c4bb18a3025d0f4acd9e16c826eca19cb60c9abd59d59bee8741c0f"
-    sha256 x86_64_linux:  "1d0a738bdfb6cf47f3b6d582d3e0bf8607689334cf80948c2b903e1c6f189199"
+    sha256 x86_64_linux:  "1d0a738bdfb6cf47f3b6d582d3e0bf8607689334cf80948c2b903e1c6f189199" # linuxbrew-core
   end
 
   def install

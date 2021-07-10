@@ -12,7 +12,7 @@ class Pms < Formula
     sha256 cellar: :any, mojave:        "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30"
     sha256 cellar: :any, high_sierra:   "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638"
     sha256 cellar: :any, sierra:        "fa90afc92fc9d1e57a9a0a74dc63d3ec5ba92f1430caf5cad8fa54362b0da298"
-    sha256 cellar: :any, x86_64_linux:  "8696449a4eedb33228b49209278efbb68f90d13f9894cfea5cc37687d88d0b78"
+    sha256 cellar: :any, x86_64_linux:  "8696449a4eedb33228b49209278efbb68f90d13f9894cfea5cc37687d88d0b78" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

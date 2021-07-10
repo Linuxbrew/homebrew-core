@@ -6,7 +6,7 @@ class AdwaitaIconTheme < Formula
   license any_of: ["LGPL-3.0-or-later", "CC-BY-SA-3.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "367fd378095085af2085112474b6d603e3f6363bcbedb8bd63d835ba4ed5cab0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "367fd378095085af2085112474b6d603e3f6363bcbedb8bd63d835ba4ed5cab0" # linuxbrew-core
   end
 
   depends_on "gettext" => :build

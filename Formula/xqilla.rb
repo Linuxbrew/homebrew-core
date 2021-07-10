@@ -18,7 +18,7 @@ class Xqilla < Formula
     sha256 cellar: :any, high_sierra:   "38579e6ab1b6f6801ca5404cc79fcd972f395b9dd2e981672889b3eac5441c86"
     sha256 cellar: :any, sierra:        "0f1ef8f2aa1349b723062426a3e44fba2821bcf93316bacabf4c5e2948093bc4"
     sha256 cellar: :any, el_capitan:    "4326ec876d3e05647320c4ab55824c37531af997cc723f303fac4c4b40153753"
-    sha256 cellar: :any, x86_64_linux:  "18e7b349da94d52a40be41747e69fd4d8aa64fa668aee85e31b047257ae01a89"
+    sha256 cellar: :any, x86_64_linux:  "18e7b349da94d52a40be41747e69fd4d8aa64fa668aee85e31b047257ae01a89" # linuxbrew-core
   end
 
   depends_on "xerces-c"

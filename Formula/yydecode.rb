@@ -14,7 +14,7 @@ class Yydecode < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "e2e7285f1f2b18b4b99800602d15932dba435f6480c5776e5b57b734727f652f"
     sha256 cellar: :any_skip_relocation, sierra:        "91dc4fe34931d45fcebaead39ce505116322c7866e786cf86a7065f9e57b42ac"
     sha256 cellar: :any_skip_relocation, el_capitan:    "07aa31cabc4f2533df3b5670beed1ba99e3e7dcc3ffb3cf55fff56866e7bf11e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29e030d103507190633e2070ff380510b53719d0dbc22038b3ce5d56ae993cae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29e030d103507190633e2070ff380510b53719d0dbc22038b3ce5d56ae993cae" # linuxbrew-core
   end
 
   def install

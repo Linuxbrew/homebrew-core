@@ -13,7 +13,7 @@ class OpenTyrian < Formula
     sha256 catalina:      "5e66ea919c426dcce63be043164439b258a22a906ece3b3b1ec1e41147ac0b76"
     sha256 mojave:        "f49d2282ee86031f1c1442b6d1eb2fb2753286cb89207b63f03ee98e51e9221f"
     sha256 high_sierra:   "541d2f9a00f4a56b9464c44994c94da0afeab340c1b3809b61a0c437fda69b7f"
-    sha256 x86_64_linux:  "25364076b9371b79fef80c301cd420eab68a0b54ca621e4d1c21ca95d32facf7"
+    sha256 x86_64_linux:  "25364076b9371b79fef80c301cd420eab68a0b54ca621e4d1c21ca95d32facf7" # linuxbrew-core
   end
 
   depends_on "sdl"

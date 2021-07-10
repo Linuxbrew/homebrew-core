@@ -12,7 +12,7 @@ class Wv < Formula
     sha256 mojave:        "e3b62df7fad6fefbd233abc45ede4f9705b447df51433e0129a82d98dc321811"
     sha256 high_sierra:   "470ecfe6b84e931d4c4363b8274a04d42b2e2c3b6c5f50bc12b55a7fda6f5acb"
     sha256 sierra:        "7df867080d9b2edb57780c5f971a4a22d01c301aff70c1af7a6ce13385828908"
-    sha256 x86_64_linux:  "3cdd75690a26f3dc49b27296044a3c19afb7cacf812ef32f4eb23209b84afb06"
+    sha256 x86_64_linux:  "3cdd75690a26f3dc49b27296044a3c19afb7cacf812ef32f4eb23209b84afb06" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

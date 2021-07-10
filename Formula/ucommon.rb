@@ -17,7 +17,7 @@ class Ucommon < Formula
     sha256 high_sierra:   "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c"
     sha256 sierra:        "0546fbc44ac1e17d8757b41a67b2d68b15bc872b4b19fea649e5d7fe54a4d2d4"
     sha256 el_capitan:    "57756d7809936ed885ef8fc7a284498ab12a5be6cc1ad41ad148dd45074fc322"
-    sha256 x86_64_linux:  "a49fe93e60a6eb5b93c6f2c64db995085739c55e715d1c9b5a0f2d0b17c496ae"
+    sha256 x86_64_linux:  "a49fe93e60a6eb5b93c6f2c64db995085739c55e715d1c9b5a0f2d0b17c496ae" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

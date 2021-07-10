@@ -10,7 +10,7 @@ class Calc < Formula
     sha256 big_sur:       "cdc2b4bce30dccf2193ea5a457dfa02e4ae1ba0af97fce660221c5d3882e79a3"
     sha256 catalina:      "95bce9b12aab68a4d8e30121e0a0be5e0e7447e09bcc11d9d7e371956c724433"
     sha256 mojave:        "57ac9fb9353e5bd4dd6bf6f62aca96252a064e51d102fd89389934fefa999b2c"
-    sha256 x86_64_linux:  "71bf85560fa4ab29c1929b7225b7630a7f02b05cfd446a3bb5d027b0c7787e89"
+    sha256 x86_64_linux:  "71bf85560fa4ab29c1929b7225b7630a7f02b05cfd446a3bb5d027b0c7787e89" # linuxbrew-core
   end
 
   depends_on "readline"

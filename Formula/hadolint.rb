@@ -10,7 +10,7 @@ class Hadolint < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cd0497cca38f6a6ad914f34951bf4178cc689f3599ce000377f3049ead0ffbbd"
     sha256 cellar: :any_skip_relocation, catalina:      "88978464f63f97957d17ce8a3728a6575815ecb4ee6d2a670ade6c166e23c041"
     sha256 cellar: :any_skip_relocation, mojave:        "77f170344d5275b6eebbed7699d5f2406a30532b35edce0e60f1ab5cf312ff35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bde5a29f457932ee0fdc39eea007b52a6612a975bdd6ba880450749876b1a9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bde5a29f457932ee0fdc39eea007b52a6612a975bdd6ba880450749876b1a9a" # linuxbrew-core
   end
 
   depends_on "ghc" => :build
@@ -18,17 +18,7 @@ class Hadolint < Formula
 
   uses_from_macos "xz"
 
-  on_linux do
-    depends_on "gmp"
-  end
-
   def install
-    unless OS.mac?
-      gmp = Formula["gmp"]
-      ENV.prepend_path "LD_LIBRARY_PATH", gmp.lib
-      ENV.prepend_path "LIBRARY_PATH", gmp.lib
-    end
-
     # Let `stack` handle its own parallelization
     jobs = ENV.make_jobs
     ENV.deparallelize

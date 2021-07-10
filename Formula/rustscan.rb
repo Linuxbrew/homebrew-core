@@ -10,7 +10,7 @@ class Rustscan < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "21f4b50689613475ca9194ecae3b062e874d49bb987b1949f453885360715200"
     sha256 cellar: :any_skip_relocation, mojave:       "135ddda8cfa5a670c0c49e3730148e8f50dfa1b597d9bdf2c35b5fc4d5a8fd9e"
     sha256 cellar: :any_skip_relocation, high_sierra:  "d830a6c803a7cd609c6287452f9c02bb855e1f193463b2655cc2df19e46e1f6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4b0a7c4a9589907ccd517995757a088d363a6383cb9cdf2fec6d339242494691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4b0a7c4a9589907ccd517995757a088d363a6383cb9cdf2fec6d339242494691" # linuxbrew-core
   end
 
   depends_on "rust" => :build

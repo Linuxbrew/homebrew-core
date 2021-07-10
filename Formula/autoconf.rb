@@ -14,7 +14,7 @@ class Autoconf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0aa64f171bac19ce6ac0c0ca697f30658db78cf175550dfde3dbda907b7f2500"
     sha256 cellar: :any_skip_relocation, catalina:      "258a94bef23057c52818adf64d682af20bc6e09b46eac135047e2b87fc8206c7"
     sha256 cellar: :any_skip_relocation, mojave:        "e94578bf4b4832baef1c9bbb40cb4da5fdbd9c66be5ed8d070f78be5f0cca618"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9418ac77fd55b17d2f4a5dc9bc08d2209e0bdd168942fd9dd1b7c20701cb394"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9418ac77fd55b17d2f4a5dc9bc08d2209e0bdd168942fd9dd1b7c20701cb394" # linuxbrew-core
   end
 
   depends_on "m4"

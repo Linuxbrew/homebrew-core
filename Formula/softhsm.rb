@@ -21,7 +21,7 @@ class Softhsm < Formula
     sha256 catalina:      "6da111cdadbcf0127882e2bec5b3844454fd9b4e00a08d1fa49aa2f389b7062c"
     sha256 mojave:        "b7abd86dfec3d10f5e5cde00f2bcd5e0e19e2d9674c50a431db1195c4655dfec"
     sha256 high_sierra:   "73c40f26209dbf29280c16aefdfb492c749d8e14e4cbf83dc2a5b566c22f6bc9"
-    sha256 x86_64_linux:  "d8194e5b07fdc2dab12e5a361ea0c3becaed7afcf489bd1311530e78756c4488"
+    sha256 x86_64_linux:  "d8194e5b07fdc2dab12e5a361ea0c3becaed7afcf489bd1311530e78756c4488" # linuxbrew-core
   end
 
   head do

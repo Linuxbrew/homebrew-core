@@ -12,7 +12,7 @@ class Libssh < Formula
     sha256 cellar: :any, big_sur:       "ba9752b774a055a0df12b12cb76c8faed66b13de0f8ebbb8d415dae9f21a899d"
     sha256 cellar: :any, catalina:      "85e25fa108135c48e655b4d26fb716430bea5795e13a7e61011d34c3f75be2dd"
     sha256 cellar: :any, mojave:        "d5ae563dad7c55f63a2509838a98df08643b13c07e1febd9ddeddf79ecfe043a"
-    sha256 cellar: :any, x86_64_linux:  "9367e79298e7011227dbafb0a87dbfee363714c6601c91407583725486f51d9a"
+    sha256 cellar: :any, x86_64_linux:  "9367e79298e7011227dbafb0a87dbfee363714c6601c91407583725486f51d9a" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

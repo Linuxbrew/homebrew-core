@@ -16,7 +16,7 @@ class Flif < Formula
     sha256 cellar: :any, sierra:        "756f685e55f7c798743756723815fb3f39d82ef92f5cc78eb175d8cea52498a3"
     sha256 cellar: :any, el_capitan:    "3fd4e69366470a6810815d111a8e0188c627fe7d50375cd93c0da00ad6617fb2"
     sha256 cellar: :any, yosemite:      "bbd4e35f6947e3b304469031f42c3720a94c10d9fb7540eed9e7b08bef6ee319"
-    sha256 cellar: :any, x86_64_linux:  "3aa9b634a54ea22b761782b0d29bbc5a306dccbb1d194e67a26e3dfe92a01f5b"
+    sha256 cellar: :any, x86_64_linux:  "3aa9b634a54ea22b761782b0d29bbc5a306dccbb1d194e67a26e3dfe92a01f5b" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

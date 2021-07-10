@@ -13,7 +13,7 @@ class MagicWormhole < Formula
     sha256 cellar: :any,                 big_sur:       "2161f687eb4b80e17e95cc9e3fb85df16182ef04c889201cd88a3e06f5e72f9b"
     sha256 cellar: :any,                 catalina:      "5bf94ab8222f5d06c1c24ee21277d1cf6fcd578ea85185457eb8c442ff0888d0"
     sha256 cellar: :any,                 mojave:        "7e61f4f0435bd9638dcafac1a617e9117ac45c67de1a2a108e79c942b9adac0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1fe5af4f82e2588ae83e1fe71f5f5da8953955f30f4f29d965fa8a95b3e314"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1fe5af4f82e2588ae83e1fe71f5f5da8953955f30f4f29d965fa8a95b3e314" # linuxbrew-core
   end
 
   depends_on "rust" => :build

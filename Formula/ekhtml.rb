@@ -13,7 +13,7 @@ class Ekhtml < Formula
     sha256 cellar: :any, sierra:        "a4e245b9e7b3643dea35dc0b6dece64f92b76d27ec59ba28c30ea7a666254396"
     sha256 cellar: :any, el_capitan:    "d606a2fe3d466a5e76f22a0736f0b485be613bad4a09575d496d9396d3a71903"
     sha256 cellar: :any, yosemite:      "450e3decaf7077d771f4a5eb43047c820867b17bffb312b039be8b1a33a81611"
-    sha256 cellar: :any, x86_64_linux:  "79205418065a2c160a0d0d7ca7d2f1f93e4a476027a144f5901e6a06ed71ce4b"
+    sha256 cellar: :any, x86_64_linux:  "79205418065a2c160a0d0d7ca7d2f1f93e4a476027a144f5901e6a06ed71ce4b" # linuxbrew-core
   end
 
   def install

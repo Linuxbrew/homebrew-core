@@ -11,7 +11,7 @@ class Gocloc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d4afbefd3a175ef99e40ec8806a202f977738453f4dbcfee03c5c6edb71cd06d"
     sha256 cellar: :any_skip_relocation, catalina:      "05e693c773c83c26b0ce21f3970407c17f1d5858402f7cded3c2032e52f86d19"
     sha256 cellar: :any_skip_relocation, mojave:        "83e435c8906ee9c2a57fb8799f08a4a63c1b3a6cc34f18594f09226f7d61e21e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cfaac2ff8b96865e8ebcc4b24c37aa471aec65f65f6804ed377bd7b69a7aeae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cfaac2ff8b96865e8ebcc4b24c37aa471aec65f65f6804ed377bd7b69a7aeae" # linuxbrew-core
   end
 
   depends_on "go" => :build

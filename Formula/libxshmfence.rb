@@ -11,7 +11,7 @@ class Libxshmfence < Formula
     sha256 cellar: :any, catalina:      "b6edc10c83f07c28fdece7c98b9be2e7c85518b0357311874c5bd5cca1217922"
     sha256 cellar: :any, mojave:        "9ba60796d9101ebe5fe01d5fcbbc7f685fa8619fc0ba51004b0fd68488af47c4"
     sha256 cellar: :any, high_sierra:   "ed7509cbecb38ec5fb75ae80de12248c8d25b931cbaff12f94f3566d05b77238"
-    sha256 cellar: :any, x86_64_linux:  "87492cc7c746c1c40962ce1d495c7f5e040b63202b07f01f3eff9b67f2f6575f"
+    sha256 cellar: :any, x86_64_linux:  "87492cc7c746c1c40962ce1d495c7f5e040b63202b07f01f3eff9b67f2f6575f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

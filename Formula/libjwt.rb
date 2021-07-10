@@ -10,7 +10,7 @@ class Libjwt < Formula
     sha256 cellar: :any,                 big_sur:       "6007f616df31c2f700524c3dab66d9f09f5b9bcca728ac7e1b848000aabece90"
     sha256 cellar: :any,                 catalina:      "fb6e811d2e09405a322bccac174af800742fc0655a8e72a1220311eacec1b78a"
     sha256 cellar: :any,                 mojave:        "97801be0001a6c9a180d425ffecc9cef4d51a2bd246c71ec4d60c7a0016ce490"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f2510df67dc43abe65670cc1828e1ed7e62ed9100ee196f328220451418fc59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f2510df67dc43abe65670cc1828e1ed7e62ed9100ee196f328220451418fc59" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

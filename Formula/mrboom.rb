@@ -11,7 +11,7 @@ class Mrboom < Formula
     sha256 cellar: :any,                 big_sur:       "904cd506e99c6269809fe4c593263de7cc1f0746fe0c5b5180aa63ef522ca212"
     sha256 cellar: :any,                 catalina:      "7fc60e5a37d093f2311b797c5822dbeb098cdf47c038c808496973d29f563f2c"
     sha256 cellar: :any,                 mojave:        "262fab23ed3b5a3b80948ae4fb4eca1c0c0cad04220a031a731905d812aebaae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb5d8f528c43dfa0eb5970a5ba8e0b98d4db662f903ec2d62751d98ef013f780"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb5d8f528c43dfa0eb5970a5ba8e0b98d4db662f903ec2d62751d98ef013f780" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

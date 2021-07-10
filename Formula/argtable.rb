@@ -14,7 +14,7 @@ class Argtable < Formula
     sha256 cellar: :any, sierra:        "9485d1e045ed40c0145eb867f9d24425ccedd53b4f0cb0ec949139b0c99507c7"
     sha256 cellar: :any, el_capitan:    "0a720e738557215bf1b58fa642ec2fc51971da38e98b987862fcd05cc54756f7"
     sha256 cellar: :any, yosemite:      "9e9d1451712580f090f0078ec7774a0daeb1057be3b1762e3d8465264d969432"
-    sha256 cellar: :any, x86_64_linux:  "2cb2fa7361e54356f2c353b15fa39096d29a2cd2dd452e5d79e106420a304cdf"
+    sha256 cellar: :any, x86_64_linux:  "2cb2fa7361e54356f2c353b15fa39096d29a2cd2dd452e5d79e106420a304cdf" # linuxbrew-core
   end
 
   def install

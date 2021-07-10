@@ -19,7 +19,7 @@ class MecabKo < Formula
     sha256 high_sierra:   "d254239a9fec5e99de9590feb8d7c82f87e31324908003b059aea9a5d6092f2a"
     sha256 sierra:        "86b35c767cb97ab0b5e895475c3254589b101bdc3c8666abc694ea9a480421ec"
     sha256 el_capitan:    "c348042904040c28772c3f8f299debe574c6ebaaed7e41b23cac4980aeb8aa97"
-    sha256 x86_64_linux:  "41c0d1c1811ed632a34f22f4ca9792048f7bf3728ec4ea9bd37d282aa8714d8c"
+    sha256 x86_64_linux:  "41c0d1c1811ed632a34f22f4ca9792048f7bf3728ec4ea9bd37d282aa8714d8c" # linuxbrew-core
   end
 
   conflicts_with "mecab", because: "both install mecab binaries"

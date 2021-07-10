@@ -11,7 +11,7 @@ class Libxaw3d < Formula
     sha256 cellar: :any, catalina:      "e089705cc442b4076b7d3b9bc86a1379eb193b73cb57387d04809411876eb755"
     sha256 cellar: :any, mojave:        "b5510c021114d1579116242eb88f4fbd6a9fd3d3a61292a17d6158c02ac71194"
     sha256 cellar: :any, high_sierra:   "ccf2fd19db504f82ab9f280525a879bd0669934a51cdc69003238d0626735b52"
-    sha256 cellar: :any, x86_64_linux:  "96949d8666646ad07cb16ef2b0fa8943141a6475e5ad21d4f2c6948d6eaad9c1"
+    sha256 cellar: :any, x86_64_linux:  "96949d8666646ad07cb16ef2b0fa8943141a6475e5ad21d4f2c6948d6eaad9c1" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

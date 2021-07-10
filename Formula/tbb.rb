@@ -10,7 +10,7 @@ class Tbb < Formula
     sha256 cellar: :any,                 big_sur:       "18d284f2fa0792ab119b10260eebc9a87fd00dc68cf0fdcd70ee00d6d7af5570"
     sha256 cellar: :any,                 catalina:      "953989fa59711ea79f8690ae08a79a4a7722325fa36445ddffaf11c6729e25ee"
     sha256 cellar: :any,                 mojave:        "e2c2e8c35d0df2fc1659c59c0b501b0e2420c43a6d8afe629c9f49afa1bae236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8ccd0cc8bb309b3e7c1e8f1d0d034f0cdf11a9d1551aaf6328194702a9842e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8ccd0cc8bb309b3e7c1e8f1d0d034f0cdf11a9d1551aaf6328194702a9842e8" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

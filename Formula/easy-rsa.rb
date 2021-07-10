@@ -12,7 +12,7 @@ class EasyRsa < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f8fb06de036f9b9d1b5483054b967c8b0ba61f7617f40c7b2d8443c87b3b54a9"
     sha256 cellar: :any_skip_relocation, mojave:        "a9e8dd8d94adc330b85d60b74380987bd680103c2b4cac61d407eca7b272174b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0e814810990e326f9b20a416d684a05261c6e4b68cd9d092a09898fe50077fa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ed5b940683231a139ad15cbadb44e2c60230f856fa999ade93595bffc3ab4eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ed5b940683231a139ad15cbadb44e2c60230f856fa999ade93595bffc3ab4eb" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

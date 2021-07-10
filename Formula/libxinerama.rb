@@ -11,7 +11,7 @@ class Libxinerama < Formula
     sha256 cellar: :any, catalina:      "7a008044d1824d0585b13cba7021ec038bda6485a8789337cd6a9fd305b83233"
     sha256 cellar: :any, mojave:        "c69df5fe02995fbbf085b26da9ae1af4b890b2d57d1e8d115253706486297e5f"
     sha256 cellar: :any, high_sierra:   "27a945b6652dd0c36b3360ca55de687dd350feca08fc0e32bafe71d06edca377"
-    sha256 cellar: :any, x86_64_linux:  "06134907802d953c75bc8740121fb3ad2345e1b33d55370d09b2c92e2465f96c"
+    sha256 cellar: :any, x86_64_linux:  "06134907802d953c75bc8740121fb3ad2345e1b33d55370d09b2c92e2465f96c" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

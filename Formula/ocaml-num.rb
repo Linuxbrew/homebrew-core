@@ -11,7 +11,7 @@ class OcamlNum < Formula
     sha256 cellar: :any,                 big_sur:       "4563053ebf720e623e0afeb935f803ab1aedc3c15d6d99d6bc2818301eeb4ecb"
     sha256 cellar: :any,                 catalina:      "26b165d15abd314baafa8c8a055236684eb26ae86740d85edca087321c5c311c"
     sha256 cellar: :any,                 mojave:        "c14f476a964f149d3dc3145cb219286fea6585962351ada79aa1ed4606d9f781"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a1c868a11d738fe6cb17ccde268f12c2b2d7f14d4a828528852b62b2f95e5b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a1c868a11d738fe6cb17ccde268f12c2b2d7f14d4a828528852b62b2f95e5b2" # linuxbrew-core
   end
 
   depends_on "ocaml-findlib" => :build

@@ -12,6 +12,7 @@ class I686ElfBinutils < Formula
     sha256 big_sur:       "b4b69b92b71ff9fa78a45e1f5c6082f68b427a40d6fd1e6a03d3e6fcad8106ba"
     sha256 catalina:      "806493e1e1060fc49682d2414d59d866c2850233ee19edc31354e30627deb2b6"
     sha256 mojave:        "55bc73ee9368c4cea0af5ed9262facc48745425c8c04d06bf579a083d512f978"
+    sha256 x86_64_linux:  "5d3614c98968d27b0bee75621d5eb0bc29d2b862b81428f5e2be934675409d8b" # linuxbrew-core
   end
 
   def install

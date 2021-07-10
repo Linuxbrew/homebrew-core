@@ -20,7 +20,7 @@ class ZabbixCli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "279c0d15eb9b0d3318511c235652627498179b6b37664b47e65e47dd37848586"
     sha256 cellar: :any_skip_relocation, mojave:        "2021e4b3ca3cc30b290c7a999dd36fd9cd0d9a61bb0498f35537ee52907ad838"
     sha256 cellar: :any_skip_relocation, high_sierra:   "834aaba4a28b53861bd3bf58155131dd50d1b2ea6ccf33177d366365c707fb74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "703a0c1423c7d82d81293e229c25d7fef52fc6f43c8869111e790ff75cbd0190"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "703a0c1423c7d82d81293e229c25d7fef52fc6f43c8869111e790ff75cbd0190" # linuxbrew-core
   end
 
   depends_on "python@3.9"

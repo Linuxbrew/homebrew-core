@@ -11,7 +11,7 @@ class Liblo < Formula
     sha256 cellar: :any, catalina:      "aac4280d5e147a6baab53c252bbf7cda296fe5bdeceb26d7aa60acb10ecc5444"
     sha256 cellar: :any, mojave:        "3310110ec91fb412b8d5c727bda03454aebec087d78ebada20bb53ad9582088e"
     sha256 cellar: :any, high_sierra:   "034eaec236ee4df490d16db9998ec7a4d88223d929b333c8b08ade641bc74bcb"
-    sha256 cellar: :any, x86_64_linux:  "1d22e5739b849c6cf6dfe80e12a2789d18d9b6756047afe65faec18402acba2d"
+    sha256 cellar: :any, x86_64_linux:  "1d22e5739b849c6cf6dfe80e12a2789d18d9b6756047afe65faec18402acba2d" # linuxbrew-core
   end
 
   head do

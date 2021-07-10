@@ -11,7 +11,7 @@ class Hydra < Formula
     sha256 cellar: :any,                 big_sur:       "e3077504146989bf221da7acd53224ecec02d95349682c98f3132e9795d79481"
     sha256 cellar: :any,                 catalina:      "310e71af53f35765106b99e890a4989f9b3856e09822f68201e288ebe0c91ff9"
     sha256 cellar: :any,                 mojave:        "61dce3743fe0b7ce2db21bd833c3a99fea8c571f2c97ce57930ffb078516af4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40345226845558ff97a4dae41989b74a730f3b79811c6503df4441e95ce68ac3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40345226845558ff97a4dae41989b74a730f3b79811c6503df4441e95ce68ac3" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

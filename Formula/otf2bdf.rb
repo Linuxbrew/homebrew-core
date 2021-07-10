@@ -11,7 +11,7 @@ class Otf2bdf < Formula
     sha256 cellar: :any, catalina:      "200d4f317f5fda0c3c4a350ba773322af4a29af56a65f9e3de11b406ab517522"
     sha256 cellar: :any, mojave:        "76e89f43b017f0bc2f90c3d49e70d75ac9da5260b9567d1078449f1b80af60bf"
     sha256 cellar: :any, high_sierra:   "208ef317e3c51e88818c4f59ca0333a76d6efeed97b04affe66c3cd6b601bada"
-    sha256 cellar: :any, x86_64_linux:  "f04564d10f3b4e3288fb918729a633f56d09f4ba1cec4898a91ad00f9b34b506"
+    sha256 cellar: :any, x86_64_linux:  "f04564d10f3b4e3288fb918729a633f56d09f4ba1cec4898a91ad00f9b34b506" # linuxbrew-core
   end
 
   depends_on "freetype"

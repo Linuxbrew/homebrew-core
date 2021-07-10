@@ -10,7 +10,7 @@ class So < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9fd6e485c657d6fefe2309ef533cd9c199f1633d1a499d5bc9abcaabd6a831d7"
     sha256 cellar: :any_skip_relocation, catalina:      "e6e42abbaeacfec3ae573d3851b3d223e9cc258b8b7da6f044c57ac9b4881299"
     sha256 cellar: :any_skip_relocation, mojave:        "dcec7fc7c8093201de8c9b7e71d2b326198e6ab7a1d7df7d8fb57638b051ab5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "154eead1d7d2e067064185b11e0a78a9d1bb6d5d12ebe01cfb9b0e5e9c00597e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "154eead1d7d2e067064185b11e0a78a9d1bb6d5d12ebe01cfb9b0e5e9c00597e" # linuxbrew-core
   end
 
   depends_on "rust" => :build

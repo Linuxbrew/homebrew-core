@@ -10,7 +10,7 @@ class Unibilium < Formula
     sha256 cellar: :any,                 big_sur:       "6f0c7e2db3067e24f4480566d9cf80b9f47ef6099386205ca472a8ede717d3e8"
     sha256 cellar: :any,                 catalina:      "06ca0a9cc4c001e5136b14b210c7a37ff7ecb85e2f1c348a3655b325094ac697"
     sha256 cellar: :any,                 mojave:        "e2757e5acea92e205a10e738d6a084b37347a3be3e08f8a481607e9c48d22e95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98de0fc9960a987a555337f567a2af2b1cc7f7b3fbd9861c0418d7fff9e4a89b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98de0fc9960a987a555337f567a2af2b1cc7f7b3fbd9861c0418d7fff9e4a89b" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

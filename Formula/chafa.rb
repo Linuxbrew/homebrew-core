@@ -15,7 +15,7 @@ class Chafa < Formula
     sha256 cellar: :any,                 big_sur:       "ace4589475844621942acda0985939f6c47e186aae7a223d69bbe518f2f86c7b"
     sha256 cellar: :any,                 catalina:      "f2318ad62d9921d5ae1dfd2c1625102145f873ce8d0b5f6d3edcde7875fcaf1d"
     sha256 cellar: :any,                 mojave:        "9e9615a1c143088bed4f8ae1b3bf0d0b2e9ddf3a5b9f69bf968313df4e0aaf4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c16a9ba7e2c11744f5a710f0ddc06256bfe12f9c216a95a0fd6ed728504b332a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c16a9ba7e2c11744f5a710f0ddc06256bfe12f9c216a95a0fd6ed728504b332a" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

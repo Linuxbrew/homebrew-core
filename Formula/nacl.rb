@@ -22,7 +22,7 @@ class Nacl < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "86e5ef1c0a14b029d1ed3f63df48fde9c302adbbc3e1dcacd1bb7617bf547615"
     sha256 cellar: :any_skip_relocation, el_capitan:   "e08c93b814989405fa3b7db9e3a9c4f149e36aaab32aba44e9a2f1659d2d3efd"
     sha256 cellar: :any_skip_relocation, yosemite:     "1a1a7fffc6d41f2f7bcc393375f2907f63b5a13f9414fe0827daef96246301e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb16dca39d8f3b98e492e1e85347dac187eb38899bf6bcadc663b4a90ac89ae2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb16dca39d8f3b98e492e1e85347dac187eb38899bf6bcadc663b4a90ac89ae2" # linuxbrew-core
   end
 
   def install

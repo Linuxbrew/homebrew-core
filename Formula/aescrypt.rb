@@ -19,7 +19,7 @@ class Aescrypt < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2250bd07f689721287269dc70c504b4f08ac2a02b5550ad9f0a51dca60ed6f9a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0cd940c7c9e59104746a8f83f92a06e703e7f98195a202d20516c03b588fd63f"
     sha256 cellar: :any_skip_relocation, yosemite:      "660c8a9266d7f85e699fb5bfabb82c508a66d303b2a2057c9c70a3c70fed43f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d1dce1bea846032fec3231e860e9b99f66683074a48e72885b5eb34d3bb81ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d1dce1bea846032fec3231e860e9b99f66683074a48e72885b5eb34d3bb81ef" # linuxbrew-core
   end
 
   def install

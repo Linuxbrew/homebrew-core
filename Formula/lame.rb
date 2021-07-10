@@ -18,7 +18,7 @@ class Lame < Formula
     sha256 cellar: :any, high_sierra:   "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd"
     sha256 cellar: :any, sierra:        "c2d7bce53be2efb5d19d99ea00fbe69613885cce46009e8ab6099f8d5925c3ba"
     sha256 cellar: :any, el_capitan:    "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc"
-    sha256 cellar: :any, x86_64_linux:  "293b74a7490a120e88ad55b4b663e8596636a98dbd6b7f54f1222f0a3246d9d3"
+    sha256 cellar: :any, x86_64_linux:  "293b74a7490a120e88ad55b4b663e8596636a98dbd6b7f54f1222f0a3246d9d3" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

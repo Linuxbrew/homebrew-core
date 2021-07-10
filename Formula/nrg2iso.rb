@@ -21,7 +21,7 @@ class Nrg2iso < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "01177e7bc064b062c454caad61c24b80deb20768ab2d880c77ba20708ac6e709"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fed88dfb217cc0b5fa0a4f7a7aec40342314998624e084921e1b5cc02d08d27d"
     sha256 cellar: :any_skip_relocation, yosemite:      "18949f41b9ba386c996a49541875d3320184b88dccb04136846f32b3d681e647"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0fb491c42ca34949c123a0724f0821ec5ef6fc1c328d0f4f7ab54a627791036"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0fb491c42ca34949c123a0724f0821ec5ef6fc1c328d0f4f7ab54a627791036" # linuxbrew-core
   end
 
   def install

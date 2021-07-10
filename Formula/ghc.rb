@@ -8,7 +8,7 @@ class Ghc < Formula
     "BSD-3-Clause",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
-  revision 2
+  revision OS.mac? ? 2 : 3
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -20,7 +20,7 @@ class Ghc < Formula
     sha256                               big_sur:       "485d899248c0773ba3dd627998242774ad0b757ed5ff5101fe1aabd8e8ab0032"
     sha256                               catalina:      "65cecde33e435731d93f0354fe434ac075035fdcc663ca66c00f6c3319248372"
     sha256                               mojave:        "03ec1c4dde314d08a75723e2434fa29eb5ba9b765ca813a4d026806c3d1b5146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ca49dce8baa8b2a9f6df770793c74ea6b29bfa33d5ea683e2240514f77556af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a0646e10fd41e9ca38fcfc9af2e3c33ff782c543979415585a57512a7c2ac8d" # linuxbrew-core
   end
 
   depends_on "python@3.9" => :build
@@ -101,20 +101,6 @@ class Ghc < Formula
 
       args = ["--with-gmp-includes=#{gmp}/include",
               "--with-gmp-libraries=#{gmp}/lib"]
-    end
-
-    unless OS.mac?
-      # Fix error while loading shared libraries: libgmp.so.10
-      ln_s Formula["gmp"].lib/"libgmp.so", gmp/"lib/libgmp.so.10"
-      ENV.prepend_path "LD_LIBRARY_PATH", gmp/"lib"
-      # Fix /usr/bin/ld: cannot find -lgmp
-      ENV.prepend_path "LIBRARY_PATH", gmp/"lib"
-      # Fix ghc-stage2: error while loading shared libraries: libncursesw.so.5
-      ln_s Formula["ncurses"].lib/"libncursesw.so", gmp/"lib/libncursesw.so.5"
-      # Fix ghc-stage2: error while loading shared libraries: libtinfo.so.5
-      ln_s Formula["ncurses"].lib/"libtinfo.so", gmp/"lib/libtinfo.so.5"
-      # Fix ghc-pkg: error while loading shared libraries: libncursesw.so.6
-      ENV.prepend_path "LD_LIBRARY_PATH", Formula["ncurses"].lib
     end
 
     resource("binary").stage do

@@ -11,7 +11,7 @@ class Afflib < Formula
     sha256 cellar: :any, catalina:      "63075bb1473d3342521c6e29fd1c8c628114cef274ec8b7cc572d46068f19f4a"
     sha256 cellar: :any, mojave:        "9a50d803eedfeb45425b1f7a0452e8f7072d87c2b7b5b488dfca6222a18440c6"
     sha256 cellar: :any, high_sierra:   "9367940cd2b04b6a244b00ba0970ab20b23393604689ee45b5b5b2b5274e752c"
-    sha256 cellar: :any, x86_64_linux:  "b3b13766db006faf912918d41cb81809adebe15ae1411a38701c45489e97d842"
+    sha256 cellar: :any, x86_64_linux:  "b3b13766db006faf912918d41cb81809adebe15ae1411a38701c45489e97d842" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

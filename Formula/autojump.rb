@@ -8,12 +8,11 @@ class Autojump < Formula
   head "https://github.com/wting/autojump.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3cfea6d7660fb84079ca96c145b09f81236a765bb9a63e63680f3c9cdca73f2b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8b3d6ec6dd27c3b162d0e4af4351cff318704f24641a20e1fbde2ceef170bcb1"
-    sha256 cellar: :any_skip_relocation, catalina:      "86f9b762fdc71023781e999f2269c1c9af87ad7c22f01b6ad9481e6583cf972a"
-    sha256 cellar: :any_skip_relocation, mojave:        "aeabdd63a425d4505d8b5f9aa6f3895e3447e8835d2ba82799e6de46162dc0f4"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "225ebe9420dc834c2381b9c0fdadd1acb19a9152db6822ebce1ee8071db9bdd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "027d8038f31101e76def22d6a0bc5b77af003cf96de24ed2db55b6431c7924b0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0c57ada4da08511d187b59d225b870c3ebee4c04aeeed9a066980e69a2f1a773"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6a803054ba48635b80cf303c9de79c4b448a6b293168a733c521f3d0b5046dff"
+    sha256 cellar: :any_skip_relocation, catalina:      "6a803054ba48635b80cf303c9de79c4b448a6b293168a733c521f3d0b5046dff"
+    sha256 cellar: :any_skip_relocation, mojave:        "6a803054ba48635b80cf303c9de79c4b448a6b293168a733c521f3d0b5046dff"
   end
 
   depends_on "python@3.9"
@@ -44,10 +43,12 @@ class Autojump < Formula
   test do
     path = testpath/"foo/bar"
     path.mkpath
-    output = shell_output("bash -c '. #{etc}/profile.d/autojump.sh;
-                            j -a #{path.relative_path_from(testpath)};
-                            j foo >/dev/null;
-                            pwd'").strip
+    output = `
+      . #{etc}/profile.d/autojump.sh
+      j -a "#{path.relative_path_from(testpath)}"
+      j foo >/dev/null
+      pwd
+    `.strip
     assert_equal path.realpath.to_s, output
   end
 end

@@ -10,7 +10,7 @@ class Libdvdread < Formula
     sha256 cellar: :any,                 big_sur:       "7d0a516f36d885df836072671f8885218a1684fbab69dad9761629ed87483640"
     sha256 cellar: :any,                 catalina:      "08b72c46e9022170d991a626a84a073bd988f99db12bc145494306fc28f33d73"
     sha256 cellar: :any,                 mojave:        "ddd7ecdfc66b0b12b4804550aaab8939f2bbd30bcd753ac9006f3db079589515"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8583a5acc7221a024aafd45d255d7f04286e51300ff4c0afbce1e9cce5b56ab3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8583a5acc7221a024aafd45d255d7f04286e51300ff4c0afbce1e9cce5b56ab3" # linuxbrew-core
   end
 
   head do

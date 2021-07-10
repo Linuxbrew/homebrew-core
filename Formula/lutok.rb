@@ -11,7 +11,7 @@ class Lutok < Formula
     sha256 cellar: :any,                 big_sur:       "5d0c028406ba39fe3f26f3994d3454935e5f38f07018b03a953f9aff81999b6a"
     sha256 cellar: :any,                 catalina:      "83f0706e4b12f54145a8fded793efcbde5cf16ca8c53122987f4c22bc5f87fd5"
     sha256 cellar: :any,                 mojave:        "cfaf7b932bb1eba280ae9353377e7069b8e73585bced5aff0fb4cc9e501f7055"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c98fcd9de1831f46c5481525787da1b623d1e0a007fe6ecb366390771eff713"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c98fcd9de1831f46c5481525787da1b623d1e0a007fe6ecb366390771eff713" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

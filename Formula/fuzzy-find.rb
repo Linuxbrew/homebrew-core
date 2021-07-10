@@ -25,7 +25,7 @@ class FuzzyFind < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "feefa3913b9b1df2d8b283fdd55abd1de9ee924633d8e157142cce4980572ffb"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7db1b187adfcb7ce37842891ffca5eec3ca25bed5441944cbeb1e08bc6d52a66"
     sha256 cellar: :any_skip_relocation, yosemite:      "1b447f73c929866935af122bec4c15390f0001f049a0c737880fcfd4d7bafdb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e08ef4ee1babfa0d28d9b541b565b5866541b5e14f92e1fcf88876cbd3362ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e08ef4ee1babfa0d28d9b541b565b5866541b5e14f92e1fcf88876cbd3362ca" # linuxbrew-core
   end
 
   def install

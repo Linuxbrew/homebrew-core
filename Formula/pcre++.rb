@@ -17,7 +17,7 @@ class Pcrexx < Formula
     sha256 cellar: :any, big_sur:       "0b05be19479fa7181d354dfafc905f874a17c3135170bedfc324fe0873e113c4"
     sha256 cellar: :any, catalina:      "15b001d9d01f073cb76772112bc6b3ebac92a3337b19c6dee4eb54d39fe9b6f6"
     sha256 cellar: :any, mojave:        "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53"
-    sha256 cellar: :any, x86_64_linux:  "1ccba2c50d2c14132afe80be18e1bce27282cd9467091cff52da6d1cc8f5bed0"
+    sha256 cellar: :any, x86_64_linux:  "1ccba2c50d2c14132afe80be18e1bce27282cd9467091cff52da6d1cc8f5bed0" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

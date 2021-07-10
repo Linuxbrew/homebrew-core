@@ -13,7 +13,7 @@ class Psftools < Formula
     sha256 cellar: :any, big_sur:       "42056401c680e3a2372f2b16c78936b6e06c1cb3f8125f1a7c0fff8d23372de9"
     sha256 cellar: :any, catalina:      "ac3cc35325cd2b565044a9e864bbf4b3c2e34a39f46b267ae3fc753d63857a83"
     sha256 cellar: :any, mojave:        "8e53985d7a48b4f927d94ac27339ba7d293181b90fe33d05f22c71ff1e48c126"
-    sha256 cellar: :any, x86_64_linux:  "11c63a9db347aef447157dcb76bca7c6029bb1a0494635cc2e6c46d16af2d3f4"
+    sha256 cellar: :any, x86_64_linux:  "11c63a9db347aef447157dcb76bca7c6029bb1a0494635cc2e6c46d16af2d3f4" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

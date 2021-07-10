@@ -8,7 +8,7 @@ class Makeself < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f4662b6da2d3d6494554dabb44e7a21d13273a1283075689bf13d5056517b3c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f4662b6da2d3d6494554dabb44e7a21d13273a1283075689bf13d5056517b3c2" # linuxbrew-core
   end
 
   def install

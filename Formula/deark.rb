@@ -15,7 +15,7 @@ class Deark < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "09ad8b8b146e4df4b0955be83fd168c842e47cb0f5dd94f5ce90df139a6a8831"
     sha256 cellar: :any_skip_relocation, catalina:      "e4416ed82488c439a1085bb9464abbbd082d6b85e350455c054f31b5978bb728"
     sha256 cellar: :any_skip_relocation, mojave:        "5667c9616961ca8b8da43979903aaac15a65a27f88bf4242327c2954fa1cb862"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53b08397b66fb3a34b118bb90ea94ca1ce83644917811c2e94f08f331a3a9eb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53b08397b66fb3a34b118bb90ea94ca1ce83644917811c2e94f08f331a3a9eb0" # linuxbrew-core
   end
 
   def install

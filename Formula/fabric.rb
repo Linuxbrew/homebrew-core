@@ -14,7 +14,7 @@ class Fabric < Formula
     sha256 cellar: :any,                 big_sur:       "5ce01be4718393b51968a5ccc9437eb0badad44ca2ddef47015fbd68b9c0a4ad"
     sha256 cellar: :any,                 catalina:      "0cbd0659af1acc21a578926507419bead5faa3b8d209fd6f81e889399c18ed95"
     sha256 cellar: :any,                 mojave:        "1ca741b9f8f491086e767d52fd79cf2de19416dd56a2f40b82d65b7fece64193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31ea3cd5a5cb99c99990d8e939424d66f074f7ae6ef443515201ced388f18a78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31ea3cd5a5cb99c99990d8e939424d66f074f7ae6ef443515201ced388f18a78" # linuxbrew-core
   end
 
   depends_on "rust" => :build

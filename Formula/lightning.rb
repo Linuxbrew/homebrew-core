@@ -11,7 +11,7 @@ class Lightning < Formula
     sha256 cellar: :any, catalina:     "543bb685d72b8e9b10b14f3dcd615d38f8f499d10e1d27e40604240fc3f65ac3"
     sha256 cellar: :any, mojave:       "c767959e901e6f47f9bbfe243e629508edbdb138376443d7943c4c4a5a52d4f2"
     sha256 cellar: :any, high_sierra:  "da42166b5dd858cad42eeb7fc69a9ef870d23b67da6fa978d4bc58d3a464a0d4"
-    sha256 cellar: :any, x86_64_linux: "7c848b9a98637b222e8fa9bd4fa9a53855e43e62c3fc81819b7fbe46aefcad25"
+    sha256 cellar: :any, x86_64_linux: "7c848b9a98637b222e8fa9bd4fa9a53855e43e62c3fc81819b7fbe46aefcad25" # linuxbrew-core
   end
 
   depends_on "binutils" => :build

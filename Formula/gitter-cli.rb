@@ -16,7 +16,7 @@ class GitterCli < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "6b0c1af334ab94692271f4e88b3f3b44adb8f2e7738cd68cdc20719dbb4f315f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4503b65ec4122d7cb51e8173168dc41dc4e57f978f4246697f9a3bf768f8c9cb"
     sha256 cellar: :any_skip_relocation, yosemite:      "d4b1a539db31e5a04e05fc982c6b9961bde7eae94de06d1addc2dc4346f696e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8047349306dfe211793fb6c1c12cb343744da59a81b9fe9447f5666ad27c933e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8047349306dfe211793fb6c1c12cb343744da59a81b9fe9447f5666ad27c933e" # linuxbrew-core
   end
 
   depends_on "node"

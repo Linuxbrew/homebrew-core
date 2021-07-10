@@ -9,7 +9,7 @@ class Virtuoso < Formula
     sha256 cellar: :any,                 big_sur:      "d35c507e655a9b900986b609bb232f30c811cbfb4f3ec20d60d1146059ba5305"
     sha256 cellar: :any,                 catalina:     "bb672169382bf5faa77845765420adc91f5af1e46239e1f9d45d187b2f335570"
     sha256 cellar: :any,                 mojave:       "e19a2320912ff23b8f0a4926ee3c830d1bbbc9388fbe21634cbecf919e17f708"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e5bcf3621155cb684f1fac2eb1522632694facdbef676e21142635ea9a07b640"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e5bcf3621155cb684f1fac2eb1522632694facdbef676e21142635ea9a07b640" # linuxbrew-core
   end
 
   head do

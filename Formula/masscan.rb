@@ -16,7 +16,7 @@ class Masscan < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8d21dd16d333a573d7146d13c31dea07df5c72fcfe137af338e6f7722b393dbe"
     sha256 cellar: :any_skip_relocation, catalina:      "a77ea3fd36501d9a0d0398e585f1d30fd64163ca378e6af9660601a10e1ddce3"
     sha256 cellar: :any_skip_relocation, mojave:        "19def74a8381541e80c530a5f0599bc92f067ac3e211ecc173afbbb0aee72752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48ae7c951facf7e06f816399aca3db2b78970a49e6a4446c2f30c73c294a91a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48ae7c951facf7e06f816399aca3db2b78970a49e6a4446c2f30c73c294a91a4" # linuxbrew-core
   end
 
   def install

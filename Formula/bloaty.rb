@@ -11,7 +11,7 @@ class Bloaty < Formula
     sha256 cellar: :any,                 big_sur:       "b77980ffac7f53ee65fa687673a6121af17ae85abb8f0011043b3be6a45c9aa8"
     sha256 cellar: :any,                 catalina:      "60b53a12e893def4e42d85bfa935dd3b7a2fa6f1bb1d452d13ea5c043f2a5e85"
     sha256 cellar: :any,                 mojave:        "2f604161ef01f1c7d81aad9857bc3b31e74ab726200e0d899dd079b968115e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "415639d0dccff820d801c79c631c5a35611edf4b740673a9d1999eaf9f913e94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "415639d0dccff820d801c79c631c5a35611edf4b740673a9d1999eaf9f913e94" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

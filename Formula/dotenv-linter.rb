@@ -11,7 +11,7 @@ class DotenvLinter < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5155e044174d3ee0ec043c1543156906a6b2ba9bc24a8d3ba4e6ba24677ec90a"
     sha256 cellar: :any_skip_relocation, catalina:      "9def48cd0fa0f35d763898d62889faeb1371d8589623c6c607aaa7815a36b2e7"
     sha256 cellar: :any_skip_relocation, mojave:        "d23716aa6cba002d9629ca02547d05f964754b7ac575dd00e2d83ee6df1b4e8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eee25f0a22230b97a47151b6984c00f54c7eaefe58956f7a9d3f8e1bc2982f39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eee25f0a22230b97a47151b6984c00f54c7eaefe58956f7a9d3f8e1bc2982f39" # linuxbrew-core
   end
 
   depends_on "rust" => :build

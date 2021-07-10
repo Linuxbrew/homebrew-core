@@ -10,7 +10,7 @@ class Logswan < Formula
     sha256 cellar: :any,                 big_sur:       "68760ddf896f317d44496728987da7255c40f4ccc3612c40fd13dbb33f2d6662"
     sha256 cellar: :any,                 catalina:      "b1eab00c396357a4d123a6747827774dab732d6d2e56e85fb9a32c7b22989cc2"
     sha256 cellar: :any,                 mojave:        "914eaff19cac1e0e58bf0d61fc23d089f69b405e7d35d95b818ef0b6c2968840"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cafc7c232e8c90cbf3bbb3fe2de787c73ca43da379275a68c8b7b39028c8a7cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cafc7c232e8c90cbf3bbb3fe2de787c73ca43da379275a68c8b7b39028c8a7cf" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -20,7 +20,7 @@ class Ncview < Formula
     sha256                               big_sur:       "6129b591b2b0238a0e61ec86ebc5d875a494e677963656b679300e67f874c13c"
     sha256                               catalina:      "93d6850d0542b7ea67b442f1ea80d63b80a04c872f0c4d25d0713f3fba5b92a2"
     sha256                               mojave:        "0b8b3c63895071a605b80ab1c1576356d1bfe634857e78f2cf3cb22742de09c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7e05426313ab3470e98173be926d65207b48f1b1e511385d3d921502ecda025"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7e05426313ab3470e98173be926d65207b48f1b1e511385d3d921502ecda025" # linuxbrew-core
   end
 
   depends_on "libice"

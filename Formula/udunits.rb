@@ -10,7 +10,7 @@ class Udunits < Formula
     sha256 big_sur:       "98494853cf3c9763f511e3f4d1daddd29cbcf8c8a91c4716ed5951e081753bad"
     sha256 catalina:      "b325949e293c7e881bb468893a84e75283587af9ccd21595874eec515d778b9c"
     sha256 mojave:        "4994ec2de43dcff6c6b74b3d7ec053cac4ad475b8c4b95207e7c8b999b43f884"
-    sha256 x86_64_linux:  "697aec45dd5b1f4f7822325c3b714698a4a67fb052c026c02738034492a94b4b"
+    sha256 x86_64_linux:  "697aec45dd5b1f4f7822325c3b714698a4a67fb052c026c02738034492a94b4b" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

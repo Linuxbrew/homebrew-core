@@ -13,7 +13,7 @@ class Buku < Formula
     sha256 cellar: :any,                 big_sur:       "ff6297ed0bd9a76d45d5dacedfc3af853d191ce83e4a7226120478a620bcab13"
     sha256 cellar: :any,                 catalina:      "6fa76a5602618083408e43c385c33540072176a6fec2fc51320772bd1bced77d"
     sha256 cellar: :any,                 mojave:        "09a31058e20b8354f50007acbc9653324a2de6dcdac4a9b21d0b181cd1d95020"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cd4abea4871d379a1fb546ff55420cca1de3fb1377fe18e10b93cab34db2838"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cd4abea4871d379a1fb546ff55420cca1de3fb1377fe18e10b93cab34db2838" # linuxbrew-core
   end
 
   depends_on "rust" => :build

@@ -16,7 +16,7 @@ class Povray < Formula
     sha256 big_sur:       "06f7a322d371a831124fb970aacbd9310d0f1cfd478b7fe00d68b58e52d6ea7d"
     sha256 catalina:      "c79203e5cf7306333a3511a79b226815f9e406136e7f10ae8254db555faf238f"
     sha256 mojave:        "62ecf5b65b5581777dc7a7358846b36e39b75a99bd43f9927bbca393492cafeb"
-    sha256 x86_64_linux:  "fcfdf0f6c7fe70a2dc54f210a079834b0ffd1c2d1a6808913f31e50122a8e53e"
+    sha256 x86_64_linux:  "fcfdf0f6c7fe70a2dc54f210a079834b0ffd1c2d1a6808913f31e50122a8e53e" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -7,7 +7,7 @@ class PyenvCcache < Formula
   head "https://github.com/pyenv/pyenv-ccache.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8cb5b918ec485fd99f0af48056be2d00d2c1bf2055f7f5890dbf6335086be4b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8cb5b918ec485fd99f0af48056be2d00d2c1bf2055f7f5890dbf6335086be4b5" # linuxbrew-core
   end
 
   depends_on "ccache"

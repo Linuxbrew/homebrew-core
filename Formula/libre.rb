@@ -10,7 +10,7 @@ class Libre < Formula
     sha256 cellar: :any, catalina:      "0ca7e76631b5f30d72b4bc4248e894d00f05cfb785c98856d82cd5cc13e591f9"
     sha256 cellar: :any, mojave:        "5d43d79ef2406e40c858463189ca8a40f0b13ede8a7090b56ba0fd1ef942dabc"
     sha256 cellar: :any, high_sierra:   "32787ca36540a0c7c330560076e25726bcca0f08a7b77014d3837bd9c7ca1840"
-    sha256 cellar: :any, x86_64_linux:  "4144fefdf5e1f8e51a1fed247b043ab65d2fbcee4ba00e935f559e5ec69562c6"
+    sha256 cellar: :any, x86_64_linux:  "4144fefdf5e1f8e51a1fed247b043ab65d2fbcee4ba00e935f559e5ec69562c6" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

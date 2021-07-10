@@ -15,7 +15,7 @@ class Ngircd < Formula
     sha256 big_sur:      "9fe092e3ca8de75453b4aa667067e1cd863c041b8055ae7981e51f3506ac19c4"
     sha256 catalina:     "95f504faeffb209318e93a050c632805178e91cd1e9475bbccfa9eb040b8d785"
     sha256 mojave:       "af9fea8f344f76077063b24d68d057bb9ecb93db1fb469d2e0992d0919f87b0c"
-    sha256 x86_64_linux: "80a73dbed1f81aa8016843ee2beaa5ca5825bfb7ba1799fe54327c67a79c61a3"
+    sha256 x86_64_linux: "80a73dbed1f81aa8016843ee2beaa5ca5825bfb7ba1799fe54327c67a79c61a3" # linuxbrew-core
   end
 
   depends_on "libident"

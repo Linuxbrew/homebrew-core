@@ -11,7 +11,7 @@ class Glpk < Formula
     sha256 cellar: :any, big_sur:       "3f577566f72aa88262e78c5df12974f25f76ebca6632f8e9ccecf7b5ff222d2b"
     sha256 cellar: :any, catalina:      "dd6461053c93e0fc37577251f83a17de325efe8382805f5bc883c8a3a018e74b"
     sha256 cellar: :any, mojave:        "2fbd223a7089b352aa9a6e424660aec34edbcaa8fbac7665fe7a9cab2b3f7aac"
-    sha256 cellar: :any, x86_64_linux:  "27a1f2f50b89c7ab196556addc14d18206567cc811be471fac93fa9c994997ac"
+    sha256 cellar: :any, x86_64_linux:  "27a1f2f50b89c7ab196556addc14d18206567cc811be471fac93fa9c994997ac" # linuxbrew-core
   end
 
   depends_on "gmp"

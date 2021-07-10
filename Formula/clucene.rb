@@ -19,7 +19,7 @@ class Clucene < Formula
     sha256 cellar: :any, sierra:       "5d25768dc355533553e6c1605a1dc89985ddd26b4d17d10078c39d6b085c03fb"
     sha256 cellar: :any, el_capitan:   "5ee0c98072c18c75dd8c25fd309ccb49f033300d474367a8e325ec601c427f66"
     sha256 cellar: :any, yosemite:     "182db4f73e058e9d28b77cbbd642c40ecc403fbf1d9dc8357387b2c54dba8d1e"
-    sha256 cellar: :any, x86_64_linux: "ba2a75557dc712e5d72f88dc5687a8e13332c197723f462739872b902e04cd93"
+    sha256 cellar: :any, x86_64_linux: "ba2a75557dc712e5d72f88dc5687a8e13332c197723f462739872b902e04cd93" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

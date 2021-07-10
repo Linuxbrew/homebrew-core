@@ -12,7 +12,7 @@ class Fasttext < Formula
     sha256 cellar: :any, catalina:      "ec085551ced1f55b863a65aa60ad8f31d796002702b7effaaaafbf1490df867f"
     sha256 cellar: :any, mojave:        "79f08167fb55b478829434be84d919c08c888563e0abbdeb66bc19cd3e82457f"
     sha256 cellar: :any, high_sierra:   "4602a32c2a373ed97de8fd36bf1e998299682d45e465af39026a32a3a06fe574"
-    sha256 cellar: :any, x86_64_linux:  "d4fd7acfc3a9124e638070c4dca7baa43bc4092da9cb237d5467355560695f26"
+    sha256 cellar: :any, x86_64_linux:  "d4fd7acfc3a9124e638070c4dca7baa43bc4092da9cb237d5467355560695f26" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

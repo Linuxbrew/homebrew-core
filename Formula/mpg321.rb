@@ -14,7 +14,7 @@ class Mpg321 < Formula
     sha256 sierra:        "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e"
     sha256 el_capitan:    "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d"
     sha256 yosemite:      "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78"
-    sha256 x86_64_linux:  "232cc9ebd436ec387104a7645e9523b1aff0adb5e624cd9dda0560997967c642"
+    sha256 x86_64_linux:  "232cc9ebd436ec387104a7645e9523b1aff0adb5e624cd9dda0560997967c642" # linuxbrew-core
   end
 
   depends_on "libao"

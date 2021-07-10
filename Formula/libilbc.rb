@@ -10,7 +10,7 @@ class Libilbc < Formula
     sha256 cellar: :any, big_sur:       "affe65f4320a2940b69ec54687be6c5387e51d79f3fd418a5dc42924c99eeee0"
     sha256 cellar: :any, catalina:      "b75ace51e88894a45e406c7fbe4b4cafc06932b0e5ce90480fdee203aa9ede83"
     sha256 cellar: :any, mojave:        "496492e1aaecb1b41ba83eb033b75777ca08333edbb9e67bef23c933b5847cd5"
-    sha256 cellar: :any, x86_64_linux:  "48e3ec1365e699143942456cfd5b93da9acb1f4a5dcbfa3d4cc0e8e18c7847b6"
+    sha256 cellar: :any, x86_64_linux:  "48e3ec1365e699143942456cfd5b93da9acb1f4a5dcbfa3d4cc0e8e18c7847b6" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -9,7 +9,7 @@ class Bond < Formula
     sha256 cellar: :any,                 big_sur:      "9cc49b023fbd14c296f04cd5ae537bf6098f9b09025812a350a99a72bed00fea"
     sha256 cellar: :any,                 catalina:     "5d78ce28f6865648b61de0d5fc449c13e6ebc3093209efe781073d560b1b29b7"
     sha256 cellar: :any,                 mojave:       "54718f979d4ee63570fe76d4d96682f1c169791c3e1b91fc32471aee3bcccd0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "48016b41b0fb57cffee3115545ed8f1f7d97be4cbf5ecfd7f7a1ec932cb734dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "48016b41b0fb57cffee3115545ed8f1f7d97be4cbf5ecfd7f7a1ec932cb734dc" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

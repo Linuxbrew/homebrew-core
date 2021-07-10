@@ -16,7 +16,7 @@ class Cairo < Formula
     sha256 big_sur:       "cb16c1bb070a7cdca7aaf8899a70e407d73636116d62225626b2c8d31aa8d2ff"
     sha256 catalina:      "4a117545953b9784f78db8261c03d71a1ae7af836dcd995abe7e6d710cdfd39c"
     sha256 mojave:        "38c7b7b0f6266632a5f04df12180dc36a1ce218a1c54b13cdca18ad024067311"
-    sha256 x86_64_linux:  "45bd95c4d2fe0bdc90d845491c57574c31b1530ab945cec3d8231af69de72451"
+    sha256 x86_64_linux:  "45bd95c4d2fe0bdc90d845491c57574c31b1530ab945cec3d8231af69de72451" # linuxbrew-core
   end
 
   head do

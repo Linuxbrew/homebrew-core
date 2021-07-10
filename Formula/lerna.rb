@@ -12,7 +12,7 @@ class Lerna < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "53885b6ebfeae441afa66d521667427dea0c4188f4ffb1cfe64e29639987d4a9"
     sha256 cellar: :any_skip_relocation, catalina:      "67e710cabaa7060f1ef2cf6cbafc8734daa93c4c21889a381b7551218e205b34"
     sha256 cellar: :any_skip_relocation, mojave:        "e32988735ca0475d93000c7a2d163289da595263c1d6d416321f9f84f1ce5f3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8eec2ee70673451a8e23768860061667b0a1390557a7b936ab55f11cc7a7183"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8eec2ee70673451a8e23768860061667b0a1390557a7b936ab55f11cc7a7183" # linuxbrew-core
   end
 
   depends_on "node"

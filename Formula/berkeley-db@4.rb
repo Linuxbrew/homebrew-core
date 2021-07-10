@@ -11,7 +11,7 @@ class BerkeleyDbAT4 < Formula
     sha256 cellar: :any, big_sur:       "8a95577ecc798d7dd61b100d282c3b667eb278b3d719a41331db2cc57e0843c1"
     sha256 cellar: :any, catalina:      "3ef8ec895927523c7a7c2c8c18af534ed00abd9b0d35664a3464595906adcee4"
     sha256 cellar: :any, mojave:        "06af286b14463aec20a0bc9560a6c4081fb392325a8bb8403dd7f02ac4076711"
-    sha256 cellar: :any, x86_64_linux:  "1583c50d157e98b1e45fed65b072ef15141ff7a203220a0028e869ffcf2caa57"
+    sha256 cellar: :any, x86_64_linux:  "1583c50d157e98b1e45fed65b072ef15141ff7a203220a0028e869ffcf2caa57" # linuxbrew-core
   end
 
   keg_only :versioned_formula

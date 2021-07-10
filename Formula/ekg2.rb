@@ -19,7 +19,7 @@ class Ekg2 < Formula
     sha256 mojave:        "78778e95338d2a0a61f7d4773716d927534d24e4d5867a04038401427b07c855"
     sha256 high_sierra:   "f946e56a032b9526280745e6e57f8bc42a18d12fa9ced783f5515eb600bcdf0b"
     sha256 sierra:        "35f01a57bbceb1a79abfa8b035e3135d0c821bbca22a63b273e32159e517813f"
-    sha256 x86_64_linux:  "b59e23e03c20b4c014961d5dbcc43c9a057a966b1d883dbddfea71ae37dc4f59"
+    sha256 x86_64_linux:  "b59e23e03c20b4c014961d5dbcc43c9a057a966b1d883dbddfea71ae37dc4f59" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

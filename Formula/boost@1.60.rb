@@ -12,7 +12,7 @@ class BoostAT160 < Formula
     sha256 cellar: :any, sierra:       "8ab5b0be67a534c2340b488d27ebc51ccb088c49735949da4c0099359c6ef9f1"
     sha256 cellar: :any, el_capitan:   "f6ef8ae275a8d0c03969eceb248235dbeafd4316d1c97f6a9b79d8aa4ef71027"
     sha256 cellar: :any, yosemite:     "489a6420dc137a356ad300cb10a519073adbf99573515601f6bb87ff5a6622b3"
-    sha256 cellar: :any, x86_64_linux: "d727d8b3d4b78e069d75e87e4bfaaffd79d14ab3c30c444e2a9550202220fd47"
+    sha256 cellar: :any, x86_64_linux: "d727d8b3d4b78e069d75e87e4bfaaffd79d14ab3c30c444e2a9550202220fd47" # linuxbrew-core
   end
 
   keg_only :versioned_formula

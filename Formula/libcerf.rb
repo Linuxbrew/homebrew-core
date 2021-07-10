@@ -17,7 +17,7 @@ class Libcerf < Formula
     sha256 cellar: :any,                 big_sur:       "3c23b5b1d35053a0378674aa6d6c5668a4b36be61382b7974d284dcfa17cdde7"
     sha256 cellar: :any,                 catalina:      "9d0409617477f3c400ef771c2b8c9b3eb46faeda7608f2a3200dcf7a69eb8c80"
     sha256 cellar: :any,                 mojave:        "7dc6c5eff9c002bda2fc9790cba55fa81965da5298f5666542fdd3717b751d1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fd7d3ce242b054ac22000f9f9f555cefe194009ef23b47fb7625bcbaf579a2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fd7d3ce242b054ac22000f9f9f555cefe194009ef23b47fb7625bcbaf579a2e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

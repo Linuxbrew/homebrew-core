@@ -12,7 +12,7 @@ class StartupNotification < Formula
     sha256 cellar: :any,                 catalina:      "bdb8f9123099562853461f5299108f7cbfac9be39ea3ab9ad6b3853c288ba5c9"
     sha256 cellar: :any,                 mojave:        "c4fcbad957b22a8999a0bc87a3c2b0b2b6b94654b3f6213f5903025574ae4c76"
     sha256 cellar: :any,                 high_sierra:   "60f0a0ce0a2954f53fa9f4b5dfc3aeb99aa5607801f340b506ea172bb1e381f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3662aa47a9d1493a11ca44bb4791620293f84f06738f2d6b6ab6941da121cf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3662aa47a9d1493a11ca44bb4791620293f84f06738f2d6b6ab6941da121cf3" # linuxbrew-core
   end
 
   depends_on "pkg-config" => [:build, :test]

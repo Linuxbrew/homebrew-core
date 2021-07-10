@@ -11,7 +11,7 @@ class PerlBuild < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a24fadf986032226343c74378f0344b15729687d9b0679f64e859e41a4f165db"
     sha256 cellar: :any_skip_relocation, catalina:      "e2b99b05c34a89e8706810730e8ac6da7d98c76025b72d86eb2a6003a47a4b85"
     sha256 cellar: :any_skip_relocation, mojave:        "5ae631c827ab5b58f0e2bafa3b5470f3b2f2236802942c3d4454ab96fd212aa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40f61bf36435657e3fd2c91cdd8993074152a334aebe60c100e474c09d9630a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40f61bf36435657e3fd2c91cdd8993074152a334aebe60c100e474c09d9630a1" # linuxbrew-core
   end
 
   uses_from_macos "perl"

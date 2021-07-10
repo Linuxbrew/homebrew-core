@@ -13,7 +13,7 @@ class Pce < Formula
     sha256 cellar: :any, mojave:        "8c0364c490a9b01875ab9c05c7bc5a6cba190e27d941c72bbbb3e17af71ab88a"
     sha256 cellar: :any, high_sierra:   "6c67f811c813423d7380894d6de77aeeeba20d9f18fd36a71653c23b97c433f6"
     sha256 cellar: :any, sierra:        "ae09a42321608dfa10291d2a2a1afed87a137c9612a54e513360022de8e908b3"
-    sha256 cellar: :any, x86_64_linux:  "7bd78ce992771dfb3f22f955c4153e7ab463a49224d688ad02ffa1979dfcea92"
+    sha256 cellar: :any, x86_64_linux:  "7bd78ce992771dfb3f22f955c4153e7ab463a49224d688ad02ffa1979dfcea92" # linuxbrew-core
   end
 
   depends_on "nasm" => :build if MacOS.version >= :high_sierra

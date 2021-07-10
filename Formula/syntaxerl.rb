@@ -11,7 +11,7 @@ class Syntaxerl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1d83b5507f1a4f1ac6ae3a09ae41056ab6588caab3d0737ac3707384faa45770"
     sha256 cellar: :any_skip_relocation, mojave:        "b2b5d4afd0e7f5e4feb748dc7cc738f65612cb06e4f09a59f7b8f3fdcbb4c424"
     sha256 cellar: :any_skip_relocation, high_sierra:   "81bba7402fee8403b05bef71b2552e65303b0a4399c7465d5c653fdab659fb9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c07f9cc9bf8006a4112f12b55b7f3a24bf7665ceca0c7fb45603c55bee6436c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c07f9cc9bf8006a4112f12b55b7f3a24bf7665ceca0c7fb45603c55bee6436c6" # linuxbrew-core
   end
 
   depends_on "erlang"

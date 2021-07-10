@@ -11,7 +11,7 @@ class Sd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "954897383d176858ae3756214f1cd328813aca21c8a1680e28574b75d60f176c"
     sha256 cellar: :any_skip_relocation, catalina:      "7a596311c78da626809ba278bd318499d9552ee8ada8ae302abe4b3481b2245e"
     sha256 cellar: :any_skip_relocation, mojave:        "779ae77105d505f8532438b83acb54f915b5a917c66aecfc21ecdd86cf550b5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5caff10c55e9f6b8fbf076fb6e0bed124e1207e6c074d38c27ec9fb17478437f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5caff10c55e9f6b8fbf076fb6e0bed124e1207e6c074d38c27ec9fb17478437f" # linuxbrew-core
   end
 
   depends_on "rust" => :build

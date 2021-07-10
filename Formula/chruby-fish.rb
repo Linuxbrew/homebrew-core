@@ -13,7 +13,7 @@ class ChrubyFish < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ba0ca145d65c92efa34f257219a96d94c4a82800ac5e37b71e3208ed61a82293"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1ebd01df8a1edd51c2b73568c1db57b38a672b530fd0a55d063595370d0c301d"
     sha256 cellar: :any_skip_relocation, sierra:        "1ebd01df8a1edd51c2b73568c1db57b38a672b530fd0a55d063595370d0c301d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09b1fe583b6d4d1c4c0162cbecd82e99deb3ca3a623fdec950680fd7d882e66d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09b1fe583b6d4d1c4c0162cbecd82e99deb3ca3a623fdec950680fd7d882e66d" # linuxbrew-core
   end
 
   depends_on "chruby"

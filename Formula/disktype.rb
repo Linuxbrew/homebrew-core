@@ -20,7 +20,7 @@ class Disktype < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "18ed63d389b55d3dabb84e355323f303013acd46a1905c194b470cc74fc95e4f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c1f45dc2bdcec2e3b56741bf03d673f3a99534f851d1c77de59d6832d0f75236"
     sha256 cellar: :any_skip_relocation, yosemite:      "cc767e7be270b683021ecb2ef3dd16c77b05e9cdf34ed524c942a89514284f57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aeac4c1730506db19d26ac09455d04351060539fe9210bbf12263181fee22d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aeac4c1730506db19d26ac09455d04351060539fe9210bbf12263181fee22d7" # linuxbrew-core
   end
 
   def install

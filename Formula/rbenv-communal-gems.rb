@@ -7,7 +7,7 @@ class RbenvCommunalGems < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4cd057a73659f1fdea3a0d266485367b960378c790eef4c6d7b707a4936c8481"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4cd057a73659f1fdea3a0d266485367b960378c790eef4c6d7b707a4936c8481" # linuxbrew-core
   end
 
   depends_on "rbenv"

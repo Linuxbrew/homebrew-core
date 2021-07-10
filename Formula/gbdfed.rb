@@ -12,7 +12,7 @@ class Gbdfed < Formula
     sha256 cellar: :any, mojave:        "00b2376a043f6e90d777bc9e5805d84da21c046f446c4dcd649b482a01cbc6cf"
     sha256 cellar: :any, high_sierra:   "945fc3ffa7573224e7a387e6dec353ca7f3b46829f3e3728774a97c26fb0923a"
     sha256 cellar: :any, sierra:        "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5"
-    sha256 cellar: :any, x86_64_linux:  "b94225ed5534f6560fcf757a1c4ed3c27e55d20c52e958610e9010dbd75f9a0f"
+    sha256 cellar: :any, x86_64_linux:  "b94225ed5534f6560fcf757a1c4ed3c27e55d20c52e958610e9010dbd75f9a0f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

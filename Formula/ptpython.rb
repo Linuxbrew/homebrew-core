@@ -3,17 +3,17 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/4b/b8/b9133aaca181dbf405963dad4f1921a762a3732e331d9487e1f3554572ff/ptpython-3.0.18.tar.gz"
-  sha256 "1a641021f550d03580576ddf49eb15a94693b39de9a8334786d85e180834da9d"
+  url "https://files.pythonhosted.org/packages/15/c0/2174901413124288fc5217286f05aede748eea2a2b6e0894a165bcd14846/ptpython-3.0.19.tar.gz"
+  sha256 "b3d41ce7c2ce0e7e55051347eae400fc56b9b42b1c4a9db25b19ccf6195bfc12"
   license "BSD-3-Clause"
   head "https://github.com/prompt-toolkit/ptpython.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9eb2acdb2931c0846ba568b84ae729ce1230399fd8f0b30b6cf902044b32e6c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0bd5e4b89dd1b126ed4db854a028f1fa0cd0003edc635454bf7fd5d29cb4b4ea"
-    sha256 cellar: :any_skip_relocation, catalina:      "730e0399443d57b8fa4f4582373e88f12ef6e5aafd6eb46155503b87ff851584"
-    sha256 cellar: :any_skip_relocation, mojave:        "6cf1284fd769db74518cf18ea2c802dfccfa5ff356f58a6cfe74895f2bd8f365"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8db9fa636b5f6b46204d677b9b8acaa10f8b055cc16ae4822d0ece378acefae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eeddb8b4d8e50f438c91b6d20a50be6d06db98f143e26885975ba00bbc40aab1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c070482be5f9f1b8ffa411a808136c88c3bc67123439e25452e4ce129a66650b"
+    sha256 cellar: :any_skip_relocation, catalina:      "7db1b44f2677eac5f4218e18ece9dcbbba419a0b0625b3cf907d7e0c5a8436f0"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f39dcf1b1035f2f916aafd6783068cc5e9d911624da485f897be55de2a96b8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48300490797ddf560fbe8c32ea0361064d3386d402f2ab0b415730f38ba10e45" # linuxbrew-core
   end
 
   depends_on "python@3.9"

@@ -13,7 +13,7 @@ class Wordplay < Formula
     sha256 mojave:        "d98d89abff244c21cf2ad4eb651ed39afea5b3146bf0ec3277483b813c4e8d89"
     sha256 high_sierra:   "9056fb79657b3be7ba8a97f4a13b1777e72447b717bd9fd1b7830023bda964a6"
     sha256 sierra:        "5141a8f5456e5a685b65c5d9f3100029c6f42b3f0c80aa3d6a4736d3028a6a6b"
-    sha256 x86_64_linux:  "beb5fa4b5b3db4a09fb26af09af6dcf6c03a96874ac7f5d503c93ab0a8de5883"
+    sha256 x86_64_linux:  "beb5fa4b5b3db4a09fb26af09af6dcf6c03a96874ac7f5d503c93ab0a8de5883" # linuxbrew-core
   end
 
   # Fixes compiler warnings on Darwin, via MacPorts.

@@ -17,7 +17,7 @@ class Memtester < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5166f804aa60dda7386e22dee840ca0e65989021bae02d7e9b2b57b66be3e68b"
     sha256 cellar: :any_skip_relocation, catalina:      "b71fcf7ef390537edfcc94fcbf61c0118461e4f3d845764847d9bf30617fe84a"
     sha256 cellar: :any_skip_relocation, mojave:        "cb3c13604ee72639b2ef46f0ebdf9dd37e5675a850e92ec5b8f14fa20108c131"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fc3354dc6b62307ec218bd5f77d41a1fdc8de94056d62407d6a5a6f62a54337"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fc3354dc6b62307ec218bd5f77d41a1fdc8de94056d62407d6a5a6f62a54337" # linuxbrew-core
   end
 
   def install

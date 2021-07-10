@@ -11,7 +11,7 @@ class Gif2png < Formula
     sha256 cellar: :any, mojave:        "95c85cb74a70b1f217c3db5f4f6f6bab2b9871755435a25301bc4215015f1341"
     sha256 cellar: :any, high_sierra:   "fd15459a5000f08952b7609ef743d80c84749710e30b7bfbe02d68e7ccc27ed7"
     sha256 cellar: :any, sierra:        "25aa7ef95b5ca8e7a79bf884fa8e9c8eafb21f2887caabc3ffb40de5fda2ab26"
-    sha256 cellar: :any, x86_64_linux:  "6e56f9b8b442870d44877d51f23a824821c39926ce909faed2375cfb3f84e830"
+    sha256 cellar: :any, x86_64_linux:  "6e56f9b8b442870d44877d51f23a824821c39926ce909faed2375cfb3f84e830" # linuxbrew-core
   end
 
   depends_on "libpng"

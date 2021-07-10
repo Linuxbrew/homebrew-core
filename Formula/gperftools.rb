@@ -17,7 +17,7 @@ class Gperftools < Formula
     sha256 cellar: :any,                 big_sur:       "db13bfa856a699c5e74e95ee81722cc76b38bb9dcca1d10cebe2eed17888ff68"
     sha256 cellar: :any,                 catalina:      "df9901c12be430101b403c8024a4dc5b5f5d0f718e4ace970f52bc68b17a3659"
     sha256 cellar: :any,                 mojave:        "9976b82f86958d3ad6924d138d138d5bddbc2bcc6eb16ea44c4255ed9cb889b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3a8c21c80869126519c62cae38406406de50552450c686596ff9a30b69440a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3a8c21c80869126519c62cae38406406de50552450c686596ff9a30b69440a" # linuxbrew-core
   end
 
   head do

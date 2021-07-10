@@ -11,7 +11,7 @@ class Xorgrgb < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ec1075868cfedeed6e68f844637fe8cbf1d978cacb6bedf6ca746a3a2a5e68f8"
     sha256 cellar: :any_skip_relocation, mojave:        "ab75e74585e880cdaa2a0383626440834dcf2ed164d8c556d12ca9e74ede9386"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9035c5f64f471dcf32ab07e2321237fcab8a5fc3057cef3f29664db32222fc35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fab3363c2e69d362c34706f051f19487f6a8b6bd7758f94e6d06f1f0fc770b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fab3363c2e69d362c34706f051f19487f6a8b6bd7758f94e6d06f1f0fc770b8" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

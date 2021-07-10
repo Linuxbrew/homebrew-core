@@ -20,7 +20,7 @@ class Cadaver < Formula
     sha256 big_sur:       "240a41ea5b71aa144bea0fdb28b6233130d5368e8a221171eaa7bee24f5075a6"
     sha256 catalina:      "da94dea10afd90e1d0e41f24d4319ea006bf909381de2c2379c3144374c3feff"
     sha256 mojave:        "a232491b47135718f6cf65d00954099d92a43f5fcc6b01838a676faa77f2ed13"
-    sha256 x86_64_linux:  "3530ee6f4d2cc4613c44678e070277217db41baa02f5398d871b39ab11645837"
+    sha256 x86_64_linux:  "3530ee6f4d2cc4613c44678e070277217db41baa02f5398d871b39ab11645837" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

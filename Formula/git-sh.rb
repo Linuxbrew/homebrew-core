@@ -13,7 +13,7 @@ class GitSh < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "d371fba61367507f5e88818eb1f0630e388d198c37faa957ce410d97675a7f5d"
     sha256 cellar: :any_skip_relocation, el_capitan:   "e30e7836919a5d79712e3fd51a118279b412c44da909053b9b185eb48963323f"
     sha256 cellar: :any_skip_relocation, yosemite:     "cdbc6fc62300722f613f314e2859422edcf938c6807a3039bcf476e02fbe222c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4a90e6f44bb3e10c770b7d374534b91299159f8cfdd4fb5a407aa2461d27390c" # glibc 2.19
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4a90e6f44bb3e10c770b7d374534b91299159f8cfdd4fb5a407aa2461d27390c" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

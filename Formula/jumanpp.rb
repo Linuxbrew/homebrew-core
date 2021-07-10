@@ -19,7 +19,7 @@ class Jumanpp < Formula
     sha256 sierra:        "afddd3445d86fa1969611b413d0ae460fdaa7b106cdf5edf6ce0bf9d14689a49"
     sha256 el_capitan:    "4b4dd5ca55ba7d380a9a6bc7dda462c3825aa8650e9dc6b131e53fadbf64dc63"
     sha256 yosemite:      "d53d25e49f4bd8cddd2657ee09eeaec56844996b10445c15561be1a12977a888"
-    sha256 x86_64_linux:  "a829a5de6e7afda07141adc35e7fdf37dc3664c6b590187f5191a96e2364cd50"
+    sha256 x86_64_linux:  "a829a5de6e7afda07141adc35e7fdf37dc3664c6b590187f5191a96e2364cd50" # linuxbrew-core
   end
 
   depends_on "boost-build" => :build

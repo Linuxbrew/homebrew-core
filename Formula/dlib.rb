@@ -11,7 +11,7 @@ class Dlib < Formula
     sha256 cellar: :any,                 big_sur:       "5d20cfc1befae91082d391364cb07dfc68d99713694ac81539d027e2138cc5bc"
     sha256 cellar: :any,                 catalina:      "158a5e823cfda7ed8ef3ea9439d28b7c6508bb108f28fe8c94639bd35a9620e2"
     sha256 cellar: :any,                 mojave:        "40748e73bb88c567e6ca5b991f8e4282e46422e625ec2dcc0ff0f11a5ed76f4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a47a985d68a8b70e77ba1d03254f9e655268d876ab778ac1ccb0014355389fdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a47a985d68a8b70e77ba1d03254f9e655268d876ab778ac1ccb0014355389fdf" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

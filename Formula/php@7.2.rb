@@ -9,16 +9,21 @@ class PhpAT72 < Formula
   revision 4
 
   bottle do
-    sha256 arm64_big_sur: "4605661dda926d33602ddf36f4f5d8a39af412fc8a0481c53e45ede051c96c8d"
-    sha256 big_sur:       "8209d8b2ac1ba6483aaf25137d94a8b04534a2919fb18ce086323d20e00dddb8"
-    sha256 catalina:      "ad509ce758f3d534ffeed10bfc7a8b24805520ede8b82e3620f55e1011461a0e"
-    sha256 mojave:        "bd35a0c61fad2eda69fd0350f3e09f28530d21233704ceb85cb8aaaeca3c0d91"
-    sha256 x86_64_linux:  "c3f034770f7e30674009c44104e93eabe4812b150251a2191c087e5a95ab74ad"
+    rebuild 1
+    sha256 arm64_big_sur: "a92e64bf8bc2a93c2565376ec604ae02a6361f2144903f1931e6bc1dfd612035"
+    sha256 big_sur:       "0ebb08d4162c250cf7d954b3819942c13db229735f2de8106a158b67b56fa120"
+    sha256 catalina:      "dfaa144647884e7dcba907ac88132ed4af1fc146176e687267ca602f0af26ba6"
+    sha256 mojave:        "46a9ee4a740cdded555ff8d528ce319958f44d9239b7bb89d36953312e318bfd"
+    sha256 x86_64_linux:  "1ef12d41cf1a4b4bc8daa4644af7475916235ddd4f45a9d56604eb788a9d7f6e" # linuxbrew-core
   end
 
   keg_only :versioned_formula
 
-  deprecate! date: "2021-11-30", because: :deprecated_upstream
+  # Unsupported as of 2020-11-30: https://www.php.net/eol.php
+  # The date below is intentionally a year after the EOL date. This gives the
+  # formula a year before being disabled and it will be reported as deprecated
+  # in the interim time.
+  disable! date: "2021-11-30", because: :deprecated_upstream
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -53,9 +58,11 @@ class PhpAT72 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
-  # PHP build system incorrectly links system libraries
-  # see https://github.com/php/php-src/pull/3472
-  patch :DATA if OS.mac?
+  on_macos do
+    # PHP build system incorrectly links system libraries
+    # see https://github.com/php/php-src/pull/3472
+    patch :DATA
+  end
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
@@ -110,11 +117,8 @@ class PhpAT72 < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = if OS.mac?
-      "=#{MacOS.sdk_path_if_needed}/usr"
-    else
-      ""
-    end
+    headers_path = ""
+    on_macos { headers_path = "=#{MacOS.sdk_path_if_needed}/usr" }
 
     args = %W[
       --prefix=#{prefix}
@@ -184,18 +188,20 @@ class PhpAT72 < Formula
       --with-xmlrpc
     ]
 
-    if OS.mac?
+    on_macos do
       args << "--enable-dtrace"
-      args << "--with-zlib#{headers_path}"
       args << "--with-bz2#{headers_path}"
-      args << "--with-ndbm#{headers_path}"
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
+      args << "--with-ndbm#{headers_path}"
       args << "--with-xsl#{headers_path}"
-    else
+      args << "--with-zlib#{headers_path}"
+    end
+
+    on_linux do
       args << "--disable-dtrace"
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
-      args << "--with-bz2=#{Formula["bzip2"].opt_prefix}"
+      args << "--with-bzip2=#{Formula["bzip2"].opt_prefix}"
       args << "--with-libedit=#{Formula["libedit"].opt_prefix}"
       args << "--with-libxml-dir=#{Formula["libxml2"].opt_prefix}"
       args << "--with-xsl=#{Formula["libxslt"].opt_prefix}"
@@ -354,7 +360,7 @@ class PhpAT72 < Formula
       "Zend OPCache extension not loaded")
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
-    if OS.mac?
+    on_macos do
       assert_includes MachO::Tools.dylibs("#{bin}/php"),
         "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
     end

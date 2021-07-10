@@ -11,7 +11,7 @@ class Healpix < Formula
     sha256 cellar: :any,                 big_sur:       "70fd0a39e1eb0378c04a372b19d3e87ec7ac640a6a47e7f070c6bc35b3eacade"
     sha256 cellar: :any,                 catalina:      "513f76002bb4bb76327dbfab205750d31f0ddd7e6b9e46e86d2b9cfe91f0d4ea"
     sha256 cellar: :any,                 mojave:        "cbb907c16bb946f4fab1ee58bf279256fc2f7d80d9d551f5800a404b0b915677"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a1afe5c37048a5eeabeddbd7158d89e9a03e3ac3839b2ed0913233258ef0d20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a1afe5c37048a5eeabeddbd7158d89e9a03e3ac3839b2ed0913233258ef0d20" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -20,7 +20,7 @@ class EmacsClangCompleteAsync < Formula
     sha256 mojave:        "3e57ed30a99d26abf1dfe26989adfa19b258fe4c7e372eac8469566ac89be31b"
     sha256 high_sierra:   "628ef0dce4d14042267c54e8baa1c20b594c7853f23ac35c012a5a6a2f506880"
     sha256 sierra:        "3161dd4faf73ca236e5258011e2bd6229706a01dea444fbd2fa22de05070c0d1"
-    sha256 x86_64_linux:  "fcc133a814c53dd5c1b4dae8ed7fc51b81912b5bb41bac2ac824201ed8e56603"
+    sha256 x86_64_linux:  "fcc133a814c53dd5c1b4dae8ed7fc51b81912b5bb41bac2ac824201ed8e56603" # linuxbrew-core
   end
 
   depends_on "llvm"

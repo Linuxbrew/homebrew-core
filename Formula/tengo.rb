@@ -10,7 +10,7 @@ class Tengo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ef70b95dc064e4f69cbff40bd5ddc35016e583dcce360c5c00b2dd34c866c9d0"
     sha256 cellar: :any_skip_relocation, catalina:      "ef70b95dc064e4f69cbff40bd5ddc35016e583dcce360c5c00b2dd34c866c9d0"
     sha256 cellar: :any_skip_relocation, mojave:        "ef70b95dc064e4f69cbff40bd5ddc35016e583dcce360c5c00b2dd34c866c9d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009006527b6ea9e9865650e12f19b3c86f71d5939d2212fcc472ff65b29ce27a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009006527b6ea9e9865650e12f19b3c86f71d5939d2212fcc472ff65b29ce27a" # linuxbrew-core
   end
 
   depends_on "go" => :build

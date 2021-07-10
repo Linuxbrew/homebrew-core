@@ -15,7 +15,7 @@ class Truncate < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c4c892f0afbdf3a401ccb0af2a7cf8c65b37ccfdfe2412dda5284faa94f562ff"
     sha256 cellar: :any_skip_relocation, el_capitan:    "299b80454c20134c5d0916da25fb3d5f0b6843e620dac6babebe01a899253a69"
     sha256 cellar: :any_skip_relocation, yosemite:      "a9d1c87d6cfec42674f0e7db25b786ba100a04c8c0da318fd5f6299a7418843f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41e96e4e675dec121553ea5ecae40f39d3495610c5c35632c7862b7731488107"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41e96e4e675dec121553ea5ecae40f39d3495610c5c35632c7862b7731488107" # linuxbrew-core
   end
 
   deprecate! date: "2021-05-20", because: :repo_removed

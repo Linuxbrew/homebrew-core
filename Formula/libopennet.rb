@@ -13,7 +13,7 @@ class Libopennet < Formula
     sha256 cellar: :any, sierra:       "c3447365aeb1a478b14b5a71b6ffd29a1f95754fb460ed6f618b55e2f958c227"
     sha256 cellar: :any, el_capitan:   "de1cb9622ec3b6501236af7e66367bc5bbaa20dfb8e3ae328a339bea6d708bab"
     sha256 cellar: :any, yosemite:     "abcf105b630a05b8a7d26f1a0ba8defafcf31c0dc23e79c3a5f8a9a14878e6de"
-    sha256 cellar: :any, x86_64_linux: "5fba5d772168f099ea802a9581a753d39540e6f9ae8fc0d0f33d864fe528cb5d"
+    sha256 cellar: :any, x86_64_linux: "5fba5d772168f099ea802a9581a753d39540e6f9ae8fc0d0f33d864fe528cb5d" # linuxbrew-core
   end
 
   def install

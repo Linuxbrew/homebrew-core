@@ -12,7 +12,7 @@ class ConsulTemplate < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b0e75b93a96a65db4c740c4f9cb182a4f9633453b19642596f0166e758fcf0ac"
     sha256 cellar: :any_skip_relocation, catalina:      "9b9b74bf2862b9da6fbe3b09800d035ea6cb02a4a955a20e61d4263b6bce97b9"
     sha256 cellar: :any_skip_relocation, mojave:        "c53892e3727810906a27b366a8b6f25faa5fae481289027e156767f5ab770878"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41fa825283a3bb271c48c30aefaeb262b3129ca17562b80a0740374edc726322"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41fa825283a3bb271c48c30aefaeb262b3129ca17562b80a0740374edc726322" # linuxbrew-core
   end
 
   depends_on "go" => :build

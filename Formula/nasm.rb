@@ -16,7 +16,7 @@ class Nasm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1875e67160bac1675dd505d66a6b78469767d2dfe8baab2652409f91ac0549ef"
     sha256 cellar: :any_skip_relocation, mojave:        "4b3614f857264edfa9aeab961c523b3910cdef0ceccaf9957888b477c1c512f4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8f8c181994b1f05bf425a4034f76d6973c9e1a85ecb64af7f67d47556f23a0d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd091ef1aa30c790ac638c699623e0b3c86d8697c7b8c0bb7f162687de9c7b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd091ef1aa30c790ac638c699623e0b3c86d8697c7b8c0bb7f162687de9c7b6" # linuxbrew-core
   end
 
   head do

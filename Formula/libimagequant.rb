@@ -10,7 +10,7 @@ class Libimagequant < Formula
     sha256 cellar: :any,                 big_sur:       "0521a9c6ee13fb0859fa33c98b7dc07b552e0de9856e838fdb2b05657f24cd03"
     sha256 cellar: :any,                 catalina:      "b98776cbcd191d2db03333a3151a69d7b3d52069d59d394e47dc809ca470b450"
     sha256 cellar: :any,                 mojave:        "00fffaa6d819e9c9bb2c05c254d3a4fdb33c86ac081ec404dc9bf165cd7e9f0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f09af222755dbc2b8fc497a2e023e0aa1705a3b64d6b340b6599b0af34d8b63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f09af222755dbc2b8fc497a2e023e0aa1705a3b64d6b340b6599b0af34d8b63" # linuxbrew-core
   end
 
   def install

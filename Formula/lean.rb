@@ -18,7 +18,7 @@ class Lean < Formula
     sha256 cellar: :any,                 big_sur:       "a10756134d6e97923dc0425d02a8b1ee0a49b4758f49f27e03282887071cde6f"
     sha256 cellar: :any,                 catalina:      "014297ad90fee979d9e726fc08d13edd2adab94986541cd67172f62f845aaea5"
     sha256 cellar: :any,                 mojave:        "386b72209c9b4fdea4f1ee0a5cded5560bd276e4b9e297c4e4586efbb03c4e74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "482be2f2171c2056afaaf24b060239778721fcfe38a351baa8eddf6f7f472a43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "482be2f2171c2056afaaf24b060239778721fcfe38a351baa8eddf6f7f472a43" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

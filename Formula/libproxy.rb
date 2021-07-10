@@ -12,7 +12,7 @@ class Libproxy < Formula
     sha256 big_sur:       "d094201c939cfab859da673186809a6c7a24b9a216829b862a1bb53059309d4c"
     sha256 catalina:      "c847a5adafa14e2614351edc46fdf1f8884908912845a9e425ce30925bb55e32"
     sha256 mojave:        "5f6f14d95746e1b4c3328f23c7d9018e7e6a1fab70eba1255276ad89c0c405e5"
-    sha256 x86_64_linux:  "5c480c1821960c5311da891ef9dc9cbfe89d63fb73301ba2d2431b7265659121"
+    sha256 x86_64_linux:  "5c480c1821960c5311da891ef9dc9cbfe89d63fb73301ba2d2431b7265659121" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

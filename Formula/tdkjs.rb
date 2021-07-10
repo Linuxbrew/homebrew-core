@@ -13,7 +13,7 @@ class Tdkjs < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d59d6292d1982f2bfb6fac6f3e25d638b131b2ad9c36598ef5ad5ee4f5eb76e3"
     sha256 cellar: :any_skip_relocation, mojave:        "9edeabf99f8d427626ee1500981ed3bb3738be523abcfa600457588afca605c7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "09ace9b6ab20a91e582b8d95ba05abe45b046231cb457cf87c7d2704352778f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df35f57f00e24aa7ed6abbf2090f1f99faad5d3cb491cbf832f5495db0a3c29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df35f57f00e24aa7ed6abbf2090f1f99faad5d3cb491cbf832f5495db0a3c29" # linuxbrew-core
   end
 
   deprecate! date: "2021-03-04", because: :unmaintained

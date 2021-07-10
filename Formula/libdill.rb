@@ -11,7 +11,7 @@ class Libdill < Formula
     sha256 cellar: :any, mojave:       "7ebbbe85ab5989b48664688c9fdc833b4bbc7846ea94f3f73c34ef620026b878"
     sha256 cellar: :any, high_sierra:  "062d2f9f6fdeb5588036d3e06752ecfd95b5f4e7b6008b727208fc0a2e7f50a6"
     sha256 cellar: :any, sierra:       "6f75a82c15eafe6818b0d79e9c55df0654c6665f37841ee21cf7fb90ac578a92"
-    sha256 cellar: :any, x86_64_linux: "ad2457adaad8bcf7acd7b995a204a7bf71aacc6af26e1e455cae78692279bd9f"
+    sha256 cellar: :any, x86_64_linux: "ad2457adaad8bcf7acd7b995a204a7bf71aacc6af26e1e455cae78692279bd9f" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

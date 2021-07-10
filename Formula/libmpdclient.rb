@@ -13,7 +13,7 @@ class Libmpdclient < Formula
     sha256 cellar: :any, catalina:      "866e94308617552de97ecb04f824408fa4f849d1ef79ff9bf5467170c80e3a23"
     sha256 cellar: :any, mojave:        "0db8f7c9e7cd6eb5082397e9270989864042e36c187cba2fa61ae43ca996e32f"
     sha256 cellar: :any, high_sierra:   "71c37d5af98688decfe4440ce87e267064a4a71e0b1a4e11455068b5127edae4"
-    sha256 cellar: :any, x86_64_linux:  "046b7c5dba55132baeb04b8a0e10bfc9054206388207da1ec6a9d8e31f6f20bc"
+    sha256 cellar: :any, x86_64_linux:  "046b7c5dba55132baeb04b8a0e10bfc9054206388207da1ec6a9d8e31f6f20bc" # linuxbrew-core
   end
 
   depends_on "doxygen" => :build

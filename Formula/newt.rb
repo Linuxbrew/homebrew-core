@@ -17,7 +17,7 @@ class Newt < Formula
     sha256 cellar: :any, mojave:        "2b902ecc6fc52b2f2681eb23e4eb568684a018deeada88e5a920952de8cc1080"
     sha256 cellar: :any, high_sierra:   "7a88cbe033eb207df57a6410f19339975a672e331c073e3ee79e467652c8753c"
     sha256 cellar: :any, sierra:        "4d82531bb783ba5e3f8a64150582e61b2fd4a9fb8be96d0bee88fa3bbe0dc3c3"
-    sha256 cellar: :any, x86_64_linux:  "4f72da0d4af62cace8f3291d52453ebd22391ef8740df0eaffcb7e5b0c947137"
+    sha256 cellar: :any, x86_64_linux:  "4f72da0d4af62cace8f3291d52453ebd22391ef8740df0eaffcb7e5b0c947137" # linuxbrew-core
   end
 
   depends_on "gettext"

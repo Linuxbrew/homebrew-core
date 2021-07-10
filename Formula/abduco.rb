@@ -15,7 +15,7 @@ class Abduco < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9367a86666aad4d14cecf2d7c20f897d3eb92d5cd913af43081d80b9452e19fd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "62b4673f4fba1d3c5b201b972e220a2736ec053e0c83b1369bb4e5641a71f8e4"
     sha256 cellar: :any_skip_relocation, yosemite:      "17338a1f1f2cace2bfb40c79d746ad60c6604555e8fb34476ec4ef9a2f68234e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cf73a80e67aeacf95a705b634a5c53aaba2177e8307e7bbb0925698b3c63d20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cf73a80e67aeacf95a705b634a5c53aaba2177e8307e7bbb0925698b3c63d20" # linuxbrew-core
   end
 
   def install

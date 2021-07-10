@@ -17,7 +17,7 @@ class Nexus < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "c20857fcd052822fa8f0b5cbf6be9a62687ba04f0df7b1097238c8818ad319bb"
     sha256 cellar: :any_skip_relocation, catalina:     "a9b814c63b91113b4a1bba841661ff208b345355393839ac384a0ff938b2210f"
     sha256 cellar: :any_skip_relocation, mojave:       "319f19a3d0e00895179d3c1a914948226c66a48c08eb156b78e099ce7d27dbc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bd76e4db0c30e746add48150caa48160b32bca45f1c3dfa9afa676989015ea36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bd76e4db0c30e746add48150caa48160b32bca45f1c3dfa9afa676989015ea36" # linuxbrew-core
   end
 
   depends_on "maven" => :build

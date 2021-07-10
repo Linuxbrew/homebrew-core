@@ -13,7 +13,7 @@ class Mp3gain < Formula
     sha256 cellar: :any, high_sierra:   "5aa37ac4ab2013f5365da14969494111500337cae3c6d7614b72dfb9e94352f2"
     sha256 cellar: :any, sierra:        "66684a469ee1de432a00f1264c89b3921d3558854fa736b24a3942e351617c47"
     sha256 cellar: :any, el_capitan:    "4c97894216600ba8ac03094a45fe68a7d107f69adbcd638d40c967ad10e95480"
-    sha256 cellar: :any, x86_64_linux:  "9b56729f7ee00154a58f59516d19c67e9249d83574fd29c3275a58824465ec41"
+    sha256 cellar: :any, x86_64_linux:  "9b56729f7ee00154a58f59516d19c67e9249d83574fd29c3275a58824465ec41" # linuxbrew-core
   end
 
   depends_on "mpg123"

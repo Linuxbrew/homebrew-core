@@ -14,7 +14,7 @@ class Eralchemy < Formula
     sha256 cellar: :any,                 catalina:      "e844701e7824dc9497969cc6592302bf56ac060d5aa18105e1ee2887411a5f12"
     sha256 cellar: :any,                 mojave:        "cfb423a7299d1d307e58aa756675f26ea65ad405e6e2fb707727de49aa36eb64"
     sha256 cellar: :any,                 high_sierra:   "cb2442baa298aa27c860ad7d80116131f286ea283625dbd809d4b518ba81707a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f68a9efd69251081c3948657da0919a871dc1b3748f9b609e0546bae40ddcda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f68a9efd69251081c3948657da0919a871dc1b3748f9b609e0546bae40ddcda" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

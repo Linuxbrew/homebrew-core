@@ -12,7 +12,7 @@ class GitCola < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "54c0806c423ffadb4bf4e017d8e7b657f0636fd16055e174bdf98881ccbb0ed0"
     sha256 cellar: :any_skip_relocation, catalina:      "8ba8892158a9e2ceef9f278b4c7a789a2ee26bfffce97c56863d287a5b56d071"
     sha256 cellar: :any_skip_relocation, mojave:        "ad020b9751ad02ff662b94c1df5bb18a496ec77c46957d6ec200633b45bf2959"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24b91e748522ea9e2d47156666a9b2d68f8d3c5aa46735026700cf1b8f49b617"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24b91e748522ea9e2d47156666a9b2d68f8d3c5aa46735026700cf1b8f49b617" # linuxbrew-core
   end
 
   depends_on "sphinx-doc" => :build

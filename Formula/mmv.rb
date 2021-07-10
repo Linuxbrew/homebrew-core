@@ -19,7 +19,7 @@ class Mmv < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "cce62f0616d060bf803a5bc83d15907a02b90f5ec3faea62422d8fa179982ab2"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e22f894e1224e3c0f85257c5b4db11ed1095b5a2117f48f38653b22a3d395fe4"
     sha256 cellar: :any_skip_relocation, yosemite:      "4e921612e3edb452f6a67f41248247d1c5b60aa22ad17d632cd43e62f5d77084"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44803efa99a3fb3d84f3303bf8ad5bf016d4e20d9604254226b2376a068dde8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44803efa99a3fb3d84f3303bf8ad5bf016d4e20d9604254226b2376a068dde8b" # linuxbrew-core
   end
 
   patch do

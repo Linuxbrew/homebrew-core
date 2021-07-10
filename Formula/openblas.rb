@@ -23,11 +23,12 @@ class Openblas < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "d6a3a72eab5bdf20737b24e4ca142ce9f1de7facf296692a1cb427f6991738a3"
-    sha256 cellar: :any,                 big_sur:       "fa68f6847227743daa07f70be8e0436e43575bea3c3fb2a2672521afa9c4766f"
-    sha256 cellar: :any,                 catalina:      "053e13fbeb193ed30add73eb3afdec1f8f97314a00dfd328f2c18b66624e6161"
-    sha256 cellar: :any,                 mojave:        "891c7cc3bc0d6f99829558bc7ee557d3a3511398ab9cccab4783c9c6843d498b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5ae1d1942e8c90752a179190287e5820d5428b545cba9089e754d84b9798b4f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "b31f9c8f4548ed99e457e5a022d16e70f3b890797bc8c00142f67f6f3f879327"
+    sha256 cellar: :any,                 big_sur:       "7fcddea45a233d6b8dcb14191acdb1ae9d141f7b90d7c26c506490c15bf3396f"
+    sha256 cellar: :any,                 catalina:      "1cebbd37f62b6089124eeefa019414e421f9191b9a1941765600834974c22945"
+    sha256 cellar: :any,                 mojave:        "a7637fc404144f939928f690fe569530a6fa72373748121cb2a990addc9a6721"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3c4b29ecdc412ba1eeb5b027a3c7be4adb6d8db24b21f8c24e64971d86707f2" # linuxbrew-core
   end
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
@@ -36,9 +37,11 @@ class Openblas < Formula
   fails_with :clang
 
   def install
+    ENV.runtime_cpu_detection
+    ENV.deparallelize # build is parallel by default, but setting -j confuses it
+
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
-    ENV["NO_AVX512"] = "1"
     # Force a large NUM_THREADS to support larger Macs than the VMs that build the bottles
     ENV["NUM_THREADS"] = "56"
     ENV["TARGET"] = case Hardware.oldest_cpu

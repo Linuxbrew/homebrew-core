@@ -13,7 +13,7 @@ class Dfc < Formula
     sha256 big_sur:       "a89714cadb5ca91708c9f0c0f37266726517418e0ee592003c1cff38cc7599b1"
     sha256 catalina:      "cefa6f0f5e96a815ebbee4d4618dc927f88052f4137d52c31d21688fac211aa8"
     sha256 mojave:        "93406a46f6e08d861ddbc5ea7f4ce910629f33090c39eeb827f05444d61fe466"
-    sha256 x86_64_linux:  "95dd8ab4bea192888d550c89d60f8458f0d523b11d19f0e3fbd4ac4e31ce7304"
+    sha256 x86_64_linux:  "95dd8ab4bea192888d550c89d60f8458f0d523b11d19f0e3fbd4ac4e31ce7304" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

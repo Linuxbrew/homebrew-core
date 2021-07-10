@@ -18,7 +18,7 @@ class Htop < Formula
     sha256 cellar: :any,                 big_sur:       "21f7d036b92a40bb57dc28c64249f137efcbec7489190944d8c38f940c86df9f"
     sha256 cellar: :any,                 catalina:      "0b9cb4738ad23eed5e2d24bb2bdc10e662c3b54ba7feb22d798fd9107ace5e21"
     sha256 cellar: :any,                 mojave:        "7be858d053b14ab834cd1a1832beaf367501639d17c7a43c5cc0e563c025a4af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "321d0374e65b94b2e8dd81e789d19d04bb35f0d4b9c4e210524a7c9e1d82fe3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "321d0374e65b94b2e8dd81e789d19d04bb35f0d4b9c4e210524a7c9e1d82fe3f" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

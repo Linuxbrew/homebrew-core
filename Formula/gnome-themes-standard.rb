@@ -12,7 +12,7 @@ class GnomeThemesStandard < Formula
     sha256 cellar: :any, mojave:        "0275e08061a7fc1c641729075add70362499309548d9f82a65f30397fe756073"
     sha256 cellar: :any, high_sierra:   "7c871fcd54d59a07719e5b1f22ca003921e479548ee9d13c5910af482b47891e"
     sha256 cellar: :any, sierra:        "7e5bfe5894c0498b6b9325a782e4ea1c756b042d527815547cba6e6f411095a2"
-    sha256 cellar: :any, x86_64_linux:  "f942924775fa9036498f9efa56c69e6857d13a4e5a6546420d04f34710c9c0c0"
+    sha256 cellar: :any, x86_64_linux:  "f942924775fa9036498f9efa56c69e6857d13a4e5a6546420d04f34710c9c0c0" # linuxbrew-core
   end
 
   depends_on "gettext" => :build

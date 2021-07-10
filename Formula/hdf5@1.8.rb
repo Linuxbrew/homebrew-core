@@ -16,7 +16,7 @@ class Hdf5AT18 < Formula
     sha256 cellar: :any,                 big_sur:      "25f4af91d8f934b8d706271bb31d27a6b1f42e9fa4c6186687cea9078c0e56a0"
     sha256 cellar: :any,                 catalina:     "65d03686011e2cd7c575c56829b9b639a0b04e1a94fb827f97e4897de2a9126c"
     sha256 cellar: :any,                 mojave:       "b2af62b2ad8128b5df29097a95d32555b072aaf10f39ab2d0f3b36ca5c8b5d56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "fb5d96cff72171f2334091b7f61274cc26c8f0b0c690f797ecb1c258fa31a6d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "fb5d96cff72171f2334091b7f61274cc26c8f0b0c690f797ecb1c258fa31a6d0" # linuxbrew-core
   end
 
   keg_only :versioned_formula

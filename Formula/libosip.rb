@@ -16,7 +16,7 @@ class Libosip < Formula
     sha256 cellar: :any,                 big_sur:       "c3855ed4bae9affb5007127469eda97fb91b395ca17f23639b4f3b08faed24cb"
     sha256 cellar: :any,                 catalina:      "51a594ab9b9237fadbf236b6b91e7dff12b1d762a9084a9ceefa38e368236175"
     sha256 cellar: :any,                 mojave:        "398471b49b724ac90cba0c87a44220adc0efbeb64b902429856531c263fa4404"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56d76f7c03d4eedb0bb87a94fb46380f3c8dc2213863c66ea55ae1d67b9c9464"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56d76f7c03d4eedb0bb87a94fb46380f3c8dc2213863c66ea55ae1d67b9c9464" # linuxbrew-core
   end
 
   def install

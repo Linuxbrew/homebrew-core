@@ -15,7 +15,7 @@ class Protobuf < Formula
     sha256 cellar: :any,                 big_sur:       "d1060a6f73000c9c46a1954397a6375fb41c409d7b3cb7206fc69488313b4855"
     sha256 cellar: :any,                 catalina:      "2f25a4051028d54de1b5527826f39815858b89040f39f14866472c8aa6bfb4e1"
     sha256 cellar: :any,                 mojave:        "7e6d2eb1baee925d8a0776e9dc9fbcb267e1de5c45d2b648b6a60457f0519667"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2aec8a5b472dac20baa064848901305e471422ed4b229964ca6989e0cee093c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2aec8a5b472dac20baa064848901305e471422ed4b229964ca6989e0cee093c6" # linuxbrew-core
   end
 
   head do

@@ -6,7 +6,7 @@ class AtSpi2Atk < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dfd83f6ff7daa444a32de826f09c86d976e84958aa93c8e615ecbcff41e30207"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dfd83f6ff7daa444a32de826f09c86d976e84958aa93c8e615ecbcff41e30207" # linuxbrew-core
   end
 
   depends_on "meson" => :build

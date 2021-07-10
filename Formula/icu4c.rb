@@ -19,7 +19,7 @@ class Icu4c < Formula
     sha256 cellar: :any,                 big_sur:       "d46b8ec5c3db629e7848e9fd31e5ec99ed952d9c81c8936a2511fae803d831fd"
     sha256 cellar: :any,                 catalina:      "3f75c907dadc6e7e647920506e740a312e56279369f3c9708cac54b018410120"
     sha256 cellar: :any,                 mojave:        "e0362362d26379b8c2456de163a148bc4e186d058ea8ed4a38fe41354bea96a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82d3861ec48854128519eb3c959542105086aa4d7013bf0a0b8bf56641822e5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82d3861ec48854128519eb3c959542105086aa4d7013bf0a0b8bf56641822e5a" # linuxbrew-core
   end
 
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"

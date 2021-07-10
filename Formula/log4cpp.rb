@@ -19,7 +19,7 @@ class Log4cpp < Formula
     sha256 cellar: :any, sierra:        "db55c3b9dff2f2248d96c71672cb6032efc16a4803ce12dd52c278bd14b9abc8"
     sha256 cellar: :any, el_capitan:    "dee0bf8b96b1d0de3beb5f2d23cf1e868e6dfd3ec9814e2c4c5eab21432d73e3"
     sha256 cellar: :any, yosemite:      "19e858f7cf8e47d1c10be1c379feb9faae36d78274a53a4240dcab813a3e382c"
-    sha256 cellar: :any, x86_64_linux:  "a61e67b012228082c9ae9874c838bcd40175943c8c70eb0f58a5a1c724d08669"
+    sha256 cellar: :any, x86_64_linux:  "a61e67b012228082c9ae9874c838bcd40175943c8c70eb0f58a5a1c724d08669" # linuxbrew-core
   end
 
   def install

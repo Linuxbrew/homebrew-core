@@ -14,7 +14,7 @@ class HicolorIconTheme < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0"
     sha256 cellar: :any_skip_relocation, yosemite:      "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05712571f085c9c1f4624dacc8a0c1d98aa2b5ba8db0d61640b41ca3198cee06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05712571f085c9c1f4624dacc8a0c1d98aa2b5ba8db0d61640b41ca3198cee06" # linuxbrew-core
   end
 
   head do

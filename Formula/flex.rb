@@ -11,7 +11,7 @@ class Flex < Formula
     sha256 big_sur:       "89ec2b04b1aab94297f490c60fe6ca2bcde7de9b7661482728b07931e635d21c"
     sha256 catalina:      "e563a7a42aceff203cca4f420ebc6a8bbd5075a2b0007d46724f037ebc7b41a5"
     sha256 mojave:        "687132db0837bdcb6e02b5715f6a07f658bdf109b5353908f260d46d354f7bdb"
-    sha256 x86_64_linux:  "eb465398252c2365bb899cc7cc42f1ca59dd47a7f6325d325c1362fd7a3b21b9"
+    sha256 x86_64_linux:  "eb465398252c2365bb899cc7cc42f1ca59dd47a7f6325d325c1362fd7a3b21b9" # linuxbrew-core
   end
 
   head do

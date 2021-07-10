@@ -13,7 +13,7 @@ class Zmqpp < Formula
     sha256 cellar: :any, high_sierra:   "02c8a7e0124d22e2c9fde2349179d9340e17203ad252ed9fd56fd6c9ea71a24c"
     sha256 cellar: :any, sierra:        "a1843b77cb53950bcf0b29589071025a48d86f0ecb4420280f7fcff7420f1905"
     sha256 cellar: :any, el_capitan:    "58f0301f03f30b314cb31dbbbc9a82163930b5b00a7285e3d279f49c0e1a25d1"
-    sha256 cellar: :any, x86_64_linux:  "45ccf7507091583c8d4bcacf8553878f2cecb77a9464f0f4116acfcead26f77d"
+    sha256 cellar: :any, x86_64_linux:  "45ccf7507091583c8d4bcacf8553878f2cecb77a9464f0f4116acfcead26f77d" # linuxbrew-core
   end
 
   depends_on "doxygen" => :build

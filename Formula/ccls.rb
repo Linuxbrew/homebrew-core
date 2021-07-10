@@ -12,7 +12,7 @@ class Ccls < Formula
     sha256                               big_sur:       "cde35a76dbcadb48c962ded6e8e42e232e2a9084d46f01671b4a372a71dcc6cc"
     sha256                               catalina:      "86b111c8e74d39fb31558870c8b11b45625fab9573bbced33600319c53448530"
     sha256                               mojave:        "f8c02843ad68842a00b2b1d7015f3e73577b2717eef55c5c614231f0a4b57212"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3e1a27b3d63ce0e6e29efd0e496de63aecde88d582b675dc567914b561b938"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3e1a27b3d63ce0e6e29efd0e496de63aecde88d582b675dc567914b561b938" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

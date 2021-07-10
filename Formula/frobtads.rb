@@ -12,7 +12,7 @@ class Frobtads < Formula
     sha256 high_sierra:   "af5706f2616c0be86e6cfbed57ba560fa2bbdcb8b59c769c0c3e800552d51829"
     sha256 sierra:        "d3c660cd331b2a35ef36f55210e50e05e98d06fe3e5d606205ba63d226625f2b"
     sha256 el_capitan:    "cff84f9389281d4ca9c9aae8ece93384aec506ea9601e1c3d637df82776afce3"
-    sha256 x86_64_linux:  "159a06d3a2af0fa484998319a7430adcc57faea74a8524c7f7b5a7d441eca6ba"
+    sha256 x86_64_linux:  "159a06d3a2af0fa484998319a7430adcc57faea74a8524c7f7b5a7d441eca6ba" # linuxbrew-core
   end
 
   uses_from_macos "curl" => :build

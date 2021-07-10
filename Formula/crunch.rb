@@ -15,7 +15,7 @@ class Crunch < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "737d46b90aaa933abe03e111ece79e3f6a0ecb372cc1903b9dba3a33208111b9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "84c0c275e63cc5c27fd468587f67ae5f1ab31a3923fe2eda27b4e33477356844"
     sha256 cellar: :any_skip_relocation, yosemite:      "406d94f00713b83bbf41b36453605a5f85f154f88aec9b3ae23e7646ddcc03c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28d49ef615d8f26edf0fec888973fffb2649332d84acc0f34c8faa43b294dda8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28d49ef615d8f26edf0fec888973fffb2649332d84acc0f34c8faa43b294dda8" # linuxbrew-core
   end
 
   def install

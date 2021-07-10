@@ -14,7 +14,7 @@ class Pgdbf < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7d0eabf3051e9cf450d985987f89cf0d70476b37202b3b5bdc84ec48e8cb670d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "72ad6b801d25db2008d0ab4badd2bb280f55eb6f6956925ee5620d62d8f06bbb"
     sha256 cellar: :any_skip_relocation, yosemite:      "4042a284cac8abe88e7d1c9e6c003e00a9b8247905739829cd768a824df7993b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "509fbdf2daf15fb64831f12619d4220deb82f9437a01c8dc50c819171af145fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "509fbdf2daf15fb64831f12619d4220deb82f9437a01c8dc50c819171af145fd" # linuxbrew-core
   end
 
   def install

@@ -3,8 +3,8 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.21.0.tar.gz"
-  sha256 "fe192a4bac2bd3a769e8695cb9fe14a00e57eaceb919095347a83b5b2afc0771"
+  url "https://nginx.org/download/nginx-1.21.1.tar.gz"
+  sha256 "68ba0311342115163a0354cad34f90c05a7e8bf689dc498abf07899eda155560"
   license "BSD-2-Clause"
   head "https://hg.nginx.org/nginx/", using: :hg
 
@@ -14,17 +14,17 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9d536ee9f8beb5cd1a5b7d72130bf9b17e69ad34e16477f0f55852e3eb4b7fe2"
-    sha256 big_sur:       "d4d16dc1e0c696d0e30a3a636c39528276c5a967a09a0e4be29a813cc01aa3f5"
-    sha256 catalina:      "03f0a7380a44620e47b410dce2da774d5730a8b12cff3b92e1cd064fc3c623bf"
-    sha256 mojave:        "07b8bf7d7e12b3eb92412755690c3c7b58e27f76af1538d13d78b7747a87b584"
-    sha256 x86_64_linux:  "90f53860bfea5cdf32061b521f1b29f5cf042d44e4033457fdc7b002bf5ac5cd"
+    sha256 arm64_big_sur: "7cff8e877fabd919993d99e6a429b60c742231b6946251c3c2673c5eadba53d7"
+    sha256 big_sur:       "8ba34676e573272aa1f73d4dcf6bfddbaa69746a92bf812f6760baf13ddf93dc"
+    sha256 catalina:      "15ca8ac75b077c587ae84fbb78f3bbed5b44307de37485beab9d1813ae22b350"
+    sha256 mojave:        "51c2b45dce74a294f53a04eb51be7e1aa63101b72018bb38648b5161e6b8d0ea"
+    sha256 x86_64_linux:  "ec1f9a029b630348282b61b3f9dd322a9efe9fea8b590efecfb3e8f5b2aae6c6" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"
   depends_on "pcre"
 
-  uses_from_macos "xz" => :build # for the tar command in the install step
+  uses_from_macos "xz" => :build
 
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger

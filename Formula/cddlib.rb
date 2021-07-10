@@ -11,7 +11,7 @@ class Cddlib < Formula
     sha256 cellar: :any,                 big_sur:       "2d9ded9039be48632f55065ccc0cac90ee53bb41e9a900bd955997ae113eabd8"
     sha256 cellar: :any,                 catalina:      "3e3369de96b6c33641ec2c5a3e490afb72ad94b6fb913385f574089ec4b2b0be"
     sha256 cellar: :any,                 mojave:        "362934e5d50dc994ce268a690706d6950f17e1b191f315617adc0eeacc0b51b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04516da718e698392c5db9e2b3a26528dcb48d6828d5e731249d7f2a0bd3024c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04516da718e698392c5db9e2b3a26528dcb48d6828d5e731249d7f2a0bd3024c" # linuxbrew-core
   end
 
   depends_on "gmp"

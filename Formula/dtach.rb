@@ -14,7 +14,7 @@ class Dtach < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f69d8585d47b722bee78bc189708d5348548a3ad68a4ff6cb91443624f4a3f0c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "bf26c7f68f65ae257c878e2008683d496a8c7542b3048e057bc3d588d779e16a"
     sha256 cellar: :any_skip_relocation, yosemite:      "fe8735b33ebb6f2fd2ea1e7c3542981833e8cad8c16fb6d9fbb5ac0f2ce493b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc943a3594ca35cd8cd8ac982fafc0a64b8f5da972b40b2d0fb1d49f4572209d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc943a3594ca35cd8cd8ac982fafc0a64b8f5da972b40b2d0fb1d49f4572209d" # linuxbrew-core
   end
 
   def install

@@ -15,7 +15,7 @@ class Groovy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b6e30d0087bd573350b73cef007f45dcf7f0652dbfab3b976150c7b9f5ff53ad"
     sha256 cellar: :any_skip_relocation, catalina:      "b6e30d0087bd573350b73cef007f45dcf7f0652dbfab3b976150c7b9f5ff53ad"
     sha256 cellar: :any_skip_relocation, mojave:        "b6e30d0087bd573350b73cef007f45dcf7f0652dbfab3b976150c7b9f5ff53ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "795fe539fa026a6179478aa6b1ae641ef1767bda3acf3f837397cda00d7c081c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "795fe539fa026a6179478aa6b1ae641ef1767bda3acf3f837397cda00d7c081c" # linuxbrew-core
   end
 
   depends_on "openjdk"

@@ -3,15 +3,16 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/6e/f1/8b356ba5c7e0bc8595699c1e92d8d7352657baf6d0b8ebaf91ad8b367e97/svtplay-dl-4.0.tar.gz"
-  sha256 "285c94c18939e4cd1b82c59d2660a1d7184799e19e9f084e9daae1297c576f71"
+  url "https://files.pythonhosted.org/packages/47/c2/6146bddda1dcc4161636a96f510c58698a375c466eb1d51cc682a9adfe9d/svtplay-dl-4.1.tar.gz"
+  sha256 "212052e074d054ee473768baa8070c9ec48e4bbfe03a36779d370bcdf3c412a4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "378fb39d06b89f14c9c54b1789360f59d74aba1d2bc09ee8a26ead41b9062986"
-    sha256 cellar: :any, big_sur:       "d6aaac9ed5209e2d2b5602e207ce76517e849f793af45daffebb55d91e5d13ce"
-    sha256 cellar: :any, catalina:      "cd156056a3f727382da25ec6140303fb0b67c98875e888b4d5d6786015ee1c17"
-    sha256 cellar: :any, mojave:        "7a5a38f468b0fed3908dcc9bfb384e1743226ae521f017f02c863816fa4f35e8"
+    sha256 cellar: :any,                 arm64_big_sur: "6603a914496ed9440732749ed09c7e19ac1c188f4d62756ba0aeead76fc3b40d"
+    sha256 cellar: :any,                 big_sur:       "b0e0cd6b8be16a4c84edd6f3885b83648cb5c9c74f7690c85ab4f383184ea296"
+    sha256 cellar: :any,                 catalina:      "a92a0ee9c59b111a931d001b547cbc359dad3911c48e1ecaa296d25461f8b9d4"
+    sha256 cellar: :any,                 mojave:        "107e5d04abd27b617f11699eeee42c46e5e666e271cb2ea7fca19c37f79d6c20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfb2a778e4798059952d12928812aa9b31e774942216514afbacc1868a8602a8"
   end
 
   depends_on "rust" => :build
@@ -24,8 +25,8 @@ class SvtplayDl < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
-    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
+    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
+    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
   end
 
   resource "chardet" do
@@ -64,8 +65,8 @@ class SvtplayDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/94/40/c396b5b212533716949a4d295f91a4c100d51ba95ea9e2d96b6b0517e5a5/urllib3-1.26.5.tar.gz"
-    sha256 "a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
+    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
+    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
   end
 
   def install

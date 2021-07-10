@@ -13,7 +13,7 @@ class Freeimage < Formula
     sha256 cellar: :any, big_sur:       "948feca0476789f7061b3a0502aaa7820366a309ebad1abd73ff6b7a0c242402"
     sha256 cellar: :any, catalina:      "fabc22f3effecdb629ea6585e005aa09b9d3c3cf73fa0e3021370550e6f8832e"
     sha256 cellar: :any, mojave:        "f9b3f364e75ce8f0d61be663ef022d88a9b401d2d675599949ff9b19fbf39bc0"
-    sha256 cellar: :any, x86_64_linux:  "6d846b8e73710ed747b61f6c9950c426a2e0dda76bad455129082586e03bd06f"
+    sha256 cellar: :any, x86_64_linux:  "6d846b8e73710ed747b61f6c9950c426a2e0dda76bad455129082586e03bd06f" # linuxbrew-core
   end
 
   patch do

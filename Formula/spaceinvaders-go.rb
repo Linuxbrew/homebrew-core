@@ -10,7 +10,7 @@ class SpaceinvadersGo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c0ed01fe110f5d7d681d12883f58962ae5c0ea721b032e8d3ef0adee41956841"
     sha256 cellar: :any_skip_relocation, catalina:      "1c4712409711d84aa1a7ce64214bb620e13660991f2afacd41681278ae0c3ba1"
     sha256 cellar: :any_skip_relocation, mojave:        "596f084c8dad9588158ea9419e8a7ce4e33e8193d18b18e4095a6443b5e2fbbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ab83f52840337da3a6ec2946cc44154055f4cb1f95959330c69e99553a61259"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ab83f52840337da3a6ec2946cc44154055f4cb1f95959330c69e99553a61259" # linuxbrew-core
   end
 
   depends_on "go" => :build

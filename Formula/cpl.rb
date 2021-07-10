@@ -15,7 +15,7 @@ class Cpl < Formula
     sha256 cellar: :any,                 big_sur:       "f03c10e6918ff16d484174e91a78e900dc2270237370aa8e448be23f0bb0496a"
     sha256 cellar: :any,                 catalina:      "23a33f0c139d0c56928bd6aa9bc7612c4da460f33468adcdd2ab267c444300ae"
     sha256 cellar: :any,                 mojave:        "8dd0ea688094de418970818c68eada0a5ee6eca74e4a5b09e4ab2864b8d0837c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac4ba67df9a4b0bd5f407fa9930b5e8c57ae545e58418d02347a5f73b90360fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac4ba67df9a4b0bd5f407fa9930b5e8c57ae545e58418d02347a5f73b90360fe" # linuxbrew-core
   end
 
   depends_on "cfitsio"

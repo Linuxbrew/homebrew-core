@@ -13,7 +13,7 @@ class Duff < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2af1262a9b02e687c0efc14eed3d837920ab746fe8fca9b12b9361c4729f06ef"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8a469e92a6303d80752ebc80ade382261d263b9c7226ca6652eddc8954e5ff2f"
     sha256 cellar: :any_skip_relocation, yosemite:      "927ba61ce39cf9be33f796197063b1a6865bbc2db2f4b1340ad6786acf0494df"
-    sha256                               x86_64_linux:  "dcfff706240f51451b4d534f108d9b11b099ec86f7cfadeee7dd344dc65210c2"
+    sha256                               x86_64_linux:  "dcfff706240f51451b4d534f108d9b11b099ec86f7cfadeee7dd344dc65210c2" # linuxbrew-core
   end
 
   def install

@@ -16,7 +16,7 @@ class MitScheme < Formula
     sha256 big_sur:      "2a010afbf69c03bf7da5e45077bf76a1cce13d96748fa6c4c9d4ff74a87674cc"
     sha256 catalina:     "f1f056a425dddbc394caa899e1eab404163b7404ea07f3673850e5fb2ce78aaa"
     sha256 mojave:       "f3b91a23b3e924b1cd560b59a87cf64350a232579390adf35661d9d6cec3b4bc"
-    sha256 x86_64_linux: "a387c33af14236b6cdec6e39fb5c39ab477d082a0dc521542730e619cbc158dc"
+    sha256 x86_64_linux: "a387c33af14236b6cdec6e39fb5c39ab477d082a0dc521542730e619cbc158dc" # linuxbrew-core
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app

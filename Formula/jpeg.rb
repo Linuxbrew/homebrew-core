@@ -17,7 +17,7 @@ class Jpeg < Formula
     sha256 cellar: :any, catalina:      "8f7b82a952fb3937889c7f22da1403e5338cd320495917eb26b0c5b2e614791c"
     sha256 cellar: :any, mojave:        "b931e7725c83275c56f962b51b83c10f31a01ac8d823c6722edaf16d893970b1"
     sha256 cellar: :any, high_sierra:   "64286932634fbe1e0d07eacda334d2f4967b20bce0737424df56ec5eaa34ccca"
-    sha256 cellar: :any, x86_64_linux:  "a5509c05cbd1e34d667bf1036b5d0ac11ed257faa46404032852921847dee4c6"
+    sha256 cellar: :any, x86_64_linux:  "a5509c05cbd1e34d667bf1036b5d0ac11ed257faa46404032852921847dee4c6" # linuxbrew-core
   end
 
   def install

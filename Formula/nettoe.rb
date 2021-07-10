@@ -14,7 +14,7 @@ class Nettoe < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "49ad705043bdd9f1ab860d877d3ffba584bef5ddbd4c03f6fe43adc49b9c1e5d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c8208683e4730233147e6c7153a469cdc1f477aacde0559937f0da93c8ad0345"
     sha256 cellar: :any_skip_relocation, yosemite:      "78038d253cd382f5f3a6b3b12c7776828c44c1572f0569bec862763aa5141c2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e1c49404519fb92debf74026248900db5e369039f7326052e665456840ed15c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e1c49404519fb92debf74026248900db5e369039f7326052e665456840ed15c" # linuxbrew-core
   end
 
   def install

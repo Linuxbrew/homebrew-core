@@ -17,7 +17,7 @@ class Msitools < Formula
     sha256 big_sur:       "ec00cadc6477adbd6c6b5ddd107586b31cfe8ecc78f9df7ff264c5b3b2990944"
     sha256 catalina:      "f757655d692ef4acf1192c6fa4459a77b4480e0303589b158b862a0a1497afef"
     sha256 mojave:        "ad7526c586e2bb15a4325798af37c278448315fe4434daa6553258a00ac13cd4"
-    sha256 x86_64_linux:  "601870a02451d3ece49a50101da045b2799f4bea29dfa842a1e91e6e21a08249"
+    sha256 x86_64_linux:  "601870a02451d3ece49a50101da045b2799f4bea29dfa842a1e91e6e21a08249" # linuxbrew-core
   end
 
   depends_on "bison" => :build

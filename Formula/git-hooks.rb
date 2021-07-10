@@ -12,7 +12,7 @@ class GitHooks < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "aaceeb7b390f71c45e3c1db15c23ab664a06bfc34de1c629a2b2f5b29e1bdec2"
     sha256 cellar: :any_skip_relocation, el_capitan:   "bdfffb820e5a7574169b91113ed59c578ebe88bcea8c890166a33fb9af17c0ce"
     sha256 cellar: :any_skip_relocation, yosemite:     "d4c5fba7f1b80e8e68762356a2f64ac216bf4e9f3151cf2f236c92a9524b97ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d752497286961e018f332e0e0be3a342473645c553c3542b72d1debe9f0054f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d752497286961e018f332e0e0be3a342473645c553c3542b72d1debe9f0054f8" # linuxbrew-core
   end
 
   # The icefox/git-hooks repository has been deleted and it doesn't appear to

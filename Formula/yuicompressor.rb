@@ -12,7 +12,7 @@ class Yuicompressor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "66b1ec646417e17ce9d34d3ace14a6828e39863749eec2dcee2839ac3c046d97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "66b1ec646417e17ce9d34d3ace14a6828e39863749eec2dcee2839ac3c046d97" # linuxbrew-core
   end
 
   depends_on "openjdk"

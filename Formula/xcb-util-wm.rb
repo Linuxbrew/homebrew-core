@@ -10,7 +10,7 @@ class XcbUtilWm < Formula
     sha256 cellar: :any, big_sur:       "d63a72b6a9714c0e1d92e1d0da59fc702f1f8aa44dba75c2dcf85fb5a291908d"
     sha256 cellar: :any, catalina:      "77611bd19da065ae3e1053ec9b581a52e93bc8669a8efee2d06719632695815f"
     sha256 cellar: :any, mojave:        "1423847ca100bb773cd5f85d1766abbf9004b88e85fc92cc25a30ea23341f0e3"
-    sha256 cellar: :any, x86_64_linux:  "5ded32609bdea7c0b4c33580e56cc23792433dffca2596f236397b99b41b7796"
+    sha256 cellar: :any, x86_64_linux:  "5ded32609bdea7c0b4c33580e56cc23792433dffca2596f236397b99b41b7796" # linuxbrew-core
   end
 
   head do

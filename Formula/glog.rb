@@ -11,7 +11,7 @@ class Glog < Formula
     sha256 cellar: :any,                 big_sur:       "cf69cacfd059791bf7c9196dfd38a170464cda435257eabe5a80428dbcd191be"
     sha256 cellar: :any,                 catalina:      "934918ceea54e2afe84fe04b179cc86fd210e804ed57d3700d2ecd0bcfc784c3"
     sha256 cellar: :any,                 mojave:        "8d66cd6d6e718969aa23d9c1fbf442fdb0da2824d40259aae5905074e838507d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6897a97584caaabc71ce6fd78b5dd8c1fa031e553720d13a2d280296cd30c63f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6897a97584caaabc71ce6fd78b5dd8c1fa031e553720d13a2d280296cd30c63f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -20,7 +20,7 @@ class Cmockery2 < Formula
     sha256 cellar: :any, sierra:        "661b4a8751a4dbe7e52b19cd9452d8b7dd61c929d73da27ac4fca5623a0dff6c"
     sha256 cellar: :any, el_capitan:    "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5"
     sha256 cellar: :any, yosemite:      "ea94ba8420bd5bc01412b52ce9c03b392b933f279d1bce7a8ff8f7502bc83f88"
-    sha256 cellar: :any, x86_64_linux:  "665950abd92ba0f6e67c6b959d0ec246608c7950084e2053aa2d94ba171ac435"
+    sha256 cellar: :any, x86_64_linux:  "665950abd92ba0f6e67c6b959d0ec246608c7950084e2053aa2d94ba171ac435" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

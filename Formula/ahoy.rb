@@ -12,7 +12,7 @@ class Ahoy < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "eabaf2c0faa64d878f3fd552823b9d5103e0755ba5f3120628e605964fc93257"
     sha256 cellar: :any_skip_relocation, high_sierra:   "93db889b646270f7a92d32f649c9e256e4e90cfa006a04c614334f28557ce7ca"
     sha256 cellar: :any_skip_relocation, sierra:        "5743854a4e6553adb3318a2facfd941bcf4d95a7ab3c2399400c7818c6e19c6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feaeb1fd36f11d336ecf3a38606e742cc41bf80f076b6413eadde577ec1ac133"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feaeb1fd36f11d336ecf3a38606e742cc41bf80f076b6413eadde577ec1ac133" # linuxbrew-core
   end
 
   depends_on "go" => :build

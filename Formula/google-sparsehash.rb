@@ -12,7 +12,7 @@ class GoogleSparsehash < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "11390608ee72647c06a9735f89535604e6ed2b2531431f9eb81bdf423ab07620"
     sha256 cellar: :any_skip_relocation, mojave:        "11390608ee72647c06a9735f89535604e6ed2b2531431f9eb81bdf423ab07620"
     sha256 cellar: :any_skip_relocation, high_sierra:   "11390608ee72647c06a9735f89535604e6ed2b2531431f9eb81bdf423ab07620"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1709e2d51da956b758bd38137c2010cc3dd30f05d9985d6c9f607c31f72d5613"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1709e2d51da956b758bd38137c2010cc3dd30f05d9985d6c9f607c31f72d5613" # linuxbrew-core
   end
 
   def install

@@ -11,7 +11,7 @@ class Bsponmpi < Formula
     sha256 high_sierra:  "b80c1f5b34b4530ae8cbf402418693e93bd400aa4fb14b998053a3c07024dd35"
     sha256 sierra:       "caf59320e2eb005dc2de2daa363d15464e3c83519875503e3a498ab8963bb3aa"
     sha256 el_capitan:   "10a864ad11ea1145898ae9bcd8897f107c034818e66faf3632d916d51a13a191"
-    sha256 x86_64_linux: "f0fdab74c81db0e65d122e33eb8d325d369ee060a9f395236a8ebd116818def1"
+    sha256 x86_64_linux: "f0fdab74c81db0e65d122e33eb8d325d369ee060a9f395236a8ebd116818def1" # linuxbrew-core
   end
 
   depends_on "scons" => :build

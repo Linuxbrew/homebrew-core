@@ -14,7 +14,7 @@ class Liblqr < Formula
     sha256 cellar: :any, catalina:      "18803ed552ae07c1998c87ba6c4ebaee1ec5eaab843c2cfa2cc3775f0b55da23"
     sha256 cellar: :any, mojave:        "83054ddb4fffb94ea12f609a90082220a451bfdc793284d104f1fdeaf4aa8fd6"
     sha256 cellar: :any, high_sierra:   "43e9b4f518364d436b53c89b1ac42e2cfdcafc47fad1ba711bd6456122e47d62"
-    sha256 cellar: :any, x86_64_linux:  "d316f7e59d5f1f3743dd483005ad7137e4becc0f756f00221429da8c4efbbd97"
+    sha256 cellar: :any, x86_64_linux:  "d316f7e59d5f1f3743dd483005ad7137e4becc0f756f00221429da8c4efbbd97" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

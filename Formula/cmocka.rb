@@ -13,7 +13,7 @@ class Cmocka < Formula
     sha256 cellar: :any, mojave:        "a05bfdbe08b08dc01db59d0c2c724b2a58c4f9e12c260dc5865e27dd456e7771"
     sha256 cellar: :any, high_sierra:   "c4fc9fe8a73b23206c0db8907c2f67dea482d689afea18c5e746556aff8098b5"
     sha256 cellar: :any, sierra:        "a8d32491c7cfd1670be11c022faa07619d7821a4328fb034e76f225933b5c4dc"
-    sha256 cellar: :any, x86_64_linux:  "dacb3afc69c0d8909169bea6655014be1e07d12828d286e318740e6a8dfd15b3"
+    sha256 cellar: :any, x86_64_linux:  "dacb3afc69c0d8909169bea6655014be1e07d12828d286e318740e6a8dfd15b3" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

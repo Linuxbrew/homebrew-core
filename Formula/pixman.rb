@@ -16,7 +16,7 @@ class Pixman < Formula
     sha256 cellar: :any, catalina:      "1862e6826a4bedb97af8dcb9ab849c69754226ed92e5ee19267fa33ee96f94f8"
     sha256 cellar: :any, mojave:        "70a476e6b14fdfa42188d3df2797f8c13f25bd633528164b0d42c5fb70dfb431"
     sha256 cellar: :any, high_sierra:   "e5b78e3dca71370ccc06a013ebda8b9f1c2b89a238e2f3ef11a8086560e3c07b"
-    sha256 cellar: :any, x86_64_linux:  "a8ef4c0ead4f617b121f50f58d9cf777209e7ab7c193b398fdab87630a9bb5d6"
+    sha256 cellar: :any, x86_64_linux:  "a8ef4c0ead4f617b121f50f58d9cf777209e7ab7c193b398fdab87630a9bb5d6" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

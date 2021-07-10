@@ -11,7 +11,7 @@ class Codec2 < Formula
     sha256 cellar: :any, catalina:     "d41040646585e5b91438818ff4dfdccc94b3a2567d31d6960710f8f2455bab04"
     sha256 cellar: :any, mojave:       "460c2febeb64e913796ee3f161b8fa50bbc00904c99228d5122324ebadd91fe9"
     sha256 cellar: :any, high_sierra:  "5f4530a54adbc38253b993bdbb21da86b4d11725b2edcbec79e43ed739875208"
-    sha256 cellar: :any, x86_64_linux: "1abf3196c1426021346c7d023af9ea7c1540e20f25977080ee22f5e78e47909f"
+    sha256 cellar: :any, x86_64_linux: "1abf3196c1426021346c7d023af9ea7c1540e20f25977080ee22f5e78e47909f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

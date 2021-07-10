@@ -11,7 +11,7 @@ class Travis < Formula
     sha256 cellar: :any, big_sur:       "99dc7883369970404609ba84dae65605c9c53be3deda72591fe19ffc67c06ef7"
     sha256 cellar: :any, catalina:      "cd76462008b4094ecc79d7b715bc8bbe25c16648c2ae4be0a939415fa61b6d02"
     sha256 cellar: :any, mojave:        "23356035200869589c3cf664a6d137477529a27c60bc1ce2a68e6fc6f084693d"
-    sha256 cellar: :any, x86_64_linux:  "6b7debfb3d49d9a98edd2ffa0cca38d224eb4bf641e08081696e9922d6a8250e"
+    sha256 cellar: :any, x86_64_linux:  "6b7debfb3d49d9a98edd2ffa0cca38d224eb4bf641e08081696e9922d6a8250e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

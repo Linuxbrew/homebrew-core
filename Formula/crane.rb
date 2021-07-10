@@ -10,7 +10,7 @@ class Crane < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4d4b05be67c7a8699be6843a8b453361ef2dc9aefc54066fa6db1c855bc0b5df"
     sha256 cellar: :any_skip_relocation, catalina:      "d306248c9591b594077728f9f20514b0d451e631ba48d4f639506e583e584e34"
     sha256 cellar: :any_skip_relocation, mojave:        "5a68f903155a28ac78c1fa39c4fcae394bd87133e9bb65551caa05a4e7fec412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f599e3af3c93280c198923f51eca986a9993f9c340c5390c640ead09cd0a04e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f599e3af3c93280c198923f51eca986a9993f9c340c5390c640ead09cd0a04e" # linuxbrew-core
   end
 
   depends_on "go" => :build

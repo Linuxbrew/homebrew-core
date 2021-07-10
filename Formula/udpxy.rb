@@ -19,7 +19,7 @@ class Udpxy < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "46de795b585d88c658554fb943931885db85d75c7f838d9db6d11d98e46538d0"
     sha256 cellar: :any_skip_relocation, sierra:        "ee35787b2877b8ac1a9fa967e9f8fbf466f8c107e28cc61fee59c26aef9bf44d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0d4a899340bdee7f4497d68fe3bc59213ad83382d205aa08ada871d9d08c010d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "890386c37032bad683813bad94554b5ef47d5c59fa8e6af7f3d5136f2e02bd98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "890386c37032bad683813bad94554b5ef47d5c59fa8e6af7f3d5136f2e02bd98" # linuxbrew-core
   end
 
   def install

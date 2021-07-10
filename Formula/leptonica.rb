@@ -11,11 +11,12 @@ class Leptonica < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8511608a91a7ebf340b298e77dad939722963c939df1705d8eced03fe94baf6b"
-    sha256 cellar: :any,                 big_sur:       "85f91f416da83686688c9a37758c8435564fec5cfc8f2c3a1106becc8c131502"
-    sha256 cellar: :any,                 catalina:      "3a60ca40699a3ac1159cc3a52c09632b4c50bc5cf9f7291aff911dc66237624c"
-    sha256 cellar: :any,                 mojave:        "1310af15c7bfc64222cc369e571a352b0e4f5131ba631f16cfe8f2ceb398b427"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a41218931c6a64dd4b310f9115080d2da48c90200e464d5e491b24faf1009aa"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "ab4697cba5d08068caf5bba23b6ab820708e7e141ab2a31b75c5218e0af4d683"
+    sha256 cellar: :any,                 big_sur:       "584d359158d6c45de7caf2368f8fc5e3268b67511dbeb8531d6762b03a3efed9"
+    sha256 cellar: :any,                 catalina:      "f73dceda2c8430f107f7d134cebd189684de1723639be81be2fd79ec3db07c34"
+    sha256 cellar: :any,                 mojave:        "0009444bfbafb359608fef5bf861a275acb2cbbade511572c9c3d08043b7bac4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a41218931c6a64dd4b310f9115080d2da48c90200e464d5e491b24faf1009aa" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

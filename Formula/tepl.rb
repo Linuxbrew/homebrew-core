@@ -10,7 +10,7 @@ class Tepl < Formula
     sha256 big_sur:       "b5c8dfff1540875f6bd03ec4a7e58ba68d5df65597e80eb7e469ce88c6bd4175"
     sha256 catalina:      "0c2d2161a8f65a3728e479d26ba2dc736e163b7fe902ec59666d138bfc0de47e"
     sha256 mojave:        "44b4a1c68e07df9275cb2275f6852e6b713e306f764833c620542a2cb741e565"
-    sha256 x86_64_linux:  "0f2659d20ab8e40d1021aec881f0e05627ec6147a1131b2b4aa330dccaf36efd"
+    sha256 x86_64_linux:  "0f2659d20ab8e40d1021aec881f0e05627ec6147a1131b2b4aa330dccaf36efd" # linuxbrew-core
   end
 
   # See: https://gitlab.gnome.org/Archive/tepl

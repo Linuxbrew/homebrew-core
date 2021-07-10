@@ -12,7 +12,7 @@ class Sox < Formula
     sha256 cellar: :any, mojave:        "4906207f83bd0f4ea1a67d040891711e9a9e8830216e451072f2957ca566b83d"
     sha256 cellar: :any, high_sierra:   "c0bb4ba7ec922d9a8c71c2ba84e28c66c67e4fdeae970011ea45e937f43c18bd"
     sha256 cellar: :any, sierra:        "dc8c294bb96c0b7ebc3ade73476c6031664bb8e81a32ece87ce84f815deeced5"
-    sha256 cellar: :any, x86_64_linux:  "ea9f5cb4b488cf0e5f1e84d10326de3195b378565e5f9c563ea37c0aa6976d79"
+    sha256 cellar: :any, x86_64_linux:  "ea9f5cb4b488cf0e5f1e84d10326de3195b378565e5f9c563ea37c0aa6976d79" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

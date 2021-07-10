@@ -17,7 +17,7 @@ class Dieharder < Formula
     sha256 cellar: :any, mojave:        "b7b1bdbb6f105e4286320ad067689d8e3f7a2c7821a53382ebc2007b47d06dc9"
     sha256 cellar: :any, high_sierra:   "341bdf1e0fce90d69db4e6749ec3ee3b8c5903559e365a19e9f5a8ba2723d403"
     sha256 cellar: :any, sierra:        "8a40fb61aef5230ad77b3b851a6e8b6d575ff2adaa747c3b73a75cd203197945"
-    sha256 cellar: :any, x86_64_linux:  "c73860b6159dcac52f7317e850475c526e7d0ded994adf8d61d8ba920b317aac"
+    sha256 cellar: :any, x86_64_linux:  "c73860b6159dcac52f7317e850475c526e7d0ded994adf8d61d8ba920b317aac" # linuxbrew-core
   end
 
   depends_on "gsl"

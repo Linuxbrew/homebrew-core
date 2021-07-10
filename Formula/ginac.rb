@@ -15,7 +15,7 @@ class Ginac < Formula
     sha256 cellar: :any, catalina:     "9af774101ed69e14f7e060a85cd4a5edab1ecdda620e0e139085d09707dd2e6f"
     sha256 cellar: :any, mojave:       "0671c4d1eea685f41fec545a143423c06c2e05758f9eb30f6c3678651d6531dd"
     sha256 cellar: :any, high_sierra:  "9a11a9e1cf35094644e185c45860c58d1c21472cc839a061376eb1f79caf2373"
-    sha256 cellar: :any, x86_64_linux: "355b3a04a25eb6d315056c8d3a3687ba3eb30b8a536bc833d0e09b0895e017f9"
+    sha256 cellar: :any, x86_64_linux: "355b3a04a25eb6d315056c8d3a3687ba3eb30b8a536bc833d0e09b0895e017f9" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

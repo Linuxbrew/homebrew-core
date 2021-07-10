@@ -11,7 +11,7 @@ class GitHooksGo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bb65c1d92db2e31b8d3d2447e3c4642a1865658f9d8075a381439ca311b2ddde"
     sha256 cellar: :any_skip_relocation, catalina:      "c297503f6623a3c258c84a887225f3690433a16e97492f7071cc0c3ebee0d073"
     sha256 cellar: :any_skip_relocation, mojave:        "c5323401f5a7f37a895c9b7b579f10e75fccf0f83ba9fa4bfba4782cebeedbb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39cac903ec0c4755e10ede7a6229beff014bdcfc1b6ca51d7f1c2fa6bfc2b73a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39cac903ec0c4755e10ede7a6229beff014bdcfc1b6ca51d7f1c2fa6bfc2b73a" # linuxbrew-core
   end
 
   depends_on "go" => :build

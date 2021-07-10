@@ -11,7 +11,7 @@ class Bibtexconv < Formula
     sha256 cellar: :any,                 big_sur:       "aaab664beb497d6f9c7e84e7e3cf72fb68bbd813c3398e7b561b7fd611a5ed8a"
     sha256 cellar: :any,                 catalina:      "5b9d6cc6d178116fe7e18d87c807cd4427d105e450feb0bd10a1649d64f61ed7"
     sha256 cellar: :any,                 mojave:        "01522a08151261c2fb84298b690e00ad4699285ccfd2e2b021baedb1b6174bb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdf80cabc3835604b383400ae572060e79c8a6597dfc0acf954803fa1983ab7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdf80cabc3835604b383400ae572060e79c8a6597dfc0acf954803fa1983ab7c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

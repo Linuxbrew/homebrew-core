@@ -12,7 +12,7 @@ class Jabba < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "72c397a12fe10181efb7fca300d78d3244160c9a0a4dcbe2cd17c179df678db4"
     sha256 cellar: :any_skip_relocation, catalina:      "146e37a3138b919c497da279eecd2d282d5f6f5e0f1b9aa94257df2fbf19efba"
     sha256 cellar: :any_skip_relocation, mojave:        "6f2d27333e0b8d73ba2166c4abb960642d64a3efcd394ee5683e6c71b8d0c305"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "562e342729cf5bea0d1593d8d1cb576eaa248b61446093004b271931dc55ff25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "562e342729cf5bea0d1593d8d1cb576eaa248b61446093004b271931dc55ff25" # linuxbrew-core
   end
 
   depends_on "glide" => :build

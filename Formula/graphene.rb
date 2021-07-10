@@ -10,7 +10,7 @@ class Graphene < Formula
     sha256 cellar: :any,                 big_sur:       "20b41dfc4c7bf01973d14f33129db71d7968509e8dc0761f640e36400ae8127e"
     sha256 cellar: :any,                 catalina:      "9a39689fd7d593fc8d5b86b077d153d863c51b470703e87dfd8cfd1ee157d742"
     sha256 cellar: :any,                 mojave:        "d6e6d695f0b7c04b6b8b0b09a18a9cd39bd25ba0e64d5843fa12c0a56100ea06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48f3cbc1b70ba385b92e27ab22b8d3d4394ffd5f2381d114f639416d6de775f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48f3cbc1b70ba385b92e27ab22b8d3d4394ffd5f2381d114f639416d6de775f8" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

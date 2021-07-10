@@ -15,7 +15,7 @@ class Compface < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "092d90367b0fa75ff8a1be3982cda127226fb9805c681170f66fe27c148c8d1b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "50200eb6f7cb61be39420d2e127eb4e2af9391a514f7cfbd26fa9203ca137d21"
     sha256 cellar: :any_skip_relocation, yosemite:      "4f7a202ead9c7b6ba1498be71c937500d64cad15ae451ec37c54a8fba70816a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6019f23941dfc2bb4d58a8abb7c83e2e2d9ca300793de5fc65f71a6ebc599115"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6019f23941dfc2bb4d58a8abb7c83e2e2d9ca300793de5fc65f71a6ebc599115" # linuxbrew-core
   end
 
   def install

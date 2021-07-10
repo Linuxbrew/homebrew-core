@@ -14,7 +14,7 @@ class Wdiff < Formula
     sha256 mojave:        "89e0de3859b91c4dcdc4a9ac2ae4569f72cd472658e6d3dfa82e6acc919c68a1"
     sha256 high_sierra:   "579a8972310d39ac2e660f3114fc6d1536df7ad9f7659a9b00619cc7c50a2191"
     sha256 sierra:        "fcfe6296c4b9879895a4977274f56474faa84ca74c792866ea3149a2f02df553"
-    sha256 x86_64_linux:  "915a7d9113b2cfd41dbe57344425599165b6891f4f5f0fdaf134009abf7aba73"
+    sha256 x86_64_linux:  "915a7d9113b2cfd41dbe57344425599165b6891f4f5f0fdaf134009abf7aba73" # linuxbrew-core
   end
 
   depends_on "gettext"

@@ -11,7 +11,7 @@ class Wgetpaste < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0bb121b26283be882277c31c354ce3e70220622b20811f1ee34beb7066557d67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0bb121b26283be882277c31c354ce3e70220622b20811f1ee34beb7066557d67" # linuxbrew-core
   end
 
   depends_on "wget"

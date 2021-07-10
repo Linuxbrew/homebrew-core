@@ -15,10 +15,11 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2761a59c0cf7373a8737fb25f0fe9b73283f0899b4cbfd9a1fa4f3f3137af9c4"
-    sha256 cellar: :any, big_sur:       "6added7e28d64e99c0cd5f8a20bf70b22e96e22a0a730c5f13387f21e24d1c9c"
-    sha256 cellar: :any, catalina:      "8c0e40ec7d0a3b930e4f3e1584c7f8e5a535bad43ce34b3d9ce686d92357feb4"
-    sha256 cellar: :any, mojave:        "ec174811dd5ff4aafa13ee2d58d5f35a83e899522bcfefe1f841485c529244ff"
+    sha256 cellar: :any,                 arm64_big_sur: "2761a59c0cf7373a8737fb25f0fe9b73283f0899b4cbfd9a1fa4f3f3137af9c4"
+    sha256 cellar: :any,                 big_sur:       "6added7e28d64e99c0cd5f8a20bf70b22e96e22a0a730c5f13387f21e24d1c9c"
+    sha256 cellar: :any,                 catalina:      "8c0e40ec7d0a3b930e4f3e1584c7f8e5a535bad43ce34b3d9ce686d92357feb4"
+    sha256 cellar: :any,                 mojave:        "ec174811dd5ff4aafa13ee2d58d5f35a83e899522bcfefe1f841485c529244ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "649346eee7840b83b846979a2150e2686627ab7940c4bd6288aebe20f60a1387" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

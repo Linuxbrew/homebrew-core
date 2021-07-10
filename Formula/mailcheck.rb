@@ -13,7 +13,7 @@ class Mailcheck < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "8d33e3b08eef4dfaa7fa3d2c4e5f4a697cd2e5eb950c963f1f0845c0651da5ea"
     sha256 cellar: :any_skip_relocation, el_capitan:   "b7c134dc23431dfaa3f402b859b7154cab5e176711363bd884dc82ce896d7c7a"
     sha256 cellar: :any_skip_relocation, yosemite:     "242b05a6e9b8ccc1ac70e22cbf89bc33a885e726d32509fad6b34a3bee123945"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bf25c7173600f92fb766d88b1a85e8662ced6c32c58410fc08fa519351fa2375" # glibc 2.19
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bf25c7173600f92fb766d88b1a85e8662ced6c32c58410fc08fa519351fa2375" # linuxbrew-core
   end
 
   def install

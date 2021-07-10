@@ -12,7 +12,7 @@ class Libfreefare < Formula
     sha256 cellar: :any,                 catalina:      "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4"
     sha256 cellar: :any,                 mojave:        "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144"
     sha256 cellar: :any,                 high_sierra:   "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cce40ebfe6a39c66faee0dcafe6db74edc9442e32c712aba3b6c32939936ceb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cce40ebfe6a39c66faee0dcafe6db74edc9442e32c712aba3b6c32939936ceb" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

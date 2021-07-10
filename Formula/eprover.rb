@@ -15,7 +15,7 @@ class Eprover < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5ca253b65f824844b7238c6a48870d62aa7c59759b30caaaf297019dddb1546f"
     sha256 cellar: :any_skip_relocation, catalina:      "fdad068ad22a703c18f58502d91a24fa16ba2fce017b0f39b9145583930b19c2"
     sha256 cellar: :any_skip_relocation, mojave:        "2d9b6284695c33af156b99e32026eb934a889ffa0d8891cb1f7f49a8a1b72942"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5038a0c14455835be07e268a78233512aed9ecc0cfcb22bb0041c533d58cdbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5038a0c14455835be07e268a78233512aed9ecc0cfcb22bb0041c533d58cdbe" # linuxbrew-core
   end
 
   def install

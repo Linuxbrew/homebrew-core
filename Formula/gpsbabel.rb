@@ -15,7 +15,7 @@ class Gpsbabel < Formula
     sha256                               big_sur:      "6d5c179704f46781438a06f02a6e83c0d9e5bfa3af0f15b738af0029a4cc56af"
     sha256                               catalina:     "c71c3f2662684e9c03cac17d2f211b58ee07b3dc64ce74121922cca41d6b303c"
     sha256                               mojave:       "0a8e9cb2650be7396304d7486975e4ef82dce6e1890f8f54cbbaa0e05ab99991"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7cf3b559ffebc5a3f0e1add91a9ea550523654b14ded2112a929f781ac1f74c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7cf3b559ffebc5a3f0e1add91a9ea550523654b14ded2112a929f781ac1f74c0" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

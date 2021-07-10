@@ -10,7 +10,7 @@ class LibsigcxxAT2 < Formula
     sha256 cellar: :any,                 big_sur:       "c24567ac4b9a732a434afcadda0d1a02f573607c73ebb00625e8ffcc6506f331"
     sha256 cellar: :any,                 catalina:      "6a51eeae589ad4511165b0236a64a7055315eafcf790fcc1ed3df24853fe4bdb"
     sha256 cellar: :any,                 mojave:        "38886af39d68b304c8e9f4eac36f6a5e6bd21b79ee9a353df7266649f0490128"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c36d5580b4f8970a6db2027820bbf1eb3cca66f56fbf8c56b32c72c3a23cc6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c36d5580b4f8970a6db2027820bbf1eb3cca66f56fbf8c56b32c72c3a23cc6c" # linuxbrew-core
   end
 
   depends_on "meson" => :build

@@ -14,7 +14,7 @@ class Envv < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "cc30a2317f78124c609d6313a33cea58c9d428a95903966da4cb42051630ef97"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3b2fb0b35749280461b3982797ceea34bfa42d63cb5c6547986cf106669ee744"
     sha256 cellar: :any_skip_relocation, yosemite:      "90a718606ec61e5a0e494d3e41b7d87048de803567f4ba2c65231fe41880bd97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0a41dd85fcad3f2f279709f1c68436744f87801a7ded771c775c3032a56cc96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0a41dd85fcad3f2f279709f1c68436744f87801a7ded771c775c3032a56cc96" # linuxbrew-core
   end
 
   def install

@@ -15,7 +15,7 @@ class Pelikan < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "37a675674b7ef33f07099029042f56c054f09b5d22400010d583fbfa41c0ce50"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e314ce6288bf76e271bf69ce844e2e846b16cad68ce635faf1e5130c3c6911d0"
     sha256 cellar: :any_skip_relocation, yosemite:      "ab04b8488e6272d0000c8e67842c4b286eb23459a6de9e9a392f14aa87c9978e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8cd06c6ade8a905139dddaae5a78f71cd4e3c3a143ad1aaf89fde7ca73d630"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8cd06c6ade8a905139dddaae5a78f71cd4e3c3a143ad1aaf89fde7ca73d630" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

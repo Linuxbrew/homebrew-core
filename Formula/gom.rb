@@ -11,7 +11,7 @@ class Gom < Formula
     sha256 cellar: :any, catalina:      "c86f525462ffd97cb6bd469b5a26d1db56281d725916d5eb524f31a4750b1892"
     sha256 cellar: :any, mojave:        "afda0dc772004cee3b8148719a078f6ac2871480260f310a5d06e367dcd68412"
     sha256 cellar: :any, high_sierra:   "cccd9551ffced0a1648ff2f420eb3e5666ff102b4c81d96806cd7d25068ef7d7"
-    sha256 cellar: :any, x86_64_linux:  "a92aa28625e2fa471265d66e13887d4a79069e7770b04bd76bf19e28ed20f2f8"
+    sha256 cellar: :any, x86_64_linux:  "a92aa28625e2fa471265d66e13887d4a79069e7770b04bd76bf19e28ed20f2f8" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

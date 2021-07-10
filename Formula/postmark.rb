@@ -11,7 +11,7 @@ class Postmark < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "9d702b7bc49f646fd1623b316fd62c84ee6413e035a81e95866b0ca7240f100e"
     sha256 cellar: :any_skip_relocation, el_capitan:   "784b46fe9883d27d347a44da73413ccf5c589088c0b57da577ebc1c79e64e1e6"
     sha256 cellar: :any_skip_relocation, yosemite:     "7fb38c3960e124a836cdc48650fd5f4d1fc446897b590e0dd6b6b6b5cbdec522"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1d7eb15c6a01d8bb40efdaeb2b228b8b7f6f816988d06a640d0dfaba97ffc925"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1d7eb15c6a01d8bb40efdaeb2b228b8b7f6f816988d06a640d0dfaba97ffc925" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

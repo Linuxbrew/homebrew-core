@@ -11,7 +11,7 @@ class Vcpkg < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d963bef9ed861e8e67c4ef2080f04adf3a91bb971776f60f3f40bd5a6a875e07"
     sha256 cellar: :any_skip_relocation, catalina:      "143a0c4e50b0d96bdaa7ed913105654188664ac105500c74f66add89fe1cf098"
     sha256 cellar: :any,                 mojave:        "301a0c5460bebfa3f05fb2ed8d264fce2a9fe9f261853fed991a59d1c1cd58ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d6b0081da87e456fe7c50806358fe181a93119ce81e0b5fd63d04f40f2e4e89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d6b0081da87e456fe7c50806358fe181a93119ce81e0b5fd63d04f40f2e4e89" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

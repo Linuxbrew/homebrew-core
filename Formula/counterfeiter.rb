@@ -11,7 +11,7 @@ class Counterfeiter < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "400bb2b8fded512c283254548bea1e294b61649ec8a84218966e8a710117ecba"
     sha256 cellar: :any_skip_relocation, catalina:      "400bb2b8fded512c283254548bea1e294b61649ec8a84218966e8a710117ecba"
     sha256 cellar: :any_skip_relocation, mojave:        "400bb2b8fded512c283254548bea1e294b61649ec8a84218966e8a710117ecba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ff94534be49dfa6c15d759ba6bf7ea7697dcff89c3d3d201f8353f253c8b8f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ff94534be49dfa6c15d759ba6bf7ea7697dcff89c3d3d201f8353f253c8b8f6" # linuxbrew-core
   end
 
   depends_on "go"

@@ -12,7 +12,7 @@ class Openstackclient < Formula
     sha256 cellar: :any,                 big_sur:       "bccccc98d1077c9fbabb2a01016b8f9c69dba2d4aba4950ba31e57f617f997eb"
     sha256 cellar: :any,                 catalina:      "03d89b5f94e1d72df64ccf3b5b616d0a085cc787fcf8b0d15144a010f5d16c4d"
     sha256 cellar: :any,                 mojave:        "1d9ebfa870d73deb2de20e96320ee401f56794443f3ff722476e52727324adda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71cbd1a51ac297797e746dbae0d5013c4aa06097c3cbda961399fc3c87850d12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71cbd1a51ac297797e746dbae0d5013c4aa06097c3cbda961399fc3c87850d12" # linuxbrew-core
   end
 
   depends_on "rust" => :build

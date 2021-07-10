@@ -12,7 +12,7 @@ class Mpfr < Formula
     sha256 cellar: :any, catalina:      "5fcf57834f58c18761c6c7b0eb961eb7f9fc54325b5361bf3a17c4dee6ebc08a"
     sha256 cellar: :any, mojave:        "93c0d2ca093819f125300002cd34c1d1b4dfb7a1403729205861bec21388ff12"
     sha256 cellar: :any, high_sierra:   "77581a1df66fb1ef55ffb19777d08b0b60fbc3d2d7ad491a8aceb3a6a4bf7ffd"
-    sha256 cellar: :any, x86_64_linux:  "5fa04c762dd682c46b3c15d2c28e89a36353717c533e7aaa12298b5202aeeba8"
+    sha256 cellar: :any, x86_64_linux:  "5fa04c762dd682c46b3c15d2c28e89a36353717c533e7aaa12298b5202aeeba8" # linuxbrew-core
   end
 
   depends_on "gmp"

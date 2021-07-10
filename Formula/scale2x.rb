@@ -13,7 +13,7 @@ class Scale2x < Formula
     sha256 cellar: :any, high_sierra:   "2a3519bdbba8ff6caa1ca9b48d461866b8121dfd224a2c25da106087bb3cfd61"
     sha256 cellar: :any, sierra:        "771e1b1ea660234e8bea89e774d0d802f7f1cb12c08e100cbb5b83d0a02a61ea"
     sha256 cellar: :any, el_capitan:    "033e1adf0430ced99eef1b746842e9ca876b542f6fbd8f050e8f7c7e1b59f692"
-    sha256 cellar: :any, x86_64_linux:  "caa20bd633f2b27b9f781cdb7148ded5edda2877dce1dc2825d17cb5730b976d"
+    sha256 cellar: :any, x86_64_linux:  "caa20bd633f2b27b9f781cdb7148ded5edda2877dce1dc2825d17cb5730b976d" # linuxbrew-core
   end
 
   depends_on "libpng"

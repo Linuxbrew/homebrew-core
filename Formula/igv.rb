@@ -11,7 +11,7 @@ class Igv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9810d09a42503c23405f163f3ccce3a1c923eeaa8c51280ee9cfa89b022edb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9810d09a42503c23405f163f3ccce3a1c923eeaa8c51280ee9cfa89b022edb0" # linuxbrew-core
   end
 
   depends_on "openjdk"

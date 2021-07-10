@@ -9,7 +9,7 @@ class Akamai < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "842b169770e4426d42f8b5263d6f9b0dea954f9f02a682c66faeae73f30646c2"
     sha256 cellar: :any_skip_relocation, catalina:     "6ec819f683c492b61fb18fad43515d7ce85c4c00d80bcc6ff3b2cc6ef098bf3f"
     sha256 cellar: :any_skip_relocation, mojave:       "9a34412f05ecbbae48a65983548495cd0ebc5ad234f358163f714accfd44091a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e0a2b24be42cc5caa98f635127aebfee3adefa33d2b0947a999c2567a628ebc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e0a2b24be42cc5caa98f635127aebfee3adefa33d2b0947a999c2567a628ebc9" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -11,7 +11,7 @@ class Yaegi < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bc2df034ac820460dd80129a5602953ea17c1cdf3e16f1900cdffc3bd73cff3a"
     sha256 cellar: :any_skip_relocation, catalina:      "5c57000bc6385e53b22456f85d0ee56580ead57498101dea276c2d686f97b7f8"
     sha256 cellar: :any_skip_relocation, mojave:        "8eabf6538bccf4350bdf5b2e609e9cb83dd5f951490f92f91c445f2a4a971a78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7bbb3b373e744c5a2235c769ba1e451e89453175191dc5d523a458c433f534f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7bbb3b373e744c5a2235c769ba1e451e89453175191dc5d523a458c433f534f" # linuxbrew-core
   end
 
   depends_on "go" => :build

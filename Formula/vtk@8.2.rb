@@ -11,7 +11,7 @@ class VtkAT82 < Formula
     sha256                               big_sur:       "8bc79eb0816f3fcbe54ffd10f6db58094aa8814e15e7fb6a7402ea65a1885be4"
     sha256                               catalina:      "b8b797c6faf44ded4565bfb887c14d915f3997fc646aef250c273d2cfbc5d7d8"
     sha256                               mojave:        "228d62e2e0f9933c9a967aa71394d062a23611e7fea37e430daeb49a70df4250"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "706068dc28e32e3751a479034b414ca56b8a004f854d04371bf63af06ae98c44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "706068dc28e32e3751a479034b414ca56b8a004f854d04371bf63af06ae98c44" # linuxbrew-core
   end
 
   keg_only :versioned_formula

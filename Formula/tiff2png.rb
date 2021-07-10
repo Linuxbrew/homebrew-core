@@ -15,7 +15,7 @@ class Tiff2png < Formula
     sha256 cellar: :any, sierra:        "19951f2ec63fa3c77a43fe2c2444251686ad4fcc1038fbeeb8873fcd528d8954"
     sha256 cellar: :any, el_capitan:    "43f0afaca7d61a7f55489260deb233c0a35619d3101d362f80dc7a765a877599"
     sha256 cellar: :any, yosemite:      "bf11412cac81c328f8e8de50c182be049696d053ac900b56302685e858562811"
-    sha256 cellar: :any, x86_64_linux:  "b9f1b92319077578dfffd02a1d72c2ff53f2ed316cd7eaaaab50f223d1931538"
+    sha256 cellar: :any, x86_64_linux:  "b9f1b92319077578dfffd02a1d72c2ff53f2ed316cd7eaaaab50f223d1931538" # linuxbrew-core
   end
 
   depends_on "jpeg"

@@ -12,7 +12,7 @@ class Cdktf < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "49e708d3fa251a7e3b4e21ec5d8b4bd05718e85898d0f1aca1dfb557f7e07658"
     sha256 cellar: :any_skip_relocation, catalina:      "49e708d3fa251a7e3b4e21ec5d8b4bd05718e85898d0f1aca1dfb557f7e07658"
     sha256 cellar: :any_skip_relocation, mojave:        "49e708d3fa251a7e3b4e21ec5d8b4bd05718e85898d0f1aca1dfb557f7e07658"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd39cd0ce1f761641dd63be894106f0ee15e2e36b81196540eed4139106285d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd39cd0ce1f761641dd63be894106f0ee15e2e36b81196540eed4139106285d2" # linuxbrew-core
   end
 
   depends_on "node"

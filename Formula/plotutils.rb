@@ -17,7 +17,7 @@ class Plotutils < Formula
     sha256 cellar: :any, sierra:        "b63f4f051452f8fd9b5ddb50f9d574122c2277c9778e1a56c3f2d59e55c3da73"
     sha256 cellar: :any, el_capitan:    "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9"
     sha256 cellar: :any, yosemite:      "fae89f252628820ac83a0896fa022b1c08cacca6e6234b2fb23c10554f424fd3"
-    sha256 cellar: :any, x86_64_linux:  "ab12cbf3c92cb3b48d3da89bba5ef6d70db71ec779db0d6c743c5a9ea3d07da0"
+    sha256 cellar: :any, x86_64_linux:  "ab12cbf3c92cb3b48d3da89bba5ef6d70db71ec779db0d6c743c5a9ea3d07da0" # linuxbrew-core
   end
 
   depends_on "libpng"

@@ -11,7 +11,7 @@ class DockerMachineDriverVmware < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5028fce4f23eba9047fa977e0db88861d99bcc0dc2b79b0c2920ea68569b970f"
     sha256 cellar: :any_skip_relocation, catalina:      "d0ce7d4804d39392cfede2ecc19fbe763d39b4684306d0cb36efb19359668c53"
     sha256 cellar: :any_skip_relocation, mojave:        "515e8951062268846b9c3ec85aa2b29c6f093cba35eed91a3503344fd5aa288a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7a934227e716581fb2819e33b0abed0f0dbc4cb830644d779e2c6a0bd5e1ba8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7a934227e716581fb2819e33b0abed0f0dbc4cb830644d779e2c6a0bd5e1ba8" # linuxbrew-core
   end
 
   depends_on "go" => :build

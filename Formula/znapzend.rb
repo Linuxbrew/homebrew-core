@@ -11,7 +11,7 @@ class Znapzend < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "03e855b5e75b84add0bd121a3f729112c7874ee09c74c2408479e1df095bc96c"
     sha256 cellar: :any_skip_relocation, catalina:      "d4a36c0209fcb921c565bc9430ecf7a13ef3cfd226e32090c67af215c67b28ca"
     sha256 cellar: :any_skip_relocation, mojave:        "2435d387ff28213402b816f40fdbf34bb733db8216ca72e66459b188d9e25ae5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cde512e3051437c805bd20e241eaa4ba4713ee8e6896b0d6456fff635483f97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cde512e3051437c805bd20e241eaa4ba4713ee8e6896b0d6456fff635483f97" # linuxbrew-core
   end
 
   uses_from_macos "perl"

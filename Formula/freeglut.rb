@@ -12,7 +12,7 @@ class Freeglut < Formula
     sha256 cellar: :any, catalina:      "21e92d3aa8a1615937c6776292dd823912220d272a4a437f66917d1e6dd0b655"
     sha256 cellar: :any, mojave:        "8d71afe59334afe060d513d68e8c76b3fc0927cf05d61b146dd1444c66d5db35"
     sha256 cellar: :any, high_sierra:   "0a30955c90e594481f1ebf4dd218065768386704e2fdcdc0aae45055171dfd2d"
-    sha256 cellar: :any, x86_64_linux:  "40609b9b33b567b90eb41ce2a5e8f5bb91937c357025e0c391f9478f0e3db4e5"
+    sha256 cellar: :any, x86_64_linux:  "40609b9b33b567b90eb41ce2a5e8f5bb91937c357025e0c391f9478f0e3db4e5" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

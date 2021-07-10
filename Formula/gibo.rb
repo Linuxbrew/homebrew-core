@@ -10,6 +10,7 @@ class Gibo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "106c82cc27f9897f960c131a543cd93c4ca449c4004aebfc7f07cc46f0059157"
     sha256 cellar: :any_skip_relocation, catalina:      "106c82cc27f9897f960c131a543cd93c4ca449c4004aebfc7f07cc46f0059157"
     sha256 cellar: :any_skip_relocation, mojave:        "106c82cc27f9897f960c131a543cd93c4ca449c4004aebfc7f07cc46f0059157"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af671cfa2e8503e978d8623829d236932fb1bc9e5e4df3ef709d5ecb8c9f91c1" # linuxbrew-core
   end
 
   def install

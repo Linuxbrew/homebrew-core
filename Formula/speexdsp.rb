@@ -12,7 +12,7 @@ class Speexdsp < Formula
     sha256 cellar: :any, mojave:        "0d61efd09b255e0856833e51bdbdaabcaaa325824a71ec326da61ffd8e200675"
     sha256 cellar: :any, high_sierra:   "7473fce6835c55f0547e60ff32b9ee1d16c2d3a490f618310dd276e34126bd1f"
     sha256 cellar: :any, sierra:        "b96155ea177b81d37a86a9b57dc38643680bbf6b22a6a2b826734f3cb2b5aa93"
-    sha256 cellar: :any, x86_64_linux:  "28d09d987f4bb098afe2bfb9865e9646f04d0a746f0606c0b7459ae857285929"
+    sha256 cellar: :any, x86_64_linux:  "28d09d987f4bb098afe2bfb9865e9646f04d0a746f0606c0b7459ae857285929" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

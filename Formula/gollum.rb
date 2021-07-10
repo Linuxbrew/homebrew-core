@@ -11,7 +11,7 @@ class Gollum < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "93b409a0df8ba538dc75783b349b6e3d9d3390aa9d2e89813513a0452e3eab3e"
     sha256 cellar: :any_skip_relocation, catalina:      "a8f048a8431da205f8c35224d43b6818c73adcb1abf973e7d1274231df6cb562"
     sha256 cellar: :any_skip_relocation, mojave:        "6e8d55c8f2e91d5c645dd1877f993765aa26e71b637754514c6aa285ffb617dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "439d7c8401a910b5f52158a7d8ff68e08ca479d65d5babd77a17f18569da86a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "439d7c8401a910b5f52158a7d8ff68e08ca479d65d5babd77a17f18569da86a5" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -10,7 +10,7 @@ class ContainerDiff < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "339c0ec5e9dbe0b5255a3ca87c316cc159741bb7b6ae43189a9d20af8fb5a63e"
     sha256 cellar: :any_skip_relocation, catalina:      "7b09d72b8cea67e283520a37ffb5082b7070443a5da1f78584270488ea6f8f74"
     sha256 cellar: :any_skip_relocation, mojave:        "4c9f7078b38379711d7eb961e9ed670a13a3240ce0c1d99d910d8313daa412bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8349134faa66458a6f432c65408625f6677ad22b0364cee936d82fcca60f3b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8349134faa66458a6f432c65408625f6677ad22b0364cee936d82fcca60f3b9" # linuxbrew-core
   end
 
   depends_on "go" => :build

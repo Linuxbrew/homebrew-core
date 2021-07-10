@@ -11,7 +11,7 @@ class Pytouhou < Formula
     sha256 cellar: :any,                 big_sur:       "f6cc4df128378963b11dad010097ffc897e195f578afd1cedf83869280748272"
     sha256 cellar: :any,                 catalina:      "68aa26a6209130a0bf44da6716964fcd97cd667daae9c3a600b6a19c33d91951"
     sha256 cellar: :any,                 mojave:        "7ef160097cf7d38842b5ad88403f6c410a9e90e93f4942df3b3019d8d4b9d514"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02c461e1ea9d1d3e940396d38bbeef9783de14601e9ed290ecd1aa2d7582517c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02c461e1ea9d1d3e940396d38bbeef9783de14601e9ed290ecd1aa2d7582517c" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

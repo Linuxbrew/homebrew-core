@@ -13,7 +13,7 @@ class PathExtractor < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "bf30c2d715d52035b57b640d849c21e1508fb189259b5e02343f8104f50d6624"
     sha256 cellar: :any_skip_relocation, el_capitan:   "90521da4fd1834db41fbf19b7b6ce9f82a943ab2412acd41b6c5d749146770e7"
     sha256 cellar: :any_skip_relocation, yosemite:     "718512fe3585d82dee8d655c2ab534dac70d0b24a8164bcc012f0f2a65a55e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "43bae2b10f5116c680559e20ff5207d5bc2bac70a3cd242029e70888061c24b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "43bae2b10f5116c680559e20ff5207d5bc2bac70a3cd242029e70888061c24b8" # linuxbrew-core
   end
 
   # https://github.com/edi9999/path-extractor/issues/8

@@ -12,7 +12,7 @@ class Libspiro < Formula
     sha256 cellar: :any, catalina:      "238761be2cd640f6c3f59f0461ce7f5b73dc71c9613236e180bc55f4231e167b"
     sha256 cellar: :any, mojave:        "fb1b2e548eddc684a5b615cedabc2c6403e0c87409fdb419369ca40e2b70aa52"
     sha256 cellar: :any, high_sierra:   "b7155fe14b9909a06a9044ca2d3275f5b2cbcd9aac23583b3819ba53898ff120"
-    sha256 cellar: :any, x86_64_linux:  "f3fa73570971a8a442bebcb63b411476d780ff89bd579f1663939d68194addbd"
+    sha256 cellar: :any, x86_64_linux:  "f3fa73570971a8a442bebcb63b411476d780ff89bd579f1663939d68194addbd" # linuxbrew-core
   end
 
   head do

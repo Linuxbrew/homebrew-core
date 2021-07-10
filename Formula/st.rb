@@ -17,7 +17,7 @@ class St < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b852dedd2a66d7f03314cf510cf9d94e55c3437a7d23ac0bf7b1742b2d635dda"
     sha256 cellar: :any_skip_relocation, catalina:      "47e88ee3a995fb7f0dc9a5900a378c254c5be13ebfeee44474be9649992d4a5f"
     sha256 cellar: :any_skip_relocation, mojave:        "a405a6128674652c728e7af64d751388b6ecea693d780efc2ebcfa62ec8e0f6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a9199f03b3b84f1481ff7ec44b2e9a6b1179f31ffc0f56f17ccf0e1dc02ada5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a9199f03b3b84f1481ff7ec44b2e9a6b1179f31ffc0f56f17ccf0e1dc02ada5" # linuxbrew-core
   end
 
   def install

@@ -22,7 +22,7 @@ class Ponysay < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8c53b69ff726780b68fa8d644a13325bf46b80ae13eb198804f0eb7aa601a893"
     sha256 cellar: :any_skip_relocation, mojave:        "d91ddb61651ee73e49f565095257cf8226d66585d8032783fe208ee359448912"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ba848b6de300211972228d752805e4d4bed7ba44af9356e0f56fc6bdd9f23f79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e158f916b47c0b62d15d3def63e061de6a4c5678fe2099e32092a18c4e80f957"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e158f916b47c0b62d15d3def63e061de6a4c5678fe2099e32092a18c4e80f957" # linuxbrew-core
   end
 
   depends_on "gzip" => :build

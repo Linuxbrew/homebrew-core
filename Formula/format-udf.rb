@@ -6,7 +6,7 @@ class FormatUdf < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "777bfcdbf07b70e2378c1ee2300729b7293acf88862fb450e38f7b4dc3ca1b85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "777bfcdbf07b70e2378c1ee2300729b7293acf88862fb450e38f7b4dc3ca1b85" # linuxbrew-core
   end
 
   def install

@@ -19,7 +19,7 @@ class Libotr < Formula
     sha256 cellar: :any, sierra:        "9f0b214278e4cdf81a1a0c083f1aa45ba64430b449121c4d0596357952dcc93d"
     sha256 cellar: :any, el_capitan:    "43d7a166cd12b611e7bf15dfa3865d18e573a81a218e2aeb0061d51203ecde39"
     sha256 cellar: :any, yosemite:      "b3f215fd3952f7a97af36500365c3c017f23de107162f4c76b0e48355bd2a358"
-    sha256 cellar: :any, x86_64_linux:  "bb3248b582b0932249aeaa7c62011d251932a0ca00988d8f37739626651a748d"
+    sha256 cellar: :any, x86_64_linux:  "bb3248b582b0932249aeaa7c62011d251932a0ca00988d8f37739626651a748d" # linuxbrew-core
   end
 
   depends_on "libgcrypt"

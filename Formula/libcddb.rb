@@ -11,7 +11,7 @@ class Libcddb < Formula
     sha256 cellar: :any, big_sur:       "e19fbf67a440482346f40076ceae29a8b72590ef1376e6c5454d9f7814984e3b"
     sha256 cellar: :any, catalina:      "ca3cb9caeed526ef59a167293871d7b739c2ee6271571225dd1640f4af101140"
     sha256 cellar: :any, mojave:        "534e9e7afc756a552c414b224d86ffa84c9966bbccf3a7d781a6b55a482e9bdf"
-    sha256 cellar: :any, x86_64_linux:  "c62b478fcca3571e1d44a1284631dadb9958bbf13cca10bbc20b851e0776ad90"
+    sha256 cellar: :any, x86_64_linux:  "c62b478fcca3571e1d44a1284631dadb9958bbf13cca10bbc20b851e0776ad90" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

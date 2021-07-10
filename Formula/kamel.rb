@@ -17,7 +17,7 @@ class Kamel < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "dcb66f55f2212852376f433f6dfcaf40b5f520c2018b7a353d9d002b933b1092"
     sha256 cellar: :any_skip_relocation, catalina:      "bde7a6651e566935bc753713249e8b858846c84ef3104a1965336f9bc26c0c73"
     sha256 cellar: :any_skip_relocation, mojave:        "f3c5e8aacf4435e5cb7c3a75f9af9382087307e23ba837525c7e60375eb105fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17123f2e5d0b0e84ef903600fc45d41c5c35a09e943c29d36b80b48e3030e9dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17123f2e5d0b0e84ef903600fc45d41c5c35a09e943c29d36b80b48e3030e9dc" # linuxbrew-core
   end
 
   depends_on "go" => :build

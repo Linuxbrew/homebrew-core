@@ -10,7 +10,7 @@ class CfTool < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "3369b5efe4c26d786fa8a54d4ca208c11dc89850565adaf6a1c922f4f16d2a3f"
     sha256 cellar: :any_skip_relocation, mojave:       "4344edd7a9160d7113d135c574146f6ca5bedfded9e8633b02642276999e6dbe"
     sha256 cellar: :any_skip_relocation, high_sierra:  "a3497993ba1bae8cda20da28d5fb7ea8687ba0e50a23d5f6687d515457c4a00c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a09556afd41a886a94200257be4a8e24647b25d2c0fde35cf7d5426bde6fe30f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a09556afd41a886a94200257be4a8e24647b25d2c0fde35cf7d5426bde6fe30f" # linuxbrew-core
   end
 
   depends_on "go" => :build

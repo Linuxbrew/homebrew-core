@@ -13,6 +13,7 @@ class ChartTesting < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a6179e0090f93f5bf67f92cd13fa391f898496211f7e1b58a1d3989f9b37b22c"
     sha256 cellar: :any_skip_relocation, catalina:      "556430cab62f842bfdcac97db34b96448bad3588a359aec2e2f9f21c5339f363"
     sha256 cellar: :any_skip_relocation, mojave:        "65760b4336f5f2005cdb7d001d3902c16530ed0dd6eeb68bdaab2d6389f63d0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed0acfbc95ad8b6e092a149692c43e1cb0401d10d741ce194c7083bc0d5b3465" # linuxbrew-core
   end
 
   depends_on "go" => :build

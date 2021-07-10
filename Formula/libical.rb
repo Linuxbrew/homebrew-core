@@ -12,7 +12,7 @@ class Libical < Formula
     sha256 cellar: :any,                 big_sur:       "9d900728f649ccb4c9e80df219089b8f608e9027f7cb313896115574acc8d93a"
     sha256 cellar: :any,                 catalina:      "a76e728e573b3d72e288009edc4e3f6d792a3ef7b91fca78e9a6b5d12ee6cd3b"
     sha256 cellar: :any,                 mojave:        "5c8fbf1cb846303940f183de67b538dc0c1139a3117d115db3aa3e02c25d0c28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "766f5cafa3f20e22951c282f92bb9477d94f058d45ccb3fd49549d4ca55e5c60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "766f5cafa3f20e22951c282f92bb9477d94f058d45ccb3fd49549d4ca55e5c60" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

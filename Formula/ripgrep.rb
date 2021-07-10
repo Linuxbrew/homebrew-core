@@ -16,7 +16,7 @@ class Ripgrep < Formula
     sha256 cellar: :any,                 big_sur:       "a8f2bd6586de9f7aa36eaaefd36777309f9b5d57f01bf33bf022d715fd3dbb89"
     sha256 cellar: :any,                 catalina:      "0edcffa1251002e2747020d62a16ae077bd7aa5fb289d351622e0065c9686c40"
     sha256 cellar: :any,                 mojave:        "b57024c0d221249a1f5eaef1069ac90d44e54afdadb146acd117ae23b7de98c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773831fdff6a4c5e197e4fbd8c40422274eff3fa65318d93e982c1c2c44417a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773831fdff6a4c5e197e4fbd8c40422274eff3fa65318d93e982c1c2c44417a4" # linuxbrew-core
   end
 
   depends_on "asciidoctor" => :build

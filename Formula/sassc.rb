@@ -12,7 +12,7 @@ class Sassc < Formula
     sha256 cellar: :any,                 big_sur:       "fe3a719ec1b2b01385924b8cb3bbb758d006ff3dbd75b1c3691ce09a43d1ebcd"
     sha256 cellar: :any,                 catalina:      "0826a1c50657da448806febb03694bce523e60ac56e7dd0de7362fe4b41f2277"
     sha256 cellar: :any,                 mojave:        "6aa4de7c6d9b1b64beda27f0c06a6d8c9224616b74ae48ea8e706f166b374ce9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4575b459543c822d40a074f73591b1865790aa8977e7dc12148c10c858d55203"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4575b459543c822d40a074f73591b1865790aa8977e7dc12148c10c858d55203" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

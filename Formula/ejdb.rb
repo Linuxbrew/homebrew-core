@@ -11,7 +11,7 @@ class Ejdb < Formula
     sha256 cellar: :any,                 big_sur:       "643fb65248e8195d24a75295ec2229c19d6a3aa0cadf9e1270bbbf033171d5c9"
     sha256 cellar: :any,                 catalina:      "7effbf0d5d8de63bd886f964a62c742dc4edeaf6f4c79ccdfb436f13604bf9ce"
     sha256 cellar: :any,                 mojave:        "57add67ccf732e856325adbc945c8626addaac15418a0ff25e2401f720ca2034"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b2484442f718d508c787e0449437bc3210126c05b864612f369476ae63b3373"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b2484442f718d508c787e0449437bc3210126c05b864612f369476ae63b3373" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

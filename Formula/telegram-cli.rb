@@ -15,7 +15,7 @@ class TelegramCli < Formula
     sha256 catalina:      "4c1a9d233c3b46d75badb6e89e007ff9763e55071474ce11d0e109e7ee24aefe"
     sha256 mojave:        "da9d09f1f4a317ed14c97e67fc2def18c4cd728a7023ab80424a8d548437ee74"
     sha256 high_sierra:   "410b56cc04620c7a1f495b500b41fa61339cc68444c1c65939bb4fb0c4cc96ef"
-    sha256 x86_64_linux:  "9d3b9f41345e1779d79245622e158c26ab032c3bad2dd290d6257a4fe3f0049d"
+    sha256 x86_64_linux:  "9d3b9f41345e1779d79245622e158c26ab032c3bad2dd290d6257a4fe3f0049d" # linuxbrew-core
   end
 
   # "This project is deprecated and is no longer being maintained.

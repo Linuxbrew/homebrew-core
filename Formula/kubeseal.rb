@@ -16,7 +16,7 @@ class Kubeseal < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "2a1ed17105b7150960ad0ff52a8a8af6a19ee68f6d6f0821c63cf5941a8b8f61"
     sha256 cellar: :any_skip_relocation, catalina:      "b387aff195ecc80147c545e16d68264184bb1a7ab9cf4eac6b8d9b09afcf6faf"
     sha256 cellar: :any_skip_relocation, mojave:        "57cbf276f5f8e0257692a72efdfab3950fc109d1c33a8f904af66d9d063edb6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1efec16b4fcda1a32f869488f2b38a17df3cad3ac246947ccb22878494d37a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1efec16b4fcda1a32f869488f2b38a17df3cad3ac246947ccb22878494d37a8" # linuxbrew-core
   end
 
   depends_on "go" => :build

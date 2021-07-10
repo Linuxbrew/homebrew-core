@@ -17,7 +17,7 @@ class Libsass < Formula
     sha256 cellar: :any,                 big_sur:       "6b898ecf23182d8510c20cc39f983ff1d032d05f782a860a8bf4f7268144bc8a"
     sha256 cellar: :any,                 catalina:      "d3ed514cda1f654bba381f40cefeae9af3dc72b9299a3b55afe08165811eacd6"
     sha256 cellar: :any,                 mojave:        "3300df2def4e03dc12a86fca52cd7555c8ce42320cfaf2d143d27129cd4e8bd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af3237dcac2845cc667ade463821e1ffed5048419786c99133e10f868b6a33ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af3237dcac2845cc667ade463821e1ffed5048419786c99133e10f868b6a33ed" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

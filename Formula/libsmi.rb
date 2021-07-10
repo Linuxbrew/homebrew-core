@@ -17,7 +17,7 @@ class Libsmi < Formula
     sha256 cellar: :any, catalina:      "1a25b44883bb95940e789ec6395dfa796ec44fd4e0d9ae1ee81a4119fe70ac14"
     sha256 cellar: :any, mojave:        "507d7f52bd7be5c1cc3170831de43e3ebd5a4312b6eda5d795d7519437016246"
     sha256 cellar: :any, high_sierra:   "25a31cf7557ddfc1174a932b904d6c96bda4f3c733caf8258edbdef376e99544"
-    sha256 cellar: :any, x86_64_linux:  "d33ce3b67917f68e4cdedfbac29df8a93f94e97ce4493a952a594b1e70314777"
+    sha256 cellar: :any, x86_64_linux:  "d33ce3b67917f68e4cdedfbac29df8a93f94e97ce4493a952a594b1e70314777" # linuxbrew-core
   end
 
   def install

@@ -12,7 +12,7 @@ class Megacmd < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "005012522f9d83387047d28fc1f4870b27090496d333a5ace382fd3b2b380850"
     sha256 cellar: :any_skip_relocation, catalina:      "5e3e9a0dcacef7fcac245b621b8eee36cc9dc974b46ba1006769f1dbf781b01c"
     sha256 cellar: :any_skip_relocation, mojave:        "a24988b1613d43a55748a6516f3d0ac15b13a533b92c201200d0c0998c4dbeb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08d39e443678b4d0171f93b2d176102b94b31704e2bbd9fdcc5406ff2d76a2b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08d39e443678b4d0171f93b2d176102b94b31704e2bbd9fdcc5406ff2d76a2b9" # linuxbrew-core
   end
 
   depends_on "go" => :build

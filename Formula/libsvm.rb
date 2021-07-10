@@ -17,7 +17,7 @@ class Libsvm < Formula
     sha256 cellar: :any,                 big_sur:       "27481a34d2af64572b48b268c8e47d7700aab4ec9dc2978216c471d512a4cb81"
     sha256 cellar: :any,                 catalina:      "ad8d34d17fdca6b25374eff11b5f2b1067d19894358b23c04b3b8ac0f82180b1"
     sha256 cellar: :any,                 mojave:        "485eec232bd3cc0619494de50cac4ef4a5b65761d5d6a062c62e07d9a0007e31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c4178c8b908bb6bb455475dcad8018f399837460c77f26a8111d8dcd7eb7dbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c4178c8b908bb6bb455475dcad8018f399837460c77f26a8111d8dcd7eb7dbb" # linuxbrew-core
   end
 
   def install

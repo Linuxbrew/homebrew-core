@@ -15,7 +15,7 @@ class GnuComplexity < Formula
     sha256 cellar: :any, sierra:        "3ea1d968a1eaa2ce6655fa8e33b721af3cd631075f960c6595ca68aecd0972c7"
     sha256 cellar: :any, el_capitan:    "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7"
     sha256 cellar: :any, yosemite:      "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1"
-    sha256 cellar: :any, x86_64_linux:  "2fe81d7aa28f2192f62ce3aa6bab412778576e421847fdbc523267428baa53d1"
+    sha256 cellar: :any, x86_64_linux:  "2fe81d7aa28f2192f62ce3aa6bab412778576e421847fdbc523267428baa53d1" # linuxbrew-core
   end
 
   depends_on "autogen"

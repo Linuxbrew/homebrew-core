@@ -13,7 +13,7 @@ class Ocrad < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "3d1c85bb36faedf5ab12f78e8c3511dcc4164561ba8bc09924b48f6aa3fa0b37"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ba9b30eeabc11634502e30fd9a730d5727668550f9708d46fbefc03bcb3917de"
     sha256 cellar: :any_skip_relocation, sierra:        "903ce6530395c0973418020561ddd60da739f3a36e865500776922e18975460b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe81c88121b741c46ffee8248146b0ee03c14cf0b3f4d809ceaadde5b31c5091"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe81c88121b741c46ffee8248146b0ee03c14cf0b3f4d809ceaadde5b31c5091" # linuxbrew-core
   end
 
   def install

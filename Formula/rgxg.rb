@@ -11,7 +11,7 @@ class Rgxg < Formula
     sha256 cellar: :any, catalina:      "4a07550d93bedfa3b2ac3cb77a8484951321697ca9384d2c2a0301ea261aa954"
     sha256 cellar: :any, mojave:        "b410fe9ea150e0fb52326e4f7ce6642f946098b0713c5741c64699de3f55f762"
     sha256 cellar: :any, high_sierra:   "286318be76fc55c094da739c44176d5babd814df1e4f0462711aea283db042f5"
-    sha256 cellar: :any, x86_64_linux:  "ce534f086b07694e981db59a833fbf360004a5a1a01143d6e4231890c3f2ba18"
+    sha256 cellar: :any, x86_64_linux:  "ce534f086b07694e981db59a833fbf360004a5a1a01143d6e4231890c3f2ba18" # linuxbrew-core
   end
 
   def install

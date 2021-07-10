@@ -12,7 +12,7 @@ class Hunspell < Formula
     sha256 cellar: :any, big_sur:       "20b0f5dc7973a4cca3a8c3ea5778938d169bde2d183210f64526df8bca9512f7"
     sha256 cellar: :any, catalina:      "d5144178eba9ff325c297a5a0ae05f1caa9b1d567803250d5dbd86876e0718a3"
     sha256 cellar: :any, mojave:        "eaabf6b66c21a94a7f6810287ff84e83fdef0ed6d3db635c8ad2c810d9f84d46"
-    sha256 cellar: :any, x86_64_linux:  "f0cd2d26f84b1efcb75328e565175563c9f1fe524f6f86c96bdf9d7b358b783a"
+    sha256 cellar: :any, x86_64_linux:  "f0cd2d26f84b1efcb75328e565175563c9f1fe524f6f86c96bdf9d7b358b783a" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

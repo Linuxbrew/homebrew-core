@@ -11,7 +11,7 @@ class Restic < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "62e870aa5d92ff24c3508c83a3a3097137127c6bcd567968cfd99a44d14ab068"
     sha256 cellar: :any_skip_relocation, catalina:      "408932d412c7abf1592f07bebb6ec32eb6af2b0b9efc942dfd661027c839e6dd"
     sha256 cellar: :any_skip_relocation, mojave:        "1e3fe2725e40ce54501167afa71979873a1d651beb0031a0c84dc923606ecb30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a82896915d36cc4d32b413b0b01cba64908a325a5ca53953e22a04ef94a4c989"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a82896915d36cc4d32b413b0b01cba64908a325a5ca53953e22a04ef94a4c989" # linuxbrew-core
   end
 
   depends_on "go" => :build

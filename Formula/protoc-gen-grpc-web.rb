@@ -13,7 +13,7 @@ class ProtocGenGrpcWeb < Formula
     sha256 cellar: :any,                 big_sur:       "c706a6449039679963254536a30511f031fe11705ac36ed5d2f3ab2fd83a2aba"
     sha256 cellar: :any,                 catalina:      "3917c4c2ff273a01472cd46265b5d12a6df0012e721cb271f4c512a894e3ccd5"
     sha256 cellar: :any,                 mojave:        "b4486c699cd657005acd262ef592784f3bbf3b50408e90d2a84d42dcb5205853"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24b9313446774da3ce64ec105e0d8dab0289404ad1b6d6530cf307e8b9989279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24b9313446774da3ce64ec105e0d8dab0289404ad1b6d6530cf307e8b9989279" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -12,7 +12,7 @@ class Xlispstat < Formula
     sha256 cellar: :any,                 catalina:      "d2e8f57e8dc13c6b1aaa38af29d291b5974b642626599cf478f3997e2981643a"
     sha256 cellar: :any,                 mojave:        "2ad96a0eaeadb61b6eae731c7f8caf19ce6a202b4fab65d474e135c0731b8022"
     sha256 cellar: :any,                 high_sierra:   "66e03a45aad7571b1a51c5196236099f11884ee055e7b45fcbdb19d4ae682e90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "331f9a39e838e3da54aa58866e54951b876d894b0919d48151ff53ec2f690046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "331f9a39e838e3da54aa58866e54951b876d894b0919d48151ff53ec2f690046" # linuxbrew-core
   end
 
   depends_on "libx11"

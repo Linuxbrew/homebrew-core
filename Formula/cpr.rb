@@ -12,7 +12,7 @@ class Cpr < Formula
     sha256 cellar: :any,                 big_sur:       "f531320c598e51d6fa215fe35caf9766882349bb1e5d89319ec6a0937202f627"
     sha256 cellar: :any,                 catalina:      "3c3d0ebe3de5371c93a5b1b68b599e9aee2d5abe2e8598a6775b463be05bcddc"
     sha256 cellar: :any,                 mojave:        "608ac5168dd4ca3ab78d84827ccfce0abba0ad9699bef82ffad074a0b51aefc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e847ed5aff9686226c9986e874459b62d668389e41df1102053248a0ccce6cea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e847ed5aff9686226c9986e874459b62d668389e41df1102053248a0ccce6cea" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -19,7 +19,7 @@ class Lout < Formula
     sha256 sierra:        "2cfc68ddba21e6f485a4a57df9e810b6996d5364374c66e77b06d41ce230f060"
     sha256 el_capitan:    "2fbc90ffc3f12312dc11e31996ba94da3b8a4ba1c55f33ca60a5d81aef4e137f"
     sha256 yosemite:      "366023d41536d0220a3d226a9f7a5e65b89fcf8ec212bfd6e53f8c2b4110abce"
-    sha256 x86_64_linux:  "28147b2f510e8022646f42cb505dfa5e44d787f5645c4935e3ffc84428a6bef6"
+    sha256 x86_64_linux:  "28147b2f510e8022646f42cb505dfa5e44d787f5645c4935e3ffc84428a6bef6" # linuxbrew-core
   end
 
   def install

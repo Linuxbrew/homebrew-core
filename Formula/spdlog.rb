@@ -11,7 +11,7 @@ class Spdlog < Formula
     sha256 cellar: :any,                 big_sur:       "4f4ccddb0cb5a2868c2abb930edb10db00b9a424359cfd00f960e342b7192c50"
     sha256 cellar: :any,                 catalina:      "64679359dccef4c95d23522c0ec9ee883a764988b5f57af5a0025b68aeb331a9"
     sha256 cellar: :any,                 mojave:        "086b5db228715bf36c75abf1995922229190705b8765ab97263fb5ca7c4922b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "450183a4b00efd66ed9e844ff26fd196f2e6070bd5f77a9713cb3ce9b93a46ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "450183a4b00efd66ed9e844ff26fd196f2e6070bd5f77a9713cb3ce9b93a46ca" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

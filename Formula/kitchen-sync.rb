@@ -16,7 +16,7 @@ class KitchenSync < Formula
     sha256 cellar: :any,                 big_sur:       "2b6b8db77a59ac10cb719ddabc427941c78d43612fd945145c96f054bb5654a7"
     sha256 cellar: :any,                 catalina:      "03ebfd56228b524fad48bad6017146a213fb9f2bff088ad1b78a50d8a6d40855"
     sha256 cellar: :any,                 mojave:        "8dadd7bb9c24df3191f3c8e512be6e34ededaf7d062a57662b45ae9a1934c394"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fcd7c14d3eca2784a77417b8f5bb2003b93f8016ea6449708ef55bae072bd4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fcd7c14d3eca2784a77417b8f5bb2003b93f8016ea6449708ef55bae072bd4c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -16,7 +16,7 @@ class Pugixml < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "450e11f4eafe21828d3987620406eb42695a60c15086b7741898d483bb05fa8d"
     sha256 cellar: :any_skip_relocation, catalina:      "112dda2780766cf7403426252180cea172cd396f7b52aee42a690aa7539c933b"
     sha256 cellar: :any_skip_relocation, mojave:        "60d558fea876933be7a5322267ca58c0850eb23ec05d71b3d2c3876793b01367"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72158d35de220ab8e5fabc19fb4be4c4e431bd27f5cbb6fcd19671d22f3ee0a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72158d35de220ab8e5fabc19fb4be4c4e431bd27f5cbb6fcd19671d22f3ee0a2" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

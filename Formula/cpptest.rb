@@ -12,7 +12,7 @@ class Cpptest < Formula
     sha256 cellar: :any, catalina:      "531646bba9e8aedff87216058a90e2fdc245b11ef55ad3f5c3aaaf717fd998cb"
     sha256 cellar: :any, mojave:        "5a109d0b6cb796d0de9e6b32a6373e1e78fd4da316be33a26ba9c84fbf799eb8"
     sha256 cellar: :any, high_sierra:   "cac49d059592f8d9f030855041727a61c7358404e16fc63d106ade58253ba0f1"
-    sha256 cellar: :any, x86_64_linux:  "3fcc825dd84cc6f9b04594bba8a87fdc7ce4b1ed740701b16b521a1beec82503"
+    sha256 cellar: :any, x86_64_linux:  "3fcc825dd84cc6f9b04594bba8a87fdc7ce4b1ed740701b16b521a1beec82503" # linuxbrew-core
   end
 
   def install

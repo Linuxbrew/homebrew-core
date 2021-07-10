@@ -13,7 +13,7 @@ class Quasi88 < Formula
     sha256 cellar: :any,                 sierra:        "d9ff4c5657c4179371d60317e0455cbadd59d45d81d0cc71d62d14d681619e95"
     sha256 cellar: :any,                 el_capitan:    "4bef6f92d4fcdf3547e0e7b9d699f392de0ff4764bbed0d8b23ea37e22e33f78"
     sha256 cellar: :any,                 yosemite:      "f9b4ef36396de67507df8148ad22ecca3940505c40468656df03ac685930b2d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2e7c265c84ec508bfd17030a570cf28ec627aed06fabdd6d2ca6d9c2c151482"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2e7c265c84ec508bfd17030a570cf28ec627aed06fabdd6d2ca6d9c2c151482" # linuxbrew-core
   end
 
   depends_on "sdl"

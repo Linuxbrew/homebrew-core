@@ -10,7 +10,7 @@ class Condure < Formula
     sha256 cellar: :any,                 big_sur:       "2daf0a91d666cdd8ac6defd4d603e86d1f8619e936b2c58299d86b2d08e9345e"
     sha256 cellar: :any,                 catalina:      "369a5eac6c74ac9e579b3f52fea9ca7b7359499bc3f0926d96285fdce0ce6168"
     sha256 cellar: :any,                 mojave:        "5bcbf91da877662c3407ef78db0eeaf8a42c9aa51885db95203fca9d3d01c955"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba31ff17db45a943d9e04df95c8bc809c1eeb1588f71af5fa33b7570b6f60961"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba31ff17db45a943d9e04df95c8bc809c1eeb1588f71af5fa33b7570b6f60961" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -13,7 +13,7 @@ class RiemannClient < Formula
     sha256 cellar: :any, catalina:      "3227f7774fb1ff0e7daeb4b8c75c0e976a928593b85a8ef2726542ef3bab634b"
     sha256 cellar: :any, mojave:        "1a11eb37bbb1021c3aee0e2e5173dba58fb48172418cf632e76811f08483a39d"
     sha256 cellar: :any, high_sierra:   "245fe4d845c711bc9d1b99f0697d1cb98811633a608c62f415a4e2c0f05ebd1a"
-    sha256 cellar: :any, x86_64_linux:  "40f04bf7269b9de06c801f6ed576939c0d4364f8ba69b5a0fb385033596c64be"
+    sha256 cellar: :any, x86_64_linux:  "40f04bf7269b9de06c801f6ed576939c0d4364f8ba69b5a0fb385033596c64be" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

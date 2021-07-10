@@ -6,7 +6,7 @@ class Denominator < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ab2b8c29931276ee2c497d742ac3c70f77de6a939118596369fc267236b6b82d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ab2b8c29931276ee2c497d742ac3c70f77de6a939118596369fc267236b6b82d" # linuxbrew-core
   end
 
   depends_on "openjdk"

@@ -12,7 +12,7 @@ class LizardAnalyzer < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d63deffcff2ad35e8ddf2ad9c47e6c0ee7817e215ba9ad23639a46b6ab25b678"
     sha256 cellar: :any_skip_relocation, catalina:      "d63deffcff2ad35e8ddf2ad9c47e6c0ee7817e215ba9ad23639a46b6ab25b678"
     sha256 cellar: :any_skip_relocation, mojave:        "d63deffcff2ad35e8ddf2ad9c47e6c0ee7817e215ba9ad23639a46b6ab25b678"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63c734f9d1cdf2ba37e84a539724002a323498af5328471fb99eee801cf555e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63c734f9d1cdf2ba37e84a539724002a323498af5328471fb99eee801cf555e7" # linuxbrew-core
   end
 
   depends_on "python@3.9"

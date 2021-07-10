@@ -15,7 +15,7 @@ class Makefile2graph < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "274ee025c45df9757d608249d64105b9314c8e59fc52a81ad6906f807498b67c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ed1939b1b0fd106f3e328e310a887cf454b81481f78fdf57ce75c0480a922d7d"
     sha256 cellar: :any_skip_relocation, yosemite:      "37aebae489e0f341f80417ec711e5c2817f5b8097c3493dcc11bc754bdd1b1cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9cf1abfadeef69329bed8ebf251753f2aadb18f6955b8869a468a47b76b6f10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9cf1abfadeef69329bed8ebf251753f2aadb18f6955b8869a468a47b76b6f10" # linuxbrew-core
   end
 
   depends_on "graphviz"

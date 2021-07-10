@@ -20,7 +20,7 @@ class Rtmpdump < Formula
     sha256 cellar: :any, mojave:        "97cf25d61d474c2115f6448940f924324d630b60776396398662b1368b4544da"
     sha256 cellar: :any, high_sierra:   "7e95dc18fc03a6c1f19385e1507448f23e2e570c9b3ad60bd3fbc05c65295fb8"
     sha256 cellar: :any, sierra:        "2118d007922d98ae71169be417106f594636e6ff979611b9e51dd2cf09c002b7"
-    sha256 cellar: :any, x86_64_linux:  "422733ec0ea4c3884b781346333c9292c3042da1a36ae589f2ef680cb66458bd"
+    sha256 cellar: :any, x86_64_linux:  "422733ec0ea4c3884b781346333c9292c3042da1a36ae589f2ef680cb66458bd" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

@@ -14,7 +14,7 @@ class Premake < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "cf128251e2798e7fd65919002b3adc627537c969dfaf62021ec6cd78fb7eeb12"
     sha256 cellar: :any_skip_relocation, mojave:        "b5fe3f9495148d2f374b048e72cfc3114be0195a9954d57c8c298fca568d2896"
     sha256 cellar: :any_skip_relocation, high_sierra:   "79e1f3b9c8ba609685ee343f2022aae2fb02cacecc84e44d817014fe7d3dabfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bc7cbf6374aa17a3f1635e706af61bf863102ec33562b9f0d6a65d1e1fc66be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bc7cbf6374aa17a3f1635e706af61bf863102ec33562b9f0d6a65d1e1fc66be" # linuxbrew-core
   end
 
   # See: https://groups.google.com/g/premake-development/c/i1uA1Wk6zYM/m/kbp9q4Awu70J

@@ -15,7 +15,7 @@ class Libksba < Formula
     sha256 cellar: :any,                 big_sur:       "3b2917e9ee9d7accc72f8366773406c7721b6085b6993bb92a696b8ac38ff866"
     sha256 cellar: :any,                 catalina:      "3065405373d29d0542eccad99df604559572e03fa6af5c95599704f98365cf34"
     sha256 cellar: :any,                 mojave:        "adce4966a82c538788b73fc22b56d8ed9d876a7610746aac35c37cf430381088"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52f1929b0e22ddc0526c64af5306dc2ebfcb0c8d02ce565f9576fdea96c2b2e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52f1929b0e22ddc0526c64af5306dc2ebfcb0c8d02ce565f9576fdea96c2b2e1" # linuxbrew-core
   end
 
   depends_on "libgpg-error"

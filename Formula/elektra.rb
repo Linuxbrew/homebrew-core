@@ -16,7 +16,7 @@ class Elektra < Formula
     sha256 big_sur:       "4bcef10484817f1cad4335703c2714f6e5dac109766bb7f403fc3ed16103b5f9"
     sha256 catalina:      "be7504905eaae104e3f59fc90adad96c2ea845d8f4f95ca0fbb261760afe45f1"
     sha256 mojave:        "18dc59bc3c7dbbea60eae22d88f89157413c35fe285ea46fe0cbd884e5d3535d"
-    sha256 x86_64_linux:  "06ee4adbb138a1ac38bf225010784e10bb25a058ddb61af9d09594084ec047d0"
+    sha256 x86_64_linux:  "06ee4adbb138a1ac38bf225010784e10bb25a058ddb61af9d09594084ec047d0" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

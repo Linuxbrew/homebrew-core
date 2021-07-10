@@ -11,7 +11,7 @@ class Pdf2json < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "035c69de85f1cad569ff743faef796a88b9f9a706be802bf111a83505858b366"
     sha256 cellar: :any_skip_relocation, mojave:        "abf950838b700f50ff4279501533176cb5a1929fb0b88c8ccf94b07ac362c66d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4bee4b8c61362c64d72a3f011f8c5ef223c5e80d269e442a18472adc42e108e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d12d466dbb2fcd6061b2138034e14a81b9dbc241dd1496d9cad2013f036a5f9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d12d466dbb2fcd6061b2138034e14a81b9dbc241dd1496d9cad2013f036a5f9c" # linuxbrew-core
   end
 
   def install

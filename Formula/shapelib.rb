@@ -15,7 +15,7 @@ class Shapelib < Formula
     sha256 cellar: :any, mojave:       "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e"
     sha256 cellar: :any, high_sierra:  "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68"
     sha256 cellar: :any, sierra:       "0add799fff38395de6300f1b18102270bd269b5dc37714e7cac1873849b2ced7"
-    sha256 cellar: :any, x86_64_linux: "bdb7d0db9d5bbb9d44cad1a102144620b3484c24e55cca719ab7200fbc609a2d"
+    sha256 cellar: :any, x86_64_linux: "bdb7d0db9d5bbb9d44cad1a102144620b3484c24e55cca719ab7200fbc609a2d" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

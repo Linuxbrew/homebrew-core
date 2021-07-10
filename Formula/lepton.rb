@@ -14,7 +14,7 @@ class Lepton < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "6713be0e881459057b561cbfd6902d167dc9601be856b8715e9abd6ffc02b605"
     sha256 cellar: :any_skip_relocation, el_capitan:   "a6a1a47dd2f80fe66d5dfbde97b91ba93d054f6934ba2a950ede603e405e6eed"
     sha256 cellar: :any_skip_relocation, yosemite:     "700264c93fab4bba78cf62ac3a77ea60099cd38399f00d6972f8093b89dd8404"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "22f0dbf0256ceb322c6abbf269d6df32c5cdd136d5fc29a7ebd69293343b7ea9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "22f0dbf0256ceb322c6abbf269d6df32c5cdd136d5fc29a7ebd69293343b7ea9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

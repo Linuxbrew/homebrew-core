@@ -11,7 +11,7 @@ class Gammu < Formula
     sha256 catalina:     "c63e29ce190fb0beb5edbd3f0360eb7ce3694ee3144269608bdf2d56faef2b60"
     sha256 mojave:       "e972813fe9f1942b55c981ce75b21da479588912583ed52ed23da7c69f1f5d60"
     sha256 high_sierra:  "c0004802fb0a257197e96c4b7005a2ca63ca1d881c3b335d255b85f9e96d0124"
-    sha256 x86_64_linux: "757a15c126b66b5a24060262e5d31f86cfe90f5ab8d4beffa91e6da3b5193095"
+    sha256 x86_64_linux: "757a15c126b66b5a24060262e5d31f86cfe90f5ab8d4beffa91e6da3b5193095" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

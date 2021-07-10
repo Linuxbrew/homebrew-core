@@ -11,7 +11,7 @@ class Geoipupdate < Formula
     sha256 big_sur:       "5fe5376c5e4690b2614bb6de8e9f6849603e5e62cde300dd6744cc52394e7887"
     sha256 catalina:      "8e6aa341eebc779514e9db7aabfc862d9c56513d26f9058631906654ed1d430a"
     sha256 mojave:        "548134f2f54d67e3ff04d86c0dcc7b937b06fd05c25e173a1ac11b2826db0b69"
-    sha256 x86_64_linux:  "bad3beb6a5c9a160a4cca5146a07b668c73fe73f31eb5e0cf72521f62c579878"
+    sha256 x86_64_linux:  "bad3beb6a5c9a160a4cca5146a07b668c73fe73f31eb5e0cf72521f62c579878" # linuxbrew-core
   end
 
   depends_on "go" => :build

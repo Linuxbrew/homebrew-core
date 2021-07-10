@@ -12,7 +12,7 @@ class Cli11 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "bd03843ddff7cee05b6734cca05ecf1452d5c67c1df67c88f0415aee4b0dc270"
     sha256 cellar: :any_skip_relocation, mojave:        "9960ada2b8c3f40fb2993c12a7b0a14cebecac6157844252ad5cdea8b7e6c59b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "76c6f767bbcbcf11a05f9579447d94d2d86c0c9dbb2502f63dd05b4b54102fac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ce5fc07eb7589cc12e8066a368972e6f79d3e23583a2c838680fcdc6d16b9de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ce5fc07eb7589cc12e8066a368972e6f79d3e23583a2c838680fcdc6d16b9de" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

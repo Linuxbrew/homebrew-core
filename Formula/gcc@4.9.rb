@@ -8,7 +8,7 @@ class GccAT49 < Formula
 
   bottle do
     sha256 cellar: :any, high_sierra:  "cb153d98245bcbe4809dc19adf688f642285154b19fe907c7de3cb71652b0ec6"
-    sha256 cellar: :any, x86_64_linux: "9d6f97e68f4bf869afcdc773a5ddcc705e14bb6742e0f2932c5b2c3d4bdb5548"
+    sha256 cellar: :any, x86_64_linux: "9d6f97e68f4bf869afcdc773a5ddcc705e14bb6742e0f2932c5b2c3d4bdb5548" # linuxbrew-core
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

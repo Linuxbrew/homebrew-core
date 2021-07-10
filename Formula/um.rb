@@ -11,7 +11,7 @@ class Um < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "266b397cd3e24060e7926f438279325aed89643070618add3db64175e348c04b"
     sha256 cellar: :any_skip_relocation, mojave:        "a4d8c9ddc2b46076eaccf3e3d4eaa43918f3d156e8abd16ad1415ea85f2da8f5"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a479ed6f535f228d1bfa15a7292e58d06a4f07d1238c4fa83f1b99c80564a24e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "965706a7846d6e06e1c21f592c477a597cd7ccf78d266a3ef5d3ab811fd1020b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "965706a7846d6e06e1c21f592c477a597cd7ccf78d266a3ef5d3ab811fd1020b" # linuxbrew-core
   end
 
   uses_from_macos "ruby", since: :high_sierra

@@ -12,7 +12,7 @@ class Braid < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0383392403f7924a8bbd09c08dfc0b28e4c147b98a21a66b63bf9a16ffca49f1"
     sha256 cellar: :any_skip_relocation, catalina:      "1bbb75422a511aec7e439e350d4d428ed900ad9b78a3979d691430836c92a62a"
     sha256 cellar: :any_skip_relocation, mojave:        "5e62988e4e3c52890e699afc017e62e24d42ff49560d6c41e425c2649096d28b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a96e16be672caf669cc8a0db119d0edb58547455feedab042c84daaa4c09e1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a96e16be672caf669cc8a0db119d0edb58547455feedab042c84daaa4c09e1c" # linuxbrew-core
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

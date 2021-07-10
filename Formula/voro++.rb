@@ -11,7 +11,7 @@ class Voroxx < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a92c62db56b3816239293a8953f59141cba060a7c3c271cc0bb836caf4948f3d"
     sha256 cellar: :any_skip_relocation, catalina:      "cc5c247b85e45611cbf88a99812864f07315e0dcd571a2dd152c28e435145b3c"
     sha256 cellar: :any_skip_relocation, mojave:        "0dc3186cec2a52edb6ed5d66accaedcae74d9183d8da7d255cd2b9247a605b66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b79bd4597631f009de1e674bd2b538ab01cf86547feb1864e89d055111910114"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b79bd4597631f009de1e674bd2b538ab01cf86547feb1864e89d055111910114" # linuxbrew-core
   end
 
   def install

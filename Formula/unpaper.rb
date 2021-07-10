@@ -11,7 +11,7 @@ class Unpaper < Formula
     sha256 cellar: :any, big_sur:       "a9841d58884ee1a0616a2a115c21c593eab613c0e040bf2b21d02ddeec682765"
     sha256 cellar: :any, catalina:      "63a30f9ac771386a0f7d7302c31abe60855b4c4028458cbf9371270f42ee49e6"
     sha256 cellar: :any, mojave:        "15d95668bd014ac329b703502832f020efcdb9011558ab8ba86ee0c8a458046d"
-    sha256 cellar: :any, x86_64_linux:  "4b33080abfc98babdd5df76a516bcd0f744030b02a0b21bbcb2a625feab94650"
+    sha256 cellar: :any, x86_64_linux:  "4b33080abfc98babdd5df76a516bcd0f744030b02a0b21bbcb2a625feab94650" # linuxbrew-core
   end
 
   head do

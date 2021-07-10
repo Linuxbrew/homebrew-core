@@ -14,7 +14,7 @@ class PegMarkdown < Formula
     sha256 cellar: :any, mojave:        "a60087175a8f3c5242e9183eeddb433e6bdbe68409cae0a7c61d66da4622b150"
     sha256 cellar: :any, high_sierra:   "207764b26b253904cf61e9e13eb32e81a51d61d548b7dafd366da5a5394a5f08"
     sha256 cellar: :any, sierra:        "2d75448f008aa176b624ecb02bc6e3f7492ea8953a99f84fcdacc6b301b39412"
-    sha256 cellar: :any, x86_64_linux:  "9e4faec22a16d39d25ab0102cf461cb4feb155b1030081304f63c2e9993d07b0"
+    sha256 cellar: :any, x86_64_linux:  "9e4faec22a16d39d25ab0102cf461cb4feb155b1030081304f63c2e9993d07b0" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -11,7 +11,7 @@ class Guile < Formula
     sha256 big_sur:       "776b3c2922a166b53c4613ff04fcd2d031a5cc34108f753c9b2857a271f89163"
     sha256 catalina:      "ee1867daea429b0e7867a30890e07f3c7e4a69d6d483c728c912aea34aa4f83d"
     sha256 mojave:        "4152090b41a47a1a640bb5ade7a40f55e309628b0fde7eb3b87b98976583613d"
-    sha256 x86_64_linux:  "0f06fa6ae0ee0031819e30ba25896be594ceb1f687d98891634f3a09a5dbdb5b"
+    sha256 x86_64_linux:  "0f06fa6ae0ee0031819e30ba25896be594ceb1f687d98891634f3a09a5dbdb5b" # linuxbrew-core
   end
 
   head do

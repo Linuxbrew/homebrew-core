@@ -13,7 +13,7 @@ class DoubleConversion < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "20b93e20891d48912ffbfbdf3ef470f7305684df2381ef93056a11cedd95c65f"
     sha256 cellar: :any_skip_relocation, mojave:        "ec700c89a4f1794170b4466f5a0a100b6eafee7cb0a794e55ea53de18114a1d3"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9b54153b09683b8fa40160588792385e04f6be56ba355c5a530a2209b9f0526d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96604a8a62a29b5a5bda15a7b1181d76c0b32f3c5006c9530d8e1f50c548fe0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96604a8a62a29b5a5bda15a7b1181d76c0b32f3c5006c9530d8e1f50c548fe0f" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

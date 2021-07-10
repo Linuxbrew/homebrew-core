@@ -13,7 +13,7 @@ class Xdelta < Formula
     sha256 cellar: :any, sierra:        "7f51b76d06a6ac8aae36c10b41776a374d5fafa6b55c4908a885be7a88194676"
     sha256 cellar: :any, el_capitan:    "e07f928aadf6a9d8beb8a19fb72cb673cf0ae13c339ccd75c5df134cb3bc5c09"
     sha256 cellar: :any, yosemite:      "2581a9d0aabf6f6b34d35aae4d7ab07b6aaebdb70fd3b00ef14eff3bd96aa6c7"
-    sha256 cellar: :any, x86_64_linux:  "019eb847eed8b1ead44830fadc8d85c9c2cf201a3b0fd54437e624224d90d73e"
+    sha256 cellar: :any, x86_64_linux:  "019eb847eed8b1ead44830fadc8d85c9c2cf201a3b0fd54437e624224d90d73e" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

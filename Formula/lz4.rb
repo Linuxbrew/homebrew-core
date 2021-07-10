@@ -17,7 +17,7 @@ class Lz4 < Formula
     sha256 cellar: :any, catalina:      "899aeb12833a982e06013a60aa9b1ee69e3f77f969a5aa2dcec02ad329f369bb"
     sha256 cellar: :any, mojave:        "e6adc6da46164495cf129c9e54bd69c6620eb4622a38e403edf1b5f488d044a8"
     sha256 cellar: :any, high_sierra:   "46e99b27c33fd51a4394850be3559ea7b69fc26060ab2095dae315be14aa5e94"
-    sha256 cellar: :any, x86_64_linux:  "2a35ec385b43be6dae4c9723e18cebf91d625d0ea0aed9f9c9fba15df6b9341f"
+    sha256 cellar: :any, x86_64_linux:  "2a35ec385b43be6dae4c9723e18cebf91d625d0ea0aed9f9c9fba15df6b9341f" # linuxbrew-core
   end
 
   def install

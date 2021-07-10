@@ -11,7 +11,7 @@ class Gts < Formula
     sha256 cellar: :any, catalina:      "8a0c9b4f60a2cbea2e2e3469880284c2373843e676aaf58c1ff28d1e31c2ccb9"
     sha256 cellar: :any, mojave:        "e0ba5b2700ba2a0c88a6345117a699c08f47738d3e727dbc64d815d1a3b7492b"
     sha256 cellar: :any, high_sierra:   "5aa85562ed3d0aad446825d7c4e3cc717f8044a2c638bbdcdd0e18bc0f366e81"
-    sha256 cellar: :any, x86_64_linux:  "ff29fd6a36942373d22015728231bf839d98416950cb235816d2a59b9e95c31a"
+    sha256 cellar: :any, x86_64_linux:  "ff29fd6a36942373d22015728231bf839d98416950cb235816d2a59b9e95c31a" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

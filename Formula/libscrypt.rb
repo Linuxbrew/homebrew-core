@@ -14,7 +14,7 @@ class Libscrypt < Formula
     sha256 cellar: :any, sierra:        "3adc43863f9b966dcecd89f507a4706891f94129dd88ba810ed0269278e931cf"
     sha256 cellar: :any, el_capitan:    "bc2c8318384a72f82802937f7e6dd8017ec44fb6fc94583e5f0c38056e1a660c"
     sha256 cellar: :any, yosemite:      "0e870b01dbbfc49432cc8ea81c90ee6d8732b6d8adc4665368844536d5c6e092"
-    sha256 cellar: :any, x86_64_linux:  "b02209e5c778dcfdd9e13123d9ce258f909f583ce5e0b474d916bb4ea1c48293"
+    sha256 cellar: :any, x86_64_linux:  "b02209e5c778dcfdd9e13123d9ce258f909f583ce5e0b474d916bb4ea1c48293" # linuxbrew-core
   end
 
   def install

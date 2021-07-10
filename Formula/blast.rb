@@ -16,7 +16,7 @@ class Blast < Formula
     sha256 catalina:     "b682885e3ef53795f010e04a55ebc607e82105b24d441f0354dda4fa2ce56b41"
     sha256 mojave:       "0d98042978cd28ea16e9e89f4b4f2ff318c67e662a11a9b9bf130d810ee1eb3f"
     sha256 high_sierra:  "5899dbfbdd65d6274b03eb0ed576d87a7bfc18a3d9a5b588fe30edddb554ce24"
-    sha256 x86_64_linux: "b519814c3586975beafa76e2579a893184d5caf2fe6252231789a7c640f4af6d"
+    sha256 x86_64_linux: "b519814c3586975beafa76e2579a893184d5caf2fe6252231789a7c640f4af6d" # linuxbrew-core
   end
 
   depends_on "lmdb"

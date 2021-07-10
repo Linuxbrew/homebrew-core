@@ -11,7 +11,7 @@ class Libxv < Formula
     sha256 cellar: :any, catalina:      "9e4adc6980cd27f0261b5858d8c660db9b42f2303fdeb579d7f14c982f2cd615"
     sha256 cellar: :any, mojave:        "6e32200b7d439f9255e2f5c6c19cb329fe5efd4f51a3ecf681e85320e1a41d5d"
     sha256 cellar: :any, high_sierra:   "e94ca27db4487e4af4a906297a184db021d66b3f254332331cb3bb6f5d21fd09"
-    sha256 cellar: :any, x86_64_linux:  "770b614a7f743c967b71bec64febfe96d5b88333dc14ce6651ee7160e099aeaf"
+    sha256 cellar: :any, x86_64_linux:  "770b614a7f743c967b71bec64febfe96d5b88333dc14ce6651ee7160e099aeaf" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

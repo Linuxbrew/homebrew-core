@@ -11,7 +11,7 @@ class Aom < Formula
     sha256 cellar: :any,                 big_sur:       "f8b17942fbb271c70fbe122f0937cd446acd7f86bcd792668f64fbcfb51d5e96"
     sha256 cellar: :any,                 catalina:      "839bce0f6c0f486583dae83b50c154272b34dc9bd06bd6efd5a43f4fc91a63cd"
     sha256 cellar: :any,                 mojave:        "80ca7af4ba75bf8c0ae577eb66bfaf16e7cd564c16f0639c6e50df1427fd6452"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "750d1eb271dcbf2630690dc4172c0884223054a019894d1895e7f97052355656"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "750d1eb271dcbf2630690dc4172c0884223054a019894d1895e7f97052355656" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

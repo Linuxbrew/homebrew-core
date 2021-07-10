@@ -12,7 +12,7 @@ class Libltc < Formula
     sha256 cellar: :any, mojave:        "aecfd413335e0981c5ac452bc0b81bee57d3a4e5974237f5b6a64aae734369cf"
     sha256 cellar: :any, high_sierra:   "30f7ddada1d191c63214d44d9acec4862e71bca2ee67368c8546ec7240f65a9a"
     sha256 cellar: :any, sierra:        "1c51db3447916e208601775d43fb248bdc76f3b29b6f309ccc74eddc0a11c9c6"
-    sha256 cellar: :any, x86_64_linux:  "00655f14f0ac116120e24ccda52013edb5eb7a6ca700fc19ae25413422b3cfb7"
+    sha256 cellar: :any, x86_64_linux:  "00655f14f0ac116120e24ccda52013edb5eb7a6ca700fc19ae25413422b3cfb7" # linuxbrew-core
   end
 
   def install

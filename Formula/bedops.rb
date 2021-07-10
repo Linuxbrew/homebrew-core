@@ -11,7 +11,7 @@ class Bedops < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "067fa5b0cf0288e60ec7378b07b622218ff385dfc7cadd19ac6fe92ef087aff3"
     sha256 cellar: :any_skip_relocation, mojave:        "a3e404afc30d1f77ebfd5c713933a36fed137ab2086da3d7a07ff08d2cd36fb6"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d30e93e415036d271dd424feebc451de8de2e6ed195f950ff6682623c2969dab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "678a3120631740be6e9e1fc843fd7992737236ca886800b86cbfc6abdcf0291a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "678a3120631740be6e9e1fc843fd7992737236ca886800b86cbfc6abdcf0291a" # linuxbrew-core
   end
 
   def install

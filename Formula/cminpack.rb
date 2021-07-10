@@ -11,7 +11,7 @@ class Cminpack < Formula
     sha256 cellar: :any,                 big_sur:       "42feed7d547bfc20b5665c9e28b68a4a059f8791f56830ddd5e004a12d363784"
     sha256 cellar: :any,                 catalina:      "adfd9f1a494a35c87c9d6e04a7f10371fa3a1107fa3f2dfeb67c40b87d07dadb"
     sha256 cellar: :any,                 mojave:        "04a82ea734b10f9600b3bd3c4390d213f34eade2ec375784c1083e755548274c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bbb7098dba3a7f0ef77380e9e62be97cf2a1b8d572abe2daa80d212c3d8976e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bbb7098dba3a7f0ef77380e9e62be97cf2a1b8d572abe2daa80d212c3d8976e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -10,7 +10,7 @@ class Zork < Formula
     sha256 big_sur:       "d8138472c8d3b67db24ce72d03228081118aed98007d5280f6713f556fea337e"
     sha256 catalina:      "694460ddf13fb4e4f05ef49dde4472dcce56dbc7a945c99307d3e34e35301aa2"
     sha256 mojave:        "2c5a5b9e024a752e705b85c4420baf74aa27c5ed1088afbf043efadc7307aed3"
-    sha256 x86_64_linux:  "dea7f126f72821aa1d3d83316b607655f1aff5d7539f34f51de727b8e87da7a2"
+    sha256 x86_64_linux:  "dea7f126f72821aa1d3d83316b607655f1aff5d7539f34f51de727b8e87da7a2" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

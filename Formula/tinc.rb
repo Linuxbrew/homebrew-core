@@ -17,7 +17,7 @@ class Tinc < Formula
     sha256 cellar: :any, mojave:        "ba34dc41517f617c4d61d61e2f76cbafd9b75aa5edacc894e5b24e97cfb269f5"
     sha256 cellar: :any, high_sierra:   "a5ec2ae5f1e6252f80f33158bb0a1140e29764ed1f2e8754dcedf50e4fb49290"
     sha256 cellar: :any, sierra:        "923b15d1dcd7aafbb566f83edc9cced61b13379e857243bbe28b2755270b542d"
-    sha256 cellar: :any, x86_64_linux:  "c17497ed44d3cfaebba6f45742d70897443bf6fe761687477e3a1d03be073d65"
+    sha256 cellar: :any, x86_64_linux:  "c17497ed44d3cfaebba6f45742d70897443bf6fe761687477e3a1d03be073d65" # linuxbrew-core
   end
 
   depends_on "lzo"

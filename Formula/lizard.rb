@@ -18,7 +18,7 @@ class Lizard < Formula
     sha256 cellar: :any, catalina:      "18fe5004080acea3a2799a0e1bce34e0382bea9528a1ec036267c1eb8a702e3b"
     sha256 cellar: :any, mojave:        "7375bcd75ec034939751ee0f44dd703ac81431957a92712d26fec1682e00ebc7"
     sha256 cellar: :any, high_sierra:   "a42e90e02b4074e0c864ae32fe5833977cebd50b8f9c74339c7a91dcf169b098"
-    sha256 cellar: :any, x86_64_linux:  "532304003f29c40e40e1eb6e92abd97e672d49ab9568a0eacd578dd0993a2572"
+    sha256 cellar: :any, x86_64_linux:  "532304003f29c40e40e1eb6e92abd97e672d49ab9568a0eacd578dd0993a2572" # linuxbrew-core
   end
 
   def install

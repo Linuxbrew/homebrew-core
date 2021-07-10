@@ -11,7 +11,7 @@ class Texinfo < Formula
     sha256 big_sur:       "93c4e7f7aa503611ad5907b1c702bb89d7fc9a5cfc0866b78378b7bef7a72480"
     sha256 catalina:      "8cd8f1a20368b94f4de10dbfc4c39429cc9d1ad7680dcb160635be49afc598af"
     sha256 mojave:        "9d2c152bff37873f4ac78165161c6f3e338599c3ae55782690f3f9a8a6d8d749"
-    sha256 x86_64_linux:  "9addf0b22ab845a8071f0d3dc742c65de4fde1a06a7f41df5cccb2e1c9f6afe2"
+    sha256 x86_64_linux:  "9addf0b22ab845a8071f0d3dc742c65de4fde1a06a7f41df5cccb2e1c9f6afe2" # linuxbrew-core
   end
 
   depends_on "gettext" if MacOS.version <= :high_sierra

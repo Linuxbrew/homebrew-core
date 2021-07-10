@@ -15,7 +15,7 @@ class Libforensic1394 < Formula
     sha256 cellar: :any, sierra:        "e747c5c6797d48070c4a4199fe38021cd0164a052e14b21005b9caf4a47a6e3c"
     sha256 cellar: :any, el_capitan:    "d850e7c3a04b206c6219c75ba0a00723e9a25d0c97831de289320ef0cc076aae"
     sha256 cellar: :any, yosemite:      "b64837090b557e25444999bfc41e2023f8fc2ced465ef7ccc067938fe0ec2f2c"
-    sha256 cellar: :any, x86_64_linux:  "27559e428c891579487e538e4ac7a07664fac87ed2ee45cc6fd700d6e37240d4"
+    sha256 cellar: :any, x86_64_linux:  "27559e428c891579487e538e4ac7a07664fac87ed2ee45cc6fd700d6e37240d4" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

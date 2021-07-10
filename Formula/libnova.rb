@@ -11,7 +11,7 @@ class Libnova < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2bcc962108ffee6fafeae45e5b9eb8f6b233bd2aaa0163f6c89e2f77ddc6eb3f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "08345c100121f219e199a833563b8f35d17e5368b93e3711377cc20acd0dce99"
     sha256 cellar: :any_skip_relocation, sierra:        "1ef1a9898b97967ba9cabdf002ddcc4b398976f0c9bb7c826f7980ffaef87dd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4712e1ff2877eaeb4da0ea6de97201c6cf2bf77e648d67afcfee00ee22eafcd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4712e1ff2877eaeb4da0ea6de97201c6cf2bf77e648d67afcfee00ee22eafcd1" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

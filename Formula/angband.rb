@@ -17,7 +17,7 @@ class Angband < Formula
     sha256 catalina:      "b59aedacab5c3588719bfc1ebc17b936ffe5105ed8e7edd19caccc340a81271f"
     sha256 mojave:        "96f6f2e31023c69aba44c4ccc40acf652d5a76bbd1b9cd6a7ebead33a0a2161e"
     sha256 high_sierra:   "95463908fbefe4988a9ab3dcc031cd1c7d6767ed6557d1baca813446e5ca6b9c"
-    sha256 x86_64_linux:  "6c6a8bca6eb3669518bf5a1378f2689ef5fdd7834a3bb89dd224a21b449eacec"
+    sha256 x86_64_linux:  "6c6a8bca6eb3669518bf5a1378f2689ef5fdd7834a3bb89dd224a21b449eacec" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

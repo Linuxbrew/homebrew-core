@@ -17,7 +17,7 @@ class Rtptools < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a9f1e8f18d40ba8b435f619de132a5fbc00e0ef84d5a1e10378700e0f3ce417b"
     sha256 cellar: :any_skip_relocation, catalina:      "59fa4c8c53c3430c6bb47b82c752eef710f692ad3fb1bd3ab82c108524aabe00"
     sha256 cellar: :any_skip_relocation, mojave:        "eb8412186a92c44426b2f4c4bef7adcffb308afd4bb036a2dd9d1a0d184b504e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbfb31ced19e272381ab68e3bac5ce0bf5dfd1f7259b786d1be532a99d473205"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbfb31ced19e272381ab68e3bac5ce0bf5dfd1f7259b786d1be532a99d473205" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

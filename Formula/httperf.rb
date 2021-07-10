@@ -19,7 +19,7 @@ class Httperf < Formula
     sha256 cellar: :any, mojave:        "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c"
     sha256 cellar: :any, high_sierra:   "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238"
     sha256 cellar: :any, sierra:        "015d2ce99b57fa808ae284f44904ca209e11603bf66085bf64a8270c45203490"
-    sha256 cellar: :any, x86_64_linux:  "6e2c233325a56d3f77a7077072a6cbc2bb2027ff69cfea7cb2a16a4c7b2cac52"
+    sha256 cellar: :any, x86_64_linux:  "6e2c233325a56d3f77a7077072a6cbc2bb2027ff69cfea7cb2a16a4c7b2cac52" # linuxbrew-core
   end
 
   head do

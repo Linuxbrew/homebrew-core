@@ -11,7 +11,7 @@ class Saltwater < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "750182bb83130c00ce6a9ea828261aed154c5c9914a1965172575be861985088"
     sha256 cellar: :any_skip_relocation, mojave:       "3474f55537373be89128ac84c91a86f52cc10ac8a01934f784ae9ff07797ba43"
     sha256 cellar: :any_skip_relocation, high_sierra:  "da2e7d1937a9e47c96329261c76a3cc3ec445b0826b92115d3c48ab6885ca8a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7e230fae556bf6e9916576839e23951108765bfc11b4de6ef5e0a4c4aa716528"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7e230fae556bf6e9916576839e23951108765bfc11b4de6ef5e0a4c4aa716528" # linuxbrew-core
   end
 
   depends_on "rust" => :build

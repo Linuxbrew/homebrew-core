@@ -14,7 +14,7 @@ class Grip < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "373f8ccd90c2cb8d753f1ceab1b50ff568be4a782761402e0db137dfd5a946f3"
     sha256 cellar: :any_skip_relocation, mojave:        "d8aa30db0652b18890baa83a7ae4c529a346f068e799ddadada6dae8771c46fc"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3c5e3c5e4e928803ec821c7624014bf3740566dd2741a02cfdac541d4162860a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6a38db6f7c72276c49f6e47b801bb838467aac9d408cb9a27857b9300fa5a88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6a38db6f7c72276c49f6e47b801bb838467aac9d408cb9a27857b9300fa5a88" # linuxbrew-core
   end
 
   depends_on "python@3.9"

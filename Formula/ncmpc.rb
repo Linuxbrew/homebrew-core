@@ -12,7 +12,7 @@ class Ncmpc < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9da923ffb4400c42a20a1540e0070d530b7870bd4c15491bb1dbd6e211b9645c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9da923ffb4400c42a20a1540e0070d530b7870bd4c15491bb1dbd6e211b9645c" # linuxbrew-core
   end
 
   depends_on "boost" => :build

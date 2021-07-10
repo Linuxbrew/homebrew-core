@@ -11,7 +11,7 @@ class Gdb < Formula
     sha256 big_sur:      "31de67be9674e5bd363a554e7f02002687a5ac9734526983e0430b041acea042"
     sha256 catalina:     "66f0ab39e075db4f5de3403c0f8125b54be84b7d009491e0b8e040d774721c3b"
     sha256 mojave:       "f1392338a52a0e3d74b3b4f9f1ad4e70977d80ad672789a1371bed545d5528e4"
-    sha256 x86_64_linux: "f288bd9eda8a4e085217d203e49a70429645fabb385a0ddc47df3d61eeb1cc18"
+    sha256 x86_64_linux: "f288bd9eda8a4e085217d203e49a70429645fabb385a0ddc47df3d61eeb1cc18" # linuxbrew-core
   end
 
   depends_on "python@3.9"

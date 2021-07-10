@@ -11,7 +11,7 @@ class Xorgproto < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f8a7c3b5c61c48affa144576747aa93a18c49f8b861b782e45aeb643a2708363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f8a7c3b5c61c48affa144576747aa93a18c49f8b861b782e45aeb643a2708363" # linuxbrew-core
   end
 
   depends_on "pkg-config" => [:build, :test]

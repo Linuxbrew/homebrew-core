@@ -14,7 +14,7 @@ class Cmockery < Formula
     sha256 cellar: :any, sierra:        "f3b1c3d5c96ea9e30dc008e557239e972a18e65b3dd1ee8a593a0eb6e11d7858"
     sha256 cellar: :any, el_capitan:    "6cc440503b2fce7def7d584aacf8e9142ad430de799b466f609f57fd9beb4ede"
     sha256 cellar: :any, yosemite:      "a6ac86af8d5b7f5964a480cc91bfbdaf260c59eae2c4b79663ebab2dfdb7d062"
-    sha256 cellar: :any, x86_64_linux:  "d33ee2f770bf5dbd31c9380f87d6bd88d9e2814ecb20c0700759c4cd561aa122"
+    sha256 cellar: :any, x86_64_linux:  "d33ee2f770bf5dbd31c9380f87d6bd88d9e2814ecb20c0700759c4cd561aa122" # linuxbrew-core
   end
 
   # This patch will be integrated upstream in 0.1.3, this is due to malloc.h being already in stdlib on OSX

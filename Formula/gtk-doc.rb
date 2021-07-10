@@ -19,7 +19,7 @@ class GtkDoc < Formula
     sha256 cellar: :any,                 big_sur:       "b3d2370a6a3fff63341d86c5313e238af04af84dac34a6a19d6f7a1a77acb885"
     sha256 cellar: :any,                 catalina:      "cfaf657a0e2b8ac879deaefbd2361a2fe7a8e9b3234f73d0ad32eaa5be4a6beb"
     sha256 cellar: :any,                 mojave:        "abd68d022b9e19677a00c397fc316370b2106133f3a37c9f9c8b13e2d6b099a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89f186b587000dfe9434e32f25a57d111670101aa265b428fb3287f2237dcf7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89f186b587000dfe9434e32f25a57d111670101aa265b428fb3287f2237dcf7f" # linuxbrew-core
   end
 
   depends_on "meson" => :build

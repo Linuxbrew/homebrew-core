@@ -16,7 +16,7 @@ class Libpcap < Formula
     sha256 cellar: :any,                 big_sur:       "0aee8b23fc3ede63cbd2cde3bbbaade84ffd6f2ac90315f9738fb872236a8c2f"
     sha256 cellar: :any,                 catalina:      "8d57e7519f14cfec3a1104237e52b56e838faa33b07cdbac05572533e5ae7e07"
     sha256 cellar: :any,                 mojave:        "a31646c901c2fdd953e648e5c5715ec2cdcf49c9e661725a8e56d9f6c38890dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11278ffe1e2353d3acccbc3bf23999d08d9f14deaa86931adff289aed031caa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11278ffe1e2353d3acccbc3bf23999d08d9f14deaa86931adff289aed031caa" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

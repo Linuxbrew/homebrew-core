@@ -18,7 +18,7 @@ class Unison < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4e0e92dbed77b5a10ccaf2ed146707fc92d1332d3063b7495f381aff79a312ee"
     sha256 cellar: :any_skip_relocation, catalina:      "c792e2e2a701edd6f6a4f855ec0053567d4cdc424e369fcb51a9659563e8bd43"
     sha256 cellar: :any_skip_relocation, mojave:        "f2df486827594d32b05b5ac1c1976aebd47938f7ea6d1c6ae6e70a19ab3e0588"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc4c4c283dd51ba7015d496a2761489b3f614f8d7b2d02b92a2d4cd4db9b1b66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc4c4c283dd51ba7015d496a2761489b3f614f8d7b2d02b92a2d4cd4db9b1b66" # linuxbrew-core
   end
 
   depends_on "ocaml" => :build

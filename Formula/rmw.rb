@@ -16,6 +16,7 @@ class Rmw < Formula
     sha256 big_sur:       "2a9bbccdfb0dd9448defa52f1e3460902e3ee8df6081c96393479da407578ff6"
     sha256 catalina:      "4ba6f35da856f75f91eee16b0fd132ca8740a43187b0851937bbaeb5071457de"
     sha256 mojave:        "223b542bc2cec8a057be459ccdb45ec166f0c7112ba62310191c4a93b2f9f054"
+    sha256 x86_64_linux:  "01605f25b81bcf8bd182a152cb8aeb88fc4c8145397ecaecd8d4b353234bb7d3" # linuxbrew-core
   end
 
   depends_on "meson" => :build

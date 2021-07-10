@@ -11,7 +11,7 @@ class Xplanet < Formula
     sha256 catalina:     "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f"
     sha256 mojave:       "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b"
     sha256 high_sierra:  "aec227666c4e6216b061e979c5aabd1343c9c6433e8f85868f0f12eff3c01b62"
-    sha256 x86_64_linux: "e5f08a7dcab6cff1af995c15b64e7a425c4afbebee575688380378280000ac47"
+    sha256 x86_64_linux: "e5f08a7dcab6cff1af995c15b64e7a425c4afbebee575688380378280000ac47" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -11,7 +11,7 @@ class Gdbgui < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "01ab2720fb16cd45b07f7f64cacc395122ed74002914a7e49501a86676ccd12f"
     sha256 cellar: :any_skip_relocation, catalina:     "083fcf08771cf6fffe1a2dd0a11ab0aaa2b430dee8f89a38bc67abbc4ee92b40"
     sha256 cellar: :any_skip_relocation, mojave:       "2e142057b5aac7280b532045372a1c3f86d9af8e18aa3f9461be23ac6a2afef9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "751dc2d4314770d0399238f71dba1d04b2d838446c0d79b5aae3aeaf42947916"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "751dc2d4314770d0399238f71dba1d04b2d838446c0d79b5aae3aeaf42947916" # linuxbrew-core
   end
 
   depends_on "gdb"

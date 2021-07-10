@@ -10,7 +10,7 @@ class Py3cairo < Formula
     sha256 cellar: :any,                 big_sur:       "ea6e1887539c142f3b24890521e9181fac8738d5fa2344c9e4c0734ea5b2b9a8"
     sha256 cellar: :any,                 catalina:      "a14c31fed107d6d3b3bf5ef8b067de63c020106be3e71f17285a0f3d028cec78"
     sha256 cellar: :any,                 mojave:        "1751fed8776a62fb799b5d025babe2692cb49647ff061e0527d8f010bab06a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "500ca491a541ba615928a983cfa78949b184332f86c98429862438b42594a5f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "500ca491a541ba615928a983cfa78949b184332f86c98429862438b42594a5f3" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

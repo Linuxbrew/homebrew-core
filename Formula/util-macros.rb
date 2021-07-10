@@ -10,7 +10,7 @@ class UtilMacros < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "75380fbb4f54df33cc028ca19b05b7350fc0ee864dbe6e4ee6a4fa9cdec19ad9"
     sha256 cellar: :any_skip_relocation, catalina:      "3aebaa717cf69676ff38b74538a34b3ab96e6344a2303da8f12f420a66b73719"
     sha256 cellar: :any_skip_relocation, mojave:        "17d679f4c969c41701b1dcb897957f5772555453aff321eacff94bf91cf19e56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc45f4dae575cbfcbe7f968fdf04b94b6cc177b43fe848562cbdc5dfbec17326"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc45f4dae575cbfcbe7f968fdf04b94b6cc177b43fe848562cbdc5dfbec17326" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :test

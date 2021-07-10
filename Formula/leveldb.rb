@@ -10,7 +10,7 @@ class Leveldb < Formula
     sha256 cellar: :any,                 big_sur:       "bb5f8bc871e315e4ae36f011052f2b92e35040cc03ef8d448093e7be1bdfe6ac"
     sha256 cellar: :any,                 catalina:      "299f9004aa344b2ac164fdeee5a077c3e45335f3527cb8f2e67b46acf88b185a"
     sha256 cellar: :any,                 mojave:        "b4d54e51eef8d5d538830f555561fa4cc5f1b275b45588eae364d79de6b1d716"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e4ea8ce9b5dc3245e31764fc01c8048cdbbeca66a7fdf5a30847ae843e51707"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e4ea8ce9b5dc3245e31764fc01c8048cdbbeca66a7fdf5a30847ae843e51707" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

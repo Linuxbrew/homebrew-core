@@ -11,7 +11,7 @@ class Nim < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "82ddb5ffb529f4754ccbda1cfd39fdffa145f08e7824dd5139f9a4e25912f4a2"
     sha256 cellar: :any_skip_relocation, catalina:      "431720cc75e0b4203982bb27481cee9d2ed16924a56fcc5b1ba56e834f6c4843"
     sha256 cellar: :any_skip_relocation, mojave:        "c491410e36acd9723e4c3827e9bbbded66fcb4bb97c383d34dc82c49d2db9d95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39045f3531c93e2e41d5a56d0f6a9286a1fb17ef126b07c46e3f5346d21e7b04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39045f3531c93e2e41d5a56d0f6a9286a1fb17ef126b07c46e3f5346d21e7b04" # linuxbrew-core
   end
 
   depends_on "help2man" => :build

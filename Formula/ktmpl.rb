@@ -11,7 +11,7 @@ class Ktmpl < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "f6c8b5ae8a73efae24f8cce662e6abe53deff77a9a0f01e4f3ba174e074461b4"
     sha256 cellar: :any_skip_relocation, catalina:     "922eb19c9c044634957bf1d9404b2319ae47b5998666ba30b7282728aaf7d3d0"
     sha256 cellar: :any_skip_relocation, mojave:       "9573af681da2ecc9f8299ea83553b6c5728c1cf6f21d6495fa8d118610a3467c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "29f9d2468d48cba9baf455f0d8f18e8275eb7bb015418f7f5a736167e8534780"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "29f9d2468d48cba9baf455f0d8f18e8275eb7bb015418f7f5a736167e8534780" # linuxbrew-core
   end
 
   depends_on "rust" => :build

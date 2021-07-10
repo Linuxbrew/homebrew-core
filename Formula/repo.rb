@@ -10,7 +10,7 @@ class Repo < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d60183ceadfdc0ea1df63a76f43446ddc88f1968a8b5aa58f59a4e95bbe090aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d60183ceadfdc0ea1df63a76f43446ddc88f1968a8b5aa58f59a4e95bbe090aa" # linuxbrew-core
     sha256 cellar: :any_skip_relocation, all:          "d60183ceadfdc0ea1df63a76f43446ddc88f1968a8b5aa58f59a4e95bbe090aa"
   end
 

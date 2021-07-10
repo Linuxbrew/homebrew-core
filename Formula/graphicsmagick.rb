@@ -10,7 +10,7 @@ class Graphicsmagick < Formula
     sha256 big_sur:       "e8423e130f6dcdf83c501db944a341257e5b774cd007e1300f8b3cd3d32cafcb"
     sha256 catalina:      "a09639dfb381b06df090e595f6f1bc343c3619c9643de26c6cfea4073c9527cd"
     sha256 mojave:        "40b04368925d79d6e6fbe76014e5db18c7378eda414beb1b41de9bb8db6a69a0"
-    sha256 x86_64_linux:  "0f6f5477c810cba3206dbad73c90e1cb65749b21bd45241722f0813d80fd6007"
+    sha256 x86_64_linux:  "0f6f5477c810cba3206dbad73c90e1cb65749b21bd45241722f0813d80fd6007" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

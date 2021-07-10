@@ -10,7 +10,7 @@ class HowardHinnantDate < Formula
     sha256 cellar: :any,                 big_sur:       "b8fc90e684f2d3b711fcb405c082f8ad637eac8f6c5816b746284c911950eb5a"
     sha256 cellar: :any,                 catalina:      "bebf754666baa69673a77fb5eeb3c0ebe9931b7aa2d3991a3f6fa235a439d11b"
     sha256 cellar: :any,                 mojave:        "d140b4b590c5ef8c25e80abaa8466dbcb6f10a95ca0dec551de7fb0e213171b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "477b4054dcafec93fbc85d99d15400bc6115ffc21d44fdf6972b40ccb05fe6f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "477b4054dcafec93fbc85d99d15400bc6115ffc21d44fdf6972b40ccb05fe6f9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -13,7 +13,7 @@ class Teleconsole < Formula
     sha256 cellar: :any_skip_relocation, mojave:       "4a5a767d1097e9e8580e3d3ad77d01b8b840ef622092983d713333ed90d2db0d"
     sha256 cellar: :any_skip_relocation, high_sierra:  "d53e81606f1e85b59bd3ee364e006989187f5cce884b33fb77b104b931a7e3c5"
     sha256 cellar: :any_skip_relocation, sierra:       "c74fa8ac5e92c39a3f0d869b9e8bd44d32ab67ed0748b5548a0700287dfbe817"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "755c2ad0d13fbb7f1c492fc726d0656b92d58a8195ff24b37ad809d4911cdeb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "755c2ad0d13fbb7f1c492fc726d0656b92d58a8195ff24b37ad809d4911cdeb2" # linuxbrew-core
   end
 
   deprecate! date: "2021-05-24", because: :repo_archived

@@ -13,7 +13,7 @@ class Ffmpegthumbnailer < Formula
     sha256 cellar: :any,                 big_sur:       "0bca865df4298da35227da4090554bc0ee787f05cb6ef5a823d023346e5b48c8"
     sha256 cellar: :any,                 catalina:      "dd032464ff83d935e388a997365f6f0131a70e080c7f4da682a1e6220e60c127"
     sha256 cellar: :any,                 mojave:        "ebdda9295e17e1ca9c7acc0cc392ab995fbf2a3bcbe0ca6eee0a3ced49a4eb5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e94735ade165e7de6d64f9076bf3431d6284aeedd19a1f2bbf7ed27fddf6964a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e94735ade165e7de6d64f9076bf3431d6284aeedd19a1f2bbf7ed27fddf6964a" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

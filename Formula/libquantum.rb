@@ -11,7 +11,7 @@ class Libquantum < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0a58575e3f577ad9f8157546913669bac571462dd34d32e54c37e2935b126bed"
     sha256 cellar: :any_skip_relocation, mojave:        "0c7724330a9a2741d5b52521482fb4c4516d5dc7115538f6131894e4d2b31e10"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1a93bf4fd93f8a68412b622fcf94eddd2fa9a86ada64dd8eb4cca27ccfaa8ce1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "192997312cfb0f27ba73949f9a156418d6c413a61fe74562e7cef72ece84a21a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "192997312cfb0f27ba73949f9a156418d6c413a61fe74562e7cef72ece84a21a" # linuxbrew-core
   end
 
   def install

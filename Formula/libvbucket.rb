@@ -13,7 +13,7 @@ class Libvbucket < Formula
     sha256 cellar: :any, sierra:       "69c96d5758926202939b79930d82da27bd65d50e0ef19d844ac705cacd99ba58"
     sha256 cellar: :any, el_capitan:   "cc3333f73161a96deb410ae0b8185a74e0c2a5bc8e62018929b17efe6ef732b8"
     sha256 cellar: :any, yosemite:     "dd69ae3261c461b15bd29e435ab95496441dfde4535cb7d6925527cdfa8c64dd"
-    sha256 cellar: :any, x86_64_linux: "d74034d12d03175501a165f0cb1dacb10544be8a7d6a1914ba09bf490e24b566"
+    sha256 cellar: :any, x86_64_linux: "d74034d12d03175501a165f0cb1dacb10544be8a7d6a1914ba09bf490e24b566" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

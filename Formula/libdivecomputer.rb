@@ -11,7 +11,7 @@ class Libdivecomputer < Formula
     sha256 cellar: :any,                 big_sur:       "80a648490411d90cee0ae9bbafbc91e48e6ee1d4b449bfad5795cd375b5337d0"
     sha256 cellar: :any,                 catalina:      "b0e1c5af39a3a474f72a89b669acfd82628f91aabe21c719e2eee78dc0099950"
     sha256 cellar: :any,                 mojave:        "79ea433c1787070be036fa259b1cb7bd673d5c787ac937291361711d967708d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "490d10a554fbc64b55c8b876e73dfe66d5c5ba7e3ebe32ebcdd6376c43a056e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "490d10a554fbc64b55c8b876e73dfe66d5c5ba7e3ebe32ebcdd6376c43a056e1" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

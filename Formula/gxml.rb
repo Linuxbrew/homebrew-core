@@ -11,7 +11,7 @@ class Gxml < Formula
     sha256 catalina:      "7ac6b48935cda53013a788e02cb0169fd609589beac7b1af2ad6b3b64e3045a2"
     sha256 mojave:        "656bfa0f89deba237c40af306b141291c548befeadd268d7aaca198db78afe91"
     sha256 high_sierra:   "c206e3ea69e32dce78804db3d9e0ab2d10a441a4677614324fd46e1e53bdb5e7"
-    sha256 x86_64_linux:  "f172d593357249203c959347d2743d48b14221bdc1077abd402aa58a02db542e"
+    sha256 x86_64_linux:  "f172d593357249203c959347d2743d48b14221bdc1077abd402aa58a02db542e" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

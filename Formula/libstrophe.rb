@@ -12,7 +12,7 @@ class Libstrophe < Formula
     sha256 cellar: :any, big_sur:       "a215207d02f646e2299504f7166cf293fd9f9714181106e0f7707a4feef9303a"
     sha256 cellar: :any, catalina:      "cd0ced2cb8517143a02f68c2414de0c8f8da75829da7b46402cf645d6be960be"
     sha256 cellar: :any, mojave:        "17f49cd12a1fc672fe95155ac910265343cc877214af995e1728aa1ef75bc2f1"
-    sha256 cellar: :any, x86_64_linux:  "b2c22db5df2cc80448e09f3db70d873c49e5e2898a4938c5ba6c14f8659c73de"
+    sha256 cellar: :any, x86_64_linux:  "b2c22db5df2cc80448e09f3db70d873c49e5e2898a4938c5ba6c14f8659c73de" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

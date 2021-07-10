@@ -11,7 +11,7 @@ class Bamtools < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5c213c66de8e7ed7a13b07b41b6ed3b71509a28121cf942c3b76cd735efa6c3d"
     sha256 cellar: :any_skip_relocation, catalina:      "e978a4b284e0905486557a2a3ccc224303900d38970e4c0a9b6ee6886c9fd743"
     sha256 cellar: :any_skip_relocation, mojave:        "4459a3ddde44539d67dec67bd40f3f7f38f98fbaa883db7b786aad410bd9cff4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "373dc0881a1cab120df3c9ed35662373ab46066f413483242dcbc782f77e45fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "373dc0881a1cab120df3c9ed35662373ab46066f413483242dcbc782f77e45fc" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

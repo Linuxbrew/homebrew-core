@@ -11,7 +11,7 @@ class Bowtie2 < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "96c8bdffc7e247135089bf5ebc6eb6b4ee1d7bdb82d25a56be5c55680c0a50e9"
     sha256 cellar: :any_skip_relocation, catalina:      "39a5b463bedd3beeb0f17e95da9a485bc0c95187663e284ca0b45b1a0e09b846"
     sha256 cellar: :any_skip_relocation, mojave:        "0b36d2735b4eff060d2ecf3d4a2c3fe71a88cedec08514a4bf6ec23210faf696"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "505094388be1f46326a0b099a46b818f95c6fab9bc5e7380fcc532c9aa644c3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "505094388be1f46326a0b099a46b818f95c6fab9bc5e7380fcc532c9aa644c3b" # linuxbrew-core
   end
 
   depends_on "simde"

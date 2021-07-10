@@ -14,7 +14,7 @@ class Nbimg < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "75fd1505a68d1c499ddcf73e912947910659d9bd127c208cafeb3e8899664fbd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "402904e3588fe5a8ae00d7131fe29821880f31a8ec19fb89e70a79f76e067452"
     sha256 cellar: :any_skip_relocation, yosemite:      "7e5f47c47238a5e6b0abca121880c72e78e29d0638924afa75ed999286dc934b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3a9e6cbde8903e6a767ac2e5d40b59c5047a60bb44ce01ee08e83aadc9c2100"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3a9e6cbde8903e6a767ac2e5d40b59c5047a60bb44ce01ee08e83aadc9c2100" # linuxbrew-core
   end
 
   def install

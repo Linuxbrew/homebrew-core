@@ -16,7 +16,7 @@ class Opencbm < Formula
     sha256                               big_sur:       "aaf54902db867f5d5116e5a5701320c52fd8bdaf587fe3824ccf57051671a5e6"
     sha256                               catalina:      "6d85698fdf68fcd53e794ff94495bb95de4f9f1bed54d8c2b31ede5e0e9dfb56"
     sha256                               mojave:        "78c7219df463cc71eb494724a5dee0444a218dadeb2a14308c529d8e0ea29126"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2f2f29fbe51c2451e52b747391ec9e255a607ebc2cd9382b7f6f124b19d3950"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2f2f29fbe51c2451e52b747391ec9e255a607ebc2cd9382b7f6f124b19d3950" # linuxbrew-core
   end
 
   # cc65 is only used to build binary blobs included with the programs; it's

@@ -16,7 +16,7 @@ class Packer < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "908d224f7b913c1c68efa613d015fa145a0e98da3ce84d4cbeba7160986138e4"
     sha256 cellar: :any_skip_relocation, catalina:      "886f0a559d6c3858c0c8d463aa482c0a3607d7439fb99fab9023ed7b99a3c7c1"
     sha256 cellar: :any_skip_relocation, mojave:        "ffabebc88441c9a07eaa1d3eda794b86af742931a14fa0601f5389b2c317726f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4f558dec71576535435b00b29050e1d95e7a9b0fe45959bb1ca534477ee3aa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4f558dec71576535435b00b29050e1d95e7a9b0fe45959bb1ca534477ee3aa7" # linuxbrew-core
   end
 
   depends_on "go" => :build

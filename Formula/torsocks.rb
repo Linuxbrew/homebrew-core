@@ -12,7 +12,7 @@ class Torsocks < Formula
     sha256 big_sur:       "2e7d1f1ed60e53086456447d408f577a8ee8d10c73ea8e01b94f7fdbaf6cd141"
     sha256 catalina:      "0fe4e287d086c2249645781e187dd12e45526ab6ed45b32051aac2ddb840dc92"
     sha256 mojave:        "8f07df71ce2b8eee8ade8ac9c4de7c5e59acebb880b369dd3bd2d5caf5a93e8e"
-    sha256 x86_64_linux:  "9cf20688f410a38a5995f31ed3d907a34755d0e8bdb4369d642c9eddd08cecf8"
+    sha256 x86_64_linux:  "9cf20688f410a38a5995f31ed3d907a34755d0e8bdb4369d642c9eddd08cecf8" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

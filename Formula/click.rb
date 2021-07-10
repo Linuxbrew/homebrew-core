@@ -10,7 +10,7 @@ class Click < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "aa74cec2f0d6854791b46d54adbdb96bff085b67278629695f0ac266eef54717"
     sha256 cellar: :any_skip_relocation, catalina:     "59c72a4b00a3bf477cd3d65573175d6009112273b715b30d49be7bc694fdcf80"
     sha256 cellar: :any_skip_relocation, mojave:       "b7f4b485ff0eb502694555d0f85096880e6a0355b7e69adf2bb5075d2396ade1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "492e2354caa97015ad053a95560ecfc4a867842afe64cd22a31377968d75dfed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "492e2354caa97015ad053a95560ecfc4a867842afe64cd22a31377968d75dfed" # linuxbrew-core
   end
 
   depends_on "rust" => :build

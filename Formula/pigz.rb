@@ -15,7 +15,7 @@ class Pigz < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6ed76215af752e06d11b176c3c169a55f76cf2010c01e67e62f7543081137b5e"
     sha256 cellar: :any_skip_relocation, catalina:      "c1e5284c99ef13e0401035597901b5b63d19bbb642fd7206d648193c89d0e6e7"
     sha256 cellar: :any_skip_relocation, mojave:        "0d382426d9bf386f21f8412317b58d05fcaf6ada17b260a1b6e95e8f2e955cf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44b6494a84353efaae72610781e79f12540eed93cca0a7a327ee0c28dea56146"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44b6494a84353efaae72610781e79f12540eed93cca0a7a327ee0c28dea56146" # linuxbrew-core
   end
 
   uses_from_macos "zlib"

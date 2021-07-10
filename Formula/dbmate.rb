@@ -11,7 +11,7 @@ class Dbmate < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "928e602baa978c891124ab0ab595563976a953a1672b6d6f207bd7bba087f046"
     sha256 cellar: :any_skip_relocation, catalina:      "bdf5803badd7a93502382027d83ff70488d9270eb89e5ef5f41b73c777c3326b"
     sha256 cellar: :any_skip_relocation, mojave:        "136e800b7486127c794d7c7b57a3c490f5a5e556ba051ef63729b612b60f7ddf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f140ff3bb0929631a075dd270ee8776c7f1fe0b41280525d60006b8a908e7bc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f140ff3bb0929631a075dd270ee8776c7f1fe0b41280525d60006b8a908e7bc8" # linuxbrew-core
   end
 
   depends_on "go" => :build

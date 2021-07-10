@@ -14,7 +14,7 @@ class AptDater < Formula
     sha256 mojave:        "d736fdabb393e90e6895b9d5694cc0a78f592bd363483e7e935d044fd0331d41"
     sha256 high_sierra:   "f6b5f606925ac38d24ef56fc52e93c3f5a4e8f1ab2d687ebb376c78d4f91f366"
     sha256 sierra:        "66d81a3bf524ab635a34803119837ef26704011b2d362ab7f41aba0d40b54ea3"
-    sha256 x86_64_linux:  "619760d821e7af471578daa6feafdccc5eda13fe1309b475ef8049152006f6b0"
+    sha256 x86_64_linux:  "619760d821e7af471578daa6feafdccc5eda13fe1309b475ef8049152006f6b0" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

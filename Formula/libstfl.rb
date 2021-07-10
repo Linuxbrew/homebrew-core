@@ -17,7 +17,7 @@ class Libstfl < Formula
     sha256 cellar: :any, big_sur:       "9e57ebd3ab126b784b46969fa3c2baf49b4351183274d23f3075370e50735d48"
     sha256 cellar: :any, catalina:      "ab1e06a1a46305fbcaadca0e490dd6584f149e704f1475e9d5243acebeaff7e1"
     sha256 cellar: :any, mojave:        "0164c390d3ccad76079fe8b5af6e8cec440036e4e97dd91c5a1c86848832c0ab"
-    sha256 cellar: :any, x86_64_linux:  "bfadcf99c609ca306fa084c9f38f44bad160c2d16136cf7934af8ef9ccb47bee"
+    sha256 cellar: :any, x86_64_linux:  "bfadcf99c609ca306fa084c9f38f44bad160c2d16136cf7934af8ef9ccb47bee" # linuxbrew-core
   end
 
   depends_on "python@3.9" => :build

@@ -11,7 +11,7 @@ class Postgrest < Formula
     sha256 cellar: :any, catalina:     "691546e89701fd582d47c697dc27551ef3284ee21933a5912f406e6fee4dd272"
     sha256 cellar: :any, mojave:       "34c0413e71a41bc8550b7ea5286e0330aa888990d2e2a8fe6d81b57152c83d61"
     sha256 cellar: :any, high_sierra:  "6ca3bb9cd14c9ab4ddd028493e4ffd70ddae571be74723997b677c6c67542c87"
-    sha256 cellar: :any, x86_64_linux: "eebd15397089be906915d5839a5e1b115f41c78f440158c92826f5d9a3c82765"
+    sha256 cellar: :any, x86_64_linux: "eebd15397089be906915d5839a5e1b115f41c78f440158c92826f5d9a3c82765" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

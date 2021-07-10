@@ -15,7 +15,7 @@ class Csvq < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "2ef66a80dbf62ec07ccf9646db9650b56862a4908eb6d9bd6f481f754b4749d1"
     sha256 cellar: :any_skip_relocation, catalina:      "f978e4066823494d805bd1d9672c0f9cd9b0d5917763b221e5d2b697c6fa49a0"
     sha256 cellar: :any_skip_relocation, mojave:        "6512f703828def15a4763fea61299339795e808f9399c048e8807fb1d5e072bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7102a7561fcf110fd0d7180087fa5697360915ac4616bc1b321c64e3cba1830a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7102a7561fcf110fd0d7180087fa5697360915ac4616bc1b321c64e3cba1830a" # linuxbrew-core
   end
 
   depends_on "go" => :build

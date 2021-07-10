@@ -18,7 +18,7 @@ class Libmodplug < Formula
     sha256 cellar: :any, high_sierra:   "3f46eca3704d441ba8133d71bd283e8d24cff61e8b903fff720b78932185f9bf"
     sha256 cellar: :any, sierra:        "fc88a11e82b19a1a0aa4ada0ed3468147464d3414c3e9dffda9cea139b195c9d"
     sha256 cellar: :any, el_capitan:    "968a0bdc082725f136ab94f3a7eaf5a6a376eb94ec03b45f49ab275bd9193318"
-    sha256 cellar: :any, x86_64_linux:  "a267c9306a29ae0b5987eec09cdb090712f8b2c94f5b8a97d62e68dd5ee56309"
+    sha256 cellar: :any, x86_64_linux:  "a267c9306a29ae0b5987eec09cdb090712f8b2c94f5b8a97d62e68dd5ee56309" # linuxbrew-core
   end
 
   resource "testmod" do
@@ -58,7 +58,6 @@ class Libmodplug < Formula
     # Second, acquire an actual music file from a popular internet
     # source and attempt to parse it.
     resource("testmod").stage testpath
-    mv "downloads.php?moduleid=60395", "downloads.php" unless OS.mac?
     (testpath/"test_mod.cpp").write <<~EOS
       #include "libmodplug/modplug.h"
       #include <fstream>

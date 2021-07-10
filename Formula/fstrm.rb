@@ -10,7 +10,7 @@ class Fstrm < Formula
     sha256 cellar: :any,                 big_sur:       "32c20ee504e029088d36ee45177137411beed0aaaac76ce287810cec71d3eea9"
     sha256 cellar: :any,                 catalina:      "3b775d63b3594f2264b413184aad3fbb33990c07473e0db9db12c86bd0f19950"
     sha256 cellar: :any,                 mojave:        "7f18a4569511492fdad064427c67fc88f988046c1fc6804a7973e1ae2911714e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a64fe2c4df1e84a58bd05fd7ca40f3c93fba023de3d7bd7905f11c65ab057c3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a64fe2c4df1e84a58bd05fd7ca40f3c93fba023de3d7bd7905f11c65ab057c3b" # linuxbrew-core
   end
 
   head do

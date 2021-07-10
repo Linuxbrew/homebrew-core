@@ -19,7 +19,7 @@ class Ascii < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65"
     sha256 cellar: :any_skip_relocation, el_capitan:    "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f"
     sha256 cellar: :any_skip_relocation, yosemite:      "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88fa5c873c23b41bab19a85e5feb572ae1a5369885b53a158ba1e0cce52980ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88fa5c873c23b41bab19a85e5feb572ae1a5369885b53a158ba1e0cce52980ef" # linuxbrew-core
   end
 
   head do

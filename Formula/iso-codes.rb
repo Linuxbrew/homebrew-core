@@ -11,7 +11,7 @@ class IsoCodes < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b187032bee03cffb5e57f2a609f31010b3572a7dc20e74863f5058fe084a59c2"
     sha256 cellar: :any_skip_relocation, catalina:      "e842954d1e655188d47362cabce2af5585dd5f9f7687f6d70c14e951374918b2"
     sha256 cellar: :any_skip_relocation, mojave:        "172c9bad5734b7fa56f77c1f2a73e9db2f7d9492c3b40a11941b57b294cc554a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a029b7b512f59903f15b5e3523cb1ef22d154988aec78d333fd12995143b21a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a029b7b512f59903f15b5e3523cb1ef22d154988aec78d333fd12995143b21a" # linuxbrew-core
   end
 
   depends_on "gettext" => :build

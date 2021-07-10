@@ -12,7 +12,7 @@ class Packmol < Formula
     sha256                               big_sur:       "5e17a008667df7e5bc6bee6d5563dc3972c3f52b4243ab2d92507be35ce9d12b"
     sha256                               catalina:      "3ab1f82f9882aeb3e7fe733e7c375902bb5b9ced8573fcbc90913fcf19407c9a"
     sha256                               mojave:        "d881b332e102b00f5ebfd5f48ad10cb80087a0535d919514fe766e70e7fdf4f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "407dbf1eb02939bce641526ace747907a8c42a11718f0606288a90b521cb91f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "407dbf1eb02939bce641526ace747907a8c42a11718f0606288a90b521cb91f1" # linuxbrew-core
   end
 
   depends_on "gcc" # for gfortran

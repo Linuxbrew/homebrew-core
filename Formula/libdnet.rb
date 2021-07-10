@@ -16,7 +16,7 @@ class Libdnet < Formula
     sha256 cellar: :any, catalina:      "f8c9ace5eb112c484f50da7624df13c551b14114ece91a155ce2394b30e264b7"
     sha256 cellar: :any, mojave:        "1e967ac6c5b9c70f72efba9082844c755dba2d62054a4c4dfbd5629da3cb0b76"
     sha256 cellar: :any, high_sierra:   "fd53de5c1830dcdb52ecba97cf0c9c6afccf44037e6df6f64ef1d163d6c6adff"
-    sha256 cellar: :any, x86_64_linux:  "5c5af547c3581d357f028605acd9f3d09e999a34e0d07a38844d073f235f1ef7"
+    sha256 cellar: :any, x86_64_linux:  "5c5af547c3581d357f028605acd9f3d09e999a34e0d07a38844d073f235f1ef7" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

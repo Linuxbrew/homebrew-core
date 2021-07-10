@@ -16,7 +16,7 @@ class Libxml2 < Formula
     sha256 cellar: :any,                 big_sur:       "fbc422ede343b2bd4047ccdf2f697430da636b66fc550697a2f921b97cebe18f"
     sha256 cellar: :any,                 catalina:      "eb2c8a444b4cf1f09e35c23b91e7cc16c11bc63527bfc3e19a4442e41cfd4b4d"
     sha256 cellar: :any,                 mojave:        "cf7b2b2ddb047582b9fb5c649d76ab6d4025ea328dff5ad22bcc4d929a8730ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b4091b5697e5011a8bd1ef89e762e73a8102dfdfd99632fbc5f1a4182c607bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b4091b5697e5011a8bd1ef89e762e73a8102dfdfd99632fbc5f1a4182c607bb" # linuxbrew-core
   end
 
   head do

@@ -23,7 +23,7 @@ class Procmail < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c64ccf998d9c71d1b73004abe4c96a8c35993cf4c1a899cd6d92bfab82b9272a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3328bcda4649612afba606950e59f4cb0c22e10fe97a4f1e38f190e3e4115800"
     sha256 cellar: :any_skip_relocation, yosemite:      "cd5a5cdfbe9d03067533df0ef3f09cc2c05bd16a9b75d2d19cd9c2d1da2986e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1304e36e6f63857224753a1bc2430fb79a530cabe875d82805caf1c024419d95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1304e36e6f63857224753a1bc2430fb79a530cabe875d82805caf1c024419d95" # linuxbrew-core
   end
 
   def install

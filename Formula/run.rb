@@ -11,7 +11,7 @@ class Run < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4a2329ae36f59ed71c1b6364828c465a27f92506cd77e9a7c8217def3e2b7c9e"
     sha256 cellar: :any_skip_relocation, mojave:        "4a2329ae36f59ed71c1b6364828c465a27f92506cd77e9a7c8217def3e2b7c9e"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4a2329ae36f59ed71c1b6364828c465a27f92506cd77e9a7c8217def3e2b7c9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fb77719822989beec92148b81ddb2cd6e6f78dc270ffb51fec869915eae2763"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fb77719822989beec92148b81ddb2cd6e6f78dc270ffb51fec869915eae2763" # linuxbrew-core
   end
 
   depends_on "go" => :build

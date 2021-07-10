@@ -18,7 +18,7 @@ class Rsync < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e"
     sha256 cellar: :any_skip_relocation, mojave:        "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090"
     sha256 cellar: :any_skip_relocation, high_sierra:   "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cb96b93ffe5ad5e3473032a4f869861fc2305738795e95a21f41a3fcfdc24c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cb96b93ffe5ad5e3473032a4f869861fc2305738795e95a21f41a3fcfdc24c2" # linuxbrew-core
   end
 
   depends_on "lz4"

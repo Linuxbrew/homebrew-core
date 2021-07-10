@@ -11,7 +11,7 @@ class Libva < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6e5ca66515ec13a0209c29e5c60464ea0bc2bacb3964da4c2113ae80cbf77e79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6e5ca66515ec13a0209c29e5c60464ea0bc2bacb3964da4c2113ae80cbf77e79" # linuxbrew-core
   end
 
   depends_on "pkg-config" => [:build, :test]

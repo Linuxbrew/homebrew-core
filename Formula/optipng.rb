@@ -12,7 +12,7 @@ class Optipng < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5cee26efb92016f057a55b2711a08c4a0350046b7c0b1d969c75a913caf66fc2"
     sha256 cellar: :any_skip_relocation, catalina:      "3d423dfa59e07122f70e2a15026289dfc6884798ac76898065dbe587256c6e35"
     sha256 cellar: :any_skip_relocation, mojave:        "bd44fa66b00a6ee0340a9a5b239d22823787fcaa26312783b21c0f4afc39fd0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "898b50a718d01660252200536d1a3c422b56ec35f9537a91cd1ba499b7f5c70c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "898b50a718d01660252200536d1a3c422b56ec35f9537a91cd1ba499b7f5c70c" # linuxbrew-core
   end
 
   depends_on "libpng"

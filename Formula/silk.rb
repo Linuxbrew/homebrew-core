@@ -15,7 +15,7 @@ class Silk < Formula
     sha256 catalina:      "4a88b111ce742a948b91b9441f2bbc7e821ffd3691673086ff46e8e27fbda31e"
     sha256 mojave:        "923bc8b774f207d23073195b49befba72e378e79846b6809066f55f3df87c329"
     sha256 high_sierra:   "663d2a858210750b8650e4f0e516dd6530fb5d08a7c501f8daa937572d8a81ee"
-    sha256 x86_64_linux:  "eb8903c42baee1027e8df1337c46ce65e8ef61faab3eb9908e8cd7eade7a5d71"
+    sha256 x86_64_linux:  "eb8903c42baee1027e8df1337c46ce65e8ef61faab3eb9908e8cd7eade7a5d71" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

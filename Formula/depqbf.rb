@@ -15,7 +15,7 @@ class Depqbf < Formula
     sha256 cellar: :any, sierra:        "fea1eb8ca62fccc5ce43b0a645fb67feffbf97c5a343d0ea6c9a015c37e24ccc"
     sha256 cellar: :any, el_capitan:    "3229005d870984af6beee544d5178094fc859525bd96552ac42301860c175f5b"
     sha256 cellar: :any, yosemite:      "2e56b8bac22dbf77677e825ee6242fea35545c2714859c4f22872c1c0fb056e3"
-    sha256 cellar: :any, x86_64_linux:  "42229ac07c7d7c12f9feb7078fa28b318c4ce52892940056a79a9baa70e79f6a"
+    sha256 cellar: :any, x86_64_linux:  "42229ac07c7d7c12f9feb7078fa28b318c4ce52892940056a79a9baa70e79f6a" # linuxbrew-core
   end
 
   resource "nenofex" do

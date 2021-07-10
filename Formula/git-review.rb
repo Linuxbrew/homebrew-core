@@ -13,7 +13,7 @@ class GitReview < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c0453ff5e5450402026b4480cab678f615673b5cbb7e0bdd066cc601418aff88"
     sha256 cellar: :any_skip_relocation, catalina:      "c0453ff5e5450402026b4480cab678f615673b5cbb7e0bdd066cc601418aff88"
     sha256 cellar: :any_skip_relocation, mojave:        "c0453ff5e5450402026b4480cab678f615673b5cbb7e0bdd066cc601418aff88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "942dbe1428a1f7051f5a7ed696a599fa491df7d01703b85c50dd4e141f03fb5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "942dbe1428a1f7051f5a7ed696a599fa491df7d01703b85c50dd4e141f03fb5a" # linuxbrew-core
   end
 
   depends_on "python@3.9"

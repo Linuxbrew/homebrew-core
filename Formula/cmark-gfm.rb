@@ -13,7 +13,7 @@ class CmarkGfm < Formula
     sha256 cellar: :any,                 big_sur:       "718e29fe5b922ee5c55dae56a8614832bd6dccb974bd83bb0aee39f02f20db31"
     sha256 cellar: :any,                 catalina:      "c5a339c14cee2d08621b8ce8913462e24193b3bb9247a5a207c6b60c0b9a28de"
     sha256 cellar: :any,                 mojave:        "27144ced3954fbd19c2f7a12ce91c86cc1d8b91425109457b06a87fded64741d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "756129a589ddf773c0d10145a8a9f83fded689f6b6b720d12dd981c2ddd9f1f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "756129a589ddf773c0d10145a8a9f83fded689f6b6b720d12dd981c2ddd9f1f9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

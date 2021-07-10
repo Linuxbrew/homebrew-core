@@ -10,7 +10,7 @@ class Wavpack < Formula
     sha256 cellar: :any, big_sur:       "711535e6329af607e974ee9e3e957fd82b056af39e95a78226bd9e8f9a0025dd"
     sha256 cellar: :any, catalina:      "29360357a18df2827e8acb41fdd874495b62f431deb230c96b8d5dcca5f6d316"
     sha256 cellar: :any, mojave:        "89815dc5f1b4af0d647d2b1d3ad484ddce39208958bb315793240aa7be0c4565"
-    sha256 cellar: :any, x86_64_linux:  "c9d438e30cc4489ccb47b61053af430575cf6fa56b3488eafc8e70f525ff2782"
+    sha256 cellar: :any, x86_64_linux:  "c9d438e30cc4489ccb47b61053af430575cf6fa56b3488eafc8e70f525ff2782" # linuxbrew-core
   end
 
   head do

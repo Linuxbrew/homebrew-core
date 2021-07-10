@@ -17,7 +17,7 @@ class Freetype < Formula
     sha256 cellar: :any, catalina:      "b4e7683ae202c49280024faac4ac7437e690cb5dd83edb806fac368bc2b7de35"
     sha256 cellar: :any, mojave:        "81c65539bcc98d171fdff7a6e80cdddd7dc4bc9ed34e739c4361ab66f3391991"
     sha256 cellar: :any, high_sierra:   "666892404720bcd855d866976e1cb9beecc3151ca595c3dd115a0daa6bb6c7e1"
-    sha256 cellar: :any, x86_64_linux:  "4b510049ab0cac10c3cd21c481ae2275d506de200161649903a7eff3241b1b26"
+    sha256 cellar: :any, x86_64_linux:  "4b510049ab0cac10c3cd21c481ae2275d506de200161649903a7eff3241b1b26" # linuxbrew-core
   end
 
   depends_on "libpng"

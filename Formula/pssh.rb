@@ -13,7 +13,7 @@ class Pssh < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "94ad17e8296472da13da212b912f9edd9fd849566a21eee7b3ad7686f4500e0b"
     sha256 cellar: :any_skip_relocation, catalina:      "94ad17e8296472da13da212b912f9edd9fd849566a21eee7b3ad7686f4500e0b"
     sha256 cellar: :any_skip_relocation, mojave:        "94ad17e8296472da13da212b912f9edd9fd849566a21eee7b3ad7686f4500e0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c785b68399354fc1d6cea0fc0e05c2d348e35e8cce55ff4b2c491f12d134047"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c785b68399354fc1d6cea0fc0e05c2d348e35e8cce55ff4b2c491f12d134047" # linuxbrew-core
   end
 
   depends_on "python@3.9"

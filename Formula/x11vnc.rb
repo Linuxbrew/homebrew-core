@@ -12,7 +12,7 @@ class X11vnc < Formula
     sha256 cellar: :any,                 mojave:        "cd3d5d0047a8fb2e7b66ac94baf08c2da16aa8e135b8180acacce2d1bf366e58"
     sha256 cellar: :any,                 high_sierra:   "2660aa48f9545eef71c5a42f9985720629d0391eaef37155264ec4c71cf13b29"
     sha256 cellar: :any,                 sierra:        "4e974a6cbc6bd9c03e90ed2f991a40c4589489ccbd01bd20552bf0a66773f924"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bd5a75b646230ada2995b7cadcfb24c976e341820b4fbd01fe153ad0959d893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bd5a75b646230ada2995b7cadcfb24c976e341820b4fbd01fe153ad0959d893" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

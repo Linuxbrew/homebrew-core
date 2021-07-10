@@ -11,7 +11,7 @@ class Autorestic < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "276d5de8b1fbcffb06aa1748d17771d94939b431bbe1748ccb8d932aac9c74d3"
     sha256 cellar: :any_skip_relocation, catalina:      "dbb8deeb7b735202730220f2edfa4ce019ba52d07be44e80ce68351dc56cb96e"
     sha256 cellar: :any_skip_relocation, mojave:        "ddc1d2cf89b9aeca14b66e3368b915224ff765ba6fba894e477acef29603ee74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1463e539e77f1ade1d1ec43c60cb565bb4812e184385900df671e48a01fa8788"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1463e539e77f1ade1d1ec43c60cb565bb4812e184385900df671e48a01fa8788" # linuxbrew-core
   end
 
   depends_on "go" => :build

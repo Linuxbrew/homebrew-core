@@ -16,7 +16,7 @@ class Xterm < Formula
     sha256 big_sur:       "fa0d460d525b384564567cb60a6b9d826f930aa3e585f4e1a3fa068789138832"
     sha256 catalina:      "9a5ec1a7eba5b567c0d967bf7fa1f8381a25dca040e3e05f4cda01db67ed8cf5"
     sha256 mojave:        "47e9e7749b215fa33ec20551b76174164d96ab24118602e02e89b1c317bc7981"
-    sha256 x86_64_linux:  "6a8a408f3b86f95e0b355adaf43a05d78b0bad11f9f7b18cae2551bd4b011fb9"
+    sha256 x86_64_linux:  "6a8a408f3b86f95e0b355adaf43a05d78b0bad11f9f7b18cae2551bd4b011fb9" # linuxbrew-core
   end
 
   depends_on "fontconfig"

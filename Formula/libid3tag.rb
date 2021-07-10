@@ -16,7 +16,7 @@ class Libid3tag < Formula
     sha256 cellar: :any, big_sur:       "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b"
     sha256 cellar: :any, catalina:      "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17"
     sha256 cellar: :any, mojave:        "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310"
-    sha256 cellar: :any, x86_64_linux:  "84dc0ced0ad0ef6c7584ffe35bd20a137ac360c3ad820213ca4dd235f7403545"
+    sha256 cellar: :any, x86_64_linux:  "84dc0ced0ad0ef6c7584ffe35bd20a137ac360c3ad820213ca4dd235f7403545" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

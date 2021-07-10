@@ -2,8 +2,14 @@ class Libvorbis < Formula
   desc "Vorbis General Audio Compression Codec"
   homepage "https://xiph.org/vorbis/"
   url "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/vorbis/libvorbis-1.3.7.tar.xz"
   sha256 "b33cc4934322bcbf6efcbacf49e3ca01aadbea4114ec9589d1b1e9d20f72954b"
   license "BSD-3-Clause"
+
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/?C=M&O=D"
+    regex(/href=.*?libvorbis[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "07ab1118fc6d389a8b0506d0b74a3cfc12026a837c8f2609b2133318c8818c81"
@@ -11,7 +17,7 @@ class Libvorbis < Formula
     sha256 cellar: :any, catalina:      "432eb21045d9dfac3ef879648d845d894cc828862f5498448fe98c0141ef5cd0"
     sha256 cellar: :any, mojave:        "59509a351e88352f01512b54cc5cb849c2551623f7d6dcd6679d38b5e96032ed"
     sha256 cellar: :any, high_sierra:   "3e6609520d0ffd7179f721c23c1291f2735b70384d56d1c1dd10185ae355c4b2"
-    sha256 cellar: :any, x86_64_linux:  "b61fe377d1be6d7edd86f6c1e47fa655b2c0f960455cfd85f41f1a99c6e5ffee"
+    sha256 cellar: :any, x86_64_linux:  "b61fe377d1be6d7edd86f6c1e47fa655b2c0f960455cfd85f41f1a99c6e5ffee" # linuxbrew-core
   end
 
   head do

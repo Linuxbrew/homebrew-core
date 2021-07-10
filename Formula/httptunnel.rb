@@ -11,7 +11,7 @@ class Httptunnel < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "ba3194a2dd8fc577851681cbb058cd2f37b2568697c0bd8117c73e66841d6aa8"
     sha256 cellar: :any_skip_relocation, catalina:     "20312eef433095612b34d5e73a3ae27d3198d3a559dddddc6a316844da8cf2c2"
     sha256 cellar: :any_skip_relocation, mojave:       "cd8ea90f49b98d3cbe213bfd750eb0a095d06a19a4705a9e7e08b153571c27a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a8bb47734a2de17116531f6b2504d9ced1527aeccdc60d7d269195c739f3e54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a8bb47734a2de17116531f6b2504d9ced1527aeccdc60d7d269195c739f3e54" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

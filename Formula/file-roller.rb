@@ -10,7 +10,7 @@ class FileRoller < Formula
     sha256 big_sur:       "c5a9da3650723915180b287312a0518f75cf01e191b3a7c1b6127b44f35de9b1"
     sha256 catalina:      "8394e9a33b4c7ee7b9e2b9a85f188ee6ac88512c36aee2aaf1fa6d31b755f1a9"
     sha256 mojave:        "bf140573b865d85ea497b500735e465963559551d382fc6a7c1a0814d3602853"
-    sha256 x86_64_linux:  "e45c8dd62afe149f17ee6f8825a3a52eb6db1c689c5a08fa4c422b83eb04f74b"
+    sha256 x86_64_linux:  "e45c8dd62afe149f17ee6f8825a3a52eb6db1c689c5a08fa4c422b83eb04f74b" # linuxbrew-core
   end
 
   depends_on "itstool" => :build

@@ -10,7 +10,7 @@ class Libdazzle < Formula
     sha256 cellar: :any,                 big_sur:       "05b5ef35b6edbae5dee76b55549de030b1876e75a7d2caa3d5f877a6c64c26c8"
     sha256 cellar: :any,                 catalina:      "28328021ecdcf4eeabc6146a73a4c61652ea214036705a6b0441fabc81c5196b"
     sha256 cellar: :any,                 mojave:        "0a9f674293a1df2ef75d633392309cd759654f39e973600bc19276763c1290d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73f7493498f617ecfbf016393d30dd77a44e710e215f32abe0b86132d73f5e4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73f7493498f617ecfbf016393d30dd77a44e710e215f32abe0b86132d73f5e4c" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

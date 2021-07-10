@@ -17,7 +17,7 @@ class Nmap < Formula
     sha256 catalina:      "5592fb8c2fe633a6339ee61901122c075a4b44c002e2887bddfb2c4b3aa2885f"
     sha256 mojave:        "ba808d31033d996488fdf56664de1cf424fc942db794ab7030d40a1caad93aa8"
     sha256 high_sierra:   "b9a5b9d54fb0af76b1ce343e94f142b3421309fbeb81078d73e41bc2a9d862ea"
-    sha256 x86_64_linux:  "d05a8f02cea4a640932703a473f15f4f46bf44cc81da41c26fa369306894bbe3"
+    sha256 x86_64_linux:  "d05a8f02cea4a640932703a473f15f4f46bf44cc81da41c26fa369306894bbe3" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

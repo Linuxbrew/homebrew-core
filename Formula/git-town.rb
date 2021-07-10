@@ -10,7 +10,7 @@ class GitTown < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "87d70a3cdbee842e1395da79b38de127234541c1bdade78a7b20148037af45d5"
     sha256 cellar: :any_skip_relocation, catalina:      "385eb3fecf752f8685c9ed0707ba0d960fe814cb486f5a6c078fdc8bcee89a07"
     sha256 cellar: :any_skip_relocation, mojave:        "279e89fd331b94bbe3f97b51d8a2015d03a72b1efef5934676d4220f69610778"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b9c177cf5be4d883a67d1e41db72aae80eef3f05d050f2005414f2fc004b4a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b9c177cf5be4d883a67d1e41db72aae80eef3f05d050f2005414f2fc004b4a8" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -11,7 +11,7 @@ class AvroC < Formula
     sha256                               big_sur:       "af1c754a9f9e63b2692de3d8dd466dfa44e22d45d5733ea40db9fba4ed7c4437"
     sha256                               catalina:      "3dfd6605930b99e96e1e78c2cbe6860e27d78cac3b1c6889050b7c05fdc32ad9"
     sha256                               mojave:        "e753230392158e5001990d7af043a62bea1156931cb30c7ff5684035fd12eb45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ff32f146b7b35d42661c7b42e0b5fbe0a199f9e744b8942e241bbbc0d106626"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ff32f146b7b35d42661c7b42e0b5fbe0a199f9e744b8942e241bbbc0d106626" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

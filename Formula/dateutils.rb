@@ -10,7 +10,7 @@ class Dateutils < Formula
     sha256 big_sur:       "835ab3f87c6c6bf4a16b0e0f2e55fe16c4975ad63b1f8b7441786b9c75968c0f"
     sha256 catalina:      "27ef93f0c6c9ceb68087939e3c4d8e8511a15fe59b78e50aab0ecdd6365db976"
     sha256 mojave:        "e7649f49318c9f30cf4bc1c37bbf993b2a5471c7026bb4502000760c976d4892"
-    sha256 x86_64_linux:  "5ecc3df7d5f10935a59c1f24acb45515dabbed11c03a31de46f88457dc95f1e7"
+    sha256 x86_64_linux:  "5ecc3df7d5f10935a59c1f24acb45515dabbed11c03a31de46f88457dc95f1e7" # linuxbrew-core
   end
 
   head do

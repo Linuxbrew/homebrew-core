@@ -18,7 +18,7 @@ class Binwalk < Formula
     sha256 cellar: :any,                 big_sur:       "1d408cfd054c7f7e7d1035fae12f1ed22951c99ae2037e12d26a274e97ef3335"
     sha256 cellar: :any,                 catalina:      "81908a0bc129aade679fcb65b0455ce349288e4ed4239bf48ef68a4fde363f8f"
     sha256 cellar: :any,                 mojave:        "6d71751e65e4c7f368018a13f38fc7ae56db3174e567e353073aead6bfd6fb76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a6f887ab30ea9e828e60b7749272f4a460506e92340cd88134bcf2c699410d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a6f887ab30ea9e828e60b7749272f4a460506e92340cd88134bcf2c699410d8" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

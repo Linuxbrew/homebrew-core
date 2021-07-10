@@ -14,7 +14,7 @@ class Kytea < Formula
     sha256 sierra:        "d29c61f74da5f4d88f09d8b540943599ce8b6e5062af88b7d5725ea84fb4c603"
     sha256 el_capitan:    "3e0c66a7efb34ddb8e4f80d9b95562779e224271b8d63d38f9bc8176103427e2"
     sha256 yosemite:      "2f2dda314728cd74750db339ebc2d166b8b611ad54668cc3e7b6225d39aec3f5"
-    sha256 x86_64_linux:  "50c45c17af6949a560ddf4f06c24d9e9d70bc0fc34d53b42f0cbac50ea7b6abd"
+    sha256 x86_64_linux:  "50c45c17af6949a560ddf4f06c24d9e9d70bc0fc34d53b42f0cbac50ea7b6abd" # linuxbrew-core
   end
 
   head do

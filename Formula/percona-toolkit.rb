@@ -20,7 +20,7 @@ class PerconaToolkit < Formula
     sha256 cellar: :any,                 big_sur:       "8da16ad8dae9b642f959763c04f504e8e844f608ad34ecb5c47f8118acec5d81"
     sha256 cellar: :any,                 catalina:      "a4a756d4c47f72d67680d33eb3f6e179eb857d5d12aa90cfb4f665a9d7ff10b5"
     sha256 cellar: :any,                 mojave:        "d702da603979b5205d7e762e4b7e387a954dd1b987b982730de15b0c44a553ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d120bbb15023c149db002bac34737a88586277a9f150d6a50791aeda8f94eec4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d120bbb15023c149db002bac34737a88586277a9f150d6a50791aeda8f94eec4" # linuxbrew-core
   end
 
   depends_on "mysql-client"

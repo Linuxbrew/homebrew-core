@@ -15,7 +15,7 @@ class Geos < Formula
     sha256 cellar: :any,                 big_sur:       "763727a2a096dd9a5ba2735672f2ff2ee58c7c1efd8b2db8d79dc2e5e6989cbe"
     sha256 cellar: :any,                 catalina:      "6ebbc7afe80b38660e33be4b95a47654d0d4dc067b13076f1b88d06c52dd717a"
     sha256 cellar: :any,                 mojave:        "ff5f29ff0856fdc987c5338a066ddbaa2eb3e231ff1a87bc7c166be73dcac892"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9813cbfd46720c03d0c2f167a73fabdeaff3a595ed08f556ae4f79e4c45b18b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9813cbfd46720c03d0c2f167a73fabdeaff3a595ed08f556ae4f79e4c45b18b1" # linuxbrew-core
   end
 
   depends_on "swig" => :build

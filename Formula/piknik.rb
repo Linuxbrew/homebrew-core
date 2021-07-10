@@ -11,7 +11,7 @@ class Piknik < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "48b98419184b858ff308f4ed96f0ff001f757524c38705337a25adfb960a85ea"
     sha256 cellar: :any_skip_relocation, catalina:      "d454877b9f650eaa1fcd22ccad12c62a69d2ab21b48a16481d4be17067236233"
     sha256 cellar: :any_skip_relocation, mojave:        "8afe990d9ff9828b6148928d27c9535fd31b7f8082db341cf962dfbf1e895b96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85d3137bbbefdb903c7e15c7aceb3b48b081e553523907980d450c7640804513"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85d3137bbbefdb903c7e15c7aceb3b48b081e553523907980d450c7640804513" # linuxbrew-core
   end
 
   depends_on "go" => :build

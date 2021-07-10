@@ -11,7 +11,7 @@ class Rsnapshot < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "18ba069ea2a52a986acf2027299e9ae5d85593c011361e2448f3b54752e42078"
     sha256 cellar: :any_skip_relocation, catalina:      "9d5272a4186bd3d895a5491bac76e66e3cac54e906bf03022d6ea7ad421b8fd8"
     sha256 cellar: :any_skip_relocation, mojave:        "9d5272a4186bd3d895a5491bac76e66e3cac54e906bf03022d6ea7ad421b8fd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "167623261bb7075b7f2bd0c781c0ca08c081bb4f8ce4166cd3da6ce671575fe8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "167623261bb7075b7f2bd0c781c0ca08c081bb4f8ce4166cd3da6ce671575fe8" # linuxbrew-core
   end
 
   uses_from_macos "rsync" => :build

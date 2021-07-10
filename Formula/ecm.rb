@@ -20,7 +20,7 @@ class Ecm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "888612dee7486ca5413e2b1e0090a4e1bd5ea7f2fe5cc53fe02bb326ed4f3d4c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3ecb325a368ef42737e77003e9ecc13a8d402a34da3a25c039b36565fef0b55d"
     sha256 cellar: :any_skip_relocation, yosemite:      "9eef5eb54af2ad50ab05ee9382efe8d0ca831a6d058fe1fa2679cff87aa0a064"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0317499c49200f9441ac84077e6d84d00de074410fd2c33ac830f0c3421bdcf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0317499c49200f9441ac84077e6d84d00de074410fd2c33ac830f0c3421bdcf" # linuxbrew-core
   end
 
   def install

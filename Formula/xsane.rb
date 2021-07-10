@@ -16,7 +16,7 @@ class Xsane < Formula
     sha256 mojave:       "93064b6ec70657f6815a0aba5d52c8b7e54e9ef6f223c608351b790887c62b92"
     sha256 high_sierra:  "4242d28d56f5ed634f7f8632d41e441e1cbeaf60a362628796a436ba2f8eac11"
     sha256 sierra:       "f247067d49d44f8c0662cd64c99524f13c4b3a18ef7e49a19dd377bb449c859d"
-    sha256 x86_64_linux: "a2fc7f6f9ece41445c7806a0bbfa5eee7394c1ac7d88f8db30abfa264435b4ab"
+    sha256 x86_64_linux: "a2fc7f6f9ece41445c7806a0bbfa5eee7394c1ac7d88f8db30abfa264435b4ab" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

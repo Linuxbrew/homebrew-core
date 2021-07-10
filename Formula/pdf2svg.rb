@@ -11,7 +11,7 @@ class Pdf2svg < Formula
     sha256 cellar: :any, big_sur:       "3a8d825e70e419c4f7cc783d472eec8cd384764c351c131780c2a0b691cda24d"
     sha256 cellar: :any, catalina:      "a2af2e44c752994638edbd3aa7684290d116d20f1da2fe3e4490527be5b23bac"
     sha256 cellar: :any, mojave:        "b0cf8046c13335a16496cc5601af7a82f14b45c866cf9f3ae9072075ccc867fe"
-    sha256 cellar: :any, x86_64_linux:  "98a0e701b595abda653f23e02b7247c858b3ad8290ae70d4c562a1aa6f247e8f"
+    sha256 cellar: :any, x86_64_linux:  "98a0e701b595abda653f23e02b7247c858b3ad8290ae70d4c562a1aa6f247e8f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

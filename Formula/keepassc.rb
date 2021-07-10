@@ -11,7 +11,7 @@ class Keepassc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8ba0332d53b90b3922beae741ea4ef144610c633a5852050c60d7876a158c1c3"
     sha256 cellar: :any_skip_relocation, catalina:      "71632bb4ea2f91ca573ad5b52ddb233725b2c99b55866d743dda638e69b0c712"
     sha256 cellar: :any_skip_relocation, mojave:        "b2771b8b9ff6592959e6cde59e6f3f7fd30ad3380f8b2e84911179f1fb0bc3d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e822df0e78bd4aa028f7abe8936bebb37e0bc9636672ddd1fa092b2d26b96e67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e822df0e78bd4aa028f7abe8936bebb37e0bc9636672ddd1fa092b2d26b96e67" # linuxbrew-core
   end
 
   depends_on "python@3.9"

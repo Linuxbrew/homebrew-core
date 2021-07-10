@@ -19,7 +19,7 @@ class Minimodem < Formula
     sha256 cellar: :any, sierra:        "224fc001ea92a1df8133680c6eb9b6d659912d5e8ce84e8c12509a671538d8ae"
     sha256 cellar: :any, el_capitan:    "1539133df2fe9f85e8dcdf56e2a62d5ae116861e6dbc3b02e45680fbf8a467a9"
     sha256 cellar: :any, yosemite:      "ac39bf2ca304ce0f513a037193aca0850cf3cafddf17cd40a2ac047e5f051db7"
-    sha256 cellar: :any, x86_64_linux:  "d875b60eec4018cc99a07ad82ef486fd1f6e5ffa6836c7a59fff0c5adde8561f"
+    sha256 cellar: :any, x86_64_linux:  "d875b60eec4018cc99a07ad82ef486fd1f6e5ffa6836c7a59fff0c5adde8561f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

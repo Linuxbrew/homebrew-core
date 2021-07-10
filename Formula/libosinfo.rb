@@ -16,7 +16,7 @@ class Libosinfo < Formula
     sha256 big_sur:       "54aaddce26d9b06828248633b5e1eddfc670ec920c30fcf8bd8b2b7022e5243a"
     sha256 catalina:      "dbdc6c6b8c1135795a1d160976da8d7c6f95de6cbf0533731e602472330bf92d"
     sha256 mojave:        "b482b0cd02bf75b2d528cf2d691904ce85826512a0df03aa921564034eb4d1db"
-    sha256 x86_64_linux:  "5fe9ada21b9a50f0a189c59722f957cd727c563ad022f63c311ce41d8c5d2814"
+    sha256 x86_64_linux:  "5fe9ada21b9a50f0a189c59722f957cd727c563ad022f63c311ce41d8c5d2814" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

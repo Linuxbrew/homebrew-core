@@ -13,7 +13,7 @@ class Nbdime < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0dd0c2df3e9634ac0fa0017da2079375e97c775aa2d3d67136c7fd95085d3d44"
     sha256 cellar: :any_skip_relocation, catalina:      "a74a5ce9fa60c24db89ca343b20b41c872ca890f18305a28fc5e318903ea267d"
     sha256 cellar: :any_skip_relocation, mojave:        "f4925ca57d0fa45d7fb628a85d750e7259669840c360006717863a472035f76a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1f6b4a3f8762c5115ce8fe7c0cbc688b2aa8a5c2c7266e5e95218408074e54e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1f6b4a3f8762c5115ce8fe7c0cbc688b2aa8a5c2c7266e5e95218408074e54e" # linuxbrew-core
   end
 
   depends_on "python@3.9"

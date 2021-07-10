@@ -21,7 +21,7 @@ class Zlib < Formula
     sha256 cellar: :any, sierra:        "f822b4dbab4a15b889316b89248c7b4d15d6af9dc460bf209b9425b0accb7fa3"
     sha256 cellar: :any, el_capitan:    "3f912f6f1ce6c586128ebde29756c883b89409e652ca7aa9a29a773c2d4d0915"
     sha256 cellar: :any, yosemite:      "5b969eb38b90a3e31869586df9d62e59d359212b16c6a270aee690dd67caa491"
-    sha256 cellar: :any, x86_64_linux:  "6f604280b9e056da163b81cef3076b2e39bbd2b8d3cc8c36d27c19c472c760a4"
+    sha256 cellar: :any, x86_64_linux:  "6f604280b9e056da163b81cef3076b2e39bbd2b8d3cc8c36d27c19c472c760a4" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

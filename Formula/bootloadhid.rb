@@ -16,7 +16,7 @@ class Bootloadhid < Formula
     sha256 cellar: :any, catalina:      "aa0bc95a39610d6b5951d064d781d85b898ca2ebf230acbc60aa2f4e1f51e573"
     sha256 cellar: :any, mojave:        "36032498ab37f82f538d6aa037dac2b2f1c90f552ab5403f3e87c184bc47e75b"
     sha256 cellar: :any, high_sierra:   "59d545d65c052c2a62f171d4b6e92098a2725cb7c44997051e96863e30d26a03"
-    sha256 cellar: :any, x86_64_linux:  "c8108a1a45c76b9c9f1d366a8ccaeb28bc0fa8c915e7d9ad767176ad92632ba1"
+    sha256 cellar: :any, x86_64_linux:  "c8108a1a45c76b9c9f1d366a8ccaeb28bc0fa8c915e7d9ad767176ad92632ba1" # linuxbrew-core
   end
 
   depends_on "libusb-compat"

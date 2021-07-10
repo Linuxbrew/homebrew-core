@@ -12,7 +12,7 @@ class Pastebinit < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f24d4dbd9723f5726c7786af82cd16df86485ea3ae075906531f82d0544ec688"
     sha256 cellar: :any_skip_relocation, mojave:        "d2195934de64bf7814790b59d2429b90cb58e492f13f08430958b82ec3bd652d"
     sha256 cellar: :any_skip_relocation, high_sierra:   "4ca0432c7652ab49ee0f61823335d0e0ea70caaf220f4654291406dcb425cd23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2b65d2fe25cf3a5d8ed4f1ed5687f531c6a90b164567ccaa89d0f0d78fc3370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2b65d2fe25cf3a5d8ed4f1ed5687f531c6a90b164567ccaa89d0f0d78fc3370" # linuxbrew-core
   end
 
   depends_on "docbook2x" => :build

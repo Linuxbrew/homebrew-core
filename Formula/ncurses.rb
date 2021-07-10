@@ -12,7 +12,7 @@ class Ncurses < Formula
     sha256 big_sur:       "37587c0fbfd02b432e8a65522feadbb865fb754c3fe911b3a584abafb0f0effb"
     sha256 catalina:      "225b8df20eb79a762ea5163fb020c055a804d2c3289c676daa9277cc0c55f76f"
     sha256 mojave:        "66e1c57db9437cca11a5d6248e148a5ec00bbb0522c0d45b4fa3a95d5eba9783"
-    sha256 x86_64_linux:  "7bbb5beecaf8a534c2b6e31c0327908dc17862bb78cb97f269701c8384e4c0e2"
+    sha256 x86_64_linux:  "7bbb5beecaf8a534c2b6e31c0327908dc17862bb78cb97f269701c8384e4c0e2" # linuxbrew-core
   end
 
   keg_only :provided_by_macos

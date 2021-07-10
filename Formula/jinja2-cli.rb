@@ -14,7 +14,7 @@ class Jinja2Cli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f87af5f900907686304e0937303eadeb5050d48e3ae85c340ec39e8918177d1e"
     sha256 cellar: :any_skip_relocation, mojave:        "a64bc73445720cf2a272854643c6f66aa0dfec769bd96f292b134054d5b1f84a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "6ae50d5282b186cbf0a8b46b44a173a685a8798fec0606efc6d15bccae9b6a92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "815e04d4d0a41e12add189de22318fef1c1484a02f9f43b3398f7faa509f66e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "815e04d4d0a41e12add189de22318fef1c1484a02f9f43b3398f7faa509f66e2" # linuxbrew-core
   end
 
   depends_on "python@3.9"

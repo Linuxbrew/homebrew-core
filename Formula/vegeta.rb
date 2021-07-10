@@ -11,7 +11,7 @@ class Vegeta < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "63b383f4cdff26cc0bf4ba3e24a84ea6d7485a9a61fe49ac62b09f39c5f01e13"
     sha256 cellar: :any_skip_relocation, mojave:        "76e2d89891ecee0bfa07e939619683cae2d954bca2c5524a6e87b84c105c6c25"
     sha256 cellar: :any_skip_relocation, high_sierra:   "df3853752133b68c20a9d054c12d36d531779fe595bc6011bb1e2d3245e9df2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc6ae4daca501e6c037d90b2a9d896fca2053ae8dc3851c335c38f373b59077f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc6ae4daca501e6c037d90b2a9d896fca2053ae8dc3851c335c38f373b59077f" # linuxbrew-core
   end
 
   depends_on "go" => :build

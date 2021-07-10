@@ -14,6 +14,7 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
     sha256 cellar: :any_skip_relocation, catalina:      "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
     sha256 cellar: :any_skip_relocation, mojave:        "df0790f33e2fc35de6454f038789eeeb51db774ff1c96f1fdf73da2291b13d64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c5d5f054b1399bb5cdf22aab604873d00a11e5020ffd2427beec08da39fbb0" # linuxbrew-core
   end
 
   depends_on "ronn" => :build

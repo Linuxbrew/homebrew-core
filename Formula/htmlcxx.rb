@@ -11,7 +11,7 @@ class Htmlcxx < Formula
     sha256 mojave:        "e910595c43c028e25e0e0a44203e3c95b229162ea89678721b4a7f6e22974aca"
     sha256 high_sierra:   "062a4b1629ab6f28e59ef0ea15c257c8bfd9e3646f3342fbfe14268727be7649"
     sha256 sierra:        "4407cb1a50e8d629db9b93bdbbbf2a0892967611f7e579c49c0d084769f8a5ca"
-    sha256 x86_64_linux:  "d666adb3eb7e4df1b46006f93b790fdaed21e086e95efc4595af6ec0c6368de6"
+    sha256 x86_64_linux:  "d666adb3eb7e4df1b46006f93b790fdaed21e086e95efc4595af6ec0c6368de6" # linuxbrew-core
   end
 
   def install

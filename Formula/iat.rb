@@ -14,7 +14,7 @@ class Iat < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "97d378d0b0ee8bb685272d126a54c833ad8d9f7f3ab34631198d054d2f1d0bdf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "baadc7c40697b28b46c7541d617f65ee318b78efbdc4156c6527490616fd2dee"
     sha256 cellar: :any_skip_relocation, yosemite:      "db517ebd84afdeabaf2e130faccb88f33f359d13eab3bfbb5e19013051ca7827"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2149efe2c6da5e0a493d0bc19ca608663b87467d7312534357c681559597c99a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2149efe2c6da5e0a493d0bc19ca608663b87467d7312534357c681559597c99a" # linuxbrew-core
   end
 
   def install

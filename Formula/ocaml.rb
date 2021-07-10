@@ -28,7 +28,7 @@ class Ocaml < Formula
     sha256 cellar: :any,                 big_sur:       "98ee5c246e559e6d494ce7e2927a8a4c11ff3c47c26d7a2da19053ba97aa6158"
     sha256 cellar: :any,                 catalina:      "f1f72000415627bc8ea540dffc7fd29c2d7ebc41c70e76b03a994c7e6e746284"
     sha256 cellar: :any,                 mojave:        "9badb226c3d92ae196c9a2922c73075eaa45ee90f3c9b06180e29706e95f2f0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "779e6f230c29dd6ef71ec70e83fea42168c097c720c0a4d4b1ae34ab6e58be74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "779e6f230c29dd6ef71ec70e83fea42168c097c720c0a4d4b1ae34ab6e58be74" # linuxbrew-core
   end
 
   pour_bottle? do

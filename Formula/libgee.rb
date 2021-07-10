@@ -10,7 +10,7 @@ class Libgee < Formula
     sha256 cellar: :any,                 big_sur:       "0e8f110c3e14f4c45142ad2b215a803b70353e13429a73650e0641cfcda986d5"
     sha256 cellar: :any,                 catalina:      "ce00019f9ca5b8dc93081d84d99b4587a66a3d87b726080ead7323bbec65f417"
     sha256 cellar: :any,                 mojave:        "2d77bae2c373c426ae17050025de1ff6183e84673ebfa144c433a45cdbff8781"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24e94b27dd0602b6595147b85f9037c6ce80727557f08cd8687f240f7a1d0f01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24e94b27dd0602b6595147b85f9037c6ce80727557f08cd8687f240f7a1d0f01" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

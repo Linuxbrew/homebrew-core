@@ -15,7 +15,7 @@ class PythonAT38 < Formula
     sha256 big_sur:       "89be87388c1e29e0746891417c13d79d71294ddb78d494f1951d75109644d2cc"
     sha256 catalina:      "6b74a3eb7a76afb1efd89b6fa9995010bd2f36fa73b672b0b2c68ae8a0950431"
     sha256 mojave:        "f4ac46df3d769cbd28bb1b19457d7cb535575a06609a4f52ce8f37d32900e23c"
-    sha256 x86_64_linux:  "76720b04883ab41c6fdc544336ffc02f359dfb86b89b132404cf2a2de347ca34"
+    sha256 x86_64_linux:  "76720b04883ab41c6fdc544336ffc02f359dfb86b89b132404cf2a2de347ca34" # linuxbrew-core
   end
 
   # setuptools remembers the build flags python is built with and uses them to

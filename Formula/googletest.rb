@@ -10,7 +10,7 @@ class Googletest < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7ff36ee689017d9f973acbc0407eaf8135d983028e85d1e6375a6a144c829e7e"
     sha256 cellar: :any_skip_relocation, catalina:      "38290ffd89c69da85af50bb3e1c1e670440b59a342865a64ce50b7abb1e424aa"
     sha256 cellar: :any_skip_relocation, mojave:        "0581f86b3dd88e39339b4cf3b6b0174109491e2d4aa97cd49369381c6611cff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "480aeaef2d3a550f7d3b0dfa8e42a19dbc74d525f7829f6ba5f81dffa80c934e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "480aeaef2d3a550f7d3b0dfa8e42a19dbc74d525f7829f6ba5f81dffa80c934e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

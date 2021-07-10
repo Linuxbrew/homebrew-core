@@ -12,7 +12,7 @@ class YamlCpp < Formula
     sha256 cellar: :any, catalina:      "7cb356c020e5e1f2a32d5b2721516b9079cc4518556a0344fd498df6abe04731"
     sha256 cellar: :any, mojave:        "ab76f2d444f7948c73f102588d079e4a3a0c758974f42cec1bffa31e80ca7bff"
     sha256 cellar: :any, high_sierra:   "824351b703802346eeb47a3a0acdbf438327cc1cb77ef4a342493a938574c6d6"
-    sha256 cellar: :any, x86_64_linux:  "1b156beecfaa03bcd03512a5074cacd6d7eaaf4767fa8232badcd7c2edab6c95"
+    sha256 cellar: :any, x86_64_linux:  "1b156beecfaa03bcd03512a5074cacd6d7eaaf4767fa8232badcd7c2edab6c95" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -11,7 +11,7 @@ class MonoLibgdiplus < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "251d2f8b3f0aefe6678a1e34288cdcdc160410dc4b3b555d08cf58d01f9c37a0"
     sha256 cellar: :any_skip_relocation, catalina:      "d72a67f877199f82b096a47a19b071414581fed3160f62942dcbe21804fb29b7"
     sha256 cellar: :any_skip_relocation, mojave:        "c865c0d6aac91e8293d951a1c7d278bc8d64cba7babab1dc60f9fc198b6649fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20374099db339cef2e40355e8ac47a8371feae21331121f7658f5fc1092a6574"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20374099db339cef2e40355e8ac47a8371feae21331121f7658f5fc1092a6574" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

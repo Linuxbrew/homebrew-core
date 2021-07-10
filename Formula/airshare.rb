@@ -14,7 +14,7 @@ class Airshare < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "cecb1498d53e6df78f346438b5d529e1c025b870a5f7875afe71252deacfcd96"
     sha256 cellar: :any_skip_relocation, mojave:        "e4d1b234885a01532858807ef6a4d0f90f674b170467787cce956b017bd03d67"
     sha256 cellar: :any_skip_relocation, high_sierra:   "faecb7b21748d1ffe0c4b3a56ba50ee8c0a27aa82efde69cabe1e5d52d951455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4226c338d900ab1d41f8a5858402be572f61abc2b7c768b6edc17a21deaf889f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4226c338d900ab1d41f8a5858402be572f61abc2b7c768b6edc17a21deaf889f" # linuxbrew-core
   end
 
   depends_on "python@3.9"

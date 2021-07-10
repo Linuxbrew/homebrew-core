@@ -11,7 +11,7 @@ class SSearch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "eb100ff43d035ef125fbaba324bff3173249825ff7defb2aadf6696b5a79ad98"
     sha256 cellar: :any_skip_relocation, catalina:      "83cd7b0c28cd0d03cd46df22bfcf48394fdcaba87f206e221752f926c7375810"
     sha256 cellar: :any_skip_relocation, mojave:        "0c1c930da14bc0dd0f01778b949b94d1344bb213ed8f33cdbef7b62fbdd11175"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ad5a462bbb7e6fece50c34c40a887b2fe4ba6cff29dda0b10f12dda694612ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ad5a462bbb7e6fece50c34c40a887b2fe4ba6cff29dda0b10f12dda694612ab" # linuxbrew-core
   end
 
   depends_on "go" => :build

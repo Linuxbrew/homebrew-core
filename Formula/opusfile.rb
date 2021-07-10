@@ -11,7 +11,7 @@ class Opusfile < Formula
     sha256 cellar: :any, catalina:      "c43c50e65738c25ef72af85e5509577314764c3dad0fb4c122704591d6f3a515"
     sha256 cellar: :any, mojave:        "8754dfcc9abec5de74e8cd7af31614c06e8208bd623f9ad5446048ad14218a97"
     sha256 cellar: :any, high_sierra:   "ff718107c425123a06270b62aa9a7bd3fee4f785d03dac21a58f7059720be22b"
-    sha256 cellar: :any, x86_64_linux:  "e0fdfbd4ea8d99b3ea0f2b574ac04edc1a3e9eea21ed7820dfe5641e5ba680cb"
+    sha256 cellar: :any, x86_64_linux:  "e0fdfbd4ea8d99b3ea0f2b574ac04edc1a3e9eea21ed7820dfe5641e5ba680cb" # linuxbrew-core
   end
 
   head do

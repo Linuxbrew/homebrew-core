@@ -2,11 +2,12 @@ class Icecast < Formula
   desc "Streaming MP3 audio server"
   homepage "https://icecast.org/"
   url "https://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.4.4.tar.gz"
   sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
   revision 1
 
   livecheck do
-    url "https://downloads.xiph.org/releases/icecast/"
+    url "https://ftp.osuosl.org/pub/xiph/releases/icecast/?C=M&O=D"
     regex(/href=.*?icecast[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -16,7 +17,7 @@ class Icecast < Formula
     sha256 cellar: :any, catalina:      "824f7d295c28fbdb17da3015b4e4d6ca76be536f6bf81e98d5312dd7b9a095cd"
     sha256 cellar: :any, mojave:        "3fb3b8c1e995a9c39a56ecd91a42cc0187f3bb2541c1abb4d0b7fc922da9cb95"
     sha256 cellar: :any, high_sierra:   "a498fdc056b3afbb14b3138586f5dca3b0c1bae523c909c0b9383d5c5f4b02ca"
-    sha256 cellar: :any, x86_64_linux:  "98232faae6c7e3be7395e0193d401493d6cfcc410041e07a7357414061832f8c"
+    sha256 cellar: :any, x86_64_linux:  "98232faae6c7e3be7395e0193d401493d6cfcc410041e07a7357414061832f8c" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

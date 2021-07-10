@@ -12,7 +12,7 @@ class Calceph < Formula
     sha256 cellar: :any,                 catalina:      "2ce6fa8b2b26b317a0bb5896a7bbb8a492d85788f2f7eda43cac8cc2dde7a3a4"
     sha256 cellar: :any,                 mojave:        "6fe017217defc0a4746d5881f8ced6f2ae0af262f0fa6aef33c94721f45b1742"
     sha256 cellar: :any,                 high_sierra:   "8b2a7955298fe618abe12328de07a6c991a47d15805b27f11f2df2f0bf88de0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02064539591c0c83d6f006fc2938a39bead9db4bc9aadd76d7b4376026bf24b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02064539591c0c83d6f006fc2938a39bead9db4bc9aadd76d7b4376026bf24b8" # linuxbrew-core
   end
 
   depends_on "gcc" # for gfortran

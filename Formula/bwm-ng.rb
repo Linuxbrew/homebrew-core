@@ -11,7 +11,7 @@ class BwmNg < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "174c1fe863ea893c778909824972bebf6691c399076db4ca638dc2cee3b8c065"
     sha256 cellar: :any_skip_relocation, catalina:      "8ece99c9c9349e80ac741aa8beafc3ea77ae62035279ed5da0c79d201d762882"
     sha256 cellar: :any_skip_relocation, mojave:        "34ce809be16ab1eef9106643f22ff223a8da78a6c8336bd86e14dd41dccbec09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be6414d637e4696e28ca4a8050a0084b03f034d4220c09b8886ef3f25aabd39d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be6414d637e4696e28ca4a8050a0084b03f034d4220c09b8886ef3f25aabd39d" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

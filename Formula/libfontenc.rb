@@ -11,7 +11,7 @@ class Libfontenc < Formula
     sha256 cellar: :any, catalina:      "b57f18c5d875f7ceded9115cd1971be92a3c3887c7c606ff5028ea1ddb160b1c"
     sha256 cellar: :any, mojave:        "e79ca92c5f40a57da0b5745df2eb64fe532e90bbf292e4d97a4703d5b0e15791"
     sha256 cellar: :any, high_sierra:   "83bf803c71ed38edf5204ee3bdd89f6569c4c04a41c64003f20ab67b7021f2f2"
-    sha256 cellar: :any, x86_64_linux:  "2c5730e58b858a95e7ce321eb5d524927e1d99088751b1477ef93993406bd05f"
+    sha256 cellar: :any, x86_64_linux:  "2c5730e58b858a95e7ce321eb5d524927e1d99088751b1477ef93993406bd05f" # linuxbrew-core
   end
 
   depends_on "font-util" => :build

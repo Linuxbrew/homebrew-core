@@ -15,7 +15,7 @@ class MrubyCli < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d436b8d717f89db9807338345f4b0f385abcfc45f56e9b0b7decc333d4d05ad6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2f56375783e9365bafc0868d505b54eea315f6dad9a0095decbbd61abeb345ac"
     sha256 cellar: :any_skip_relocation, yosemite:      "a06806ca6a22d3b015e073a984e832013f2efe729870e2aa6d0b17e91a4b9855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfaf57d03ecbe0808ebe58fd1cd3b1d9f3204634660928dab1f8b2506f14c044"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfaf57d03ecbe0808ebe58fd1cd3b1d9f3204634660928dab1f8b2506f14c044" # linuxbrew-core
   end
 
   uses_from_macos "bison" => :build

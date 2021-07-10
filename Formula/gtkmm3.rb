@@ -15,7 +15,7 @@ class Gtkmm3 < Formula
     sha256 cellar: :any,                 big_sur:       "8d16cc9c24d41df916fc4018cd1a678cd99612583dd15afe553baeda150d784e"
     sha256 cellar: :any,                 catalina:      "a029910a18eb883a7e02551a5b0e35696497a6fcafd5df4c03e32ca4a9583f58"
     sha256 cellar: :any,                 mojave:        "52e930043442ed8c29c081c111d4f8e645744c07c4ef8f29bdbec9b1bb512371"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3a70e7c52fc5c7d1375f30301e678322f260737ca5e32dfa237098ec18cf63f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3a70e7c52fc5c7d1375f30301e678322f260737ca5e32dfa237098ec18cf63f" # linuxbrew-core
   end
 
   depends_on "meson" => :build

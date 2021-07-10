@@ -12,7 +12,7 @@ class Roll < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c1c2251d5ac3b6a03065877f6c211f326909c7710f85441adf0d9987815b6c35"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0fe1da205f9d37a29489ac8b437cefcd915041c47ddf95cae577369b46d8d7ea"
     sha256 cellar: :any_skip_relocation, sierra:        "f9c7a833dad6d95fe4ee83fccf0890f49dee962e9965a624cf5d483d86c72eab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd26ee1e182d5ca6b4a4d52c251a88a688cf6b0b9ab490961844d6a071eb7f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd26ee1e182d5ca6b4a4d52c251a88a688cf6b0b9ab490961844d6a071eb7f6" # linuxbrew-core
   end
 
   head do

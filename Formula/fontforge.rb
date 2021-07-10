@@ -11,7 +11,7 @@ class Fontforge < Formula
     sha256 big_sur:       "20f92c9d7e6405ca51bdf9f9a2f0216b527bd78e38c2c3bedecbfab3eeb12747"
     sha256 catalina:      "de48bd3b27ae91d21b8f7d8724cf2b9100683bf02db99794bcd9d9c4ca3483de"
     sha256 mojave:        "fc6b9c92f02f1e01d8850bfb595dad4f18faf2c3ba079d7bf8084699ec006d53"
-    sha256 x86_64_linux:  "0e697156dcb81374aa34a80b1cd3d5b7723e034830219831ac6e4ad97e81124c"
+    sha256 x86_64_linux:  "0e697156dcb81374aa34a80b1cd3d5b7723e034830219831ac6e4ad97e81124c" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

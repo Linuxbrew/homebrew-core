@@ -11,7 +11,7 @@ class Latexdiff < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "8eb979b1b52125f102bbc56bbc4611d5b8075f003318307a2205485d95c789aa"
     sha256 cellar: :any_skip_relocation, mojave:        "8eb979b1b52125f102bbc56bbc4611d5b8075f003318307a2205485d95c789aa"
     sha256 cellar: :any_skip_relocation, high_sierra:   "8eb979b1b52125f102bbc56bbc4611d5b8075f003318307a2205485d95c789aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9cb7732a465de6fa6084717b20e21bcb708fbe55e46c847eabbc9613871fbae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9cb7732a465de6fa6084717b20e21bcb708fbe55e46c847eabbc9613871fbae" # linuxbrew-core
   end
 
   # osx default perl cause compilation error

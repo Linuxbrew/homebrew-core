@@ -17,7 +17,7 @@ class Openconnect < Formula
     sha256 catalina:      "b4144970e695adc8f049319408cd431c96eb2ca4714feb903e0f01f3926dfd1f"
     sha256 mojave:        "5f4d9cb8a0a39983205bad4e1e6d7a2ae586f0725571fa83eac6421b8d6f4b9a"
     sha256 high_sierra:   "4d306766b4a334c7dcc8497b0684005c9011cd8913131b25bae2f56f3b3217d1"
-    sha256 x86_64_linux:  "b4142a28d9d0134600ee58a2d6f2001bacfda6d1c572a55e12d52a0b4b4e7ba0"
+    sha256 x86_64_linux:  "b4142a28d9d0134600ee58a2d6f2001bacfda6d1c572a55e12d52a0b4b4e7ba0" # linuxbrew-core
   end
 
   head do

@@ -13,7 +13,7 @@ class Fx < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e3af18a1b48a38407825a2d3ffe3bf60ecd9ac37b7762d3cdcb0ebbad29d7c9c"
     sha256 cellar: :any_skip_relocation, mojave:        "df7a7fd00f429e4db18d0efe676f9ed081efc4175dccb0f59c20e97b87e1bb0a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "be1769bcf8dea3bd6db0237948e500334a6813fbfbab34c90eedbbe9518df838"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "618a61044c2154fa5630cb7446e24b6584ecbd81af814f448db8edea6a2599a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "618a61044c2154fa5630cb7446e24b6584ecbd81af814f448db8edea6a2599a3" # linuxbrew-core
   end
 
   depends_on "node"

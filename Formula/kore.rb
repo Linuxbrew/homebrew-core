@@ -16,7 +16,7 @@ class Kore < Formula
     sha256 big_sur:       "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
     sha256 catalina:      "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
     sha256 mojave:        "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
-    sha256 x86_64_linux:  "f600b8b3e36b6f64e6adf05441d8a73e01d78915c30d27eb9ec680f7a684ec3e"
+    sha256 x86_64_linux:  "f600b8b3e36b6f64e6adf05441d8a73e01d78915c30d27eb9ec680f7a684ec3e" # linuxbrew-core
   end
 
   depends_on macos: :sierra # needs clock_gettime

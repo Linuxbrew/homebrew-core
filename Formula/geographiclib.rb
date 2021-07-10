@@ -10,7 +10,7 @@ class Geographiclib < Formula
     sha256 cellar: :any,                 big_sur:       "13facfd20eec2fe0a6ad291a0090a4e66b38e74830306b69cca5ac54674c0072"
     sha256 cellar: :any,                 catalina:      "beeca9653f64dc20bdd907fdeae179d53c9b1cf58590b452f5f02f1d70a7905b"
     sha256 cellar: :any,                 mojave:        "c10d4bb46beafe818efa240b7dd7916e0dc2a9567dcef0a26823e564e1e679b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "accb1d1f54f636d5a410f4d0ec9ce6a268e74f20d8d428dcf1acc95fcc8d5b37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "accb1d1f54f636d5a410f4d0ec9ce6a268e74f20d8d428dcf1acc95fcc8d5b37" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

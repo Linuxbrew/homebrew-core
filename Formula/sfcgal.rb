@@ -10,7 +10,7 @@ class Sfcgal < Formula
     sha256                               big_sur:       "d3db5932f5c16c7612a3491fe635aede4c3fdba1dcf4fb46641e13a42bb8242d"
     sha256                               catalina:      "12100fd5f5f69e3a4c3f2bb02190805a8189c3a37d86cf5c915e82dddc7bc239"
     sha256                               mojave:        "125b86231c3f94ab06cb9d300366934d4d168d314c46355399ae9c6711ba9d95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12874cd89693b3e4f1ed8ddfa8d4951b35576278f0494a4d104ed918c7ee9a3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12874cd89693b3e4f1ed8ddfa8d4951b35576278f0494a4d104ed918c7ee9a3e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

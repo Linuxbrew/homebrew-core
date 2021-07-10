@@ -10,7 +10,7 @@ class Detox < Formula
     sha256 big_sur:       "9d468f782f96d667d59892911dc1fa7ef7b40b3f0410d46c3a75147c8a5b886b"
     sha256 catalina:      "83987429b9b768b6559420dd4656603ab6c963785e87bffd02a61e2be6557393"
     sha256 mojave:        "a371814287b76ac37a6f24a719da41d5fb7d4215a2be548b075c706b1f670165"
-    sha256 x86_64_linux:  "6f8bea4df45be422bd3c0d2cf6f92aa3bc688f015cf13cee6147bea29409dee9"
+    sha256 x86_64_linux:  "6f8bea4df45be422bd3c0d2cf6f92aa3bc688f015cf13cee6147bea29409dee9" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

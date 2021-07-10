@@ -19,7 +19,7 @@ class Rust < Formula
     sha256 cellar: :any,                 big_sur:       "e6147d6ca4c244701b3f2cefd473083678834111ae3db499c86a7ceab257967c"
     sha256 cellar: :any,                 catalina:      "aef878e07eba19a1ffa38a3d766344cae6f9acafc85c1d8dc375255c02e8d791"
     sha256 cellar: :any,                 mojave:        "998b27b5b81d1aa3283cec32fd5d7a17e7b98e10cd06a661d21653541e3a0bce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a41feea6cba38386d909498708c0461460fbfee5b1062868719e42b629361e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a41feea6cba38386d909498708c0461460fbfee5b1062868719e42b629361e6" # linuxbrew-core
   end
 
   head do

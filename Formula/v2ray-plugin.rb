@@ -17,7 +17,7 @@ class V2rayPlugin < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "891f541e150a393ff20caa78eb79ef12f60929fb9e5b35826e2e639c46a61dc2"
     sha256 cellar: :any_skip_relocation, mojave:        "cb8ff7b812aa561f9e23935461968ba1c26cbe393c599aab4e1753b37702748b"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f11b330c3dc9c445b757188057c93ce94de89f03f4adfa1a8c6405f5ba66b400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f166878ef3c67edc8db5f733ce4efce0ab1112fd9e41d8efc80bc595065fef7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f166878ef3c67edc8db5f733ce4efce0ab1112fd9e41d8efc80bc595065fef7" # linuxbrew-core
   end
 
   depends_on "go" => :build

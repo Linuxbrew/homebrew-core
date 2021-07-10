@@ -14,7 +14,7 @@ class Mp4v2 < Formula
     sha256 cellar: :any, sierra:        "6cab2b32c845f6d54cdb8d64c558126cec39c27fb77a92f204bb8abda1c0ccfa"
     sha256 cellar: :any, el_capitan:    "52d299e61126db288d73a3e6e8b40c3eff25af1c7498c4a74787dce2dda02e9a"
     sha256 cellar: :any, yosemite:      "14ca4b71690959d461d41b4338be70005de4553566996677f973094c1a56c3fb"
-    sha256 cellar: :any, x86_64_linux:  "e743564b2a70c091cc630f159ebde181c6a84d4674270d0e6bab6d5cfff73824"
+    sha256 cellar: :any, x86_64_linux:  "e743564b2a70c091cc630f159ebde181c6a84d4674270d0e6bab6d5cfff73824" # linuxbrew-core
   end
 
   conflicts_with "bento4",

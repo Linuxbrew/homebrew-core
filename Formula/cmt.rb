@@ -13,7 +13,7 @@ class Cmt < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "22ba275206a22888107bf70ec7a9e53a74f1dc5daf66349a979dadfc174d99ff"
     sha256 cellar: :any_skip_relocation, catalina:      "350dea5c83e8b86cdba45f71fafcd0b8cf98c1a2e229a6d7ac51d8c7b679c38e"
     sha256 cellar: :any_skip_relocation, mojave:        "ee763541c32889f0840a7c143972ba194eeafdbbbfa38008a8dd2e851f2382b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f2c199fc5c9d4304d7b9e065261242a5050c3331fc0df7d9e667d4dd220fdf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f2c199fc5c9d4304d7b9e065261242a5050c3331fc0df7d9e667d4dd220fdf5" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

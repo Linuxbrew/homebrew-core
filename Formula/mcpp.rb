@@ -19,7 +19,7 @@ class Mcpp < Formula
     sha256 cellar: :any, sierra:        "cdd368c63dc6403832c938967f8f099ec3d02acfcc5c75ab0426ad1cd213b045"
     sha256 cellar: :any, el_capitan:    "0be73930b3dbc8bc247c9a26acbc6115d3f5f665daaabc9ab64606ac6793ace9"
     sha256 cellar: :any, yosemite:      "612e3efb23a8165af204338a20bbc27ae8fa2ad345964c24d2d7a206dee0317a"
-    sha256 cellar: :any, x86_64_linux:  "f8af0116d15fe470f61cc471bc81baf0f3ff565557121e92bdf22fd470fb5343"
+    sha256 cellar: :any, x86_64_linux:  "f8af0116d15fe470f61cc471bc81baf0f3ff565557121e92bdf22fd470fb5343" # linuxbrew-core
   end
 
   # stpcpy is a macro on macOS; trying to define it as an extern is invalid.

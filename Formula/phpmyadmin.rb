@@ -14,6 +14,7 @@ class Phpmyadmin < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3cfa3633d65f13cc01ea68e30138f4cba9d11f0f2335db7c92b49e441e80e76f"
     sha256 cellar: :any_skip_relocation, catalina:      "3cfa3633d65f13cc01ea68e30138f4cba9d11f0f2335db7c92b49e441e80e76f"
     sha256 cellar: :any_skip_relocation, mojave:        "3cfa3633d65f13cc01ea68e30138f4cba9d11f0f2335db7c92b49e441e80e76f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f08308ccb87cc6aee145cccb50e07755b88a020c3b589770d9c28d320d11c73" # linuxbrew-core
   end
 
   depends_on "php" => :test

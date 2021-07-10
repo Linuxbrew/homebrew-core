@@ -12,7 +12,7 @@ class Nuvie < Formula
     sha256 cellar: :any, catalina:      "286980f2c5b977f355d59bf2b10366b3c38613764b66707852e2934649089bc6"
     sha256 cellar: :any, mojave:        "b1cefbd62e4b350d330853e14f789cc0b137c19b434271d1837114e10a73b0ca"
     sha256 cellar: :any, high_sierra:   "f066beb078dd00f4b339ce25b7ff06dadd6ddf62283008ee149d2758c80e439b"
-    sha256 cellar: :any, x86_64_linux:  "e08e736585cbba3cdff386005e00fddf44c03698e80b82eb2cc53bb4926721d5"
+    sha256 cellar: :any, x86_64_linux:  "e08e736585cbba3cdff386005e00fddf44c03698e80b82eb2cc53bb4926721d5" # linuxbrew-core
   end
 
   head do

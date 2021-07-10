@@ -8,8 +8,8 @@ class Php < Formula
   license "PHP-3.01"
 
   livecheck do
-    url "https://www.php.net/releases/feed.php"
-    regex(/PHP (\d+(?:\.\d+)+) /i)
+    url "https://www.php.net/downloads"
+    regex(/href=.*?php[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -17,7 +17,7 @@ class Php < Formula
     sha256 big_sur:       "77146557ba689b4ce48444373dcf03049975bf8fdfdd01016ed387b38b27d0dd"
     sha256 catalina:      "021716acf25dcf5361ad7b43278cb25feb69ca34adc61d1265dd458bd6911536"
     sha256 mojave:        "585c63043fe2c852c63b9f9b8899ab8d4c13660e2f7beaece085888372458625"
-    sha256 x86_64_linux:  "ba3aefba608e2d9dfa3a4bae6a94452d2f666bf0d7372202e66e4cfe12045c25"
+    sha256 x86_64_linux:  "ba3aefba608e2d9dfa3a4bae6a94452d2f666bf0d7372202e66e4cfe12045c25" # linuxbrew-core
   end
 
   head do

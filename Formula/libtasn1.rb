@@ -11,7 +11,7 @@ class Libtasn1 < Formula
     sha256 cellar: :any,                 big_sur:       "a045a7b16828e7c18bad248feb37207815daea23ff313c1cd6e94e94b222bb73"
     sha256 cellar: :any,                 catalina:      "0b0b6a4b18ff4aef03772082d153be836b406af22e678a0b61553c70fdf95f10"
     sha256 cellar: :any,                 mojave:        "73201deae5a10cd4b4125b4a7c811f48ed861cd6fe2f82d69fed6003115d7bef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac4599c1f1a9b4858cbf688524cbdec6c412004b447102c034662781e0d96481"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac4599c1f1a9b4858cbf688524cbdec6c412004b447102c034662781e0d96481" # linuxbrew-core
   end
 
   def install

@@ -11,7 +11,7 @@ class Libxdamage < Formula
     sha256 cellar: :any, catalina:      "2c09f29dfafe280bc0179dfe6ad82b623459e6bec07fefac41cf6b3e52385100"
     sha256 cellar: :any, mojave:        "ea0aee131addc90c4b4ba6e0d8c4f8cdfd39dc034a7bfc3e841c408042ad8906"
     sha256 cellar: :any, high_sierra:   "5c0ca5debb8c99cfed432fa2299e4a280ca81f8988aaacf44e0c0194d89ca7ac"
-    sha256 cellar: :any, x86_64_linux:  "bfc0ac85f89a4dcc1e94991bef37212d55607dc7c7b9708f3a1845ee9b456c4f"
+    sha256 cellar: :any, x86_64_linux:  "bfc0ac85f89a4dcc1e94991bef37212d55607dc7c7b9708f3a1845ee9b456c4f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

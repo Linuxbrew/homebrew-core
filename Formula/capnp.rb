@@ -17,7 +17,7 @@ class Capnp < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "741c2079361cdb5881a60684190bc4aa98ff9cc6f8d29aa46880e809ac1b06c3"
     sha256 cellar: :any_skip_relocation, mojave:        "f389012b8211b70af4fa7d2eed8db8ad399ef2bdc98e286fb57a4b1beb93dfe4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "9c3beb8d8db3b372e4d2fd07d99a553fde6ff53824c6cfec82c3db41e212bc5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db7f26f75d26566d62caebd676bef134040fbf97d3129d63594b59bb28eef3ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db7f26f75d26566d62caebd676bef134040fbf97d3129d63594b59bb28eef3ba" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

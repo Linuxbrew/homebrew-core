@@ -10,7 +10,7 @@ class Mdbtools < Formula
     sha256 cellar: :any,                 big_sur:       "77eae2542ef7523274d698928adaafb36b5cdb46979795139100eb4bf9467e82"
     sha256 cellar: :any,                 catalina:      "70e32cec43c27bdc76420adf8b6dceedc8f0919ddbbcc7e3f8fa09412a0a403a"
     sha256 cellar: :any,                 mojave:        "741015282fc3fc0d6694afbaf3c3318e5a024cd4628bd572abf9a6ef649ccc0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11389a71085ebf10be8fef81d0222daeefb6afa67091db94c88c3b1e0794428d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11389a71085ebf10be8fef81d0222daeefb6afa67091db94c88c3b1e0794428d" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

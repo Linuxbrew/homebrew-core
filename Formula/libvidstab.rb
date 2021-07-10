@@ -12,7 +12,7 @@ class Libvidstab < Formula
     sha256 cellar: :any, catalina:      "df23e5e7933b6535f34c429ee8286e4d9dec6d0a2349cf3256f44ec687e7968f"
     sha256 cellar: :any, mojave:        "783224577a1cc7a57de76eac74b00aac69e7fe15c920d26454e58a369854974f"
     sha256 cellar: :any, high_sierra:   "d3a80889cbeaa5a8af0abc5037c35afefb181e902b79f4f986a6b4c4e29d88a5"
-    sha256 cellar: :any, x86_64_linux:  "b9abe047030f2324a41417a230e940be60bf1fa9440aba4b082cdd94dba2e9ab"
+    sha256 cellar: :any, x86_64_linux:  "b9abe047030f2324a41417a230e940be60bf1fa9440aba4b082cdd94dba2e9ab" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

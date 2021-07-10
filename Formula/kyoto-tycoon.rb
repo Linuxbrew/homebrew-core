@@ -11,7 +11,7 @@ class KyotoTycoon < Formula
     sha256 big_sur:       "30c5a805f4e4f672814b210a28567424b23af490a8d9555286dae17ee41506c4"
     sha256 catalina:      "575c025f8a4479503833b3d90c8054ed3b67e8f4a14a96978ec585a76bbf7963"
     sha256 mojave:        "aafcc936bd17bade9714e200c0e713ec4cd6ddc8f38a08d258cbf09437adec75"
-    sha256 x86_64_linux:  "7c8404f7b01aaa08f0ceb69696f11bdcc65599d2fe8f3889849bcf40f760d387"
+    sha256 x86_64_linux:  "7c8404f7b01aaa08f0ceb69696f11bdcc65599d2fe8f3889849bcf40f760d387" # linuxbrew-core
   end
 
   depends_on "lua" => :build

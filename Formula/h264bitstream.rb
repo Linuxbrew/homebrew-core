@@ -11,7 +11,7 @@ class H264bitstream < Formula
     sha256 cellar: :any, catalina:      "ac1f452b4c4d4d90310ec1f3cd9ec45271665604844dca55df3f7a91885d28d7"
     sha256 cellar: :any, mojave:        "ebe66ef0a10e2afacf2b418eb15aa57ed873c6df73d6da71b6252efce8c15a5e"
     sha256 cellar: :any, high_sierra:   "191acedb64e2ab618696fe16c55b81cdadb9819a0b0fc594235d31a28a1cdf96"
-    sha256 cellar: :any, x86_64_linux:  "2f09eb5070490d75ecee489f88dbd510b2dea24437586702bd7fcc7c7cc7e2ca"
+    sha256 cellar: :any, x86_64_linux:  "2f09eb5070490d75ecee489f88dbd510b2dea24437586702bd7fcc7c7cc7e2ca" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -11,7 +11,7 @@ class BoostBcp < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "16fbea4de8f872bac006d526c2bac139b04d0f1bf72741902c7f78825f8945a6"
     sha256 cellar: :any_skip_relocation, catalina:      "8dcc84a022e19a58ac5c7b3ab161cfc544c33607b81de0a0c80037d1f1050081"
     sha256 cellar: :any_skip_relocation, mojave:        "e592d4d8ef2d288683c39193ccdb35e9ef451f5217b7089c21ad7dae012f2084"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d3c333eb89c19db9f9e80b1180dd76f14c2910d4d2946bd9fed0278d331b03a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d3c333eb89c19db9f9e80b1180dd76f14c2910d4d2946bd9fed0278d331b03a" # linuxbrew-core
   end
 
   depends_on "boost-build" => :build

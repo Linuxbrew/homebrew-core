@@ -11,7 +11,7 @@ class Singular < Formula
     sha256 big_sur:       "a344fa6e1ecd01461fa59ddb95863581b85749ef9802f3d6f7d79032b26cf9e8"
     sha256 catalina:      "7b9172e57c84672c1aa97a2a09e075a193a064fa3af3678df79b33e0fb0565ef"
     sha256 mojave:        "9bfe6a7938e60280130ba2042a6c1a95840dcadaf65832b5aa6906e738263fe3"
-    sha256 x86_64_linux:  "cba0071697e977916f5327a32abbb14c4371911837571f19544fb48a7078a42c"
+    sha256 x86_64_linux:  "cba0071697e977916f5327a32abbb14c4371911837571f19544fb48a7078a42c" # linuxbrew-core
   end
 
   head do

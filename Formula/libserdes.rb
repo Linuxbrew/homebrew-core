@@ -12,7 +12,7 @@ class Libserdes < Formula
     sha256 cellar: :any,                 big_sur:       "ae01cfc3bec7b2ae9778b5701d1e30de2bfa9fd8a9dc64d0a05280ef5bcc7b47"
     sha256 cellar: :any,                 catalina:      "8845db8f2c79e1f32a41de8a4c2786b986e619b8181b6626355cd31171202ebf"
     sha256 cellar: :any,                 mojave:        "a771b808d04dab53fe808d430033676cf3adde32e01aad699114db50b504a62c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18f523375cd6d14a8c489899e9fc8554be18ad9e448616d985ce167b6f617122"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18f523375cd6d14a8c489899e9fc8554be18ad9e448616d985ce167b6f617122" # linuxbrew-core
   end
 
   depends_on "avro-c"

@@ -15,7 +15,7 @@ class Gpp < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f6dcf32a23b4dfab4c9fa231757f87a9eb8f4ea2fcd4e8146a02e8afe22b38cc"
     sha256 cellar: :any_skip_relocation, mojave:        "54f5f9b098335023273291b6ec95615148ab3fa02039a0d7c1645cd59d0eb134"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d56879d518d9924d17327594b31501c8ea4eaa58295e12ae41fc74156cffc179"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a221934ad1fe7c52828a312ef93f35ebab30c19aa02eae5c93420ed291c6bdc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a221934ad1fe7c52828a312ef93f35ebab30c19aa02eae5c93420ed291c6bdc7" # linuxbrew-core
   end
 
   def install

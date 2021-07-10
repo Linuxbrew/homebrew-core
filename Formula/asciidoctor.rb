@@ -10,7 +10,7 @@ class Asciidoctor < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "98db0df78c00fe59499f5c5eed17b57f09406c9222b0f83878ac9a12cc5ffb8c"
     sha256 cellar: :any_skip_relocation, catalina:      "98db0df78c00fe59499f5c5eed17b57f09406c9222b0f83878ac9a12cc5ffb8c"
     sha256 cellar: :any_skip_relocation, mojave:        "d50077e74c31d0f910fed2352e3ae5eca7c731b9b84752d1e1e8bf7ef3a59f78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc683b88a5964ec8fe4c2f76ad3f4b44d139f8c19bd965e33451803ed1eaac9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc683b88a5964ec8fe4c2f76ad3f4b44d139f8c19bd965e33451803ed1eaac9b" # linuxbrew-core
   end
 
   depends_on "ruby@2.7" if MacOS.version <= :mojave

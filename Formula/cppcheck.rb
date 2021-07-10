@@ -12,7 +12,7 @@ class Cppcheck < Formula
     sha256 big_sur:       "292c9fa7b2a96ddce21cc2e2ba8ceebb26ccfaa8de3ca990575e82ed26a5e41b"
     sha256 catalina:      "d0658603bf50226b7eeac77ea3f80f05ea0d49ac2003a92041d97f40e240a5d4"
     sha256 mojave:        "3c7dd16e8e8924235ccecaf18f524b655c114058e9042322da4d9949ebb169b3"
-    sha256 x86_64_linux:  "132f8a88161857a3af58f80aaafc1e63f43884dc48ab11d4f7230e9db04f75a9"
+    sha256 x86_64_linux:  "132f8a88161857a3af58f80aaafc1e63f43884dc48ab11d4f7230e9db04f75a9" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

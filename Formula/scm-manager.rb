@@ -11,7 +11,7 @@ class ScmManager < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "a7d1d6994937ca3170f5bc078886339910520eb1261b835c9c6f1173fe9d5496"
     sha256 cellar: :any_skip_relocation, mojave:       "6b0ed9e9d667ec92070b3f4b53f9dc90cbb508d2c6649684f39182e3bb23d6ac"
     sha256 cellar: :any_skip_relocation, high_sierra:  "3e71fdc3039b4cc46fbbb49ae7976b8be09d8b9c4f6e5c0e052d30016668ac74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "53bbad2ded320c0927ca79f97454b50db5f5a1dbe70cce94d45ce47729b413b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "53bbad2ded320c0927ca79f97454b50db5f5a1dbe70cce94d45ce47729b413b3" # linuxbrew-core
   end
 
   depends_on "openjdk@8"

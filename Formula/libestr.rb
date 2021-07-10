@@ -17,7 +17,7 @@ class Libestr < Formula
     sha256 cellar: :any, mojave:        "543dcd541a69d52d5d1d21d51d0cf57c1617cc177f743c2dfea8ea3d548b93e8"
     sha256 cellar: :any, high_sierra:   "7f17c5dbb6534afe6b37ae1d1f994d3387cd8527d6aaa768604837ac681eee59"
     sha256 cellar: :any, sierra:        "5ff130cf6aa42842636dd90b7a8e7e60adbb289682bd915c98937b032c38fc54"
-    sha256 cellar: :any, x86_64_linux:  "cd938799f312f00e4b1752e92b89dc31cfb30b680fea6e57c1ae7e74e9374d2d"
+    sha256 cellar: :any, x86_64_linux:  "cd938799f312f00e4b1752e92b89dc31cfb30b680fea6e57c1ae7e74e9374d2d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

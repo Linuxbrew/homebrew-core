@@ -14,7 +14,7 @@ class Hmmer < Formula
     sha256 cellar: :any_skip_relocation, big_sur:      "af45073d7f7d1ce1231c03381c5e50af9de1d6773762a65200a6067b84590c9d"
     sha256 cellar: :any_skip_relocation, catalina:     "6bd9bbe8efab7ec335de773b059922574ec2a89d755afd09dc475f6b251fb886"
     sha256 cellar: :any_skip_relocation, mojave:       "f170a16fcc45126a552ae1b0fdd3cbb25e73f77a53f10011e5c304afa69694fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c011c8e469331aeb56423450122148a712bff6b22fc43074c6bdc59e46fecb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c011c8e469331aeb56423450122148a712bff6b22fc43074c6bdc59e46fecb5" # linuxbrew-core
   end
 
   def install

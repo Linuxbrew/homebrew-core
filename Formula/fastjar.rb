@@ -17,7 +17,7 @@ class Fastjar < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2dba61ec801db3d83692b9c9dd26eab247cb4bb6a6d6afc27f059bb6ba6052e5"
     sha256 cellar: :any_skip_relocation, high_sierra:   "87b2c870895191b309b595481f73346e763b87c661e64ef35b821e54395d5cc1"
     sha256 cellar: :any_skip_relocation, sierra:        "35230e788987e3a3c63d126af24c634bcbf58c0a320223d61f0eae69f6cbcc00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "105475ad7537803166b4808b58228839264d19bb73310fc846bba85ad56b3c05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "105475ad7537803166b4808b58228839264d19bb73310fc846bba85ad56b3c05" # linuxbrew-core
   end
 
   def install

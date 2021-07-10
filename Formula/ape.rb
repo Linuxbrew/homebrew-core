@@ -10,7 +10,7 @@ class Ape < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "dd095fa1465e0a20613481720e26a5917c08882b340a18ab4d351a95e5eb3a3e"
     sha256 cellar: :any_skip_relocation, el_capitan:   "259b19e211ff6d6ffc376db0b3696a912a6ac48dca83cbcbe525c78e56755c82"
     sha256 cellar: :any_skip_relocation, yosemite:     "3859216e566e6faaccc7183d737527dd4785260a698c8344520e7951baebca76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "917659b43365eba970711505af1414fe3ce276e20d40c2a405b181c1a8393e78" # glibc 2.19
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "917659b43365eba970711505af1414fe3ce276e20d40c2a405b181c1a8393e78" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

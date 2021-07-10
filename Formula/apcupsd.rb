@@ -16,7 +16,7 @@ class Apcupsd < Formula
     sha256 big_sur:       "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"
     sha256 catalina:      "7636fe8d43fde7368817c64dc8f689526f48d2a958532e3fdd3f05db3deb4c5e"
     sha256 mojave:        "7c87a398311314a0f789cabb5956932962800297e2ba4890f07ac60c13cc3f68"
-    sha256 x86_64_linux:  "e11bb2d0d1580b056a9b4e761a9e93a049e91e1b014c60c55a65f114900cf699"
+    sha256 x86_64_linux:  "e11bb2d0d1580b056a9b4e761a9e93a049e91e1b014c60c55a65f114900cf699" # linuxbrew-core
   end
 
   depends_on "gd"

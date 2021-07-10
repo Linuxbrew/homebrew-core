@@ -18,7 +18,7 @@ class Joe < Formula
     sha256 high_sierra:   "02c1d1372565747bc21abe3b28ea7b3f2461068041e2d67037a9c1cbce12779d"
     sha256 sierra:        "f97df02a316a9e137e3391f42ff1118f67cd051008ef92c030fe54b5948a29bb"
     sha256 el_capitan:    "1d02a0b1f7df9846b0472bb3a5ea69aece88007fed4b32843318caa41cae3f9d"
-    sha256 x86_64_linux:  "40aa5a810f80fcfb51180c357a6c725d8a8a849962e9f4f77025c33f4062b67e"
+    sha256 x86_64_linux:  "40aa5a810f80fcfb51180c357a6c725d8a8a849962e9f4f77025c33f4062b67e" # linuxbrew-core
   end
 
   def install

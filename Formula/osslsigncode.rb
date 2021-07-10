@@ -11,7 +11,7 @@ class Osslsigncode < Formula
     sha256 cellar: :any, catalina:      "964162e471801ec6335e1cb88fa7d71145a09acd7507f71d049af1edc6375f9e"
     sha256 cellar: :any, mojave:        "6ce5ae481bea9b92e4baaf795dfbdaf6cb29d574189978012f641857ffe39113"
     sha256 cellar: :any, high_sierra:   "2a70933b296047d0042df4e1c1361cab8d588ff70c36ef44f63ac01105ce32f6"
-    sha256 cellar: :any, x86_64_linux:  "98541a57f790363fbd5efa26dbeb7a7b485a0109da5aa4683788c5a40479fd44"
+    sha256 cellar: :any, x86_64_linux:  "98541a57f790363fbd5efa26dbeb7a7b485a0109da5aa4683788c5a40479fd44" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

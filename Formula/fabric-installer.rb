@@ -6,7 +6,7 @@ class FabricInstaller < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ffbf01240ef8aabe05e88566a73684f3c419b61a238ddf4e981c8ade42a3e3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ffbf01240ef8aabe05e88566a73684f3c419b61a238ddf4e981c8ade42a3e3f" # linuxbrew-core
   end
 
   depends_on "openjdk"

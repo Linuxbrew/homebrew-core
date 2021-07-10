@@ -18,7 +18,7 @@ class Mdf2iso < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "bc1358412281b1e486d9d1b6d25ae5665b02ac14f93f03603a966bd44ffda1d7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "fbe092bfc501d4abf8b0df052e26307219ea4bb9fb4eddb20df8b7734ff7fdf5"
     sha256 cellar: :any_skip_relocation, yosemite:      "aab6c1b85c8f863016f7db7ca6b35c56cc7442a6bdf6876f7b9b8ba24b58e5a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9bb9b2b18d47cd5d8caf560a5de2967018435b8213299b106d314666e57f3d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9bb9b2b18d47cd5d8caf560a5de2967018435b8213299b106d314666e57f3d6" # linuxbrew-core
   end
 
   def install

@@ -14,9 +14,10 @@ class Spades < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "34af086650bb5899077627835d762cfefbf3eb91c455cd5b06366a66f79ce9f4"
-    sha256 cellar: :any_skip_relocation, catalina: "a8b73043b7c26aa1279b91345022ac31446498af30624562fc2d925097d84cc4"
-    sha256 cellar: :any_skip_relocation, mojave:   "a8afd9fcf696ec82d6faefb29b79751a930eabe8dbf19df053fb1c36a780d6bd"
+    sha256 cellar: :any_skip_relocation, big_sur:      "34af086650bb5899077627835d762cfefbf3eb91c455cd5b06366a66f79ce9f4"
+    sha256 cellar: :any_skip_relocation, catalina:     "a8b73043b7c26aa1279b91345022ac31446498af30624562fc2d925097d84cc4"
+    sha256 cellar: :any_skip_relocation, mojave:       "a8afd9fcf696ec82d6faefb29b79751a930eabe8dbf19df053fb1c36a780d6bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3a79775a6a96b3ea5198e147b6d099a9fdf90746c1d6b61d62b96be26ab6d7b8" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

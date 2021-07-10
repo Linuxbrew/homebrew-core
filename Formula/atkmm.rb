@@ -10,7 +10,7 @@ class Atkmm < Formula
     sha256 cellar: :any,                 big_sur:       "4b147e97566fe8f13c6e72e1d350da5c8bbabe3abb6f4966eec44f227c9fa807"
     sha256 cellar: :any,                 catalina:      "09b0e72f5d9fd8e2a3328202d8c2b8fc7f896cdd208ab51fa75bb87c79eee53d"
     sha256 cellar: :any,                 mojave:        "a3ed94c51be9ae22f3a3c1d6650ade4037748f2c8602db9b647effd71b4d5108"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32cb805d8dbd853c3a3e5d795b86f370c0e590b324dfb0c2e270cdfe3610c487"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32cb805d8dbd853c3a3e5d795b86f370c0e590b324dfb0c2e270cdfe3610c487" # linuxbrew-core
   end
 
   depends_on "meson" => :build

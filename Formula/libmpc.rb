@@ -12,7 +12,7 @@ class Libmpc < Formula
     sha256 cellar: :any, catalina:      "8c037df4b551058d00351676dc2c5ec395bd69c88545fac9ccfd0749dadb8ee2"
     sha256 cellar: :any, mojave:        "c229b6def61f4acc41b4b159d93dbc63a5c77f87f61623c9f7c5399da440cc4f"
     sha256 cellar: :any, high_sierra:   "939f0ad01d809356e33bdc70a8a8483eb1b021fd5f3723d0e61a2698af00f01b"
-    sha256 cellar: :any, x86_64_linux:  "c12f0406fb375c08d4c9f699ec2d28099088bb999fe9cceefe9145c001f24f89"
+    sha256 cellar: :any, x86_64_linux:  "c12f0406fb375c08d4c9f699ec2d28099088bb999fe9cceefe9145c001f24f89" # linuxbrew-core
   end
 
   depends_on "gmp"

@@ -16,7 +16,7 @@ class GnuGo < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "25fa92bd5c129cb655ec06c441523ada5cbc90a560111c32f5b1246c8f7d124c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f845be5a48a89cf0e46322b4d3a64a86b9fd4793f6b98fee0c45de5e8e5eda69"
     sha256 cellar: :any_skip_relocation, yosemite:      "57731f2cb8dcb2959e85baebdb779989390688a70447b923b9d5c1ce8575da44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed00c34cc100eb97c2332a96cdde6faac2437bd75ed5fde8c88e3351a2a30694"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed00c34cc100eb97c2332a96cdde6faac2437bd75ed5fde8c88e3351a2a30694" # linuxbrew-core
   end
 
   def install

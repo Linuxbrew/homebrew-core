@@ -10,7 +10,7 @@ class Librem < Formula
     sha256 cellar: :any,                 big_sur:       "b571b06f4fc31e68adc40869c1e5b415eda6aed48f9093ee844f53f17baf5f44"
     sha256 cellar: :any,                 catalina:      "cfb5f86357e8176a51e80b2ec726e8e38fc002a7dfea8f36256328747df01d9a"
     sha256 cellar: :any,                 mojave:        "5fc70f673166bfc2794c40b440de29cc544cb3d46cccfb538ba868362e6e813a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "725902bfede7ba94e3ea3f60496681fec168fb18bd6d1c70084b0f1c6bb4af93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "725902bfede7ba94e3ea3f60496681fec168fb18bd6d1c70084b0f1c6bb4af93" # linuxbrew-core
   end
 
   depends_on "libre"

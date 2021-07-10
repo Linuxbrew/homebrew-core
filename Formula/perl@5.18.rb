@@ -17,7 +17,7 @@ class PerlAT518 < Formula
     sha256 catalina:      "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9"
     sha256 mojave:        "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6"
     sha256 high_sierra:   "4ebffdb24ede27bf2fb4f844c87f4adc962942d399c6762b3c6cf90b929fa50a"
-    sha256 x86_64_linux:  "ca240d036e5c65e2240d744848d56c60fa37c0f95f43e3ead4b34f56d8885921"
+    sha256 x86_64_linux:  "ca240d036e5c65e2240d744848d56c60fa37c0f95f43e3ead4b34f56d8885921" # linuxbrew-core
   end
 
   keg_only :versioned_formula

@@ -15,7 +15,7 @@ class Cgvg < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "12b8a6abb31e2e8d7ba044663b33990884ec24d1b0c0776901480cbecd47113f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a8232322755cb4c369193dca37fecb968ff689c6463611680e12f216f46507c4"
     sha256 cellar: :any_skip_relocation, yosemite:      "de0c8b890aa68670097790093fdceccfe1d69598c18ea5385069efc2f73a3c5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9fabe57878811418054600d055d15f12daa8a845f577fecea291d1306ddd63d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9fabe57878811418054600d055d15f12daa8a845f577fecea291d1306ddd63d" # linuxbrew-core
   end
 
   def install

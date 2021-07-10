@@ -12,7 +12,7 @@ class Pgcli < Formula
     sha256 cellar: :any, big_sur:       "3ccba71049db5eb854be6050ee53578f58a49322777615d61d7470ff6ae09713"
     sha256 cellar: :any, catalina:      "4345a13484191db2d804c1f3c7d3cb80a1c8c6aa1734171325f6e9ce088f1984"
     sha256 cellar: :any, mojave:        "31ca1bb800f517ffac95520caee3455746ff1b6ee16bc3960dde21721161db4e"
-    sha256 cellar: :any, x86_64_linux:  "a8f9082ca4398a763d939f2a3551356df018d0e4d64b2b87ed8395c62d42d9ed"
+    sha256 cellar: :any, x86_64_linux:  "a8f9082ca4398a763d939f2a3551356df018d0e4d64b2b87ed8395c62d42d9ed" # linuxbrew-core
   end
 
   depends_on "libpq"

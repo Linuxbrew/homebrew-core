@@ -11,7 +11,7 @@ class Subfinder < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6caece489765bc37f6164278c96d5ef2a6bf081a3e70d0e9513d4dba803cda9f"
     sha256 cellar: :any_skip_relocation, catalina:      "88cab330e3cfb8325a8d295c512598670f626408e7a90520605f684c20089e06"
     sha256 cellar: :any_skip_relocation, mojave:        "35a8328f2fdc17c610ab78cf29dca7ef13a5cc77c6547983c1e81abdd6dcb939"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79eb3d73097ff82a25b8cf472a6c4e7b8f41e7ff41940cd1bece4841efd48d36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79eb3d73097ff82a25b8cf472a6c4e7b8f41e7ff41940cd1bece4841efd48d36" # linuxbrew-core
   end
 
   depends_on "go" => :build

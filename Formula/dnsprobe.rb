@@ -12,7 +12,7 @@ class Dnsprobe < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e2980ba58e116e7c9029c9255451dd97b65da09a885373afe86c9e860d493650"
     sha256 cellar: :any_skip_relocation, mojave:        "3cf8604d9869f22c722dfa8f0742f12124ba84a160579f0e7964ff7e697631f0"
     sha256 cellar: :any_skip_relocation, high_sierra:   "f6c2b6edb0f8c482488b325400f1d712687a369c8b8fd7fb9e0d0cba1def2273"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37356ce8098f26e610459e942337cd4cac858570995320dbde05004c3d6daeda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37356ce8098f26e610459e942337cd4cac858570995320dbde05004c3d6daeda" # linuxbrew-core
   end
 
   # repo derecated in favor of `projectdiscovery/dnsx`

@@ -12,7 +12,7 @@ class Arpack < Formula
     sha256 cellar: :any,                 big_sur:       "d7e7dcfe9877c71a43edc35191855abab902424d99eb30835092e01d9bbb042d"
     sha256 cellar: :any,                 catalina:      "42b2c8c8c61ff92e7c3c96d3735decfd5bb00b5741bc66ee7b77a4c10f338ad4"
     sha256 cellar: :any,                 mojave:        "c77c3b77ef86bea4c18757c674af5775bc33463f1f59cf49ed7ad9fbb9b6d3b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5034e1b605cb565120ffbf1ce42176e1ed45cee0767408609ace1bc1ba9a32e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5034e1b605cb565120ffbf1ce42176e1ed45cee0767408609ace1bc1ba9a32e1" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

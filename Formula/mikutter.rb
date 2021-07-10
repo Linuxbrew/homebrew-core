@@ -17,7 +17,7 @@ class Mikutter < Formula
     sha256 cellar: :any, big_sur:       "28bbc7b323d3ecdaf288c71e469192475ecd331518568af06d62035e7f4c1577"
     sha256 cellar: :any, catalina:      "81343393fd8217ae7ce465bc06965b7ecaf218fc8cab32f58fa5f29973c10ff3"
     sha256 cellar: :any, mojave:        "b7c86be22b9559edc1ef689bb4d4470dda8083c90e7218165b67b009418411e5"
-    sha256 cellar: :any, x86_64_linux:  "5598b0eb5e37d521199e3547799e87a64dbc3932081c0ddb79f1715dca43b14d"
+    sha256 cellar: :any, x86_64_linux:  "5598b0eb5e37d521199e3547799e87a64dbc3932081c0ddb79f1715dca43b14d" # linuxbrew-core
   end
 
   depends_on "gobject-introspection"

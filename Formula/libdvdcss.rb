@@ -10,7 +10,7 @@ class Libdvdcss < Formula
     sha256 cellar: :any,                 big_sur:       "6410e6fd033c0145e2d6d4676776cc4f4c20cf540836963d74a16788c842a7fd"
     sha256 cellar: :any,                 catalina:      "b5915184be3174c64f03a0895a9ee71dc8baac9dcd5bf5e904977890ccbba2ed"
     sha256 cellar: :any,                 mojave:        "786743340aeae4fde2966f29bb0457123b529c42c5cbe52609ebdaad447b7280"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6bec432790f91ca9329d36b2eab246e83b628bd2209d33ba35fd2fb681031eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6bec432790f91ca9329d36b2eab246e83b628bd2209d33ba35fd2fb681031eb" # linuxbrew-core
   end
 
   head do

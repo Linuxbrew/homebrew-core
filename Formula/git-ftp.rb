@@ -12,7 +12,7 @@ class GitFtp < Formula
     sha256 cellar: :any, catalina:      "0a61ca11e69370dfecfd3c82d6d03aeec377bf9db660658403556ea71b84bae0"
     sha256 cellar: :any, mojave:        "f878c4015697794bb8b2c3f034a167b750d3871c0d320d903536128f01880ca2"
     sha256 cellar: :any, high_sierra:   "63c8b94fd89eb635d8c2056efdf933de45dca7fdb04793b620750f8b338fbb88"
-    sha256 cellar: :any, x86_64_linux:  "80d507de96861546cf465d4bc2042c936bbbd3b7873fb34e43954751ce54f10c"
+    sha256 cellar: :any, x86_64_linux:  "80d507de96861546cf465d4bc2042c936bbbd3b7873fb34e43954751ce54f10c" # linuxbrew-core
   end
 
   depends_on "pandoc" => :build

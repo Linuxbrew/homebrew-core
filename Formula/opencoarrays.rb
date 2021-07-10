@@ -12,7 +12,7 @@ class Opencoarrays < Formula
     sha256 cellar: :any,                 big_sur:       "837d197c743e950acdffe9ee52e63d4191c67226242c53ad7e9a26221a5e73f5"
     sha256 cellar: :any,                 catalina:      "245e140d9b5b8301caab320267ab2ff0c83156f60433181afdfce370651292ab"
     sha256 cellar: :any,                 mojave:        "cf781f8c51d7b6bf872e1c0879ad22f287ff3c22b49118eb5e1f3a172cfaedad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "509dd2a10553d1b9c4f6fc92dd9af6599599c8456aac0164d1d42f92c0ed87aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "509dd2a10553d1b9c4f6fc92dd9af6599599c8456aac0164d1d42f92c0ed87aa" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

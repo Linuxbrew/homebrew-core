@@ -16,7 +16,7 @@ class BerkeleyDb < Formula
     sha256 cellar: :any,                 big_sur:       "dc8c2c76f315ea02737e9277f74cc9f8faba1733c10c20e2ef62d50b4abce4b7"
     sha256 cellar: :any,                 catalina:      "f4d82916099a1023af6a72675dce0a445000efd2286866d1f36bf0b1063b24aa"
     sha256 cellar: :any,                 mojave:        "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9935bb07d8c09bc317aa61776b12b0277b136d1d5dfb65feb85c786a71a93e37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9935bb07d8c09bc317aa61776b12b0277b136d1d5dfb65feb85c786a71a93e37" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

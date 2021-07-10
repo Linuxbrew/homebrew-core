@@ -13,7 +13,7 @@ class Muparser < Formula
     sha256 cellar: :any, catalina:      "0a1a8ee3560af0487a46b7c524cdf938b1d6e159e6c4d9689968225cd6311713"
     sha256 cellar: :any, mojave:        "3094837032e20cbbd5e74531a20450af6986bfd5ac83ea4df4884a538a552c85"
     sha256 cellar: :any, high_sierra:   "ca242a645a77e528c16cced97cf06bc796071c549a8d81f22bd4d9bd547828fb"
-    sha256 cellar: :any, x86_64_linux:  "d1eb8d65221d8a650ca6ed10042682cf5b0bf9c0da6aa296abd7dc50e304eb86"
+    sha256 cellar: :any, x86_64_linux:  "d1eb8d65221d8a650ca6ed10042682cf5b0bf9c0da6aa296abd7dc50e304eb86" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

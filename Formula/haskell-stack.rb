@@ -13,21 +13,18 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "27993f53404e2d32b99a6736c8bcfe59c4f855ad799fb573ffb9e37fb907b687"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f8c509beacc6ad13fafcdd6fe754880e8420e045303671b37979f6cf8c84e81e"
-    sha256 cellar: :any_skip_relocation, catalina:      "77b634ce8c96d01f0d55c86858322030a4b17a55c835fa9acb90b3b3c30ce302"
-    sha256 cellar: :any_skip_relocation, mojave:        "26e6f6d71967378f63659a0232cec8968d1635332ca8714c2467d653b5beb9e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08788ec035fa05d0b8d7588d0825d312dd91e8ffa2cd3722ed44d7334cea512d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7910094fb9d9c7653c03df03d4b46a13266d685cdf41e1ffc765aaa40c6bd3d8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4a79fbaaa5a4d95b1d7a1075ce197aaf6430575a3ad897073fae481c45b3092e"
+    sha256 cellar: :any_skip_relocation, catalina:      "9029316df99f2db7c5771c7d186d6e749cca6189f0810b816048c771ddd47cc6"
+    sha256 cellar: :any_skip_relocation, mojave:        "dcf61ed173b28d67502357a7a4eb6bc3ac3c656df59556099591906bcb3a3e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f25db2a2614a4fb5481bca5f53a1d102d82eb9ddafc20074fb61e2cae8091b7" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gmp"
-  end
 
   def install
     system "cabal", "v2-update"

@@ -17,7 +17,7 @@ class Connect < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "90d0c91146180552a3a023ceba3850804139eb30b146151efe9c6d889ab9c99d"
     sha256 cellar: :any_skip_relocation, catalina:      "a08dfce847d75746d2b31ed3561e961fdcf950b051c5860e6d137ff5e1bcd1c7"
     sha256 cellar: :any_skip_relocation, mojave:        "cc0a39f7e2fea7672f6d691d2e1221d0c5963a9f7e0039317930418fc7c7ebfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8647d72957ce8cfffbfe2e530b0f873a3a2881b10dc969d47162b079b0111a0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8647d72957ce8cfffbfe2e530b0f873a3a2881b10dc969d47162b079b0111a0e" # linuxbrew-core
   end
 
   def install

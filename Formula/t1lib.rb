@@ -16,7 +16,7 @@ class T1lib < Formula
     sha256 sierra:        "94789287c849a04f05a40c79940aee6efe3e03318c95db9c2be69ee4e6806d82"
     sha256 el_capitan:    "fa356a5405f5b0cf57c15ebd5b680c215e1e498189914e9b9663eb132655a8c1"
     sha256 yosemite:      "6d1bf242eb7a5201180b9d4b505a7f83663802383d358180cea696714ae57fc8"
-    sha256 x86_64_linux:  "a6946d44932900ae0218f48f9f56c3353f66b11ce1b947c2d832f55f0d5964de"
+    sha256 x86_64_linux:  "a6946d44932900ae0218f48f9f56c3353f66b11ce1b947c2d832f55f0d5964de" # linuxbrew-core
   end
 
   def install

@@ -14,7 +14,7 @@ class Ndiff < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ed6f753f9fe240486de3b6589350fcc0e7afbe345ae2e01bf6b47e132de9be4e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6faf20ce4c88110019c76cc4253cd65e5743fab7cff109fc8a7d41c8f411012e"
     sha256 cellar: :any_skip_relocation, yosemite:      "80adff8ec563059b7f49005c7e567b950ca58b392a4a5db18ae4957fe18b296d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "530c8cfa5d98ee1a8369af1cac5e83a70a1ff0c488de83a34fbbc648f4ead91b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "530c8cfa5d98ee1a8369af1cac5e83a70a1ff0c488de83a34fbbc648f4ead91b" # linuxbrew-core
   end
 
   conflicts_with "nmap", because: "both install `ndiff` binaries"

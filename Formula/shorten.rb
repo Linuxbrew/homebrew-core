@@ -11,7 +11,7 @@ class Shorten < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "a54b8263dfbd2aab185df1888193dc0ceb602d9df82758cf5ef31b3df52ae697"
     sha256 cellar: :any_skip_relocation, el_capitan:   "66cf7cabae065035e9c3c4a8c139439384fb9f26ea0ee433e336c18ba2f8383e"
     sha256 cellar: :any_skip_relocation, yosemite:     "5f48b61ce709915830f433dd381fe531c1354b56619bbdb441dc19f985df7467"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9b9be4ed35f42072a08f6726eac9a520e7aa3b242aa8a0318af07425387607d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9b9be4ed35f42072a08f6726eac9a520e7aa3b242aa8a0318af07425387607d4" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

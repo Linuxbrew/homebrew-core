@@ -20,7 +20,7 @@ class Libreplaygain < Formula
     sha256 cellar: :any, sierra:        "d8f7cfc1bfad75b97271300a16f5c927849b03ff488141423ecf48b25c6ed8c3"
     sha256 cellar: :any, el_capitan:    "58b52d360c2f37f3ab3a50c4a2fe72b9a370bd951d52939f8853a5ef49fcc322"
     sha256 cellar: :any, yosemite:      "d47338c5b86daabf3e2e05ab9dd2443c04c1233f3319307e8e5d545b24dcf722"
-    sha256 cellar: :any, x86_64_linux:  "192ad8d9539a4121eaa4b70b5eecf9f8ce7af90c9ed02aeef288748d2ec0c1dd"
+    sha256 cellar: :any, x86_64_linux:  "192ad8d9539a4121eaa4b70b5eecf9f8ce7af90c9ed02aeef288748d2ec0c1dd" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

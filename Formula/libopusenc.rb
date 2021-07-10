@@ -12,7 +12,7 @@ class Libopusenc < Formula
     sha256 cellar: :any, catalina:      "593106e48c86436fd1908c79f1ef54f206bb37f0983ccb3901190cebe6e78cea"
     sha256 cellar: :any, mojave:        "96a05dd8d0071fb38ed14f4f5b64af576baee3719a16fc8fc331ddfa1a4d65ec"
     sha256 cellar: :any, high_sierra:   "e5cfb0433abe565b11351f9d6ec3fb44852a8aeb99ef8f6710ee9d899eb97ab3"
-    sha256 cellar: :any, x86_64_linux:  "ef69108275b1dd6b7e8dd5343742520c7f3798c836ac84f9511ef13954d892b7"
+    sha256 cellar: :any, x86_64_linux:  "ef69108275b1dd6b7e8dd5343742520c7f3798c836ac84f9511ef13954d892b7" # linuxbrew-core
   end
 
   head do

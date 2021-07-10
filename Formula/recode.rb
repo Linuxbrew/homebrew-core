@@ -10,7 +10,7 @@ class Recode < Formula
     sha256 cellar: :any,                 big_sur:       "322571c853f461cd7f85afde9da5895996479b8aafddaa729081c10f4b319c57"
     sha256 cellar: :any,                 catalina:      "e049f7705d6f397a3a4bb87e31cc43eeb8ab7f0958b5efb3daccbab2a77aaa96"
     sha256 cellar: :any,                 mojave:        "27ba44840e12f588f741d2a7477ac8e6c6d3df22b09b426c617c87b98518d5c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eaa20bd35e3d6937e2c8fa962572eda4998ef7504049b9592a62b3f133c1edd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eaa20bd35e3d6937e2c8fa962572eda4998ef7504049b9592a62b3f133c1edd" # linuxbrew-core
   end
 
   depends_on "libtool" => :build

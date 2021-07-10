@@ -10,7 +10,7 @@ class Gexiv2 < Formula
     sha256 cellar: :any,                 big_sur:       "281c26fef197eba6584e3250aeb131c0ab5daf8afbdc1d702de71ba1e664ccf3"
     sha256 cellar: :any,                 catalina:      "b96f01c0d637c9b4e16bf0f4d3dc4d072d0d672396152893b5afcbc0ae60cd3a"
     sha256 cellar: :any,                 mojave:        "35e12c640ea61bd4659a86afb45e03efa8f81bfb46cb3a5119cb34f445f2dff2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9530b44c7f433c61be5d1e1f110a8d6ea53e1e27e490e46424f2657fc176cfe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9530b44c7f433c61be5d1e1f110a8d6ea53e1e27e490e46424f2657fc176cfe9" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

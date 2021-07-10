@@ -13,7 +13,7 @@ class Tre < Formula
     sha256 cellar: :any, sierra:        "e28b7ac6153b06c067538f555f9ac5973df49c14ac2693aa4239ae407982e2c9"
     sha256 cellar: :any, el_capitan:    "8a1762dbd40b98869e01a19c29cdb1cfa5a127543b3e132fb0fdff996e46f566"
     sha256 cellar: :any, yosemite:      "6fada15a2fd1c5905f8ed45d3c966da5e14efeb10522f82c26d2a23a918abaad"
-    sha256 cellar: :any, x86_64_linux:  "946afb33c1e2159798dd0f60d9e7654e65eb4b08d10e7b3fa41893665d3eae3c"
+    sha256 cellar: :any, x86_64_linux:  "946afb33c1e2159798dd0f60d9e7654e65eb4b08d10e7b3fa41893665d3eae3c" # linuxbrew-core
   end
 
   def install

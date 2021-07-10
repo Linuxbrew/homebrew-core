@@ -17,7 +17,7 @@ class Yash < Formula
     sha256 big_sur:       "ff18cba8b4398b1ee3aa6542c27d0a925846d44ee25de4ffae836294024f8cea"
     sha256 catalina:      "a24fa6d8baa80ff63a770c93d15adef2f3d9fcb624fd6304aa16a763c20aab28"
     sha256 mojave:        "052617d9d5aab039e7e814b3d822e9c66ab4b9f3d8fd0c3b59cc5faf24e0ecd2"
-    sha256 x86_64_linux:  "0c2bd891f0e9dcb39816e44db372e9508029c88dbc97552f82a672c3aa299a21"
+    sha256 x86_64_linux:  "0c2bd891f0e9dcb39816e44db372e9508029c88dbc97552f82a672c3aa299a21" # linuxbrew-core
   end
 
   head do

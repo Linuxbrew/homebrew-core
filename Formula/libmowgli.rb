@@ -14,7 +14,7 @@ class Libmowgli < Formula
     sha256 cellar: :any, mojave:        "68656add47085df19786c9d419d7dd2e880514f3a5fa63838362ef92807c3420"
     sha256 cellar: :any, high_sierra:   "061c1fc5a942024894205ee47a5ffc41fae5dde42ca6b744f66dad5d4a2e60fe"
     sha256 cellar: :any, sierra:        "a83b21ccd87a25d26122ab813afbd24ef6bc07e6c92b16db11813d4fab71a055"
-    sha256 cellar: :any, x86_64_linux:  "7cc49204cb2aa396e28c2a89567b23235e7a6cd6525673d2ac266a8c59202724"
+    sha256 cellar: :any, x86_64_linux:  "7cc49204cb2aa396e28c2a89567b23235e7a6cd6525673d2ac266a8c59202724" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

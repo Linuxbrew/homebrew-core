@@ -11,7 +11,7 @@ class Gdbm < Formula
     sha256 cellar: :any, big_sur:       "ea88ce09e934407b1c7dfcc1b74e2d4f1b409f8264b4475b816369a129c6cd25"
     sha256 cellar: :any, catalina:      "2c62d9ef89fc346310fe219ce55c37f8673cd95672f21c5c7af6d991a52dc7fb"
     sha256 cellar: :any, mojave:        "e31aaf7e8d02d811883dba4fd804954f226d8f112974293c6d6b7a8b66648554"
-    sha256               x86_64_linux:  "0cef41f29293302f68aac94fab6d6363217de9c867aad59d41c42e3cab73589a"
+    sha256               x86_64_linux:  "0cef41f29293302f68aac94fab6d6363217de9c867aad59d41c42e3cab73589a" # linuxbrew-core
   end
 
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:

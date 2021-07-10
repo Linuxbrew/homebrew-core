@@ -13,7 +13,7 @@ class Dbxml < Formula
     sha256 high_sierra:   "1886b654f152fc03a6a6e781ca94e5ca3a08f7f190bc1168326bf46b337c02e9"
     sha256 sierra:        "2a350300c31d639d46e9fafc16747d5cbe1897035acf1c365f795127535693b3"
     sha256 el_capitan:    "e2c82383d79f243654a0bbebdfb141334bbf683c6925b5a8f3ce0d1568024fec"
-    sha256 x86_64_linux:  "612cb40d40a4b4504ac8831c8ff3cc95085d61688199f9caabaac6231605a24c"
+    sha256 x86_64_linux:  "612cb40d40a4b4504ac8831c8ff3cc95085d61688199f9caabaac6231605a24c" # linuxbrew-core
   end
 
   depends_on "berkeley-db"

@@ -11,7 +11,7 @@ class Assimp < Formula
     sha256 cellar: :any,                 big_sur:       "8cd36113e1e7db18e625e652a522374bf6158306254f31627f2e8f067ae665db"
     sha256 cellar: :any,                 catalina:      "b2450bc0cc287a25a2e4ca42ff229ee104a6de51ef3a8cc02603850572126f18"
     sha256 cellar: :any,                 mojave:        "4ee11342b9d284810e88828be1662ee5be09a161f2c1353648e63255bbf4375b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e3ac1d327084657319b78eb9c6f6e9ca6b8d700ca0dc59461676805be2fa733"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e3ac1d327084657319b78eb9c6f6e9ca6b8d700ca0dc59461676805be2fa733" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

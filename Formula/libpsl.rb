@@ -11,7 +11,7 @@ class Libpsl < Formula
     sha256 cellar: :any,                 big_sur:       "dfb143c0316dd1319165c09d9cfd8cb3ed47a572e538b88755bae8f90de594b9"
     sha256 cellar: :any,                 catalina:      "6ebd02eb47c7a10b1b60360c6f2467677feba8d81a3a4e9e4cb09c08180395f5"
     sha256 cellar: :any,                 mojave:        "7ce4c33579aa8d7263df78f1814166a8a14a26b28866bbd8772c9a0bea9726a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ae6429ebf68440641e934e16e44868fad13857dea3d6dfea4242af21ce6ba7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ae6429ebf68440641e934e16e44868fad13857dea3d6dfea4242af21ce6ba7f" # linuxbrew-core
   end
 
   depends_on "meson" => :build

@@ -13,7 +13,7 @@ class MecabUnidicExtended < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "8890b4d95d0c3ee114ec48ea95d66c1d8b8a273949a912140fa477ad9265be0b"
     sha256 cellar: :any_skip_relocation, sierra:        "8890b4d95d0c3ee114ec48ea95d66c1d8b8a273949a912140fa477ad9265be0b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8890b4d95d0c3ee114ec48ea95d66c1d8b8a273949a912140fa477ad9265be0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c14895b68204bd2028de382ab46b5efea0eb4fb218991370930c3a434bff23e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c14895b68204bd2028de382ab46b5efea0eb4fb218991370930c3a434bff23e0" # linuxbrew-core
   end
 
   depends_on "mecab"

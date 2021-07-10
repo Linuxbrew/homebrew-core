@@ -13,7 +13,7 @@ class Foma < Formula
     sha256 cellar: :any, catalina:      "dc0a238f67280d9e15e50bc7064669f1715170c9a59d608537ed195801db0c9e"
     sha256 cellar: :any, mojave:        "a3b11300d427959a0ca8aa908d6c43369a8c17889a63f56d7772c6c4fdaeee04"
     sha256 cellar: :any, high_sierra:   "d223eaa3a2f821d24b5f3b5486494a1a029f96e1640d4fe6f3633e6ad53e14a9"
-    sha256 cellar: :any, x86_64_linux:  "1f30a342aeb7b5e51d1238a36ee9021f3264ac502b2544a2e1a5b259c1cbc68f"
+    sha256 cellar: :any, x86_64_linux:  "1f30a342aeb7b5e51d1238a36ee9021f3264ac502b2544a2e1a5b259c1cbc68f" # linuxbrew-core
   end
 
   uses_from_macos "zlib"

@@ -12,7 +12,7 @@ class Brotli < Formula
     sha256 cellar: :any, catalina:      "a382d95787cc2a5742a1d713f939bbc91ca6e097aee7f49f95cc111dca9fa9d7"
     sha256 cellar: :any, mojave:        "d121eaa3e670d5ad972514a4cc000326249694c8b9691013e28b8dd52b87410d"
     sha256 cellar: :any, high_sierra:   "126ecc002d37d167252743eb6ff5db19bb6aa4584ab3f731bd7876e438fc6dab"
-    sha256 cellar: :any, x86_64_linux:  "079fe73a868cd0c2b8086d902a88d49ab03921a553ae860a6a3742e709c52c4d"
+    sha256 cellar: :any, x86_64_linux:  "079fe73a868cd0c2b8086d902a88d49ab03921a553ae860a6a3742e709c52c4d" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

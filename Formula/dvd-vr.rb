@@ -14,7 +14,7 @@ class DvdVr < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7b38c83a9bb9daded6a6f28be018076cdcdbbfb0d47102ecbdd06128bebb33ee"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a048c7985df06e3a1d4c7145064b87bd51945f15da2494c03e7af542f07ca8b4"
     sha256 cellar: :any_skip_relocation, yosemite:      "22919ace8aeedc16d406797273402498c0c97ceec31e2dfbffcba6fff957ce65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a88e4ac057d6ae1fef7f0e82342ce3f6e80f40a4c7cde9a46bfb55bd1d0875b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a88e4ac057d6ae1fef7f0e82342ce3f6e80f40a4c7cde9a46bfb55bd1d0875b" # linuxbrew-core
   end
 
   def install

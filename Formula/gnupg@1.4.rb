@@ -19,7 +19,7 @@ class GnupgAT14 < Formula
     sha256 high_sierra:   "dbd43b52f11e65c2bb6dadf3adbf8ccf7f740af33b56e4d8c8b037611840f127"
     sha256 sierra:        "abc1e142397fbe833f2f7c5f71409d925ce690506d77296f7f3d41656a0791f2"
     sha256 el_capitan:    "397c92b88bd189ef61dfb01d5fe2e27e0477a63de64a713ffb883eb799dcbb87"
-    sha256 x86_64_linux:  "6903320fde85f5a381381d906ad3fda31ad8f036056b0f48b7a2dd9e40f1c0bf"
+    sha256 x86_64_linux:  "6903320fde85f5a381381d906ad3fda31ad8f036056b0f48b7a2dd9e40f1c0bf" # linuxbrew-core
   end
 
   def install

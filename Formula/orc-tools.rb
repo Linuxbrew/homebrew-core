@@ -11,7 +11,7 @@ class OrcTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0e60e58125b6be3d6abd0f1b428038d54a2d01d2e5f009ff07d35c95bb4b41d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0e60e58125b6be3d6abd0f1b428038d54a2d01d2e5f009ff07d35c95bb4b41d2" # linuxbrew-core
   end
 
   depends_on "openjdk"

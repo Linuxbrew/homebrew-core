@@ -16,7 +16,7 @@ class Pakchois < Formula
     sha256 cellar: :any,                 big_sur:       "fd91b09bb010ac37483a910b0431c6082903ee843a15f4cc767bde57ce0b7267"
     sha256 cellar: :any,                 catalina:      "ca82f2950582bc54e46122eb71ff8e8acdc739772baf53ab2d545755f03303f8"
     sha256 cellar: :any,                 mojave:        "cc98c7b706f27320ee7c673d906b4da22b402afe0d93b4c66f73a8cde86f7929"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1383e6f25be65c80cdc38e2911930ee9d1b1560f749fedd975fa4567f73d67c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1383e6f25be65c80cdc38e2911930ee9d1b1560f749fedd975fa4567f73d67c3" # linuxbrew-core
   end
 
   def install

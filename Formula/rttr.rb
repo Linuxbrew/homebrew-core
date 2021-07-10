@@ -11,7 +11,7 @@ class Rttr < Formula
     sha256 cellar: :any,                 big_sur:       "b1e8b3136ef06805c2e2f7638747e18f03fec35fd71ce2d0f12bb67a340ec635"
     sha256 cellar: :any,                 catalina:      "84e56a259db377594ffd19dbbcd8740f901a59a5c1e4dd112aba54600448d919"
     sha256 cellar: :any,                 mojave:        "1130d4fa5016ad615dabc2a88c40aee36d2476ce4fea850a40643b78d44843f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83f170083c7820eebc58c9421ccbe82d53bd2e6d644ba8b8388a93a8e25e8f50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83f170083c7820eebc58c9421ccbe82d53bd2e6d644ba8b8388a93a8e25e8f50" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

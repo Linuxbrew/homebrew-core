@@ -18,7 +18,7 @@ class Libident < Formula
     sha256 cellar: :any, sierra:       "4fb8a991f9f83d499b32a814b2d68465327b7b77c0108764e58e4296a968100f"
     sha256 cellar: :any, el_capitan:   "6236d3b4ee424795859cc64da30997ff67f7ac5bd42702e8eabe10f99339ca48"
     sha256 cellar: :any, yosemite:     "53db8e889d8efa34b4a3b6a145bcec2bcb53595e7db0cfdd55c8d857dff3a442"
-    sha256 cellar: :any, x86_64_linux: "edb435b6f2b0049b9ed2bfb72471cd78471797f1b0de93d566a1e30a8aa40e68"
+    sha256 cellar: :any, x86_64_linux: "edb435b6f2b0049b9ed2bfb72471cd78471797f1b0de93d566a1e30a8aa40e68" # linuxbrew-core
   end
 
   def install

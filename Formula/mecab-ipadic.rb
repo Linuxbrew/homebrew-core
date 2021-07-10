@@ -23,7 +23,7 @@ class MecabIpadic < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "33f42c18d7347708a56d8846c0bde5c8291b7685ce06b342e96442bca35f6663"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9f0ae0a62141e3b28807349cb7a9560e36770acb869f4a4e7a54ea1a28ef8ba5"
     sha256 cellar: :any_skip_relocation, yosemite:      "55703c812de3e7cff503b9cd1eafa0656b3f17c4885165ce4d8e4d2b2356050e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "523abdb9240d55e3f56941011d2c287a58f80f0a697ffddcca15178be978cdbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "523abdb9240d55e3f56941011d2c287a58f80f0a697ffddcca15178be978cdbd" # linuxbrew-core
   end
 
   depends_on "mecab"

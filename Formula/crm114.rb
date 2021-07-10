@@ -13,7 +13,7 @@ class Crm114 < Formula
     sha256 cellar: :any, sierra:        "5e22ac9266e49f8281f3afbd613b3f16eb76113fc1f1e2256206513ab6220d42"
     sha256 cellar: :any, el_capitan:    "d48449acfcd105d07e11c0ac7c47fdb21b88d3346c0b51377b9e44b8c8726073"
     sha256 cellar: :any, yosemite:      "151316bd14f7cfce5cea3b765cf4e7801e31c63b72dd786fb38989d8b9380eb3"
-    sha256 cellar: :any, x86_64_linux:  "43888e087fce5f4ab5cc950624eb59a645abdc54619c175c8fcf93dd02a27fcf"
+    sha256 cellar: :any, x86_64_linux:  "43888e087fce5f4ab5cc950624eb59a645abdc54619c175c8fcf93dd02a27fcf" # linuxbrew-core
   end
 
   depends_on "tre"

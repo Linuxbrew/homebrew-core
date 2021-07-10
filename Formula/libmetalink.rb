@@ -19,7 +19,7 @@ class Libmetalink < Formula
     sha256 cellar: :any, sierra:        "87711da9c52d75d2d6fed5829a70b0f6561f55fdcf1129266001b6e96bc69b1b"
     sha256 cellar: :any, el_capitan:    "4ca3f82ac2e2520c677def661168c6ba14ee2b8f0139fbe33cf5be66745244d3"
     sha256 cellar: :any, yosemite:      "e627cde406e135a735fd2586622d2fa05cf6ef9fda8a0ea08d09ddfce20dca75"
-    sha256 cellar: :any, x86_64_linux:  "7f8f2b1fbedd2c845252928f3f379cc3d411fca1cd6d546f26e7d4d084017fa7"
+    sha256 cellar: :any, x86_64_linux:  "7f8f2b1fbedd2c845252928f3f379cc3d411fca1cd6d546f26e7d4d084017fa7" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

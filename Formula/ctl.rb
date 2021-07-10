@@ -12,7 +12,7 @@ class Ctl < Formula
     sha256                               big_sur:       "ff72d9eb8d78bfbc8be7e2df6c5b12ebe84539599f2874df9a63cdeab65d0e93"
     sha256                               catalina:      "348b69fc01982990dc24ba16332bd99851f8fbab4ccd25d05753288f4ff76344"
     sha256                               mojave:        "37dce198f7d3aa8dab4ea3519da23f8a02ffacd61569323d6ee24a9b18c35190"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d1ce9c7672bc7dfc149b44c2220b5d59638feaa8def0951eaf9214460c5b467"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d1ce9c7672bc7dfc149b44c2220b5d59638feaa8def0951eaf9214460c5b467" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

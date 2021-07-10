@@ -17,7 +17,7 @@ class LibtorrentRasterbar < Formula
     sha256 cellar: :any, catalina:      "2b5460c509171200053dbb6d0eb45b71737695239beff530d63c55265c89fec5"
     sha256 cellar: :any, mojave:        "593dae5994fb2e71c44f0150196d8cb719872b15e6212a8d669b1ed43c4f8f90"
     sha256 cellar: :any, high_sierra:   "9f140786725e1a24971d5d3a99ff77cb35ec713f6fb6fd871b40633d4a322ea3"
-    sha256 cellar: :any, x86_64_linux:  "9e53720935847df06190396906053157099660b75154b6047c2a2c3331365896"
+    sha256 cellar: :any, x86_64_linux:  "9e53720935847df06190396906053157099660b75154b6047c2a2c3331365896" # linuxbrew-core
   end
 
   head do

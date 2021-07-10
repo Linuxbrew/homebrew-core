@@ -19,7 +19,7 @@ class Hdf5Mpi < Formula
     sha256 cellar: :any,                 big_sur:       "3cec0df153df392877b6ed07b6275c966eadbcb70140100297ead802fe1436c6"
     sha256 cellar: :any,                 catalina:      "485269b3114631acdb6618687e8623f0e771c22a16bbac96f0bf63ccfb05a386"
     sha256 cellar: :any,                 mojave:        "94374cc5ff60100b17c2b5a098806d830eee548e29542132a52171fd9c89fda6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "123df02c0ae995da4daf6f8f5a088e25c7429482eb0a3ba27f3636272fdb5ff1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "123df02c0ae995da4daf6f8f5a088e25c7429482eb0a3ba27f3636272fdb5ff1" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

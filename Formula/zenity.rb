@@ -12,7 +12,7 @@ class Zenity < Formula
     sha256 mojave:        "cef54fcd5601eb5dd3b563d1a09a6cd83654a2fa46e4a83a3d3c6e6a356fe29a"
     sha256 high_sierra:   "36cf68d4838890e8d9122109464548a4630da0b06dcf6d4f0976ccf58b99dde2"
     sha256 sierra:        "8b06d6cfec84ff39a95aeb4b466c1eb62584ff019ed90331334d243501cc8398"
-    sha256 x86_64_linux:  "9de564fbd06063c0e002836e266b5c78cfbd0204084fc0501dd5053c58dfe0a6"
+    sha256 x86_64_linux:  "9de564fbd06063c0e002836e266b5c78cfbd0204084fc0501dd5053c58dfe0a6" # linuxbrew-core
   end
 
   depends_on "itstool" => :build

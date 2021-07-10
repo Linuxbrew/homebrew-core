@@ -37,7 +37,7 @@ class Devil < Formula
     sha256 cellar: :any,                 big_sur:       "620f8f3092f690123ed2365fec5c39a1258e0705e8b5df5de5120102e6fca007"
     sha256 cellar: :any,                 catalina:      "4ab10b6765d5417246c6a7cf2a6fef05969c7216fe353c0ee5a9b562afe03d3e"
     sha256 cellar: :any,                 mojave:        "3031f881197694ff89cbe658af6e15a4abe11d995cd280eb38e1c5b1ba622b82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f03c5e8fa76b91ff577fa60e82d99ec522cd89b917bbdf90bb694279c9f945ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f03c5e8fa76b91ff577fa60e82d99ec522cd89b917bbdf90bb694279c9f945ed" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -14,7 +14,7 @@ class Malbolge < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "4e4b604d3ce7e8ccc5933dd949b55e77bdd59d21f084b4183b950e9dd552f368"
     sha256 cellar: :any_skip_relocation, el_capitan:    "20f743a8bcb4085f5958e65a54bc20399de6894155ecd64dfc056431d93ec477"
     sha256 cellar: :any_skip_relocation, yosemite:      "e5f617b7bbfee4386442aa739ce8df21b4c54584f2a4ea9f52eec877002ecdf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2439453845fed5067a63f7a40ac0a65437efa9f83db4d1313198607ef610d9ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2439453845fed5067a63f7a40ac0a65437efa9f83db4d1313198607ef610d9ad" # linuxbrew-core
   end
 
   patch :DATA

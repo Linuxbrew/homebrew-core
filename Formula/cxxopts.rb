@@ -12,7 +12,7 @@ class Cxxopts < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2"
     sha256 cellar: :any_skip_relocation, mojave:        "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20f4558a54dc1402513153ab42f6619963ec8fd98bd640b7d9d7340d4cd951e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20f4558a54dc1402513153ab42f6619963ec8fd98bd640b7d9d7340d4cd951e4" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -21,7 +21,7 @@ class Convertlit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "43e28e7711f27843223b29d351ba0ce03a4deee76bbc99c4bdac50969b8eaeb7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "66b05c2c6371f16620c82b31b507413556b511b859644322c65f4ceea4a83a64"
     sha256 cellar: :any_skip_relocation, yosemite:      "024a9fdb4b58a3e04c12ec300facbac636b3510f8726726c4be93c60cf272ab1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8d9edf3ca47dcc76718f182d4c9e1114f45a7d8d21b05721a2828cfbae63d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8d9edf3ca47dcc76718f182d4c9e1114f45a7d8d21b05721a2828cfbae63d2" # linuxbrew-core
   end
 
   depends_on "libtommath"

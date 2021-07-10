@@ -16,7 +16,7 @@ class VampPluginSdk < Formula
     sha256 cellar: :any, catalina:      "b31926ceedbd7f79dc9783da8092b543c549d800705d9d8e8d8d0fd451d093de"
     sha256 cellar: :any, mojave:        "ee8d69d0b8c72e3e9ed1c79bfa7ca6650d10e36a2b110215b3d803f841ae2ec0"
     sha256 cellar: :any, high_sierra:   "834812edc745c782511f1397fb5e3e6995b9fd25b42426ec784cd5610dbc9eb4"
-    sha256 cellar: :any, x86_64_linux:  "95b6cb12f447a52eb0c5104ca640898e0cd773e924ac998ccba7ffa91aac77d4"
+    sha256 cellar: :any, x86_64_linux:  "95b6cb12f447a52eb0c5104ca640898e0cd773e924ac998ccba7ffa91aac77d4" # linuxbrew-core
   end
 
   depends_on "automake" => :build

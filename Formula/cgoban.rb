@@ -12,7 +12,7 @@ class Cgoban < Formula
     sha256 cellar: :any,                 catalina:      "e61d461ae44716ab681151657ff73af5b438f306419142a247543b14de951ab4"
     sha256 cellar: :any,                 mojave:        "65a58482e8da31098a71ed49467b069bff5a6172df8304bb1bccd579301abca2"
     sha256 cellar: :any,                 high_sierra:   "4fc05de2c69a98f7c1dbd55303a508ac50e6bb3a3b6297ebd43ec4bf5a79c14d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3de0c69d26d0e824d372b0a68c1d9757b05d735e68895e277112b20f312b9398"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3de0c69d26d0e824d372b0a68c1d9757b05d735e68895e277112b20f312b9398" # linuxbrew-core
   end
 
   depends_on "libice"

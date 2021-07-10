@@ -13,7 +13,7 @@ class HomeassistantCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "abed34f4e38b3e9e73eacf758d0b9f5eb796d35fa3a494b73f1d5d5797ebf228"
     sha256 cellar: :any_skip_relocation, catalina:      "fd4ea47f108cb6af299188af230dda775c1888ae25835f030cdac86970c2ed97"
     sha256 cellar: :any_skip_relocation, mojave:        "c6374c6c62160c99c8e889b96286b6f65382dca2b06e5f6f328c1ffdbcb85918"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0905a06886af0b7fae6e412a2f19cee6ed98d6d90cdbe2646cde4cece9181b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0905a06886af0b7fae6e412a2f19cee6ed98d6d90cdbe2646cde4cece9181b2" # linuxbrew-core
   end
 
   depends_on "python-tabulate"

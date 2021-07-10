@@ -11,7 +11,7 @@ class Libxrender < Formula
     sha256 cellar: :any, catalina:      "cb7f48876d362f919ed1c34ece8ec5abb16f6e414a6119655e3948fffab5dfab"
     sha256 cellar: :any, mojave:        "77563596957d673a9f4acb0cb4f1e1d28c3b99e7f4a13f0a1dd1e3e403c454b9"
     sha256 cellar: :any, high_sierra:   "b1bf08a6c6c6827af5a3472ac979c9328b780da52c1d234d385ef1fc3b0771b6"
-    sha256 cellar: :any, x86_64_linux:  "f00b409bc70ad54a54f07f3605a6c0be3fdc196ac330e9376a6183d92ad495c0"
+    sha256 cellar: :any, x86_64_linux:  "f00b409bc70ad54a54f07f3605a6c0be3fdc196ac330e9376a6183d92ad495c0" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

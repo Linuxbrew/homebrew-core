@@ -6,7 +6,7 @@ class Desk < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "584bb3f6a1891f3f2d3dca6c96df0643bf22be40544907c4338baaf07902821c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "584bb3f6a1891f3f2d3dca6c96df0643bf22be40544907c4338baaf07902821c" # linuxbrew-core
   end
 
   def install

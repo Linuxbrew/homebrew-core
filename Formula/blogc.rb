@@ -11,7 +11,7 @@ class Blogc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ff83c11472e9295479779c6e27d5ae59efb77bdb216ba4d4efb30ae88f847981"
     sha256 cellar: :any_skip_relocation, catalina:      "16c4393bd90b76d031af46bcd959705ef627e49823912c543f5a76683b5b48e2"
     sha256 cellar: :any_skip_relocation, mojave:        "f1409e887cc77c191a561e71c497d95dffd281cdf673a5b474003902aaa44099"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7add654c76a3e23e5121a9e071390a61f23b18c620ecbeb12d05923fe92bbdb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7add654c76a3e23e5121a9e071390a61f23b18c620ecbeb12d05923fe92bbdb4" # linuxbrew-core
   end
 
   def install

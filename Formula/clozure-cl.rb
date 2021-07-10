@@ -14,7 +14,7 @@ class ClozureCl < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "2e8a3a3d80b28ab52584b2b6314f4739e7b2747d4efb1fead8b66e18045826c8"
     sha256 cellar: :any_skip_relocation, catalina:     "1a61c4c36d12ea0707ddffb61456a65a7b585e009f900daafa9745b292384fd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f29d363fc4c3b7e4356701b7758ece73fb6d3b2b8e243d1c6c81d3de7774d2be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f29d363fc4c3b7e4356701b7758ece73fb6d3b2b8e243d1c6c81d3de7774d2be" # linuxbrew-core
   end
 
   depends_on xcode: :build

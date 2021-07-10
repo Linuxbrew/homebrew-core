@@ -5,7 +5,7 @@ class Vassh < Formula
   sha256 "dd9b3a231c2b0c43975ba3cc22e0c45ba55fbbe11a3e4be1bceae86561b35340"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "024883e4d57b626c8fd7d80f37b44c1cdee15bfb2b7f4f546cb40fdd09e79a08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "024883e4d57b626c8fd7d80f37b44c1cdee15bfb2b7f4f546cb40fdd09e79a08" # linuxbrew-core
   end
 
   def install

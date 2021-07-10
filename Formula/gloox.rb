@@ -15,7 +15,7 @@ class Gloox < Formula
     sha256 cellar: :any, catalina:      "decf46b20a794855cf3bd3c06e05111d15fd11de4dec1c5fdf6a1253eb865e7a"
     sha256 cellar: :any, mojave:        "607baeeadc43775af6799d5bc4715239cbe6455ec72d2e14d82523d425fa7799"
     sha256 cellar: :any, high_sierra:   "011c8a88d0f8970c9ad4ed339972b55b56c26120e64ef9d1576b68c03b10f706"
-    sha256 cellar: :any, x86_64_linux:  "0643bf4884e0dc6312c8fffa361dbf4417a9838b18166b326c6752c6eec43c75"
+    sha256 cellar: :any, x86_64_linux:  "0643bf4884e0dc6312c8fffa361dbf4417a9838b18166b326c6752c6eec43c75" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

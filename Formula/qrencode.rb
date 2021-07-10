@@ -16,7 +16,7 @@ class Qrencode < Formula
     sha256 cellar: :any, catalina:      "326d2f182c7c8d9188be7adda5bd0ecb5922269f60f72ac265e404fa17fb310f"
     sha256 cellar: :any, mojave:        "a8ec712f32c4d8b09d4c098c37264ea41f0f382525c5b67e657248fdd9f1f53d"
     sha256 cellar: :any, high_sierra:   "a6d123b7f88941fe9959970d8b6ccfbc426c2ec405cfc731bc259f2b0f536171"
-    sha256 cellar: :any, x86_64_linux:  "2dffd63b3e2801ac86c917399021800654b6fa37937396f9a9c4daaea25374bd"
+    sha256 cellar: :any, x86_64_linux:  "2dffd63b3e2801ac86c917399021800654b6fa37937396f9a9c4daaea25374bd" # linuxbrew-core
   end
 
   head do

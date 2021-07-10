@@ -15,7 +15,7 @@ class Vcs < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f13c9ce9291572d343bb3411e059601aa71fc4776138f13d33941653aab4dfb4"
     sha256 cellar: :any_skip_relocation, catalina:      "3ae09912577433e9aee40da787b21b278d2e4d625454e6a554a10dfd71a3cb82"
     sha256 cellar: :any_skip_relocation, mojave:        "2100a37453706602e0bd5941c7fb343cf64659493b27889957bad498934c6daf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d4c055cb44e622d78a53d67cab6927f5671780bb515d4f87c9028f514ad6444"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d4c055cb44e622d78a53d67cab6927f5671780bb515d4f87c9028f514ad6444" # linuxbrew-core
   end
 
   depends_on "ffmpeg"

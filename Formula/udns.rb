@@ -11,7 +11,7 @@ class Udns < Formula
     sha256 cellar: :any, sierra:       "8fbcc7a26f6be81abfe4766e9efc012c720938e8ea9dc9f20497cb82b101e659"
     sha256 cellar: :any, el_capitan:   "59939957b47912ebb286426391a4e2c904ecc416e9de18dc8c0a74052ac82ffe"
     sha256 cellar: :any, yosemite:     "342aff7270a4251655eb7cfc538b39db1805cfe965ada5cad1a2819b727d9107"
-    sha256 cellar: :any, x86_64_linux: "eb334a17a24b5246087dfd86ce1740d66def683e9e3516c96b100fd37d7b1933" # glibc 2.19
+    sha256 cellar: :any, x86_64_linux: "eb334a17a24b5246087dfd86ce1740d66def683e9e3516c96b100fd37d7b1933" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

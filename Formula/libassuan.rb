@@ -16,7 +16,7 @@ class Libassuan < Formula
     sha256 cellar: :any,                 big_sur:       "3d14f187ed48aa40987fa5fdf3ed9cbc52ddf8d079c7e97553efe510e4a084a0"
     sha256 cellar: :any,                 catalina:      "75a37cd9a2f103b1f552349ba537cec0bd2ecbb222583b35e237aa6ad90b84c5"
     sha256 cellar: :any,                 mojave:        "81119eac40ec7e6cfd997631f8d5ed1b6a3646c0b3481acd1c6b98492a187d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99bc4500dfb1c4a606bf2197d9a99b7de82143732238bd5b1bc4460a6763e42d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99bc4500dfb1c4a606bf2197d9a99b7de82143732238bd5b1bc4460a6763e42d" # linuxbrew-core
   end
 
   depends_on "libgpg-error"

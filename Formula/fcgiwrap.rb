@@ -14,7 +14,7 @@ class Fcgiwrap < Formula
     sha256 cellar: :any, sierra:        "ed81f5b0cec39f7138a877cea2a0e397007d3271393805af53739b837537bd0f"
     sha256 cellar: :any, el_capitan:    "c0a70c3cc726788dfac52d8b23c79c1a4ef31a8c7e1418ac335cfe182b94f05d"
     sha256 cellar: :any, yosemite:      "ea03eeafcd71e07c2e608bc974a00cf642b253de24eb7bd587155c89db2fffad"
-    sha256 cellar: :any, x86_64_linux:  "085d05ae121ccf4e9fbd71acafb4687b44648b878628780c5bfeed3d8f6101ee"
+    sha256 cellar: :any, x86_64_linux:  "085d05ae121ccf4e9fbd71acafb4687b44648b878628780c5bfeed3d8f6101ee" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

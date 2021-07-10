@@ -12,7 +12,7 @@ class Flintrock < Formula
     sha256 cellar: :any,                 big_sur:       "6c982aa66f903a3b26917adf4767700e69f693e416d8fa022300fe9e4704314b"
     sha256 cellar: :any,                 catalina:      "fef1cc66b6cd31298a9b5c40dcc3319d1b463952ca20c26e677fd81a9bfcaf7d"
     sha256 cellar: :any,                 mojave:        "db9ec55e170efd550bb91a0f9ca330384b7edeb1703dd88572619a0f888879d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "536e7a368e95f69cc5459473e3a3770054a4033cc5ef3e367d12ccdec5011fe7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "536e7a368e95f69cc5459473e3a3770054a4033cc5ef3e367d12ccdec5011fe7" # linuxbrew-core
   end
 
   depends_on "rust" => :build

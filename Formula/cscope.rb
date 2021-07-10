@@ -16,7 +16,7 @@ class Cscope < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "0a8c76e372e2c965e654b5024cbf872931e6204b7e2ba79623d5d7d002cd3c2f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ae7b5f716debeb937c3472add41f69c7176e9c4a9a0668090afd63313eabbe86"
     sha256 cellar: :any_skip_relocation, sierra:        "7eef899511b0d7eb0d6a35acf677d9b19f89528aae0272d5c414bbafbe5daaaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2b2a031558cffb1e8fc759945cbefd3ac9702400fedeabef65dbec8e970ab11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2b2a031558cffb1e8fc759945cbefd3ac9702400fedeabef65dbec8e970ab11" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

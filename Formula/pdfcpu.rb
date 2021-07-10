@@ -10,7 +10,7 @@ class Pdfcpu < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "929a1b6879bf834d195e9811940469fdf5d6b26a0260e41b8821f0d3ca8a0fd2"
     sha256 cellar: :any_skip_relocation, catalina:      "cff4d99d6c310dc77d4c760b52e1c4b345b18682742f5b4bc575b4e4310a3275"
     sha256 cellar: :any_skip_relocation, mojave:        "cbade3938d02906c5689f3f16aeccddede49fb054264cb18a89972fc6398cf6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bc6ba63434a620506434d439f6a41cdb83e911b61f28fd5dacafbca0bbbbe1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bc6ba63434a620506434d439f6a41cdb83e911b61f28fd5dacafbca0bbbbe1f" # linuxbrew-core
   end
 
   depends_on "go" => :build

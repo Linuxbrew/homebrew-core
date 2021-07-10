@@ -52,7 +52,7 @@ class X264 < Formula
     sha256 cellar: :any,                 big_sur:       "dae0e0e0715c44a916170879eb71c942b673d9450c7c0db319ce7e56757e567f"
     sha256 cellar: :any,                 catalina:      "2ffa8448569c0272db62789e0c1475330356956f570fea278a3fa0ca7739ab3b"
     sha256 cellar: :any,                 mojave:        "6780344c98d8c614d8fb8039365747cc699cb6818f7c3d56b708d9e2c5afe388"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad216ec620e2adb32252c92552c19159d44e8e8b0d080c8f2ee4ce64b46b799e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad216ec620e2adb32252c92552c19159d44e8e8b0d080c8f2ee4ce64b46b799e" # linuxbrew-core
   end
 
   depends_on "nasm" => :build

@@ -14,7 +14,7 @@ class Bam < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "59aebec505aba51189ccedb1872affd1c48ca84598caa591c2e0c955817e7cd7"
     sha256 cellar: :any_skip_relocation, sierra:        "f237da39dd743732f3cfa0a5029b3cce4b332fb08e4326183eece8fd50dcf789"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4ded8f152aa05211053796e77b9b7a9e5671b9d5871c374a85ee74e6b9cb8e50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82fa4928436da37b10d17b6194f49e2772505c95c1e4a0c17606c409fa9947c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82fa4928436da37b10d17b6194f49e2772505c95c1e4a0c17606c409fa9947c7" # linuxbrew-core
   end
 
   def install

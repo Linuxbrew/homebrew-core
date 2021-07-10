@@ -7,7 +7,7 @@ class WaylandProtocols < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c6acbc8ee3b97bd1fc5d80db380915d7d5ce0c48b60126d5d484d9e71fe92c1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c6acbc8ee3b97bd1fc5d80db380915d7d5ce0c48b60126d5d484d9e71fe92c1d" # linuxbrew-core
   end
 
   depends_on "pkg-config" => [:build, :test]

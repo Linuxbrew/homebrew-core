@@ -12,7 +12,7 @@ class RipgrepAll < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "bc8ee7c7869c23b82cb1997e4f7f5024193b74cc282c20c6bf50af43b55ddbb4"
     sha256 cellar: :any_skip_relocation, mojave:        "b1b26781f754760e790ff28c7a26079eb9df86b983c786cd745eabac0232c861"
     sha256 cellar: :any_skip_relocation, high_sierra:   "59001d904ce02e54e23842a7d04f9729d41f1e6fd8b81a71676812be5c6a20f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb4144e73596def0ced6274cd48ff8777af279baf63604261b31e87938f57207"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb4144e73596def0ced6274cd48ff8777af279baf63604261b31e87938f57207" # linuxbrew-core
   end
 
   depends_on "rust" => :build

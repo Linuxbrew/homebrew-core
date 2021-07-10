@@ -19,7 +19,7 @@ class Sdl2Net < Formula
     sha256 cellar: :any, sierra:        "dc2b96762f77dd4d42fea1da4d4c2373692dd0a531f686f00de0dd4a6eed8df9"
     sha256 cellar: :any, el_capitan:    "46d189ebe1f240381a9e8d99a2cb249e577cec98e6399e741e47275735a3471c"
     sha256 cellar: :any, yosemite:      "2e2bcc1e1aac84b37ebb44398e463d9004764aa369489926cd07bb97cb9f60c4"
-    sha256 cellar: :any, x86_64_linux:  "a8f5d11fec7bb5fe7ba1cbfec35ba08faaca60928271d7ea1bfd5cc77ea7665f"
+    sha256 cellar: :any, x86_64_linux:  "a8f5d11fec7bb5fe7ba1cbfec35ba08faaca60928271d7ea1bfd5cc77ea7665f" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

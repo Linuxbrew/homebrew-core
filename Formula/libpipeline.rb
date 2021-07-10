@@ -15,7 +15,7 @@ class Libpipeline < Formula
     sha256 cellar: :any,                 big_sur:       "ab0b600e54ba2acd5878ed910af86518a905a1d53fdeca8d5a8abf363d09a584"
     sha256 cellar: :any,                 catalina:      "efa57a53e202d19ae3afb04b55b85e37939a0d0cff1e6af9b40607c9acd8b6d0"
     sha256 cellar: :any,                 mojave:        "337f3a1e0b07e0fcdece44321f28be0668be70fb914e5f37000bd6b42ffa188c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd49ebe656097647a952e6357f4cb19c95bdde0a8914f4fe433d8014c6fc8e79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd49ebe656097647a952e6357f4cb19c95bdde0a8914f4fe433d8014c6fc8e79" # linuxbrew-core
   end
 
   def install

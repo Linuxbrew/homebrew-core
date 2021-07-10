@@ -7,7 +7,7 @@ class SchemaEvolutionManager < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "09384d7652e7a93fb3ffd96f85aadefcec47a0823672700041d96346a07ea046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "09384d7652e7a93fb3ffd96f85aadefcec47a0823672700041d96346a07ea046" # linuxbrew-core
   end
 
   uses_from_macos "ruby"

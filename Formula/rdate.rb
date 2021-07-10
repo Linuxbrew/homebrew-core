@@ -20,7 +20,7 @@ class Rdate < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9f4a6300d6d3ebc9034abeb5388fd40face1f286a7b97610b6a40a1dcdf166b5"
     sha256 cellar: :any_skip_relocation, el_capitan:    "acb2ae5951a0f32cbdce39e02d86c63cdb85b41fd02aff74aac6ea4939d71d8d"
     sha256 cellar: :any_skip_relocation, yosemite:      "553782017635be9c8d80bbf6fd033f294cddcb427a2d83fe82af8c069c60867f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88d88020b971c87d1b7a64388163350e76924e8cf990c2e0cb88c87906d8fd3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88d88020b971c87d1b7a64388163350e76924e8cf990c2e0cb88c87906d8fd3b" # linuxbrew-core
   end
 
   def install

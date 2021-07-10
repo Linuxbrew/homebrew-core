@@ -13,7 +13,7 @@ class Mmix < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b694920e61edf2dec094618910be78fcd4fbbcad22d4d37363555aad38ee0af0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c1e8e0d2d627b3ab2c2c68a8b358981dab07466c3c70f3a2e4df8557006deb92"
     sha256 cellar: :any_skip_relocation, yosemite:      "7675c2bc1253e4da2a126d52942449f71cabdd83c39874403d449b5a05ceb145"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5f86dd7a3adf348bd5738818a343121e697f16c28a2d161b20d47aca5e997a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5f86dd7a3adf348bd5738818a343121e697f16c28a2d161b20d47aca5e997a5" # linuxbrew-core
   end
 
   depends_on "cweb" => :build

@@ -10,7 +10,7 @@ class FdkAac < Formula
     sha256 cellar: :any,                 big_sur:       "21df35d8501a3962ae713c598b4c94300938cabe8bded66021d0aff129fe00ef"
     sha256 cellar: :any,                 catalina:      "b4e0f2728235e4763c6a4d95b0c4eafdb28119e5f4f22397e23e35dacb88e8a8"
     sha256 cellar: :any,                 mojave:        "76e2a579c432470211d10a58284267edce7eae47ccfea7ed334426b9594d309a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dfa22dedca4182aed74b7e74bf5908572c5e5fe0c11b9a75de1f0e37122752d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dfa22dedca4182aed74b7e74bf5908572c5e5fe0c11b9a75de1f0e37122752d" # linuxbrew-core
   end
 
   head do

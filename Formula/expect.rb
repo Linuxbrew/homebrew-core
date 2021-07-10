@@ -16,7 +16,7 @@ class Expect < Formula
     sha256 big_sur:       "b7824e3cc83c7b063198bb7505bbd723481327ff40d36ac91ba8950621bcbc49"
     sha256 catalina:      "366066798dba96afbfbbf5b262bb3df9e6405e79b1e4d7160dd9610308ec4b3e"
     sha256 mojave:        "da69b859dd682d61f2380523c3e1afbed2d06e453d4e88e0ce6bb5566df24082"
-    sha256 x86_64_linux:  "b78327442b9ae7ce4f0c96ea687ac4437b597ec0e9af151dced9bda57f4fba23"
+    sha256 x86_64_linux:  "b78327442b9ae7ce4f0c96ea687ac4437b597ec0e9af151dced9bda57f4fba23" # linuxbrew-core
   end
 
   # Autotools are introduced here to regenerate configure script. Remove

@@ -13,7 +13,7 @@ class Spigot < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b0e15ff42ceacf124df8655ee07bebb44dcb0ee0a5f8785ab4da5c8b27ea1467"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b0e15ff42ceacf124df8655ee07bebb44dcb0ee0a5f8785ab4da5c8b27ea1467" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

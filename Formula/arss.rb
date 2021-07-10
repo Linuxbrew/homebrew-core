@@ -13,7 +13,7 @@ class Arss < Formula
     sha256 cellar: :any, sierra:        "2311c31ae2e80905dfc41c8adb9639314664103352540b198f24c54e0c102550"
     sha256 cellar: :any, el_capitan:    "5da45934b19d0cab02c809932fb8c5da3fd76d2f781bc9e2e7a98fa1825989eb"
     sha256 cellar: :any, yosemite:      "268225389842f4952424b17c7b94759b7a3d3009053b50718f1e4155b7eace86"
-    sha256 cellar: :any, x86_64_linux:  "7bc019e2012ca8365f5f72677e89d2e3ff80cd4e686b46710fdb2f2693d9c487"
+    sha256 cellar: :any, x86_64_linux:  "7bc019e2012ca8365f5f72677e89d2e3ff80cd4e686b46710fdb2f2693d9c487" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

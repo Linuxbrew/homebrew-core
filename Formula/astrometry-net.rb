@@ -18,7 +18,7 @@ class AstrometryNet < Formula
     sha256 cellar: :any,                 big_sur:       "48ce09c0a007ff83c025e87f62ae388ef70c855f1ce5fbb507228b2b9384d13b"
     sha256 cellar: :any,                 catalina:      "812735fc4b3038e7004693d8f59bd81e434edc0ed2b5334e634259fdf8071074"
     sha256 cellar: :any,                 mojave:        "ec10f1e44c5dfdb49e290cb180d30945d69c100514a07b2c3a07da3f9dff88db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062b47901a721a7b8ae3d5b50d03d2798a8d0666ba8c17437fb818fac69ac5d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062b47901a721a7b8ae3d5b50d03d2798a8d0666ba8c17437fb818fac69ac5d8" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

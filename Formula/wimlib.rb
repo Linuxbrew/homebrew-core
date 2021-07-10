@@ -15,7 +15,7 @@ class Wimlib < Formula
     sha256 cellar: :any,                 big_sur:       "055f311cbc8a3ac7e36978a9ad0c69a6825c6ba78136492765a7c2b3ba3fc84f"
     sha256 cellar: :any,                 catalina:      "1db7b55e58b89d67b1365788c595bd08d13c04c9f7c218d488ec3edd7bdd67a2"
     sha256 cellar: :any,                 mojave:        "a78ad3433ec595db6568099566f9b15d4919a70a462260afc3f89560bbbb4d2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a16404a6e4ab8f9db2b33036ed6d2762fce75920c43c268a803a564f775c631"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a16404a6e4ab8f9db2b33036ed6d2762fce75920c43c268a803a564f775c631" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

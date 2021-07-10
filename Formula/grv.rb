@@ -12,7 +12,7 @@ class Grv < Formula
     sha256 cellar: :any, mojave:       "2f223f7ca56ee01201a05e8660c219a2f70d7ead2c5e4f0dac65f4a9b8cd5941"
     sha256 cellar: :any, high_sierra:  "d51249eec72ee11cc90b0d5b4c06e10b77eec0bd7ddf8b53df6d0a0d8a291605"
     sha256 cellar: :any, sierra:       "19f2e8bedb458d0b339160b275e196add00abcca7db92ba141aaccae255bb973"
-    sha256 cellar: :any, x86_64_linux: "84ec8581649a0367f502b39d1803f4e70bce7b4837ddc5e7c61886d2af5d00a7"
+    sha256 cellar: :any, x86_64_linux: "84ec8581649a0367f502b39d1803f4e70bce7b4837ddc5e7c61886d2af5d00a7" # linuxbrew-core
   end
 
   # Reported upstream at

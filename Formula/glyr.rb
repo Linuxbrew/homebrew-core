@@ -13,7 +13,7 @@ class Glyr < Formula
     sha256 cellar: :any, mojave:        "45d36208e031f97c1202824c6a6a0a9e97d777fae91ce7cddc3ca17c3168d31c"
     sha256 cellar: :any, high_sierra:   "fb3ef9186aae754a62a466aae16471049bdaefcc168106fc6f0097e937115524"
     sha256 cellar: :any, sierra:        "04cbfc6d3294d068b3a97bfb5235aed84b3e95478f8f3e873be17127142b07f6"
-    sha256 cellar: :any, x86_64_linux:  "77a732b0e3b1d2d05a83f72982300ec510f54e220473947ab26bf309cde4bde1"
+    sha256 cellar: :any, x86_64_linux:  "77a732b0e3b1d2d05a83f72982300ec510f54e220473947ab26bf309cde4bde1" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

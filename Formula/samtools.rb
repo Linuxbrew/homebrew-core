@@ -10,7 +10,7 @@ class Samtools < Formula
     sha256 cellar: :any,                 big_sur:       "91e903cb284e1ea536117a1c583ab66d40691251dc23fe2904c43548b0759c9b"
     sha256 cellar: :any,                 catalina:      "1ba9234ba9de00494f56515347be7027161fddd0ae7f44e88db9809cfa9440a2"
     sha256 cellar: :any,                 mojave:        "441bf778fce091ac24cfca18b967b1693e54bea5cd44e217f7427597c8a38271"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63963e3dba0a80e05c4d7c1bc6994dba9e30d72957dd0158ce7f9d8760168db4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63963e3dba0a80e05c4d7c1bc6994dba9e30d72957dd0158ce7f9d8760168db4" # linuxbrew-core
   end
 
   depends_on "htslib"

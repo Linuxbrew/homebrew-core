@@ -10,7 +10,7 @@ class GhzWeb < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "893a65234005a2fc23d29c1c89c6b26a074caf9c0e2a5709d40e23534b388a78"
     sha256 cellar: :any_skip_relocation, catalina:      "2bdbc753fbf37b9812b115c7e5215032feb1a5084df148644744eedda4bc7be7"
     sha256 cellar: :any_skip_relocation, mojave:        "67521cd0b324a9cb87b21e6caacf3d36bd9bfe9f0f2a489681172a6e62e14054"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed1df60c4f99b4eb92e29da8705ba3eae1f1bffae5cbbda0ec28fe0e49e8b870"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed1df60c4f99b4eb92e29da8705ba3eae1f1bffae5cbbda0ec28fe0e49e8b870" # linuxbrew-core
   end
 
   depends_on "go" => :build

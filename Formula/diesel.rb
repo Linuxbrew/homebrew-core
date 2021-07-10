@@ -11,7 +11,7 @@ class Diesel < Formula
     sha256 cellar: :any,                 big_sur:       "3d28f59de8c707d09adf14916802d0ddb8db59d54a0318e6fcbb99c53477f0da"
     sha256 cellar: :any,                 catalina:      "b63e15c3252fdc1907518309ab875447892ed03bd4de4a7853a0cee2f0284879"
     sha256 cellar: :any,                 mojave:        "9da02b6126a83dc9a80e994ae21c93e46b839d28d5b544fdda9cc64f8fb25dc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3b3d9ef392c4171bcc550eba34dba3aab581cbda6b9db13705945f60295ff6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3b3d9ef392c4171bcc550eba34dba3aab581cbda6b9db13705945f60295ff6f" # linuxbrew-core
   end
 
   depends_on "rust" => [:build, :test]

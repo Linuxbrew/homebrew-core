@@ -6,7 +6,7 @@ class Spotbugs < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c6b47ea729fff54754e97a492b30cd4f7db4c6de33d74b7dce363d6713da01b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c6b47ea729fff54754e97a492b30cd4f7db4c6de33d74b7dce363d6713da01b6" # linuxbrew-core
   end
 
   head do

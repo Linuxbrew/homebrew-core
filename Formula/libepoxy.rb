@@ -17,7 +17,7 @@ class Libepoxy < Formula
     sha256 cellar: :any,                 big_sur:       "4a6a1766bb7ff4a4c9dbd5136f655685141a3c3eae8b082edc94cada21f613ec"
     sha256 cellar: :any,                 catalina:      "2af927d87affad9ff2ba2bce8b9410f1a7b131ddbd82ba157ffd0ec6a31b15b9"
     sha256 cellar: :any,                 mojave:        "9ff86759f0fce587b7063d2f2b156c3da556d54d6e40a108f72e1813580329bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a39c93c0a3005c10eb522b05de6d13357dbe6ef26c68f25033fdc4845eabec5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a39c93c0a3005c10eb522b05de6d13357dbe6ef26c68f25033fdc4845eabec5" # linuxbrew-core
   end
 
   depends_on "meson" => :build

@@ -15,7 +15,7 @@ class Fig2dev < Formula
     sha256 big_sur:       "7ad02c0ad95d91a65a80357fa8ff68c832b3a974e39914d5a15ec7d55f539893"
     sha256 catalina:      "6399ec140f9170e5a91e36e1186e597761a6c230cec05449be3d27c0d493632a"
     sha256 mojave:        "ded06a69898ae372ecd05d5a5324f99369fc67876318934a1fd278a5dd03e6bf"
-    sha256 x86_64_linux:  "6ee2ffb9e8418468a91c00909bae1709c57ee0373a06dd75af5220c0da1a29df"
+    sha256 x86_64_linux:  "6ee2ffb9e8418468a91c00909bae1709c57ee0373a06dd75af5220c0da1a29df" # linuxbrew-core
   end
 
   depends_on "ghostscript"

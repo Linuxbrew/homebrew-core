@@ -15,7 +15,7 @@ class Scamper < Formula
     sha256 cellar: :any,                 big_sur:       "09a4f52a2be595e32ca3fc36a34382c99b81b3dcd100100c2044f7a062fa26f8"
     sha256 cellar: :any,                 catalina:      "c33b1518d8c66b25952e32d0b52ce8e44b060818056e0d09f5a594bd349fef52"
     sha256 cellar: :any,                 mojave:        "0ad15790baa3e9045a7d82ecf4a8e40c35f50006c50bd6229ca8b4485ca35071"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d04d7397b75c0556c1a6f8ef3890fdf8f44a00cc8b5795dc29d3c775b8f9a8f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d04d7397b75c0556c1a6f8ef3890fdf8f44a00cc8b5795dc29d3c775b8f9a8f9" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

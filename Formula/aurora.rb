@@ -12,7 +12,7 @@ class Aurora < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "f3b45006b5b5c6f15166d11d1a740fb14f3b22c1d64b3b64397ed2958e9c882d"
     sha256 cellar: :any_skip_relocation, mojave:        "21abebb582fbac2ebb400328b455c890206f78ae0910f75ded8019bfc6a40c1f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e3e9b06b4b9053afb4b75b48d90555d00fcc8404309d8b2b2b336538810746cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35bc4d2607dbf232b1e8e0e9c6bc14acaa9a5937d522c3fc21fb420dc1a7ed62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35bc4d2607dbf232b1e8e0e9c6bc14acaa9a5937d522c3fc21fb420dc1a7ed62" # linuxbrew-core
   end
 
   depends_on "go" => :build

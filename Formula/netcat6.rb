@@ -13,7 +13,7 @@ class Netcat6 < Formula
     sha256 mojave:        "aba098730e397f84b6ed7534b41bd7f65f5f6182189d890ac93216faff2fe9b7"
     sha256 high_sierra:   "b3fe44c42b33bc668cdaa0f05eb10a5f9b67891b1947b98abe9cad6464182835"
     sha256 sierra:        "bdb853a9a63a03555682eae734d9d9a7725591dfd16128cf59f208968ef16ef2"
-    sha256 x86_64_linux:  "be703e7dbe6e1b367d7eb01eb66f91ee81dfa8be963c1ec02a7be486fc9be0a3"
+    sha256 x86_64_linux:  "be703e7dbe6e1b367d7eb01eb66f91ee81dfa8be963c1ec02a7be486fc9be0a3" # linuxbrew-core
   end
 
   # Upstream appears to have stopped developing netcat6 and instead recommends

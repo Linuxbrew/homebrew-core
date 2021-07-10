@@ -13,7 +13,7 @@ class Mysql < Formula
 
   bottle do
     rebuild 1
-    sha256 x86_64_linux: "fbe65cc2fd6af29ef16a0d67573981148e7515cd5b0115016c129d916ae06dc4"
+    sha256 x86_64_linux: "fbe65cc2fd6af29ef16a0d67573981148e7515cd5b0115016c129d916ae06dc4" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

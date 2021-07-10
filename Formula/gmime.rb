@@ -11,7 +11,7 @@ class Gmime < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "877f2024cc0d97bc94f559ad992f87bdf6fdc23f9a1acc7b5bb13f0711b734c3"
     sha256 cellar: :any_skip_relocation, mojave:        "7a0bda5bca906bc62e3ab24fc39752e2858fce861ba759040fc864928ab18d96"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0bb48841eae316695037bcd793673d518d0f2be20968a115a81c92824fb77ac0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fcc99c96339f108fa0a3a3861ebdbc602a1d8048c178b639bd65852c84c6c8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fcc99c96339f108fa0a3a3861ebdbc602a1d8048c178b639bd65852c84c6c8f" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

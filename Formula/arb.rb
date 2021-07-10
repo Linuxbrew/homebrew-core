@@ -12,7 +12,7 @@ class Arb < Formula
     sha256 cellar: :any,                 big_sur:       "0e09a51868eb29ac963d7a05de8d69582b84fcaa0daeda65d36a4836b3e8ce7a"
     sha256 cellar: :any,                 catalina:      "735bd3b8dc3f89429d51b1fed7b0a651176d2816402eb5c88b7e7a33709d723f"
     sha256 cellar: :any,                 mojave:        "e2001e15a3cab1166c517a366269ad88258748cd8373253f071450d433c7f8cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879b5c0499310fa605329c30f907189ec3bf455bd7fd8d172e67c4e8a81f8b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879b5c0499310fa605329c30f907189ec3bf455bd7fd8d172e67c4e8a81f8b9e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

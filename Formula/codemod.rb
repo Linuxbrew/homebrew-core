@@ -16,7 +16,7 @@ class Codemod < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e0a2e42e92636a4b0ccb54fdfa45ca5e73870315357d57c5c673d7710e3ffb7a"
     sha256 cellar: :any_skip_relocation, mojave:        "07b7c3807d776ca2991a321f32846a9613d0af356f69482f2653a5c30b7304df"
     sha256 cellar: :any_skip_relocation, high_sierra:   "b7b6b35729c1e0e990f4dc2d09c197d6c07cd8fbdacaa3d81decfe16e8856cb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76f441b50d78411faa44ddfaa082e3d04b96bbcc20dc9f44ca6510227b5c1fde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76f441b50d78411faa44ddfaa082e3d04b96bbcc20dc9f44ca6510227b5c1fde" # linuxbrew-core
   end
 
   depends_on "python@3.9"

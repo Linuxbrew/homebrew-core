@@ -16,7 +16,7 @@ class Omniorb < Formula
     sha256 cellar: :any,                 big_sur:       "625e7bb2ca70ac3a1e52d3cc8ef9b1614b498eb24b00cdc78736dcea7c40c9cf"
     sha256 cellar: :any,                 catalina:      "e25345b167440b0a34a7399a267b487d0e8ffb24ccd5f9c2cbbf874b8a38e729"
     sha256 cellar: :any,                 mojave:        "5c8d7b0adeca7c70af83d5b13acc4629e8329104562deaea9f329bf7345ad272"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5596a81c5da5da965cdc999ff349604fc650ec9336cd2c52aa1aae1c829f425"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5596a81c5da5da965cdc999ff349604fc650ec9336cd2c52aa1aae1c829f425" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

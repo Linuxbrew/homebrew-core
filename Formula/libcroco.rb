@@ -12,7 +12,7 @@ class Libcroco < Formula
     sha256 cellar: :any, mojave:        "edf97f493296bfe01b2a8cfe156f1e8052e181bed6ea34cabaf18ed59ef28b17"
     sha256 cellar: :any, high_sierra:   "f6e7d7d608dfcf6e57eaad77eef3cca27c15db0746e102f6dc33cccdd5a8a7bc"
     sha256 cellar: :any, sierra:        "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552"
-    sha256 cellar: :any, x86_64_linux:  "41fe29bcc2ada0f0d6812b61f2ab2c3b21f20b16992f81082a65d496e89cd6cd"
+    sha256 cellar: :any, x86_64_linux:  "41fe29bcc2ada0f0d6812b61f2ab2c3b21f20b16992f81082a65d496e89cd6cd" # linuxbrew-core
   end
 
   depends_on "intltool" => :build

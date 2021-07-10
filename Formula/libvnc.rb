@@ -17,7 +17,7 @@ class Libvnc < Formula
     sha256 cellar: :any,                 big_sur:       "ea5e78dfaf457a33519debdc579dfd868f6503ef93b526d0f57fcab73997f298"
     sha256 cellar: :any,                 catalina:      "908c0d7fa104abe781cc67b0a9ebff7e2208cf3cbfb4b7acd770d3d92bb14c9d"
     sha256 cellar: :any,                 mojave:        "4744d5940eb9095e9d7ec8a731c8f611a252e5548237d3d338a2334766b38825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3796b15866be519b6b503cfd205e7fe6b62a67e4e4941691a46f91bb4d2ecc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3796b15866be519b6b503cfd205e7fe6b62a67e4e4941691a46f91bb4d2ecc3" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

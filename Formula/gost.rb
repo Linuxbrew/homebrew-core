@@ -12,7 +12,7 @@ class Gost < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4669c79b11e368446e14667c237c710b05e69b2be23a699fe7e4d9355765c063"
     sha256 cellar: :any_skip_relocation, mojave:        "fe984a0b5d0323ddb2306a078265b246c751c0dc08d0f14cbe0ddb0c00293f13"
     sha256 cellar: :any_skip_relocation, high_sierra:   "6db1c66d9a848ea55930dfb17fc0da9ec64a3e053631a29667026d58a34c2246"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "555067d946e79a916ff142c08a2d8cb5fb792a8d7d6985759cb07a691c6fc30f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "555067d946e79a916ff142c08a2d8cb5fb792a8d7d6985759cb07a691c6fc30f" # linuxbrew-core
   end
 
   depends_on "go" => :build

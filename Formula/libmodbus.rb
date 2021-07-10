@@ -12,7 +12,7 @@ class Libmodbus < Formula
     sha256 cellar: :any, mojave:        "0dd32373b5988d09317728357780b3cdc54cad290afcb51b390f33a50fa653e0"
     sha256 cellar: :any, high_sierra:   "d821c77d787cf51c96811c37374d5cc42c7948636c84d7b7b6251a7e0afa29a0"
     sha256 cellar: :any, sierra:        "462dd4e48e87bab1e48ef64f3f3a907392994a9f8c0753c8b739ca5207882b32"
-    sha256 cellar: :any, x86_64_linux:  "86458cab51fd996c53df86f6d21ebc6ff2f08f3c9079af1463c36935baf56c8e"
+    sha256 cellar: :any, x86_64_linux:  "86458cab51fd996c53df86f6d21ebc6ff2f08f3c9079af1463c36935baf56c8e" # linuxbrew-core
   end
 
   head do

@@ -11,7 +11,7 @@ class Radare2 < Formula
     sha256 big_sur:       "52563870e763b9012aa676db4751232ecbfeee0c3b3d57c7ac4f968fca7114b4"
     sha256 catalina:      "8e96a5811ccc5fd5898459442a7c70b9c143246374bb1801d472ecf779a23123"
     sha256 mojave:        "f7f4295250789184496dde21eda27a2145e3df37629f9a90ffe93d69f901044a"
-    sha256 x86_64_linux:  "87adc2f06c9e3d9daf1d7e36446943c88ce94fb2dbbb0eb432a60f4cb3ccabcc"
+    sha256 x86_64_linux:  "87adc2f06c9e3d9daf1d7e36446943c88ce94fb2dbbb0eb432a60f4cb3ccabcc" # linuxbrew-core
   end
 
   def install

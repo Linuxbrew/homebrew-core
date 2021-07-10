@@ -18,7 +18,7 @@ class Libuecc < Formula
     sha256 cellar: :any, high_sierra:   "95646c23acf19c1f07032c6f311f446e7a32b1a9d0c1dd385ec3c41811036572"
     sha256 cellar: :any, sierra:        "4722877fdc4538c814a10e6d0dc2f1a4d2a3571ce4ca1c8b37279c88cd83883f"
     sha256 cellar: :any, el_capitan:    "d9e52027a6535fb74e44026d23ef13a2417a1f22402173dc90d136071ea5290d"
-    sha256 cellar: :any, x86_64_linux:  "e3281fed2c6db78c24720127aa2f873823a332dc58393f68ba29cd4e6fd82cb7"
+    sha256 cellar: :any, x86_64_linux:  "e3281fed2c6db78c24720127aa2f873823a332dc58393f68ba29cd4e6fd82cb7" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

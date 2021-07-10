@@ -19,7 +19,7 @@ class Libftdi0 < Formula
     sha256 cellar: :any, sierra:        "f89e79f5eb94d55e130dcc55deca87f1241b386bf45070dda52c2c22707ead15"
     sha256 cellar: :any, el_capitan:    "8fbc5ef456600b919430d86dd4e7090ae1f1064e4a51d631ab9bd7b39887ead2"
     sha256 cellar: :any, yosemite:      "92ecdb3a110e1abcba05561f0def8e573d1f8174d4e04247375dd5cd47d3bc24"
-    sha256 cellar: :any, x86_64_linux:  "63247287fa8c88011bb008a199830bbfeaa23bd3dd572188fba7df1697508000"
+    sha256 cellar: :any, x86_64_linux:  "63247287fa8c88011bb008a199830bbfeaa23bd3dd572188fba7df1697508000" # linuxbrew-core
   end
 
   depends_on "libusb-compat"

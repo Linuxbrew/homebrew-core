@@ -10,7 +10,7 @@ class Xinput < Formula
     sha256 cellar: :any, big_sur:       "dab36aa6df662605e220ffce42106ed9eb6668088c425773335b04a59ba29575"
     sha256 cellar: :any, catalina:      "5bda55eccff0b10605378a85932776af6105fff7ae85593e2f10d13e9adca128"
     sha256 cellar: :any, mojave:        "afad4cf5c8b632f1e8873eee07a2bfd694efb1466dcafc0d4c8c233e370c4195"
-    sha256 cellar: :any, x86_64_linux:  "ac47ac3323aba9cb56483f6db789e79ec1bcbc10970995340ec6c0ffc9fc5c0e"
+    sha256 cellar: :any, x86_64_linux:  "ac47ac3323aba9cb56483f6db789e79ec1bcbc10970995340ec6c0ffc9fc5c0e" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

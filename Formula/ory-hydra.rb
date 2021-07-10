@@ -15,7 +15,7 @@ class OryHydra < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ae797c3cdfefdc13c52d763fcaf49b8532ff41008a54e5d42f96a9f9ed90cffb"
     sha256 cellar: :any_skip_relocation, catalina:      "e0a603a3b8ea52b0ec88058ac9f31c93e9b7056c13cc0dd890a16ddd6ec8e2ad"
     sha256 cellar: :any_skip_relocation, mojave:        "1b4f543601ecbccb1f180a413ecd83164769bb12411a9861035865868917bc80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be5e9c5ad3d742be14ff59b2a12a38ad8bcb76be029514b8ae1db89e55bafbfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be5e9c5ad3d742be14ff59b2a12a38ad8bcb76be029514b8ae1db89e55bafbfb" # linuxbrew-core
   end
 
   depends_on "go" => :build

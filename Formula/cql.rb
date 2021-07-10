@@ -11,7 +11,7 @@ class Cql < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cf8e7615d8f5c837efd97b0d5dfc1c0376522fa8823b3d12242470084e82fd81"
     sha256 cellar: :any_skip_relocation, catalina:      "56b5f1a6ac0916da4bf79ae54ce6be4d5d7fae8d943cc3bab400e66e79cd0aec"
     sha256 cellar: :any_skip_relocation, mojave:        "100623450a27784a84597f68cc03956ec715a7121cdffbe33d51126bb681392c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8db8d5f075697b27d11e75b721a992e7265f1f0ae34683d8b5cbcaca1db9e0ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8db8d5f075697b27d11e75b721a992e7265f1f0ae34683d8b5cbcaca1db9e0ac" # linuxbrew-core
   end
 
   depends_on "go" => :build

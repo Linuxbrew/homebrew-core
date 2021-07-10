@@ -14,7 +14,7 @@ class MecabJumandic < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822"
     sha256 cellar: :any_skip_relocation, yosemite:      "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc470ff5c8619a3611a80386134a8a849a8ec14723f892959f626a091d63c84e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc470ff5c8619a3611a80386134a8a849a8ec14723f892959f626a091d63c84e" # linuxbrew-core
   end
 
   depends_on "mecab"

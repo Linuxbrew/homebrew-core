@@ -12,7 +12,7 @@ class Btparse < Formula
     sha256 cellar: :any, mojave:        "d69b814282b1205eb311f2b8f1f2d0077e2adeef72c2a010084eec34ffef7b71"
     sha256 cellar: :any, high_sierra:   "92fe826bfbaed8583343dbae8d2cf51d6161658e8ecd44a4bf7a308ab1f06d61"
     sha256 cellar: :any, sierra:        "b31041f88e5253fd880d38190b4828f8c9cee34f141352d5c3b70b33e18d824f"
-    sha256 cellar: :any, x86_64_linux:  "6771f62ade564f4abdb912af9b7c0d307a5701fc52516167f181e8656215d0e3"
+    sha256 cellar: :any, x86_64_linux:  "6771f62ade564f4abdb912af9b7c0d307a5701fc52516167f181e8656215d0e3" # linuxbrew-core
   end
 
   def install

@@ -14,7 +14,7 @@ class Msgpuck < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "50197e08a5b55fbe804109ad01dfa815a6dde2b11b688d89a58154fed2d8d54f"
     sha256 cellar: :any_skip_relocation, sierra:        "6f4011d177bf2e42f94f853bc93283ada6c48df8fdb7269135def453e65e598d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b0accfedd2582109acec3297878bb943360282520a31b0d1c16c4ec1aa70a362"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfd81546c490cf3fb421fa698c647f034cd99095721bf895456a13c0615c8423"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfd81546c490cf3fb421fa698c647f034cd99095721bf895456a13c0615c8423" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

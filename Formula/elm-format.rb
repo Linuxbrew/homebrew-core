@@ -12,7 +12,7 @@ class ElmFormat < Formula
     sha256 cellar: :any_skip_relocation, catalina:     "dca23c0c1e66cfc6208ff891611ba8c38fdddd1d90d2a8b32bafe69dc3701b91"
     sha256 cellar: :any_skip_relocation, mojave:       "0e196d773546e0d476c079a434c57f1b49a2966410397bb33747fa2d9e57ffe1"
     sha256 cellar: :any_skip_relocation, high_sierra:  "a8f9aa324518559cdd5b7617f5453f629e90f6897cd72e38f5ab84165e7ddae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c7a19150134e2523592104ac22a2024261814278e34e7af17538cc568a82e80f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c7a19150134e2523592104ac22a2024261814278e34e7af17538cc568a82e80f" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

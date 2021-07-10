@@ -12,7 +12,7 @@ class Stout < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7d90dec0fbc23cfc58b56261957818a0fb1af5c77086b1979b77ea1196484a25"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cfff658fcb5319cd6a5053c645a9679d3db94e9dff4fbe91ae488ca31658a1fc"
     sha256 cellar: :any_skip_relocation, sierra:        "26554af96b6044316abecb1a2142e81b1aab8315bff941cbdad9b39fe143b74e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa21db52532605409b01f2ec0f2bc821eecfb172ed2427cd9ef37b215ea22179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa21db52532605409b01f2ec0f2bc821eecfb172ed2427cd9ef37b215ea22179" # linuxbrew-core
   end
 
   # https://github.com/cloudflare/Stout/issues/58

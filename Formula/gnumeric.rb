@@ -10,7 +10,7 @@ class Gnumeric < Formula
     sha256 big_sur:       "308986adac6fc8ee0439f78fc88b3800dec488f3c19059e188d7b89703976517"
     sha256 catalina:      "c6629015a88979e534383df04b19b371e4f579670538abd057159371d769d9f6"
     sha256 mojave:        "783045a4b518267f8dad893ba2768701065af8d3f170d37cb2ae1658d96d5474"
-    sha256 x86_64_linux:  "ef11136a2fad9c3b1e72d28887a9d7fc8d5b791b9d4c9f55d4c261463647be13"
+    sha256 x86_64_linux:  "ef11136a2fad9c3b1e72d28887a9d7fc8d5b791b9d4c9f55d4c261463647be13" # linuxbrew-core
   end
 
   depends_on "intltool" => :build

@@ -10,7 +10,7 @@ class Blis < Formula
     sha256 cellar: :any,                 big_sur:      "ad2e6862fd4b5a425769c108e7a36e33ac7e7fc77ce699756fe051e68524518d"
     sha256 cellar: :any,                 catalina:     "b26e5e7deb7b85319fa539a061ff84df842378a902e3695a4f6df63eba9f5cdb"
     sha256 cellar: :any,                 mojave:       "333cceec593098d68f438ddcfc6415d44cf0af565601c0163496e23bdf4a8aec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "de20f98ce08e84733929875278cc4ca609cc1c5c1b49ce68fe6ce400e98b61a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "de20f98ce08e84733929875278cc4ca609cc1c5c1b49ce68fe6ce400e98b61a1" # linuxbrew-core
   end
 
   def install

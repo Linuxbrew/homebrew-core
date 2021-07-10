@@ -15,7 +15,7 @@ class Gpgme < Formula
     sha256 cellar: :any,                 big_sur:       "93ef1638eedcb613c2d4992917c081409985aba3d20db3a3c5bbd9b02e008ee3"
     sha256 cellar: :any,                 catalina:      "4d51fe3ce646233005f33c6f53fd50e2111dfa21891b03d4cce9ce3845da2373"
     sha256 cellar: :any,                 mojave:        "5f69a086be935cd7f1994bc709a1510e5c3182865240bf32c9ef1d7ea8cd82dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ee85a6e11f47227d83f8f467800aaac14cd9fff0a4469c876be7e4a18cc02cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ee85a6e11f47227d83f8f467800aaac14cd9fff0a4469c876be7e4a18cc02cf" # linuxbrew-core
   end
 
   depends_on "python@3.9" => [:build, :test]

@@ -10,7 +10,7 @@ class OpenSp < Formula
     sha256 cellar: :any, big_sur:       "50109cdb514313693454259ba30f90f550618d48a1cc71df55ed04343d0cf641"
     sha256 cellar: :any, catalina:      "1b2c18d6cdcd99d387770eaa14a773bb3edec5b22984ac75f3b07a181916f18f"
     sha256 cellar: :any, mojave:        "47a3595b023164a54f73009f5d0a1bd092355f7c5b357cb86e1ec781b101bcb8"
-    sha256 cellar: :any, x86_64_linux:  "741afd695bc9e48a7b5b5e0ad7b8650d21d14cf8973fbc5400b5d1ed315c862c"
+    sha256 cellar: :any, x86_64_linux:  "741afd695bc9e48a7b5b5e0ad7b8650d21d14cf8973fbc5400b5d1ed315c862c" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

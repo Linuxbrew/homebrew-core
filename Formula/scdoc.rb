@@ -10,7 +10,7 @@ class Scdoc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73"
     sha256 cellar: :any_skip_relocation, catalina:      "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b"
     sha256 cellar: :any_skip_relocation, mojave:        "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5db50f8536ae9280e0954a09c672ffd249bbd57247781cfad6b9824c7ac396ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5db50f8536ae9280e0954a09c672ffd249bbd57247781cfad6b9824c7ac396ed" # linuxbrew-core
   end
 
   def install

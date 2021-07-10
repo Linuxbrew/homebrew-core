@@ -7,7 +7,7 @@ class Prettyping < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "313610e9eeac388834b3425d48c2948b940fdd5ee6d73243a46c604ac8768dfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "313610e9eeac388834b3425d48c2948b940fdd5ee6d73243a46c604ac8768dfb" # linuxbrew-core
   end
 
   # Fixes IPv6 handling on BSD/OSX:

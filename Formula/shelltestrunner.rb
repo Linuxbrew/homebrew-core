@@ -12,7 +12,7 @@ class Shelltestrunner < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "e42bf02d5f462aca20fe7a9b80ba6e2431b15940b81f5304ff1611665a29bac0"
     sha256 cellar: :any_skip_relocation, catalina:      "d425959bf27c059fb22a6e2f916f839645c0e79f180903b2c99c189ba52f4d96"
     sha256 cellar: :any_skip_relocation, mojave:        "15ccce4fe40fe20c6f9c97442fb37079a6925351f725d4e6840541004375520c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5401607be2561a955df96ff4f19413764f68e42f16e6554841735a4901837b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5401607be2561a955df96ff4f19413764f68e42f16e6554841735a4901837b1" # linuxbrew-core
   end
 
   depends_on "cabal-install" => :build

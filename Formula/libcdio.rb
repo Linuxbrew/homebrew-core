@@ -13,7 +13,7 @@ class Libcdio < Formula
     sha256 cellar: :any, mojave:        "55014a60373e44384aa7f797c613ccd5289c55d759c3521b7e5d6819ff54b2ac"
     sha256 cellar: :any, high_sierra:   "32604fb219cc4e59e5eb1e0937b320edfacf31d97f04b9a5fbfcd4354a6a56d0"
     sha256 cellar: :any, sierra:        "61095f7c4888b1c0e022ec9eb314fe389feae1eb030d65e7d91512515528e439"
-    sha256 cellar: :any, x86_64_linux:  "76d8745c01ede5a4a11defd9001cf0d268c28c1f33fadef562a0a21679ee3586"
+    sha256 cellar: :any, x86_64_linux:  "76d8745c01ede5a4a11defd9001cf0d268c28c1f33fadef562a0a21679ee3586" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

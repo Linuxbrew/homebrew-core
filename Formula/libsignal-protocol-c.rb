@@ -11,7 +11,7 @@ class LibsignalProtocolC < Formula
     sha256 cellar: :any, catalina:      "2ad98569b7c0543579c9a2596a78e86bb7a915fb17632850cea099feb9d2d674"
     sha256 cellar: :any, mojave:        "95991e7aa3ef7fa4fdfb25f8f3ed588103e7343599bb5fd86c190e0a2b62ebf8"
     sha256 cellar: :any, high_sierra:   "9dc54604cd42340d8e1ab2da73b54fd19d4cfdb87144921bdb6bcf03e2b41993"
-    sha256 cellar: :any, x86_64_linux:  "a4ad0ba17963188518a216bb2d584d24bef302a66ef4cf03a0f0e2e83d23412d"
+    sha256 cellar: :any, x86_64_linux:  "a4ad0ba17963188518a216bb2d584d24bef302a66ef4cf03a0f0e2e83d23412d" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

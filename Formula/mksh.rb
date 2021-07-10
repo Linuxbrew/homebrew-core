@@ -17,7 +17,7 @@ class Mksh < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ab6ffddb634219464c5993a9109a051fa728f217b7c89daa95d5b85748127bf5"
     sha256 cellar: :any_skip_relocation, mojave:        "354bd63fa78b08ba32eec9478a1ac6ee48276e529c3d37321808be3c5b3b3050"
     sha256 cellar: :any_skip_relocation, high_sierra:   "82f9d2a32196df99bc9b2a21e1a062bfc99c263a9a0ee522831d12dce3fd5b5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1e9c9fc3f0abd588b63870a15d22102170161f67b3d7d02e6d2ac65918df663"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1e9c9fc3f0abd588b63870a15d22102170161f67b3d7d02e6d2ac65918df663" # linuxbrew-core
   end
 
   def install

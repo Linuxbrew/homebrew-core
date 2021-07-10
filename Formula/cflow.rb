@@ -13,7 +13,7 @@ class Cflow < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "a96f9cf3cb35851c27ed602f6a05489da2d64e75ab6daccecc3e23156d9fe968"
     sha256 cellar: :any_skip_relocation, high_sierra:   "50a816924cb91e1c4055923285ea3ceb0d815b4641477906ae5f6abdae337d52"
     sha256 cellar: :any_skip_relocation, sierra:        "5e88f5310c34255947032f24227cf779aa8a42fe595f585605e814f001f4a151"
-    sha256                               x86_64_linux:  "2f7d97f2a91279350646fbc9e518f52b602268204bfa4311c417888ec80985d5"
+    sha256                               x86_64_linux:  "2f7d97f2a91279350646fbc9e518f52b602268204bfa4311c417888ec80985d5" # linuxbrew-core
   end
 
   def install

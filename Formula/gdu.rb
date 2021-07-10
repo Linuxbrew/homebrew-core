@@ -1,16 +1,16 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/v5.1.1.tar.gz"
-  sha256 "fb1a76562947e34fec16fd650f03793ccc5afe04fa6ba817639d92f55a1f927b"
+  url "https://github.com/dundee/gdu/archive/v5.2.0.tar.gz"
+  sha256 "e582568a7d12e95cc5d35d9403f0964df719ef87f1b56d5b10ba06d25c25ca27"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b3a6376a2a2506a371627bc1645afe36dd049a7cd22c552297485ad2867f0ac"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0a3a45756fc7c6cf55c0514d2db1ff50e13a5a253096d914a1325270ba125a67"
-    sha256 cellar: :any_skip_relocation, catalina:      "e702c4c3d87925b5c05df167b491a62fdfff055799260cb74b6ee3876f052f70"
-    sha256 cellar: :any_skip_relocation, mojave:        "ab55faf95a13af48b2c6b319e74fbbd15e328cc230c36c36c85fd9f05a304abc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e473fd6473ab4b66f821d6506fecb89bce732483b0ad1b65ddff5e8fa5ca43be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6454cd9a67a41e7727b42c65239cbd6487c37f112d27d64a070d8a694c6b484c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bbf40c5f5548254dbf7f587aad1064f972d825d60974a110a1aed3b3d8298bb2"
+    sha256 cellar: :any_skip_relocation, catalina:      "70d68fbc9db975bdfc55850696ede78c0a2b5e1ccc9b7f5c26f159a8314555da"
+    sha256 cellar: :any_skip_relocation, mojave:        "b9b1dc246a68194e5e8f4c718632e716d633ab913c26bb022219053078a79bf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76dc34189b6999061b3c584530c5f69d66ffca018c8be08068d6d60cf7f6e905" # linuxbrew-core
   end
 
   depends_on "go" => :build
@@ -28,9 +28,9 @@ class Gdu < Formula
       -X "github.com/dundee/gdu/v#{major}/build.Version=v#{version}"
       -X "github.com/dundee/gdu/v#{major}/build.Time=#{time}"
       -X "github.com/dundee/gdu/v#{major}/build.User=#{user}"
-    ]
+    ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "github.com/dundee/gdu/v#{major}/cmd/gdu"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/gdu"
   end
 
   test do

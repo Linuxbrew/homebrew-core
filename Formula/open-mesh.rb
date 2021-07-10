@@ -11,7 +11,7 @@ class OpenMesh < Formula
     sha256 cellar: :any, catalina:      "40eabd6160d88b74bb3298b42dfce249c327bee9a596b5911a4015462b457dfb"
     sha256 cellar: :any, mojave:        "3c523efbed147ef236ba22b7fdfc8fddae883b4ce7b9f03e970af199416adbe5"
     sha256 cellar: :any, high_sierra:   "a1b6514505ea011f01e8a61fd20dec9f31b900a42e8581e24a23beca738dc5f3"
-    sha256 cellar: :any, x86_64_linux:  "f699d117079902daba17000a533e0c9d7167629b43fa277796e6e2e63969305a"
+    sha256 cellar: :any, x86_64_linux:  "f699d117079902daba17000a533e0c9d7167629b43fa277796e6e2e63969305a" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

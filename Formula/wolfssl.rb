@@ -18,7 +18,7 @@ class Wolfssl < Formula
     sha256 cellar: :any,                 big_sur:       "d01ee339331c0c96fe0512667e879a442790e5c9af2a7629a8458a43901c1b9d"
     sha256 cellar: :any,                 catalina:      "4bc15cd6d682ab0319e44bb002e33277e749764b13c1333d0c2f61fee8599eb0"
     sha256 cellar: :any,                 mojave:        "495873f14e34b81d5d4e56b131b70678f1445495de50dc8fc897463b16e3652a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45a073acaa386eb313922dfbb7f05762c97832037424e3a9c79bf0cd83d67934"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45a073acaa386eb313922dfbb7f05762c97832037424e3a9c79bf0cd83d67934" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

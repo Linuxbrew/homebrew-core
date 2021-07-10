@@ -11,7 +11,7 @@ class SoundTouch < Formula
     sha256 cellar: :any, catalina:      "514181f2783b615a363bb51c4dcf9edc320850d9a4d1effa17b681e2d47736af"
     sha256 cellar: :any, mojave:        "f990e0d947c1026c51a83471b4466b5e6955c8f7a599d6ecb7da5c8466dcce8f"
     sha256 cellar: :any, high_sierra:   "34e3a02dd0906028a4b7acd7b1ecd26d24df0002fe3e765fb49d24afa3f6a9fb"
-    sha256 cellar: :any, x86_64_linux:  "b7396f64f5d7c2bacd3035cf4166751dbeb93875e803020cb65531d4c3457976"
+    sha256 cellar: :any, x86_64_linux:  "b7396f64f5d7c2bacd3035cf4166751dbeb93875e803020cb65531d4c3457976" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

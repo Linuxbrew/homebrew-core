@@ -12,7 +12,7 @@ class GoAT112 < Formula
     sha256 catalina:     "44d6c83a39c231cae86af05b3689cb2ec03be389562c1cc5e84a9f68ed09af80"
     sha256 mojave:       "dc3b90a9ba13c31928c92227957d530656bab53d5ca3a35bfab02038118a964e"
     sha256 high_sierra:  "e42c02a42a4d2df97cba11e80729e8439e7476745548bd7ee23d72858c22a3f1"
-    sha256 x86_64_linux: "c7e6efda32a76006aa9caa222311d6926896b6fad320f0e7d33ffc3c1b51e347"
+    sha256 x86_64_linux: "c7e6efda32a76006aa9caa222311d6926896b6fad320f0e7d33ffc3c1b51e347" # linuxbrew-core
   end
 
   keg_only :versioned_formula

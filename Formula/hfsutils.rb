@@ -13,7 +13,7 @@ class Hfsutils < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "133b4b04a161486e76ca06ed4e78086a83ce7ed238b10b879f78a93d66d9dc68"
     sha256 cellar: :any_skip_relocation, catalina:      "5a0e074c5fdcfb43508e049941dd5d7384a7f4843c8d0fe3df325880a45823fd"
     sha256 cellar: :any_skip_relocation, mojave:        "f32eb0e176bc5f5939a12599f0dbc808631a7680e21b5f820cc096e00fcec46e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5277d2e8dfb96ff73ee3c5444eafd9eaa33c393980c963e7877c3eaabfddec78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5277d2e8dfb96ff73ee3c5444eafd9eaa33c393980c963e7877c3eaabfddec78" # linuxbrew-core
   end
 
   def install

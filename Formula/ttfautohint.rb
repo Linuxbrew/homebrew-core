@@ -16,7 +16,7 @@ class Ttfautohint < Formula
     sha256 cellar: :any, mojave:        "04ca530843887602e80fde17d24f4ed8e19d1248bd71c81c925c161770dbdf56"
     sha256 cellar: :any, high_sierra:   "a6573ae816a7555d62308759c2d64f9fb955ba056d856d904a522996ba0a0c83"
     sha256 cellar: :any, sierra:        "d45d8d85d3ffa162326ea8e2f63778f4fe583c41bc316c15c5a63b3625beb0ff"
-    sha256 cellar: :any, x86_64_linux:  "9d32d489204ed2dc3d745a68729411bcb197fd2f0503e9766f1ebd5121027daa"
+    sha256 cellar: :any, x86_64_linux:  "9d32d489204ed2dc3d745a68729411bcb197fd2f0503e9766f1ebd5121027daa" # linuxbrew-core
   end
 
   head do

@@ -18,7 +18,7 @@ class Md5sha1sum < Formula
     sha256 cellar: :any, mojave:        "b1dc1ded1df513c24b7eab764707b088f42661c2cf53395e42ee4e03c245ac5d"
     sha256 cellar: :any, high_sierra:   "7ed564b5da0f1adf33c0242bffcd4e456d4e46540b578d3cdb810a9f6a28474b"
     sha256 cellar: :any, sierra:        "66ff4c578f7eff04b561192dd7789e013714caed61dac322df99f5652790abc7"
-    sha256 cellar: :any, x86_64_linux:  "1cc0c0c71ed27f56ddffda65a74ccf632640a8762e73ac641b8777e1c1a445d7"
+    sha256 cellar: :any, x86_64_linux:  "1cc0c0c71ed27f56ddffda65a74ccf632640a8762e73ac641b8777e1c1a445d7" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

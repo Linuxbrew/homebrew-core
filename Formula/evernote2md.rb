@@ -10,7 +10,7 @@ class Evernote2md < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "24feff7c81d04563edf3e64817f8a96ffbdf47b75ef28996f31b983f2e19de6f"
     sha256 cellar: :any_skip_relocation, catalina:      "95aa6c17e693b722784538a4b2444f9cbdae8136d2c3d0d8deb262f40f775f72"
     sha256 cellar: :any_skip_relocation, mojave:        "91e8f33f29c360f232c81a217ca84105af86bb561546afca4ceca65925747810"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36f8dfa74d4fc4cfa6a3b7688953d011fd5303eecd703f76cc4814f67683abbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36f8dfa74d4fc4cfa6a3b7688953d011fd5303eecd703f76cc4814f67683abbe" # linuxbrew-core
   end
 
   depends_on "go" => :build

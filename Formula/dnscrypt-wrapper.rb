@@ -13,7 +13,7 @@ class DnscryptWrapper < Formula
     sha256 cellar: :any, mojave:       "129be9e2c08af0351401437f09a950f0d4050e99cce47da220561a3153d5334d"
     sha256 cellar: :any, high_sierra:  "226bbce3fbcc39a1619bfd77451c6e0cf0d0054b61696acc2617e4f30580e69b"
     sha256 cellar: :any, sierra:       "92da097e90b1cd593efb8d0d1a16c24dd016aa93933a3036be671b5596c6af0d"
-    sha256 cellar: :any, x86_64_linux: "11c144deef3cb7e5c58f6447c4555f6680e005a8c8901f0b69e8a087f24c66de"
+    sha256 cellar: :any, x86_64_linux: "11c144deef3cb7e5c58f6447c4555f6680e005a8c8901f0b69e8a087f24c66de" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

@@ -13,7 +13,7 @@ class Mdp < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "606ffc22ff72a524f46ae683466098409e2db33cb5de58dad6ea179a9390cdbc"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0bfa062ad64e8da4fa6d1df9be7e8a52da7799f87fc012b80847ac58adf81830"
     sha256 cellar: :any_skip_relocation, sierra:        "b38a74964fd0ac22fcbb50eb569b165128799f77a32d582f102278252b6bd291"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "506939f0a3c49d673c7644b25d734a1f63bb108775ba56cb7dcc2d711cfdeff1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "506939f0a3c49d673c7644b25d734a1f63bb108775ba56cb7dcc2d711cfdeff1" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

@@ -7,7 +7,7 @@ class Libsigcxx < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "52e42467d2ac9797c6b22b6ea9eedf1fb77502e4358882573075cce89338b600"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "52e42467d2ac9797c6b22b6ea9eedf1fb77502e4358882573075cce89338b600" # linuxbrew-core
   end
 
   depends_on "meson" => :build

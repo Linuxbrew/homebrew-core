@@ -18,7 +18,7 @@ class Minizip < Formula
     sha256 cellar: :any, mojave:        "503832d6da09e7f16b7036ee1cf3055c25ba3602d3ea9815a9800d1840fb69ea"
     sha256 cellar: :any, high_sierra:   "9fa636770888ef4e9aaa3c1bbf2d3c18fb0e4c393305c2ecf265ca79ecee6e71"
     sha256 cellar: :any, sierra:        "83e4b5b1b52ff484a0ba73637e0961ed3d41ecba4ee3c3cfe667d13ef7e51ad7"
-    sha256 cellar: :any, x86_64_linux:  "d6b3ab9a792e8f5335e2bf34a859c701acb9c506cea1ac8c6e878f60dc5036e8"
+    sha256 cellar: :any, x86_64_linux:  "d6b3ab9a792e8f5335e2bf34a859c701acb9c506cea1ac8c6e878f60dc5036e8" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

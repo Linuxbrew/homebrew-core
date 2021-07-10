@@ -12,7 +12,7 @@ class GitNumber < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f"
     sha256 cellar: :any_skip_relocation, sierra:        "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f52280def083a53bfb74863077bbe4248513307f76d06952558336bf4b980822"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f52280def083a53bfb74863077bbe4248513307f76d06952558336bf4b980822" # linuxbrew-core
   end
 
   def install

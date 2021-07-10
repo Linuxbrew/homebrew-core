@@ -12,7 +12,7 @@ class Mboxgrep < Formula
     sha256 cellar: :any, sierra:       "44a294d075cb08e577c4d1c1e45c222bea93f3c8488f9bed54ded5b36797f536"
     sha256 cellar: :any, el_capitan:   "ecc1d1a83a7ffbc3414feb24c970b89509737f7d1de5c0d8dbd71ba55e008220"
     sha256 cellar: :any, yosemite:     "08cbb574005db6e34cc191ae4f46670ca35af252e4e6bbc2041a92e32397bc49"
-    sha256 cellar: :any, x86_64_linux: "5b5c75cfd31e9b04128b119778189ee919afdef8f7a05702a78480e59d535737"
+    sha256 cellar: :any, x86_64_linux: "5b5c75cfd31e9b04128b119778189ee919afdef8f7a05702a78480e59d535737" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

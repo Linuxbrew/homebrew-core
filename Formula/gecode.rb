@@ -16,7 +16,7 @@ class Gecode < Formula
     sha256 cellar: :any, mojave:        "525b7649d716a0ccb5f47f29e93a07f1677cbe531c9c978656b04826ad1cb678"
     sha256 cellar: :any, high_sierra:   "763d0d5da64075f5f64c3b7aee49a604680c266b1b6e4eeb8ffcfdb9e0d9ca0d"
     sha256 cellar: :any, sierra:        "1bb46e60636f1431cc5bf4b9aed1a2f038da1fef0eaeb1c3130a9252924efd54"
-    sha256 cellar: :any, x86_64_linux:  "ef39c4958d2d599eb73e996cdc2a7a3f13fe1a884846c9903b39ec33f3cea49d"
+    sha256 cellar: :any, x86_64_linux:  "ef39c4958d2d599eb73e996cdc2a7a3f13fe1a884846c9903b39ec33f3cea49d" # linuxbrew-core
   end
 
   def install

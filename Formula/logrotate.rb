@@ -10,7 +10,7 @@ class Logrotate < Formula
     sha256 cellar: :any,                 big_sur:       "6976c5e710c45560e47c8eaba409aaf71e607cec3e86eaa6396df5342685b720"
     sha256 cellar: :any,                 catalina:      "82980e80bdd29e8b5d21661e5ffd283c654057912fb0d8621e30397f577dc1e4"
     sha256 cellar: :any,                 mojave:        "2aeb1ee2d25cb426a1d7a746c54451afad0d5f00a24c6cf6f38eb5be2a0c4e5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b450a79764d5a0bb3e4cfddf3bc337bb703c34386254b76dbcd45fd09ae72ab7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b450a79764d5a0bb3e4cfddf3bc337bb703c34386254b76dbcd45fd09ae72ab7" # linuxbrew-core
   end
 
   depends_on "popt"

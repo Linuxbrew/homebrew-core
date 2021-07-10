@@ -18,7 +18,7 @@ class Ganglia < Formula
     sha256 high_sierra:  "d375f0a7bc5caff2ff825ac487530b0e78efb1521b8ea2b4ef7f15a002526941"
     sha256 sierra:       "c295e711dd78ca5a19e3b7f8c5534b049217664701c13312795bf035a3db2017"
     sha256 el_capitan:   "e2fe6f3370fa84645ff858ef651b54aee84b0522a8da0e529d6a98c465d6c8ad"
-    sha256 x86_64_linux: "c8b4b568d23873784faa7b02415a726a42713ed35c7d5bc7cd057402fce14d37"
+    sha256 x86_64_linux: "c8b4b568d23873784faa7b02415a726a42713ed35c7d5bc7cd057402fce14d37" # linuxbrew-core
   end
 
   head do

@@ -18,7 +18,7 @@ class Getxbook < Formula
     sha256 cellar: :any, mojave:        "68f7f76c607807315d1e8305830eaa94d04e1c87f1ea1382fb00bd7ec74f2886"
     sha256 cellar: :any, high_sierra:   "dce13d6e7d9f5f0eb79064858dca9dc3d62b274ba1f07b2ceaca3bf06e4effed"
     sha256 cellar: :any, sierra:        "d4b7500ecfbcf0b0d4ff905b01589a546aa53da5c1c465878305c8b6ee2c363c"
-    sha256 cellar: :any, x86_64_linux:  "396adb655d51e1e1b79952a8c38cdbdd2b0185ac4eb9b08c1e16da4f04f9c58f"
+    sha256 cellar: :any, x86_64_linux:  "396adb655d51e1e1b79952a8c38cdbdd2b0185ac4eb9b08c1e16da4f04f9c58f" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

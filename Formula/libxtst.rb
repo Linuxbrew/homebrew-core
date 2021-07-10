@@ -11,7 +11,7 @@ class Libxtst < Formula
     sha256 cellar: :any, catalina:      "f92434b774fd9e3907c2cd1c1da713ac5d96b1b1f849499ac6e9de931ea351c2"
     sha256 cellar: :any, mojave:        "ab324bbaded049ed3c6aa72eb768df8d6c20e1c98be3d56f9568ed56be5a9c26"
     sha256 cellar: :any, high_sierra:   "e8d0a57e80cd57e9dbb1034bbcac52ca03812a627cd42e086f73db077ce707e8"
-    sha256 cellar: :any, x86_64_linux:  "683834d974c399696213f15dffff6104240d75436def1c233f4f490198913bdd"
+    sha256 cellar: :any, x86_64_linux:  "683834d974c399696213f15dffff6104240d75436def1c233f4f490198913bdd" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

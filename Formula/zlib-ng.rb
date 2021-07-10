@@ -10,7 +10,7 @@ class ZlibNg < Formula
     sha256 cellar: :any,                 big_sur:       "16b590ffbf23919316ff04b0687493aa124d125fd417d97f2f1b9ef9bb020bf1"
     sha256 cellar: :any,                 catalina:      "1028a7aded6cdcaf9053500fc7ce0b07e9801429249bc13d859463941b4e83c7"
     sha256 cellar: :any,                 mojave:        "6716bf16e0c48b26a5452c040d205e1dda8c418648eb115a6ecabddd253ce4d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5b8ac18de50fd8b34f2d99dbcf93b1d58670b9c1a2789e8a94433c78c20909b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5b8ac18de50fd8b34f2d99dbcf93b1d58670b9c1a2789e8a94433c78c20909b" # linuxbrew-core
   end
 
   # https://zlib.net/zlib_how.html

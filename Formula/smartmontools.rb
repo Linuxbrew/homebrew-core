@@ -10,7 +10,7 @@ class Smartmontools < Formula
     sha256 big_sur:       "9cccb94c747cd2897d458da6a31c2e5c03acfd81faa30c99260fe77ec8c140f0"
     sha256 catalina:      "34aa008976f95dc5568c90c0b99eccdcec7983df3787ac4be1e02284f307c1e7"
     sha256 mojave:        "3f699e7deb392d47d805cf4dad81e53cf67fe0186b00f42e798235fa9079f388"
-    sha256 x86_64_linux:  "1019492712285b9342e1a56f53a794d95b00ca023b4df044e8143275c8c4d893"
+    sha256 x86_64_linux:  "1019492712285b9342e1a56f53a794d95b00ca023b4df044e8143275c8c4d893" # linuxbrew-core
   end
 
   def install

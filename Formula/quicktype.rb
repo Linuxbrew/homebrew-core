@@ -14,7 +14,7 @@ class Quicktype < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "b2a13d97e30ebcbff8e32903e82ad8857ed108ad84e695cb92df7e870c7948bd"
     sha256 cellar: :any_skip_relocation, catalina:      "313dd23d76101d388259319a688d84a0cb5d44a16e7d34b4a0b7611048d995a4"
     sha256 cellar: :any_skip_relocation, mojave:        "81f40f8f11e16c51c4e30881094256be0b9f91228e2ebf131d261c5ee6a8339c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb34267d5d5d7485538f71db992223b239c37f6f29412628fdf7263fde2de58a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb34267d5d5d7485538f71db992223b239c37f6f29412628fdf7263fde2de58a" # linuxbrew-core
   end
 
   depends_on "node"

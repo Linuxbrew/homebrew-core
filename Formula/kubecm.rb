@@ -10,7 +10,7 @@ class Kubecm < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d7b26df73ea0ef858c9f04648d2c0fc1dc8cfac664b4998511f9bd57d7a8723a"
     sha256 cellar: :any_skip_relocation, catalina:      "6522eefffc7dacd19c5e22a10a0c5bc826976f15e181e6a8a5a1890d17a1e2a9"
     sha256 cellar: :any_skip_relocation, mojave:        "7a9f0f52e9944d980ad342d25161ed9f5974d2cd727dda7c7237429cf9fa39ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6296add5ad7797772e23e7bf5051bd6f057a20913f94bba7e3de8620a85c1f8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6296add5ad7797772e23e7bf5051bd6f057a20913f94bba7e3de8620a85c1f8c" # linuxbrew-core
   end
 
   depends_on "go" => :build

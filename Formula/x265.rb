@@ -12,7 +12,7 @@ class X265 < Formula
     sha256 cellar: :any,                 big_sur:       "55bb46a5dc1924e59b7fa7bc800a21c0cf21355e48cb38b941d8e786427c70a0"
     sha256 cellar: :any,                 catalina:      "5e5bc106e1cf971a176dd5b37a61d28769e353f81102c011b4230cc8732eca7a"
     sha256 cellar: :any,                 mojave:        "c61ebdf9dcd4aedf5da2a7eb2b3a5154fd355c105a19a0471d43a3aa67f3cb88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "508aa15e1bf47ea21e2e10dc2949374b1b726977f80134b3a016f2d422c6c057"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "508aa15e1bf47ea21e2e10dc2949374b1b726977f80134b3a016f2d422c6c057" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

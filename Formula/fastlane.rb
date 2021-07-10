@@ -12,14 +12,15 @@ class Fastlane < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7c4707d4361ca14d9f3308acf736f7e05791c44f1287190fa38109efe35c3fda"
-    sha256 cellar: :any,                 big_sur:       "a770f44ff508f321d2f9d6d6274300a973012dbcc1d3d6bef3d6591c4a80d6c9"
-    sha256 cellar: :any,                 catalina:      "a994a0c09575e21a38709e453db12f831cd96a2a4fb7e4d82fbe3fa6ecf1c321"
-    sha256 cellar: :any,                 mojave:        "37ff0c8c1f9f750a8367120930fb6b31ad5947a0270fbebea77d49ec9045a86e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bee2a49097e63a549a6e39f81715d2c9f7b91da3f7f47d176583652278fc72e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "f470190cf8a65d8e149374ab6ea701ca53a9a1c05014057715e4535da5778505"
+    sha256 cellar: :any,                 big_sur:       "21b7796249e1ca2c884a78aee115bcd8418215d0320fcf6fa77a55e04b891267"
+    sha256 cellar: :any,                 catalina:      "4de029317572573afd507a20135ff39a262886a9a820017bdd44f470a498c833"
+    sha256 cellar: :any,                 mojave:        "674c6385ad5869f39a773c4be4f775dbb258320a16c304b96d7962507b9b1b5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9b91268de7ef80cdf9ccf79850582f70b8fdc721e2e2adc487ca250e8c96512" # linuxbrew-core
   end
 
-  depends_on "ruby@2.7"
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -29,7 +30,7 @@ class Fastlane < Formula
     system "gem", "install", "fastlane-#{version}.gem", "--no-document"
 
     (bin/"fastlane").write_env_script libexec/"bin/fastlane",
-      PATH:                            "#{Formula["ruby@2.7"].opt_bin}:#{libexec}/bin:$PATH",
+      PATH:                            "#{Formula["ruby"].opt_bin}:#{libexec}/bin:$PATH",
       FASTLANE_INSTALLED_VIA_HOMEBREW: "true",
       GEM_HOME:                        libexec.to_s,
       GEM_PATH:                        libexec.to_s

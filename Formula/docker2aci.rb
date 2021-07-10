@@ -11,7 +11,7 @@ class Docker2aci < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:  "786e30d746607eea372c8eaa2705f850320dd74e28385fd3b75946e6e8c8e52d"
     sha256 cellar: :any_skip_relocation, sierra:       "6cfeb751ff7db4e703938e2bfc4e28d4ec9a30e59261e75aa5adf690d0f33061"
     sha256 cellar: :any_skip_relocation, el_capitan:   "b1a61fc4d329ef1e3ad97ea701e2c0be392f29e8d4a8bd2f1934bf7bac620121"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cd729e36e463154b10f4198024ca0760669ebf198f12dc2d3b73162684ae2ddd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cd729e36e463154b10f4198024ca0760669ebf198f12dc2d3b73162684ae2ddd" # linuxbrew-core
   end
 
   # See https://github.com/rkt/rkt/issues/4024

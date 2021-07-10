@@ -12,7 +12,7 @@ class Libmemcached < Formula
     sha256 cellar: :any, catalina:      "24c7d9597b28d79f50f86777aa506b1955737d9e3298e1d79c3ad95b74fb66f8"
     sha256 cellar: :any, mojave:        "203121f43d48b8245a1bb963eded3d56aa44ec921176b9819004e62b12acdc48"
     sha256 cellar: :any, high_sierra:   "59032bd9e04061aaa7ffafdda12e66535f2e73da25571da0cede2dc21bc62f22"
-    sha256 cellar: :any, x86_64_linux:  "0b7430e9e2d048e10580161acd2e3138800d71a1e200fd937645eb8d97443a13"
+    sha256 cellar: :any, x86_64_linux:  "0b7430e9e2d048e10580161acd2e3138800d71a1e200fd937645eb8d97443a13" # linuxbrew-core
   end
 
   depends_on "memcached" => :test

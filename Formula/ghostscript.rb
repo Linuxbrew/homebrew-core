@@ -14,7 +14,7 @@ class Ghostscript < Formula
 
   bottle do
     rebuild 1
-    sha256 x86_64_linux: "ef7d088cc989e381042288b50c73273c4fec91b4eb362436ab0bf35ab064c6ed"
+    sha256 x86_64_linux: "ef7d088cc989e381042288b50c73273c4fec91b4eb362436ab0bf35ab064c6ed" # linuxbrew-core
   end
 
   head do

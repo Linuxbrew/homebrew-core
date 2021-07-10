@@ -14,7 +14,7 @@ class Smake < Formula
     sha256 sierra:        "b1afe84c5a7b535738d2b2ee3f2abf879c908cf4f3b9c5a6f9f9cdd3fc403536"
     sha256 el_capitan:    "a5cb6ea4fab2d0ce67342f482fd0efb4dcc20483722e56ae120880d2a97ebab0"
     sha256 yosemite:      "c1420a59ceba43481eac2b2046a7d3c4aac967a12ff52bccb3b4697eca8d5c8f"
-    sha256 x86_64_linux:  "07e29bed6bf75f8c192744ec1fa65816fc72ac04ec76657dc763baf7db2d2898"
+    sha256 x86_64_linux:  "07e29bed6bf75f8c192744ec1fa65816fc72ac04ec76657dc763baf7db2d2898" # linuxbrew-core
   end
 
   def install

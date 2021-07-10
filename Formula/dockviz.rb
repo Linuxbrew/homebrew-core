@@ -14,7 +14,7 @@ class Dockviz < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:  "7334e941bcf3841a724103ecc7bd1cf028dc5e41bd9e80283c6f34637515cd02"
     sha256 cellar: :any_skip_relocation, sierra:       "8fbcc273dbbf14a33f44cb9d56d350440168c7943d6c29ba489c2db7cc8f293b"
     sha256 cellar: :any_skip_relocation, el_capitan:   "0df5881e825be40043790f3759fa2f3976d75c3c8273e69c4bfbd4cc039744b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f654c128a3e76f7b1578e74894e4c827ae7bd72906e57a4f5a62668dcf630457"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f654c128a3e76f7b1578e74894e4c827ae7bd72906e57a4f5a62668dcf630457" # linuxbrew-core
   end
 
   depends_on "go" => :build

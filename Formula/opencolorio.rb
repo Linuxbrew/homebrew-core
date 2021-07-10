@@ -12,7 +12,7 @@ class Opencolorio < Formula
     sha256 cellar: :any,                 big_sur:       "94fc18f52a783c11afd946c72b100bf16d570767d5934b245c03cabb3f9de715"
     sha256 cellar: :any,                 catalina:      "8dcc8e3561f9e564239366ed88a2488b36af37c022e8b98f94e2d6cb1e718bde"
     sha256 cellar: :any,                 mojave:        "c0fa4803986b6960a3a3578f6e453428864eff5fb7ed5f51fd6c505258cc0ca5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c8017976fdbf491f5ff05a65f5e09b898c9f554943d61f13cb586b78fbc26cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c8017976fdbf491f5ff05a65f5e09b898c9f554943d61f13cb586b78fbc26cd" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

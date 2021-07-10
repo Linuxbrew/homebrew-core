@@ -7,7 +7,7 @@ class Stgit < Formula
   head "https://github.com/stacked-git/stgit.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0ed960be4bdf25d344c24317b56ab3a9435c9186bb95bdd037708b126c151e17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0ed960be4bdf25d344c24317b56ab3a9435c9186bb95bdd037708b126c151e17" # linuxbrew-core
   end
 
   depends_on "asciidoc" => :build

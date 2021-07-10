@@ -7,7 +7,7 @@ class Sbtenv < Formula
   head "https://github.com/sbtenv/sbtenv.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "64c22abd316bf9432dbe261087ea9bc89294441a3879501239759b3aec7abae1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "64c22abd316bf9432dbe261087ea9bc89294441a3879501239759b3aec7abae1" # linuxbrew-core
   end
 
   def install

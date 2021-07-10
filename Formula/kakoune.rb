@@ -1,11 +1,22 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2020.09.01/kakoune-2020.09.01.tar.bz2"
-  sha256 "861a89c56b5d0ae39628cb706c37a8b55bc289bfbe3c72466ad0e2757ccf0175"
   license "Unlicense"
   revision 1 unless OS.mac?
   head "https://github.com/mawww/kakoune.git"
+
+  # Remove stable block in next release with merged patch
+  stable do
+    url "https://github.com/mawww/kakoune/releases/download/v2020.09.01/kakoune-2020.09.01.tar.bz2"
+    sha256 "861a89c56b5d0ae39628cb706c37a8b55bc289bfbe3c72466ad0e2757ccf0175"
+
+    # Fix build for GCC: error: 'numeric_limits' is not a member of 'std'
+    # Remove in the next release
+    patch do
+      url "https://github.com/mawww/kakoune/commit/a0c23ccb720cb10469c4dfd77342524d6f607a9c.patch?full_index=1"
+      sha256 "01608c5bee3afb00593bddb1289fdec25d4e236aa00c0997a99c3c66ff7bb04d"
+    end
+  end
 
   livecheck do
     url :stable
@@ -18,7 +29,7 @@ class Kakoune < Formula
     sha256 cellar: :any,                 big_sur:       "61064437727a2eb062b89941b25fb46c017d350e8947e867e72f51f591d030ad"
     sha256 cellar: :any,                 catalina:      "9cb8ffd67651eab6f269daab2bbf4e66adf4f7dad4029a3285631a3615cf1514"
     sha256 cellar: :any,                 mojave:        "00c9127f14d643eee79fc64d02874bc131dad426fb11580b5d4fa43a3a51007c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e8062679af31109456606e0183a75f36cca2830bf5dcdd0a1abc8c009216a84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e8062679af31109456606e0183a75f36cca2830bf5dcdd0a1abc8c009216a84" # linuxbrew-core
   end
 
   depends_on macos: :high_sierra # needs C++17

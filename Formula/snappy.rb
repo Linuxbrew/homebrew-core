@@ -8,7 +8,7 @@ class Snappy < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "98a73bdf37639a64a64d17d67ad621d02e36c7aecbc24d5a19febf91dc9dbd5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "98a73bdf37639a64a64d17d67ad621d02e36c7aecbc24d5a19febf91dc9dbd5e" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

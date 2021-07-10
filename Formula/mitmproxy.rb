@@ -16,7 +16,7 @@ class Mitmproxy < Formula
     sha256 cellar: :any,                 big_sur:       "0147699f750b68e7b99bd2787a9f12bc7bfbd67072c7993b924645343da7687a"
     sha256 cellar: :any,                 catalina:      "ae1a8a9ce9cae1261dba035f21dcc76495d9ad52db35c84c88bf3d8a46de9a26"
     sha256 cellar: :any,                 mojave:        "e875f4b63ff4a62fa36669090c70e44084d69a08f041e650476d02425ea50495"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8696e746999c53ad8ef796939add8b468b42d80051ccdf989ef3951e3d637038"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8696e746999c53ad8ef796939add8b468b42d80051ccdf989ef3951e3d637038" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

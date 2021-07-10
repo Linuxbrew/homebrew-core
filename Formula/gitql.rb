@@ -1,17 +1,17 @@
 class Gitql < Formula
   desc "Git query language"
   homepage "https://github.com/filhodanuvem/gitql"
-  url "https://github.com/filhodanuvem/gitql/archive/v2.2.1.tar.gz"
-  sha256 "eb6f9e2d99d17d83ff11a1e8132de41d8796e6a954728ba49e92e88ae7c049a7"
+  url "https://github.com/filhodanuvem/gitql/archive/v2.3.0.tar.gz"
+  sha256 "e1866471dd3fc5d52fd18af5df489a25dca1168bf2517db2ee8fb976eee1e78a"
   license "MIT"
   head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7696c9876a12e665f0f7915a80ce514e5961dc79d6145ec0d45386da47c4193f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "07a4599ecd1fc45a843b0b4b0e4ec417ee2815417ca89641c7a04f34ba95e7b6"
-    sha256 cellar: :any_skip_relocation, catalina:      "f335da354c07c2bc904f7646cff64fd1b4dcf4efaf71f1d4c41b0dc956dead1a"
-    sha256 cellar: :any_skip_relocation, mojave:        "f8dc93d9074d600de7be7afe5ac9e9947824bdda18eab6fdda87ba1455fa6488"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb1b0e2266de96e0eb1e27459b83158e39b8fe0c3620f4cbc49149f192b455ae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9c51c047a1b0a54fc0442b8116cab4ac4fe15e32a81e1eab298d7ae335350abf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4da2c5aeb11978212534942830e5dbf06df531e9c20ae13f046fb3c9a8cacee2"
+    sha256 cellar: :any_skip_relocation, catalina:      "2a12d8521aa575a1d6026747e3ba1b8aa7887d2bbe260965fe0eea13ff97a5d6"
+    sha256 cellar: :any_skip_relocation, mojave:        "a0762c0080eabc925f05e4a62de0fb9fc9cca8a9a948a9d4cb2d323ab1df8873"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28081d93f6606dc4a39b1dfde118c3d21a909487b289538e86801de3febf1604" # linuxbrew-core
   end
 
   depends_on "go" => :build

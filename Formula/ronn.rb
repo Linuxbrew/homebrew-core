@@ -15,7 +15,7 @@ class Ronn < Formula
     sha256                               big_sur:       "039c6b58bcb2a23599731b0616f86367f599a18ca1e9ac6aabad00c759d51e1c"
     sha256                               catalina:      "99c4f8018ba5bbc2c5e3c38e1015550b2917a287f4a4c8be49e8ee363f70e3ae"
     sha256                               mojave:        "1544009e832681a6a93e8f7f3edd13df690d52f7e8c16449b79820895bb257b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cfd60e5550c58104384fddf72ff29d467cd721e9b84dfea410720b1c19e160b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cfd60e5550c58104384fddf72ff29d467cd721e9b84dfea410720b1c19e160b" # linuxbrew-core
   end
 
   depends_on "groff" => :test

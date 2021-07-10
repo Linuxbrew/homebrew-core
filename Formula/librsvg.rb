@@ -10,7 +10,7 @@ class Librsvg < Formula
     sha256                               big_sur:       "7849cab410dfd63c3f8f635e0a0152cf34425524f728c2f01a36d7631f34688b"
     sha256                               catalina:      "454d94e2c72567744613b69a9d879dde0a0bd9593c32929d520266b04f6b51b8"
     sha256                               mojave:        "312d0f2fade5525cfe58f0c0e16cccc1e9c73925bb2fc8f1c320d3a0f8a3f4fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbde8693b0757463babb329f743c1b96df84ea7c0e8e3624b0e83dba7ab317d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbde8693b0757463babb329f743c1b96df84ea7c0e8e3624b0e83dba7ab317d7" # linuxbrew-core
   end
 
   depends_on "gobject-introspection" => :build

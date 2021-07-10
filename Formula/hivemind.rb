@@ -13,7 +13,7 @@ class Hivemind < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "8e6f70ca5e0c8eb1e42d47bee207ec5333b453660d808103a36d53c51a7fb59a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7a89018774693681975cea22dcdebe35df043507476d1318f195e6d194978693"
     sha256 cellar: :any_skip_relocation, sierra:        "4aa25b52b5c7fd3dc7ae29ab31cf19eeddde4e7685fd7e9838be0ea8cf09f3c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e74b7949bb598fe11915c409c0028787bf0d97a7dc915df165dac884077a372b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e74b7949bb598fe11915c409c0028787bf0d97a7dc915df165dac884077a372b" # linuxbrew-core
   end
 
   depends_on "go" => :build

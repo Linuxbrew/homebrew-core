@@ -12,7 +12,7 @@ class Yarn < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2e94245b589438a4f9dbce64edace8b237feb1ffadd0865bb21d6093a818d230"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2e94245b589438a4f9dbce64edace8b237feb1ffadd0865bb21d6093a818d230" # linuxbrew-core
   end
 
   depends_on "node"

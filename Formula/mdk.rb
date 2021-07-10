@@ -17,7 +17,7 @@ class Mdk < Formula
     sha256 catalina:      "bd29f7cd3b52987492d17a4cfa9a51712bbacda1f738454cfb942596392fe9f7"
     sha256 mojave:        "51c33dc12bf9277cd0d60d55a34236a1ab8d9577c9fbe296a8d893962e391d6a"
     sha256 high_sierra:   "e8bd4f2623b6e6e55cc2ccf30339a39f14cc1b499d155b6c33144fdf0bf76745"
-    sha256 x86_64_linux:  "6fb795b89db91205d92370f43cb4a704a8da7f597c725bf830055f82b167a153"
+    sha256 x86_64_linux:  "6fb795b89db91205d92370f43cb4a704a8da7f597c725bf830055f82b167a153" # linuxbrew-core
   end
 
   depends_on "intltool" => :build

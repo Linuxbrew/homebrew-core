@@ -12,7 +12,7 @@ class Libu2fHost < Formula
     sha256 cellar: :any, catalina:      "461c37c919d585c8abca2fbff636332c27462cc8f10c04d5762e357c453f7066"
     sha256 cellar: :any, mojave:        "deed9f64b0e078130c5618ce98580b9b1b284c531cfb04e6296a8d5b259b6a81"
     sha256 cellar: :any, high_sierra:   "376aa8fc3a98d4aab29ba7d284a58bf07308fda51aa30da72e068f8a6206505e"
-    sha256 cellar: :any, x86_64_linux:  "eda5379b42069ef4fe89fd6428a84ae3f84fd1e62aa49c83022b4c2686358fb5"
+    sha256 cellar: :any, x86_64_linux:  "eda5379b42069ef4fe89fd6428a84ae3f84fd1e62aa49c83022b4c2686358fb5" # linuxbrew-core
   end
 
   # See: https://github.com/Yubico/libu2f-host

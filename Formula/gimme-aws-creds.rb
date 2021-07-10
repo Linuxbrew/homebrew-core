@@ -12,7 +12,7 @@ class GimmeAwsCreds < Formula
     sha256 cellar: :any,                 big_sur:       "400eb67cf04cff7d0c4eac4a4dc1f8d6e0853d8c03390e455d4af6e3dd5b8bd7"
     sha256 cellar: :any,                 catalina:      "c53ee6d613ddd45e3305607706d4b0e9c9d370415aef166c6570f57ad24b1990"
     sha256 cellar: :any,                 mojave:        "f8c5d2d4a68df930855edbc57edb5ea16cdf48db02e587b49fc878e67170f2f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7db3951a9c7ed426f15984cf884340645cb200b600121fbd77d4b85de58036dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7db3951a9c7ed426f15984cf884340645cb200b600121fbd77d4b85de58036dc" # linuxbrew-core
   end
 
   depends_on "python@3.9"

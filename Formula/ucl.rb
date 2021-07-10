@@ -16,7 +16,7 @@ class Ucl < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "91ce0597dc8e648e4ee0d0caaa30bceb5f569acc90634d88fa5e7859f2ae682a"
     sha256 cellar: :any_skip_relocation, catalina:      "116db1f8157bf88831fece730fb3e6fa82420d53c29b032afd63b979df42b386"
     sha256 cellar: :any_skip_relocation, mojave:        "89c37d38b41d5107f85c0880eb1599c885dafc2a7150a378c645b3fbe1f0e5ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "229f2ce2382f417ddf115d9789ef978568ceb787e349f3694aa8ff15bd5500f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "229f2ce2382f417ddf115d9789ef978568ceb787e349f3694aa8ff15bd5500f0" # linuxbrew-core
   end
 
   depends_on "automake" => :build

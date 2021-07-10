@@ -11,7 +11,7 @@ class HttpParser < Formula
     sha256 cellar: :any, catalina:      "f03615a5ecb9e65d4bd7b302a8429ba9130012b092f3f42e0afd85df2bf47453"
     sha256 cellar: :any, mojave:        "b36ae811b2b72823cea4c7ab445ee2a5f628255aa169f0bc453fda1d3d520fbb"
     sha256 cellar: :any, high_sierra:   "0c6b69289fa4a8dd7ad532fcefb0848af229dcb5a64df981c03e99af2ce3acd8"
-    sha256 cellar: :any, x86_64_linux:  "46f21c3eb750edef6c569bf57e42107f2fb33417e1ca5f590977b1983d26db72"
+    sha256 cellar: :any, x86_64_linux:  "46f21c3eb750edef6c569bf57e42107f2fb33417e1ca5f590977b1983d26db72" # linuxbrew-core
   end
 
   depends_on "coreutils" => :build

@@ -11,7 +11,7 @@ class Libsmf < Formula
     sha256 cellar: :any, mojave:       "bbe040e330a998499e078129097a07f2c5de9fff9c5f26a638e6f5248badda3b"
     sha256 cellar: :any, high_sierra:  "7a4b394b51e89bd781fcce0514b3cc58656da63fa2e317186e47828e2c271320"
     sha256 cellar: :any, sierra:       "45aedd028eb76b2dfbb6fa3ba9b3fc809e7265411d5d7760997a71503ebae41a"
-    sha256 cellar: :any, x86_64_linux: "610023f4a71bc211b47e1ca618d61dc40cf476c9b0b7f785a98dce13a3e47ea7"
+    sha256 cellar: :any, x86_64_linux: "610023f4a71bc211b47e1ca618d61dc40cf476c9b0b7f785a98dce13a3e47ea7" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

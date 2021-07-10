@@ -11,7 +11,7 @@ class Libplist < Formula
     sha256 cellar: :any, catalina:      "20faf60d286c8ceed790a9b6e34245acf7bafacc7fcbcb390d6b62e194b323e6"
     sha256 cellar: :any, mojave:        "768453f8710ec1c3e074ad0ebc7723da88c2b8575e5de6962ca6f1d4a85cb61d"
     sha256 cellar: :any, high_sierra:   "02291f2f28099a73de8fa37b49962fe575a434be63af356cceff9200c6d73f37"
-    sha256 cellar: :any, x86_64_linux:  "f9499d34d2b486a2a2ec069da288f8069603f29647ad7e7429f0d78ce24bdaaa"
+    sha256 cellar: :any, x86_64_linux:  "f9499d34d2b486a2a2ec069da288f8069603f29647ad7e7429f0d78ce24bdaaa" # linuxbrew-core
   end
 
   head do

@@ -6,7 +6,7 @@ class LibnetfilterQueue < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3e3aa6338ec45a13632db538ae9e98dcfd521ac621f7556a197f070defd50da5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3e3aa6338ec45a13632db538ae9e98dcfd521ac621f7556a197f070defd50da5" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

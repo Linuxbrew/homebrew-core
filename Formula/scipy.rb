@@ -11,7 +11,7 @@ class Scipy < Formula
     sha256 cellar: :any, big_sur:       "beab14d43846f01df17df652134b294f610f5168c7ee15aa704a9b694627d2f7"
     sha256 cellar: :any, catalina:      "d903e85c46fb8bb667bdf0433491fd2a335870ff79c02bd9392ea09e6704e74d"
     sha256 cellar: :any, mojave:        "b81ef93026ddb9110681de09d83f26de17c20ce3129361a9d685b80c49135dc5"
-    sha256               x86_64_linux:  "126c3a3f14568acc229ca817610fd284a2abdd7a116689a9acc739c19ff0bf00"
+    sha256               x86_64_linux:  "126c3a3f14568acc229ca817610fd284a2abdd7a116689a9acc739c19ff0bf00" # linuxbrew-core
   end
 
   depends_on "cython" => :build

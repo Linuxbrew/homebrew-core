@@ -19,7 +19,7 @@ class DocbookXsl < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26"
     sha256 cellar: :any_skip_relocation, mojave:        "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26"
     sha256 cellar: :any_skip_relocation, high_sierra:   "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b52c47bc47c4a19699fb52277f477d27bfb519d9b7e01d94ad6c566cf27f873"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b52c47bc47c4a19699fb52277f477d27bfb519d9b7e01d94ad6c566cf27f873" # linuxbrew-core
   end
 
   depends_on "docbook"

@@ -14,7 +14,7 @@ class Jpegoptim < Formula
     sha256 cellar: :any, high_sierra:   "9588bffa63f2041939e480ff8dbce25a004ef2414fc7ea9d5b5177a38bfb8eaf"
     sha256 cellar: :any, sierra:        "89b7f8465e95066c6bf19515affed14037841ea5d0a86b8c3d6cf026f507e938"
     sha256 cellar: :any, el_capitan:    "cc6c60a27cba7bb5f0e1b4a7c8ae3567db4eeaf1e1384488b818da7a1409f837"
-    sha256 cellar: :any, x86_64_linux:  "15cbdb13e2c707d908d16f2058ee3d201c325a6fa97e835c9ac353660b686c24"
+    sha256 cellar: :any, x86_64_linux:  "15cbdb13e2c707d908d16f2058ee3d201c325a6fa97e835c9ac353660b686c24" # linuxbrew-core
   end
 
   depends_on "jpeg"

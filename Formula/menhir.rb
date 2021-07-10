@@ -10,7 +10,7 @@ class Menhir < Formula
     sha256 cellar: :any,                 big_sur:       "f42d182ab5cc9e8d14464cfa1d7c1c7fb8e1a563b17006793d420424d7070f0e"
     sha256 cellar: :any,                 catalina:      "ddbd691df178056fa2aaa1980aaec960d5259dbfe28037a4417b4f35310e03e6"
     sha256 cellar: :any,                 mojave:        "a016bd58f69c0b05e9a0141a86086193726773719e03a7378a0afbca70cf3ec5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "049aace1ed2d7b211097f220d3856a1390062259417a201dc6f59147324ae618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "049aace1ed2d7b211097f220d3856a1390062259417a201dc6f59147324ae618" # linuxbrew-core
   end
 
   depends_on "dune" => :build

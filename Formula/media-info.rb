@@ -15,7 +15,7 @@ class MediaInfo < Formula
     sha256 cellar: :any,                 big_sur:       "cd0ec2b21f22cb356f5e93dfa14e67d3d9a94e12923a1c84d58b1f74d0160c20"
     sha256 cellar: :any,                 catalina:      "83b8a3b1b8708fe1c1ec7c1e2856d29a074e14441cf7aecfe7b6cae2292253fc"
     sha256 cellar: :any,                 mojave:        "f67aa010d9fc345917e29ea1cbe232360396851bbe9b770af084f49fdd70dfd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d30695947e61cc8402cf3ae35ddfc6c5514553cf348f29481bdd2e796a5e7627"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d30695947e61cc8402cf3ae35ddfc6c5514553cf348f29481bdd2e796a5e7627" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

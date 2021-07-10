@@ -15,7 +15,7 @@ class Onioncat < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "9053dd0ef8e185c7d328e3ea488106c567bf4fcff6b1b864f63ce2a0b6a882f0"
     sha256 cellar: :any_skip_relocation, catalina:      "2cc9de36de4f8fb6bf5ef7776b7e8de219444123df698ac4a9cbfc7a87f0d4e6"
     sha256 cellar: :any_skip_relocation, mojave:        "ea6c02f40094f48e34c8a4bd03d66761ddf6262745683006d58d26a27e5f5a9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6032e98bbce7b3c2182c06ff794abcdcfd4ac8743d61ca367d346120c2130680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6032e98bbce7b3c2182c06ff794abcdcfd4ac8743d61ca367d346120c2130680" # linuxbrew-core
   end
 
   depends_on "tor"

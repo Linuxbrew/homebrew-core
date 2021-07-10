@@ -15,7 +15,7 @@ class Di < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "2ea8c9f4d3cc6f05716b53fce8686536e9cbcb873e915227cba240e8e0ae81f6"
     sha256 cellar: :any_skip_relocation, catalina:      "250f47d6e8b6ffe545cc3bf5421bde97e342f901e66ac4deb4b59aeaf1c5c308"
     sha256 cellar: :any_skip_relocation, mojave:        "c0c124d45daab04a22e0d831b0288d39141ad7cd335fb60fea8662c6992f8b9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6c5fd934ec94456b4d18e128dc85904d28c4bf89924c958e6d266a9aab732fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6c5fd934ec94456b4d18e128dc85904d28c4bf89924c958e6d266a9aab732fc" # linuxbrew-core
   end
 
   def install

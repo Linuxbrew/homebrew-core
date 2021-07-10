@@ -10,7 +10,7 @@ class Libxfixes < Formula
     sha256 cellar: :any,                 big_sur:       "a0317884b16dfd0e391d9ab48b4a9785fa2c4fdf3fd5dca857be98b1ae6fded2"
     sha256 cellar: :any,                 catalina:      "916d95deb297ee98b57a87586a90a5a880792efab259c511230844a6ab94d06e"
     sha256 cellar: :any,                 mojave:        "5c560e7ae60a53ea414c34a7d5159da0e4fc04a9159baa4ce9d67d942d05b9a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b10945be16e84b8e7cd08c600d64408e1332574f1fa8e33a44aadb3bf5e06d68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b10945be16e84b8e7cd08c600d64408e1332574f1fa8e33a44aadb3bf5e06d68" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

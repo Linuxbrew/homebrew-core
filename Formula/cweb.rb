@@ -10,7 +10,7 @@ class Cweb < Formula
     sha256 big_sur:       "2ee6617cf9da76e1e7cafbd49ed6e53fee15339c82df053eab55a398fb96f50b"
     sha256 catalina:      "e100640669a1d066177514aae1c813f7c18b530c4cae5744d0431d850933648c"
     sha256 mojave:        "410376faad622cd11745ca94c877135c1b4837ccdc8c7cab43bf12b4b849a3b9"
-    sha256 x86_64_linux:  "05b3cb67649ef73f131fd901d5f2fdf99fbb6e7215e253b9a06bc7486ac169ca"
+    sha256 x86_64_linux:  "05b3cb67649ef73f131fd901d5f2fdf99fbb6e7215e253b9a06bc7486ac169ca" # linuxbrew-core
   end
 
   def install

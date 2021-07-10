@@ -11,7 +11,7 @@ class Glslviewer < Formula
     sha256 cellar: :any,                 big_sur:       "bcaaa427f4cfaf2736c995c24235be606a8e0e83cbaaf495097f684d2f7de069"
     sha256 cellar: :any,                 catalina:      "17f665c2d066a6a01023300ed8a1fbad50ef078503978b3e7b4db63e6d483aba"
     sha256 cellar: :any,                 mojave:        "94c59b694e9feeeb388aaf5aee69c387e4ea02348f178e34b715167b3af636af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b52b731c64bd879f3910bbaa8615e6d490ce23caff21ba2a37b84af79a9d6b88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b52b731c64bd879f3910bbaa8615e6d490ce23caff21ba2a37b84af79a9d6b88" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

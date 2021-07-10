@@ -12,7 +12,7 @@ class Liboauth < Formula
     sha256 cellar: :any, mojave:        "2cc45826629d726ad5496c7d1ead73844d213f0862c981830645751ff0f678be"
     sha256 cellar: :any, high_sierra:   "c1f049ca62762088244421339f848a5de1e5e388ced1d15463da00a9b0222784"
     sha256 cellar: :any, sierra:        "d3a3ffc611c1d2047e2b56a632e7d4b4e5f4d0657483932fdcd4972455d28f60"
-    sha256 cellar: :any, x86_64_linux:  "f558f31475f58cfcc8bbce61a84711a633fe889f73c36c73caf958e9a5701435"
+    sha256 cellar: :any, x86_64_linux:  "f558f31475f58cfcc8bbce61a84711a633fe889f73c36c73caf958e9a5701435" # linuxbrew-core
   end
 
   depends_on "openssl@1.1"

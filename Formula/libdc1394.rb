@@ -23,7 +23,7 @@ class Libdc1394 < Formula
     sha256 cellar: :any, mojave:        "6cf02c5500f83fa2ccd1ff9b880f44f9652d68b0e90a2345d6c62fb92a988f0a"
     sha256 cellar: :any, high_sierra:   "536cbd34a43886d63a3dba41e7877ed63ad0fbe1a5e21cde499bd2c9e1e37e52"
     sha256 cellar: :any, sierra:        "ff1d7c6b07f21d8cd485574b10091eb21c2316390a7d4cfa84d29cccce8097e6"
-    sha256 cellar: :any, x86_64_linux:  "23d63fc6cb173b5a3028d1a94a62db68f3c0eac53bbd707ff4419e96abc12937"
+    sha256 cellar: :any, x86_64_linux:  "23d63fc6cb173b5a3028d1a94a62db68f3c0eac53bbd707ff4419e96abc12937" # linuxbrew-core
   end
 
   head do

@@ -13,7 +13,7 @@ class Picocom < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "7fec5e767653710fa87d0be9d97735550af70aeb32fdcba1c7c0159e9078ee1a"
     sha256 cellar: :any_skip_relocation, sierra:        "fb1bd439cb84f2667feee5e5c125ec9a51698e7d153c56decf95502848edc621"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ec353723ddf1f785bd75bb3a0e9bd5e92adacbe5b4a86ed5dabe53d20b1a362c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10875c8bcb8fb836a0ffae01574a84576558f7717d55c80c1b513fb60c5d4c49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10875c8bcb8fb836a0ffae01574a84576558f7717d55c80c1b513fb60c5d4c49" # linuxbrew-core
   end
 
   def install

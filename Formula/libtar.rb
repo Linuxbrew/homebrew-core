@@ -15,7 +15,7 @@ class Libtar < Formula
     sha256 cellar: :any, sierra:        "68bdebde24477a815ea03289878ad57e8a1f719b417bef430bf477c2d760cad7"
     sha256 cellar: :any, el_capitan:    "018f1c9897f52b783878db67db39a5933a4863a3f9dedc2af9b6bf13f2161957"
     sha256 cellar: :any, yosemite:      "d8d138fb4c1cf8c33aaaf8633cd748e9a423e84f1df886ae1842d4816b1f34a0"
-    sha256 cellar: :any, x86_64_linux:  "895b12d04e1cda40eb0458d3125a534aa38daed594ff3f68fd65a8e3f5bc86f0"
+    sha256 cellar: :any, x86_64_linux:  "895b12d04e1cda40eb0458d3125a534aa38daed594ff3f68fd65a8e3f5bc86f0" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

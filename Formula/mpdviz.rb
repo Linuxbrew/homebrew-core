@@ -13,7 +13,7 @@ class Mpdviz < Formula
     sha256 cellar: :any, catalina:     "f65d98aebf9bee4de6dce79983fe91b20f95d731be71999021639bdd7c8c14e9"
     sha256 cellar: :any, mojave:       "dcc5deb65626637f6a4182f96e1ccd441a462c55657e134d2277a70be8246278"
     sha256 cellar: :any, high_sierra:  "1f1b0b01dcfd1c37b7820ae93a9775abcd5b1abcdb8a5a4038d348e517b3c87a"
-    sha256 cellar: :any, x86_64_linux: "73630b8bb9a93571f252428d2eb19b1ae446cea166726ea44e2f5d1f854efd9b"
+    sha256 cellar: :any, x86_64_linux: "73630b8bb9a93571f252428d2eb19b1ae446cea166726ea44e2f5d1f854efd9b" # linuxbrew-core
   end
 
   depends_on "go" => :build

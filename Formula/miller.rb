@@ -11,7 +11,7 @@ class Miller < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f6a4e253c2f653c0d988aca0a2ed81cf8b8e2ce4040cc43a27582759ba8759f6"
     sha256 cellar: :any_skip_relocation, catalina:      "5538dc76e119ce1507806b67eaa7612af4c68a9a491257a10844545ee2d5a669"
     sha256 cellar: :any_skip_relocation, mojave:        "c04494a29315e246aaa9a553eff17ee4ab4e83a1dfe9a46995ea6e0eebc1221a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f52f05692f42d573dc3ca33d5d5343822ba1630b327ad3a9380250a8c0d33c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f52f05692f42d573dc3ca33d5d5343822ba1630b327ad3a9380250a8c0d33c" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

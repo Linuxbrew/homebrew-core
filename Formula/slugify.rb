@@ -7,7 +7,7 @@ class Slugify < Formula
   head "https://github.com/benlinton/slugify.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "73fa2281dd5bc54549c488774feb2d262b0a4e80c4bedf2e017f90e74293076d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "73fa2281dd5bc54549c488774feb2d262b0a4e80c4bedf2e017f90e74293076d" # linuxbrew-core
   end
 
   def install

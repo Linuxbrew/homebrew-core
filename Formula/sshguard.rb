@@ -10,7 +10,7 @@ class Sshguard < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1ef26616b9c9967b8e8749af6c92d97d534b18a411d312ce07d61ddfc7ee0a8e"
     sha256 cellar: :any_skip_relocation, catalina:      "287d98f822a15178d2cdb3f6cc11189e8ab13d9acd783f2a9b499768617b3ed4"
     sha256 cellar: :any_skip_relocation, mojave:        "ab2bdc696ad7cc7f8ea83ea2819743699f8229e5bdb842aed39eb26b6840e46e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52a4f41c71e138491cdd608ac4078764528160088db06660dbc88d7982ad08eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52a4f41c71e138491cdd608ac4078764528160088db06660dbc88d7982ad08eb" # linuxbrew-core
   end
 
   head do

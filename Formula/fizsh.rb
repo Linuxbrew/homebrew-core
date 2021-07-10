@@ -20,7 +20,7 @@ class Fizsh < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "334ceff9d649e87f87be9d3f561ee38221f8c87712a3b506b145191dc51fc4bd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "334ceff9d649e87f87be9d3f561ee38221f8c87712a3b506b145191dc51fc4bd"
     sha256 cellar: :any_skip_relocation, yosemite:      "334ceff9d649e87f87be9d3f561ee38221f8c87712a3b506b145191dc51fc4bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d25f3467f58d11b38efac3595c9e9244fcd558823d2d2e64a0a6744c8330099a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d25f3467f58d11b38efac3595c9e9244fcd558823d2d2e64a0a6744c8330099a" # linuxbrew-core
   end
 
   depends_on "zsh"

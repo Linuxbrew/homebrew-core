@@ -13,7 +13,7 @@ class Qprint < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f26387daf3d025dd45843784dd90fb3bf77609bdf0eb870f1b66782c89571950"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9660443356a1f9571b39ea496349482e17f7c0d06829dd06945ca7680291c0bf"
     sha256 cellar: :any_skip_relocation, yosemite:      "92470bcb0bd97c4d13181969ebeb0339faa85338ad139bf4a5ac19550635f5c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b59ae91b286cf33e2a00853cf570d7d2113f46322383188a8419e06b7b86ea7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b59ae91b286cf33e2a00853cf570d7d2113f46322383188a8419e06b7b86ea7" # linuxbrew-core
   end
 
   def install

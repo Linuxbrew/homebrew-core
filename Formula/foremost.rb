@@ -17,7 +17,7 @@ class Foremost < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "46ddc6fa415ef88bb90b4f14698b8051d6167a7e1763863bbdc4116eed590317"
     sha256 cellar: :any_skip_relocation, catalina:      "6be1f3b67ee3002ab30f9f7bc667f55b02d4311a99b4f974af34b6d0353a0139"
     sha256 cellar: :any_skip_relocation, mojave:        "a392a7045508e07e54fd7210de043758e9bf84ff0b0d13867a550a71665c51ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b90123ae2f4327e65a9e22433db8d98ec4b8a28aae0df66452ab5016a02585a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b90123ae2f4327e65a9e22433db8d98ec4b8a28aae0df66452ab5016a02585a" # linuxbrew-core
   end
 
   def install

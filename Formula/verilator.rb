@@ -15,7 +15,7 @@ class Verilator < Formula
     sha256 big_sur:       "cd3937360e860cc0792fbf109cd245d3f48b0cb70d489bfda7db170eb1451e1a"
     sha256 catalina:      "e2825ec3ef68a3344f102d15fd5a5c7915a18bacaf57d9ffdd1dc870e1e152e7"
     sha256 mojave:        "f777b5823ce0aeb7fae25d6f8040d29aebd8f02e02a588b78773f7702bf83e7c"
-    sha256 x86_64_linux:  "0340e9fe3a310334a147036930819e2afdfefa1882b0c952065c206fa46502b6"
+    sha256 x86_64_linux:  "0340e9fe3a310334a147036930819e2afdfefa1882b0c952065c206fa46502b6" # linuxbrew-core
   end
 
   head do

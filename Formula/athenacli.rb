@@ -13,7 +13,7 @@ class Athenacli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "114a4beea048448d7100400faf480f14d1d5a889cc728fdc68f74b807a390609"
     sha256 cellar: :any_skip_relocation, catalina:      "c9ea8ee331d859051ae251b06c2d1641a255f28ad076b9788ea448ef7f79593d"
     sha256 cellar: :any_skip_relocation, mojave:        "eb32ca8c930eefd152a7f052f9b2e48dd153f49dcfd94df7a152d0fcfb709e1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17b4da8e2554f91faa429cd7bdae93e603b8030d4228f7574f77001482fa35ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17b4da8e2554f91faa429cd7bdae93e603b8030d4228f7574f77001482fa35ee" # linuxbrew-core
   end
 
   depends_on "python-tabulate"

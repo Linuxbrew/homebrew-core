@@ -15,7 +15,7 @@ class UserspaceRcu < Formula
     sha256 cellar: :any,                 big_sur:       "2eaf6d663b24932de82d80effcd6bf77fe7307a301296094809495eb4f6c5597"
     sha256 cellar: :any,                 catalina:      "4066d1afdd9ab1bd126c933bcf53bff3d74179195443f272841d9ac5da0b4b05"
     sha256 cellar: :any,                 mojave:        "63d30f6d0d0f00b5eae317aa0cff21f28cfed4a75fd460ba7c6651cc3d3dea79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b46b9b1e42d4f2aa166926ded7f21b083087bd330e208d5b9f3085332103605"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b46b9b1e42d4f2aa166926ded7f21b083087bd330e208d5b9f3085332103605" # linuxbrew-core
   end
 
   def install

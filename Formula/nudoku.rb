@@ -11,7 +11,7 @@ class Nudoku < Formula
     sha256 big_sur:       "ec43523a92bb16fadd4ab7fe3f9189cb13849fc3919bf4525b9074a471453745"
     sha256 catalina:      "e6aa92aabc32164b2cc69d55d4a243f6aafdd6d6a109a40339d6546548153174"
     sha256 mojave:        "3afc049f852d205bff4b674e751fb1db83d73ab82ba15e5f38a1ba9c33ffd2e5"
-    sha256 x86_64_linux:  "3a3d6490fbcb659583593feb72a99b13fce235e1eba380d9ef1fd0f4785ad202"
+    sha256 x86_64_linux:  "3a3d6490fbcb659583593feb72a99b13fce235e1eba380d9ef1fd0f4785ad202" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

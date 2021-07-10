@@ -10,7 +10,7 @@ class Ncdu < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "af3c3320ea08a93b0cb7bd260a297305d7c0283f8a9881971ecfa2dcb5c270b0"
     sha256 cellar: :any_skip_relocation, catalina:      "b201c2573ed203bbd41c801be8d0b63045e33b36b601bcf6b8c03b5598c9301f"
     sha256 cellar: :any_skip_relocation, mojave:        "4f0851785b40c0035a3d60687bdb180d46f8ec364508220c36bc40dda90ba25f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c1a3244bf54b0ea5246bfa45130f18710f4943a30b897c9c104435585d26ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c1a3244bf54b0ea5246bfa45130f18710f4943a30b897c9c104435585d26ca" # linuxbrew-core
   end
 
   head do

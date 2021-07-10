@@ -10,7 +10,7 @@ class Hstr < Formula
     sha256 cellar: :any, big_sur:       "23a7e98369fa1ef412f6f374d24a1828b5131425b39b828688004cf6e4cedda8"
     sha256 cellar: :any, catalina:      "eb5a750b04ba6c1908bde96a1bd7fb8733a80632953eeb5d43ad51b7747cc191"
     sha256 cellar: :any, mojave:        "723f7aec818080a72e40a3eda2aad8669d5d952927a7894718946cc0b788ff27"
-    sha256 cellar: :any, x86_64_linux:  "ae4e395bef972c00c7fea7b4134dfd38f259968aa300a604a9e82ad48e2d37d0"
+    sha256 cellar: :any, x86_64_linux:  "ae4e395bef972c00c7fea7b4134dfd38f259968aa300a604a9e82ad48e2d37d0" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

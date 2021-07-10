@@ -20,7 +20,7 @@ class Netpbm < Formula
     sha256 cellar: :any,                 big_sur:       "f5605104b1fa90e59ca88ea2b9a780a504038fefb442d16018ac893dc59b77ed"
     sha256 cellar: :any,                 catalina:      "a67c2bf374e40b9d93df420694fdffbbc8edd2b47396e4898ed0f846522c784f"
     sha256 cellar: :any,                 mojave:        "c3b062ff7a14d95563eac4d0efeb4b63487e0f4cb1729ced49f96d781cfca115"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e737ad6ae0225ef84557604272d03bf0b784c22470101174803100039a0ae42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e737ad6ae0225ef84557604272d03bf0b784c22470101174803100039a0ae42" # linuxbrew-core
   end
 
   depends_on "jasper"

@@ -11,7 +11,7 @@ class Dash < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "11cc317053e0f398a3aa14f2dca06e5bc45b215859953e45153d2f4af7853435"
     sha256 cellar: :any_skip_relocation, catalina:      "a4fd41a1b67977e509ae2612c6d57914d010c4352b606c0a5b49e7c81af8b6e7"
     sha256 cellar: :any_skip_relocation, mojave:        "7c2387fa98bdb02ae966b055948baf6b911c494f54e996087a5e4c42f173f8bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "371787f2430df1c94532e4a167e347902e88a1f2efbfa25c3dfa6cd8423af56e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "371787f2430df1c94532e4a167e347902e88a1f2efbfa25c3dfa6cd8423af56e" # linuxbrew-core
   end
 
   depends_on "autoconf" => :build

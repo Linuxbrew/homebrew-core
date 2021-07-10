@@ -11,7 +11,7 @@ class Thrift < Formula
     sha256 cellar: :any,                 big_sur:       "8db076de8c1cb6fe950bf2150cad3742333f85c2d7f246eae6528f4da600a04f"
     sha256 cellar: :any,                 catalina:      "27776fc09fc1a434311dfebb60337205947598c31b833fe309f3046c771f08e7"
     sha256 cellar: :any,                 mojave:        "4ad50446316a8f9d35256debd51b8bf3ea1697cf43c7b8efe1e2f82922e75d76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16de2437099d4e842c67cf90fe5b59a45b46c4d54dedf3743ca9339dbb6fb4f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16de2437099d4e842c67cf90fe5b59a45b46c4d54dedf3743ca9339dbb6fb4f2" # linuxbrew-core
   end
 
   head do

@@ -11,7 +11,7 @@ class Ultralist < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "529daa8fdf264f4f13f8f93d785095d4a803f94902772e25094415691bf7f83c"
     sha256 cellar: :any_skip_relocation, mojave:        "5bf8a9d39b953f0c24c8a1b978fab945f667a5f4e48c0d2729162f948f3b9118"
     sha256 cellar: :any_skip_relocation, high_sierra:   "eff4c2ac2bd4d1a4bfe6f0d2bcd92b4c572d17eaa047df909533d8f510f366a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ae5bd854437f1e9a3b2905bc8927f4aa18b2d3bc603b7b22f0ee0744e4722bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ae5bd854437f1e9a3b2905bc8927f4aa18b2d3bc603b7b22f0ee0744e4722bb" # linuxbrew-core
   end
 
   depends_on "go" => :build

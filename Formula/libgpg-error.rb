@@ -15,7 +15,7 @@ class LibgpgError < Formula
     sha256 big_sur:       "453688272ae89f5f4b5a852ec1c2c31d3c2410abb95ca5039f5a0d4edfc4b64b"
     sha256 catalina:      "bb8090fbf1399ed80904df570978a16b72af1b300c17f68493b602606e90d516"
     sha256 mojave:        "ef3446809a6b3d9da0f5d4a45b9d2c21a7bf4549d14cc785843f4f969f13ea39"
-    sha256 x86_64_linux:  "5e64d9e33e503292a903f08783f4c994f4e66682f125c8fa04d0464dd8e82cc7"
+    sha256 x86_64_linux:  "5e64d9e33e503292a903f08783f4c994f4e66682f125c8fa04d0464dd8e82cc7" # linuxbrew-core
   end
 
   def install

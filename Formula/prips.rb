@@ -16,7 +16,7 @@ class Prips < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "771e030cbbf61a7914af375462d24bc2fccb6e60e8959110906e23544aacbb17"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ecf0f743bfaffc303c8f520f5f29f10917b63708866fc50553c10f6952c5e06e"
     sha256 cellar: :any_skip_relocation, sierra:        "65a400f8d42e7c38cbc26898dadf3110b0aad7e347ba40585f398d4bcc696d04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19565969341e072d19968e0dbb9405f278bd774bdeb66f3a074e7bfde9195eaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19565969341e072d19968e0dbb9405f278bd774bdeb66f3a074e7bfde9195eaf" # linuxbrew-core
   end
 
   def install

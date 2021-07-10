@@ -10,7 +10,7 @@ class Libxt < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "db76d4efdf96e00af7b4230245b81c26539b4ec20e93c1d379a3c92b39217885"
     sha256 cellar: :any_skip_relocation, catalina:      "a1bcc92d37e1602ef760fecb79f7729db7e38aee2835879689596d478480217b"
     sha256 cellar: :any_skip_relocation, mojave:        "4bd6052344cc12c674d40f44c31083264f5ce097ec0d2f6111e726862a8a2b04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80cf4172680aeb30f00d79f4058df28915598ecc9cfed5e63e447b9b63507dbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80cf4172680aeb30f00d79f4058df28915598ecc9cfed5e63e447b9b63507dbb" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

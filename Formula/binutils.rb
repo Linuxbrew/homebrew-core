@@ -11,7 +11,7 @@ class Binutils < Formula
     sha256 big_sur:       "993ab1e0149a47224c4e7063be178ff5d551b2ea6d2a79805f03ca40cd5f1279"
     sha256 catalina:      "d3112607a4820d58df8d1fc0fd3ac998ba9ba8563245e72c9e197c50b333748c"
     sha256 mojave:        "06de25d200fd389ee4157a278abe261e20c18f8f6ad28d9519a4a4001b5b027e"
-    sha256 x86_64_linux:  "d13d509bb08d3221982d69c2f2a766c535c858de379dd0e10d4d6f2309d6f597"
+    sha256 x86_64_linux:  "d13d509bb08d3221982d69c2f2a766c535c858de379dd0e10d4d6f2309d6f597" # linuxbrew-core
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"

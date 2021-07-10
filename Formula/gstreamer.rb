@@ -16,7 +16,7 @@ class Gstreamer < Formula
     sha256 big_sur:       "a2d62c11bf92e6d4f2d02d1dff4558e945f6dc10b27f435c14824de9d2fdba48"
     sha256 catalina:      "9fcc5eb54cebede4c30ed3bacbf82fb8272471bd0a80cbc0a63b503a79994371"
     sha256 mojave:        "259ae892b842f10c590240abfc97e2af6d6c93f67d1362da1d858e913d3ddbd1"
-    sha256 x86_64_linux:  "31850bb9db9dce63cd6775d9fc5ad19dd83dc6dbdae6b948a1995125fa9640b5"
+    sha256 x86_64_linux:  "31850bb9db9dce63cd6775d9fc5ad19dd83dc6dbdae6b948a1995125fa9640b5" # linuxbrew-core
   end
 
   depends_on "bison" => :build

@@ -18,7 +18,7 @@ class Aalib < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
     sha256 cellar: :any_skip_relocation, catalina:      "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
     sha256 cellar: :any_skip_relocation, mojave:        "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bacc255fd5b7c8357465018f7087647b2bcd536f0fa5c70a775fe59b217a239b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bacc255fd5b7c8357465018f7087647b2bcd536f0fa5c70a775fe59b217a239b" # linuxbrew-core
   end
 
   # Fix malloc/stdlib issue on macOS

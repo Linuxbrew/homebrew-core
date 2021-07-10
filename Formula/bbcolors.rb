@@ -11,7 +11,7 @@ class Bbcolors < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "cdc81c86b829ba9e051d693bccdb821ed78a8dc3a5df644fc156bfcd700d5686"
     sha256 cellar: :any_skip_relocation, el_capitan:   "2a713dae009e44685d1ef02b01d5202a24087129dab70366d2e30800b7dfb9cb"
     sha256 cellar: :any_skip_relocation, yosemite:     "506d7f82fa38e1f694550be30a29554b8ecc8b303d47e9bb4fcadfc534ac55c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb899d6daaee980ab6d555057a7dd939c7d020b766564b12ba351cfb2ba77cfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb899d6daaee980ab6d555057a7dd939c7d020b766564b12ba351cfb2ba77cfd" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

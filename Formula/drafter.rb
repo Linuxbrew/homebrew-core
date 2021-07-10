@@ -12,7 +12,7 @@ class Drafter < Formula
     sha256 cellar: :any, catalina:      "29fa18ff148f6ebf454ed383181384bfb9aff1520e64072dfb386445bf8e52a3"
     sha256 cellar: :any, mojave:        "2a56e75e39f7b46eba355ae6163b645e161c4e458a4f127c37a948377143ac3e"
     sha256 cellar: :any, high_sierra:   "125fb907888693fd3d638a79d185483f44112f5bb64f098626aa17f00b25513d"
-    sha256 cellar: :any, x86_64_linux:  "dae182cf5ed4215eb80c1dd0ee4d67041f8316947f02ef1cc36220f7c53be2e4"
+    sha256 cellar: :any, x86_64_linux:  "dae182cf5ed4215eb80c1dd0ee4d67041f8316947f02ef1cc36220f7c53be2e4" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

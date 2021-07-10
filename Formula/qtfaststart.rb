@@ -17,7 +17,7 @@ class Qtfaststart < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "abce3f470e0a8b62acd78aa2c58114a3e5b64d7b2117d8ffbaadc23c4eee186e"
     sha256 cellar: :any_skip_relocation, mojave:        "2fac027c66defdafcbaee5b346fd5c5e6c11b5e9a267de40d604b8e837f5d2c4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "073794a6af64b0fe9f2bc22480b4c605f9497c5ae9087d26fa8e51bdc0230b00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c79b4b65fba2c35a78994ca5053be3c0a85dc45d6726352273d566aa89cd013"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c79b4b65fba2c35a78994ca5053be3c0a85dc45d6726352273d566aa89cd013" # linuxbrew-core
   end
 
   resource "mov" do

@@ -6,7 +6,7 @@ class DockerClean < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e38bc9a6cf2fe9b1543817186dc28477f5df1fe25e0a4063efc60fef514248c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e38bc9a6cf2fe9b1543817186dc28477f5df1fe25e0a4063efc60fef514248c6" # linuxbrew-core
   end
 
   def install

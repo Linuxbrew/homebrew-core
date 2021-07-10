@@ -15,7 +15,7 @@ class Fswatch < Formula
     sha256 cellar: :any, big_sur:       "f930656cf465723b282216767a932555efdfd6b75d0404cd904c52005fad53ac"
     sha256 cellar: :any, catalina:      "a5df0020481ef351591515771abd877adc2968061ce41f4b6429f13d6ab06d30"
     sha256 cellar: :any, mojave:        "4423be79c01f66ffea513d6dcf8758bb9c1a005f77823620c6d93ec6f0bb3da2"
-    sha256               x86_64_linux:  "f1970fcf18da765433d64fc6430487549173e8bdaf296b28270b3d8d9900d74e"
+    sha256               x86_64_linux:  "f1970fcf18da765433d64fc6430487549173e8bdaf296b28270b3d8d9900d74e" # linuxbrew-core
   end
 
   def install

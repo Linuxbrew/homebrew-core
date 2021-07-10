@@ -10,7 +10,7 @@ class Iperf3 < Formula
     sha256 cellar: :any,                 big_sur:       "3c7b4daa79c385333b89c08740c477c633d45eba240610f7d43f26a3397555b3"
     sha256 cellar: :any,                 catalina:      "a3d90dab71e047c3c585dc6dfbb63b240b3842e02af8fdaee665bb13b3d71c82"
     sha256 cellar: :any,                 mojave:        "dea44691e2528c58d8f30d5b0b60d2407bb3ba17db5c3d0327fc29442f911847"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d078e2b5840746763092d35eede028ccf1b0db86274597ce064c14e5652cae7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d078e2b5840746763092d35eede028ccf1b0db86274597ce064c14e5652cae7" # linuxbrew-core
   end
 
   head do

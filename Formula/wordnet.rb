@@ -14,7 +14,7 @@ class Wordnet < Formula
     sha256                               catalina:      "56264f8aa182e0fb8d64b0166e2583465b6e373b5d69c7e2247e5ec011467a91"
     sha256                               mojave:        "8fedff541aa821dbee4d0396c2137c1cdc43968e6772a69caa664ffabbc23dbe"
     sha256                               high_sierra:   "2e7eb00a5f63eec2972c927c4e566cf51121e61f95d5f04e4e29443950e3b42f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "005d800d72d21aee626e0679d7952e8062636fe8c426c6562de6688ed637eeee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "005d800d72d21aee626e0679d7952e8062636fe8c426c6562de6688ed637eeee" # linuxbrew-core
   end
 
   depends_on "tcl-tk"

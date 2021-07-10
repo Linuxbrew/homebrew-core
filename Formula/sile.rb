@@ -11,7 +11,7 @@ class Sile < Formula
     sha256 cellar: :any,                 big_sur:       "a0842ed2090150467336ca6b92e7980a082bbcdbd29d60f496796d561e64bccc"
     sha256 cellar: :any,                 catalina:      "a2c779829ff7c3b266a138b625abf0edf1a57e32f1b3d8591d1ab4992f64dd7e"
     sha256 cellar: :any,                 mojave:        "360263738c4e15900b1396dc54b1a632e512047e65b77cc128d76b63a9f0083f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8006e37214c5a0b49f1ead79da0fb44e372d7523656c1a430e52e83663ddd795"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8006e37214c5a0b49f1ead79da0fb44e372d7523656c1a430e52e83663ddd795" # linuxbrew-core
   end
 
   head do

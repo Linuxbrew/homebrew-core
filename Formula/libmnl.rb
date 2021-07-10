@@ -6,7 +6,7 @@ class Libmnl < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ece867c29037eab669864263d1c09e53a590f105916b86bcd9673c279eb6462"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ece867c29037eab669864263d1c09e53a590f105916b86bcd9673c279eb6462" # linuxbrew-core
   end
 
   depends_on :linux

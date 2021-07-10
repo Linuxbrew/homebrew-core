@@ -11,7 +11,7 @@ class Progress < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "21a1663abf8e1a60baf99a3ae46d41883cd5136fabbe77dd07987e0730b08ec0"
     sha256 cellar: :any_skip_relocation, catalina:      "804256c3be440464694fe8f0e9b94f323860f9fa2304c8984dc0e8cbbce43fab"
     sha256 cellar: :any_skip_relocation, mojave:        "5c834228aa86062624e1d2f6f3c386607d3151842218eb9c70529e1485ee1e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be8df57b0b39d6af95ad31c3d8ab94768b81ac702b77cdf586651bc326865dff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be8df57b0b39d6af95ad31c3d8ab94768b81ac702b77cdf586651bc326865dff" # linuxbrew-core
   end
 
   uses_from_macos "ncurses"

@@ -15,7 +15,7 @@ class Sylpheed < Formula
     sha256 big_sur:       "b8d825cf9222f047cf9eec78a8a8b81c8133cd75ded1c66e3423d38318226c41"
     sha256 catalina:      "294ac17fa03002cb92f7f1bcb5f1a9b4f56157e54b564bd8e4e673f5902fc8a0"
     sha256 mojave:        "80a9483de9580d154fe32831a5172cc5e72b31a3722f8335e39aa5fd763935ff"
-    sha256 x86_64_linux:  "4ff35874ec22ccd77b8a11741b2d05557654bec128db43f62f29dcf6f958e556"
+    sha256 x86_64_linux:  "4ff35874ec22ccd77b8a11741b2d05557654bec128db43f62f29dcf6f958e556" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

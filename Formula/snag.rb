@@ -15,7 +15,7 @@ class Snag < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "692ce892c40f38cb39e77b464efa531b27004a9bbaf0096fb5876b570086cf82"
     sha256 cellar: :any_skip_relocation, el_capitan:    "18a6d589a0b416ee502a8dacd6f919959d25cc08d9bbaad152fdade4c72634dc"
     sha256 cellar: :any_skip_relocation, yosemite:      "00edba081c3a56f6cda3a4fc5bb1125d8ce93a8239c3cae89346b1893df12025"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d8aeab0c2481c1e5382094c1e1e8eb88562223fa6bdcbf73cc5694761cf97ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d8aeab0c2481c1e5382094c1e1e8eb88562223fa6bdcbf73cc5694761cf97ad" # linuxbrew-core
   end
 
   depends_on "go" => :build

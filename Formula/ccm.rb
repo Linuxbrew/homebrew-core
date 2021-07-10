@@ -13,7 +13,7 @@ class Ccm < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "22fd6d245793ee81816df4ecce043c3a7bda47809f7afacb0eb7d12c6cf23fa5"
     sha256 cellar: :any_skip_relocation, mojave:        "59242833ff1017ca8c5fa4a18d0ad7c1c6179b323daa473716c990db2c3d2e2f"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d986995a2a6de7bce2eb538861c94c826bd7f0f38bd23fc999feef15204de8fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20734e45a71aa74bfea762a803cb63a27ab9c9413b844c8cd875f60f18331004"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20734e45a71aa74bfea762a803cb63a27ab9c9413b844c8cd875f60f18331004" # linuxbrew-core
   end
 
   depends_on "python@3.9"

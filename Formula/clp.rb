@@ -17,7 +17,7 @@ class Clp < Formula
     sha256 cellar: :any, catalina:      "b68e1b527f9bd8a10c391f49835f379e973c4ad12fb68993d72e49604e4a21bb"
     sha256 cellar: :any, mojave:        "db3e0b70a5a5435d2c01b8c25c54615288d15dd0aef1606bc6812099b7feb052"
     sha256 cellar: :any, high_sierra:   "b279c98add833139bbdd65122391805109371eae1c2e99fbd35cbf9993e45ee5"
-    sha256 cellar: :any, x86_64_linux:  "f731b1d7fd458ba27a506e1e8e1aef2ab9484d632d57b89cbd02a7579ad3b451"
+    sha256 cellar: :any, x86_64_linux:  "f731b1d7fd458ba27a506e1e8e1aef2ab9484d632d57b89cbd02a7579ad3b451" # linuxbrew-core
   end
 
   depends_on "pkg-config" => [:build, :test]

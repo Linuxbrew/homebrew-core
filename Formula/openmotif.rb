@@ -12,7 +12,7 @@ class Openmotif < Formula
     sha256 catalina:      "07edf35230c5dca07fd5b4aa3a198d9ec706319e9b57ae62259f63d9726262f7"
     sha256 mojave:        "b921f9634055bd7aaab722d156feca35da0742106036f23837241d53d1380648"
     sha256 high_sierra:   "0ebe3e7a88d400291a3e0a3f46d40b500c1e0487f5f689535c8c468993e786da"
-    sha256 x86_64_linux:  "6096b2678c7f2134ccde0ccdffde9a990849d4d0ceabfe978f1d000c79ba17a8"
+    sha256 x86_64_linux:  "6096b2678c7f2134ccde0ccdffde9a990849d4d0ceabfe978f1d000c79ba17a8" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

@@ -17,7 +17,7 @@ class Cgl < Formula
     sha256 cellar: :any, catalina:      "6eb179515b4cf06ad8bb484e6384f6cdae99297f523372b082ef079ed84cafd4"
     sha256 cellar: :any, mojave:        "acdb179fb8b29973e75a674a12fa24f164b753300c625f1a4dc3ca8f3cd9dcf4"
     sha256 cellar: :any, high_sierra:   "2cc6712792b9b5fec15ec479492f4da50f371ce37af53fece6bce474f93cf336"
-    sha256 cellar: :any, x86_64_linux:  "0ca74ed82d94f377bbeadc70f76bfb049bbea5a1039aaf0bdab76f3a008ec473"
+    sha256 cellar: :any, x86_64_linux:  "0ca74ed82d94f377bbeadc70f76bfb049bbea5a1039aaf0bdab76f3a008ec473" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

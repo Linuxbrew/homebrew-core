@@ -16,7 +16,7 @@ class Libgcrypt < Formula
     sha256 cellar: :any,                 big_sur:       "1848ca1e79f8c4315ba761eb4ad1022d237d6701d47a207130b09093d99f24ef"
     sha256 cellar: :any,                 catalina:      "91ec702c7907c1ddd20998ff35299a63ac6108cb4f9a76df1c368a4c49da4a90"
     sha256 cellar: :any,                 mojave:        "6a8fa532b2c12d89f2becc1a84e9b5d07fef25a080a607f2d7b341eea5e6081b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0efd84f7dd4cc83c016a6c1f21c3d840265e3b545d7248e3e2936b27e33d1d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0efd84f7dd4cc83c016a6c1f21c3d840265e3b545d7248e3e2936b27e33d1d5" # linuxbrew-core
   end
 
   depends_on "libgpg-error"

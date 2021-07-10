@@ -11,7 +11,7 @@ class N < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "90b5086b775be4ff3b4be4a5789c301f8899d1e151f2a0875a21daa4937a67d2"
     sha256 cellar: :any_skip_relocation, catalina:      "90b5086b775be4ff3b4be4a5789c301f8899d1e151f2a0875a21daa4937a67d2"
     sha256 cellar: :any_skip_relocation, mojave:        "90b5086b775be4ff3b4be4a5789c301f8899d1e151f2a0875a21daa4937a67d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6de450720562933bb5c62291dd2287693152ab78848353f31b01ed3fc7b7ab6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6de450720562933bb5c62291dd2287693152ab78848353f31b01ed3fc7b7ab6" # linuxbrew-core
   end
 
   def install

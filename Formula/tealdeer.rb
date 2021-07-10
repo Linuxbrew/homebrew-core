@@ -11,7 +11,7 @@ class Tealdeer < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "db4a2fc7dceef4f4f914aaf7b655741e960664b46c61ab2c163f015a74949533"
     sha256 cellar: :any_skip_relocation, mojave:        "9ad3e3ea878b05fd2764cc8e534888b8bf810f88cc4d986de158ed6b33633b42"
     sha256 cellar: :any_skip_relocation, high_sierra:   "80a29641c9b29a3cda69adf5afd2c36b27f84fb8f89a555dbf2a676dddf03b70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c655031e2d3305ad18448f62790f90afa5e770b7d1aaa7fcc7ba1bb9c5471a35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c655031e2d3305ad18448f62790f90afa5e770b7d1aaa7fcc7ba1bb9c5471a35" # linuxbrew-core
   end
 
   depends_on "rust" => :build

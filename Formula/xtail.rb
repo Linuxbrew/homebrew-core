@@ -11,7 +11,7 @@ class Xtail < Formula
     sha256 cellar: :any_skip_relocation, sierra:       "d230b5111c213e9294f86f01c651501a87c42f60ed30929144e21ed4bbef4ecb"
     sha256 cellar: :any_skip_relocation, el_capitan:   "a579041c4d693dd444464228dcd0175e79f31708b62ad3ccf55a8f545ce67ed7"
     sha256 cellar: :any_skip_relocation, yosemite:     "60a2bcabfb83e8ab4df95b2417ccf5c49c5ca242853ff16e2a106f3e37f6005e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "640e3bc461fc43b24c2cd3ad17753e877c3d1873c44c6a861ed0a415bb97c7ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "640e3bc461fc43b24c2cd3ad17753e877c3d1873c44c6a861ed0a415bb97c7ba" # linuxbrew-core
   end
 
   disable! date: "2020-12-08", because: :unmaintained

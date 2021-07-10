@@ -15,7 +15,7 @@ class Dwarfutils < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "d87d517978e102343d43762c9272b995ff0e1501d3ae692231a276445c8da55c"
     sha256 cellar: :any_skip_relocation, catalina:      "168ffbfd98d2c026c607b1cdf4ae556e8fc0da70afc220c1d88ed2140c8592fe"
     sha256 cellar: :any_skip_relocation, mojave:        "f072dac053dee574c279956d1b072aeeb591a078d207d2d963a745e3553fab26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9646e9356c7b30e464afbec046633bd985d0f3a97609ae56606321d965f7686f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9646e9356c7b30e464afbec046633bd985d0f3a97609ae56606321d965f7686f" # linuxbrew-core
   end
 
   uses_from_macos "zlib"

@@ -14,7 +14,7 @@ class GnuTime < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "dc007b95e2f9fb0df3380da55d3c9337529b1a4a3cd762972eb88512f567ea1c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "ad5d776c38e43f16fad8976770eeaa18e40562c166fa65fdaa12af61981c7b90"
     sha256 cellar: :any_skip_relocation, sierra:        "d51ef948a5a87281175fef771cb28469cbdb3085e3c51ad325d780ff921cc013"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "413f9b0ff0050c2bdd9bd4cbbd581078e44f5f7aec43ac20958a89a1200d26fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "413f9b0ff0050c2bdd9bd4cbbd581078e44f5f7aec43ac20958a89a1200d26fe" # linuxbrew-core
   end
 
   uses_from_macos "ruby" => :test

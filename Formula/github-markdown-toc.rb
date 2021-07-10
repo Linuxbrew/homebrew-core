@@ -10,7 +10,7 @@ class GithubMarkdownToc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "aaeb4ccfaa12ec8914842a6a9f6b68cc1c393e617d17af87832b2d3500a41458"
     sha256 cellar: :any_skip_relocation, catalina:      "1ab9219a4b4e5280248b2aab4ee29f3956dddff78c70b941800948e2f72132cd"
     sha256 cellar: :any_skip_relocation, mojave:        "f4e584f9514dd801a4d3243e9d962f12fa32cd3c6c62bed6037f4d1232153d0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69fabd001cc374198acd5f8441f87b179b955b9d6f61720a7172c31651f61aa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69fabd001cc374198acd5f8441f87b179b955b9d6f61720a7172c31651f61aa7" # linuxbrew-core
   end
 
   depends_on "go" => :build

@@ -12,7 +12,7 @@ class Grep < Formula
     sha256 cellar: :any, catalina:      "78c2b965ced34a99ac47d3058a3971b9696a6157215c82edd16562d6ec6fc689"
     sha256 cellar: :any, mojave:        "80a62eaefb57437bcb3aeb1d8489b9bf062ec77184624249da27afc578be1315"
     sha256 cellar: :any, high_sierra:   "ae3cfbe66d6391edd32153f9b02e3da1286482dd196a18da017903a0bd4e7cf7"
-    sha256 cellar: :any, x86_64_linux:  "a9e17c79dcf580bad66ba5201719a2c2638953c70751690e34e413b123bb969b"
+    sha256 cellar: :any, x86_64_linux:  "a9e17c79dcf580bad66ba5201719a2c2638953c70751690e34e413b123bb969b" # linuxbrew-core
   end
 
   depends_on "pkg-config" => :build

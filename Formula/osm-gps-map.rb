@@ -10,7 +10,7 @@ class OsmGpsMap < Formula
     sha256                               big_sur:       "54380e69472c5e9ae483823a3ec04c8b5bde31a1cdbc581dd9e14efeed2f8324"
     sha256                               catalina:      "c02c8a26f0a806b356e84ef628f71243007da8811b887ddcde2627f3ad763d2b"
     sha256                               mojave:        "af136c4438f1b2ff9fd45c1c89a39db9a5703b18d766137abdf2644c8d418ac2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5307f6d0ddb5e75d8bee002e51213718f9675de5f34a90194b3dae0eeec0793"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5307f6d0ddb5e75d8bee002e51213718f9675de5f34a90194b3dae0eeec0793" # linuxbrew-core
   end
 
   head do

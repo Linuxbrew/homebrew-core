@@ -17,7 +17,7 @@ class Ninja < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0314a25011cc9039cdef3b60fb5e4bc37c39fc8b728d072c23e01d3c611c1dd5"
     sha256 cellar: :any_skip_relocation, catalina:      "2f5c9cfca8ea739a46d4f7d8e17dee70c91ecc41e1caeb4e844fc20596cbd5fb"
     sha256 cellar: :any_skip_relocation, mojave:        "8a221f83054afbd1e50799f67d474b91e5232f2fd56d3ce7d46096d4660a9633"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "259e4aba5c7111aff0b492a11ab22cff6cfa2990544afd9e927c47b2142f63cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "259e4aba5c7111aff0b492a11ab22cff6cfa2990544afd9e927c47b2142f63cd" # linuxbrew-core
   end
 
   depends_on "python@3.9"

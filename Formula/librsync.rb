@@ -10,7 +10,7 @@ class Librsync < Formula
     sha256                               big_sur:       "7561cdbc8327f77db0647112ae1496ca544c659a04dfe83e703c9edeee890869"
     sha256                               catalina:      "4d38d5dbea74b9eac4624877d7c7e29f08c38d68dedaaf9dadbdc5e3a820678b"
     sha256                               mojave:        "5796b96a6fc4781e134879993d0fa23816994c424d9984ec0584ae6b0bea2963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1b7207e1c3725cb55b51c0711c0a6d583d4f3f55e11c6aee68649e0a94f0ae8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1b7207e1c3725cb55b51c0711c0a6d583d4f3f55e11c6aee68649e0a94f0ae8" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

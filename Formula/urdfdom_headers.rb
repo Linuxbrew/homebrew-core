@@ -10,7 +10,7 @@ class UrdfdomHeaders < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c"
     sha256 cellar: :any_skip_relocation, mojave:        "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c"
     sha256 cellar: :any_skip_relocation, high_sierra:   "c6840c3177042a718ae29bc8238e5ec20dbcde4f9269b3042f8eed1a2aa6292c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b5b3895b60956758d68c7e103cab0cff66abd0039a68d8c1b8eca125d3d9719"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b5b3895b60956758d68c7e103cab0cff66abd0039a68d8c1b8eca125d3d9719" # linuxbrew-core
   end
 
   depends_on "cmake" => :build

@@ -13,7 +13,7 @@ class Global < Formula
     sha256 big_sur:       "598cb4071a8d708c46becd27983443b6c14259c797d8a61718b0f1bb9094ae6f"
     sha256 catalina:      "c476c6bee46e116a6dbe93754221132f8cc1cfbdb88d10c08d38b65c4e77b460"
     sha256 mojave:        "37c6a139a405bbd869bcd8175e20a0e488ce0176646a0dbbfed3d9ede030977f"
-    sha256 x86_64_linux:  "646dbc4c4529115bdb731329eceac00824d6a1cc4d0566dc8e9a745d8e6bbf5b"
+    sha256 x86_64_linux:  "646dbc4c4529115bdb731329eceac00824d6a1cc4d0566dc8e9a745d8e6bbf5b" # linuxbrew-core
   end
 
   head do
