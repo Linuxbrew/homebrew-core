@@ -4,10 +4,6 @@ class Onedrive < Formula
   url "https://github.com/abraunegg/onedrive/archive/v2.4.12.tar.gz"
   sha256 "4f6aa46fc28e859b63c0a2c190f66c3286ec0bde3f54f77af0ddea6b62bba37a"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5e35136dbec90713f07ceffcebbbad5605e805c7c7a03444a42cfdba4b9e9893"
-  end
-
   depends_on "dmd" => :build
   depends_on "pkg-config" => :build
   depends_on "curl"
