@@ -8,10 +8,11 @@ class Raylib < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "95b223701f9d14ccde0080a0929e9f8db53b759d83209549295ade015de4ef7e"
-    sha256 cellar: :any, big_sur:       "78a042f4d5d0c0f0172601d2768a74a7d9f3b3fa3224b6f301cf6c928f8242fe"
-    sha256 cellar: :any, catalina:      "fe7414b8f44864b7382051eb74600f339a81c63aa5ef0eba6b64a7ff1d1d7292"
-    sha256 cellar: :any, mojave:        "e8ac33fe22bfa1f12ec03d1bcd06728ea6cee3a6a91d806d46ffe9565a1cca27"
+    sha256 cellar: :any,                 arm64_big_sur: "95b223701f9d14ccde0080a0929e9f8db53b759d83209549295ade015de4ef7e"
+    sha256 cellar: :any,                 big_sur:       "78a042f4d5d0c0f0172601d2768a74a7d9f3b3fa3224b6f301cf6c928f8242fe"
+    sha256 cellar: :any,                 catalina:      "fe7414b8f44864b7382051eb74600f339a81c63aa5ef0eba6b64a7ff1d1d7292"
+    sha256 cellar: :any,                 mojave:        "e8ac33fe22bfa1f12ec03d1bcd06728ea6cee3a6a91d806d46ffe9565a1cca27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86e833f587932092825be4023474979a2a6d6ec0f0858b6435f3408a143c0bdf"
   end
 
   depends_on "cmake" => :build
