@@ -83,7 +83,7 @@ class Ghc < Formula
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    args = []
+    args = %w[--enable-numa=no]
     on_macos do
       # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
       # executables link to Homebrew's GMP.
@@ -116,16 +116,6 @@ class Ghc < Formula
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
-    end
-
-    unless OS.mac?
-      # Explicitly disable NUMA
-      args << "--enable-numa=no"
-
-      # Disable PDF document generation
-      (buildpath/"mk/build.mk").write <<-EOS
-        BUILD_SPHINX_PDF = NO
-      EOS
     end
 
     on_linux do
