@@ -69,13 +69,11 @@ class Cvs < Formula
     apply(*patches.compact)
   end
 
-  if OS.mac?
-    # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
-    # Patches the upstream-provided gnulib on all platforms as is recommended
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/24118ec737c7d008420d4683a07129ed80a759eb/cvs/vasnprintf-high-sierra-fix.diff"
-      sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
-    end
+  # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
+  # Patches the upstream-provided gnulib on all platforms as is recommended
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/24118ec737c7d008420d4683a07129ed80a759eb/cvs/vasnprintf-high-sierra-fix.diff"
+    sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
   end
 
   # Fixes "cvs [init aborted]: cannot get working directory: No such file or directory" on Catalina.
