@@ -57,10 +57,12 @@ class Libtorch < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
 
-      # Avoid references to Homebrew shims
-      inreplace "caffe2/core/macros.h",
-                "{\"CXX_COMPILER\", \"#{HOMEBREW_SHIMS_PATH}/mac/super/clang++\"},",
-                "{\"CXX_COMPILER\", \"/usr/bin/clang++\"},"
+      on_macos do
+        # Avoid references to Homebrew shims
+        inreplace "caffe2/core/macros.h",
+                  "{\"CXX_COMPILER\", \"#{HOMEBREW_SHIMS_PATH}/mac/super/clang++\"},",
+                  "{\"CXX_COMPILER\", \"/usr/bin/clang++\"},"
+      end
 
       system "make"
       system "make", "install"
